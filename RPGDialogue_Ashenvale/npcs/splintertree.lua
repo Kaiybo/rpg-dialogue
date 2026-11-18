@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_forest", text = "Look at this forest, really look at it. The Earth Mother made nothing more beautiful, and whatever happens tomorrow, it was beautiful today." },
     { id = "g_back", when = { metBefore = true }, text = "Still in one piece, I see; the Hunt hasn't eaten you yet, and that is good." },
-    { id = "g_axes_resolved", when = { thread = { id = "ashenvale_axes", state = "resolved" } }, text = "Kuray'bin says you went to Orgrimmar and heard that the Warchief himself reads Mastok's names. I'm glad someone does, though I wish someone in Orgrimmar would also count the trees." },
+    { id = "g_axes_resolved", when = { thread = { id = "ashenvale_axes", state = "resolved" } }, text = "Kuray'bin says you went to Orgrimmar and learned that the Warchief himself reads Mastok's wagon counts. I'm glad someone does, though I wish someone in Orgrimmar would also count the trees." },
     { id = "g_narache", when = { origin = "tauren_narache_hunter" }, text = "A Narache hunter's child, I'd know that careful step anywhere. Your mother would have said her thanks over every beast in this forest, and I try to do the same, though the Warsong's axes make it hard to hear myself." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the forest has turned its colors a little since then, though I doubt the Warsong noticed. I'm glad you came back to see it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since we last spoke, and I can see it in the way you move. Strength is a fine thing, so long as you remember to look up at the trees now and then." },
@@ -268,7 +268,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The ghostpaw wolves follow the wagons at night for scraps, and the kodos hate them. A hunter who thinned the pack along the road would save me a ditch or two, and I'd remember the name." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} on the far side of the road from my kodos, and we'll all get along fine. I've counted too many overturned wagons already." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The ghostpaw wolves follow the wagons at night for scraps, and the kodos hate them. Thin the pack along the road for me, and keep your {pet} on the far side of the road from my kodos while you do." },
       },
       choices = {
         { text = "I'll thin the wolves along the road.", next = "BACK", fx = { align = { order = 1 } } },
@@ -378,7 +378,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     mystral = {
-      lines = { { id = "my_default", text = "Water elementals, risen out of the lake, and an Alliance outpost at Silverwind with a pretty gazebo looking right at it. Somebody watching from that gazebo could see everything the elves get up to." } },
+      lines = { { id = "my_default", text = "There are water elementals risen out of the lake, and an Alliance outpost at Silverwind with a pretty gazebo looking right at it. Somebody watching from that gazebo could see everything the elves get up to." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     orc_m = {
@@ -393,7 +393,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I count wagons. That's my whole story, and it's a good one." } },
     advice = { { id = "tp_ad", text = "Never ride on top of the lumber wagons, because the elves shoot at those first." } },
-    warsong = { { id = "tp_warsong", text = "Grom's clan. They cut what the Warchief needs, and I count it." } },
+    warsong = { { id = "tp_warsong", text = "They're Grom's clan, and they cut what the Warchief needs, and I count it." } },
     thrall = { { id = "tp_thrall", text = "The Warchief needs wagons, so I count wagons. He doesn't need my opinions, which suits me." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet ships the timber and Ratchet takes a cut. Goblins, they're worse than people." } },
     centaur = { { id = "tp_centaur", text = "Centaur hit the Barrens road and the wagons don't get through. I don't like centaur, and I don't like people, but I like wagons." } },

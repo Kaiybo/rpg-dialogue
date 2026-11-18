@@ -28,7 +28,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They are, more each week. I stay steady. A shaman's lightning would help the carts get through." } },
+      lines = { { id = "xdsham_default", text = "They are, more each week, but I keep the shelves stocked all the same. A shaman's lightning would help the carts get through." } },
       choices = {
         { text = "Then I'll guard the carts, Haljan.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let the soldiers guard carts. I'm not a wagon guard.", next = "BACK", fx = { align = { order = -1 } } },
@@ -57,7 +57,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Scarcer every season, because the logging drives the stags deeper and the wolves follow them. The hunters who bring meat to Astranaar walk twice as far as they used to, and I don't know how much farther they can go." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed, at least, so you must know where the game's gone. Keep it close on the roads, because the Warsong have no love for elven beasts." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Scarcer every season, because the logging drives the stags deeper and the wolves follow them. Your {pet} looks well fed, at least, so keep it close on the roads, because the Warsong have no love for elven beasts." },
       },
       choices = {
         { text = "I'll hunt farther so Astranaar eats.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -85,7 +85,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Often enough that I keep a cot in the back, and the orcs make sure of the rest. If you're in Astranaar a while, I'd be glad to send for you when the next cart limps in." } },
+      lines = { { id = "xapriest_default", text = "Often enough that I keep a cot in the back for them. If you're in Astranaar a while, I'd be glad to send for you when the next cart limps in." } },
       choices = {
         { text = "Send for me whenever a cart comes in hurt.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'm not staying long enough to be your healer.", next = "BACK", fx = { align = { light = -1 } } },
@@ -94,7 +94,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I'd not say no, though I can't pay a paladin's worth for it. Plain work, keeping bread on the shelves, but a village under siege lives or dies by it." } },
+      lines = { { id = "xapala_default", text = "I'd not say no, though I can't pay a paladin's worth for it. It's plain work, keeping bread on the shelves, but a village under siege lives or dies by it." } },
       choices = {
         { text = "I'll ride escort. Plain work is still good work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I didn't come here to guard bread carts.", next = "BACK", fx = { align = { order = -1 } } },
@@ -214,7 +214,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I hate the Warsong, and you are not Warsong. Still, the lightning looks the same. Prove you're different." } },
+      lines = { { id = "xdsham_default", text = "I hate the Warsong, and you are not Warsong, but your lightning looks the same as theirs, so prove you're different." } },
       choices = {
         { text = "I'll prove it, Xai'ander. I fight for Astranaar.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Hatred clouds your judgement.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -243,7 +243,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They hunt anything that moves near their camps and leave the rest to burn when the trees come down. A hunter who's seen what a Warsong clearing looks like doesn't need me to tell them why I sell good blades." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would tear an orc apart, I'd wager, and I'd be glad to see it. Keep it clear of their camps, though, because the Warsong keep wolves of their own." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They hunt anything that moves near their camps and leave the rest to burn when the trees come down. Your {pet} would tear an orc apart, I'd wager, but keep it clear of their camps, because the Warsong keep wolves of their own." },
       },
       choices = {
         { text = "I'll serve where the Sentinels send me.", next = "BACK", fx = { align = { order = 1 } } },
@@ -397,7 +397,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I miss it with all my heart. It was beautiful, before the axes. Your spirits might remember it too." } },
+      lines = { { id = "xdsham_default", text = "I miss it with all my heart, because it was beautiful before the axes came. Your spirits might remember it too." } },
       choices = {
         { text = "It can be beautiful again, Aeolynn.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The past is gone. Look forward.", next = "BACK", fx = { align = { light = -1 } } },
@@ -426,7 +426,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The stags walked into Astranaar some mornings, bold as anything, and the hunters left them alone out of courtesy. Now they hide deep in the forest, and I can't blame them, because I'd hide too if I could." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has beautiful fur, and I'm a seamstress, so I'm allowed to notice. Don't worry, I only work with cloth." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The stags walked into Astranaar some mornings, bold as anything, but now they hide deep in the forest, and I can't blame them. Your {pet} has beautiful fur, mind, and I'm a seamstress, so I'm allowed to notice." },
       },
       choices = {
         { text = "I'll help bring those mornings back.", next = "BACK", fx = { align = { light = 1 } } },
@@ -518,7 +518,7 @@ P:NPC {
     },
     before = {
       lines = {
-        { id = "be_default", text = "Quiet, and green all the way to the mountains, with the furbolgs as our neighbors and the moonwells clear. Now the furbolgs have gone mad, the satyrs come out at night and the orcs are cutting the trees, and I can't remember the last time I walked by the lake for pleasure." },
+        { id = "be_default", text = "It was quiet, and green all the way to the mountains, with the furbolgs as our neighbors and the moonwells clear. Now the furbolgs have gone mad, the satyrs come out at night and the orcs are cutting the trees, and I can't remember the last time I walked by the lake for pleasure." },
       },
       choices = {
         { text = "Do you think it can be like that again?", next = "before2" },
@@ -580,7 +580,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I feed everyone who looks thin, which is everyone. My bread is very good. Your spirits might agree." } },
+      lines = { { id = "xdsham_default", text = "I feed everyone who looks thin, which is everyone, and my bread is very good, so your spirits might agree." } },
       choices = {
         { text = "Thank you, Maliynn. Your kindness matters.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'm not thin. Save it for others.", next = "BACK", fx = { align = { light = -1 } } },
@@ -609,7 +609,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Whatever it likes, so long as it's fresh and there's plenty of it, because a hungry beast is a cross beast. The cheese is for you and not for it, mind, because cheese does terrible things to a cat." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is looking at my bread as if it's never been fed in its life, the poor thing. Feed it properly before you go, dear." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Whatever it likes, so long as it's fresh and there's plenty of it, because a hungry beast is a cross beast. Your {pet} is looking at my bread as if it's never been fed in its life, so feed it properly before you go, dear." },
       },
       choices = {
         { text = "My companion eats first. Always.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -720,7 +720,7 @@ P:NPC {
     },
     stock = {
       lines = {
-        { id = "st_default", text = "Haljan brings in flour when the carts get through, and the rest I grow or gather on the island. It's not a feast, but nobody in Astranaar has gone hungry yet, and I mean to keep it that way." },
+        { id = "st_default", text = "Haljan, who keeps the general goods, brings in flour when the carts get through, and the rest I grow or gather on the island. It's not a feast, but nobody in Astranaar has gone hungry yet, and I mean to keep it that way." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

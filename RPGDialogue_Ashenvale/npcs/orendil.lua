@@ -65,7 +65,7 @@ P:NPC {
 
     child = {
       lines = {
-        { id = "ch_default", text = "Fevers that come and go, and nightmares that leave her shaking in the morning. Pelturas has tried every remedy the priestesses could offer, and none of them reach whatever it is." },
+        { id = "ch_default", text = "She has fevers that come and go, and nightmares that leave her shaking in the morning. Pelturas has tried every remedy the priestesses could offer, and none of them reach whatever it is." },
       },
       choices = {
         { text = "You must have some idea what it is.", next = "child_think" },
@@ -95,7 +95,7 @@ P:NPC {
 
     haunt = {
       lines = {
-        { id = "ha_default", text = "Old ruins to the north, near the Darkshore border, named for Bathran, who lived there long ago. The plant grew among the stones and nobody has gathered it in years, because few go there willingly now." },
+        { id = "ha_default", text = "They're old ruins to the north, near the Darkshore border, named for Bathran, who lived there long ago. The plant grew among the stones and nobody has gathered it in years, because few go there willingly now." },
       },
       choices = {
         { text = "Why does no one go there?", next = "haunt_why" },
@@ -153,9 +153,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "An herbalist with a healer's habits. I've spent more years kneeling in leaf litter than standing up, and I don't regret it." } },
+    background = { { id = "tp_bg", text = "I'm an herbalist with a healer's habits. I've spent more years kneeling in leaf litter than standing up, and I don't regret it." } },
     advice = { { id = "tp_ad", text = "Never pick a plant you can't name, friend. Ashenvale is generous, but it isn't always kind." } },
-    sentinels = { { id = "tp_sentinels", text = "Brave, all of them, and too few. Bring them your bandages if you've any to spare." } },
+    sentinels = { { id = "tp_sentinels", text = "They're brave, all of them, and too few. Bring them your bandages if you've any to spare." } },
     elune = { { id = "tp_elune", text = "I pray to Elune while I work, mostly for patience with the roots. She seems to answer that prayer more than others." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The druids tell me herbs in the Dream grow without blight. I'd like to see that, though I doubt I'd ever want to come back." } },
     green_dragons = { { id = "tp_green_dragons", text = "There's a grove south of here where a green dragon sleeps, and the herbs there grow strangely. I gather near it carefully, and I don't stay long." } },

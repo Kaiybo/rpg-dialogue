@@ -27,7 +27,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Thread sales say so. Folk are patching old clothes instead of sewing new. Your spirits might help them heal, in their way." } },
+      lines = { { id = "xdsham_default", text = "The thread sales say so, because folk are patching old clothes instead of sewing new. Your spirits might help them heal, in their way." } },
       choices = {
         { text = "Mending is a kindness. Keep the thread flowing, Christopher.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Mending is weakness. Make something new.", next = "BACK", fx = { align = { light = -1 } } },
@@ -57,8 +57,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than anyone, because the Goretusk hides sell in Stormwind if they're cured right. Half my salt goes to hunters and the other half to Salma's kitchen, and I can never decide which is more important." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps sniffing at my salt. Good thing it's not the dye, or we'd both be blue." },
+        { id = "xhuntcl_default", text = "More than anyone, because the Goretusk hides sell in Stormwind if they're cured right. Half my salt goes to hunters and the other half to Salma Saldean's kitchen, and I can never decide which is more important." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than anyone, because the goretusk hides sell in Stormwind if they're cured right. Your {pet} keeps sniffing at my salt, and it's a good thing it's not the dye, or we'd both be blue." },
       },
       choices = {
         { text = "I'll cure the hides properly and sell them fairly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -182,9 +182,9 @@ P:NPC {
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes used to sell me flux that never failed, back when they had a city to make it in. Since Gnomeregan fell, I make do with dwarven flux, which works, but not with any charm." } },
     background = { { id = "tp_bg", text = "I sell trade goods on a hill full of soldiers. That's about all there is to know about me." } },
     advice = { { id = "tp_ad", text = "Learn to mend your own gear. Out here, nobody's coming to do it for you." } },
-    trade = { { id = "tp_trade", text = "Thread, dye, flux, salt and spice: what keeps a crafter working.", next = "thread" } },
+    trade = { { id = "tp_trade", text = "I sell thread, dye, flux, salt and spice, which is what keeps a crafter working.", next = "thread" } },
     defias = { { id = "tp_defias", text = "They were customers once, some of them. That's the part that sticks in my throat." } },
-    stonemasons = { { id = "tp_masons", text = "Good men with chalk on their sleeves. I sold them line for their plumb bobs, and look where the line led." } },
+    stonemasons = { { id = "tp_masons", text = "They were good men with chalk on their sleeves, and I sold them line for their plumb bobs, and look where the line led." } },
     _none = { { id = "tp_none", text = "If it isn't sold by the spool or the pinch, I couldn't tell you." } },
   },
 }
@@ -213,7 +213,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "He does, and he'll go broke for it. I charge what the road costs me. Your spirits should understand that." } },
+      lines = { { id = "xdsham_default", text = "He does, and he'll go broke for it. I charge what the road costs me, and your spirits should understand that." } },
       choices = {
         { text = "A fair price for a dangerous road is honest, Gina.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Undercut him and take his customers.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -244,7 +244,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because mine's from the coast and his is from a wagon, and mine doesn't have dirt in it. A hide cured with dirty salt goes off in a week, and then you'll come back to me anyway, so save yourself the walk." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps nosing at my stall. If it eats anything, you're paying for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because mine's from the coast and his is from a wagon, and mine doesn't have dirt in it. Your {pet} keeps nosing at my stall, mind, and if it eats anything, you're paying for it." },
       },
       choices = {
         { text = "I'll buy the good salt. The hides deserve it.", next = "BACK", fx = { align = { order = 1 } } },
@@ -355,7 +355,7 @@ P:NPC {
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire drives a harder bargain than any goblin, and I've the empty purse to prove it. I respect them for it, though I'll not go back." } },
     background = { { id = "tp_bg", text = "I've sold goods on this hill since the militia came. Before that I sold them to farmers, and they haggled harder." } },
     advice = { { id = "tp_ad", text = "Buy salt. It keeps meat, it keeps wounds clean, and it keeps its price." } },
-    trade = { { id = "tp_trade", text = "Spice, salt and thread at an honest price for a dishonest road.", next = "price" } },
+    trade = { { id = "tp_trade", text = "I sell spice, salt and thread at an honest price for a dishonest road.", next = "price" } },
     defias = { { id = "tp_defias", text = "They've robbed me more often than they've robbed Lewis, and he gets all the sympathy." } },
     _none = { { id = "tp_none", text = "Not my trade, friend, and not my business. Ask at the inn." } },
   },
@@ -446,7 +446,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Go on, then, and talk low, because he was at Moonbrook when the Defias burned it and he's not forgotten the smell. If you can get him to eat from your hand, you'll have done more than I have in a month." } },
+      lines = { { id = "xdruid_default", text = "Go on, then, and talk low, because the grey in the end stall was at Moonbrook when the Defias burned it and he's not forgotten the smell. If you can get him to eat from your hand, you'll have done more than I have in a month." } },
       choices = {
         { text = "He served the militia. He's earned whatever time he needs.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A horse that bolts gets riders killed. Retire him.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -489,7 +489,7 @@ P:NPC {
       },
     },
     beasts = {
-      lines = { { id = "b_default", text = "Coyotes from the plains, goretusks, the odd vulture somebody swore they could train. The vultures don't settle. Nobody's ever told the hunter they couldn't, so I just keep them fed." } },
+      lines = { { id = "b_default", text = "Coyotes from the plains and goretusks, mostly, and the odd vulture somebody swore they could train. The vultures never settle, but nobody's had the heart to tell the hunter, so I just keep them fed." } },
       choices = {
         { text = "Can a vulture be trained?", next = "beasts_vulture" },
         { text = "Something else.", next = "BACK" },
@@ -520,7 +520,7 @@ P:NPC {
     ratchet = { { id = "tp_ratchet", text = "A hunter came back from Ratchet with a raptor that bit everything it saw except him. I've never been so frightened in my own stable, and never so impressed." } },
     background = { { id = "tp_bg", text = "I keep the animals while the people fight. Someone has to, and I'm better with animals." } },
     advice = { { id = "tp_ad", text = "Water your beast before yourself. It's carrying more than you are." } },
-    moonbrook = { { id = "tp_moonbrook", text = "Ask the grey in the third stall. He won't go near the place, and I don't blame him.", next = "horse" } },
+    moonbrook = { { id = "tp_moonbrook", text = "Ask the grey in the end stall. He won't go near the place, and I don't blame him.", next = "horse" } },
     _none = { { id = "tp_none", text = "Couldn't say. If it's not in a stall, it's not my business." } },
   },
 }
@@ -547,7 +547,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It troubles me every day. Westfall fed the kingdom once. Now Elwynn feeds Westfall. If your earth spirits can wake these fields, I'd bake with their wheat again." } },
+      lines = { { id = "xdsham_default", text = "It troubles me every day, because Westfall fed the kingdom once and now Elwynn feeds Westfall. If your earth spirits can wake these fields, I'd bake with their wheat again." } },
       choices = {
         { text = "Then let's help Westfall grow again, Mike.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The fields are dead. Accept it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -578,7 +578,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Goretusk, if there's a hunter about, and nothing but bread if there isn't. A sandwich with boar in it keeps a man on watch all night, and a sandwich without keeps him grumbling." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} wants my bread too, I see. Does it eat it? Some of them do, and some of them just pretend." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Goretusk, if there's a hunter about, and nothing but bread if there isn't. Your {pet} wants my bread too, I see, though some of them only pretend to eat it." },
       },
       choices = {
         { text = "I'll keep the militia in meat.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -668,14 +668,14 @@ P:NPC {
       },
     },
     flour = {
-      lines = { { id = "f_default", text = "Because nobody's grown wheat in Westfall since the farms emptied. The fields are full of thieves and those walking scarecrows, and nobody plants where the scarecrows walk." } },
+      lines = { { id = "f_default", text = "From Elwynn, because nobody's grown wheat in Westfall since the farms emptied. The fields are full of thieves and those walking scarecrows, and nobody plants where the scarecrows walk." } },
       choices = {
         { text = "Then someone should clear the fields.", next = "flour_fields" },
         { text = "Something else.", next = "BACK", fx = { learn = { "harvest_watchers" } } },
       },
     },
     flour_fields = {
-      lines = { { id = "ff_default", text = "Saldean's been asking for that for a year. Go and see him, if you've the stomach, and tell him Mike sent you, so he'll know at least one man up here's listening." } },
+      lines = { { id = "ff_default", text = "Farmer Saldean's been asking for that for a year. Go and see him, if you've the stomach, and tell him Mike sent you, so he'll know at least one man up here's listening." } },
       choices = { { text = "I'll go and see him.", next = "BACK", fx = { affinity = 1, learn = { "harvest_watchers" } } } },
     },
     eaters = {
@@ -699,7 +699,7 @@ P:NPC {
     holy_light = { { id = "tp_holy_light", text = "I bless every loaf before it goes in the oven, the way my mother taught me. The Light's never burnt a single one, and the oven's burnt a good many." } },
     background = { { id = "tp_bg", text = "I'm a baker. With a name like Miller, folk expect flour on my sleeves, and they're never disappointed." } },
     advice = { { id = "tp_ad", text = "Carry bread, not cake. Cake's lovely until it's crumbs in your pack." } },
-    harvest_watchers = { { id = "tp_watchers", text = "Scarecrows that walk, in fields that should be wheat. That's Westfall now in a sentence.", next = "flour" } },
+    harvest_watchers = { { id = "tp_watchers", text = "They're scarecrows that walk, in fields that should be wheat, and that's Westfall now in a sentence.", next = "flour" } },
     westfall = { { id = "tp_westfall", text = "The kingdom's breadbasket, people used to say. Now it's a basket, and that's about all." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. I know flour and fire, and not much else." } },
   },

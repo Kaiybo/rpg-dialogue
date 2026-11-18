@@ -190,9 +190,9 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know what the fire and stone tell me, and they tell me a great deal about this place." } },
-    background = { { id = "tp_bg", text = "A shaman of Mulgore, sent east by the Warchief's request and Cairne's word." } },
+    background = { { id = "tp_bg", text = "I am a shaman of Mulgore, sent east at the Warchief's request and on Cairne's word." } },
     advice = { { id = "tp_ad", text = "Listen to the ground before you march over it. It will tell you who has been there first." } },
-    blackrock_depths = { { id = "tp_brd", text = "The Dark Irons' city beneath the mountain, where they bind fire and call it craft." } },
+    blackrock_depths = { { id = "tp_brd", text = "Blackrock Depths is the Dark Irons' city beneath the mountain, where they bind fire and call it craft." } },
     dark_iron = { { id = "tp_di", text = "They called the Firelord and paid for it, and they are paying still." } },
     _none = { { id = "tp_none", text = "I do not know that, young one. The elements do not speak of everything." } },
   },
@@ -236,7 +236,7 @@ P:NPC {
         { id = "h_gorshak_done", when = { questDone = TODO_QUEST("Commander Gor'shak") },
           text = "So Gor'shak lives, and says he let himself be taken to learn the Dark Irons' plans. He's a hard orc, and he may even be telling the truth." },
         { id = "h_pack", tags = { "news" }, when = { questActive = TODO_QUEST("The Pack Mistress") },
-          text = "Halycon, the den mother of the Bloodaxe worgs, in the lower halls of the Spire. Mind her pups, and mind her mate Gizrul; he'll come when she calls." },
+          text = "Halycon, the den mother of the Bloodaxe worgs, keeps her lair in the lower halls of the Spire. Mind her pups, and mind her mate Gizrul; he'll come when she calls." },
         { id = "h_pack_done", when = { questDone = TODO_QUEST("The Pack Mistress") },
           text = "You came back from Halycon's den with all your limbs and her mate's blood on you. I've known hunters who'd give a year of their lives for that kill." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -352,7 +352,7 @@ P:NPC {
 
     goretooth = {
       lines = {
-        { id = "gt_default", text = "He's an orc who'd rather be fighting than watching, and the Warchief has set him to watch. He does it well, and he hates every hour of it, and I respect him more for the second than the first." },
+        { id = "gt_default", text = "He's an orc who'd rather be fighting than watching, and the Warchief has set him to watch. He hates every hour of it and does it well regardless, and I respect him for that." },
       },
       choices = {
         { text = "A leader should bend to his orders.", next = "BACK", fx = { align = { order = 1 } } },
@@ -375,10 +375,10 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know what moves on that mountain, and when. Ask." } },
-    background = { { id = "tp_bg", text = "A hunter of Mulgore, sent to Kargath because I could see further than the orcs." } },
+    background = { { id = "tp_bg", text = "I'm a hunter of Mulgore, sent to Kargath because I could see further than the orcs." } },
     advice = { { id = "tp_ad", text = "Count your enemy before you fight him, then count him again." } },
-    blackrock_spire = { { id = "tp_brs", text = "The top of the mountain, where the Blackrock orcs and their worgs live under a black dragon's wing." } },
-    _none = { { id = "tp_none", text = "Not something I've seen from this ridge. Ask Goretooth; he hears more than I see." } },
+    blackrock_spire = { { id = "tp_brs", text = "Blackrock Spire is the top of the mountain, where the Blackrock orcs and their worgs live under a black dragon's wing." } },
+    _none = { { id = "tp_none", text = "Not something I've seen from this ridge. Ask Warlord Goretooth; he hears more than I see." } },
   },
 }
 
@@ -413,11 +413,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Razal'blade, of the Darkspear, an' now of this here Expeditionary Force, which is a big name for a few tents an' a lot of dust. The Warchief say watch the mountain, so we watch the mountain." },
         { id = "h_troll", when = { race = "Troll" },
-          text = "A Darkspear here, so far from the islands! Sit, mon, an' tell me how Sen'jin is gettin' on." },
+          text = "A Darkspear here, so far from the islands! Sit, mon, an' tell me how Sen'jin Village be gettin' on." },
       },
       again = {
         { id = "h_again", text = "What else, mon? Ain't nothin' else to do but talk." },
-        { id = "h_again2", text = "Go on, ask, before Goretooth find me somethin' to do." },
+        { id = "h_again2", text = "Go on, ask, before the Warlord find me somethin' to do." },
       },
       choices = {
         { text = "What do you do here?", next = "job" },
@@ -476,7 +476,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Darkspear from the islands, then Durotar, now here. Next stop, who knows, mon." } },
+    background = { { id = "tp_bg", text = "I be Darkspear from the islands, then Durotar, an' now here. Next stop, who knows, mon." } },
     advice = { { id = "tp_ad", text = "Don't walk the ridge in daylight, an' don't trust a quiet mountain." } },
     _none = { { id = "tp_none", text = "Never heard of it, mon. Ask somebody who sleep better than me." } },
   },
@@ -554,7 +554,7 @@ P:NPC {
     },
     protect = {
       lines = {
-        { id = "pr_default", text = "Amakkar, mostly, who runs in too fast, and the shaman, who walks in too slow. Someone has to stand between them and the axe, and it might as well be the biggest." },
+        { id = "pr_default", text = "Amakkar, mostly, who runs in too fast, and Thunderheart the shaman, who walks in too slow. Someone has to stand between them and the axe, and it might as well be the biggest." },
       },
       choices = {
         { text = "Who's Amakkar?", next = "protect_amakkar" },
@@ -574,7 +574,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Internment camp, then the Warchief's army, then here. I've carried a shield the whole way." } },
+    background = { { id = "tp_bg", text = "I went from an internment camp to the Warchief's army to here. I've carried a shield the whole way." } },
     advice = { { id = "tp_ad", text = "Keep your shield up. Your arm gets tired before your enemy does, so train the arm." } },
     _none = { { id = "tp_none", text = "I don't know that. Ask someone who talks more than I do." } },
   },
@@ -594,7 +594,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Another one come to look at the mountain? Look all you like; I'm the one who's going in it." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back! Did you go up the mountain yet? I'll go with you, if Goretooth ever lets me." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back! Did you go up the mountain yet? I'll go with you, if Warlord Goretooth ever lets me." },
   },
 
   notice = {
@@ -674,7 +674,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born in the camps, raised in Durotar, sent out here to fetch water. Glorious." } },
+    background = { { id = "tp_bg", text = "I was born in the camps, raised in Durotar and sent out here to fetch water. Glorious, isn't it?" } },
     advice = { { id = "tp_ad", text = "Keep your knife sharp. You never know when someone's going to finally let you use it." } },
     _none = { { id = "tp_none", text = "No idea. Ask Gargal; he doesn't know either, but he'll take longer to say so." } },
   },

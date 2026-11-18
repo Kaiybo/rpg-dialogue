@@ -29,7 +29,7 @@ P:NPC {
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
       text = "Ashenvale has satyrs enough already, warlock, and they started out much like you. Keep that imp on a short leash inside my walls." },
     { id = "n_pet", cat = "pet", when = { pet = true },
-      text = "That's a good companion. Korra likes the look of it, though Dagri isn't sure yet; he's never sure about anyone at first." },
+      text = "That's a good companion. My saber, Korra, likes the look of it, though my wolf, Dagri, isn't sure yet; he's never sure about anyone at first." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter! Then you know the forest isn't a place but a living thing, so help me keep it that way." },
     { id = "n_druid", cat = "form", when = { class = "DRUID" },
@@ -173,7 +173,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Raene Wolfrunner, and I command the scouts of Astranaar. The furbolgs are going mad to the north and the Horde is cutting the forest to the east, and I would rather face them all alone than watch another tree fall." },
         { id = "h_trek", tags = { "news" }, when = { questActive = TODO_QUEST("Trek to Ashenvale") },
-          text = "You've come from Darkshore, and Selarin sent you on quickly; good. I wish you'd come under happier circumstances, but there's more wrong in this forest than one scout can mend, so start by talking to the people of Astranaar." },
+          text = "You've come from Darkshore, and Sentinel Selarin sent you on quickly; good. I wish you'd come under happier circumstances, but there's more wrong in this forest than one scout can mend, so start by talking to the people of Astranaar." },
         { id = "h_aggressive", when = { questActive = TODO_QUEST("An Aggressive Defense") },
           text = "The Foulweald have been falling on travellers along the road east, before the Falfarren River. Their camps are south of the road, so show them the same mercy they've shown our people." },
         { id = "h_cull", tags = { "news" }, when = { questActive = TODO_QUEST("Culling the Threat") },
@@ -189,7 +189,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "There's a mage in Astranaar, and the Sentinels are already watching you, I'd wager. My people learned what the arcane costs when the Well of Eternity swallowed half the world, so don't take the stares personally." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "So you're the warlock Korra has been growling at since you crossed the bridge. I've buried scouts the satyrs of Satyrnaar tore open, and your craft smells the way their camps did." },
+          text = "So you're the warlock my saber, Korra, has been growling at since you crossed the bridge. I've buried scouts the satyrs of Satyrnaar tore open, and your craft smells the way their camps did." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, all the way out here! I hope you came to fight, because Ashenvale has no use for anyone who came to watch." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Foulweald", "Thistlefur" }, min = 40 } },
           text = "My scouts tell me the Foulweald and the Thistlefur have both lost a great many warriors this season, and that you're a good part of the reason. Astranaar sleeps a little easier for it, and so do I." },
@@ -260,9 +260,9 @@ P:NPC {
       },
     },
     teronis = {
-      lines = { { id = "te_default", text = "He was a longtime friend, aiding the Sentinels here. He went looking for a gem for a rod made by Dartol, an evil wizard long dead, because he thought it could slow the furbolgs, and we found him dead on the shrine island in Lake Falathim." } },
+      lines = { { id = "te_default", text = "He was a longtime friend, aiding the Sentinels here. He went looking for a gem for a rod made long ago by Dartol, a druid long dead, because he thought it could slow the furbolgs, and we found him dead on the shrine island in Lake Falathim." } },
       choices = {
-        { text = "A dead wizard's rod sounds like an odd thing to need.", next = "rod" },
+        { text = "A dead druid's rod sounds like an odd thing to need.", next = "rod" },
         { text = "I'm sorry for your loss.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "You blame yourself for letting him go alone.", tag = "Persuade", next = "teronis_guilt",
           check = { pass = { any = { { disposition = { min = 65 } }, { trait = "kind" }, { class = "HUNTER" } } } },
@@ -274,7 +274,7 @@ P:NPC {
       choices = {
         { text = "Then I'll finish what he started.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Walking among them in their own skins is a fine trick, and I like tricks.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "A wizard's tool sounds risky.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "A tool like that sounds risky.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
     horde = {
@@ -305,9 +305,9 @@ P:NPC {
     },
     teronis_guilt = {
       lines = {
-        { id = "tg_default", text = "Every day. He asked whether I could spare a scout to walk with him, and with the Warsong at the river I said no, so he went to the Zoram Strand alone and the naga found him before anyone else did." },
+        { id = "tg_default", text = "Every day. He asked whether I could spare a scout to walk with him, and with the Warsong at the river I said no, so he went to Lake Falathim alone, and whatever waited on the shrine island found him before anyone else did." },
         { id = "tg_hunter", when = { class = "HUNTER" },
-          text = "You know what it is to answer for another life, hunter. I let Teronis go to the Zoram Strand alone because I wouldn't spare a scout from the Warsong line, and I have answered for it every night since." },
+          text = "You know what it is to answer for another life, hunter. I let Teronis go to Lake Falathim alone because I wouldn't spare a scout from the Warsong line, and I have answered for it every night since." },
       },
       choices = {
         { text = "You couldn't have known.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -395,7 +395,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The healers say so, though they argue about which, and the corrupted things at Fallen Sky Lake are the ones they argue over most. A hunter who knows the lake could save me a season of guessing." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is gentle around her; I can see it in how it moves. If she wakes, would you let her see it? She hasn't smiled in days." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The healers say so, though they argue about which, and the corrupted things at Fallen Sky Lake are the ones they argue over most. Your {pet} is gentle around her, I can see it, so if she wakes, would you let her see it?" },
       },
       choices = {
         { text = "I'll go to the lake and find what she needs.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -405,7 +405,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Orendil once told me the Shadethicket Oracle hoards her moonstones deep in their camp by Fallen Sky Lake, where no honest fighter could reach them without a battle. I'd never ask anyone to steal, but I've stopped pretending I'd mind." } },
+      lines = { { id = "xrogue_default", text = "Orendil once told me the Shadethicket Oracle hoards the moonstones deep in their camp by Fallen Sky Lake, where no honest fighter could reach them without a battle. I'd never ask anyone to steal, but I've stopped pretending I'd mind." } },
       choices = {
         { text = "I'll fight for the stone openly, Pelturas.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Then I'll slip in and take it unseen.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -512,7 +512,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     lake = {
-      lines = { { id = "l_default", text = "We used to go to Fallen Sky Lake together, she and I, and gather the fallen moonstones. Then the Shadethicket bog beasts came, and their Oracle took every stone for himself." } },
+      lines = { { id = "l_default", text = "We used to go to Fallen Sky Lake together, she and I, and gather the fallen moonstones. Then the Shadethicket bog beasts came, and their Oracle took every stone for itself." } },
       choices = {
         { text = "Then I'll take one back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -594,7 +594,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Maybe, if I can't be a hippogryph, because hunters get to have a friend who goes everywhere with them. Papa says the bad dreams can't get you if something's watching over you, so maybe I need a beast." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is your {pet} nice? It looks nice, and it's looking at me like it knows I'm sick. Can it stay a little while?" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Maybe, if I can't be a hippogryph, because hunters get a friend who goes everywhere with them. Is your {pet} nice? It's looking at me like it knows I'm sick, so can it stay a little while?" },
       },
       choices = {
         { text = "Every hunter needs a brave heart first, and you have one.", next = "BACK", fx = { align = { light = 1 } } },
@@ -717,7 +717,7 @@ P:NPC {
       choices = { { text = "I'll tell them off for you.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
     },
     sentinels_r = {
-      lines = { { id = "se_default", text = "They're the bravest people in the whole forest, and they have owls and big cats! Raene's cat looked at me once, and I think she liked me." } },
+      lines = { { id = "se_default", text = "They're the bravest people in the whole forest, and they have owls and big cats! Raene's big cat, Korra, looked at me once, and I think she liked me." } },
       choices = { { text = "I'm sure she did.", next = "BACK", fx = { affinity = 1 } } },
     },
     pet_r = {
@@ -755,7 +755,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Too many, between the Warsong, the furbolgs and the demons in the east. Crossing names off the right way is the best part of my work. Your spirits might help." } },
+      lines = { { id = "xdsham_default", text = "Too many, between the Warsong, the furbolgs and the demons in the east, and every one is a name I never got to cross off. If your spirits can help bring some home, I'd be glad of them." } },
       choices = {
         { text = "Then cross mine off the right way, Faldreas. I'll return.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Your list won't save anyone.", next = "BACK", fx = { align = { order = -1 } } },
@@ -949,7 +949,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I care for as many as I can. Quiet kindness keeps this town together. Your spirits might help it along." } },
+      lines = { { id = "xdsham_default", text = "I care for as many as I can, because quiet kindness is what keeps this town together. Your spirits might help it along." } },
       choices = {
         { text = "Quiet kindness is the best kind, Kimlya.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Kindness won't win the war.", next = "BACK", fx = { align = { light = -1 } } },
@@ -969,7 +969,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "When they can, and the stags of Ashenvale make the best broth I've ever cooked. Half of what goes up to Relara Whitemoon came in on a hunter's back, so every hunter who walks in here has fed a sick child, whether they knew it or not." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome by the kitchen door, where the smells are. It's the most honest kind of guest, because it never pretends it isn't hungry." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When they can, and the stags of Ashenvale make the best broth I've ever cooked. Your {pet} is welcome by the kitchen door, where the smells are, because it never pretends it isn't hungry." },
       },
       choices = {
         { text = "I'll bring meat for Relara's broth.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1147,7 +1147,7 @@ P:NPC {
     op_ask = {
       big = true,
       lines = {
-        { id = "op_ask_default", text = "I learned it to understand the prisoners in the internment camps back home, and the more I understood, the less I liked what we'd done to them. What do you think, friend? Should the Alliance ever have kept the orcs in those camps?" },
+        { id = "op_ask_default", text = "It did. I first practised it on the prisoners in the internment camps back home, and the more I understood, the less I liked what we'd done to them. What do you think, friend? Should the Alliance ever have kept the orcs in those camps?" },
       },
       choices = {
         { text = "They were savages. The camps kept us safe.", next = "op_r1", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { orcs = "hard" } } },
@@ -1175,7 +1175,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I hope so! I purify what's been corrupted, and your spirits might help. We both want the forest healed." } },
+      lines = { { id = "xdsham_default", text = "I hope so! I purify what's been corrupted, and your spirits might help with that, since we both want the forest healed." } },
       choices = {
         { text = "Then let's heal it together, Delgren.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The Light should keep to its own work.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1204,7 +1204,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A great deal, because they post lookouts in the ruins around the Tower of Althalaxx, and my paladins clank far too loudly to reach them. Pick them off from the trees, and we'll do the rest with the Light and our hammers." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks steady, and it will need to be, because the Dark Strand call things up from the Void. Keep it close, and the Light keep you both." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A great deal, because they post lookouts in the ruins around the Tower of Althalaxx, and my paladins clank far too loudly to reach them. Your {pet} looks steady, and it will need to be, because the Dark Strand call things up from the Void." },
       },
       choices = {
         { text = "I'll give them a chance to surrender first.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1265,7 +1265,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening. The Light's in no hurry, even when I am." },
       },
       choices = {
-        { text = "Why did learning Orcish change your mind?", next = "op_ask" },
+        { text = "Did learning Orcish change how you see the orcs?", next = "op_ask" },
         { text = "Who are the Dark Strand?", next = "strand" },
         { text = "Learning Orcish seems an odd choice for a paladin.", next = "orcish" },
         { text = "How do you find the night elves?", next = "elves_d" },
@@ -1337,8 +1337,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a paladin a long way from home, with a company that came to help our allies. That's all there is that matters." } },
     advice = { { id = "tp_ad", text = "If you meet a warlock in these woods, assume he isn't alone." } },
     dark_strand = {
-      { id = "tp_strandnext", text = "The cult at the Tower of Althalaxx. Ask, and I'll tell you what I know.", next = "strand" },
-      { id = "tp_strand", text = "Warlocks who think demons will keep their bargains. They're always wrong about that." },
+      { id = "tp_strandnext", text = "They're the cult at the Tower of Althalaxx. Ask, and I'll tell you what I know.", next = "strand" },
+      { id = "tp_strand", text = "They're warlocks who think demons will keep their bargains. They're always wrong about that." },
     },
     holy_light = {
       { id = "tp_holy_light", text = "The Light brought me across the sea to stand with allies who never asked for it, and it's served me well here. The Sentinels pray to their moon and I pray to my Light, and we both pray for the same things." },

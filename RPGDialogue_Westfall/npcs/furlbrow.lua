@@ -64,7 +64,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "He chased the first of them off the porch and never came back, and I like to think he's out there somewhere, chasing gnolls. Verna says I'm a fool for hoping, and she's right, but I hope anyway." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} has the look of a loyal beast. Keep it close; the Defias don't spare animals any more than people." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "He chased the first of them off the porch and never came back, and I like to think he's out there somewhere, chasing gnolls. That {pet} has the look of a loyal beast too, so keep it close, because the Defias don't spare animals." },
       },
       choices = {
         { text = "I'll keep watch for him, Theodore.", next = "BACK", fx = { align = { light = 1 } } },
@@ -73,7 +73,7 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "I asked a mage that once, on the road out of Elwynn, and he looked at the axle like I'd asked him to raise the dead. Turns out spells don't come cheap and wheels do, so here we sit." } },
+      lines = { { id = "xma_default", text = "I asked a mage that once, on the road out of Elwynn, and he looked at the axle like I'd asked him to raise the dead. Turns out spells don't come cheap, and neither do wheelwrights out here, so here we sit." } },
       choices = {
         { text = "A proper wheelwright beats any spell, Theodore.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Forget the wagon. Take what you need and walk.", next = "BACK", fx = { align = { order = -1 } } },
@@ -155,7 +155,7 @@ P:NPC {
     back = {
       big = true,
       lines = {
-        { id = "b_default", text = "Verna says yes. I say yes when she's listening. Truth is, I don't know if I've the stomach for it anymore." },
+        { id = "b_default", text = "Verna says yes, and I say yes when she's listening. Truth is, I don't know if I've the stomach for it anymore." },
       },
       choices = {
         { text = "You will. Give it time.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
@@ -164,7 +164,7 @@ P:NPC {
       },
     },
     back_take = {
-      lines = { { id = "bt_default", text = "The thieves gone and the walking scarecrows gone, and me not jumping every time a crow lands. That last one's the hardest." } },
+      lines = { { id = "bt_default", text = "The thieves gone, and the Harvest Watchers, those walking scarecrows, gone too, and me not jumping every time a crow lands. That last one's the hardest." } },
       choices = {
         { text = "The first two, I can help with.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Thieves and scarecrows are the militia's problem, not mine.", next = "BACK", fx = { align = { light = -1 } } },
@@ -197,7 +197,7 @@ P:NPC {
       },
     },
     saldean = {
-      lines = { { id = "sd_default", text = "Saldean's as stubborn as a stump. I begged him to pack up and come with us, and he laughed at me. Well, I'm not stubborn, I'm stuck, and there's a difference." } },
+      lines = { { id = "sd_default", text = "Farmer Saldean down the road is as stubborn as a stump. I begged him to pack up and come with us, and he laughed at me. Well, I'm not stubborn, I'm stuck, and there's a difference." } },
       choices = {
         { text = "I'd wager he says the same of you.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Maybe staying takes a different courage.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
@@ -211,7 +211,7 @@ P:NPC {
       },
     },
     forgery = {
-      lines = { { id = "fg_default", text = "To copy, the note said. Forge their own and call our farms theirs, all neat and legal. Paper's a weapon too, in the wrong hands." } },
+      lines = { { id = "fg_default", text = "To copy, so they could forge their own deeds and call our farms theirs, all neat and legal. Paper's a weapon too, in the wrong hands." } },
       choices = {
         { text = "Then the deed's worth fighting for.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Paper's only paper. Hold the land and let them forge all they like.", next = "BACK", fx = { align = { order = -1 } } },
@@ -251,11 +251,11 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I've had a lot of time to think, sitting here by a broken wagon. Ask me about any of this, if you've a mind to." },
     },
-    background = { { id = "tp_bg", text = "A pumpkin farmer, and husband to Verna, which is the better job of the two. There's not much else to me, these days.", next = "night" } },
+    background = { { id = "tp_bg", text = "I'm a pumpkin farmer, and husband to Verna, which is the better job of the two. There's not much else to me, these days.", next = "night" } },
     advice = { { id = "tp_ad", text = "Get out of Westfall while you still can, or don't, since nobody listens to me anyway. Saldean certainly doesn't." } },
     defias = { { id = "tp_defias", text = "Please, don't ask me about them. I see red masks every time I close my eyes." } },
-    old_blanchy = { { id = "tp_blanchy", text = "Pulled our wagon longer than I can remember. Now she can barely pull herself. Verna won't hear of selling her." } },
-    westfall = { { id = "tp_westfall", text = "Pumpkins, rows of them all the way to the hills. You'd never believe it now." } },
+    old_blanchy = { { id = "tp_blanchy", text = "She's pulled our wagon longer than I can remember, and now she can barely pull herself. Verna won't hear of selling her." } },
+    westfall = { { id = "tp_westfall", text = "There were pumpkins here once, rows of them all the way to the hills. You'd never believe it now." } },
     _none = { { id = "tp_none", text = "I don't know much anymore. Ask Verna; she remembers for both of us." } },
   },
 }

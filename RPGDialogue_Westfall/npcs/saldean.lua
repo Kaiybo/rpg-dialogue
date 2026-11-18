@@ -19,10 +19,10 @@ P:NPC {
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again. I took you for another lord's child come to gawp at the poor, and you rolled your sleeves up and proved me wrong, which my Salma won't let me forget." },
     { id = "g_op_leave_stay", when = { gossip = { topic = "westfall_leave", stance = "stay" } }, text = "Salma tells me you think we ought to stay and see it through. Took a stranger to say it, but you're right, and you can tell Theodore I said so." },
     { id = "g_fields", text = "Step careful. The furrows are all I've got left that's straight." },
-    { id = "g_watchers", when = { questActive = TODO_QUEST("The Killing Fields") }, text = "Still standing out there, aren't they. I can see them from the porch." },
+    { id = "g_watchers", when = { questActive = TODO_QUEST("The Killing Fields") }, text = "Those harvest watchers are still standing out in my field. I can see them from the porch." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Killing Fields") }, text = "I walked my own field this morning, for the first time since spring." },
     { id = "g_away", when = { away = 14 }, text = "Haven't seen you down this lane in {away}. The field's still here and so am I, which is about all a man can say in Westfall." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your boots since you last stood in my furrows. You've the look of someone who can finish what he starts now." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your boots since you last stood in my furrows. You've the look of someone who finishes what they start now." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Heard you spun some yarn for one of the neighbours and they believed it. Round here a man's word is all he's got left, so I'd keep yours straight." },
   },
 
@@ -46,7 +46,7 @@ P:NPC {
       },
     },
     prej_a = {
-      lines = { { id = "prej_a_default", text = "The crown's law is a handful of militiamen at Sentinel Hill with no supplies, and Gryan holding the rest together himself. Tell your father that, if he still writes to you." } },
+      lines = { { id = "prej_a_default", text = "The crown's law is a handful of militiamen at Sentinel Hill with no supplies, and Gryan Stoutmantle holding the rest together himself. Tell your father that, if he still writes to you." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
     },
     prej_b = {
@@ -77,7 +77,7 @@ P:NPC {
       choices = { { text = "Something else, then.", next = "BACK" } },
     },
     op_tithe_3 = {
-      lines = { { id = "op_tithe_r3", text = "Now that's a thought I hadn't had, and I've had most of them, sitting here. The Militia eat what they're given and say thank you, which is more than the Keep ever did." } },
+      lines = { { id = "op_tithe_r3", text = "Now that's a thought I hadn't had, and I've had most of them, sitting here. The Militia eat what they're given and say thank you, which is more than Stormwind Keep ever did." } },
       choices = { { text = "Something else, then.", next = "BACK" } },
     },
     xdsham = {
@@ -102,7 +102,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Slow and stupid, but they don't tire, and they swing those straw arms like flails. You'll want to take them apart limb by limb, and burn the bits, because I swear they put themselves back together." } },
+      lines = { { id = "xwarcl_default", text = "They're slow and stupid, but they don't tire, and they swing those straw arms like flails. You'll want to take them apart limb by limb, and burn the bits, because I swear they put themselves back together." } },
       choices = {
         { text = "I'll take them apart and burn every one.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Burn the whole field. It's quicker.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -113,7 +113,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Coyotes at night and vultures by day, and the Goretusks when they're feeling brave. Salma says the boars come for the scraps, and I say they come because nobody's here to stop them anymore." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours would scare off the coyotes, I'd bet. Bring it round at night, if you're passing." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Coyotes at night and vultures by day, and the goretusks when they're feeling brave. That {pet} of yours would scare off the coyotes, I'd bet, so bring it round at night if you're passing." },
       },
       choices = {
         { text = "I'll keep the beasts off your farm, Saldean.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -224,7 +224,7 @@ P:NPC {
       },
     },
     pride = {
-      lines = { { id = "p_default", text = "No. But it gets me up in the morning, and that's something a knife can't take." } },
+      lines = { { id = "p_default", text = "No, but it gets me up in the morning, and that's something a knife can't take." } },
       choices = {
         { text = "Do you still send the city its tithe?", next = "op_tithe" }, { text = "Right. Something else, then.", next = "BACK" } },
     },
@@ -237,7 +237,7 @@ P:NPC {
     },
     watchers = {
       lines = {
-        { id = "w_default", text = "Don't know, and I've stopped guessing. One day the fields were empty, next day they were full of things that wouldn't stay put." },
+        { id = "w_default", text = "I don't know, and I've stopped guessing. One day the fields were empty, and the next they were full of things that wouldn't stay put." },
       },
       choices = {
         { text = "There must be a good many of them out there.", next = "count" },
@@ -287,7 +287,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     salma = {
-      lines = { { id = "sa_default", text = "Best cook in Westfall, and the kindest. She'd feed a man in a red mask if he knocked politely. Don't tell her I know about that." } },
+      lines = { { id = "sa_default", text = "She's the best cook in Westfall, and the kindest. She'd feed a man in a red mask if he knocked politely. Don't tell her I know about that." } },
       choices = {
         { text = "She's fed Defias?", next = "salma_defias" },
         { text = "Something else.", next = "BACK" },
@@ -332,13 +332,13 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I've farmed this land all my life, and there's not much happens on it I don't hear about. Ask me about any of this." },
     },
-    background = { { id = "tp_bg", text = "A farmer on the land my grandfather cleared. That's the whole of it, and it isn't finished yet.", next = "stay" } },
+    background = { { id = "tp_bg", text = "I'm a farmer on the land my grandfather cleared. That's the whole of it, and it isn't finished yet.", next = "stay" } },
     advice = { { id = "tp_ad", text = "Don't stand still in a field after dark. The watchers don't see well, but they don't need to." } },
     harvest_watchers = {
       { id = "tp_watchers", text = "There were twenty in my field alone, last I counted, and then I stopped counting." },
     },
     defias = { { id = "tp_defias", text = "Thieves, the lot of them. They took the Furlbrows' farm and the Molsens', but they'll not take mine." } },
-    westfall = { { id = "tp_westfall", text = "Best soil in the kingdom, under all that dust. People forget." } },
+    westfall = { { id = "tp_westfall", text = "It's the best soil in the kingdom under all that dust, though people forget." } },
     old_blanchy = { { id = "tp_blanchy", text = "That's the Furlbrows' horse, older than sin and twice as stubborn. A good animal, though." } },
     people_militia = { { id = "tp_militia", text = "Good lads and lasses, the lot of them. They walk past my fence twice a day, and I sleep better for it." } },
     _none = { { id = "tp_none", text = "I can't help you there, friend. Ask me about soil instead." } },

@@ -13,7 +13,7 @@ P:Pool {
     { id = "g_watch", text = "Keep your eyes south, friend; that's where they always come from." },
     { id = "g_tired", when = { timeOfDay = "night" }, text = "Night watch again, and my boots haven't been dry since the last rain. I'd trade this spear for a bed in a heartbeat, but don't you tell Gryan I said so." },
     { id = "g_liked", when = { townStanding = { town = "sentinel_hill", min = 30 } }, text = "You again? Good, it feels safer with you on the hill." },
-    { id = "g_distrust", when = { townStanding = { town = "sentinel_hill", max = -20 } }, text = "Gryan says let you pass. Doesn't mean I have to like it." },
+    { id = "g_distrust", when = { townStanding = { town = "sentinel_hill", max = -20 } }, text = "Gryan says to let you pass, but that doesn't mean I have to like it." },
   },
   notice = {
     { id = "n_bandana", cat = "red", when = { questObjective = { TODO_QUEST("Red Leather Bandanas"), left = { max = 5 } } },
@@ -23,7 +23,7 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Who's there? Show yourself or I'll fork you!" } },
   lines = {
-    { id = "l_default", text = "I farmed barley till last spring, and now I've spear blisters where the hoe calluses used to be. Gryan says I'm doing fine, but Gryan says that to everybody." },
+    { id = "l_default", text = "I farmed barley till last spring, and now I've spear blisters where the hoe calluses used to be. Gryan Stoutmantle says I'm doing fine, but he says that to everybody." },
     { id = "l_liked", when = { townStanding = { town = "sentinel_hill", min = 30 } }, text = "My mum's farm has been quiet all week, and she says to thank whoever did it. I think that's you." },
     { id = "l_militia", when = { questDone = TODO_QUEST("The People's Militia") }, text = "You're one of us now, near enough, but don't let it go to your head, because Gryan certainly won't." },
   },
@@ -31,7 +31,7 @@ P:Pool {
   topics = {
     defias = { { id = "t_defias", text = "There are red bandanas everywhere south of here. We count them from the wall at night, and Jory always loses count around forty and starts over." } },
     people_militia = { { id = "t_militia", text = "That's us: farmers with sticks, and Gryan, who somehow makes us feel like more than that." } },
-    _none = { { id = "t_none", text = "You'd best ask the Captain about that. I just hold the spear." } },
+    _none = { { id = "t_none", text = "You'd best ask Captain Danuvin about that. I just hold the spear." } },
   },
 }
 

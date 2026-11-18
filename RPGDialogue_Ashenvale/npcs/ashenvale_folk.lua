@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Liladris Moonriver. My beloved, Kerlonian Evershade, woke from the Emerald Dream months ago and set out to meet me here, and I've been waiting at Maestra's Post ever since." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Sleeper Has Awakened") },
-          text = "You've found him, then, and he's dozing somewhere between here and Darkshore. Keep the horn close, and blow it whenever he nods off, and please don't let the furbolgs eat him on the way." },
+          text = "You've found him, then, and he's dozing somewhere between here and Darkshore. Keep the horn of awakening close, and blow it whenever he nods off, and please don't let the furbolgs eat him on the way." },
         { id = "h_done", when = { questDone = TODO_QUEST("The Sleeper Has Awakened") },
           text = "He's sleeping in the back room right now, so speak softly, though I don't suppose a stampede of kodo would wake him. Thank you for bringing him home, with all my heart." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -61,7 +61,7 @@ P:NPC {
     },
 
     kerlonian = {
-      lines = { { id = "ke_default", text = "A druid of the Cenarion Circle, gentle and clever and absolutely hopeless at being on time. He went into the Dream with the others, long ago, and I waited, and now he's out and I'm still waiting, which I'm told is very romantic." } },
+      lines = { { id = "ke_default", text = "He's a druid of the Cenarion Circle, gentle and clever and absolutely hopeless at being on time. He went into the Dream with the others, long ago, and I waited, and now he's out and I'm still waiting, which I'm told is very romantic." } },
       choices = {
         { text = "It is romantic.", next = "romantic" },
         { text = "It sounds exhausting.", next = "exhausting" },
@@ -90,7 +90,7 @@ P:NPC {
       },
     },
     horn = {
-      lines = { { id = "ho_default", text = "A horn of awakening, which the Circle uses for exactly this sort of trouble. Blow it near him and he'll wake, for a while, and you'll have to blow it again before the next bend in the road." } },
+      lines = { { id = "ho_default", text = "There's a horn of awakening, which the Circle uses for exactly this sort of trouble. Blow it near him and he'll wake, for a while, and you'll have to blow it again before the next bend in the road." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dream_danger = {
@@ -114,14 +114,14 @@ P:NPC {
     },
 
     post = {
-      lines = { { id = "po_default", text = "A watch post on the edge of the forest, with Delgren and his paladins, a few Sentinels, and more orc scouts in the trees than anyone likes to count. It's not a home, but the moon comes up beautifully over the hills, and I watch it every night." } },
+      lines = { { id = "po_default", text = "It's a watch post on the edge of the forest, with Delgren the Purifier and his paladins, a few Sentinels, and more orc scouts in the trees than anyone likes to count. It's not a home, but the moon comes up beautifully over the hills, and I watch it every night." } },
       choices = {
         { text = "What do you make of Delgren?", next = "delgren" },
         { text = "Something else.", next = "BACK" },
       },
     },
     delgren = {
-      lines = { { id = "de_default", text = "Earnest, young, and very human, and he prays out loud, which none of us are used to. But he stands his watch without complaining, and he never once told me how lucky I am to love a druid." } },
+      lines = { { id = "de_default", text = "He's earnest, young and very human, and he prays out loud, which none of us are used to. But he stands his watch without complaining, and he never once told me how lucky I am to love a druid." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -165,7 +165,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Shael'dryn, a daughter of Cenarius, and I keep this moonwell for as long as anyone lets me. Raene sent you, didn't she? She only sends people when she's worried about something." },
+          text = "I'm Shael'dryn, a daughter of Cenarius, and I keep this moonwell for as long as anyone lets me. Raene Wolfrunner sent you, didn't she? She only sends people when she's worried about something." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Raene's Cleansing") },
           text = "Dartol's Rod is in pieces, and the pieces are in places no sensible person would go, which is why I'm so glad you came. Bring them to me and I'll put the rod back together, and then we'll find the shrine that can wake it." },
         { id = "h_done", when = { questDone = TODO_QUEST("Raene's Cleansing") },
@@ -274,7 +274,7 @@ P:NPC {
         { id = "h_slay", tags = { "news" }, when = { questActive = TODO_QUEST("Satyr Slaying!") },
           text = "Sixteen horns, and I'll know every one of them deserved it. The satyr gather to the north and east of here, in the Night Run and around Satyrnaar." },
         { id = "h_branch", tags = { "news" }, when = { questActive = TODO_QUEST("The Branch of Cenarius") },
-          text = "Anilia spoke to you before she died? Then you know who took it. Geltharis, the satyr, and he'll be somewhere close to where she fell." },
+          text = "Anilia spoke to you before she died? Then you know who took it: Geltharis, the satyr, and he'll be somewhere close to where she fell." },
         { id = "h_done", when = { questDone = TODO_QUEST("Satyr Slaying!") },
           text = "I counted the horns twice, and I felt a little better each time, and then I felt worse. I don't think grief listens to arithmetic." },
       },
@@ -304,7 +304,7 @@ P:NPC {
     },
 
     branch = {
-      lines = { { id = "br_default", text = "A branch from the Lord of the Forest himself, given to the dryads to keep, and it holds a little of his strength. In a satyr's hands it could poison a whole grove, which is why Anilia went after it alone." } },
+      lines = { { id = "br_default", text = "It's a branch from the Lord of the Forest himself, given to the dryads to keep, and it holds a little of his strength. In a satyr's hands it could poison a whole grove, which is why Anilia went after it alone." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
     },
 
@@ -379,7 +379,7 @@ P:NPC {
     },
 
     zoram = {
-      lines = { { id = "zo_default", text = "A Highborne city on this coast, before the Sundering, and a grand one by the look of what's left. When the Well was destroyed the sea came in and swallowed it, and you can still see the tops of its towers at low tide." } },
+      lines = { { id = "zo_default", text = "It was a Highborne city on this coast, before the Sundering, and a grand one by the look of what's left. When the Well was destroyed the sea came in and swallowed it, and you can still see the tops of its towers at low tide." } },
       choices = {
         { text = "And the naga live there now?", next = "naga" },
         { text = "Something else.", next = "BACK" },
@@ -406,7 +406,7 @@ P:NPC {
     },
 
     ruuzel = {
-      lines = { { id = "ru_default", text = "The naga who leads the raiders on the strand, and the one who found the Ring of Zoram before I could. The ring was the key to the statuette all along, which I'd have known sooner if I'd read more carefully." } },
+      lines = { { id = "ru_default", text = "She's the naga who leads the raiders on the strand, and the one who found the Ring of Zoram before I could. The ring was the key to the statuette all along, which I'd have known sooner if I'd read more carefully." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 

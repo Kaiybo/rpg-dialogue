@@ -26,14 +26,14 @@ P:NPC {
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
       text = "A smith, or a miner! Either way, friend, the Badlands is full of ore and also full of things that want to eat you while you dig it out, and I sell the picks for both jobs." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "An orc, good, good! Please tell Goretooth I'm a very helpful goblin and not at all the sort he needs to shout at, friend, and I'll remember the favour at the counter, in spirit." },
+      text = "An orc, good, good! Please tell Warlord Goretooth I'm a very helpful goblin and not at all the sort he needs to shout at, friend, and I'll remember the favour at the counter, in spirit." },
   },
 
   start = "hello",
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Can I sell? Buddy, I can sell anything to anybody, and a dead knight with holy hands is a whole new market I've been itchin' to crack. Better iron, I'd guess, since the Light doesn't sharpen anything and I do." } },
+      lines = { { id = "xfpala_default", text = "Can I sell? Buddy, I can sell anything to anybody, and a dead knight with holy hands is a whole new market I've been itchin' to crack. What you'd want is better iron, I'd guess, since the Light doesn't sharpen a blade and my whetstones do." } },
       choices = {
         { text = "Sell me honest iron at an honest price.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Charge the orcs double and sell me the good iron.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -53,7 +53,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Terrible, friend, because the coyotes and basilisks love the mines as much as I do and never pay for anything. I lose a mule a month to the basilisks, so I've started billing the orcs for the mule, which they don't appreciate one bit." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} off my coal cart! I had a beast roll in it once, buddy, and its owner tried to charge ME for the bath, which is backwards accounting." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Terrible, friend, because the coyotes and basilisks love the mines as much as I do and never pay for anything. And keep {pet} off my coal cart, buddy, because the last beast that rolled in it cost me a bath I somehow paid for." },
       },
       choices = {
         { text = "Charging the Horde for your dead mule is plain swindling.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -72,7 +72,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Not yet, friend, but give me a list and a deposit and I'll have it hauled in from Orgrimmar at Badlands prices, plus a handlin' fee. I'd want it in writing, mind, because the Shadowmage once ordered something from me that hissed in the crate, and I haven't slept right since." } },
+      lines = { { id = "xhcast_default", text = "Not yet, friend, but give me a list and a deposit and I'll have it hauled in from Orgrimmar at Badlands prices, plus a handlin' fee. I'd want it in writing, mind, because Shadowmage Vivian Lagrave once ordered something from me that hissed in the crate, and I haven't slept right since." } },
       choices = {
         { text = "Order it through the Expeditionary Force, properly, with papers.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Skip the paperwork. Just haul it in quietly.", next = "BACK", fx = { align = { order = -1 } } },
@@ -90,7 +90,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No? Shame, buddy, because I've been lookin' for a new market ever since the smiths started haggling. Still, if it ever gets peckish, you know where to find me, and coal's cheaper than whatever it eats now, I'd bet." } },
+      lines = { { id = "xlock_default", text = "No? Shame, buddy, because I've been lookin' for a new market ever since the smiths started haggling. Still, if your imp ever gets peckish, you know where to find me, and coal's cheaper than whatever it eats now, I'd bet." } },
       choices = {
         { text = "You'd sell to a demon? That's a step too far.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Gold's gold. I admire a goblin with no limits.", next = "BACK", fx = { align = { light = -1 } } },
@@ -137,7 +137,7 @@ P:NPC {
         { text = "Let me see your stock.", next = "BUSINESS" },
         { text = "Why is everything so expensive here?", next = "price" },
         { text = "What's out in the Badlands worth mining?", next = "ore" },
-        { text = "Goretooth looks like a hard master.", next = "goretooth" },
+        { text = "Warlord Goretooth looks like a hard master.", next = "goretooth" },
         { text = "The dwarves must trouble Kargath often.", next = "darkiron" },
         { text = "How do the orcs here treat my people?", next = "forsaken", when = { race = "Scourge" } },
         { text = "What do you keep that's worth stealing, Jazzrik?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -190,7 +190,7 @@ P:NPC {
     },
     forsaken = {
       lines = {
-        { id = "fs_default", text = "Politely, friend, mostly because the Shadowmage at the warlord's fire is one of yours and nobody wants to annoy her, least of all me, because she's a customer. The grunts mutter a bit when your lot walk by, but they mutter at me too, and I'm still here and still sellin'." },
+        { id = "fs_default", text = "Politely, friend, mostly because Shadowmage Vivian Lagrave, the warlord's spellcaster, is one of yours and nobody wants to annoy her, least of all me, because she's a customer. The grunts mutter a bit when your lot walk by, but they mutter at me too, and I'm still here and still sellin'." },
       },
       choices = {
         { text = "Muttering I can live with.", next = "BACK", fx = { trait = { witty = 1 } } },

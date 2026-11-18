@@ -32,7 +32,7 @@ P:NPC {
       },
     },
     op_r1 = {
-      lines = { { id = "op_r1_default", text = "Many of my sisters would agree with you, and quickly. I only wish the Forsaken were the worst thing walking in the east." } },
+      lines = { { id = "op_r1_default", text = "Many of the Sentinels would agree with you, and quickly. I only wish the Forsaken were the worst thing walking in the east." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
@@ -78,7 +78,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I don't know yet, and that's the trouble, because sick beasts wander and I can't tell what they carry. If you find carcasses near their camps, look closely, and bring back what you can without touching it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from anything dead in those woods, I beg you. Whatever the Forsaken carry, I don't want it in our companions." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I don't know yet, and that's the trouble, because sick beasts wander and I can't tell what they carry. Keep your {pet} away from anything dead in those woods, I beg you, and bring back what you can without touching it." },
       },
       choices = {
         { text = "I'll investigate carefully and report back.", next = "BACK", fx = { align = { order = 1 } } },
@@ -106,7 +106,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Sickened some beasts, from what I hear, though we haven't yet learned what it does to the people who handle them. If you see the signs, burn what you can and pray, because I don't know what else to tell you." } },
+      lines = { { id = "xapriest_default", text = "It has sickened some beasts, from what I hear, though we haven't yet learned what it does to the people who handle them. If you see the signs, burn what you can and pray, because I don't know what else to tell you." } },
       choices = {
         { text = "I'll pray, and watch for the signs everywhere.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Burning is surer than prayer. I'll burn it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -125,7 +125,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. I've watched warlocks go down into that canyon for their own reasons, and I've never asked what they found there, because I'd rather not know." },
+        { id = "xlock_default", text = "It's full of demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. I've watched warlocks go down into that canyon for their own reasons, and I've never asked what they found there, because I'd rather not know." },
       },
       choices = {
         { text = "Something should be done about them. I'll thin their numbers.", next = "BACK", fx = { align = { light = 1 } } },
@@ -192,7 +192,7 @@ P:NPC {
     },
     east = {
       lines = {
-        { id = "east_default", text = "Felwood, where the demons' corruption sits in the soil, and Azshara beyond, which is mostly ghosts and naga. We guard the road so the rot stays on that side of the hills." },
+        { id = "east_default", text = "Felwood lies that way, where the demons' corruption sits in the soil, and Azshara beyond, which is mostly ghosts and naga. We guard the road so the rot stays on that side of the hills." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -217,7 +217,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I'm a Sentinel officer, and Forest Song is the post nobody else wanted." } },
+    background = { { id = "tp_bg", text = "I'm a druid who ended up commanding a post, and Forest Song is the post nobody else wanted." } },
     warsong = { { id = "tp_warsong", text = "Forest Song sits closest to the Warsong lumber camps of anything we hold. I hear their saws every morning, and I count the trees I can see from my post." } },
     thrall = { { id = "tp_thrall", text = "Thrall is far away in Orgrimmar, and his Warsong are right here. I deal with what's right here." } },
     burning_legion = { { id = "tp_burning_legion", text = "There's a demon taint at the edge of this forest, near Felwood. If the Legion sends anything through, Forest Song will see it first." } },
@@ -244,7 +244,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Every hunter of the forest does. Your spirits might guide you, but a good bow answers truer." } },
+      lines = { { id = "xdsham_default", text = "Every hunter of the forest needs one, shaman or not. Your spirits might guide you, but a good bow answers truer." } },
       choices = {
         { text = "Then I'll learn the bow properly, Bhaldaran.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "My spirits are enough. Keep your bows.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -280,7 +280,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because Astranaar's Sentinels stare at anyone who smells of the arcane, and I don't, since I've no opinion on it worth the breath. Sit by the fire if you like, but don't warm it with a spell, because my staves season badly near magic." } },
+      lines = { { id = "xmage_default", text = "Because Astranaar's Sentinels stare at anyone who smells of the arcane, and I don't stare, since I've no opinion on it worth the breath. Sit by the fire if you like, but don't warm it with a spell, because my staves season badly near magic." } },
       choices = {
         { text = "I'll mind your staves and sit by the plain fire.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "One small spell won't hurt your precious staves.", next = "BACK", fx = { align = { order = -1 } } },
@@ -424,7 +424,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Crabs and murlocs on the sand and wolves in the trees, but it's the Wrathtail naga who hunt us. Kill their scouts before they reach the camp, and bring me word of anything bigger moving in the water." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} smells the naga already; I can see its hackles up. Good, because a beast that knows its enemy is worth two warriors who don't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Crabs and murlocs on the sand and wolves in the trees, but it's the Wrathtail naga who hunt us. Your {pet} smells them already, I can see its hackles up, and a beast that knows its enemy is worth two warriors who don't." },
       },
       choices = {
         { text = "I'll hunt the naga scouts and bring you word.", next = "BACK", fx = { align = { order = 1 } } },
@@ -561,7 +561,7 @@ P:NPC {
       { id = "tp_thrall", text = "Thrall freed my people from the camps and gave us a homeland, and I'd follow him anywhere. He sent me here, so here I am." },
       { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You serve the Alliance and you ask about my warchief? He freed his people, and that's all you need to know of him." },
     },
-    tyrande = { { id = "tp_tyrande", text = "The elves' high priestess, the one who sends her Sentinels against our camps. She's a fierce enemy, and I'll not say otherwise." } },
+    tyrande = { { id = "tp_tyrande", text = "She's the elves' high priestess, the one who sends her Sentinels against our camps. She's a fierce enemy, and I'll not say otherwise." } },
     blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's down the coast from Zoram'gar, and the nagas and cultists there trouble us as much as anything. They don't care whose side we're on." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin's trolls are good allies, and many serve at Zoram'gar. They've a long memory and a sharp spear." } },
     _none = { { id = "tp_none", text = "I don't know. Ask someone who stays indoors more; an orc's work is out here with the blade." } },
@@ -606,7 +606,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They hunted only what the forest gave, and they thanked the trees afterward, as furbolgs always did. Now they kill in anger and leave the bodies, and Ruul cannot bear to watch it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is not afraid of Ruul, and that makes Ruul glad. Beasts know a furbolg who is still a friend of the forest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They hunted only what the forest gave, and they thanked the trees afterward, as furbolgs always did. Now they kill in anger and leave the bodies, but your {pet} is not afraid of Ruul, and that makes Ruul glad." },
       },
       choices = {
         { text = "Then I'll hunt as the furbolgs once did.", next = "BACK", fx = { align = { light = 1 } } },
@@ -651,7 +651,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "Your hands crackle like the air before a storm. Ruul does not know your kind of magic, but Ruul hopes very much that it can open a cage." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Ruul smells something on you, the same bad smell that came into the forest before the madness. Ruul will not judge you for it yet, but Ruul will watch your hands." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came so quietly that even the Thistlefur guards did not hear you, and they hear everything now. Ruul is glad you are a friend, or Ruul hopes you are." },
-        { id = "h_default", text = "Ruul's tribe, the Thistlefur, have gone mad, and they keep Ruul in this cage because Ruul would not go mad with them. If you set Ruul free, Ruul will walk you to safety, though the way is long." },
+        { id = "h_default", text = "Ruul's tribe, the Thistlefur, have gone mad, and they keep Ruul in this cage because Ruul would not go mad with them. If you set Ruul free, walk with Ruul out of the den, because the way is long and the Thistlefur will follow." },
         { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo, cousin of the forest! Ruul knew your people's drums once, from the old days, before the madness." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "You carry a blade, and you are not Thistlefur. Ruul hopes that blade is not for Ruul." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "You walk the way the forest walks, quiet and watchful. Ruul likes that." },
@@ -720,7 +720,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Ruul is a Thistlefur, the last one with clear eyes." } },
-    timbermaw = { { id = "tp_timbermaw", text = "Timbermaw are Ruul's cousins, and they kept their eyes clear when the Thistlefur did not. Ruul wishes he could go to them, but Ruul's own clan still needs someone." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Timbermaw are Ruul's cousins, and they kept their eyes clear when the Thistlefur did not. If Ruul is ever free, Ruul will go to them." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "Ruul's grandmothers spoke of the green dream that the forest dreams. Ruul has not dreamed green since the madness came." } },
     burning_legion = { { id = "tp_burning_legion", text = "The sickness in the Thistlefur smells like old fire from the north. Ruul does not know its name, but Ruul knows it is evil." } },
     _none = { { id = "tp_none", text = "Ruul does not know that, friend. Ruul knows trees and cages, mostly." } },

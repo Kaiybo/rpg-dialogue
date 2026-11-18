@@ -80,7 +80,7 @@ P:NPC {
 
     lesson = {
       lines = {
-        { id = "le_default", text = "Humility comes first, then control, and only after both of those comes power. The young ones want them in the opposite order, and Greshka sells to them in that order, which is why I teach and she doesn't." },
+        { id = "le_default", text = "Humility comes first, then control, and only after both of those comes power. The young ones want them in the opposite order, and Greshka the grimoire seller sells to them in that order, which is why I teach and she doesn't." },
         { id = "le_lock", when = { class = "WARLOCK" },
           text = "Humility, then control, then power, and you'll want to skip the first two as every student does. Don't, because I've seen what's left of the ones who did." },
       },
@@ -91,7 +91,7 @@ P:NPC {
     },
     lesson_humble = {
       lines = {
-        { id = "lh_default", text = "It's the strangest lesson and the most needed, because the moment a warlock believes his demon serves out of fear, the demon starts to plan. I've buried students who forgot that, and there's more of this swamp in their graves than there is of them." },
+        { id = "lh_default", text = "It's the strangest lesson and the most needed, because the moment a warlock believes his demon serves out of fear, the demon starts to plan. I've buried students who forgot that, and there wasn't much of them left to bury." },
       },
       choices = {
         { text = "Strict rules keep a warlock alive. I'd follow yours.", next = "BACK", fx = { align = { order = 1 } } },
@@ -245,7 +245,7 @@ P:NPC {
 
     quarry = {
       lines = {
-        { id = "qu_default", text = "Swamp jaguars for the skins, sawtooth crocolisks for the meat Tok'Kar's always short of, and the deathstrike tarantulas if you've a death wish. Leave the dragon whelps near the ruins to the green dragons, because I don't care to find out how their elders feel about it." },
+        { id = "qu_default", text = "Swamp jaguars for the skins, sawtooth crocolisks for the meat Tok'Kar the beach cook is always short of, and the deathstrike tarantulas if you've a death wish. Leave the dragon whelps near the ruins to the green dragons, because I don't care to find out how their elders feel about it." },
       },
       choices = {
         { text = "Do you hunt for the town or for yourself?", next = "quarry_why" },
@@ -254,7 +254,7 @@ P:NPC {
     },
     quarry_why = {
       lines = {
-        { id = "qw_default", text = "For the town, and Dar sees that it's fed, and Thultash sells what's left. The old Horde hunted for sport and glory and left nothing standing behind it, and look how well that ended for everyone." },
+        { id = "qw_default", text = "For the town, which Dar keeps supplied, and Thultash sells what's left. The old Horde hunted for sport and glory and left nothing standing behind it, and look how well that ended for everyone." },
       },
       choices = {
         { text = "Take only what the town needs. The swamp has to last.", next = "BACK", fx = { align = { light = 1 } } },
@@ -651,7 +651,7 @@ P:NPC {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
       text = "You carry the smell of the other place, warlock. The spirits shrink from it, and I think they are right to." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A child of the Earth Mother. Your people taught mine much when we were young in this world again, and I have not forgotten it." },
+      text = "A child of the Earth Mother. Your people taught mine much when we were new to Kalimdor, and I have not forgotten it." },
   },
 
   start = "hello",
@@ -661,7 +661,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Haromm, and I teach the shamans who come east, since there is no other teacher for them this side of the sea. The swamp is a hard classroom, but the water here has much to say, if one is patient enough to hear it grieve." },
         { id = "h_mastery", when = { class = "SHAMAN", minLevel = 50 },
-          text = "You have grown strong, and there is one who has asked to see shamans of your wisdom. Bath'rah the Windwatcher waits in the hills east of Tarren Mill, and he will want a sample of each element before he speaks with you." },
+          text = "You have grown strong, and there is one who has asked to see shamans of your wisdom. Bath'rah the Windwatcher waits in the hills north of Tarren Mill, and he will want a sample of each element before he speaks with you." },
         { id = "h_nonsham", when = { class = { "WARRIOR", "ROGUE", "MAGE", "PRIEST", "HUNTER", "DRUID", "PALADIN" } },
           text = "I teach only those the spirits have already chosen, and you are not one of them. Still, you may sit and listen, because listening harms no one." },
       },

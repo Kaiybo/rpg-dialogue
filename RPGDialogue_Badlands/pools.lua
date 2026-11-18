@@ -23,7 +23,7 @@ P:Pool {
   choices = { { text = "Hold the wall.", next = "END", fx = { standing = { kargath = 1 } } } },
   topics = {
     blackrock = { { id = "t_blackrock", text = "The Blackrock call themselves the true Horde, up there in the Spire bowing to a dragon. Some true Horde." } },
-    dark_iron = { { id = "t_dark_iron", text = "Short, angry, and they come out of the mountain at night. Kill them on sight; it's posted." } },
-    _none = { { id = "t_none", text = "Ask the Warlord; he'll be up the tower, wishing he was somewhere else." } },
+    dark_iron = { { id = "t_dark_iron", text = "They're short and angry, and they come out of the mountain at night. Kill them on sight; it's posted." } },
+    _none = { { id = "t_none", text = "Ask Warlord Goretooth; he'll be up the tower, wishing he was somewhere else." } },
   },
 }

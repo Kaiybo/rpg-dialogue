@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_goretooth", when = { gossip = { topic = "goretooth", stance = "wrong" } }, text = "Thal'trak tells me you think I'm wrong to keep him at his post. Maybe I am, but if every soldier ran off after his wife, Kargath would be guarded by Lexlort's lizards." },
+    { id = "g_op_goretooth", when = { gossip = { topic = "goretooth", stance = "wrong" } }, text = "Thal'trak tells me you think I'm wrong to keep him at his post. Maybe I am, but if every soldier ran off after his wife, Kargath would be guarded by nobody but the vultures." },
     { id = "g_prej1", when = { prejudiced = true }, text = "A warlock, climbing my tower. The last time I trusted one of your trade, Gul'dan's lot were handing round a cup of something red, and I've had the taste in my mouth ever since." },
     { id = "g_prej2", when = { prejudiced = true }, text = "Keep your imp at the foot of the stairs, warlock. The vultures don't like it, and neither do I." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, warlock! I've heard what you did on the road, and I don't care what whispers in your ear any more. You fight like an orc, and that's the end of it." },
@@ -83,13 +83,13 @@ P:NPC {
     },
     op_wc_rend = {
       lines = {
-        { id = "opwr_default", text = "Rend remembers the war because he never stopped fighting it, and he'd sell every orc in Kargath to the Dark Irons to win it. Say that again in front of the 109th's widows, if you dare, because I won't stop them." },
+        { id = "opwr_default", text = "Rend remembers the war because he never stopped fighting it, and he'd sell every orc in Kargath to the Dark Irons to win it. Say that again in front of the widows of the 109th Division, whom the Dark Irons butchered, if you dare, because I won't stop them." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_wc_queen = {
       lines = {
-        { id = "opwq_default", text = "Ha! Theodora says the same, with more words and a lot more darlings. Your queen fights the Scourge and the Warchief fights Rend, so as far as I'm concerned you're both on my side." },
+        { id = "opwq_default", text = "Ha! Hierophant Theodora says the same, with more words and a lot more darlings. Your queen fights the Scourge and the Warchief fights Rend, so as far as I'm concerned you're both on my side." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -106,7 +106,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Riding, raiding and terror, as the old Horde did, and they're good at all three. When I was young every orc who could fight had a wolf at his side, and seeing Rend's riders on that road makes me ache for those days and hate myself for it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}. Good teeth, good eyes. If you take it up the Spire road, keep it close, because Blackrock worgs go for other beasts first." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Riding, raiding and terror, as the old Horde did, and they're good at all three. That {pet} of yours has good teeth, so keep it close on the Spire road, because Blackrock worgs go for other beasts first." },
       },
       choices = {
         { text = "The old ways had strength. Don't be ashamed of missing them.", next = "BACK", fx = { align = { order = -1 } } },
@@ -133,7 +133,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I'd put anyone on these walls who can kill a Dark Iron at a hundred paces, and a mage can kill ten. Vivian keeps telling me the arcane is subtle, and I keep telling her I don't want subtle, I want the Spire on fire." } },
+      lines = { { id = "xmage_default", text = "I'd put anyone on these walls who can kill a Dark Iron at a hundred paces, and a mage can kill ten. Vivian, my Shadowmage, keeps telling me the arcane is subtle, and I keep telling her I don't want subtle, I want the Spire on fire." } },
       choices = {
         { text = "Patience and discipline win sieges, not fireworks.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Then I'll give you fire, Warlord, as much as you like.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -188,7 +188,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, eh? The old Horde had warlocks and no mages, and I've decided I like your lot better, because at least you set the right things on fire." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I've always wished I could send someone up the Spire road who didn't clank, because my grunts sound like a smithy falling down the stairs." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A tauren druid at Kargath! Can you smell the Spire from here, druid? I swear I can on the hot days, and it smells of the old Horde and older lies." },
+          text = "A druid at Kargath! Can you smell the Spire from here, druid? I swear I can on the hot days, and it smells of the old Horde and older lies." },
         { id = "h_cl_lbrs", tags = { "news" }, when = { cleared = "Lower Blackrock Spire", faction = "Horde" },
           text = "Wyrmthalak is dead in his own citadel, and they say your hand was in it. The Spire will be quieter for a while, and I mean to use every hour of it." },
         { id = "h_default", key = true,
@@ -490,7 +490,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Constantly, darling, and every basilisk grows a foot each time it's mentioned. Vivian swears one of the scouts claimed to have killed a black dragon with a spear, and I'd dearly love to see the spear, because I suspect it's a broomstick." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And this is {pet}! Oh, it's adorable, darling, in a terrifying sort of way. Does it bite? No, don't answer, I'd rather wonder." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Constantly, darling, and every basilisk grows a foot each time it's mentioned. And this is {pet}! It's adorable, in a terrifying sort of way, and I'd rather not know whether it bites." },
       },
       choices = {
         { text = "My hunts need no embellishing, Hierophant. They speak for themselves.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -526,7 +526,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Oh, the Warlord talks to the vultures, but everyone knows that, so it hardly counts. The real secret is that Lexlort reads every letter that leaves this town before the wind rider does, and if you tell him I said so, I'll deny it beautifully." } },
+      lines = { { id = "xrogue_default", text = "Oh, the Warlord talks to the vultures, but everyone knows that, so it hardly counts. The real secret is that Lexlort, our spymaster, reads every letter that leaves this town before the wind rider does, and if you tell him I said so, I'll deny it beautifully." } },
       choices = {
         { text = "Your secret's safe with me, Hierophant.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Secrets are currency. I'll spend this one wisely.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -559,7 +559,7 @@ P:NPC {
         { id = "h_guzzler", when = { questActive = TODO_QUEST("The Grim Guzzler") },
           text = "The Grim Guzzler is a tavern inside Blackrock Depths, if you can believe it. Do go and see, and tell me everything, especially the parts you shouldn't." },
         { id = "h_machines", when = { questActive = TODO_QUEST("The Rise of the Machines") },
-          text = "Golems, darling, which the Dark Irons build out of stone and spite. Bring me shards from the rock things in the Burning Steppes, and then we'll see who's been signing their work." },
+          text = "Golems, darling, which the Dark Irons build out of stone and spite. Bring me fragments from the golems in the Burning Steppes, and then we'll see who's been signing their work." },
         { id = "h_machines_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Rise of the Machines"), days = 3 } },
           text = "Initials, darling, etched into every one of those shards, and a rank beside them, as if the golems were soldiers. There's a gnome out in the Dustbowl called Lotwil who knows about such things, so do go and bother him." },
         { id = "h_goretooth", when = { heardLine = "goretooth.h_default" },
@@ -601,14 +601,14 @@ P:NPC {
     },
     gossip_lunk = {
       lines = {
-        { id = "gl_default", text = "Lunk? His name is Lunk, darling, Warlord Lunk Goretooth, and he struts up and down that tower like a peacock with tusks. I'd never have him, but I'd never let anyone else make fun of him either." },
+        { id = "gl_default", text = "Darling, his first name is Lunk, Warlord Lunk Goretooth, and he struts up and down that tower like a peacock with tusks. I'd never have him, but I'd never let anyone else make fun of him either." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
     machines = {
       lines = {
-        { id = "m_default", text = "They showed themselves when we first pushed into the Searing Gorge, great lumbering things of rock and metal. We traced them back to the Burning Steppes, and quite possibly to Blackrock Depths itself." },
+        { id = "m_default", text = "Their golems showed themselves when we first pushed into the Searing Gorge, great lumbering things of rock and metal. We traced them back to the Burning Steppes, and quite possibly to Blackrock Depths itself." },
       },
       choices = {
         { text = "Who builds them?", next = "machines_marks" },
@@ -619,7 +619,7 @@ P:NPC {
       lines = {
         { id = "mm_default", text = "That's what my monocle is for, darling, the enormous one. Every fragment has a maker's initials and a rank stamped into it, and anyone who signs his golems has a very high opinion of himself." },
         { id = "mm_done", when = { questDone = TODO_QUEST("The Rise of the Machines") },
-          text = "G.L.A., darling, on every shard, and the ones you smashed were only Rank IV, the lowliest sort. Lotwil went white as a sheet when he saw them, and gnomes don't go white easily." },
+          text = "G.L.A., darling, on every shard, and the ones you smashed were only Rank IV, the lowliest sort. Lotwil, the gnome in the Dustbowl, went white as a sheet when he saw them, and gnomes don't go white easily." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } } },
     },
@@ -651,7 +651,7 @@ P:NPC {
 
     forsaken = {
       lines = {
-        { id = "fo_default", text = "Beautifully, darling, as long as you remember that they mean well and smell of it. Lunk saves me the warmest seat by the fire, as if I could feel it, and that's sweeter than anything the Undercity ever did for me." },
+        { id = "fo_default", text = "Beautifully, darling, as long as you remember that they mean well and smell of it. The Warlord saves me the warmest seat by the fire, as if I could feel it, and that's sweeter than anything the Undercity ever did for me." },
       },
       choices = {
         { text = "And what do the orcs really make of you, Hierophant?", next = "op_forsaken" },
@@ -695,7 +695,7 @@ P:NPC {
       { id = "tp_knows", text = "Darling, I listen at every fire in Kargath, so of course I know things. Pick one of these and I'll tell you everything, including the parts I shouldn't." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, darling, the good gossip and the true gossip, which aren't always the same thing. Here's what I can tell you." },
     },
-    dark_iron = { { id = "tp_dark_iron", text = "Grim little people, though their ale is wonderful, or so I'm told." } },
+    dark_iron = { { id = "tp_dark_iron", text = "They're grim little people, though their ale is wonderful, or so I'm told." } },
     background = { { id = "tp_ba", text = "The Undercity sent me, the Expeditionary Force keeps me, and the Warlord amuses me. Before that is none of your business, darling, and most of it is buried." } },
     advice = { { id = "tp_ad", text = "Never let a Dark Iron see you're impressed by his golem, darling. They're vain about them, and vanity makes them careless." } },
     sylvanas = {
@@ -747,7 +747,7 @@ P:NPC {
     },
     op_necro_hate = {
       lines = {
-        { id = "opnh_default", text = "Burned out! Well, that's honest, and I suppose the Scourge would agree with you about our side of it. Do remember that my abominations are holding the line you're standing behind." },
+        { id = "opnh_default", text = "Burned out! Well, that's honest, and I suppose the Scourge would agree with you about our side of it. Do remember that Forsaken abominations are holding the line against the Scourge in Lordaeron." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -759,7 +759,7 @@ P:NPC {
     },
     op_necro_grateful = {
       lines = {
-        { id = "opng_default", text = "Nor will I, my dear, though I curse the one who did it to us every evening, quite methodically. One may be grateful for the gift and still loathe the giver." },
+        { id = "opng_default", text = "Nor will I, my dear, though I curse the Lich King who did it to us every evening, quite methodically. One may be grateful for the gift and still loathe the giver." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -866,7 +866,7 @@ P:NPC {
         { text = "Those golem essences hold bound elementals, Vivian. Does that trouble you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What could a spellcaster learn from the Dark Irons' fire, Vivian?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "The Warlord speaks well of you.", next = "flustered" },
-        { text = "You're studying something more than beer, I think.", next = "study" },
+        { text = "What are you really studying out here, Vivian?", next = "study" },
         { text = "Why does a Shadowmage want a beer recipe?", next = "thunderbrew", when = { any = { { heardLine = "vivian.h_recipe" }, { questActive = TODO_QUEST("Vivian Lagrave") }, { questActive = TODO_QUEST("Lost Thunderbrew Recipe") } } } },
         { text = "What's the Darkstone Tablet?", next = "tablet", when = { any = { { heardLine = "vivian.h_tablet" }, { questActive = TODO_QUEST("Vivian Lagrave and the Darkstone Tablet") }, { questActive = TODO_QUEST("The Darkstone Tablet") } } } },
         { text = "You've noticed my craft, I think.", next = "practitioner", when = { class = { "MAGE", "WARLOCK" } } },
@@ -883,7 +883,7 @@ P:NPC {
 
     flustered = {
       lines = {
-        { id = "f_default", text = "He does? I mean, does he, how nice, that's... hm, well. Did you need a quest? I have several, so please, take one." },
+        { id = "f_default", text = "He does? I mean, how nice of him, and I'm sure I can't think why. Did you need a quest? I have several, so please, take one." },
       },
       choices = {
         { text = "You're blushing, Shadowmage.", next = "flustered_blush" },
@@ -909,7 +909,7 @@ P:NPC {
     },
     study_abom = {
       lines = {
-        { id = "sa_default", text = "Stitched, strong and very loyal, though not very bright, and they'd be so much stronger with a proper heart of elemental fire. Every essence you bring goes to the Undercity by the next courier." },
+        { id = "sa_default", text = "They're stitched, strong and very loyal, though not very bright, and they'd be so much stronger with a proper heart of elemental fire. Every essence you bring goes to the Undercity by the next courier." },
       },
       choices = {
         { text = "Do you find raising the dead troubling?", next = "op_necro" },
@@ -1114,7 +1114,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp talks, which makes it a bad spy, so keep it in your pocket while you're near my reports." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Your spells are loud, and loud is useless to me, though I'll admit you're handy when the quiet way goes wrong." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
-          text = "A shaman, which is useful to me, since spirits don't sell plans to the Blackrock, and that already puts them ahead of Grark." },
+          text = "A shaman, which is useful to me, since spirits don't sell plans to the Blackrock, and that already puts them ahead of Grark Lorkrub, our traitor." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest. Good, because my scouts come back cut up, and they'd rather be patched by you than by the alchemist upstairs." },
         { id = "h_default", key = true,
@@ -1124,7 +1124,7 @@ P:NPC {
         { id = "h_predicament", when = { questActive = TODO_QUEST("Precarious Predicament") },
           text = "You've got Grark moving, so keep him close through the mountain. If he runs, he dies, and what he knows dies with him." },
         { id = "h_bijou", when = { questActive = TODO_QUEST("Operative Bijou") },
-          text = "Bijou went into Blackrock Spire and hasn't come out. Bring her back alive, and don't let her talk you into anything on the way." },
+          text = "Bijou, one of my operatives, went into Blackrock Spire and hasn't come out. Bring her back alive, and don't let her talk you into anything on the way." },
         { id = "h_report", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bijou's Reconnaissance Report"), days = 3 } },
           text = "Bijou's reports are good, which annoys me more than if they'd been worthless. She's wriggled out of trouble again, and the K.E.F. is the better for it." },
         { id = "h_seen", when = { metBefore = true }, text = "You came in by the south path at noon; I know, because I always know. Don't take it personally." },
@@ -1230,7 +1230,7 @@ P:NPC {
     },
     grark_done = {
       lines = {
-        { id = "gd_default", text = "He is, and he's talking, slowly. You've earned your tribute, and the Warlord will want to see you about the last of it." },
+        { id = "gd_default", text = "He is, and he's talking, slowly. You've earned your reward, and the Warlord will want to thank you himself." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
@@ -1277,7 +1277,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "soft" } }, text = "The Warlord says you think Rend's got the right of it. Keep that away from my tables, friend, because the 109th's widows drink here, and they're quicker with a knife than the Warlord." },
+    { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "soft" } }, text = "The Warlord says you think Rend's got the right of it. Keep that away from my tables, friend, because the widows of the 109th Division drink here, and they're quicker with a knife than the Warlord." },
     { id = "g_inn", text = "Come in out of the dust and sit, {class}. There's water, there's grog, and there's a bunk nobody's bled on recently, which in an orc camp counts as luxury." },
     { id = "g_home", when = { homeInn = { "Kargath" } }, text = "Back from the badlands! Tell me what you killed, because the grunts like a good story with their supper, and my cooking needs the help." },
     { id = "g_away", when = { away = 14 }, text = "Back from the badlands after {away} away! Sit down and tell me what you killed while you were gone, because the grunts are bored of my stories." },
@@ -1305,8 +1305,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Neeka's scouts bring in a buzzard now and then, but they're stringy things, and the basilisks taste like boot leather. A hunter who brought in anything that didn't taste of dust would be the most popular face in Kargath for a week." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out of the kitchen, friend. The grunts would forgive a beast a great many things, but not a bite out of tomorrow's stew." },
+        { id = "xhuntcl_default", text = "Neeka Bloodscar's scouts bring in a buzzard now and then, but they're stringy things, and the basilisks taste like boot leather. A hunter who brought in anything that didn't taste of dust would be the most popular face in Kargath for a week." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Neeka Bloodscar's scouts bring in a buzzard now and then, but they're stringy things, so a hunter with fresh meat would be the most popular face in Kargath. Keep {pet} out of the kitchen, though, because the grunts won't forgive a bite out of tomorrow's stew." },
       },
       choices = {
         { text = "I'll bring what I can. Kargath's grunts deserve a decent meal.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1390,7 +1390,7 @@ P:NPC {
         { text = "Nothing out here looks worth putting in a pot.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do the grunts tell many stories about shamans, Shul'kar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the grunts' stories say about spellcasters, Shul'kar?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Want to hear a battle?", next = "story" },
+        { text = "Want to hear about a battle?", next = "story" },
         { text = "Who's the town named for?", next = "name" },
         { text = "You must see every traveller who passes through Kargath.", next = "travelers" },
         { text = "Your Forsaken guests seem to like it here.", next = "forsaken", when = { race = "Scourge" } },
@@ -1478,7 +1478,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "An innkeeper who followed the Expeditionary Force out here because soldiers need feeding, and I've fed orcs since we ate gruel behind the camp fences. That's all there is to me, and it's enough." } },
+    background = { { id = "tp_ba", text = "I'm an innkeeper who followed the Expeditionary Force out here because soldiers need feeding, and I've fed orcs since we ate gruel behind the camp fences. That's all there is to me, and it's enough." } },
     advice = { { id = "tp_ad", text = "Drink water before you drink grog, and drink both before you go near the Searing Gorge. The heat up there will have you seeing things." } },
     thrall = { { id = "tp_thrall", text = "The Warchief eats with his grunts, and I'd feed him the same stew I feed them. He'd like it, I'm sure." } },
     second_war = { { id = "tp_second_war", text = "I cooked for the Horde in the Second War, and the food was worse then. That's the only thing I'll say for the old days." } },

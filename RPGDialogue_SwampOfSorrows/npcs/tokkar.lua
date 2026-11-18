@@ -25,7 +25,7 @@ P:NPC {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Your blade's chipped to a saw's edge, and not the useful kind. Murloc skulls are harder than they look, so get it seen to." },
     { id = "n_drink", cat = "drink", when = { drunk = true },
-      text = "You've been drinking with the louses I share this camp with, haven't you? Keep your wits, because the fish men come when you least want them." },
+      text = "You've been drinking with the louts I share this camp with, haven't you? Keep your wits, because the fish men come when you least want them." },
   },
 
   start = "hello",
@@ -35,11 +35,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Tok'Kar, cook, smith and the only orc on this beach who works. We're stationed here to warn Stonard if the murlocs come in force, and to stop them if they don't come in too much force." },
         { id = "h_meat_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Lack of Surplus"), days = 3 } },
-          text = "Fresh sawtooth meat, and the soldiers ate till they groaned. Dar sent you, didn't he? Tell him his face still looks like a stepped-on toad." },
+          text = "Fresh sawtooth meat, and the soldiers ate till they groaned. Dar sent you from Stonard, didn't he? Tell him his face still looks like a stepped-on toad." },
         { id = "h_claws", tags = { "news" }, when = { questActive = TODO_QUEST("Lack of Surplus") },
           text = "Six sawtooth snapper claws, properly sharp, and I'll make you a weapon out of them in thanks. They make fine blades when they're prepared right, and I've got the knack of it." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("Threat From the Sea") },
-          text = "While I work on your weapon, go and talk to Katar about the beach patrols. Better that than getting drunk with the rest of this lot." },
+          text = "While I work on your weapon, go and talk to Katar, who runs the beach patrols. Better that than getting drunk with the rest of this lot." },
         { id = "h_reward", tags = { "news" }, when = { questDone = TODO_QUEST("Continued Threat") },
           text = "You brought us meat and you brought Katar a smile, and I'd have said the second one was impossible. Use that weapon well, and bring me back the stories." },
         { id = "h_troll", when = { race = "Troll" },
@@ -61,7 +61,7 @@ P:NPC {
 
     claws = {
       lines = {
-        { id = "cl_default", text = "Bashers, choppers, shankers, whatever suits the hand, all from sawtooth claw and swamp hardwood. A sawtooth claw holds an edge better than half the steel in Stonard, and it costs nothing but a fight." },
+        { id = "cl_default", text = "I make bashers, choppers and shankers, whatever suits the hand, all from sawtooth claw and swamp hardwood. A sawtooth claw holds an edge better than half the steel in Stonard, and it costs nothing but a fight." },
       },
       choices = {
         { text = "How do you prepare them?", next = "claws_prep" },
@@ -100,10 +100,10 @@ P:NPC {
 
     camp = {
       lines = {
-        { id = "ca_default", text = "Katar runs the patrols, and he hates the sea more than anything alive, which makes him good at his job and terrible at supper. The rest are louses, mostly, but they're our louses." },
+        { id = "ca_default", text = "Katar runs the patrols, and he hates the sea more than anything alive, which makes him good at his job and terrible at supper. The rest are louts, mostly, but they're our louts." },
       },
       choices = {
-        { text = "Katar seems to hate the sea.", next = "camp_katar" },
+        { text = "Why does Katar hate the sea?", next = "camp_katar" },
         { text = "Who supplies the camp from Stonard?", next = "camp_dar" },
         { text = "Something else.", next = "BACK" },
       },
@@ -155,7 +155,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A cook who learned smithing because nobody else on this beach would. My father beat iron for the Horde before the camps, so it was in the blood, mostly." } },
+    background = { { id = "tp_ba", text = "I'm a cook who learned smithing because nobody else on this beach would. My father beat iron for the Horde before the camps, so it was in the blood, mostly." } },
     advice = { { id = "tp_ad", text = "Never eat anything that comes out of the sea with a face like a murloc's." } },
     thrall = { { id = "tp_thrall", text = "The Warchief would like my stew, I'm sure of it. Nobody's ever told him about it, which is a crime." } },
     second_war = { { id = "tp_second_war", text = "I cooked for the Horde in the Second War, and I learned smithing then because the smiths kept getting killed. It's worked out, mostly." } },

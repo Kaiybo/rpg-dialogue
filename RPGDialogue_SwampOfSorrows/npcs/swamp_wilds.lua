@@ -82,7 +82,7 @@ P:NPC {
       },
     },
     druid_talk = {
-      lines = { { id = "dt_default", text = "Treasure, gods help me, and a map that turned out to be more hope than ink. The swamp has a way of making a man regret his choices, and the lizardfolk have a way of making him regret them faster." } },
+      lines = { { id = "dt_default", text = "A fool chasing treasure, gods help me, with a map that turned out to be more hope than ink. The swamp has a way of making a man regret his choices, and the murlocs have a way of making him regret them faster." } },
       choices = {
         { text = "Greed brought you here. I'll free you anyway.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Perhaps the swamp should keep you awhile.", next = "BACK", fx = { align = { light = -1 } } },
@@ -144,7 +144,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Thank the Light, because you can open a lock, can't you? Please say you can open a lock." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can't you just ask the earth to open this cage? No? Well, a strong arm will do just as nicely, I suppose." },
         { id = "h_druidx", when = { class = "DRUID" },
-          text = "A druid! Thank the Light. Get me free of these chains and I'll swear never to speak ill of the woods again." },
+          text = "A druid! Thank the Light. Get me out of this cage and I'll swear never to speak ill of the woods again." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "Oh, Light, you're not exactly who I was praying for, but you're not a murloc, and a man in a cage can't be choosy, so please, friend, just open the door." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
@@ -200,7 +200,7 @@ P:NPC {
     },
     caught_lesson = {
       lines = {
-        { id = "cl_default", text = "This and that, whatever sells, friend, and I'll trade with anybody who pays honest coin. Next time I'll hire a guard, I swear it, though I said the same last time too." },
+        { id = "cl_default", text = "Maybe so, friend. I trade this and that, whatever sells, with anybody who pays honest coin, and next time I'll hire a guard, I swear it, though I said the same last time too." },
       },
       choices = {
         { text = "Even goblins?", next = "op_goblins" },
@@ -224,7 +224,7 @@ P:NPC {
     },
     place = {
       lines = {
-        { id = "pl_default", text = "The Fallow Sanctuary, they call it, though there's nothing holy about it now. Murlocs everywhere, and worse things in the deep water, and the only folk who come out here are fools and traders, which some say are the same thing." },
+        { id = "pl_default", text = "The Fallow Sanctuary, they call it, though there's nothing holy about it now. There are murlocs everywhere, and worse things in the deep water, and the only folk who come out here are fools and traders, which some say are the same thing." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -284,7 +284,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The best I ever knew, and the most loyal, which is why they held their ground and waited for orders that never came. I trained them to obey, and their obedience killed them, and I have had a long time to wonder whether I trained them wrong." } },
+      lines = { { id = "xwarcl_default", text = "They were the best I ever knew, and the most loyal, which is why they held their ground and waited for orders that never came. I trained them to obey, and their obedience killed them, and I have had a long time to wonder whether I trained them wrong." } },
       choices = {
         { text = "Obedience is a soldier's duty, even when it costs everything.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A good soldier knows when to break from orders.", next = "BACK", fx = { align = { order = -1 } } },
@@ -399,7 +399,7 @@ P:NPC {
     },
     grasp_trust = {
       lines = {
-        { id = "gt_default", text = "Courage is a start, but trust is earned by deeds. Help me learn the truth about the orders first, and then we will speak of what lies beyond the Portal." },
+        { id = "gt_default", text = "Courage is a start, but trust is earned by deeds. Help me learn the truth about the orders first, and know that whatever you find, the fault for those deaths may still be mine." },
       },
       choices = {
         { text = "A commander answers for his soldiers.", next = "grasp_blame", fx = { align = { honor = 1 } } },
@@ -421,7 +421,7 @@ P:NPC {
     },
     lands = {
       lines = {
-        { id = "la_default", text = "Red earth, ogres, and the dark Portal where my people first came into this world. Worse than any of that waits there, and the humans and the Horde squabble over scorched earth while it grows." },
+        { id = "la_default", text = "There is red earth, and ogres, and the Dark Portal where my people first came into this world. Worse than any of that waits there, and the humans and the Horde squabble over scorched earth while it grows." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -438,7 +438,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "When you lead, young one, know where your orders are. I did not, and nineteen soldiers paid for it." } },
     thrall = { { id = "tp_thrall", text = "The Warchief named my regiment for himself, and I gave the orders that broke it. I hope he never learns my name, so he can't curse it." } },
     second_war = { { id = "tp_second_war", text = "I fought in the Second War when I was young, and I came through it whole. This swamp did what the Alliance couldn't." } },
-    dark_portal = { { id = "tp_dark_portal", text = "The demons came from the Portal's shadow, from the Tainted Scar, and they took my men one by one. Kirith was the last, and the worst." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The demons came from the Portal's shadow, from the Tainted Scar, and they took my soldiers one by one until none were left." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Legion's servants still walk the Blasted Lands, and they remember the old Horde's pacts. They used that to break my regiment." } },
     _none = { { id = "tp_none", text = "I know nothing of that. The dead hear little news." } },
   },

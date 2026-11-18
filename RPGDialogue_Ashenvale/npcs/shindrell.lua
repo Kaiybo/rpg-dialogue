@@ -35,7 +35,7 @@ P:NPC {
     op_ask = {
       big = true,
       lines = {
-        { id = "op_ask_default", text = "The Circle's druids walk into Splintertree and out again, treating the orcs like one more flock of strays to tend. You've seen them at work, so tell me: is the Cenarion Circle right to stay neutral?" },
+        { id = "op_ask_default", text = "The Circle's druids walk into Splintertree and out again, treating the orcs like one more flock of strays to tend. I have my own answer, but you've seen them at work, so tell me yours first." },
       },
       choices = {
         { text = "Yes. Someone has to speak for the forest itself.", next = "op_r1", fx = { affinity = -1, align = { order = 1 }, opinion = { cenarion_circle = "respect" } } },
@@ -117,7 +117,7 @@ P:NPC {
     naga_horde = {
       big = true,
       lines = {
-        { id = "nh_default", text = "Zoram'gar, a little outpost on the strand, mostly trolls. They fight the naga as we do, which makes them neither friends nor quite enemies, and I don't know what to call that." },
+        { id = "nh_default", text = "That's Zoram'gar, a little outpost on the strand, mostly trolls. They fight the naga as we do, which makes them neither friends nor quite enemies, and I don't know what to call that." },
       },
       choices = {
         { text = "An enemy of my enemy is still an enemy.", next = "BACK", fx = { align = { order = 1 } } },
@@ -149,7 +149,7 @@ P:NPC {
 
     kayneth = {
       lines = {
-        { id = "ka_default", text = "A druid at Forest Song, in the Nightsong Woods to the east, and a careful one. He thinks something wicked is moving through Ashenvale, and he collects reports the way some people collect arrowheads." },
+        { id = "ka_default", text = "He's a druid at Forest Song, in the Nightsong Woods to the east, and a careful one. He thinks something wicked is moving through Ashenvale, and he collects reports the way some people collect arrowheads." },
       },
       choices = {
         { text = "Do you believe him?", next = "kayneth_believe" },
@@ -187,10 +187,10 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A Sentinel and a huntress, and lately more of a letter-writer than either. Somebody has to tell Darnassus what's happening out here." } },
+    background = { { id = "tp_bg", text = "I'm a Sentinel and a huntress, and lately more of a letter-writer than either. Somebody has to tell Darnassus what's happening out here." } },
     advice = { { id = "tp_ad", text = "In Ashenvale, look up as often as you look ahead. The forest has more than one floor." } },
     sentinels = { { id = "tp_sentinels", text = "We are fewer than we should be and more stubborn than the Horde expects. That has served so far." } },
-    warsong = { { id = "tp_warsong", text = "Orc axes in our oldest trees, and the forest bleeding sap where they cut. I try not to go and look too often.", next = "horde" } },
+    warsong = { { id = "tp_warsong", text = "Their axes are in our oldest trees, and the forest bleeds sap where they cut. I try not to go and look too often.", next = "horde" } },
     thrall = { { id = "tp_thrall", text = "The Horde's warchief is a name in every report I send Darnassus, usually beside the Warsong. I'd rather write about birds, honestly." } },
     centaur = { { id = "tp_centaur", text = "Centaur raids on the Barrens edge of Stonetalon come up in my letters too. Darnassus never writes back about those." } },
     tyrande = { { id = "tp_tyrande", text = "The High Priestess reads my reports herself, I'm told. I try to keep them short, and I always fail." } },

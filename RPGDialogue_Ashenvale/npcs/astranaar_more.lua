@@ -34,7 +34,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I would post you where the Warsong are thickest. Their shamans call lightning; ours could answer. Darnassus will hear of you." } },
+      lines = { { id = "xdsham_default", text = "I would post you where the Warsong are thickest, because their shamans call lightning and yours could answer it. Darnassus would hear of you." } },
       choices = {
         { text = "Post me where I'm needed, Sentinel.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll choose my own post.", next = "BACK", fx = { align = { order = -1 } } },
@@ -63,7 +63,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Always, for our nightsabers run beside the hunters' beasts and our bows answer theirs. A hunter who serves Ashenvale well will hear from Darnassus, and I would be the one who tells them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the discipline of a Sentinel's companion. I have noted it, and I do not note things lightly." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Always, for our nightsabers run beside the hunters' beasts and our bows answer theirs. Your {pet} has the discipline of a Sentinel's companion, and I do not note such things lightly." },
       },
       choices = {
         { text = "I'll ride with the Sentinels and serve Ashenvale.", next = "BACK", fx = { align = { order = 1 } } },
@@ -123,7 +123,7 @@ P:NPC {
         { id = "o_orcs_hate", tags = { "news" }, when = { opinion = { topic = "orcs", stance = "hate" } },
           text = "I hear you call the orcs beasts. I call them targets, which is shorter, and easier to aim at." },
         { id = "o_warsong_hate", tags = { "news" }, when = { gossip = { topic = "warsong", stance = "hate" } },
-          text = "Raene tells me you'd see every Warsong axe broken. Come back when you've broken a few, and we'll talk." },
+          text = "Raene Wolfrunner tells me you'd see every Warsong axe broken. Come back when you've broken a few, and we'll talk." },
         { id = "h_default", key = true,
           text = "I am Sentinel Thenysil. I keep watch over Astranaar for the Sisterhood, as my sisters have watched these woods since the War of the Ancients, and when someone proves themselves to the kaldorei, it is my task to see that Darnassus hears of it." },
         { id = "h_reception", tags = { "news" }, when = { questActive = TODO_QUEST("Reception from Tyrande") },
@@ -141,7 +141,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Whether you call on the Light or the Mother Moon, the High Priestess values those who mend the wounded." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your Silver Hand has its own discipline, and I would know if it matches ours." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. The Sisterhood and the Circle answer to different voices in Darnassus, but here in Ashenvale we stand on the same ground." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Warlock. Keep your servant leashed in Astranaar, because my Sentinels have orders about demons, and those orders do not ask whom the demon belongs to." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep your servant leashed in Astranaar, because my Sentinels have orders about demons, and those orders do not ask whom the demon belongs to." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I weigh newcomers to decide where to post them, and I think your spirits might be useful on the roads." },
       },
       again = {
@@ -187,7 +187,7 @@ P:NPC {
     },
     warsong_t = {
       lines = {
-        { id = "w_default", text = "The Thistlefur in the north, who were our friends once, and the Warsong in the east, who never were. The orcs cut our trees for their war, and the furbolgs have gone mad, and Astranaar sits on its island between them." },
+        { id = "w_default", text = "We face the Thistlefur in the north, who were our friends once, and the Warsong in the east, who never were. The orcs cut our trees for their war, and the furbolgs have gone mad, and Astranaar sits on its island between them." },
       },
       choices = {
         { text = "Can the Horde be reasoned with?", next = "warsong_t2" },
@@ -338,7 +338,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Not you, but they'll throw anything that smells of the Legion, and your cloak reeks of it. Dismiss your servant on the ground and sit still, and they'll fly you to Auberdine as kindly as anyone." },
+        { id = "xlock_default", text = "Not for being a warlock, but they'll throw anything that smells of the Legion, and your cloak reeks of it. Dismiss your servant on the ground and sit still, and they'll fly you to Auberdine as kindly as anyone." },
       },
       choices = {
         { text = "I'll dismiss it on the ground. The birds deserve that.", next = "BACK", fx = { align = { honor = 1 } } },

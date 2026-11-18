@@ -23,6 +23,6 @@ P:Pool {
   },
   choices = { { text = "Lok'tar.", next = "END", fx = { standing = { stonard = 1 } } } },
   topics = {
-    _none = { { id = "t_none", text = "Ask the Commander, in the big hall. He likes questions he can send someone to answer." } },
+    _none = { { id = "t_none", text = "Ask Commander Ruag, in the great hall. He likes questions he can send someone to answer." } },
   },
 }

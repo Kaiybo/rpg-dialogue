@@ -21,7 +21,7 @@ P:NPC {
     { id = "g_default", text = "Erm... 'ello, {g:mister|miss}. I'm not supposed to talk to strangers, but you don't look very strange." },
     { id = "g_back", when = { metBefore = true }, text = "'Ello again! You came back! Nobody ever comes back, they just walk past the barn." },
     { id = "g_q1", when = { questActive = Q1 }, text = "'Ello again! Did you bring back alchemy stuff?" },
-    { id = "g_q2", when = { questActive = Q2 }, text = "Don't worry about me, I'm a big girl. Have you got the eyes yet?" },
+    { id = "g_q2", when = { questActive = Q2 }, text = "Don't worry about me, I'm a big girl. Have you got the murloc eyes yet?" },
     { id = "g_done", when = { questDone = Q2 }, text = "It's my alchemy friend! I've been practising, but I'm not allowed to tell you what with." },
   },
 

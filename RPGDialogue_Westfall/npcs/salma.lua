@@ -65,7 +65,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Whatever's to hand, dear: goretusk, onions, and maybe a murloc eye if I'm short. Your spirits needn't fret. It's filling." } },
+      lines = { { id = "xdsham_default", text = "Whatever's to hand, dear: goretusk, onions, and maybe a murloc eye if I'm short, and your spirits needn't fret, because it's filling." } },
       choices = {
         { text = "A full pot for anyone hungry is a blessing, Salma.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Murloc eyes? You should feed your own first.", next = "BACK", fx = { align = { light = -1 } } },
@@ -192,7 +192,7 @@ P:NPC {
     },
     pot = {
       lines = {
-        { id = "p_default", text = "Whatever Westfall gives me. Today it gave me a buzzard and some regret. It'll be lovely." },
+        { id = "p_default", text = "Whatever Westfall gives me, and today it gave me a buzzard and some regret. It'll be lovely." },
       },
       choices = {
         { text = "Smells wonderful.", next = "BACK", fx = { affinity = 1 } },
@@ -201,20 +201,20 @@ P:NPC {
       },
     },
     vulture = {
-      lines = { { id = "v_default", text = "Buzzard. They eat well out here, which is more than I can say for the people." } },
+      lines = { { id = "v_default", text = "Buzzard, yes. They eat well out here, which is more than I can say for the people." } },
       choices = { { text = "Fair point. Something else.", next = "BACK" } },
     },
     recipe = {
-      lines = { { id = "re_default", text = "Vulture, goretusk snout, murloc eyes, and okra to thicken the broth. It's Verna's recipe, and she wrote it out for me herself, so don't tell her I add salt." } },
+      lines = { { id = "re_default", text = "It takes vulture, goretusk snout, murloc eyes and okra to thicken the broth. It's Verna's recipe, and she wrote it out for me herself, so don't tell her I add salt." } },
       choices = {
         { text = "Verna's? I thought it was yours.", next = "recipe_verna" },
         { text = "Something else.", next = "BACK" },
       },
     },
     recipe_verna = {
-      lines = { { id = "rv_default", text = "Hers, start to finish. She wanted it to stay in Westfall when they go. Born for the city, that one, whatever she tells you. It'll be the making of her." } },
+      lines = { { id = "rv_default", text = "Hers, start to finish. She wanted it to stay in Westfall when they go. She was born for the city, whatever she tells you, and Elwynn will be the making of her." } },
       choices = {
-        { text = "Does Verna really want to leave?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I'm not sure Verna wants to leave.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "You'll miss her.", next = "furlbrows_miss" },
       },
     },
@@ -234,7 +234,7 @@ P:NPC {
       },
     },
     defias = {
-      lines = { { id = "d_default", text = "No, that's Gryan's work. Mine is making sure there's someone left to thank him." } },
+      lines = { { id = "d_default", text = "No, that's Gryan Stoutmantle's work, up on Sentinel Hill. Mine is making sure there's someone left to thank him." } },
       choices = {
         { text = "Have you ever fed a Defias at this door?", next = "fed" },
         { text = "I'll leave that be. Something else.", next = "BACK" },
@@ -325,7 +325,7 @@ P:NPC {
       },
     },
     pet2 = {
-      lines = { { id = "pet2_l", text = "Hunting out here? There's nothing left to hunt but vultures and the Furlbrows' old cow. Take the bone." } },
+      lines = { { id = "pet2_l", text = "Hunting out here? There's nothing left to hunt but vultures and the Furlbrows' poor old horse. Take the bone." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -339,9 +339,9 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Half of Westfall eats at my table sooner or later, and they all talk with their mouths full. Ask me about any of this while I stir." },
     },
-    background = { { id = "tp_bg", text = "A farmer's wife with a big pot and a long table. That's all anyone needs to know about me." } },
+    background = { { id = "tp_bg", text = "I'm a farmer's wife with a big pot and a long table. That's all anyone needs to know about me." } },
     advice = { { id = "tp_ad", text = "Eat before you fight, not after. And never trust a cook who won't taste her own stew." } },
-    trade = { { id = "tp_tr", text = "Cooking for whoever comes. Pay me in boar livers and stories.", next = "help" } },
+    trade = { { id = "tp_tr", text = "I cook for whoever comes, and they can pay me in boar livers and stories.", next = "help" } },
     defias = { { id = "tp_defias", text = "Some of them have come to my door, you know, hungry, and I fed them. I'd do it again." } },
     people_militia = { { id = "tp_militia", text = "Good boys and girls, every one, and every one of them hungry. I see to that." } },
     westfall = { { id = "tp_westfall", text = "It'll come back. Land always comes back if there's people who love it." } },

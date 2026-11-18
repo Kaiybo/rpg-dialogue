@@ -62,7 +62,7 @@ P:NPC {
     },
 
     ring = {
-      lines = { { id = "ri_default", text = "Shamans of many peoples, orc and troll and tauren, who keep da balance between da elements and da world. We don't fight for any warchief, only for da earth and sea and sky, and some in Orgrimmar think dat strange." } },
+      lines = { { id = "ri_default", text = "We be shamans of many peoples, orc and troll and tauren, who keep da balance between da elements and da world. We don't fight for any warchief, only for da earth and sea and sky, and some in Orgrimmar think dat strange." } },
       choices = {
         { text = "Balance matters more than any banner.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A shaman should serve the Horde first.", next = "BACK", fx = { align = { order = -1 } } },
@@ -83,7 +83,7 @@ P:NPC {
     },
 
     twilight = {
-      lines = { { id = "tw_default", text = "Cultists who want da elements to break free and swallow da world, which be da opposite of everything da Ring stand for. Dey find old, forgotten places full of power and dey dig in like ticks." } },
+      lines = { { id = "tw_default", text = "Dey be cultists who want da elements to break free and swallow da world, which be da opposite of everything da Ring stand for. Dey find old, forgotten places full of power and dey dig in like ticks." } },
       choices = {
         { text = "Then we burn them out.", next = "tw_stance" },
         { text = "Something else.", next = "BACK" },
@@ -143,7 +143,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Marukai. I keep watch on da strand, and da strand keep coughing up naga, and I be tired of it. Every night dey crawl up a little closer, like dey testing us." },
+          text = "I be Marukai, and I keep watch on da strand, and da strand keep coughing up naga, and I be tired of it. Every night dey crawl up a little closer, like dey testing us." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Naga at the Zoram Strand") },
           text = "Da Wrathtail, dey call demselves, and dey be all along da beach north of here. Kill as many as you can stand, and come back and tell me how it feel." },
         { id = "h_troll", when = { race = "Troll" },
@@ -162,7 +162,7 @@ P:NPC {
       },
     },
     naga = {
-      lines = { { id = "na_default", text = "Da drowned city out dere, and everything in it, and maybe da Deeps too. Dey come up out of da water like it all belong to dem, and maybe once it did, but it don't now." } },
+      lines = { { id = "na_default", text = "Dey want da drowned city out dere, and everything in it, and maybe da Deeps too. Dey come up out of da water like it all belong to dem, and maybe once it did, but it don't now." } },
       choices = {
         { text = "Then we take the strand and hold it.", next = "naga_stance" },
         { text = "Something else.", next = "BACK" },
@@ -176,7 +176,7 @@ P:NPC {
       },
     },
     outpost = {
-      lines = { { id = "ou_default", text = "Stubborn, mostly. Karang keep us in line, Je'neu keep da spirits happy, and da rest of us keep our backs to da cliff and our spears pointed at da water." } },
+      lines = { { id = "ou_default", text = "Stubborn, mostly. Karang, our commander, keep us in line, Je'neu da shaman keep da spirits happy, and da rest of us keep our backs to da cliff and our spears pointed at da water." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     mitsuwa = {
@@ -254,7 +254,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     charms = {
-      lines = { { id = "ch_default", text = "Carved bone and feather and old blood, made by our witch doctors for da spirits' favour. Dey be worth more to us than gold, and to a furbolg dey be shiny things to keep in a box." } },
+      lines = { { id = "ch_default", text = "Dey be carved bone and feather and old blood, made by our witch doctors for da spirits' favour. Dey be worth more to us than gold, and to a furbolg dey be shiny things to keep in a box." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     furbolgs = {
@@ -415,7 +415,7 @@ P:NPC {
       },
     },
     elves_stance = {
-      lines = { { id = "es_default", text = "The Warsong want to burn half the forest to smoke them out, and Mastok says that would bring every Sentinel in Kalimdor down on us. I just want my wagons to arrive." } },
+      lines = { { id = "es_default", text = "The Warsong want to burn half the forest to smoke them out, and Mastok, who counts our wagons, says that would bring every Sentinel in Kalimdor down on us. I just want my wagons to arrive." } },
       choices = {
         { text = "Burn them out. Fear keeps the wagons safe.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Mastok is right. Cut what we need, no more.", next = "BACK", fx = { align = { light = 1 } } },

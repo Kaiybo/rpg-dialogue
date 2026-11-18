@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_op_horde", when = { opinion = { topic = "horde", stance = "distrust" } }, text = "There's talk you think the tauren pay for the orcs' wars. Thrall's Grasp was mostly tauren, so I can't tell you you're wrong, and I wish I could." },
     { id = "g_hall", text = "Another pair of boots, good. I send them out, and the swamp sends back what's left of the maps, but the Horde has never been short of the brave." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and dry-ish, so report." },
-    { id = "g_portal_resolved", when = { thread = { id = "portal_watch", state = "resolved" } }, text = "Cold stones again this week, my scouts say, and I wrote it down under the names. Now tell me what the swamp's done since you left." },
+    { id = "g_portal_resolved", when = { thread = { id = "portal_watch", state = "resolved" } }, text = "My scouts say the stones near the Portal stayed cold again this week, and I've written it in the log. Now tell me what the swamp's done since you left." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and the swamp kept sending back my maps without you. Report, and then get out there again." },
     { id = "g_away_long", when = { away = 60 }, text = "I'd struck your name off the roster after {away} away. Since you're standing in my hall I'll write it back in, so don't make me regret it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown harder since we last spoke, and the swamp will find you harder to swallow. Good, because I've worse places to send you." },
@@ -162,7 +162,7 @@ P:NPC {
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. Thrall's Horde has need of healers in this swamp, and the swamp has need of healing worse than we do." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
-          text = "A priest. Stonard's healers are stretched thin between Bengor and the scouts who come back torn, so if you've a spare hour, the hall could use it." },
+          text = "A priest. Stonard's healers are stretched thin between poor Bengor, our wounded runner, and the scouts who come back torn, so if you've a spare hour, the hall could use it." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. I've one already watching the temple for the Warchief, and I'll tell you what I tell him: everything you do in my swamp goes in my log." },
         { id = "h_default", key = true,
@@ -172,7 +172,7 @@ P:NPC {
         { id = "h_disgraced", tags = { "news" }, when = { questActive = TODO_QUEST("The Disgraced One") },
           text = "You've come asking about Thrall's Grasp; I can see it in your face. That story is still fresh to me, and I'd hoped it would have the decency to fade." },
         { id = "h_orders", when = { questActive = TODO_QUEST("The Missing Orders") },
-          text = "I relayed those orders, whatever anyone out on that road is implying. Find Bengor if you want the rest of it, and mind where you stick your nose." },
+          text = "I relayed those orders, whatever anyone out on that road is implying. Find Bengor in the hall, the one runner who lived, if you want the rest of it, and mind where you stick your nose." },
         { id = "h_talker_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Swamp Talker"), days = 3 } },
           text = "So the orders turned up in a murloc's cave, where they'd been all along. I'll not pretend that's comfort, but at least nobody can say Stonard didn't send them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Stonard's walls need warriors, but my scouts need someone to pull them out of the mud when the swamp turns on them, and that may be your job today." },
@@ -366,7 +366,7 @@ P:NPC {
     },
     k_troll_who = {
       lines = {
-        { id = "xtw_default", text = "Ask Fel'zerul, he's read more of it than I'd care to. All I know is the Gurubashi threw them out for being too bloody, and when a troll empire calls you too bloody, you've earned the title." },
+        { id = "xtw_default", text = "Ask Fel'zerul, because he's read more of their history than I'd care to. All I know is the Gurubashi threw them out for being too bloody, and when a troll empire calls you too bloody, you've earned the title." },
       },
       choices = { { text = "Something else, Commander.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -628,7 +628,7 @@ P:NPC {
 
     kin = {
       lines = {
-        { id = "k_default", text = "Short and visible, and I never let one out of my sight while I sleep. More than that, every warlock learns alone, because a teacher who tells you he has it mastered is already lost." },
+        { id = "k_default", text = "On a short leash where I can see it, and I never let one out of my sight while I sleep. Beyond that, every warlock learns alone, because a teacher who tells you he has it mastered is already lost." },
       },
       choices = { { text = "I'll remember.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } } },
     },
@@ -645,7 +645,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhhunt_default", text = "The crocolisks make poor friends and worse pets, but the swamp's panthers and jaguars are another story. I've seen hunters tame things here that would make a Stonard grunt run." },
-        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "{pet} has the look of a beast that knows its master, which is more than I can say for the things in that temple. Keep it close in the swamp, though, because the panthers here would take it for a rival." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "The crocolisks make poor friends and worse pets, but the swamp's panthers and jaguars are another story. Keep {pet} close in the swamp, though, because the panthers here would take it for a rival." },
       },
       choices = {
         { text = "I'll tame what respects me, and leave the rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -671,8 +671,8 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I've watched that temple longer than I care to count, and I've learned more than I wanted. Ask me about any of these." },
     },
-    burning_blade = { { id = "tp_blade", text = "Fools! I walk the same road they did, and I stopped where the Warchief told us to, but they didn't." } },
-    background = { { id = "tp_ba", text = "A warlock in the Warchief's service, sent to watch a temple. What I was before I served him isn't worth the telling.", next = "warlock" } },
+    burning_blade = { { id = "tp_blade", text = "The Burning Blade are fools. I walked the same road they did, and I stopped where the Warchief told us to stop, but they didn't." } },
+    background = { { id = "tp_ba", text = "I'm a warlock in the Warchief's service, sent to watch a temple. What I was before I served him isn't worth the telling.", next = "warlock" } },
     advice = { { id = "tp_ad", text = "If you go into the temple, count your companions on the way down and on the way back up. The Atal'ai have a way of keeping a few." } },
     sunken_temple = { { id = "tp_sunken_temple", text = "Something stirs beneath the Pool of Tears, and the Atal'ai feed it with blood and chanting. I've felt it reach for me in my sleep, and I will not let it find me twice." } },
     thrall = {
@@ -697,12 +697,12 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_post", text = "Can't stand still in this place, because the mud's always trying to keep you, and an orc who stands still in Stonard sinks." },
+    { id = "g_post", text = "I can't stand still in this place, because the mud's always trying to keep you, and an orc who stands still in Stonard sinks." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Rough road? The roads out of here are all rough, and Neeka would laugh at your boots." },
+      text = "Rough road? The roads out of here are all rough, and Neeka Bloodscar at Kargath would laugh at your boots." },
   },
 
   start = "hello",
@@ -735,7 +735,7 @@ P:NPC {
       },
     },
     druid_talk = {
-      lines = { { id = "dt_default", text = "Perhaps, perhaps not. But you would have to learn the paths first, and the swamp changes them every season. Run with me once, and we will see who reaches Stonard first." } },
+      lines = { { id = "dt_default", text = "Perhaps, perhaps not. But you would have to learn the paths first, and the swamp changes them every season. Run with me once, and we will see who reaches Kargath first." } },
       choices = {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
@@ -773,7 +773,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! You couldn't outrun me, I'd wager, but I bet you could trip me in the dark, which isn't fair, so don't." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you really run like a wolf spirit? I've heard your lot can, and I'd like a race from here to Kargath." },
         { id = "h_druidx", when = { class = "DRUID" },
-          text = "You run on four feet sometimes, I'm told. Then you'll understand why I keep to the high paths. The swamp eats the slow." },
+          text = "You run on four feet sometimes, I'm told, so you'll understand why I keep to the high paths, because the swamp eats anything slow." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest! Bless my legs, would you, because they've carried me to Kargath and back more times than I can count, and I'm not much good at counting." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
@@ -781,7 +781,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Helgrum the Swift, and they call me that because I'm fast, not because I'm clever. Neeka Bloodscar's the clever one, head scout out at Kargath in the Badlands, and the best blood in the Horde, if you ask me." },
         { id = "h_neeka", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Neeka Bloodscar") }, { questActive = TODO_QUEST("Report to Helgrum") } } },
-          text = "Word between Stonard and Kargath keeps getting cut, so go and see Neeka yourself. She'll have a report for me; she always does." },
+          text = "Word between Stonard and Kargath keeps getting cut, so go and see Neeka Bloodscar at Kargath yourself. She'll have a report for me; she always does." },
         { id = "h_report_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Report to Helgrum"), days = 3 } },
           text = "Neeka's report says the Alliance has troubles of its own up north, and some of their enemies are ours too. Funny, the things you learn when a letter finally arrives." },
         { id = "h_fast", when = { metBefore = true }, text = "I ran to the edge of the swamp and back this morning, before breakfast, and don't ask me why, because I wasn't thinking. I'm the swift one, remember." },
@@ -880,7 +880,7 @@ P:NPC {
     sunken_temple = { { id = "tp_sunken_temple", text = "I've run past the Sunken Temple on the lake road a hundred times, and every time I hear the trolls chanting. I run faster there, I won't lie." } },
     dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal's down south past the Blasted Lands, and I've run messages to the edge of it. I don't go any closer than I have to." } },
     uldaman = { { id = "tp_uldaman", text = "Neeka tells me there's something old under the Badlands at Uldaman, and she wants to see it. I'd rather run, honestly." } },
-    _none = { { id = "tp_none", text = "Don't know, but ask Neeka when she's back, because she knows things." } },
+    _none = { { id = "tp_none", text = "Don't know, but ask Neeka if you're ever in Kargath, because she knows things." } },
   },
 }
 
@@ -969,7 +969,7 @@ P:NPC {
         { id = "h_orders", when = { questActive = TODO_QUEST("The Missing Orders") },
           text = "The orders, you want the orders, and the Commander sent you to me because I'm all that's left of the soldiers who carried them. Sit close, so I don't have to shout." },
         { id = "h_talker", tags = { "news" }, when = { questActive = TODO_QUEST("The Swamp Talker") },
-          text = "The Swamp Talker, that one took the orders from my hand while a spear went into my head. East, in a cave, if your stomach is stronger than mine was." },
+          text = "The Swamp Talker, a murloc, took the orders from my hand while a spear went into my head. His cave is east, if your stomach is stronger than mine was." },
         { id = "h_tired", when = { metBefore = true },
           text = "You came back to sit with a broken old grunt, and few do that. The healers come with their tube and their kind words, and I would rather have your company." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I could use your eyes, for mine are bad now, and I'd like to know whether the murlocs are still nesting in the reeds by the water." },
@@ -1043,7 +1043,7 @@ P:NPC {
     },
     orders_back = {
       lines = {
-        { id = "ob_default", text = "Then they reached him at last, the one who waited for them, though too late to save his soldiers. I can rest a little easier knowing the words didn't stay in the mud." },
+        { id = "ob_default", text = "Then the orders reached the captain of Thrall's Grasp at last, though too late to save his soldiers. I can rest a little easier knowing the words didn't stay in the mud." },
       },
       choices = { { text = "Rest, Bengor.", next = "BACK", fx = { affinity = 3 } } },
     },
@@ -1061,7 +1061,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A soldier who carried orders south and didn't finish the road. The murlocs kept my boots, if you were wondering.", next = "ambush" } },
+    background = { { id = "tp_ba", text = "I'm a soldier who carried orders south and didn't finish the road. The murlocs kept my boots, if you were wondering.", next = "ambush" } },
     advice = { { id = "tp_ad", text = "Never walk beside the water in this swamp. The murlocs wait where you can't see them, under the surface, and they don't make a sound until they're on you." } },
     thrall = { { id = "tp_thrall", text = "I carried the Warchief's orders, and I carried them as far as my legs would go. It wasn't far enough." } },
     second_war = { { id = "tp_second_war", text = "I fought in the Second War and lived through it, and I thought that meant I was hard to kill. The murlocs taught me otherwise." } },
@@ -1082,7 +1082,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_peace", when = { gossip = { topic = "peace", stance = "war" } }, text = "Ruag says you'd march on Theramore tomorrow if the Warchief gave the word. Half my customers would follow you there, and the other half would drink to your funeral." },
+    { id = "g_op_peace", when = { gossip = { topic = "peace", stance = "war" } }, text = "Commander Ruag says you'd march on Theramore tomorrow if the Warchief gave the word. Half my customers would follow you there, and the other half would drink to your funeral." },
     { id = "g_inn", text = "Boots off by the door, because the mud stays outside, even if you don't have to. That goes for every orc, troll and grunt in Stonard." },
     { id = "g_home", when = { homeInn = { "Stonard" } }, text = "Back in Stonard, then. Your bed's dry, and that's the best thing anyone can say in this swamp." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away} away, then. Boots off by the door, and your bed's still dry, which I can't say for anything else here." },
@@ -1124,7 +1124,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Greshka eats alone with her book, and Fel'zerul hardly eats at all, so if you sit with the scouts, you'll be the first of your sort they've talked to in months. Be friendly, because they've questions about the temple, and they're scared to ask either of those two." } },
+      lines = { { id = "xhcast_default", text = "Greshka the grimoire seller eats alone with her book, and Fel'zerul hardly eats at all, so if you sit with the scouts, you'll be the first of your sort they've talked to in months. Be friendly, because they've questions about the temple, and they're scared to ask either of those two." } },
       choices = {
         { text = "I'll sit with the scouts. Stonard eats together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll take my bowl to a quiet corner.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1133,7 +1133,7 @@ P:NPC {
     },
     xhrogue = {
       big = true,
-      lines = { { id = "xhrogue_default", text = "That the maps are worse than the Commander thinks, and that some of them skip the stretch past the Pool of Tears and draw it from memory. I don't tell Ruag, because a cook who carries tales doesn't get told anything." } },
+      lines = { { id = "xhrogue_default", text = "That the maps are worse than the Commander thinks, and that some of them skip the stretch past the Pool of Tears and draw it from memory. I don't tell Commander Ruag, because a cook who carries tales doesn't get told anything." } },
       choices = {
         { text = "Ruag should know. Bad maps get scouts killed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Keep their secret. A scout needs somewhere to talk.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1151,7 +1151,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Nothing yet, and I'd like to keep it that way. One of Greshka's customers brought an imp through here last season, and it ate half a sack of onions out of spite, and I'm still getting looks from the scouts." } },
+      lines = { { id = "xlock_default", text = "Nothing yet, and I'd like to keep it that way. One of the warlocks who buys Greshka's grimoires brought an imp through here last season, and it ate half a sack of onions out of spite, and I'm still getting looks from the scouts." } },
       choices = {
         { text = "Mine behaves. I'll answer for it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Imps are imps. Count your onions.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1171,7 +1171,7 @@ P:NPC {
           text = "Boots off, and I can see you've got a knife in the left one, so leave that by the door too." },
         { id = "h_default", key = true,
           text = "Innkeeper Karakul. Scouts come back muddy and hungry, and I send them out fed, which isn't glory and won't get sung around any war fire, but it keeps the Horde walking." },
-        { id = "h_mud", when = { metBefore = true }, text = "The scouts track half the swamp in on their boots, so I've started charging them a bucket of water each, and they pay in mud." },
+        { id = "h_mud", when = { metBefore = true }, text = "The scouts track half the swamp in on their boots, so I make them wash at the door, and the wash water comes out thicker than my stew." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Boots off at the door, dead or not. I've fed the Forsaken before and I've never fed a paladin, so you'll eat what the scouts eat and like it." },
       },
       again = { { id = "h_again", text = "Something else? The stew won't keep forever, and neither will I, though I'm too stubborn an orc to go quietly." } },
@@ -1223,7 +1223,7 @@ P:NPC {
     },
     regulars = {
       lines = {
-        { id = "rg_default", text = "Dar sits by the door every night and complains about the damp, Breyk comes in smelling of wet wind rider, and Greshka eats alone in the corner with a book. Bengor I carry a bowl to, since he can't come to me." },
+        { id = "rg_default", text = "Dar sits by the door every night and complains about the damp, Breyk, our wind rider master, comes in smelling of wet wind rider, and Greshka eats alone in the corner with a book. Bengor I carry a bowl to, since he can't come to me." },
       },
       choices = {
         { text = "Greshka eats alone?", next = "regulars_greshka" },

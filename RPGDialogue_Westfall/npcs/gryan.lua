@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_op_militia_admire", when = { opinion = { topic = "peoples_militia", stance = "admire" } }, text = "Word comes up the road that you've been speaking well of the Militia, even as far as Lakeshire. The farmers stand straighter for it, and so do I." },
     { id = "g_op_tithe", when = { gossip = { topic = "westfall_tithe", stance = "militia" } }, text = "Saldean sent a cart of turnips up the hill this week instead of the city tithe, and he says it was your idea. I'll not refuse turnips, but you'll answer to the tax clerks." },
     { id = "g_op_bolvar_trust", when = { opinion = { topic = "bolvar", stance = "trusted" } }, text = "Here's the one who still trusts the Regent. I hope you're right, and I'd ask you to write and tell him so, because he'll not hear it from me." },
-    { id = "g_hill", text = "Sentinel Hill, such as it is. Find a spot out of the wind." },
+    { id = "g_hill", text = "Welcome to Sentinel Hill, such as it is. Find a spot out of the wind." },
     { id = "g_sent", when = { questActive = TODO_QUEST("Report to Gryan Stoutmantle") }, text = "Another one from Elwynn, and glad I am of it. Come up out of the wind; I'll not keep you standing." },
     { id = "g_militia", when = { questDone = TODO_QUEST("The People's Militia") }, text = "There's one of my own militia. Report, then, and tell me how the roads look." },
     { id = "g_hero", when = { townStanding = { town = "sentinel_hill", min = 55 } }, text = "The hill has started saying your name alongside mine. Mind you live up to it; I'm still trying to live up to my own." },
@@ -123,13 +123,13 @@ P:NPC {
         { id = "h_militia_before", when = { questBefore = TODO_QUEST("The People's Militia") },
           text = "My scouts have marked Defias camps from the coast to Moonbrook, and all I have to answer them with is farmers with pitchforks, and not enough of those. You, though, would do nicely." },
         { id = "h_militia_active", tags = { "news" }, when = { questActive = TODO_QUEST("The People's Militia") },
-          text = "Bring them down and the farmers sleep a night without one eye open. That's the whole of the war, out here." },
+          text = "Bring down those Defias and the farmers sleep a night without one eye open. That's the whole of the war, out here." },
         { id = "h_militia_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The People's Militia"), days = 3 } },
           text = "That camp's gone quiet, and a man walked all the way up the hill this morning just to tell me so. That's what you bought: one farmer who wasn't afraid, for one morning." },
         { id = "h_deadmines", tags = { "news" }, when = { deed = "dungeon:The Deadmines" },
           text = "You went under Moonbrook and walked out again. Edwin VanCleef has had his own way down there too long. Now he knows we can reach him." },
         { id = "h_paladin", when = { class = "PALADIN", minLevel = 12 },
-          text = "It wasn't the Light that sent me home; it was Westfall. The Light simply came along with me and made itself useful." },
+          text = "A paladin. It wasn't the Light that sent me home from the north, it was Westfall, but the Light came along with me and made itself useful." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest on my hill, is it? The militia will want a blessing before every patrol, so give them the first few, and after that they'll be content just to stand near you." },
         { id = "h_wiley", when = { heardLine = "wiley.h_defias" },
@@ -226,7 +226,7 @@ P:NPC {
     },
     lordaeron = {
       big = true,
-      lines = { { id = "lo_default", text = "That's enough of that. I was at Stratholme, and that's all I'll say of it, which is more than I tell most." } },
+      lines = { { id = "lo_default", text = "I was at Stratholme, and that's all I'll say of it, which is more than I tell most." } },
       choices = {
         { text = "Then I won't ask again.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "If you ever want to set it down, I'm a priest.", next = "BACK", when = { class = "PRIEST" },
@@ -290,7 +290,7 @@ P:NPC {
       },
     },
     rogue = {
-      lines = { { id = "rg_default", text = "One of your trade already owes me his life. I'd sooner not be owed by two. Go where my farmers can't, then, and bring me back the truth." } },
+      lines = { { id = "rg_default", text = "One of your trade, Wiley, already owes me his life, and I'd sooner not be owed by two. Go where my farmers can't, then, and bring me back the truth." } },
       choices = {
         { text = "The truth, and nothing I pocket on the way.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Mostly the truth.", next = "BACK", fx = { affinity = -1, align = { honor = -1 }, trait = { witty = 1 } } },
@@ -371,7 +371,7 @@ P:NPC {
     },
     oath = {
       big = true,
-      lines = { { id = "oa_default", text = "To the people of these farms, and to the Light. The Light because it's what I was taught. The people because they're who we're fighting for." } },
+      lines = { { id = "oa_default", text = "To the people of these farms, and to the Light: the Light because it's what I was taught, and the people because they're who we're fighting for." } },
       choices = {
         { text = "Then I'll swear it.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 }, standing = { sentinel_hill = 2 } } },
         { text = "I'll fight. I won't swear.", next = "BACK", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
@@ -451,7 +451,7 @@ P:NPC {
       },
     },
     solomon_answer = {
-      lines = { { id = "sa_default", text = "That my heart's heavy for every good man he loses. That I lose mine the same way, for the same reason. Nobody's coming, for either of us." } },
+      lines = { { id = "sa_default", text = "I'll tell him my heart's heavy for every good man he loses, and that I lose mine the same way, for the same reason. Nobody's coming, for either of us." } },
       choices = {
         { text = "He'll understand.", next = "BACK", fx = { affinity = 1 } },
         { text = "Then the two of you should stand together.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
@@ -513,7 +513,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     warrior_march = {
-      lines = { { id = "warrior_march_l", text = "With what? Danuvin's drilled farmers and Galiaan's map? The Defias have the mines, the ships and the Deadmines, and we have a hill. We bleed them slowly, or they bleed us quickly." } },
+      lines = { { id = "warrior_march_l", text = "With what? Danuvin's drilled farmers and Galiaan's map? The Defias have the mines, the ships and the gnolls, and we have a hill. We bleed them slowly, or they bleed us quickly." } },
       choices = {
         { text = "Slowly, then. Patience wins.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Slowly lets them grow. Strike now.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
@@ -858,7 +858,7 @@ P:NPC {
     },
     background = {
       { id = "tp_bg", text = "I was born here, trained in Lordaeron and came home again. The middle part I don't discuss.", next = "back" },
-      { id = "tp_bg2", text = "A farm boy from these parts who went north to learn the Light and came back to find his home stolen. That's all of it that matters." },
+      { id = "tp_bg2", text = "I'm a farm boy from these parts who went north to learn the Light and came back to find his home stolen. That's all of it that matters." },
     },
     advice = { { id = "tp_ad", text = "Travel the road by day and never alone past the Molsen farm. And if a scarecrow turns its head, don't wait to see what it does next." } },
     defias = {
@@ -867,13 +867,13 @@ P:NPC {
     },
     westfall = { { id = "tp_westfall", text = "It's good land, only tired. It'll grow again if we let it." } },
     people_militia = {
-      { id = "tp_militia", text = "Farmers, mostly, and a few old soldiers, all of them braver than they've any reason to be." },
+      { id = "tp_militia", text = "They're farmers, mostly, and a few old soldiers, all of them braver than they've any reason to be." },
       { id = "tp_militia2", text = "It's ours, built from nothing. Ask what you want to know about it.", next = "militia" },
     },
-    harvest_watchers = { { id = "tp_watchers", text = "Scarecrows that walk. Ask Saldean about them; he'll talk till sundown." } },
+    harvest_watchers = { { id = "tp_watchers", text = "They're scarecrows that walk. Ask Farmer Saldean about them; he'll talk till sundown." } },
     moonbrook = { { id = "tp_moonbrook", text = "It's their town now. Don't go in alone, and never go in at night." } },
     riverpaw = { { id = "tp_gnolls", text = "The gnolls run with the thieves, and Captain Danuvin's dealing with them." } },
-    blackrock = { { id = "tp_blackrock", text = "That's Solomon's war, not mine. I'd help him if I could, but I can't spare a single pitchfork." } },
+    blackrock = { { id = "tp_blackrock", text = "That's Magistrate Solomon's war, over in Redridge, not mine. I'd help him if I could, but I can't spare a single pitchfork." } },
     _none = { { id = "tp_none", text = "I've a war to run with a hill and some farmers. That's not part of it." } },
   },
 }

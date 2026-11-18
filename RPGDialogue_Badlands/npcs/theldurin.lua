@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Who's that? Oh, it's you, it's only you, and ye're not wearing their robes, so come closer, {g:lad|lass}, and keep your voice down." },
     { id = "g_back", when = { metBefore = true }, text = "Ye came back, and nobody followed ye, did they? Good, because the wind out here has ears, I'm sure of it, and a lizard has been watching me for three days running." },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted every night of it, because the ground hums louder when nobody listens with me." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted every night of it, for the ground hums louder when I'm alone out here." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've grown stronger since you last stood here, I can see it in how you hold yourself. Good, because you'll need it for what sleeps below." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone says you told them a lie, and I know all about lies, for I wore a robe full of them once. Don't let it become a habit." },
   },
@@ -37,11 +37,11 @@ P:NPC {
         { id = "h_doom_before", when = { questBefore = TODO_QUEST("Solution to Doom") },
           text = "There's a doom approaching, mark me, a doom, and I can't speak the names or they'll hear me. But there's a tablet in Uldaman that might teach us how to stop them, if someone braver than me fetched it." },
         { id = "h_doom_active", tags = { "news" }, when = { questActive = TODO_QUEST("Solution to Doom") },
-          text = "The tablet of Ryun'eh, deep in Uldaman, in a chest older than any dwarf's work, and don't make me say that name again! Bring it here and we may yet be saved." },
+          text = "The tablet of Ryun'eh lies deep in Uldaman, in a chest older than any dwarf's work. Bring it here and we may yet be saved." },
         { id = "h_fragments", tags = { "news" }, when = { questActive = TODO_QUEST("The Lost Fragments") },
-          text = "The elementals tore the scroll to pieces and they fight over the scraps like dogs over a bone. Bring me all three, the torn one, the crumpled one and the singed one, and I'll mend it with my scrap-ratchet." },
+          text = "The rock elementals tore the Scroll of Myzrael to pieces, and they fight over the scraps like dogs over a bone. Bring me all three, the torn one, the crumpled one and the singed one, and I'll mend it with my scrap-ratchet." },
         { id = "h_princess", tags = { "news" }, when = { questActive = TODO_QUEST("Summoning the Princess") },
-          text = "Go to the shards where you first heard her voice and call her up, then beat her and bind her shackles to the stone. Don't listen to anything she says while you do it." },
+          text = "Take the mended scroll to the shards in the Arathi Highlands and call Myzrael up, then beat her and bind her shackles to the stone. Don't listen to anything she says while you do it." },
         { id = "h_princess_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Summoning the Princess"), days = 3 } },
           text = "She's bound again, and I heard her scream all the way out here, or I dreamed it, which is much the same thing to me now. Thank you, friend, thank you." },
         { id = "h_dwarf", when = { race = "Dwarf" },
@@ -77,7 +77,7 @@ P:NPC {
     },
     lost_why = {
       lines = {
-        { id = "lw_default", text = "They wanted to call up a thing in the Arathi hills, a lady of the earth they'd chained in her own prison, and I saw what she'd do if she woke. So I stole the scroll that could call her and ran, and I haven't stopped running since." },
+        { id = "lw_default", text = "They wanted to call up a thing in the Arathi hills, a princess of the earth chained in a prison of stone, and I saw what she'd do if she woke. So I stole the scroll that could call her and ran, and I haven't stopped running since." },
       },
       choices = {
         { text = "That took courage, whatever came before.", next = "lost_judge", fx = { align = { light = 1 }, affinity = 1 } },
@@ -104,9 +104,9 @@ P:NPC {
     },
     doom_tablet = {
       lines = {
-        { id = "dt_default", text = "Knowledge, friend, that's the only weapon that works on things you can't reach with an axe. The tablet of Ryun'eh and Yagyin's Digest between them might tell us what the makers knew, and the makers knew a great deal about what they buried." },
+        { id = "dt_default", text = "Knowledge, friend, that's the only weapon that works on things you can't reach with an axe. The tablet of Ryun'eh and Yagyin's Digest between them might tell us what the titans knew, and the titans who built Uldaman knew a great deal about what they buried." },
         { id = "dt_done", when = { questDone = TODO_QUEST("Solution to Doom") },
-          text = "You brought me the tablet, and it's worse than I feared, for the makers knew exactly what lies below and they were frightened too. Now we need Yagyin's Digest to make sense of it, and the scholars in the cities have that." },
+          text = "You brought me the tablet, and it's worse than I feared, for the titans knew exactly what lies below and they were frightened too. Now we need Yagyin's Digest to make sense of it, and the scholars in the cities have that." },
       },
       choices = {
         { text = "Where would I find Yagyin's Digest?", next = "doom_digest" },
@@ -131,7 +131,7 @@ P:NPC {
 
     scroll = {
       lines = {
-        { id = "sc_default", text = "The Scroll of Myzrael, the one thing the cult wanted most, and I stole it out from under them. Its magic can pull her up to the surface, and if that happens we're all in trouble, though maybe she's already free and only gathering her strength." },
+        { id = "sc_default", text = "The Scroll of Myzrael, the one thing the cult wanted most, and I stole it out from under them. Its magic can call Myzrael, a princess of the earth, up out of her prison, and if that happens we're all in trouble." },
       },
       choices = {
         { text = "Where is the scroll now?", next = "scroll_torn" },
@@ -158,7 +158,7 @@ P:NPC {
     },
     scroll_burn = {
       lines = {
-        { id = "sb_default", text = "And lose the only thing that can bind her again if she rises? There are some in the cult who think they can control her, but if she could be controlled, why did the giants chain her in the first place? Crazy logic, eh, and I'm the mad one." },
+        { id = "sb_default", text = "And lose the only thing that can bind her again if she rises? There are some in the cult who think they can control her, but if she could be controlled, why was she chained in the first place? Mad logic, that, and they call me the mad one." },
       },
       choices = {
         { text = "Keep it, then. A weapon's better than nothing.", next = "BACK", fx = { align = { order = 1 } } },

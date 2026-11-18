@@ -58,7 +58,7 @@ P:NPC {
       choices = { { text = "Something else, Captain.", next = "BACK" } },
     },
     op_prisoners_4 = {
-      lines = { { id = "op_prisoners_r4", text = "I'll blame the nobles all day, friend, and twice on market day. But it's my barn the boy burned, not theirs, so forgive me if I want him somewhere I can see him." } },
+      lines = { { id = "op_prisoners_r4", text = "I'll blame the nobles all day, friend, and twice on market day. But if a boy like that burns a barn, it's my barn and not theirs, so forgive me if I want him somewhere I can see him." } },
       choices = { { text = "Something else, Captain.", next = "BACK" } },
     },
     xdsham = {
@@ -114,7 +114,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "We've no gaol out here, so we take their blades and their boots and send them off down the coast road. Half of them come back in new boots, which tells you somebody's supplying them, and I'd dearly like to know who." } },
+      lines = { { id = "xapala_default", text = "We've no gaol out here, so the ones Gryan doesn't want for questioning lose their blades and boots and get sent off down the coast road. Half of them come back in new boots, which tells you somebody's supplying them, and I'd dearly like to know who." } },
       choices = {
         { text = "Send them to Stormwind for trial. The law has to mean something.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Turning them loose is foolish. Better to end it here.", next = "BACK", fx = { align = { order = -1 } } },
@@ -134,7 +134,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Patrolling Westfall"), days = 3 } },
           text = "The south road was quiet last night for the first time this month, and that was your doing." },
         { id = "h_city", key = true,
-          text = "Stormwind left us to the thieves. Folk out here have long memories and short patience. They won't forget it.",
+          text = "Stormwind left us to the thieves, and folk out here have long memories and short patience, so they won't forget it.",
           fx = { hear = "stormwind_abandoned_westfall" } },
         { id = "h_soldier", when = { class = { "WARRIOR", "PALADIN" } },
           text = "You've had real training, I can see, and good. Half my lot learned to fight last spring, from me, with hoes." },
