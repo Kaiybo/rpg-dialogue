@@ -284,7 +284,7 @@ P:NPC {
       choices = {
         { text = "What does the slate say?", next = "slate" },
         { text = "Tell me about your three.", next = "three" },
-        { text = "I hear you saluted a little girl.", next = "sara" },
+        { text = "They say you saluted a little girl.", next = "sara" },
         { text = "Good luck to the Blues, Captain.", next = "END" },
       },
     },
@@ -880,7 +880,7 @@ P:NPC {
       },
     },
     road = {
-      lines = { { id = "r_default", text = "Wet, narrow, and watched by everything with teeth from here to the Barrens. Keep to the planks where there are planks, and when you pass the burned inn don't stop to look, because others stop there too." } },
+      lines = { { id = "r_default", text = "Wet, narrow, and watched by everything with teeth from here to the Barrens. Keep to the planks where there are planks, and when you pass the burned inn don't stop to stare, because others stop there too." } },
       choices = {
         { text = "Who else stops at the inn?", next = "inn" },
         { text = "Something else.", next = "BACK" },

@@ -21,3 +21,5 @@ npcs\feathermoon_folk.lua
 npcs\mojache_folk.lua
 npcs\east_feralas.lua
 npcs\more_folk.lua
+npcs\missed.lua
+npcs\missed2.lua

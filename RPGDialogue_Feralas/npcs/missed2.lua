@@ -467,7 +467,7 @@ P:NPC {
   },
   notice = {
     { id = "n_fighter", cat = "class", when = { class = { "WARRIOR", "ROGUE" } },
-      text = "Now you, you've got a pit fighter's shoulders, and I say that as a professional. Stand in the sand a minute and let the crowd have a look, by which I mean me." },
+      text = "Now you, you've got a pit fighter's shoulders, and I say that as a professional. Stand in the sand a minute and let the crowd get a look at you, by which I mean me." },
     { id = "n_green", cat = "level", when = { maxLevel = 44 },
       text = "Whoa, whoa, kid, no offense, but the things in that pit would use you for a toothpick. Stay up here by me, where the liability's lower." },
   },
