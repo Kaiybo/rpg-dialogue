@@ -299,8 +299,6 @@ local function build()
 
   -- Reading: how the text arrives.
   header(L.OPT_HEADER_ACCESS)
-  checkbox(L.OPT_INSTANT, "instantText")
-  slider(L.OPT_SPEED, "textSpeed", 20, 200, 10)
   checkbox(L.OPT_AUTO, "autoAdvance")
   slider(L.OPT_AUTO_DELAY, "autoDelay", 1, 10, 1, seconds, { dependsOn = "autoAdvance" })
   checkbox(L.OPT_REDUCE_MOTION, "reduceMotion")

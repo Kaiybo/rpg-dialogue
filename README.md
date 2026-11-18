@@ -89,7 +89,7 @@ Content packs load by zone, so only the dialogue for where you are is in memory.
 
 **Text size and fonts**: the **Aa** button in the conversation box's title bar changes text size, line spacing, the font for what people say and the font for names while you read; Settings > Look and text has the same, plus the window style (the game's own, or parchment and dark wood). Fonts: the game's own, three bundled ones under the SIL Open Font License (Atkinson Hyperlegible, the most readable; Crimson Pro; Cinzel), and any your other addons share through SharedMedia.
 
-Settings > Readability and accessibility: text speed, instant text, auto-advance with a delay, window scale, a high-contrast theme, gamepad controls, sounds on/off, and one **reduce motion** switch that turns off the typewriter and every screen effect. Nothing relies on color alone: selections are marked with ">", locked replies say "(Locked)", standing and alignment are shown in words.
+Settings > Readability and accessibility: auto-advance with a delay, window scale, a high-contrast theme, gamepad controls, sounds on/off, and one **reduce motion** switch that turns off every screen effect. Text always appears in full at once. Nothing relies on color alone: selections are marked with ">", locked replies say "(Locked)", standing and alignment are shown in words.
 
 ## Other addons
 
