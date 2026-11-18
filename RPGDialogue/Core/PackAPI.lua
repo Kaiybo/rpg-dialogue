@@ -13,6 +13,7 @@ local Data = {
   generic = {},   -- list
   threads = {}, claims = {}, topics = {}, towns = {}, origins = {}, rumors = {}, books = {}, errands = {}, letters = {},
   views = {},     -- topic id -> list of things the player can say back (0.82.0)
+  directions = {}, -- town id -> list of "Where is...?" entries (several packs may add to one town)
   arrivals = {},  -- zone name -> list of diary entries for a first arrival (first match wins)
   lines = {},     -- global line id -> { line = , owner = , slot = }
 }
@@ -211,6 +212,27 @@ function kinds.Views(pack, def)
     v._topic = topic
     if v.id then indexList(v.replies, "view:" .. topic .. "." .. v.id, "view:" .. topic, "view") end
     list[#list + 1] = v
+  end
+end
+-- Directions: "Where is...?" for one town. { town = "<town id>", mapID = ?, entries = { { id,
+-- name, kind, class?, profession?, text, x?, y? } } }. Several packs may add to one town; a
+-- later entry with the same id replaces the earlier one.
+function kinds.Directions(pack, def)
+  if type(def.town) ~= "string" or type(def.entries) ~= "table" then return warn(pack, "Directions needs a town and entries") end
+  def._pack = pack.id
+  local list = Data.directions[def.town] or {}
+  Data.directions[def.town] = list
+  for _, e in ipairs(def.entries) do
+    if type(e) == "table" and e.id and e.name then
+      e._town, e._mapID = def.town, e.mapID or def.mapID
+      local replaced = false
+      for i, old in ipairs(list) do
+        if old.id == e.id then list[i] = e; replaced = true; break end
+      end
+      if not replaced then list[#list + 1] = e end
+    else
+      warn(pack, "directions for " .. def.town .. ": an entry needs id and name")
+    end
   end
 end
 -- Arrivals: what the character writes in the diary the first time they reach a zone.

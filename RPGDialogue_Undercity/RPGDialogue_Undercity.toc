@@ -30,3 +30,4 @@ npcs\uc_apothecarium_more.lua
 npcs\uc_trade_more.lua
 npcs\uc_royal_more.lua
 npcs\more_folk.lua
+directions.lua

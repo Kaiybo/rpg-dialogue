@@ -121,7 +121,7 @@ local function create()
       GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
       GameTooltip:SetText(def and def.name or self.topic)
       if def and def.standard then
-        GameTooltip:AddLine(self.topic == "knows" and L.ASK_KNOWS_TIP or L.ASK_ANYONE_TIP, 1, 1, 1, true)
+        GameTooltip:AddLine((self.topic == "knows" and L.ASK_KNOWS_TIP) or (self.topic == "whereis" and L.ASK_WHERE_TIP) or L.ASK_ANYONE_TIP, 1, 1, 1, true)
       else
         local from = ns.Topics.Source(self.topic)
         if from then GameTooltip:AddLine(L.ASK_HEARD_FROM:format(from), 1, 1, 1, true) end
