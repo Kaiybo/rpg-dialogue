@@ -258,6 +258,8 @@ P:NPC {
         { text = "How did you get your scar?", next = "scar" },
         { text = "Why does a warrior care about plants?", next = "plants" },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "Druids of my circle would want this healed too.", next = "druid", when = { class = "DRUID" } },
+        { text = "An orc guarding flowers. Thrall's Horde is strange.", next = "orc", when = { race = "Orc" } },
         { text = "Farewell, Vark.", next = "END" },
       },
     },
@@ -374,6 +376,24 @@ P:NPC {
       choices = {
         { text = "Healing is braver than killing.", next = "BACK", reply = "I have come to believe so, after twenty years, and I am glad to hear it from someone younger.", fx = { align = { honor = 1 } } },
         { text = "A warrior's duty is to fight. Leave growing to druids.", next = "BACK", reply = "Perhaps, but I have done my fighting, and the Earth Mother will not mind if I spend my last years growing.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid = {
+      lines = {
+        { id = "druid_d", text = "Then you understand it better than I do, and I'll not pretend otherwise. I only know that the tauren here grieve for that place, and that a warrior who ignores what his allies grieve for is no ally." },
+      },
+      choices = {
+        { text = "That's reason enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orc = {
+      lines = {
+        { id = "orc_d", text = "Ha! It is, and I've been laughed at for it by better orcs than you. But we drank the demons' blood once and called it strength, so I'll take a vial of plant-water over that any day of my life." },
+      },
+      choices = {
+        { text = "So would I.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

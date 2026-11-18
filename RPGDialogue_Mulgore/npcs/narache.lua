@@ -375,6 +375,8 @@ P:NPC {
         { text = "Your father doesn't seem to trust warlocks, Grull.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you hunt beside a Forsaken paladin, Grull?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Your father talks about Sharptusk a great deal, Grull.", next = "dd_sharptusk", when = { questDone = TODO_QUEST("Break Sharptusk!") } },
+        { text = "Tell me how a Narache hunt is run.", next = "hunts" },
+        { text = "You've your father's look about you.", next = "look", when = { race = "Tauren" } },
         { text = "Good hunting, Grull.", next = "END" },
       },
       again = {
@@ -421,6 +423,44 @@ P:NPC {
       },
       choices = {
         { text = "Agreed. Start practising your thanks, Grull.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunts = {
+      lines = {
+        { id = "hunts_d", text = "We go out before An'she is over the rim, with the wind in our faces so the plainstriders cannot smell us. I take the point, Brave Windfeather takes the left, and whoever is newest carries the water and keeps quiet." },
+      },
+      choices = {
+        { text = "And when you find the herd?", next = "hunts_herd" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunts_herd = {
+      lines = {
+        { id = "hunts_herd_d", text = "Then we wait, which is the part I am worst at. My father says a hunt is nine parts waiting and one part running, and that I have the proportions backwards." },
+      },
+      choices = {
+        { text = "What happens after the kill?", next = "hunts_feast" },
+        { text = "Your father is right about the waiting.", next = "BACK", fx = { trait = { patient = 1 } } },
+      },
+    },
+    hunts_feast = {
+      big = true,
+      lines = {
+        { id = "hunts_feast_d", text = "We thank the beast, and then nothing is wasted. Nawka Wildsong takes the hides, Moodan Sungrain takes the fat for his ovens, and the whole camp eats together, with the one who made the kill eating last." },
+      },
+      choices = {
+        { text = "Last? The hunter earned the first cut.", next = "BACK", reply = "That is what I said when I was a calf, and my grandmother cuffed my ear for it. The hunter eats last so that he remembers who he hunts for.", fx = { align = { honor = -1 } } },
+        { text = "That's right. The hunt is for the camp.", next = "BACK", reply = "You understand it better than I did at your age. You will hunt with us whenever you like.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    look = {
+      lines = {
+        { id = "look_d", text = "So the elders keep telling me, usually just before they tell me I have none of his patience. I would rather have my grandmother's look, if I am honest, because she was the one the Bristleback feared." },
+      },
+      choices = {
+        { text = "Then earn her look on the hunt.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

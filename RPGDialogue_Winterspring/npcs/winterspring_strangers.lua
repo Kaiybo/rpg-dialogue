@@ -11,7 +11,7 @@ P:NPC {
   key = "umbranse", id = TODO_NPC("Umbranse the Spiritspeaker"), name = "Umbranse the Spiritspeaker",
   bible = "bibles/winterspring_strangers.md", role = "scholar", tier = "quest",
   communities = { "winterspring_wilds" }, temper = { "smooth", "quiet" }, values = { "curious", "ambitious" },
-  notices = { "ghost", "undead" },
+  notices = { "ghost", "undead" , "class" },
 
   impression = {
     first = "Umbranse the Spiritspeaker lives alone in a small house in the hills northeast of Everlook and says he can speak with the dead. He is polite, soft-voiced and very interested in what I have seen.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "You've crossed over more than once, haven't you? I can see it on you, the way frost stays on a window after the cold has gone. Do sit down and tell me what you saw there." },
     { id = "n_undead", cat = "undead", when = { race = "Scourge" },
       text = "Oh, how remarkable. A spirit that came back to its own body instead of drifting. You must forgive me for staring." },
+    { id = "n_b1", cat = "class", when = { class = "MAGE" },
+      text = "Ah, a colleague, of a sort! You'll have felt it already, I expect, how thick the old magic lies under the snow here." },
   },
 
   start = "hello",
@@ -43,6 +45,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else would you like to know? I've tea, if you're cold." },
         { id = "h_again2", text = "Go on. The spirits are quiet tonight, so I'm all yours." },
+        { id = "h_again_b1", text = "Was there something more? Do ask; the kettle hasn't boiled yet." },
       },
       choices = {
         { text = "How do you speak to the dead?", next = "speak" },
@@ -50,6 +53,10 @@ P:NPC {
         { text = "What book did you give Gregor Greystone?", next = "book" },
         { text = "Why live out here alone?", next = "alone" },
         { text = "I've walked as a spirit myself.", next = "crossed", when = { deaths = { min = 20 } } },
+        { text = "Your door charms are all hung upside down.", next = "charms" },
+        { text = "The Light teaches that the dead should rest.", next = "rest", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "What did the Highborne know that we've forgotten?", next = "forgotten", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "Do the kaldorei spirits here speak with you?", next = "kaldorei", when = { race = "NightElf" } },
         { text = "I should be going.", next = "END" },
       },
     },
@@ -110,12 +117,76 @@ P:NPC {
         { text = "I'd rather not talk about it.", next = "BACK", fx = { trait = { discreet = 1 } } },
       },
     },
+    charms = {
+      lines = {
+        { id = "b_charms_default", text = "How observant of you! Hung the usual way they keep spirits out, and hung this way they tell the spirits that this is a house where nobody will shout at them. You'd be surprised how many come for that alone." },
+      },
+      choices = {
+        { text = "Don't unfriendly things come in as well?", next = "charms_unfriendly" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    charms_unfriendly = {
+      lines = {
+        { id = "b_charms_unfriendly_default", text = "Now and then, yes. I offer those the same tea and the same patience as the others, and I keep a rather stronger ward folded in my sleeve in case patience fails." },
+      },
+      choices = {
+        { text = "Has it ever failed?", next = "charms_failed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    charms_failed = {
+      lines = {
+        { id = "b_charms_failed_default", text = "Once, with a Highborne magister who had spent ten thousand years rehearsing a grievance. We parted on poor terms, and I had to buy a new table from the goblins, who charged me for delivery." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rest = {
+      lines = {
+        { id = "b_rest_default", text = "So it does, and I respect the teaching, truly. But a spirit that lingers has something unsaid, and I've found that they rest a good deal easier once someone has let them say it." },
+      },
+      choices = {
+        { text = "Then you're doing a priest's work, in your way.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Or you keep them here to pick their memories.", next = "BACK", reply = "That's a hard thing to say to a man over his own tea, and I can't swear there's nothing in it. I do try to be of use to them first." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forgotten = {
+      lines = {
+        { id = "b_forgotten_default", text = "How to draw on a well of power without believing that it loved them back. They knew the technique perfectly, and it was only the humility that escaped them, and so the technique drowned them." },
+      },
+      choices = {
+        { text = "That sounds like a warning.", next = "forgotten_warning" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forgotten_warning = {
+      lines = {
+        { id = "b_forgotten_warning_default", text = "It is one, and I repeat it to myself most evenings. It's the only lesson of theirs I'm quite certain of, and it cost them a continent." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kaldorei = {
+      lines = {
+        { id = "b_kaldorei_default", text = "Rarely, and only the sentinels who fell guarding the old roads. They want to know whether the watch was kept after them, and I tell them that it was, because your people are still here." },
+      },
+      choices = {
+        { text = "Tell them Elune's light still falls on Winterspring.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "The dead of Winterspring, the Highborne, and the art of listening." } },
     highborne = { { id = "tp_hb", text = "Brilliant, proud, and very sorry, some of them. Others are only proud." } },
     argent_dawn = { { id = "tp_ad", text = "Good people, I think. Gregor has my book; I hope he's reading it." } },
+    queen_azshara = { { id = "tp_b_queen_azshara", text = "The Highborne here won't say her name, you know. They only say 'the Queen', and then they look at the floor." } },
+    everlook = { { id = "tp_b_everlook", text = "A cheerful, noisy little town, and I go in once a month for tea and lamp oil. The goblins think I'm harmless, which I take as a compliment." } },
     _none = { { id = "tp_none", text = "I don't know, I'm afraid. The living world rather passes me by." } },
   },
 }

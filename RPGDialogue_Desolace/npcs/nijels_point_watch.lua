@@ -61,6 +61,8 @@ P:NPC {
         { text = "What do you think of Captain Pentigast?", next = "captain" },
         { text = "Where's home for you, Corporal?", next = "home" },
         { text = "What needs doing?", next = "BUSINESS" },
+        { text = "You've sheep waiting somewhere, Corporal. I can tell.", next = "sheep", when = { race = "Human" } },
+        { text = "A paladin's oath covers work like this.", next = "oath", when = { class = "PALADIN" } },
         { text = "Carry on, Corporal.", next = "END" },
       },
     },
@@ -178,6 +180,24 @@ P:NPC {
         { text = "Farewell, Corporal.", next = "END" },
       },
     },
+    sheep = {
+      lines = {
+        { id = "sheep_d", text = "Is it that plain? You've an Elwynn eye, then, or a Westfall one. Yes, there's a flock, and a brother minding it badly, and I think about the lambing every spring while I'm counting ears." },
+      },
+      choices = {
+        { text = "You'll see another lambing, Corporal.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oath = {
+      lines = {
+        { id = "oath_d", text = "Does it? I'm glad to hear it, because I've wondered. Brother Anton says the Light asks us to defend the living and doesn't ask us to enjoy the tally, and that's the nearest thing to comfort I've had out here." },
+      },
+      choices = {
+        { text = "Anton has the right of it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -242,6 +262,8 @@ P:NPC {
         { text = "Do you work with Keeper Marandis?", next = "marandis" },
         { text = "Why can't you go yourself?", next = "self" },
         { text = "What would you have me do?", next = "BUSINESS" },
+        { text = "A druid might do more inside than carry a vial.", next = "druid", when = { class = "DRUID" } },
+        { text = "You speak as one who remembers the first invasion.", next = "old", when = { race = "NightElf" } },
         { text = "Elune keep you, Talendria.", next = "END" },
       },
     },
@@ -353,6 +375,24 @@ P:NPC {
         { text = "There's no shame in that.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "What do you dream of?", next = "self_dream" },
         { text = "Farewell, Talendria.", next = "END" },
+      },
+    },
+    druid = {
+      lines = {
+        { id = "druid_d", text = "You might. The vines answer to those who know the Dream, and where the vial heals a plant, your own hands may tell you why it sickened. Bring that knowledge back to Marandis as well as the proof I have asked for." },
+      },
+      choices = {
+        { text = "I'll bring both.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    old = {
+      lines = {
+        { id = "old_d", text = "I remember what satyrs were before they were satyrs, which is worse. They had names, and some of them had my regard, and that is why I will not hear Vyletongue spoken of as a mere beast." },
+      },
+      choices = {
+        { text = "Then he chose it, and he'll answer for it.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

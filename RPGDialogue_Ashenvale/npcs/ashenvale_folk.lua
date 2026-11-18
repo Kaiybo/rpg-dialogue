@@ -154,6 +154,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "You've a hunter's eyes, always on the treeline. Please don't shoot the deer that drink here, hehe, they're my guests and they'd never forgive me." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid! You smell of the Moonglade, or of somewhere very like it. Have you come to help, or only to visit?" },
     { id = "n_form", cat = "form", when = { form = { "bear", "cat", "travel" } },
@@ -162,6 +164,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    well = {
+      lines = { { id = "we_default", text = "It is, and it frightens me a little to say so aloud. The streams to the west run past the furbolg villages and come out tasting of something sour, and the ones to the east run past the orcs' saws. This one comes up from under the hill, where nothing has touched it yet." } },
+      choices = {
+        { text = "What would you do if it soured too?", next = "well2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    well2 = {
+      lines = { { id = "we2_default", text = "I don't know, truly. A dryad doesn't leave her grove the way your people leave a house, so I suppose I would stay and tend it and hope someone like Raene came by. That's why I help her when she asks, even with things as worrying as that rod." } },
+      choices = {
+        { text = "The Sentinels will keep it clean. Trust them.", next = "BACK", reply = "I do trust them, I do! They're so serious about everything, and this is worth being serious about.", fx = { align = { order = 1 } } },
+        { text = "Don't wait for rescue. Learn to guard it yourself.", next = "BACK", reply = "With what, my spear? I suppose I could be fierce, if I practised. I'll frown at the frogs and see how it goes.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      lines = { { id = "xd_default", text = "Then you'll know why the treants hurt so much to look at. In the Dream they are still whole, green and slow and kind, and it's only here that the sickness has them. If you can, speak to them the old way before you have to strike, because some part of them might hear it." } },
+      choices = { { text = "I will speak first. Something else.", next = "BACK", fx = { affinity = 1, learn = { "cenarion_circle" } } } },
+    },
+    xrace = {
+      lines = { { id = "xr_default", text = "Not up close, no! Raene told me the people from over the sea were coming to help, but she didn't say you'd be so, well, so differently shaped. Is it true that you build your homes out of dead stone on purpose?" } },
+      choices = {
+        { text = "On purpose, yes. Stone keeps the rain off.", next = "BACK", reply = "So do leaves, hehe, and they're much prettier. But I'm glad you're dry.", fx = { trait = { witty = 1 } } },
+        { text = "We'd build with trees, but yours object.", next = "BACK", reply = "They do object! Oh, I like you. Don't say that near the treants, though.", fx = { trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_branch", when = { questDone = TODO_QUEST("The Branch of Cenarius") }, text = "Illiyana says you took the Branch of Cenarius back from that horrid satyr, and she has stopped weeping by the shrine. You have been kind to both of Father's daughters now, and we do not forget kindness." },
@@ -175,6 +203,7 @@ P:NPC {
           text = "A druid, come up the hill! Father Cenarius would be glad of you, and so am I, because there are treants in these woods that need someone who understands what they were." },
       },
       again = {
+        { id = "h_again3", text = "Oh, do stay a little longer! The frogs are good company, but they never ask me anything." },
         { id = "h_again", text = "What else? I've all day, and the well doesn't mind waiting." },
         { id = "h_again2", text = "Ask! I like questions. They're like seeds, hehe." },
       },
@@ -183,6 +212,9 @@ P:NPC {
         { text = "What happened to the treants?", next = "treants" },
         { text = "What happened to the druids of Dor'Danil?", next = "dordanil" },
         { text = "You're a daughter of Cenarius?", next = "cenarius" },
+        { text = "This well is the only clean thing for miles.", next = "well" },
+        { text = "I walk the Dream's edge myself, sister.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "You've never seen one of my kind, have you?", next = "xrace", when = { race = { "Dwarf", "Gnome", "Human" } } },
         { text = "I'll come back with the pieces.", next = "END" },
       },
     },
@@ -235,6 +267,11 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I'm a dryad, a daughter of Cenarius, and I keep the moonwell on this hill. It's quiet work, and I like it." } },
+    furbolgs = { { id = "tp_furbolgs", text = "The furbolgs used to leave berries by the well, years ago. Now they foul their own streams and snarl at anything that moves, and it makes me so sad." } },
+    _none = { { id = "tp_none", text = "I don't know that one, I'm sorry! I know the well and the trees and not much past the hill." } },
   },
 }
 
@@ -359,6 +396,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_nelf", cat = "race", when = { race = "NightElf" },
+      text = "One of our own people! Please don't tell the Sentinels at Astranaar how near the water I've pitched this, because they've warned me twice already." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage. You'll understand, I hope, that a lock made by the Highborne isn't the sort of thing you pick with a hairpin." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -367,6 +406,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    camp = {
+      lines = { { id = "ca_default", text = "It is, isn't it? I keep meaning to move it up the slope, but then I couldn't see the towers at low tide, and I'd miss the one hour a day when the ruins show themselves. So I sleep lightly and I keep my boots on." } },
+      choices = {
+        { text = "Does anyone know you're out here?", next = "camp2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp2 = {
+      lines = { { id = "ca2_default", text = "Raene Wolfrunner knows, and disapproves, and sends a scout past every few days to see whether I've been eaten. And there's a Horde camp further up the strand, trolls mostly, who must know I'm here and have decided I'm not worth the walk." } },
+      choices = {
+        { text = "Go back to Astranaar. No relic is worth dying for.", next = "BACK", reply = "You're very sensible, and so is Raene, and I'm going to ignore you both. But I'll move the tent a little, I promise.", fx = { align = { order = 1 } } },
+        { text = "Stay. Nobody found anything by playing safe.", next = "BACK", reply = "That's what I tell the scout every time! She doesn't laugh either.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xm_default", text = "Do you? Then look at this, look, just here under the base, where the stone is a different colour. It isn't a lock for a key at all, it's a lock for a particular enchantment, and the Ring of Zoram carries that enchantment the way a seal carries a crest." } },
+      choices = {
+        { text = "Then what's inside was meant for one owner.", next = "xmage2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage2 = {
+      lines = { { id = "xm2_default", text = "One owner, or one family, yes, that's my thought exactly. Some noble of Zoram sealed away something they wanted nobody else to touch, and then the sea came in before they could fetch it. I lie awake wondering what a Highborne would think worth that much trouble." } },
+      choices = { { text = "Open it carefully, Talen. Something else.", next = "BACK", fx = { learn = { "highborne" } } } },
+    },
+    xdwarf = {
+      lines = { { id = "xdw_default", text = "They would, and they'd have forty diggers and a brass band on this beach by the next tide. Please, I beg you, let me finish first. I'll write to Ironforge myself once I've opened it, and I'll even spell the League's name correctly." } },
+      choices = {
+        { text = "Your secret's safe. For now.", next = "BACK", reply = "For now is all I need. Thank you, truly.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -379,6 +451,7 @@ P:NPC {
           text = "Ring and statuette together, and the lock's still holding, which is maddening, but it's the good sort of maddening. I'll have it open by the next moon, or the one after." },
       },
       again = {
+        { id = "h_again3", text = "Yes? Ask, please, ask, because the alternative is that I go back to listening for splashing." },
         { id = "h_again", text = "Anything else? I'm always glad of someone to talk at." },
         { id = "h_again2", text = "Go on. I've been talking to the statuette, so you're a welcome change." },
       },
@@ -387,6 +460,9 @@ P:NPC {
         { text = "What's so special about the statuette?", next = "statuette" },
         { text = "Who's Ruuzel?", next = "ruuzel" },
         { text = "Why risk your life for old things?", next = "risk" },
+        { text = "This camp is very close to the naga.", next = "camp" },
+        { text = "I know a little of Highborne wards.", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "The Explorers' League would pay well for this.", next = "xdwarf", when = { race = { "Dwarf", "Gnome" } } },
         { text = "I'll see what I can find.", next = "END" },
       },
     },
@@ -430,6 +506,11 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I study what's left of Zoram from a tent on the strand. It's wet and frightening, and I wouldn't be anywhere else." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne built Zoram and drowned with it, or didn't quite drown, if the naga are what the stories say. Either way they left their locks behind." } },
+    _none = { { id = "tp_none", text = "Oh, I don't know, I'm sorry. If it isn't under that water, I've probably not read about it." } },
   },
 }
 

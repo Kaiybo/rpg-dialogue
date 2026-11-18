@@ -51,6 +51,8 @@ P:NPC {
         { text = "What's the deal with Rizzle?", next = "rizzle" },
         { text = "Who's the best racer out here?", next = "racers" },
         { text = "Let's do business.", next = "BUSINESS" },
+        { text = "I build a few gadgets of my own.", next = "eng", when = { profession = "Engineering" } },
+        { text = "A gnome can't get a straight answer out here.", next = "gnome", when = { race = "Gnome" } },
         { text = "See you around, Zamek.", next = "END" },
       },
     },
@@ -109,6 +111,24 @@ P:NPC {
       },
       choices = {
         { text = "I'll put my money on the goblins.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eng = {
+      lines = {
+        { id = "eng_d", text = "No kiddin'? Then listen, pal, you and me are the only two people on this whole salt pan who know a torque wrench from a soup spoon. Fizzle's rig runs hot and Pozzik's runs rich, and I'll tell ya which one blows first for a very reasonable consulting fee." },
+      },
+      choices = {
+        { text = "Keep the fee. I'll watch for the smoke.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome = {
+      lines = {
+        { id = "gnome_d", text = "Sure ya can, friend, it just costs extra. Here's one on the house: your boys are better with numbers and our boys are better with fuel, and the day somebody hires both is the day I go out of business." },
+      },
+      choices = {
+        { text = "Then nobody had better tell them.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

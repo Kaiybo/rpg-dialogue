@@ -64,6 +64,8 @@ P:NPC {
         { text = "Where do the centaur come from?", next = "origin" },
         { text = "Do you hate the centaur?", next = "hate" },
         { text = "What would you have me do?", next = "BUSINESS" },
+        { text = "I'd sit with the dying kodo a while, if you'll allow it.", next = "sit", when = { race = "Tauren" } },
+        { text = "The spirits here are restless, Gurda.", next = "spirits", when = { class = "SHAMAN" } },
         { text = "Earth Mother keep you, Gurda.", next = "END" },
       },
     },
@@ -202,6 +204,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    sit = {
+      narr = "She shifts to make room beside a grey-muzzled kodo whose breath comes slow.",
+      lines = {
+        { id = "sit_d", text = "I would be glad of it, and so would they. Put your hand on the old one's brow and say nothing, because they have heard every word there is and only want the company now." },
+      },
+      choices = {
+        { text = "I'll stay until it sleeps.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spirits = {
+      lines = {
+        { id = "spirits_d", text = "They are, and they have reason. The centaur take bones from this ground for their trophies, and a kodo whose bones are scattered cannot find its way on, so it walks here and waits for somebody to set things right." },
+      },
+      choices = {
+        { text = "Then the bones should be brought home.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -225,9 +246,13 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Have you eaten? You haven't; I can see it. Sit, and let me sell you something that isn't trail bread." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still thin. Desolace does that to everyone, so let's fix it." },
+    { id = "g_back2", when = { metBefore = true }, text = "You came back, and in time for the pot. Sit, sit." },
+    { id = "g_away", when = { away = 14 }, text = "{away} out there. Did you eat properly? No, do not tell me, I can see." },
   },
 
   notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "You have a Mulgore look, well fed and wide in the eye. Give this land a week, and you will be asking me for second helpings like the rest." },
     { id = "n_scourge", cat = "race", when = { race = "Scourge" },
       text = "One of the Forsaken. I never know what to offer your people, so I'll offer water and not be offended if you say no." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
@@ -242,8 +267,10 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "I'm Harnor, and I keep the post fed: bread, cheese, melon juice and clean water, carried down from Thunder Bluff because nothing here grows. If you leave hungry, it's because you refused, and I'll hold that against you." },
+        { id = "h_tauren", when = { race = "Tauren" }, text = "I'm Harnor, and I keep the post fed. You are one of ours, so I will tell you plainly that the food here is carried a long way and tastes of the road, but there is always enough." },
       },
       again = {
+        { id = "h_again3", text = "Yes, friend? There is stew if you have changed your mind." },
         { id = "h_again", text = "What else? There's still bread, if you're only asking to be polite." },
         { id = "h_again2", text = "Go on, ask. I'm good company while you eat." },
       },
@@ -252,6 +279,9 @@ P:NPC {
         { text = "Why does nothing grow here?", next = "grey" },
         { text = "Is it hard to stay cheerful here?", next = "cheer" },
         { text = "Let me see your food.", next = "BUSINESS" },
+        { text = "Who eats at your fire?", next = "post" },
+        { text = "You must miss Mulgore's green.", next = "mulgore", when = { race = "Tauren" } },
+        { text = "I could cook for the post while I'm here.", next = "cook", when = { profession = "Cooking" } },
         { text = "I've eaten, thank you. Farewell.", next = "END" },
       },
     },
@@ -304,6 +334,42 @@ P:NPC {
         { text = "That's a good part to play.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Who comes back worst?", next = "cheer_who" },
         { text = "Farewell, Harnor.", next = "END" },
+      },
+    },
+    post = {
+      lines = {
+        { id = "post_d", text = "All of them, sooner or later. Felgur Twocuts eats standing up with a map in his hand, Gurda Wildmane forgets unless I carry it to her, and Maurin Bonesplitter sends his bowl back clean and never says a word." },
+      },
+      choices = {
+        { text = "And the craftsfolk?", next = "post_craft" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    post_craft = {
+      lines = {
+        { id = "post_craft_d", text = "Muuran eats enough for two and says his arm needs it for the hammer. Narv Hidecrafter and Kireena share a pot between them and argue about whose turn it is to fetch water, which in Desolace is a real argument." },
+      },
+      choices = {
+        { text = "Water is life out here.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mulgore = {
+      lines = {
+        { id = "mulgore_d", text = "Every morning, when I open my eyes and the first thing I see is grey. I tell the young braves that the grass at home is still growing whether we look at it or not, and that seems to help them." },
+      },
+      choices = {
+        { text = "We hold this land so Mulgore stays green.", next = "BACK", reply = "That is exactly what I say over the stew. You may take my place if I ever lose my voice.", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cook = {
+      lines = {
+        { id = "cook_d", text = "Would you? Then take the big pot for an evening and let me sit down. Use the dried kodo sparingly, mind, and the roots from the western gully not at all, because Kireena says they are fine and Kireena was ill for three days." },
+      },
+      choices = {
+        { text = "No roots. I understand.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

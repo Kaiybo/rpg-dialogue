@@ -421,6 +421,8 @@ P:NPC {
         { text = "I've been to Razorfen Kraul.", next = "kraul", when = { cleared = "Razorfen Kraul" } },
         { text = "I'll bring you her heart.", next = "BUSINESS" },
         { text = "I've thinned the Razorfen, Auld. Is it enough?", next = "dd_razorfen", when = { killed = { name = "Razorfen", min = 40 } } },
+        { text = "The spirits must speak of your tribe still.", next = "spirits", when = { class = "SHAMAN" } },
+        { text = "Our people don't forget their dead, elder.", next = "dead", when = { race = "Tauren" } },
         { text = "Earth Mother keep you, Auld.", next = "END" },
       },
     },
@@ -473,6 +475,32 @@ P:NPC {
     kraul = {
       lines = { { id = "k_default", text = "Did you see the old stones under the thorns, the ones with the carvings worn almost smooth? Those were ours, and if you saw them, you've seen more of my home than I have in thirty years." } },
       choices = { { text = "I saw them. They're still standing.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    spirits = {
+      lines = {
+        { id = "spirits_d", text = "They do, and that is the trouble with being a shaman who has lost his people. I hear the Stonespire in every wind that comes up from the south, and they do not ask me for peace." },
+      },
+      choices = {
+        { text = "What do they ask for?", next = "spirits_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spirits_ask = {
+      lines = {
+        { id = "spirits_ask_d", text = "They ask to be remembered in the land they walked, and they cannot be while Charlga's thorns grow over it. The elders call that vengeance, and I call it setting a grave to rights." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dead = {
+      lines = {
+        { id = "dead_d", text = "No, we do not, and I am glad to hear a young one say it. Most on this bluff would have me sit quietly by the fire and let the Stonespire become a story the calves half remember." },
+      },
+      choices = {
+        { text = "I'll remember them, elder.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

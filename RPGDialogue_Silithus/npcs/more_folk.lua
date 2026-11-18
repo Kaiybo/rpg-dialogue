@@ -191,7 +191,7 @@ P:NPC {
   key = "raloshan", id = TODO_NPC("Ralo'shan the Eternal Watcher"), name = "Ralo'shan the Eternal Watcher",
   bible = "bibles/more_folk.md", role = "soldier", tier = "quest",
   communities = { "silithus_wilds" }, temper = { "grave", "calm" }, values = { "duty", "wise" },
-  notices = { "race", "priest" },
+  notices = { "race", "priest" , "class" },
   impression = {
     first = "Ralo'shan stands watch at Staghelm Point, where the Qiraji first marched a thousand years ago, and she says she has been slain a hundred times and always wakes here. She did not sound proud of it, only tired.",
     third = "{name} met Ralo'shan the Eternal Watcher, the night elf bound to Staghelm Point.",
@@ -205,6 +205,8 @@ P:NPC {
       text = "Ishnu-alah, child of the kaldorei. You will know the name Staghelm, and perhaps the name of the young one who fell before the Wall." },
     { id = "n_priest", cat = "priest", when = { class = "PRIEST" },
       text = "You tend the dead and the dying, I think. Then perhaps you understand a little of what it is to be denied rest." },
+    { id = "n_b1", cat = "class", when = { class = "DRUID" },
+      text = "A druid. It was your order's elders who raised the Wall, and it was their grief I watched from this very sand." },
   },
   start = "hello",
   nodes = {
@@ -217,12 +219,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "Ask what you will. I have nothing but time." },
         { id = "h_again2", text = "Speak. The sand listens, and so do I." },
+        { id = "h_again_b1", text = "Ask again, if you wish. I have answered the wind for a thousand years, and it asks less well than you." },
       },
       choices = {
         { text = "Chained? How do you know?", next = "chained" },
         { text = "Tell me of the war.", next = "war" },
         { text = "Why do you stay here?", next = "stay" },
         { text = "You speak like a ghost, not a sentinel.", next = "ghost" },
+        { text = "These ruins were a kaldorei post once.", next = "post" },
+        { text = "Tell me of Staghelm's son.", next = "valstann", when = { race = "NightElf" } },
+        { text = "What did the druids call upon in that war?", next = "dragons", when = { class = "DRUID" } },
         { text = "Rest well, watcher.", next = "END" },
       },
     },
@@ -271,10 +277,74 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    post = {
+      lines = {
+        { id = "b_post_default", text = "Southwind Village stood where you see broken stone, and it was a living place, with lamps and children and a moonwell. The swarm took it in a night, and I have listened to the silence there ever since." },
+      },
+      choices = {
+        { text = "Did anyone escape that night?", next = "post_escape" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    post_escape = {
+      lines = {
+        { id = "b_post_escape_default", text = "A few, who ran north while the Sentinels held the paths. I was among those who held, and so I can tell you who lived only by counting the ones I did not see fall." },
+      },
+      choices = {
+        { text = "You bought their lives with your own.", next = "post_bought" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    post_bought = {
+      lines = {
+        { id = "b_post_bought_default", text = "So I believed as the sand closed over me. Then I woke, and the village was gone, and I have never learned whether the bargain was honoured or merely forgotten." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valstann = {
+      lines = {
+        { id = "b_valstann_default", text = "Valstann Staghelm was brave and young, and he begged his father to let him hold Southwind. The Qiraji took him alive, and they brought him before our lines so that the Archdruid might watch what they did." },
+      },
+      choices = {
+        { text = "I'm sorry. No father should see that.", next = "valstann_after" },
+        { text = "That is why Staghelm is as he is.", next = "valstann_after" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valstann_after = {
+      lines = {
+        { id = "b_valstann_after_default", text = "Fandral was a different elf after that day. He shattered the Scepter of the Shifting Sands in his rage and walked away from all who had fought beside him, and I do not think he has ever walked back." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dragons = {
+      lines = {
+        { id = "b_dragons_default", text = "They called upon the dragons, child, when every other hope had failed. The bronze flight came, and then the others, and the sky burned for days above the gates of Ahn'Qiraj." },
+      },
+      choices = {
+        { text = "And then the Wall was raised.", next = "dragons_wall" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dragons_wall = {
+      lines = {
+        { id = "b_dragons_wall_default", text = "With roots and stone and the power of the Aspects' children, some of whom never came out from behind it. The Scarab Wall is a wound sewn shut, {class}, and it has never been a victory." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I was a sentinel when the swarm came. I am a sentinel still, though no one has relieved me in a thousand years." } },
     advice = { { id = "tp_ad", text = "Remember the dead of this place. They held so that you could live." } },
+    ahn_qiraj = { { id = "tp_b_ahn_qiraj", text = "The city lies beyond the Wall, and what dwells in it has had a thousand years to mend. I feel it at night, like a pulse under the sand." } },
+    southwind = { { id = "tp_b_southwind", text = "It was my post and my home. Now the silithid crawl over its stones, and the spirits of those who fell there know no more rest than I do." } },
+    bronze_dragonflight = { { id = "tp_b_bronze_dragonflight", text = "Anachronos led them when the kaldorei begged for aid. I saw him once, against the sun, and I have not forgotten the size of his shadow." } },
     _none = { { id = "tp_none", text = "That is not a thing I have watched. I watch this place, and nothing else." } },
   },
 }

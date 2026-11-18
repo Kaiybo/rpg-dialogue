@@ -139,6 +139,9 @@ P:NPC {
         { text = "What's happening in Feralas?", next = "feralas" },
         { text = "What about the Plaguelands?", next = "plague" },
         { text = "What exactly is a Bluff Runner?", next = "runner" },
+        { text = "I could run these rises faster than you.", next = "race", when = { race = "Tauren" } },
+        { text = "Is there any word out of Orgrimmar?", next = "org", when = { race = { "Orc", "Troll" } } },
+        { text = "Do you carry news down to the Pools of Vision?", next = "pools", when = { race = "Scourge" } },
         { text = "Thanks for the news.", next = "END" },
       },
     },
@@ -176,6 +179,31 @@ P:NPC {
     doubt = {
       lines = { { id = "do_default", text = "Then watch the Hunter Rise bridge at sunset, hero, and you'll see a blur, and that blur will be me. I won't wave, though, because the wind would knock me clean off the bridge." } },
       choices = { { text = "Something else, Windstrider.", next = "BACK" } },
+    },
+    race = {
+      lines = {
+        { id = "race_d", text = "Ha! Every calf on the bluff says so, and every one of them is bent double by the second bridge. Meet me at the totem on the high rise at dawn some day, and we will see which of us still has breath to call the news at the far end." },
+      },
+      choices = {
+        { text = "At dawn, then. Bring water.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    org = {
+      lines = {
+        { id = "org_d", text = "Always, and it comes in faster than I can call it. The Warchief's riders say the city grows by the week, and that there is work for every pair of hands in the Barrens and beyond, so nobody up here need sit idle." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pools = {
+      lines = {
+        { id = "pools_d", text = "As far as the top of the ramp, and then I shout it down. Your apothecaries listen politely and never ask me to repeat anything, which makes them the best audience on the bluff." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

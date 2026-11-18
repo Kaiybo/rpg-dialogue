@@ -21,9 +21,48 @@ P:NPC {
   notice = {
     { id = "n_purse", cat = "purse", when = { money = { max = 200 } },
       text = "You haven't the coin for much, have you? A spool of coarse thread, then, and come back when the Crusade's paid you better." },
+    { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
+      text = "You sew, by those pricked fingers. Bowen Brisboise teaches tailoring out along the road, and every one of his pupils buys their thread from me, so we shall be seeing a good deal of each other." },
+    { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
+      text = "An alchemist, and wanting vials, I'll be bound. Buy them by the crate, because Carolai Anise's pupils clear me out every time the cart's late." },
   },
   start = "hello",
   nodes = {
+    prices = {
+      lines = { { id = "pr_default", text = "I keep them fair, which looks sharp to people who remember what things cost before the plague. Every spool on that shelf came up a road with Scarlet scouts on it, and the driver wants paying for his nerve as well as his cart." } },
+      choices = {
+        { text = "And you take your share on top.", next = "prices2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    prices2 = {
+      lines = { { id = "pr2_default", text = "A modest one, and I earn it. I'm the one who knows that the tailors will want red dye before the Executor's banners are due, and salt before the fishermen come up from the lake, and has it on the shelf the day they ask." } },
+      choices = {
+        { text = "That's a merchant's craft, plain enough.", next = "BACK", reply = "It's the only craft I've got, so I keep it sharp. Now, were you buying?", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    street = {
+      lines = { { id = "sr_default", text = "All of them, whether I like it or not. Mrs. Winters sends me the customers she can't serve and expects the same back, Selina Weston and I have agreed that she keeps the herbs and I keep the vials, and Eliza Callen buys my waxed thread by the armful." } },
+      choices = {
+        { text = "It sounds like a guild, in all but name.", next = "street2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    street2 = {
+      lines = { { id = "sr2_default", text = "It's four dead women who've agreed not to ruin each other, which is the same thing with less ceremony. We had a proper merchants' guild in Brill once, with a seal and a dinner, and I don't believe any of its officers came back." } },
+      choices = {
+        { text = "Then you four are the guild now.", next = "BACK", reply = "Don't say that to Mrs. Winters, she'll want the dinner." },
+        { text = "Something else, Abigail.", next = "BACK" },
+      },
+    },
+    crafter = {
+      lines = { { id = "cr_default", text = "Then here's advice worth more than the thread. Buy your supplies before you start the piece and not halfway through, because the cart from the Undercity doesn't care that you've one sleeve finished." } },
+      choices = {
+        { text = "I learned that one the hard way.", next = "BACK", reply = "Everybody does. I'd be a poorer woman if they didn't.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Abigail Shiel, trade supplies. Thread, dye, flux, salt and vials, and if I haven't got it, it's on the next cart from the Undercity, which arrives when the driver remembers which way Brill is." },
@@ -32,12 +71,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? I've stock to count." },
         { id = "h_again2", text = "Go on, then, but make it quick." },
+        { id = "h_again3", text = "Is there more? Ask it while I'm measuring, I can do both." },
       },
       choices = {
         { text = "Show me your stock.", next = "BUSINESS" },
         { text = "Who buys the most from you?", next = "buyers" },
         { text = "How does Brill get its supplies?", next = "carts" },
         { text = "Do you remember Brill before the plague?", next = "before" },
+        { text = "You keep your prices sharp, for a small town.", next = "prices" },
+        { text = "Who else on this street do you deal with?", next = "street" },
+        { text = "I craft for my living too, Abigail.", next = "crafter", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Alchemy" } } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -78,6 +121,9 @@ P:NPC {
   },
   topics = {
     trade = { { id = "tp_trade", text = "Vials sell, thread sells, dye doesn't. That's Brill's whole market." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They've cost me two carts this year and a driver I rather liked. I add it to the price, and I tell the customers why." } },
+    advice = { { id = "tp_ad", text = "Count your change, even with me. Especially with me, because I respect a customer who does." } },
+    lordaeron = { { id = "tp_lord", text = "Brill had a market every fifth day and you could hear it from the lake. I sold ribbon then, and nobody haggled half so hard." } },
     _none = { { id = "tp_none", text = "I sell supplies, not answers. Try Innkeeper Renee at the tavern." } },
   },
 }
@@ -100,9 +146,48 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Oh, look at the state of you. Go and see someone about that armor, dear, before it falls off in the square." },
+    { id = "n_green", cat = "kit", when = { maxLevel = 6, race = "Scourge" },
+      text = "You've still got grave dirt behind your ears, dear. No, don't fuss, it comes out, and everybody in this town has had it." },
+    { id = "n_cook", cat = "hunger", when = { profession = "Cooking" },
+      text = "You cook! Oh, that's nice. I do miss the smell of a kitchen, or I miss knowing that I'd smell it, which isn't quite the same thing." },
   },
   start = "hello",
   nodes = {
+    send = {
+      lines = { { id = "se_default", text = "Well, of course I do, dear. If you want armor you go to my Abe, and if you want leather you go to Eliza Callen, and Abigail Shiel has the thread and vials, though you mustn't let her tell you the price before you've sat down." } },
+      choices = {
+        { text = "And if I wanted a weapon?", next = "send2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    send2 = {
+      lines = { { id = "se2_default", text = "Then it's young Oliver Dwor, who works so hard and has nobody to teach him, poor thing. I take him a candle every week so he needn't file in the dark, and he always says he doesn't need it and always uses it." } },
+      choices = {
+        { text = "You've adopted the whole street.", next = "BACK", reply = "Somebody ought to, dear. Being dead is no excuse for being neglected.", fx = { affinity = 1 } },
+        { text = "Something else, Mrs. Winters.", next = "BACK" },
+      },
+    },
+    news = {
+      lines = { { id = "nw_default", text = "Did he say that? Well, I listen, that's all, and people will talk while you're wrapping their parcels. I know that Gretchen Dedmar has had another chill, and that Executor Zygand has been asking for volunteers again, which always means the Crusade is stirring." } },
+      choices = {
+        { text = "What else is Brill saying this week?", next = "news2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    news2 = {
+      lines = { { id = "nw2_default", text = "That Apothecary Johaan has been buying more vials than one man can possibly need, and that Coleman Farthing's girl isn't sleeping, if any of us can be said to. I don't repeat the unkind things, dear, only the things a neighbour ought to know." } },
+      choices = {
+        { text = "That's a fine line to walk.", next = "BACK", reply = "It is, and I walk it in sensible shoes." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    risen = {
+      lines = { { id = "ri_default", text = "Nobody, officially, and that's the shame of it. The Executor gives them orders and the trainers give them lessons, but nobody tells them where to buy a comb, so I do that, and I see that each of them leaves with a bag and a waterskin whether they think they need one or not." } },
+      choices = {
+        { text = "A waterskin, for the dead?", next = "BACK", reply = "It's something to hold, dear, and it looks ordinary. You'd be surprised how much better people feel for carrying something ordinary." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Mrs. Winters, and I keep the general goods for Brill: rope, flasks, bags and the like. I kept a shop like this before, I'm quite sure of it, and I see no reason a little thing like dying should stop me." },
@@ -111,12 +196,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else, dear? Take your time." },
         { id = "h_again2", text = "Go on, I've nowhere to be." },
+        { id = "h_again3", text = "What else can I tell you, dear? I do like a chat between customers." },
       },
       choices = {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Is there a Mr. Winters?", next = "husband" },
         { text = "Why keep shop at all, being dead?", next = "why" },
         { text = "What do the living buy here?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "You send everyone on to the next shop, I hear.", next = "send" },
+        { text = "Your husband says you hear everything in Brill.", next = "news", when = { heardLine = "tir_abe.h_default" } },
+        { text = "Who looks after the newly risen when they arrive?", next = "risen" },
         { text = "Goodbye, Mrs. Winters.", next = "END" },
       },
     },
@@ -156,6 +245,10 @@ P:NPC {
     },
   },
   topics = {
+    scarlet_crusade = { { id = "tp_scarlet", text = "I knew some of their mothers, dear, and they'd be ashamed. It doesn't do to think about it too long." } },
+    advice = { { id = "tp_ad", text = "Buy a bigger bag than you think you want, and keep your feet dry. That was good advice when I was alive, and I don't see that it's changed." } },
+    lordaeron = { { id = "tp_lord", text = "It was a lovely country, dear, with a fair in Brill every harvest. I try to keep the shop the way it would have looked then, so that something does." } },
+    forsaken = { { id = "tp_forsaken", text = "We're still people, whatever anyone says, and people need rope and flasks and a kind word. I can supply all three." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know, dear. Ask Innkeeper Renee at the tavern; she knows everything." } },
   },
 }

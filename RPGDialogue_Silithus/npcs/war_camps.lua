@@ -97,7 +97,7 @@ P:NPC {
   key = "blackanvil", id = TODO_NPC("Captain Blackanvil"), name = "Captain Blackanvil", title = "Ironforge Brigade Captain",
   bible = "bibles/war_camps.md", role = "soldier", tier = "quest",
   communities = { "ironforge_brigade" }, temper = { "gruff", "jovial" }, values = { "duty", "brave" },
-  notices = { "dwarf" },
+  notices = { "dwarf" , "class" },
 
   impression = {
     first = "Captain Blackanvil signs the field duty papers at the Ironforge Brigade's camp outside Hive'Zora, and he likes to make newcomers sweat a little before he does. He calls the war against the hives \"skirmishing\" and seems to mean it.",
@@ -113,6 +113,10 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "dwarf", when = { race = "Dwarf" },
       text = "A dwarf! Thank the Titans, someone who'll understand me when I swear. Where's your clan from, then?" },
+    { id = "n_b1", cat = "class", when = { class = "WARRIOR" },
+      text = "Now that's an arm that's swung something heavier than a quill. I could use a dozen like ye on the north picket." },
+    { id = "n_b2", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter, eh? Rifleman Torrig swears the big ones have a soft spot behind the head, so shoot there and tell me if he's lying." },
   },
 
   start = "hello",
@@ -126,13 +130,19 @@ P:NPC {
         { id = "h_horde", when = { faction = "Horde" },
           text = "You're in the wrong camp, friend. The Orgrimmar Legion's down south by Hive'Regal, and Kaldon keeps us apart for good reason." },
       },
-      again = { { id = "h_again", text = "Anything else? I've a camp full of thirsty soldiers to shout at." } },
+      again = { { id = "h_again", text = "Anything else? I've a camp full of thirsty soldiers to shout at." },
+        { id = "h_again_b1", text = "What now? Speak up, the hive drowns out half of what anyone says." },
+        { id = "h_again_b2", text = "Go on, then. The bugs aren't going anywhere, more's the pity." },
+      },
       choices = {
         { text = "What does field duty actually involve?", next = "duty" },
         { text = "Why is the Ironforge Brigade here?", next = "why" },
         { text = "What's Hive'Zora like up close?", next = "hive" },
         { text = "What do you think of the Circle?", next = "circle" },
         { text = "Which clan are you from, Captain?", next = "clan", when = { race = "Dwarf" } },
+        { text = "Your soldiers look worn thin, Captain.", next = "lads" },
+        { text = "There's no ale anywhere in this camp.", next = "ale" },
+        { text = "Where do you want me on the line?", next = "line", when = { class = { "WARRIOR", "PALADIN" }, faction = "Alliance" } },
         { text = "I'll get to work.", next = "END" },
       },
     },
@@ -171,10 +181,65 @@ P:NPC {
       lines = { { id = "cl_default", text = "Blackanvils of the eastern Dun Morogh hills, smiths and soldiers both, though I was always better at the soldiering. My old da still thinks I'm stationed somewhere with snow, and I've not had the heart to tell him otherwise." } },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
+    lads = {
+      lines = {
+        { id = "b_lads_default", text = "Aye, they are, and I'll not hear a word against them for it. They marched from Ironforge to the far end of the world, lost half their kit on the way, and they've held this ridge every night since." },
+      },
+      choices = {
+        { text = "How do you keep their spirits up?", next = "lads_spirits" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lads_spirits = {
+      lines = {
+        { id = "b_lads_spirits_default", text = "I shout at them, mostly, and I let them shout back when they've earned it. Janela sees they're fed and armed, and between her ledger and my lungs the Brigade's still standing." },
+      },
+      choices = {
+        { text = "She sounds worth her weight in thorium.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ale = {
+      lines = {
+        { id = "b_ale_default", text = "Don't remind me! The last barrels went into the sea off Tanaris with the rest of the supplies, and the Circle's druids drink water and some sort of tea made of leaves." },
+      },
+      choices = {
+        { text = "That's a hard campaign for a dwarf.", next = "ale_hard" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ale_hard = {
+      lines = {
+        { id = "b_ale_hard_default", text = "Hardest I've ever fought, and I've fought troggs in the dark with a broken lantern. I've promised the lads a full keg apiece when we're home, and I'll be paying that debt out of my own pocket till I'm grey." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    line = {
+      lines = {
+        { id = "b_line_default", text = "North picket, where the ground drops toward Hive'Zora and the drones come up at dusk. Stand with the footmen, keep your shield high, and don't chase anything back into the tunnels, however slow it looks." },
+      },
+      choices = {
+        { text = "Why not chase them?", next = "line_chase" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    line_chase = {
+      lines = {
+        { id = "b_line_chase_default", text = "Because the slow one's bait, {g:lad|lass}, and its friends are waiting just inside the dark. I learned that the way every captain learns it, and I'd rather ye didn't." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "Field duty, the Brigade, and the beetles over the hill." } },
+    magni = { { id = "tp_b_magni", text = "The King sent us himself, and he'd have come along if the Senate had let him. I write him the truth, even when the truth is ugly." } },
+    cenarion_circle = { { id = "tp_b_cenarion_circle", text = "Odd folk, but they knew these bugs were coming before anyone else did. I've learned to listen when a druid looks worried." } },
+    silithid = { { id = "tp_b_silithid", text = "Nasty, clever, and there's always more of them. Hit the big ones behind the head, and don't stand downwind of the ones that spit." } },
     _none = { { id = "tp_none", text = "Ask Kaldon. He's the clever one." } },
   },
 }
@@ -186,7 +251,7 @@ P:NPC {
   key = "janela", id = TODO_NPC("Janela Stouthammer"), name = "Janela Stouthammer",
   bible = "bibles/war_camps.md", role = "soldier", tier = "quest",
   communities = { "ironforge_brigade" }, temper = { "brisk", "warm" }, values = { "practical", "duty" },
-  notices = { "smith", "paladin" },
+  notices = { "smith", "paladin" , "class" },
 
   impression = {
     first = "Janela Stouthammer is Captain Blackanvil's lieutenant and the Brigade's supply officer, a paladin who has spent more of the war counting blades than swinging one. She is tired of hearing about dull swords.",
@@ -203,6 +268,8 @@ P:NPC {
       text = "A smith! Please tell me you can make a Moonsteel Broadsword, because half my soldiers are fighting with butter knives." },
     { id = "n_pala", cat = "paladin", when = { class = "PALADIN" },
       text = "Light be with you, sibling. It's good to see another of the Silver Hand out here, even one with sand in their boots." },
+    { id = "n_b1", cat = "class", when = { class = "WARRIOR" },
+      text = "That blade's been properly looked after. Would you mind showing my lads how it's done, because they treat theirs like shovels." },
   },
 
   start = "hello",
@@ -216,13 +283,19 @@ P:NPC {
         { id = "h_kits", when = { questActive = TODO_QUEST("Armor Kits for the Field") },
           text = "Armor kits! You've no idea how many dents a silithid can put in a breastplate. Bring them as soon as you can." },
       },
-      again = { { id = "h_again", text = "What else? I've a ledger with too many minus signs in it." } },
+      again = { { id = "h_again", text = "What else? I've a ledger with too many minus signs in it." },
+        { id = "h_again_b1", text = "Anything else? Talk while I count, I'm used to it." },
+        { id = "h_again_b2", text = "Go on. The ledger won't balance any quicker for my staring at it." },
+      },
       choices = {
         { text = "How did you lose your supplies?", next = "lost" },
         { text = "What does the Brigade need most?", next = "need" },
         { text = "You're of the Silver Hand?", next = "hand" },
         { text = "What's Captain Blackanvil like?", next = "captain" },
         { text = "I serve the Light too. How do you keep faith out here?", next = "hand", when = { class = "PALADIN" } },
+        { text = "Your ledger has more red ink than black.", next = "ledger" },
+        { text = "Who do you bargain with at the Hold?", next = "bargain" },
+        { text = "What would you have a crafter make first?", next = "crafter", when = { profession = { "Blacksmithing", "Leatherworking" } } },
         { text = "I'll leave you to your ledger.", next = "END" },
       },
     },
@@ -252,11 +325,58 @@ P:NPC {
       lines = { { id = "cp_default", text = "Loud, brave, and kinder than he wants anyone to know. He calls every fight a skirmish so the young ones don't panic, and then he sits up all night writing letters to the families of the ones who don't come back." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ledger = {
+      lines = {
+        { id = "b_ledger_default", text = "It does, and the red is all sand. Sand in the scabbards, sand in the mail links, sand in the water barrels, and every grain of it wears something down that I then have to replace." },
+      },
+      choices = {
+        { text = "What wears out fastest?", next = "ledger_wear" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ledger_wear = {
+      lines = {
+        { id = "b_ledger_wear_default", text = "Boot leather and sword edges, and after those, tempers. I can requisition the first two, and for the third I have Captain Blackanvil, who is louder than any quarrel." },
+      },
+      choices = {
+        { text = "The Brigade's in good hands.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bargain = {
+      lines = {
+        { id = "b_bargain_default", text = "Windcaller Kaldon, for anything the Circle can spare, and he's fair about it. For the rest I go cap in hand to Vargus the smith and Zannok the leatherworker, who are kind, and overworked, and tired of the sight of me." },
+      },
+      choices = {
+        { text = "And the goblins?", next = "bargain_goblins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bargain_goblins = {
+      lines = {
+        { id = "b_bargain_goblins_default", text = "I've spoken to the Ficklespragg brothers exactly once, and I checked my purse and my rings afterwards. They'd sell me my own lost crates if they could find a way to stencil over the Brigade's mark." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crafter = {
+      lines = {
+        { id = "b_crafter_default", text = "Armor kits before anything, because a silithid's claw goes through a worn strap as though it weren't there. After that, sharpening stones, and I'll take every one you can carry." },
+      },
+      choices = {
+        { text = "I'll see what I can make.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "Supplies, the Brigade's needs, and the captain's bad handwriting." } },
     silver_hand = { { id = "tp_sh", text = "I'm a sister of the Hand, though I've not seen Lordaeron in years." } },
+    magni = { { id = "tp_b_magni", text = "Ironforge sent us out with the King's blessing and half a supply train. I've made do with the blessing." } },
+    holy_light = { { id = "tp_b_holy_light", text = "I say my prayers over the wounded every night, sand or no sand. I can't be certain the Light hears them out here, but the lads do, and that's reason enough." } },
+    silithid_hives = { { id = "tp_b_silithid_hives", text = "Hive'Zora's the one over our hill, and it never sleeps. I've stopped counting what comes out of it, because the sum's bad for morale." } },
     _none = { { id = "tp_none", text = "Not in my ledger, I'm afraid." } },
   },
 }

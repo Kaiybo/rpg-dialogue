@@ -367,6 +367,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Another new face in Brill. They come and go like the fog these days." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Brill must agree with you." },
+    { id = "g_tauren", when = { race = "Tauren" }, text = "A tauren, in Brill. You've made my week, and I shall be telling the Gallows' End about you before you've reached the end of the street." },
   },
 
   notice = {
@@ -374,10 +375,59 @@ P:NPC {
       text = "One of Shari Stilwell's paladins. Mind the Deathguard; they pretend not to stare, and they're very bad at pretending." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll" } },
       text = "Off the zeppelin, I'd guess. You'll get used to the smell of Tirisfal, though the smell of Tirisfal will never quite get used to you." },
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "You walk like one of Marion Call's. I'll save you the trouble of asking, there's nothing worth lifting in Brill that the magistrate doesn't already know about." },
   },
 
   start = "hello",
   nodes = {
+    street = {
+      lines = {
+        { id = "st_default", text = "Every one, and who's behind it. Mrs. Winters has the general goods and her husband Abe has the armor, and they wave to each other across the road at noon as if they'd been parted for a year. Abigail Shiel next along would sell you the wave, if she could bottle it." },
+      },
+      choices = {
+        { text = "And the ones who aren't shopkeepers?", next = "street2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    street2 = {
+      lines = {
+        { id = "st2_default", text = "Gretchen Dedmar sits and feels the cold and tells everyone about it. Coleman Farthing sits by the hearth in the Gallows' End and remembers things for money, and his daughter Yvette has stopped speaking of the Agamand boy, which tells you more than when she spoke of nothing else." },
+      },
+      choices = {
+        { text = "You don't miss much.", next = "BACK", reply = "I miss nothing, dear. It's what I do with it that I'm careful about.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spot = {
+      lines = {
+        { id = "sp_default", text = "Here, mostly, where I can see the square and the inn door and the road in from the west. A woman standing still in Brill looks like every other corpse in town, and people will say the most remarkable things in front of a corpse." },
+      },
+      choices = {
+        { text = "Does the Executor know how much you hear?", next = "spot2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spot2 = {
+      big = true,
+      lines = {
+        { id = "sp2_default", text = "Zygand has his Deathguard and Sevren has Marion Call, so nobody has thought to ask me, and I've not offered. I can't decide whether a town is safer when everything's reported or when a few of us keep what we know to ourselves." },
+      },
+      choices = {
+        { text = "Take it to the Executor. Brill has enemies enough.", next = "BACK", reply = "You may be right, and if I ever hear a thing that smells of the Crusade, I will. The rest is only neighbours being neighbours.", fx = { align = { order = 1 } } },
+        { text = "Keep it. Neighbours aren't the Executor's business.", next = "BACK", reply = "That's my feeling too. A town where everything gets written down isn't a town, it's a barracks.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    horde = {
+      lines = {
+        { id = "ho_default", text = "That you're loud, that you eat a great deal, and that you're the only reason the Crusade hasn't had the town by now. Nobody here will say the last part to your face, {race}, so I thought you ought to hear it from someone." },
+      },
+      choices = {
+        { text = "I'm glad somebody said it.", next = "BACK", reply = "Don't expect it twice. I've a reputation for being dry, and I mean to keep it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -387,12 +437,17 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else you'd like to know about the neighbours?" },
+        { id = "h_again2", text = "Go on, I've the whole street to watch and I can still spare you an ear." },
+        { id = "h_again3", text = "What else? Ask quickly, somebody's just come out of the town hall looking guilty." },
       },
       choices = {
         { text = "Who passes through Brill these days?", next = "who" },
         { text = "What do people make of Shari's paladins?", next = "paladins" },
         { text = "What's the trouble in Brill?", next = "trouble" },
         { text = "What do you make of the apothecaries?", next = "apoth" },
+        { text = "You must know every door on this street.", next = "street" },
+        { text = "Where do you watch from, Angie?", next = "spot" },
+        { text = "What does Brill say about my kind, Angie?", next = "horde", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "Goodbye, Angie.", next = "END" },
       },
     },
@@ -447,6 +502,8 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm from Brill, I died in Brill, and here I still am. It isn't much of a story, but it has a strong sense of place." } },
     advice = { { id = "tp_ad", text = "Never sit with your back to the door at the Gallows' End. Nobody will hurt you, but you'll miss the best gossip." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They've a prisoner of theirs down in the town, and he prays at everyone who passes. I'd find it tiresome if he weren't so plainly terrified." } },
+    forsaken = { { id = "tp_forsaken", text = "We're the same people who lived on this street before, with fewer illusions and a worse complexion. I find that quite restful." } },
     _none = { { id = "tp_none", text = "Haven't heard a whisper about that, which is rare, so you can be sure nobody in Brill knows." } },
   },
 }

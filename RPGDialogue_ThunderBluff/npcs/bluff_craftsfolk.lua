@@ -49,6 +49,8 @@ P:NPC {
         { text = "How do you know Thun'grim?", next = "thungrim" },
         { text = "Are you kin to the other Stonehoofs?", next = "kin" },
         { text = "Why work beside the central totem?", next = "totem" },
+        { text = "I work a forge as well, Orm.", next = "smith", when = { profession = "Blacksmithing" } },
+        { text = "A warrior's helm should be earned, then.", next = "earn", when = { class = "WARRIOR" } },
         { text = "I'll leave you to the forge.", next = "END" },
       },
     },
@@ -86,6 +88,24 @@ P:NPC {
     totem = {
       lines = { { id = "to_default", text = "Because the water cools the iron and the totem reminds me why I shape it. My father worked here, and his mother before him, when the bluffs were only a camp and the lifts were rope and willow." } },
       choices = { { text = "Something else, Orm.", next = "BACK" } },
+    },
+    smith = {
+      lines = {
+        { id = "smith_d", text = "Then you know the worth of a helm that has been shaped rather than merely hammered. Work the edge of the forge with Karn for a season, and when you can raise a bowl from one piece without a seam, come and show me." },
+      },
+      choices = {
+        { text = "One piece, no seam. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    earn = {
+      lines = {
+        { id = "earn_d", text = "It should, and it will be. I have made helms for braves who went on to do nothing with them, and I resolved long ago that the next ones would go to heads worth protecting." },
+      },
+      choices = {
+        { text = "Then I'll prove mine is worth the iron.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
