@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue |cff8a8a8a0.84.0|r
+## Title: RPG Dialogue |cff8a8a8a0.85.0|r
 ## Notes: Branching, reactive conversations with the people of Azeroth.
 ## Author: RPG Dialogue
-## Version: 0.84.0
+## Version: 0.85.0
 ## IconTexture: Interface\AddOns\RPGDialogue\Media\Logo
 ## SavedVariables: RPGDialogueDB
 ## SavedVariablesPerCharacter: RPGDialogueCharDB
@@ -32,9 +32,12 @@ Systems\Rumors.lua
 Systems\Towns.lua
 Systems\Kin.lua
 Systems\Disposition.lua
+Systems\Persuasion.lua
 Systems\Topics.lua
+Systems\Directions.lua
 Systems\Books.lua
 Systems\Insanity.lua
+Systems\Insight.lua
 Systems\Barks.lua
 Systems\Errands.lua
 Systems\Diary.lua

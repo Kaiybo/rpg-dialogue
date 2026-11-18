@@ -200,6 +200,8 @@ function Conv.Shown(winner)
   if not winner or not s then return end
   Memory.MarkSeen(winner.gid, winner.line)
   for sys in pairs(winner.systems or {}) do ns.Pacing.Use(sys, s.env) end
+  -- Gut feeling (BG3 insight): checked before the line's fx records its claim as heard.
+  if ns.Insight and not s.gutNote then s.gutNote = ns.Insight.Notice(s, winner) end
   if winner.line.fx then Effects.Apply(winner.line.fx, s.env) end
   if winner.line.journal and not winner.line._thread then Effects.Journal(winner.line.journal, s.ctx, s.env) end
   if winner.line._thread and ns.Threads then ns.Threads.Heard(winner.line, s.env) end
@@ -666,7 +668,8 @@ end
 
 local function choiceLabel(entry)
   local choice = entry.choice
-  local text = choice.text or "..."
+  local s0 = Conv.session
+  local text = Engine.ChoiceText(choice, ns.Disposition and ns.Disposition.Tone(s0 and s0.ctx)) or "..."
   local tags = ns.db.settings.tags
   if choice.tag and tags ~= "never" and (tags == "always" or not entry.locked) and not text:find("^%[") then
     text = "[" .. choice.tag .. "] " .. text
@@ -683,15 +686,37 @@ local function choiceLabel(entry)
   return text
 end
 
+-- Narration (BG3-style stage direction, 0.85.0): `narr` on a line, a node, a reply entry
+-- or a choice. A string, or a list of { text, when } (or { "text", when = ... }) where the
+-- first whose conditions pass is used. Nil when the setting is off. It's shown dim above
+-- the NPC's words and never counts as a line (no anti-repetition, no pacing budgets).
+function Conv.Narration(n, ctx, env)
+  if n == nil or not ns.db or ns.db.settings.narration == false then return nil end
+  if type(n) == "string" then return Tokens.Render(n, ctx, env) end
+  if type(n) == "table" then
+    for _, e in ipairs(n) do
+      local text = type(e) == "string" and e or (type(e) == "table" and (e.text or e[1]))
+      local when = type(e) == "table" and e.when or nil
+      if text and (not when or Cond.Eval(when, ctx, env)) then
+        return Tokens.Render(text, ctx, env, when)
+      end
+    end
+  end
+  return nil
+end
+
 -- A reply's own answer from the NPC (choice.reply, 0.82.0): a string, or a list of
--- { text, when } where the first whose conditions pass is said.
+-- { text, when } where the first whose conditions pass is said. Second return: its
+-- narration (the entry's `narr`, else the choice's own `narr`).
 function Conv.ReplyText(choice, ctx, env)
   local r = choice and choice.reply
-  if type(r) == "string" then return Tokens.Render(r, ctx, env) end
+  if type(r) == "string" then
+    return Tokens.Render(r, ctx, env), Conv.Narration(choice.narr, ctx, env)
+  end
   if type(r) == "table" then
     for _, line in ipairs(r) do
       if type(line) == "table" and line.text and (not line.when or Cond.Eval(line.when, ctx, env)) then
-        return Tokens.Render(line.text, ctx, env, line.when)
+        return Tokens.Render(line.text, ctx, env, line.when), Conv.Narration(line.narr or choice.narr, ctx, env)
       end
     end
   end
@@ -699,7 +724,7 @@ function Conv.ReplyText(choice, ctx, env)
 end
 
 -- The NPC answers a reply that ends the visit: their answer, then a single farewell.
-function Conv.ShowReplyEnd(text)
+function Conv.ShowReplyEnd(text, narr)
   local s = Conv.session
   if not s then return end
   local info = s.info
@@ -710,15 +735,15 @@ function Conv.ShowReplyEnd(text)
   s.choiceEntries = { { choice = { text = L.FAREWELL, next = "END" } } }
   present(s, {
     name = info.name, subtitle = info.subtitle, unit = s.unit,
-    text = text, linkedText = linked, choices = { { text = L.FAREWELL } },
+    text = text, linkedText = linked, narr = narr, choices = { { text = L.FAREWELL } },
     said = (ns.db.settings.echoReply ~= false) and said or nil,
     canAsk = ns.Topics and ns.Topics.Any(), askCount = ns.Topics and ns.Topics.Count(),
-    disposition = Conv.DispositionView(s),
+    disposition = Conv.DispositionView(s), tone = Conv.ToneView(s),
   })
   if ns.db.settings.tts then Conv.Speak(s, text) end
 end
 
-function Conv.ShowNode(nodeId, reply)
+function Conv.ShowNode(nodeId, reply, replyNarr)
   local s = Conv.session
   if not s then return end
   local info, ctx, env = s.info, s.ctx, s.env
@@ -748,6 +773,13 @@ function Conv.ShowNode(nodeId, reply)
   end
   local main = winner and Tokens.Render(winner.line.text, ctx, env, winner.line.when) or L.FALLBACK_LINE
   if reply then main = winner and (reply .. "\n\n" .. main) or reply end
+  -- One stage direction per page: the reply's, else the line's, else the node's (the
+  -- node's only with a fresh line, never with an "again" line).
+  local narr = replyNarr
+  if not narr and winner then
+    narr = Conv.Narration(winner.line.narr, ctx, env)
+    if not narr and not (returning and not node.rotating) then narr = Conv.Narration(node.narr, ctx, env) end
+  end
   Conv.Shown(winner)
   s.lastLine = winner and winner.gid or s.lastLine
 
@@ -764,7 +796,7 @@ function Conv.ShowNode(nodeId, reply)
       Conv.Shown(notice)
       local text = Tokens.Render(notice.line.text, ctx, env, notice.line.when)
       local place = notice.line.place or "before"
-      if place == "replace" then main = text
+      if place == "replace" then main = text; narr = replyNarr
       elseif place == "after" then after = text
       else before = text end
     end
@@ -801,12 +833,14 @@ function Conv.ShowNode(nodeId, reply)
   s.said = nil
   present(s, {
     name = Ins and Ins.Name(info.name, env.seed) or info.name, subtitle = info.subtitle, unit = s.unit,
-    text = body, linkedText = linked, choices = Conv.BuildChoices(node, isStart),
+    text = body, linkedText = linked, narr = narr, choices = Conv.BuildChoices(node, isStart),
     said = (ns.db.settings.echoReply ~= false) and said or nil,
     lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
     askCount = ns.Topics and ns.Topics.Count(), disposition = Conv.DispositionView(s),
+    tone = Conv.ToneView(s),
   })
   if ns.db.settings.tts then Conv.Speak(s, body) end
+  Conv.ShowPendingNote()
 end
 
 -- Read a page aloud in a voice that fits the speaker (see Compat's text to speech).
@@ -858,8 +892,14 @@ function Conv.BuildChoices(node, isStart)
     entries[#entries + 1] = e
   end
   s.choiceEntries = entries
+  return Conv.LabelChoices(s)
+end
+
+-- The box's rows for the session's current entries (again after a tone change, 0.85.0).
+function Conv.LabelChoices(s)
+  local ctx, env = s.ctx, s.env
   local choices = {}
-  for i, entry in ipairs(entries) do
+  for i, entry in ipairs(s.choiceEntries or {}) do
     if entry.game then
       choices[i] = { text = entry.choice.text, game = true, gap = entry.firstGame and i > 1, icon = entry.choice.icon }
     else
@@ -900,6 +940,13 @@ function Conv.Choose(index)
     return
   end
   if entry.view then Conv.SayView(entry.view, entry.topic); return end
+  if entry.where then Conv.AnswerWhere(entry.where); return end
+  if entry.whereMore then Conv.AskWhere((s.wherePage or 0) + 1); return end
+  if entry.whereDone then
+    s.wherePage = nil
+    View(s).SetChoices(Conv.BuildChoices(s.nodeDef, false))
+    return
+  end
   if entry.action then
     -- An answer on one of the game's pages shown in the box (accept, hand in, reward...).
     if entry.action == "handover" then Conv.HandOver(); return end
@@ -958,10 +1005,11 @@ function Conv.Choose(index)
       for k, v in pairs(fx) do if k ~= "align" then copy[k] = v end end
       fx = copy
     end
-    if Engine.IsStance(choice) then stances[s.node] = stances[s.node] or choice.text end
+    if Engine.IsStance(choice) then stances[s.node] = stances[s.node] or Engine.BaseText(choice) end
   end
   local dispBefore = ns.Disposition and ns.Disposition.For(env, ctx)
-  env.said = ((choice.text or ""):gsub("^%[[^%]]*%]%s*", ""))   -- kept with an opinion for the journal (0.80.0)
+  local spoken = Engine.ChoiceText(choice, ns.Disposition and ns.Disposition.Tone(ctx)) or ""
+  env.said = ((spoken):gsub("^%[[^%]]*%]%s*", ""))   -- kept with an opinion for the journal (0.80.0)
   Effects.Apply(fx, env)
   env.said = nil
   Effects.Journal(journal, ctx, env)
@@ -980,19 +1028,19 @@ function Conv.Choose(index)
     end
   end
   -- What you said, shown quietly above their answer (authored [tags] left off).
-  s.said = (choice.text or ""):gsub("^%[[^%]]*%]%s*", "")
+  s.said = spoken:gsub("^%[[^%]]*%]%s*", "")
   Conv.Log("you", s.said)
 
   if nextId == "BUSINESS" then
     s.pendingNote = nil
-    Conv.Business(choice.text)
+    Conv.Business(spoken)
   elseif nextId == "BACK" then
     Conv.ShowNode(s.hub or (s.info.def and s.info.def.start) or "hello", Conv.ReplyText(choice, ctx, env))
     Conv.ShowPendingNote()
   elseif nextId == nil or nextId == "END" then
-    local answer = Conv.ReplyText(choice, ctx, env)
+    local answer, narr = Conv.ReplyText(choice, ctx, env)
     if answer then
-      Conv.ShowReplyEnd(answer)
+      Conv.ShowReplyEnd(answer, narr)
       Conv.ShowPendingNote()
     else
       s.pendingNote = nil
@@ -1041,9 +1089,11 @@ end
 -- The note from the last reply, under the new page's text.
 function Conv.ShowPendingNote()
   local s = Conv.session
-  if not s or not s.pendingNote then return end
+  if not s then return end
   local note = s.pendingNote
-  s.pendingNote = nil
+  if s.gutNote then note = note and (note .. "  " .. s.gutNote) or s.gutNote end
+  s.pendingNote, s.gutNote = nil, nil
+  if not note then return end
   if s.mode ~= "full" then return end
   local hex = ns.UI and ns.UI.Theme and ns.UI.Theme.Hex("dim") or "|cff888888"
   View(s).ShowReaction(hex .. note .. "|r")
@@ -1055,6 +1105,25 @@ function Conv.DispositionView(s)
   if not s or not ns.Disposition or ns.db.settings.showDisposition == false then return nil end
   local value, why = ns.Disposition.Compute(s.info, s.mem, s.ctx)
   return { value = value, name = ns.Disposition.TierName(value), why = why }
+end
+
+-- Tone for the box's selector (0.85.0): "polite" / "normal" / "blunt", or nil when hidden.
+function Conv.ToneView(s)
+  if not s or not ns.Disposition or ns.db.settings.toneSelector == false then return nil end
+  return ns.Disposition.Tone(s.ctx)
+end
+
+-- The selector was clicked (or /rpgd tone): the new tone, the replies reworded to match,
+-- and the disposition again, since some people care how they're spoken to.
+function Conv.SetTone(t)
+  if not ns.Disposition then return end
+  ns.Disposition.SetTone(t)
+  local s = Conv.session
+  if not s or s.mode ~= "full" then return end
+  local v = View(s)
+  if s.choiceEntries and v.SetChoices then v.SetChoices(Conv.LabelChoices(s)) end
+  if v.SetDisposition then v.SetDisposition(Conv.DispositionView(s)) end
+  if v.SetTone then v.SetTone(Conv.ToneView(s)) end
 end
 
 -- "Ask about...": the NPC's own take, then their community's, their role's, then a brush-off.
@@ -1111,12 +1180,80 @@ function Conv.AskKnows()
   if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
 end
 
+-- "Where is...?" (Daggerfall-style): a lead-in, then the town's places and people as
+-- replies, a page at a time. Picking one gives the way there (and a TomTom waypoint when
+-- TomTom is loaded); "That's all I needed." goes back to the conversation.
+function Conv.AskWhere(page)
+  local s = Conv.session
+  if not s then return end
+  local Dir = ns.Directions
+  local _, list = Dir.List(s.info, s.ctx)
+  if not page then
+    ns.Topics.Asked("whereis", s.memKey, #list > 0)
+    local text
+    if #list == 0 then
+      text = L.WHERE_NONE
+    else
+      local w = Engine.PickTopic(s.info, "whereis", s.ctx, s.env)
+      if w and not (type(w.src) == "string" and w.src:find("brushoff")) then
+        Conv.Shown(w)
+        s.lastLine = w.gid
+        text = Tokens.Render(w.line.text, s.ctx, s.env, w.line.when)
+      else
+        text = (s.info.def and s.info.def.newInTown) and L.WHERE_LEADIN_NEW or L.WHERE_LEADIN
+      end
+    end
+    Conv.Log("ask", L.WHERE_TITLE)
+    Conv.Log("npc", text)
+    View(s).ShowAnswer(text, L.WHERE_TITLE)
+    if #list == 0 then
+      if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+      return
+    end
+  end
+  local shown, more, pg = Dir.Page(list, page or 0)
+  s.wherePage = pg
+  s.viewTopic = nil
+  local entries = {}
+  for _, e in ipairs(shown) do entries[#entries + 1] = { choice = { text = e.name }, where = e } end
+  if more then entries[#entries + 1] = { choice = { text = L.WHERE_MORE }, whereMore = true } end
+  entries[#entries + 1] = { choice = { text = L.WHERE_DONE }, whereDone = true }
+  s.choiceEntries = entries
+  local choices = {}
+  for i, entry in ipairs(entries) do
+    choices[i] = { text = entry.choice.text, gap = (entry.whereMore or (entry.whereDone and not more)) and i > 1 or nil }
+  end
+  View(s).SetChoices(choices)
+  if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
+function Conv.AnswerWhere(entry)
+  local s = Conv.session
+  if not s then return end
+  local text = ns.Directions.Answer(entry, s.info, s.memKey, (s.env and s.env.seed or 0) + #entry.id)
+  text = Tokens.Render(text, s.ctx, s.env)
+  Conv.Log("you", entry.name)
+  Conv.Log("npc", text)
+  View(s).ShowAnswer(text, entry.name, Conv.Hear(text))
+  ns.Directions.Waypoint(entry, s.info)
+end
+
 function Conv.Ask(topic)
   local s = Conv.session
   if not s or s.mode ~= "full" then return end
   if topic == "knows" then Conv.AskKnows(); return end
+  if topic == "whereis" and ns.Directions then Conv.AskWhere(); return end
+  -- Disposition gates (0.85.0): Cold or worse, they keep to small talk; secrets and personal
+  -- matters wait until they're Warm.
+  local gates = ns.db.settings.dispositionGates ~= false
+  local gateNeed = gates and Engine.TopicGate(s.info, topic, s.ctx, s.env)
+  if gateNeed then Conv.AskGated(topic, gateNeed); return end
   local w = Engine.PickTopic(s.info, topic, s.ctx, s.env)
   local brushoff = w == nil or (type(w.src) == "string" and w.src:find("brushoff") ~= nil)
+  if brushoff and gates then
+    local held = Engine.HeldAnswerNeed(s.info, topic, s.ctx, s.env)
+    if held then Conv.AskGated(topic, held); return end
+  end
   ns.Topics.Asked(topic, s.memKey, not brushoff)
   local text = L.FALLBACK_LINE
   if w then
@@ -1130,6 +1267,7 @@ function Conv.Ask(topic)
   Conv.Log("ask", tdef and tdef.name or topic)
   Conv.Log("npc", text)
   View(s).ShowAnswer(text, tdef and tdef.name or topic, linked)
+  Conv.ShowPendingNote()
   local nextId = w and w.line.next
   local node = nextId and s.info.def and s.info.def.nodes and s.info.def.nodes[nextId]
   if node then
@@ -1149,6 +1287,96 @@ function Conv.Ask(topic)
     Conv.OfferChoices(s)
   end
   if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
+-- They won't talk about it yet (0.85.0): a refusal in their voice, remembered as "won't
+-- say" (not "nothing to say"), with a quiet note under it. need: the disposition it wants.
+function Conv.AskGated(topic, need)
+  local s = Conv.session
+  ns.Topics.Gated(topic, s.memKey, need)
+  local w = Engine.PickGated(s.info, s.ctx, s.env)
+  local text = L.GATED_LINE
+  if w then
+    Conv.Shown(w)
+    s.lastLine = w.gid
+    text = Tokens.Render(w.line.text, s.ctx, s.env, w.line.when)
+  end
+  local tdef = ns.Data.topics[topic]
+  local name = tdef and tdef.name or topic
+  Conv.Log("ask", name)
+  Conv.Log("npc", text)
+  View(s).ShowAnswer(text, name, nil)
+  if s.viewTopic and s.nodeDef then
+    s.viewTopic = nil
+    Conv.OfferChoices(s)
+  end
+  if ns.db.settings.checkResults ~= false then
+    s.pendingNote = L.GATED_NOTE:format(ns.Disposition and ns.Disposition.TierName(need) or tostring(need))
+    Conv.ShowPendingNote()
+  end
+  if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
+-- Admire, Taunt, Intimidate (0.85.0, Systems/Persuasion.lua): once a day each with each
+-- person. They answer in their voice; the result shows under it ("Admire: success."), and
+-- disposition moves for days.
+function Conv.Persuade(action)
+  local s = Conv.session
+  local P = ns.Persuasion
+  if not s or s.mode ~= "full" or not P or not s.mem or not P.EFFECT[action] then return end
+  local env, ctx = s.env, s.ctx
+  local hex = ns.UI and ns.UI.Theme and ns.UI.Theme.Hex("dim") or "|cff888888"
+  if not P.CanUse(s.mem, action) then
+    View(s).ShowReaction(hex .. L.PERSUADE_USED:format(s.info.name or "") .. "|r")
+    return
+  end
+  local before = ns.Disposition and ns.Disposition.For(env, ctx)
+  local ok = P.Try(action, s.info, s.mem, ctx)
+  local result = ok and "success" or "fail"
+  local w = Engine.PickPersuade(s.info, action, result, ctx, env)
+  local text = ok and L.PERSUADE_FALLBACK_SUCCESS or L.PERSUADE_FALLBACK_FAIL
+  if w then
+    Conv.Shown(w)
+    s.lastLine = w.gid
+    text = Tokens.Render(w.line.text, ctx, env, w.line.when)
+  end
+  local name = L["PERSUADE_" .. action:upper()] or action
+  local said = "[" .. name .. "]"
+  Conv.Log("you", said)
+  Conv.Log("npc", text)
+  local linked = Conv.Hear(text)
+  View(s).ShowAnswer(text, name, linked, ns.db.settings.echoReply ~= false and said or nil)
+  if s.viewTopic and s.nodeDef then
+    s.viewTopic = nil
+    Conv.OfferChoices(s)
+  end
+  local notes = {}
+  if ns.db.settings.checkResults ~= false then
+    notes[#notes + 1] = (ok and L.CHECK_PASSED or L.CHECK_FAILED):format(name)
+  end
+  if before and ns.Disposition then
+    local after = ns.Disposition.For(env, ctx)
+    if ns.Disposition.Tier(after) ~= ns.Disposition.Tier(before) then
+      notes[#notes + 1] = L.DISP_NOW:format(ns.Disposition.TierName(after))
+    end
+  end
+  if #notes > 0 then
+    s.pendingNote = table.concat(notes, "  ")
+    Conv.ShowPendingNote()
+  elseif View(s).SetDisposition then
+    View(s).SetDisposition(Conv.DispositionView(s))
+  end
+  if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
+-- What the persuasion buttons show: { [action] = { usable, tried } } (nil when off).
+function Conv.PersuadeState(s)
+  s = s or Conv.session
+  local P = ns.Persuasion
+  if not s or not P or not s.mem or ns.db.settings.persuasion == false or s.page then return nil end
+  local out = {}
+  for _, a in ipairs(P.ACTIONS) do out[a] = { usable = P.CanUse(s.mem, a), last = P.LastTry(s.mem, a) } end
+  return out
 end
 
 -- The replies for the current node (plus any views on offer). Inside DialogueUI the topic

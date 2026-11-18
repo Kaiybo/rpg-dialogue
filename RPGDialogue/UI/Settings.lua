@@ -319,6 +319,7 @@ local function build()
   -- In the conversation: what the box shows besides the words.
   header(L.OPT_HEADER_CONVO)
   checkbox(L.OPT_ECHO, "echoReply")
+  checkbox(L.OPT_NARRATION, "narration")
   checkbox(L.OPT_VIEWS, "views")
   cycle(L.OPT_TAGS, "tags", { "available", "always", "never" }, { L.TAGS_AVAILABLE, L.TAGS_ALWAYS, L.TAGS_NEVER })
   checkbox(L.OPT_IDENTITY_TAGS, "identityTags")
@@ -326,8 +327,14 @@ local function build()
   checkbox(L.OPT_HINTS, "alignHints")
   checkbox(L.OPT_TOPIC_LINKS, "topicLinks")
   checkbox(L.OPT_DISPOSITION, "showDisposition")
+  cycle(L.OPT_TONE, "tone", { "polite", "normal", "blunt" }, { L.TONE_POLITE, L.TONE_NORMAL, L.TONE_BLUNT },
+    { onChange = function(v) if ns.Disposition then ns.Disposition.SetTone(v) end end })
+  checkbox(L.OPT_TONE_SELECTOR, "toneSelector")
   checkbox(L.OPT_APPROVAL, "approval")
   checkbox(L.OPT_CHECK_RESULTS, "checkResults")
+  checkbox(L.OPT_GUT, "gutFeelings")
+  checkbox(L.OPT_PERSUASION, "persuasion", { onChange = function() if UI.Dialogue and UI.Dialogue.SetDisposition and ns.Conversation.session then UI.Dialogue.SetDisposition(ns.Conversation.DispositionView(ns.Conversation.session)) end end })
+  checkbox(L.OPT_GATES, "dispositionGates")
 
   -- The world: people noticing you, speaking up, the madness.
   header(L.OPT_HEADER_WORLD)

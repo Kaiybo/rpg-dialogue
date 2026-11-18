@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.40.0 (2026-11-18)
+- How people answer Admire, Taunt and Intimidate, by role, town and faction (`persuade.lua`, new file: restart the game fully).
+- Gut-feeling notes (`gut.lua`, new file).
+- Refusals for topics someone won't discuss yet, and the "Where is...?" topic.
+
 ## 1.39.0 (2026-11-18)
 - Friendly demons (imps, voidwalkers, succubi, felhunters and more) have their own conversations (`demons.lua`, new file: restart the game fully).
 - New "Ask about" topic: Aviana, with views to take.

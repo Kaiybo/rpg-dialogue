@@ -12,9 +12,14 @@
 --     * their rivals (`rivals` on the NPC, 0.55.0): your affinity with each
 --       rival x3 against you (to -15), or, if you've crossed the rival,
 --       x1 in your favour (to +5)
+--     * Admire / Taunt / Intimidate (Systems/Persuasion.lua, 0.85.0): a modifier that
+--       fades by a point a day
 --     * their prejudices (`prejudice` on the NPC, 0.80.0): what they hold against your
 --       race, faction, class or origin, eased by 3 for each point of affinity you've earned
 --       (to -25 in all)
+--     * your tone (0.85.0, Daggerfall-style): Polite or Blunt against the manner this person
+--       likes (`Disp.ToneLiked`): +3..+6 for the right one, -3..-5 for the wrong one,
+--       nothing for Normal or for someone with no preference
 --   Clamped to 0-100. Words: Hostile, Cold, Wary, Neutral, Warm, Friendly, Devoted.
 --
 -- It's addon-only: it never changes prices or how anyone really behaves in the game. It
@@ -27,6 +32,36 @@ ns.Disposition = Disp
 
 -- A Persuade check with no conditions of its own passes from here up (Engine.CheckChoice).
 Disp.PERSUADE = 65
+
+-- What they'll talk about (0.85.0). Below GATE_ORDINARY (Cold or worse) they won't discuss
+-- anything but the "ask anyone" topics; secrets and personal topics need GATE_PRIVATE
+-- (Warm). A topic's own `minDisposition` overrides both; a line's `minDisposition` holds
+-- that one answer back.
+Disp.GATE_ORDINARY = 35   -- Wary or better
+Disp.GATE_PRIVATE = 60    -- Warm or better
+Disp.PRIVATE_CATEGORIES = { secrets = true, personal = true }
+
+-- The disposition a topic needs with this NPC (0 for none). Private: the topic says
+-- `private`/`secret`, its category is secrets or personal, its `about` names this NPC, or
+-- the NPC lists it in its own `private`.
+function Disp.TopicNeed(topic, info)
+  local tdef = ns.Data and ns.Data.topics and ns.Data.topics[topic]
+  if topic == "knows" or (tdef and tdef.standard) then return 0 end
+  if tdef and type(tdef.minDisposition) == "number" then return tdef.minDisposition end
+  local def = info and info.def
+  local private = tdef and (tdef.private or tdef.secret or Disp.PRIVATE_CATEGORIES[tdef.category or ""])
+  if not private and tdef and tdef.about and info and info.key then
+    local about = type(tdef.about) == "table" and tdef.about or { tdef.about }
+    for _, k in ipairs(about) do if k == info.key then private = true; break end end
+  end
+  if not private and def and type(def.private) == "table" then
+    for _, k in ipairs(def.private) do if k == topic then private = true; break end end
+  end
+  if type(def and def.topicGates) == "table" and type(def.topicGates[topic]) == "number" then
+    return def.topicGates[topic]
+  end
+  return private and Disp.GATE_PRIVATE or Disp.GATE_ORDINARY
+end
 
 Disp.TIERS = {
   { id = "hostile", max = 19 }, { id = "cold", max = 34 }, { id = "wary", max = 44 },
@@ -121,6 +156,85 @@ function Disp.Prejudice(def, mem, ctx)
   return full, left, first
 end
 
+-- Tone (0.85.0): Polite / Normal / Blunt, Daggerfall-style. The player's tone is kept per
+-- character (`char.tone`), starting from the `tone` setting; spoof with tone=blunt.
+Disp.TONES = { "polite", "normal", "blunt" }
+local TONE_OK = { polite = true, normal = true, blunt = true }
+
+function Disp.Tone(ctx)
+  local spoofed = ctx and ctx.spoofed and ctx.spoofed.tone
+  if TONE_OK[spoofed] then return spoofed end
+  local settings = ns.db and ns.db.settings
+  local t = ns.char and ns.char.tone
+  if TONE_OK[t] then
+    -- The setting shows this character's tone, and a new character starts in the last one used.
+    if settings and settings.tone ~= t then settings.tone = t end
+    return t
+  end
+  t = settings and settings.tone
+  return TONE_OK[t] and t or "normal"
+end
+
+function Disp.SetTone(t)
+  if not TONE_OK[t] then return end
+  if ns.char then ns.char.tone = t end
+  if ns.db and ns.db.settings then ns.db.settings.tone = t end
+end
+
+-- The next tone in Polite -> Normal -> Blunt order (the selector cycles).
+function Disp.NextTone(t)
+  for i, v in ipairs(Disp.TONES) do
+    if v == t then return Disp.TONES[i % #Disp.TONES + 1] end
+  end
+  return "normal"
+end
+
+-- Who likes which manner. Polite: nobles, priests, officials, gentle and warm tempers, anyone
+-- who values Order or the Light. Blunt: soldiers and guards, gruff and jovial tempers, orcs,
+-- trolls and dwarves (def `race`), anyone who values Honor. Each family counts once.
+Disp.POLITE = {
+  role = { noble = true, priest = true, clerk = true, banker = true },
+  temper = { gentle = true, warm = true, formal = true, serene = true, fussy = true },
+  values = { lawful = true, dutiful = true, duty = true, order = true, devout = true, pious = true, light = true },
+}
+Disp.BLUNT = {
+  role = { soldier = true, guard = true, militia = true, peon = true },
+  temper = { gruff = true, jovial = true, blunt = true, hearty = true, boisterous = true, brash = true },
+  values = { honest = true, honorable = true, honor = true, strength = true },
+  race = { Orc = true, Troll = true, Dwarf = true },
+}
+
+local function tonePoints(def, role, want)
+  local n = 0
+  if role and want.role[role] then n = n + 1 end
+  for _, field in ipairs({ "temper", "values" }) do
+    for _, t in ipairs(def[field] or {}) do
+      if want[field][t] then n = n + 1; break end
+    end
+  end
+  if want.race and def.race and want.race[def.race] then n = n + 1 end
+  return n
+end
+
+-- The manner this person likes and how strongly (1-3), or nil. def.likesTone overrides.
+function Disp.ToneLiked(def, role)
+  if type(def) ~= "table" then return nil, 0 end
+  if def.likesTone == "polite" or def.likesTone == "blunt" then return def.likesTone, 3 end
+  if def.likesTone == false or def.likesTone == "none" then return nil, 0 end
+  local diff = tonePoints(def, role or def.role, Disp.POLITE) - tonePoints(def, role or def.role, Disp.BLUNT)
+  if diff == 0 then return nil, 0 end
+  return diff > 0 and "polite" or "blunt", math.min(math.abs(diff), 3)
+end
+
+-- What your tone does to this person's disposition: a number (0 for Normal or no preference).
+function Disp.ToneDelta(def, role, tone)
+  if tone ~= "polite" and tone ~= "blunt" then return 0 end
+  local liked, strength = Disp.ToneLiked(def, role)
+  if not liked then return 0 end
+  if liked == tone then return math.min(6, 2 * strength + 1) end
+  return -(strength + 2)
+end
+
 local function clamp(v, lo, hi) return math.max(lo, math.min(hi, v)) end
 
 local function set(list)
@@ -177,8 +291,12 @@ function Disp.Compute(info, mem, ctx)
   end
   local _, left = Disp.Prejudice(def, mem, ctx)
   add(-left, "prejudice")
+  local tone = Disp.ToneDelta(def, info and info.role, Disp.Tone(ctx))
+  add(tone, tone > 0 and "tone:likes" or "tone:dislikes")
   local reaction = ctx and ctx.npcReaction
   if type(reaction) == "number" and reaction <= 3 then add(-10, "unfriendly") end
+  -- Admire, Taunt, Intimidate (0.85.0): what's left of how they took it.
+  if ns.Persuasion then add(ns.Persuasion.Modifier(mem), "persuade") end
   return clamp(v, 0, 100), why
 end
 

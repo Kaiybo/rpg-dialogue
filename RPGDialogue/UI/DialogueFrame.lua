@@ -85,6 +85,13 @@ D.utf8Cut = utf8Cut
 local function utf8Len(s) return #cutPoints(s) end
 
 local function settings() return ns.db.settings end
+
+local PERSUADE_ACTIONS = { "admire", "taunt", "intimidate" }
+local PERSUADE_ICONS = {
+  admire = "Interface\\Icons\\Spell_Holy_Heal",
+  taunt = "Interface\\Icons\\Spell_Nature_Reincarnation",
+  intimidate = "Interface\\Icons\\Ability_GolemThunderClap",
+}
 local function isGame() return Theme.IsGame() end
 -- "Large dialogue box" (0.82.0): a wider, taller box with bigger text, easier to read.
 local LARGE_EXTRA_W, LARGE_GAME_EXTRA_W, LARGE_EXTRA_H, LARGE_TEXT = 220, 150, 110, 3
@@ -348,6 +355,50 @@ local function create()
   frame.disp:SetScript("OnLeave", function() GameTooltip:Hide() end)
   frame.disp:Hide()
 
+  -- Admire, Taunt, Intimidate (0.85.0): small buttons on the bottom bar, an icon (and, in
+  -- the wide wood look, a word). Each is tried once a day with each person.
+  frame.persuade = {}
+  for i, action in ipairs(PERSUADE_ACTIONS) do
+    local b = CreateFrame("Button", nil, frame)
+    b.action = action
+    b:SetSize(18, 18)
+    b.icon = b:CreateTexture(nil, "ARTWORK")
+    b.icon:SetSize(16, 16)
+    b.icon:SetPoint("LEFT", 1, 0)
+    b.icon:SetTexture(PERSUADE_ICONS[action])
+    b.label = b:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    b.label:SetPoint("LEFT", b.icon, "RIGHT", 3, 0)
+    b.label:SetText(L["PERSUADE_" .. action:upper()])
+    b.hl = b:CreateTexture(nil, "HIGHLIGHT")
+    b.hl:SetAllPoints()
+    b.hl:SetColorTexture(1, 1, 1, 0.12)
+    b:SetScript("OnClick", function(self)
+      if self.usable then ns.Conversation.Persuade(self.action) end
+    end)
+    b:SetScript("OnEnter", function(self) D.PersuadeTooltip(self) end)
+    b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    b:Hide()
+    frame.persuade[i] = b
+  end
+
+  -- Tone (0.85.0): Polite / Normal / Blunt; a click moves to the next one.
+  frame.tone = CreateFrame("Button", nil, frame)
+  frame.tone:SetSize(110, 18)
+  frame.tone.label = frame.tone:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  frame.tone.label:SetPoint("LEFT")
+  frame.tone.label:SetJustifyH("LEFT")
+  frame.tone:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+  frame.tone:SetScript("OnClick", function(self, button)
+    local cur = self.value or "normal"
+    local nxt = ns.Disposition.NextTone(cur)
+    if button == "RightButton" then nxt = ns.Disposition.NextTone(nxt) end
+    ns.Conversation.SetTone(nxt)
+    if GameTooltip:IsOwned(self) then D.ToneTooltip(self) end
+  end)
+  frame.tone:SetScript("OnEnter", function(self) D.ToneTooltip(self) end)
+  frame.tone:SetScript("OnLeave", function() GameTooltip:Hide() end)
+  frame.tone:Hide()
+
   frame.flagBox = CreateFrame("EditBox", nil, frame, C.Template("editbox"))
   frame.flagBox:SetSize(WOOD_WIDTH - 2 * PAD - 120, 20)
   frame.flagBox:SetAutoFocus(false)
@@ -399,6 +450,7 @@ local function placeParts(game)
   frame.textBtn:ClearAllPoints()
   frame.ask:ClearAllPoints()
   frame.disp:ClearAllPoints()
+  frame.tone:ClearAllPoints()
   frame.flagBox:ClearAllPoints()
   frame.flagHint:ClearAllPoints()
   frame.rule:ClearAllPoints()
@@ -492,8 +544,12 @@ function D.Style()
   frame.said:SetSpacing(settings().lineSpacing or 3)
   Theme.SetFont(frame.flagHint, "body", size - 3)
   Theme.SetFont(frame.disp.label, "body", size - 2)
+  for _, b in ipairs(frame.persuade) do Theme.SetFont(b.label, "body", size - 3) end
   Theme.Shadow(frame.disp.label, false)
   Theme.TextColor(frame.disp.label, "header")
+  Theme.SetFont(frame.tone.label, "body", size - 2)
+  Theme.Shadow(frame.tone.label, false)
+  Theme.TextColor(frame.tone.label, "header")
   frame.text:SetSpacing(settings().lineSpacing or 3)
   frame.reaction:SetSpacing(settings().lineSpacing or 3)
   Theme.TextColor(frame.name, "title")
@@ -574,7 +630,38 @@ function D.Layout()
     end
   end
   frame.disp:SetShown(frame.disp.value ~= nil and not frame.flagBox:IsShown())
-  local barShown = frame.flagBox:IsShown() or frame.ask:IsShown() or frame.disp:IsShown()
+  -- Persuasion buttons sit just left of "Ask about..." (or the corner), right to left.
+  local persuadeOn = frame.persuadeState ~= nil and not frame.flagBox:IsShown()
+  local words = not game
+  local anchor, anchorPoint, gap = frame.ask, "LEFT", -6
+  if not frame.ask:IsShown() then
+    anchor, anchorPoint, gap = frame, "BOTTOMRIGHT", 0
+  end
+  for i = #frame.persuade, 1, -1 do
+    local b = frame.persuade[i]
+    b:SetShown(persuadeOn)
+    if persuadeOn then
+      b.label:SetShown(words)
+      b:SetWidth(words and (22 + (b.label:GetStringWidth() or 40)) or 18)
+      b:ClearAllPoints()
+      if anchor == frame then
+        b:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", game and -8 or -16, game and 6 or 16)
+      else
+        b:SetPoint("RIGHT", anchor, anchorPoint, gap, 0)
+      end
+      anchor, anchorPoint, gap = b, "LEFT", words and -8 or -2
+    end
+  end
+  frame.tone:SetShown(frame.tone.value ~= nil and not frame.flagBox:IsShown())
+  if frame.tone:IsShown() then
+    frame.tone:ClearAllPoints()
+    if frame.disp:IsShown() then
+      frame.tone:SetPoint("LEFT", frame.disp, "RIGHT", 14, 0)
+    else
+      frame.tone:SetPoint("BOTTOMLEFT", game and 12 or (PAD + 6), game and 6 or 16)
+    end
+  end
+  local barShown = frame.flagBox:IsShown() or frame.ask:IsShown() or frame.disp:IsShown() or frame.tone:IsShown() or persuadeOn
   if game then
     local bottom = barShown and GAME_BAR or 4
     -- The flag hint ("say what's wrong", "saved") gets its own line above the bar.
@@ -648,11 +735,14 @@ function D.Show(v)
   frame.ask:SetShown(v.canAsk == true)
   frame.ask:SetText((v.askCount and v.askCount > 0) and L.ASK_BUTTON_N:format(v.askCount) or L.ASK_BUTTON)
   D.SetDisposition(v.disposition, true)
+  D.SetTone(v.tone, true)
   D.Style()   -- also builds the current look's parts, the round portrait among them
   local portrait = Theme.GamePart(frame, "portrait")
   if portrait and not C.SetPortrait(portrait, v.unit) then portrait:SetTexture(PORTRAIT_FALLBACK) end
-  reveal.full = v.text or ""
-  reveal.linked = v.linkedText
+  -- Narration (0.85.0): its own paragraph in dim ink, typed before their words.
+  local narr = (v.narr and v.narr ~= "") and (Theme.Hex("dim") .. v.narr .. "|r\n\n") or ""
+  reveal.full = narr .. (v.text or "")
+  reveal.linked = v.linkedText and (narr .. v.linkedText) or nil
   reveal.total = utf8Len(reveal.full)
   reveal.cuts = nil
   reveal.shown = 0
@@ -820,6 +910,7 @@ end
 -- d: { value, name, why } or nil (setting off, or a game page).
 function D.SetDisposition(d, noLayout)
   if not frame then return end
+  D.SetPersuade(ns.Conversation.PersuadeState and ns.Conversation.PersuadeState() or nil)
   frame.disp.value = d
   if d then
     frame.disp.label:SetText(L.DISP_LABEL:format(Theme.Hex("title") .. d.name .. "|r"))
@@ -830,7 +921,57 @@ function D.SetDisposition(d, noLayout)
   if not noLayout then D.Layout() end
 end
 
-local WHY_KEYS = { affinity = "DISP_WHY_AFFINITY", unfriendly = "DISP_WHY_UNFRIENDLY", prejudice = "DISP_WHY_PREJUDICE" }
+-- state: { [action] = { usable, last } } or nil (off, or a game page).
+function D.SetPersuade(state)
+  if not frame then return end
+  frame.persuadeState = state
+  for _, b in ipairs(frame.persuade) do
+    local st = state and state[b.action]
+    b.usable = st ~= nil and st.usable
+    b.icon:SetDesaturated(not b.usable)
+    b.icon:SetAlpha(b.usable and 1 or 0.45)
+    if b.usable then Theme.TextColor(b.label, "header") else Theme.TextColor(b.label, "dim") end
+  end
+end
+
+function D.PersuadeTooltip(b)
+  local name = L["PERSUADE_" .. b.action:upper()]
+  GameTooltip:SetOwner(b, "ANCHOR_TOP")
+  GameTooltip:SetText(name)
+  GameTooltip:AddLine(L["PERSUADE_" .. b.action:upper() .. "_TIP"], 1, 1, 1, true)
+  if not b.usable then GameTooltip:AddLine(L.PERSUADE_TRIED_TIP, 0.7, 0.7, 0.7, true) end
+  GameTooltip:Show()
+end
+
+-- tone: "polite" / "normal" / "blunt", or nil (selector off, or a game page).
+function D.SetTone(tone, noLayout)
+  if not frame then return end
+  frame.tone.value = tone
+  if tone then
+    local name = L["TONE_" .. tone:upper()] or tone
+    frame.tone.label:SetText(L.TONE_LABEL:format(Theme.Hex("title") .. name .. "|r"))
+    frame.tone:SetWidth(math.max(60, (frame.tone.label:GetStringWidth() or 90) + 4))
+  else
+    frame.tone.label:SetText("")
+  end
+  if not noLayout then D.Layout() end
+end
+
+function D.ToneTooltip(owner)
+  GameTooltip:SetOwner(owner, "ANCHOR_TOP")
+  GameTooltip:SetText(L.TONE_TITLE)
+  GameTooltip:AddLine(L.TONE_TIP, 1, 1, 1, true)
+  local cur = frame.tone.value
+  for _, t in ipairs(ns.Disposition.TONES) do
+    local on = t == cur
+    GameTooltip:AddLine((on and "> " or "   ") .. (L["TONE_" .. t:upper()] or t), on and 1 or 0.7, on and 0.82 or 0.7, on and 0 or 0.7)
+  end
+  GameTooltip:Show()
+end
+
+local WHY_KEYS = { affinity = "DISP_WHY_AFFINITY", unfriendly = "DISP_WHY_UNFRIENDLY", prejudice = "DISP_WHY_PREJUDICE",
+  persuade = "DISP_WHY_PERSUADE",
+  ["tone:likes"] = "DISP_WHY_TONE_LIKES", ["tone:dislikes"] = "DISP_WHY_TONE_DISLIKES" }
 
 function D.DispositionTooltip(owner)
   local d = frame.disp.value

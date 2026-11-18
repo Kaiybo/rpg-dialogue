@@ -40,13 +40,19 @@ SD.ACCOUNT_DEFAULTS = {
     topicLinks = true,          -- topic words in NPC lines are highlighted links (Ask about)
     identityTags = true,        -- [Priest], [Human], [Kind] on replies there because of who you are
     showDisposition = true,     -- "Disposition: Warm" in the box, reasons on hover
+    tone = "normal",            -- 0.85.0: the tone a new character starts in, "polite" | "normal" | "blunt"
+    toneSelector = true,        -- the Polite / Normal / Blunt selector on the box's bottom bar
     approval = true,            -- "Marshal Dughan approves." under the answer
     checkResults = true,        -- "Persuade: success" under the answer
+    gutFeelings = true,         -- "Something in his voice doesn't sit right." under a doubtful claim
+    persuasion = true,          -- Admire / Taunt / Intimidate on the bottom bar (0.85.0)
+    dispositionGates = true,    -- topics wait on disposition: Wary for most, Warm for secrets (0.85.0)
     fadeDefault = true,         -- fade Blizzard's window while ours covers it
     textSize = 13,              -- the game's quest font size
     lineSpacing = 3,
     largeBox = false,           -- a bigger conversation box with bigger text (0.82.0)
     echoReply = true,           -- "You: ..." above their answer (0.61.0)
+    narration = true,           -- stage directions ("He sets down the hammer...") above lines (0.85.0)
     views = true,               -- say what you think after an "Ask about..." answer (0.82.0)
     look = "game",              -- "game" (the game's own quest window art) | "wood"
     pagesInBox = true,          -- the game's next gossip page and quest pages stay in the box
@@ -83,7 +89,7 @@ SD.CHAR_DEFAULTS = {
   traits = {},
   opinions = {},
   flags = {},
-  claims = { player = {}, heard = {}, exposed = {} },
+  claims = { player = {}, heard = {}, exposed = {}, doubted = {} },
   deeds = {},
   kills = { total = 0, byName = {} },
   threads = {},

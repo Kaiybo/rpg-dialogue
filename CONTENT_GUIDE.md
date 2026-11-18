@@ -51,6 +51,17 @@ How to write dialogue for RPG Dialogue, for people and for AI sessions. Read it 
 - **Even a brush-off has a voice.** Every NPC gets a `_none` topic answer that sounds like them.
 - **No promises the game can't keep.** No discounts, free drinks, rewards or "I'll fix that for you" (the addon can't change prices or give items).
 
+## 2a. Narration (stage directions, 0.85.0)
+
+`narr` adds one line of what the NPC *does*, shown dim above what they *say* (DESIGN §2.5): `narr = "He sets down the hammer and looks you over, slowly."` It goes on a line, a node, or a choice's `reply`; conditions work like a reply's (`narr = { { text = "…", when = { … } }, { text = "…" } }`), and tokens work.
+
+- **Present tense, one sentence.** Third person about the NPC ("She…", "Thrall…") or second person about what the player sees ("You catch him glancing at the door."). Never both in one sentence.
+- **Physical and specific.** Hands, eyes, posture, the thing they're holding, the room around them: the marshal's map, the Warchief's armour, the high priestess's bow. "He looks thoughtful" is not narration; "He rubs his thumb along the edge of the map" is.
+- **Never tells the player what they feel**, and never tells them what the NPC feels in so many words ("She is sad"). Show it and let the player read it.
+- **Never repeats the line.** If the words say he's tired, the narration doesn't yawn. It adds what the words can't: a pause, a glance, a gesture that undercuts or sharpens them.
+- **Sparingly: maybe one node in four.** Big moments, first meetings, a turn in the talk. A page of narration on every node turns into a novel and slows the box down.
+- Same voice rules as everything else: whole sentences, Classic-era only, nothing an NPC's model couldn't plausibly be doing in the game.
+
 ## 3. Noticing moments (acknowledgments)
 
 A noticing moment is *this* NPC reacting to something about the player *they in particular* would care about.
@@ -130,11 +141,31 @@ Reputation counts as who the player is too: `reputation = { faction = "Stormwind
 - **Keep the rules in sections 2 and 5.** One or two things about the player per line; 1–3 whole sentences per line, never stacked fragments; replies 15 words or fewer. Depth comes from more nodes, not longer lines.
 - Lore discipline doesn't loosen with depth. A minor NPC with three branches talks about their work, their place and their neighbours; they don't grow an invented life story (section 1). If there isn't enough source for a fourth branch, write three good ones.
 
+## 7b. Tone: Polite, Normal, Blunt (0.85.0)
+
+The player picks a tone (DESIGN §3.15). A reply can carry all three:
+
+```lua
+{ text = { normal = "What brings the Brotherhood's trouble this far east?",
+           polite = "If I may ask, sir, what brings this trouble so far east?",
+           blunt  = "So why are the Defias out here, then?" }, next = "defias" },
+```
+
+- **Same meaning, different manner.** All three ask the same thing, take the same stance and lead to the same answer. Never let the tone change what the player is saying, or the NPC's reply won't fit.
+- **Normal** is the reply as it would have been written anyway, and it is required; a missing polite or blunt falls back to it.
+- **Polite** is courteous, not grovelling: "if I may", "sir", "my lady", "would you", a thank-you. One courtesy per line, never "humbly beg" or three titles in a row. Address fits the listener: "sir" to a marshal, "elder" to a tauren, "Father" to a priest.
+- **Blunt** is plain and short, never cruel or insulting: drop the softeners, say it straight. "So why are the Defias out here?" is blunt; "Quit wasting my time, old man" is not, it's a different stance. An orc or a dwarf should hear it as respect.
+- **Fifteen words per variant**, whole sentences, the character's own race voice (§2) in all three.
+- Give variants to the **hub replies** first (the ones every player sees); deep-branch replies can stay plain.
+- **Lines that react.** A line with `when = { tone = "polite" }` (or `"blunt"`) lets the NPC notice the manner: a soldier waving off the "sir", a noble pleased by it, an orc grinning at plain talk. One or two per major NPC, usually on the hub or an `again` line, never a lecture.
+- **Who likes what** comes from the NPC's role, temper, values and `race`, or `likesTone`. Set `likesTone` only when the character plainly cares and the defaults get it wrong.
+
 ## 8. Agendas, claims and unreliable narrators
 
 - People have agendas, grudges and blind spots: **bias** (honest but one-sided), **mistakes**, **half-truths**, **lies**, **manipulation**.
 - Register important statements as claims (`claims/<id>.lua`, in the World pack): who says it, `truth = "true" | "false" | "partly" | "disputed" | "unknown"`, a `truthNote`, and `exposedBy` (another NPC's line, a quest, an item, a place) or `open = true` for questions that are never settled.
 - Lines that state a claim carry `fx = { hear = "<claim>" }`; lines or quests that settle it carry `fx = { expose = "<claim>" }`. Conditions `heardClaim` / `claimExposed` let other NPCs and the player react.
+- **Gut feelings:** a claim may set `tell` (`lie`/`true`/`hiding`/`afraid`) when its truth alone misreads the speaker (a sincere mistake is `true`, not `lie`); a claim may list `contradicts = { ids }`. A line may set `tell` itself, with or without a claim (DESIGN §3.15).
 - **Limits:** agendas fit the character (canon schemers scheme; canon heroes don't become villains). Only NPCs can be wrong; the UI and the factual parts of the journal never state false lore. The truth behind a lie is canon or deliberately open.
 - **Disagreement is good.** Write both sides with conviction. Don't add a "correct" NPC unless the claim file says it gets settled.
 - Slice example: Dughan says the Defias are common thieves (`defias_common_thieves`, partly true; he plays it down to keep Goldshire calm). McBride and Milly contradict him. The player can confront him (`confront` node, `[Persuade]`).
@@ -205,6 +236,8 @@ Never says:
 - Every node has at least one line without `when` (or it can go silent) and at least one choice; every path reaches `END` or `BUSINESS` (`BACK` returns to the last hub, see 7a). "Get on with it" is added automatically.
 - Special options (`tag = "Persuade" | "Intimidate" | "Deceive"`) belong on the major NPCs (one or two each, 0.34.0), need a `fail = { next, fx }` with its own node, and succeed from who the player is (`check = { pass = { any = { ... } } }`: one route through `disposition = { min = 60-70 }`, others through trait, class, race, origin, deeds, quests done for them), or the NPC's `temper` defaults. The player is told whether it worked, so the success must reveal something real (a confidence, an admission, their real opinion). Don't write "[Persuade]" in the text; the UI adds it. No bribes, no items, no `fx.align` on a check.
 - `disposition` (0-100; DESIGN §3.12) gates what people confide: warm confidences at `{ min = 65 }`-`{ min = 75 }`, curt lines at `{ max = 34 }`.
+- **Disposition gates (0.85.0, DESIGN §3.16).** Below Wary (35) people refuse every topic but the "ask anyone" ones; secrets and personal topics wait for Warm (60). Mark a topic private with `private = true` (or `secret = true`, category `secrets`/`personal`, or `about = "<npc key>"` for the people it concerns); an NPC can list its own sore subjects in `private = { "topic" }` or set exact numbers in `topicGates = { topic = 70 }`; a topic or a single answer line can carry `minDisposition = n`. Give major NPCs a `topics._gated` refusal in their own voice (one or two whole sentences: they won't say, not they don't know). Don't gate what the player needs for a quest.
+- **Admire, Taunt, Intimidate (0.85.0).** Generic answers live in `RPGDialogue_World/persuade.lua` (`P:Persuade`, by role, side and home city). Major NPCs may add their own: `persuade = { admire = { success = { lines }, fail = { lines } }, taunt = {...}, intimidate = {...} }`. Same rules as any line: their voice, whole sentences, Classic only. A success is a shift in attitude (they warm to you, back down, respect your nerve), not a promise or a secret; a failure is offence taken or a threat called. Success depends on their `temper` and `values` (DESIGN §3.16), so give a vain, cowardly or gruff character the temper word that says so. No bribes, no items, no `fx.align`.
 - Every major NPC gets `topics.knows`: the lead-in to "What do you know?", one or two whole sentences that come before a list of subjects and name none of them (the addon lists them).
 - Journal templates come in both voices: `journal = { first = "...", third = "{name} ..." }`.
 - **Every named NPC carries an `impression`** (0.35.0): the player character's private diary note about them, written after the first conversation. `first`: 1-2 whole sentences, 40 words or fewer, what they noticed and made of the person, readable whether written after the first or the fifth meeting (no "Today I met"). `third`: one chronicle sentence with `{name}`. No assumptions about the player's class, race, gender or faction; no new facts beyond the bible.

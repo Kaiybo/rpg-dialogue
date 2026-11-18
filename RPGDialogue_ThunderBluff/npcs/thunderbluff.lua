@@ -204,7 +204,7 @@ P:NPC {
       },
     },
     walk2 = {
-      lines = { { id = "wk2_default", text = "Friends of my youth lie somewhere in the grass between the Gold Road and the Stonetalon foothills, and I could not tell you the places, because we left them at a run. That is what wandering costs a people: you cannot visit your dead, so you learn to carry them in your songs instead, and Mulgore is the first land where our dead can lie still." } },
+      lines = { { id = "wk2_default", narr = "He feeds a length of wood into the fire and watches it catch before he goes on.", text = "Friends of my youth lie somewhere in the grass between the Gold Road and the Stonetalon foothills, and I could not tell you the places, because we left them at a run. That is what wandering costs a people: you cannot visit your dead, so you learn to carry them in your songs instead, and Mulgore is the first land where our dead can lie still." } },
       choices = {
         { text = "I'm sorry, Chieftain. That's a heavy thing to carry.", next = "walk3", fx = { trait = { kind = 1 } } },
         { text = "Songs are a strong way to remember them.", next = "walk3", fx = { trait = { curious = 1 } } },
@@ -287,7 +287,7 @@ P:NPC {
       },
     },
     ld_thrall2 = {
-      lines = { { id = "ldt2_default", text = "Often, and quietly, which is how friends ought to disagree. I've told him that Durotar is a hard land and his people will be tempted by softer ones, and that the night elves' forests are not empty simply because the elves are quiet. But tell me, young one, what do you make of him?" } },
+      lines = { { id = "ldt2_default", narr = "A slow rumble of a laugh moves through his broad chest, and the beads in his braids click together.", text = "Often, and quietly, which is how friends ought to disagree. I've told him that Durotar is a hard land and his people will be tempted by softer ones, and that the night elves' forests are not empty simply because the elves are quiet. But tell me, young one, what do you make of him?" } },
       choices = {
         { text = "He's the best thing that ever happened to the Horde.", next = "BACK", fx = { affinity = 1, opinion = { warchief = "trust" } }, when = { faction = "Horde" } },
         { text = "He's too soft on the humans, Chieftain.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { warchief = "soft" } }, when = { faction = "Horde" } },
@@ -424,7 +424,7 @@ P:NPC {
     bd_age = {
       lines = {
         { id = "bda_default", text = "Age, mostly, though I don't say so in front of the young braves. I was made for the open plains and the hunt, and I spend my days on the High Rise listening to elders argue about water and bridges, so some mornings I envy every kodo in Mulgore." },
-        { id = "bda_warm", when = { disposition = { min = 70 } }, text = "I'll tell you a thing I've told only Hamuul. Some nights I wonder whether I bound my people to the Horde too quickly, out of gratitude, and whether our calves will pay for wars that were never theirs, but then morning comes and I remember who stood with us when no one else would." },
+        { id = "bda_warm", narr = "He lowers his great head until his voice carries no farther than the fire.", when = { disposition = { min = 70 } }, text = "I'll tell you a thing I've told only Hamuul. Some nights I wonder whether I bound my people to the Horde too quickly, out of gratitude, and whether our calves will pay for wars that were never theirs, but then morning comes and I remember who stood with us when no one else would." },
       },
       choices = {
         { text = "You chose rightly, Chieftain. The Horde stood with you.", next = "BACK", fx = { affinity = 1 } },
@@ -434,6 +434,7 @@ P:NPC {
     },
     bd_lands = {
       big = true,
+      narr = "He sets the foot of his runed totem into the earth beside the fire and leans his weight on it before he answers.",
       lines = { { id = "bdl_default", text = "Magatha says the tauren should take back the lands we wandered before the centaur scattered us, and she is not wrong that we walked them once. But we walked them, young one, we never owned them, and I will not send our calves to die for a map drawn by pride when the Earth Mother has already given us Mulgore." } },
       choices = {
         { text = "Mulgore is enough. The tauren have bled sufficiently.", next = "BACK", reply = "Spoken like one who has buried friends, and I thank you for it. Mulgore is green and our calves are safe, and that is enough wealth for any chieftain.", fx = { affinity = 1, align = { order = 1 } } },
@@ -464,6 +465,8 @@ P:NPC {
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
           text = "Magatha speaks poorly of you, which in this city counts as a recommendation. Sit by the fire, and tell me what passed between you." },
         { id = "h_default", key = true,
+          narr = { { text = "He rises from beside the fire to his full height and rests one broad hand on your shoulder, the way an old bull noses a calf back into the herd.", when = { race = "Tauren" } },
+                   { text = "He rises from beside the fire, and keeps rising, until you have to tip your head back to see the grey braids that hang beside his horns." } },
           text = "I am Cairne Bloodhoof, and I lead the Bloodhoof and all the tribes who call Mulgore home, even Magatha's Grimtotem on Elder Rise. We wandered for generations, but now we have a home, and I mean to keep it." },
         { id = "h_baine", when = { heardLine = "baine.h_default" },
           text = "You've met my son in the village. He listens better than I did at his age, but don't tell him I said so." },
@@ -512,6 +515,7 @@ P:NPC {
     },
     dd_grimtotem = {
       big = true,
+      narr = "He looks south past the totem poles of the rise, toward the Needles, for a long moment before he speaks.",
       lines = {
         { id = "dd_grimtotem_1", text = "I know, and I know why. They raid our caravans and kill our hunters and say the land belongs to the tauren alone, and they would burn the Horde to prove it. Yet I gave Magatha a place on Elder Rise in the hope that her people would come home, and every Grimtotem you bury is one who never will." },
         { id = "dd_grimtotem_gt", when = { origin = "tauren_grimtotem_born" }, text = "You of all people know what it costs. You were born among them and chose the Bloodhoof, and now you have spilled the blood of the tribe that raised you. I hope you have someone to sit with when the nights are long." },
@@ -539,7 +543,7 @@ P:NPC {
       },
       choices = {
         { text = "There's no way back. I want only vengeance on the Scourge.", next = "BACK", reply = "I understand that anger, and I would never ask you to let go of what the Scourge did. Only don't let vengeance be all that remains of you, for that is what the Lich King would want.", fx = { affinity = -1, align = { light = -1 } } },
-        { text = "If there's a cure, I'll take it gladly.", next = "BACK", reply = "Then I hope it comes, and that the Earth Mother is the one who sends it. Until then, you have a home here, whatever you are.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "If there's a cure, I'll take it gladly.", next = "BACK", narr = "He lays one enormous hand on your shoulder, careful of the bone beneath the cloth.", reply = "Then I hope it comes, and that the Earth Mother is the one who sends it. Until then, you have a home here, whatever you are.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "The other tribes must not all agree with you.", next = "forsaken_tribes" },
       },
     },
@@ -608,6 +612,7 @@ P:NPC {
     },
     mulgore = {
       big = true,
+      narr = "He turns toward the open edge of the rise, where the green plains of Mulgore roll away below the bluff, and points out across them with his great runed totem.",
       lines = {
         { id = "m_default", text = "The centaur hunted us across the plains. A young orc named Thrall fought beside us, and when his people found their land, we found ours. We built the Bluff high so we would never be caught in the open again." },
       },

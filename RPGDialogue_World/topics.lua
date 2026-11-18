@@ -74,6 +74,9 @@ P:Topic { id = "background", name = "Their story", category = "anyone", standard
 P:Topic { id = "trade", name = "Their work", category = "anyone", standard = true, order = 2, learned = "anyone" }
 P:Topic { id = "advice", name = "A little advice", category = "anyone", standard = true, order = 3, learned = "anyone" }
 P:Topic { id = "rumors", name = "Latest rumors", category = "anyone", standard = true, order = 4, learned = "anyone" }
+-- "Where is...?" (Daggerfall-style): the town's places and people from each pack's
+-- directions.lua (P:Directions); handled by Systems/Directions.lua, not by topic lines.
+P:Topic { id = "whereis", name = "Where is...?", category = "anyone", standard = true, order = 5, learned = "anyone" }
 
 -- Stormwind (Stormwind pack 1.6.0)
 P:Topic { id = "si7", keywords = { "SI:7" }, name = "SI:7", category = "people", learned = "Mathias Shaw, Renzik or Elling Trias in Stormwind" }

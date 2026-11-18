@@ -20,6 +20,7 @@ L.HELP_LINES = {
   "version - show which version of RPG Dialogue you're running",
   "kin - your other characters the addon remembers, and how many people each has met",
   "talk - talk to your target",
+  "tone [polite|normal|blunt] - show or set how you speak (some people care)",
   "settings - open the settings panel",
   "capture - record your target (ID, name, place) for the content tools",
   "capture zone - what's captured here, and NPCs you've talked to with no content yet",
@@ -134,6 +135,22 @@ L.ASK_KNOWS_ROW_TIP = "They said they know something about this."
 L.ASK_NOTHING_TIP = "You asked; they had nothing to say about it."
 L.KNOWS_TITLE = "What do you know?"
 L.KNOWS_FALLBACK = "Here's what I could tell you about."
+L.ASK_WHERE_TIP = "Ask the way to the inn, the bank, your trainer and the people of this town."
+L.WHERE_TITLE = "Where is...?"
+L.WHERE_LEADIN = "What are you looking for? I know my way around here."
+L.WHERE_LEADIN_NEW = "I'm new here myself, but I'll do my best. What are you after?"
+L.WHERE_NONE = "Couldn't tell you, sorry. I don't know this place well enough to send you anywhere."
+L.WHERE_UNKNOWN = "Couldn't tell you, sorry."
+L.WHERE_SELF = "You've found them already. You're talking to me."
+L.WHERE_MORE = "Somewhere else..."
+L.WHERE_DONE = "That's all I needed."
+L.WHERE_WAYPOINT = "TomTom: waypoint set for %s."
+L.WHERE_VAGUE = {
+  "I think that's somewhere off the main road, but don't hold me to it.",
+  "I've only just got here myself. Ask one of the guards; they'll know.",
+  "Somewhere near the middle of town, I'd guess. I keep getting lost myself.",
+  "I passed it once, I'm sure, but I couldn't tell you where now.",
+}
 
 -- Disposition, approval and checks (0.34.0)
 L.DISP_LABEL = "Disposition: %s"
@@ -158,6 +175,16 @@ L.RIVAL_HEARS = "%s will hear of this."
 L.WORD_SPREADS = "Word of this will get around %s."
 L.DISP_WHY_UNFRIENDLY = "They're unfriendly to your kind"
 L.DISP_WHY_PREJUDICE = "What they hold against your kind"
+L.DISP_WHY_TONE_LIKES = "Likes your manner"
+L.DISP_WHY_TONE_DISLIKES = "Dislikes your manner"
+-- Tone (0.85.0)
+L.TONE_LABEL = "Tone: %s"
+L.TONE_POLITE = "Polite"
+L.TONE_NORMAL = "Normal"
+L.TONE_BLUNT = "Blunt"
+L.TONE_TITLE = "Your tone"
+L.TONE_TIP = "How you speak: Polite, Normal or Blunt. Click to change. Some people like courtesy, others plain speaking, and your replies change to match."
+L.DUI_TONE = "Tone: %s (click to change)"
 L.DISP_NOW = "Disposition now %s."
 L.APPROVE = "%s approves."
 L.APPROVE_MUCH = "%s approves greatly."
@@ -170,8 +197,32 @@ L.TAG_INTIMIDATE = "Intimidate"
 L.TAG_DECEIVE = "Deceive"
 L.OPT_IDENTITY_TAGS = "Tag replies that come from who you are, like [Priest]"
 L.OPT_DISPOSITION = "Show each person's disposition toward you"
+L.OPT_TONE = "Your tone (this character)"
+L.OPT_TONE_SELECTOR = "Show the tone selector in the conversation box"
 L.OPT_APPROVAL = "Say when someone approves or disapproves"
 L.OPT_CHECK_RESULTS = "Say whether a Persuade, Intimidate or Deceive worked"
+L.OPT_GUT = "Gut feelings: sometimes sense when someone isn't telling the truth"
+L.OPT_PERSUASION = "Admire, Taunt and Intimidate buttons in the box"
+L.OPT_GATES = "People keep secrets until they think well enough of you"
+
+-- Persuasion (0.85.0) and disposition gates
+L.PERSUADE_ADMIRE = "Admire"
+L.PERSUADE_TAUNT = "Taunt"
+L.PERSUADE_INTIMIDATE = "Intimidate"
+L.PERSUADE_ADMIRE_TIP = "Flatter them. The vain, the warm and the jovial like it; sharp or cold people see through it."
+L.PERSUADE_TAUNT_TIP = "Needle them. Gruff, proud fighters respect a bit of spine; most people just take offence."
+L.PERSUADE_INTIMIDATE_TIP = "Lean on them. It works on cowards, or when you plainly outclass them; otherwise it costs you dearly."
+L.PERSUADE_TRIED_TIP = "You've already tried this with them today."
+L.PERSUADE_TRIED = "tried today"
+L.PERSUADE_USED = "You've already tried that with %s today."
+L.PERSUADE_FALLBACK_SUCCESS = "They seem to think a little better of you for it."
+L.PERSUADE_FALLBACK_FAIL = "They don't take it well."
+L.DUI_PERSUADE = "Persuade... (Admire, Taunt, Intimidate)"
+L.DISP_WHY_PERSUADE = "How you've handled them lately"
+L.GATED_LINE = "I've nothing to say to you about that."
+L.GATED_NOTE = "They won't talk about that until they're %s toward you."
+L.ASK_GATED = "won't say"
+L.ASK_GATED_TIP = "They won't talk about this: their disposition toward you is too low. They'd need to be %s."
 
 -- Dev: story systems
 L.THREADS_HEADER = "Throughlines:"
@@ -289,6 +340,7 @@ L.J_NO_ORIGIN = "not chosen (optional)"
 L.J_CLAIMS = "What people have told me"
 L.J_INSISTS = "%s insists: \"%s\""
 L.J_SETTLED = "(settled)"
+L.J_DOUBTED = "You doubted this."
 L.J_BOOKS = "Books I've read"
 L.J_DEATHS = "Died %d time(s), and come back each time."
 L.J_ORIGIN_PICK = "Origin: %s. Edit the blurb below, then confirm."
@@ -471,6 +523,7 @@ L.HISTORY_TITLE = "This conversation"
 L.HISTORY_EMPTY = "Nothing said yet."
 L.HISTORY_ASKED = "You asked about %s."
 L.OPT_ECHO = "Show what you said above their answer"
+L.OPT_NARRATION = "Show narration (what they do) above their words"
 L.OPT_VIEWS = "Say what you think after they answer a question"
 L.OPT_RESET_POS_LABEL = "Conversation box position"
 L.OPT_RESET_POS = "Reset to default"

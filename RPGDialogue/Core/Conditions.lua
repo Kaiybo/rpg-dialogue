@@ -494,6 +494,13 @@ def("disposition", 20, "hinge", nil, function(ctx, v, env)
   return inRange(d, v), "disposition " .. d
 end)
 
+-- Tone (0.85.0, Systems/Disposition.lua): the manner you're speaking in, "polite" / "normal" /
+-- "blunt" (or a list). Spoof with tone=blunt.
+def("tone", 15, "hinge", nil, function(ctx, v)
+  local t = ns.Disposition and ns.Disposition.Tone(ctx) or "normal"
+  return matches(t, v), "tone " .. t
+end)
+
 -- Prejudice (0.80.0, Systems/Disposition.lua): whether this person's `prejudice` touches you.
 -- true: it does and still weighs on them; "overcome": it does, but affinity has worn it away;
 -- false: it doesn't touch you, or no longer weighs on them.

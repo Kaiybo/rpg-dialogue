@@ -178,6 +178,10 @@ P:NPC {
       },
     },
     hello = {
+      narr = {
+        { text = "He looks you over from boots to brow the way a smith looks over a fresh casting, and the forge glow below the throne steps flickers in the gold of his crown.", when = { race = "Dwarf" } },
+        { text = "He sits forward on the High Seat with one great fist planted on his knee, and the glow of the Great Forge beyond the throne steps catches the gold in his crown." },
+      },
       lines = {
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "Hold there, I've seen that face afore! A {altclass} called {alt} stood in this very hall, an' ye've the same jaw an' the same stubborn eyes, so ye'll be kin, or I'm no' a Bronzebeard." },
@@ -277,6 +281,7 @@ P:NPC {
     },
     dark_why = {
       big = true,
+      narr = "He jerks his chin toward the dark passage behind the throne, where the forge light gives out against the bare stone.",
       lines = {
         { id = "dw_default", text = "Madoran Bronzebeard broke their armies at our gates in the War o' the Three Hammers, an' they've never forgiven us for it. Some grudges outlive everyone who started them." },
       },
@@ -308,7 +313,7 @@ P:NPC {
     family = {
       big = true,
       lines = {
-        { id = "f_default", text = "My brother Muradin went tae Northrend an' didnae come back. My daughter's in the hands o' the Dark Iron. I'll say no more about it in front o' the court." },
+        { id = "f_default", narr = "His hand closes hard around the arm of the throne, and he keeps his eyes on the forge glow below the steps.", text = "My brother Muradin went tae Northrend an' didnae come back. My daughter's in the hands o' the Dark Iron. I'll say no more about it in front o' the court." },
       },
       choices = {
         { text = "What happened to Muradin?", next = "muradin" },
@@ -331,6 +336,7 @@ P:NPC {
     },
     blade = {
       big = true,
+      narr = "He turns his right hand over on his knee and runs a thumb across the old burn scars on his palm.",
       lines = {
         { id = "bl_default", key = true,
           text = "I went tae the Great Anvil wi' a crystal o' pure Light the Silver Hand had brought me, an' for three days I worked it intae a sword. Every blow I struck was for Muradin." },
@@ -491,7 +497,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "fm_default", text = "When Lakeshire's envoys came beggin' for help against the Blackrock, it was Moira who stood up in the hall an' said she'd go. I signed the order that let her ride south wi' twenty guardsmen, because I was proud o' her for askin'." },
-        { id = "fm_after", text = "The Dark Iron took her on the road through the Steppes, an' not one o' the twenty came home. I've had that order read back tae me in my own head every night since, an' my hand's never once refused tae sign it." },
+        { id = "fm_after", narr = "He stops, and for a long moment the only sound in the High Seat is the ring of hammers from the Great Forge.", text = "The Dark Iron took her on the road through the Steppes, an' not one o' the twenty came home. I've had that order read back tae me in my own head every night since, an' my hand's never once refused tae sign it." },
         { id = "fm_priest", when = { class = { "PRIEST", "PALADIN" } }, text = "Ye'll want tae tell me it's no' my fault, an' ye'd be kind tae. Pray for her instead, would ye, because I've run out o' words for it an' the Light might still have some." },
       },
       choices = {
@@ -519,7 +525,7 @@ P:NPC {
       choices = {
         { text = "It says the Dark Iron dig where they shouldn't.", next = "shaman_deep" },
         { text = "The elements are older than any king, Your Majesty.", next = "BACK", reply = "Older than kings, aye, an' they let us know it every time the mountain shakes, so I'll take that as their opinion o' the Senate as well.", fx = { align = { order = -1 }, affinity = -1 } },
-        { text = "I serve Ironforge first, and the stone second.", next = "BACK", reply = "Good answer, an' a wise one tae give a king, though I'd wager the stone has its own thoughts about which comes first.", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "I serve Ironforge first, and the stone second.", next = "BACK", narr = "He slaps the arm of the throne hard enough that the nearest guard turns his head.", reply = "Good answer, an' a wise one tae give a king, though I'd wager the stone has its own thoughts about which comes first.", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Something else, Your Majesty.", next = "BACK" },
       },
     },
@@ -534,6 +540,7 @@ P:NPC {
     },
     warlock = {
       big = true,
+      narr = "He sits back on the throne and folds his arms across his beard, and the guards at the foot of the steps shift their grip on their axes.",
       lines = {
         { id = "wl_default", text = "Ye're honest enough tae say it tae my face, an' I'll grant ye that much. I've seen what fel did tae the orcs an' what it's done tae the Dark Iron's masters, an' I dinnae want it in my halls, so tell me why I should." },
         { id = "wl_gnome", when = { race = "Gnome" },

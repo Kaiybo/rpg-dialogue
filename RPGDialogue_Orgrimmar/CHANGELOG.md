@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-18)
+- "Where is...?" directions for Orgrimmar (`directions.lua`, new file: restart the game fully).
+- Thrall, Eitrigg and Galthuk have polite and blunt versions of your replies, and react to your tone. Thrall's lines have narration.
+
 ## 1.25.0 (2026-11-18)
 - New NPCs from the Classic-era roster (`npcs/more_folk.lua`). New files: restart the game fully.
 - NPCs notice what you have done: quests for their neighbours, notable kills, your deaths, rank and reputation.

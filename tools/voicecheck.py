@@ -125,6 +125,10 @@ def main():
             for nid, i, ch in P.iter_choices(tbl):
                 if isinstance(ch.get("text"), str):
                     entries.append((owner, pack.addon, f"{owner}.{nid}.choice{i}", ch["text"], "choice", True))
+                elif isinstance(ch.get("text"), LTable):   # tone variants (0.85.0)
+                    for tone in ("normal", "polite", "blunt"):
+                        if isinstance(ch.get("text").get(tone), str):
+                            entries.append((owner, pack.addon, f"{owner}.{nid}.choice{i}.{tone}", ch.get("text").get(tone), "choice", True))
         for kind, tbl, f, line in pack.defs:
             if kind == "Rumors":
                 for ln in P.arr(tbl.get("lines")):

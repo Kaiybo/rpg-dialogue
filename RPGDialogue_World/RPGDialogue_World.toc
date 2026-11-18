@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: World |cff8a8a8a1.39.0|r
+## Title: RPG Dialogue: World |cff8a8a8a1.40.0|r
 ## Notes: Shared dialogue for RPG Dialogue: towns, topics, claims, throughlines, origins, role pools and fallbacks.
 ## Author: RPG Dialogue
-## Version: 1.39.0
+## Version: 1.40.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.world
@@ -19,6 +19,7 @@ views_3.lua
 views_4.lua
 views_5.lua
 claims.lua
+gut.lua
 threads.lua
 threads_horde_orc.lua
 threads_forsaken.lua
@@ -38,6 +39,7 @@ origins\orc.lua
 origins\troll.lua
 origins\tauren.lua
 origins\forsaken.lua
+persuade.lua
 rumors\elwynn.lua
 rumors\westfall.lua
 rumors\redridge.lua

@@ -270,8 +270,16 @@ def main():
                     if town not in defs["Town"]:
                         rep.warn(pack, f, fx.line, f"{where}: town {town!r} isn't defined")
 
-    def check_text(pack, f, ln, where, is_choice=False):
-        text = ln.get("text")
+    def check_text(pack, f, ln, where, is_choice=False, text=None):
+        text = ln.get("text") if text is None else text
+        if is_choice and isinstance(text, LTable):
+            # Tone variants (0.85.0): { normal = .., polite = .., blunt = .. }; normal is required.
+            if not isinstance(text.get("normal"), str):
+                rep.error(pack, f, ln.line, f"{where}: tone variants need a normal one")
+            for tone in ("normal", "polite", "blunt"):
+                if text.get(tone) is not None:
+                    check_text(pack, f, ln, f"{where} ({tone})", True, text.get(tone))
+            return
         if not isinstance(text, str) or not text.strip():
             rep.error(pack, f, ln.line, f"{where}: missing text")
             return
@@ -380,7 +388,10 @@ def main():
             # mutually exclusive (the engine hides the rest once one is taken).
             aligned = [c for c in choices if isinstance(c.get("fx"), LTable) and c.get("fx").get("align")]
             for c in aligned:
-                if re.search(r"\?[\"')\s]*$", c.get("text") or ""):
+                ct = c.get("text")
+                if isinstance(ct, LTable):
+                    ct = ct.get("normal")
+                if re.search(r"\?[\"')\s]*$", ct if isinstance(ct, str) else ""):
                     rep.error(pack, f, c.line, f"{where}.{nid}: a question can't shift alignment; make it a statement or drop the align")
             if len(aligned) == 1:
                 rep.error(pack, f, aligned[0].line, f"{where}.{nid}: the only stance here; alignment needs two or more opposing statements to choose between")
