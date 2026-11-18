@@ -696,3 +696,540 @@ P:NPC {
     _none = { { id = "tp_none", text = "Oh, I don't know about that, but I could build something to find out!" } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Wrinkle Goodsteel (Gadgetzan, superior armor; Krinkle's brother)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "wrinkle", id = TODO_NPC("Wrinkle Goodsteel"), name = "Wrinkle Goodsteel", title = "Superior Armor Crafter",
+  bible = "bibles/gadgetzan_more.md", role = "vendor", tier = "service",
+  communities = { "gadgetzan" }, temper = { "smooth", "proud" }, values = { "greedy", "craft" },
+  notices = { "class", "kit", "purse" },
+  impression = {
+    first = "Wrinkle Goodsteel sells the best armor in Gadgetzan and says so before anyone can ask. His brother sells weapons two doors down, and Wrinkle sees nothing awkward in the arrangement.",
+    third = "{name} met Wrinkle Goodsteel, the armor seller of Gadgetzan and brother to Krinkle.",
+  },
+  greetings = {
+    { id = "g_default", text = "Step in, pal, step in! That's premium plate you're looking at, and I've got your size, because I've got everybody's size." },
+    { id = "g_2", when = { metBefore = true }, text = "Back so soon? Either the armor worked or you're here to complain, and I've got a form for complaints, buddy, with a small filing fee." },
+  },
+  notice = {
+    { id = "n_1", cat = "kit", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "Now there's somebody who gets hit for a living! Friend, you and me are going to do a lot of business, and I mean that warmly." },
+    { id = "n_2", cat = "purse", when = { money = { max = 2000 } },
+      text = "I can hear your purse from here, pal, and it's not saying much. Have a look anyway, because looking's how wanting gets started." },
+    { id = "n_3", cat = "class", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
+      text = "A robe, huh? I don't stock silk, chum, but I'll sell ya a helmet for the day your spells run dry." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "Wrinkle Goodsteel, pal, superior armor at superior prices, and I mean that both ways. Out here the sun cooks ya, the basilisks chew ya and the Wastewanderers stab ya, and I've got a plate for every one of 'em." },
+        { id = "hello_2", when = { class = { "WARRIOR", "PALADIN" } }, text = "A plate wearer! Friend, that breastplate's got more dents than a goblin's alibi, so let's talk about something newer before the next troll finishes the job." },
+      },
+      again = {
+        { id = "hello_again1", text = "Something else, pal? Talk's free, right up until it ain't." },
+        { id = "hello_again2", text = "Go on, buddy, I'm listening, and I'm also counting stock." },
+        { id = "hello_again3", text = "Ask, ask, but lean on the counter and you've bought it." },
+      },
+      choices = {
+        { text = "Show me your armor.", next = "BUSINESS" },
+        { text = "You and Krinkle sell both sides of every fight.", next = "brothers" },
+        { text = "What does the desert do to armor?", next = "desert" },
+        { text = "Good armor is wasted on anyone who can't pay.", next = "pay" },
+        { text = "What would you wear into Zul'Farrak?", next = "zf", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } } },
+        { text = "Do you buy from outside smiths?", next = "smiths", when = { profession = "Blacksmithing" } },
+        { text = "Good trading, Wrinkle.", next = "END" },
+      },
+    },
+    brothers = {
+      lines = {
+        { id = "brothers_default", text = "We do, and ain't it beautiful? Krinkle sells the fella a mace, I sell the other fella a helmet, and whoever walks away comes back to a Goodsteel for repairs. Our mother would've been proud, if she hadn't been our first competitor." },
+      },
+      choices = {
+        { text = "Your mother was a rival?", next = "brothers_mother" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brothers_mother = {
+      lines = {
+        { id = "brothers_mother_default", text = "She ran a smithy in Ratchet, pal, and she undercut us for six straight years, on principle. Said it'd teach us the trade, and it did, and we still send her a cut out of plain fear." },
+      },
+      choices = {
+        { text = "Who's the better smith, you or Krinkle?", next = "brothers_better" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brothers_better = {
+      lines = {
+        { id = "brothers_better_default", text = "I am, and he'll tell ya he is, and neither of us will put it in writing, on account of the Repairers' Union reads everything. Let's say he makes holes and I prevent 'em, and prevention's the classier line." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    desert = {
+      lines = {
+        { id = "desert_default", text = "Sand in every joint, friend, and heat that'll bake ya inside your own breastplate. I line mine with wool from the Arathi sheep, which sounds crazy until ya learn that it keeps heat out as good as it keeps it in." },
+      },
+      choices = {
+        { text = "Does the lining cost extra?", next = "desert_extra" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    desert_extra = {
+      lines = {
+        { id = "desert_extra_default", text = "Everything costs extra, pal, that's what extra means. But I'll tell ya for free that the folks who skip the lining come back in a week, looking like boiled lobsters and asking real politely." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pay = {
+      big = true,
+      lines = {
+        { id = "pay_default", text = "Now that's cold, buddy, and I say that as a goblin. I've had kids walk in here with nothing, headed for the troll city, and I've watched 'em walk out in leather scraps because rules are rules." },
+      },
+      choices = {
+        { text = "Rules are rules. Charity ruins a business.", next = "BACK", reply = "That's the Cartel line, and I've got it framed on the wall. It don't help me sleep, exactly, but it's framed.", fx = { align = { light = -1 } } },
+        { text = "Some things matter more than margin. Help them.", next = "BACK", reply = "Don't spread it around, pal, but there's a crate of seconds out back that I can't seem to keep an accurate count of.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zf = {
+      lines = {
+        { id = "zf_default", text = "Mail at the least, plate if ya can carry it, and something over the neck, because the Sandfury like to go high. And buy a spare shield, friend, because the big fella at the bottom of the stairs breaks 'em." },
+      },
+      choices = {
+        { text = "A spare shield. Noted.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    smiths = {
+      lines = {
+        { id = "smiths_default", text = "If it's good and it's cheap, sure, and I'll stamp my own name on it and mark it up, which is called retail. Bring me thorium work and we'll talk real numbers, pal." },
+      },
+      choices = {
+        { text = "I'll bring you something worth stamping.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "Born in Ratchet with a hammer in one hand and a price list in the other, pal. Came to Gadgetzan because that's where folks go to get hit." } },
+    advice = { { id = "tp_advice", text = "Buy the helmet first. Everything else ya own is worth nothing if ya can't remember where ya left it." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Best town on the continent for my trade, buddy. Everyone who comes through is on their way to somewhere dangerous, and they all come back needing repairs or they don't come back." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "That troll city's the finest thing that ever happened to my sales figures. I'd send 'em a thank-you card if they wouldn't eat the courier." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel takes its cut and keeps the Bruisers on the wall. It's a fair price for nobody robbing me, since the Cartel's the one doing it instead." } },
+    _none = { { id = "tp_none", text = "That's not armor, pal, so it's not my problem. Now, about that breastplate." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Qizzik (Gadgetzan, banker)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "qizzik", id = TODO_NPC("Qizzik"), name = "Qizzik", title = "Banker",
+  bible = "bibles/gadgetzan_more.md", role = "banker", tier = "service",
+  communities = { "gadgetzan" }, temper = { "precise", "wary" }, values = { "careful", "greedy" },
+  notices = { "purse", "class" },
+  impression = {
+    first = "Qizzik keeps one of the windows at the Gadgetzan bank and counts everything twice, the customers included. He treats each deposit as a solemn occasion and each withdrawal as a small betrayal.",
+    third = "{name} met Qizzik, a banker at the Bank of Gadgetzan.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome to the Bank of Gadgetzan, valued customer. Kindly keep your hands where the Bruisers can see 'em." },
+    { id = "g_2", when = { metBefore = true }, text = "Ah, a returning account holder! That's my favorite kind, pal, on account of the paperwork's already done." },
+  },
+  notice = {
+    { id = "n_1", cat = "purse", when = { money = { min = 5000000 } },
+      text = "Now that's a purse with some authority to it. Have you considered how much safer all that'd be behind my counter, friend?" },
+    { id = "n_2", cat = "purse", when = { money = { max = 1000 } },
+      text = "A little light this week, pal? Don't sweat it, we hold small sums with the same dignity as large ones, only with less enthusiasm." },
+    { id = "n_3", cat = "class", when = { class = "ROGUE" },
+      text = "I know that walk, buddy. The vault door's a foot of thorium and the Bruisers get a bonus per head, so let's keep this a professional visit." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "Qizzik, pal, of the Bank of Gadgetzan, licensed and bonded by the Steamwheedle Cartel. Your goods go in, your goods stay in, and nobody touches 'em but you and a small handling fee." },
+        { id = "hello_2", when = { questDone = TODO_QUEST("Wastewander Justice") }, text = "You're the one who's been thinning out the Wastewanderers! Friend, those bandits were murder on our insurance rates, so consider yourself a preferred customer." },
+      },
+      again = {
+        { id = "hello_again1", text = "Anything further, valued customer? The window's open." },
+        { id = "hello_again2", text = "Go on, pal. Questions are a free service, for the present." },
+        { id = "hello_again3", text = "Yes? I'm listening, and I'm counting, and I never lose my place." },
+      },
+      choices = {
+        { text = "I need my vault.", next = "BUSINESS" },
+        { text = "Is my gold really safe in the middle of a desert?", next = "safe" },
+        { text = "There are two bankers at this counter.", next = "two" },
+        { text = "A bank is just a polite way to hoard.", next = "hoard" },
+        { text = "Has anyone ever robbed this place?", next = "robbed", when = { class = "ROGUE" } },
+        { text = "What do preferred customers get?", next = "preferred", when = { reputation = { faction = "Gadgetzan", min = "honored" } } },
+        { text = "Keep it safe, Qizzik.", next = "END" },
+      },
+    },
+    safe = {
+      lines = {
+        { id = "safe_default", text = "Safer than anywhere, pal. Your vault here is the same vault you've got in Booty Bay and Ratchet and Everlook, on account of an arrangement that I'm not at liberty to explain and don't entirely understand." },
+      },
+      choices = {
+        { text = "You don't understand your own vault?", next = "safe_how" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    safe_how = {
+      lines = {
+        { id = "safe_how_default", text = "I understand that it works, friend, and that a gnome got paid a fortune to make it work, and that asking how voids the warranty. That's enough understanding for any banker." },
+      },
+      choices = {
+        { text = "And if it stops working?", next = "safe_stops" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    safe_stops = {
+      lines = {
+        { id = "safe_stops_default", text = "Then you fill out a claim form, pal, in triplicate, and the Cartel's adjusters look into it. In forty years nobody's had to, which is lucky, because I've never been able to find the form." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    two = {
+      lines = {
+        { id = "two_default", text = "That's Gimblethorn, and he's a fine banker, if ya like 'em slow. We keep two windows so the line moves, and so there's always one of us watching the other, which is the oldest security system in banking." },
+      },
+      choices = {
+        { text = "Do you trust him?", next = "two_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    two_trust = {
+      lines = {
+        { id = "two_trust_default", text = "With my life, sure. With the ledger, I check his sums every night, and he checks mine, and neither of us takes it personal. Trust is what ya have after the audit, pal, and never before it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hoard = {
+      big = true,
+      lines = {
+        { id = "hoard_default", text = "Hoard's an ugly word, friend. The Cartel takes what's sitting idle and lends it out to build ports and roads and racing sleds, and everybody gets richer, starting with the Cartel." },
+      },
+      choices = {
+        { text = "Gold should work. Idle coin helps nobody.", next = "BACK", reply = "Now you're talking like a shareholder! There's hope for you yet, pal.", fx = { align = { order = -1 } } },
+        { text = "Gold should be kept safe, not gambled with.", next = "BACK", reply = "And yours is, valued customer, every coin, right where you left it. It's other folks' gold that we gamble with.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    robbed = {
+      lines = {
+        { id = "robbed_default", text = "Once, pal, before my time. Fella tunneled up through the floor, real professional, and came out inside the Bruisers' barracks by mistake. They still talk about it at the Cartel picnic." },
+      },
+      choices = {
+        { text = "I'll use the front door.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    preferred = {
+      lines = {
+        { id = "preferred_default", text = "A nod from the Bruisers instead of a pat-down, pal, and I remember your name without checking the book. Around here that's about as warm as it gets." },
+      },
+      choices = {
+        { text = "I'll take the nod.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "Twenty years behind a counter, pal, in Booty Bay and then here. I came for the dry air, because damp is murder on ledgers." } },
+    advice = { { id = "tp_advice", text = "Don't carry it all on ya. The desert's full of folks who'd like to help ya carry it." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "It's a town with one water tower, one bank and a hundred ways to get killed outside the wall. That makes it a real good town for a bank." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel signs my wages and audits my drawers. I've got nothing but good things to say, and I say 'em loudly, in case they're listening." } },
+    booty_bay = { { id = "tp_booty_bay", text = "That's the head office, more or less, pal. The Baron's ledgers are bigger than this whole building, I hear." } },
+    _none = { { id = "tp_none", text = "That's not a banking matter, valued customer. Would ya care to make a deposit instead?" } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Gikkix (Steamwheedle Port, fisherman; fish and drink)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "gikkix", id = TODO_NPC("Gikkix"), name = "Gikkix", title = "Fisherman",
+  bible = "bibles/gadgetzan_more.md", role = "vendor", tier = "service",
+  communities = { "steamwheedle_port" }, temper = { "laid-back", "sly" }, values = { "patient", "practical" },
+  notices = { "craft", "hunger" , "race" },
+  impression = {
+    first = "Gikkix sells fish and drink on the Steamwheedle Port dock and is the least hurried goblin on the coast. He claims that fishing is the only business where waiting counts as work.",
+    third = "{name} met Gikkix, the fisherman of Steamwheedle Port.",
+  },
+  greetings = {
+    { id = "g_default", text = "Easy there, pal, you'll scare the fish, and they're the only ones around here who owe me anything." },
+    { id = "g_2", when = { metBefore = true }, text = "Hey, it's you again. Pull up a crate, friend, the tide's doing all the work today." },
+  },
+  notice = {
+    { id = "n_1", cat = "craft", when = { profession = "Fishing" },
+      text = "Is that a rod on your back? Then you already know the secret, buddy, which is that the fish don't care how busy ya are." },
+    { id = "n_2", cat = "hunger", when = { durability = { max = 0.3 } },
+      text = "You look like the desert wrung ya out, pal. Eat a fish and drink something wet, and we'll put it on a real small tab." },
+    { id = "n_b1", cat = "race", when = { race = "Troll" },
+      text = "A troll, huh? I hear your folks fish with spears, pal, which seems like a lot of effort when a worm'll do it for ya." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "Name's Gikkix, and I catch 'em, cook 'em and sell 'em, right here off the dock. Everybody else in this port is running around making deals, pal, and I'm sitting down making a living, so you tell me who's smarter." },
+        { id = "hello_2", when = { profession = "Fishing" }, text = "A fellow angler! Then sit down, friend, because I've got opinions about the stonescale run, and nobody else in Steamwheedle will listen to 'em." },
+      },
+      again = {
+        { id = "hello_again1", text = "Something else, pal? I got nowhere to be." },
+        { id = "hello_again2", text = "Go on, friend. The line's quiet anyhow." },
+        { id = "hello_again3", text = "Ask away, and keep your voice down a little." },
+      },
+      choices = {
+        { text = "What's fresh today?", next = "BUSINESS" },
+        { text = "What bites off this coast?", next = "bites" },
+        { text = "The Southsea pirates must be bad for business.", next = "pirates" },
+        { text = "Sitting on a dock isn't what I'd call work.", next = "work" },
+        { text = "Where do the stonescale eels run?", next = "eels", when = { profession = { "Fishing", "Cooking" } } },
+        { text = "Who else lives at this port?", next = "port" },
+        { text = "Tight lines, Gikkix.", next = "END" },
+      },
+    },
+    bites = {
+      lines = {
+        { id = "bites_default", text = "Spotted yellowtail by the pilings and big mackerel a little further out, pal. Off Lost Rigger Cove you'll hook things with more teeth than sense, and I mean the fish, though it goes for the pirates too." },
+      },
+      choices = {
+        { text = "What do you do with the toothy ones?", next = "bites_teeth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bites_teeth = {
+      lines = {
+        { id = "bites_teeth_default", text = "I sell 'em to Dirge Quikcleave in Gadgetzan, friend. He'll cook anything, and his customers have just crossed a desert, so they'll eat anything. It's the perfect arrangement." },
+      },
+      choices = {
+        { text = "That's a long way to haul fish in this heat.", next = "bites_haul" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bites_haul = {
+      lines = {
+        { id = "bites_haul_default", text = "Packed in wet kelp, on the evening caravan, and they get there before sunup. If the caravan runs late, pal, then Dirge calls it smoked and charges double." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pirates = {
+      lines = {
+        { id = "pirates_default", text = "You'd think so, wouldn't ya? But a pirate eats like anybody else, and those Southsea boys can't fish to save their lives. I don't ask who's buying, friend, and Security Chief Bilgewhizzle don't ask me." },
+      },
+      choices = {
+        { text = "You sell fish to the pirates?", next = "pirates_sell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pirates_sell = {
+      lines = {
+        { id = "pirates_sell_default", text = "I sell to a fella in a hat who rows up at night and pays in coin I don't look at too closely. The Chief'd have my license for it, so some would say I should turn the fella in." },
+      },
+      choices = {
+        { text = "Turn him in. Feeding pirates feeds piracy.", next = "BACK", reply = "Yeah, yeah, I figured you'd say that. Maybe next time he rows up, the Chief just happens to be taking a walk.", fx = { align = { order = 1 } } },
+        { text = "A customer's a customer. Keep quiet and sell.", next = "BACK", reply = "That's the Steamwheedle spirit, pal. You'd do real well in this port.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    work = {
+      big = true,
+      lines = {
+        { id = "work_default", text = "That's the beauty of it, friend. Every other goblin sweats for his gold, and me, I let a worm do the selling. If that ain't work, then I don't want to hear what is." },
+      },
+      choices = {
+        { text = "There's wisdom in knowing when to sit still.", next = "BACK", reply = "See, now you get it. Sit down, pal, and I'll lend ya a line." },
+        { text = "Time is money, and you're wasting both.", next = "BACK", reply = "I've heard the saying, buddy. The fella who taught it to me blew up at thirty, and I've got a boat." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eels = {
+      lines = {
+        { id = "eels_default", text = "After dark, off the rocks south of the port, when the water's cooling down. Don't bother in daylight, pal, because they sit on the bottom and laugh at ya." },
+      },
+      choices = {
+        { text = "After dark, south rocks. Thanks.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    port = {
+      lines = {
+        { id = "b_port_default", text = "There's Jabbey with the general store, pal, and the Haughty Modiste selling hats to folks who are about to get sand in 'em. And the Security Chief, who walks up and down the pier like it owes him money." },
+      },
+      choices = {
+        { text = "Does anyone here get along?", next = "port_along" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    port_along = {
+      lines = {
+        { id = "b_port_along_default", text = "Sure, pal, at a distance. Stoley waters the rum and Jabbey waters the prices and I don't water nothing, and we all nod real polite. That's what passes for friendship in a Cartel town." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "Used to run cargo out of Booty Bay, pal, till I worked out that the fish swimming under the boat were worth more than the freight on top." } },
+    advice = { { id = "tp_advice", text = "Fish at dawn or dusk. At noon the only thing biting out here is the sun." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel don't tax what it can't count, friend, and nobody's ever counted fish. That's my whole business plan." } },
+    rumors = { { id = "tp_rumors", text = "Folks say something big's been bumping the pilings at night. I say it's the tide, pal, and I've stopped night fishing off the end of the dock anyhow." } },
+    booty_bay = { { id = "tp_b_booty_bay", text = "I got a cousin there who says the fishing's better. He also says the Bloodsail shot his boat out from under him, so I'm staying put." } },
+    gadgetzan = { { id = "tp_b_gadgetzan", text = "It's a half day inland and there ain't one fish in it. I send 'em mine and they send me coin, pal, and neither of us has to visit." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ya, pal. If it's got fins, try me again." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Yorba Screwspigot (Steamwheedle Port: Yuka Screwspigot, her sister in the Burning Steppes, and their brother Ribbly)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "yorba", id = TODO_NPC("Yorba Screwspigot"), name = "Yorba Screwspigot",
+  bible = "bibles/gadgetzan_more.md", role = "questgiver", tier = "quest",
+  communities = { "steamwheedle_port" }, temper = { "exasperated", "sharp" }, values = { "family", "greedy" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Yorba Screwspigot waits at Steamwheedle Port for news of a brother who owes money to everyone she knows. She talks about family as other goblins talk about bad investments.",
+    third = "{name} met Yorba Screwspigot at Steamwheedle Port, who seeks word of her brother Ribbly.",
+  },
+  greetings = {
+    { id = "g_default", text = "You're not here about Ribbly, are ya? If he owes you money too, pal, get in line, and the line starts in Booty Bay." },
+    { id = "g_2", when = { metBefore = true }, text = "You again! Any news? No? Then you're about as much use as my brother, though you smell better." },
+    { id = "g_3", when = { questActive = TODO_QUEST("Yuka Screwspigot") }, text = "Why are ya still standing in Tanaris? My sister's at Flame Crest in the Burning Steppes, pal, and she ain't getting any more patient." },
+    { id = "g_4", when = { questDone = TODO_QUEST("Ribbly Screwspigot") }, text = "So it's done, then. Well, the family's books are balanced, and I guess that's what he'd have wanted, if he'd ever wanted anything sensible." },
+  },
+  notice = {
+    { id = "n_1", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf! You know the Blackrock tunnels, don't ya? Then you're exactly who I need, friend, so don't wander off." },
+    { id = "n_2", cat = "class", when = { class = { "ROGUE", "HUNTER" } },
+      text = "You look like somebody who finds folks that don't want finding. I've got work for ya, and it pays better than sentiment does." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "Yorba Screwspigot, and before ya ask, yes, those Screwspigots. My brother Ribbly's run off with a lot of other people's money, pal, and the whole family's been chasing him from one end of the world to the other." },
+        { id = "hello_2", when = { questBefore = TODO_QUEST("Yuka Screwspigot") }, text = "Ribbly's gone, and half the creditors in Kalimdor are at my door. My sister Yuka went east to hunt for him in the Burning Steppes, and she'll need a pair of hands that ain't shaking. Go and find her at Flame Crest, friend." },
+        { id = "hello_3", when = { questActive = TODO_QUEST("Yuka Screwspigot") }, text = "Yuka's at Flame Crest, up in the Burning Steppes. Tell her that Yorba sent ya, and that Yorba's sick of answering the door." },
+        { id = "hello_4", when = { questDone = TODO_QUEST("Yuka Screwspigot") }, text = "So ya found Yuka, and she's found where Ribbly's hiding. Whatever she asks of ya next, pal, remember that it was his own choice to stiff the family." },
+      },
+      again = {
+        { id = "hello_again1", text = "What else, pal? I've got creditors to dodge." },
+        { id = "hello_again2", text = "Ask quick. Every knock on that door costs me a year off my life." },
+        { id = "hello_again3", text = "Go on, friend, I'm listening." },
+      },
+      choices = {
+        { text = "What did Ribbly do, exactly?", next = "ribbly" },
+        { text = "Your family sounds complicated.", next = "family" },
+        { text = "Why wait here at Steamwheedle Port?", next = "port" },
+        { text = "What would a goblin want in Blackrock?", next = "blackrock", when = { race = "Dwarf" } },
+        { text = "Some debts get collected the hard way.", next = "hardway", when = { class = { "ROGUE", "WARLOCK" } } },
+        { text = "I'll look for your sister.", next = "BUSINESS" },
+        { text = "Good luck with the creditors.", next = "END" },
+      },
+    },
+    ribbly = {
+      lines = {
+        { id = "ribbly_default", text = "He borrowed, pal. From me, from Yuka, from our uncle, from a fella in Ratchet with a very big wrench. He said it was for a sure thing, and then the sure thing and Ribbly both left town on the same night." },
+      },
+      choices = {
+        { text = "What was the sure thing?", next = "ribbly_thing" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ribbly_thing = {
+      lines = {
+        { id = "ribbly_thing_default", text = "He never said, and that's how ya know it was a bad one. Last anybody heard, he was drinking the money in some Dark Iron tavern under Blackrock Mountain, where he figures none of us'll follow." },
+      },
+      choices = {
+        { text = "Will you follow him there?", next = "ribbly_follow" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ribbly_follow = {
+      lines = {
+        { id = "ribbly_follow_default", text = "Me? I get nosebleeds on a stepladder, friend. That's what Yuka's for, and that's what folks like you are for, and I say that with real respect." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    family = {
+      lines = {
+        { id = "family_default", text = "We're real close, pal, on account of we all owe each other money. A Screwspigot never forgets a birthday or a balance, and Ribbly forgot both." },
+      },
+      choices = {
+        { text = "And if he paid it all back?", next = "family_back" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    family_back = {
+      narr = "She stops fidgeting with her ledger for a moment.",
+      lines = {
+        { id = "family_back_default", text = "Then I'd hug him and I'd count it twice. But he won't, pal, and the creditors want a Screwspigot to answer for it. Yuka says it had better be the one who spent it." },
+      },
+      choices = {
+        { text = "He's still your brother. Find a way to spare him.", next = "BACK", reply = "Don't think I ain't been up nights over it. If ya come up with a way that also pays the fella with the wrench, I'm all ears.", fx = { align = { light = 1 } } },
+        { text = "He made his choice. Debts have to be answered.", next = "BACK", reply = "That's what Yuka says, word for word. I guess that's why she went east and I stayed here.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    port = {
+      lines = {
+        { id = "port_default", text = "Because every ship from Booty Bay ties up at this dock, and if Ribbly ever runs for the sea, he runs through me. Also the Security Chief don't allow debt collectors on the pier, which I appreciate more every day." },
+      },
+      choices = {
+        { text = "So you're hiding as much as waiting.", next = "port_hiding" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    port_hiding = {
+      lines = {
+        { id = "port_hiding_default", text = "I'm doing both at once, pal, which is what we call efficiency. Jabbey sells me my groceries on credit, bless him, and so I don't even have to go into Gadgetzan." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blackrock = {
+      lines = {
+        { id = "blackrock_default", text = "Somewhere to drink where the family can't reach, that's what. I hear the Dark Irons keep a tavern down there that'll serve anybody with coin, and Ribbly's got plenty of coin, all of it ours." },
+      },
+      choices = {
+        { text = "I know those halls. He picked a bad place to hide.", next = "BACK", reply = "Good! Tell that to Yuka, friend, and she'll likely pay ya extra just for saying it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hardway = {
+      lines = {
+        { id = "hardway_default", text = "Yeah, and I ain't a child, pal, I know what Yuka means to do when she finds him. I just don't say it out loud at the dock, where the gulls can hear." },
+      },
+      choices = {
+        { text = "Then I won't say it either.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    knows = { { id = "tp_knows", text = "I know my family, pal, and I know who owes what to who, down to the copper. Ask, but none of it's cheerful." } },
+    background = { { id = "tp_background", text = "I kept the books for the family business in Ratchet. Then Ribbly kept 'em for one season, and now there ain't a family business." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel don't mind a debtor so long as she's paying something to somebody. I pay Jabbey, and that keeps me legal." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "All I know is that there's a bar in it, and my brother's on a stool in that bar. That's already more than I ever wanted to know about the place." } },
+    _none = { { id = "tp_none", text = "No idea, pal. If it ain't about Ribbly, I ain't had the time to care." } },
+  },
+}

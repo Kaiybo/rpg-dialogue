@@ -1755,7 +1755,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "Anything else? I've a stave in the steam that won't wait long." },
         { id = "hello_again2", text = "Go on, I can talk while I wax." },
-        { id = "hello_again3", text = "Yes? Ask away." },
+        { id = "hello_again3", text = "Yes, ask away, by all means." },
       },
       choices = {
         { text = "Let me see your bows.", next = "BUSINESS" },
@@ -1871,7 +1871,7 @@ P:NPC {
       },
       again = {
         { id = "hello_again1", text = "Something else? I've a bolt to measure." },
-        { id = "hello_again2", text = "Go on. Cloth is patient." },
+        { id = "hello_again2", text = "Go on, then; cloth is patient." },
         { id = "hello_again3", text = "Yes? Ask, by all means." },
       },
       choices = {
@@ -2047,7 +2047,7 @@ P:NPC {
     },
     fel = {
       lines = {
-        { id = "fel_1", text = "You got him? Huh. That's good for the living, I guess, but half my trade was folks stocking up to go fight his dead, so I'll have to rethink my prices. Don't get me wrong, pal, I'm thrilled for ya." },
+        { id = "fel_1", text = "You got him? Well, that's good for the living, I guess, but half my trade was folks stocking up to go fight his dead, so I'll have to rethink my prices. Don't get me wrong, pal, I'm thrilled for ya." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -2070,5 +2070,437 @@ P:NPC {
     raven_hill = { { id = "tp_raven_hill", text = "Nice houses, good bones, very quiet. I mean the houses have good bones, pal, I don't want to discuss the other kind." } },
     advice = { { id = "tp_advice", text = "Buy two healing potions for every one you think you need. That's not a sales pitch, it's arithmetic, and also it's a sales pitch." } },
     _none = { { id = "tp_none", text = "Not my line, pal. If it don't go in a vial, I don't stock an opinion on it." } },
+  },
+}
+
+-- Benjamin Carevin: the Carevin household's boy in Darkshire; wants to hunt and is not allowed past the lamps.
+P:NPC {
+  key = "benjamin_carevin", id = TODO_NPC("Benjamin Carevin"), name = "Benjamin Carevin", gender = "male",
+  bible = "bibles/more_folk.md", role = "child", tier = "service",
+  communities = { "darkshire" }, temper = { "bold", "restless" }, values = { "courage", "family" },
+  notices = { "kit", "pet", "light" },
+  impression = {
+    first = "Benjamin Carevin is the boy of Darkshire's demon-hunting household and knows more about ghouls than most soldiers do. He is not allowed past the lamps, and he tells everyone exactly how unfair that is.",
+    third = "{name} met Benjamin Carevin, the boy of the Carevin household in Darkshire.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hello! Have you been out past the lamps? What did you see? Tell me all of it." },
+    { id = "g_2", when = { metBefore = true }, text = "You're back! Did you kill anything since last time? How many?" },
+    { id = "g_3", when = { timeOfDay = "night" }, text = "I'm supposed to be in bed, but nobody can sleep with the wolves going. Can you hear them?" },
+  },
+  notice = {
+    { id = "n_1", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Something bit your armour, and I'll bet it was a ghoul! Jonathan says a ghoul's bite goes bad by morning, so you should wash it." },
+    { id = "n_2", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "Is that yours? Does it bite the dead ones? Calor says a dog won't go near a ghoul, but that isn't a dog." },
+    { id = "n_3", cat = "light", when = { class = { "PALADIN", "PRIEST" } },
+      text = "You've got the Light! Jonathan says the Light is the only thing the dead are properly afraid of. Can you make it glow?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "I'm Benjamin Carevin. My family hunts the dead things and the demons, out past the lamps where the Watch won't go. I'm going to hunt as well, when I'm big enough to draw the long crossbow, and that's nearly now." },
+        { id = "hello_2", when = { class = "HUNTER" }, text = "I'm Benjamin Carevin, and you're a real hunter, aren't you? Mine are going to be demons, and yours are only animals, but I expect it's the same sort of thing." },
+      },
+      again = {
+        { id = "hello_again1", text = "What else? Ask me about ghouls, I know lots." },
+        { id = "hello_again2", text = "Go on, I'm not doing anything." },
+        { id = "hello_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "What does your family hunt?", next = "hunt" },
+        { text = "What do you know about ghouls?", next = "ghouls" },
+        { text = "Who lives in your house?", next = "house" },
+        { text = "It must be hard, staying behind.", next = "behind" },
+        { text = "Children shouldn't be near any of this.", next = "near" },
+        { text = "What's it like, growing up in Darkshire?", next = "darkshire" },
+        { text = "Would the Light let you help?", next = "light", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "How would you track a worgen?", next = "worgen", when = { class = "HUNTER" } },
+        { text = "Stay inside the lamps, Benjamin.", next = "END" },
+      },
+    },
+    hunt = {
+      lines = {
+        { id = "hunt_1", text = "Skeletons and ghouls from the graveyard, and the worgen in the black woods. Once there was a thing with wings that Jonathan won't talk about. He came back with his sleeve burned off, and Elaine didn't shout, and that's how I knew it was bad." },
+      },
+      choices = {
+        { text = "Does Elaine usually shout?", next = "elaine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elaine = {
+      lines = {
+        { id = "elaine_1", text = "Only when it's small. If you come home with mud on the floor, she shouts. If you come home with blood on you, she goes very quiet and boils water. I'd rather be shouted at." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ghouls = {
+      lines = {
+        { id = "ghouls_1", text = "They're faster than skeletons, and they dig. You don't let one scratch you. They come up near Raven Hill, mostly, and they don't like fire, but they don't stop for it either. Calor says you aim for the neck." },
+      },
+      choices = {
+        { text = "Who taught you all that?", next = "taught" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    taught = {
+      lines = {
+        { id = "taught_1", text = "Nobody did. They talk at supper and think I'm not listening. I've got it all written down in a book under my bed, with drawings. The ghoul drawing is the best one, and I'm not allowed to show it at table." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    house = {
+      lines = {
+        { id = "house_1", text = "Jonathan, who's in charge, and Elaine, and Calor, who used to be in the Watch and is the nicest. There's Scott too, but he only picks mushrooms. He says somebody in the family ought to do something without a crossbow." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    behind = {
+      lines = {
+        { id = "behind_1", text = "It's the worst thing there is. They go out at dusk and I have to sit with the lamp and count. I count to a thousand, and then I start again. They've always come back before I've done it three times." },
+      },
+      choices = {
+        { text = "And if they didn't come back?", next = "didnt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    didnt = {
+      lines = {
+        { id = "didnt_1", text = "Then I'd go and get them. I know where the spare crossbow is, and I've got my book. I haven't told anyone that, so you mustn't either." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    near = {
+      big = true,
+      lines = {
+        { id = "near_1", text = "Where else would I be? There isn't anywhere in Duskwood that's not near it. The little ones in town all know to run for the inn when the bell goes. I'd rather know about ghouls than not know and meet one." },
+      },
+      choices = {
+        { text = "Knowing the danger is the best protection there is.", next = "BACK", reply = "That's what I said! I'm going to tell Elaine a grown-up agreed with me.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "You should be sent somewhere safe, away from all this.", next = "BACK", reply = "I won't go. They'd have nobody to count for them, and I'd not know if they came home.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darkshire = {
+      lines = {
+        { id = "darkshire_1", text = "It's always dark, so you can play hide and seek at noon. You mustn't hide past the last lamp, though, that's the rule. The Watch give me the stubs of their torches, and Watcher Hartin taught me a prayer for when the wolves start." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light = {
+      lines = {
+        { id = "light_1", text = "Would it? Jonathan says you don't choose the Light, it chooses you, and it hasn't said anything to me yet. I've asked it. Maybe it's waiting till I can draw the crossbow as well." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    worgen = {
+      lines = {
+        { id = "worgen_1", text = "You don't. Calor says they track you. You have to put your back to something and wait, and not look at the eyes. Is that right? You'd know, and they never tell me if I've got it right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rumors = { { id = "tp_rumors", text = "Watcher Fraizer said the Commander sent a letter to Stormwind and it came back unopened. I heard him. He said a rude word after." } },
+    background = { { id = "tp_background", text = "I've always lived here. I can't remember it being light, but Elaine says it was once, and there were apples." } },
+    advice = { { id = "tp_advice", text = "If the bell rings, you run to the inn. Don't stop to see what it is, because that's how Tom's dog got eaten." } },
+    _none = { { id = "tp_none", text = "I don't know that one. Is it a monster? I could look in my book." } },
+  },
+}
+
+-- Whit Wantmal: keeps to his house beside the gryphon roost in Darkshire; writes verses nobody has asked for.
+P:NPC {
+  key = "whit_wantmal", id = TODO_NPC("Whit Wantmal"), name = "Whit Wantmal", gender = "male",
+  bible = "bibles/more_folk.md", role = "citizen", tier = "service",
+  communities = { "darkshire" }, temper = { "wistful", "bookish" }, values = { "words", "home" },
+  notices = { "travel", "arcane", "light" },
+  impression = {
+    first = "Whit Wantmal lives in the house beside Darkshire's gryphon roost and writes verses about the town that nobody has asked for. He is wistful and bookish, and he will not leave Duskwood, though he can give no good reason.",
+    third = "{name} met Whit Wantmal, a householder and writer of verses in Darkshire.",
+  },
+  greetings = {
+    { id = "g_default", text = "Good evening. It's always evening here, so I've stopped looking out of the window before I say it." },
+    { id = "g_2", when = { metBefore = true }, text = "You've come back to us. People do, I've noticed, though they can never say why." },
+    { id = "g_3", when = { timeOfDay = "night" }, text = "A true night, this one. You can tell by the gryphons, who go quiet when the dark is real." },
+  },
+  notice = {
+    { id = "n_1", cat = "travel", when = { minLevel = 30 },
+      text = "You've come a long way to stand in the dark with us. I should like to hear what the sky looks like where you were last." },
+    { id = "n_2", cat = "arcane", when = { class = "MAGE" },
+      text = "You've a scholar's ink on your fingers. Then you'll not laugh at a man who keeps notebooks." },
+    { id = "n_3", cat = "light", when = { class = { "PRIEST", "PALADIN" } },
+      text = "You carry the Light. It shows more here than it would in Stormwind, the way a candle does in a cellar." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Whit Wantmal. That's my house, by the gryphon roost, and Felicia Maline's birds are my nearest neighbours. I write a little. It's verses, mostly, about the town. Nobody's asked me for them, and I can't seem to stop." },
+      },
+      again = {
+        { id = "hello_again1", text = "Was there something more?" },
+        { id = "hello_again2", text = "Go on. I've nowhere to be, and neither has the evening." },
+        { id = "hello_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "What do you write about?", next = "write" },
+        { text = "What's it like, living beside the gryphons?", next = "gryphons" },
+        { text = "Why do you stay in Duskwood?", next = "stay" },
+        { text = "Tell me about your neighbours.", next = "neighbours" },
+        { text = "Verses are no use against the dead.", next = "use" },
+        { text = "What was Darkshire like before the dark?", next = "before" },
+        { text = "Let me hear a line of yours.", next = "line", when = { disposition = { min = 55 } } },
+        { text = "I left a home behind as well.", next = "home", when = { origin = "human_lordaeron_refugee" } },
+        { text = "Good evening, Whit.", next = "END" },
+      },
+    },
+    write = {
+      lines = {
+        { id = "write_1", text = "I write about the lamps, and the Watch walking between them, and the sound a town makes when everyone in it is listening. I've a long piece about the name. It was Grand Hamlet once, you know, and nobody voted to change it. People only stopped saying the old one." },
+      },
+      choices = {
+        { text = "Why did they stop?", next = "name" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name = {
+      lines = {
+        { id = "name_1", text = "Because it wasn't true any longer. You can't stand in this square and say \"Grand Hamlet\" without your voice going wrong. \"Darkshire\" was a joke at first, I think, and then it was only what we were." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gryphons = {
+      lines = {
+        { id = "gryphons_1", text = "They smell, and they scream at dawn, such as dawn is. I'd not be without them. When they settle I know the night's ordinary. When they won't settle, I bar the door and trim the lamp, and I've not been wrong yet." },
+      },
+      choices = {
+        { text = "What unsettles them?", next = "unsettle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    unsettle = {
+      lines = {
+        { id = "unsettle_1", text = "Felicia says it's whatever comes up the road from Raven Hill. The birds look west and stamp. One night last autumn they wouldn't stop, and in the morning the Watch were scrubbing the square, and nobody would tell me what they'd found." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stay = {
+      lines = {
+        { id = "stay_1", text = "I've asked myself that often. I've a cousin in Stormwind who writes every season to say there's a room. I pack a bag, and then the lamps come on, and the Watch call the hour, and I find I've unpacked it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    neighbours = {
+      lines = {
+        { id = "neighbours_1", text = "There's Felicia, who's braver than she lets on. The gnomes have the house on the path, and they argue about lenses until all hours. Madame Eva reads the stars and frightens me a little, and Clerk Daltry at the hall has lent me paper when I'd none." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    use = {
+      big = true,
+      lines = {
+        { id = "use_1", text = "No, they're not. I've no arm for a sword, and I faint at blood. But somebody ought to set down that we were here, and that we lit the lamps every night. If the town falls, I'd like there to be a page that says how it stood." },
+      },
+      choices = {
+        { text = "A town that's remembered isn't wholly lost.", next = "BACK", reply = "That's the whole of why I write, and you've said it better than I have in forty pages.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Put down the pen and carry a lamp for the Watch.", next = "BACK", reply = "I did ask, once. Commander Ebonlocke looked at my hands and told me to keep writing, and she was kind about it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before = {
+      lines = {
+        { id = "before_1", text = "It was green, and there were orchards on the south road. The children swam at the bridge. I was young, and I thought it dull. I've written that down as well, as a warning to anyone who thinks their own town dull." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    line = {
+      lines = {
+        { id = "line_1", text = "Very well, then. \"They count the lamps at dusk, and count again, and call it morning when the count's the same.\" That's all of it that's any good. The rest is still looking for its feet." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = {
+        { id = "home_1", text = "Then you know what it is for a place to change its name while you're still in it. I'm sorry. You may sit on my step whenever you like, and I'll not ask you to talk about it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rumors = { { id = "tp_rumors", text = "They say the old tower in the south has a light in it again. I've not written that down, for I've a feeling it would know." } },
+    background = { { id = "tp_background", text = "I was born in Grand Hamlet and I live in Darkshire, and I've never moved house. I was to be a clerk, and I have a little money from my mother." } },
+    advice = { { id = "tp_advice", text = "Write down what your town is like on an ordinary day. You'll want it later, and so will somebody else." } },
+    darkshire = { { id = "tp_darkshire", text = "It's home. I've tried other words for it, and that's the one that stays." } },
+    _none = { { id = "tp_none", text = "I don't know. I could make something up, but you'd be able to tell." } },
+  },
+}
+
+-- Cog Glitzspinner: gnome inventor in Darkshire; drew the plans for Viktori's star-glass and argues lenses with Finbus and Herble.
+P:NPC {
+  key = "cog_glitzspinner", id = TODO_NPC("Cog Glitzspinner"), name = "Cog Glitzspinner", gender = "male",
+  bible = "bibles/more_folk.md", role = "citizen", tier = "service",
+  communities = { "darkshire" }, temper = { "enthusiastic", "exacting" }, values = { "invention", "friendship" },
+  notices = { "gnome", "craft", "arcane" },
+  impression = {
+    first = "Cog Glitzspinner is a gnome inventor who has settled in a Darkshire house with two others of his kind and argues with them about lenses all day. He drew the plans for Viktori Prism'Antras's star-glass and worries about every joint in it.",
+    third = "{name} met Cog Glitzspinner, a gnome inventor living in Darkshire.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hello, hello! You've walked in on a disagreement about focal lengths. It's entirely amicable, and I'm entirely right." },
+    { id = "g_2", when = { metBefore = true }, text = "You're back! Good, you can settle something. No, wait, you'll side with Finbus, people do." },
+    { id = "g_3", when = { race = "Gnome" }, text = "A gnome, in Duskwood! Sit down, sit down, and Herble, look, there's four of us now, that's a quorum!" },
+  },
+  notice = {
+    { id = "n_1", cat = "gnome", when = { race = "Gnome" },
+      text = "You've got calluses from a number-three spanner. That's the Gnomeregan issue, isn't it? I'd know that grip anywhere." },
+    { id = "n_2", cat = "craft", when = { profession = "Engineering" },
+      text = "An engineer! Tell me honestly, can you turn a bronze tube that's true along its whole length? Because the smith here can't, and he won't admit it." },
+    { id = "n_3", cat = "arcane", when = { class = "MAGE" },
+      text = "A mage! You people see far things with a scrying bowl. I'm trying to do it with glass and arithmetic, and I'd like you to know that mine doesn't need a bowl." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Cog Glitzspinner! Finbus Geargrind and Herble Baubbletump share the house, and Herble sells parts from the front of it. I draw plans. My best set at present is for a friend up the hill, Viktori, who wants a device for looking at the stars." },
+      },
+      again = {
+        { id = "hello_again1", text = "What else? I've got the drawings right here if you want to see." },
+        { id = "hello_again2", text = "Go on, I can argue with Finbus later." },
+        { id = "hello_again3", text = "Yes, yes?" },
+      },
+      choices = {
+        { text = "Tell me about the star-glass.", next = "glass" },
+        { text = "Why would gnomes settle in Darkshire?", next = "why" },
+        { text = "What are you three arguing about?", next = "argue" },
+        { text = "How do you know Viktori?", next = "viktori" },
+        { text = "Stargazing is a strange hobby for a cursed town.", next = "hobby" },
+        { text = "What's the hard part of the design?", next = "hard", when = { profession = "Engineering" } },
+        { text = "Did you get out of Gnomeregan?", next = "gnomeregan", when = { race = "Gnome" } },
+        { text = "I've seen Viktori's work. It's coming along.", next = "progress", when = { heardLine = "viktori.d_default" } },
+        { text = "Good day, Cog.", next = "END" },
+      },
+    },
+    glass = {
+      lines = {
+        { id = "glass_1", text = "There are two lenses in a long tube, a large one to gather the light and a small one to look through. That's simple, on paper. But the tube must be dead straight and the lenses ground to a curve I can only describe with an equation. Viktori is doing it by hand, bless him." },
+      },
+      choices = {
+        { text = "Will it work?", next = "work" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    work = {
+      lines = {
+        { id = "work_1", text = "The arithmetic works. Whether a human stargazer and a village smith can build to my tolerances is another matter. I've revised the mount six times so it'll forgive a little wobble. Forgiving wobble goes against everything I believe in." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = {
+        { id = "why_1", text = "It's quiet, and it's cheap. Nobody here has ever told me a thing was impossible, because they've seen worse than impossible walk up the road. And the dark is excellent for testing lamps. Finbus has a lamp that I can't discuss until the patent's sorted." },
+      },
+      choices = {
+        { text = "Aren't you afraid here?", next = "afraid" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    afraid = {
+      lines = {
+        { id = "afraid_1", text = "Constantly! But I was afraid in Ironforge as well, of the rent. Here the Watch walks past twice an hour, and Herble has rigged the door. I'd rather not say what it does. It only did it to the postman once." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    argue = {
+      lines = {
+        { id = "argue_1", text = "Finbus says you grind the lens first and build the tube to suit it. I say you build the tube and grind to suit. Herble says we should buy a lens from a goblin. That's heresy, and it's also the only one of the three we could do by Friday." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    viktori = {
+      lines = {
+        { id = "viktori_1", text = "He wrote to me. A man who draws star-charts wrote to an engineer he'd never met and asked if the sky could be brought closer. I've had commissions from kings' quartermasters that didn't please me half so much. I promised him I'd help, and a Glitzspinner delivers." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hobby = {
+      big = true,
+      lines = {
+        { id = "hobby_1", text = "Is it? I'd have thought it was the most sensible thing in the county. Everybody here spends their nights watching the ground for what's coming out of it. Viktori's the one man who's looking up. I think a town needs someone doing that." },
+      },
+      choices = {
+        { text = "Looking up is how people get through the dark.", next = "BACK", reply = "Exactly! I'm putting that on the drawings, in the margin, where Finbus will see it.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Clever minds should be building the Watch better weapons.", next = "BACK", reply = "We've done that as well. Ask the Commander who made her new lamp-brackets. I didn't want all my thinking to be about killing, though.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hard = {
+      lines = {
+        { id = "hard_1", text = "The mount is the hard part. The stars move, or we do, and the tube must follow them smoothly without a shake. I've designed a worm gear with a hundred and forty-four teeth, and there isn't a file in Duskwood fine enough to cut it. If you know of one, I'll owe you a very boring favour." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnomeregan = {
+      lines = {
+        { id = "gnomeregan_1", text = "I was in Ironforge delivering a paper when it happened, so I got out by not being in. I don't know how to feel about that. The paper was on ventilation, and I've never been able to look at it since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    progress = {
+      lines = {
+        { id = "progress_1", text = "Is it? Is the tube true? No, don't tell me, he'll show me at the next step, and he does so like to show me. I tell him I'm impressed, and I am. He hasn't worked out that I'm frightened for it as well." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rumors = { { id = "tp_rumors", text = "The Watch say there's a hermit past the cemetery who buys odd parts. I sent him a price list by way of the goblin, and I got back a note that said only \"larger\"." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "We'll go home. I've a drawing for a better air-pump, for when we do, and I don't show it to people." } },
+    background = { { id = "tp_background", text = "Journeyman of the Gnomeregan drafting halls, and then a lodger in Ironforge. Now I own a third of a house in the darkest town in the kingdom." } },
+    advice = { { id = "tp_advice", text = "Draw it before you build it. Then draw it again, assuming whoever builds it is tired." } },
+    _none = { { id = "tp_none", text = "I've no figures on that. I don't speculate without figures, or I try not to." } },
   },
 }

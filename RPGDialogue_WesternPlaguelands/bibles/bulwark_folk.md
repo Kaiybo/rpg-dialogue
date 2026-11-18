@@ -96,3 +96,6 @@ npcs/bulwark_folk.lua. The Bulwark is in eastern Tirisfal; this pack also loads 
 ## Authored, not canon
 - The Crusade burned Mickey's sister at Hearthglen for nursing a plague victim; Mickey came later in a cart of corpses.
 - Hasana answered the Dawn's call for hands; argues about spirits with Shadow Priestess Vandis in the evenings.
+
+## Depth pass (authored, not canon)
+- Werg: shares a fire some nights with Argent Officer Garush; grew up in a Lordaeron internment camp; warns travellers off the Andorhal road and Felstone Field.

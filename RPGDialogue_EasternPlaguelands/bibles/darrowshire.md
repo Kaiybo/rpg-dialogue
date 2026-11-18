@@ -72,3 +72,6 @@ Never says: anything later than Year 1
 - Paladins, Forsaken.
 ## Topics
 - background, scarlet_crusade
+
+## Depth pass (davil; authored, not canon)
+- Seven disciples (six lads and a girl) who saddled up unasked; the chapel's cracked bell and the harvest fair; he saw Carlin Redpath go down at the mill bridge and thinks him dead until told otherwise.

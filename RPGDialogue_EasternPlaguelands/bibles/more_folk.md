@@ -27,3 +27,27 @@ Never says: anything about Valthalak's summoning beyond the medallion; anything 
 
 ## Topics
 _none.
+
+## Depth pass (anthion; authored, not canon)
+- He fell forty paces inside the gate and cannot get further from it; kept his wits by one clear thought. The Veiled Blade company and Deliana/Mokvar are from the Dungeon Set 2 chain.
+
+# Aurora Skycaller  (key: aurora_skycaller)
+
+## Sources
+- https://warcraft.wiki.gg/wiki/Aurora_Skycaller (read 2026-11-18 via tools/npc.py): high elf priestess below Quel'Lithien Lodge, near Northpass Tower. Quest pages read: Fragments of the Past (Classic), Tormented By the Past. Novel material not used.
+
+## Their quests
+- Fragments of the Past: "Forgive my callous words"; the Crystal of Zin-Malor contained and controlled arcane forces, stolen with evil intent and shattered; fetch the Sacred Highborne Writings from the Temple of Zin-Malor in Azshara.
+- Tormented By the Past: "the elves, as a race, have been shattered"; take the restored crystal to Lake Kel'Theril and find a remorseful Highborne spirit.
+
+## Identity
+Sorrowful, guarded, curt and then ashamed of it; formal, no contractions; carries her ancestors' guilt.
+
+## Authored, not canon
+- She keeps a fire below the lodge and prays for the rangers who turned her away; she was north of here when Quel'Thalas fell.
+
+## What they notice
+Night elves, priests and paladins, mages.
+
+## Topics
+scourge, arthas, holy_light, argent_dawn, _none.

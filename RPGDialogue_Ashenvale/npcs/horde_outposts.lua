@@ -360,6 +360,7 @@ P:NPC {
     },
   },
   topics = {
+    darkspear = { { id = "tp_darkspear", text = "We be few, mon, and far from da Isles. Every one we lose be a song nobody sing no more." } },
     background = { { id = "tp_bg", text = "I keep da quiet watch at Zoram'gar, mon, and I wait for my kin's charms to come home." } },
     furbolgs = { { id = "tp_furbolgs", text = "Da Thistlefur be sick in da head, mon, and dey kill what come near. I hate dem and I pity dem, and I don't know which be heavier." } },
     _none = { { id = "tp_none", text = "I don't know, mon. Ask Je'neu, who know many things, or Marukai, who think he do." } },

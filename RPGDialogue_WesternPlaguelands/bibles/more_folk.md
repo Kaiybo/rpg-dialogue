@@ -29,3 +29,23 @@ Wiki pages read 2026-11-18 (warcraft.wiki.gg, via tools/npc.py): Artist Renfray,
 
 ## Topics
 _none for each.
+
+## Depth pass and missed folk (keys added: marduke, magnus_frostwake, melia_darrow, sammy_darrow)
+
+### Sources (warcraft.wiki.gg via tools/npc.py, read 2026-11-18)
+- Magistrate Marduke: ghost by Scholomance's door; remembers everything; The Human, Ras Frostwhisper (Keepsake of Remembrance from Stromgarde), The Dying, Soulbound Keepsake, The Lich, Ras Frostwhisper. Gossip used in our own words: the Cult hides among the living in every city; Scholomance is its school; Ras a hedge mage of Stromgarde, early Cult member, made a lich by the Lich King; rob him of his powers and kill the man.
+- Magnus Frostwake: dwarf ghost, blacksmithing and alchemy recipe vendor at Caer Darrow.
+- Melia and Sammy: child ghosts racing by the fountain ("Ready. Set. GO!", "HEY! No fair!", "Best two out of three!").
+
+### Their quests
+- Marduke: the Ras Frostwhisper chain. Magnus, Melia, Sammy: none.
+
+### Voices
+**Marduke.** Grave, exact, a judge with one case left; "a late verdict is still a verdict".
+**Magnus.** Light dwarven burr; thinks trade is slow and the forge only banked.
+**Melia.** Bossy, bright; starts "on the guh".
+**Sammy.** Earnest, worried; has noticed the ferry, the birds and the same bun twice.
+
+### Authored, not canon (this pass)
+- Masterson's Andorhal flour and self-tending oven, Renfray's drawing of his shopfront; Joseph's pit on the north shore and the Barov brothers' quarrel over the four deeds (the deeds are canon); Rory's "fortnight of coughing", the held ferry, Marduke sending for help, a glimpse of Kel'Thuzad in a fur collar; Renfray's studio above the chandler's and forty knights painted for the Stratholme barracks.
+- Marduke had complaints about the Barov house on his desk for a year; Magnus came to shoe the Barovs' horses and refused a second order of manacles; Melia's father carried things to the cellars and her mother has "a cough"; Sammy's uncle is a guardsman with a cannon.

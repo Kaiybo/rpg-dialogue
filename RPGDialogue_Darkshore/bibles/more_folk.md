@@ -23,3 +23,29 @@
 
 ## Never
 Cataclysm Darkshore (Lor'danel, Deathwing, Auberdine's ruin), boats to Azuremyst or Exodar, anything after Classic.
+
+## Added later: missed folk (same file, npcs/more_folk.lua)
+
+### Sources
+- warcraft.wiki.gg: Wizbang Cranktoggle, Sentinel Aynasha, Therylune, Delfrum Flintbeard, Grondal Moonbreeze, Gorbold Steelhand, Thelgrum Stonehammer, Valdaron, Jaelysia. Classic placement: Auberdine for all but Aynasha (southern road) and Therylune (the Master's Glaive).
+
+### Their quests (TODO_QUEST by title)
+- Wizbang: Buzzbox 827, then 411, 323, 525 (crawler legs, thresher eyes, moonstalker fangs, grizzled bear scalps).
+- Aynasha: One Shot. One Kill. (hold off the Blackwood while she restrings; report to Sentinel Onaeya at Maestra's Post).
+- Therylune: Therylune's Escape (escort out of the Master's Glaive).
+- Gorbold: Deep Ocean, Vast Sea (lockboxes from the Silver Dawning and the Mist Veil).
+- Delfrum, Grondal, Thelgrum, Valdaron, Jaelysia: none (service).
+
+### Voices
+**Wizbang.** Fast, precise, apologetic gnome; percentages; won't dwell on Gnomeregan.
+**Aynasha.** Terse, proud; asks for help as a statement of fact.
+**Therylune.** Shaken but resolute; whispers; her race is deliberately not stated in dialogue.
+**Delfrum.** Dwarf burr, hearty; complains of the damp; proud of his elven students.
+**Grondal.** Courteous, never satisfied; teaches students "to be forgotten".
+**Gorbold.** Jovial dwarf trader; exact about losses; Steelhand family pride.
+**Thelgrum.** Plainspoken; baffled by unmined hills.
+**Valdaron.** Mild; waits on the boats.
+**Jaelysia.** Gentle with beasts, firm with owners.
+
+### Authored, not canon
+Wizbang's lost eyebrow incident and the box by the moonwell; Delfrum teaching Harlon; Grondal's letter from a former student; Gorbold reselling Darnassian thread and his grandmother's scales; Valdaron's last jar of silver dye; Jaelysia's three-year owl. Deepened entries (Allyndia, Harlon, Kyndri, Mavralyn, Shaldyn, Thamarian): neighbours, trade and the coast's troubles only.

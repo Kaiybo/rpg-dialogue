@@ -57,3 +57,13 @@ Never says: anything after Year 1; no hints of the apothecaries' or Varimathras'
 - Anya Rince is a runner carrying Faranell's sealed papers to the throne room; the previous runner vanished.
 - Chadsworth was valet to an unnamed noble house and now keeps the War Quarter officers' kit.
 - Zeglo Kruptorr is a warlock trainers' acolyte who feeds imps and wants a pact.
+
+## Depth pass (authored, not canon)
+- Alyz: her pole, nail and ladle; Lizbeth Cromwell's hook kept in the sack; eleven knives, four a matching set; Mennet's people walk her stretch.
+- Ishtar: oak from Silverpine on Sepulcher carts, a plank fought over with Sydney Upton; honest kegs for Felben's students and Martha Alliestar.
+- Malus: gives the abominations room; Fowler has asked him twice to join the warriors; "a watchman stays where folk are sleeping".
+- Faith: studies wards for Bethor; eleven Dalaran texts in the city; half a novel, "The Shepherdess of Darrowmere" (invented title), lent to Jorah Annison; Tervosh's circle for a term.
+- Rakkamar: borrows books from Richard Kerwin; marched a hooded spy to the Deathguard.
+- Anya Rince: her route past Alyz; Sharlindra takes the satchel; Varimathras once called her punctual.
+- Chadsworth: dubbin from Joseph Moore, wire wool from Samuel Van Brunt; presses Father Lazarus's vestments.
+- Zeglo: answers to Pickman, Kerwin and Soulreaper; a list of people he will one day walk past slowly.

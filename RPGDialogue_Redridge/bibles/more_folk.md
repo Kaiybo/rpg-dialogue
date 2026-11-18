@@ -23,3 +23,23 @@
 
 ## Never
 - Cataclysm Lakeshire (Oslow under the boulder, Tower Watch, Keeshan's return).
+
+## Deepening pass and added NPCs  (new keys: guard_ashlock, amy_davenport, franklin_hamar, gloria_femmel, clyde_ranthal)
+
+### Sources
+- warcraft.wiki.gg: Guard_Ashlock (patrols the bridge between Lakeshire and the flight master), Amy_Davenport (Tradeswoman, Lakeshire), Franklin_Hamar (Tailoring Supplies, Lakeshire Inn), Gloria_Femmel (Cooking Supplies, Lakeshire Inn), Clyde_Ranthal (Leatherworking Supplies; kin of Wilma Ranthal). Cataclysm events (Lakeshire's Last Stand, A Day in the Life) not used.
+- Existing pack: lakeshire_services.md (Lindsay is Guard Ashlock's wife; Wilma's "kinsman Clyde").
+
+### Their quests
+- none: vendors and a guard. They react to The Everstill Bridge, The Lost Tools, Missing In Action, Messenger to Westfall, Redridge Goulash, Blackrock Menace.
+
+### Identity / voice
+- Guard Ashlock · man · patient, dry; walks the small bridge; the scarf Lindsay makes him wear; used to guard the Everstill Bridge.
+- Amy Davenport · woman · brisk; everything comes by gryphon and is priced like it.
+- Franklin Hamar · man · genial, talkative; a table by the inn's hearth.
+- Gloria Femmel · woman · hearty, bossy; salt and spice; quarrels with Sherman over seasoning.
+- Clyde Ranthal · man · slow, good-humoured; sells, while Wilma skins.
+- Existing six: Alex, Matthew, Adams, Clarke and Pearce each got a second and third branch; Hilary got replies for priests/paladins, dwarves/gnomes and after her quest.
+
+### Authored, not canon
+- Ashlock's six years on the Everstill Bridge; Franklin's shuttered lakefront shop; Gloria and Sherman as family (relation unstated); Amy's lost coal wagon; where Clyde keeps shop is left vague (Wilma is out in the eastern canyon).

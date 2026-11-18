@@ -61,3 +61,42 @@ Sources: warcraft.wiki.gg pages for Ukor, Ruzan, Nartok, Jen'shan, Mai'ah, Rwag 
 ### Deepened (same pass)
 - Zjolnir (pens, feeding, never strikes a raptor), Xar'Ti (how to fall, the proud boy), Bom'bay (the giant crab, Gadrin's warning), Hai'zan (nothing wasted, tiger from the isles), Grimtak (garrison eats first), Cutac (nobody sings about boots), Dhugru (Gar'Thok's terms), Shikrik (teaching stillness), Zlagk (his debt to Galgar), Jhash (the dusk fight with Kerr); in valley.lua, Galgar (cooking in the camps, the pot) and Thazz'ril (what the lumber is for).
 
+
+## Added later (second pass of missed NPCs)
+Sources: warcraft.wiki.gg pages for Huklah, Rarc, Hraug (Valley of Trials), Wuark, Ghrawt, Flakk, Dwukk, Harruk, Kitha, Mukdrak, Rawrk, Ophek, Furl Scornbrow (Razor Hill), K'waii, Trayexir, Tai'tasi, Miao'zan, Zansoa, Kali Remik (Sen'jin Village), Frezza and Snurk Bucksquick (zeppelin tower outside Orgrimmar, in Durotar before Cataclysm). All pre-Cataclysm placements.
+
+### Their quests
+- Ophek: Gan'rul's Summons (sends orc warlocks who have outgrown the imp to Gan'rul Bloodeye in the Cleft of Shadow; the voidwalker follows). He decides who is ready, and reports the ones who worry him.
+- Furl Scornbrow: Carry Your Weight (eight canvas scraps from the Kul Tiras sailors at Tiragarde Keep; he sews a bag). A watchman whose horn has gone quiet, filling the hours with a needle.
+- Kali Remik: The Hunter's Path (sends young hunters to Thotar in Razor Hill for the taming). She judges readiness. Written before/active/done; the giver's exact wording in Forever is unconfirmed.
+- Dwukk, Mukdrak, Rawrk: Camping 101 (Forever) hand-ins get one greeting each, nothing more.
+- Huklah, Rarc, Hraug, Wuark, Ghrawt, Flakk, Harruk, Kitha, K'waii, Trayexir, Tai'tasi, Miao'zan, Zansoa, Frezza, Snurk: none: vendors, trainers and zeppelin masters, built from role, place and neighbours.
+
+### Never
+- Cataclysm and later: Runda, Magga, Thonk, Burok, Gail Nozzywig, the flooded Southfury, Razor Hill under the Kor'kron, the Darkspear Rebellion (Dwukk's and Yelnagi's wiki text), the Orgrimmar Skyway and Squibby Overspeck. The zeppelin tower stands outside Orgrimmar's gate with one platform each for Tirisfal and Grom'gol.
+
+### Voices (authored, not canon)
+- Huklah: patient valley tailor; tans downwind of the Den; recruits should earn better armor (honor stance).
+- Rarc: gruff shield fitter; sells the too-big shield and lets the shoulder teach (order stance against Frang's view).
+- Hraug: scarred, short-tempered; never ask a demon, tell it; each leashed imp a debt repaid (light stance).
+- Wuark: steady garrison armorer; reads dents; rifle balls and Gar'Thok's refusal of guns (honor stance).
+- Ghrawt: quiet bowyer in a land with no trees; Ashenvale staves from the Warsong (light stance); taught by a Darkspear on the voyage (authored).
+- Flakk: cheerful, asks what everyone is making; keeps a count of Mukdrak's powder for Orgnil (order stance).
+- Dwukk: stern, fair; a nail first; a smith answers for where his steel goes (honor stance; echoes the wiki's later note that he minded whom his steel served, without the later events).
+- Harruk: calm, prefers wolves; refused to train for hunters who beat their beasts (order stance).
+- Kitha: cool, sardonic; lets Orgnil search her shelves (order stance); voidwalker silence.
+- Mukdrak: eager orc tinker who swept floors in Ratchet (authored); rifles for the Tiragarde watch (order stance).
+- Rawrk: brusque, gentle hands; a Horde that carries its wounded (light stance).
+- Ophek: grave watcher for Gan'rul; named two students to Orgnil, one went to the Burning Blade (authored; order stance).
+- Furl Scornbrow: wry, idle; offered the Tiragarde watch (honor stance); Cutac taught him to double a seam.
+- K'waii: easy, sharp; sells what washes up from wrecks; the two half-drowned sailors (light stance).
+- Trayexir: proud, teasing; balance over weight; what to tell the young about the hexed kin (honor stance).
+- Tai'tasi: warm, wry; the wiki only hints she is Lar Prowltusk's mate, so she says he "shares my fire" and no more; kept him at his post (honor stance).
+- Miao'zan: merry, restless; dances because his grandmother did; Vornal wants reasons (order stance).
+- Zansoa: dry, unhurried; Tiragarde fires on the boats; young fishers want to answer at night (order stance).
+- Kali Remik: keen, teasing; the boy whose raptor turned on him (authored; light stance).
+- Frezza: brisk, officious goblin; the safety rules; banned an imp and was overruled (order stance).
+- Snurk Bucksquick: flirtatious, shrewd goblin; flattery as good business (honor stance); teases her brother.
+
+### What they notice
+- Huklah: cloth casters, worn gear. Rarc: warriors, worn gear. Hraug: shaman, beast pets. Wuark: worn gear, warriors. Ghrawt: beast pets, trolls. Flakk: the tradeless young, thin purses. Dwukk: miners, warriors. Harruk: hunters without a beast, raptors. Kitha: voidwalkers, priests. Mukdrak: goblins, miners. Rawrk: battered gear, healers. Ophek: imps, shaman. Furl: the green, needleworkers. K'waii: orcs, thin purses. Trayexir: orcs, rogues. Tai'tasi: alchemists, hunters. Miao'zan: herbalists, priests and shaman. Zansoa: tauren, cooks. Kali Remik: beast pets, druids. Frezza: mages and warlocks, tauren. Snurk: women, hunters.

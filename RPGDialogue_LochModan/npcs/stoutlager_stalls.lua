@@ -223,8 +223,6 @@ P:NPC {
 
   topics = {
     thelsamar = { { id = "tp_thel", text = "A small town that eats well an' argues loud. I've traded in worse, an' I'd no' move now." } },
-    background = { { id = "tp_bg", text = "I'm a tradesman, an' I was a tradesman's son. I sell the wee things other folk forget tae make." } },
-    _none = { { id = "tp_none", text = "I couldnae tell ye. If it doesnae come in a crate, I've likely no' heard of it." } },
     background = { { id = "tp_bg", text = "I carted goods between Ironforge an' the loch for years before I settled. My back decided for me." } },
     advice = { { id = "tp_ad", text = "Buy good flux. Cheap flux ruins a better day's work than ye'd believe." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "The Dragonmaw are orcs on the Wetlands side o' the pass, an' they've cost me two crates o' good spice." } },
@@ -351,11 +349,15 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're late, but come in. I cannae match colours by candle, mind, so dinnae ask me tae." },
+    { id = "g_gnome", when = { race = "Gnome" }, text = "I'm Rann Flamespinner. Come in, wee friend, an' I'll show ye where I keep the short-cut patterns, for I had a gnome customer who taught me tae stock them." },
     { id = "g_default", text = "I'm Rann Flamespinner, an' I sell thread an' dye an' patterns. Come in, friend, an' mind ye don't tread on the bolts." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Is that the shirt I sold ye the pattern for? It's come out better than I'd hoped." },
   },
 
   notice = {
+    { id = "n_dwarf", cat = "kit", when = { race = "Dwarf", class = { "WARRIOR", "PALADIN" } },
+      text = "Ye've a padded coat under that mail, an' it's worn through at the elbows. I've quilted linen that'd save yer skin, if ye can sew a straight line." },
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
       text = "A tailor! I can tell by the stitchin' on yer cuffs, an' I've seen enough stitchin' tae know good work when it walks in." },
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
@@ -443,6 +445,7 @@ P:NPC {
   },
 
   topics = {
+    dyes = { { id = "tp_dyes", text = "Red from root, blue from a flower that grows by the loch, an' black from oak gall an' iron. The black's the easiest an' the red's the dearest, an' folk always want the red." } },
     thelsamar = { { id = "tp_thel", text = "Loud, friendly an' full o' sausage smoke. It's a good town for a quiet dwarf, for nobody notices ye sayin' nothin'." } },
     background = { { id = "tp_bg", text = "I'm the son o' a dyer from Ironforge. I came tae the loch for the quiet an' stayed for the sausages." } },
     advice = { { id = "tp_ad", text = "Double the thread at the shoulder. That's where everything tears first." } },

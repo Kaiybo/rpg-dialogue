@@ -704,3 +704,630 @@ P:NPC {
     _none = { { id = "tp_none", text = "Couldn't tell you. I know flour and fire, and not much else." } },
   },
 }
+
+-- Agent Kearnen: an SI:7 agent hidden near a Defias-held watchtower in southern Westfall; meets rogues sent by Mathias Shaw about Klaven's Tower.
+P:NPC {
+  key = "agent_kearnen", id = TODO_NPC("Agent Kearnen"), name = "Agent Kearnen", gender = "female",
+  bible = "bibles/sentinel_more.md", role = "questgiver", tier = "quest",
+  communities = { "westfall_farms" }, temper = { "reserved", "clipped" }, values = { "duty", "discretion" },
+  notices = { "stealth", "class", "kit" },
+  impression = {
+    first = "Agent Kearnen watches a Defias-held tower in southern Westfall from cover so good I nearly walked past her. She answers to Mathias Shaw, wastes no words, and plainly would rather not have been found.",
+    third = "{name} met Agent Kearnen of SI:7, keeping watch on a Defias tower in southern Westfall.",
+  },
+  greetings = {
+    { id = "g_default", text = "Keep your voice down and step out of the sightline. Now, who told you where to find me?" },
+    { id = "g_2", when = { metBefore = true }, text = "You again. You came in from the east this time. Better." },
+    { id = "g_3", when = { class = "ROGUE", questActive = TODO_QUEST("Klaven's Tower") }, text = "You know the job. The tower's still there, and so is the chest. Don't come back to chat until it's open." },
+  },
+  notice = {
+    { id = "n_1", cat = "stealth", when = { class = "ROGUE" },
+      text = "You moved well coming in, though I heard you at twenty paces. Shaw's people usually manage fifteen." },
+    { id = "n_2", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "You clank. If you mean to stand here, stand still, and don't let the sun find that breastplate." },
+    { id = "n_3", cat = "kit", when = { class = "HUNTER" },
+      text = "Keep your animal low and quiet. The Defias in that tower aren't clever, but they do notice a wolf." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Agent Kearnen, and that's all the name you need. I'm watching that tower, and the people in it don't know I'm here, and I intend to leave Westfall with both of those things still true." },
+        { id = "hello_2", when = { class = "ROGUE" }, text = "Agent Kearnen, SI:7. If Shaw sent you, you know why I'm here. That tower was the Alliance's once. The Defias hold it now, and a man named Klaven Mortwake keeps something inside that Stormwind wants read." },
+        { id = "hello_3", when = { questDone = TODO_QUEST("Klaven's Tower") }, text = "Agent Kearnen. You got Mortwake's journal out of his own chest, under his own nose. I told Shaw as much in my report, in one line, which is as much praise as he reads." },
+      },
+      again = {
+        { id = "hello_again1", text = "Anything else? Be quick about it." },
+        { id = "hello_again2", text = "Go on, and keep it low." },
+        { id = "hello_again3", text = "Ask." },
+      },
+      choices = {
+        { text = "What's so important about that tower?", next = "tower" },
+        { text = "How long have you been watching?", next = "watching" },
+        { text = "Skulking in the grass isn't honest soldiering.", next = "skulking" },
+        { text = "How do I get into the tower?", next = "getin", when = { class = "ROGUE" } },
+        { text = "What was in Mortwake's journal?", next = "journal", when = { class = "ROGUE", questDone = TODO_QUEST("Klaven's Tower") } },
+        { text = "Does Sentinel Hill know you're out here?", next = "sentinel" },
+        { text = "Who is Klaven Mortwake?", next = "mortwake" },
+        { text = "I was never here.", next = "END" },
+      },
+    },
+    tower = {
+      lines = {
+        { id = "tower_1", text = "It was a watch post on the south road, when Stormwind still kept soldiers in Westfall. The Defias took it without a fight and put their own guards on every floor. They don't garrison a ruin for the view, so something inside is worth guarding.", fx = { learn = { "defias" } } },
+      },
+      choices = {
+        { text = "What do you think it is?", next = "inside" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    inside = {
+      lines = {
+        { id = "inside_1", text = "Papers. Mortwake writes things down, which is a weakness in his trade and a gift to mine. Names, routes, who's paid and who's promised. I can't get at it alone without being seen, which is why Shaw sends me help." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watching = {
+      lines = {
+        { id = "watching_1", text = "Long enough to know the guard changes, and which of them drinks, and which one sleeps on the third landing. I eat cold and I sleep in pieces. It's not a complaint; it's the work." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    skulking = {
+      big = true,
+      lines = {
+        { id = "skulking_1", text = "No, it isn't. Honest soldiering lost this tower. Stoutmantle's militia would charge it, and half of them would die on the stairs, and Mortwake would burn his papers before they reached the top. I'd rather be thought a sneak and get the papers." },
+      },
+      choices = {
+        { text = "Some fights are won by whoever isn't seen.", next = "BACK", reply = "That's the trade. Glad to hear someone say it without a sneer.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Deceit is deceit, whoever it serves.", next = "BACK", reply = "Tell that to the farmers they've robbed. Then tell me a cleaner way.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    getin = {
+      lines = {
+        { id = "getin_1", text = "Not by the door. The drones that patrol outside carry a key; lift it off one without waking the rest. Inside, stay off the centre of the stair, and don't fight Mortwake if you can help it. The chest is at the top. Open it, take the journal, and leave the way you came." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    journal = {
+      lines = {
+        { id = "journal_1", text = "That's for Shaw to say, not me. I'll tell you he read it twice and then sent three riders out before dawn. Whatever you carried down those stairs, it's moved more of SI:7 than I've seen move in a year." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sentinel = {
+      lines = {
+        { id = "sentinel_1", text = "Stoutmantle knows there's someone. He doesn't know who, or where, and he's had the sense not to ask. His militia are brave and loud, and I need them to stay well north of here until this is done." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mortwake = {
+      lines = {
+        { id = "mortwake_1", text = "A Defias lieutenant, quick with a blade and quicker to run, who holds that tower for VanCleef. He's vain, and he keeps a journal. If he'd been a duller man I'd have nothing to steal." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "I work for Stormwind, in the part of it that doesn't wear a tabard. That's all there is to tell." } },
+    defias = { { id = "tp_defias", text = "Stonemasons once, thieves now, and better organised than the crown admits. They've a leader with a grievance and a plan, and I'd like to read the plan." } },
+    advice = { { id = "tp_advice", text = "Count the guards twice, and then look for the one you didn't count." } },
+    rumors = { { id = "tp_rumors", text = "I don't deal in rumour. I deal in what I've seen, and I've seen wagons going into Moonbrook that don't come out." } },
+    westfall = { { id = "tp_westfall", text = "Dry fields and empty houses. Good country to hide in, which is the trouble." } },
+    _none = { { id = "tp_none", text = "I've no information on that. If I had, I'd likely not share it." } },
+  },
+}
+
+-- Protector Bialon: a militiaman at Sentinel Tower who stands guard over the Defias Traitor.
+P:NPC {
+  key = "protector_bialon", id = TODO_NPC("Protector Bialon"), name = "Protector Bialon", title = "The People's Militia", gender = "male",
+  bible = "bibles/sentinel_more.md", role = "soldier", tier = "service",
+  communities = { "sentinel_hill" }, temper = { "watchful", "gruff" }, values = { "duty", "justice" },
+  notices = { "soldier", "class", "kit" },
+  impression = {
+    first = "Protector Bialon guards the Defias Traitor at Sentinel Tower and has not taken his eyes off the man in days. He was a farmer until the Brotherhood took his land, and he guards their turncoat with a farmer's long memory.",
+    third = "{name} met Protector Bialon of the People's Militia, who guards the Defias Traitor at Sentinel Hill.",
+  },
+  greetings = {
+    { id = "g_default", text = "Stand back from the prisoner, if you please. You can talk to him, but you'll do it where I can see your hands." },
+    { id = "g_2", when = { metBefore = true }, text = "You again. He's still here, and so am I." },
+    { id = "g_3", when = { questActive = TODO_QUEST("The Defias Brotherhood") }, text = "You're the one Stoutmantle's sending out with him. Then listen; he walks in front, always, and you don't turn your back." },
+  },
+  notice = {
+    { id = "n_1", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "A real soldier. Stoutmantle will want you. We've pitchforks and courage here, and not enough of either." },
+    { id = "n_2", cat = "class", when = { class = "ROGUE" },
+      text = "I know your sort by the walk. You may be on our side, and I'll still thank you to stay an arm's length from my prisoner." },
+    { id = "n_3", cat = "kit", when = { maxLevel = 12 },
+      text = "You're green for Westfall, friend. Stay inside the tower's shadow until you've better gear than that." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Protector Bialon, People's Militia. That man there wore the red mask until last week, and now he says he'll lead us to their hideout. Stoutmantle believes him. I believe him as far as this spear reaches." },
+        { id = "hello_2", when = { questDone = TODO_QUEST("The Defias Brotherhood") }, text = "Protector Bialon, People's Militia. So the traitor kept his word, and you saw to the rest. I was wrong about him, by a little. I'd have stood here another year to be wrong like that." },
+      },
+      again = {
+        { id = "hello_again1", text = "What else? I'm watching him, but I can listen." },
+        { id = "hello_again2", text = "Go on." },
+        { id = "hello_again3", text = "Aye?" },
+      },
+      choices = {
+        { text = "Why did he turn on the Defias?", next = "turned" },
+        { text = "What was your life before the militia?", next = "before" },
+        { text = "A traitor once is a traitor always.", next = "traitor" },
+        { text = "Any advice for escorting him?", next = "escort", when = { questActive = TODO_QUEST("The Defias Brotherhood") } },
+        { text = "How does the militia train?", next = "train", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Who else guards the tower?", next = "others" },
+        { text = "Has he tried to run?", next = "run" },
+        { text = "Keep a close watch, Protector.", next = "END" },
+      },
+    },
+    turned = {
+      lines = {
+        { id = "turned_1", text = "He says he'd had enough of robbing farmers. I'd say he fell out with somebody over his share. Either way he knows where they've gone to ground, and that's worth feeding him for.", fx = { learn = { "defias" } } },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before = {
+      lines = {
+        { id = "before_1", text = "I'd forty acres south of the Molsen farm, and wheat on thirty. The Defias came for the harvest and then for the house. I walked to Sentinel Hill with my wife and a hoe, and Stoutmantle gave me a spear for the hoe." },
+      },
+      choices = {
+        { text = "Will you go back?", next = "goback" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    goback = {
+      lines = {
+        { id = "goback_1", text = "When it's safe, and not a day before. The harvest watchers are walking my rows now, those straw things with the scythes. Whoever set them loose out there, I mean to see him answer for it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    traitor = {
+      big = true,
+      lines = {
+        { id = "traitor_1", text = "That's what I said to Stoutmantle. He said a man who's done wrong has to be let turn round somewhere, or he never will. I don't know that I agree. But I've not put my spear through the fellow, so I suppose I've agreed that far." },
+      },
+      choices = {
+        { text = "Stoutmantle's right. People must be allowed to change.", next = "BACK", reply = "Maybe so. It's a hard thing to grant the man who burned your barn.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Use him, then hang him. He's earned no mercy.", next = "BACK", reply = "I've thought it. Stoutmantle would have my tabard for saying it aloud.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    escort = {
+      lines = {
+        { id = "escort_1", text = "Keep him in front and keep moving. His old friends will come out of the hedges when they see who you're with, and they'll go for him first. If he dies, the hideout dies with him, so you fight for him whether you like him or not." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    train = {
+      lines = {
+        { id = "train_1", text = "At dawn, in the yard, with whatever came off the farms. Captain Danuvin drills us in the line and Stoutmantle teaches us when to break it. We're not the king's army. But the king's army isn't here, and we are." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others = {
+      lines = {
+        { id = "others_1", text = "Dutfield walks the foot of the tower, Gariel has the door, and Weaver's up top with the best eyes in Westfall. There are more of us down by the mill. Every one was a farmer or a farmer's child a year ago." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    run = {
+      lines = {
+        { id = "run_1", text = "Once, the first night, as far as the gate. Gariel had him by the collar before he'd cleared the wall. Since then he's sat very quiet, and I've come to think he's more afraid of his old friends than he is of us." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "A wheat farmer, with a spear. There's a great many of us in Westfall now." } },
+    people_militia = { { id = "tp_people_militia", text = "Stoutmantle made soldiers of farmers because nobody else would come. We hold this hill, and we mean to take back the rest." } },
+    advice = { { id = "tp_advice", text = "Don't trust a mask, and don't trust a man who's just taken one off. Watch his hands." } },
+    rumors = { { id = "tp_rumors", text = "The traitor mutters about a mine under Moonbrook, and a door at the back of it. He says no more until Stoutmantle's listening." } },
+    westfall = { { id = "tp_westfall", text = "Good soil, once the dust is laid. I'll plough it again, and I'll do it with this spear across my back." } },
+    _none = { { id = "tp_none", text = "Couldn't say. My whole job's standing here, and I've not looked at much else." } },
+  },
+}
+
+-- Protector Weaver: the militia's lookout on top of Sentinel Tower.
+P:NPC {
+  key = "protector_weaver", id = TODO_NPC("Protector Weaver"), name = "Protector Weaver", title = "The People's Militia", gender = "male",
+  bible = "bibles/sentinel_more.md", role = "soldier", tier = "service",
+  communities = { "sentinel_hill" }, temper = { "quiet", "far-sighted" }, values = { "vigilance", "home" },
+  notices = { "travel", "class", "soldier" },
+  impression = {
+    first = "Protector Weaver keeps the lookout on top of Sentinel Tower and can name every farm in Westfall by the shape of its roof. Most are empty now, and he watches them anyway, as if they might be lit again.",
+    third = "{name} met Protector Weaver, the People's Militia's lookout atop Sentinel Tower.",
+  },
+  greetings = {
+    { id = "g_default", text = "You've a head for heights, climbing up here. Mind the edge; the wind comes off the sea without warning." },
+    { id = "g_2", when = { metBefore = true }, text = "Back up the stairs again. I saw you on the road an hour ago, by the dust." },
+    { id = "g_3", when = { timeOfDay = "night" }, text = "Careful, there's no rail. At night I watch for fires, and there are always fires." },
+  },
+  notice = {
+    { id = "n_1", cat = "travel", when = { minLevel = 20 },
+      text = "You've come a long road, and lately from the south, by the colour of that dust. Was there smoke over Moonbrook when you passed?" },
+    { id = "n_2", cat = "class", when = { class = "HUNTER" },
+      text = "You've a hunter's eyes. Look south-west, past the second windmill, and tell me if that's a wagon or a trick of the heat." },
+    { id = "n_3", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "A soldier, up my tower. Stoutmantle's below, if it's work you want. If it's the view, you're welcome to it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Protector Weaver, People's Militia. From up here I can see the Dagger Hills, the coast, and near every farm between. I watch for dust on the roads and smoke on the fields, and I shout down to Stoutmantle when I see either." },
+        { id = "hello_2", when = { origin = "human_westfall_farmhand" }, text = "Protector Weaver, People's Militia. You're Westfall born, I can hear it. Then you'll know which roofs I mean when I say there's a dozen I look at every dawn, hoping for chimney smoke." },
+      },
+      again = {
+        { id = "hello_again1", text = "Something else? I can talk, so long as I keep looking." },
+        { id = "hello_again2", text = "Go on. My eyes are busy, but my ears aren't." },
+        { id = "hello_again3", text = "Aye?" },
+      },
+      choices = {
+        { text = "What can you see from up here?", next = "see" },
+        { text = "How do you tell friend from foe at that distance?", next = "tell" },
+        { text = "Watching won't win Westfall back.", next = "watching" },
+        { text = "Can you see the old Saldean place from here?", next = "saldean", when = { origin = "human_westfall_farmhand" } },
+        { text = "That's a wagon, with outriders.", next = "wagon", when = { class = "HUNTER" } },
+        { text = "What have you seen lately that worries you?", next = "worries" },
+        { text = "Which farms are still worked?", next = "farms" },
+        { text = "Keep a sharp eye, Protector.", next = "END" },
+      },
+    },
+    see = {
+      lines = {
+        { id = "see_1", text = "North to the river and the Elwynn woods, west to the lighthouse on a clear day, south to the roofs of Moonbrook. The whole of Westfall, near enough. It was all gold, once, at this season, and now it's the colour of a dry bone.", fx = { learn = { "westfall" } } },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tell = {
+      lines = {
+        { id = "tell_1", text = "By how they move. Farmers walk the road. Our patrols walk it in pairs. The Defias cut across the fields in a line, quick, and they never raise dust if they can help it. And the gnolls don't care who sees them." },
+      },
+      choices = {
+        { text = "And the harvest watchers?", next = "watchers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watchers = {
+      lines = {
+        { id = "watchers_1", text = "Those I know by the glint, when the sun catches the blades. They walk the rows back and forth, as if there were still a crop to bring in. I've watched one work an empty field for a week. I'd pity it if it hadn't killed the farmer.", fx = { learn = { "harvest_watchers" } } },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watching = {
+      big = true,
+      lines = {
+        { id = "watching_1", text = "No, it won't. But Stoutmantle can't be everywhere with sixty militia, and I can tell him where to be. Twice this month a patrol's reached a farm before the Defias did, because I saw their dust." },
+      },
+      choices = {
+        { text = "Knowing where to strike is half the battle.", next = "BACK", reply = "That's what Stoutmantle says. I'm glad it sounds true from someone else.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "You're hiding on a tower while others fight.", next = "BACK", reply = "I've said that to myself, on quiet days. Then I see dust, and I've no time for it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    saldean = {
+      lines = {
+        { id = "saldean_1", text = "I can. There's smoke from the chimney every morning, and Salma's washing on the line. It's one of the few I don't have to worry about, and I look at it first, for luck." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wagon = {
+      lines = {
+        { id = "wagon_1", text = "Is it? Then your eyes are better than mine. A wagon with outriders, off the road, heading for Moonbrook. That's no farmer. Go down and tell Captain Danuvin, would you? He'll want it before it reaches the hills." },
+      },
+      choices = {
+        { text = "I'll tell him. Something else.", next = "BACK" },
+      },
+    },
+    worries = {
+      lines = {
+        { id = "worries_1", text = "Lights at Moonbrook, late, where there should be nobody. And wagons going in heavy and coming out light. Whatever the Defias are building down there, they're feeding it timber and iron by the cartload." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    farms = {
+      lines = {
+        { id = "farms_1", text = "The Saldeans', north of here. The Furlbrows are camped by the road with their cart, which isn't the same as farming. Beyond that it's militia fields round this hill and nothing else. I can count the working chimneys on one hand." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "My family farmed by the Gold Coast Quarry. I learned the land from our roof, mending thatch, and I've been looking at it from above ever since." } },
+    people_militia = { { id = "tp_people_militia", text = "Sixty farmers and Gryan Stoutmantle. From up here we look like very little. We've held, though." } },
+    advice = { { id = "tp_advice", text = "Watch the dust, not the road. Anyone honest raises it and anyone else tries not to." } },
+    rumors = { { id = "tp_rumors", text = "The lighthouse keeper's lamp has been going out and coming back at odd hours. I've told Stoutmantle. He says the keeper's been dead for years." } },
+    defias = { { id = "tp_defias", text = "They move at dusk and at dawn, when the light's flat. They know exactly how well I can see, and I don't like how they know." } },
+    _none = { { id = "tp_none", text = "I've not seen that from here, and if I can't see it from here, I don't know it." } },
+  },
+}
+
+-- Protector Dutfield: patrols the foot of Sentinel Tower and fights off the gnolls that come too close.
+P:NPC {
+  key = "protector_dutfield", id = TODO_NPC("Protector Dutfield"), name = "Protector Dutfield", title = "The People's Militia", gender = "male",
+  bible = "bibles/sentinel_more.md", role = "soldier", tier = "service",
+  communities = { "sentinel_hill" }, temper = { "hearty", "stubborn" }, values = { "courage", "comrades" },
+  notices = { "soldier", "kit", "drink" },
+  impression = {
+    first = "Protector Dutfield walks the foot of Sentinel Tower and charges every gnoll that comes within sight of it. He is still learning the sword, and he makes up the difference by being the first one there.",
+    third = "{name} met Protector Dutfield of the People's Militia, who patrols the foot of Sentinel Tower.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ho there! Friend, by the look of you. Good, I've had enough of the other sort for one morning." },
+    { id = "g_2", when = { metBefore = true }, text = "You again! Mind the patch by the fence; I've only just finished with a gnoll there." },
+    { id = "g_3", when = { timeOfDay = "night" }, text = "Who's that? Step into the torchlight. Ah, it's you. The gnolls like the dark, so I've stopped liking it." },
+  },
+  notice = {
+    { id = "n_1", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "Now there's somebody who can use that. Watch my swing for a moment, would you, and tell me why I keep hitting the shield and not the gnoll?" },
+    { id = "n_2", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "You've been in the thick of it! So have I. There's no smith on this hill, only a whetstone in the tower, and you're welcome to it." },
+    { id = "n_3", cat = "drink", when = { drunk = true },
+      text = "You've been at Heather's ale, I can smell it. Save me a mug. I'm on till dusk, and the gnolls don't care that I'm thirsty." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Protector Dutfield, People's Militia. My round is the foot of the tower, from the gate to the stable and back. The gnolls come up from the south most days to test us, and I go and meet them, so they don't get the notion they can walk in." },
+        { id = "hello_2", when = { questDone = TODO_QUEST("The People's Militia") }, text = "Protector Dutfield, and you've fought the Defias for Stoutmantle already, I hear. Then you've done more than half the folk on this hill. Shake my hand; I'd like to be able to say I had." },
+      },
+      again = {
+        { id = "hello_again1", text = "What else? I've a moment before the next one comes sniffing." },
+        { id = "hello_again2", text = "Go on, friend." },
+        { id = "hello_again3", text = "Aye, ask!" },
+      },
+      choices = {
+        { text = "How often do the gnolls come?", next = "often" },
+        { text = "How long have you carried a sword?", next = "sword" },
+        { text = "Charging every gnoll will get you killed.", next = "charging" },
+        { text = "Show me that swing. I'll tell you what's wrong.", next = "swing", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "I'm fighting the Defias for Stoutmantle.", next = "militia", when = { questActive = TODO_QUEST("The People's Militia") } },
+        { text = "Who do you stand watch with?", next = "with" },
+        { text = "What's the best thing about Sentinel Hill?", next = "best" },
+        { text = "Fight well, Protector.", next = "END" },
+      },
+    },
+    often = {
+      lines = {
+        { id = "often_1", text = "Every day, in twos and threes. Riverpaw, from the hills to the south and east. They come to see if we're still here, and one of us goes out and shows them. I've a tally scratched on the gatepost, and it's past forty." },
+      },
+      choices = {
+        { text = "Why do they keep coming?", next = "why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = {
+        { id = "why_1", text = "Captain Danuvin says they're being pushed. Something in the hills has them more afraid of going home than of coming here. I don't like to think what frightens a gnoll, so I mostly don't." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sword = {
+      lines = {
+        { id = "sword_1", text = "Since the spring. Before that it was a scythe, and I was a fair hand with it. A sword wants you to stab, and my arms want to reap. Captain Danuvin says I fight like a man cutting hay, and that the hay ought to be worried." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    charging = {
+      big = true,
+      lines = {
+        { id = "charging_1", text = "Gariel says so too. But if I wait at the wall, they reach the wall, and there are children in that inn. I'd sooner meet them a hundred paces out and be a bit reckless than be careful on my own doorstep." },
+      },
+      choices = {
+        { text = "That's courage. Somebody has to go out and meet them.", next = "BACK", reply = "Ha! That's it, and I'll tell Gariel you said so.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A dead guard protects nobody. Hold the wall.", next = "BACK", reply = "Aye, you may be right. I'll think on it, the next time, for as long as I can stand still.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    swing = {
+      lines = {
+        { id = "swing_1", text = "There, like that. Too wide, is it? Captain Danuvin says the same. So I bring it in close, and step as I cut, and keep the shield up while I do. That's three things at once. I was better at one." },
+      },
+      choices = {
+        { text = "You'll get there. Something else.", next = "BACK" },
+      },
+    },
+    militia = {
+      lines = {
+        { id = "militia_1", text = "Good hunting, then! They wear red masks and they work the roads north and west of here. Bring Stoutmantle their bandanas, and he'll know you're in earnest. I'd come along, only the gnolls would notice I'd gone." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    with = {
+      lines = {
+        { id = "with_1", text = "Bialon, who's got the prisoner and a face like thunder. Gariel on the door, who's cleverer than the pair of us. And Weaver up top, who sees the gnolls before I do and shouts which way to run." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    best = {
+      lines = {
+        { id = "best_1", text = "Heather's stew, at the inn, with bread from Mike Miller. And knowing every face on the hill. In a year we've had weddings up here, and a baby. Folk think Westfall's finished, and they've not seen us of an evening." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "A reaper, at harvest, for any farm that'd hire me. There's no harvest now, so I reap gnolls." } },
+    people_militia = { { id = "tp_people_militia", text = "The best thing that's happened to Westfall since rain. Stoutmantle asked who'd stand, and nearly everyone who could, did." } },
+    advice = { { id = "tp_advice", text = "Don't wait for a gnoll to come to you. They get braver with every step you let them take." } },
+    rumors = { { id = "tp_rumors", text = "They say there's a great brute of a gnoll in the hills that the rest answer to. If he comes down, I've called first swing." } },
+    riverpaw = { { id = "tp_riverpaw", text = "Mangy, loud, and they smell like a wet dog in a midden. They fight dirty, but they break if you don't." } },
+    _none = { { id = "tp_none", text = "No idea, friend! Ask Gariel. She's the one who knows things." } },
+  },
+}
+
+-- Protector Gariel: keeps the door of Sentinel Tower and decides who gets in to see Gryan Stoutmantle.
+P:NPC {
+  key = "protector_gariel", id = TODO_NPC("Protector Gariel"), name = "Protector Gariel", title = "The People's Militia", gender = "female",
+  bible = "bibles/sentinel_more.md", role = "soldier", tier = "service",
+  communities = { "sentinel_hill" }, temper = { "sharp", "level" }, values = { "judgement", "duty" },
+  notices = { "soldier", "stealth", "class" },
+  impression = {
+    first = "Protector Gariel keeps the door of Sentinel Tower and weighs each visitor before they reach Gryan Stoutmantle. She caught the Defias Traitor by the collar the night he ran, and has been the militia's judge of character since.",
+    third = "{name} met Protector Gariel of the People's Militia, who keeps the door of Sentinel Tower.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hold a moment. State your business with the tower, and I'll say whether Stoutmantle has time for it." },
+    { id = "g_2", when = { metBefore = true }, text = "You again. Go on in; you've been no trouble yet." },
+    { id = "g_3", when = { questActive = TODO_QUEST("Report to Gryan Stoutmantle") }, text = "You've a report for Stoutmantle? He's inside, by the map. Go straight in, and keep it short; he's not slept." },
+  },
+  notice = {
+    { id = "n_1", cat = "stealth", when = { class = "ROGUE" },
+      text = "You came up the hill without my hearing you, and I hear most things. I'll let it pass. Don't do it leaving." },
+    { id = "n_2", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "You're what we've been asking Stormwind for. One of you, anyway. Stoutmantle will see you now, and I shan't make you wait." },
+    { id = "n_3", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
+      text = "The Light's welcome on this hill. We've wounded in the inn's back room and nobody to tend them but Heather and a pot of hot water." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Protector Gariel, People's Militia. Gryan Stoutmantle is inside, and half of Westfall wants a word with him. My work is to let in the ones who'll help and send the rest to the inn, and I'm seldom wrong about which is which." },
+        { id = "hello_2", when = { origin = "human_westfall_farmhand" }, text = "Protector Gariel, People's Militia. You're Westfall folk; I can tell by the hands. Then you've as much right to this tower as I have. Stoutmantle's inside." },
+        { id = "hello_3", when = { faction = "Horde" }, text = "Protector Gariel, People's Militia. You've no business on this hill, and I've sixty reasons within shouting distance why you should leave it." },
+      },
+      again = {
+        { id = "hello_again1", text = "Anything else? There's a line forming." },
+        { id = "hello_again2", text = "Go on, but briefly." },
+        { id = "hello_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "How do you judge who gets in?", next = "judge" },
+        { text = "You caught the Defias Traitor yourself.", next = "caught" },
+        { text = "A farmer has no business judging who sees a commander.", next = "business" },
+        { text = "Show me to your wounded.", next = "wounded", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "How did you hear the traitor, that night?", next = "hear", when = { class = "ROGUE" } },
+        { text = "What's Stoutmantle like to serve under?", next = "gryan" },
+        { text = "What does the militia need most?", next = "need" },
+        { text = "Carry on, Protector.", next = "END" },
+      },
+    },
+    judge = {
+      lines = {
+        { id = "judge_1", text = "I look at their boots, and at what they do with their hands while they wait. A man with a grievance fidgets. A man with a plan stands still. And the ones the Defias send to count our spears always ask how many of us there are." },
+      },
+      choices = {
+        { text = "Have the Defias sent many?", next = "sent" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sent = {
+      lines = {
+        { id = "sent_1", text = "Three that I've caught. A pedlar, a preacher, and a woman who said she was looking for her husband. I sent each of them back down the road with a wrong number. It's the only lie I tell, and I tell it gladly.", fx = { learn = { "defias" } } },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    caught = {
+      lines = {
+        { id = "caught_1", text = "By the collar, at the wall. I'd watched him all that day. He kept looking at the gate and then looking away from it, and a man only does that when he's measuring the distance. So I stood by the gate at dusk, and he ran straight to me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    business = {
+      big = true,
+      lines = {
+        { id = "business_1", text = "I kept the tally at the Moonbrook grain market for nine years. I've been lied to about weights and measures by better liars than any Defias. I know when a person isn't what they say, and Stoutmantle knows that I know." },
+      },
+      choices = {
+        { text = "Reading people is a skill, wherever you learned it.", next = "BACK", reply = "It is. The market was a harder school than any barracks.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "A commander's door should be kept by a trained soldier.", next = "BACK", reply = "Stormwind's welcome to send one. Until it does, there's me.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wounded = {
+      lines = {
+        { id = "wounded_1", text = "Would you? They're in the inn's back room. Four of ours, cut up on the Moonbrook road. Heather's done what she can with clean linen. If you can do more than that, you'll have every hand on this hill in your debt." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hear = {
+      lines = {
+        { id = "hear_1", text = "I didn't hear him. I saw him decide. You'd know the look, I think. It's the breath a person takes just before they go quiet. I've been watching for it on every face since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gryan = {
+      lines = {
+        { id = "gryan_1", text = "He was a knight, and he gave it up to stand with farmers. He's never once reminded us of it. He learns every name, and he's dug graves with the rest of us. I'd keep his door until the tower fell down." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    need = {
+      lines = {
+        { id = "need_1", text = "Swords, and people who can teach them. Quartermaster Lewis does miracles with what Stormwind spares us, and it's never enough. If you want to help, fight the Defias on the roads, and bring Stoutmantle proof." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "A tally-clerk at the Moonbrook market, when Moonbrook had one. I counted grain, and now I count who comes up this hill." } },
+    people_militia = { { id = "tp_people_militia", text = "It was Stoutmantle's notion, and it's our hands. We've nobody's leave to exist but our own, and so far that's been enough." } },
+    advice = { { id = "tp_advice", text = "Watch what people do while they wait. Nobody thinks to guard that." } },
+    rumors = { { id = "tp_rumors", text = "Moonbrook's full of strangers who pay in Stormwind silver and ask no directions. They know the town better than I do, and I was born there." } },
+    moonbrook = { { id = "tp_moonbrook", text = "It was a good town. There was a school, and a smithy, and a market on fourth-days. I'll not go and look at it now." } },
+    _none = { { id = "tp_none", text = "I don't know, and I don't guess. Ask inside." } },
+  },
+}

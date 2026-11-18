@@ -1,4 +1,4 @@
-# Tirisfal: more folk (keys: tir_yvette, tir_ageron, tir_caice, tir_terrence, tir_cyrus, tir_lawrence, tir_mort, tir_royann, tir_eliza, tir_oliver, tir_hamlin, tir_rand, tir_abe)
+# Tirisfal: more folk (keys: tir_yvette, tir_ageron, tir_caice, tir_terrence, tir_cyrus, tir_lawrence, tir_mort, tir_royann, tir_eliza, tir_oliver, tir_hamlin, tir_rand, tir_abe, tir_raims, tir_gina, tir_selina, tir_vance, tir_clyde, tir_martine, tir_shelene, tir_rhobart, tir_zapetta, tir_hin)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Yvette_Farthing (Brill, inside the Gallows' End in Classic; Coleman Farthing's daughter; Thurman Agamand's lover), https://warcraft.wiki.gg/wiki/A_Letter_Undelivered (letter from skeletons at Agamand Mills; "I begged him to leave Agamand Mills with me and my father", Brand meant him harm, "regrets are for the weak", love is not one of her new goals)
@@ -35,3 +35,23 @@
 
 ## Never
 No Cataclysm Brill (worgen sightings, Caice's quests, Ratslin's worgen quest), no Battle for Lordaeron rebuilding.
+
+## Missed folk (added later)
+Sources (tools/npc.py, warcraft.wiki.gg): /Harold_Raims <Apprentice Weaponsmith, Deathknell>; /Gina_Lang <Demon Trainer, upstairs at the Gallows' End before Cataclysm>; /Selina_Weston <Alchemy & Herbalism Supplies, by the road north of the Gallows' End>; /Vance_Undergloom <Enchanting Trainer, a permanent room in the tavern>; /Clyde_Kellen <Fishing Trainer, southwestern shore of Brightwater Lake; Deathguards call him a bass master; Forever: Camping 101: Fishing>; /Martine_Tramblay <Fishing Supplies, seen speaking with Clyde>; /Shelene_Rhobart <Leatherworking Trainer> and /Rand_Rhobart <Skinning Trainer, "fairly good at skinning" bats per the Deathguard>, southeast of Brill; /Zapetta <Zeppelin Master, Durotar ship; brother Nez'raz> and /Hin_Denburg <Zeppelin Master, Grom'gol ship> at the tower outside the Undercity.
+
+Their quests: Clyde: Camping 101: Fishing (Forever; lines while active). The rest: none; built from role, place and neighbours.
+
+**Harold Raims.** Wry, patient; watches which weapon the newly risen reach for; shares one anvil with Blacksmith Rand.
+**Gina Lang.** Composed, amused; speaks to the demon before the master; keeps the books a beginner shouldn't find; disagrees with Ageron about leashes.
+**Selina Weston.** Tidy and tart; labels everything; splits the vial trade with Abigail Shiel; sells to the Society and counts the crates.
+**Vance Undergloom.** Absent-minded, precise; would rather take a thing apart than own it; rents from Renee, along the passage from Gina.
+**Clyde Kellen.** Easy, unhurried; fishes because it is the one thing unchanged; puts most of the catch back.
+**Martine Tramblay.** Sharp, lively; does the selling and the talking; would sell Clyde's catch to the apothecaries.
+**Shelene Rhobart.** Firm and warm; runs the house; sat by Rand until he woke.
+**Rand Rhobart.** Cheerful, blunt talker; proud of his bat wings; never skins anything with a name.
+**Zapetta.** Goblin: brash, fast, prices everything; "mostly safe".
+**Hin Denburg.** Goblin: the careful one, with a clipboard; warns greenhorns off Stranglethorn.
+
+Authored, not canon: Harold was a cooper; the Rhobarts woke a day apart and had a tannery by the river; Martine's old stall and the boathouse and regatta on Brightwater; Clyde's big bass; Vance's Deathguard pupil; Selina's nine-day paralysis story; Zapetta's contract bonus and Hin's passenger tally and Booty Bay savings; Nez'raz watching Hin's landings (Nez'raz at Grom'gol is canon, the spying is ours).
+
+Not added: Constance Brisboise (her kin Bowen is placed in the Undercity pack), Captured Mountaineer (a quest prop who dies on turn-in), the Bulwark's vendors (the Bulwark belongs to the Western Plaguelands pack).

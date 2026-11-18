@@ -1415,7 +1415,7 @@ P:NPC {
   key = "kylanna", id = TODO_NPC("Kylanna Windwhisper"), name = "Kylanna Windwhisper", title = "Master Alchemist",
   bible = "bibles/more_folk.md", role = "trainer", tier = "service",
   communities = { "feathermoon" }, temper = { "exacting", "calm" }, values = { "craft", "careful" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class" , "race" },
   impression = {
     first = "Kylanna Windwhisper teaches the highest alchemy the kaldorei will share, in a room that smells of crushed herbs and hot glass. She corrects a careless measure before the hand has finished pouring it.",
     third = "{name} met Kylanna Windwhisper, the master alchemist of Feathermoon Stronghold.",
@@ -1431,6 +1431,8 @@ P:NPC {
       text = "You carry fresh-cut stems, and you cut them cleanly. Logannas will pay you well for those, and I shall have them from him by evening." },
     { id = "n_3", cat = "class", when = { class = "DRUID" },
       text = "A druid understands that a plant is more than its uses. I teach better to those who already know it." },
+    { id = "n_b1", cat = "race", when = { race = { "Gnome", "Dwarf" } },
+      text = "You have come a long way from Ironforge to stand at my bench. Your alchemists favour fire over patience, and I shall be curious to see which you bring." },
   },
   start = "hello",
   nodes = {
@@ -1450,6 +1452,7 @@ P:NPC {
         { text = "These herbs are not from Teldrassil.", next = "herbs" },
         { text = "An elixir could win a battle before it starts.", next = "power" },
         { text = "What is the hardest thing you brew?", next = "hardest", when = { profession = "Alchemy" } },
+        { text = "Your students seem to come from everywhere.", next = "students" },
         { text = "Elune guide your hand, Kylanna.", next = "END" },
       },
     },
@@ -1516,11 +1519,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    students = {
+      lines = {
+        { id = "b_students_default", text = "They do. I have had dwarves who measure by the handful and gnomes who measure to the grain, and humans who believe that stirring faster makes a draught brew sooner." },
+      },
+      choices = {
+        { text = "Which make the best alchemists?", next = "students_best" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    students_best = {
+      lines = {
+        { id = "b_students_best_default", text = "Those who have already ruined something precious and remember how it felt. I can teach a careful hand anything, and I can teach a proud one nothing until that day comes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "I studied under the alchemists of Darnassus, and I came south with the General to brew for her Sentinels. The herbs here persuaded me to stay." } },
     advice = { { id = "tp_advice", text = "Measure twice, and then pour as though it were your last. One day it may be." } },
     elune = { { id = "tp_elune", text = "The moonwells taught us our first alchemy, long ago. I remember that whenever I am tempted to think the craft is mine." } },
+    sentinels = { { id = "tp_b_sentinels", text = "They drink my draughts before each sortie and seldom ask what is in them. I have decided to take that as trust." } },
+    rumors = { { id = "tp_b_rumors", text = "Logannas says that the gatherers are finding less sungrass on the coast since the naga pressed inland. If that goes on, my prices will have to follow it." } },
     _none = { { id = "tp_none", text = "That is no matter of alchemy, and so I have nothing useful to say of it." } },
   },
 }
@@ -1532,7 +1554,7 @@ P:NPC {
   key = "brannock", id = TODO_NPC("Brannock"), name = "Brannock", title = "Fishing Trainer",
   bible = "bibles/more_folk.md", role = "trainer", tier = "service",
   communities = { "feathermoon" }, temper = { "easygoing", "wry" }, values = { "patient", "nature" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race" , "class" },
   impression = {
     first = "Brannock teaches fishing off the Feathermoon dock and seems entirely content never to do anything else. He measures other people's catches with his eyes and says nothing, which is somehow worse.",
     third = "{name} met Brannock, the fishing trainer of Feathermoon Stronghold.",
@@ -1546,6 +1568,8 @@ P:NPC {
       text = "You carry a rod, and you carry it properly, tip down and line dry. I can teach someone who has already learned that much." },
     { id = "n_2", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf with a fishing line is a patient dwarf, and I have met only two. Sit down, and you shall be the third." },
+    { id = "n_b1", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter has the patience for this, if anyone has. Stalking a fish is the same work as stalking a cat, only wetter." },
   },
   start = "hello",
   nodes = {
@@ -1565,6 +1589,7 @@ P:NPC {
         { text = "The naga must ruin the fishing.", next = "naga" },
         { text = "Fishing looks like idleness with a stick.", next = "idle" },
         { text = "Is there anything rare in these waters?", next = "rare", when = { profession = { "Fishing", "Cooking" } } },
+        { text = "The Sentinels come to you to rest, you said.", next = "rest" },
         { text = "May your line stay tight, Brannock.", next = "END" },
       },
     },
@@ -1631,11 +1656,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    rest = {
+      lines = {
+        { id = "b_rest_default", text = "They do, though none of them will call it resting. They say that they are watching the western approach, and it happens that the western approach is best watched from my dock with a line in the water." },
+      },
+      choices = {
+        { text = "Does the General know?", next = "rest_general" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rest_general = {
+      lines = {
+        { id = "b_rest_general_default", text = "Shandris Feathermoon knows everything that happens on this isle. She came down herself one evening, stood behind me for a while, and said only that the western approach had never been so well guarded." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "I have fished these waters since the stronghold was built, and other waters for a long while before that. It is the only craft I know that rewards doing less." } },
     advice = { { id = "tp_advice", text = "When the float goes under, count to two before you pull. Most folk lose the fish by wanting it too soon." } },
     rumors = { { id = "tp_rumors", text = "Harklane says that the naga have been quiet. I say the fish have been quiet too, and the two things are never unrelated." } },
+    sentinels = { { id = "tp_b_sentinels", text = "The best of them are the ones who can sit still. I have told Latronicus so, and he did not thank me for it." } },
+    elune = { { id = "tp_b_elune", text = "The moon moves the tide, and the tide moves the fish. Every angler serves her, whether or not he troubles to say so." } },
     _none = { { id = "tp_none", text = "I could not say. It is not the sort of thing that comes up on a dock." } },
   },
 }
@@ -1646,8 +1690,8 @@ P:NPC {
 P:NPC {
   key = "mardrack", id = TODO_NPC("Mardrack"), name = "Mardrack", title = "Food & Drink",
   bible = "bibles/more_folk.md", role = "vendor", tier = "service",
-  communities = { "feathermoon" }, temper = { "warm", "bustling" }, values = { "kind", "practical" },
-  notices = { "hunger", "race" },
+  communities = { "feathermoon" }, temper = { "warm", "busy" }, values = { "kind", "practical" },
+  notices = { "hunger", "race" , "class" },
   impression = {
     first = "Mardrack bakes the bread of Feathermoon Stronghold and judges every arrival by how recently they have eaten. He believes that most quarrels on the isle begin on an empty stomach.",
     third = "{name} met Mardrack, who sells food and drink at Feathermoon Stronghold.",
@@ -1661,6 +1705,8 @@ P:NPC {
       text = "You look as though Feralas has been chewing on you. Sit down and let me return the favour with something warm." },
     { id = "n_2", cat = "race", when = { race = { "Human", "Dwarf", "Gnome" } },
       text = "You will be wanting something heavier than kaldorei fare, I know. I keep a dark loaf for our allies, and they have yet to send one back." },
+    { id = "n_b1", cat = "class", when = { class = "DRUID" },
+      text = "A druid! Then you will take the seed loaf, I think, for your order never seems to want anything that once had a face." },
   },
   start = "hello",
   nodes = {
@@ -1680,6 +1726,7 @@ P:NPC {
         { text = "Who eats the most on this isle?", next = "eats" },
         { text = "Soldiers should eat plainly. Comfort makes them soft.", next = "plain" },
         { text = "How do you keep bread from going damp here?", next = "damp", when = { profession = "Cooking" } },
+        { text = "Do you ever cook for the General's guests?", next = "guests" },
         { text = "Thank you, Mardrack.", next = "END" },
       },
     },
@@ -1747,11 +1794,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    guests = {
+      lines = {
+        { id = "b_guests_default", text = "Whenever an envoy lands, and I dread it. The dwarves want meat, the gnomes want everything sweet, and the envoys from Darnassus want what their grandmothers made, which none of them can describe." },
+      },
+      choices = {
+        { text = "What do you serve them all?", next = "guests_serve" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guests_serve = {
+      lines = {
+        { id = "b_guests_serve_default", text = "Honeyed bread, and plenty of it. I have yet to meet the envoy, of any people, who will argue policy with a mouth full of warm honeyed bread." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "I baked in Auberdine before I baked here. The General's expedition needed a cook who did not mind boats, and I minded them less than most." } },
     advice = { { id = "tp_advice", text = "Eat before you cross to the mainland, and not after. The forest does not wait for anyone to digest." } },
     sentinels = { { id = "tp_sentinels", text = "They are the finest soldiers I know and the worst eaters. I have made my peace with both halves of that." } },
+    elune = { { id = "tp_b_elune", text = "I leave the first loaf of each batch on the sill for her. The gulls take it, and I choose to think that they carry it up." } },
+    rumors = { { id = "tp_b_rumors", text = "The boatmen say that the flour barge from Darkshore is late again. If you see my loaves grow smaller, you will know why." } },
     _none = { { id = "tp_none", text = "I do not know, friend. If it can be baked, I can tell you about it." } },
   },
 }
@@ -1881,7 +1947,7 @@ P:NPC {
   key = "cawind", id = TODO_NPC("Cawind Trueaim"), name = "Cawind Trueaim", title = "Gunsmith & Bowyer",
   bible = "bibles/more_folk.md", role = "vendor", tier = "service",
   communities = { "mojache" }, temper = { "quiet", "dry" }, values = { "craft", "patient" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit" , "race" },
   impression = {
     first = "Cawind Trueaim sells bows and rifles at Camp Mojache and plainly prefers the bows. He strings each one himself before he lets it leave his rack.",
     third = "{name} met Cawind Trueaim, the gunsmith and bowyer of Camp Mojache.",
@@ -1895,6 +1961,8 @@ P:NPC {
       text = "You watch the treeline even while you speak to me. That is a hunter's habit, and it will keep you alive in this forest." },
     { id = "n_2", cat = "kit", when = { class = { "WARRIOR", "ROGUE" } },
       text = "You fight close. Carry something that reaches all the same, for the Gordunni throw boulders and do not wait for you to arrive." },
+    { id = "n_b1", cat = "race", when = { race = "Troll" },
+      text = "A troll. Your people throw their weapons, which I have never understood, though I have seen it work." },
   },
   start = "hello",
   nodes = {
@@ -1915,6 +1983,7 @@ P:NPC {
         { text = "What wood makes a good bow in Feralas?", next = "wood" },
         { text = "A rifle kills from further off. That's all that matters.", next = "matters" },
         { text = "What would you hunt here, in my place?", next = "hunt", when = { class = "HUNTER" } },
+        { text = "Do the braves practise at a mark?", next = "mark" },
         { text = "May your aim be true, Cawind.", next = "END" },
       },
     },
@@ -1981,11 +2050,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    mark = {
+      lines = {
+        { id = "b_mark_default", text = "At the old stump beyond the east palisade, each dawn. I set it there because the sun is in their eyes, and an archer who can only shoot with the sun at his back will not live long." },
+      },
+      choices = {
+        { text = "Who is the best shot in camp?", next = "mark_best" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mark_best = {
+      lines = {
+        { id = "b_mark_best_default", text = "Hadoken Swiftstrider, when he is not thinking of something else, which is seldom. After him it is Jangdor, and after Jangdor it is an orc who would be better still if she cared to practise." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "I made bows for the hunters of Mulgore before the camp was raised. When the braves came to Feralas, they asked for someone who knew wood." } },
     advice = { { id = "tp_advice", text = "Unstring your bow when the rain comes. A bow left strung in this damp is firewood by morning." } },
     grimtotem = { { id = "tp_grimtotem", text = "They buy no bows from me, and I would not sell them one. I have seen what they hunt." } },
+    thrall = { { id = "tp_b_thrall", text = "The Warchief's people brought us rifles and friendship both. I have kept the friendship and I sell the rifles." } },
+    rumors = { { id = "tp_b_rumors", text = "The braves say that the Woodpaw gnolls have been stealing arrows from the dead. I count my stock each night, all the same." } },
     _none = { { id = "tp_none", text = "I do not know. Ask me about a bow, and I will have more to say." } },
   },
 }
@@ -2011,6 +2099,8 @@ P:NPC {
       text = "An alchemist! I can tell by your sleeves, which are burned in the same places as mine." },
     { id = "n_2", cat = "craft", when = { profession = "Herbalism" },
       text = "You have been gathering, and I can smell golden sansam on you. If you have more than you need, friend, I am buying." },
+    { id = "n_b1", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman! The elements have their own remedies, I know, but even a shaman may want a potion on the day the spirits are busy elsewhere." },
   },
   start = "hello",
   nodes = {
@@ -2030,6 +2120,7 @@ P:NPC {
         { text = "You keep one basket well apart from the rest.", next = "basket" },
         { text = "A strong potion matters more than a careful one.", next = "strong" },
         { text = "Which herb here is worth the most trouble?", next = "worth", when = { profession = { "Alchemy", "Herbalism" } } },
+        { text = "Who buys the most from you?", next = "buyers" },
         { text = "May your vials never crack, Bronk.", next = "END" },
       },
     },
@@ -2088,11 +2179,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    buyers = {
+      lines = {
+        { id = "b_buyers_default", text = "The hunters, before they go up to the yeti caves, and the braves who watch the hills. And Sage Korolusk, who buys ink, though I do not sell ink, and so I make it for him out of oak gall." },
+      },
+      choices = {
+        { text = "That's kind of you.", next = "buyers_kind" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_kind = {
+      lines = {
+        { id = "b_buyers_kind_default", text = "It is good practice, and he pays me in stories of places that I shall never see. I have the better of that bargain, friend, and I am careful not to tell him so." },
+      },
+      choices = {
+        { text = "What is the camp's commonest ailment?", next = "ailment" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ailment = {
+      lines = {
+        { id = "b_ailment_default", text = "Wet feet, and whatever follows from them. Feralas rains on us most afternoons, and a tauren's hooves were made for dry grass, so I brew a salve of sungrass and tallow by the bucket." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "I learned my leaves from the alchemists of Thunder Bluff. When the camp was raised, I begged to be sent, because I had heard what grows here." } },
     advice = { { id = "tp_advice", text = "Smell every herb before you buy it, even from me. A good seller will not be offended." } },
     earth_mother = { { id = "tp_earth_mother", text = "She has put a remedy beside every harm, if we are patient enough to look for it. That is what my craft believes." } },
+    thrall = { { id = "tp_b_thrall", text = "The orcs who came with his banners drink my tonics without flinching. I have great respect for a people with stomachs like that." } },
+    rumors = { { id = "tp_b_rumors", text = "Ruw says that a new flower has come up near the ruins east of camp, one that she has no name for. I want to see it, and I am a little afraid to." } },
     _none = { { id = "tp_none", text = "I cannot say, friend. If it grew in the ground, I might know it." } },
   },
 }
@@ -2104,7 +2223,7 @@ P:NPC {
   key = "thyssiana", id = TODO_NPC("Thyssiana"), name = "Thyssiana", title = "Hippogryph Master",
   bible = "bibles/more_folk.md", role = "flightmaster", tier = "service",
   communities = { "thalanaar" }, temper = { "watchful", "quiet" }, values = { "duty", "nature" },
-  notices = { "race", "form" },
+  notices = { "race", "form" , "class" },
   impression = {
     first = "Thyssiana keeps the hippogryphs at the little post of Thalanaar, where the forest ends and the dust begins. She watches the eastern sky more often than she watches whoever is speaking to her.",
     third = "{name} met Thyssiana, the hippogryph master of Thalanaar.",
@@ -2118,6 +2237,8 @@ P:NPC {
       text = "You will have come up from the Needles, by the dust on you. Drink something before you fly, for the birds dislike a rider who faints." },
     { id = "n_2", cat = "form", when = { class = "DRUID" },
       text = "A druid with wings of your own, perhaps, one day. Until then mine will carry you, and they will know what you are." },
+    { id = "n_b1", cat = "class", when = { class = "HUNTER" },
+      text = "Your beast must fly in the sling beneath, and it will not thank you for it. Soothe it first, and the bird will be easier as well." },
   },
   start = "hello",
   nodes = {
@@ -2137,6 +2258,7 @@ P:NPC {
         { text = "Your birds seem uneasy at the forest's edge.", next = "uneasy" },
         { text = "A post this small can't be worth holding.", next = "worth" },
         { text = "How long have you kept this roost?", next = "long", when = { race = "NightElf" } },
+        { text = "Where do your birds fly from here?", next = "routes" },
         { text = "Fair winds, Thyssiana.", next = "END" },
       },
     },
@@ -2203,11 +2325,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    routes = {
+      lines = {
+        { id = "b_routes_default", text = "West to Feathermoon, which is the long flight over the whole of the forest, and north and east toward the Alliance's holdings beyond the Needles. Either way you will be glad to be above the road and not upon it." },
+      },
+      choices = {
+        { text = "What's the worst of the flight west?", next = "routes_west" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    routes_west = {
+      lines = {
+        { id = "b_routes_west_default", text = "The air above the ogres' ruins, where the birds climb high without being told. They remember something there that I do not, and I have learned not to press them lower." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "I am a keeper of hippogryphs, as my mother was in Ashenvale. The General asked for someone who would not mind the quiet." } },
     advice = { { id = "tp_advice", text = "If you ride east from here, carry twice the water that you think you need. The Needles give none." } },
     grimtotem = { { id = "tp_grimtotem", text = "They hold the cliffs to the west and they watch us as I watch them. So far, watching has been enough." } },
+    sentinels = { { id = "tp_b_sentinels", text = "The Sentinels here are few, and they know every stone of the pass. I would not trade them for a company from the city." } },
+    rumors = { { id = "tp_b_rumors", text = "A courier told me that the quilboar of the Barrens have grown bold under some new crone. Falfindel went very quiet when he heard it." } },
     _none = { { id = "tp_none", text = "I do not know. Ask Falfindel, for the couriers tell him everything." } },
   },
 }

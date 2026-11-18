@@ -16,3 +16,7 @@
 
 ## Never
 No Cataclysm Valdred (risen, joining the Forsaken).
+
+## Depth pass (authored, not canon)
+- Patrick Garrett: an old grey bat he calls Lord Ashby; a tauren who walked round his clean floor; the Garretts dug "by the yard".
+- Raleigh: Eunice Burch asked him to help teach and he lasted a morning; the venison with juniper and red wine; Deliah in the kitchen door.

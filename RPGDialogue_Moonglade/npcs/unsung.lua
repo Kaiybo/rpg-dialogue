@@ -569,3 +569,145 @@ P:NPC {
     _none = { { id = "tp_none", text = "I don't know. I sell bows, as my mother did in Ashenvale before the Sundering, and that's my whole wisdom." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Dargon
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dargon", id = TODO_NPC("Dargon"), name = "Dargon", title = "Food & Drink Merchant",
+  bible = "bibles/unsung.md", role = "vendor", tier = "service", gender = "male",
+  communities = { "nighthaven" }, temper = { "unhurried", "even-handed" }, values = { "hospitality", "balance" },
+  notices = { "race", "class" },
+
+  impression = {
+    first = "Dargon sells food and drink at the inn in Nighthaven and serves a tauren and a night elf from the same pot without remark. He is unhurried, and he seems to regard a shared table as part of the Circle's work.",
+    third = "{name} met Dargon, who sells food and drink at the Nighthaven inn.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Be welcome in Nighthaven. Sit where you like; nobody here has a side of the room." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back to the Glade. The same table is free, if you were fond of it." },
+    { id = "g_druid", when = { class = "DRUID" }, text = "A druid of the Circle. You will be hungry, then; the walk from the barrow dens always does it." },
+  },
+
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A child of the plains. I keep a grain porridge your people ask for, though I am told I still make it too thin." },
+    { id = "n_nelf", cat = "race", when = { race = "NightElf" },
+      text = "One of the kaldorei. There is moonberry juice from Teldrassil in the cool jar, and I shall not tell you what I paid the hippogryph master to carry it." },
+    { id = "n_other", cat = "race", when = { race = { "Human", "Dwarf", "Gnome", "Orc", "Troll", "Scourge" } },
+      text = "You are neither tauren nor elf, and yet you have found your way to Moonglade. Then someone here thought you worth the road. That is enough for my table." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Dargon, and I keep the inn's table in Nighthaven. Druids come to the Glade from Darnassus and from Thunder Bluff, and here they eat the same bread. I only see to it that there is bread." },
+        { id = "h_druid", when = { class = "DRUID" }, text = "You are of the Circle, so this is your house as much as mine. Eat, and then go and pay your respects to Keeper Remulos, if you have not. He notices who comes." },
+      },
+      again = {
+        { id = "h_again", text = "What else? There is no hurry in the Glade." },
+        { id = "h_again2", text = "Ask. The pot will mind itself a while." },
+        { id = "h_again3", text = "Something more? Sit, at least, while you ask it." },
+      },
+      choices = {
+        { text = "Let me see your food and drink.", next = "BUSINESS" },
+        { text = "Tauren and elves at one table. Is it always so easy?", next = "table" },
+        { text = "Who comes through Nighthaven?", next = "comes" },
+        { text = "What do you cook for two such different peoples?", next = "cook" },
+        { text = "My kin in Darnassus would not sit so easily.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "In Thunder Bluff they still speak warily of elves.", next = "xtauren", when = { race = "Tauren" } },
+        { text = "I'm no druid. Am I truly welcome here?", next = "xother", when = { race = { "Human", "Dwarf", "Gnome", "Orc", "Troll", "Scourge" } } },
+        { text = "Peace on your house, Dargon.", next = "END" },
+      },
+    },
+    table = {
+      lines = {
+        { id = "table_default", text = "Not always, and never by accident. When the first tauren druids came, the two peoples sat at opposite walls and I carried bowls between them like an envoy. It was a season before one of each reached for the same loaf. I remember which loaf." },
+      },
+      choices = {
+        { text = "What changed?", next = "table2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    table2 = {
+      lines = {
+        { id = "table2_default", text = "Loganaar set them to learn together, and it is hard to stay a stranger to someone who has watched you fail to become a bear. They laughed at each other, and after that at themselves. I have always held that a shared meal makes peace. I now think a shared embarrassment does it faster." },
+      },
+      choices = {
+        { text = "If it can be done here, it can be done elsewhere.", next = "BACK", reply = "I should like to believe so. The Glade is small, but so is a seed.", fx = { align = { light = 1 } } },
+        { text = "Moonglade is one valley. The war won't notice.", next = "BACK", reply = "Perhaps not. And yet the druids who eat here go home, and carry the taste with them.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    comes = {
+      lines = {
+        { id = "comes_default", text = "Druids, first and last, of both peoples, come to learn from Loganaar or to answer Rabine Saturna's summons. Those the Circle sends on errands to Felwood and Winterspring, who arrive looking as if they had been dragged. And now and then a stranger whom the Timbermaw have let through their tunnel." },
+      },
+      choices = {
+        { text = "What do the ones from Felwood say?", next = "comes2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    comes2 = {
+      lines = {
+        { id = "comes2_default", text = "Little, until they have eaten. Then that the forest there is rotting where it stands, and that the Circle's people at the Emerald Sanctuary are too few. I listen, and I fill the bowl again. Dendrite Starblaze hears them properly afterward, and he is the one who can act on it." },
+      },
+      choices = {
+        { text = "A bowl first, then the telling. Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } },
+      },
+    },
+    cook = {
+      lines = {
+        { id = "cook_default", text = "What the Glade gives, cooked plainly. My'lanna brings fruit and bread across the water, and I do the hot dishes. The tauren want grain and roots and are polite about fish. The elves want fish and are polite about roots. I serve both to both, and politeness does the rest." },
+      },
+      choices = {
+        { text = "No meat?", next = "cook2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cook2 = {
+      lines = {
+        { id = "cook2_default", text = "Rarely, and never hunted inside the Glade; Keeper Remulos would not have it, and nor would I. What comes in from outside, taken properly, I will cook. The tauren say a blessing over it that I have learned by heart. I say it now myself, when nobody is by." },
+      },
+      choices = {
+        { text = "A good custom is worth borrowing.", next = "BACK", reply = "So I thought. They did not seem to mind my having it.", fx = { align = { order = -1 } } },
+        { text = "Each people should keep to its own rites.", next = "BACK", reply = "Perhaps. But the stag, I think, does not ask who is thanking it.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnelf = {
+      lines = {
+        { id = "xnelf_default", text = "No, and I do not blame them. Ten thousand years is a long time to believe one is the forest's only friend. I believed it. Then a tauren twice my height thanked my soup pot, quite seriously, for its service. One cannot go on feeling superior after that." },
+      },
+      choices = {
+        { text = "I'll carry that tale home. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xtauren = {
+      lines = {
+        { id = "xtauren_default", text = "They have cause. We were not gracious, when your people first came to the Circle, and some of us are not yet. I can only say that at this table you are a druid and a guest before you are anything else, and that Bunthen Plainswind will tell you the same has held for him." },
+      },
+      choices = {
+        { text = "Then I will sit, and be both. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xother = {
+      lines = {
+        { id = "xother_default", text = "You are standing in Nighthaven with your head still on, so someone has judged you so. The Wardens do not let harm past the lake. Eat, keep your blade sheathed, and speak quietly near the moonwell. That is all the Glade asks of anyone." },
+      },
+      choices = {
+        { text = "Sheathed and quiet. Easily done. Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I keep the inn's table in Nighthaven. Elf and tauren eat from the same pot here, and I see that it is full." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The Circle is the one house I know where both peoples sit down together. I am proud to lay its table." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw keep the tunnel, and they let through whom they please. Those who arrive that way are always hungry and seldom talkative." } },
+    advice = { { id = "tp_advice", text = "In the Glade, keep your weapon sheathed and your voice low. Everything else is forgiven." } },
+    _none = { { id = "tp_none", text = "That is beyond my table. Ask Dendrite Starblaze; most of the Glade's news passes through his hands." } },
+  },
+}

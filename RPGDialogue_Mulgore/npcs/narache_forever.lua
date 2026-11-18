@@ -294,7 +294,7 @@ P:NPC {
         { id = "h_orc", when = { race = "Orc" }, text = "An orc on the mesa. Your people are good hunters, I'm told, but wasteful, and here we waste nothing, so mind that while you learn." },
       },
       again = {
-        { id = "h_again3", text = "Speak while I scrape. I can do both." },
+        { id = "h_again3", text = "Speak while I scrape, because I can do both." },
         { id = "h_again", text = "What else? Quickly, the hides are drying." },
         { id = "h_again2", text = "Ask, I'm listening." },
       },
@@ -430,7 +430,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "How can I help you?" },
     { id = "g_mine", when = { profession = "Mining" }, text = "There is stone dust on your hands, so you have been working. Good." },
-    { id = "g_back", when = { metBefore = true }, text = "You have come back. Good. The stone has waited." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back, and that is good. The stone has waited." },
   },
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
