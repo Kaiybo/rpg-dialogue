@@ -46,7 +46,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I was picking herbs with my head down, countin' what they'd fetch, and then my leg was on fire and something was skittering off into the dunes. Beetix says scorpid, the druids say worse, and I say whatever it was, buddy, I hope a hunter's beast eats it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Can {pet} smell the venom on me? Because if it can, take it out and follow the stink back to whatever did this, buddy, and I'll be grateful, even if I'm too broke to show it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I had my head down picking herbs, and then my leg was on fire and something was skittering off into the dunes. Can {pet} smell the venom on me? Then follow the stink back to whatever did this, buddy, and I'll be grateful." },
       },
       choices = {
         { text = "Next time take a guard. The desert punishes the careless.", next = "BACK", fx = { align = { order = 1 } } },
@@ -56,7 +56,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Once, when a shipment of mine fell off a zeppelin, and it never came back, and neither did my deposit, so I've not bothered since. But I'll make an exception today, buddy, because this venom's got me seeing things, and one of them looked a lot like a bill from Beetix." } },
+      lines = { { id = "xhcast_default", text = "Once, when a shipment of mine fell off a zeppelin, and prayer didn't bring back the crates or my deposit, so I've not bothered since. But I'll make an exception today, buddy, because this venom's got me seeing things, and one of them looked a lot like a bill from Beetix." } },
       choices = {
         { text = "I'll pray for you anyway, Noggle. Rest now.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Pain teaches better than prayer. You'll heal when you've learned.", next = "BACK", fx = { align = { light = -1 } } },
@@ -189,7 +189,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Tunnels where no worm dug them, and hives that hum like a great heart beating, and once a silithid that stopped and looked at me as a hunter looks at prey. The beasts of the desert flee north, and you should ask yourself what they know." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} knows, I think, for it watches the ground and not the sky, and the beasts were always wiser than the prophets." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tunnels where no worm dug them, and hives that hum like a great heart beating, and the beasts of the desert fleeing north. Your {pet} knows, I think, for it watches the ground and not the sky." },
       },
       choices = {
         { text = "Then we watch the beasts and prepare. Panic helps nobody.", next = "BACK", fx = { align = { order = 1 } } },
@@ -351,7 +351,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Scouts who can read the sand and come back alive to tell me what they read. Any fool can die in the hives, but a hunter who returns with numbers is worth ten warriors who return with nothing but scars." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} close and quiet in the dunes, for a beast that bays at the swarm brings the swarm, and I have buried enough scouts this season." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Scouts who can read the sand and come back alive with numbers. Keep {pet} close and quiet in the dunes, though, for a beast that bays at the swarm brings the swarm." },
       },
       choices = {
         { text = "I'll scout and report as ordered. That's how wars are won.", next = "BACK", fx = { align = { order = 1 } } },
@@ -397,7 +397,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "We fight beside whoever kills silithids, druid, and the Circle kills its share. Thrall sent us to guard Kalimdor, and I won't let pride with the night elves at the Hold cost us a single warrior." } },
+      lines = { { id = "xdruid_default", text = "We fight beside whoever kills silithids, druid, and the Circle kills its share. Thrall sent us to guard Kalimdor, and I won't let old quarrels with the night elves cost us a single warrior." } },
       choices = {
         { text = "Stand with the Circle. The swarm is the real enemy.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Trust no night elf, even here.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -448,7 +448,7 @@ P:NPC {
       choices = { { text = "Who will break the swarm, then?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "But when the fighting starts, it'll be the Horde's axes that break the swarm. Mark my words." } },
+      lines = { { id = "b1_3_l", text = "When the fighting starts, it'll be the Horde's axes that break the swarm, mark my words." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -539,7 +539,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I trust them to report what the Circle wants reported, and that's not quite the same as what Stormwind needs to know. A hunter of ours who watched the hives and the Horde camps both would be worth more to me than another squad of footmen." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} would make a fine sentry by the Alliance tents at night, because Krug's lot don't sneak much, but the silithid do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I trust them to report what the Circle wants reported, which isn't quite what Stormwind needs to know. A hunter of ours could watch for me, and {pet} would make a fine sentry by the Alliance tents at night." },
       },
       choices = {
         { text = "I'll share what I see with everyone. The Circle earns honesty.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -593,7 +593,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter of the Alliance! The Circle's scouts are good, but I'd trust one of our own to tell me plainly what's moving out by the hives." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of Darnassus at the Hold. Good; Tyrande's people know this foe better than Stormwind's generals do, and I could use the counsel." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The Horde shamans here hear the swarm under the sand, I'm told, and I'd very much like an Alliance ear on that too." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of the Alliance! The Horde shamans here hear the swarm under the sand, I'm told, and I'd very much like an Alliance ear on that too." },
       },
       again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Ask, friend." } },
       choices = {

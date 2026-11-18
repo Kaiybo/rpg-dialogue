@@ -29,7 +29,7 @@ P:NPC {
   nodes = {
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I think both take something unseen and bind it into the world, but I'm only an enchanter, and I sell rods and dust, not theology. The sand scours everything here, so whatever you've bound into your armour, I'd keep it under a cloak when the storms come." } },
+      lines = { { id = "xapala_default", text = "I think both take something unseen and bind it into the world, but I'm only an enchanter, and I sell rods and dust, not theology." } },
       choices = {
         { text = "The Light is faith, not a craft. They aren't alike.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Power is power. I'll bind whatever pays.", next = "BACK", fx = { align = { light = -1 } } },
@@ -49,7 +49,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A truer draw and a steadier hand, yes, if you let me enchant your gloves and bracers rather than fuss over the bow itself. Most hunters only ask for agility, which is wise enough, if rather dull to enchant." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} is welcome to wait on the stair, where it can watch the door and keep its fur well away from my vellum." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A truer draw and a steadier hand, yes, if you let me enchant your gloves and bracers. {pet} is welcome to wait on the stair meanwhile, well away from my vellum." },
       },
       choices = {
         { text = "A hunter's own skill matters more than any enchantment.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -140,7 +140,7 @@ P:NPC {
       },
     },
     upstairs = {
-      lines = { { id = "u_default", text = "Because sand gets into everything on the ground floor, and a grain of it in a powdered dust can spoil an enchantment completely. Calandrath was kind enough to give me this corner, and I've kept it spotless ever since." } },
+      lines = { { id = "u_default", text = "Because sand gets into everything on the ground floor, and a grain of it in a powdered dust can spoil an enchantment completely. Calandrath, the innkeeper, was kind enough to give me this corner, and I've kept it spotless ever since." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     who = {
@@ -217,7 +217,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That a beast's tracks tell you where the water is, and a scorpid's tracks tell you where not to sleep. We crossed the Barrens and the Needles together, and not one of us went thirsty, because the hunters read the land like a book." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of those beasts on the long road, steady and watchful, and I think it would have kept good company with them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That a beast's tracks tell you where the water is, and a scorpid's tracks tell you where not to sleep. Your {pet} has the look of the beasts on that long road, steady and watchful." },
       },
       choices = {
         { text = "The land teaches those who listen. I listen.", next = "BACK", fx = { align = { light = 1 } } },
@@ -312,7 +312,7 @@ P:NPC {
       },
     },
     silithid_where = {
-      lines = { { id = "sw_default", text = "From the south, beyond the hives, where the old walls stand. The Watchers and the commander know more than I do, and they keep it to themselves, which tells me it's nothing good." } },
+      lines = { { id = "sw_default", text = "From the south, beyond the hives, where the old walls stand. Commander Mar'alith and the druids know more than I do, and they keep it to themselves, which tells me it's nothing good." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
   },
@@ -324,7 +324,7 @@ P:NPC {
     silithid_hives = { { id = "tp_silithid_hives", text = "The hives give me the best venoms in Kalimdor, and the bugs don't give them up willingly. I sell what the hunters bring, and I tell them to wash their hands." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made poison as well as medicine, and she made them both for a reason. I only sell what she made." } },
     cairne = { { id = "tp_cairne", text = "Cairne would not approve of poison, I think, but he would approve of a tauren who sells honestly. That will have to do." } },
-    _none = { { id = "tp_none", text = "I don't know that, friend, but the Commander might. Walk with the Earth Mother." } },
+    _none = { { id = "tp_none", text = "I don't know that, friend, but Commander Mar'alith might. Walk with the Earth Mother." } },
   },
 }
 
@@ -397,7 +397,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The ground, I think, because they all go quiet together a moment before the sand shivers. The commander says it's the hives digging, but the wolves all turn their heads the same way, south, and it isn't toward the nearest hive." } },
+      lines = { { id = "xhsham_default", text = "The ground, I think, because they all go quiet together a moment before the sand shivers. Commander Mar'alith says it's the hives digging, but the wolves all turn their heads the same way, south, and it isn't toward the nearest hive." } },
       choices = {
         { text = "Trust the beasts' instincts. They feel what we can't.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Keep them calm and disciplined. Fear spreads through a stable.", next = "BACK", fx = { align = { order = 1 } } },
@@ -448,7 +448,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Is your mount well? Not that I'd presume, but a war-mount in this sand needs looking after, and I'm the one who looks after them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you'll understand my charges better than most of their own masters do, and you'll forgive me if I ask how the desert beasts seem to you." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I've three stalls to muck out before the heat." },
@@ -486,7 +486,7 @@ P:NPC {
       },
     },
     sand_scorpid = {
-      lines = { { id = "ss_default", text = "I take them outside on the end of a pitchfork and throw them as far as I can. Captain Kozus says I should just kill them, but they're only doing what scorpids do, and I'd rather not." },
+      lines = { { id = "ss_default", text = "I take them outside on the end of a pitchfork and throw them as far as I can. Captain Kozus, who commands the Hold's guard, says I should just kill them, but they're only doing what scorpids do, and I'd rather not." },
         { id = "ss_hunter", when = { class = "HUNTER" }, text = "I carry them out on a pitchfork and throw them over the wall, though I suppose a hunter would just tame one. Captain Kozus says I should kill them, but I haven't the heart." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
@@ -497,7 +497,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Shake out your boots every morning in Silithus, because scorpids love a warm boot." } },
     cenarion_circle = { { id = "tp_cc", text = "The Circle guards Silithus for all of Kalimdor, and I'm proud to keep its stables." } },
     silithid_hives = { { id = "tp_silithid_hives", text = "The beasts in my stables shy whenever the wind blows from the hives. I've learned to listen to them, because they hear what we don't." } },
-    holy_light = { { id = "tp_holy_light", text = "I'm only a squire, but I pray to the Light every morning that I'll be a knight someday. Then I'll ride out to the hives and burn them myself." } },
+    holy_light = { { id = "tp_holy_light", text = "I'm kaldorei, so I pray to Elune and not the Light, but I still dream of being a knight someday. Then I'll ride out to the hives and burn them myself." } },
     bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar is the greatest knight in Stormwind, and I'd give anything to squire for him. Someday, perhaps, when I'm older." } },
     silver_hand = { { id = "tp_silver_hand", text = "The Knights of the Silver Hand are what every squire dreams of becoming, and I'm no different. I hear they're scattered now, but there must still be room for a few more." } },
     _none = { { id = "tp_none", text = "I don't know, I'm sorry. Ask Captain Kozus; he knows everything that happens in the Hold, and has for longer than I've been alive." } },

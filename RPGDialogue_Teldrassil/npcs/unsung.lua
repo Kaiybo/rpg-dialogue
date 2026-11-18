@@ -31,7 +31,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "You are doing everything wrong, but it can be fixed. Your spirits might guide your aim, but your grip is mine to correct." } },
+      lines = { { id = "xdsham_default", text = "You're gripping it wrong, but that can be fixed. Your spirits may guide your aim, but your grip is mine to correct." } },
       choices = {
         { text = "Correct it, Jeena. I want to learn properly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "My grip works well enough.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -69,7 +69,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "You're gripping too tight, like everyone does, and the arrow pulls left because of it. Hold it the way you'd hold a nightsaber cub, firm enough that it can't get away and gentle enough that it doesn't want to, and you'll hit what you aim at." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} sat still the whole time you were drawing, which tells me you've trained it well. Most beasts flinch at a bowstring, and yours doesn't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You're gripping too tight, like everyone does, and the arrow pulls left because of it. Your {pet} sat still the whole time you drew, though, which tells me you've trained it well." },
       },
       choices = {
         { text = "I'll take the advice. A bow should be held right.", next = "BACK", fx = { align = { order = 1 } } },
@@ -120,7 +120,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "o_night_elves_distrust", tags = { "news" }, when = { gossip = { topic = "night_elves", stance = "distrust" } },
-          text = "Kyra tells me you think we keep secrets better than friends. Here's one for nothing, then: my bows are better than the ones in Darnassus." },
+          text = "Kyra Windblade tells me you think we keep secrets better than friends. Here's one for nothing, then: my bows are better than the ones in Darnassus." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You won't need a bow, I suppose, but come and look anyway, because half the Sentinels I sell to say a prayer before they loose their first arrow of the day." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, with a hammer instead of a bow, I'll wager! I won't try to sell you anything, {class}, but I'm curious how you fight without ever loosing from a distance." },
         { id = "h_default", text = "I'm Jeena Featherbow, and I sell bows and arrows here in Dolanaar. Every young hunter on Teldrassil buys their first quiver from me, and most of them come back to tell me what they shot with it." },
@@ -128,7 +128,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and with a bow I didn't sell you, by the look of it. Let me see how you hold it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't need my bows, I know, but half the young druids who pass through still buy a quiver for a friend, so I'm always glad to see you." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You can't draw a bow, I know, but I'd love to know what you'll do when the Gnarlpine get close and your spells run dry." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You hold your bow wrong, spirits or no, and the Sentinels have shot this way since the War of the Ancients, so let me show you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Spirits or no, I'd wager you hold a bow wrong, as everyone does at first, so let me show you how the Sentinels hold one." },
       },
       again = {
         { id = "h_again", text = "What else? I've arrows to fletch, but I can talk while I do it." },
@@ -251,7 +251,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It does, if you rise again. Your spirits will not catch you every time. Learn to stand." } },
+      lines = { { id = "xdsham_default", text = "It does, if you rise again, and your spirits won't catch you every time, so learn to stand on your own." } },
       choices = {
         { text = "I will stand again every time, Kyra.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I will not fall.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -278,7 +278,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "How to get up, mostly, because Arias'ta and Elanaria will knock you down more times than you'll want to count. If you can rise without anger and swing again without fear, you'll have learned the best thing Dolanaar can give you." } },
+      lines = { { id = "xwarcl_default", text = "How to get up, mostly, because Arias'ta and Elanaria in Darnassus will knock you down more times than you'll want to count. If you can rise without anger and swing again without fear, you'll have learned the best thing Dolanaar can give you." } },
       choices = {
         { text = "I'll rise without anger, every time.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll rise angrier, and hit back harder.", next = "BACK", fx = { align = { order = -1 } } },
@@ -289,7 +289,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "You should, because a Gnarlpine with a club doesn't care how far you'd prefer to be from him. Learn to step back and sideways in one movement, and you'll have room to draw again before he swings." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} already knows the footwork; I've watched it circle a boar. Watch your companion and do what it does, and you'll be fine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You should, because a Gnarlpine with a club doesn't care how far you'd prefer to be from him. Your {pet} already knows the footwork, so watch how it circles a boar and do what it does." },
       },
       choices = {
         { text = "I'll learn the footwork. It could save my life.", next = "BACK", fx = { align = { order = 1 } } },
@@ -332,7 +332,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! My students could use you, because half of them learn to swing before they learn to duck, and I can't heal the bruises." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I teach warriors, not knights, but I'd still like to see what your order teaches about holding a line." },
-        { id = "h_default", text = "I'm Kyra Windblade, and I train the warriors who come down from Shadowglen. I teach them the basics here in Dolanaar before Darnassus gets them, so that Arias'ta and the others don't have to start from nothing." },
+        { id = "h_default", text = "I'm Kyra Windblade, and I train the warriors who come down from Shadowglen. I teach them the basics here in Dolanaar before Darnassus gets them, so that Arias'ta and the other trainers there don't have to start from nothing." },
         { id = "h_elanaria", tags = { "news" }, when = { questActive = TODO_QUEST("Elanaria") },
           text = "Elanaria in Darnassus is expecting you. Go up to the Warrior's Terrace, and when she asks what I taught you, tell her I said to keep your feet planted." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from Shadowglen! Get up off the ground as often as you fall, and I'll make something of you yet." },
@@ -429,14 +429,14 @@ P:NPC {
 
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
-      text = "You've been picking silverleaf, I can smell it on your gloves. Malorne must be teaching you well." },
+      text = "You've been picking silverleaf, I can smell it on your gloves. Malorne Bladeleaf, our herbalist, must be teaching you well." },
   },
 
   start = "hello",
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "In their way, yes, softly, like spirits. Your earth spirits must hear them too." } },
+      lines = { { id = "xdsham_default", text = "In their way, yes, as softly as spirits do. Your earth spirits must hear them too." } },
       choices = {
         { text = "Then we listen alike, Cyndra.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Herbs are herbs.", next = "BACK", fx = { align = { light = -1 } } },
@@ -474,7 +474,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Always, though I'd ask you to be gentle with the plants, as Malorne would. Pick from the edge of a patch and leave the heart of it, and it will still be there next season for the next hunter." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing the silverleaf, and I'd rather it didn't eat any. Silverleaf gives a beast a dreadful stomach, and you'd be the one to suffer for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Always, though I'd ask you to pick from the edge of a patch and leave the heart of it. And your {pet} has been sniffing the silverleaf, which gives a beast a dreadful stomach, so I'd rather it didn't eat any." },
       },
       choices = {
         { text = "I'll leave the heart of each patch.", next = "BACK", fx = { align = { order = 1 } } },
@@ -627,7 +627,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "We should always ask. The forest gives, but it remembers who takes rudely. Your spirits must know." } },
+      lines = { { id = "xdsham_default", text = "We should always ask, because the forest gives freely but remembers who takes rudely. Your spirits must know that better than I do." } },
       choices = {
         { text = "Then I will always ask, Malorne.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The forest is ours to use.", next = "BACK", fx = { align = { order = -1 } } },
@@ -665,7 +665,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Peacebloom in the open glades, silverleaf in the shade, and earthroot wherever the ground's been turned, which is often where boars have been rooting. Follow a boar's trail and you'll find earthroot, and then you can thank the boar." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a good nose, so let it find the herbs, and you'll have an easier time of it. Just teach it not to dig them up roots and all." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Peacebloom in the open glades, silverleaf in the shade, and earthroot wherever boars have been rooting. Your {pet} has a good nose, so let it find the herbs, but teach it not to dig them up roots and all." },
       },
       choices = {
         { text = "I'll take only what grows back.", next = "BACK", fx = { align = { order = 1 } } },
@@ -710,7 +710,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I've never taught one of your order, and I wonder what you'll make of a craft that asks you to take only what you need." },
         { id = "h_default", text = "I am Malorne Bladeleaf, and I teach herbalism to those who'll listen. Anyone can pull a flower out of the ground, but I teach people to take what the forest offers so that it grows back next season." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Herbalism") },
-          text = "Lyreena sent you, did she? Then you've learned that a camp needs a fire, and I'll show you what an herbalist adds to one beside it." },
+          text = "Lyreena sent you, did she? Then you've learned that a camp needs a fire, and I'll show you what an herbalist adds beside it." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid will already know half of what I teach, so you're here for the other half. The Enclave teaches you to feel the forest, and I'll teach you which leaves to pick." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll trample half my peacebloom walking in, so please step where I step." },
@@ -812,7 +812,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Small things make great work. A stitch out of place ruins a cloak. Your spirits must agree." } },
+      lines = { { id = "xdsham_default", text = "Because small things make great work, and one stitch out of place can ruin a whole cloak. I imagine your spirits would agree." } },
       choices = {
         { text = "Small things matter, Nadyia. I agree.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Small mistakes do not matter.", next = "BACK", fx = { align = { order = -1 } } },
@@ -850,7 +850,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "You work it soft before you cut it and you stitch it small, so that nothing catches and nothing creaks. Every hunter I've made armor for says they forgot they were wearing it, and that's the best praise there is." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine coat, and I'm only admiring it, I promise. Radnaal would say the same, though he'd look at it a little longer." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You work it soft before you cut it and you stitch it small, so that nothing catches and nothing creaks. Your {pet} has a fine coat, by the way, and I'm only admiring it, I promise." },
       },
       choices = {
         { text = "Quality takes time. I'll wait for yours.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1006,7 +1006,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I always do. They give their lives; I give my care. Your spirits must understand." } },
+      lines = { { id = "xdsham_default", text = "I always do. They give their lives and I give my care, and I'd guess your spirits understand that." } },
       choices = {
         { text = "Respect for the beast is honour, Radnaal.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Animals are resources.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1044,7 +1044,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I thank them quietly and I waste nothing, so the hide goes to Nadyia and the meat goes to Dolanaar. It isn't a grand ritual, but the old kaldorei hunters did the same, and I'd sooner keep their ways than lose them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is watching my knife, and I can't blame it. Tell it I only skin what the forest has already given up." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I thank them quietly and I waste nothing, so the hide goes to Nadyia and the meat goes to Dolanaar. Your {pet} is watching my knife, and I can't blame it, so tell it I only skin what the forest has already given up." },
       },
       choices = {
         { text = "I'll thank them and waste nothing.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1059,7 +1059,7 @@ P:NPC {
       choices = {
         { text = "Then I'll take my time with it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Fast and clean is the only way I know.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Skinning seems grim work.", next = "mind" },
+        { text = "Do you mind the work?", next = "mind" },
       },
     },
     xlock = {
@@ -1116,7 +1116,7 @@ P:NPC {
         { text = "Skinning's just knifework. I've plenty of that.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should I skin what I kill, Radnaal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you honor the beasts you skin, Radnaal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "My imp could help. It's handy with a flame.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "My servant could help you, if you like.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do you give thanks for every beast you skin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you teach skinning to a paladin, Radnaal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How can a druid make peace with skinning, Radnaal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -1182,7 +1182,7 @@ P:NPC {
 
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
-      text = "You've got the smell of a proper angler about you, and I mean that kindly. Androl will be pleased to see you, down by the water." },
+      text = "You've got the smell of a proper angler about you, and I mean that kindly. Androl Oakhand, who teaches fishing down by the water, will be pleased to see you." },
   },
 
   start = "hello",
@@ -1207,7 +1207,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Only the young ones off the boat, who stand about looking lost and lose their purses to the first smooth talker. If you'd keep an eye on them while you're here, I'd count it a kindness, and so would Vesprystus." } },
+      lines = { { id = "xapala_default", text = "Only the young ones off the boat, who stand about looking lost and lose their purses to the first smooth talker. If you'd keep an eye on them while you're here, I'd count it a kindness, and so would Vesprystus, our flight master." } },
       choices = {
         { text = "I'll keep an eye on them while I'm here.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "They'll learn to guard their purses soon enough.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1216,7 +1216,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The Darkshore murlocs come down the coast now and then, and the threshers in deep water would take a hand off without trying. Auberdine has it worse, Laird tells me, so if you're crossing, keep your blade dry and your feet off the edge." } },
+      lines = { { id = "xwarcl_default", text = "The Darkshore murlocs come down the coast now and then, and the threshers in deep water would take a hand off without trying. Auberdine has it worse, Laird the fishmonger tells me, so if you're crossing, keep your blade dry and your feet off the edge." } },
       choices = {
         { text = "If the murlocs come, I'll stand on this dock.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Murlocs are Auberdine's problem, not mine.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1227,7 +1227,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Half the cats in the village wait on my dock every evening, and the hunters' companions are the worst of all. I don't mind, because a fed cat is a quiet cat, and I need quiet to hear whether anything's biting." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is already looking at my bucket, isn't it? Don't worry, I've seen worse thieves, and most of them were Laird." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Half the cats in the village wait on my dock every evening, and I don't mind, because a fed cat is a quiet cat. Your {pet} is already looking at my bucket, I see, but I've seen worse thieves, and most of them were Laird." },
       },
       choices = {
         { text = "My companion doesn't steal. I'll make sure of it.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1281,7 +1281,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at Rut'theran! Did you come over on the boat from Auberdine? Tell me the crossing didn't turn your stomach in all that armor." },
         { id = "h_default", text = "I'm Nessa Shadowsong, and I sell fishing supplies here at the foot of Teldrassil. Most of what I catch goes up to Darnassus, and the best of it goes across the water to my friends in Auberdine." },
         { id = "h_mydrannul", tags = { "news" }, when = { questActive = TODO_QUEST("Nessa Shadowsong") },
-          text = "Mydrannul sent you down from the Terrace, didn't he? Bless him, he always finds me someone. I've a parcel of Teldrassil's best that needs to reach Auberdine." },
+          text = "Mydrannul sent you down from the Craftsmen's Terrace, didn't he? Bless him, he always finds me someone. I've a parcel of Teldrassil's best that needs to reach Auberdine." },
         { id = "h_back", when = { questDone = TODO_QUEST("Return to Nessa") },
           text = "You got my bounty all the way to Laird, and he sent back word that it arrived fresh. I owe you for that, and I won't forget it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on the docks! Mind your armor near the edge, because nobody wants to fish you out." },
@@ -1396,7 +1396,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It is the secret of everything. The fish come to the patient. Your spirits must know." } },
+      lines = { { id = "xdsham_default", text = "It is the secret of everything, because the fish come to the patient. Your spirits must know that already." } },
       choices = {
         { text = "Patience is wisdom, Androl.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Patience wastes time.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1434,7 +1434,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Much the same, except that the fish can't see you coming and you can't see them either, so you're both guessing. It's the guessing I like, because it gives a fellow time to think." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} knows about waiting too, I see, because it hasn't taken its eyes off the water. If it catches one before you do, I won't tell." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Much the same, except that the fish can't see you coming and you can't see them, so you're both guessing. Your {pet} knows about waiting too, I see, because it hasn't taken its eyes off the water." },
       },
       choices = {
         { text = "Patience is the heart of any hunt.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1459,7 +1459,7 @@ P:NPC {
       choices = {
         { text = "A fair point. I'll use a rod.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "There are plenty of fish. The lake would recover.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Why do you still fish, after all these years?", next = "why" },
+        { text = "Why fish, rather than hunt?", next = "why" },
       },
     },
     xdruid = {
@@ -1547,7 +1547,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Fish in the morning, when the water's still. And don't talk; the fish can hear you." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has a fishing contest that the whole world comes to, I hear, and the goblins take a cut of every catch. I'll sit on my quiet dock and keep my fish." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's goblins pay for good fish, and they pay quickly. That's more than I can say for anyone in Auberdine." } },
-    blackfathom = { { id = "tp_blackfathom", text = "The deep water off Ashenvale had the best fishing on the coast once. Now the nagas fish there, and they don't share." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The deep water off Ashenvale had the best fishing on the coast once. Now the naga fish there, and they don't share." } },
     _none = { { id = "tp_none", text = "I don't know about that. I know a fair bit about fish, though, if that helps." } },
   },
 }

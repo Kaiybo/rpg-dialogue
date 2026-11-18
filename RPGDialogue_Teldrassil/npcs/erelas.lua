@@ -115,7 +115,7 @@ P:NPC {
           text = "That the feathers you brought hold a power the wildkin never seem to use, as though it were given to them rather than learned. That's what makes me think of Elune." },
       },
       choices = {
-        { text = "A guardian of what?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Then I'd like to know what they're guarding.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -166,7 +166,7 @@ P:NPC {
     cenarion_circle = { { id = "tp_circle", text = "The Circle sends me eggs and questions, and I send back hippogryphs and more questions. It's a fair trade." } },
     teldrassil = { { id = "tp_tree", text = "Rut'theran sits at the tree's roots, so I get the sea air and the arrivals and none of the stairs. I wouldn't trade it." } },
     nordrassil = { { id = "tp_nordrassil", text = "The hippogryphs came down from Hyjal with us, and the old ones still turn their heads north when the wind's right. I think they miss the first tree as much as we do." } },
-    green_dragons = { { id = "tp_green_dragons", text = "The Circle says Ysera's flight was cool toward this tree, and I believe it. The wildkin here hatch a little restless, and I've wondered if that's why." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The Circle says Ysera's flight was cool toward this tree, and I believe it. The chicks here hatch a little restless, and I've wondered if that's why." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "I've walked the edge of the Dream once, and there were hippogryphs there as well, bigger and calmer than mine. I came back and fed mine extra, out of guilt." } },
     everlook = { { id = "tp_everlook", text = "Everlook's goblins have asked me twice to sell them hatchlings. They didn't like my answer either time." } },
     _none = { { id = "tp_none", text = "I'm afraid I know hippogryphs and wildkin and not much else, friend. Vesprystus might know; he talks to everyone who flies." } },

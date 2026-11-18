@@ -128,7 +128,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "By reading the sand as you would read a forest floor, for the hives send their scouts along the dunes before every swarm. Natalia could tell a silithid's track from a scorpid's at a glance, and forgive me, I did not mean to speak of my wife; watch the dunes for us, and tell my captain what you find." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would serve the Hold well on the perimeter, for a beast's senses reach where a sentry's cannot, and I would welcome every advantage against the hives." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Read the sand as you would a forest floor, for the hives send scouts along the dunes before every swarm, and tell my captain what you find. Your {pet} would serve the Hold well on the perimeter, for a beast's senses reach where a sentry's cannot." },
       },
       choices = {
         { text = "I'll report to your captain. The Hold needs order, not heroics.", next = "BACK", fx = { align = { order = 1 } } },
@@ -156,7 +156,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Larksbane believes they stir the hives, and I have learned to trust her ear for stone. Something beneath the Scarab Wall is awake and listening, and I would rather a mage studied that than any of us fed it." } },
+      lines = { { id = "xmage_default", text = "Geologist Larksbane believes they stir the hives, and I have learned to trust her ear for stone. Something beneath the Scarab Wall is awake and listening, and I would rather a mage studied that than any of us fed it." } },
       choices = {
         { text = "Then let it be studied carefully, under the Circle's watch.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Smash the crystals. Study is a luxury here.", next = "BACK", fx = { align = { order = -1 } } },
@@ -333,7 +333,7 @@ P:NPC {
       },
     },
     cult_want = {
-      lines = { { id = "cw2_default", text = "Huum thinks their rituals and the crystals in the sand are tied together somehow. What I know is that they welcome every calamity as if it were good news, and a desert full of hives is the best news they've had in years." } },
+      lines = { { id = "cw2_default", text = "Huum Wildmane thinks their rituals and the crystals in the sand are tied together somehow. What I know is that they welcome every calamity as if it were good news, and a desert full of hives is the best news they've had in years." } },
       choices = {
         { text = "Then the bugs and the cult may be allies.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -461,11 +461,11 @@ P:NPC {
     silithid = { { id = "tp_silithid", text = "There are three great hives, Hive'Ashi, Hive'Zora and Hive'Regal, and a thousand small ones, and every one of them is louder than last month.", fx = { learn = { "silithid_hives" } } } },
     ahn_qiraj = { { id = "tp_aq", text = "The city behind the wall, and the reason this fort exists at all. Pray you never see the inside of it." } },
     cenarion_circle = { { id = "tp_circle", text = "We serve the land and keep its balance, as Malfurion taught, and the land is in danger here. That's all the politics I have time for." } },
-    cthun = { { id = "tp_cthun", text = "A name my wife shouted at you as she died. I'll learn what it means if it's the last thing this Hold does." } },
+    cthun = { { id = "tp_cthun", text = "A name I first heard in a report about my wife, and I'll learn what it means if it's the last thing this Hold does." } },
     silithid_hives = { { id = "tp_silithid_hives", text = "The hives are spreading, slowly, and every one of them tunnels toward the old city in the south. We burn them back, and next season they're there again." } },
     bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "The old songs say a bronze dragon helped seal the city a thousand years ago, and then left, and nobody has seen it since. I'd like very much to ask it why it left." } },
     malfurion = { { id = "tp_malfurion", text = "Malfurion sleeps, and Fandral leads the Circle in his stead, and I serve where Fandral sends me. I do not think the Arch Druid knows how bad it is out here." } },
-    tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande keeps Darnassus, and she has sent Sentinels south to hold this desert with us. I pray to her goddess for my wife, every night." } },
+    tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande keeps Darnassus, and she has sent Sentinels south to hold this desert with us. I pray to Elune for my wife every night." } },
     elune = { { id = "tp_elune", text = "Natalia used to say Elune hears everything, even in the desert. I hope she is right, because I have been saying a great deal." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The druids of the Circle walk in the Dream, and some of them say the Dream is uneasy. I have no time for dreams, not while my wife is missing." } },
     thrall = { { id = "tp_thrall", text = "The Horde sends its warriors here as the Alliance does, and they fight beside us against the swarm. I am grateful, and I keep them on opposite sides of the Hold." } },
@@ -572,7 +572,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, I'd stake my hammer on it, though the Circle wants proof before it'll believe a dwarf with a feeling. Their tracks circle the crystals like moths round a lamp, and a good tracker could map the whole pull of them, if they were brave enough to follow." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch how {pet} acts near the crystals, will ye? If it goes stiff or won't settle, I'd like to know, because a beast hears what I can only feel through my boots." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, their tracks circle the crystals like moths round a lamp, and a good tracker could map the whole pull of them. Watch how {pet} acts near the crystals, too, because a beast hears what I can only feel through my boots." },
       },
       choices = {
         { text = "Study the crystals carefully before anyone acts on them.", next = "BACK", fx = { align = { order = 1 } } },
@@ -600,7 +600,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think they're connected tae somethin' big an' old an' angry, an' I'd sooner not find out what. Whatever it is, it's no' demonic, mind, but it's no' friendly either, an' I'd keep yer imp well away from it." } },
+      lines = { { id = "xlock_default", text = "I think they're connected tae somethin' big an' old an' angry, an' I'd sooner not find out what. Whatever it is, it's no' demonic, mind, but it's no' friendly either, an' I'd keep yer demon well away from it." } },
       choices = {
         { text = "I'll keep my demon away. Caution is wise.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'd like to see what my demon makes of it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -902,7 +902,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They tear at the air like a beast at a snare, and my caravans suffer for it. Tauren or dwarf, a shaman who can calm the winds is worth more to me than a dozen guards." } },
+      lines = { { id = "xdsham_default", text = "They tear at the air like a beast at a snare, and my caravans suffer for it. Horde or Alliance, a shaman who can calm the winds is worth more to me than a dozen guards." } },
       choices = {
         { text = "I'll calm what I can, Windcaller.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Calming is too slow. Strike at the cult that stirs them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1005,7 +1005,7 @@ P:NPC {
           text = "A paladin! I should like to put you down as a guard for the supply carts, provided you'll forgive me for writing your name in the same column as the grain." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Good; provided you can hold a cart road as well as you hold that blade, I have more work than I have soldiers." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman from Ironforge! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of the Alliance! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings." },
       },
       again = {
         { id = "h_again", text = "What else? I have ledgers, but I have ears too, and tauren ears are larger than most." },
@@ -1146,7 +1146,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It's big, it's old, and it's killed every fool who went after it thinking a scorpid is just a scorpid. Bring me a pincer and I'll believe you killed it, and bring me a story and I'll believe you ran." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And don't send {pet} in first, unless you want it back in two pieces, because Deathclasp doesn't care who's holding the leash." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "She's big, she's old, and she's killed every fool who thought a scorpid is just a scorpid, so bring me a pincer as proof. And don't send {pet} in first, unless you want it back in two pieces." },
       },
       choices = {
         { text = "I'll face it myself. That's the only honest kill.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1201,7 +1201,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Badly, though he'd have my rank for saying so, because Mar'alith was never a man to sit still, and now he sits and stares south. Natalia went out on a dig in the southern desert and never came back, and I've watched the horizon for her every day since." } },
+      lines = { { id = "xapala_default", text = "Badly, though he'd have my rank for saying so, because Mar'alith was never a man to sit still, and now he sits and stares south. His wife Natalia went out on a dig in the southern desert and never came back, and I've watched the horizon for her every day since." } },
       choices = {
         { text = "Then tell him plainly. A captain owes his commander the truth.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Then keep quiet. A grieving man needs his hope more than truth.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1386,7 +1386,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "The last imp that came through ate a whole tray of honey cakes and then set fire to the tray. I don't hold it against its master, not too much, but the birds of Auberdine never did that to me, and I miss them dreadfully." } },
       choices = {
         { text = "I'll keep it outside. Your kitchen deserves some peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My imp has a mind of its own. I can't promise anything.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "My demon has a mind of its own. I can't promise anything.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1412,7 +1412,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Sandworm, mostly, which is bitter however long I stew it, though I'm told the cult cooks it well enough, which I find very irritating. A hunter brought me a scorpid tail once, and I'm still not sure whether he meant it as a gift or a dare." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks thirsty, you poor thing, so let it rest in the shade by the door while you're here, and don't let it near the worm stew." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Sandworm, mostly, which is bitter however long I stew it, and once a scorpid tail I still don't know what to do with. {pet} looks thirsty, the poor thing, so let it rest in the shade by the door, away from the worm stew." },
       },
       choices = {
         { text = "A hunter should feed the Hold before himself.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1658,7 +1658,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every one, pal, because you can't brew an antidote without the poison, and the poison doesn't come in a jar. A hunter who knows where to cut gets me a clean sac, and a warrior who doesn't gets me a splattered mess I can't use or sell." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} back from the stingers when you're cutting them, though, pal, because I'm already nursing one patient and I don't do animals, whatever Noggle says about my bedside manner." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every one, pal, because you can't brew an antidote without the poison, and a hunter who knows where to cut brings me a clean sac. Keep {pet} back from the stingers while you work, though, because I'm already nursing one patient." },
       },
       choices = {
         { text = "I'll bring you what heals people. That's worth the hunt.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1844,7 +1844,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "If somethin' in this desert has a tail, pal, assume the tail's poisoned, and you'll be right nine times in ten." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel doesn't run this fort, pal, but it sells to it, which is better: all the profit, none of the bugs." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got the best alchemy suppliers in Kalimdor, and I'd be there right now if Noggle hadn't gone and got himself stung. He's an investment, you see, and I protect my investments." } },
-    silithid_hives = { { id = "tp_silithid_hives", text = "The hives are full of venoms and ichors that'd make an alchemist rich, sweetheart, if she lived long enough to sell them. I've got the bottles, I just need someone else's arm." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives are full of venoms and ichors that'd make an alchemist rich, pal, if she lived long enough to sell them. I've got the bottles, I just need someone else's arm." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a fine market, but you can't sell scorpid venom to sailors, not twice anyway. I'm sticking to the desert, where the customers are desperate." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, and unless it's poisonous or pays well, I don't much care." } },
   },

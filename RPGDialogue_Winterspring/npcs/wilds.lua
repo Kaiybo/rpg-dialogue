@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, and some never will, for a frostsaber is jealous of its territory and has no patience for a rival. The cubs are curious, though, and they've learned more from the hunters' cats than from anything I could teach them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has kept still since you came in, and the old sabers have noticed it. That's a good sign, and a rare one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and some never will, for a frostsaber is jealous of its territory. Your {pet} has kept still since you came in, though, and the old sabers have noticed it, which is a good sign." },
       },
       choices = {
         { text = "A good beast obeys. I train mine as carefully as you train yours.", next = "BACK", fx = { align = { order = 1 } } },
@@ -120,7 +120,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle, here in the frostsaber valley. The cubs know your kind by scent, I think, and they come to you more readily than to the Sentinels who train beside me." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, clad in steel, at the saber pens. My cats think you are a very strange sort of bear, so walk slowly until they know your scent." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The frostsabers are restless, which means they've caught your scent and can't decide what you are, and in all my centuries they've rarely been wrong." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of the Alliance. The frostsabers are restless, which means they've caught your scent and can't decide what you are, and in all my centuries they've rarely been wrong." },
       },
       again = {
         { id = "h_again1", text = "What else? The cubs need feeding, and they are as patient as any kaldorei, which is to say not when they're hungry." },
@@ -135,11 +135,11 @@ P:NPC {
         { text = "Could a wintersaber be trained to hunt quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why do the frostsabers distrust the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does it take to earn a frostsaber's trust?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "A warrior could learn a lot from a frostsaber, Rivern.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could a warrior ride a frostsaber into battle, Rivern?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your frostsabers accept a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How does a priest earn a place at Frostsaber Rock?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is a demon's scent really so dangerous to the cubs, Rivern?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Would a frostsaber accept a dwarf shaman, Rivern?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Would a frostsaber accept a shaman, Rivern?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your cats.", next = "END" },
       },
     },
@@ -162,7 +162,7 @@ P:NPC {
     },
     winterfall = {
       lines = {
-        { id = "winterfall_default", text = "They've gone wild like their cousins to the south, drinking some foul brew, and they raid our grounds for meat. The Timbermaw say the corruption came from Felwood, and I've no reason to doubt them." },
+        { id = "winterfall_default", text = "They've gone wild like their Deadwood cousins in Felwood, drinking some foul brew, and they raid our grounds for meat. The Timbermaw say the corruption came from Felwood, and I've no reason to doubt them." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -252,7 +252,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "To Winterfall Village in the east, and to their camps on the ridges, and always back to wherever the firewater is kept. Salfa has followed them himself, and the tracks of a furbolg who drinks it wander like a sick wolf's." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} smells the tunnels behind Salfa and is not afraid, which is good. Many beasts will not come near the Timbermaw's door." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "To Winterfall Village in the east, and always back to wherever the firewater is kept. Your {pet} smells the tunnels behind Salfa and is not afraid, which is good, because many beasts will not come near the Timbermaw's door." },
       },
       choices = {
         { text = "The Winterfall were your kin. I'll hunt them only as needed.", next = "BACK", fx = { align = { light = 1 } } },
@@ -459,7 +459,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Owlbeasts, mostly, the moontouched ones, who nest near the old stones because the moonlight still gathers there. I can't bring myself to hate them for it, since they love Elune's light as much as I do, but they do not share." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can walk ahead of us, if it likes. I think the owlbeasts will be slower to attack a creature that doesn't fear them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Owlbeasts, mostly, the moontouched ones, who nest near the old stones where the moonlight gathers. Your {pet} can walk ahead of us, if it likes, for I think they will be slower to attack a creature that doesn't fear them." },
       },
       choices = {
         { text = "Then I'll drive the owlbeasts off rather than kill them.", next = "BACK", fx = { align = { light = 1 } } },
@@ -520,7 +520,7 @@ P:NPC {
         { id = "h_default", text = "I am Ranshalla, a priestess of Elune, and there are old altars in these hills that have been dark for far too long. I mean to light their torches again, but the wild things guard them now, and I can't go alone." },
         { id = "h_cond", when = { class = "PRIEST" }, text = "A priest! Then you'll feel it too, when we reach the altar, the way the Mother Moon still listens there." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The altars I mean to light were raised before the Sundering, and I think the Circle would be glad to see them burning again." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at an altar of Elune? The spirits and the Mother Moon both watch these hills, as they have since before the Sundering, so perhaps you belong here more than I thought." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at an altar of Elune? The spirits and the Mother Moon both watch these hills, as they have since before the Sundering, so perhaps you belong here more than I thought." },
       },
       again = {
         { id = "h_again1", text = "What else, friend? Speak, and Elune will hear it as well." },
@@ -529,7 +529,7 @@ P:NPC {
       choices = {
         { text = "Do the old altars still draw the land's spirits?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What do the altars mean to the wild things, Ranshalla?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Something must wait at the altar.", next = "altar" },
+        { text = "What waits at the altar?", next = "altar" },
         { text = "Why do the altars matter to Elune?", next = "elune" },
         { text = "Something must guard the altars now.", next = "danger" },
         { text = "I'd be honoured to pray at the altar with you.", next = "priest", when = { class = "PRIEST" } },
@@ -614,7 +614,7 @@ P:NPC {
   nodes = {
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "The Light is old, mortal, older than your kingdoms, and my flight does not mock what is old. What we distrust is the way your kind seize a power and declare that it has chosen them, as if the cold had chosen these caves, when the caves were simply here first." } },
+      lines = { { id = "xapala_default", text = "The Light is old, mortal, older than your kingdoms, and my flight does not mock what is old. What we distrust is the way your kind seize a power and declare that it chose them, when all they did was reach for it first." } },
       choices = {
         { text = "The Light chose no one. We choose to serve it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Power answers whoever is strong enough to hold it.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
@@ -634,7 +634,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They try, and they boast of it, and a few even succeed against whelps who have not yet learned to fear them. The blue flight remembers every scale taken, mortal, and the ones who took them are not forgotten either." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the sense to keep its head low in my presence, which is more sense than most mortals show." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They try, and a few succeed against whelps, and the blue flight remembers every scale taken. Your {pet} has the sense to keep its head low in my presence, which is more than most mortals show." },
       },
       choices = {
         { text = "I hunt beasts, not dragons. I'll leave your flight in peace.", next = "BACK", fx = { align = { light = 1 } } },
@@ -795,7 +795,7 @@ P:NPC {
   nodes = {
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I think I would understand it, which is not the same thing. I made a bargain with the Legion long ago and became this, and the demon who holds my contract still lives in these hills, so if your Light wants something to destroy, I can point you to a better target than me." } },
+      lines = { { id = "xapala_default", text = "I think I would understand it if you did, though understanding is not the same as agreeing. I made a bargain with the Legion long ago and became this, and the demon who holds my contract still lives in these hills, so if your Light wants something to destroy, I can point you to a better target than me." } },
       choices = {
         { text = "Every soul deserves a chance at redemption, even yours.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll deal with your demon, but I won't forget what you are.", next = "BACK", fx = { align = { light = -1 } } },
@@ -815,7 +815,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "With a promise of power, as they snare everyone, and I walked to it gladly because I thought I was the hunter. The satyrs in these hills were all taken the same way, and every one of them still believes, somewhere, that he made a good bargain." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks at me as though it smells something rotten, and it is right to. Beasts know what we are long before mortals do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "With a promise of power, as they snare everyone, and I walked into it gladly because I thought I was the hunter. Your {pet} looks at me as though it smells something rotten, and it is right to." },
       },
       choices = {
         { text = "Then you were snared, Lorax, and the snared can still be freed.", next = "BACK", fx = { align = { light = 1 } } },
@@ -997,7 +997,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A little, I'll admit, like eating a snowball with gristle in it, but the customers love it because it's local. Mind you, local in Winterspring means something that tried to freeze you first, so I charge extra for the danger." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} hungry? Don't answer that, chum, I can see it is, and I can see it looking at my soup pot like an old friend who owes it money." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A little, I'll admit, like a snowball with gristle in it, but the customers love it because it's local. And is {pet} hungry? Don't answer that, chum, I can see it looking at my soup pot." },
       },
       choices = {
         { text = "I'll sell you only what I kill cleanly and quickly.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1027,8 +1027,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I wouldn't know, chum, and I'm not letting it near my pots to find out. Last time someone fed an imp my stew, it set fire to the bench, and I'm still finding scorch marks under the counter and still waiting on the fella to pay for 'em." } },
       choices = {
-        { text = "I'll keep my imp out of your kitchen.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My imp eats what it likes.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll keep my demon out of your kitchen.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon eats what it likes.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Just soup for me, then.", next = "BACK" },
       },
     },
@@ -1080,7 +1080,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You look like you've been crouching in a snowbank all day, so let me get you a bowl of something hot before your fingers freeze to your daggers." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! You want soup? Good, because your little friend looks hungry too, though I'm not sure what imps eat and I'd rather not find out." },
+          text = "A warlock! You want soup? Good, because your little friend looks hungry too, though I'm not sure what demons eat and I'd rather not find out." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Can you warm a pot with a spell, chum? Everyone asks, and I keep forgetting to ask a mage myself, and think what I'd save on firewood." },
         { id = "h_default", text = "Himmik's the name, food and drink's the game, and in Everlook that's the most important trade there is, chum. Everything I sell has to come over the pass or through the tunnels, so believe me, at these prices I'm practically robbing myself." },
@@ -1090,7 +1090,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, sit down, because anyone who's been praying out in the snow needs soup more than most, and mine's practically a miracle itself." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll want something hearty too, I'd say, because turning into a bear in this weather must take a lot out of you." },
         { id = "h_winterfall_resolved", when = { thread = { id = "winterfall_firewater", state = "resolved" } },
-          text = "The dwarf at the springs came through here sayin' the Winterfall are patients and not bandits, chum, and I said fine, cure 'em, and I'll sell 'em soup. A sober furbolg's a customer, see, and a drunk one's a liability." },
+          text = "Donova, the dwarf at the springs, came through here sayin' the Winterfall are patients and not bandits, chum, and I said fine, cure 'em, and I'll sell 'em soup. A sober furbolg's a customer, see, and a drunk one's a liability." },
         { id = "h_winterfall_soured", when = { thread = { id = "winterfall_firewater", state = "soured" } },
           text = "Everlook's hired bruisers for the road, chum, and guess who's feedin' 'em at cost? It's safer for my carts, I'll grant you, but I've done the sums and a bruiser eats twice what he saves me." },
       },

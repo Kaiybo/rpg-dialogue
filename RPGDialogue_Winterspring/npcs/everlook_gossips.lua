@@ -20,7 +20,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Hey there, pal, hey! You look like somebody who wants to hear who's been stealin' the inn's pickled herring, and I've got it on good authority, which is to say mine." },
-    { id = "g_winna", when = { questActive = TODO_QUEST("A Strange One") }, text = "Did you meet her yet? No, no, don't tell me, chum, I want to imagine your face, and I'm savin' the story for a rainy day." },
+    { id = "g_winna", when = { questActive = TODO_QUEST("A Strange One") }, text = "Did you meet Winna at Bloodvenom Post yet? No, no, don't tell me, chum, I want to imagine your face, and I'm savin' the story for a rainy day." },
     { id = "g_wildkin", when = { questActive = TODO_QUEST("Enraged Wildkin") }, text = "Found that survivor yet, pal? Starfall Village, west of here, you can't miss it, and I've got a whole page waiting for whatever you hear." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you didn't send me so much as a postcard! What's new out there, pal, and don't leave out the good parts, because I'll know." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, all grown and dangerous since I first talked your ear off. That's a story I'd pay for, pal, and I don't pay for anything." },
@@ -202,7 +202,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "There's trouble in Winterspring, you know, sweetie! Oh, and hello, and you didn't come to buy anything, did you, because I've left the shop somewhere." },
-    { id = "g_donova", when = { questActive = TODO_QUEST("Trouble in Winterspring!") }, text = "Donova Snowden, at the hot springs. That was it. I knew I'd remember." },
+    { id = "g_donova", when = { questActive = TODO_QUEST("Trouble in Winterspring!") }, text = "Donova Snowden, at the hot springs, that's who you want! I knew I'd remember." },
     { id = "g_done", when = { questDone = TODO_QUEST("Trouble in Winterspring!") }, text = "Donova says you've been a help with the furbolgs, sweetie. I knew you had the look of someone who appreciates the hills, and that's worth more than a pocketful of thorium, nearly." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were you? Out in the hills, I hope, cultivating your reflexes." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, you've got that keen eye now, the one I was talking about, the one you can't buy for any price. Was I talking about it?" },

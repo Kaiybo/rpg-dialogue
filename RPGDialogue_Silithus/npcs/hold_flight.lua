@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_cc_distrust", when = { gossip = { topic = "cenarion_circle", stance = "distrust" } }, text = "Proudhorn says you think the Circle asks everyone else to bleed. The wind riders bleed too, traveller, and they don't complain about it." },
+    { id = "o_cc_distrust", when = { gossip = { topic = "cenarion_circle", stance = "distrust" } }, text = "Windcaller Proudhorn says you think the Circle asks everyone else to bleed. The wind riders bleed too, traveller, and they don't complain about it." },
     { id = "g_default", text = "The riders are rested and the sky is clear, for now, as the Earth Mother wills it. Where are you bound?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. The riders know your smell by now, which is a kind of welcome." },
   },
@@ -30,7 +30,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Runk Windtamer, and these are the Horde's wind riders in Silithus. They fly to Mojache and Gadgetzan and the crater, and they fly in spite of the sand, which is more than I would do; a tauren was made for grass under his hooves." },
+        { id = "h_default", key = true, text = "I am Runk Windtamer, and these are the Horde's wind riders in Silithus. They fly to Mojache and Gadgetzan and Un'Goro Crater, and they fly in spite of the sand, which is more than I would do; a tauren was made for grass under his hooves." },
       },
       again = {
         { id = "h_again", text = "Something else? The riders grow restless, like a herd before a storm." },
@@ -56,7 +56,7 @@ P:NPC {
       choices = { { text = "Wise words.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     cloud = {
-      lines = { { id = "c_default", text = "Skydancer and I keep to our own corners, and our beasts keep to theirs. The Circle says this is neutral ground, so we are neutral, and we nod to each other in the mornings." } },
+      lines = { { id = "c_default", text = "Cloud Skydancer and I keep to our own corners, and our beasts keep to theirs. The Circle says this is neutral ground, so we are neutral, and we nod to each other in the mornings." } },
       choices = {
         { text = "Is that peace, or just politeness?", next = "cloud_stance" },
         { text = "Something else.", next = "BACK" },
@@ -114,7 +114,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Cloud Skydancer, and these are my hippogryphs, the finest in Silithus, which isn't saying much, since they're the only ones. They fly to Feathermoon, Gadgetzan and the crater, and they'd fly to Elune's moon itself if I asked." },
+        { id = "h_default", key = true, text = "Cloud Skydancer, and these are my hippogryphs, the finest in Silithus, which isn't saying much, since they're the only ones. They fly to Feathermoon, Gadgetzan and Un'Goro Crater, and they'd fly to Elune's moon itself if I asked." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are getting impatient, and so is the sun." },

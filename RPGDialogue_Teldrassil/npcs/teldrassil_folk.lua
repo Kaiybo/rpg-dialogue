@@ -24,7 +24,7 @@ P:NPC {
     { id = "g_hello", text = "Halt a moment, {class}. The Council of the Forest has an eye on everyone who passes through Dolanaar." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I trust you've kept clear of satyrs since we last spoke." },
     { id = "g_zenn", when = { questDone = TODO_QUEST("Zenn's Bidding") },
-      text = "The Council has news that you aided Zenn Foulhoof. You'll want to hear what I have to say about that." },
+      text = "The Council has heard that you aided Zenn Foulhoof, the satyr by the road. You'll want to hear what I have to say about that." },
     { id = "g_redeemed", when = { questDone = TODO_QUEST("Seek Redemption!") },
       text = "Foulhoof ate the cones, I hear, and the Council is satisfied. Consider your name clean, and keep it that way." },
   },
@@ -70,7 +70,7 @@ P:NPC {
     },
 
     zenn = {
-      lines = { { id = "ze_default", text = "Zenn Foulhoof is a satyr, and the satyr are the enemies of the forest, whatever charming story he tells. He has young adventurers kill nightsabers and webwood spiders for him, and nobody asks what he wants with the pieces." } },
+      lines = { { id = "ze_default", text = "Zenn Foulhoof is a satyr, and satyrs are the enemies of the forest, whatever charming story he tells. He has young adventurers kill nightsabers and webwood spiders for him, and nobody asks what he wants with the pieces." } },
       choices = {
         { text = "What does he want with them?", next = "zenn_want" },
         { text = "Something else.", next = "BACK" },
@@ -112,7 +112,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Keep low and watch the branches. The harpies like to drop on you from above." },
-    { id = "g_back", when = { metBefore = true }, text = "Back in the glade. Did you bring belts, or only bruises?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back in the glade. Did you bring harpy belts, or only bruises?" },
     { id = "g_done", when = { questDone = TODO_QUEST("The Enchanted Glade") },
       text = "The nests are thinner since you came. The Oracle Tree is grateful, and so am I." },
   },
@@ -185,7 +185,7 @@ P:NPC {
 
   notice = {
     { id = "n_pri", cat = "class", when = { class = "PRIEST" },
-      text = "Shanda's sent you, I see it on you. She always sends me the gentle ones." },
+      text = "Shanda sent you down from Aldrassil, I can see it on you. She always sends me the gentle ones." },
   },
 
   start = "hello",
@@ -257,14 +257,14 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Ah, a visitor. Forgive me, I was thinking about Syurna, which I'm told I do too often." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back! Have you been to Darnassus? Did you see her?" },
+    { id = "g_back", when = { metBefore = true }, text = "You're back! Have you been to Darnassus? Did you see Syurna?" },
     { id = "g_rose", when = { questDone = TODO_QUEST("The Apple Falls") },
       text = "You gave her the rose? What did she say? No, don't tell me, I can see it on your face, and it's all right." },
   },
 
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
-      text = "A rogue! She only speaks to rogues, you know, so you might be my best hope yet." },
+      text = "A rogue! Syurna only speaks to rogues, you know, so you might be my best hope yet." },
   },
 
   start = "hello",
@@ -402,7 +402,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = { "MAGE", "PRIEST", "DRUID" } },
       text = "You've a reader's look about you. Have you read Feralas: A History? No one has, which is why I like it." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf! Do you know Greywhisker, up in the city? We argue about everything older than a thousand years, which is everything." },
+      text = "A dwarf! Do you know Greywhisker of the Explorers' League? We argue by letter about everything older than a thousand years, which is everything." },
   },
 
   start = "hello",

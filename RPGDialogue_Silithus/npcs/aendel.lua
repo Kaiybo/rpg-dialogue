@@ -68,7 +68,7 @@ P:NPC {
       },
     },
     southwind_layo = {
-      lines = { { id = "sl_default", text = "The young druid from Valor's Rest. He is kind, and he means well, and some of them go gladly with him. I am not ready to go, and he has the grace not to insist." } },
+      lines = { { id = "sl_default", text = "Layo Starstrike, the young druid from Valor's Rest, tries to. He is kind, and he means well, and some of them go gladly with him. I am not ready to go, and he has the grace not to insist." } },
       choices = { { text = "Something else, Aendel.", next = "BACK" } },
     },
     chitin = {

@@ -114,7 +114,7 @@ P:NPC {
     xalt_vizzie = {
       lines = {
         { id = "xalt_vizzie_default", text = "{alt}, sugar, and a lovely guest, because {alt} squashed a beetle by the hearth without my even asking, and you can't put a price on that. Stayed a night, ate two bowls of soup and went off toward the hot springs." },
-        { id = "xalt_vizzie_other", when = { alt = { faction = "other" } }, text = "{alt}, sugar, a {altrace} from the other side, and if you two ever end up in my inn the same night, I'm putting you at opposite ends of the room, related or not. Not because I expect trouble, mind, but because the beetle likes a crowd." },
+        { id = "xalt_vizzie_other", when = { alt = { faction = "other" } }, text = "{alt}, sugar, a {altrace} from the other side, and if you two ever end up in my inn the same night, I'm putting you at opposite ends of the room, related or not. Not because I expect trouble, mind, but because I've seen what a long winter does to tempers." },
       },
       choices = {
         { text = "Kin or not, I'd share a fire with anyone up here.", next = "BACK", fx = { align = { light = 1 } } },
@@ -129,7 +129,7 @@ P:NPC {
         { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" }, metBefore = false },
           text = "You've got kin come through Everlook, I'd bet my best mop on it, because {alt} stamped the snow off a pair of boots just like yours and told me there were no bugs in Winterspring, the sweet liar." },
         { id = "o_steamwheedle_distrust", tags = { "news" }, when = { gossip = { topic = "steamwheedle", stance = "distrust" } },
-          text = "Harlo says you called us thieves with a ledger. Thieves don't give receipts, sweetheart, and I give receipts!" },
+          text = "Harlo Wigglesworth says you called us thieves with a ledger. Thieves don't give receipts, sweetheart, and I give receipts!" },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and dressed for it! Stamp the snow off those boots at the door, sugar, and if you see a beetle on the hearth, you have my permission to cut it in half, just not the hearth." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, sugar, tell me the spirits don't send bugs, because if one of your totems starts buzzing it's going straight outside." },
@@ -138,7 +138,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "Oh, a mage, thank goodness! Could you conjure a little fire for the back room, sugar? The hearth never reaches that far, the bugs love a cold corner, and firewood up here costs more than the furniture." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, and is that an imp? Keep it off the tables, please, because it looks exactly like a big red beetle, and I'll scream if it so much as twitches." },
+          text = "A warlock! Keep your little friend off the tables, please, because the last one I saw looked exactly like a big red beetle, and I'll scream if it so much as twitches." },
         { id = "h_default", key = true,
           text = "I'm Innkeeper Vizzie, sugar, and this is the best inn in Everlook, and sure, it's the only inn in Everlook, but that doesn't make it not the best. It's the warmest place for a hundred miles at a very fair rate, and the cold keeps the creepy-crawlies down, mostly." },
         { id = "h_bugs", tags = { "gossip" },
@@ -165,7 +165,7 @@ P:NPC {
         { text = "I could track down your bugs for you.", next = "beetle_hunt", when = { class = "HUNTER" } },
         { text = "Do rogues cause much trouble in Everlook?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "So you came all the way up here to get away from bugs.", next = "xmage", when = { class = "MAGE" } },
-        { text = "My imp's harmless. Mostly.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "My demon's harmless. Mostly.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'm afraid the Light doesn't do beetles. What else brings priests here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Everlook see much trouble, with Horde and Alliance under one roof?", next = "xapala", when = { class = "PALADIN" } },
         { text = "The folk at your fire look like they've had a hard road, Vizzie.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -180,7 +180,7 @@ P:NPC {
     },
     neighbours = {
       lines = {
-        { id = "nb_default", text = "Umi's building something furry, Legacki's laughing at it, and Felnok won't let anybody near his bench without gloves. Then there's the Dark Iron fellow, who calls my customers ants and still tips better than any of 'em, so he can call 'em whatever he likes." },
+        { id = "nb_default", text = "Umi's building something furry to frighten Legacki with, and Felnok won't let anybody near his bench without gloves. Then there's the Dark Iron fellow, who calls my customers ants and still tips better than any of 'em, so he can call 'em whatever he likes." },
         { id = "nb_yeti", when = { questDone = TODO_QUEST("Are We There, Yeti?") }, text = "Legacki hasn't stopped glaring at the door since that yeti came through it, and Umi hasn't stopped grinning. I serve them at opposite ends of the bar now." },
       },
       choices = {
@@ -226,7 +226,7 @@ P:NPC {
 
   impression = {
     first = "Umi Rumplesnicker told me not to touch anything, then changed her mind three times about which things. Whatever she's building, it's furry, and someone is going to scream.",
-    third = "{name} met Umi Rumplesnicker, the playful goblin engineer of Everlook with a prank in progress.",
+    third = "{name} met Umi Rumplesnicker, the playful gnome engineer of Everlook with a prank in progress.",
   },
 
   greetings = {
@@ -235,16 +235,16 @@ P:NPC {
 
   notice = {
     { id = "n_goblin", cat = "race", when = { race = "Goblin" },
-      text = "Another goblin! Then you know: a good invention is half engineering and half making your friends scream." },
+      text = "A goblin! Then you know as well as I do that a good invention is half engineering and half making your friends scream." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Mischief, mostly, and I'm the only one allowed to teach it that! Legacki screams every time it rounds a corner, which is the whole point, but an imp would set it on fire, and fur is terribly expensive this far north." } },
+      lines = { { id = "xlock_default", text = "Mischief, mostly, and I'm the only one allowed to teach it that! Legacki screams every time it rounds a corner, which is the whole point, but a demon would set it on fire, and fur is terribly expensive this far north." } },
       choices = {
-        { text = "A prank's harmless. My imp isn't. I'll keep it leashed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A prank's harmless. My demon isn't. I'll keep it leashed.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A little fire would make the joke better.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -271,7 +271,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I do, I really do, because you've tracked the yetis out in the Ice Thistle Hills, and I've only ever seen their fur on a skinner's table. If a hunter can't tell mine from the real thing at twenty paces, then Legacki certainly won't." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} away from the bench, please! The last animal that sniffed this fur decided it was a rival and bit the yeti's leg off." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I do, I really do, because if a hunter can't tell mine from a real yeti at twenty paces, Legacki certainly won't. Just keep {pet} away from the bench, please, because the last animal that sniffed this fur bit the yeti's leg off." },
       },
       choices = {
         { text = "I'll judge it fairly, but a prank should stay harmless, Umi.", next = "BACK", fx = { align = { order = 1 } } },
@@ -345,7 +345,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! Oh, don't let your imp near my yeti, because it's already got one bad habit, which is frightening people, and I don't want it picking up a second." },
+          text = "A warlock! Oh, don't let your demon near my yeti, because it's already got one bad habit, which is frightening people, and I don't want it picking up a second." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Stand right there, please, because I've been wondering whether my yeti's eyes would glow if a holy sort walked past, and I need a witness who won't lie about it." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -386,7 +386,7 @@ P:NPC {
         { text = "Do you want a hunter's opinion of your yeti, Umi?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "A mechanical yeti seems a strange thing to build, Umi.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why would a holy sort make your yeti's eyes glow, Umi?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What would my imp teach a mechanical yeti, Umi?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What would my demon teach a mechanical yeti, Umi?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll find parts.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -531,7 +531,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It could, because half the trouble there is the beasts the plague has twisted, and a hunter knows how a sick animal moves. Our scouts tell me the wolves of the eastern Plaguelands have turned on anything living, and I'd like someone who understands wolves to see why." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close if you go east, though, and keep it away from the corpses. The plague takes beasts as easily as men, and I'd hate to see it turn on you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It could, because the plague has twisted the beasts of the east, and a hunter knows how a sick animal moves. Keep {pet} close if you go, though, and away from the corpses, because the plague takes beasts as easily as men." },
       },
       choices = {
         { text = "A sick beast deserves a clean end. I'll give them that much.", next = "BACK", fx = { align = { light = 1 } } },
@@ -560,7 +560,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Not into the snow itself, thank the Light, but the cold doesn't stop fear, and plenty come through Everlook with the plague still behind their eyes. Further south the Scourge poisons the earth wherever it walks, and I'd wager your spirits could tell you more of that than any report of mine. If the very earth is sick in the Plaguelands, the Dawn needs those who can hear it." } },
+      lines = { { id = "xhsham_default", text = "Not into the snow itself, thank the Light, though plenty come through Everlook with the plague still behind their eyes. Further south the Scourge poisons the earth wherever it walks, and the Dawn needs those who can hear the land tell of it." } },
       choices = {
         { text = "Then the spirits and I will go and fight the Scourge.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Lordaeron's ruin is the Alliance's mess. Let them clean it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -619,7 +619,7 @@ P:NPC {
         { id = "h_report", tags = { "news" }, when = { questActive = TODO_QUEST("The Everlook Report") },
           text = "Carry my report to Argent Officer Pureheart for me, if you would. Every set of eyes the Dawn has counts." },
         { id = "h_duke", when = { questActive = TODO_QUEST("Duke Nicholas Zverenhoff") },
-          text = "Duke Zverenhoff will want to meet you, because not many walk into the Plaguelands of their own will, and fewer walk out." },
+          text = "Duke Nicholas Zverenhoff, who leads the Dawn at Light's Hope Chapel, will want to meet you, because not many walk into the Plaguelands of their own will, and fewer walk out." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, welcome! The Dawn fights the Scourge and the Circle fights the rot in Felwood, and I've often thought we fight the same kind of sickness from two ends." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and of the Horde! The Dawn has need of healers who know the Scourge for what it is, and I suspect you know it better than most." },
       },

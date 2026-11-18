@@ -51,7 +51,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, friend; spirits have time for conversation." },
       },
       choices = {
-        { text = "I can't see how they took your body.", next = "ritual" },
+        { text = "How did the shaman take your body from you?", next = "ritual" },
         { text = "It must be strange, being caught outside the Dream.", next = "dream" },
         { text = "Why were you sleeping here?", next = "sleepers" },
         { text = "You really want me to kill your body?", next = "body", when = { any = { { questActive = TODO_QUEST("Druid of the Claw") }, { questDone = TODO_QUEST("The Sleeping Druid") } } } },
@@ -115,7 +115,7 @@ P:NPC {
         { id = "sp_default", text = "Some of the Circle sleep for long years by Ysera's leave, keeping watch in the Dream, and the barrow dens keep our bodies safe while we do. Gaerolas Talvethren guards us, and he will be heartsick that this happened on his watch." },
       },
       choices = {
-        { text = "Gaerolas was wounded by the Gnarlpine himself.", next = "sleepers_gaerolas", when = { questDone = TODO_QUEST("A Troubling Breeze") } },
+        { text = "The Gnarlpine wounded Gaerolas too, out at his post.", next = "sleepers_gaerolas", when = { questDone = TODO_QUEST("A Troubling Breeze") } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -166,9 +166,9 @@ P:NPC {
     furbolgs = { { id = "tp_furbolgs", text = "The shaman are the ones to watch, because the warriors only do what the shaman tell them. Take the charm off a shaman and you take away half his tribe's mischief." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle keeps the balance, and some of us keep it by sleeping, which sounds easier than it is." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "I was in the Dream when the Gnarlpine trapped me in my sleep, and I can tell you it is a great deal nicer than a barrow. The food in both is terrible." } },
-    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are a sensible clan, the only one left, and if I'd napped on their ground instead I'd have been fine. Lesson learned, and slowly, as I do everything." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the one furbolg clan the corruption hasn't touched, and if I'd napped on their ground instead I'd have been fine. Lesson learned, and slowly, as I do everything." } },
     nordrassil = { { id = "tp_nordrassil", text = "The first tree, on Hyjal. I slept under it for a few centuries once, and I recommend it far more than a barrow full of Gnarlpine." } },
     green_dragons = { { id = "tp_green_dragons", text = "Ysera's children watch over the Dream, and they've nudged me awake more than once when I wandered too deep. Very polite dragons, for dragons." } },
-    _none = { { id = "tp_none", text = "I cannot say, friend. I have walked the Emerald Dream for a very long time, and since then I have been in no state to listen." } },
+    _none = { { id = "tp_none", text = "I cannot say, friend. I slept in the Dream for a very long time, and the world went on without me." } },
   },
 }

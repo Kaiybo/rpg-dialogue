@@ -50,7 +50,7 @@ P:NPC {
       },
     },
     op_r1 = {
-      lines = { { id = "op_r1_default", text = "Most of my people would agree, and the blues seem to prefer it that way. Haleh does not come down from her caves to make friends." } },
+      lines = { { id = "op_r1_default", text = "Most of my people would agree, and the blues seem to prefer it that way. Haleh, who leads the blues in Mazthoril, does not come down from her caves to make friends." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
@@ -263,7 +263,7 @@ P:NPC {
           text = "I hear you're a believer in the titans' work. Then you'll forgive a dwarf for digging in the snow for more of it." },
         { id = "h_default", key = true, text = "Jaron Stoneshaper, Explorers' League, at yer service. I've been hunting artifacts in Winterspring, because they say it's full of very magical things, though most of 'em are guarded by something that wants to kill ye." },
         { id = "h_harlo", tags = { "news" }, when = { questActive = TODO_QUEST("Enraged Wildkin") },
-          text = "Harlo sent ye, did he? Aye, I'm the survivor he's been gossiping about. I was chased clean out of my camp in the south by a pack of bloodthirsty wildkin, and I'm lucky I've still got all my beard." },
+          text = "Harlo Wigglesworth in Everlook sent ye, did he? Aye, I'm the survivor he's been gossiping about. I was chased clean out of my camp in the south by a pack of bloodthirsty wildkin, and I'm lucky I've still got all my beard." },
         { id = "h_kel", tags = { "news" }, when = { questActive = TODO_QUEST("The Ruins of Kel'Theril") },
           text = "Wynd sent ye about Kel'Theril? Well, I'm no historian, mind, but I can tell ye what I saw there, and what I saw was a lot of very unhappy ghosts." },
         { id = "h_amulet", tags = { "news" }, when = { questRecent = { TODO_QUEST("Enraged Wildkin"), days = 3 } },
@@ -280,7 +280,7 @@ P:NPC {
       choices = {
         { text = "How has the digging gone?", next = "camp" },
         { text = "Have you seen any of the old ruins?", next = "kel" },
-        { text = "The Explorers' League has come a long way north.", next = "league" },
+        { text = "What brings the Explorers' League this far north?", next = "league" },
         { text = "Who should I ask about those fragments?", next = "aurora", when = { questActive = TODO_QUEST("Troubled Spirits of Kel'Theril") } },
         { text = "Let me look at that pick, Jaron.", next = "xpick", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Good luck, Jaron.", next = "END" },
@@ -363,7 +363,7 @@ P:NPC {
     league_danger = {
       big = true,
       lines = {
-        { id = "ld_default", text = "Part of the job, lad. Every ruin worth digging has something sitting on it, and if we waited for the north to be safe we'd never dig at all." },
+        { id = "ld_default", text = "Part of the job, {g:lad|lass}. Every ruin worth digging has something sitting on it, and if we waited for the north to be safe we'd never dig at all." },
       },
       choices = {
         { text = "Knowledge is worth the risk. Keep digging.", next = "BACK", fx = { align = { order = -1 } } },
@@ -388,7 +388,7 @@ P:NPC {
     explorers_league = { { id = "tp_el", text = "Best outfit in the world, if ye ask me, though our pay's poor and our camps keep getting wrecked." } },
     highborne = { { id = "tp_hb", text = "Old elves with more magic than sense, from what I've dug up. Wynd knows the sad parts better than I do." } },
     magni = { { id = "tp_magni", text = "King Magni's a great king and a greater patron, and the Explorers' League owes him everything. I'd raise a pint to him if I had one, and I'm fairly sure I don't." } },
-    uldaman = { { id = "tp_uldaman", text = "Uldaman's the greatest dig in the world, lad, and I'd give my beard to see the inside of those vaults again. The troggs make it difficult, though." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's the greatest dig in the world, {g:lad|lass}, and I'd give my beard to see the inside of those vaults again. The troggs make it difficult, though." } },
     everlook = { { id = "tp_everlook", text = "Everlook's a good town for supplies, and the goblins don't ask what you're digging for. I like that in a merchant." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are a canny folk, and they know these lands better than anyone. I'd love to see what's in their tunnels, but they won't let me dig." } },
     _none = { { id = "tp_none", text = "Couldn't tell ye, {g:lad|lass}. Ask Wynd; he's been here longer than the snow, and that's an elf for ye." } },

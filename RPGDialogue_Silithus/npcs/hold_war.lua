@@ -35,7 +35,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Windcaller Kaldon. Before I give you anything involved, you'll do your share of field duty like everyone else who comes to Cenarion Hold, because I need to know what you can do before I send you anywhere that matters." },
+          text = "I am Windcaller Kaldon. Before I give you any real work, you'll do your share of field duty like everyone else who comes to Cenarion Hold, because I need to know what you can do before I send you anywhere that matters." },
         { id = "h_alliance", when = { faction = "Alliance", questBefore = TODO_QUEST("Field Duty") },
           text = "You're Alliance, so you'll report to Captain Blackanvil's Ironforge Brigade outside Hive'Zora, or to his lieutenant, Janela Stouthammer. Get your papers signed there and come back to me, and please stay well away from the Orgrimmar Legion while you do it." },
         { id = "h_horde", when = { faction = "Horde", questBefore = TODO_QUEST("Field Duty") },

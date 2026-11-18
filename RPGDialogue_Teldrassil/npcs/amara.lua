@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_done", when = { questDone = TODO_QUEST("The Road to Darnassus") }, text = "The merchants have stopped asking for escorts since you cleared the ambushers. Elune's light on you, {class}." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "A fine night for the road, with the moon this high. She watches it with me." },
     { id = "g_away", when = { away = 14 }, text = "You have been away {away}, and the road has missed a friend. Welcome back to it." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You were new to the bow when you first cleared this road for me, and now you carry yourself like a Sentinel. Elune has been generous with you." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You were new to the road when you first cleared it for me, and now you carry yourself like a Sentinel. Elune has been generous with you." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear there were sharp words with someone in Dolanaar. Settle it, {class}, because a quarrel on the road is how ambushes begin." },
   },
 
@@ -51,7 +51,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you ask, {class}? Speak while we ride, and keep one eye on the trees, as every Sentinel learns to." },
-        { id = "h_again2", text = "Ask, and then let me return to watching the trees. The Gnarlpine have learned patience from us, and I would not have them learn more." },
+        { id = "h_again2", text = "Ask, and then let me return to watching the trees. The Gnarlpine are patient, and they wait for us to look away." },
       },
       choices = {
         { text = "Why do you guard this road yourself?", next = "road" },

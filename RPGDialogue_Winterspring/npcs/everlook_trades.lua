@@ -56,7 +56,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because the Wintersaber Trainers up the valley take it very personally, that's why, and night elves with long memories are bad for business. I sell what comes through the door, but I don't mention it when the Sentinels are in town." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} off the counter, please, because the last beast that sat there knocked over a whole stack of thorium and the Cartel docked it from my wages." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because the Wintersaber Trainers up the valley take it very personally, and night elves with long memories are bad for business. And keep {pet} off the counter, please, because the last beast that sat there knocked over a stack of thorium." },
       },
       choices = {
         { text = "I don't hunt frostsabers. Some things shouldn't be for sale.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -190,7 +190,7 @@ P:NPC {
     steamwheedle = { { id = "tp_cartel", text = "The Cartel built Everlook, guards Everlook and takes a share of everything sold in Everlook. That's how a town stays neutral." } },
     everlook = { { id = "tp_everlook", text = "Everlook's the best place in the world to run an auction house, because nobody stands about in the snow to haggle. They bid fast, and they bid high, and I like that." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got an auction house too, and the bidding is cutthroat, and now and then it's cutthroat in the other sense too. I prefer Everlook, where the only thing that freezes is the price." } },
-    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the other neutral house, down in Tanaris, and the Cartel likes to keep an eye on all three. Prices travel faster than you'd think." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan runs another neutral house, down in Tanaris, and with Booty Bay that makes three for the Cartel to watch. Prices travel faster than you'd think." } },
     _none = { { id = "tp_none", text = "If I can't list it, pal, I can't tell you about it, and I can't take a cut of it either." } },
   },
 }
@@ -260,7 +260,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It doesn't thicken in the cold, pal, that's what, and I won't tell you what's in it, except that one part comes from the springs and one part I'd rather not say. A rifle that seizes up with a frostsaber charging you is just an expensive club, and I don't sell clubs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And mind {pet} doesn't lick the oil off the barrel, because it'll be sick on the floor of my shop and I'll never hear the end of it from Qia." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It doesn't thicken in the cold, pal, and that's all I'll tell you about what's in it. Mind {pet} doesn't lick it off the barrel, though, because it'll be sick on my floor." },
       },
       choices = {
         { text = "A hunter keeps the weapon in order. I'll learn the oil myself.", next = "BACK", fx = { align = { order = 1 } } },
@@ -379,7 +379,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     buyers = {
-      lines = { { id = "b_default", text = "Hunters chasing frostsabers and chimaeras, and folk heading into the Winterfall dens, and the odd fool who thinks he'll go up Mazthoril alone. I sell to all of 'em, buddy, and I hope to see most of 'em again, because the dead don't come back for powder." } },
+      lines = { { id = "b_default", text = "Hunters chasing frostsabers and chimaeras, and folk heading into the Winterfall dens, and the odd fool who thinks he'll go into the caves of Mazthoril alone. I sell to all of 'em, buddy, and I hope to see most of 'em again, because the dead don't come back for powder." } },
       choices = {
         { text = "You'd sell a gun to anyone?", next = "buyers_anyone" },
         { text = "Something else.", next = "BACK" },
@@ -447,7 +447,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The sweat does, and then the cold freezes it, and then it thaws by the fire at Vizzie's and does it all again. Every warrior who comes through Everlook smells of it, and I sell more heavy thread to your kind than to the tailors." } },
+      lines = { { id = "xwarcl_default", text = "It keeps in the sweat, which is the trouble, because the cold freezes it and Vizzie's fire thaws it, over and over until the padding rots. Every warrior who comes through Everlook smells of it, and I sell more heavy thread to your kind than to the tailors." } },
       choices = {
         { text = "I'll mend it properly myself. A warrior keeps the kit in order.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll wear it till it falls apart and find new off a corpse.", next = "BACK", fx = { align = { order = -1 } } },
@@ -458,7 +458,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Frostsaber and chimaera, though the chimaera's tough enough to break a needle, and the bear pelts from the shardtooths. The tailors want felcloth more, but the leatherworkers will pay well for anything thick enough to keep the wind out." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And if {pet} drags in anything with fur on it, I won't ask whose it was, only how fresh and how much." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Frostsaber and chimaera, and the bear pelts from the shardtooths, because the leatherworkers pay well for anything thick enough to keep the wind out. If {pet} drags in anything with fur on it, I won't ask whose it was, only how fresh." },
       },
       choices = {
         { text = "I'll skin only what I kill cleanly, and waste none of it.", next = "BACK", fx = { align = { light = 1 } } },
@@ -725,7 +725,7 @@ P:NPC {
       lines = { { id = "t_default", text = "Frostsabers, mostly, the white cats, and the odd bear from the woods. A frostsaber's a beautiful animal, but it sulks if you board it with a wolf, so I keep them apart." },
         { id = "t_nelf", when = { race = "NightElf" }, text = "Frostsabers, mostly, and you'd know more about those cats than I would, being a night elf. They sulk if you board them beside a wolf, so I keep them well apart." } },
       choices = {
-        { text = "They seem to sulk, the cats and wolves both.", next = "tame_sulk" },
+        { text = "Why do the cats sulk beside a wolf?", next = "tame_sulk" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -798,7 +798,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I'd buy anything clean, love, because the herbs up here are pure as the snow, mostly, and pure herbs make clear potions that fetch a clear price. Don't bring me anything from near the Winterfall camps, though, because whatever's in their firewater has got into the roots there too, I'm sure of it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And mind {pet} doesn't eat the icecap, because it numbs the tongue something awful, and I once watched a wolf walk in circles for an hour." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'd buy anything clean, love, but nothing from near the Winterfall camps, because their firewater has got into the roots there. And mind {pet} doesn't eat the icecap, because I once watched a wolf walk in circles for an hour after." },
       },
       choices = {
         { text = "I'll gather only where the land is clean. Your potions deserve that.", next = "BACK", fx = { align = { light = 1 } } },
@@ -908,7 +908,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     herbs = {
-      lines = { { id = "h2_default", text = "Mountain silversage up in the high places, and some very interesting things around the hot springs, where the snow melts. Herbalists come back from Frostfire with their packs full and their boots soaking." } },
+      lines = { { id = "h2_default", text = "Mountain silversage up in the high places, and some very interesting things around the hot springs, where the snow melts. Herbalists come back from the Frostfire Hot Springs with their packs full and their boots soaking." } },
       choices = {
         { text = "Are the hot springs dangerous?", next = "herbs_springs" },
         { text = "Something else.", next = "BACK" },
