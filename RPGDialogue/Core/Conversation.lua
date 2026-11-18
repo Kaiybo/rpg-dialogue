@@ -1331,21 +1331,27 @@ function Conv.Persuade(action)
     return
   end
   local before = ns.Disposition and ns.Disposition.For(env, ctx)
+  -- What you actually say (0.86.0), and their own answer to it when the line has one.
+  local say = Engine.PickSay and Engine.PickSay(s.info, action, ctx, env)
   local ok = P.Try(action, s.info, s.mem, ctx)
   local result = ok and "success" or "fail"
-  local w = Engine.PickPersuade(s.info, action, result, ctx, env)
+  local paired = say and type(say.line[result]) == "string" and say.line[result] or nil
+  local w = not paired and Engine.PickPersuade(s.info, action, result, ctx, env) or nil
   local text = ok and L.PERSUADE_FALLBACK_SUCCESS or L.PERSUADE_FALLBACK_FAIL
-  if w then
+  if paired then
+    text = Tokens.Render(paired, ctx, env, say.line.when)
+  elseif w then
     Conv.Shown(w)
     s.lastLine = w.gid
     text = Tokens.Render(w.line.text, ctx, env, w.line.when)
   end
   local name = L["PERSUADE_" .. action:upper()] or action
   local said = "[" .. name .. "]"
+  if say then said = Tokens.Render(say.line.text, ctx, env, say.line.when) end
   Conv.Log("you", said)
   Conv.Log("npc", text)
   local linked = Conv.Hear(text)
-  View(s).ShowAnswer(text, name, linked, ns.db.settings.echoReply ~= false and said or nil)
+  View(s).ShowAnswer(text, name, linked, (say or ns.db.settings.echoReply ~= false) and said or nil)
   if s.viewTopic and s.nodeDef then
     s.viewTopic = nil
     Conv.OfferChoices(s)

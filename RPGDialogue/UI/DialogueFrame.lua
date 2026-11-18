@@ -86,9 +86,10 @@ local function utf8Len(s) return #cutPoints(s) end
 
 local function settings() return ns.db.settings end
 
-local PERSUADE_ACTIONS = { "admire", "taunt", "intimidate" }
+local PERSUADE_ACTIONS = { "admire", "joke", "taunt", "intimidate" }
 local PERSUADE_ICONS = {
   admire = "Interface\\Icons\\Spell_Holy_Heal",
+  joke = "Interface\\Icons\\INV_Misc_Bell_01",
   taunt = "Interface\\Icons\\Spell_Nature_Reincarnation",
   intimidate = "Interface\\Icons\\Ability_GolemThunderClap",
 }

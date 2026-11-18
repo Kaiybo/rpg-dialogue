@@ -7,6 +7,7 @@
 --     prejudice and present disposition (the same inputs as Systems/Disposition.lua)
 --   * their mood today: -1, 0 or +1, seeded by the day and the person, so a near thing can go
 --     either way on a different day, but trying again the same day changes nothing
+-- Joke (0.86.0) lands with most people, best with the merry, and badly with the grim.
 -- Admire works on vain, warm and jovial people and fails on sharp or cold ones. Taunt wins
 -- over gruff and proud fighters who respect some spine and puts most others off. Intimidate
 -- works on the cowardly or when you plainly outclass them, and otherwise costs a lot.
@@ -21,7 +22,7 @@ local C = ns.Compat
 local Pers = {}
 ns.Persuasion = Pers
 
-Pers.ACTIONS = { "admire", "taunt", "intimidate" }
+Pers.ACTIONS = { "admire", "joke", "taunt", "intimidate" }
 Pers.COOLDOWN = 86400       -- once per person per day, per action
 Pers.DECAY_PER_DAY = 1      -- disposition points the modifier loses each day
 Pers.MOD_MAX = 25
@@ -29,12 +30,13 @@ Pers.MOD_MAX = 25
 -- What each outcome does to disposition.
 Pers.EFFECT = {
   admire = { success = 6, fail = -4 },
+  joke = { success = 5, fail = -2 },
   taunt = { success = 8, fail = -6 },
   intimidate = { success = 10, fail = -12 },
 }
 
 -- The score an action needs (see Pers.Score).
-Pers.NEED = { admire = 1, taunt = 2, intimidate = 3 }
+Pers.NEED = { admire = 1, joke = 1, taunt = 2, intimidate = 3 }
 
 -- Tempers for people with none of their own (unnamed NPCs, by role).
 Pers.ROLE_TEMPER = {
@@ -48,6 +50,11 @@ local ADMIRE_LIKES = { vain = 4, jovial = 3, warm = 3, cheerful = 3, friendly = 
   eager = 2, smooth = 2, proud = 1, kind = 2 }
 local ADMIRE_HATES = { sharp = -4, cold = -4, shrewd = -3, grim = -3, surly = -3, bitter = -3, dry = -2,
   blunt = -1, hostile = -4 }
+-- Joke (0.86.0): most people like one; the merry love it, the grim and the formal don't.
+local JOKE_LIKES = { jovial = 4, jolly = 4, hearty = 3, cheerful = 3, chatty = 3, friendly = 3, easygoing = 3,
+  wry = 3, eager = 2, warm = 2, brash = 2, loud = 2, sly = 2, excitable = 2, gruff = 1 }
+local JOKE_HATES = { grim = -4, cold = -4, grave = -4, hostile = -4, stern = -3, formal = -3, bitter = -3,
+  fussy = -2, weary = -2, anxious = -1, sharp = -1, precise = -1 }
 local TAUNT_RESPECTS = { gruff = 3, proud = 3, fierce = 3, blunt = 2, stern = 2 }
 local TAUNT_HURTS = { gentle = -2, warm = -2, kind = -2, anxious = -2, cowardly = -2 }
 local FIGHTER_ROLES = { guard = true, soldier = true, militia = true, honor = true }
@@ -120,6 +127,15 @@ function Pers.Score(action, info, mem, ctx, now)
     if traits.reserved then add(-1, "reserved") end
     if disp >= 60 then add(1, "disposition") elseif disp < 35 then add(-2, "disposition") end
     if prejudice > 0 then add(-2, "prejudice") end
+  elseif action == "joke" then
+    add(1, "joke")
+    add(bestOf(temper, JOKE_LIKES), "temper")
+    add(bestOf(temper, JOKE_HATES), "temper")
+    if traits.witty then add(2, "witty") end
+    if traits.charming then add(1, "charming") end
+    if traits.reserved then add(-1, "reserved") end
+    if traits.stern then add(-1, "stern") end
+    if disp >= 60 then add(1, "disposition") elseif disp < 35 then add(-2, "disposition") end
   elseif action == "taunt" then
     local respect = bestOf(temper, TAUNT_RESPECTS)
     if respect then

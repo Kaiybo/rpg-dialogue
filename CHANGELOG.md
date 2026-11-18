@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.86.0 (2026-11-18)
+**New file: restart the game fully (a /reload won't load it).**
+- **You now say something when you Admire, Taunt or Intimidate.** Instead of "[Admire]", your character speaks an actual line, picked from a large set so it rarely repeats: about 45 compliments, 45 taunts and 40 threats, with ones only your race or class would say and ones aimed at guards, innkeepers, vendors, bankers, flight masters, trainers, smiths and more. In DialogueUI your line shows above their answer.
+- **New: Joke.** A fourth button. Most people like a joke, the merry most of all; the grim and the formal don't. About 190 jokes: general ones, ones about your own race and class, faction jokes, jokes for each trade, and jokes meant for one person, who answers that joke in particular (Thrall, Bolvar, Magni, Sylvanas, Tyrande, Cairne, Vol'jin, Mekkatorque, Jaina, Lady Prestor, Nat Pagle, Hemet Nesingwary, Baron Revilgaz, Gazlowe, Chromie, Azuregos, Mankrik, Topper McNabb, Noggenfogger and a dozen more).
+- Not seen in game yet.
+
 ## 0.85.0 (2026-11-18)
 Six pieces of work in one release. **New files: restart the game fully (a /reload won't load them).**
 
