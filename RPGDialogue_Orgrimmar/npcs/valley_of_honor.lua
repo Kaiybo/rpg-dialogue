@@ -659,7 +659,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     kaja = {
-      lines = { { id = "ka_default", text = "Every time that goblin tests a new gun, every beast in the valley jumps out of its fur, and Kildar's wolves howl for an hour after. Jin'sora complains about the noise for the sake of the bows, but I complain for the beasts, and mine be the better reason." } },
+      lines = { { id = "ka_default", text = "Every time that goblin tests a new gun, every beast in the valley jumps out of its fur, and Kildar's wolves howl for an hour after. Jin'sora the bowyer complains about the noise for the sake of the bows, but I complain for the beasts, and mine be the better reason." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     prefer = {
@@ -906,7 +906,7 @@ P:NPC {
       },
     },
     warrior = {
-      lines = { { id = "wa_default", text = "Because sometimes the thing you want to hit be on the other side of a river, and shouting at it don't work. Even a warrior can pull a bow, mon, and the enemy come running to you, which you like anyway." } },
+      lines = { { id = "wa_default", text = "Because sometimes the thing you want to hit be on the other side of a river, and shouting at it don't work. Shoot it once, mon, and it come running to you, which a warrior like anyway." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

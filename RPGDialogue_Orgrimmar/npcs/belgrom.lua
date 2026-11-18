@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Belgrom Rockmaul. I'd travel in the Warchief's name, but Thrall needs me here in the city, and he asks my opinion often. My agents watch half of Kalimdor for him, from the Barrens to the coast of Azshara, though I'd sooner not speak of the elf I trusted there." },
+        { id = "h_default", key = true, text = "Belgrom Rockmaul, adviser to the Warchief, who asks my opinion often. My agents watch half of Kalimdor for him, from the Barrens to the coast of Azshara, though I'd sooner not speak of the elf I trusted there." },
         { id = "h_betrayed_before", when = { questBefore = TODO_QUEST("Betrayed") },
           text = "That thieving elf! I may have made a grave mistake, {name}. She promised riches from the ruins of Azshara if I sent warriors to guard her diggers, and now she's killed them, every one, and I can't afford to send more." },
         { id = "h_betrayed_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Betrayed"), days = 5 } },
@@ -121,7 +121,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I've served the Horde since before this city had walls, and now I serve the Warchief at his ear. That's all the story you need." } },
-    advice = { { id = "tp_ad", text = "Have agents everywhere, and make sure they write often. Half my letters already arrive chewed by the wind riders, so I need the other half." } },
+    advice = { { id = "tp_ad", text = "Have agents everywhere, and make sure they write often. Half my letters go astray with the wind riders, so I need the other half to arrive." } },
     rimtori = { { id = "tp_rim", text = "Don't say that name too loudly in this valley. When she's dead, I'll say it myself, and gladly." } },
     silithid = { { id = "tp_sil", text = "Korran's bugs. I thought it was nothing, and I've been told it's something, and I'm not too proud to change my mind about bugs." } },
     thrall = { { id = "tp_thrall", text = "The Warchief relies on me to know what's happening across Kalimdor, and I don't intend to disappoint him again. I won't make the same mistake twice, I'll tell you that." } },

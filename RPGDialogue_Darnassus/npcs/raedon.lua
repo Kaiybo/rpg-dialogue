@@ -130,7 +130,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I count cloth, friend. It isn't glorious, but I've never had a Sentinel complain that her bedroll arrived." } },
     advice = { { id = "tp_ad", text = "Never sell your spare linen to a vendor for copper when someone might need a bandage. That's my whole philosophy, really." } },
-    sentinels = { { id = "tp_sentinels", text = "They ask for so little and get even less, so I do what I can from up here." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels ask for so little and get even less, so I do what I can from up here." } },
     thrall = { { id = "tp_thrall", text = "The Horde's warchief, and he keeps his armies supplied better than I'd like. I count our cloth and I worry about his." } },
     warsong = { { id = "tp_warsong", text = "The Warsong cut Ashenvale and the Sentinels hold the line, and every bale of cloth I send goes to that line. Most of it comes back as bandages." } },
     theramore = { { id = "tp_theramore", text = "Theramore requisitions cloth from us when their ships are late, and Lady Proudmoore always pays her debts. I like a quartermaster on the other end of the ledger who keeps her word." } },

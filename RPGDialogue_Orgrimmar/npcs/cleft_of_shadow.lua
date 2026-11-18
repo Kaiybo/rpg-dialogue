@@ -61,7 +61,7 @@ P:NPC {
     },
     work_honor = {
       big = true,
-      lines = { { id = "wh_default", text = "Is it? One knife in the dark saves a hundred grunts from dying on a pike wall, and I've never met a grunt who'd rather die honorably than live. Grezz Ragefist disagrees with me loudly, but Grezz has never seen what we prevent." } },
+      lines = { { id = "wh_default", text = "Is it? One knife in the dark saves a hundred grunts from dying on a pike wall, and I've never met a grunt who'd rather die honorably than live. Grezz Ragefist, who trains the warriors, disagrees with me loudly, but Grezz has never seen what we prevent." } },
       choices = {
         { text = "A hundred lives saved is worth any shame.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Some victories aren't worth having. Grezz is right.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -109,7 +109,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Where I come from doesn't matter, and nobody who knows is going to tell you. That's rather the point." } },
     advice = { { id = "tp_ad", text = "Never stand in a doorway, never sit with your back to one, and never trust anyone who says they have nothing to hide." } },
-    _none = { { id = "tp_none", text = "If I knew, I'd want to know why you're asking. Since I don't, I'll just wonder about you instead, the way a good orc wonders about anyone who asks." } },
+    _none = { { id = "tp_none", text = "I don't know, and now I'll wonder why you're asking, the way I wonder about anyone who asks." } },
   },
 }
 
@@ -147,7 +147,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Mirket, and I teach warlocks. The rest of the city remembers the blood curse and would rather we didn't exist, but it's glad enough of us when the Alliance comes over the hill." },
-        { id = "h_shaman", when = { class = "SHAMAN" }, text = "Mirket, and you're a shaman, so you'll be wanting to tell me the spirits disapprove of me. Save your breath, because Kardris has already said it twice this season." },
+        { id = "h_shaman", when = { class = "SHAMAN" }, text = "Mirket, and you're a shaman, so you'll be wanting to tell me the spirits disapprove of me. Save your breath, because Kardris, your trainer up in the Valley of Wisdom, has already said it twice this season." },
         { id = "h_lock", when = { class = "WARLOCK" }, text = "Mirket, and you're one of mine, so show me your hands. Chalk under the nails means you've been practicing, and clean nails mean you've been lying to me." },
       },
       again = {
@@ -250,7 +250,7 @@ P:NPC {
       },
     },
     orc_blood = {
-      lines = { { id = "ob_default", text = "Then he bowed, as I said, and Grom Hellscream paid with his life in Ashenvale to undo it. I'm sorry for your father, but I won't apologize for the Cleft, because nobody here has bowed to anything." } },
+      lines = { { id = "ob_default", text = "Then he bowed to the demons, and Grom Hellscream paid with his life in Ashenvale to undo it. I'm sorry for your father, but I won't apologize for the Cleft, because nobody here has bowed to anything." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -284,7 +284,7 @@ P:NPC {
   start = "hello",
   nodes = {
     xorig_hex = {
-      lines = { { id = "xhx_default", text = "A troll who wants a demon's tricks to fight a troll's curse, and Vol'jin pretends not to see you coming and going from the Cleft. Zalazane's hexes are loa-craft twisted sideways, so a grimoire will only take you so far. What will you do when your imp starts liking the work?" } },
+      lines = { { id = "xhx_default", text = "A troll learning a demon's tricks to break a troll's curse, and Vol'jin pretends not to see you coming and going from the Cleft. Tell me, what will you do when your imp starts to enjoy the work?" } },
       choices = {
         { text = "Remind it who holds the leash.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "Send it back before it does.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -292,7 +292,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Kurgul, and I sell the grimoires that teach your demons new ways to serve. Our grandfathers served the demons and paid in blood; my books make sure it goes the other way now, and an imp shows you every trick it would rather hide." },
+        { id = "h_default", key = true, text = "Kurgul, and I sell the grimoires that teach your demons new ways to serve. Our grandfathers served the demons and paid in blood, and my books make sure the demons serve us now." },
         { id = "h_void", when = { pet = { family = "Voidwalker" } }, text = "Kurgul, and that's a fine sulky voidwalker you've brought me. They never say thank you, but they remember who was kind to them, in their way." },
         { id = "h_felhunter", when = { pet = { family = "Felhunter" } }, text = "Kurgul, and your felhunter has been sniffing at my grimoires since you came down the ramp. Keep it on your side of the counter, please, because it eats magic the way a wolf eats mutton." },
       },
@@ -361,7 +361,7 @@ P:NPC {
       },
     },
     peeve = {
-      lines = { { id = "pv_default", text = "Silence, if you ask me. Some warlocks go years without saying a word to their voidwalker, and then they're shocked when it drifts off in the middle of a fight." } },
+      lines = { { id = "pv_default", text = "Ignoring their demon, if you ask me. Some warlocks go years without saying a word to their voidwalker, and then they're shocked when it drifts off in the middle of a fight." } },
       choices = {
         { text = "You expect me to chat with a demon?", next = "peeve_ask" },
         { text = "Something else.", next = "BACK" },
@@ -621,7 +621,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     cp_blunt = {
-      lines = { { id = "cb_default", text = "It does, because it's a reagent stall and sulfur is a reagent. You'd be more worried if it smelled of flowers, believe me, because then you'd be at Rekkul's." } },
+      lines = { { id = "cb_default", text = "It does, because it's a reagent stall and sulfur is a reagent. You'd be more worried if it smelled of flowers, believe me, because down here a sweet smell usually means poison." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     cp_flatter = {

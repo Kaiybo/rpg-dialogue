@@ -1215,9 +1215,9 @@ P:NPC {
         { id = "h_bear", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You move differently since you met the Great Bear, heavier on your feet and lighter in your head, which is exactly how it should be." },
         { id = "h_questions", when = { metBefore = true, class = "DRUID" }, text = "Every druid who passes through the Enclave leaves something behind, usually a question. Yours are good ones, so keep asking them." },
         { id = "h_cat", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Cat Spirit") },
-          text = "The Great Cat Spirit sets each generation its own trial. I can't tell you what yours will be. I can tell you it plays before it bites." },
+          text = "The Great Cat Spirit sets each generation its own trial. I can't tell you what yours will be, only that it plays before it bites." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You smell of the arcane, {class}, like smoke caught in a cloak. Nobody will say anything, but the older druids will step a little to one side." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I trained bears for the Archdruid when he still listened to me, warlock, and every one of them is growling at you right now in my head." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Every bear I ever trained would be growling at you right now, warlock, and I find I'm growling a little myself." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you walk the way the beasts do. Some of my students could learn a great deal from that." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in the Enclave. The young druids tell me you came in by the side path, which is the one only they use when they're late." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You walk a path close to ours, though you came to it through stone rather than root, so sit and tell me what the spirits say to you." },
@@ -1737,7 +1737,7 @@ P:NPC {
         { id = "h_low", when = { maxLevel = 40 },
           text = "Things live in the southern deserts that frighten me more than any orc. You're young yet, so come back to me when you're not." },
         { id = "h_fandral", when = { heardLine = "fandral.h_default" },
-          text = "You've met the Archdruid, then. He thinks my insects are a scholar's hobby, and he is very certain of it, but then, so was the hive." },
+          text = "You've met the Archdruid, then. He thinks my insects are a scholar's hobby, and he is very certain of it, which is exactly what worries me." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Another priest. People forget the Sisterhood studies as well as prays. Someone ought to write down everything that crawls under the moon." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, and you've arrived at a fitting moment. I've been reading about creatures that the arcane drew here from elsewhere, and none of them are kind." },
@@ -1849,7 +1849,7 @@ P:NPC {
     },
     ahn_qiraj = { { id = "tp_ahn_qiraj", text = "The Temple has old accounts of a war in the southern desert, before the Sundering, against something that crawled. I've only seen fragments, and the fragments frighten me." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "Human scholars, and very good ones by the letters I've read, though they ask for too much in return. They wanted our Highborne texts, and the Temple said no." } },
-    _none = { { id = "tp_none", text = "That's not my field, though if it had six legs, I'd be all ears. The Highborne once said the same of magic, and look where that led." } },
+    _none = { { id = "tp_none", text = "That's not my field, though if it had six legs, I'd be all ears." } },
   },
 }
 
@@ -1920,7 +1920,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Never, though some come close. Your spirits might steady them. Rest well, and do not look down." } },
+      lines = { { id = "xdsham_default", text = "Never, though some come close, and perhaps your spirits could steady them. Rest well, and do not look down." } },
       choices = {
         { text = "I will rest well and heed your warning, Saelienne.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Looking down is half the fun.", next = "BACK", fx = { align = { honor = -1 } } },

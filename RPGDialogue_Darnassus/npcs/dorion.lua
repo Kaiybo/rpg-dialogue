@@ -97,6 +97,6 @@ P:NPC {
     timbermaw = { { id = "tp_timbermaw", text = "Furbolgs who still have their wits, up in Felwood's passes. Shadow likes them, and she doesn't like anyone." } },
     green_dragons = { { id = "tp_green_dragons", text = "There's something wrong with the green dragons' places, the hunters say, in Ashenvale and in the human woods too. The beasts won't go near them anymore, and beasts know." } },
     blackfathom = { { id = "tp_blackfathom", text = "The old temple drowned off Ashenvale's coast, and nothing good comes out of it now. Hunters who go down there come back smelling of brine and fear." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you. Shadow might know, but she isn't saying, and nightsabers keep their secrets longer than elves do." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you. Shadow might know, but she isn't saying, and wolves keep their secrets longer than elves do." } },
   },
 }

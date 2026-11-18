@@ -53,7 +53,7 @@ P:NPC {
       },
     },
     xorig_doom2 = {
-      lines = { { id = "xdm2_default", text = "I did both, though I had a human's hut to do it in and you had a fence. We are the last who remember the blood and the cage together, and the young ones need us to speak of both plainly, so do not let pride keep you quiet." } },
+      lines = { { id = "xdm2_default", text = "I did both, alone in the hills, while you did yours behind a camp fence. Those of us who remember the demon blood must speak of it plainly to the young ones, so do not let pride keep you quiet." } },
       choices = {
         { text = "I'll speak of it, Eitrigg.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else, Eitrigg.", next = "BACK" },
@@ -69,7 +69,7 @@ P:NPC {
         { id = "h_rend_q", tags = { "news" }, when = { questActive = TODO_QUEST("Eitrigg's Wisdom") },
           text = "Rend Blackhand alive? We thought him dead for decades, and Goretooth would not write it if he did not believe it. None know the Blackrock better than I do, so sit, and I will tell you what the Warchief must hear." },
         { id = "h_rend_done", tags = { "news" }, when = { killed = { name = "Rend Blackhand" } },
-          text = "Rend called himself Warchief from his stolen mountain and called our people slaves. He died a Blackrock, as his father did, and I hope the clan's young ones are watching which of us they choose to follow." },
+          text = "Rend called himself Warchief from his stolen mountain and called our people slaves. He died a Blackrock, as his father did, and I hope the clan's young ones learn something from how he ended." },
         { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR" },
           text = "A young orc warrior in the Warchief's hall. When I was your age, I would have died for any chieftain who shouted loud enough, so learn from my mistakes and save yourself the trouble." },
         { id = "h_shaman", when = { class = "SHAMAN" },
@@ -182,7 +182,7 @@ P:NPC {
       },
     },
     soft = {
-      lines = { { id = "so_default", text = "Some said that of me in Hearthglen, and I was the one who carried a man out of a fallen tower. Peace with the Alliance is not softness, it is the hardest thing the Warchief has ever tried, and it may fail, but it is worth the trying." } },
+      lines = { { id = "so_default", text = "They called me soft too, for carrying a human paladin out of a fallen tower. Peace with the Alliance is not softness, it is the hardest thing the Warchief has ever tried, and it may fail, but it is worth the trying." } },
       choices = {
         { text = "Peace is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, opinion = { peace = "for" } } },
         { text = "The Alliance only understands strength.", next = "BACK", fx = { align = { order = -1 }, opinion = { peace = "against" } } },

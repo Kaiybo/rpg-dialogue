@@ -59,7 +59,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Should a hunter learn to breathe? Your beast will hold most things off, but one day a raptor will get past it, and on that day you'll want to know how to block with an axe rather than how to run, so spend a week sparring with my recruits and you'll thank me." },
+        { id = "xhuntcl_default", text = "Of course you should. Your beast will hold most things off, but one day a raptor will get past it, and on that day you'll want to know how to block with an axe rather than how to run, so spend a week sparring with my recruits and you'll thank me." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has better footwork than half my students, and it doesn't talk back. I might start charging it for lessons." },
       },
       choices = {
@@ -388,7 +388,7 @@ P:NPC {
     },
     xcl_mc = {
       big = true,
-      lines = { { id = "xcl_mc_default", text = "Then you did not kill him, because nobody can kill an elemental lord, but you sent him back to the realm of fire where he belongs, and that is a great thing. The Dark Iron dwarves tore him into this world centuries ago, and he has burned in the mountain ever since, angry and hungry and out of his place. The elements are not evil, but fire torn from its place goes mad, and that is what you faced." } },
+      lines = { { id = "xcl_mc_default", text = "Then you did not kill him, because nobody can kill an elemental lord, but you sent him back to the realm of fire where he belongs, and that is a great thing. The Dark Iron dwarves tore him into this world centuries ago, and fire torn from its place goes mad, which is what you faced." } },
       choices = {
         { text = "Every element has its place, and his isn't here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Places change, Kardris. Let the strong elements take what they can.", next = "BACK", fx = { align = { order = -1 } } },

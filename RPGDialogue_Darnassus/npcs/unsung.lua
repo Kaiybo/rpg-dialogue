@@ -30,7 +30,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Both require care. Both are trust held for others. Your spirits might understand that." } },
+      lines = { { id = "xdsham_default", text = "It is, because both are trust held for others, and both require care. Your spirits might understand that." } },
       choices = {
         { text = "Trust kept carefully is honourable, Garryeth.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Coin is not prayer.", next = "BACK", fx = { align = { order = -1 } } },
@@ -219,7 +219,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I allow none. But I listen when a student answers honestly. Do so, and you will learn." } },
+      lines = { { id = "xdsham_default", text = "I allow none, but I listen when a student answers honestly, so do that, and you will learn." } },
       choices = {
         { text = "I will answer honestly, Sildanair.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Excuses are sometimes reasons.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -268,7 +268,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Not into a fight, perhaps, but carry the idea of one, which is knowing what will protect you when everything goes wrong. Every rogue I've buried thought they would never be caught, and most of them were buried in cheaper leathers than they could afford." },
+        { id = "xrogue_default", text = "Not a real shield, perhaps, but carry something that will protect you when everything goes wrong. Every rogue I've buried thought they would never be caught, and most of them died in cheaper leathers than they could afford." },
       },
       choices = {
         { text = "Fair point. I'll plan for being caught.", next = "BACK", fx = { align = { order = 1 } } },
@@ -408,7 +408,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Perhaps it is. A shaman needs a weapon that answers like the elements: honest and steady. Let me show you another." } },
+      lines = { { id = "xdsham_default", text = "Perhaps it is, because a shaman needs a weapon that answers like the elements, honest and steady. Let me show you another." } },
       choices = {
         { text = "Show me, Ariyell. I trust your judgement.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I will keep my own weapon.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -497,7 +497,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Let me see your grip, because I can tell more from that than from any story you'd tell me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I don't sell bows, but I've a few good daggers for when the beast gets inside your reach." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Most of your Circle buy one good staff and keep it for a hundred years, which is wonderful for the staff and terrible for my trade." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Balance and grip have been family to me for longer than I can remember, so let me see how you hold your weapon." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I judge a fighter by balance and grip, so let me see how you hold your weapon." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? Ask before you buy, never after." },
@@ -593,7 +593,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Only to one who would treat it as kin. Your spirits might help; I will watch." } },
+      lines = { { id = "xdsham_default", text = "Only to one who would treat it as kin, and I will be watching to see whether you do." } },
       choices = {
         { text = "I would treat it as kin, Lelanai. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A mount is a mount.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -673,7 +673,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "To a kaldorei, or to someone the city honors as exalted, and only if I believe they'll treat it as a companion. A mage who teleports everywhere and leaves a saber pining in a stable is not someone I'd trust with one of mine." },
+        { id = "xmage_default", text = "To a kaldorei, or to someone the city counts as one of its own, and only if I believe they'll treat it as a companion. A mage who teleports everywhere and leaves a saber pining in a stable is not someone I'd trust with one of mine." },
       },
       choices = {
         { text = "I'd never leave a companion behind.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -789,7 +789,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They always do, and I laugh every time. But they learn. Your spirits might soften the fall." } },
+      lines = { { id = "xdsham_default", text = "They always do, and I laugh every time, but they learn. Perhaps your spirits will soften the fall." } },
       choices = {
         { text = "Falling teaches, Jartsam. I will learn.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I will not fall.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1159,7 +1159,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I love it very much. Each one is a promise of colour. Your spirits might favour earth tones." } },
+      lines = { { id = "xdsham_default", text = "I love it very much, because each one is a promise of colour. I suspect your spirits would favour earth tones." } },
       choices = {
         { text = "Take your time, Shalumon. Good work needs it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Colours do not matter.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1510,7 +1510,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "No, they cannot. Spirits help, but linen saves lives. Learn both." } },
+      lines = { { id = "xdsham_default", text = "No, they cannot, because spirits help but linen saves lives, so learn both." } },
       choices = {
         { text = "I will learn both, Dannelor. Every life matters.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Spirits are enough.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1708,7 +1708,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I am suspicious of anything unmeasured. Spirits are unpredictable. Prove otherwise." } },
+      lines = { { id = "xdsham_default", text = "I am suspicious of anything I can't measure, and spirits are unpredictable, so prove me wrong." } },
       choices = {
         { text = "I will prove it with care, Ainethil.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Unpredictable is fine.", next = "BACK", fx = { align = { order = -1 } } },

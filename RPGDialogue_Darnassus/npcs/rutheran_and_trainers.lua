@@ -12,7 +12,7 @@ P:NPC {
     third = "{name} met Vesprystus, who keeps the hippogryphs of Rut'theran Village.",
   },
   greetings = {
-    { id = "g_default", text = "Ishnu-alah, traveler. The hippogryphs are ready, and the wind off the sea is kind today, so the gulls should leave your hat alone." },
+    { id = "g_default", text = "Ishnu-alah, traveler. The hippogryphs are ready, and the wind off the sea is kind today." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the roots of Teldrassil. Where will the wind take you this time?" },
   },
   start = "hello",
@@ -119,7 +119,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! My birds can smell your companion from here, so let me settle them before you come any closer." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You could swim to Auberdine in seal shape if you liked, but my hippogryphs are faster and a good deal drier." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Rut'theran. My hippogryphs will carry you across to Auberdine, but not your servant, because they've a long memory of the Legion's fires." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The sea wind has been an old friend of mine for longer than your mountains have been mined, so tell me, does your wind spirit know it too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The sea wind has been an old friend of mine for a very long time, so tell me, does your wind spirit know it too?" },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The wind can wait, and so can I." },
@@ -350,7 +350,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_prej", when = { prejudiced = true }, text = "A human, come to learn the bow from me. I'll teach you, {class}, but you'll learn first that a hunter here kills to eat, and not to hang a head over the hearth." },
-    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you again. You've not brought me a single trophy to admire in all this time, and I've stopped waiting for one." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you again. You've never once brought a trophy head back from the hunt, and I've stopped expecting one." },
     { id = "g_default", text = "Speak softly. The beasts are listening, and so am I." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Your companion looks well, and so do you." },
   },
@@ -380,7 +380,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They trust those who listen. You listen, it seems. I am more at ease with beasts than with people, and you may be the same." } },
+      lines = { { id = "xdsham_default", text = "They trust those who listen, and you seem to. I am more at ease with beasts than with people myself, and you may be the same." } },
       choices = {
         { text = "Then I will treat them gently, Jeen'ra.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Beasts are beasts. Trust is unnecessary.", next = "BACK", fx = { align = { honor = -1 } } },

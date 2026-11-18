@@ -73,7 +73,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I trust any who heal. Only arcane magic troubles me; spirits are a gentler thing, I hope." } },
+      lines = { { id = "xdsham_default", text = "I trust any who heal, and spirits are a gentler thing than the arcane, I hope, which is the only magic that truly troubles me." } },
       choices = {
         { text = "The spirits are gentle, Alathea. I will prove it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Trust whom you like. I need no approval.", next = "BACK", fx = { align = { light = -1 } } },
@@ -329,7 +329,7 @@ P:NPC {
     },
     mortal_answer = {
       lines = {
-        { id = "ma_default", text = "I tell them that A'moora names the lost by the pool every night, and that Elune hears every name. Some nights that is enough for them, and some nights it is not enough for me, though I'd thank you not to repeat that to the High Priestess." },
+        { id = "ma_default", text = "I tell them that Priestess A'moora names the lost by the pool every night, and that Elune hears every name. Some nights that is enough for them, and some nights it is not enough for me, though I'd thank you not to repeat that to the High Priestess." },
       },
       choices = { { text = "It stays with me.", next = "BACK", fx = { affinity = 3, trait = { discreet = 1 } } } },
     },
@@ -356,7 +356,7 @@ P:NPC {
     },
     arcane_divine = {
       lines = {
-        { id = "ad_default", text = "Be it divine-inspired or not, magic that pulls on the world's threads makes me uneasy. Your Church would tell you some of its own wonders lean that way; ask Laurena about it when you're home, and watch her face." },
+        { id = "ad_default", text = "Divine or not, magic that pulls on the world's threads makes me uneasy. Your Church would tell you some of its own wonders lean that way; ask Laurena about it when you're home, and watch her face." },
       },
       choices = {
         { text = "I will. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -434,7 +434,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I do, with all my heart. Even those who served darkness. A shaman is far from darkness." } },
+      lines = { { id = "xdsham_default", text = "I do, with all my heart, even those who served darkness, and a shaman is a long way from that." } },
       choices = {
         { text = "Then I share your hope, Astarii. Every soul matters.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Some souls are beyond saving.", next = "BACK", fx = { align = { light = -1 } } },
@@ -505,7 +505,7 @@ P:NPC {
     warlock_s = {
       big = true,
       lines = {
-        { id = "ws_default", text = "She heard a man who served the Twilight's Hammer, and he'd done worse than summon an imp, I promise you. Whether you want her to listen is the harder question, and only you can answer it." },
+        { id = "ws_default", text = "Elune once heard a man who served the Twilight's Hammer, and he'd done worse than summon an imp, I promise you. Whether you want her to listen is the harder question, and only you can answer it." },
       },
       choices = {
         { text = "I want to be heard. Even like this.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },

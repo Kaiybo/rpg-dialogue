@@ -158,7 +158,7 @@ P:NPC {
     -- His work
     work = {
       lines = {
-        { id = "wk_default", text = "Soran sells leather and steel below, and I keep the stock and the fitting orders up here, so that every grunt who comes in gets a jerkin that closes over his chest. It's no glorious work, but the guards on the gate are wearing my numbers." },
+        { id = "wk_default", text = "Soran sells leather and steel below, and I keep the stock and the fitting orders up here, so that every grunt who comes in gets a jerkin that closes over his chest. It's no glorious work, but the guards on the gate are wearing armor I fitted." },
       },
       choices = {
         { text = "Were you a warrior once?", next = "work_war" },

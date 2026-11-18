@@ -243,7 +243,7 @@ P:NPC {
     { id = "n_broken", cat = "gear", when = { durability = { max = 0.25 } },
       text = "That armor be held together by hope, mon. Mon'ye can make it look like new, but it won't stop a blade any better, so go see a smith first." },
     { id = "n_sky", cat = "race", when = { race = "Skyborne" },
-      text = "Your people make such fine cloth, Mon'ye hears, with the feathers in the hair and all. One day you must tell me how you dye it." },
+      text = "Mon'ye hears your people weave such fine cloth, with feathers worked right into it. One day you must tell me how you dye it." },
   },
 
   start = "hello",

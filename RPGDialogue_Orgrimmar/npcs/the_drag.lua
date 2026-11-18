@@ -44,7 +44,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Dran Droffers, of Droffers and Son Salvage, and that's me at the front of the name, not the son, whatever he tells you. We buy what other folks dig up and we sell it to folks with more gold than sense, and the margins are beautiful." },
         { id = "h_goblin", when = { race = "Goblin" }, text = "Dran Droffers, and you're one of us, so I'll skip the sales pitch and give you the price I give my cousins. That's the same as everybody else's, by the way, but now you feel special." },
-        { id = "h_ready", when = { questReady = TODO_QUEST("Necklace Recovery") }, text = "Is that it? Is that my necklace? Hand it over, hand it over, and don't you dare tell Jarkal Mossmeld you came here first." },
+        { id = "h_ready", when = { questReady = TODO_QUEST("Necklace Recovery") }, text = "Is that it? Is that my necklace? Hand it over, hand it over, and don't you dare tell that troll Jarkal Mossmeld you came here first." },
       },
       again = {
         { id = "h_again", text = "What else, pal? Talkin' isn't buyin'." },
@@ -111,7 +111,7 @@ P:NPC {
       },
     },
     ripple = {
-      lines = { { id = "ri_default", text = "Because it's fancy, and nobody in Orgrimmar knows what it tastes like, so they'll pay whatever I tell them. Every officer who wants to look cultured buys a bottle, and nobody dares say it tastes like boot polish." } },
+      lines = { { id = "ri_default", text = "Because it's a fancy wine out of the Hinterlands, and nobody in Orgrimmar knows what it should taste like, so they'll pay whatever I tell them. Every officer who wants to look cultured buys a bottle, and nobody dares say it tastes like boot polish." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -195,7 +195,7 @@ P:NPC {
     third = "{name} met Magar, the tailoring trainer who owns Magar's Cloth Goods on Orgrimmar's Drag.",
   },
   greetings = {
-    { id = "g_hi", text = "Mind the bolts, {class}; they're stacked for Rashona, and she counts every one like a warband counts its dead." },
+    { id = "g_hi", text = "Mind the bolts, {class}; they're stacked for Rashona, the cloth quartermaster, and she counts every one like a warband counts its dead." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another lesson? Show me your stitches first, and I'll tell you if you're ready." },
     { id = "g_still", text = "Stand still a moment, would you? I'm not measuring you, I only like to know what I'm talking to." },
     { id = "g_scourge", when = { race = "Scourge" }, text = "Your sleeve's coming away at the shoulder, and I'd guess it has been since before you died. Sit down before it falls off entirely." },
@@ -600,7 +600,7 @@ P:NPC {
       },
     },
     best = {
-      lines = { { id = "be_default", text = "The engineers, because they blow through everything I sell and come back the next day for more. Nogg alone keeps me in business half the year." } },
+      lines = { { id = "be_default", text = "The engineers, because they blow through everything I sell and come back the next day for more. Nogg, who trains the engineers, keeps me in business half the year by himself." } },
       choices = {
         { text = "Nogg must be a good customer.", next = "nogg" },
         { text = "I'm an engineer. Am I a good customer?", next = "engineer", when = { profession = { name = "Engineering" } } },

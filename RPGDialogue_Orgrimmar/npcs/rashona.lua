@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_drag", text = "Mind the bolts on the floor, {class}. Every one of them is a bandage someday." },
+    { id = "g_drag", text = "Mind the bolts of cloth on the floor, {class}. Every one of them will be bandages someday." },
     { id = "g_wool", when = { questActive = TODO_QUEST("A Donation of Wool") }, text = "Wool, is it? Set it on the table and I'll count it in front of you." },
     { id = "g_rune", when = { questDone = TODO_QUEST("A Donation of Runecloth") }, text = "Runecloth from you again, I hope. The healers never stop asking for it." },
     { id = "g_away", when = { away = 21 }, text = "You've been gone {away}, and the pile's gone down twice in that time. Bandages go fast in a city full of soldiers who think a sparring match isn't finished until somebody bleeds." },
@@ -36,7 +36,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Rashona Straglash, cloth quartermaster for the Horde. In the camps we bled through rags, so a simple donation of cloth goes a long way here; it makes garments and bandages, and the Horde never has enough of either." },
         { id = "h_lowlevel", when = { maxLevel = 40 }, text = "Rashona Straglash, cloth quartermaster. You're young for donating, {class}, but keep your scraps when you find them, and come back when your packs are heavy." },
         { id = "h_rune_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Donation of Runecloth"), days = 3 } },
-          text = "The runecloth you brought went to the healers at the Valley of Honor this morning. They said it was the best weave they'd seen this season, and I didn't tell them where it came from, but I thought it." },
+          text = "The runecloth you brought went to the healers at the Valley of Honor this morning. They said it was the best weave they'd seen this season, and I didn't tell them it was yours, but I was proud of it." },
       },
       again = {
         { id = "h_again", text = "What else? I've got counting to do." },

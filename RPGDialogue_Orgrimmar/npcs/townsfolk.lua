@@ -19,7 +19,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Your vault is where you left it, {class}, and so is everything in it. In the camps an orc owned nothing worth locking up; I'd know if a single coin of yours went missing." },
+    { id = "g_hi", text = "Your vault is where you left it, {class}, and so is everything in it, because I'd know if a single coin of yours went missing." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Put it in or take it out, and I'll write it down either way. If it's another sack of murloc eyes, though, I'm charging you for the smell." },
     { id = "g_goblin", when = { race = "Goblin" }, text = "A goblin at an orc's counter. Count it twice if you like, but you'll find I counted it three times." },
   },
@@ -67,7 +67,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I doubt it, but the orcs who listen to them seem to keep less of it and sleep better for it. In the camps we couldn't own a copper, and now we lock up chests of it, so perhaps the spirits are right to laugh at us." } },
+      lines = { { id = "xhsham_default", text = "I doubt they do, and the orcs who listen to them seem to keep less of it and sleep better for it. In the camps we couldn't own a copper, and now we lock up chests of it, so perhaps the spirits are right to laugh at us." } },
       choices = {
         { text = "Gold kept in good order serves the Horde well.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Hoarded gold is just another chain, like the camps.", next = "BACK", fx = { align = { order = -1 } } },
@@ -120,7 +120,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I've seen stranger deposits, but not many stranger depositors. Your vault is your own, whatever you pray to." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my counter. Your kind don't deposit much, I find, though you come back for your coin more often than most." },
-        { id = "h_default", key = true, text = "Karus, of the bank of Orgrimmar. Whatever you leave with me stays locked away until you come for it, and you can reach the same vault from any bank in the Horde. My father owned a chain and a bowl; I like keeping what orcs own now." },
+        { id = "h_default", key = true, text = "Karus, of the bank of Orgrimmar. Whatever you leave with me stays locked away until you come for it, and you can reach the same vault from any bank in the Horde. In the camps my father owned a chain and a bowl, so I like keeping what orcs own now." },
         { id = "h_orc", when = { race = "Orc" }, text = "When we were in the camps, the only thing an orc could own was his anger. Now look at us, queuing for our own vaults like merchants. Your vault is ready, {g:brother|sister}." },
         { id = "h_rich", when = { money = { min = 1000000 } }, text = "You carry more gold than most warbands ever saw. Leave some of it with me before a Kolkar cuts your purse off your belt in the Barrens." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at the vaults. Your kind give back to the earth what they take from it, which is more than most of my depositors do with their gold." },
@@ -570,7 +570,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Come to found a clan of your own? Or have you come to see what one costs?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have you gathered your names yet, or are you still persuading them?" },
-    { id = "g_warsong", when = { origin = "orc_warsong_kin" }, text = "Warsong, by the look of you, and that's one clan that never needed me to tell it what it was. Hellscream's people don't wait for a charter, I know, but you'll find one costs less than a war with the Sentinels." },
+    { id = "g_warsong", when = { origin = "orc_warsong_kin" }, text = "Warsong, by the look of you, and that's one clan that never needed me to tell it what it was. Hellscream's people never waited for anyone's charter, I know, but sign one anyway so the Horde knows who stands with you." },
   },
 
   start = "hello",
@@ -1226,7 +1226,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Sit if you like. Fishing teaches you to sit still before it teaches you anything else." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. Caught anything, or only the weeds and the Barrens' boots?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Caught anything, or only weeds and old boots?" },
     { id = "g_camp", when = { origin = "orc_camp_born" }, text = "Sit down, camp child. You'll not remember a river from behind the fence either, I'd guess, only the trough, so let me show you what water is for when nobody's guarding it." },
   },
 
@@ -1331,7 +1331,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin wants to fish. Well, the river doesn't care, and it was a river that gave me my first peace after the camps, so sit down." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the river. Sit a while if you like; the water's the quietest temple in Orgrimmar." },
-        { id = "h_default", key = true, text = "Lumak. I teach fishing, though most orcs who walk past me think it's a job for peons. In the camps nobody ever fed us enough, so I learned; then they spend a week in the Barrens with nothing but dry jerky, and they come back asking for a pole." },
+        { id = "h_default", key = true, text = "Lumak. I teach fishing, though most orcs who walk past me think it's a job for peons. Then they spend a week in the Barrens with nothing but dry jerky, and they come back asking for a pole." },
         { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear wants fishing lessons from an orc? Your people were fishing off the Echo Isles before mine ever saw the sea. You could probably teach me." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here by the water. Keep your voice low, because the water spirits are easier to frighten than the fish, and a good deal harder to catch." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, here at the river. Sit down and be quiet a while, because you'll know better than most that the water gives more to those who wait for it." },
@@ -1951,7 +1951,7 @@ P:NPC {
   },
 
   topics = {
-    steamwheedle = { { id = "tp_steam", text = "Good people, rich people, and they'd want me to say I don't work for them. I don't, at least not officially." } },
+    steamwheedle = { { id = "tp_steam", text = "Good people and rich people, and I don't work for them, pal, at least not officially." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the best engineering town in Kalimdor, pal, but it's full of sand, and sand gets in the gears. I came to Orgrimmar for the dry air, and the explosions here are cleaner." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's got Gazlowe, and Gazlowe's got the docks, and the docks have got every part you'd ever need. I order from him twice a month, and he still overcharges me, which is how you know he likes me." } },
     venture_company = { { id = "tp_venture_company", text = "The Venture Company's engineers are cheap, sloppy, and dangerous, and they make the rest of us look bad. I blow things up on purpose, and there's a difference." } },
