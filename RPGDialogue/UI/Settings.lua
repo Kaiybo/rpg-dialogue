@@ -335,6 +335,7 @@ local function build()
   checkbox(L.OPT_NEW_MARKER, "newMarker")
   checkbox(L.OPT_BARKS, "barks")
   checkbox(L.OPT_LETTERS, "letters", { onChange = function() if UI.Letters then UI.Letters.Refresh() end end })
+  checkbox(L.OPT_FLIRTING, "flirting")
   checkbox(L.OPT_INSANITY, "insanityFx")
   slider(L.OPT_INSANITY_LEVEL, "insanityIntensity", 0, 1, 0.1, percent, { dependsOn = "insanityFx" })
 
