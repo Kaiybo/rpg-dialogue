@@ -25,7 +25,7 @@ P:NPC {
 
   notice = {
     { id = "n_forsaken", cat = "race", place = "before", when = { race = "Scourge" },
-      text = "You are dead, and you are walking, and you are talking to me, which is three things I object to. At least you have the manners to talk." },
+      text = "You are dead, and you are walking, and you are talking to me, which is three things I object to. The talking I can forgive; the other two are a matter of principle." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest! Do you lay the dead to rest, or merely pray over them? I have heard both from your kind, and only one is any use to me." },
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
@@ -43,7 +43,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Marrosis, and I clean up after death. That is the cycle: the dead fall, I eat, the ground grows green again. These undead are a blight on all of it, and I would be very glad to see them put to rest so the healing can begin." },
         { id = "h_food", when = { metBefore = true },
-          text = "They are still moving, you will notice. It is a bit annoying to have my food get up and wander off; I am not in the habit of chasing down my meals." },
+          text = "They are still moving, you will notice. Do you know how undignified it is to have your dinner get up and wander off? I am a vulture; I do not chase my meals." },
         { id = "h_grave", tags = { "news" }, when = { questActive = TODO_QUEST("Disturbed Grave") },
           text = "You have been digging among the graves. Mind what you turn up; not everything down there wants to be found, and some of it bites." },
         { id = "h_ring", tags = { "news" }, when = { questActive = TODO_QUEST("Belle's Ring") },
@@ -127,7 +127,7 @@ P:NPC {
       },
       choices = {
         { text = "Then thank you. I mean that.", next = "BACK", reply = "You do, I can hear it, and it is so strange a sound that I do not know where to put it, so I will keep it with the bones I like best.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Death serves life. That's a cold comfort.", next = "BACK", reply = "Cold? Nothing that feeds the grass is cold, little meat, it is only that you prefer to be on the eating end of the circle and not the eaten.", fx = { align = { light = -1 } } },
+        { text = "So death feeds life. Forgive me if that's cold comfort.", next = "BACK", reply = "Cold? Nothing that feeds the grass is cold, little meat, it is only that you prefer to be on the eating end of the circle and not the eaten.", fx = { align = { light = -1 } } },
         { text = "Do the other Wild Gods respect you?", next = "cycle_gods" },
         { text = "Something else.", next = "BACK" },
       },

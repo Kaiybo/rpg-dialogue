@@ -101,7 +101,7 @@ P:NPC {
         { text = "Do you think the Legion is finished?", next = "op_ask" },
         { text = "Why do you hunt these demons?", next = "why" },
         { text = "Those bonfires are no cooking fires.", next = "bonfires" },
-        { text = "I don't know this Dae'gun you speak of.", next = "daegun" },
+        { text = "Where is this Dae'gun you keep mentioning?", next = "daegun" },
         { text = "What does a blademaster do?", next = "path" },
         { text = "Tell me about the spirit bead you offered.", next = "bead", when = { questDone = TODO_QUEST("Yashiro's Windwalk") } },
         { text = "Our peoples fought together here, didn't they?", next = "xally", when = { faction = "Alliance" } },
@@ -131,8 +131,8 @@ P:NPC {
         { id = "wv_default", text = "Vengeance, I think, though I tell myself it is duty on the days I want to sleep. The demons will come seeking dominance when they see my fires, and they will find vengeance waiting instead, and I will not be sorry." },
       },
       choices = {
-        { text = "Vengeance keeps the blade sharp. Use it.", next = "BACK", reply = "It does, and I will not pretend otherwise, but a blade kept sharp too long cuts the hand that holds it, and some nights I can feel the edge.", fx = { align = { light = -1 } } },
-        { text = "Fight for the living, not the dead.", next = "BACK", reply = "You speak like Thrall, and he would be glad to hear it, so I will try to remember the living when I light the next fire, though the dead are louder.", fx = { align = { light = 1 } } },
+        { text = "Vengeance keeps the blade sharp. Use it.", next = "BACK", reply = "It does, and I will not pretend otherwise, not to you. But there are nights by the fire when I look at my own hands and wonder whose they are.", fx = { align = { light = -1 } } },
+        { text = "Fight for the living, not the dead.", next = "BACK", reply = "You speak like Thrall. I will try to remember the living when I light the next fire, though I warn you, the dead are louder.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -169,8 +169,8 @@ P:NPC {
         { id = "bff_default", text = "A little, yes, and the druids frown at me for it. But a burned clearing grows back in a season, and a demon left alone poisons the ground for a hundred years, so I will take the frowns." },
       },
       choices = {
-        { text = "A small wound to heal a greater one. Agreed.", next = "BACK", reply = "Then you understand the hard arithmetic of this mountain, and I am glad, because the druids will not do it for me and the demons will not wait.", fx = { align = { order = -1 } } },
-        { text = "Ask the druids first. It's their mountain.", next = "BACK", reply = "I have asked, and they answered with frowns and long silences, but you are right that it is their mountain, so I will ask again and listen better.", fx = { align = { order = 1 } } },
+        { text = "Burn a little to save the rest. I'd do the same.", next = "BACK", reply = "You see it, then. Good; the druids will not do that sum for me, and the demons will not wait while I argue it with them.", fx = { align = { order = -1 } } },
+        { text = "Ask the druids first. It's their mountain.", next = "BACK", reply = "I have asked, and they answered with frowns and long silences. Still, you are right that it is their mountain, so I will go to the Circle again, and this time I will listen longer than I speak.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -228,7 +228,7 @@ P:NPC {
         { id = "ps_default", text = "A warrior who rages swings wide and dies tired. A blademaster waits until the enemy has shown him everything, and then he ends it in one stroke, and the stroke is the easy part; the waiting is the discipline." },
       },
       choices = {
-        { text = "Patience is the harder strength.", next = "BACK", reply = "It is, and few young warriors believe it until they have been cut by someone calmer than themselves, so remember you heard it from me first.", fx = { align = { order = 1 } } },
+        { text = "Patience is the harder strength.", next = "BACK", reply = "It is. Few young warriors believe it until someone calmer than they are opens them up, and I would rather you learned it from me.", fx = { align = { order = 1 } } },
         { text = "I'd rather strike first and keep striking.", next = "BACK", reply = "Then you will win many fights and lose the last one, young warrior, and I hope you learn otherwise before that one finds you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -258,8 +258,8 @@ P:NPC {
         { id = "xh_priest", when = { class = "PRIEST" }, text = "A priest at my back, in Dae'gun. My grandfather would choke on his grog, but my grandfather never fought a doomguard, and I will take any light that keeps me standing." },
       },
       choices = {
-        { text = "Mend first. Glory can wait.", next = "BACK", reply = "Wise words from a healer, and the shaman who saved me would have said the same, though he cursed me loudly the whole time he was doing it.", fx = { align = { light = 1 } } },
-        { text = "I'll keep you standing, and the demons won't.", next = "BACK", reply = "Then we will have a good fight, you and I, and the demons will learn that a blademaster with a healer at his back does not fall easily.", fx = { align = { light = -1 } } },
+        { text = "Mend first. Glory can wait.", next = "BACK", reply = "The shaman who saved me said exactly that, and cursed me in three tongues while he stitched me shut. You only said it once, which I appreciate.", fx = { align = { light = 1 } } },
+        { text = "I'll keep you standing, and the demons won't.", next = "BACK", reply = "Then Dae'gun is in for a long night. I have never fought with a priest at my back, and I think I am going to like it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -269,7 +269,7 @@ P:NPC {
         { id = "xb_default", text = "I cannot teach you in a day what took me twenty years, but I can tell you where to start. Stop watching the blade in your enemy's hand and watch his feet instead, because the feet always tell you where the blade will be." },
       },
       choices = {
-        { text = "I'll learn it the patient way.", next = "BACK", reply = "Good, because the patient way is the only way that lasts, and I will be watching your feet as closely as you watch theirs.", fx = { align = { order = 1 } } },
+        { text = "I'll learn it the patient way.", next = "BACK", reply = "Good. Come to my fire at dusk, then: I will move, and you will watch my feet and tell me where my blade is going.", fx = { align = { order = 1 } } },
         { text = "I learn faster by fighting. Point me at a demon.", next = "BACK", reply = "Hah, you sound as I did at your age, so go, and come back with your bruises, and then we will talk about watching feet again.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -315,7 +315,7 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The undead marched before the demons on this mountain, and they fell like grass. The ones in the north are the same, and I would cut them the same way." } },
     cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is a wise chieftain and a great warrior, and the tauren saved many of us at the mountain. I bow to him whenever we meet." } },
     tyrande = { { id = "tp_tyrande", text = "The high priestess and her Sentinels fought beside us on this mountain. In Ashenvale we fight them now, and I find no honour in it." } },
-    the_elements = { { id = "tp_the_elements", text = "A shaman saved my life once, when I should have died. I have honoured the spirits since, though I do not hear them as she did." } },
+    the_elements = { { id = "tp_the_elements", text = "A shaman saved my life once, when I should have died. I have honoured the spirits since, though I do not hear them as he did." } },
     _none = { { id = "tp_none", text = "I know nothing of that. Ask someone who spends less time with a sword in hand and less blood on the snow." } },
   },
 }

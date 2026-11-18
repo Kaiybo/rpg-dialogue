@@ -146,7 +146,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Was there something else? I do have reading to do." },
-        { id = "h_again2", text = "Yes? Briefly. Silence is the whole point of a library." },
+        { id = "h_again2", text = "Yes? Briefly, please; silence is the whole point of a library." },
       },
       choices = {
         { text = "The House of Nobles seems troubled.", next = "house" },
@@ -281,7 +281,7 @@ P:NPC {
     { id = "n_big", cat = "body", when = { class = "WARRIOR" },
       text = "Now there's a pair o' shoulders. Fancy a round? Not o' drinks, mind, the other kind." },
     { id = "n_drink", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Ye're drunk. Good. Makes it fair, since I am too." },
+      text = "Ye're drunk? Good, that makes it fair, since I am too." },
   },
 
   start = "hello",
@@ -369,7 +369,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's someone who looks like they could take a punch, though I'd wager ye're not allowed tae throw one back." },
         { id = "h_default", text = "Dashel Stonefist. Folk call me Fist, on account o' the fists, an' I drink in Old Town an' settle arguments in Old Town, usually the same evening." },
         { id = "h_diplomat", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
-          text = "A diplomat? Never met one. Ask me again an' ye'll be askin' from the floor." },
+          text = "A diplomat? Never met one, an' if ye ask me that again ye'll be askin' from the floor." },
         { id = "h_after", when = { questDone = TODO_QUEST("The Missing Diplomat"), heardLine = "dashel.h_diplomat" },
           text = "No hard feelings. Ye hit like a mule, an' I respect a mule, so buy me a drink an' we'll call it square." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -936,7 +936,7 @@ P:NPC {
       },
     },
     rogue2 = {
-      lines = { { id = "rogue2_l", text = "Lovely. Wonderful. I'll add it to the list of things I can't afford to fix and can't tell the Captain about." } },
+      lines = { { id = "rogue2_l", text = "Oh, lovely, just wonderful. I'll add it to the list of things I can't afford to fix and can't tell the Captain about." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

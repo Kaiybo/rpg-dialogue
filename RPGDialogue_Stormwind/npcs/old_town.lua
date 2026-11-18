@@ -101,7 +101,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Loud, shining and very hard to kill, and the men fought better with one nearby. They never ran, and that was the trouble sometimes, because a soldier who won't run will stay when he ought to fall back." } },
       choices = {
-        { text = "A paladin holds the line. That's what the oath means.", next = "BACK", reply = "It is, and the good ones kept it. Mind you keep it too.", fx = { align = { honor = 1 } } },
+        { text = "A paladin holds the line. That's what the oath means.", next = "BACK", reply = "That's the oath, and the good ones kept it to the last. Mind you keep it too.", fx = { align = { honor = 1 } } },
         { text = "A wise paladin knows when to fall back and save his men.", next = "BACK", reply = "There's wisdom in that, and I saw it save men more than once. Keep both in your head.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -702,7 +702,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll learn it properly, the slow way.", next = "BACK", reply = "Good. The slow way's the only way that tastes like anything.", fx = { align = { honor = 1 } } },
-        { text = "A quick fire's good enough for me, Stephen.", next = "BACK", reply = "Then you'll eat burnt meat for the rest of your life. Suit yourself.", fx = { align = { honor = -1 } } },
+        { text = "A quick fire's good enough for me, Stephen.", next = "BACK", reply = "Burnt meat for the rest of your days, then. Suit yourself, but don't bring it near my table.", fx = { align = { honor = -1 } } },
         { text = "Something else, Stephen.", next = "BACK" },
       },
     },
@@ -738,7 +738,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Something warm and plain, and not too much of it, because nobody fights well with a belly full of pie. The old Barracks cooks swore by porridge and a bit of salted pork, and I've never heard better." } },
       choices = {
         { text = "Plain food and a clear head. I'll remember that.", next = "BACK", reply = "Good. The porridge lads at the Barracks knew a thing or two.", fx = { align = { order = 1 } } },
-        { text = "I'll eat what I like before a fight, thanks.", next = "BACK", reply = "Then you'll fight with a heavy stomach. Your choice, but don't come crying to me.", fx = { align = { order = -1 } } },
+        { text = "I'll eat what I like before a fight, thanks.", next = "BACK", reply = "A heavy stomach's a poor thing to carry into a fight, but it's your stomach. Don't come crying to me after.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -759,7 +759,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "I saw a few of them work three days without sleep, and I saw one fall in the mud and get up again without a word. I'm just a cook now, but I make sure the ones who come in here eat first." } },
       choices = {
         { text = "Then you're serving the wounded too, Stephen, in your way.", next = "BACK", reply = "I like to think so. A full belly is half of getting better.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Healers should know their limits. Fainting helps nobody.", next = "BACK", reply = "They should, but they rarely do, and I'd rather feed them than scold them.", fx = { align = { light = -1 } } },
+        { text = "Healers should know their limits. Fainting helps nobody.", next = "BACK", reply = "They should, but they never do. I'd rather put a bowl of stew in front of them than a lecture.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -790,7 +790,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the smoke, because those ribs want me back at the grill." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on, while the stew simmers." },
       },
       choices = {
         { text = "Teach me to cook.", next = "BUSINESS" },
@@ -876,7 +876,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Some do, and those I'm proud of. Others leave for glory, and I wish them well. I'd guess a shaman doesn't stay put either." } },
       choices = {
         { text = "I'll finish what I start, Simon. That's a promise.", next = "BACK", reply = "Good. I'll hold you to it, and I'll be glad to.", fx = { align = { honor = 1 } } },
-        { text = "Adventure calls louder than leather. Let them go.", next = "BACK", reply = "They do, and I'll wish them well too. Just leave me your jerkin when you go.", fx = { align = { honor = -1 } } },
+        { text = "Adventure calls louder than leather. Let them go.", next = "BACK", reply = "Let them go, then, and I'll wish them well. Just leave me your jerkin on the way out.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -896,7 +896,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "I think it remembers how it was treated, because leather from a beast killed badly never sits right, however well I cure it. My old master said that, and I thought he was mad until I'd tanned a thousand hides." } },
       choices = {
         { text = "Then honour every hide, Simon. The beast gave everything.", next = "BACK", reply = "I will. My master taught me that, and it's the best lesson I ever had.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Leather is leather, Simon. The beast is gone.", next = "BACK", reply = "Gone, aye, but it lives on in the hide. A good tanner never forgets that.", fx = { align = { honor = -1 } } },
+        { text = "Leather is leather, Simon. The beast is gone.", next = "BACK", reply = "Gone, aye, but it lives on in the hide, and I'll thank you to remember that while you're wearing it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -935,7 +935,7 @@ P:NPC {
       },
       choices = {
         { text = "A clean kill and respect for the hide. That's my way.", next = "BACK", reply = "Then you'll bring me good hides, and I'll pay you well for them.", fx = { align = { honor = 1 } } },
-        { text = "A hide's a hide. If it sells, it's good enough.", next = "BACK", reply = "Then you'll sell it for half, and you'll wonder why. Take your time with it.", fx = { align = { honor = -1 } } },
+        { text = "A hide's a hide. If it sells, it's good enough.", next = "BACK", reply = "And you'll get half the price for it and wonder why. Take your time with the knife, friend.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -953,7 +953,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "The careful ones do, and they come back, and the ones who don't come in on their second visit with blisters and a much humbler manner. I'd rather fit you properly the first time." } },
       choices = {
         { text = "Then fit me well, Simon. Good preparation is part of duty.", next = "BACK", reply = "There's a knight with sense. Stand still and I'll measure you properly.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A little chafing never hurt anyone. I'll manage as I am.", next = "BACK", reply = "Then you'll be back on your second visit with blisters. I'll be here.", fx = { align = { order = -1 } } },
+        { text = "A little chafing never hurt anyone. I'll manage as I am.", next = "BACK", reply = "You'll be back on your second visit with blisters, and I'll be right here, trying not to say I told you so.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1014,7 +1014,7 @@ P:NPC {
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's tents are leather, and the finest I've ever seen, stitched by someone who knew what he was about. I'd give a year's earnings to meet the man who made them." } },
     timbermaw = { { id = "tp_timbermaw", text = "The furbolgs of the Timbermaw make leather armour that's lasted a hundred years, so the hunters say. I'd like to learn from them, though I'm told they don't care for visitors." } },
     booty_bay = { { id = "tp_booty_bay", text = "The finest leather in the world comes from the raptors of Stranglethorn, and Booty Bay's the only port that sells it. I buy when I can, and I curse the price every time." } },
-    knows = { { id = "tp_knows", text = "Hunters and skinners bring me their hides and their stories together. Ask, and I'll tell you what came in with them." } },
+    knows = { { id = "tp_knows", text = "Hunters and skinners bring me their hides and their stories together. The hides I tan; the stories you're welcome to." } },
     background = { { id = "tp_bg", text = "A leatherworker and a teacher, in Old Town most of my life. The hides tell better stories than I do." } },
     advice = { { id = "tp_ad", text = "Skin carefully, because a torn hide's only fit for scraps. Patience at the carcass saves you coin at the bench." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. I know leather, and leather doesn't gossip." } },
@@ -1194,7 +1194,7 @@ P:NPC {
       lines = { { id = "d_default", text = "SI:7. The kingdom's eyes and ears, and its knife when it needs one. If you're not meant to be inside, you won't get further than me, and I'm much friendlier than what's past me.",
         fx = { learn = { "si7" } } } },
       choices = {
-        { text = "A kingdom needs its knives.", next = "BACK", reply = "It does, and I'm one of them. Good of you to understand.", fx = { align = { order = 1 } } },
+        { text = "A kingdom needs its knives.", next = "BACK", reply = "It does, and you're looking at one of them. Good of you to understand.", fx = { align = { order = 1 } } },
         { text = "Knives in the dark make for a frightened kingdom.", next = "BACK", reply = "Maybe so, but a kingdom without them is a kingdom that doesn't wake up. I'll keep mine sharp.", fx = { align = { order = -1 } } },
         { text = "Who runs it?", next = "door_shaw" },
         { text = "Something else.", next = "BACK" },
@@ -1326,7 +1326,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Anyone with coin and a quiet voice. Your spirits needn't approve, but they might keep a secret better than most." } },
       choices = {
         { text = "Poisons have no honour, Jasper. I'll pass.", next = "BACK", reply = "Then pass, and keep your honour. I'll keep my customers.", fx = { align = { honor = 1 } } },
-        { text = "Coin and quiet. That's a fair arrangement.", next = "BACK", reply = "It is, and you'll find me very fair. Quiet and coin, nothing else.", fx = { align = { honor = -1 } } },
+        { text = "Coin and quiet. That's a fair arrangement.", next = "BACK", reply = "You'll find me very fair, friend. Quiet and coin, and nothing else changes hands.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1361,7 +1361,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They buy candles, chalk and quiet, and they pay in coin that's always a little warm, which I've decided not to wonder about. I keep their business and SI:7's business on separate shelves, and so far nobody has asked me to choose." } },
       choices = {
-        { text = "Keep it that way. The city needs its balance.", next = "BACK", reply = "It does, and I'll keep it. Balance is good for business.", fx = { align = { order = 1 } } },
+        { text = "Keep it that way. The city needs its balance.", next = "BACK", reply = "Oh, I'll keep it. Balance is good for business, and business is good for me.", fx = { align = { order = 1 } } },
         { text = "When they ask you to choose, choose the Lamb.", next = "BACK", reply = "Then I'll never be asked, if I'm lucky. Choosing's bad for trade.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

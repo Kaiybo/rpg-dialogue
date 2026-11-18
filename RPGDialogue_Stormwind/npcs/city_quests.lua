@@ -208,7 +208,7 @@ P:NPC {
       lines = { { id = "xe_default", text = "A real engineer, finally! Here, look at the gearing on the main shaft, no, the other way up, and tell me straight whether the torque ratio is mad or merely ambitious." } },
       choices = {
         { text = "Merely ambitious.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Mad. Completely mad. I love it.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "It's completely mad, and I love it.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
 

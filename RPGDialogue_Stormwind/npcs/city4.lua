@@ -71,7 +71,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Gladly, if the Keep ever lets the army march anywhere, because a healer who can take a wolf's shape and run would be worth a squad. I've read the reports from Ashenvale, and I'd trust your people on a flank." } },
       choices = {
         { text = "Send for us, General, and we'll come.", next = "BACK", reply = "I'll hold you to that, and I'll be glad of it when the Keep finally lets me march.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "My people fight for Ashenvale first, General, not for Stormwind's wars.", next = "BACK", reply = "Then fight well there, and I hope Ashenvale holds. A forest that falls to the Horde is no good to anyone.", fx = { align = { honor = -1 } } },
+        { text = "My people fight for Ashenvale first, General, not for Stormwind's wars.", next = "BACK", reply = "Then fight well there, and I hope Ashenvale holds. If it falls, the Horde's next stop is Darkshore, and after that, my wall.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -616,7 +616,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Before every change of the watch, though the men would never say so aloud. The king himself is missing, so if a prayer helps them stand a little straighter, I won't forbid it." } },
       choices = {
-        { text = "Faith keeps a guard steady, Major. Let them pray.", next = "BACK", reply = "They do, and I'll not stop them. A guard who believes stands straighter.", fx = { align = { light = 1 } } },
+        { text = "Faith keeps a guard steady, Major. Let them pray.", next = "BACK", reply = "I'd never stop them. Half my night shift says a prayer at the gate before they take the torch, and they stand straighter for it.", fx = { align = { light = 1 } } },
         { text = "Discipline keeps a guard steady. Prayer is for afterwards.", next = "BACK", reply = "After is often too late. I'll let them do both.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -836,7 +836,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Every morning there's a basket for the orphans and another for the poor at the steps, and the Cathedral pays when it can. My foot says I shouldn't walk that far, but the children are always waiting, so the foot loses again." } },
       choices = {
-        { text = "That's holy work, Thomas, and the children are lucky.", next = "BACK", reply = "They are, and so am I, to have bread to give. Thank you, friend.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's holy work, Thomas, and the children are lucky.", next = "BACK", reply = "So am I, to have bread to give them. Some weeks the ovens barely manage it. Thank you, friend.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You'll ruin yourself giving it away. Charge them full price.", next = "BACK", reply = "Maybe I will, friend, but there's worse ways to go broke. My wife says the same, only louder.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

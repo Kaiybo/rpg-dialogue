@@ -1106,7 +1106,7 @@ P:NPC {
       lines = { { id = "kf2_default", text = "Then we're kin of a sort, friend, two men who lost the ground under them and kept walking about on it anyway. I won't tell the guards you were here, and I'll say a little prayer for whoever you used to be." } },
       choices = {
         { text = "Keep your prayers. The Light abandoned us.", next = "BACK", reply = "I'm sorry to hear it, friend, truly. I'll keep praying anyway, out of habit, and you needn't take any of it.", fx = { align = { light = -1 } } },
-        { text = "Thank you. Perhaps someone is still listening.", next = "BACK", reply = "Someone is, friend, I'm sure of it. Even an old beggar gets heard now and then.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Thank you. Perhaps someone is still listening.", next = "BACK", reply = "Someone is, friend, I'm sure of it. You did, didn't you, and you're not even a priest.", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
     k_vancleef = {
@@ -1203,7 +1203,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "A pitchfork, once, when the orcs came through Elwynn in the First War and we all thought we'd be heroes. I ran, if you want the truth, and I've never been ashamed of it, because I'm still here to sit on this step." } },
       choices = {
         { text = "There's no shame in living, Topper.", next = "xwarcl2", fx = { align = { honor = -1 } } },
-        { text = "Running is never right when others are standing.", next = "xwarcl2", fx = { align = { honor = 1 } } },
+        { text = "You don't run while others are still standing, Topper. Not ever.", next = "xwarcl2", fx = { align = { honor = 1 } } },
         { text = "What happened to the others who stood?", next = "xwarcl2" },
       },
     },

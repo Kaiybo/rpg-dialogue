@@ -108,7 +108,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "It must be, for I've seen priests who lost their discipline burn as badly as any careless mage. Power that is granted can be withdrawn, and power that is studied can be misused, and I am not certain which is the greater danger." } },
       choices = {
         { text = "Power given in faith is safer than power taken by study.", next = "BACK", reply = "Safer, perhaps, until it's withdrawn. I'd not stake my life on either alone.", fx = { align = { light = 1 } } },
-        { text = "Studied power answers to the mind. That makes it safer.", next = "BACK", reply = "That's the Kirin Tor's answer, and I've seen it fail too. The mind is a fragile master.", fx = { align = { light = -1 } } },
+        { text = "Studied power answers to the mind. That makes it safer.", next = "BACK", reply = "That's the Kirin Tor's answer, and I've watched it fail in Dalaran's own halls. Kel'Thuzad studied very carefully, too.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -116,7 +116,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Respect it, certainly, for every power in this world asks a price of those who wield it. The paladins who frightened me were never the doubtful ones, only those who were sure the Light could never be wrong." } },
       choices = {
-        { text = "A paladin follows the order's teaching, not his own certainty.", next = "BACK", reply = "A sound order and a humble knight, then. That combination has rarely gone wrong.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A paladin follows the order's teaching, not his own certainty.", next = "BACK", reply = "A sound order and a humble knight, then. Uther would have liked you, I think.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A paladin must trust conscience above any teacher.", next = "BACK", reply = "Conscience, yes, if it's been tested. Certainty without testing is what frightened me.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -320,7 +320,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Not as you are, no. We had our magisters and our Sunwell, and we lost much of both, so I would not dismiss any path that might heal." } },
       choices = {
         { text = "Every path that heals deserves respect, Elsharin.", next = "BACK", reply = "They do, and I'm glad to hear a {class} say it. Quel'Thalas could use more healing.", fx = { align = { light = 1 } } },
-        { text = "Some paths lead nowhere. Choose with care.", next = "BACK", reply = "They do, and I've walked some of them. I'll be careful.", fx = { align = { light = -1 } } },
+        { text = "Some paths lead nowhere. Choose with care.", next = "BACK", reply = "I've walked a few of those myself, to my cost. I'll be careful.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -355,8 +355,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Farstriders, who guarded our forests for thousands of years, and they move with a patience your soldiers would find maddening. They wait in the trees for hours, and then a battle is over in a breath." } },
       choices = {
-        { text = "Patience is a weapon too. I'll learn it.", next = "BACK", reply = "It is, and the Farstriders would welcome you for learning it. Patience wins long wars.", fx = { align = { order = 1 } } },
-        { text = "Waiting is wasted time. Strike first and strike hard.", next = "BACK", reply = "Then you'll win short fights and lose long wars. The Farstriders have seen both.", fx = { align = { order = -1 } } },
+        { text = "Patience is a weapon too. I'll learn it.", next = "BACK", reply = "Good. The Farstriders would welcome you for it; we once waited three days in a tree for a single troll scout.", fx = { align = { order = 1 } } },
+        { text = "Waiting is wasted time. Strike first and strike hard.", next = "BACK", reply = "Then you'd not have lasted a season with the Farstriders. The Amani waited out our patrols for years, and struck the night someone grew impatient.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -367,7 +367,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every day, and every night more so, because these human streets have no stars in them. Your {pet} has a kind look, though it is restless among all this stone. Take it out into Elwynn often; it will thank you for it." },
       },
       choices = {
-        { text = "The wild should be guarded, like the Sentinels guard it.", next = "BACK", reply = "It should, and I'd not argue with the Sentinels on that. The forest remembers its guardians.", fx = { align = { light = 1 } } },
+        { text = "The wild should be guarded, like the Sentinels guard it.", next = "BACK", reply = "I'd not argue with the Sentinels on that, nor with anyone who's walked Eversong at night. A wood left unguarded fills up with trolls.", fx = { align = { light = 1 } } },
         { text = "The wild is a resource. It should be used.", next = "BACK", reply = "That's how my people saw the Sunwell, and you can see where it led us. I'd be careful.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -576,7 +576,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "In principle, yes, once someone of sufficient skill anchors one there, though I doubt your elders would let a human mage carve a door into their tree. Until then you'll take the boat from Menethil like everyone else." } },
       choices = {
-        { text = "My elders are right. Some places should stay hard to reach.", next = "BACK", reply = "They are, and I respect it, though I find it professionally frustrating.", fx = { align = { order = 1 } } },
+        { text = "My elders are right. Some places should stay hard to reach.", next = "BACK", reply = "I respect it, truly, though I'll admit I find it professionally frustrating.", fx = { align = { order = 1 } } },
         { text = "They should allow it. Distance only keeps allies strangers.", next = "BACK", reply = "My thinking exactly, though I suspect your elders will need more convincing than you do.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -739,7 +739,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "They did, my friend, because power seeks power, and the spirits are slow and fussy while demons are quick. I merely note what history shows." } },
       choices = {
         { text = "I'll keep to slow and honest power, thank you.", next = "BACK", reply = "Then you'll live longer and achieve less. I'll not say which I'd choose.", fx = { align = { order = 1 } } },
-        { text = "History favours the bold. I'll remember that.", next = "BACK", reply = "It does, my friend, and history is very generous to those who remember it.", fx = { align = { order = -1 } } },
+        { text = "History favours the bold. I'll remember that.", next = "BACK", reply = "Bold, yes, and the bold also fill most of the footnotes about explosions. Remember that part too, my friend.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -990,7 +990,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Because what I teach can burn a street to the ground, and the crown would like to know whose street. I don't resent the watching, so long as Shaw's people remember that I'm watching them back." } },
       choices = {
         { text = "The crown is right to watch you. Somebody must.", next = "BACK", reply = "Somebody must, and Shaw does it well. I'd rather have him than an idiot.", fx = { align = { order = 1 } } },
-        { text = "What you teach down here is nobody's business but yours.", next = "BACK", reply = "It is, and the crown knows it, and leaves us alone. Mostly.", fx = { align = { order = -1 } } },
+        { text = "What you teach down here is nobody's business but yours.", next = "BACK", reply = "The crown knows it, and leaves us alone, mostly. Shaw's men still come by to count the candles.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1109,7 +1109,7 @@ P:NPC {
       big = true,
       lines = { { id = "price_l", text = "Worth it to whom? To the kingdom, which uses us and pretends not to, yes. To you, only if you're strong enough to keep paying, and most of my students weren't." } },
       choices = {
-        { text = "I'll pay whatever it costs.", next = "BACK", reply = "Then you'll pay it, and we'll see what's left of you afterwards. Most can't.", fx = { align = { light = -2 } } },
+        { text = "I'll pay whatever it costs.", next = "BACK", reply = "Pay it, then, and we'll see what's left of you afterwards. Most who say that leave less behind than they hoped.", fx = { align = { light = -2 } } },
         { text = "I'll stop before it costs too much.", next = "price_stop", fx = { align = { light = 1 } } },
       },
     },
@@ -1125,7 +1125,7 @@ P:NPC {
       lines = { { id = "gakin_l", text = "He's clever, and soft, and too fond of the students who disappoint him. He still says Surena's name like a wound, and I've told him that's a weakness." } },
       choices = {
         { text = "Or a kindness.", next = "BACK", reply = "Kindness is a weakness wearing a nicer robe. Gakin would agree with you, though.", fx = { align = { light = 1 } } },
-        { text = "You're right. Sentiment gets warlocks killed.", next = "BACK", reply = "It does, and I've seen it happen. Gakin should listen to you.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "You're right. Sentiment gets warlocks killed.", next = "BACK", reply = "I've seen it happen, more than once. Tell Gakin that, would you? He won't hear it from me.", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
   },
@@ -1227,7 +1227,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a much better listener than any imp I've known, I'll tell you that! Imps are dreadful listeners, and they bite." },
       },
       choices = {
-        { text = "Beasts deserve better than demon tricks.", next = "BACK", reply = "They do, and my cousin's dog agreed. I've stopped experimenting on animals.", fx = { align = { light = 1 } } },
+        { text = "Beasts deserve better than demon tricks.", next = "BACK", reply = "My cousin's dog would agree with you, and loudly. I've stopped experimenting on animals since.", fx = { align = { light = 1 } } },
         { text = "If it works on an imp, it might work on my pet.", next = "BACK", reply = "It might, though I'd be very careful, and I'd stand well back. My cousin's dog still stares.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1236,7 +1236,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "It did at first, but then I worked out that the books will be sold anyway, and at least I keep a ledger. I've never sold one to anybody who couldn't already summon something, so I like to think I'm only improving their manners." } },
       choices = {
-        { text = "Improving a demon's manners still feeds the demon, Spackle.", next = "BACK", reply = "It does, a little, but a demon with manners is less likely to eat the neighbours.", fx = { align = { light = 1 } } },
+        { text = "Improving a demon's manners still feeds the demon, Spackle.", next = "BACK", reply = "A little, I'll grant you, but a demon with manners is far less likely to eat the neighbours.", fx = { align = { light = 1 } } },
         { text = "I'd rather buy from a careful dealer than a reckless one.", next = "BACK", reply = "Thank you! That's exactly how I see it, and I keep very good books.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1266,7 +1266,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, I'm afraid none of my grimoires will do anything for you, unless you'd like to read about how a voidwalker blocks a sword. It's fascinating, really." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I sell grimoires for demons, not beasts, but I've always thought the principles were rather similar, haven't you?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! I've no grimoires for you, sadly, because nobody's ever written down how to talk to a tree, or if they have, the tree kept the book." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do your elementals have little personalities? My demons certainly do. One of them sulks. It's adorable." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do your elementals have little personalities? My demons certainly do, and one of them sulks, which is adorable." },
       },
       again = {
         { id = "h_again", text = "What else? I love a good chat between customers, and by my own tally I sell eleven percent more grimoires while I'm talking." },

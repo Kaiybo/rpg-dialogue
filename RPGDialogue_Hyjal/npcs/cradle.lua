@@ -118,7 +118,7 @@ P:NPC {
       },
       choices = {
         { text = "What was lost can be rebuilt.", next = "BACK", reply = "Rebuilt, perhaps, but not returned, and you speak as one who has never woken to find ten thousand years taken from them in a single night.", fx = { align = { light = 1 } } },
-        { text = "Every victory costs. That's war.", next = "BACK", reply = "Spoken like a soldier, and I cannot fault it, though I would ask you to remember that some prices are paid long after the songs are finished.", fx = { align = { light = -1 } } },
+        { text = "Every victory costs. That's war.", next = "BACK", reply = "Spoken like a soldier, and I cannot fault it. Walk down into Felwood one day, though, and tell me the bill has been settled.", fx = { align = { light = -1 } } },
         { text = "Do you regret the battle?", next = "victory_regret" },
         { text = "Something else.", next = "BACK" },
       },
@@ -247,7 +247,7 @@ P:NPC {
       },
       choices = {
         { text = "The Light would accept you, even so.", next = "BACK", reply = "The Light accepts many who never asked for it, but I think it would find me a poor guest, and I would find its house too bright to sleep in.", fx = { align = { light = 1 } } },
-        { text = "Use the enemy's weapons. It's only sense.", next = "BACK", reply = "At last, someone who does not flinch, and I will remember it, because sense is rarer than courage among those who come up this mountain.", fx = { align = { light = -1 } } },
+        { text = "Use the enemy's weapons. It's only sense.", next = "BACK", reply = "At last, someone who does not flinch. Most who climb this mountain bring courage enough; it is sense they leave behind in Winterspring.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -390,7 +390,7 @@ P:NPC {
         { id = "ch_default", text = "Perhaps, if you mean help and not change. Many come up the mountain eager to fix it, as though it were a broken cart, and the mountain does not want to be fixed. It wants to grow, which is slower." },
       },
       choices = {
-        { text = "Then I'll tend, not change.", next = "BACK", reply = "That is the beginning of wisdom, little one, and the mountain will feel the difference in your hands, even if it never says so.", fx = { align = { order = 1 } } },
+        { text = "Then I'll tend, not change.", next = "BACK", reply = "Good. Kneel in the soil below the Cradle and leave your hands there a while, little one; the mountain will feel the difference, even if it never says so.", fx = { align = { order = 1 } } },
         { text = "Some things need fixing, whether they want it or not.", next = "BACK", reply = "Many have said that on this slope, and some were right, but the mountain remembers the ones who were wrong much longer.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

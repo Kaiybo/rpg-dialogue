@@ -137,7 +137,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Let me see your hands. A shaman's hands, eh? You've the grip of a smith but the eyes of someone listening to something I can't hear." },
       },
       again = {
-        { id = "h_again", text = "Aye? What else?" },
+        { id = "h_again", text = "Aye? Be quick, the forge willnae wait." },
         { id = "h_again2", text = "Go on. The iron's no' hot yet." },
       },
       choices = {
@@ -403,7 +403,7 @@ P:NPC {
 
   greetings = {
     { id = "g_sum", text = "Fourteen plus seven, carry the two... oh, yes?" },
-    { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer! Twenty-one, there, done. What can I teach you?" },
+    { id = "g_eng", when = { profession = "Engineering" }, text = "Twenty-one, there, done! And an engineer, too. What can I teach you?" },
   },
 
   notice = {

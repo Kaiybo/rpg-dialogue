@@ -147,7 +147,7 @@ P:NPC {
         { id = "oc_default", text = "Necromancers who left the clan, or were thrown out of it, and kept the craft anyway. They hide away in their little hole and raise what they please, and every skeleton they steal from this valley is one the Magram will not have." },
       },
       choices = {
-        { text = "They must have done something bad to be cast out.", next = "outcasts_why" },
+        { text = "They must have done something ugly to get thrown out.", next = "outcasts_why" },
         { text = "Couldn't they be brought back into the clan?", next = "outcasts_back" },
         { text = "Something else.", next = "BACK" },
       },
@@ -208,7 +208,7 @@ P:NPC {
         { id = "aj_default", text = "It meant the Gelkis learned that killing a Magram khan only buys a short rest. It also meant that an outsider showed more loyalty to this clan than some of those born to it, which I do not understand, but I will not refuse." },
       },
       choices = {
-        { text = "I did it for the clan. That's all.", next = "BACK", reply = "Good, then you understand more than some who were born here, and I will not ask you why, because the answer would only spoil it.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I did it for the clan. That's all.", next = "BACK", reply = "Then you understand more than some who were born in this valley. I will not ask you why; the answer would only spoil it.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I did it for the reward. Don't make it more.", next = "BACK", reply = "Then you are honest about your greed, which is more than the Gelkis manage, and I prefer a mercenary who knows his price to a friend who does not.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -386,7 +386,7 @@ P:NPC {
       },
       choices = {
         { text = "The Earth Mother would not want this alliance.", next = "BACK", reply = "The Earth Mother has wanted many things from my people, tauren, and given us very little, so her wishes weigh lightly in this valley.", fx = { align = { honor = 1 } } },
-        { text = "A use for each other is enough for now.", next = "BACK", reply = "Good, then we understand each other, and that is more than I expected from someone with hooves, so let us both profit before we remember our grudges.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A use for each other is enough for now.", next = "BACK", reply = "Good, then we understand each other, which is more than I expected from a shu'halo. Let us both profit before we remember our grudges.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -511,7 +511,7 @@ P:NPC {
         { id = "fp_default", text = "Peace with pigs? The Magram respect strength, outsider, and a clan that makes peace with something weaker has just told the world it is weak too." },
       },
       choices = {
-        { text = "Peace would feed your warriors faster than war.", next = "BACK", reply = "Faster, maybe, but my warriors would rather go hungry than eat at a Gelkis fire, and so would I, so do not speak of it again.", fx = { align = { light = 1 } } },
+        { text = "Peace would feed your warriors faster than war.", next = "BACK", reply = "Faster, maybe, but my warriors would rather go hungry than share a trough with pigs, and so would I, so do not speak of it again.", fx = { align = { light = 1 } } },
         { text = "Then break them, and take what they hold.", next = "BACK", reply = "That is the Magram way, and the only one my warriors understand, so go and break them, and bring back whatever they were hoarding.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -531,7 +531,7 @@ P:NPC {
         { id = "hd_default", text = "And what are my warriors, then, when the dead can do their work? A clan that hands its battles to bones forgets how to fight, and I will not lead a clan like that." },
       },
       choices = {
-        { text = "You're right. The living must fight their own wars.", next = "BACK", reply = "Good, then at least one outsider understands what a warrior is for, and you may tell Orgrul I said so, though he will not care.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right. The living must fight their own wars.", next = "BACK", reply = "At last, an outsider who knows what a warrior is for. Tell Orgrul I said so; he will not care, but tell him anyway.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Use every weapon you have. Pride won't feed anyone.", next = "BACK", reply = "Pride is the only thing that has fed this clan through every lean winter, outsider, so do not tell me it is worth nothing.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -581,7 +581,7 @@ P:NPC {
       },
       choices = {
         { text = "A wound doesn't care about pride. I'll heal them.", next = "BACK", reply = "Then heal them, and let them curse you while you do it, because a warrior who lives to curse you can still fight for me tomorrow.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Those who refuse my help made their choice.", next = "BACK", reply = "That is a hard answer, and a Magram one, and I will not argue with it, but do not expect thanks from the ones who chose right.", fx = { align = { order = 1 } } },
+        { text = "Those who refuse my help made their choice.", next = "BACK", reply = "That is a hard answer, and a Magram one, and I will not argue with it. Just do not expect the ones you did heal to thank you for it either.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

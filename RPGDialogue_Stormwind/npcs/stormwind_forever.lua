@@ -453,7 +453,7 @@ P:NPC {
         { id = "fs_fisher", when = { profession = "Fishing" }, text = "You know that already, I'd wager. Arnold Leland down by the canals teaches the proper way, but I've never had a lesson in my life, and I've caught more than he has." },
       },
       choices = {
-        { text = "Patience. I'll remember.", next = "BACK" },
+        { text = "Patience, then. I'll remember that.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -480,7 +480,7 @@ P:NPC {
 
     harbor = {
       lines = {
-        { id = "ha_default", text = "Big, and busy, and full of fellows in uniforms telling you where not to stand. The elves have their own pier now, with a boat to Darkshore, and I'll say this for them: they're quiet, which is more than you can say for the sailors." },
+        { id = "ha_default", text = "Big, and busy, and full of fellows in uniforms telling you where not to stand. The elves have their own pier now, with a boat to Darkshore, and I'll say this for them: they're quiet, and they don't spit on the planks like the sailors do." },
       },
       choices = {
         { text = "Do you like having the elves here?", next = "harbor_elves" },
@@ -493,7 +493,7 @@ P:NPC {
         { id = "he_default", text = "Can't complain. They don't scare the fish, and they nod when they pass, which is manners. One of them asked me once what I was catching, and listened to the whole answer, which nobody's done in thirty years." },
       },
       choices = {
-        { text = "The Alliance is stronger with them in it.", next = "BACK", reply = "That's what I reckon too, and the fish don't seem to mind either way.", fx = { align = { order = 1 } } },
+        { text = "Good. The Alliance needs them, and they need us.", next = "BACK", reply = "That's what I reckon too, and the fish don't seem to mind either way.", fx = { align = { order = 1 } } },
         { text = "Stormwind should look after its own first.", next = "BACK", reply = "Aye, maybe so, but there's plenty of fish to go round. They can have a few.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1332,7 +1332,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Aendaril Brookshot, of the Cenarion Circle, far from home. I came to see how humans remember the people who died for them, and this valley is where they do it." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "What else would you know? The trees in this city are poor company." },
         { id = "h_again2", text = "Ask, if you wish. I have time." },
       },
       choices = {
@@ -1383,7 +1383,7 @@ P:NPC {
       choices = {
         { text = "Which do you think is wiser?", next = "why_wiser" },
         { text = "Remembering everything keeps you trapped.", next = "BACK", reply = "Sometimes, yes, and my people know it better than anyone. Still, I would not forget them.", fx = { align = { order = -1 } } },
-        { text = "Memory keeps a people from repeating mistakes.", next = "BACK", reply = "That is my hope, and I am glad to hear it from a human. Your kind forget so quickly.", fx = { align = { order = 1 } } },
+        { text = "Remembering is how a people avoids making the same mistakes twice.", next = "BACK", reply = "That is my hope, and I am glad to hear it from a human. Your kind forget so quickly.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

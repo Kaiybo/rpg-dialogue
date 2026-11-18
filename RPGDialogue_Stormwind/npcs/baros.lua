@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_op_nobles_just", when = { opinion = { topic = "defias", stance = "nobles_justified" } }, text = "You're the one who thinks the lords did what they could. Come and look at my ledgers some day, friend, and tell me again." },
     { id = "g_plans", text = "Careful of the plans. Those are the Mage Quarter's new drains." },
     { id = "g_letter", when = { questActive = TODO_QUEST("The Unsent Letter") }, text = "A letter, for me, and from whom? Let me sit down before I open it." },
-    { id = "g_after", when = { questDone = TODO_QUEST("The Unsent Letter") }, text = "You. Yes. I've thought about that letter every day since." },
+    { id = "g_after", when = { questDone = TODO_QUEST("The Unsent Letter") }, text = "You, yes. I've thought about that letter every day since." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and in that time I've redrawn the Mage Quarter's drains twice. This city never stops needing mending." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown harder since we last spoke, and I know the look. I've seen it on men who built walls and then had to stand on them." },
     { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been doing honest work for the city these past days. Honest work goes unpaid more often than not in Stormwind, so you'll at least have my thanks." },
@@ -321,7 +321,7 @@ P:NPC {
     deadmines = { { id = "tp_deadmines", text = "They tell me VanCleef has dug a whole harbour under Moonbrook, and if that's true, then it's a mason's work and a fine one. I'd rather admire it from a long way off." } },
     second_war = { { id = "tp_second_war", text = "I was a boy on a Westfall farm when the orcs came through, and I watched Stormwind burn from the hills. I've spent my whole life drawing it back up again, one street at a time." } },
     knows = {
-      { id = "tp_knows", text = "An architect learns a city from its drains up, and its people along with it. Ask me about any of this, and I'll tell you what the stone has told me." },
+      { id = "tp_knows", text = "An architect learns a city from its drains up, and its people along with it. Go on and ask; the stone has told me a great deal over the years." },
     },
     background = { { id = "tp_bg", text = "A Westfall boy who learned stone, rebuilt a city, and took the office his old partner refused. I don't care for the ending.", next = "farm" } },
     advice = { { id = "tp_ad", text = "Look at the foundations before the facade. In buildings and in people. The pretty part is always the last thing built." } },
