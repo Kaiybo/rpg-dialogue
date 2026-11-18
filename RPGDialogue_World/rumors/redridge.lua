@@ -16,7 +16,7 @@ P:Rumors {
     { id = "tower", when = { minLevel = 20 },
       text = "There are lights in the old tower in the eastern hills at night, green ones, and the gnolls go quiet whenever they're lit." },
     { id = "dry", when = { questBefore = TODO_QUEST("Dry Times") },
-      text = "Daniels is down to the dregs. If you're passing Goldshire, he'd kiss you for a bottle of their sweet rum. Don't let him." },
+      text = "Barkeep Daniels is down to the dregs. If you're passing Goldshire, he'd kiss you for a bottle of their sweet rum. Don't let him." },
   },
 }
 

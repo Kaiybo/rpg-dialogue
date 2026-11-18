@@ -141,7 +141,7 @@ P:NPC {
     },
     defilers_den = {
       lines = {
-        { id = "dn_default", text = "We don't, and that's the worst of it. Some say they're raising soldiers from the old bones, others say they're grinding them for the plague cauldrons, and the dead don't come back to tell us which, or if they do, they come back wearing Defiler colors." },
+        { id = "dn_default", text = "We don't know what they take from the barrows, and that's the worst of it. Some say they're raising soldiers from the old bones, others say they're grinding them for the plague cauldrons, and the dead don't come back to tell us which, or if they do, they come back wearing Defiler colors." },
       },
       choices = {
         { text = "Then I'll take the Farm and hold it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },

@@ -425,7 +425,7 @@ P:Views { topic = "al_aketh", views = {
     { id = "b", text = "Rooted out, aye, though they hide well among ordinary folk. That's what makes cults so dangerous." },
   } },
   { id = "understand", text = "Their patrons abandoned them. I understand why some turned to the Windlord.", fx = { opinion = { al_aketh = "understand" }, align = { order = -1 }, trait = { curious = 1 } }, replies = {
-    { id = "a", text = "Understanding isn't excusing, I hope. Lorthuna's beacon nearly brought the Windlord down on all of them.", fx = { affinity = -1 } },
+    { id = "a", text = "Understanding isn't excusing, I hope. That cult nearly called the Windlord down on all of them.", fx = { affinity = -1 } },
     { id = "b", text = "Frightened people grab the nearest strength. It's an old story, and it never ends well." },
   } },
   { id = "fear", text = "If Al'Akir ever answers their call, we'll all regret it.", fx = { opinion = { al_aketh = "fear" }, trait = { cautious = 1 } }, replies = {
@@ -441,7 +441,7 @@ P:Views { topic = "two_orders", views = {
   } },
   { id = "windshapers", when = { faction = "Horde" }, text = "The Windshapers honor the spirits. That's a path the Horde understands.", fx = { opinion = { two_orders = "windshapers" }, align = { order = -1 }, trait = { pious = 1 } }, replies = {
     { id = "a", text = "It is. The Earthen Ring brought them to us, and Thunder Bluff vouched for them, and that's enough for me.", fx = { affinity = 1 } },
-    { id = "b", text = "We understand the spirits, aye. Whether the spirits understand them is another matter, since theirs went quiet." },
+    { id = "b", text = "We understand the spirits, aye. Whether the spirits understand them is another matter, since their own spirits went quiet." },
   } },
   { id = "mend", text = "One people split in two by a quarrel. They should make peace.", fx = { opinion = { two_orders = "reconcile" }, align = { light = 1 }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "Easier said than done, with deaths and sacred sites between them. Family quarrels are the bitterest kind." },
@@ -491,7 +491,7 @@ P:Views { topic = "night_watch", views = {
     { id = "b", text = "Brave, and outnumbered. Most of them have buried someone they patrolled with." },
   } },
   { id = "useless", text = "Waiting behind lamps won't win anything. Somebody has to hunt the evil down.", fx = { opinion = { night_watch = "doubt" }, align = { order = -1 }, trait = { brave = 1 } }, replies = {
-    { id = "a", text = "That's Calor's song, and the Carevins'. Maybe you're right, but someone has to keep the lamps lit while the hunters hunt.", fx = { affinity = -1 } },
+    { id = "a", text = "That's what Calor and the Carevins say in Darkshire. Maybe you're right, but someone has to keep the lamps lit while the hunters hunt.", fx = { affinity = -1 } },
     { id = "b", text = "Hunting's fine, if you come back. The Watch is still here every morning, which is more than the hunters can say." },
   } },
   { id = "join", text = "They need more blades. I'll stand a watch with them.", fx = { opinion = { night_watch = "support" }, align = { order = 1 }, trait = { generous = 1 } }, replies = {
@@ -517,12 +517,12 @@ P:Views { topic = "worgen", views = {
 
 P:Views { topic = "stalvan", views = {
   { id = "evil", text = "A man who murders out of obsession earns no pity, alive or dead.", fx = { opinion = { stalvan = "hate" }, align = { light = 1 }, trait = { stern = 1 } }, replies = {
-    { id = "a", text = "Smitts would agree, and he's chased that story half his life. Some evil doesn't stay buried." },
+    { id = "a", text = "Tavernkeep Smitts would agree, and he's chased that story half his life. Some evil doesn't stay buried." },
     { id = "b", text = "Hard words, but fair. The dead he left behind would say the same." },
   } },
   { id = "tragedy", text = "A tutor driven mad by love. There's sorrow in it as well as horror.", fx = { opinion = { stalvan = "pity" }, align = { light = -1 }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "Sorrow, aye, but don't let it soften you. He chose the axe, and others paid for his sorrow.", fx = { affinity = -1 } },
-    { id = "b", text = "A generous view. Madame Eva sees it the same, I think, which is why her cards go dark when his name comes up." },
+    { id = "b", text = "A generous view. Madame Eva, the fortune teller, sees it the same, I think, which is why her cards go dark when his name comes up." },
   } },
   { id = "legend", text = "It's an old ghost story. People tell it to frighten children.", fx = { opinion = { stalvan = "doubt" }, trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Children, and grown men who should know better. Go out to the old manor at night and see if you still call it a story." },
@@ -533,7 +533,7 @@ P:Views { topic = "stalvan", views = {
 P:Views { topic = "carevins", views = {
   { id = "hunters", text = "Hunting evil instead of waiting for it. That's the right way.", fx = { opinion = { carevins = "admire" }, align = { order = -1 }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Jonathan Carevin would shake your hand for that. Calor too, and he doesn't shake hands with just anyone.", fx = { affinity = 1 } },
-    { id = "b", text = "Right or reckless. The Night Watch would tell you hunters leave the town unguarded." },
+    { id = "b", text = "Right, or reckless. The Night Watch would tell you hunters leave the town unguarded." },
   } },
   { id = "zealots", text = "They sound more like zealots than heroes. That worries me.", fx = { opinion = { carevins = "distrust" }, align = { order = 1 }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "They'd call it faith. 'Trust none who won't aid our cause' is a hard creed to live next to, though.", fx = { affinity = -1 } },
@@ -551,7 +551,7 @@ P:Views { topic = "carevins", views = {
 
 P:Views { topic = "ladimore", views = {
   { id = "rest", text = "A good knight broken by grief. He deserves to be laid to rest.", fx = { opinion = { ladimore = "pity" }, align = { light = 1 }, trait = { kind = 1 } }, replies = {
-    { id = "a", text = "He does, and those who knew him before the war say so too. Sirra Von'Indi still keeps his story.", fx = { affinity = 1 } },
+    { id = "a", text = "He does, and those who knew him before the war say so too. Sirra Von'Indi, the town's historian, still keeps his story.", fx = { affinity = 1 } },
     { id = "b", text = "Laid to rest, aye. He's killed watchmen since, though, so don't let pity slow your hand." },
   } },
   { id = "murderer", text = "Grief or not, he killed. That makes him a murderer.", fx = { opinion = { ladimore = "condemn" }, align = { light = -1 }, trait = { stern = 1 } }, replies = {
@@ -587,7 +587,7 @@ P:Views { topic = "gnomeregan", views = {
 
 P:Views { topic = "dark_iron", views = {
   { id = "dwarf_feud", when = { race = "Dwarf" }, text = "The Dark Irons have been our curse since Thaurissan. I'll see them pay.", fx = { opinion = { dark_iron = "hate" }, align = { order = 1 }, trait = { proud = 1 } }, replies = {
-    { id = "a", text = "Aye, every Bronzebeard alive has a grudge with them, and most of us have two. Magni would raise a mug to that.", fx = { affinity = 1 } },
+    { id = "a", text = "Aye, every Bronzebeard alive has a grudge with them, and most have two. Magni would raise a mug to that.", fx = { affinity = 1 } },
     { id = "b", text = "They'll pay, aye, but they've paid before and still they come. That's the trouble with a feud this old." },
   } },
   { id = "threat", text = "Fire-worshipping dwarves under the mountain. They're the real danger.", fx = { opinion = { dark_iron = "fear" }, align = { light = 1 }, trait = { cautious = 1 } }, replies = {

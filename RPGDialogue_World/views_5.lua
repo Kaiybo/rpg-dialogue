@@ -105,11 +105,11 @@ P:Views { topic = "magni", views = {
 P:Views { topic = "tyrande", views = {
   { id = "revere", when = { faction = "Alliance" }, text = "Tyrande carries Elune's own grace. I'd stand beside her Sentinels.", fx = { opinion = { tyrande = "admire" }, trait = { pious = 1 }, align = { light = 1, order = 1 } }, replies = {
     { id = "a", text = "Then you'd stand with the best. She has led them since the War of the Ancients, and the Sentinels would die for her without a moment's thought.", fx = { affinity = 1 } },
-    { id = "b", when = { race = "NightElf" }, text = "Elune-adore, {class}. Few outsiders see what we see in her, and fewer say it so plainly.", fx = { affinity = 1 } },
+    { id = "b", when = { race = "NightElf" }, text = "Elune-adore, {class}. Your people see in her what few outsiders do, and you say it plainly.", fx = { affinity = 1 } },
   } },
   { id = "cold", when = { faction = "Alliance" }, text = "She's kept her people apart for ten thousand years. Hard to warm to.", fx = { opinion = { tyrande = "doubt" }, trait = { honest = 1 }, align = { order = -1 } }, replies = {
     { id = "a", text = "Ten thousand years of watching every outsider bring fire and ruin will do that. She keeps the borders closed because she remembers why she must." },
-    { id = "b", when = { race = "NightElf" }, text = "You speak of what you do not understand. She opened Darnassus to your kind, and that cost her more than you know.", fx = { affinity = -1 } },
+    { id = "b", when = { race = "NightElf" }, text = "You speak lightly of your own High Priestess. She opened Darnassus to outsiders, and that cost her more than you know.", fx = { affinity = -1 } },
   } },
   { id = "foe", when = { faction = "Horde" }, text = "Her Sentinels kill our loggers in Ashenvale. She'll answer for that.", fx = { opinion = { tyrande = "hate" }, trait = { stern = 1 }, align = { light = -1 } }, replies = {
     { id = "a", text = "She'll answer when Warsong Camp has the strength to make her, and not before. Ashenvale is her ground, and her archers know every tree of it." },
@@ -213,7 +213,7 @@ P:Views { topic = "everlook", views = {
 
 P:Views { topic = "dalaran", views = {
   { id = "kelthuzad", when = { race = "Scourge" }, text = "Their own necromancer started all of this. I remember Kel'Thuzad.", fx = { opinion = { dalaran = "hate" }, trait = { stern = 1 } }, replies = {
-    { id = "a", text = "So do many of us, and the Kirin Tor would rather we didn't. One of their own taught the cult of the damned, and the rest of us paid for it." },
+    { id = "a", text = "So do many, and the Kirin Tor would rather they didn't. One of their own founded the Cult of the Damned, and Lordaeron paid for it." },
     { id = "b", text = "Remembering is the one thing the Lich King couldn't take. Keep it, and keep it sharp." },
   } },
   { id = "pity", text = "A city of wonders, broken by Archimonde. That's a heavy loss.", fx = { opinion = { dalaran = "pity" }, trait = { kind = 1 } }, replies = {
@@ -253,7 +253,7 @@ P:Views { topic = "kirin_tor", views = {
 P:Views { topic = "nordrassil", views = {
   { id = "revere", text = "The World Tree held back Archimonde himself. I'd call that holy.", fx = { opinion = { nordrassil = "admire" }, trait = { pious = 1 } }, replies = {
     { id = "a", text = "Many would. The tree gave up the night elves' immortality to break him, and they paid that price without complaint.", fx = { affinity = 1 } },
-    { id = "b", when = { race = "NightElf" }, text = "Holy, and wounded. Every night elf you meet is mortal now because of what happened on that mountain, and we feel it.", fx = { affinity = 1 } },
+    { id = "b", when = { race = "NightElf" }, text = "Holy, and wounded. Every night elf is mortal now because of what happened on that mountain, and your people feel it.", fx = { affinity = 1 } },
   } },
   { id = "allies", text = "Orcs, humans and elves fought together at Hyjal once. Remarkable.", fx = { opinion = { nordrassil = "respect" }, trait = { curious = 1 } }, replies = {
     { id = "a", text = "Remarkable, and short-lived. The moment the demon fell, they all went back to watching each other over their walls." },
@@ -275,7 +275,7 @@ P:Views { topic = "zul_gurub", views = {
   } },
   { id = "fear", text = "A blood god walking again is the last thing this world needs.", fx = { opinion = { zul_gurub = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "On that, every troll who isn't a fool agrees with you. Hakkar ate the Gurubashi empire alive once, and he'd do it again given half a chance." },
-    { id = "b", when = { race = "Troll" }, text = "De Soulflayer remembers every troll who ever fed him, mon, and he be hungry again. Keep your blood where it belongs." },
+    { id = "b", when = { race = "Troll" }, text = "The Soulflayer remembers every troll who ever fed him, and he's hungry again. Keep your blood where it belongs." },
   } },
   { id = "tall_tale", text = "Troll priests and blood gods. Sounds like a jungle tall tale.", fx = { opinion = { zul_gurub = "doubt" }, trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Tell that to the hunters who went into those ruins and came back with their eyes gone strange, if they came back at all.", fx = { affinity = -1 } },
@@ -301,7 +301,7 @@ P:Views { topic = "zul_farrak", views = {
 P:Views { topic = "sunken_temple", views = {
   { id = "fools", text = "Worshipping the god who ate their own empire. The Atal'ai are fools.", fx = { opinion = { sunken_temple = "scorn" }, trait = { stern = 1 } }, replies = {
     { id = "a", text = "Fools, and dangerous ones. Their temple sank under the swamp for it, and they're still down there chanting to bring him back." },
-    { id = "b", when = { race = "Troll" }, text = "Dey be worse than fools, mon. De Atal'ai shamed every troll who ever honoured a loa, and Hakkar laughs at them for it." },
+    { id = "b", when = { race = "Troll" }, text = "They're worse than fools. The Atal'ai shamed every troll who ever honoured a loa, and Hakkar laughs at them for it." },
   } },
   { id = "dread", text = "A drowned temple full of chanting priests. That gives me chills.", fx = { opinion = { sunken_temple = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "It should. They say a green dragon sleeps down there too, Eranikus, and that his dreams have gone bad.", fx = { affinity = 1 } },
@@ -320,7 +320,7 @@ P:Views { topic = "dire_maul", views = {
   } },
   { id = "highborne", text = "The Highborne still hide in there, clinging to old magic. That's unnatural.", fx = { opinion = { dire_maul = "distrust" }, trait = { pious = 1 } }, replies = {
     { id = "a", text = "Unnatural is the word. They've been feeding on whatever they've caged in there for ten thousand years, and they think nobody's noticed." },
-    { id = "b", when = { race = "NightElf" }, text = "The Highborne doomed us once already with their hunger for magic. That some still live there is a stain on our people.", fx = { affinity = 1 } },
+    { id = "b", when = { race = "NightElf" }, text = "The Highborne doomed your people once already with their hunger for magic. That some still live there is a stain on the kaldorei name.", fx = { affinity = 1 } },
   } },
   { id = "library", text = "I've heard there's a great library in there. I'd like to see it.", fx = { opinion = { dire_maul = "curious" }, trait = { curious = 1 } }, replies = {
     { id = "a", text = "So have I, and it's guarded by the very elves who wrote half of it. Ask nicely, and maybe they'll only curse you a little." },
@@ -521,7 +521,7 @@ P:Views { topic = "ravenholdt", views = {
 
 P:Views { topic = "holy_light", views = {
   { id = "scorn", when = { race = "Scourge" }, text = "The Light didn't save Lordaeron. It won't save anyone else either.", fx = { opinion = { holy_light = "scorn" }, trait = { stern = 1 }, align = { light = -1 } }, replies = {
-    { id = "a", text = "It didn't save us, and its priests in the Scarlet Monastery are still trying to burn what's left of us. I've no more faith to lose." },
+    { id = "a", text = "It didn't save your people, and its priests in the Scarlet Monastery are still trying to burn what's left of them. I'd not ask you to trust it again." },
     { id = "b", text = "Hard words, but the Undercity is full of people who prayed to the Light until their last breath. Some of them still do, out of habit." },
   } },
   { id = "faith", when = { faction = "Alliance" }, text = "The Light guides my hand. I trust in it completely.", fx = { opinion = { holy_light = "faith" }, trait = { pious = 1 }, align = { light = 2 } }, replies = {
@@ -534,7 +534,7 @@ P:Views { topic = "holy_light", views = {
     { id = "b", text = "Careful, {class}. The Church held this kingdom together when the crown couldn't, and it deserves better than that.", fx = { affinity = -1 } },
   } },
   { id = "camps", when = { race = "Orc" }, text = "The humans prayed to their Light while they built our camps.", fx = { opinion = { holy_light = "distrust" }, trait = { stern = 1 }, align = { light = -1 } }, replies = {
-    { id = "a", text = "They did, and called it mercy. Whatever their Light is, it looked away when we needed it." },
+    { id = "a", text = "They did, and called it mercy. Whatever their Light is, it looked away when your people needed it." },
     { id = "b", text = "And Thrall chose not to hate them for it. Hold your anger if you must, but don't let it decide for you." },
   } },
   { id = "respect", when = { faction = "Horde" }, text = "Human faith or not, I've seen their paladins stand firm. I respect that.", fx = { opinion = { holy_light = "respect" }, trait = { honest = 1 }, align = { honor = 1 } }, replies = {
@@ -549,8 +549,8 @@ P:Views { topic = "holy_light", views = {
 
 P:Views { topic = "elune", views = {
   { id = "devout", when = { race = "NightElf" }, text = "Elune watches over me. I feel her light every night.", fx = { opinion = { elune = "faith" }, trait = { pious = 1 }, align = { light = 1 } }, replies = {
-    { id = "a", text = "Elune-adore, {class}. Her light found us through ten thousand years of war, and it will find you on whatever road you walk.", fx = { affinity = 1 } },
-    { id = "b", text = "Hold to that. Outside the forest, the moon looks smaller, and some of our people forget." },
+    { id = "a", text = "Elune-adore, {class}. Her light found your people through ten thousand years of war, and it will find you on whatever road you walk.", fx = { affinity = 1 } },
+    { id = "b", text = "Hold to that. Outside the forest, the moon looks smaller, and some of your people forget." },
   } },
   { id = "admire", when = { faction = "Alliance" }, text = "The Moon Goddess has a gentle face. There's peace in that.", fx = { opinion = { elune = "admire" }, trait = { kind = 1 }, align = { light = 1 } }, replies = {
     { id = "a", text = "Gentle, and fierce when she must be. Ask the Sentinels; they pray to her before every patrol and fight like she's watching.", fx = { affinity = 1 } },
@@ -600,7 +600,7 @@ P:Views { topic = "the_elements", views = {
     { id = "b", text = "Good. The elements remember a polite voice, {class}, and they remember a rude one longer." },
   } },
   { id = "return", when = { race = "Orc" }, text = "The spirits turned from us once. Thrall brought them back.", fx = { opinion = { the_elements = "respect" }, trait = { proud = 1 }, align = { honor = 1 } }, replies = {
-    { id = "a", text = "He did, and our people owe him for it. A Horde that listens to the spirits is a Horde that won't drink demon blood again.", fx = { affinity = 1 } },
+    { id = "a", text = "He did, and your people owe him for it. A Horde that listens to the spirits is a Horde that won't drink demon blood again.", fx = { affinity = 1 } },
     { id = "b", text = "They came back, aye, but they're watching us. One more betrayal and they may not return a second time." },
   } },
   { id = "wary", when = { faction = "Alliance" }, text = "Spirits in every stone and flame. I'd rather trust the Light.", fx = { opinion = { the_elements = "distrust" }, trait = { cautious = 1 }, align = { order = 1 } }, replies = {

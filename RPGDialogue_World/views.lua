@@ -28,7 +28,7 @@ P:Views { topic = "_any", views = {
   } },
   { id = "doubt", text = "I've heard it told differently, and I'm not sure who to believe.", fx = { trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Then you've heard it from someone who wasn't there. Believe who you like, but I know what I know." },
-    { id = "b", text = "Good. Doubt everything you hear twice, and the things you hear once besides; it'll keep you alive." },
+    { id = "b", text = "Good. Doubt everything you hear, and doubt it twice when it sounds likely; it'll keep you alive." },
     { id = "c", when = { disposition = { min = 60 } }, text = "Fair enough. I only know what reached me, and stories grow legs on the road." },
   } },
   { id = "go", text = "Sounds like something I ought to see for myself.", fx = { trait = { brave = 1 } }, replies = {

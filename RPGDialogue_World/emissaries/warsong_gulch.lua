@@ -86,7 +86,7 @@ P:NPC {
     gulch_why = {
       lines = { { id = "glw_default", text = "It's the easiest road from the Barrens into the old forest, and the trees there are ancient and straight, the kind you can't find in Durotar's red dust. Every trunk they haul out of the Gulch goes south to build their walls and their wolf pens and their war machines." } },
       choices = {
-        { text = "Then the Gulch is the door to all of Ashenvale.", next = "gulch_hold", fx = { learn = { "ashenvale" } } },
+        { text = "And Silverwing Hold guards the door to Ashenvale.", next = "gulch_hold", fx = { learn = { "ashenvale" } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
@@ -153,7 +153,7 @@ P:NPC {
     flags_why = {
       lines = { { id = "fw_default", text = "Because neither side has the strength to hold the whole valley, and both know it. The Warsong standard is the clan's pride, and every time we take it the axes go quiet for a while, so the banner is worth more to us than any fire." } },
       choices = {
-        { text = "So the war is fought over pride as much as wood.", next = "flags_run", fx = { trait = { skeptical = 1 } } },
+        { text = "Then everything rests on whoever carries the banner.", next = "flags_run", fx = { trait = { skeptical = 1 } } },
         { text = "Clever. Shaming them works better than burning them.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
@@ -414,7 +414,7 @@ P:NPC {
     flags_why = {
       lines = { { id = "fw_default", text = "Because neither side can hold the whole valley, and a stolen banner shames them more than a burnt wall. Every time we carry off the Silverwing standard, their archers stay in their towers for a while, and our axes go back to work." } },
       choices = {
-        { text = "So the war's half about pride.", next = "flags_run", fx = { trait = { skeptical = 1 } } },
+        { text = "So it all comes down to the runner.", next = "flags_run", fx = { trait = { skeptical = 1 } } },
         { text = "Shaming them works better than burning them, then.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },

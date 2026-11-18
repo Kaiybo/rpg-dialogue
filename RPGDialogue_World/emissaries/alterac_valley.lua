@@ -129,7 +129,7 @@ P:NPC {
       lines = { { id = "fd_default", text = "An old shaman called Drek'Thar, blind as a stone and sharper than most who can see. Captain Galvangar holds Iceblood for him, and when things go badly for the orcs, the old one calls up Lokholar the Ice Lord out of the snow itself." } },
       choices = {
         { text = "An ice lord sounds like a hard thing to fight.", next = "foe_ivus" },
-        { text = "A blind shaman leading a war. I'd respect that.", next = "foe_claim", fx = { trait = { curious = 1 } } },
+        { text = "Blind or not, does Drek'Thar have a claim to the valley?", next = "foe_claim", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -270,7 +270,7 @@ P:NPC {
     xdruid = {
       lines = { { id = "xd_default", text = "Ivus the Forest Lord, aye, and the druids among the Guard are the ones who wake him. I'll admit a dwarf feels a bit small standing next to a walking forest, but he's never once turned on us." } },
       choices = {
-        { text = "Does he fight willingly, or is he bound?", next = "foe_ivus" },
+        { text = "Ivus? How do the druids call him?", next = "foe_ivus" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -384,7 +384,7 @@ P:NPC {
       lines = { { id = "cl_default", text = "We were sent there in chains of a kind, when Gul'dan cast our chieftain Durotan out of the Horde for speaking against him. Alterac was meant to be our grave, but the mountains took us in, and the white wolves taught us to live where no orc had lived before." } },
       choices = {
         { text = "Why did Durotan speak against Gul'dan?", next = "clan_durotan" },
-        { text = "I'd not have thought wolves could teach anyone.", next = "clan_wolves" },
+        { text = "How did your clan win the wolves over?", next = "clan_wolves" },
         { text = "Something else.", next = "BACK" },
       },
     },

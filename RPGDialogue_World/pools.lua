@@ -139,7 +139,7 @@ P:Pool {
     { id = "g_op_in_chief", priority = 60, when = { npcFlag = "op_in_chief" }, fx = { npcFlag = { clear = "op_in_chief" } },
       text = "So do I, and so does every soldier who drinks under this roof. They grumble about him all night and they'd die for him in the morning." },
     { id = "g_op_in_soft", priority = 60, when = { npcFlag = "op_in_soft" }, fx = { npcFlag = { clear = "op_in_soft" } },
-      text = "Not so loud, friend; I've grunts at the corner table who'd take that personally. Mind you, half of them say the same thing after their third mug." },
+      text = "Not so loud, friend; I've grunts at the corner table who'd brawl over that. Mind you, half of them say the same thing themselves after their third mug." },
     -- Opinion pass: word of what the player said to someone else in this community.
     { id = "g_o_peace_for", once = true, priority = 40, when = { gossip = { topic = "peace", stance = { "for", "mixed" } } },
       text = "My regulars tell me you're all for keeping the peace. One of them called you wise and another called you soft, and I had to separate them." },
@@ -598,7 +598,7 @@ P:Pool {
     { id = "n_cl_scarlet", cat = "dungeon", when = { cleared = "Scarlet Monastery" },
       text = "You've been inside the humans' monastery and broke the zealots in their own house. The Forsaken say it was a fine day's work, and for once I agree with them." },
     { id = "n_cl_zf", cat = "dungeon", when = { cleared = "Zul'Farrak" },
-      text = "Sandscalp's dead, I hear, and the Sandfury will be choosing a new chief with fewer teeth. The Darkspear were smiling about it, which is a thing worth seeing." },
+      text = "Chief Sandscalp of Zul'Farrak is dead, I hear, and the Sandfury will be choosing a new chief with fewer teeth. The Darkspear were smiling about it, which is a thing worth seeing." },
     { id = "n_cl_brd", cat = "dungeon", when = { cleared = "Blackrock Depths" },
       text = "You went beneath the mountain and killed the Dark Iron emperor. The Dark Irons have fought the Blackrock renegades in that mountain for years, and I'd as soon see both buried, so that's half the work done." },
     { id = "n_cl_mc", cat = "dungeon", when = { cleared = "Molten Core" },
