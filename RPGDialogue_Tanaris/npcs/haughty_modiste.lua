@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Pirate Hats Ahoy!") },
           text = "You're the help the Cartel sent? I suppose you'll do, sweetie, so listen carefully, because this season's look is pirate, I'm short on hats, and every day without them is gold walking out the door." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Pirate Hats Ahoy!") },
-          text = "Lost Rigger Cove, down the coast, and a great many pirate hats by whatever means you like. Pristine condition, mind you, because blood doesn't come out of felt and stained felt doesn't sell." },
+          text = "Bring me pirate hats from Lost Rigger Cove, down the coast, by whatever means you like. Pristine condition, mind you, because blood doesn't come out of felt and stained felt doesn't sell." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Pirate Hats Ahoy!"), days = 3 } },
           text = "Oh, you're a darling, even if it took longer than I'm used to. Once they're cleaned and personalized, these hats will make me a small fortune. Do spend some of your reward on a bath, sweetie." },
         { id = "h_nelf", when = { race = "NightElf" },
@@ -76,7 +76,7 @@ P:NPC {
       },
     },
     kings = {
-      lines = { { id = "k_default", text = "Kings, queens, warchiefs and whatever the Horde calls its queens, I've never quite understood. Not personally, of course, but through very discreet buyers who never tell their masters where the hat came from." } },
+      lines = { { id = "k_default", text = "Kings, queens and warchiefs, sweetie, all of them. Not personally, of course, but through very discreet buyers who never tell their masters where the hat came from." } },
       choices = {
         { text = "So you've never met one?", next = "kings_met" },
         { text = "Something else.", next = "BACK" },

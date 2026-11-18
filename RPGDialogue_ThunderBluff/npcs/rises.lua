@@ -15,7 +15,7 @@ P:NPC {
     { id = "o_sylv_admire", when = { opinion = { sylvanas = "admire" } }, text = "I'm told you'd die again for the Dark Lady. How refreshing, among all these cattle who only ever stare." },
     { id = "g_hi", text = "Do come in, and don't mind the smell. The tauren tell me it's an acquired tolerance." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing. How refreshing, and how very temporary." },
-    { id = "g_rise", when = { origin = "tauren_spirit_rise" }, text = "Ah, the water-carrier! You used to haul jugs past my door for the seers every morning, and now I'm told the elements speak to you. Do tell them the smell from my workshop is entirely deliberate." },
+    { id = "g_rise", when = { origin = "tauren_spirit_rise" }, text = "Ah, the water-carrier! You used to haul jugs past my door for the seers every morning, and look at you now. The smell from my workshop is still entirely deliberate, I assure you." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and you're still breathing, which is more than I can say for most of my samples. Do come in." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "The tauren are whispering that one of them believed a tale of yours, and I find that terribly amusing. They're such trusting creatures, aren't they?" },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear one of your fibs was seen through up on the rises. A pity, really, because a lie should be handled with the same care as any other poison." },
@@ -74,7 +74,7 @@ P:NPC {
     },
     xcl_wc = {
       big = true,
-      lines = { { id = "xcl_wc_default", text = "And you came back with all your limbs, which the deviate creatures down there do not usually allow. Serpentbloom grows in those caves and carries a toxin the Society finds very instructive, so a quieter cavern makes my collectors' work a good deal safer. The tauren speak of the place as a wound, and I speak of it as a laboratory, and we are both quite sincere." } },
+      lines = { { id = "xcl_wc_default", text = "And you came back with all your limbs, which the deviate creatures down there do not usually allow. The serpentbloom in those caves carries a toxin the Society finds very instructive, and a quieter cavern makes my collectors' work safer. The tauren call the place a wound and I call it a laboratory, and we are both quite sincere." } },
       choices = {
         { text = "The Society should study it, whatever it finds.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "That place should be healed, Zamah, not harvested.", next = "BACK", fx = { align = { light = 1 } } },
@@ -82,7 +82,7 @@ P:NPC {
       },
     },
     xcl_wc2 = {
-      lines = { { id = "xcl_wc2_default", text = "As far as we can tell, the druid's dream leaked into the water and the water leaked into everything else. The changes are fast and unpredictable, which in a living thing is a sign of something powerful at work, and if it could be understood it might be very useful, though I wouldn't say so to Hamuul." } },
+      lines = { { id = "xcl_wc2_default", text = "As far as we can tell, the dream of the sleeping druid Naralex leaked into the water and the water leaked into everything else. The changes are fast and unpredictable, which in a living thing is a sign of something powerful at work, and if it could be understood it might be very useful, though I wouldn't say so to Hamuul." } },
       choices = { { text = "I'll keep that between us, Zamah.", next = "BACK" } },
     },
     xfpala = {
@@ -116,7 +116,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Something in the dream, if the druids are to be believed, or something in the water, if you ask me. The deviate creatures down there are twisted in ways I've never seen, and I'd give a great deal for a fresh sample of one, preferably not attached to the rest of it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do keep your {pet} out of the caverns' pools, by the way. Whatever twists the beasts down there isn't particular about whose beast it twists." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Something in the druids' dream or in the water, and whatever it is, it isn't particular about whose beast it twists. Do keep {pet} out of the caverns' pools." },
       },
       choices = {
         { text = "I'll bring samples to cure the sickness, Zamah.", next = "BACK", fx = { align = { light = 1 } } },
@@ -182,7 +182,7 @@ P:NPC {
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "You've been to the bottom of the Wailing Caverns, I'm told, and come out unpoisoned, which is remarkable considering what grows down there." },
       },
       choices = {
-        { text = "The tauren can't trust a priest's healing much.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the tauren trust a priest's healing?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why are the Forsaken in Thunder Bluff?", next = "why" },
         { text = "What do you want serpentbloom for?", next = "serpent" },
         { text = "I'd guess the tauren don't know what to make of you.", next = "tauren" },
@@ -301,7 +301,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Patience, respect and a steady hand, in that order, because the Thunderhorns have hunted Mulgore since long before the bluffs had bridges. We honour the beast we take and we never take more than the tribe needs, and a hunter who forgets that is no Thunderhorn, whatever his name." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} walks proudly, {class}. That pride comes from you, and I hope you've earned it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Patience, respect and a steady hand, in that order. {pet} walks proudly beside you, {class}, and that pride comes from you, so I hope you've earned it." },
       },
       choices = {
         { text = "I'll honour every beast I take, Holt.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -333,7 +333,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Hamuul tells no one anything, but his students like to ask, quietly, how many kodo we took this season and whether we spared the calves. I grumble about it and then I count, because they're usually right about what the herds can bear." } },
+      lines = { { id = "xdruid_default", text = "Hamuul tells no one how to hunt, but his students like to ask, quietly, how many kodo we took this season and whether we spared the calves. I grumble about it and then I count, because they're usually right about what the herds can bear." } },
       choices = {
         { text = "Someone should keep count, or the herds won't last.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A hunter's own judgment should be enough, without anyone counting.", next = "BACK", fx = { align = { order = -1 } } },
@@ -381,7 +381,7 @@ P:NPC {
       again = { { id = "h_again", text = "Something else? A hunter's patience includes listening, as the plains listen for rain." } },
     },
     kin = {
-      lines = { { id = "k_default", text = "Mull is family, yes, though he prefers the village to the bluffs. He keeps an eye on the young braves at Bloodhoof, and I keep an eye on him." } },
+      lines = { { id = "k_default", text = "Plenty, and my cousin Mull is one, though he prefers Bloodhoof Village to the bluffs. He keeps an eye on the young braves there, and I keep an eye on him." } },
       choices = { { text = "Does he need watching?", next = "kin_watch" } },
     },
     kin_watch = {
@@ -408,7 +408,7 @@ P:NPC {
   topics = {
     _none = { { id = "tp_none", text = "I have not heard of that. The plains keep many secrets, and the Earth Mother shares them slowly." } },
     centaur = { { id = "tp_centaur", text = "The centaur ride well, but they shoot poorly, and an archer can drop them before they close. My family has done it for generations." } },
-    quilboar = { { id = "tp_quilboar", text = "The quilboar are poor archers too, and they make easy targets. Teach your students to aim for the eyes, and the quilboar will not trouble them." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar are poor archers too, and they make easy targets. Aim for the eyes, and the quilboar will not trouble you." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the bow from the trees, and the arrow from the reeds. A hunter who forgets that has forgotten how to hunt." } },
     cairne = { { id = "tp_cairne", text = "Cairne carries a spear, not a bow, but he is the finest hunter of us all. My family has never told him so, out of pride." } },
   },
@@ -426,7 +426,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Stand firm, young one. The bluffs are high, and the wind is not kind to the unsteady." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, young one, and I hope you kept your stance while you were gone. Show me." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since you first stood in my yard, and you hold yourself steadier on the bluffs now. Remember that strength is for protecting the herd." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since you first stood in my ring, and you hold yourself steadier on the bluffs now. Remember that strength is for protecting the herd." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you made someone in the city back down. Strength that frightens our own people protects no one, so be careful with it." },
   },
   start = "hello",
@@ -442,7 +442,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Behind it, I would say, close enough to reach the wounded and far enough back that the first charge doesn't fall on you. A warrior who knows a healer stands at his back will hold a little longer, and a little longer is often the whole battle. Strength protects the herd, and so does whoever keeps the strong on their feet." } },
+      lines = { { id = "xhpriest_default", text = "Behind it, I would say, close enough to reach the wounded and far enough back that the first charge doesn't fall on you. A warrior who knows a healer stands at his back will hold a little longer, and a little longer is often the whole battle." } },
       choices = {
         { text = "I'll stand behind them and keep them standing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I fight where I choose, not where warriors need me.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -462,7 +462,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not as often as they should, though I'd change that if the hunters would come down from their rise. A warrior who knows where the arrows will fall can hold the line longer, and a hunter who knows where the line will hold can shoot more freely." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine sparring partner for my braves. Bring it to the ring someday, if you trust me with it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not as often as they should, though I'd change that if the hunters would come down from their rise. {pet} would make a fine sparring partner for my braves, if you trust me with it." },
       },
       choices = {
         { text = "I'll train beside the warriors, Ker.", next = "BACK", fx = { align = { order = 1 } } },
@@ -533,7 +533,7 @@ P:NPC {
         { text = "A shaman can't need a warrior's training, Ker.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Strength isn't everything. Speed and silence count too.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "How should a warrior use great strength, Ker?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Warriors and hunters must train together here, Ker.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do warriors and hunters train together here, Ker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Are your warriors trained to fight demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do any tauren still scorn the druid's path, Ker?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How can a mage protect the herd, Ker?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },

@@ -37,7 +37,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hyenas by day and scorpids by night, and once a basilisk that sat on my best trench for two days and glared at anyone who came near. I lost a good shovel and a better digger to that stare before it wandered off." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} out of the trenches, if ye don't mind, because the last beast that dug in my dig found a troll's skull and wouldn't give it back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hyenas by day an' scorpids by night, mostly. Keep {pet} out o' the trenches, though, because the last beast that dug in my dig found a troll's skull and wouldn't give it back." },
       },
       choices = {
         { text = "Beasts only take what they need. Drive them off, don't slaughter them.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -74,7 +74,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "There's old something, I'd stake my beard on it, because nobody builds walls like the ones at Eastmoon for no reason. The trolls of Zul'Farrak won't say what came before them, and the sand won't either, so I keep digging and hoping." } },
+      lines = { { id = "xmage_default", text = "There's old magic down there, I'd stake my beard on it, because nobody builds walls like the ones at Eastmoon for no reason. The trolls of Zul'Farrak won't say what came before them, and the sand won't either, so I keep digging and hoping." } },
       choices = {
         { text = "Some old power should stay buried, Ironboot.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Dig it all up. Knowledge belongs to the finders.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -165,11 +165,11 @@ P:NPC {
       choices = { { text = "Older than the trolls?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "The problem is the Wastewanderers, the Sandfury and the heat, and not always in that order. A dwarf can dig for a week and still find nothing but sand." } },
+      lines = { { id = "b1_2_l", text = "Older than the trolls, aye, though finding out is the hard part, with the Wastewanderers, the Sandfury and the heat in the way. A dwarf can dig for a week and still find nothing but sand." } },
       choices = { { text = "What keeps you going?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "But when ye do find something, friend, there's no feeling like it in all the world. That's what keeps me out here." } },
+      lines = { { id = "b1_3_l", text = "When ye do find something, friend, there's no feeling like it in all the world. That's what keeps me out here." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -181,7 +181,7 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     x_1 = {
-      lines = { { id = "x_1_l", text = "Aye, and I miss Ironforge's ale, but a dwarf goes where the dirt's got somethin' buried in it. Tell Magni I said hello, if ye ever see him." } },
+      lines = { { id = "x_1_l", text = "Aye, and I miss Ironforge's ale, but a dwarf goes where the dirt's got somethin' buried in it. Tell King Magni I said hello, if ye ever see him." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     s_1 = {
@@ -321,11 +321,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Tooga went for a walk, and Tooga kept walking, and now Tooga is in the desert. Turtles are not good at deserts." } },
-      choices = { { text = "Torta worries?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Is Torta worried about you?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Tooga thinks Torta must be worried, because Torta always worries. Torta is Tooga's best friend." } },
-      choices = { { text = "Probably?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Will you stay home after this?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "If Tooga can get home, Tooga will never walk so far again, probably." } },
@@ -493,8 +493,8 @@ P:NPC {
       choices = { { text = "Reproducing them?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "I've been keeping notes for months, and I've filled four journals. The goblins think I'm mad, but they also think anything not for sale is mad." } },
-      choices = { { text = "I'll keep an eye out.", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "b1_2_l", text = "Reproducing them in machines, someday, and I've filled four journals of notes towards it already. The goblins think I'm mad, but they also think anything not for sale is mad." } },
+      choices = { { text = "Can I help somehow?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "If you see any unusual creatures out there, tell me about them. Science needs eyes, and I only have two." } },
@@ -509,7 +509,7 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     x_1 = {
-      lines = { { id = "x_1_l", text = "Oh, it might ever, and I'd love to take notes while it does, though I promise I won't poke it, at least not without asking." } },
+      lines = { { id = "x_1_l", text = "Oh, it might indeed, and I'd love to take notes while it does, though I promise I won't poke it, at least not without asking." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     s_1 = {
@@ -518,7 +518,7 @@ P:NPC {
     },
   },
   topics = {
-    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan is a marvel, really, a town built on nothing but sand and goblin stubbornness, and the water tower, of course, the water tower is everything. I'd love to see its schematics, if Bilgewhizzle would ever let me." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan is a marvel, really, a town built on nothing but sand and goblin stubbornness, and the water tower, of course, the water tower is everything. I'd love to see its schematics, if Chief Engineer Bilgewhizzle would ever let me." } },
     gnomeregan = {
       { id = "tp_gnomeregan", text = "Gnomeregan was home, and the trogg, the troggs, the radiation, we all know how that ended, and I still dream about the workshop I left. Somebody had my second-best wrench on loan, too." },
       { id = "tp_gnomeregan2", when = { race = "Gnome" }, text = "You'd remember it too, then, the halls and the lights, before Thermaplugg let the troggs in. Do you still dream about it? I do, nearly every night." },
@@ -556,7 +556,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Arrows, shot, and a salve for blistered paws, which out here sells faster than the arrows and at a better margin. By noon the sand gets so hot I've watched a hunter's wolf hop from foot to foot all the way down the main street." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it's been walking on that sand all day, friend, and Jabbey would say it's earned a tin of the good salve." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Arrows, shot, and a salve for blistered paws. {pet} looks like it's been walking on that sand all day, friend, and Jabbey would say it's earned a tin of the good salve." },
       },
       choices = {
         { text = "A beast at your side deserves the care you'd give yourself.", next = "BACK", fx = { align = { light = 1 } } },
@@ -652,7 +652,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and a thirsty one by the look of you! Jabbey's got whetstones, bandages and a tonic that'll put the fight back in your arms, all at a very reasonable markup." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! Now, Jabbey doesn't sell meat, buddy, but if your beast's hungry I know a fellow named Dirge who asks very few questions about where his comes from, and he gives Jabbey a little something for the referral." },
+          text = "A hunter! Now, Jabbey doesn't sell meat, buddy, but if your beast's hungry I know a cook named Dirge Quikcleave who asks very few questions about where his comes from, and he gives Jabbey a little something for the referral." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've got seeds, herbs, and something in a jar I'm told used to be a cactus, so you'll find something here, I promise." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at Jabbey's stall! Jabbey sells honest goods to honest folk, mostly, and Jabbey would like you to remember the honest part." },
       },
@@ -676,7 +676,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Water, friend, by a long way, then cooling potions and anything that keeps the scorpids off you. After that, it's whatever the adventurers are hunting this week, and Jabbey stocks it the week before." } },
-      choices = { { text = "Turtle shells?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "What are adventurers hunting this week?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Last month it was snake bits, this month it's turtle shells, pal. Next month, who knows, but Jabbey'll have it, and Jabbey'll have it first." } },
@@ -727,7 +727,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hides, now and then, though I'm a tailor and not a leatherworker, so mostly I get hunters asking me to mend what their own beasts chewed, at the chewed-sleeve rate. Every one of them swears the beast is house-trained, and every sleeve tells me otherwise." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from my bolts, please, dearie, because I've lost a whole roll of silk to a curious nose before, twelve gold of it, and I don't sell it by the chewed yard." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hides now and then, though mostly hunters ask me to mend what their beasts chewed. Keep {pet} away from my bolts, please, dearie, because I've lost a whole roll of silk to a curious nose before." },
       },
       choices = {
         { text = "A beast should be trained to leave other folk's goods alone.", next = "BACK", fx = { align = { order = 1 } } },
@@ -846,7 +846,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Light, tight and pale, dearie, unless you enjoy roasting in your own boots. The sand gets into everything, so a good weave keeps it out, and a good weave costs a little more." } },
-      choices = { { text = "And mageweave?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "What about silk?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Silk's lovely, but it tears on the rocks, and torn silk is gold down a hole, so most folks out here settle for mageweave and pray." } },

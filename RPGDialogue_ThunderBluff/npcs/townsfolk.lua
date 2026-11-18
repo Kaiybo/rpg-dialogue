@@ -57,7 +57,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Many do, and I don't mind, as long as they're cleaned first. One hunter left the skull of a plains lion with me and visits it every season, which I find touching, though the other bankers find it strange." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} can wait at the door, please. The vaults are no place for a beast, however well behaved." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Many do, as long as they're cleaned first. {pet} can wait at the door, though, because the vaults are no place for a beast, however well behaved." },
       },
       choices = {
         { text = "I keep my trophies to honour the beasts I've taken.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -237,7 +237,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "With patience, raw meat and a great deal of respect, because a wind rider remembers every kindness and every slight. They're proud creatures, and a hunter would understand them better than most, so you're welcome to come up the tower and meet them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't care for the wind riders, I see. They're not fond of it either, but they've never once quarrelled with a hunter's beast." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "With patience, raw meat and a great deal of respect, because a wind rider remembers every kindness and every slight. {pet} doesn't care for them, I see, but they've never once quarrelled with a hunter's beast." },
       },
       choices = {
         { text = "Respect is the only way to earn a beast's trust.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -416,7 +416,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every tauren hunter once carried a spear, long before the orcs brought their guns across the sea. A spear keeps a charging beast at arm's length, and a hunter who knows how to use one will stand when others fall." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will thank you for learning, {class}. A hunter who can protect his companion is a hunter worth following." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yes, because a spear keeps a charging beast at arm's length. {pet} will thank you for learning it, {class}, since a hunter who can protect a companion is worth following." },
       },
       choices = {
         { text = "I'll learn the spear, for my companion's sake.", next = "BACK", fx = { align = { order = 1 } } },
@@ -550,7 +550,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "We thank the beast and the Earth Mother before and after, and my family has done so since long before we had a rise to stand on. I don't know if it's prayer the way you mean it, but it keeps a hunter honest. Holt says a hunter who forgets to give thanks will soon forget to aim." } },
+      lines = { { id = "xhpriest_default", text = "We thank the beast and the Earth Mother before and after, and my family has done so since long before we had a rise to stand on. I don't know if it's prayer the way you mean it, but it keeps a hunter honest. Holt, who trains our hunters, says one who forgets to give thanks will soon forget to aim." } },
       choices = {
         { text = "Giving thanks is a good habit. I'll remember it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Thanks won't fill a belly, Kuna. Good aim will.", next = "BACK", fx = { align = { light = -1 } } },
@@ -570,7 +570,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The wood comes from the old trees of Mulgore, and we cut only from trees that have already fallen, so the Earth Mother gives each bow freely. A bow made from a gift shoots truer than one made from a theft, or so my grandmother always said." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it would enjoy a good hunt. Take it out to the plains with a Thunderhorn bow, and you'll both come home happy." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The wood comes only from fallen trees, so the Earth Mother gives each bow freely. Take {pet} out to the plains with one, and you'll both come home happy." },
       },
       choices = {
         { text = "I'll honour the bow and the land it came from.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -658,7 +658,7 @@ P:NPC {
       },
     },
     bow_wood = {
-      lines = { { id = "bw_default", text = "The trees along the streams of Mulgore, mostly, the ones the Earth Mother grew slowly. I never cut a living tree without asking it first, and if that sounds foolish, the bows haven't complained." } },
+      lines = { { id = "bw_default", text = "Trees along the streams of Mulgore, the ones the Earth Mother grew slowly, and only once they've fallen. I thank each one before I cut it, and if that sounds foolish, the bows haven't complained." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     holt = {
@@ -729,7 +729,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Only when the fish in Stonebull Lake are being stubborn, and they usually are. Aska says it's the bait and not the Earth Mother, and she's probably right, but I like to think someone's listening when I sit out there all morning. If a priest wants to bless my hooks, I won't say no." } },
+      lines = { { id = "xhpriest_default", text = "Only when the fish in Stonebull Lake are being stubborn, and they usually are. My sister Aska says it's the bait and not the Earth Mother, and she's probably right, but I like to think someone's listening when I sit out there all morning. If a priest wants to bless my hooks, I won't say no." } },
       choices = {
         { text = "Someone always listens, Kah. Keep asking.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayer's wasted on fish, Kah. Change your bait.", next = "BACK", fx = { align = { light = -1 } } },
@@ -749,7 +749,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than most hunters think, because you read the water as you read the grass and you wait where the prey wants to be. The difference is that a fish won't charge you, which makes fishing a gentler hunt, though no less honest." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it would like a fish. Most beasts do, and the lakes of Mulgore have plenty to share." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than most hunters think, because you read the water as you read the grass. {pet} would agree, I'd wager, since most beasts like a fish." },
       },
       choices = {
         { text = "I'll take only what I'll eat, from lake or plain.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -759,7 +759,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Fair to the fish, maybe, because a seal takes only what it can eat while a fisherman fills a whole basket. Turak's students swim in Stonebull Lake sometimes, and I've hooked more of them on my line than I'd like to admit." } },
+      lines = { { id = "xdruid_default", text = "Fair to the fish, maybe, because a seal takes only what it can eat while a fisherman fills a whole basket. The young druids swim in Stonebull Lake as seals sometimes, and I've hooked more of them on my line than I'd like to admit." } },
       choices = {
         { text = "A fisherman's patience beats a seal's teeth. I'll use the line.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A catch is a catch, so I'll use whatever works.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -927,7 +927,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Plainstrider for stew and kodo for roasting, though a prairie wolf makes a fine broth if you cook it slowly. Every part of the beast has its use, and a hunter who learns to cook wastes nothing the Earth Mother gave." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would like a share, I'd wager. Set aside a little for it every time you cook, and it'll never wander far from your fire." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Plainstrider for stew and kodo for roasting. {pet} would like a share, I'd wager, so set a little aside every time you cook, and it'll never wander far from your fire." },
       },
       choices = {
         { text = "I'll cook every part and waste nothing.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -959,7 +959,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Plainstrider, if you can catch one, and you'll catch more as a cat than any hunter will, but thank the bird before you roast it. Turak's druids live on roots and berries for days at a time, and then they come to me looking like hungry kodo." } },
+      lines = { { id = "xdruid_default", text = "Plainstrider, if you can catch one, and you'll catch more as a cat than any hunter will, but thank the bird before you roast it. The young druids live on roots and berries for days at a time, and then they come to me looking like hungry kodo." } },
       choices = {
         { text = "I'll thank every beast I take, as the old ways ask.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Food is food. I'll eat when I'm hungry and move on.", next = "BACK", fx = { align = { order = -1 } } },
@@ -979,7 +979,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I suppose you don't eat, but a warrior who can cook makes friends at every campfire, and you could use friends." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I suppose you don't eat, but anyone who can cook makes friends at every campfire, and you could use friends." },
         { id = "h_default", key = true, text = "I'm Aska Mistrunner, and I teach cooking. A warrior who can cook eats well on the road and makes friends at every campfire, and nobody ever shared a fire with anyone for the sake of a sharp sword." },
         { id = "h_orc", when = { race = "Orc" }, text = "An orc! Your people eat everything burnt and call it cooked. Sit down, and I'll teach you to roast meat without turning it to charcoal." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and too thin, like all of you who spend your nights talking to campfires instead of cooking on them. Sit, and I'll fix that." },
@@ -1104,7 +1104,7 @@ P:NPC {
     },
     op_forsaken_r3 = {
       lines = {
-        { id = "op_forsaken_r3", text = "That's what Zamah says, too, and it's what frightens me. Knowledge goes where it's carried, and I'd like to see who's carrying it." },
+        { id = "op_forsaken_r3", text = "That's what Apothecary Zamah says, too, and it's what frightens me. Knowledge goes where it's carried, and I'd like to see who's carrying it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -1149,7 +1149,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The good ones do, and I'm grateful, because they know where the earthroot grows and where the mageroyal hides. A hunter who brings me herbs is helping heal the tribe, and I'd thank the Earth Mother for every one of them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} might sniff out a few herbs for us, if you trained it. Some beasts have a nose for them, you know." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The good ones do, and I'm grateful. {pet} might sniff out a few herbs for us too, if you trained it, since some beasts have a nose for them." },
       },
       choices = {
         { text = "I'll gather herbs to heal the tribe, Bena.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1241,7 +1241,7 @@ P:NPC {
     forsaken_why = {
       lines = { { id = "fw_default", text = "The High Chieftain and the Arch Druid spoke for them when they joined the Horde, and the Grimtotem welcome them for reasons of their own. It isn't my place to argue with Cairne, but I watch them." } },
       choices = {
-        { text = "What do you think of the Forsaken yourself?", next = "op_forsaken" },
+        { text = "I've my own view of the Forsaken, Bena.", next = "op_forsaken" },
         { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } },
       },
     },
@@ -1289,7 +1289,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_fk_hate", when = { gossip = { topic = "forsaken", stance = "hate" } }, text = "My sister tells me you'd see the Forsaken gone from Mulgore. Be careful who you say that to, because the Chieftain gave them his word." },
+    { id = "o_fk_hate", when = { gossip = { topic = "forsaken", stance = "hate" } }, text = "My cousin Bena tells me you'd see the Forsaken gone from Mulgore. Be careful who you say that to, because the Chieftain gave them his word." },
     { id = "g_hi", text = "Welcome, friend. Come and smell the Peacebloom; it's fresh today." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have you thanked the Earth Mother for what you've gathered?" },
   },
@@ -1334,7 +1334,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Peacebloom and silverleaf in the grass, earthroot in the hills and mageroyal near the water, if you know where to look. The Earth Mother hides her gifts well, and a hunter who learns to see them will never go home empty-handed." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing at the peacebloom by the lift. Let it; some beasts know which plants heal better than we do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Peacebloom and silverleaf in the grass, and earthroot in the hills. {pet} has been sniffing at the peacebloom already, and some beasts know which plants heal better than we do." },
       },
       choices = {
         { text = "I'll gather only what the land can spare.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1488,7 +1488,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Under their mail, always, because mail against bare skin is a misery no warrior forgets. The braves who guard the bluffs wear a quilted jerkin beneath their armour, and every one of them was cut from a hide some hunter brought me." } },
+      lines = { { id = "xwarcl_default", text = "They wear it under their mail, always, because mail against bare skin is a misery no warrior forgets. The braves who guard the bluffs wear a quilted jerkin beneath their armour, and every one of them was cut from a hide some hunter brought me." } },
       choices = {
         { text = "I'll honour the beasts that clothe me.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Leather is leather. I don't think about beasts.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1499,7 +1499,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "With respect, and with a sharp knife, because a torn hide wastes the life the beast gave. Scrape it clean, salt it well and bring it to me before it stiffens, and I'll teach you to make something worthy of the beast that wore it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches me work the hides very closely. Don't worry, {class}; I'd never use a hunter's companion." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "With respect, and with a sharp knife, so the hide isn't torn. {pet} is watching me very closely, {class}, but don't worry, I'd never use a hunter's companion." },
       },
       choices = {
         { text = "I'll treat every hide with respect, Una.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1574,7 +1574,7 @@ P:NPC {
         { text = "How should a hunter treat a hide, Una?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "The druids must object to your work, Una.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do warlocks ever learn leatherworking, Una?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Does that trouble you, Una?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Does a Forsaken paladin trouble you, Una?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Una.", next = "END" },
       },
     },

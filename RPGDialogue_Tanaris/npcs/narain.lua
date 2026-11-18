@@ -130,7 +130,7 @@ P:NPC {
       },
     },
     bu_muzz = {
-      lines = { { id = "bum_default", text = "You see? You asked! I told you not to ask, and you asked anyway, and now we've both learned something about you. Go and see Dirge Quikcleave in Gadgetzan about a five-hundred-pound chicken, and stop asking." } },
+      lines = { { id = "bum_default", text = "You see? You asked! I told you not to ask, and you asked anyway, and now we've both learned something about you. Now go and see Dirge Quikcleave, the cook in Gadgetzan, about a five-hundred-pound chicken, and stop asking." } },
       choices = { { text = "A five-hundred-pound chicken?", next = "BACK" } },
     },
 

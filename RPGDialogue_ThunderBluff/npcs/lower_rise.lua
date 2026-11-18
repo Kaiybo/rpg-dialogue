@@ -84,11 +84,11 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am called Truthseeker, which my grandmother meant as a blessing and the Elder Council treats as a warning. I gather what can be known, so that when the High Chieftain asks a question, someone in this city has an honest answer for him, whether it lies in a human book like the Compendium of the Fallen or in the dwarves' dig at Uldaman." },
+        { id = "h_default", key = true, text = "I am called Truthseeker, which my grandmother meant as a blessing and the Elder Council treats as a warning. I gather what can be known, so that when the High Chieftain asks a question, someone in this city has an honest answer for him." },
         { id = "h_forsaken", when = { race = "Scourge" },
           text = "I'll speak plainly, since you'd hear it from someone else anyway. I think the High Chieftain took your people into this alliance too quickly, and I have said so to his face, though I would follow him off this mesa if he asked." },
         { id = "h_comp_before", when = { questBefore = TODO_QUEST("Compendium of the Fallen"), minLevel = 30 },
-          text = "The Earthen Ring's intentions seem pure enough, but I want to know who has been whispering in the Elder Council's ears. There is a book in the Scarlet Monastery called the Compendium of the Fallen, and I think it could tell me more about our newest allies than they ever will." },
+          text = "The Forsaken say their intentions are pure, but I'd like to know more about our newest allies than they will tell me. There is a book in the Scarlet Monastery called the Compendium of the Fallen, and I think it could tell me what they won't." },
         { id = "h_comp_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Compendium of the Fallen"), days = 3 } },
           text = "I half believed the Compendium was a story the humans told to frighten their children, and here it sits on my table. You have served the tauren of Thunder Bluff well, {name}, whatever the council says about my methods." },
         { id = "h_tauren", when = { race = "Tauren" },
@@ -116,7 +116,7 @@ P:NPC {
 
     forsaken = {
       lines = {
-        { id = "fk_default", text = "Because nobody has told me what they want, and a people who will not say what they want usually want something you won't like. The Warchief's own advisors in Orgrimmar warned against them, and the High Chieftain spoke for them anyway, out of a kind heart." },
+        { id = "fk_default", text = "I don't trust them, because nobody has told me what they want, and a people who will not say what they want usually want something you won't like. The Warchief's own advisors in Orgrimmar warned against them, and the High Chieftain spoke for them anyway, out of a kind heart." },
         { id = "fk_orc", when = { race = "Orc" }, text = "Ask your own elders in Orgrimmar, friend, because they warned the High Chieftain about the Forsaken before I ever did. He spoke for them anyway, out of a kind heart, and kind hearts are the easiest kind to use." },
       },
       choices = {
@@ -174,7 +174,7 @@ P:NPC {
     discs = {
       lines = {
         { id = "ds_default", text = "An old dig in the Badlands, where the dwarves have been scratching at something older than their own city. The stone halls down there were built by hands that were not dwarven, whatever Ironforge tells itself." },
-        { id = "ds_done", when = { questDone = TODO_QUEST("The Platinum Discs") }, text = "They spoke of the titans, the makers who shaped the world before any of us walked it, and of the earthen they made out of stone to tend it. The dwarves will tell you that's their history, and I suspect it's everybody's." },
+        { id = "ds_done", when = { questDone = TODO_QUEST("The Platinum Discs") }, text = "Uldaman is where the discs you brought me came from, and they spoke of the titans, the makers who shaped the world before any of us walked it, and of the earthen they made out of stone to tend it. The dwarves will tell you that's their history, and I suspect it's everybody's." },
       },
       choices = {
         { text = "The tauren must tell of the titans too.", next = "discs_titans", fx = { learn = { "uldaman" } } },
@@ -203,7 +203,7 @@ P:NPC {
       lines = { { id = "w_default", text = "I can't prove it, so you will not repeat it. Magatha's people carry gifts to the elders' tents, and the elders come away talking about how the Bloodhoof are too friendly with outsiders, which is a Grimtotem song if ever I heard one." } },
       choices = {
         { text = "Then tell Cairne, before it spreads.", next = "whisper_cairne", fx = { learn = { "grimtotem" } } },
-        { text = "Gifts aren't a crime, sage.", next = "whisper_cairne", fx = { learn = { "grimtotem" } } },
+        { text = "Does the High Chieftain know?", next = "whisper_cairne", fx = { learn = { "grimtotem" } } },
       },
     },
     whisper_cairne = {
@@ -228,7 +228,7 @@ P:NPC {
     sage_council = {
       lines = { { id = "sc_default", text = "The council distrusts anything it didn't think of first, and I think of a great deal. I don't mind, because the High Chieftain still sends for me, and the day he stops I'll know I've grown careless." } },
       choices = {
-        { text = "Who does the council worry you about most?", next = "op_magatha" },
+        { text = "Who on Elder Rise worries you most?", next = "op_magatha" },
         { text = "Something else, sage.", next = "BACK" },
       },
     },
@@ -281,7 +281,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Mind the feathers on the mat, friend. They're sorted for the ancestors, though I know it doesn't look it." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, you've come back. Sit, and tell me if the harpies are still screaming over the cone." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, you've come back. Sit, and tell me if the harpies are still screaming on the cliffs north of the Bluff." },
     { id = "g_active", when = { questActive = TODO_QUEST("Preparation for Ceremony") }, text = "Azure feathers and bronze ones, six of each. The Windfury keep the best of them, so you'll have to take them from the harpies themselves." },
     { id = "g_done", when = { questDone = TODO_QUEST("Preparation for Ceremony") }, text = "The headdress is finished, and my brother complained it was too fine, which is how I knew it was right." },
   },
@@ -307,7 +307,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Was there more? I can talk and sew at the same time." },
-        { id = "h_again2", text = "Ask on, friend. The feathers aren't going anywhere, and neither, Earth Mother willing, are the dead." },
+        { id = "h_again2", text = "Ask on, friend. The feathers aren't going anywhere, and neither am I." },
       },
       choices = {
         { text = "Why does Ruul stand before the chieftain?", next = "ruul" },
@@ -401,7 +401,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Auld, of the Stonespire, and there aren't many of us left to say it. My people lived in the southern Barrens, in land we held holy, until too many enemies drove us out, and I don't forgive that as easily as some of the elders up here. The quilboar crone Charlga Razorflank squats on it now." },
+        { id = "h_default", key = true, text = "I am Auld, of the Stonespire, and there aren't many of us left to say it. My people lived in the southern Barrens, in land we held holy, until too many enemies drove us out, and now the quilboar crone Charlga Razorflank squats on it. I don't forgive that as easily as some of the elders up here." },
         { id = "h_before", when = { questBefore = TODO_QUEST("A Vengeful Fate"), minLevel = 25 },
           text = "There's a crone named Charlga Razorflank in the thorns of Razorfen Kraul, raising a foul army of quilboar out of our old holy ground. She faces a vengeful fate, {name}, and I'd like you to be the one who brings it. Bring me her heart, so that I can die in peace." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Vengeful Fate"), days = 3 } },
@@ -512,8 +512,8 @@ P:NPC {
       choices = {
         { text = "What makes good leather?", next = "leather" },
         { text = "Why do the young start with a kodo bag?", next = "bag" },
-        { text = "I'd guess tauren no longer hunt kodo.", next = "kodo" },
-        { text = "I'm a druid. Does skinning bother me?", next = "druid", when = { class = "DRUID" } },
+        { text = "Do tauren still hunt kodo?", next = "kodo" },
+        { text = "I'm a druid. Should skinning trouble me?", next = "druid", when = { class = "DRUID" } },
         { text = "Have you work for me?", next = "BUSINESS" },
         { text = "Farewell, Veren.", next = "END" },
       },
@@ -546,7 +546,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     kodo = {
-      lines = { { id = "k_default", text = "The old and the sick ones, and only what we need. We walked beside the kodo for generations, and it would be a poor thanks to hunt them the way the centaur do, for sport and nothing else." } },
+      lines = { { id = "k_default", text = "Only the old and the sick ones, and only what we need. We walked beside the kodo for generations, and it would be a poor thanks to hunt them the way the centaur do, for sport and nothing else." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     druid = {

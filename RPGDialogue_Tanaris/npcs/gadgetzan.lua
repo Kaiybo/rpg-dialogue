@@ -98,7 +98,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Only on one hyena, and it was entirely voluntary, in the sense that it ate the bottle. It turned into a skeleton for an hour and then trotted off into the dunes looking very pleased with itself, so I've written that down as a success." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not {pet}, of course, I wouldn't dream of it, unless you were offering, in which case I'd dream of it quite a lot." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only on one hyena, which ate the bottle of its own accord. Not {pet}, of course, I wouldn't dream of it, unless you were offering, in which case I'd dream of it quite a lot." },
       },
       choices = {
         { text = "Leave the beasts out of your experiments, Marin.", next = "BACK", fx = { align = { light = 1 } } },
@@ -198,7 +198,7 @@ P:NPC {
         { id = "h_thirsty", tags = { "news" }, when = { questActive = TODO_QUEST("The Thirsty Goblin") },
           text = "The dew collectors out in Thistleshrub Valley, southwest of here, carry a gland full of the stuff. Bring me one, buddy, and try not to squeeze it on the way, because a squeezed gland is a gland I can't sell." },
         { id = "h_taste", when = { questActive = TODO_QUEST("In Good Taste") },
-          text = "It works, but it tastes like a boot, and boots don't sell, so take it to Sprinkle. She knows how to make awful things palatable." },
+          text = "It works, but it tastes like a boot, and boots don't sell, so take it to Sprinkle, the cook. She knows how to make awful things palatable." },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Delivery for Marin") },
           text = "Sprinkle's powder! She says I owe her for it, and she always says I owe her, and the trouble is she's usually right, down to the copper." },
         { id = "h_elixir", when = { questActive = TODO_QUEST("Noggenfogger Elixir") },
@@ -416,7 +416,7 @@ P:NPC {
       { id = "tp_gadgetzan", text = "Gadgetzan's my town, pal, and every barrel of water and every bottle of elixir passes under my nose. I keep the peace with the Bruisers and the profit with everything else." },
       { id = "tp_gadgetzan2", when = { disposition = { min = 70 } }, text = "Between you and me, pal, this town lives on two things, the water tower and the Bruisers, and both cost me more every month. Keep that under your hat, I've got a reputation for being rich." },
     },
-    booty_bay = { { id = "tp_booty_bay", text = "Revilgaz runs a nice little cove, I'll grant him that, but he's got the sea doing half his work for him. Out here I had to make a town out of sand, and I did." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Baron Revilgaz runs a nice little cove, I'll grant him that, but he's got the sea doing half his work for him. Out here I had to make a town out of sand, and I did." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's a sleepy little port, and Gazlowe runs it like a workshop, which suits him. It's not ambitious, pal, but it's honest, in its way." } },
     everlook = { { id = "tp_everlook", text = "Everlook is our cousins up north freezing their fingers off for the Cartel, and I don't envy them. I'd take sand over snow any day, pal, sand doesn't make you wear a coat." } },
     zul_farrak = { { id = "tp_zul_farrak", text = "The trolls in Zul'Farrak are a bad neighbor, pal, raiding our caravans and cursing our water. I've put out a few bounties, and the adventurers keep coming back with very interesting trinkets." } },
@@ -465,7 +465,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Sweetie, I can make anything taste good, though hyena wants a long soak and basilisk wants a very sharp knife. Scorpid's the surprise, because once the stinger's off it tastes a bit like crab from the coast." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I've saved scraps for hunters' beasts before, sweetie, and {pet} has the look of someone who'd never say no to a stockpot bone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Sweetie, I can make anything taste good, though hyena wants a long soak and scorpid tastes a bit like crab. I've saved scraps for hunters' beasts before, and {pet} has the look of someone who'd never say no to a stockpot bone." },
       },
       choices = {
         { text = "Waste nothing from a kill. That honours the beast.", next = "BACK", fx = { align = { light = 1 } } },
@@ -557,7 +557,7 @@ P:NPC {
         { id = "h_taste", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("In Good Taste") },
           text = "Noggy's elixir tastes like a swamp? Of course it does, and swamp doesn't sell. There's a mushroom up in the Hinterlands that fixes anything, so bring me some, sweetie." },
         { id = "h_secret", when = { questActive = TODO_QUEST("Sprinkle's Secret Ingredient") },
-          text = "When I was little I couldn't stand my sister's cooking. Then I found the secret ingredient, and suddenly I could. Fetch me some, would you?" },
+          text = "When I was little I couldn't stand my sister's cooking, until I found the secret ingredient that fixed it. Fetch me some, would you, sweetie?" },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You know what goes in a drink to make it wrong, sweetie, I can see it on you. Well, I know what goes in to make it right again, so we'd make quite a pair, and quite a profit." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -595,7 +595,7 @@ P:NPC {
       },
     },
     noggy = {
-      lines = { { id = "n_default", key = true, text = "That's my name for him. Mine. If anyone else calls him that, they'll be tasting my cooking without the secret ingredient." } },
+      lines = { { id = "n_default", key = true, text = "That's my name for him, and mine alone. If anyone else calls him that, they'll be tasting my cooking without the secret ingredient." } },
       choices = { { text = "Understood.", next = "BACK", fx = { affinity = 2 } } },
     },
     secret = {
@@ -716,7 +716,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hyenas chew the seals, scorpids nest in the pump housings because it's cool in there, and I once found a basilisk sunning itself on the main valve like it paid for the privilege. Every one of them costs me a crew day, pal, and every crew day costs Gadgetzan water and me a reprimand." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If {pet} fancies a bit of work, there's a hyena pack that's been sniffing round the north well every night, and I'd be glad if they found something else to sniff." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hyenas chew the seals and scorpids nest in the pump housings, and every one of them costs me a crew day, pal. If {pet} fancies a bit of work, there's a hyena pack sniffing round the north well every night, and I'd be glad if they found something else to sniff." },
       },
       choices = {
         { text = "The town's water comes first. Clear the pests off the pipes.", next = "BACK", fx = { align = { order = 1 } } },
@@ -932,7 +932,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That every beast in Tanaris knows where the water is before I do, which is humbling for a senior surveyor on a senior surveyor's wage. I've started following the hyenas, frankly, and they've been right more often than my rod has, and they work for free." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} have a good nose? I only ask because I'd trade my dowsing rod for a beast that could smell a spring under the sand, pal, and the Company would probably give me a bonus for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That every beast in Tanaris knows where the water is before I do, so I've started following the hyenas. Does {pet} have a good nose? I'd trade my dowsing rod for a beast that could smell a spring under the sand, pal." },
       },
       choices = {
         { text = "Share the water with the beasts. They found it first.", next = "BACK", fx = { align = { light = 1 } } },
@@ -950,7 +950,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Wrong is the polite word for it. Bugs that size don't just appear at a water hole, and Pestlezugg says they're organized, which is the last thing I wanted to hear from anybody." } },
+      lines = { { id = "dq_default", text = "Wrong is the polite word for it. Bugs that size don't just appear at a water hole, and Alchemist Pestlezugg says they're organized, which is the last thing I wanted to hear from anybody." } },
       choices = {
         { text = "Study them first. We don't know what they are yet.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Burn their nests now, before anyone wastes time studying.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1009,7 +1009,7 @@ P:NPC {
         { id = "h_survey", tags = { "news" }, when = { questActive = TODO_QUEST("Gadgetzan Water Survey") },
           text = "Take the dowsing widget to Sandsorrow Watch and sample the pool there, and please, pal, don't drop it, because it's signed out in my name. It should be simple, but I say that about everything, and it rarely is." },
         { id = "h_lair", when = { questActive = TODO_QUEST("Noxious Lair Investigation") },
-          text = "Giant insects, at a water hole? That's not natural, and it's definitely not in the budget. Bring me pieces from their lair; Pestlezugg can tell us what they are." },
+          text = "Giant insects, at a water hole? That's not natural, and it's definitely not in the budget. Bring me pieces from their lair, and Alchemist Pestlezugg can tell us what they are." },
         { id = "h_analysis", when = { questActive = TODO_QUEST("Insect Part Analysis") },
           text = "Is that Pestlezugg's report you've got there? Let me see... oh, oh dear, that's worse than I hoped, and I'd hoped for nothing at all." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -1127,7 +1127,7 @@ P:NPC {
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "A fellow alchemist! I've some insect samples you'd find fascinating, or horrifying, and usually both, and I'd sell you a slice for a reasonable sum." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "Keep your pet away from Rose, chum. She's small, but she bites, and she's been at the reagents, and I'm not liable for anything she's been at." },
+      text = "Keep {pet} away from Rose, chum. She's small, but she bites, and she's been at the reagents, and I'm not liable for anything she's been at." },
   },
 
   start = "hello",
@@ -1145,7 +1145,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Glands, stingers, the odd basilisk eye, all the lovely bits a hunter usually throws away, and I pay by the ounce. Scorpid venom goes into half the antidotes in Gadgetzan, which I find delightfully ironic and very profitable." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do keep {pet} at a polite distance from Rose, please, because she's the best assistant I've ever had and she's quite small enough to be mistaken for a snack." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Glands, stingers, the odd basilisk eye, all the bits a hunter usually throws away, and I pay by the ounce. Do keep {pet} at a polite distance from Rose, my little assistant, because she's quite small enough to be mistaken for a snack." },
       },
       choices = {
         { text = "Kill only what you need, and use all of it.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1234,7 +1234,7 @@ P:NPC {
         { id = "h_march", key = true, when = { questActive = TODO_QUEST("March of the Silithid") },
           text = "Gracina Spiritmight in Darnassus and Zilzibin Drumlore both have theories about where these things come from, and both of them say Un'Goro. I think they may be right." },
         { id = "h_bungle", when = { questActive = TODO_QUEST("Bungle in the Jungle") },
-          text = "I need a scent gland from the hive's own and a handful of Un'Goro soil, and with the two I can build a lure. I'd rather not say what it's for just yet." },
+          text = "I need a scent gland from one of the hive's own insects and a handful of Un'Goro soil, and with the two I can build a lure. I'd rather not say what it's for just yet." },
         { id = "h_rose", when = { metBefore = true }, text = "Rose ate the label off a jar again, so now I've a jar of something, worth something, and no idea what. She looks pleased with herself, which worries me." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "Rose, mind your manners, it's a druid. Druids always ask what I'm dissecting, and they never like the answer." },
@@ -1360,7 +1360,7 @@ P:NPC {
   nodes = {
     op_booty_bay = {
       lines = {
-        { id = "opb_q", text = "Speakin' of Krazek, you've been to Booty Bay, haven't ya, or you will be. What do you think of the place, just between two people in the trade?" },
+        { id = "opb_q", text = "Speakin' of my cousin Krazek's port, you've been to Booty Bay, haven't ya, or you will be. What do you think of the place, just between two people in the trade?" },
       },
       choices = {
         { text = "Best port in the world. Everything's for sale there.", next = "op_booty_bay_r1", fx = { affinity = 1, align = { order = -1 }, opinion = { booty_bay = "admire" } } },
@@ -1421,7 +1421,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "People who've never seen a desert and want to say they have, mostly. A basilisk eye in a glass case sells in Booty Bay for more than you'd guess, and I'll leave you to guess what I pay for one." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not that I'm looking at {pet} that way, mind, because I don't deal in live goods, though I've a cousin who might, for a fee, and you didn't hear that from me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "People who've never seen a desert and want to say they have, mostly, and a basilisk eye in a glass case sells well in Booty Bay. Not that I'm looking at {pet} that way, mind, because I don't deal in live goods." },
       },
       choices = {
         { text = "Some kills aren't for selling. They're for respect.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1695,7 +1695,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I mind beasts that eat the stew, and I mind beasts that eat the guests, and I'm told that rules out most of them. But a quiet one by the fire's no worse than half my regulars, and it usually smells better." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well-mannered enough, so if it curls up by the hearth and leaves the stew alone, I'll call that a paying guest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I mind beasts that eat the stew or the guests, but a quiet one by the fire's no worse than half my regulars. {pet} looks well-mannered enough, so if it curls up by the hearth and leaves the stew alone, I'll call that a paying guest." },
       },
       choices = {
         { text = "A beast should mind the house rules like anyone else.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1857,12 +1857,12 @@ P:NPC {
       },
     },
     kitchen_half = {
-      lines = { { id = "kh_default", text = "The living part, mostly, and the meat's good if you don't ask what it was. Gimblethorn eats there every night, and he's the most careful goblin in Tanaris, so that's a recommendation." } },
+      lines = { { id = "kh_default", text = "The living part, mostly, and the meat's good if you don't ask what it was. Gimblethorn the banker eats there every night, and he's the most careful goblin in Tanaris, so that's a recommendation." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     both = {
       lines = {
-        { id = "bo_default", text = "Same bar, same stools, same sand in the stew, and the Bruisers stand by the door to keep it that way. Bera and Bulkrek drink at opposite ends and raise their mugs to each other, which is about as warm as it gets." },
+        { id = "bo_default", text = "Same bar, same stools, same sand in the stew, and the Bruisers stand by the door to keep it that way. Bera and Bulkrek, the two flight masters, drink at opposite ends and raise their mugs to each other, which is about as warm as it gets." },
       },
       choices = {
         { text = "That's how it should be everywhere.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1913,7 +1913,7 @@ P:NPC {
 
   greetings = {
     { id = "o_bb_distrust", when = { opinion = { booty_bay = "distrust" } }, text = "Shh! Somebody said you called Booty Bay a nest of crooks, and some of those crooks are lookin' for me, so don't go mentionin' my name down there, okay?" },
-    { id = "g_dock", text = "Who sent you? No, don't tell me, I know who sent you, because it's always the same fellow." },
+    { id = "g_dock", text = "Who sent you? No, don't tell me, it was MacKinley in Booty Bay, because it's always MacKinley." },
   },
 
   notice = {
@@ -1936,7 +1936,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because a hunter's quieter than a bruiser and cheaper than a rogue, that's why, and the Bay knows I'd see a bruiser coming. I sleep on a different crate every night down at the port, which is no way to live, but it's still living." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And don't let {pet} sniff around my coat, please, because it might be the sort of beast that's been given a scent, and I'm not being nervous, I'm being careful." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a hunter's quieter than a bruiser and cheaper than a rogue, and I sleep on a different crate every night down at the port. Don't let {pet} sniff around my coat, though, because it might be the sort of beast that's been given my scent." },
       },
       choices = {
         { text = "Settle it with them properly. Hiding forever is no life.", next = "BACK", fx = { align = { order = 1 } } },
@@ -2069,7 +2069,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     leave = {
-      lines = { { id = "lv_default", text = "Every ship out of here stops at Booty Bay sooner or later, and so would I, and so would he, waiting on the dock with a smile." } },
+      lines = { { id = "lv_default", text = "Every ship out of here stops at Booty Bay sooner or later, and so would I, and so would MacKinley, waiting on the dock with a smile." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     mackinley = {
@@ -2140,7 +2140,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Against basilisk hide nothing's good, friend, because those beasts are half stone already. Aim for the eyes or the soft bit under the jaw, and take thorium heads if you can afford them, which you can't, but I'll sell them to you anyway, on account." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} away from the cooling trough, because the last hunter's cat drank from it and spent a week coughing up flux." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Against basilisk hide nothing's good, friend, so aim for the eyes or the soft bit under the jaw, and take thorium heads if you can afford them. Keep {pet} away from the cooling trough, though, because the last hunter's cat drank from it and spent a week coughing up flux." },
       },
       choices = {
         { text = "Aim true and end it quickly. The beast deserves that much.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -2227,7 +2227,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Krinkle Goodsteel, pal. Iron, thorium, flux, and molds for things that nobody else will make molds for, and if you can pay, I can pour it." },
         { id = "h_mold", tags = { "news" }, when = { questActive = TODO_QUEST("Mold Rhymes With...") },
-          text = "Arbington's courier, or is it Dithers's? Doesn't matter, both send the same bones. Fifteen gold for the mold, up front, no haggling, and the lesson on the stem I'll throw in at no charge, because I'm sentimental." },
+          text = "Dithers and Arbington sent you down from the Plaguelands? They always send the same bones. Fifteen gold for the mold, up front, no haggling, and the lesson on the stem I'll throw in at no charge, because I'm sentimental." },
         { id = "h_plume", tags = { "news" }, when = { questActive = TODO_QUEST("Fire Plume Forged") },
           text = "The key needs a fire hot enough to set it, buddy, and my forge isn't it. Find the hottest spot on Fire Plume Ridge in Un'Goro and hold your breath, and try not to melt anything I've already been paid for." },
         { id = "h_union", when = { metBefore = true },

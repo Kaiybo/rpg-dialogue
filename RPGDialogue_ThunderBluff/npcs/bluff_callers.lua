@@ -159,7 +159,7 @@ P:NPC {
       },
     },
     feralas = {
-      lines = { { id = "fe_default", text = "Camp Mojache, among the Grimtotem's old haunts and the ogres of Dire Maul, and they say the forests there grow trees taller than the bluff. It's a new frontier, and the Horde wants it held." } },
+      lines = { { id = "fe_default", text = "Camp Mojache stands among the Grimtotem's old haunts and the ogres of Dire Maul, and they say the forests there grow trees taller than the bluff. It's a new frontier, and the Horde wants it held." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     plague = {
@@ -208,7 +208,7 @@ P:NPC {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid, so you're one of Hamuul's, and you'll want to tell me how to pile soil properly. Don't." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "Your gear's in tatters, Private. Did the dirt fight back?" },
+      text = "Your gear's in tatters, Private. Did somebody's dirt fight back?" },
   },
 
   start = "hello",

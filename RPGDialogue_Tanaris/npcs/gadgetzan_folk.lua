@@ -76,7 +76,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The owner claimed the slip was for forty gold, the beast declined to testify, and the Cartel ruled it a matter for arbitration. I've kept his account frozen ever since, and he's kept his wolf on a very short leash." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'm sure {pet} is far better behaved, of course, but I'll have the Bruisers watch the door all the same, purely as a matter of policy." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The owner claimed the slip was for forty gold, the beast declined to testify, and I've kept his account frozen ever since. I'm sure {pet} is far better behaved, but I'll have the Bruisers watch the door all the same, purely as a matter of policy." },
       },
       choices = {
         { text = "Rules are rules, even for a beast. Your caution's fair.", next = "BACK", fx = { align = { order = 1 } } },
@@ -355,7 +355,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "About as well as I get on with sand, which is to say badly and loudly. Gryphons are bred in the snows of Dun Morogh, and they think anything with four legs and a tail is either lunch or a rival, and they haven't decided which." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome to keep its distance from the roost, and I'll keep my birds from deciding it's lunch, and we'll all be happier for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Badly and loudly, because gryphons think anything with four legs and a tail is either lunch or a rival. {pet} is welcome to keep its distance from the roost, and I'll keep my birds from deciding it's lunch." },
       },
       choices = {
         { text = "Any beast learns its place with patient training.", next = "BACK", fx = { align = { order = 1 } } },
@@ -515,7 +515,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_horde_mixed", when = { gossip = { topic = "horde", stance = "mixed" } }, text = "The dwarf says you told her the Horde wants a roof and a meal like anyone. She nodded at me twice this morning, so I suppose I owe you for it." },
+    { id = "o_horde_mixed", when = { gossip = { topic = "horde", stance = "mixed" } }, text = "Bera, the dwarf across the yard, says you told her the Horde wants a roof and a meal like anyone. She nodded at me twice this morning, so I suppose I owe you for it." },
     { id = "g_default", text = "You need a wind rider, or you need shade? Both are here; only one is free." },
   },
 
@@ -583,7 +583,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They accept a beast that stands still and does not stare, which is more than most hunters manage. The dwarf's gryphons across the yard have learned it too, and so we keep the peace, birds and beasts and two flight masters both." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has good manners, I see. It knows not to look a wind rider in the eye, and that is a lesson some orcs never learn." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They accept a beast that stands still and does not stare, which is more than most hunters manage. {pet} has good manners, I see, for it knows not to look a wind rider in the eye." },
       },
       choices = {
         { text = "Respect the old beasts' ways, and they'll respect yours.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -760,7 +760,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I buy meat from everyone and ask no one where it came from, which is the secret of a stocked kitchen in a drought and a very healthy margin. But a hunter's meat I trust, because you know the difference between a fresh kill and something the hyenas have already had a go at." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks like a connoisseur, so if it ever turns its nose up at one of my chops, I want to know, because I'll fire whoever cut it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I buy meat from everyone, but a hunter's meat I trust, because you know a fresh kill from something the hyenas have had a go at. {pet} looks like a connoisseur, too, so if it ever turns its nose up at one of my chops, I want to know." },
       },
       choices = {
         { text = "A hunter kills clean and wastes nothing. That's the craft.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -898,7 +898,7 @@ P:NPC {
       },
     },
     meat_age = {
-      lines = { { id = "ma_default", text = "Not long enough to matter, which is the important thing in a desert! Fizzgrimble serves it at the bar and nobody's died yet, or nobody's complained, which is nearly the same." } },
+      lines = { { id = "ma_default", text = "Not long enough to matter, which is the important thing in a desert! Innkeeper Fizzgrimble serves it at the bar and nobody's died yet, or nobody's complained, which is nearly the same." } },
       choices = {
         { text = "I'll take my chances. Smells good.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "I think I'll eat my own rations.", next = "BACK", fx = { affinity = -1, trait = { cautious = 1 } } },
@@ -981,7 +981,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A barrel that doesn't warp in the sun and a stock that doesn't crack, and you'd be amazed how many smiths forget the second part. Sand gets into everything, so clean it every night, and if it jams, don't blame Blizrik, blame Tanaris." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, and keep {pet} well back when you test-fire, because a hunter's cat bolted into my workshop once and I lost a keg of powder and most of my eyebrows." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A barrel that doesn't warp in the sun and a stock that doesn't crack, and clean it every night. Keep {pet} well back when you test-fire, though, because a hunter's cat bolted into my workshop once and I lost a keg of powder and most of my eyebrows." },
       },
       choices = {
         { text = "A clean rifle is a disciplined hunter's rifle. I tend mine daily.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1200,7 +1200,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It is cut for forest air, still and damp, where an arrow flies true without asking much of its feathers. Here the wind comes off the dunes in gusts, and a basilisk's eye is a small target to miss by a hand's width." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has learned the desert faster than your arrows have, I see, for it walks with its weight low and its nose to the wind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It is cut for still forest air, and here the wind comes off the dunes in gusts. {pet} has learned the desert faster than your arrows have, I see, for it walks with its weight low and its nose to the wind." },
       },
       choices = {
         { text = "I'll learn the land before I hunt it. That's only respect.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1449,7 +1449,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The hunter and the beast were one spirit with two bodies, mon, and the loa watched over them both. Now the young ones forget, but the beast never does, so Yeh'kinya listens to the beasts more than the trolls these days." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet}, now, that one has a spirit Yeh'kinya can almost hear, mon, and it says you feed it well and talk to it too much." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The hunter and the beast were one spirit with two bodies, mon, and the loa watched over them both. {pet}, now, has a spirit Yeh'kinya can almost hear, and it says you feed it well and talk to it too much." },
       },
       choices = {
         { text = "My beast and I share one spirit. That bond is sacred.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1548,7 +1548,7 @@ P:NPC {
           text = "Quiet feet and quick hands, eh, mon? Yeh'kinya's eyes are tired, but he can still see a rogue coming, and a rogue going too." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, with the Horde's mark on you. Old Yeh'kinya sees a little of the loa in you, or maybe a little of the shadow, and he don't mind either one." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior, mon. Yeh'kinya sees how your shoulders sit, mon, from swingin' an axe at all the trolls it's cut down out there in the sand." },
+          text = "A warrior, mon. Yeh'kinya sees how your shoulders sit from swingin' an axe at all the trolls it's cut down out there in the sand." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, mon! Yeh'kinya's people hunted the jungle long before there was any sand here, and your beast walks like it knows the old ways." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Light, come to sit by an old troll? Sit, then, mon, but don't be preachin' at me, because I've heard all of it before." },

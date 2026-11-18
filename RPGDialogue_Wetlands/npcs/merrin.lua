@@ -18,8 +18,8 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back on the ridge! Ormer'll be pleased, though he'll never say it." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' we're still here, still diggin' when the raptors let us. Any letters from Menethil in yer pack?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown handy since ye first climbed up here. The raptors have noticed, an' so have I." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "Word reached us even up here that ye've been helpin' folk. Thank ye, an' if any o' them was Tarrel, thank ye twice." },
-    { id = "g_note", when = { questActive = TODO_QUEST("In Search of The Excavation Team") }, text = "Tarrel will be beside himself by now. Get word back tae him quick, if ye please." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word reached us even up here that ye've been helpin' folk. Thank ye, an' if any o' them was my Tarrel, thank ye twice." },
+    { id = "g_note", when = { questActive = TODO_QUEST("In Search of The Excavation Team") }, text = "My husband Tarrel will be beside himself by now. Get word back tae him quick, if ye please." },
   },
 
   notice = {

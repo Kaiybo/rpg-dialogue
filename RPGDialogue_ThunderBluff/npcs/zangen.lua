@@ -16,9 +16,9 @@ P:NPC {
   greetings = {
     { id = "g_fire", text = "Warm your hands, {class}. The fire belongs to everyone who passes, as the plains belong to every herd." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The fire is lit, and the ancestors can see their way home. Sit, if you like." },
-    { id = "g_phial", when = { questActive = TODO_QUEST("The Sacred Flame") }, text = "A dryad's phial, filled at the moonwell by the Falfarren. Be gentle with it; the water remembers how it was carried." },
+    { id = "g_phial", when = { questActive = TODO_QUEST("The Sacred Flame") }, text = "Fill the dryad's phial at the moonwell by the Falfarren River, and be gentle with it. The water remembers how it was carried." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you sat by this fire. It burned every night without you, but it's glad of the company." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you carried the phial for me. The fire throws a longer shadow behind you now." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you last sat by this fire. It throws a longer shadow behind you now." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear kind words about you on the rises. They warm an old tauren nearly as well as the fire." },
   },
 
@@ -44,7 +44,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The fire keeps talking, and the ancestors listen, so I might as well join in." },
-        { id = "h_again2", text = "Ask what you will. The evening is long, and the kettle has barely started to grumble." },
+        { id = "h_again2", text = "Ask what you will. The evening is long, and the fire is in no hurry." },
       },
       choices = {
         { text = "Why light the fire every night?", next = "fire" },

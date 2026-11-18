@@ -30,7 +30,7 @@ P:NPC {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "One o' the clans, good. Ironforge sends us fewer than we need, so every beard through that door is welcome." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Ye look like ye came through Algaz on yer face, an' the raptors had a go at what was left. Brahnmar's down by the docks; see him before ye see the Captain." },
+      text = "Ye look like ye came through Algaz on yer face, an' the raptors had a go at what was left. Brahnmar the armorer's down by the docks; see him before ye see Captain Stoutfist." },
   },
 
   start = "hello",
@@ -100,7 +100,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Dragonmaw scouts, an' the raptors that follow them, for the raptors have learned the orcs leave bodies behind. If ye can tell me how many orcs are movin' an' where, I can tell the Captain somethin' other than bad news for once." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} would hear a Dragonmaw patrol long before the road did, an' I'd take its count over half my scouts'." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dragonmaw scouts, an' the raptors that follow them. {pet} would hear a Dragonmaw patrol long before ye did, an' I'd take its count over half my scouts'." },
       },
       choices = {
         { text = "I'll count them and report, nothing more.", next = "BACK", fx = { align = { order = 1 } } },
@@ -123,13 +123,13 @@ P:NPC {
         { id = "xwl_default", text = "Do ye now? Then ye know what they did wi' it in the last war, an' ye'll forgive me if I don't care tae hear how ye learned it. Take yer knowledge north an' turn it on them, an' I'll judge ye by where the bodies fall." },
       },
       choices = {
-        { text = "I'll use it to end theirs, nothing more.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll turn it against them, nothing more.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Their power can serve better hands than theirs.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "What should be done about the Dragonmaw?", next = "dragonmaw" },
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Aye, in the Second War, alongside some o' the night elves' wild friends, though there were few enough o' them then. They fought for the forests while we fought for the hold." } },
+      lines = { { id = "dq_default", text = "Once, when a few night elf druids came over the sea after the Third War tae walk these marshes. They fought for the reeds while we fought for the walls, an' they did it well." } },
       choices = {
         { text = "We fought for the same world, Valstag.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Druids shouldn't be fighting men's wars.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -167,7 +167,7 @@ P:NPC {
         { id = "h_spoils", when = { questDone = TODO_QUEST("Spoils of War") },
           text = "Ye saw to that business o' the spoils. The Captain was pleased, an' when he's pleased, I'm allowed to be." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A druid, is it? I've seen yer kind fight in the old days, an' I'll tell ye now, a bear on a battlefield is a sight tae make an orc think twice." },
+          text = "A druid, is it? I've seen yer kind fight once, an' I'll tell ye now, a bear on a battlefield is a sight tae make an orc think twice." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Good; I need eyes on the Algaz road, an' a hunter's eyes are better than most." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Captain'll want ye on the wall, an' I'll want ye dryin' my reports, for half o' them are soaked through by the time they get here." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'll take any report I can get, an' if the earth wants tae tell ye what the Dragonmaw are about at Grim Batol, I'll write it in my book." },
@@ -201,7 +201,7 @@ P:NPC {
           text = "The Dragonmaw have pushed out o' their hills an' into the pass, scouts an' grunts both. Normally they skulk up there an' leave Algaz be, so somethin's stirred them, an' that worries me more than the orcs themselves." },
       },
       choices = {
-        { text = "Something must have stirred them.", next = "algaz_why" },
+        { text = "What do you think stirred them?", next = "algaz_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -304,7 +304,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Would ye? I know it's daft. Glorin says I should pray an' wait, an' I've been prayin' an' waitin' till I cannae sleep. If the ground she's walkin' on could tell ye she's still walkin', I'd go on waitin' happy." } },
+      lines = { { id = "xdsham_default", text = "Would ye? I know it's daft, but Brother Glorin says I should pray an' wait, an' I've been prayin' an' waitin' till I cannae sleep. If the ground she's walkin' on could tell ye she's still walkin', I'd go on waitin' happy." } },
       choices = {
         { text = "I'll listen, and tell you only what's true.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "She's well, Tarrel. I'm sure of it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -333,7 +333,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Anythin' o' Merrin's, a glove or a letter or a bootprint, for she always walked the north side o' the road where it's drier. The raptors hunt along it now, an' I cannae bear to think what that means." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} has a good nose, I'd guess, an' Merrin always smells o' pipe smoke an' lamp oil, if that's any help." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Anythin' o' Merrin's, a glove or a letter or a bootprint. {pet} has a good nose, I'd guess, an' Merrin always smells o' pipe smoke an' lamp oil, if that's any help." },
       },
       choices = {
         { text = "I'll find her trail and follow it to the end.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -363,7 +363,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Aye, if ye would, an' say it loud enough that the raptors hear it too. I've been prayin' myself every night, but I'm a miner, no' a priest, an' I'm no' sure anyone's listenin'." } },
+      lines = { { id = "xapriest_default", text = "Aye, if ye would, an' say it loud enough that the raptors hear it too. I've been prayin' myself every night, but I'm a weaver, no' a priest, an' I'm no' sure anyone's listenin'." } },
       choices = {
         { text = "Someone's always listening, Tarrel. Keep praying.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers won't find her. Someone has to go east.", next = "BACK", fx = { align = { light = -1 } } },
@@ -395,11 +395,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Tarrel Rockweaver. My wife Merrin's with Prospector Whelgar's excavation team, east o' here. She's written every week for a month, an' now it's been near two weeks with nothin'." },
         { id = "h_scout", when = { questBefore = TODO_QUEST("In Search of The Excavation Team") },
-          text = "Are ye the scout Longbraid promised? He said he'd send one if we didn't hear from the team soon, an' we haven't, so ye must be." },
+          text = "Are ye the scout Longbraid the Grim promised? He said he'd send one if we didn't hear from the team soon, an' we haven't, so ye must be." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("In Search of The Excavation Team"), days = 7 } },
           text = "Raptors, an' lives lost, but Merrin lives, an' the Prospector, thanks to that lad Ormer. At least three made it, so I'm thankful an' sick at the same time." },
         { id = "h_unrequited", when = { questDone = TODO_QUEST("Unrequited Love") },
-          text = "Ye know more o' my heart's business than most, after that. I'll thank ye to keep it between us an' the bridge." },
+          text = "Ye know more o' my heart's business than most, after that. I'll thank ye to keep it between the two of us." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Would ye go east, to Whelgar's dig? I know it's a lot to ask, but I cannae go myself, an' Merrin's out there." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'd know how to read a road, then, an' I need somebody to read the east road for me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll know the beasts o' this marsh, then, an' I'd give a lot tae know if the raptors have gone mad or were always like this." },
@@ -432,7 +432,7 @@ P:NPC {
 
     merrin = {
       lines = {
-        { id = "m_default", text = "Clever as a gnome an' stubborn as a mule, an' she writes the best letters in Khaz Modan. Every week, regular as tide; that's why three weeks wi' no letter frightens me so." },
+        { id = "m_default", text = "Clever as a gnome an' stubborn as a mule, an' she writes the best letters in Khaz Modan. Every week, regular as tide; that's why two weeks wi' no letter frightens me so." },
         { id = "m_done", when = { questDone = TODO_QUEST("In Search of The Excavation Team") },
           text = "Trapped on the ridge with the Prospector an' Ormer, but alive. Her letter shook, an' Merrin's hand never shakes." },
       },
@@ -559,7 +559,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "James says the marsh there is worse than ours, with crocolisks the size of rowboats and black dragons in the fens to the south. I think he exaggerates, but then he always did, and I miss it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} would like Dustwallow, I'd wager, if half of what James writes is true." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "James says the marsh there has crocolisks the size of rowboats and black dragons in the fens. {pet} would like Dustwallow, I'd wager, if half of what he writes is true." },
       },
       choices = {
         { text = "I'll take his word for it, and believe the best.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -601,7 +601,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Vincent Hyal. My brother James and I worked a tavern here in Menethil, until he caught the second wind of patriotism and went west with Lady Proudmoore. Half of Lordaeron did, the state it was in." },
         { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("James Hyal") },
-          text = "Somebody's asking after James? That'll be one of the cooks he trained, I'd bet. He's across the sea, setting up an inn, and the clerk in Theramore can point you to him." },
+          text = "Somebody's asking after James? He's across the sea, setting up an inn, and the clerk in Theramore can point you to him." },
         { id = "h_done", when = { questDone = TODO_QUEST("James Hyal") },
           text = "Did you find James? No, don't tell me if it's long; just tell me he's cooking. He was always happiest cooking." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? James always said he'd have made a fine soldier, though I never saw him lift anything heavier than a keg." },
@@ -708,7 +708,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ah, a likely soul! Have you ever thought about the sea, friend? Kalimdor's waiting!" },
     { id = "g_back", when = { metBefore = true }, text = "Still on dry land? Shame on you, with Kalimdor just a voyage away!" },
-    { id = "g_active", when = { questActive = TODO_QUEST("Fiora Longears") }, text = "Fiora's waiting across the water! Off you go, and give her my love." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Fiora Longears") }, text = "Fiora Longears is waiting across the water in Auberdine! Off you go, and give her my love." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I'd hoped you'd finally taken ship for Kalimdor! Still on dry land, friend, or have you a sea tale to tell me?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into a proper adventurer since you first stood on my dock! Kalimdor could use a soul like you, and so could the sea." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in the harbor round to your view! You'd make a fine ship's recruiter, friend, and I mean that as high praise." },
@@ -755,7 +755,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Why, everything a hunter could dream of, from the nightsabers of Teldrassil to the great bears of Darkshore, and they say the night elves tame the cats as easily as we tame dogs. I've seen none of it myself, mind, but I've talked to sailors who swear by every word." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have cousins over there, I shouldn't wonder, and bigger ones too." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Everything a hunter could dream of, from nightsabers to great bears. {pet} would have cousins over there, I shouldn't wonder, and bigger ones too." },
       },
       choices = {
         { text = "If I go, I'll respect the night elves' woods.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -817,7 +817,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Red Jack Flint, at your service. It's my job to tell eager souls about Kalimdor, the land of opportunity across the sea, and oh, to be on the sea again myself, with the wind in my face." },
         { id = "h_done", when = { questDone = TODO_QUEST("Fiora Longears") },
-          text = "Fiora says you made it across and that you'll do well. Mr. Flint never misjudges a character, she told you, and she's right, I don't." },
+          text = "Fiora Longears writes that you made it across and that you'll do well. She says Mr. Flint never misjudges a character, and she's right, I don't." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Kalimdor's crying out for warriors, friend, for there are centaur and quilboar and worse across the sea, and every one of them wants testing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Have I told you about the beasts of Kalimdor, friend? Nightsabers, striders and birds as tall as a man, or so the sailors say." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of Kalimdor! Now here's someone who can tell these landlubbers I'm not exaggerating about the forests over there." },
@@ -865,7 +865,7 @@ P:NPC {
 
     fiora = {
       lines = {
-        { id = "f_default", text = "My partner across the water, an elf with an eye for talent and a voice like a summer morning. She'll start you on your Kalimdor adventure; I just point you at the boat." },
+        { id = "f_default", text = "Fiora Longears, my partner across the water in Auberdine, an elf with an eye for talent and a voice like a summer morning. She'll start you on your Kalimdor adventure; I just point you at the boat." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -929,7 +929,7 @@ P:NPC {
 
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf! Ye'll understand, then. Some things need visitin', whatever's dripping in the halls." },
+      text = "A dwarf! Ye'll understand, then, that some graves need visitin', oozes or no oozes." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Light's sake, ye're dripping too. Not ooze, is it? Please say it isn't ooze." },
   },
@@ -938,7 +938,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It feels it, though I'm no shaman. The oozes crawl out o' the ground like it's spittin' them up, an' the old stones lean more every visit. My granny said the dead rest easier when the earth's at peace, an' I'd like tae think somebody's lookin' after them." } },
+      lines = { { id = "xdsham_default", text = "It does, though I'm no shaman. The oozes crawl out o' the ground like it's spittin' them up, an' the old stones lean more every visit. My granny said the dead rest easier when the earth's at peace, an' I'd like tae think somebody's lookin' after them." } },
       choices = {
         { text = "I'll look in on the tomb and see the dead rest easy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead don't care how the earth feels, Sida.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1081,7 +1081,7 @@ P:NPC {
     family = {
       big = true,
       lines = {
-        { id = "f_default", text = "A husband, Einar, who hunts crocolisks out on the road an' won't set foot in Menethil while I'm here. I'll not say who's in the wrong, but it isn't me." },
+        { id = "f_default", text = "A husband, Einar Stonegrip, who hunts crocolisks out on the road an' won't set foot in Menethil while I'm here. I'll not say who's in the wrong, but it isn't me." },
       },
       choices = {
         { text = "Talk to him. Forgive, whoever's wrong.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
@@ -1163,7 +1163,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than hunters like to admit, for you've to know where the fish go and when, and the bay has its own seasons like any forest. Mind the crocolisks while you do it, though, for they like a fisherman better than any fish." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine fishing companion, as long as it doesn't jump in after the catch." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than hunters like to admit, for you've to know where the fish go and when. {pet} would make a fine fishing companion, too, as long as it doesn't jump in after the catch." },
       },
       choices = {
         { text = "I'll take the patience lesson gladly.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1173,7 +1173,7 @@ P:NPC {
     },
     xrogue = {
       lines = {
-        { id = "xro_default", text = "Ha! I suppose not, though the fish don't call the watch when you've got them. Patience is patience, whatever you're catching, and most folk haven't got any." },
+        { id = "xro_default", text = "Ha! I suppose it isn't, though the fish don't call the watch when you've got them. Patience is patience, whatever you're catching, and most folk haven't got any." },
       },
       choices = {
         { text = "Patience is a virtue. I'll keep it honest.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1202,7 +1202,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I fish the near water and they keep to the wrecks, and that's an arrangement I'd like to keep. Fitzsimmons says they're still on duty out there, and I believe him on the foggy mornings." } },
+      lines = { { id = "xapala_default", text = "I fish the near water and they keep to the wrecks, and that's an arrangement I'd like to keep. Old Fitzsimmons, the last sailor of the Third Fleet, says they're still on duty out there, and I believe him on the foggy mornings." } },
       choices = {
         { text = "They deserve rest. Someone should go out to them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them keep the wrecks. Fish the near water.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1269,7 +1269,7 @@ P:NPC {
     murlocs = {
       big = true,
       lines = {
-        { id = "m_default", text = "Bluegills, raiding the boats and nicking the cargo. Some folk say kill every one, and some say they were here first and we built a harbour on their fishing ground." },
+        { id = "m_default", text = "The Bluegill murlocs, raiding the boats and nicking the cargo. Some folk say kill every one, and some say they were here first and we built a harbour on their fishing ground." },
       },
       choices = {
         { text = "The harbour's ours. Drive them off.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1326,7 +1326,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I would, but I'd have to make you the villain, I'm afraid, for nobody in a tavern ever sang along to a brave warlock. Unless you went and did something brave, of course, like taking Nek'rosh's head, and then I'd have no choice but to make you the hero." } },
+      lines = { { id = "xlock_default", text = "I would, but I'd have to make you the villain, I'm afraid, for nobody in a tavern ever sang along to a brave warlock. Unless you went and did something brave, of course, like taking the Dragonmaw warlord Nek'rosh's head, and then I'd have no choice but to make you the hero." } },
       choices = {
         { text = "Then I'll earn the hero's verse, Camerick.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Villains get the best lines anyway. Keep them.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1346,7 +1346,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Well, I'd like to, from a safe distance, because my verse says they're green and the soldiers say they're mottled brown. A song should get the colour right, at least, even if it gets everything else wrong." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} could go in the song too, though I'll warn you, very little rhymes with {pet}." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Well, I'd like to, because my verse says they're green and the soldiers say mottled brown. {pet} could go in the song too, though I'll warn you, very little rhymes with {pet}." },
       },
       choices = {
         { text = "I'll tell you the truth of it, mottled brown and all.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1445,7 +1445,7 @@ P:NPC {
 
     subjects = {
       lines = {
-        { id = "su_default", text = "The drowned fleet, Captain Stoutfist's temper, and old Harlo who rode out of Dun Modr on the last horse. Sailors want sad songs and soldiers want brave ones, so I write sad brave ones and everyone cries." },
+        { id = "su_default", text = "The drowned fleet, Captain Stoutfist's temper, and old Harlo Barnaby, who rode out of Dun Modr on the last horse. Sailors want sad songs and soldiers want brave ones, so I write sad brave ones and everyone cries." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "third_fleet" } } } },
     },
@@ -1538,7 +1538,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The best, usually, for you'll feed and water the beast before yourself, and a horse remembers that. I'd sooner sell to a hunter than to a banker, though the bankers do pay faster." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} will have to get used to running beside a horse, mind, which some of them never do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The best, usually, for you'll feed the beast before yourself. {pet} will have to get used to running beside a horse, mind, which some of them never do." },
       },
       choices = {
         { text = "A beast comes first. I'll care for it well.", next = "BACK", fx = { align = { honor = 1 } } },

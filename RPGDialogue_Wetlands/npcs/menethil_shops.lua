@@ -38,7 +38,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They will, for they'll carry anybody who pays the fare an' doesnae pull feathers. Only keep yer demon well away from the roost, for a bird that takes fright over the mountains takes a week tae find again." } },
+      lines = { { id = "xlock_default", text = "They will, for they'll carry anybody who pays the fare and doesn't pull feathers. Only keep your demon well away from the roost, for a bird that takes fright over the mountains takes a week tae find again." } },
       choices = {
         { text = "I'll respect your birds, Shellei. No tricks aboard.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your birds will have to get used to me.", next = "BACK", fx = { align = { order = -1 } } },
@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They mind everything in this swamp, from the damp to the murlocs to the red drakes over Grim Batol. A hunter's beast is one more thing to hiss at, though they hiss loudest at the cats." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} stays on the ground while you fly, and it'll be waiting when you land, as beasts always are." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They mind everything in this swamp, and a hunter's beast is one more thing to hiss at. {pet} stays on the ground while you fly, though, and it'll be waiting when you land." },
       },
       choices = {
         { text = "I'll keep my beast well clear of the roost.", next = "BACK", fx = { align = { order = 1 } } },
@@ -122,7 +122,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, is it? You'll be heavy, then, so I'll give you one of the stronger birds." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, then you'll know better than to let your beast near my birds." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you not to startle my roost, since my gryphons are cross enough about the rain without a bear wandering past." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My gryphons dinnae care for the smell o' brimstone, so ye'll forgive them if they ruffle up when ye climb on." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My gryphons don't care for the smell of brimstone, so you'll forgive them if they ruffle up when you climb on." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My birds fly over the mountains every day, and they'd thank you for a calmer wind over Dun Algaz." },
       },
       again = {
@@ -240,7 +240,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Somethin' wi' a short barrel an' a good tight stock, for ye'll be shootin' raptors at close range in the reeds, no' rams on a mountainside. An' oil it every night, for the love o' Magni's beard, or it'll seize just as the raptor jumps." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} will need tae get used tae the bang, mind, for some beasts never do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Somethin' wi' a short barrel for shootin' raptors close in the reeds, an' oil it every night. {pet} will need tae get used tae the bang, mind, for some beasts never do." },
       },
       choices = {
         { text = "I'll oil it every night, as you say.", next = "BACK", fx = { align = { order = 1 } } },
@@ -271,16 +271,16 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than it has need o' guns, by my beard, for the lads come back from Algaz wi' holes in them, an' a rifle cannae mend a hole. Glorin does what he can, but he's one dwarf, an' a grumpy one." } },
+      lines = { { id = "xapriest_default", text = "More than it has need o' guns, by my beard, for the lads come back from Algaz wi' holes in them, an' a rifle cannae mend a hole. Brother Glorin does what he can, but he's one dwarf, an' a grumpy one." } },
       choices = {
-        { text = "Then I'll go up and help Glorin.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll go up and help Brother Glorin.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Better guns would mean fewer holes, Murndan.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Murndan.", next = "BACK" },
       },
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Well enough, if they'd clean their rifles, which they willnae, because it's wet an' they're tired. I've told the Captain twice that rust kills more o' his lads than orcs, an' he looked at me like I'd insulted his mother." } },
+      lines = { { id = "xapala_default", text = "Well enough, if they'd clean their rifles, which they willnae, because it's wet an' they're tired. I've told Captain Stoutfist twice that rust kills more o' his lads than orcs, an' he looked at me like I'd insulted his mother." } },
       choices = {
         { text = "The Captain should order daily drill, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Soldiers fight with what they have. Let them be.", next = "BACK", fx = { align = { order = -1 } } },
@@ -318,7 +318,7 @@ P:NPC {
         { text = "Let me see your guns.", next = "BUSINESS" },
         { text = "How do you keep a gun dry here?", next = "dry" },
         { text = "Why stay in the Wetlands, then?", next = "stay" },
-        { text = "I'd take a good bow over a gun.", next = "bow" },
+        { text = "Why a gun over a good bow?", next = "bow" },
         { text = "A gun's too loud for my work. Got anything quieter?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could dry out your stock with a little fire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Should a warrior carry a gun, Murndan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -393,7 +393,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not yet, but I'd stock them if I knew what they were. Feathers? Stones? A good waterproof cloak, I'd guess, given the weather here. The gnomes passing through keep asking whether your totems could power their gadgets, and I've learned not to answer gnomes' questions." } },
+      lines = { { id = "xdsham_default", text = "Not yet, but I'd stock them if I knew what they were, and a good waterproof cloak seems likely, given the weather. The gnomes passing through keep asking whether your totems could power their gadgets, and I've learned not to answer gnomes' questions." } },
       choices = {
         { text = "Totems aren't gadgets. Tell the gnomes that from me.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Sell the gnomes whatever they think works, Neal.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -421,8 +421,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Never enough, for every dwarf hunter in the garrison goes through a pouch a day on crocolisks and raptors. I've told Murndan to sell fewer guns, and he's told me to stock more shot, and we're both right." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And jerky for your {pet}, if it'll eat jerky, which most of them will, given half a chance." },
+        { id = "xhuntcl_default", text = "Never enough, for every dwarf hunter in the garrison goes through a pouch a day on crocolisks and raptors. I've told Murndan the gunsmith to sell fewer guns, and he's told me to stock more shot, and we're both right." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Never enough, for the dwarf hunters go through a pouch a day. I've jerky for {pet} too, if it'll eat jerky, which most of them will, given half a chance." },
       },
       choices = {
         { text = "I'll buy only what I'll use, and leave some for others.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -490,7 +490,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I keep shot and arrows in the back, and the dwarves buy the shot faster than I can stock it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Mind the blasting powder, because it's sealed tight, but I'd not trust any jar near someone who can turn into a bear." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell candles, cloth and a few things your trade might use, and I don't ask what they're for, which is good business." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I've sold to gnomes and sailors and soldiers, but never to someone who talks to the weather. What does the weather need?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've sold to gnomes and sailors and soldiers, but never to someone who talks to the weather. What does the weather need?" },
       },
       again = {
         { id = "h_again", text = "Anything else you need?" },
@@ -613,7 +613,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They ask whether my goods would work on an arrowhead, and I tell them I couldn't possibly say. What they do with that knowledge is their own affair, and none of mine." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from the jars, if you'd be so kind, for some of them smell like supper and none of them are." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They ask whether my goods would work on an arrowhead, and I tell them I couldn't possibly say. Keep {pet} away from the jars, though, for some of them smell like supper and none of them are." },
       },
       choices = {
         { text = "I'll keep my arrows clean, thank you.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -634,7 +634,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Because the garrison's own scouts buy from me, and they're the ones who keep the Dragonmaw guessing. Report me if you like, but Menethil would be a good deal blinder without me." } },
       choices = {
-        { text = "The law is the law. I'll tell the Captain.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The law is the law. I'll tell Captain Stoutfist.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Menethil needs its shadows. I'll keep quiet.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else, Samor.", next = "BACK" },
       },
@@ -660,8 +660,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I've nothing for your beast, I'm afraid, though you might find something for your arrows elsewhere." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, browsing the poisons. Your kind know more about what grows deadly in the wild than my suppliers ever will, I suspect." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I can't think what you'd want with my goods, unless you've lost patience with fireballs and want something quieter." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Now there's a customer I understand, for we both deal in things the Captain would rather not hear about." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I sell to those who already know what they need. Do you? No? Then we'll speak of the weather." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Now there's a customer I understand, for we both deal in things Captain Stoutfist would rather not hear about." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I sell to those who already know what they need, and if you don't, we'll speak of the weather instead." },
       },
       again = {
         { id = "h_again", text = "Anything else? Softly, please." },
@@ -669,7 +669,7 @@ P:NPC {
       },
       choices = {
         { text = "Show me what you sell.", next = "BUSINESS" },
-        { text = "You call yourself a shady dealer. Why?", next = "shady" },
+        { text = "Folk call you a shady dealer. Why?", next = "shady" },
         { text = "Your customers must be an interesting lot.", next = "who" },
         { text = "The garrison can't know you're up here.", next = "garrison" },
         { text = "Do warriors ever buy from you, Samor?", next = "xwarcl", when = { class = "WARRIOR" } },
