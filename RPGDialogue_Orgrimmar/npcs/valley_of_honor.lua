@@ -353,7 +353,7 @@ P:NPC {
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior, and I can see from here you've been leaning on that weapon like a walking stick. We'll fix that, if you'll listen." },
   },
   notice = {
-    { id = "n_gear", cat = "gear", when = { durability = { max = 25 } },
+    { id = "n_gear", cat = "gear", when = { durability = { max = 0.25 } },
       text = "Look at the edge on that, it's been chipped to ribbons. Take it to a smith before you try to swing it again." },
   },
   start = "hello",

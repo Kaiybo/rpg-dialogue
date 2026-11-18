@@ -675,7 +675,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Gale's greetings. Are you hurt, or here to learn?" },
-    { id = "g_hurt", when = { durability = { max = 20 } }, text = "Winds above, you look like you've rolled down a hill. Sit." },
+    { id = "g_hurt", when = { durability = { max = 0.20 } }, text = "Winds above, you look like you've rolled down a hill. Sit." },
   },
 
   notice = {

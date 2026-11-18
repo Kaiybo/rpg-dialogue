@@ -668,7 +668,7 @@ P:NPC {
   },
 
   notice = {
-    { id = "n_broken", cat = "gear", when = { durability = { max = 30 } },
+    { id = "n_broken", cat = "gear", when = { durability = { max = 0.30 } },
       text = "Forgive me, but your armour is in a shocking condition. I don't mend steel myself, but the smiths across the quarter do, and I'd go to them before you go anywhere else." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "I confess I've never valeted for anyone with hooves, and I find myself wondering how one would black them. Don't let me detain you with it." },

@@ -1696,7 +1696,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd guess it's the noise, the fish smell and the soldiers, though I'm biased toward the fish. One of yours stayed a week last summer and spent every evening out by the shore, talking to the turtles, and I never did find out what they said back." } },
       choices = {
-        { text = "Turtles are good company. Better than soldiers, some nights.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Turtles are good company. Better than soldiers, some nights.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "A town needs soldiers. The turtles won't stop the Forsaken.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -467,7 +467,7 @@ P:NPC {
   notice = {
     { id = "n_blade", cat = "origin", when = { origin = "skyborne_empyrean_recruit" },
       text = "You hold your weapon the way the Empyrean Blades drill their recruits, point low and elbow in. Whoever started you knew their business." },
-    { id = "n_repair", cat = "kit", when = { durability = { max = 30 } },
+    { id = "n_repair", cat = "kit", when = { durability = { max = 0.30 } },
       text = "Your gear's half falling off you. Go and see Destin, the weapon merchant, before you come to me, because I won't teach someone whose straps are about to give way." },
   },
 
@@ -673,11 +673,11 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Blades, mending, an honest opinion. Which will it be?" },
-    { id = "g_broken", when = { durability = { max = 30 } }, text = "Winds above, what have you been hitting? Let me see that." },
+    { id = "g_broken", when = { durability = { max = 0.30 } }, text = "Winds above, what have you been hitting? Let me see that." },
   },
 
   notice = {
-    { id = "n_repair", cat = "kit", when = { durability = { max = 30 } },
+    { id = "n_repair", cat = "kit", when = { durability = { max = 0.30 } },
       text = "That edge has more nicks than a cirrusfly has legs. I can mend it, and you should let me before it fails you." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! I've heard your people are the finest smiths below the clouds. Would you look at one of my blades and tell me honestly what you think?" },

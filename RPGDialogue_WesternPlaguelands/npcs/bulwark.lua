@@ -212,7 +212,7 @@ P:NPC {
         { id = "ho_default", text = "Honor, yes, I remember it well enough. I had plenty of it when I was alive and losing, and I've since found I like winning a great deal better." },
       },
       choices = {
-        { text = "Winning suits you, then. I'll not argue.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Winning suits you, then. I'll not argue.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "I'll keep mine, all the same.", next = "BACK", fx = { align = { honor = 1 }, trait = { stubborn = 1 } } },
       },
     },

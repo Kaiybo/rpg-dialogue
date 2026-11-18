@@ -714,7 +714,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Waste them? I use every leaf, and I grind the stems for the next batch. The Society does the grand work in the Undercity with their great vats, but out here a man learns to make a single kingsblood go a very long way." } },
       choices = {
-        { text = "Good. Waste nothing, and the hills will keep feeding you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Good. Brew what you like, so long as nothing goes to waste.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Your brews poison more than they heal, alchemist.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else, alchemist.", next = "BACK" },
       },
