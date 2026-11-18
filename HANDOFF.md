@@ -14,6 +14,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Calls to check from the NPC gap scan (#125): Silithus Torrig/Bloodfist and five Grom'gol NPCs reverse earlier "skip" decisions; many 1.x placements are inferred. Leftover names: Stormwind Champions' Hall, Thunder Bluff (Atepa, Krumn, Sheza Wildmane), Teldrassil (Nhemai, Janna Brightmoon), Darkshire Watchers, Undercity (Randolph Montague, Lexington Mortaim), Ironforge/Loch Modan vendors.
 - Open: Hemet Nesingwary mixes a burr and plain English (voice decision). Valor's Rest is placed two ways (Zannok: southeast Silithus; `desert.lua`: top of the Un'Goro road).
 
+- Unreleased: gut feelings (DESIGN §3.15; new files `Systems/Insight.lua`, World `gut.lua`, so a full restart). Only `luac -p` run.
+
 ## Standing decisions (confirm only if the user asks)
 - Lore is Classic-era: no foreshadowing of later expansions (Prestor, Varimathras, Neeru, Lescovar, Longhorn written straight; dramatic irony only).
 - Same-title quest chains get lines that fit any step. Unknown IDs stay `TODO_NPC`/`TODO_QUEST` and are matched by name at runtime.

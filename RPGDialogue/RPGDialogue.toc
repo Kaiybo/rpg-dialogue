@@ -35,6 +35,7 @@ Systems\Disposition.lua
 Systems\Topics.lua
 Systems\Books.lua
 Systems\Insanity.lua
+Systems\Insight.lua
 Systems\Barks.lua
 Systems\Errands.lua
 Systems\Diary.lua

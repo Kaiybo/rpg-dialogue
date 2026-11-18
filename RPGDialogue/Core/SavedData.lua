@@ -42,6 +42,7 @@ SD.ACCOUNT_DEFAULTS = {
     showDisposition = true,     -- "Disposition: Warm" in the box, reasons on hover
     approval = true,            -- "Marshal Dughan approves." under the answer
     checkResults = true,        -- "Persuade: success" under the answer
+    gutFeelings = true,         -- "Something in his voice doesn't sit right." under a doubtful claim
     fadeDefault = true,         -- fade Blizzard's window while ours covers it
     textSize = 13,              -- the game's quest font size
     lineSpacing = 3,
@@ -83,7 +84,7 @@ SD.CHAR_DEFAULTS = {
   traits = {},
   opinions = {},
   flags = {},
-  claims = { player = {}, heard = {}, exposed = {} },
+  claims = { player = {}, heard = {}, exposed = {}, doubted = {} },
   deeds = {},
   kills = { total = 0, byName = {} },
   threads = {},
