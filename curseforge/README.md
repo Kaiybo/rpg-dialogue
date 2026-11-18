@@ -29,7 +29,7 @@ Submit it. CurseForge moderates new projects, which usually takes a day or two.
 
 ## 2. Finish the description
 
-On the project's **Images** tab, upload `banner.png` and a few in-game screenshots (a conversation box, the journal, DialogueUI mode, the settings). Copy the banner's image URL into the first line of the description, where it says `BANNER_IMAGE_URL`.
+On the project's **Images** tab, upload `banner.png` and a few in-game screenshots (a conversation box, the journal, DialogueUI mode, the settings). Copy the banner's image URL into the first line of the description, where it says `BANNER_IMAGE_URL`. In-game screenshots live in `screenshots/`.
 
 ## 3. Upload the first file
 
