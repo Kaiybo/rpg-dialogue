@@ -472,12 +472,23 @@ function Conv.ServiceOption(s, hint)
   local services = {}
   for _, o in ipairs(options) do
     local kind = Conv.OptionKind(o)
-    if kind then services[#services + 1] = { id = o.id, kind = kind } end
+    -- "I wish to unlearn my talents" wears the trainer's icon too: never the one to pick.
+    local unlearn = (o.name or ""):lower():find("unlearn", 1, true)
+    if kind and not unlearn then services[#services + 1] = { id = o.id, kind = kind } end
   end
   if #services == 0 then return nil end
   local want = (hint and wordsKind(hint, WANT_WORDS)) or ROLE_SERVICE[s.info.role or ""]
   if want then
     for _, o in ipairs(services) do if o.kind == want then return o end end
+  end
+  -- A trainer's "Teach me." on an NPC whose options only say so by their words.
+  if want == "trainer" then
+    for _, o in ipairs(options) do
+      local name = (o.name or ""):lower()
+      if (name:find("train", 1, true) or name:find("teach", 1, true)) and not name:find("unlearn", 1, true) then
+        return { id = o.id, kind = "trainer" }
+      end
+    end
   end
   if #services == 1 and #options == 1 and #C.GossipQuests() == 0 then return services[1] end
   return nil
@@ -491,6 +502,24 @@ end
 function Conv.Business(hint)
   local s = Conv.session
   if not s then return end
+  -- A vendor, trainer or flight master opens their window, however the menu is shown: in
+  -- DialogueUI or with pages off this used to hand back the menu (or end the visit), so
+  -- "Teach me." never reached the trainer's window.
+  if s.kind == "gossip" and not s.page then
+    local opt = Conv.ServiceOption(s, hint)
+    if opt then
+      if s.view == "dui" then
+        ns.UI.DUIView.Release()
+        s.mode = "business"
+      elseif s.mode == "full" and Conv.KeepPages(s) and not Conv.OverOtherWindow() then
+        s.following = true
+      else
+        Conv.HandOver()
+      end
+      C.SelectGossip(opt.id)
+      return
+    end
+  end
   if s.view == "dui" or Conv.OverOtherWindow() or not Conv.KeepPages(s) or s.mode ~= "full" then
     return Conv.HandOver()
   end

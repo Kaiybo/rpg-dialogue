@@ -2,6 +2,9 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## Unreleased
+- Trainers train you. "Teach me." (and "Get on with it." at a trainer) now opens the training window straight away, in DialogueUI and with pages off too; before, it handed back the menu or ended the visit. It never picks "unlearn my talents". Core only, a /reload is enough.
+
 ## 0.83.0 (2026-11-18)
 Six pieces of work in one release. No new files: a /reload is enough. Every content pack got a minor version bump.
 
