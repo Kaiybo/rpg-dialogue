@@ -266,6 +266,22 @@ P:Views { topic = "nordrassil", views = {
   } },
 } }
 
+P:Views { topic = "aviana", views = {
+  { id = "honor", text = "Aviana gave her life against the Legion. She deserves to be remembered.", fx = { opinion = { aviana = "admire" }, trait = { pious = 1 }, align = { order = 1 } }, replies = {
+    { id = "a", text = "She does, and the druids of the Talon keep her shrine on Hyjal so that nobody forgets. Few outsiders even know her name.", fx = { affinity = 1 } },
+    { id = "b", when = { race = "NightElf" }, text = "Every night elf child learns how the demons surrounded her and brought her down. It's good to hear an outsider say it too.", fx = { affinity = 1 } },
+    { id = "c", when = { class = "DRUID" }, text = "The Talon would welcome you for saying so. Her gift is in every druid who has ever taken wing." },
+  } },
+  { id = "fury", text = "A goddess who died fighting. I'd rather take her anger than her grave.", fx = { opinion = { aviana = "respect" }, trait = { brave = 1 }, align = { order = -1 } }, replies = {
+    { id = "a", text = "That's the Talon's way of seeing it. The elders call it reckless, but the young druids on Hyjal say the same thing you do." },
+    { id = "b", text = "Her anger didn't save her, friend. The demons came in numbers that no fury could answer." },
+  } },
+  { id = "doubt", text = "I've never heard of her. Are you sure she was real?", fx = { opinion = { aviana = "doubt" }, trait = { skeptical = 1 } }, replies = {
+    { id = "a", text = "Ask any night elf, and they'll tell you a seed from her Mother Tree became Nordrassil. Gods leave marks like that behind them." },
+    { id = "b", when = { race = "NightElf" }, text = "You're a kaldorei and you ask me that? Some of our eldest watched her fly with their own eyes.", fx = { affinity = -1 } },
+  } },
+} }
+
 -- Dungeons ---------------------------------------------------------------------------------
 
 P:Views { topic = "zul_gurub", views = {
