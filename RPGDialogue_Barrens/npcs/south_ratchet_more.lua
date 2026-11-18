@@ -262,7 +262,7 @@ P:NPC {
     { id = "g_zando", when = { questActive = TODO_QUEST("Wrenix of Ratchet") }, text = "Zando'zan sent another one down from Orgrimmar, huh? His last five went to feed the sharks, pal, so let's see if you can buck the trend." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, hey, look who's still breathin'! That puts ya ahead of most folks I do business with, pal." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Now there's a walk I like, quiet on the heel. You're in the trade, friend, don't deny it, and I just might have an opening." },
-    { id = "g_away", when = { away = 14 }, text = "Well, well! I had ya written off, pal, literally, there's a line in the book. Lemme just cross that out." },
+    { id = "g_away", when = { away = 14 }, text = "Well, well! I had ya written off, pal, and I mean in ink, there's a line in the book. Lemme just cross that out." },
   },
 
   notice = {

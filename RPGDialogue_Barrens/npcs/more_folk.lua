@@ -1,6 +1,7 @@
 -- More of the Barrens: Kelm Hargunth (the Warsong Outriders' supply officer by the road to Warsong Gulch),
 -- and three Crossroads traders: Halija Whitestrider (clothier), Kalyimah Stormcloud (bags) and
--- Larhka (drink). Voices: bibles/more_folk.md
+-- Larhka (drink). Added later: Menara Voidrender, Ruga Ragetotem, Kirge Sternhorn, Wizzlecrank's Shredder,
+-- Grub, Duhng, Tarban Hearthgrain, Tinkerwiz, Traugh and Krulmoo Fullmoon. Voices: bibles/more_folk.md
 local P = RPGDialogueAPI:Pack("rpgd.barrens")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
@@ -1075,6 +1076,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Duhng. I cook for Grub and I teach on the side. Out here that means making good food from tough meat, bad water and whatever a caravan dropped, and it can be done if you pay attention." },
         { id = "h_done", when = { questDone = TODO_QUEST("Dig Rat Stew") }, text = "Duhng. You're the one who fetched the rats. He's been unbearable since, and happier, so I suppose I should thank you." },
+        { id = "h_cook", when = { profession = "Cooking" }, text = "Duhng. You cook already, so I'll skip the part about which end of the knife to hold. Tell me what you can't get right, and we'll start there." },
       },
       again = {
         { id = "h_again", text = "What else? I'm stirring." },
@@ -1447,6 +1449,7 @@ P:NPC {
     },
   },
   topics = {
+    internment = { { id = "tp_internment", text = "I learned to mend in the camps, with a rock for a hammer. A real anvil still feels like a gift, even on the bad days." } },
     centaur = { { id = "tp_centaur", text = "Kolkar. They fight from the gallop, and whatever they hit, they hit with a horse's weight behind it. I've seen a shield folded like a blanket." } },
     quilboar = { { id = "tp_quilboar", text = "Their spearheads are soft iron with thorn bound round it. Bad metal. I must have melted down a thousand." } },
     thrall = { { id = "tp_thrall", text = "The Warchief put the Crossroads here because every road meets at it. I only wish he'd put a second smith here as well." } },
@@ -1534,7 +1537,7 @@ P:NPC {
       lines = { { id = "ko_default", text = "Because it is sacred. We take only the hide of a kodo that has gone to the graveyard to die in its own time, and we use every part. The great drums are kodo, and the tents of the elders. To let such a gift rot on the plain would be the true dishonor." } },
       choices = {
         { text = "Using a gift fully is how one honors it.", next = "BACK", reply = "So we are taught. I am glad it is understood beyond the tribes.", fx = { align = { light = 1 } } },
-        { text = "And the hunters who don't wait for the graveyard?", next = "BACK", reply = "They are known to us, and their hides are not welcome on my frames. Some coin is too heavy to carry.", fx = { align = { light = -1 } } },
+        { text = "A hide is a hide, however the beast came to die.", next = "BACK", reply = "Not on my frames, friend. The hunters who will not wait for the graveyard are known to us, and some coin is too heavy to carry.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

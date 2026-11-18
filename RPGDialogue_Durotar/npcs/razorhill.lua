@@ -657,7 +657,7 @@ P:NPC {
         { id = "h_op_jaina", tags = { "news" }, when = { gossip = { topic = "jaina", stance = "distrust" } },
           text = "I hear you don't trust the Proudmoore woman. Neither does anyone who drinks here, but say it outside, because Gar'Thok's under orders and he hates being reminded." },
         { id = "h_burden", when = { questActive = TODO_QUEST("A Peon's Burden") },
-          text = "That bundle I gave you goes to Ukor out in the Barrens and nobody else. Get it there, and don't let a peon sit on it." },
+          text = "That bundle on your back is the one Ukor sends from the valley, and it is meant for me. Hand it over, because I have been waiting on it for days." },
         { id = "h_scorpid", when = { metBefore = true }, text = "I shook a scorpid out of the blankets this morning. They weren't yours, probably, but check anyway." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the grunts on the wall, singing the old songs? They sing them badly, and I wouldn't change it for anything." },
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid! Mind your horns on the beam, and if you're looking for anything green out there, I'm sorry to say it's all rocks and scorpids." },

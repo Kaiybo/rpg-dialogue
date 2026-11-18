@@ -1,4 +1,4 @@
-# More of the Barrens  (keys: kelm, halija, kalyimah, larhka)
+# More of the Barrens  (keys: kelm, halija, kalyimah, larhka, menara, ruga, kirge, wizzlecrank, grub, duhng, tarban, tinkerwiz, traugh, krulmoo)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Kelm_Hargunth (Warsong Supply Officer, added 1.5.0; quests Outrider Basic/Standard/Advanced Care Package). Placed by the road to Warsong Gulch in the northern Barrens; the wiki's Mor'shan Base Camp is the later location.
@@ -20,3 +20,36 @@
 
 ## What they notice
 - Kelm: orcs, Warsong standing. Halija: tauren. Kalyimah: trolls. Larhka: tauren.
+
+## Added later (missed NPCs)
+Sources: warcraft.wiki.gg pages for Menara Voidrender (human warlock tutor, Ratchet; history with Tabetha), Ruga Ragetotem (Camp Taurajo), Kirge Sternhorn (Camp Taurajo, pre-Cataclysm), Wizzlecrank's Shredder (Sludge Fen), Grub, Duhng and Tarban Hearthgrain (the hut east of the Crossroads; Tarban is kin to Moorane), Tinkerwiz (Ratchet), Traugh (Crossroads forge), Krulmoo Fullmoon (Camp Taurajo, alive in Year 1).
+
+### Their quests
+- Menara: In Search of Menara Voidrender, Components for the Enchanted Gold Bloodrobe, The Completed Robe (warlock robe; components named only as "kept by difficult people").
+- Ruga: Trial at the Field of Giants (twitching antennae from the silithid), then Speak with Thun'grim (north_far_watch.lua). He does not know what the silithid are; nothing of Silithus or Ahn'Qiraj.
+- Kirge: Journey to the Crossroads (word to Thork that Taurajo holds but the Bristleback are bold).
+- Wizzlecrank: Ignition (key from Supervisor Lugwizzle), The Escape (walk the shredder out; plans to Sputtervalve in Ratchet).
+- Grub: Dig Rat Stew (dig rats from Bael Modan; teaches the recipe).
+- Duhng, Tarban, Tinkerwiz, Traugh, Krulmoo: none: trainers and a baker, built from role, place and neighbours.
+
+### Never
+- Cataclysm: Taurajo burned, Krulmoo's ghost, Kirge at Vendetta Point, Kelsuwa at Una'fe, Southern/Northern Barrens split, Legion invasions. No Silithus, Ahn'Qiraj or qiraji from Ruga or Kirge.
+
+### Voices (authored, not canon)
+- Menara: cool, exacting, cultured human; left Stormwind's cellar for a window in Ratchet (order stance); teaches both sides (light stance).
+- Ruga: stern, measured tauren; courage without anger (honor stance); small dangers ignored (order stance).
+- Kirge: plain watchman; warns the Crossroads without hope of help (honor stance); mate and young son in camp.
+- Wizzlecrank: frantic goblin whisper; cut around a tauren camp and was fined (authored; light stance); selling the plans (honor stance).
+- Grub: hearty, stubborn; learned to love rat in the camps (honor stance).
+- Duhng: terse; won't cook kodo beside Tarban (honor stance); teaching grunts to eat (order stance).
+- Tarban: gentle, unhurried; first loaf for the Earth Mother (light stance); the baking stone and the centaur (honor stance).
+- Tinkerwiz: brisk, smug goblin; one small bang on day one (order stance); neutral invoice (light stance).
+- Traugh: gruff field smith; reads the war from backplates, Thork asked him to keep quiet (order stance).
+- Krulmoo: patient; tells each hide what it will become (honor stance); kodo only from the graveyard (light stance).
+
+### What they notice
+- Menara: paladins, a warlock's voidwalker. Ruga: broken gear, shaman. Kirge: tauren, the freshly resurrected. Wizzlecrank: engineers, rogues. Grub: the young and thin, tauren. Duhng: hunters, fishers. Tarban: tauren, the young. Tinkerwiz: miners, mages. Traugh: broken gear, miners. Krulmoo: skinners, hunters.
+
+### Deepened (same pass)
+- Halija (her mother's carrying-loom, authored), Kalyimah (the boots from the Wailing Caverns), Larhka (the too-green oases). Elsewhere: Nalpak, Falla and the Disciple (north_naralex.lua), Bigglefuzz and Wrenix (south_ratchet_more.lua), Logmar and Dogran (south_taurajo_roads.lua); each got class or race replies and a third level on its main branch. Nalpak's race is still unconfirmed, so his new lines do not state it.
+
