@@ -2,6 +2,9 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.85.1 (2026-11-18)
+- Tidier bottom bar in the game look: a slimmer "Ask about..." button, smaller Disposition and Tone labels, and larger, better-spaced Admire/Taunt/Intimidate icons.
+
 ## 0.85.0 (2026-11-18)
 Six pieces of work in one release. **New files: restart the game fully (a /reload won't load them).**
 
