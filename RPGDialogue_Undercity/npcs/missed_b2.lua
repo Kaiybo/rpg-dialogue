@@ -395,7 +395,7 @@ P:NPC {
       },
     },
     salvage = {
-      lines = { { id = "s_default", text = "I do, by night, with a sack and a lantern I daren't light near the paper. The damp has had four years at them, and the rats rather less time, but a surprising number were only waiting for somebody to care." } },
+      lines = { { id = "s_default", text = "I do, by night, with a sack and a lantern I daren't light near the paper. The damp has had years at them, and the rats rather less time, but a surprising number were only waiting for somebody to care." } },
       choices = {
         { text = "What's the best thing you've found?", next = "best" },
         { text = "Something else.", next = "BACK" },

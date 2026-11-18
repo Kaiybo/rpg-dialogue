@@ -236,7 +236,7 @@ P:NPC {
   key = "sammy_caer_darrow", id = TODO_NPC("Sammy"), name = "Sammy", gender = "female",
   bible = "bibles/missed.md", role = "child", tier = "service",
   communities = { "caer_darrow" }, temper = { "cheerful", "proud" }, values = { "friendly" },
-  notices = { "class" },
+  notices = { "pet" },
   impression = {
     first = "Sammy is the ghost of a little girl on Caer Darrow who wins most of her races against her friend Melia and denies cheating in all of them. Neither child knows that anything has happened to their town.",
     third = "{name} met the ghost of Sammy, a child who races her friend Melia on Caer Darrow.",
@@ -246,7 +246,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "It's you again! I've won lots more races since you went away." },
   },
   notice = {
-    { id = "n_hunter", cat = "class", when = { pet = true },
+    { id = "n_pet", cat = "pet", when = { pet = true },
       text = "Is {pet} yours? Could {pet} race us to the gate, do you think, or would that not be fair?" },
   },
   start = "hello",

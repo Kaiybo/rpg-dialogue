@@ -53,7 +53,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     back = {
-      lines = { { id = "b_default", text = "Enough to hold the line and never enough to move it. We can't raise sons to replace the fallen as the living do, so every Deathguard I lose is one the Dark Lady doesn't get back, unless her val'kyr... no, unless a new grave opens, and those are running short." } },
+      lines = { { id = "b_default", text = "Enough to hold the line and never enough to move it. We can't raise sons to replace the fallen as the living do, so every Deathguard I lose is one the Dark Lady doesn't get back, unless some old grave gives up a new recruit, and those are running short." } },
       choices = {
         { text = "That's a hard sum to live with.", next = "sum" },
         { text = "Something else.", next = "BACK" },
