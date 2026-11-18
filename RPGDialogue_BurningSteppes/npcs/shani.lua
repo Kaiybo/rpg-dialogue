@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "You can see me, mon? Then the spirits sent you, and I know by who, so sit down and listen before the fire takes my voice." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to dis cursed rock. Did you find him, the ogre with my ring?" },
-    { id = "g_done", when = { questDone = TODO_QUEST("Krom'Grul") }, text = "He has it now, my ring, or he threw it away, I know. I can feel the rock letting go of me a little more every day, and Bwonsamdi waiting at the edge of it." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Krom'Grul") }, text = "Thal'trak has my ring now, I know it, even if he threw it in the river. I can feel the rock letting go of me a little more every day, and Bwonsamdi waiting at the edge of it." },
   },
 
   notice = {
@@ -86,8 +86,8 @@ P:NPC {
         { id = "kf_default", text = "Find Krom'Grul and kill him, and take my ring back to Thal'trak. That's all the vengeance I want, because I'm dead and I've no use for more." },
       },
       choices = {
-        { text = "Then he dies, and slowly.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "He'll die quick and clean, like a warrior should.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then he dies, and slowly.", next = "BACK", reply = "I won't stop you, and I won't pretend I'd mind hearing him scream. Just bring the ring home first, because Thal'trak matters more than my anger.", fx = { align = { honor = -1 } } },
+        { text = "He'll die quick and clean, like a warrior should.", next = "BACK", reply = "You'd give that brute a warrior's death? Fine, then, you have more honor than he ever showed me, and I suppose that counts for something.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,8 +106,8 @@ P:NPC {
         { id = "tl_default", text = "Then you decide what to tell him, because I can't. If he asks, and you think the truth will break him, I won't haunt you for a kind lie." },
       },
       choices = {
-        { text = "He deserves the truth, all of it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll spare him the worst of it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "He deserves the truth, all of it.", next = "BACK", reply = "Then tell him all of it, and tell him I didn't beg. He'll grieve hard, but he'd never forgive a lie, and neither would I.", fx = { align = { order = 1 } } },
+        { text = "I'll spare him the worst of it.", next = "BACK", reply = "Be kind to him, then, as I can't be anymore. He'll know you held something back, though, because he always knew when I did.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -125,8 +125,8 @@ P:NPC {
         { id = "xs_default", text = "There are many of us here, my platoon and others before us, and none of us can leave while the Firegut chant over the stones. Maybe when Krom'Grul is dead they'll stop, and we can go." },
       },
       choices = {
-        { text = "I'll see you all freed. Vengeance can come after.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Vengeance first. The dead can wait a little longer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll see you all freed. Vengeance can come after.", next = "BACK", reply = "You'd put us before your own blood-price? My platoon would have liked you, and I think I do too, for whatever a ghost's liking is worth.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Vengeance first. The dead can wait a little longer.", next = "BACK", reply = "Spoken like an orc of Kargath, and I can't fault it. We've waited this long under the drums, so a little more won't break us.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,9 +135,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was a Darkspear scout of the Horde and a wife, and now I be a ghost on a rock in the Burning Steppes, waiting for the loa to come and fetch me." } },
     advice = { { id = "tp_ad", text = "Never get close enough to hear the chanting, because by then they've already seen you, and no voodoo of mine could hide me." } },
-    _none = { { id = "tp_none", text = "I don't know dat one. The dead know less than you'd think, mon." } },
+    _none = { { id = "tp_none", text = "I don't know dat one. De dead don't know near as much as folk think, mon." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin be our chief, mon, and he be wise. Tell him a Darkspear scout died well, if you ever see him." } },
-    darkspear = { { id = "tp_darkspear", text = "The Darkspear be my husband's people, mon, and mine be in the Hinterlands. We was going to live there together, after." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be my people and my husband's, mon, but my mother and father live in the Hinterlands now. We was going to live there with them, after." } },
     firegut = { { id = "tp_firegut", text = "The Firegut chained me to this altar for their ritual. Krom'Grul be the one who did it, mon, and I hope you make him pay." } },
     thrall = { { id = "tp_thrall", text = "The Warchief give the Darkspear a home, and my husband fight for him. I fight for him too, in my way." } },
   },

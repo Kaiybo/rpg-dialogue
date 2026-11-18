@@ -32,7 +32,7 @@ P:Rumors {
     { id = "venture", text = "The Venture Company is cutting down Stonetalon's trees as fast as their machines can chew. The sky above Windshear has been grey for months." },
     { id = "harpies", when = { minLevel = 18 }, text = "The harpies on the high crags have started raiding the goblins' lumber camps. For the first time in my life, I'm cheering for harpies." },
     { id = "peak", text = "The druids at Stonetalon Peak say the mountain's spirits are angry, and the mountain's been rumbling to agree with them." },
-    { id = "kaldorei", when = { faction = "Horde" }, text = "The night elves say we cut their forest, and we say it was the goblins. Both are true, which is why nobody's listening." },
+    { id = "kaldorei", when = { faction = "Horde" }, text = "The night elves say we cut their forest, and we say it was the goblins. Both are true, so both sides go on shouting past each other." },
   },
 }
 
@@ -49,7 +49,7 @@ P:Rumors {
 P:Rumors {
   id = "needles_inns", roles = { "innkeeper" }, zones = { "Thousand Needles", "Feralas" },
   lines = {
-    { id = "racing", text = "The goblins and the gnomes are racing on the salt flats again, and both lost a car into the dust. They say it's fine; neither of them is sure who was in it." },
+    { id = "racing", text = "The goblins and the gnomes are racing on the salt flats again, and both lost a racer into the dust. They say it's fine, though neither of them is sure who was driving." },
     { id = "grimtotem", when = { minLevel = 25 }, text = "The Grimtotem took another tauren camp in the Needles. They say they're tauren too, but they've got no tauren hearts left in them." },
     { id = "feralas", when = { minLevel = 40 }, text = "There's an old elven city in Feralas, Dire Maul, and ogres living in its halls now. The ogres are the polite ones; the things below them aren't." },
     { id = "ogres", when = { minLevel = 40 }, text = "The Gordunni ogres in Feralas have a new chief with a talent for magic. Ogres with magic: that's a sentence I never wanted to say." },

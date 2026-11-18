@@ -18,8 +18,8 @@ P:NPC {
     { id = "g_ears", when = { questActive = TODO_QUEST("Centaur Bounty") }, text = "I want ears from any clan and any camp, and I want a great many of them." },
     { id = "g_khan", when = { questActive = TODO_QUEST("Khan Dez'hepah") }, text = "Dez'hepah's still breathing, I take it, so go and fix that." },
     { id = "g_done", when = { questDone = TODO_QUEST("Khan Dez'hepah") }, text = "The Kolkar are still fighting over who leads them now. Good; let them." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}. The centaur didn't miss you, but I did, a little." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've hardened since you came here on Regthar's orders. Desolace does that, or it kills you." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. The centaur didn't miss you, but I did, a little." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've hardened since you first came to Desolace. Desolace does that, or it kills you." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Heard you made someone at the post angry. Do it to the centaur instead, where it's useful." },
   },
 
@@ -35,15 +35,15 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Felgur Twocuts. I was sent to gather what I could on the centaur of Desolace, and what I've gathered is that there are too many of them and they all hate us." },
+          text = "I'm Felgur Twocuts. I was sent to gather what I could on the centaur of Desolace, and what I've gathered is that there are too many of them and they all hate us." },
         { id = "h_clans_resolved", tags = { "news" }, when = { thread = { id = "desolace_clans", state = "resolved" }, faction = "Horde" },
-          text = "Hratha's dead and your centaur friends are drunk on it. The rest of the clans are still killing each other, which is how I like them, so sit down and tell me which camps moved." },
+          text = "Khan Hratha of the Maraudine is dead, and your centaur friends are drunk on it. The rest of the clans are still killing each other, which is how I like them, so sit down and tell me which camps moved." },
         { id = "h_op_war", when = { opinion = { topic = "centaur", stance = "war" } },
-          text = "Regthar's runners say you'd carry the war right into Desolace. Well, you're here now, so start with the Kolkar and work your way south." },
+          text = "Regthar Deathgate's runners say you'd carry the war right into Desolace. Well, you're here now, so start with the Kolkar and work your way south." },
         { id = "h_op_people", when = { gossip = { topic = "centaur", stance = "people" } },
-          text = "Takata tells me you think the centaur are a people. Keep thinking it, if you like, but keep your shield up while you do." },
+          text = "Takata Steelblade tells me you think the centaur are a people. Keep thinking it, if you like, but keep your shield up while you do." },
         { id = "h_arrive", tags = { "news" }, when = { questActive = TODO_QUEST("The Kolkar of Desolace") },
-          text = "You're here on Regthar's orders? Then you're here to deal with the centaur. Good; sit, listen, and don't expect this to end quickly." },
+          text = "You're here on Regthar Deathgate's orders? Then you're here to deal with the centaur. Good; sit, listen, and don't expect this to end quickly." },
         { id = "h_bounty_before", when = { questBefore = TODO_QUEST("Centaur Bounty") },
           text = "Many clans make up the centaur, each with its own khan, but they all share one thing, and that's cruelty. Hunt them wherever you find them and bring me their ears, and the Horde gets one step closer to peace out here." },
         { id = "h_bounty_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Centaur Bounty"), days = 3 } },
@@ -97,7 +97,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     co_useful = {
-      lines = { { id = "cou_default", text = "Now you sound like Pentigast over at Nijel's Point, and I mean that as half an insult. The other half's a compliment, because he's still alive." } },
+      lines = { { id = "cou_default", text = "Now you sound like Captain Pentigast, the Alliance commander at Nijel's Point, and I mean that as half an insult. The other half's a compliment, because he's still alive." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     co_blood = {
@@ -119,8 +119,8 @@ P:NPC {
         { id = "hk_default", text = "Maybe. Thrall would call it diplomacy, and I'd call it a bargain with a snake, but I'm not the Warchief, and he's earned the right to choose." },
       },
       choices = {
-        { text = "Turn them on each other. Fewer of ours die.", next = "BACK", fx = { align = { honor = -1 }, opinion = { centaur = "divide" } } },
-        { text = "I'd rather fight them face to face.", next = "BACK", fx = { align = { honor = 1 }, opinion = { centaur = "war" } } },
+        { text = "Turn them on each other. Fewer of ours die.", next = "BACK", reply = "Good. That's my thinking too, and Gurda's, and if it saves one grunt, I'll call it worth the snake.", fx = { align = { honor = -1 }, opinion = { centaur = "divide" } } },
+        { text = "I'd rather fight them face to face.", next = "BACK", reply = "Then you'll get your chance, because the centaur don't fight fair, and they'll come at you face to face sometimes.", fx = { align = { honor = 1 }, opinion = { centaur = "war" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -131,8 +131,8 @@ P:NPC {
         { id = "ea_default", text = "Proof. I can't count dead centaur from here, and I don't trust a story without something in the bag. If it's ugly, so is Desolace." },
       },
       choices = {
-        { text = "War is ugly. I'll bring the ears.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll kill them, but I won't cut trophies.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "War is ugly. I'll bring the ears.", next = "BACK", reply = "Good. War is war, and the ears keep the count honest, which is more than most stories do.", fx = { align = { light = -1 } } },
+        { text = "I'll kill them, but I won't cut trophies.", next = "BACK", reply = "Then bring me something else, a banner, a bow, I don't care, as long as I can count it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -158,7 +158,7 @@ P:NPC {
 
     name = {
       lines = {
-        { id = "na_default", text = "Two cuts, one Kolkar, one afternoon. The second one was the important one; ask me again sometime when I've had a drink." },
+        { id = "na_default", text = "Two cuts on one Kolkar, in one afternoon. The second one was the important one; ask me again sometime when I've had a drink." },
       },
       choices = {
         { text = "I'll hold you to that.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -182,7 +182,7 @@ P:NPC {
     centaur = { { id = "tp_centaur", text = "All five clans want us dead, and they all want each other dead more, so we have time. Bring me ears." } },
     thrall = { { id = "tp_thrall", text = "The Warchief needs this coast held, so it is held. Do you have more questions, or ears?" } },
     maraudon = { { id = "tp_maraudon", text = "The centaur call Maraudon holy, and they defend it like rabid wolves, so no orc goes there. Good, there is enough to kill out here." } },
-    burning_legion = { { id = "tp_burning_legion", text = "Takata hunts demon-lovers. I hunt centaur. Both of us have more work than hands, so if you want work, ask either of us and stop talking." } },
+    burning_legion = { { id = "tp_burning_legion", text = "Takata Steelblade hunts the demon-lovers and I hunt centaur, and both of us have more work than hands, so if you want work, ask either of us and stop talking." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't much care, so ask me something useful, something with blood in it." } },
   },
 }

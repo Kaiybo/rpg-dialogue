@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_post", text = "I hope ye're here tae lend us a hand, for we're short o' strong arms an' long on troggs." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Any sign o' them in the hills on yer way in?" },
-    { id = "g_threat", when = { questActive = TODO_QUEST("A New Threat") }, text = "Tenacious wee buggers, aren't they? Keep at it." },
+    { id = "g_threat", when = { questActive = TODO_QUEST("A New Threat") }, text = "Tenacious wee buggers, these troggs, aren't they? Keep at it." },
     { id = "g_after", when = { questDone = TODO_QUEST("A New Threat") }, text = "The hills have been quieter since ye went through them. Quieter, I said, no' quiet." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were ye? The troggs weren't, I can tell ye that much." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at ye now. When ye first came tae me ye could barely hold off a trogg, an' now I'd put ye on the wall at Ironforge." },
@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("A New Threat") },
           text = "They've been seen all over the hills to the southeast an' by the frozen lake, an' they're no' slowin' down. I need somebody tae drive them back, an' I need them today." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("A New Threat") },
-          text = "The ordinary troggs an' the big burly ones both, for the burly ones lead an' the rest follow. Six o' each should teach them tae keep their heads down." },
+          text = "I need the ordinary troggs an' the big burly ones both, six o' each, for the burly ones lead an' the rest follow. That should teach them tae keep their heads down." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A New Threat"), days = 3 } },
           text = "That's done the trick fer now, an' by Magni's beard, I'm grateful. But if it's like this all over Dun Morogh, we've trouble ahead of us." },
         { id = "h_paladin", when = { class = "PALADIN" },
@@ -82,13 +82,13 @@ P:NPC {
       lines = { { id = "cb_default", text = "Maybe no', but a commander's meant tae know, an' I'm the closest thing Coldridge has. What would ye have done, then, in my boots?" },
       },
       choices = {
-        { text = "Pulled everyone back behind Anvilmar's walls. Lives first.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Held the camp. Running teaches the troggs that it works.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Pulled everyone back behind Anvilmar's walls. Lives first.", next = "BACK", reply = "Aye, an' I tell myself the same every night, but Anvilmar's walls didnae save the lads already out at the camp, an' that's what keeps me up.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Held the camp. Running teaches the troggs that it works.", next = "BACK", reply = "That's what my gut said, an' I didnae listen, so maybe ye're right, an' maybe that's why the troggs keep comin' back hungrier every time.", fx = { align = { honor = -1 } } },
         { text = "I'd rather not say.", next = "BACK" },
       },
     },
     where = {
-      lines = { { id = "w_default", text = "Out o' the ground, from cracks an' caves that weren't there last year. Sten says they come through Coldridge Pass as well, an' Thalos has his hands full keepin' the tunnel." },
+      lines = { { id = "w_default", text = "Out o' the ground, from cracks an' caves that weren't there last year. Sten Stoutarm at the post says they come through Coldridge Pass as well, an' Mountaineer Thalos has his hands full keepin' that tunnel." },
       },
       choices = {
         { text = "It's strange they'd come up now, after so long.", next = "where_why" },
@@ -104,11 +104,11 @@ P:NPC {
       },
     },
     king = {
-      lines = { { id = "k_default", text = "I hope so. I've sent word, an' Grelin's sent his reports tae the Senate, an' I can only pray the King an' the Senate are takin' steps." },
+      lines = { { id = "k_default", text = "I hope so. I've sent word, an' Mountaineer Grelin up by the troll caves has sent his own reports, so I can only pray the King an' the Senate are takin' steps." },
       },
       choices = {
-        { text = "The Senate will act. Trust in the proper channels.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Don't wait on the Senate. Act now, on your own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Senate will act. Trust in the proper channels.", next = "BACK", reply = "I hope ye're right, I truly do, but the Senate has a way o' takin' steps so slow ye'd think they were climbin' the mountain backwards.", fx = { align = { order = 1 } } },
+        { text = "Don't wait on the Senate. Act now, on your own.", next = "BACK", reply = "Dinnae tempt me, because I've half a mind tae do just that, an' Grelin would have my beard for it, but the troggs dinnae wait on anybody's leave.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -129,6 +129,6 @@ P:NPC {
     gnomeregan = { { id = "tp_gnomeregan", text = "The troggs came up out o' Gnomeregan first, an' now they're in my valley burnin' my camp. If the gnomes couldnae hold them wi' all their machines, I'd like tae know what I'm supposed tae do wi' an axe." } },
     magni = { { id = "tp_magni", text = "The King's got troubles enough without hearin' about one burnt camp in Coldridge. Still, I'd like him tae know, an' I'd like him tae send more than one envoy." } },
     scourge = { { id = "tp_scourge", text = "They say the dead walk in the north o' Lordaeron, an' I believe it, for I've seen the faces on the refugees. I'll take troggs over that, an' I never thought I'd say so." } },
-    _none = { { id = "tp_none", text = "I couldnae say. Ask Sten; he hears everythin' that comes through on the mail." } },
+    _none = { { id = "tp_none", text = "I couldnae say. Ask Sten Stoutarm at the post; he hears everythin' that comes through on the mail." } },
   },
 }

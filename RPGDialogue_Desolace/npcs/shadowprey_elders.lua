@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Sit a moment, {class}. The sea is loud here, but it is cleaner than what comes up out of Mannoroc Coven." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Hand of Iruxos") }, text = "The red crystal at Thunder Axe, {name}. Strike it with the pick, and the Demon Box will be yours to take." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Hand of Iruxos") }, text = "Find the red crystal in Thunder Axe Fortress, {name}, and strike it with the pick. Then the Demon Box will be yours to take." },
     { id = "g_done", when = { questDone = TODO_QUEST("Hand of Iruxos") }, text = "The Hand is out of the Blade's grip. The coven is quieter, and so are my dreams." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}. I counted the fires at Thunder Axe every night, and there were fewer of them than before." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry yourself differently now. Desolace has tested you, and you're still standing, which is the only grade it gives." },
@@ -77,15 +77,15 @@ P:NPC {
         { id = "ba_default", text = "The Warchief does not allow them; he hunts them, but they are many and they hide well. Some in the Horde say they should be given a chance to repent, and I've seen their altars, so I don't agree." },
       },
       choices = {
-        { text = "Root them out. No mercy for demon-callers.", next = "BACK", fx = { align = { light = -1 }, learn = { "burning_blade" } } },
-        { text = "Some might turn back, if they're offered a way.", next = "BACK", fx = { align = { light = 1 }, learn = { "burning_blade" } } },
+        { text = "Root them out. No mercy for demon-callers.", next = "BACK", reply = "That is my heart's answer too, and I have seen enough of their altars to know it is the right one.", fx = { align = { light = -1 }, learn = { "burning_blade" } } },
+        { text = "Some might turn back, if they're offered a way.", next = "BACK", reply = "Perhaps, and I would not stand in the way if one truly turned, but I have not yet met that one.", fx = { align = { light = 1 }, learn = { "burning_blade" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "burning_blade" } } },
       },
     },
 
     hand = {
       lines = {
-        { id = "ha_default", text = "A relic of a demon called Iruxos, I'm told, a withered hand that still remembers how to open doors. The Blade keep it locked in a box that only a demon pick can break, which tells you they fear it a little too." },
+        { id = "ha_default", text = "A relic of a demon called Iruxos, I'm told, a withered hand that still remembers how to open doors. The Blade keep it locked in a box that only a demon pick can break, so they fear it a little too." },
       },
       choices = {
         { text = "Why not destroy it?", next = "hand_destroy" },
@@ -107,8 +107,8 @@ P:NPC {
         { id = "hu_default", text = "Yes, and that troubles me more than I can tell you. Using a demon's tool to undo a demon's work feels like borrowing from a thief to pay back what he stole." },
       },
       choices = {
-        { text = "Use whatever works against demons.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Use it once, then bury it deep.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Use whatever works against demons.", next = "BACK", reply = "That is what the braves say, and perhaps they are right, but I still feel the thief's hand on my shoulder.", fx = { align = { order = -1 } } },
+        { text = "Use it once, then bury it deep.", next = "BACK", reply = "That is my thinking too, and when it is done, I will bury it so deep the earth itself forgets.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -144,7 +144,7 @@ P:NPC {
     },
     why_trolls = {
       lines = {
-        { id = "wt_default", text = "The best, when the fighting starts, and the worst when they cook. Drulzegar on the dock would fight the whole sea for what the naga did to his crew, and I've learned not to stand between him and the water." },
+        { id = "wt_default", text = "They're the best, when the fighting starts, and the worst when they cook. Drulzegar on the dock would fight the whole sea for what the naga did to his crew, and I've learned not to stand between him and the water." },
       },
       choices = {
         { text = "I'll go and speak to him.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -154,7 +154,7 @@ P:NPC {
 
     pick = {
       lines = {
-        { id = "pi_default", text = "From a cultist the trolls caught on the coast road, carrying it wrapped in rags as if it might bite him. He wouldn't say what it was for, but the red crystal at Thunder Axe hums when it's near, so I worked the rest out myself." },
+        { id = "pi_default", text = "I took it from a cultist the trolls caught on the coast road, carrying it wrapped in rags as if it might bite him. He wouldn't say what it was for, but the red crystal at Thunder Axe hums when it's near, so I worked the rest out myself." },
       },
       choices = {
         { text = "What happened to the cultist?", next = "pick_cultist" },
@@ -167,8 +167,8 @@ P:NPC {
         { id = "pc_default", text = "The trolls wanted to feed him to the sea, and I asked them to send him to Orgrimmar instead, so the Warchief's people could question him. I don't know which of us was right, and he didn't seem grateful to either." },
       },
       choices = {
-        { text = "The trolls were right. Cultists earn no mercy.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "You were right. Let him face the Warchief's justice.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The trolls were right. Cultists earn no mercy.", next = "BACK", reply = "Perhaps they were, and the trolls will tell you so at length, but I still sleep better for what I chose.", fx = { align = { honor = -1 } } },
+        { text = "You were right. Let him face the Warchief's justice.", next = "BACK", reply = "Thank you, I needed to hear it, though I still do not know if he will reach Orgrimmar at all.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -185,7 +185,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "An elder of Thunder Bluff, sent to watch the coast. I've watched it long enough to hate demons properly." } },
+    background = { { id = "tp_bg", text = "I'm an elder of Thunder Bluff, sent to watch the coast. I've watched it long enough to hate demons properly." } },
     advice = { { id = "tp_ad", text = "If the air smells of sulphur, turn back. If it tastes of it, run." } },
     burning_blade = { { id = "tp_bb", text = "They'd open the whole world to their masters for a little power. We must not let them." } },
     _none = { { id = "tp_none", text = "I don't know, {class}, and I'm too old to pretend I do." } },
@@ -204,9 +204,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You climbed up past the skinner, so you must want something. Good; so do I." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Vyletongue Corruption") }, text = "The vial, the orange pool, the vines. Watch for what crawls out when the vines are cleansed, because Vyletongue still holds them." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Vyletongue Corruption") }, text = "Eight vines clean. It isn't much against all of Maraudon, but it's eight more than before." },
+    { id = "g_default", text = "You climbed all the way up here, so you must want something. Good; so do I." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Vyletongue Corruption") }, text = "Fill the vial at the orange pool and pour it on the vines. Watch for what crawls out when the vines are cleansed, because Vyletongue still holds them." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Vyletongue Corruption") }, text = "Eight vines are clean now. It isn't much against all of Maraudon, but it's eight more than before." },
     { id = "g_cleared", when = { cleared = "Maraudon" }, text = "You've been to the bottom of Maraudon and back. I can see it in your eyes, and I'd like to hear about it someday." },
   },
 
@@ -224,7 +224,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Vark Battlescar. I fought centaur for twenty years and now I fight a satyr I've never seen, because a satyr called Vyletongue has corrupted the caverns of Maraudon and stunted everything that grows inside." },
+          text = "I'm Vark Battlescar. I fought centaur for twenty years and now I fight a satyr I've never seen, because a satyr called Vyletongue has corrupted the caverns of Maraudon and stunted everything that grows inside." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Vyletongue Corruption") },
           text = "Take this vial and fill it at the orange crystal pool inside Maraudon. The coating inside counters the poison and turns it into a healing draught, and the corrupted vines will drink it, but know that Vyletongue still holds them and may turn them on you." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Vyletongue Corruption") },
@@ -273,8 +273,8 @@ P:NPC {
         { id = "mk_default", text = "I don't know if a thing like that can be killed. If she can, and if the centaur would lose heart without her, then perhaps, but she's part of the earth, and I'd hate to be the one who wounded the earth to win a war." },
       },
       choices = {
-        { text = "End her, and the centaur with her.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some things should not be killed, even to win.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "End her, and the centaur with her.", next = "BACK", reply = "Perhaps that is the only way, but I would ask the earth's forgiveness before I struck, and I hope you would too.", fx = { align = { light = -1 } } },
+        { text = "Some things should not be killed, even to win.", next = "BACK", reply = "That is my fear, and my belief, and I am glad to hear someone else hold it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -305,8 +305,8 @@ P:NPC {
         { id = "ve_default", text = "They send their own into the caverns from Nijel's Point with the same kind of vial, I'm told, and for the same reason. I'd sooner work beside them than against them down there, though I'd never say so to the braves who fought them at Ashenvale." },
       },
       choices = {
-        { text = "Against a satyr, any ally will do.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The Horde should heal its own caverns.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Against a satyr, any ally will do.", next = "BACK", reply = "That is how I see it too, though I'd never say so where the braves could hear me.", fx = { align = { order = -1 } } },
+        { text = "The Horde should heal its own caverns.", next = "BACK", reply = "Perhaps it should, but the satyr does not care whose caverns they are, and the vines are dying either way.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -326,8 +326,8 @@ P:NPC {
         { id = "vc_default", text = "Clever, and dangerous, because the vines wake angry when they're cleansed and the rot inside them has to go somewhere. Some say we should burn the vines instead and start again, but I've seen what fire does to a forest." },
       },
       choices = {
-        { text = "Burn them. Fire is cleaner than poison.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Heal them. The old ways are slower but surer.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Burn them. Fire is cleaner than poison.", next = "BACK", reply = "I have seen what fire does to a cave, and I would not want to be in Maraudon when the flames reached the deep roots.", fx = { align = { order = -1 } } },
+        { text = "Heal them. The old ways are slower but surer.", next = "BACK", reply = "That is the path I chose, and it is slow, but I have seen it work, and I will keep walking it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -345,7 +345,7 @@ P:NPC {
 
     scar_kolkar = {
       lines = {
-        { id = "sk_default", text = "I hated them for years, and it kept me warm in the cold nights on the Barrens' edge. Now I'm tired of it, and the hate has gone grey like this land, and I'd rather spend what's left of me on the vines." },
+        { id = "sk_default", text = "I hated them for years, and it kept me warm in the cold nights on the Barrens' edge. Now I'm tired of it, and the hate has gone grey like this land, and I mean to spend what's left of me on the vines." },
       },
       choices = {
         { text = "That sounds like peace, of a kind.", next = "BACK", fx = { trait = { kind = 1 } } },
@@ -359,15 +359,15 @@ P:NPC {
         { id = "pl_default", text = "Because a warrior who only knows how to kill ends up with nothing left to protect. I've spent twenty years killing centaur, and I'd like to spend a few years making something grow before the Earth Mother takes me back." },
       },
       choices = {
-        { text = "Healing is braver than killing.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A warrior's duty is to fight. Leave growing to druids.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Healing is braver than killing.", next = "BACK", reply = "I have come to believe so, after twenty years, and I am glad to hear it from someone younger.", fx = { align = { honor = 1 } } },
+        { text = "A warrior's duty is to fight. Leave growing to druids.", next = "BACK", reply = "Perhaps, but I have done my fighting, and the Earth Mother will not mind if I spend my last years growing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Twenty years fighting centaur on the Barrens' edge. A Kolkar spear gave me my name." } },
+    background = { { id = "tp_bg", text = "I spent twenty years fighting centaur on the Barrens' edge, and a Kolkar spear gave me my name." } },
     advice = { { id = "tp_ad", text = "Don't drink from the pools in Maraudon. Not even the clear ones." } },
     _none = { { id = "tp_none", text = "I don't know. Ask someone who didn't spend twenty years with a spear in his hand." } },
   },
@@ -430,7 +430,7 @@ P:NPC {
 
     hemet = {
       lines = {
-        { id = "he_default", text = "Loud, cheerful, and never without his rifle, and he could hit a hawk on the wing from the far side of a canyon. He talked the whole time we hunted, which should have frightened the beasts away, but somehow it never did." },
+        { id = "he_default", text = "He was loud, cheerful and never without his rifle, and he could hit a hawk on the wing from the far side of a canyon. He talked the whole time we hunted, which should have frightened the beasts away, but somehow it never did." },
       },
       choices = {
         { text = "He sounds like a good friend.", next = "hemet_friend" },
@@ -439,7 +439,7 @@ P:NPC {
     },
     hemet_friend = {
       lines = {
-        { id = "hf_default", text = "The best I've had, and I've had good ones. He taught me to read a trail backwards, from where the beast is going to where it's been, and I taught him to thank the beast before he skinned it, though I don't think he still does." },
+        { id = "hf_default", text = "He was the best friend I've had, and I've had good ones. He taught me to read a trail backwards, from where the beast is going to where it's been, and I taught him to thank the beast before he skinned it, though I don't think he still does." },
       },
       choices = {
         { text = "Does that bother you?", next = "hemet_bother" },
@@ -452,8 +452,8 @@ P:NPC {
         { id = "hb_default", text = "A little. I've heard he hunts panthers by the hundred now, and a tauren doesn't kill more than he needs. But he was always hungry for the next beast, and I loved him for it, even when I didn't agree." },
       },
       choices = {
-        { text = "A true hunter takes only what he needs.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The hunt is a contest. Take every trophy you can.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A true hunter takes only what he needs.", next = "BACK", reply = "That is the tauren way, and the right one, though I could never make Hemet understand it.", fx = { align = { light = 1 } } },
+        { text = "The hunt is a contest. Take every trophy you can.", next = "BACK", reply = "Hemet would like you, and I am not sure whether that pleases me or worries me.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -473,8 +473,8 @@ P:NPC {
         { id = "ww_default", text = "He said a beast like that deserved to die where it chose, and I've never respected anyone more. Some of my clan said we were fools to let the finest hide in Desolace walk away, and I say we were wise." },
       },
       choices = {
-        { text = "You were right to let it go.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A hunt should end with the kill.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You were right to let it go.", next = "BACK", reply = "Thank you, it was the finest hunt of my life, and I never even drew my bow.", fx = { align = { order = 1 } } },
+        { text = "A hunt should end with the kill.", next = "BACK", reply = "Most hunts should, yes, but not that one, and I have never regretted it for a single day.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -495,8 +495,8 @@ P:NPC {
         { id = "ea_default", text = "In a heartbeat, and I'd tell the Warchief so to his face, because a friend is a friend. Some at Shadowprey call me a fool for it, but they've never hunted beside someone who'd lower his rifle for a kodo." },
       },
       choices = {
-        { text = "Friendship should outlast any war.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The Horde comes first, friend or no friend.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Friendship should outlast any war.", next = "BACK", reply = "It should, and I will stand by mine, whatever the Warchief or anyone else says about it.", fx = { align = { honor = 1 } } },
+        { text = "The Horde comes first, friend or no friend.", next = "BACK", reply = "The Horde is my home, but a friend is a friend, and I cannot pretend otherwise.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -543,7 +543,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Wildmane hunter, Thunder Bluff born. I've hunted every corner of Desolace and half of Feralas." } },
+    background = { { id = "tp_bg", text = "I'm a Wildmane hunter, born in Thunder Bluff, and I've hunted every corner of Desolace and half of Feralas." } },
     advice = { { id = "tp_ad", text = "Read a trail backwards: start with where the beast is going." } },
     _none = { { id = "tp_none", text = "Ha! I don't know, friend, and I've never let that stop me telling a story." } },
   },

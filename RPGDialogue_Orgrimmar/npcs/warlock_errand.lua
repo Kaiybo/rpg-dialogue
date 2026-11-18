@@ -74,22 +74,22 @@ P:NPC {
       big = true,
       lines = { { id = "wh_default", text = "Because when the Alliance comes over the hills, the Warchief wants every weapon he has, and we are a weapon that never tires. The shaman think we're a stain on the Horde, and perhaps we are, but a stain that keeps you alive is easy to forgive." } },
       choices = {
-        { text = "Power is power. The Horde should use all of it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "The shaman are right. Fel nearly destroyed us once.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. The Horde should use all of it.", next = "BACK", reply = "Good, you understand the Horde as the Warchief does. Every weapon, warlock, and we're the sharpest.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The shaman are right. Fel nearly destroyed us once.", next = "BACK", reply = "They were right about the old Horde, and I won't deny it. But we've learned since, and the Horde needs us anyway.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     zankaja = {
       big = true,
-      lines = { { id = "za_default", text = "I'll tell her that Dogran died bravely, fighting the quilboar, which is what he wanted and will soon enough be true. She's young, and grief will pass faster than a lifetime spent nursing a broken mate." } },
+      lines = { { id = "za_default", text = "I'll tell her that Dogran died bravely fighting the quilboar, which is how he wanted it told, and soon enough it will be true. She's young, and grief will pass faster than a lifetime spent nursing a broken mate." } },
       choices = {
-        { text = "That's a kindness. Let her grieve and move on.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "She deserves the truth, whatever he asked.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "That's a kindness. Let her grieve and move on.", next = "BACK", reply = "It is, and I'm glad you see it. She'll mourn, and then she'll live, and that's better than what he'd leave her.", fx = { align = { honor = -1 } } },
+        { text = "She deserves the truth, whatever he asked.", next = "BACK", reply = "The truth would chain her to a dying grunt for years. I'll tell her what she needs to hear, and you'll keep quiet.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     strahad = {
-      lines = { { id = "st_default", text = "Strahad Farsan keeps a tower in Ratchet and calls his students acolytes, which tells you everything about Strahad. He'll teach you the felhunter, though, and he does it well, so go and endure his manner." } },
+      lines = { { id = "st_default", text = "Strahad Farsan keeps a tower in Ratchet and calls his students acolytes, as if he were a temple. He'll teach you the felhunter, though, and he does it well, so go and endure his manner." } },
       choices = { { text = "Something else, Gan'rul.", next = "BACK" } },
     },
   },
@@ -128,7 +128,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Cazul, and my eyes are useless, so you'll forgive me if I stare at the wall while we talk. Power belongs to those willing to pay its price, and I paid mine a long time ago." },
+        { id = "h_default", key = true, text = "Cazul, and my eyes are useless, so I'll be staring at the wall while we talk. Power belongs to those willing to pay its price, and I paid mine a long time ago." },
         { id = "h_devourer", when = { questActive = TODO_QUEST("Devourer of Souls") },
           text = "If Gan'rul has sent you to me, you are to summon a succubus and need an object to entice her. If you trust a blind man to lead you, then listen, because I know of a young woman who has exactly what you need." },
         { id = "h_after", when = { class = "WARLOCK", pet = { family = "Succubus" } },
@@ -162,8 +162,8 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "Every spell you take from the Nether is paid for in something, warlock, whether it's your health, your sleep, or someone else's happiness. The fools pretend there is no bill, and the wise decide in advance who will pay it." } },
       choices = {
-        { text = "Then I'll pay it myself, and no one else.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let others pay. That's what the wise do.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Then I'll pay it myself, and no one else.", next = "BACK", reply = "Then you're wiser than most who come to me, and braver. Pay it yourself, and pay it gladly.", fx = { align = { honor = 1 } } },
+        { text = "Let others pay. That's what the wise do.", next = "BACK", reply = "That's what the wise do, and it's what the fools do too. The difference is whether the bill ever comes back to you.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -175,7 +175,7 @@ P:NPC {
       },
     },
     bait = {
-      lines = { { id = "ba_default", text = "I'd use whatever works, and so will you, or you'll go back to Gan'rul with empty hands. Go and speak with her, help her if you can, and see what devotion looks like when it's held in a fist." } },
+      lines = { { id = "ba_default", text = "I'd use whatever works, and so will you, or you'll go back to Gan'rul with empty hands. Go and speak with her, help her if you can, and see how tightly she holds on to him." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     succubus = {
@@ -189,7 +189,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I studied under the Shadow Council's lesser masters, and I outlived every one of them. Draw what conclusion you like from that." } },
+    background = { { id = "tp_bg", text = "I studied under the Shadow Council's lesser masters, and I outlived them all. Draw what conclusion you like from that." } },
     advice = { { id = "tp_ad", text = "Never look at anything you can't afford to remember." } },
     _none = { { id = "tp_none", text = "I don't know, and at my age I've stopped pretending to." } },
   },
@@ -256,13 +256,13 @@ P:NPC {
       big = true,
       lines = { { id = "ba_default", text = "The Barrens are more dangerous than the city, and everyone knows it, with the centaur and the quilboar and the Alliance in Northwatch. I keep telling myself he's a grunt and this is what grunts do, but it doesn't help as much as it should." } },
       choices = {
-        { text = "Grunts serve where they're sent. He'd want you proud.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "No promotion is worth leaving you alone up here.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Grunts serve where they're sent. He'd want you proud.", next = "BACK", reply = "He would, wouldn't he, and I'm trying to be. Thank you for saying it.", fx = { align = { order = 1 } } },
+        { text = "No promotion is worth leaving you alone up here.", next = "BACK", reply = "That's what I keep thinking, and I hate myself for it. He'd be ashamed to hear me say so.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     bluffs = {
-      lines = { { id = "bl_default", text = "From here I can see every wind rider that comes in from the south, and every runner on the road. The other grunts' mates wait in the Valley of Strength, but they gossip, and I'd rather listen to the wind." } },
+      lines = { { id = "bl_default", text = "From here I can see every wind rider that comes in from the south, and every runner on the road. The other grunts' mates wait in the Valley of Strength, but they gossip, and the wind tells me more." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     truth = {

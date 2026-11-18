@@ -81,8 +81,8 @@ P:NPC {
         { id = "sf_default", text = "Some, perhaps, if the bindings are broken. Others are too far gone, and the kindest thing is to return them to the fire they came from, though it grieves me to say it." },
       },
       choices = {
-        { text = "Mercy means freeing them, whatever the cost.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A mad spirit must simply be destroyed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Mercy means freeing them, whatever the cost.", next = "BACK", reply = "You have a kind heart, and the spirits will feel it. Mercy that costs nothing is no mercy at all, my friend.", fx = { align = { light = 1 } } },
+        { text = "A mad spirit must simply be destroyed.", next = "BACK", reply = "Destroyed, yes, when there is no other way, but never simply. Grieve for them as they go, as the Earth Mother grieves.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -91,8 +91,8 @@ P:NPC {
         { id = "sb_default", text = "Yes, and that is why Kargath sends warriors as well as shamans. But a binder dies and another takes his place, so we must also mend what they have broken, or the land will never heal." },
       },
       choices = {
-        { text = "Fight first. Healing can come later.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Fighting without mending is wasted blood.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fight first. Healing can come later.", next = "BACK", reply = "Fight first, then, and I will be behind you with water and herbs. But do not forget the second part, young one.", fx = { align = { order = -1 } } },
+        { text = "Fighting without mending is wasted blood.", next = "BACK", reply = "You understand, and that gladdens my heart. The binders can be killed, but the land must be healed by patient hands.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -125,8 +125,8 @@ P:NPC {
         { id = "wy_default", text = "Because the Warchief asked for shamans who could feel what the mountain hides, and Cairne said my ears were the best he knew. I did not want to leave Mulgore, but a debt to the Horde is a debt to the people who gave us back our lands." },
       },
       choices = {
-        { text = "The Horde is stronger for your coming.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "The tauren owe the orcs nothing now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Horde is stronger for your coming.", next = "BACK", reply = "Perhaps it is, and I hope so. I would rather be here helping than at home wishing I had.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "The tauren owe the orcs nothing now.", next = "BACK", reply = "Owe? The tauren do not count debts like goblins, my friend. The orcs helped us when the centaur pressed, and we remember.", fx = { align = { honor = -1 } } },
         { text = "Do you miss Mulgore?", next = "why_home" },
       },
     },
@@ -181,18 +181,18 @@ P:NPC {
         { id = "xs_default", text = "Then you know why I sleep so poorly. Tell me, when you call on fire here, does it answer you willingly, or does it answer because it must?" },
       },
       choices = {
-        { text = "It answers, but I ask gently, never command.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "It answers because I am stronger than its anger.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It answers, but I ask gently, never command.", next = "BACK", reply = "Gently is the only true way, and you honour the spirits by it. May the winds always walk beside you.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "It answers because I am stronger than its anger.", next = "BACK", reply = "Stronger, yes, but for how long? Anger outlasts strength, young one, and the fire remembers who held its chains.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know what the fire and stone tell me, and they tell me a great deal about this place." } },
+    knows = { { id = "tp_knows", text = "I know what the fire and stone tell me, and they speak of old fire under every ridge in this place." } },
     background = { { id = "tp_bg", text = "A shaman of Mulgore, sent east by the Warchief's request and Cairne's word." } },
     advice = { { id = "tp_ad", text = "Listen to the ground before you march over it. It will tell you who has been there first." } },
-    blackrock_depths = { { id = "tp_brd", text = "The Dark Irons' city beneath the mountain, where they bind fire and call it craft." } },
+    blackrock_depths = { { id = "tp_brd", text = "Blackrock Depths is the Dark Irons' city beneath the mountain, where they bind fire and call it craft." } },
     dark_iron = { { id = "tp_di", text = "They called the Firelord and paid for it, and they are paying still." } },
     _none = { { id = "tp_none", text = "I do not know that, young one. The elements do not speak of everything." } },
   },
@@ -222,7 +222,7 @@ P:NPC {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Keep {pet} close near the mountain. The worgs of Blackrock smell another beast from a long way off, and they don't share." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A child of Mulgore. You'll want to keep your horns low on the ridge; the Dark Iron rifles are better than you'd think." },
+      text = "A child of Mulgore. You'll want to keep your horns low on the ridge; the Dark Iron rifles carry farther than a spear's throw and twice as true." },
   },
 
   start = "hello",
@@ -236,7 +236,7 @@ P:NPC {
         { id = "h_gorshak_done", when = { questDone = TODO_QUEST("Commander Gor'shak") },
           text = "So Gor'shak lives, and says he let himself be taken to learn the Dark Irons' plans. He's a hard orc, and he may even be telling the truth." },
         { id = "h_pack", tags = { "news" }, when = { questActive = TODO_QUEST("The Pack Mistress") },
-          text = "Halycon, the den mother of the Bloodaxe worgs, in the lower halls of the Spire. Mind her pups, and mind her mate Gizrul; he'll come when she calls." },
+          text = "Halycon, the den mother of the Bloodaxe worgs, keeps her lair in the lower halls of the Spire. Mind her pups, and mind her mate Gizrul; he'll come when she calls." },
         { id = "h_pack_done", when = { questDone = TODO_QUEST("The Pack Mistress") },
           text = "You came back from Halycon's den with all your limbs and her mate's blood on you. I've known hunters who'd give a year of their lives for that kill." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -272,8 +272,8 @@ P:NPC {
         { id = "wo_default", text = "Not anymore. They kept the old ways, the demon's blood and the warlord's whip, and they serve a black dragon now; the Warchief has no use for them, and nor do I." },
       },
       choices = {
-        { text = "They chose their side. Show them no mercy.", next = "BACK", fx = { align = { light = -1 }, learn = { "blackrock_spire" } } },
-        { text = "Some of them might still be saved.", next = "BACK", fx = { align = { light = 1 }, learn = { "blackrock_spire" } } },
+        { text = "They chose their side. Show them no mercy.", next = "BACK", reply = "They chose, and they will answer for it, but I take no joy in the hunting. Let the arrow be swift.", fx = { align = { light = -1 }, learn = { "blackrock_spire" } } },
+        { text = "Some of them might still be saved.", next = "BACK", reply = "Perhaps, and I would like to believe it. But the black dragon's whip has kept them a long time.", fx = { align = { light = 1 }, learn = { "blackrock_spire" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "blackrock_spire" } } },
       },
     },
@@ -296,8 +296,8 @@ P:NPC {
         { id = "gw_default", text = "To learn what the Dark Irons are planning, he says, from the inside, where no scout could reach. It's either the bravest thing an orc has done this year, or the best story a captured one could tell." },
       },
       choices = {
-        { text = "Take him at his word. He's earned it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Trust nothing until his story's proven.", next = "BACK", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
+        { text = "Take him at his word. He's earned it.", next = "BACK", reply = "Then we'll trust him, and keep one eye open. A brave orc is worth a little faith.", fx = { align = { honor = 1 } } },
+        { text = "Trust nothing until his story's proven.", next = "BACK", reply = "Wise, very wise, and it is the hunter's way. The prey that seems tame is often the one that bites.", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -326,8 +326,8 @@ P:NPC {
         { id = "wt2_default", text = "I've seen a hunter try, once, with a pup he'd stolen. It took his hand off at the wrist when it was grown, and he still talks about it like it was his child." },
       },
       choices = {
-        { text = "Every beast can be tamed with patience.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Some beasts are meant to stay wild.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Every beast can be tamed with patience.", next = "BACK", reply = "Patience, yes, and a very long arm. I have tamed many, but I will not try with a worg.", fx = { align = { order = 1 } } },
+        { text = "Some beasts are meant to stay wild.", next = "BACK", reply = "Some are, and the worg mother is one of them. Let her keep her wildness, and keep your hand.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -352,11 +352,11 @@ P:NPC {
 
     goretooth = {
       lines = {
-        { id = "gt_default", text = "He's an orc who'd rather be fighting than watching, and the Warchief has set him to watch. He does it well, and he hates every hour of it, and I respect him more for the second than the first." },
+        { id = "gt_default", text = "He's an orc who'd rather be fighting than watching, and the Warchief has set him to watch. He hates every hour of it and does it well regardless, and I respect him for that." },
       },
       choices = {
-        { text = "A leader should bend to his orders.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A warlord wasted on watching. He should attack.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A leader should bend to his orders.", next = "BACK", reply = "He does, and he bends better than I would. Respect him for it, as I do.", fx = { align = { order = 1 } } },
+        { text = "A warlord wasted on watching. He should attack.", next = "BACK", reply = "He thinks so too, every night. But the Warchief knows what he does, and Goretooth obeys.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -366,8 +366,8 @@ P:NPC {
         { id = "xh_default", text = "Patience, and a good beast, and knowing when not to shoot. Too many young hunters think the kill is the hunt; the kill is only where it ends." },
       },
       choices = {
-        { text = "The hunt is the waiting. You're right.", next = "BACK", fx = { align = { order = 1 }, trait = { patient = 1 } } },
-        { text = "The kill is all that matters in the end.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The hunt is the waiting. You're right.", next = "BACK", reply = "You have the patience of the plains, and it serves you well. May your aim stay true and your quarry be worthy.", fx = { align = { order = 1 }, trait = { patient = 1 } } },
+        { text = "The kill is all that matters in the end.", next = "BACK", reply = "In the end, yes, but a hunter who thinks only of the kill misses the whole of the hunt. Watch the grass, young one.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -375,10 +375,10 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know what moves on that mountain, and when. Ask." } },
-    background = { { id = "tp_bg", text = "A hunter of Mulgore, sent to Kargath because I could see further than the orcs." } },
+    background = { { id = "tp_bg", text = "I'm a hunter of Mulgore, sent to Kargath because I could see further than the orcs." } },
     advice = { { id = "tp_ad", text = "Count your enemy before you fight him, then count him again." } },
-    blackrock_spire = { { id = "tp_brs", text = "The top of the mountain, where the Blackrock orcs and their worgs live under a black dragon's wing." } },
-    _none = { { id = "tp_none", text = "Not something I've seen from this ridge. Ask Goretooth; he hears more than I see." } },
+    blackrock_spire = { { id = "tp_brs", text = "Blackrock Spire is the top of the mountain, where the Blackrock orcs and their worgs live under a black dragon's wing." } },
+    _none = { { id = "tp_none", text = "Not something I've seen from this ridge. Ask Warlord Goretooth; he hears more than I see." } },
   },
 }
 
@@ -413,11 +413,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Razal'blade, of the Darkspear, an' now of this here Expeditionary Force, which is a big name for a few tents an' a lot of dust. The Warchief say watch the mountain, so we watch the mountain." },
         { id = "h_troll", when = { race = "Troll" },
-          text = "A Darkspear here, so far from the islands! Sit, mon, an' tell me how Sen'jin is gettin' on." },
+          text = "A Darkspear here, so far from the islands! Sit, mon, an' tell me how Sen'jin Village be gettin' on." },
       },
       again = {
         { id = "h_again", text = "What else, mon? Ain't nothin' else to do but talk." },
-        { id = "h_again2", text = "Go on, ask, before Goretooth find me somethin' to do." },
+        { id = "h_again2", text = "Go on, ask, before the Warlord find me somethin' to do." },
       },
       choices = {
         { text = "What do you do here?", next = "job" },
@@ -441,8 +441,8 @@ P:NPC {
         { id = "jw_default", text = "A line of slaves goin' into the mountain, mon, an' none comin' out. I count them goin' in, an' I stop countin' after a while, 'cause the number don't help nobody." },
       },
       choices = {
-        { text = "Someone should go in after them.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A scout's job is to count, not to grieve.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Someone should go in after them.", next = "BACK", reply = "Someone should, mon, an' I been thinkin' it every night. But one troll alone, he just be another number goin' in.", fx = { align = { honor = 1 } } },
+        { text = "A scout's job is to count, not to grieve.", next = "BACK", reply = "Ya, it be, an' I do it. But the counting get heavy, mon, an' sometime I wish I could put it down.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -451,8 +451,8 @@ P:NPC {
         { id = "dk_default", text = "Same way as anyone, mon: Thrall ask, an' Vol'jin say go. Darkspear owe the Warchief our lives from the islands, an' a debt like that you pay where he send you." },
       },
       choices = {
-        { text = "A debt honoured is a people honoured.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "No debt should send you this far from home.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A debt honoured is a people honoured.", next = "BACK", reply = "It be, mon, an' Vol'jin say the same. The Darkspear remember who stood by us when the sea witch came.", fx = { align = { order = 1 } } },
+        { text = "No debt should send you this far from home.", next = "BACK", reply = "Far from home, ya, but home be where the Warchief need us now. That be what the debt mean, mon.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -476,7 +476,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Darkspear from the islands, then Durotar, now here. Next stop, who knows, mon." } },
+    background = { { id = "tp_bg", text = "I be Darkspear from the islands, then Durotar, an' now here. Next stop, who knows, mon." } },
     advice = { { id = "tp_ad", text = "Don't walk the ridge in daylight, an' don't trust a quiet mountain." } },
     _none = { { id = "tp_none", text = "Never heard of it, mon. Ask somebody who sleep better than me." } },
   },
@@ -547,14 +547,14 @@ P:NPC {
         { id = "fg_default", text = "For the Warchief, and for the grunts on either side of me. I was a slave in the camps once; now I choose who I stand in front of." },
       },
       choices = {
-        { text = "Fighting for comrades is the truest cause.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Fight for yourself first. Comrades come and go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fighting for comrades is the truest cause.", next = "BACK", reply = "It is. A grunt who fights for the one beside him never stands alone. Lok'tar.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Fight for yourself first. Comrades come and go.", next = "BACK", reply = "Comrades come and go, aye, but a grunt who fights only for himself dies alone. I learned that in the camps.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     protect = {
       lines = {
-        { id = "pr_default", text = "Amakkar, mostly, who runs in too fast, and the shaman, who walks in too slow. Someone has to stand between them and the axe, and it might as well be the biggest." },
+        { id = "pr_default", text = "Amakkar, mostly, who runs in too fast, and Thunderheart the shaman, who walks in too slow. Someone has to stand between them and the axe, and it might as well be the biggest." },
       },
       choices = {
         { text = "Who's Amakkar?", next = "protect_amakkar" },
@@ -566,15 +566,15 @@ P:NPC {
         { id = "pa_default", text = "An initiate, quick with a knife and quicker with his mouth. He'll be a good fighter if he lives, and he'll live if I'm in front of him." },
       },
       choices = {
-        { text = "The young need someone to shield them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let him learn by bleeding. That's how orcs learn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The young need someone to shield them.", next = "BACK", reply = "They do, and Amakkar needs it more than most. He'll learn, if I keep him alive long enough.", fx = { align = { order = 1 } } },
+        { text = "Let him learn by bleeding. That's how orcs learn.", next = "BACK", reply = "Bleeding teaches, aye, but it teaches dead orcs nothing. I'll keep him standing until he's learned.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Internment camp, then the Warchief's army, then here. I've carried a shield the whole way." } },
+    background = { { id = "tp_bg", text = "I went from an internment camp to the Warchief's army to here. I've carried a shield the whole way." } },
     advice = { { id = "tp_ad", text = "Keep your shield up. Your arm gets tired before your enemy does, so train the arm." } },
     _none = { { id = "tp_none", text = "I don't know that. Ask someone who talks more than I do." } },
   },
@@ -594,7 +594,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Another one come to look at the mountain? Look all you like; I'm the one who's going in it." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back! Did you go up the mountain yet? I'll go with you, if Goretooth ever lets me." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back! Did you go up the mountain yet? I'll go with you, if Warlord Goretooth ever lets me." },
   },
 
   notice = {
@@ -630,8 +630,8 @@ P:NPC {
         { id = "kn_default", text = "Because that's where the honour is, and the loot, and the stories. My father fought at Blackrock in the old war, and I want a story of my own to tell him." },
       },
       choices = {
-        { text = "Glory is worth chasing while you're young.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Glory gets young orcs killed. Wait for orders.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Glory is worth chasing while you're young.", next = "BACK", reply = "It is! That's what I keep telling Gargal, and he keeps telling me to sit down. You understand, at least.", fx = { align = { order = -1 } } },
+        { text = "Glory gets young orcs killed. Wait for orders.", next = "BACK", reply = "Wait for orders? I've been waiting for months! Fine, fine, I'll wait, but I won't like it.", fx = { align = { order = 1 } } },
         { text = "Your father fought at Blackrock?", next = "keen_father" },
       },
     },
@@ -649,8 +649,8 @@ P:NPC {
         { id = "in_default", text = "The one who carries the water and keeps the watch fires going, and gets told 'next time' every time. It means I'm in the Force, but nobody trusts me with anything sharp, except this." },
       },
       choices = {
-        { text = "Everyone starts carrying water.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Don't wait to be trusted. Take your chance.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Everyone starts carrying water.", next = "BACK", reply = "Everyone? Even Gargal? I can't picture it, but maybe you're right. I'll carry the water a bit longer.", fx = { align = { honor = 1 } } },
+        { text = "Don't wait to be trusted. Take your chance.", next = "BACK", reply = "Take my chance! That's what I've been saying, and nobody listens. Maybe next time, I'll do it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -674,7 +674,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born in the camps, raised in Durotar, sent out here to fetch water. Glorious." } },
+    background = { { id = "tp_bg", text = "I was born in the camps, raised in Durotar and sent out here to fetch water. Glorious, isn't it?" } },
     advice = { { id = "tp_ad", text = "Keep your knife sharp. You never know when someone's going to finally let you use it." } },
     _none = { { id = "tp_none", text = "No idea. Ask Gargal; he doesn't know either, but he'll take longer to say so." } },
   },

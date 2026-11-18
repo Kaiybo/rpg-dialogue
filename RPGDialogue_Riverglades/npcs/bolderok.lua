@@ -43,7 +43,7 @@ P:NPC {
           text = "You smell like dead, little one. The Twilight talk about dead things a lot, so you stand there where Clugfist can see you." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Little one has big axe. Good! Ogres like little ones who hit hard." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You do shadow magic, like the Twilight do. Clugfist does not like it, but Horde says you are friend, so Clugfist keeps fists down." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "You make fire from hands? Two-head magic is like that, and Clugfist does not trust it, but you can try to be good." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "You make fire from hands? The two-head ogre magi make fire like that, and Clugfist does not trust it, but you can try to be good." },
       },
       again = {
         { id = "h_again", text = "Little one has more words? Clugfist is listening." },
@@ -75,8 +75,8 @@ P:NPC {
         { id = "ll_default", text = "Prophets promise ogres power, and then ogres go up on the altar and never come down. Clugfist counted, and the prophets never go up on the altar, so Clugfist knows they lie." },
       },
       choices = {
-        { text = "You were right to break with them.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "A clan that betrays its masters may betray again.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "You were right to break with them.", next = "BACK", reply = "Clugfist thinks so too, and Clugfist is still alive, which is how Clugfist knows.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "A clan that betrays its masters may betray again.", next = "BACK", reply = "Clugfist does not betray friends, only liars. You are not a liar, so you are safe, probably.", fx = { align = { order = 1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -163,8 +163,8 @@ P:NPC {
         { id = "kk_default", text = "Some were, and some still are, but they chose the prophets and Bolder'ok chose to live. If they come out of the caves and put down their clubs, Clugfist will let them sit by the fire, but they never come out." },
       },
       choices = {
-        { text = "Then they've made their choice. Show no mercy.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Keep the fire lit for them anyway.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Then they've made their choice. Show no mercy.", next = "BACK", reply = "Clugfist knows. It is hard, but Bolder'ok will do what it must.", fx = { align = { light = -1 } } },
+        { text = "Keep the fire lit for them anyway.", next = "BACK", reply = "Clugfist will keep it lit, a small one, at the edge of camp. Do not tell the others.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -252,8 +252,8 @@ P:NPC {
         { id = "fw_default", text = "Clugfist says not to think about it, so Jom-jom tries not to, but Jom-jom thinks about it anyway, mostly at night." },
       },
       choices = {
-        { text = "Maybe he's alive. Don't give up on him.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "He chose the Hammer. Let him go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Maybe he's alive. Don't give up on him.", next = "BACK", reply = "Jom-jom will try. Jom-jom likes thinking he is alive better than the other thing.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "He chose the Hammer. Let him go.", next = "BACK", reply = "Jom-jom knows he chose, but Jom-jom misses him anyway. Letting go is harder than it sounds.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -268,7 +268,7 @@ P:NPC {
     },
     alone_easy = {
       lines = {
-        { id = "ae_default", text = "No. The Twilight have ogres bigger than Jom-jom, and they have robes who make the ground burn. Jom-jom ran, and hid, and waited for a little one to come." },
+        { id = "ae_default", text = "No. The Twilight have ogres bigger than Jom-jom, and they have robe men who make the ground burn. Jom-jom ran, and hid, and waited for a little one to come." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

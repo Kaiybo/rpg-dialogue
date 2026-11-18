@@ -46,7 +46,7 @@ P:NPC {
         { id = "h_shaman", when = { class = "SHAMAN", race = { "Orc", "Troll", "Tauren" } },
           text = "I am Corswyn Aseril of the Windshapers. You and I both honor the elements, shaman, though we learned to do it under very different skies, and I think we have much to teach each other." },
         { id = "h_forsaken", when = { race = "Scourge" },
-          text = "I am Corswyn Aseril of the Windshapers. Our dead are burned and given to the wind, so forgive me if I look at you a moment too long; I mean no insult by it." },
+          text = "I am Corswyn Aseril of the Windshapers. Our dead are burned and given to the wind, so if I look at you a moment too long, I mean no insult by it." },
       },
       again = {
         { id = "h_again", text = "Ask what you will. The Warchief is occupied, and I have time." },
@@ -128,8 +128,8 @@ P:NPC {
         { id = "sg_default", text = "They did, and some of our young ones say a debt to someone who abandons you is no debt at all. I don't believe that, but I'll admit it's harder to teach than it used to be. What do you say?" },
       },
       choices = {
-        { text = "A debt is a debt. Honor it, whether they return or not.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "They left. Your people owe them nothing now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A debt is a debt. Honor it, whether they return or not.", next = "BACK", reply = "That is what I believe, and it heartens me to hear it from you. A debt kept is a promise to whoever comes after.", fx = { align = { honor = 1 } } },
+        { text = "They left. Your people owe them nothing now.", next = "BACK", reply = "Many of our young ones would agree, and I can't fault their hurt. But I'll keep my debts, all the same.", fx = { align = { honor = -1 } } },
         { text = "Perhaps they had their reasons for leaving.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -149,8 +149,8 @@ P:NPC {
         { id = "op_default", text = "Some in the camp say the dead must be answered before anyone speaks of peace. Others say we are too few to keep killing each other on a world this large. I serve the Horde now, so tell me how a member of the Horde would see it." },
       },
       choices = {
-        { text = "Old grudges help no one. Seek peace with your kin.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They chose the Alliance. They are enemies now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Old grudges help no one. Seek peace with your kin.", next = "BACK", reply = "That is my hope, and I'm glad to hear it from a member of the Horde. Perhaps there's room for peace after all.", fx = { align = { light = 1 } } },
+        { text = "They chose the Alliance. They are enemies now.", next = "BACK", reply = "That is the hard answer, and many in the camp would give it. I'll carry it to them, though it weighs on me.", fx = { align = { light = -1 } } },
         { text = "That's for your people to decide, not me.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -238,9 +238,9 @@ P:NPC {
       hub = true,
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Aeigelyges, and I keep Corswyn company while she keeps the Warchief company. Mostly I watch, because there's a great deal in this hall I don't understand yet, and I'd rather learn it than guess." },
+          text = "I'm Aeigelyges, and I keep Corswyn company while she keeps the Warchief company. Mostly I watch, because there's so much in this hall I don't understand yet, and I learn more by watching than by guessing." },
         { id = "h_sky", when = { race = "Skyborne" },
-          text = "Aeigelyges, and you're one of ours! Tell me honestly, does the ground still feel strange under your feet, or is it only me?" },
+          text = "Aeigelyges, and you're one of ours! Tell me, does the ground still feel strange under your feet, or is it only me?" },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I've questions of my own, if you run out." },
@@ -256,7 +256,7 @@ P:NPC {
     },
     orcs = {
       lines = {
-        { id = "or_default", text = "That they shout when they're pleased and shout louder when they're angry, so you have to watch their faces. And that every one of them seems to have lost something in the wars, which makes me think we have more in common than either of us expected." },
+        { id = "or_default", text = "That they shout when they're pleased and shout louder when they're angry, so you have to watch their faces. And that each of them seems to have lost something in the wars, which makes me think we have more in common than either of us expected." },
       },
       choices = {
         { text = "What did your people lose?", next = "orcs_lost" },
@@ -293,8 +293,8 @@ P:NPC {
         { id = "st_default", text = "Corswyn says we must build a home here and stop looking up. Others at the camp say our place is with the spirits, wherever they've gone, and that we should keep searching until we find them. Which would you choose?" },
       },
       choices = {
-        { text = "Build here. The Horde is your home now.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep searching. A people shouldn't forget the sky.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Build here. The Horde is your home now.", next = "BACK", reply = "Corswyn will be pleased to hear it, and perhaps I should be too. The Horde has been kind to us.", fx = { align = { order = 1 } } },
+        { text = "Keep searching. A people shouldn't forget the sky.", next = "BACK", reply = "That's what my heart says, though Corswyn would disagree. The sky is still ours, wherever the spirits went.", fx = { align = { order = -1 } } },
         { text = "I think you'll have to decide that yourself.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -338,7 +338,7 @@ P:NPC {
 
   notice = {
     { id = "n_lock", cat = "fel", when = { class = "WARLOCK" }, place = "before",
-      text = "You smell of the same thing that hangs about half the Cleft, warlock. I'll talk to you, but I'll stand where I can see your hands." },
+      text = "You smell of the same sulphur that hangs about the Cleft, warlock. I'll talk to you, but I'll stand where I can see your hands." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "A rogue who knows enough to keep to the walls. You'd have done well among the Peacekeepers' scouts, though I doubt you'd have liked their rules." },
     { id = "n_sky", cat = "race", when = { race = "Skyborne" },
@@ -363,6 +363,10 @@ P:NPC {
         { text = "Why the Cleft, really?", next = "why" },
         { text = "What do you make of the people down here?", next = "people" },
         { text = "Do you miss the sky?", next = "sky" },
+        { text = "What cult grew back home?", next = "cult" },
+        { text = "Who in the Cleft worries you most?", next = "who" },
+        { text = "Do you ever visit Camp Gev'rek?", next = "camp" },
+        { text = "Will the wind spirits ever speak to us again?", next = "silence", when = { race = "Skyborne" } },
         { text = "Winds be with you, Yiyo.", next = "END" },
       },
     },
@@ -381,8 +385,8 @@ P:NPC {
         { id = "ww_default", text = "I don't know, and that's why I watch. Corswyn says a guest should keep her eyes on her own business, and perhaps she's right, but I'd rather be rude than be too late a second time. Would you watch, or would you act?" },
       },
       choices = {
-        { text = "Watch, learn, and strike when you're certain.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Take your worries to the Warchief openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Watch, learn, and strike when you're certain.", next = "BACK", reply = "That's what I'm trying to do, and it's a comfort to hear it called wise. Corswyn may yet forgive my rudeness.", fx = { align = { honor = -1 } } },
+        { text = "Take your worries to the Warchief openly.", next = "BACK", reply = "Openly? That takes more courage than I have, but perhaps you're right. I'll think on it.", fx = { align = { honor = 1 } } },
         { text = "I'd mind my own business, like Corswyn says.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -405,12 +409,67 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    cult = {
+      lines = { { id = "cu_default", fx = { learn = { "al_aketh" } }, text = "The Al'Aketh, who shaved their heads and wore grey and prayed to Al'Akir when our own wind spirits went quiet. They offered answers when the elders had none, and frightened people will follow anyone who sounds certain." } },
+      choices = {
+        { text = "What did they do?", next = "cult_beacon" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult_beacon = {
+      lines = { { id = "cb_default", text = "When the old wards failed, their high priestess Lorthuna lit a beacon for Al'Akir's servants, and it took the Kirin Tor and the Earthen Ring together to put her down. I had walked past their meetings for a year and never thought them more than sad folk with shaved heads." } },
+      choices = {
+        { text = "And then your people left Skywall.", next = "cult_leave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult_leave = {
+      lines = { { id = "cl_default", text = "Rohash of the Conclave said he would tell the Windlord what we were, so we left before anyone could find out what that meant. The High Elder thought we might have years, but I would rather not test an elemental lord's patience from his own doorstep." } },
+      choices = { { text = "Something else, Yiyo.", next = "BACK" } },
+    },
+    who = {
+      lines = {
+        { id = "wo_default", text = "No one I could name to a guard, which is the trouble. There is a chasm below the Cleft that breathes heat on cold nights, and I've seen robed figures go toward it who never seem to come back the same way." },
+        { id = "wo_rogue", when = { class = "ROGUE" }, text = "No one I could name, {class}, and you'd know better than me how easy it is to vanish in a place like this. There is a chasm below the Cleft that breathes heat, and robed figures go toward it who never come back the same way." },
+      },
+      choices = {
+        { text = "The chasm under the Cleft?", next = "who_chasm" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who_chasm = {
+      lines = { { id = "wc_default", fx = { learn = { "burning_blade" } }, text = "Ragefire Chasm, the guards call it, and they say troggs and worse live down in the heat, and that the Warchief's people go down to clear it now and then. I hear the name Burning Blade whispered near its mouth, and I don't know what it means, so I keep listening." } },
+      choices = {
+        { text = "Tell the guards what you've seen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Find out yourself. Guards only make noise.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = { { id = "ca_default", text = "Now and then, when Ayessa Dawnsinger asks for all of us, and I go and sit at the back of the council fire in Mulgore. Half the camp wants to build there for good, and half wants to keep searching for the spirits, and they argue it out every time I visit." } },
+      choices = {
+        { text = "Which half are you?", next = "camp_side" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp_side = {
+      lines = { { id = "cs_default", text = "Neither, which pleases no one. I think we should learn this land first, its spirits and its shadows both, before we decide what to build on it or what to go looking for." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    silence = {
+      lines = { { id = "si_default", text = "I don't know, and I distrust anyone who says they do. My skysight grows dimmer each season, and the Earthen Ring's shamans hear spirits I cannot, so perhaps the world is still speaking and we have simply forgotten how to listen." } },
+      choices = {
+        { text = "Then we'll learn to listen again.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Or they abandoned us, and we move on.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
   },
 
   topics = {
-    burning_blade = { { id = "tp_bb", text = "I've heard the name whispered in the Cleft, and seen people go quiet when someone else said it. That tells me more than any answer would." } },
+    burning_blade = { { id = "tp_bb", text = "I've heard the Burning Blade whispered of in the Cleft, and seen people go quiet when it was said aloud. That tells me more than any answer would." } },
     background = { { id = "tp_bg", text = "I'm a Windshaper who came down with the rest, and I've chosen to keep my own company since. That's as much as I share in the Cleft." } },
     advice = { { id = "tp_ad", text = "Anyone who tells you a secret for free has already sold it to someone else. Remember that down here." } },
+    al_aketh = { { id = "tp_alaketh", next = "cult", text = "Grey robes and shaved heads, and prayers to the Windlord. I walked past them for a year before I understood what they were." }, { id = "tp_alaketh2", text = "Lorthuna's beacon is out, and I check the Cleft's shadows anyway. Old habits." } },
     _none = { { id = "tp_none", text = "I don't know, and in the Cleft it's wiser not to guess." } },
   },
 }

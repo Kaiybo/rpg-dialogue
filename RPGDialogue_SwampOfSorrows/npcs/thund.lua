@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Peace, friend. My captain called, and I came, as I always did when he called." },
+    { id = "g_default", text = "Peace, friend. My captain's spirit called, and I came, as I always did when he called." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to a dead soldier's road. The Earth Mother keeps you, I see." },
     { id = "g_relic", when = { questDone = TODO_QUEST("Heroes of Old") }, text = "Does the relic serve you well? I hope it does. It was never meant to sit in a box." },
   },
@@ -65,7 +65,7 @@ P:NPC {
           text = "You wear the Alliance's colours, but my captain called you a friend, and that's enough for a dead tauren. Stand easy." },
       },
       again = {
-        { id = "h_again", text = "Ask, friend. I've all the time the dead have, and that's a great deal." },
+        { id = "h_again", text = "Ask, friend. I've all the time the dead have, which is to say all of it." },
         { id = "h_again2", text = "What else would you know? Speak gently; the captain is listening." },
       },
       choices = {
@@ -92,8 +92,8 @@ P:NPC {
         { id = "dw_default", text = "No, only tired, and a little afraid, and glad of the soldiers beside me. Anger is my captain's burden, and he carries enough of it for all of us." },
       },
       choices = {
-        { text = "Holding the line was right. Orders are orders.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You should have fallen back. Orders aren't worth dying for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Holding the line was right. Orders are orders.", next = "BACK", reply = "They were, and I held, and I'd hold again. Thank you for saying it, friend; it eases the waiting.", fx = { align = { order = 1 } } },
+        { text = "You should have fallen back. Orders aren't worth dying for.", next = "BACK", reply = "Perhaps, but my captain stood, and I would not leave him to stand alone. The Earth Mother understands that, I think.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -112,8 +112,8 @@ P:NPC {
         { id = "rf_default", text = "There's no one left who'd know it, friend, for the Splithooves were never a large tribe. Better it goes forward with someone who fights the Legion than back into a tent to be wept over." },
       },
       choices = {
-        { text = "I'll carry it with honor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "It's a good blade. That's all that matters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll carry it with honor.", next = "BACK", reply = "Then it goes in good hands, and the Splithooves walk with you a little longer. Walk with the Earth Mother.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It's a useful thing. That's all that matters.", next = "BACK", reply = "It is a good blade, and it will serve you well, whatever you think of the hands that held it before.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -139,7 +139,7 @@ P:NPC {
 
     grasp = {
       lines = {
-        { id = "gr_default", text = "The Warchief asked for soldiers to watch the old lands, and my tribe owed the orcs a debt from the centaur wars in Mulgore. I went to pay it, and I'd go again, though perhaps I'd pack warmer." },
+        { id = "gr_default", text = "The Warchief asked for soldiers to watch the road to the Dark Portal, and my tribe owed the orcs a debt from the centaur wars in Mulgore. I went to pay it, and I'd go again, though perhaps I'd pack warmer." },
       },
       choices = {
         { text = "Has the Horde been good for the tauren, do you think?", next = "op_horde" },
@@ -153,18 +153,18 @@ P:NPC {
         { id = "xt_default", text = "She does, I know, and someday I'll walk to her. But a soldier doesn't leave his captain alone on a dark road, even when the Earth Mother calls." },
       },
       choices = {
-        { text = "Then stay, and be at peace in staying.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Your duty ended with your death. Go to her.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then stay, and be at peace in staying.", next = "BACK", reply = "At peace, yes, I think I am, more than I was. Thank you, and may the eternal sun shine upon you.", fx = { align = { light = 1 } } },
+        { text = "Your duty ended with your death. Go to her.", next = "BACK", reply = "Ended? Perhaps, but loyalty does not die so easily as flesh. I will go to her when my captain is ready.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A tauren of the Splithooves, a corporal of Thrall's Grasp, and a ghost who doesn't mind it much." } },
+    background = { { id = "tp_ba", text = "I am a tauren of the Splithooves, a corporal of Thrall's Grasp, and a ghost who doesn't mind it much." } },
     advice = { { id = "tp_ad", text = "Keep the friends who stand beside you in the worst of it, and let the rest go." } },
     cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the greatest of us, and I was proud to fight under his blessing in Thrall's Grasp. Tell him a Splithoof died well, if you ever see him." } },
-    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother called me back to the swamp, and I didn't mind, because she was waiting. Death is just another kind of rest." } },
+    earth_mother = { { id = "tp_earth_mother", text = "My captain called me back to this road, and I didn't mind, because the Earth Mother will still be waiting. Death is just another kind of rest." } },
     thrall = { { id = "tp_thrall", text = "The Warchief named our regiment for himself, and we were proud of it. We still are, those of us that are left." } },
     _none = { { id = "tp_none", text = "I don't know, friend. The dead hear less than the living think." } },
   },

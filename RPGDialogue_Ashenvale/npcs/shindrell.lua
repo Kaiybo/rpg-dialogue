@@ -35,7 +35,7 @@ P:NPC {
     op_ask = {
       big = true,
       lines = {
-        { id = "op_ask_default", text = "The Circle's druids walk into Splintertree and out again, treating the orcs like one more flock of strays to tend. You've seen them at work, so tell me: is the Cenarion Circle right to stay neutral?" },
+        { id = "op_ask_default", text = "The Circle's druids walk into Splintertree and out again, treating the orcs like one more flock of strays to tend. I have my own answer, but you've seen them at work, so tell me yours first." },
       },
       choices = {
         { text = "Yes. Someone has to speak for the forest itself.", next = "op_r1", fx = { affinity = -1, align = { order = 1 }, opinion = { cenarion_circle = "respect" } } },
@@ -76,7 +76,7 @@ P:NPC {
         { id = "h_kayneth_before", when = { questBefore = TODO_QUEST("Kayneth Stillwind"), minLevel = 25 },
           text = "The druid Kayneth Stillwind has asked me for a report of all that's happening on our coast and in our forests. He fears a corruption is moving through Ashenvale, and he may be right." },
         { id = "h_hunter", when = { class = "HUNTER" },
-          text = "A hunter. Then you'll understand that half of my work is watching and the other half is waiting, and very little of it is shooting." },
+          text = "A hunter. Then you'll understand that my work is mostly watching and waiting, and very little of it is shooting." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "You are a long way from your lines, and this is not a town that welcomes the Horde. State your business quickly, and then go." },
       },
@@ -107,7 +107,7 @@ P:NPC {
     },
     naga_want = {
       lines = {
-        { id = "nw_default", text = "I don't know, and I like not knowing even less than I like the naga. There's a deep place under the strand that the Horde's scouts have been poking at too, and I'd rather we found its secrets first." },
+        { id = "nw_default", text = "I don't know, and I like not knowing even less than I like the naga. There's a deep place under the strand that the Horde's scouts have been poking at too, and Darnassus must learn its secrets before they do." },
       },
       choices = {
         { text = "So the Horde are there as well.", next = "naga_horde" },
@@ -117,11 +117,11 @@ P:NPC {
     naga_horde = {
       big = true,
       lines = {
-        { id = "nh_default", text = "Zoram'gar, a little outpost on the strand, mostly trolls. They fight the naga as we do, which makes them neither friends nor quite enemies, and I don't know what to call that." },
+        { id = "nh_default", text = "That's Zoram'gar, a little outpost on the strand, mostly trolls. They fight the naga as we do, which makes them neither friends nor quite enemies, and I don't know what to call that." },
       },
       choices = {
-        { text = "An enemy of my enemy is still an enemy.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If they fight the naga, let them be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "An enemy of my enemy is still an enemy.", next = "BACK", reply = "You speak as many Sentinels speak, and I can't fault you for it. Still, I'll be glad of any blade the naga have to face that isn't mine.", fx = { align = { order = 1 } } },
+        { text = "If they fight the naga, let them be.", next = "BACK", reply = "That's my own leaning, most days, though I'd not say it too loudly in Astranaar. Let the naga have two enemies instead of one.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -141,15 +141,15 @@ P:NPC {
         { id = "hs_default", text = "Because Darnassus has not given that order, and because open war would cost us more than we can spare. So we deny them what we can, quietly, as they do to us." },
       },
       choices = {
-        { text = "Quiet war is still war. I'll do my part.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather face them openly, blade to blade.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Quiet war is still war. I'll do my part.", next = "BACK", reply = "Then Elune keep you in the shadows, friend. Quiet war is the only kind we can afford.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather face them openly, blade to blade.", next = "BACK", reply = "So would I, and so would every Sentinel I know. But Darnassus decides, and we wait.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     kayneth = {
       lines = {
-        { id = "ka_default", text = "A druid at Forest Song, in the Nightsong Woods to the east, and a careful one. He thinks something wicked is moving through Ashenvale, and he collects reports the way some people collect arrowheads." },
+        { id = "ka_default", text = "He's a druid at Forest Song, in the Nightsong Woods to the east, and a careful one. He thinks something wicked is moving through Ashenvale, and he collects reports the way some people collect arrowheads." },
       },
       choices = {
         { text = "Do you believe him?", next = "kayneth_believe" },
@@ -187,11 +187,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A Sentinel and a huntress, and lately more of a letter-writer than either. Somebody has to tell Darnassus what's happening out here." } },
+    background = { { id = "tp_bg", text = "I'm a Sentinel and a huntress, and lately more of a letter-writer than either. Somebody has to tell Darnassus what's happening out here." } },
     advice = { { id = "tp_ad", text = "In Ashenvale, look up as often as you look ahead. The forest has more than one floor." } },
     sentinels = { { id = "tp_sentinels", text = "We are fewer than we should be and more stubborn than the Horde expects. That has served so far." } },
     warsong = { { id = "tp_warsong", text = "Orc axes in our oldest trees, and the forest bleeding sap where they cut. I try not to go and look too often.", next = "horde" } },
-    thrall = { { id = "tp_thrall", text = "The Horde's warchief is a name in every report I send Darnassus, usually beside the Warsong. I'd rather write about birds, honestly." } },
+    thrall = { { id = "tp_thrall", text = "The Horde's warchief is a name in every report I send Darnassus, usually beside the Warsong. I would much prefer to write about the birds of Zoram Strand." } },
     centaur = { { id = "tp_centaur", text = "Centaur raids on the Barrens edge of Stonetalon come up in my letters too. Darnassus never writes back about those." } },
     tyrande = { { id = "tp_tyrande", text = "The High Priestess reads my reports herself, I'm told. I try to keep them short, and I always fail." } },
     blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's a cult nest and a naga nest at once. I write that in every report, and I'll keep writing it until someone sends more arrows." } },

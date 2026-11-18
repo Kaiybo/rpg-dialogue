@@ -17,7 +17,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the scrolls, please, Nerog has them sorted by a system only he understands. Did you need somethin' from me?" },
+    { id = "g_hi", text = "Mind the scrolls, please, because Nerog, who owns this shop, has them sorted by a system only he understands. Did you need somethin' from me?" },
     { id = "g_report", when = { questActive = TODO_QUEST("Zukk'ash Report") }, text = "Is that a report from Camp Mojache under your arm? Hadoken said he'd send one, so give it here, quickly." },
   },
 
@@ -25,7 +25,7 @@ P:NPC {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren, good, your people listen to the land better than mine. Has anyone in Thunder Bluff felt the earth shiver down south lately?" },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid of the Cenarion Circle, maybe? Your Circle's people in Silithus see more of these creatures than anyone, and I'd give a great deal to read their notes." },
+      text = "A druid of the Cenarion Circle, maybe? Your Circle's people in Silithus see more of these creatures than anyone, and I'd trade my whole shelf of Tanaris rubbings to read their notes." },
   },
 
   start = "hello",
@@ -34,7 +34,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Zilzibin Drumlore, scholar, though my friends call me Zil, and I have spent a long time studying the creatures that don't belong to any ordinary part of Azeroth. Lately one kind of creature takes up all my time, and it frightens me more than any Alliance army." },
         { id = "h_zukk", when = { questDone = TODO_QUEST("Zukk'ash Report") },
-          text = "Hadoken was wise to send that report, and you with it. The Zukk'ash in Feralas are nothin' more than silithid, and the Horde keeps choosin' to look the other way." },
+          text = "Hadoken was wise to send that report, and you with it. The Zukk'ash in Feralas are silithid, sure as anything, and the Horde keeps choosin' to look the other way." },
         { id = "h_calm", when = { questDone = TODO_QUEST("Calm Before the Storm") },
           text = "Pestlezugg's report is the clearest yet, and I thank you for carryin' it. I only wish I knew what good it will do, because the Horde ignores every threat that doesn't fly an Alliance banner." },
       },
@@ -62,8 +62,8 @@ P:NPC {
       big = true,
       lines = { { id = "s2_default", text = "From deep, deeper than anyone has dug, and I think something down there is drivin' them, though I can't prove it yet. They're a threat to the Horde and the Alliance both, and to the land itself, and I'd sit down with a human scholar tomorrow if it meant stoppin' them." } },
       choices = {
-        { text = "Then work with the Alliance. This is bigger than us.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "The Horde should handle its own threats alone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then work with the Alliance. This is bigger than us.", next = "BACK", reply = "You see it too, then, and I can't tell you how rare that is in this city. Help me get word to someone who'll listen, Horde or Alliance.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Horde should handle its own threats alone.", next = "BACK", reply = "And when the silithid come up through Orgrimmar's floor, the Horde can handle that alone too. I hope you're right, friend.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "silithid" } } },
       },
     },
@@ -75,15 +75,15 @@ P:NPC {
       },
     },
     reports2 = {
-      lines = { { id = "r2_default", text = "Scholars write to whoever will read, friend, and I read everything. A goblin's report is half invoices, mind, but the other half is usually right." } },
+      lines = { { id = "r2_default", text = "Scholars write to whoever will read, friend, and I read everything. A goblin's report is mostly invoices, but whatever's left between the bills is usually right." } },
       choices = { { text = "Something else, Zil.", next = "BACK" } },
     },
     council = {
       big = true,
       lines = { { id = "co_default", text = "The Warchief himself might act if the facts were laid before him, but he's beset on every side by advisers who'd have us chase the Alliance out of Ashenvale first. Meanwhile the ground under Silithus gets hollower every season, and the fools call that patience." } },
       choices = {
-        { text = "The Alliance is the threat we can see. Deal with it first.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Then I'll carry your reports wherever they need to go.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Alliance is the threat we can see. Deal with it first.", next = "BACK", reply = "You sound like the Warchief's advisers, and they've never seen a silithid hive. The Alliance can wait; what's under Silithus won't.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll carry your reports wherever they need to go.", next = "BACK", reply = "Would you? Oh, friend, that's more help than I've had in a year. Take these, and get them to someone who'll read them.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -92,7 +92,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     circle = {
-      lines = { { id = "ci_default", text = "Then you know more than most of Orgrimmar does, and I'd beg you to write it down for me. If the Circle and the Horde's scholars kept the same notes, we might find out what's under that desert before it finds us." } },
+      lines = { { id = "ci_default", text = "Then you've seen more of Silithus than anyone in Orgrimmar, and I'd beg you to write it down for me. If the Circle and the Horde's scholars kept the same notes, we might find out what's under that desert before it finds us." } },
       choices = { { text = "Something else, Zil.", next = "BACK" } },
     },
   },
@@ -169,8 +169,8 @@ P:NPC {
       big = true,
       lines = { { id = "he_default", text = "There is no Omosh blood left but Orokk's, and Orokk is old. Some say a family secret should die with the family, but Orokk thinks a secret that dies is only a waste of good iron." } },
       choices = {
-        { text = "Skill matters more than blood. Teach whoever is worthy.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "A family's secrets belong to the family.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Skill matters more than blood. Teach whoever is worthy.", next = "BACK", reply = "Orokk thinks the same, but Orokk's fathers would not. Perhaps you'll help Orokk find someone worthy.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A family's secrets belong to the family.", next = "BACK", reply = "Then the secret dies with Orokk, and so do twenty generations of good iron. Orokk does not like that ending.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

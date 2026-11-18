@@ -87,8 +87,8 @@ P:NPC {
         { id = "fm_default", text = "A tree that cannot be healed should be cut, so that the rest of the forest can grow. I would rather my kin be ended cleanly than walk on in pain, but I do not ask you to agree with an old tree." },
       },
       choices = {
-        { text = "Ending suffering is mercy. I agree.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some might still be saved. Cutting is too easy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Ending suffering is mercy. I agree.", next = "BACK", reply = "You understand, then, and I am grateful. The forest grows best when the sick are allowed to rest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some might still be saved. Cutting is too easy.", next = "BACK", reply = "Perhaps some might, and I hope you find them. But do not mistake hope for healing, little one.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,13 +106,13 @@ P:NPC {
         { id = "k_default", text = "A druid named Kayneth Stillwind, at Forest Song. He will understand what you have done, and he will see that it is remembered." },
       },
       choices = {
-        { text = "I'll find her.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll find him.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     flute = {
       lines = {
-        { id = "fl_default", text = "The flute was tied to us by the satyrs, and Eridan Bluewind cut that tie with the water of Elune. Now it only calls, and does not bind, and that is why I could come to you as myself." },
+        { id = "fl_default", text = "The satyrs used that flute to bind my kin, and the druid Eridan Bluewind broke the binding with the water of Elune. Now it only calls and does not bind, which is why I could come to you as myself." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -124,8 +124,8 @@ P:NPC {
         { id = "xd_default", text = "One day, perhaps, if enough of you keep trying, and every kind deed here is a seed. But I have watched druids weep over this forest for years, and weeping is not the same as tending." },
       },
       choices = {
-        { text = "Then I'll tend it patiently, root by root.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Then burn the worst of it and let it regrow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll tend it patiently, root by root.", next = "BACK", reply = "Then you will be a seed yourself, and the forest will remember you. Patience is the only cure I know.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then burn the worst of it and let it regrow.", next = "BACK", reply = "Fire has been tried before, and Felwood remembers it as a wound. I would not see it burned again.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -143,7 +143,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was an ancient of this forest, a guardian among many. Now I am a memory with roots." } },
     advice = { { id = "tp_ad", text = "Every kind deed here is a seed, little one. Plant as many as you can before you leave." } },
-    burning_legion = { { id = "tp_bl", text = "They passed through here once, and the forest will remember it longer than any of you will live." } },
+    burning_legion = { { id = "tp_bl", text = "The Legion passed through here once, and the forest will remember it longer than any of you will live." } },
     cenarion_circle = { { id = "tp_cc", text = "The druids try, and I love them for it. They are young, even the old ones." } },
     nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the mother of every tree that stood in this forest, and I felt it groan when the demons came. I would give my last root to feel it whole again." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "I dreamed green once, as all the ancients do, before the fel came into my roots. Now I dream of fire, and I do not sleep if I can help it." } },

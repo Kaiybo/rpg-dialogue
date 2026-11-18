@@ -47,7 +47,7 @@ P:NPC {
       choices = { { text = "Something else, Corporal.", next = "BACK" } },
     },
     op_orcs_2 = {
-      lines = { { id = "op_orcs_r2", text = "Maybe, maybe not, but you'll not hear me argue with anybody who wants orcs dead tonight. Ask me again when the ringing stops." } },
+      lines = { { id = "op_orcs_r2", text = "Maybe, maybe not, but you'll not hear me argue with anybody who wants orcs dead tonight. Ask me again when my head stops ringing." } },
       choices = { { text = "Something else, Corporal.", next = "BACK" } },
     },
     op_orcs_3 = {
@@ -62,23 +62,23 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_ubrs_default", text = "They'll boast anyway, because an orc boasts with his last breath, but I'd give a month's pay to hear the camp at Stonewatch go quiet when the news reaches it. The men I served with died to hold Redridge, and this is the first news in a year that makes it feel like it counted." } },
       choices = {
-        { text = "It counted from the start, Corporal. Honour them by living well.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Counting doesn't matter. Killing orcs does, and I'll keep at it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "It counted from the start, Corporal. Honour them by living well.", next = "BACK", reply = "Living well, aye, I'd like to try that again someday. I'll raise a cup to the lads at the inn and mean every word of it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Counting doesn't matter. Killing orcs does, and I'll keep at it.", next = "BACK", reply = "You sound like I did before Stonewatch fell, and it kept me alive for a while. Just make sure you count your own when it's done.", fx = { align = { honor = -1 } } },
         { text = "What did the orcs say about the Spire?", next = "xcl_ubrs2" },
       },
     },
     xcl_ubrs2 = {
-      lines = { { id = "xcl_ubrs2_default", text = "That Rend sat at the top like a king, and that dragons came and went from the peak, though I took that for drunk talk at the time. I'm not so sure now that it was the drink talking, and I'd rather not think too hard about it." } },
+      lines = { { id = "xcl_ubrs2_default", text = "That Rend sat at the top like a king, and that dragons came and went from the peak, though I took that for drunk talk at the time. I'm not so sure now that it was the drink talking, and I try not to think too hard about it." } },
       choices = {
         { text = "You're safe now, Corporal. Leave the Spire to me.", next = "BACK" },
       },
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They didn't need to. Their chanting was enough. You're a dwarf, and you're no orc, but the sound of spirits still turns my stomach." } },
+      lines = { { id = "xdsham_default", text = "They didn't need to, because their chanting was enough. You're a dwarf and no orc, but the sound of spirits still turns my stomach." } },
       choices = {
-        { text = "I'm sorry, Keeshan. I'll prove I'm nothing like them.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then face the fear, Keeshan. It won't shrink on its own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'm sorry, Keeshan. I'll prove I'm nothing like them.", next = "BACK", reply = "It's not you, I know that, and I'm ashamed of how I flinch. Give me time, and I'll learn which chanting means friends.", fx = { align = { honor = 1 } } },
+        { text = "Then face the fear, Keeshan. It won't shrink on its own.", next = "BACK", reply = "Easy to say for someone who never sat in that cell. Still, you're right, and I'll try not to jump every time you speak to the wind.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -86,35 +86,35 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the orcs feed them better than they fed me, and that they're kept on the east side of Stonewatch where the wind carries the scent away from the walls. A hunter who knew that could come at the keep from downwind." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would give the Blackrock wolves a fight, {class}. I'd pay a month's wages to watch it, if the army ever paid me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the orcs feed them better than they fed me, and they're kept on the east side of Stonewatch, so a hunter could come at the keep from downwind. Your {pet} would give those wolves a fight, {class}, and I'd pay a month's wages to watch it." },
       },
       choices = {
-        { text = "I'll go in downwind and take the wolves first.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The wolves are only beasts. I want the orcs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll go in downwind and take the wolves first.", next = "BACK", reply = "Do that and the orcs lose their noses on the walls, which is half their watch. I'd come with you if my legs were up to it.", fx = { align = { honor = 1 } } },
+        { text = "The wolves are only beasts. I want the orcs.", next = "BACK", reply = "Then you'll have the wolves on your back while you fight them, and I've seen how that ends. Kill the beasts first, whatever you think of them.", fx = { align = { honor = -1 } } },
         { text = "Something else, Corporal.", next = "BACK" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "I'd have welcomed it, though the shadowcasters in Stonewatch would have heard you three floors up. Everything I learned in that keep says the Blackrock respect power, and they hate a mage who can match theirs." } },
       choices = {
-        { text = "I'll face their casters openly and beat them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll pick them off before they see me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll face their casters openly and beat them.", next = "BACK", reply = "That's what I hoped a mage would say, and those casters deserve it more than anyone. Make them feel every bit of what they did to that keep.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll pick them off before they see me.", next = "BACK", reply = "Smart, and the safer way by far, because a dead mage helps nobody. They never saw much from those towers anyway.", fx = { align = { honor = -1 } } },
         { text = "How did Stonewatch fall?", next = "fall" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "I know, and I'll not pretend I like hearing it, because I spent weeks listening to those casters chant through the walls. But you're on our side of the lake, and I'll take that over clean hands any day." } },
       choices = {
-        { text = "Then I'll turn their own arts against them.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll use as little of it as I must.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll turn their own arts against them.", next = "BACK", reply = "I'll not pretend I like it, but I'll like it better when it's their screams I hear through the walls. Go and teach them a lesson.", fx = { align = { light = -1 } } },
+        { text = "I'll use as little of it as I must.", next = "BACK", reply = "Good, I'd rather you came back the same as you left. There's been too much of the dark in this valley already.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "How many did you see in the keep?", next = "numbers" },
       },
     },
     druid_talk = {
       lines = { { id = "dt_default", text = "Ate what the animals ate, slept where they slept, and kept my head down. The land up there doesn't care whose side you're on, and it was the only thing in Redridge that wasn't trying to kill me." } },
       choices = {
-        { text = "The wild shelters those who respect it. You did.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You survived by luck, and luck runs dry.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The wild shelters those who respect it. You did.", next = "BACK", reply = "Respect it, I don't know, but I learned to keep quiet and take only what I needed. Maybe that's the same thing, in the end.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You survived by luck, and luck runs dry.", next = "BACK", reply = "I know it, and I spent every day out there waiting for it to run out. It didn't, and I'll take that whatever it was.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -126,7 +126,7 @@ P:NPC {
           text = "You've been to the top of Blackrock Spire and come down again, and I was a prisoner of the Blackrock long enough to know what that costs. They used to boast about the Spire in my hearing every night, as though I'd never live to see it." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. I spent a long while in those hills with nothing but the wolves for company, so I've a soft spot for anyone who speaks their tongue." },
-        { id = "h_default", text = "Corporal Keeshan, Stormwind Army. I was on the walls at Stonewatch when it fell, and they kept me alive, because orcs like a prisoner who can talk." },
+        { id = "h_default", text = "Corporal Keeshan, Stormwind Army. I was on the walls at Stonewatch when it fell, and the orcs kept me alive, because they like a prisoner who can talk." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("Missing In Action") },
           text = "You're from Lakeshire? Then you're the best thing I've seen in this cave. Get me to the Marshal and I'll try to keep up." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Missing In Action"), days = 3 } },
@@ -137,7 +137,7 @@ P:NPC {
           text = "How old are you? Never mind; I was younger when I first went to war, and that's not the comfort it sounds like." },
         { id = "h_sleep", when = { metBefore = true }, text = "I slept through the night, the first time since the camp, and woke up reaching for a sword that wasn't there. That's progress, I suppose." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. In the Blackrock pens I heard their wolves at night, and I'd like to think someone like you might teach those beasts some manners." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I spent a long while in Blackrock hands, and I heard their shamans chanting every night. Forgive me if I don't smile." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I spent a long while in Blackrock hands and heard their shamans chanting every night, so don't take it ill if I don't smile." },
       },
       again = {
         { id = "h_again", text = "What else? Keep it short, if you would; my head's still ringing." },
@@ -188,7 +188,7 @@ P:NPC {
     fall = {
       big = true,
       lines = {
-        { id = "f_default", text = "Our regiment was the 12th Sabre. Cavalry, on a wall, which tells you how it went. Most of the lads died, something hit me on the head, and the world went black." },
+        { id = "f_default", text = "Our regiment was the 12th Sabre, cavalry posted on a wall, which tells you how it went. Most of the lads died, something hit me on the head, and the world went black." },
       },
       choices = {
         { text = "The 12th Sabre?", next = "regiment" },
@@ -214,8 +214,8 @@ P:NPC {
     priest = {
       lines = { { id = "pr_default", text = "Careful, that's... oh, that's better. Light, that's so much better; I'd forgotten what not hurting felt like." } },
       choices = {
-        { text = "The Light hadn't forgotten you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "That was my own skill, Corporal, not the Light's mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light hadn't forgotten you.", next = "BACK", reply = "Then it's a better friend than I've been to it lately. Thank you, priest, I mean that, truly.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "That was my own skill, Corporal, not the Light's mercy.", next = "BACK", reply = "Then I thank you, and the Light can have whatever's left over. Either way, I can stand up straight again for the first time in a year.", fx = { align = { light = -1 } } },
         { text = "Good. Now you can walk.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -227,7 +227,7 @@ P:NPC {
       },
     },
     after = {
-      lines = { { id = "af_default", text = "Some nights I'm back on that rock. Then I wake and I'm not. Every time, it surprises me, and every time it's a good surprise." } },
+      lines = { { id = "af_default", text = "Some nights I'm back on that rock until I wake and find I'm not, and every time it's a good surprise." } },
       choices = {
         { text = "It'll get easier.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -236,8 +236,8 @@ P:NPC {
     paladin = {
       lines = { { id = "pa_default", text = "Maybe it did, though I'd have liked it to be quicker about it. Walk in front, then, and if that hammer starts glowing, I'll take it as a good sign." } },
       choices = {
-        { text = "The Light was with you every day in that cave.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You kept yourself alive. Take the credit.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Light was with you every day in that cave.", next = "BACK", reply = "Maybe it was, and maybe that's why I'm still breathing. I'll think on it while you walk in front.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You kept yourself alive. Take the credit.", next = "BACK", reply = "I'll take some, and leave the rest to whoever wants it. A soldier learns not to argue with being alive.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -267,7 +267,7 @@ P:NPC {
                    { id = "tp_bg2", text = "I'm a soldier. I was one before the cave, and I mean to be one after." } },
     advice = { { id = "tp_ad", text = "Keep your head down and your shield up; I only managed one of those." } },
     stonewatch_keep = { { id = "tp_stonewatch", text = "I was on its walls when it fell. That's all I'll say about it sober." } },
-    keeshan = { { id = "tp_keeshan", text = "That's me, and I'd rather you asked me something I don't have to think hard about." } },
+    keeshan = { { id = "tp_keeshan", text = "That's me, and if it's all the same to you, ask me something I don't have to think hard about." } },
     blackrock = { { id = "tp_blackrock", text = "They're disciplined and well fed, and that doesn't happen by accident." } },
     _none = { { id = "tp_none", text = "I've been on a rock. Ask me again when I've had a drink." } },
   },

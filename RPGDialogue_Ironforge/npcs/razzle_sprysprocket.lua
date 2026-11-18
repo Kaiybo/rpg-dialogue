@@ -37,9 +37,9 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Razzle Sprysprocket, at your service, and that's Ozzie Togglevolt with his head in the gearbox. Between the two of us, we're going to put the gnomish race back together." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Operation Recombobulation") },
-          text = "Upon further analysis, we didn't only fail to get rid of the troggs, we also turned most of our own people into leper gnomes. Ozzie and I mean to reverse it, with the Recombobulator!" },
+          text = "Upon further analysis, the High Tinker's plan didn't only fail to get rid of the troggs, it turned most of our own people into leper gnomes. Ozzie and I mean to reverse it, with the Recombobulator!" },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Operation Recombobulation") },
-          text = "Restabilization cogs and gyromechanic gears, eight of each. The leper gnomes outside Gnomeregan carry them about, and I'd rather not think too hard about why." },
+          text = "Restabilization cogs and gyromechanic gears, eight of each. The leper gnomes outside Gnomeregan carry them about, and I try not to work out why." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Operation Recombobulation"), days = 3 } },
           text = "Perfect, every one, exactly to Ozzie's schematics! A little hydrolubricant on the pistons, a turn of the crank-o-ratchet, and the gnomish race will be as good as new." },
         { id = "h_later", when = { questDone = TODO_QUEST("Operation Recombobulation"), metBefore = true },
@@ -81,7 +81,7 @@ P:NPC {
       },
     },
     gnomeregan_lost = {
-      lines = { { id = "gl_default", text = "Some died, and the rest were changed, and now they wander outside the gates picking at scrap like they've forgotten their own names. Some of them I knew, which is why I'd rather talk about gears." },
+      lines = { { id = "gl_default", text = "Some died, and the rest were changed, and now they wander outside the gates picking at scrap like they've forgotten their own names. Some of them I knew by name, so if it's all the same to you, let's talk about gears." },
       },
       choices = {
         { text = "I'm sorry, Razzle.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -90,11 +90,11 @@ P:NPC {
     },
     gnomeregan_blame = {
       big = true,
-      lines = { { id = "gb_default", text = "Everyone asks that, and Ozzie won't hear a word against the High Tinker. I say the plan was sound and the city wasn't, but I've been wrong about bigger things than that." },
+      lines = { { id = "gb_default", text = "Everyone asks that, and Ozzie won't hear a word against the High Tinker. I say the plan was sound and the radiation simply got away from us, but I've been wrong about bigger things than that." },
       },
       choices = {
-        { text = "Mekkatorque did what he had to. Stand by him.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Someone should answer for it, High Tinker or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Mekkatorque did what he had to. Stand by him.", next = "BACK", reply = "Oh, I do stand by him, completely, at least ninety-four percent of the time, and the other six percent I keep to myself, which I think is very loyal.", fx = { align = { order = 1 } } },
+        { text = "Someone should answer for it, High Tinker or not.", next = "BACK", reply = "Maybe someone should, but I don't think it should be him alone, and if we started handing out blame for Gnomeregan, I'm not sure any of us would come out clean.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -128,8 +128,8 @@ P:NPC {
       lines = { { id = "sv_default", text = "I have to think so, or I'd stop working, and if I stop working I'll start remembering. So yes, they can be saved, and we'll be the ones to do it." },
       },
       choices = {
-        { text = "Then we'll save them together.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Some of them may be past saving. Be ready for that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then we'll save them together.", next = "BACK", reply = "Together, yes, that's exactly the right word, and I'll put your name on the schematic right beside mine, because a cure always works better with two signatures.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Some of them may be past saving. Be ready for that.", next = "BACK", reply = "I know, I know, and I've done the sums, but if I let myself believe it I'd put down my tools, and then where would any of us be?", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

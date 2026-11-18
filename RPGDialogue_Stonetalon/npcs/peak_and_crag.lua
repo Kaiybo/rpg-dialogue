@@ -26,7 +26,7 @@ P:NPC {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, all the way up here. You'll want the heavy shot, I expect, since you lot would rather shoot a harpy than throw anything at it." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome. If you're going down to Gaxim's camp, take him some bread, because I don't think he remembers to eat." },
+      text = "A gnome. If you're going down to Gaxim's camp below the Crag, take him some bread, because I don't think he remembers to eat." },
     { id = "n_broke", cat = "purse", when = { money = { max = 100 } },
       text = "Your purse is light, so buy water and nothing else, and I won't think less of you for it." },
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
@@ -70,8 +70,8 @@ P:NPC {
         { id = "bg_default", text = "He means well, and he's loud, and he has blown up more of the mountain than the goblins have this season. Kaela trusts him, so I sell to him, but I'd rather the forest were saved by planting than by powder." },
       },
       choices = {
-        { text = "His powder will stop the goblins faster.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The druids' way is slower, but it's the right one.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "His powder will stop the goblins faster.", next = "BACK", reply = "Faster, perhaps, but the mountain will remember every blast. I'll sell him what he needs, and pray the trees forgive us both.", fx = { align = { order = -1 } } },
+        { text = "The druids' way is slower, but it's the right one.", next = "BACK", reply = "It is, and it's the way of the kaldorei. Elune taught us patience long before any gnome taught anyone powder.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -110,8 +110,8 @@ P:NPC {
         { id = "th_default", text = "Not yet, though there's a blood elf among them who hates the druids, and the Sentinels say she's sent killers to the Talon Den. Some of us want the Sentinels to go down and burn Sun Rock first, and I'm not one of them, though I understand why they ask." },
       },
       choices = {
-        { text = "Strike Sun Rock before they strike the Peak.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Guard the Den, and leave Sun Rock alone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Strike Sun Rock before they strike the Peak.", next = "BACK", reply = "That is what the angry ones say, and I understand their fear. But striking first is how the forest burns, and I want no part of it.", fx = { align = { light = -1 } } },
+        { text = "Guard the Den, and leave Sun Rock alone.", next = "BACK", reply = "Thank you, and that is what I would choose too. Let the Sentinels guard the Den, and let Sun Rock keep to its rock.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -187,8 +187,8 @@ P:NPC {
         { id = "mw_default", text = "From the goats on the high slopes, combed out in spring when they shed, and the druids made me promise I'd never shear one. I'd have done it faster with shears, but a promise is cheaper than a quarrel with a druid." },
       },
       choices = {
-        { text = "Keep the promise. The goats deserve it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Shears would be quicker. The goats won't mind.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Keep the promise. The goats deserve it.", next = "BACK", reply = "Good, because the druids would never let me forget it. The goats seem grateful, in their way.", fx = { align = { honor = 1 } } },
+        { text = "Shears would be quicker. The goats won't mind.", next = "BACK", reply = "They wouldn't mind, but the druids would, and they have very long memories. A promise is a promise, even to a goat.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -307,7 +307,7 @@ P:NPC {
     },
     gerenzo_arm = {
       lines = {
-        { id = "ga_default", text = "Shocked me too, and half the crew, and I hear Undermine's not thrilled either. He's rotting where he stands and he's bolted metal on where the flesh gave out, an arm that clanks and grabs, and I only say that down here, where the rock's thick." },
+        { id = "ga_default", text = "Shocked me too, and the whole crew, and I hear Undermine's not thrilled either. He's rotting where he stands and he's bolted metal on where the flesh gave out, an arm that clanks and grabs, and I only say that down here, where the rock's thick." },
       },
       choices = {
         { text = "Does he deserve what's coming?", next = "gerenzo_deserve" },
@@ -320,8 +320,8 @@ P:NPC {
         { id = "gd_default", text = "Every copper of it, pal, and I'd like a front seat. But I'm a goblin, so I'll settle for him losing his job the way Ziz did, with everybody watching and nobody helping." },
       },
       choices = {
-        { text = "Then let's see him lose more than his job.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Losing his job is enough. Nobody needs to die.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then let's see him lose more than his job.", next = "BACK", reply = "Now you're speakin' my language, pal, though I'll leave the details to you. I'll bring the popcorn.", fx = { align = { light = -1 } } },
+        { text = "Losing his job is enough. Nobody needs to die.", next = "BACK", reply = "Fair enough, pal, a public firing is plenty. Watching his face will be worth every copper I didn't earn.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -363,8 +363,8 @@ P:NPC {
         { id = "bb_default", text = "I'm spying for Ziz, and Ziz is spying for somebody, and the coin comes down the line, and that's how business works. It's not loyalty, exactly, but Ziz kept me fed, and that's close enough for a goblin." },
       },
       choices = {
-        { text = "That is loyalty, whatever you call it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Follow the coin. It's the only sensible thing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That is loyalty, whatever you call it.", next = "BACK", reply = "Huh, maybe it is, pal, and don't tell anybody I said so. Ziz kept me fed, and that counts for something.", fx = { align = { honor = 1 } } },
+        { text = "Follow the coin. It's the only sensible thing.", next = "BACK", reply = "Exactly, pal, and the coin always knows the way. You'd make a fine goblin, I mean that.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -380,7 +380,7 @@ P:NPC {
     },
     venture_leave = {
       lines = {
-        { id = "vl_default", text = "With what, my good looks? The company's got my contract, my back pay, and my cousin's debt on account, so if I walk out, they come after the whole family. Gerenzo's Orders gets me out with something to show for it, or it gets me buried in here." },
+        { id = "vl_default", text = "With what, my good looks? The company's got my contract, my back pay, and my cousin's debt on account, so if I walk out, they come after the whole family. Spying on Gerenzo gets me out with something to show for it, or it gets me buried in here." },
       },
       choices = {
         { text = "Then let's make sure it's the first one.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, learn = { "venture_company" } } },
@@ -414,8 +414,8 @@ P:NPC {
         { id = "tr_tauren", when = { race = "Tauren" }, text = "You shouldn't, and I know your people have good reason not to, after what the company did to these mountains. But I'm swinging a pick against my will, same as the trees are coming down against theirs, and that's got to count for a copper or two." },
       },
       choices = {
-        { text = "Good enough. We want the same thing.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "I'll help, but I'm watching you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good enough. We want the same thing.", next = "BACK", reply = "Good enough for me, pal, and that's a deal. Same plate, same goal, and we split the gravy.", fx = { align = { order = -1 } } },
+        { text = "I'll help, but I'm watching you.", next = "BACK", reply = "Watch all you like, pal, because I'm worth watching. Just keep your eyes on Gerenzo too.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

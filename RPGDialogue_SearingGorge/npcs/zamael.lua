@@ -144,8 +144,8 @@ P:NPC {
         { id = "pf_default", text = "Because I have not earned it, and asking would be one more lie in a life with too many. It matters little that my faith was rekindled after all I did, but the prayer must be heard, and absolution is the last thing I expect." },
       },
       choices = {
-        { text = "That honesty is worth something.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Pride, even in penance. You'd rather suffer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That honesty is worth something.", next = "BACK", reply = "Perhaps, and it is all I have left to give. Thank you for hearing it, {g:brother|sister}.", fx = { align = { honor = 1 } } },
+        { text = "Pride, even in penance. You'd rather suffer.", next = "BACK", reply = "You may be right, and I have wondered it myself in the long nights. Even so, I will not ask for what I have not earned.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -183,8 +183,8 @@ P:NPC {
         { id = "xe_default", text = "You say it kindly, {g:brother|sister}, and I hope you are right, though I have no claim on hoping. If Darnassus speaks my name after the prayer is read, I ask only that they speak it as a warning to the young." },
       },
       choices = {
-        { text = "They'll hear your story as a warning. I'll see to it.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Your name should be forgotten. Let the prayer stand alone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "They'll hear your story as a warning. I'll see to it.", next = "BACK", reply = "Then I can rest easier, if a ghost can rest at all. Elune keep you on the road home.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Your name should be forgotten. Let the prayer stand alone.", next = "BACK", reply = "That is a just answer, and I will not quarrel with it. Only see that the prayer is heard.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -194,8 +194,8 @@ P:NPC {
         { id = "xf_default", text = "I have asked myself that every night in this cage, and I have no answer that satisfies me. Perhaps faith is not measured by when it arrives, but only by whether it stays." },
       },
       choices = {
-        { text = "Late faith is still faith. The Light turns no one away.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Faith that comes only after the vision is just fear.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Late faith is still faith. The Light turns no one away.", next = "BACK", reply = "You are kind to say it, {g:brother|sister}, and I pray Elune is as patient as you believe your Light to be.", fx = { align = { light = 1 } } },
+        { text = "Faith that comes only after the vision is just fear.", next = "BACK", reply = "It may have been fear, at first, and I will not lie to you about it. But it stayed when the fear was gone.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

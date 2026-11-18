@@ -53,7 +53,7 @@ P:NPC {
         { text = "What does taming a beast involve?", next = "taming" },
         { text = "How did you lose your sight?", next = "eye" },
         { text = "What's happening to the isle's beasts?", next = "wilds" },
-        { text = "Who's Quel'dora?", next = "kin" },
+        { text = "Does anyone else in the hall help you, Quel'ana?", next = "kin" },
         { text = "Train me, Quel'ana.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Hunters where I'm from tame very different beasts.", next = "xoutsider", when = { class = "HUNTER", ["not"] = { race = "Skyborne" } } },
         { text = "I hunted the cliffs below Siroccas.", next = "xcliff", when = { origin = "skyborne_siroccas_cliff_hunter" } },
@@ -87,8 +87,8 @@ P:NPC {
         { id = "bo_default", text = "Then you're its, as much as it's yours, and any hunter who forgets that loses the beast or loses a hand. I've known hunters who talk to their companions like family and hunters who treat them like a good bow, and both of them caught their supper." },
       },
       choices = {
-        { text = "A companion is family. I'll treat it that way.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "It's a weapon with teeth. I'll keep it sharp.", next = "BACK", fx = { affinity = -1, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "A companion is family. I'll treat it that way.", next = "BACK", reply = "Then your beast is lucky, and it'll know it before you do. I may not see it well, but I'll hear it purr.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "It's a weapon with teeth. I'll keep it sharp.", next = "BACK", reply = "Keep it sharp, then, and keep your fingers out of its mouth. A weapon with teeth can choose its own target.", fx = { affinity = -1, align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,7 +103,7 @@ P:NPC {
     },
     eye2 = {
       lines = {
-        { id = "e2_default", text = "Everything that moves makes a sound, and everything that's afraid makes a different one. A vuldren that's turned dangerous breathes faster than a calm one, and I can hear that across a clearing, which is more than most hunters can see." },
+        { id = "e2_default", text = "Everything that moves makes a sound, and everything that's afraid makes a different one. A vuldren that's turned dangerous breathes faster than a calm one, and I can hear that across a clearing, while most hunters couldn't even see it." },
       },
       choices = {
         { text = "Teach me to listen like that.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
@@ -129,7 +129,7 @@ P:NPC {
     },
     kin = {
       lines = {
-        { id = "ki_default", text = "Family, and she works here in the hall with me, so you'll meet her sooner or later. She'll tell you I hunt better with one eye than most do with two, and I'll tell you she's being kind, and we'll both be a little right." },
+        { id = "ki_default", text = "Quel'dora, who's family, works here in the hall with me, so you'll meet her sooner or later. She'll tell you I hunt better with one eye than most do with two, and I'll tell you she's being kind, and we'll both be a little right." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -137,7 +137,7 @@ P:NPC {
     },
     xoutsider = {
       lines = {
-        { id = "xo_default", text = "I'd imagine so, and I'd give a great deal to hear what's out there. Tell me, what's the hardest beast you've ever brought to your hand?" },
+        { id = "xo_default", text = "I'd imagine so, and I'd love to hear what's out there. Tell me, what's the hardest beast you've ever brought to your hand?" },
         { id = "xo_tauren", when = { race = "Tauren" },
           text = "I'd imagine so; the Windshapers say your plains are full of beasts the size of a house. Tell me, what's the hardest one you've ever brought to your hand?" },
       },
@@ -207,7 +207,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Seena Skybreaker. I teach my warriors to hold still when everything in them wants to step back, because the ones who step back are the ones we carry home. Ren up in Thendal teaches the same lesson, and we're both right, so you'd better listen to one of us." },
+        { id = "h_default", key = true, text = "Seena Skybreaker. I teach my warriors to hold still when everything in them wants to step back, because the ones who step back are the ones we carry home. Blademaster Ren up in Thendal teaches the same lesson, and we're both right, so you'd better listen to one of us." },
         { id = "h_done", tags = { "news" }, when = { questDone = TODO_QUEST("The Skybreaker Bulwark") },
           text = "You did right by the Bulwark, and by my family's name, and I'll not forget it. Come to me whenever you need training, and I'll make sure you're worth what you've done." },
       },
@@ -254,8 +254,8 @@ P:NPC {
       },
       choices = {
         { text = "Do you ever flinch, Seena?", next = "fear" },
-        { text = "Keep the people behind me alive, whatever it costs.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, trait = { brave = 1 } } },
-        { text = "Win the fight. The dead can't be protected.", next = "BACK", fx = { affinity = -1, align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "Keep the people behind me alive, whatever it costs.", next = "BACK", reply = "Good, and that's the harder answer, so remember it on the bad days. They'll come.", fx = { affinity = 2, align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Win the fight. The dead can't be protected.", next = "BACK", reply = "The dead can't be protected, no, but neither can anyone behind a warrior who's chasing a win. Think on it.", fx = { affinity = -1, align = { honor = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -295,7 +295,7 @@ P:NPC {
     },
     hall = {
       lines = {
-        { id = "ha_default", text = "Quel'ana trains the hunters and hears everything, so mind what you say about him. Belarysa, Eltheen and Raylann have their corners too, and Quel'dora keeps the place from falling apart around all of us." },
+        { id = "ha_default", text = "Quel'ana trains the hunters and hears everything, so mind what you say about him, and Quel'dora keeps the place from falling apart around all of us." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -407,8 +407,8 @@ P:NPC {
         { id = "p2_default", text = "Because they're gifts, and you don't throw a gift into the lake because it's grown inconvenient. Some of my own order say we should strip the broken ones and be done with it, and some say every one should be mended, whatever it costs, and I've never been able to choose." },
       },
       choices = {
-        { text = "Mend every one you can. They're the spirits' gifts.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, trait = { pious = 1 } } },
-        { text = "Strip the broken ones. Keep the working ones alive.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Mend every one you can. They're the spirits' gifts.", next = "BACK", reply = "That's what my heart says, and it's good to hear it said by someone else. I'll keep my tools out.", fx = { affinity = 2, align = { order = 1 }, trait = { pious = 1 } } },
+        { text = "Strip the broken ones. Keep the working ones alive.", next = "BACK", reply = "That's what my head says, most mornings, and I'll not pretend it's wrong. It still feels like betrayal.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -427,8 +427,8 @@ P:NPC {
         { id = "c2_default", text = "My order says yes, and most days I agree. But the High Order are shen'dorei too, and their magisters know things about the arcane that we don't, and I sometimes wonder whether a construct would rather be studied than rust." },
       },
       choices = {
-        { text = "Keep them out. Your oath comes first.", next = "BACK", fx = { affinity = 1, align = { honor = 1 }, learn = { "two_orders" } } },
-        { text = "Share them. Pride won't mend a single bolt.", next = "BACK", fx = { affinity = 1, align = { honor = -1 }, learn = { "two_orders" } } },
+        { text = "Keep them out. Your oath comes first.", next = "BACK", reply = "Thank you, and I'll tell the others you said so. The oath is all we have left of them.", fx = { affinity = 1, align = { honor = 1 }, learn = { "two_orders" } } },
+        { text = "Share them. Pride won't mend a single bolt.", next = "BACK", reply = "Pride, is it? Perhaps, and perhaps not, but I'll think on it. A rusting construct helps nobody.", fx = { affinity = 1, align = { honor = -1 }, learn = { "two_orders" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
@@ -451,7 +451,7 @@ P:NPC {
     },
     orchard = {
       lines = {
-        { id = "or_default", text = "The cyclone construct? I've heard of it, and I've heard it drove off the bandits who hurt Alvarion, which means there's more wind left in it than anyone thought. If Aamelia wants a Windshaper to look it over, she's only to ask, and I'd go gladly, since it's not every day one of them wakes up on its own." },
+        { id = "or_default", text = "The cyclone construct? I've heard of it, and I've heard it drove off the bandits who hurt Alvarion Windfield, which means there's more wind left in it than anyone thought. If his wife Aamelia wants a Windshaper to look it over, she's only to ask, and I'd go gladly, since it's not every day one of them wakes up on its own." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -511,15 +511,15 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "<Alvarion winces as he turns his head toward you, bandages showing under his shirt.>" },
-    { id = "g_again", when = { metBefore = true }, text = "You again. Forgive me if I don't get up." },
+    { id = "g_again", when = { metBefore = true }, text = "You again, and no, I'm not getting up." },
     { id = "g_news", tags = { "news" }, when = { questActive = TODO_QUEST("Deliver the News") }, text = "You've come from the orchard? From Aamelia? Tell me, quickly." },
   },
 
   notice = {
     { id = "n_healer", cat = "class", when = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } },
-      text = "You've a healer's look about you. Don't trouble yourself; Melasa's done all that can be done, and the rest is lying here being bored." },
+      text = "You've a healer's look about you. Don't trouble yourself; Melasa the medic has done all that can be done, and the rest is lying here being bored." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "Winds above, you're a big one. Mind the floorboards up here; Donaal swears they'll hold, but he's never had to test it." },
+      text = "Winds above, you're a big one. Mind the floorboards up here; Donaal the innkeeper swears they'll hold, but he's never had to test it." },
   },
 
   start = "hello",
@@ -563,14 +563,14 @@ P:NPC {
         { id = "ba_default", text = "Aamelia says they've lost everything and we should feed them, and I say they've taken everything and we should hang them, and we've had that argument every night since. Lying here, I've had a lot of time to wonder which of us is right." },
       },
       choices = {
-        { text = "Feed the hungry ones. Most of them only want to live.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, trait = { generous = 1 } } },
-        { text = "They nearly killed you. Make them answer for it.", next = "BACK", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Feed the hungry ones. Most of them only want to live.", next = "BACK", reply = "That's Aamelia's side, and I'll tell her you took it. She'll be insufferable for a week.", fx = { affinity = 1, align = { light = 1 }, trait = { generous = 1 } } },
+        { text = "They nearly killed you. Make them answer for it.", next = "BACK", reply = "That's my side, and I'll tell Aamelia you took it. She'll pretend not to hear.", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     orchard = {
       lines = {
-        { id = "or_default", text = "Stormapples, mostly, the Red Delicious kind, and berries along the hedges. Nyalah buys our apples for her kitchen, and I'll tell you that's the proudest thing about our lives, that a cook that good thinks we grow something worth eating." },
+        { id = "or_default", text = "Stormapples, mostly, the Red Delicious kind, and berries along the hedges. Nyalah the cook buys our apples for her kitchen, and I'll tell you that's the proudest thing about our lives, that a cook that good thinks we grow something worth eating." },
       },
       choices = {
         { text = "What else does the orchard give you?", next = "flutterfly" },
@@ -675,7 +675,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Gale's greetings. Are you hurt, or here to learn?" },
-    { id = "g_hurt", when = { durability = { max = 20 } }, text = "Winds above, you look like you've rolled down a hill. Sit." },
+    { id = "g_hurt", when = { durability = { max = 0.20 } }, text = "Winds above, you look like you've rolled down a hill. Sit." },
   },
 
   notice = {
@@ -706,7 +706,7 @@ P:NPC {
     },
     kit = {
       lines = {
-        { id = "ki_default", text = "Clean linen, more than you think you need, and something to tie it with. Everything else is a luxury, but I've seen people die for want of a strip of cloth, and I'd rather that never happened to anyone I taught." },
+        { id = "ki_default", text = "Clean linen, more than you think you need, and something to tie it with. Everything else is a luxury, but I've seen people die for want of a strip of cloth, and I won't have that happen to anyone I've taught." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -731,7 +731,7 @@ P:NPC {
     },
     healing = {
       lines = {
-        { id = "he_default", text = "The Windshapers can do a great deal with the elements, and the druids with what grows, but there aren't enough of either to go round. So most of us are healed by people like me, with linen and herbs and stubbornness, and I've come to think that's no bad thing." },
+        { id = "he_default", text = "The Windshapers can work wonders with the elements, and the druids with what grows, but there aren't enough of either to go round. So most of us are healed by people like me, with linen and herbs and stubbornness, and I've come to think that's no bad thing." },
       },
       choices = {
         { text = "Why no bad thing?", next = "healing2" },
@@ -744,8 +744,8 @@ P:NPC {
         { id = "h2_default", text = "Because a bandage doesn't depend on anyone answering. We leaned on the spirits for everything once, and look where that left us, so I'd rather every child on the isle knew how to stop a bleed than wait for a miracle." },
       },
       choices = {
-        { text = "You're right. Skill is better than waiting on miracles.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "Some wounds need more than linen. Don't dismiss the gifts.", next = "BACK", fx = { affinity = -1, align = { order = -1 }, trait = { pious = 1 } } },
+        { text = "You're right. Skill is better than waiting on miracles.", next = "BACK", reply = "Good, then you'll make a fine medic. Sit down and I'll show you a proper knot.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Some wounds need more than linen. Don't dismiss the gifts.", next = "BACK", reply = "I'll not dismiss them, but I'll not wait on them either. Learn the linen first, child.", fx = { affinity = -1, align = { order = -1 }, trait = { pious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

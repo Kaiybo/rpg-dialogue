@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Walk softly here, friend. The roots under the Sepulcher are older than its stones, and they are very tired." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "Earth Mother keep you, child of the plains. It does my heart good to hear hooves on this soil that aren't my own." },
-    { id = "g_shell", when = { questActive = TODO_QUEST("Mura Runetotem") }, text = "You carry something from Tonga, I think. I can feel it from here, like warmth from a banked fire." },
+    { id = "g_shell", when = { questActive = TODO_QUEST("Mura Runetotem") }, text = "You carry something from Tonga Runetotem at the Crossroads, I think. I can feel it from here, like warmth from a banked fire." },
     { id = "g_done", when = { questDone = TODO_QUEST("Mura Runetotem") }, text = "The shell still glows on my table, and some nights I sit with it the way you'd sit with a sick friend. Thank you again for carrying it so far." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone, and in that time I coaxed one sapling out of the ash by the north wall. It's small, but it's green, and green is rare here." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since we last spoke, the way a young tree grows when nobody is watching it. The forest has noticed, even if you haven't." },
@@ -66,7 +66,7 @@ P:NPC {
 
     forest = {
       lines = {
-        { id = "f_default", text = "Many things at once, which is why it's so hard to mend. The plague passed through the roots on its way to Lordaeron, and Arugal's wolves tear at everything that still runs, and the lake water tastes of rot and old magic." },
+        { id = "f_default", text = "Many things at once, so it is slow to mend. The plague passed through the roots on its way to Lordaeron, and Arugal's wolves tear at everything that still runs, and the lake water tastes of rot and old magic." },
         { id = "f_worgen", when = { topicKnown = "worgen" }, text = "You've heard of the worgen, then, so you know half of it already. The plague passed through the roots, and the wolves tear at everything that still runs, and the lake tastes of rot and old magic besides." },
       },
       choices = {
@@ -85,8 +85,8 @@ P:NPC {
       big = true,
       lines = { { id = "fh_default", text = "I believe so, or I'd have gone home a season ago. The apothecaries tell me nothing that grows here will ever be clean, and I tell them the earth has buried worse than them and come back green, which they don't enjoy hearing." } },
       choices = {
-        { text = "The land should be healed for its own sake.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A dead forest suits the dead well enough.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "The land should be healed for its own sake.", next = "BACK", reply = "For its own sake, yes, and for the creatures that still try to live in it. The Earth Mother does not ask whether a wound deserves healing.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A dead forest suits the dead well enough.", next = "BACK", reply = "Perhaps it does, for now, but the dead will not always be the only ones walking here. I will keep planting.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,8 +102,8 @@ P:NPC {
       big = true,
       lines = { { id = "wt_default", text = "No, and I'd be lying to you if I said otherwise. Some at the Bluff think the Forsaken are a wound in the world that should be allowed to close, and some think as I do, that a wound is exactly where a healer ought to be." } },
       choices = {
-        { text = "Then you're right to be here. Healers go where it hurts.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Your kin may be right. Some things shouldn't be mended.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then you're right to be here. Healers go where it hurts.", next = "BACK", reply = "That is what I told the elders at the Bluff, though more slowly. Thank you; it is good to hear it from another.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Your kin may be right. Some things shouldn't be mended.", next = "BACK", reply = "Perhaps, and I have wondered it on the cold nights. But a healer who chooses which wounds to touch is no healer.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -133,14 +133,14 @@ P:NPC {
       big = true,
       lines = { { id = "su_default", text = "Perhaps one day, if I learn its nature before I learn its price. The druids who went into those caves to dream have not come out the same, by Tonga's account, so I'll take my time, even if Silverpine can't afford much of it." } },
       choices = {
-        { text = "Take your time. A rushed cure is a new sickness.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Silverpine can't wait. Use it and learn as you go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Take your time. A rushed cure is a new sickness.", next = "BACK", reply = "You speak with the patience of the plains. I will take my time, and the Earth Mother will forgive the waiting.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Silverpine can't wait. Use it and learn as you go.", next = "BACK", reply = "Silverpine has waited for years already, and a little longer will not kill it. I will not make a new sickness in haste.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     neighbours = {
-      lines = { { id = "n_default", text = "Better than I feared and worse than I hoped, which I'm told is how most guests are treated. The High Executor gives me a corner and asks me nothing, and the apothecaries ask me a great deal, mostly about which mushrooms are poisonous." } },
+      lines = { { id = "n_default", text = "Better than I feared and worse than I hoped, which I'm told is how most guests are treated. The High Executor gives me a corner and asks me nothing, and the apothecaries ask me questions all day, mostly about which mushrooms are poisonous." } },
       choices = {
         { text = "Why do the apothecaries want to know that?", next = "neigh_apoth" },
         { text = "And the others at the Sepulcher?", next = "neigh_others" },
@@ -151,13 +151,13 @@ P:NPC {
       big = true,
       lines = { { id = "na_default", text = "They tell me it's for their work against the Scourge, and I've decided to believe them, since the other choice is to stop answering. Renferrel listens very closely, though, and writes everything down in a hand too small for me to read." } },
       choices = {
-        { text = "You should stop answering them, Mura.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Their work keeps the Forsaken alive. Help them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You should stop answering them, Mura.", next = "BACK", reply = "Perhaps I should, but they always ask so politely. I will keep watching what they do with my answers.", fx = { align = { honor = 1 } } },
+        { text = "Their work keeps the Forsaken alive. Help them.", next = "BACK", reply = "It does, and I have seen it. I will help where I can, and pray to the Earth Mother that I am right.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     neigh_others = {
-      lines = { { id = "no_default", text = "Gwyn Farrow sells mushrooms and wants to know which ones I'd eat, which is none of them. Wallace sits out in the cold and says the trees whisper to him, and I haven't the heart to tell him I hear them too." } },
+      lines = { { id = "no_default", text = "Gwyn Farrow, who sells mushrooms here, wants to know which ones I'd eat, which is none of them. Old Wallace the Blind sits out in the cold and says the trees whisper to him, and I haven't the heart to tell him I hear them too." } },
       choices = {
         { text = "What do the trees say?", next = "neigh_trees" },
         { text = "Something else.", next = "BACK" },
@@ -180,10 +180,10 @@ P:NPC {
     },
     druid_stance = {
       big = true,
-      lines = { { id = "ds_default", text = "That's kind, and I'll hold you to it. When you walk through the pines, put your hand on the bark of a living one and let it feel a living hand, because that does more than you'd think." } },
+      lines = { { id = "ds_default", text = "That's kind, and I'll hold you to it. When you walk through the pines, put your hand on the bark of a living one and let it feel a living hand; the Earth Mother hears that, even here." } },
       choices = {
-        { text = "Balance needs patience. I'll do it gladly.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "I'd rather burn the rot out and let it regrow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Balance needs patience. I'll do it gladly.", next = "BACK", reply = "Then the pines will feel it, and so will I. Walk gently, friend.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'd rather burn the rot out and let it regrow.", next = "BACK", reply = "Fire has its season on the plains, but not in a sick forest. Here it would only leave ash. Be patient.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -210,9 +210,9 @@ P:NPC {
     },
     worgen = { { id = "tp_worgen", text = "They hunt like wolves but hate like men, and wolves never hate. Whatever Arugal called up, it isn't of the wild." } },
     wailing_caverns = { { id = "tp_caverns", text = "Tonga's worry, and now mine. Druids went there to dream and the land around the caves began to change, and I'm not certain the dreamers are the ones in charge of it." } },
-    cenarion_circle = { { id = "tp_circle", text = "The Circle taught our people a great deal. I think they'd call this work hopeless, so I haven't written to ask." } },
+    cenarion_circle = { { id = "tp_circle", text = "The Circle taught our people much of what we know of healing land. I think they'd call this work hopeless, so I haven't written to ask." } },
     background = { { id = "tp_bg", text = "A Runetotem from Thunder Bluff who listened to her elders and then went somewhere they hadn't thought to send her." } },
-    _none = { { id = "tp_none", text = "That's beyond my roots, friend. Ask Allister, perhaps; he collects what people know." } },
+    _none = { { id = "tp_none", text = "That's beyond my roots, friend. Ask Shadow Priest Allister, perhaps; he collects what people know." } },
   },
 }
 
@@ -232,7 +232,7 @@ P:NPC {
     { id = "g_default", text = "Hello, hello! Nothing for you today, I'm afraid, unless you're expecting a letter, and you don't look like someone who expects letters." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Ah, one of the light-fingered sort. Keep your hands where I can admire them, friend, there's a good fellow." },
     { id = "g_quest", when = { questActive = TODO_QUEST("The Deathstalkers") }, text = "You've been watching me since you came in. I'm very dull, I promise you, and so is everything I carry." },
-    { id = "g_done", when = { questDone = TODO_QUEST("The Deathstalkers") }, text = "I lost a letter not long ago, a very ordinary letter, and somebody went to a great deal of trouble for it. You wouldn't know anything about that, I'm sure." },
+    { id = "g_done", when = { questDone = TODO_QUEST("The Deathstalkers") }, text = "I lost a letter not long ago, a very ordinary letter, and somebody went to a lot of trouble on a dark road for it. You wouldn't know anything about that, I'm sure." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were you? I've walked to Brill and back four times since, and my boots have the holes to prove it." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody caught you in a lie. It happens to the best of us, friend, though it has never once happened to me." },
   },
@@ -271,7 +271,7 @@ P:NPC {
     },
 
     letters = {
-      lines = { { id = "l_default", text = "Official ones, mostly, sealed and dull. Requisitions for the High Executor, reports for Magistrate Sevren, and the odd private note from a Deathguard to someone he used to love, which I find very touching and never open." } },
+      lines = { { id = "l_default", text = "Official ones, mostly, sealed and dull. Requisitions for the High Executor, reports for Magistrate Sevren in Brill, and the odd private note from a Deathguard to someone he used to love, which I find very touching and never open." } },
       choices = {
         { text = "You never open any of them?", next = "letters_never" },
         { text = "Something else.", next = "BACK" },
@@ -281,8 +281,8 @@ P:NPC {
       big = true,
       lines = { { id = "ln_default", text = "Never, on my honour as a messenger. A courier who reads the mail is a courier who ends up in the lake, and I've been dead once already and didn't care for it." } },
       choices = {
-        { text = "An honest courier is worth his weight in silver.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A courier who doesn't read is wasting his chances.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "An honest courier is worth his weight in silver.", next = "BACK", reply = "He is, and I'd thank you to mention it to whoever hires next. Silver's very welcome.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A courier who doesn't read is wasting his chances.", next = "BACK", reply = "Wasting my chances, perhaps, but keeping my neck, which I've grown fond of. I'll stay ignorant.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -316,8 +316,8 @@ P:NPC {
       big = true,
       lines = { { id = "ea_default", text = "Anyone with good manners and a sealed letter, yes, and I'd thank you not to say it in that tone. The Undercity runs on letters, friend, and not all of them are written by people the Deathguard like." } },
       choices = {
-        { text = "Then you ought to be careful who you serve.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Good. A clever man works for whoever pays best.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Then you ought to be careful who you serve.", next = "BACK", reply = "I am careful, more careful than you'd guess. Careful is why I'm still carrying letters and not lying in the lake.", fx = { align = { order = 1 } } },
+        { text = "Good. A clever man works for whoever pays best.", next = "BACK", reply = "Exactly, and you'd be amazed how many people find that shocking. Good day to you.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -338,10 +338,10 @@ P:NPC {
     },
     news_who = {
       big = true,
-      lines = { { id = "nwh_default", text = "People who think the old noble houses of Alterac should still own a great deal of land that nobody else agrees they own. They call themselves the Syndicate, and I've never met one, and I'd very much like to keep it that way." } },
+      lines = { { id = "nwh_default", text = "People who think the old noble houses of Alterac should still own half the hills from here to Hillsbrad, and nobody else agrees they do. They call themselves the Syndicate, and I've never met one, and I'd very much like to keep it that way." } },
       choices = {
-        { text = "Thieves and traitors. They should hang.", next = "BACK", fx = { align = { honor = 1 }, learn = { "syndicate" } } },
-        { text = "Every house fights for what's theirs. I can't blame them.", next = "BACK", fx = { align = { honor = -1 }, learn = { "syndicate" } } },
+        { text = "Thieves and traitors. They should hang.", next = "BACK", reply = "Some of them should, I'm sure, but they pay their postage on time. I'll leave the hanging to the magistrates.", fx = { align = { honor = 1 }, learn = { "syndicate" } } },
+        { text = "Every house fights for what's theirs. I can't blame them.", next = "BACK", reply = "Neither can I, between us, though I'd never say so in Southshore. Every lord thinks his land is his.", fx = { align = { honor = -1 }, learn = { "syndicate" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "syndicate" } } },
       },
     },
@@ -370,8 +370,8 @@ P:NPC {
         { id = "sac_after", when = { questDone = TODO_QUEST("The Deathstalkers") }, text = "You already know what was in the last one, so don't play the innocent with me. Somebody wore my name to a meeting and learned what my friends wanted, and I've been explaining it ever since." },
       },
       choices = {
-        { text = "I'll be telling the deathstalkers about you.", next = "END", fx = { affinity = -2, align = { order = 1 }, learn = { "syndicate" } } },
-        { text = "Your secret's safe. Everyone needs to earn a living.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, learn = { "syndicate" } } },
+        { text = "I'll be telling the deathstalkers about you.", next = "END", reply = "Then I'll be gone before they arrive, and you'll have a very dull story to tell them. Good day.", fx = { affinity = -2, align = { order = 1 }, learn = { "syndicate" } } },
+        { text = "Your secret's safe. Everyone needs to earn a living.", next = "BACK", reply = "Thank you. You're a reasonable person, and I'll remember it, whoever I'm carrying for.", fx = { affinity = 1, align = { order = -1 }, learn = { "syndicate" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "syndicate" } } },
       },
     },

@@ -8,7 +8,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 -- Marleth Barleybrew
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "dm_marleth", id = TODO_NPC("Marleth Barleybrew"), name = "Marleth Barleybrew",
+  key = "dm_marleth", id = TODO_NPC("Marleth Barleybrew"), name = "Marleth Barleybrew", gender = "female",
   bible = "bibles/kharanos_brewers.md", role = "questgiver", tier = "quest",
   communities = { "dunmorogh" }, temper = { "mischievous", "proud" }, values = { "family", "craft" },
   notices = { "race", "drunk" },
@@ -21,6 +21,12 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Well now, ye've an honest face an' quiet boots, an' that's exactly what I need. Come here, come here, I've a wee job for ye." },
     { id = "g_back", when = { metBefore = true }, text = "There's my accomplice! Sit down an' have a mug, for ye've earned one, or ye will have soon enough." },
+    { id = "g_fl_eye", when = { flirt = true, chance = 0.4 },
+      text = "Well now, ye've broad shoulders for barrel work an' a smile that'd make old Jarven forget what he was guardin'. Come here, {g:lad|lass}, I've a mug wi' yer name on it." },
+    { id = "g_fl_back", when = { flirt = true, npcFlagBefore = "fl_sweet" }, cooldown = "3d",
+      text = "There's my handsome accomplice! I told cousin Rejold about ye, an' he says I've gone soft, an' I told him tae mind his stout." },
+    { id = "g_fl_no", when = { flirt = true, npcFlagBefore = "fl_no" }, once = true,
+      text = "Ach, it's you! Dinnae fret, I've no designs on ye but the barrel-swappin' kind, an' those I'll never give up." },
   },
 
   notice = {
@@ -37,7 +43,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Marleth Barleybrew, an' my family's been brewin' in Dun Morogh as long as the Thunderbrews, whatever they tell the tourists. They need to learn that theirs isn't the only decent brew in these mountains, an' I've a barrel here that'll teach them." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Bitter Rivals") },
-          text = "Have ye switched the barrel yet? Down in the cellar o' the Thunderbrew Distillery, quiet as ye like. If old Jarven's on guard, ye'll need to give him somethin' to look at besides the barrels." },
+          text = "Have ye switched the barrel yet? It's down in the cellar o' the Thunderbrew Distillery, an' if Jarven Thunderbrew's on guard there, ye'll need to give him somethin' to look at besides the barrels." },
         { id = "h_return", tags = { "news" }, when = { questActive = TODO_QUEST("Return to Marleth") },
           text = "Ye did it? Ha! I can just see it now, half o' Kharanos takin' a pull o' Thunder Ale an' gettin' a mouthful o' Barleybrew Scalder instead!" },
         { id = "h_done", when = { questDone = TODO_QUEST("Return to Marleth") },
@@ -53,7 +59,36 @@ P:NPC {
         { text = "Isn't swapping their barrel a bit low?", next = "prank" },
         { text = "Tell me about Brewnall Village.", next = "brewnall" },
         { text = "My clan drinks Thunderbrew, Marleth.", next = "clan", when = { race = "Dwarf" } },
+        { text = "Why pick me for the job, Marleth?", next = "fl_why", when = { flirt = true } },
         { text = "I'll be on my way.", next = "END" },
+      },
+    },
+    fl_why = {
+      lines = {
+        { id = "fl_why_default", text = "Because ye've the kind o' smile that gets a body past a cellar door wi'out a word said, an' that's the honest truth. The other truth is I'd no' mind lookin' at it a while longer meself." },
+        { id = "fl_why_dwarf", when = { race = "Dwarf" },
+          text = "Because o' that beard, if I'm honest, braided proper an' combed besides, an' a Barleybrew lass notices a beard. I'd no' mind lookin' at it a good while longer, an' that's nothin' tae do wi' barrels." },
+      },
+      choices = {
+        { text = "Then I'll stay a while longer. Pour the Scalder.", next = "fl_why2",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_sweet" } } } },
+        { text = "Like the beard? Wait until you see it braided for a feast.", next = "fl_why2", when = { race = "Dwarf" },
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_sweet" } } } },
+        { text = "I'm here for the prank, Marleth, not for courting.", next = "BACK",
+          reply = "Ha! Fair enough, an' a Barleybrew can take no for an answer, so long as the barrel still gets swapped.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "fl_no" } } } },
+        { text = "I'd sooner court a Thunderbrew, Marleth.", next = "BACK",
+          reply = "Ach, that's a low blow, {g:lad|lass}, an' I'll be thinkin' o' a reply tae it for a week.",
+          fx = { trait = { witty = 1 }, npcFlag = { set = { "fl_no" } } } },
+      },
+    },
+    fl_why2 = {
+      lines = {
+        { id = "fl_why2_default", text = "Ha! Ye're a bold one, an' I like a bold one. Mind, if my da ever hears I'm sweet on somebody who's drunk Thunder Ale, he'll write me out o' the family recipe, so we'll keep this between us an' the barrels." },
+      },
+      choices = {
+        { text = "Between us and the barrels, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -67,7 +102,7 @@ P:NPC {
     feud_old = {
       lines = { { id = "fo_default", text = "My grandda an' old Ragnar's grandda once fought a duel over a hop field, an' they were both so drunk they missed with every swing an' fell asleep in the field. The families have been arguin' over who won ever since." } },
       choices = {
-        { text = "Who did win?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Ha. I'd wager they both lost.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -84,8 +119,8 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "Low? It's a free sample! Nobody gets hurt, the drinkers get a better beer than they paid for, an' the Thunderbrews get taken down a peg. Mind, Jarven down in the cellar might get a talkin' to for lettin' it happen." } },
       choices = {
-        { text = "Then Jarven gets punished for your joke. That's not right.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A good prank always costs somebody. Jarven will live.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then Jarven gets punished for your joke. That's not right.", next = "BACK", reply = "Och, ye've a conscience on ye, and I'll grant ye've a point, so if Ragnar starts shoutin' I'll put in a word for Jarven, quietly, where nobody hears it.", fx = { align = { honor = 1 } } },
+        { text = "A good prank always costs somebody. Jarven will live.", next = "BACK", reply = "Ha, now there's a dwarf after my own heart, whatever yer beard says, and Jarven's had worse scoldings for less, believe me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -98,9 +133,9 @@ P:NPC {
       },
     },
     brewnall = {
-      lines = { { id = "br_default", text = "A wee village o' brewers up the road, where the Barleybrews have been brewin' since before the Thunderbrews learned to spell. My cousin Rejold's there too, chasin' some daft perfect stout with weeds he wants stolen off the trolls." } },
+      lines = { { id = "br_default", text = "A wee village o' brewers up the road, where the Barleybrews have been brewin' since before the Thunderbrews learned to spell. My cousin Rejold's there too, chasin' a daft notion o' the perfect stout brewed wi' a weed the Frostmane trolls grow." } },
       choices = {
-        { text = "Trolls? What does he want?", next = "BACK", fx = { learn = { "frostmane" } } },
+        { text = "A weed from the trolls? That sounds like trouble.", next = "BACK", fx = { learn = { "frostmane" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -175,8 +210,8 @@ P:NPC {
       big = true,
       lines = { { id = "op_default", text = "Aye, he does, an' I hate it. But what's a family business if ye can't sample the family product? I've half a mind to sneak a mug when nobody's lookin', an' the other half o' my mind keeps tellin' on me." } },
       choices = {
-        { text = "Orders are orders, Jarven. Keep your hands off the barrels.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "One mug won't hurt. Ragnar will never know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Orders are orders, Jarven. Keep your hands off the barrels.", next = "BACK", reply = "Aye, aye, I know it, an' ye sound just like Ragnar, which is no compliment, but I'll keep my hands in my pockets till ye're gone at least.", fx = { align = { order = 1 } } },
+        { text = "One mug won't hurt. Ragnar will never know.", next = "BACK", reply = "Ye're a terrible influence, an' I like ye for it, but Ragnar knows every drop in these barrels by heart, an' I'd sooner face the troggs than his ledger.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -184,7 +219,7 @@ P:NPC {
     barrels = {
       lines = { { id = "ba_default", text = "Thunder Ale, mostly, the finest drink in Khaz Modan, an' a few casks o' the special for the King's table in Ironforge. If anyone so much as breathes on those, it's my beard, so I count them every hour." } },
       choices = {
-        { text = "How many are there?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Then I'll keep my breath off them.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -248,7 +283,7 @@ P:NPC {
         { id = "h_stout_done", tags = { "news" }, when = { questDone = TODO_QUEST("The Perfect Stout") },
           text = "The shimmerweed's in the kettle, an' it smells like nothin' I've ever brewed. It might be the perfect stout, or it might be poison, an' there's only one way to find out." },
         { id = "h_evershine", when = { questActive = TODO_QUEST("Evershine") },
-          text = "Bellowfiz wants Evershine, does he? That gnome has good taste for a gnome. I'll see what I can do, but I'll need a favor first." },
+          text = "Pilot Bellowfiz wants Evershine, does he? That gnome has good taste for a gnome. I'll see what I can do, but I'll need a favor first." },
         { id = "h_shimmer", when = { questActive = TODO_QUEST("Shimmer Stout") },
           text = "Take that cask o' Shimmer Stout up the road and mind ye don't drink it on the way, for it's the best thing I've ever made and I've only the one cask." },
       },
@@ -291,10 +326,10 @@ P:NPC {
 
     steal = {
       big = true,
-      lines = { { id = "st_default", text = "Dangerous, aye, so I'd not go myself, which is why I'm askin' ye. I'd buy it off them if they'd trade, but the Frostmane would sooner put a spear in a dwarf than sell him anythin', so borrowin' it from their baskets is the only way." } },
+      lines = { { id = "st_default", text = "Dangerous, aye, so I'd not go myself, an' that's why I'm askin' ye. I'd buy it off them if they'd trade, but the Frostmane would sooner put a spear in a dwarf than sell him anythin', so borrowin' it from their baskets is the only way." } },
       choices = {
-        { text = "They're trolls. Take what you need from them.", next = "BACK", fx = { align = { light = -1 }, learn = { "frostmane" } } },
-        { text = "It's their sacred plant. Stealing it is wrong.", next = "BACK", fx = { align = { light = 1 }, learn = { "frostmane" } } },
+        { text = "They're trolls. Take what you need from them.", next = "BACK", reply = "That's the spirit, an' the Frostmane would do the same tae us without blinkin', so fetch me a basketful an' I'll name the first barrel after ye.", fx = { align = { light = -1 }, learn = { "frostmane" } } },
+        { text = "It's their sacred plant. Stealing it is wrong.", next = "BACK", reply = "Och, I hadnae thought o' it like that, an' now I'll feel guilty every sip, though I'm no' sure I'll feel guilty enough tae give up the stout.", fx = { align = { light = 1 }, learn = { "frostmane" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -352,9 +387,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Ozzie Togglevolt, inventor, and that's my partner Razzle muttering at the Recombobulator. Since the accident, Gnoarn talks about nothing but cleansing Gnomeregan and curing the sickness, and Razzle and I are close to a cure, or the recipe for a very powerful rum, and we won't know which until we test it." },
+          text = "Ozzie Togglevolt, inventor, and that's my partner Razzle muttering at the Recombobulator. We're working on a cure for the sickness that took Gnomeregan, or possibly the recipe for a very powerful rum, and we won't know which until we test it." },
         { id = "h_dayafter", tags = { "news" }, when = { questActive = TODO_QUEST("The Day After") },
-          text = "Gnoarn sent you? Bless his bald head. He'll tell you he had a magnificent gnomefro before the radiation, and I'm not saying he's lying, but I've never seen a drawing." },
+          text = "Gnoarn sent you? Bless that old tinker's bald head. He'll tell you he had a magnificent gnomefro before the radiation, and I'm not saying he's lying, but I've never seen a drawing." },
         { id = "h_gnogaine", tags = { "news" }, when = { questActive = TODO_QUEST("Gnogaine") },
           text = "The phial, you have the phial? Hold it up to the irradiated troggs in Gnomeregan and let it fill with their green fallout. Don't drink it, don't sniff it, and don't let it touch your skin, though that last part's more of a suggestion." },
         { id = "h_gnogaine_done", tags = { "news" }, when = { questDone = TODO_QUEST("Gnogaine") },
@@ -394,10 +429,10 @@ P:NPC {
     },
     mekkatorque = {
       big = true,
-      lines = { { id = "mk_default", text = "Razzle thinks the plan was sound and the city wasn't, and I won't hear a word against the High Tinker myself. But some nights I wonder what would have happened if we'd just packed up and left the troggs to it." } },
+      lines = { { id = "mk_default", text = "Razzle thinks the plan was sound and the radiation simply got away from us, and I won't hear a word against the High Tinker myself. But some nights I wonder what would have happened if we'd just packed up and left the troggs to it." } },
       choices = {
-        { text = "He did what he had to. Gnomeregan was worth fighting for.", next = "BACK", fx = { align = { order = 1 }, learn = { "gnomeregan" } } },
-        { text = "He gambled with everyone's lives. That was wrong.", next = "BACK", fx = { align = { order = -1 }, learn = { "gnomeregan" } } },
+        { text = "He did what he had to. Gnomeregan was worth fighting for.", next = "BACK", reply = "That's what I say, every single day, and the High Tinker would be glad to hear it, though I think he says it to himself more than anyone.", fx = { align = { order = 1 }, learn = { "gnomeregan" } } },
+        { text = "He gambled with everyone's lives. That was wrong.", next = "BACK", reply = "Please don't say that too loudly in Kharanos, because some nights, alone with this gearbox, I'm afraid you might be right.", fx = { align = { order = -1 }, learn = { "gnomeregan" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -481,16 +516,73 @@ P:NPC {
         { text = "I need to stable a beast.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Whose bear cub is that?", next = "cub" },
         { text = "What's the hardest beast you've kept?", next = "hardest" },
+        { text = "That ram's been eyeing my pockets since I walked in.", next = "ram" },
+        { text = "How do you keep beasts alive through a Dun Morogh winter?", next = "winter" },
+        { text = "Did my cat give you trouble too?", next = "elf", when = { race = "NightElf" } },
+        { text = "Would you stable a mechanostrider?", next = "strider", when = { race = "Gnome" } },
+        { text = "Which beast should a new hunter tame here?", next = "tame", when = { class = "HUNTER" } },
         { text = "I'll be going.", next = "END" },
       },
+    },
+
+    ram = {
+      lines = { { id = "ra_default", text = "Aye, he would, he can smell an apple through two layers o' leather. He's one o' Veron Amberstill's rams from the ranch down the road, here to be shod, an' he's decided my stable's a better class o' lodging than his own." } },
+      choices = {
+        { text = "Tell me about the Amberstill ranch.", next = "ra_ranch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ra_ranch = {
+      lines = { { id = "rar_default", text = "Veron raises the finest rams in Dun Morogh, the kind the Mountaineers ride an' the kind every young dwarf dreams o' owning. They're nae cheap, mind, an' he'll nae sell one to just anybody, but once ye've ridden a ram ye'll never want a horse." } },
+      choices = {
+        { text = "Why won't he sell to just anybody?", next = "ra_sell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ra_sell = {
+      lines = { { id = "ras_default", text = "Because a ram's a dwarf's beast, an' Veron thinks it takes a dwarf, or a friend o' the dwarves, to understand one. Some call that stubborn an' some call it proper, an' Veron calls it his business." } },
+      choices = {
+        { text = "Good beasts should go to whoever can pay.", next = "BACK", fx = { align = { order = -1 } },
+          reply = "Ye'd get on wi' the goblins, then. Veron wouldnae." },
+        { text = "He's right. A beast should go to those who honor it.", next = "BACK", fx = { align = { order = 1 } },
+          reply = "Spoken like a proper mountain folk. I'll tell Veron ye said so." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    winter = {
+      lines = { { id = "wi_default", text = "Straw a foot deep, a brazier that never goes out, an' a warm mash o' oats an' boar fat every night. The cold's nae the worst of it, though; it's the ice between the toes an' the wolves that come down from the ridge when the snow's deep." } },
+      choices = {
+        { text = "Wolves come down this far?", next = "wi_wolves" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wi_wolves = {
+      lines = { { id = "wiw_default", text = "In a hard winter, aye, an' the Frostmane trolls behind them sometimes, sniffin' about for anything they can carry off. I keep a hammer by the door an' the cub's mother's growl in my memory, an' between the two o' them I've nae lost a beast yet." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "frostmane" } } } },
+    },
+
+    elf = {
+      lines = { { id = "el_default", text = "Not yet, but give it time! Your folk's cats are lovely beasts that hate snow wi' the whole o' their hearts. Leave yours by the brazier an' keep yer blankets well away from it." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+
+    strider = {
+      lines = { { id = "st_default", text = "I'd stable it, but I wouldnae know what to feed it! Ozzie Togglevolt says they drink oil an' complain in clicks, an' I've enough complainin' wi' the ram. Take it to a gnome, love, I'll keep to the beasts that breathe." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    tame = {
+      lines = { { id = "ta_default", text = "A bear, if ye've the patience, for they're steady an' they don't mind the cold. A boar's a good fighter but thick as a door, an' a snow leopard's lovely if ye can find one that'll let ye near. Whatever ye pick, bring it here first an' let me have a look at its paws." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
 
     cub = {
       big = true,
       lines = { { id = "cu_default", text = "Nobody's, now. A hunter tamed his mother up by the Grizzled Den an' left the wee one behind, so I took him in. Some say I should let him go back to the wild before he gets too big, an' some say a bear raised by a dwarf would make a fine guard for the stables." } },
       choices = {
-        { text = "Let him go back to the wild where he belongs.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Train him. He'll make a fine stable guard.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let him go back to the wild where he belongs.", next = "BACK", reply = "Aye, ye're probably right, an' I'll take him up tae the Grizzled Den when he's bigger, though I'll miss him snorin' on my boots somethin' terrible.", fx = { align = { order = -1 } } },
+        { text = "Train him. He'll make a fine stable guard.", next = "BACK", reply = "That's what I've been thinkin', an' he's already growlin' at the rams, so with a wee bit o' trainin' he'll be the finest guard in Dun Morogh.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -505,6 +597,9 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I couldn't tell ye. Ask Belm at the inn, he hears everythin'." } },
+    _none = { { id = "tp_none", text = "I couldn't tell ye. Ask Innkeeper Belm at the Thunderbrew, for he hears everythin'." } },
+    knows = { { id = "tp_knows", text = "Beasts, straw, an' how to keep paws warm in the snow." } },
+    advice = { { id = "tp_ad", text = "Check yer beast's paws every night. Ice cuts worse than any wolf." } },
+    frostmane = { { id = "tp_frostmane", text = "Thievin' trolls. They follow the wolves down in a hard winter, an' I keep a hammer by the door." } },
   },
 }

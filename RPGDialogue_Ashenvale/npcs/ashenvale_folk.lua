@@ -28,7 +28,7 @@ P:NPC {
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid. Tell me honestly, do all of you come back from the Dream this sleepy, or is it only the one I chose?" },
+      text = "A druid. Tell me, do all of you come back from the Dream this sleepy, or is it only the one I chose?" },
     { id = "n_weary", cat = "weary", when = { resting = true },
       text = "You look tired. Please don't fall asleep here, I've had quite enough of that from one person." },
   },
@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Liladris Moonriver. My beloved, Kerlonian Evershade, woke from the Emerald Dream months ago and set out to meet me here, and I've been waiting at Maestra's Post ever since." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Sleeper Has Awakened") },
-          text = "You've found him, then, and he's dozing somewhere between here and Darkshore. Keep the horn close, and blow it whenever he nods off, and please don't let the furbolgs eat him on the way." },
+          text = "You've found him, then, and he's dozing somewhere between here and Darkshore. Keep the horn of awakening close, and blow it whenever he nods off, and please don't let the furbolgs eat him on the way." },
         { id = "h_done", when = { questDone = TODO_QUEST("The Sleeper Has Awakened") },
           text = "He's sleeping in the back room right now, so speak softly, though I don't suppose a stampede of kodo would wake him. Thank you for bringing him home, with all my heart." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -61,7 +61,7 @@ P:NPC {
     },
 
     kerlonian = {
-      lines = { { id = "ke_default", text = "A druid of the Cenarion Circle, gentle and clever and absolutely hopeless at being on time. He went into the Dream with the others, long ago, and I waited, and now he's out and I'm still waiting, which I'm told is very romantic." } },
+      lines = { { id = "ke_default", text = "He's a druid of the Cenarion Circle, gentle and clever and absolutely hopeless at being on time. He went into the Dream with the others, long ago, and I waited, and now he's out and I'm still waiting, which I'm told is very romantic." } },
       choices = {
         { text = "It is romantic.", next = "romantic" },
         { text = "It sounds exhausting.", next = "exhausting" },
@@ -71,8 +71,8 @@ P:NPC {
     romantic = {
       lines = { { id = "ro_default", text = "Then you can wait for him next time, and I'll go to the inn at Astranaar. No, I don't mean that, or not entirely, because I'd wait another thousand years if he asked me to, though I'd complain about it." } },
       choices = {
-        { text = "Love that waits is worth more than gold.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Life is short. Go and drag him here yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Love that waits is worth more than gold.", next = "BACK", reply = "It is, and I'll remind myself of that the next time he oversleeps by a century. You're kind to say it.", fx = { align = { order = 1 } } },
+        { text = "Life is short. Go and drag him here yourself.", next = "BACK", reply = "Ha! If I could drag a druid out of the Dream, I'd have done it long ago. But I like the way you think.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -90,14 +90,14 @@ P:NPC {
       },
     },
     horn = {
-      lines = { { id = "ho_default", text = "A horn of awakening, which the Circle uses for exactly this sort of trouble. Blow it near him and he'll wake, for a while, and you'll have to blow it again before the next bend in the road." } },
+      lines = { { id = "ho_default", text = "There's a horn of awakening, which the Circle uses for exactly this sort of trouble. Blow it near him and he'll wake, for a while, and you'll have to blow it again before the next bend in the road." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dream_danger = {
       lines = { { id = "dd_default", text = "He says it's beautiful and he won't say more, and when I ask, he goes quiet in a way I don't like. I think he saw something there that frightened him, and I think he's sleeping to look at it again." } },
       choices = {
-        { text = "Trust him. He'll tell you when he's ready.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Make him tell you. You've earned it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Trust him. He'll tell you when he's ready.", next = "BACK", reply = "I will, I suppose, because I've always trusted him. It's just hard to wait when he looks like that.", fx = { align = { honor = 1 } } },
+        { text = "Make him tell you. You've earned it.", next = "BACK", reply = "I've earned it, haven't I? Perhaps you're right, and I'll ask him again, gently.", fx = { align = { honor = -1 } } },
       },
     },
 
@@ -114,14 +114,14 @@ P:NPC {
     },
 
     post = {
-      lines = { { id = "po_default", text = "A watch post on the edge of the forest, with Delgren and his paladins, a few Sentinels, and more orc scouts in the trees than anyone likes to count. It's not a home, but the moon comes up beautifully over the hills, and I watch it every night." } },
+      lines = { { id = "po_default", text = "It's a watch post on the edge of the forest, with Delgren the Purifier and his paladins, a few Sentinels, and more orc scouts in the trees than anyone likes to count. It's not a home, but the moon comes up beautifully over the hills, and I watch it every night." } },
       choices = {
         { text = "What do you make of Delgren?", next = "delgren" },
         { text = "Something else.", next = "BACK" },
       },
     },
     delgren = {
-      lines = { { id = "de_default", text = "Earnest, young, and very human, and he prays out loud, which none of us are used to. But he stands his watch without complaining, and he never once told me how lucky I am to love a druid." } },
+      lines = { { id = "de_default", text = "He's earnest, young and very human, and he prays out loud, which none of us are used to. But he stands his watch without complaining, and he never once told me how lucky I am to love a druid." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -165,9 +165,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Shael'dryn, a daughter of Cenarius, and I keep this moonwell for as long as anyone lets me. Raene sent you, didn't she? She only sends people when she's worried about something." },
+          text = "I'm Shael'dryn, a daughter of Cenarius, and I keep this moonwell for as long as anyone lets me. Raene Wolfrunner sent you, didn't she? She only sends people when she's worried about something." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Raene's Cleansing") },
-          text = "Dartol's Rod is in pieces, and the pieces are in places no sensible person would go, which is why I'm so glad you came. Bring them to me and I'll put the rod back together, and then we'll find the shrine that can wake it." },
+          text = "Dartol's Rod is in pieces, and the pieces are in places no sensible person would go, so I'm very glad you came. Bring them to me and I'll put the rod back together, and then we'll find the shrine that can wake it." },
         { id = "h_done", when = { questDone = TODO_QUEST("Raene's Cleansing") },
           text = "Raene has her rod and I have my well, and the treants are still sick, but one thing at a time. You did well, you really did." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -197,8 +197,8 @@ P:NPC {
     rod_should = {
       lines = { { id = "rs_default", text = "I asked myself that too, all night by the well. But Raene's people are dying out there, and a tool that lets them walk where they couldn't before might save some of them, so I decided yes." } },
       choices = {
-        { text = "Dartol's friends hid it for a reason. Be careful.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A tool that saves lives should be used.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Dartol's friends hid it for a reason. Be careful.", next = "BACK", reply = "I will, I promise, and I'll watch it closely. Dartol's friends weren't fools.", fx = { align = { order = 1 } } },
+        { text = "A tool that saves lives should be used.", next = "BACK", reply = "That's what I keep telling myself, and it helps to hear it from someone else. Raene's people need every chance.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -217,13 +217,13 @@ P:NPC {
     treants_gentle = {
       lines = { { id = "tg_default", text = "That's kind of you, and a bit silly, because they won't be gentle with you. But thank you anyway, because nobody else has said it." } },
       choices = {
-        { text = "They were good once. They deserve mercy.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "What they were doesn't matter. They're dangerous now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They were good once. They deserve mercy.", next = "BACK", reply = "They were, and I'm so glad you remember it. Be gentle, if you can, and safe, if you can't.", fx = { align = { light = 1 } } },
+        { text = "What they were doesn't matter. They're dangerous now.", next = "BACK", reply = "I know, and I won't ask you to stand still for them. Just, please, don't hate them for it.", fx = { align = { light = -1 } } },
       },
     },
 
     dordanil = {
-      lines = { { id = "do_default", text = "They took the last piece of the rod to keep it safe, in their barrow den east of the road toward the Barrens. Something killed them, not long ago, and I'd rather not think about it, so I'll only say be careful there." } },
+      lines = { { id = "do_default", text = "They took the last piece of the rod to keep it safe, in their barrow den east of the road toward the Barrens. Something killed them, not long ago, and I cannot bear to think on it, so I'll only say be careful there." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -272,9 +272,9 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Illiyana, a daughter of Cenarius. The satyr of these woods killed my friend Anilia and stole the Branch of Cenarius from her, and I want them to answer for it." },
         { id = "h_slay", tags = { "news" }, when = { questActive = TODO_QUEST("Satyr Slaying!") },
-          text = "Sixteen horns, and I'll know every one of them deserved it. The satyr gather to the north and east of here, in the Night Run and around Satyrnaar." },
+          text = "Sixteen horns, and I'll know each one belonged to a creature that earned its end. The satyr gather to the north and east of here, in the Night Run and around Satyrnaar." },
         { id = "h_branch", tags = { "news" }, when = { questActive = TODO_QUEST("The Branch of Cenarius") },
-          text = "Anilia spoke to you before she died? Then you know who took it. Geltharis, the satyr, and he'll be somewhere close to where she fell." },
+          text = "Anilia spoke to you before she died? Then you know who took it: Geltharis, the satyr, and he'll be somewhere close to where she fell." },
         { id = "h_done", when = { questDone = TODO_QUEST("Satyr Slaying!") },
           text = "I counted the horns twice, and I felt a little better each time, and then I felt worse. I don't think grief listens to arithmetic." },
       },
@@ -304,7 +304,7 @@ P:NPC {
     },
 
     branch = {
-      lines = { { id = "br_default", text = "A branch from the Lord of the Forest himself, given to the dryads to keep, and it holds a little of his strength. In a satyr's hands it could poison a whole grove, which is why Anilia went after it alone." } },
+      lines = { { id = "br_default", text = "It's a branch from the Lord of the Forest himself, given to the dryads to keep, and it holds a little of his strength. In a satyr's hands it could poison a whole grove, which is why Anilia went after it alone." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
     },
 
@@ -314,10 +314,10 @@ P:NPC {
     },
 
     help = {
-      lines = { { id = "he_default", text = "I don't know, honestly. But every satyr that falls is one fewer that can do to someone else what was done to her, and that has to count for something, doesn't it?" } },
+      lines = { { id = "he_default", text = "I don't know. But every satyr that falls is one fewer that can do to someone else what was done to her, and that has to count for something, doesn't it?" } },
       choices = {
-        { text = "It counts. Every one stopped saves a life.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Revenge won't heal you. Mourn her instead.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It counts. Every one stopped saves a life.", next = "BACK", reply = "It does, doesn't it? Thank you, I needed to hear someone say it.", fx = { align = { light = -1 } } },
+        { text = "Revenge won't heal you. Mourn her instead.", next = "BACK", reply = "I know, and I'll mourn her too, I promise. But I can't sit still while the satyrs are out there.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -379,7 +379,7 @@ P:NPC {
     },
 
     zoram = {
-      lines = { { id = "zo_default", text = "A Highborne city on this coast, before the Sundering, and a grand one by the look of what's left. When the Well was destroyed the sea came in and swallowed it, and you can still see the tops of its towers at low tide." } },
+      lines = { { id = "zo_default", text = "It was a Highborne city on this coast, before the Sundering, and a grand one by the look of what's left. When the Well was destroyed the sea came in and swallowed it, and you can still see the tops of its towers at low tide." } },
       choices = {
         { text = "And the naga live there now?", next = "naga" },
         { text = "Something else.", next = "BACK" },
@@ -400,13 +400,13 @@ P:NPC {
     st_stance = {
       lines = { { id = "sts_default", text = "You sound like my mother, and like every Sentinel who's walked past my camp. But nobody learns anything by leaving locks alone." } },
       choices = {
-        { text = "Leave the Highborne's secrets drowned.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Open it. Knowledge belongs to whoever finds it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Leave the Highborne's secrets drowned.", next = "BACK", reply = "There, you sound like my mother too, now. Well, it's too late, because I've already started.", fx = { align = { order = 1 } } },
+        { text = "Open it. Knowledge belongs to whoever finds it.", next = "BACK", reply = "Exactly, exactly, and you're the first person who's said so! I'll write your name in my notes.", fx = { align = { order = -1 } } },
       },
     },
 
     ruuzel = {
-      lines = { { id = "ru_default", text = "The naga who leads the raiders on the strand, and the one who found the Ring of Zoram before I could. The ring was the key to the statuette all along, which I'd have known sooner if I'd read more carefully." } },
+      lines = { { id = "ru_default", text = "She's the naga who leads the raiders on the strand, and the one who found the Ring of Zoram before I could. The ring was the key to the statuette all along, which I'd have known sooner if I'd read more carefully." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -453,6 +453,8 @@ P:NPC {
           text = "I am Maluressian, and I keep the stables here on the island. I'll look after any companion you leave with me as if it were my own, and better than some keep their own." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter. Your companions are safe with me, though I'll ask you to come and visit them, because they notice when you don't." },
+        { id = "h_druid", when = { class = "DRUID" },
+          text = "A druid, and the sabers lifted their heads when you came up the path, which they only do for kin. I am Maluressian, and I keep the stables here; you'll forgive me if I talk to them more than to you." },
       },
       again = {
         { id = "h_again", text = "Anything else? Speak softly." },
@@ -462,27 +464,86 @@ P:NPC {
         { text = "I'd like to see the stables.", next = "BUSINESS" },
         { text = "What sort of beasts do you keep?", next = "beasts" },
         { text = "How do the animals take the war?", next = "war" },
+        { text = "Astranaar seems a strange place for stables.", next = "island" },
+        { text = "How would I find a companion of my own?", next = "find", when = { class = "HUNTER" } },
+        { text = "The Horde ride wolves here too. Do you hate them?", next = "wolves", when = { faction = "Horde" } },
         { text = "Thank you.", next = "END" },
       },
     },
     beasts = {
-      lines = { { id = "be_default", text = "Sabers mostly, and wolves, and once a bear who stayed a month and ate half of Astranaar's honey. Every one of them was easier to care for than the hunters who left them here." } },
+      lines = { { id = "be_default", text = "Sabers mostly, and wolves, and once a bear who stayed a month and ate most of Astranaar's honey. Every beast among them was easier to care for than the hunters who left them here." } },
       choices = {
         { text = "What makes a good hunter, then?", next = "good" },
+        { text = "Tell me about this bear.", next = "bear" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    bear = {
+      lines = { { id = "br_default", text = "His hunter left him with me for a week and came back after a month, smelling of Darkshore and full of apologies. In the meantime the bear found the beekeepers' stores, and the beekeepers found me, and I paid for that honey for a season." } },
+      choices = {
+        { text = "Did the hunter ever pay you back?", next = "bear_paid" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bear_paid = {
+      lines = { { id = "bp_default", text = "In apologies, at great length, and in coin, eventually. The bear paid me back better: he slept against the stable door every night and nothing came near it. I still miss him, if I'm honest, and I don't miss the hunter at all." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     good = {
       lines = { { id = "go_default", text = "One who thinks of the beast as a companion and not a weapon. You can tell the difference in the way they call them back; one sort calls, the other sort commands." } },
       choices = {
-        { text = "A companion is an equal. I call mine.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A beast needs a firm hand. I command.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A companion is an equal. I call mine.", next = "BACK", reply = "Then your beast is lucky, and you'll find it comes back gladly. That's how it should be.", fx = { align = { order = -1 } } },
+        { text = "A beast needs a firm hand. I command.", next = "BACK", reply = "Then it will obey, and you'll never know what it might have given you freely. Think on that.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     war = {
       lines = { { id = "wa_default", text = "Badly. They hear the Warsong axes long before we do, and on bad nights the sabers pace all night long. I sing to them, which helps them more than it helps me." } },
+      choices = {
+        { text = "What do you sing to them?", next = "song" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    song = {
+      lines = { { id = "so_default", text = "An old lullaby from Darnassus about the moon walking the forest to check that every creature is asleep. My mother sang it to me, and I sing it badly, but the sabers have never once complained about my voice, which is more than Kimlya can say." } },
+      choices = {
+        { text = "The Warsong's axes are the real trouble, though.", next = "axes" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "elune" } } },
+      },
+    },
+    axes = {
+      big = true,
+      lines = { { id = "ax_default", text = "They are. Every tree they fell is a den gone, or a nest, and the beasts that lose their homes wander toward the lake and into the hunters' traps. Some at the Sentinels' table want to burn the lumber camps, and some want to wait for the Horde to tire of it." } },
+      choices = {
+        { text = "Burn the camps. The forest can't wait for them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fire only kills more beasts. Find another way.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "warsong" } } },
+      },
+    },
+    island = {
+      lines = { { id = "is_default", text = "Strange, but safe. The lake keeps the wolves of the Horde at a distance, and the only way in is over the bridges, which the Sentinels watch. A frightened beast sleeps better with water all around it, and so, I find, do I." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "ashenvale" } } } },
+    },
+    find = {
+      lines = { { id = "fi_default", text = "Not by chasing the strongest thing in the forest, which is what young hunters always do. Watch a beast for a day before you call it, and see how it treats its own; the gentle ones make the best companions, and they're braver than they look." } },
+      choices = {
+        { text = "Any beast near Astranaar you'd recommend?", next = "find_where" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    find_where = {
+      lines = { { id = "fw_default", text = "The ghostpaw wolves in the west are clever and loyal, and the sabers on the ridges are proud but true. Leave the bears near the furbolg camps alone, though; the sickness that took the Foulweald gets into everything that drinks near them." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } } },
+    },
+    wolves = {
+      lines = { { id = "wo_default", text = "Hate them? No. A wolf doesn't choose its rider, any more than my sabers choose theirs, and I've seen Horde wolves loose in the forest that were as frightened as anything of ours. It's the riders I have opinions about, and I keep them to myself." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "The beasts of the forest, and the hunters who are kind to them, and the ones who aren't." } },
+    warsong = { { id = "tp_warsong", text = "Every tree they fell sends something frightened toward my stables. I count the cost in sleepless sabers." } },
+    _none = { { id = "tp_none", text = "I wouldn't know. Ask me about a beast instead; I know beasts." } },
   },
 }

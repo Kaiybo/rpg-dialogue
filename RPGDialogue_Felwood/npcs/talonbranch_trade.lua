@@ -65,8 +65,8 @@ P:NPC {
         { id = "gw_default", text = "Because if we left, the forest would forget it was ever ours, and so would we. Some in Darnassus say Felwood is lost and we should stop spending lives on it, and I understand them, but I don't agree." },
       },
       choices = {
-        { text = "You're right to hold on. This land is worth it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Darnassus has a point. Spend your lives where they count.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You're right to hold on. This land is worth it.", next = "BACK", reply = "Thank you, and I'll keep holding as long as there's breath in me. Felwood was ours, and it will be again.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Darnassus has a point. Spend your lives where they count.", next = "BACK", reply = "They do, and I can't fault them, not really. But someone has to stay, or the forest will forget us entirely.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,8 +103,8 @@ P:NPC {
         { id = "fc_default", text = "The Emerald Circle believes so, and the druids at the sanctuary plant something new every day. I'll believe it when I can sell a Felwood apple without lying about where it came from." },
       },
       choices = {
-        { text = "Have faith. The druids will mend it in time.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Waiting won't fix it. Burn out the rot and replant.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Have faith. The druids will mend it in time.", next = "BACK", reply = "I'll try, and I'll keep stocking the clean apples from Ashenvale until then. Faith is easier on a full stomach.", fx = { align = { order = 1 } } },
+        { text = "Waiting won't fix it. Burn out the rot and replant.", next = "BACK", reply = "Some say that, and the druids flinch every time. Fire is how this forest started dying, after all.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -179,8 +179,8 @@ P:NPC {
         { id = "st_default", text = "I don't know, and that's what bothers me. I've a sword in the back I won't sell because it's drunk so much fel blood it hums at night, and some would say I should melt it down, and others would pay me a fortune for it." },
       },
       choices = {
-        { text = "Melt it down. Nothing good comes of fel steel.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A weapon that hums is still a weapon. Sell it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Melt it down. Nothing good comes of fel steel.", next = "BACK", reply = "Perhaps you're right, and perhaps I should. But I can't bring myself to destroy something so well made.", fx = { align = { light = 1 } } },
+        { text = "A weapon that hums is still a weapon. Sell it.", next = "BACK", reply = "Not to anyone who'd want it, and not to anyone I'd trust with it. It stays in the back until I decide.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -217,8 +217,8 @@ P:NPC {
         { id = "af_default", text = "The Deadwood fight like cornered bears, and they were people once, which some find hard. I tell my customers to strike fast and not think about it until afterwards, and some of them tell me I'm cold." },
       },
       choices = {
-        { text = "You're not cold. Mercy is a quick death.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Every life deserves a thought, even a mad one's.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You're not cold. Mercy is a quick death.", next = "BACK", reply = "That's what I tell myself, and it helps on most days. A quick end is the kindest thing I can sell.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Every life deserves a thought, even a mad one's.", next = "BACK", reply = "It does, and I give it one every time, afterwards. But a thought in the middle of a fight gets you killed.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

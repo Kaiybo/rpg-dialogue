@@ -24,6 +24,6 @@ P:Pool {
   choices = { { text = "For Theramore.", next = "END", fx = { standing = { theramore = 1 } } } },
   topics = {
     grimtotem = { { id = "t_grimtotem", text = "Tauren who don't follow Thrall. Captain Vimes has been asking about them, though he wouldn't say why." } },
-    _none = { { id = "t_none", text = "Ask in the citadel; Captain Vimes or the Archmage will know, and mind the big leech under the harbour steps; the guards call him Gerald." } },
+    _none = { { id = "t_none", text = "Ask in the citadel. Captain Vimes or Archmage Tervosh will know." } },
   },
 }

@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Marshal Bluewall, Ironforge Brigade. The Horde's been getting a steady supply of reinforcements from the north, and it's been a struggle to keep up, so let me explain the situation to you, and quickly." },
+          text = "Marshal Bluewall, Ironforge Brigade. The Horde started gathering silithyst out here well before we did, and they get steady reinforcements from the north, so every crystal we bring in counts double." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Scouring the Desert"), days = 1 } },
           text = "Thank the Light you made it back! If we'd only started this sooner our need wouldn't be so desperate, but every crystal you bring in is one the Horde doesn't get." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -64,8 +64,8 @@ P:NPC {
       big = true,
       lines = { { id = "sr_default", text = "It's reason enough in a war, recruit. Whatever the Horde gathers, they'll use against us, and if it turns out the crystals are worthless, then we've wasted some sweat and they've wasted a good deal more." } },
       choices = {
-        { text = "Then we gather it all. Deny them everything.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fighting over crystals nobody understands is folly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then we gather it all. Deny them everything.", next = "BACK", reply = "Aye, that's the spirit, recruit, every crystal in our sacks is one they'll never carry home, so get out there and fill yours.", fx = { align = { order = 1 } } },
+        { text = "Fighting over crystals nobody understands is folly.", next = "BACK", reply = "Folly or not, the Horde's out there gathering, and I'll not be the dwarf who sat on his hands while they stripped the dunes bare.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -158,8 +158,8 @@ P:NPC {
       big = true,
       lines = { { id = "hw_default", text = "Drones, soldiers, things with too many legs and no names yet. I lost two good footmen last week to something I never saw clearly. The druids want us to leave the hives alone until they understand them, and I'd like to understand them from the far side of a cannon." } },
       choices = {
-        { text = "Burn the hive out before it grows.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Hold the line and wait for the Circle's word.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Burn the hive out before it grows.", next = "BACK", reply = "By my beard, I'd like nothing better, and if the druids ever turn their backs for a day, I'll have the torches lit before supper.", fx = { align = { order = -1 } } },
+        { text = "Hold the line and wait for the Circle's word.", next = "BACK", reply = "Aye, that's the sensible answer, and I'll hold it, though it galls me tae sit still while those things breed under our boots.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -321,7 +321,7 @@ P:NPC {
       lines = { { id = "dw_default", text = "Stubborn, well-armed and too many of them, because they get fresh soldiers off every ship. I respect a stubborn enemy. I'd still rather bury one, and some of my grunts say we should hit their camp now, before Kaldon's precious peace gets any older." } },
       choices = {
         { text = "Strike their camp. Take the crystals by force.", next = "dwarves_end", fx = { align = { order = -1 } } },
-        { text = "Win the race honestly. Gather faster than they do.", next = "dwarves_end", fx = { align = { order = 1 } } },
+        { text = "Win the race fairly. Gather faster than they do.", next = "dwarves_end", fx = { align = { order = 1 } } },
         { text = "What will you do?", next = "dwarves_end" },
       },
     },
@@ -334,7 +334,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rank = {
-      lines = { { id = "ra_default", text = "By being alive when better orcs weren't, and by learning from every one of them. That's how anyone makes general in the Horde, whatever the songs say." } },
+      lines = { { id = "ra_default", text = "By being alive when better orcs weren't, and by learning from each of their deaths. That's how anyone makes general in the Horde, whatever the songs say." } },
       choices = {
         { text = "That's an honest answer.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },

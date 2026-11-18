@@ -18,8 +18,8 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back on the ridge! Ormer'll be pleased, though he'll never say it." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' we're still here, still diggin' when the raptors let us. Any letters from Menethil in yer pack?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown handy since ye first climbed up here. The raptors have noticed, an' so have I." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "Word reached us even up here that ye've been helpin' folk. Thank ye, an' if any o' them was Tarrel, thank ye twice." },
-    { id = "g_note", when = { questActive = TODO_QUEST("In Search of The Excavation Team") }, text = "Tarrel will be beside himself by now. Get word back tae him quick, if ye please." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word reached us even up here that ye've been helpin' folk. Thank ye, an' if any o' them was my Tarrel, thank ye twice." },
+    { id = "g_note", when = { questActive = TODO_QUEST("In Search of The Excavation Team") }, text = "My husband Tarrel will be beside himself by now. Get word back tae him quick, if ye please." },
   },
 
   notice = {
@@ -75,8 +75,8 @@ P:NPC {
         { id = "aw_default", text = "That's what I'd like tae know. They'd left us alone for weeks, an' then the day the big bones came up, they came wi' them, as if we'd dug intae somethin' that was theirs." },
       },
       choices = {
-        { text = "Then leave the bones in the ground.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Finish the dig. Knowledge is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then leave the bones in the ground.", next = "BACK", reply = "An' throw away a season's diggin' an' three good dwarves' blood? I'll no' do it, though I'll admit the thought's crossed ma mind on the long nights up here.", fx = { align = { order = -1 } } },
+        { text = "Finish the dig. Knowledge is worth the risk.", next = "BACK", reply = "That's the League talkin', an' I'm glad tae hear it from someone who isnae trapped on this ridge. Mind, it's easier sayin' so down there than up here wi' the raptors.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,8 +130,8 @@ P:NPC {
           text = "Truth be told, I wanted somethin' that was mine, a find wi' my name on it in the League's books. I'll no' tell Tarrel that, an' I'll thank ye no' tae either." },
       },
       choices = {
-        { text = "Your work matters. He'll understand.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Some things are better kept from a husband.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your work matters. He'll understand.", next = "BACK", reply = "He always has, bless him, an' that's half o' why I married him. I only hope I get the chance tae hear him say so again.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some things are better kept from a husband.", next = "BACK", reply = "Is that so? Ye've no' met ma Tarrel, then, for he'll know the whole of it the moment he sees ma face, letter or no letter.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

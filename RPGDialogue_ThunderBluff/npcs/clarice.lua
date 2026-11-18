@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_active", when = { questActive = TODO_QUEST("Until Death Do Us Part") }, text = "The Sepulcher, in Silverpine. Put it on his tomb and walk away; that's what he did." },
     { id = "g_done", when = { questDone = TODO_QUEST("Until Death Do Us Part") }, text = "It's on his grave, then. Good. I thought I'd feel something, and I don't, which is also good." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone. I noticed, which surprises me, since the grave cured me of noticing most things." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than the errand-runner who took my pendant. The grave does that to some of us, and life does it to others, for a while." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when we first met. The grave does that to some of us, and life does it to others, for a while." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Somebody on the rises is angry with you. Welcome to my world, though at least yours might forgive you." },
   },
 
@@ -37,13 +37,13 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Until Death Do Us Part") },
           text = "He left me for his blasted crusade, because the Light was the most important thing we had against the undead, he said. Well, he's dead now, and I'm the very thing he was trying to stop, so take this pendant to his tomb at the Sepulcher. I want nothing more to do with it, or with him." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Until Death Do Us Part"), days = 3 } },
-          text = "You put it on his tomb? And the gem dulled, you say. Fitting, really, because so did everything else about that man, eventually." },
+          text = "You put it on his tomb, and the gem went dull? Fitting, really, because so did everything else about that man, eventually." },
         { id = "h_forsaken", when = { race = "Scourge" },
           text = "Another one of the Dark Lady's lost souls, so far from the Undercity. Sit, if you like; the tauren won't mind, and I've stopped caring who does." },
       },
       again = {
         { id = "h_again", text = "What else? I'm not going anywhere; the dead rarely have appointments." },
-        { id = "h_again2", text = "Go on. Talking passes the time, and unlife has left me a great deal of it." },
+        { id = "h_again2", text = "Go on. Talking passes the time, and unlife has left me nothing but time." },
       },
       choices = {
         { text = "Tell me about your husband.", next = "yuriv" },
@@ -56,7 +56,7 @@ P:NPC {
       },
     },
     yuriv = {
-      lines = { { id = "y_default", text = "Yuriv. He took up the Light and a crusade with it, and every night I sat waiting while he went out to fight the dead. Always second to his blasted duty, and now he lies in a tomb in Silverpine." } },
+      lines = { { id = "y_default", text = "Yuriv. He took up the Light and a crusade with it, and every night I sat waiting while he went out to fight the dead. I always came second to his blasted duty, and now he lies in a tomb in Silverpine." } },
       choices = {
         { text = "He was trying to protect you.", next = "protect" },
         { text = "He sounds like a fool.", next = "fool" },
@@ -73,8 +73,8 @@ P:NPC {
       big = true,
       lines = { { id = "ch_default", text = "Don't. I don't talk about them, not to strangers and not to myself. Ask me about Yuriv; that anger at least I can stand to hold." } },
       choices = {
-        { text = "I'm sorry. I won't ask again.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "You can't run from them forever, Clarice.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'm sorry. I won't ask again.", next = "BACK", reply = "Good. You'd be surprised how few of the living can manage that much, they always want to see the wound. Ask about Yuriv, if you must ask anything.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "You can't run from them forever, Clarice.", next = "BACK", reply = "I can run as long as I like, I've no breath to lose. Leave it, or leave me, and I'd honestly prefer the second.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Then tell me more about Yuriv.", next = "fool" },
       },
     },
@@ -92,8 +92,8 @@ P:NPC {
     alive = {
       lines = { { id = "a_default", text = "Some of it, the way you remember a dream after waking. I remember the kitchen and the smell of bread, and I remember being angry, and the anger came through death better than the bread did." } },
       choices = {
-        { text = "Maybe you could let the anger go.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep the anger. It's yours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Maybe you could let the anger go.", next = "BACK", reply = "And keep what, then, the bread? The bread is gone, darling, and the anger is all that stayed loyal to me.", fx = { align = { order = 1 } } },
+        { text = "Keep the anger. It's yours.", next = "BACK", reply = "Finally, someone who doesn't want to save me. It's mine, and it's earned, and Yuriv can feel it from whatever crusade he's still marching.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,7 +102,7 @@ P:NPC {
       choices = { { text = "Then we'll keep talking.", next = "BACK", fx = { affinity = 2 } } },
     },
     light = {
-      lines = { { id = "l_default", text = "Right? Perhaps. And dead, and I'm still here, so you tell me what his Light bought him. Go ahead and pray for him if you like, because I've given up doing it." } },
+      lines = { { id = "l_default", text = "Right? Perhaps, but he's dead and I'm still here, so you tell me what his Light bought him. Go ahead and pray for him if you like, because I've given up doing it." } },
       choices = {
         { text = "I'll pray for him, and for you.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -113,7 +113,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A wife, once, in Lordaeron. Now I'm a Forsaken woman in a tauren city, and that's as much of my story as you'll get." } },
     advice = { { id = "tp_ad", text = "Don't marry anyone who loves a cause more than you. Take it from a woman who did." } },
-    scarlet_crusade = { { id = "tp_sc", text = "Zealots who want people like me burned. Yuriv would have hated them, I think, or joined them, and I honestly can't say which." } },
+    scarlet_crusade = { { id = "tp_sc", text = "Zealots who want people like me burned. Yuriv would have hated them, I think, or joined them, and I truly can't say which." } },
     scourge = { { id = "tp_scourge", text = "The Scourge took me in my own kitchen, and I woke up dead and hungry and answering to a voice in my head. The Dark Lady silenced that voice, and I have been grateful in my cold way ever since." } },
     forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, which is a gloomy name, but an honest one. The tauren are kind to me here, which is more than the living of Lordaeron ever were." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady freed us from the Lich King, and she asks for very little in return. Only everything, I suppose, but I gave that up when I died." } },

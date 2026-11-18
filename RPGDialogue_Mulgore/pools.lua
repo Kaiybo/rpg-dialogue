@@ -5,7 +5,7 @@ P:Pool {
   id = "guard_bloodhoof", role = "guard", community = "bloodhoof",
   barks = {
     { id = "b_plains", text = "The grass is high this year, which is good for the kodo, and good for hiding gnolls, and very good for hiding whatever the kodo left behind." },
-    { id = "b_wells", text = "Don't drink from the wells to the north, not until Mull says so." },
+    { id = "b_wells", text = "Don't drink from the wells to the north, not until Mull Thunderhorn, who tends them, says so." },
   },
   greetings = {
     { id = "g_village", text = "Here in Bloodhoof Village, the bluffs are to the north and the gnolls to the west, and the goblins are everywhere they shouldn't be." },

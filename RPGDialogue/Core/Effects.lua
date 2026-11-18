@@ -85,7 +85,7 @@ end
 ---------------------------------------------------------------------------
 -- Traits
 ---------------------------------------------------------------------------
-Effects.TRAITS = { "witty", "stern", "kind", "cruel", "pious", "skeptical", "greedy", "generous", "curious", "brave", "cautious" }
+Effects.TRAITS = { "witty", "stern", "kind", "cruel", "pious", "skeptical", "greedy", "generous", "curious", "brave", "cautious", "charming", "reserved" }
 
 -- Top two traits with at least 3 points.
 function Effects.DominantTraits()

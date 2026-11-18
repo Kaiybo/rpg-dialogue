@@ -62,8 +62,8 @@ P:NPC {
       big = true,
       lines = { { id = "ho_default", text = "Because the one who wears the helm should know that strength sometimes means ending pain, not causing it. The matriarch suffers every day the Vale burns, and killing her is the kindest thing anyone will do for her." } },
       choices = {
-        { text = "Then I'll end it cleanly, as a mercy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A kill is a kill. I'll do it for the helm.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll end it cleanly, as a mercy.", next = "BACK", reply = "Then you understand what the helm is for, and it will sit well on you. Go quickly, and let her rest under the Earth Mother at last.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A kill is a kill. I'll do it for the helm.", next = "BACK", reply = "A kill is never only a kill, young one, and the helm will remember it even if you don't. Bring me the horn, but think on what I said while you ride.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -75,7 +75,7 @@ P:NPC {
       },
     },
     set = {
-      lines = { { id = "se_default", text = "Velora Nitely in the Undercity makes the legguards, and she tells jokes while she works, Thun'grim says, though he's never heard one land. I have never met her, and I think I am content with that." } },
+      lines = { { id = "se_default", text = "Velora Nitely in the Undercity makes the legguards, and Thun'grim says she tells jokes while she works, though none of them ever land. I have never met her, and I think I am content with that." } },
       choices = { { text = "Something else, Orm.", next = "BACK" } },
     },
     kin = {
@@ -127,6 +127,10 @@ P:NPC {
         { text = "I'm ready to learn.", next = "BUSINESS", when = { profession = "Blacksmithing" } },
         { text = "How did tauren come to the forge?", next = "forge" },
         { text = "You're Orm's brother?", next = "orm" },
+        { text = "Tell me about learning the forge in Durotar.", next = "durotar" },
+        { text = "What should a new smith make first?", next = "first" },
+        { text = "Should I learn armour or weapons?", next = "special", when = { profession = "Blacksmithing" } },
+        { text = "An orc taught you? Then you know the old ways.", next = "orc_forge", when = { race = "Orc" } },
         { text = "Farewell, Karn.", next = "END" },
       },
     },
@@ -141,17 +145,52 @@ P:NPC {
       big = true,
       lines = { { id = "el_default", text = "I think the Earth Mother gave us the iron, so she must want it used. But I make my apprentices thank the ore before they melt it, all the same, because the old ways cost nothing to keep." } },
       choices = {
-        { text = "The old ways matter. Keep them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "New skills keep the people strong. Let them change.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The old ways matter. Keep them.", next = "BACK", reply = "I will, and my apprentices will grumble about it as they always do. A little grumbling never hurt the old ways, so long as the thanks still get said.", fx = { align = { order = 1 } } },
+        { text = "New skills keep the people strong. Let them change.", next = "BACK", reply = "Change, yes, but not forgetting, and those are different beasts. A smith who forgets where the iron came from soon forgets who he makes it for.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     orm = {
       lines = { { id = "or_default", text = "I am, and he makes the finest helms on the bluffs, and he will tell you so if you wait long enough. He only makes them for the worthy, while I teach anyone, and we both think the other is foolish for it." } },
-      choices = { { text = "Something else, Karn.", next = "BACK" } },
+      choices = {
+        { text = "Which of you is right?", next = "orm_right" },
+        { text = "Something else, Karn.", next = "BACK" },
+      },
+    },
+    orm_right = {
+      lines = { { id = "rr_default", text = "Both of us, which is the trouble with brothers. A helm from Orm will save a great warrior's life and a lesson from me will save a hundred ordinary ones, and neither of us will ever admit the other has a point." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    durotar = {
+      lines = { { id = "du_default", text = "I went down to Orgrimmar when the orcs had barely finished building it, and an old orc smith took me on because I could carry twice what his apprentices could. He swore at me in Orcish for a full season, and at first I learned more of the language than the craft." } },
+      choices = {
+        { text = "What do you make of the orcs?", next = "durotar_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    durotar_orcs = {
+      lines = { { id = "do_default", text = "They're loud and proud and they burn their bread, and they came to us as friends when the centaur were burning our camps. Thrall's people taught us iron, and we taught them to share a meal without fighting over it, mostly." } },
+      choices = {
+        { text = "Something else, Karn.", next = "BACK" },
+        { text = "Farewell, Karn.", next = "END" },
+      },
+    },
+    first = {
+      lines = { { id = "fi_default", text = "A rough sharpening stone and a copper chain belt, as every smith does, and then a hundred more until your hands know the work better than your head. There's no shortcut through the anvil, and anyone who sells you one is lying." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    special = {
+      lines = { { id = "sp_default", text = "Not yet, and not for a long while. Learn everything, the dull parts most of all, and when your hands are ready the choice will make itself, as it did for Orm and his helms." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    orc_forge = {
+      lines = { { id = "of_default", text = "I know the loud ways, which I suspect are the same thing. Your people beat iron the way they fight, all heart and no hesitation, and I've tried to keep a little of that and leave the rest by the water trough." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
+    thrall = { { id = "tp_th", text = "The Warchief brought iron to Mulgore and asked only friendship for it. I've thought well of him ever since." } },
+    earth_mother = { { id = "tp_em", text = "She gave us the ore. My students thank her for it before they melt a single nugget." } },
     background = { { id = "tp_bg", text = "I learned at an orc's anvil in Durotar, and I burned myself every day for a season. It was worth it." } },
     _none = { { id = "tp_none", text = "I only know metal, friend. Ask someone with more patience for talk." } },
   },
@@ -188,9 +227,9 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Ahanu, and I work the hides that come up from the plains, and I sell what I make here and down at the Crossroads. Thank you for stopping, because most travellers walk straight past to the lift." },
         { id = "h_after", when = { questDone = TODO_QUEST("Ride to Thunder Bluff") },
-          text = "The hides you brought were good ones, brother, and I've already turned half of them into jerkins. You did me a great service, and I hope the coin was enough for your travels." },
+          text = "The hides you brought were good ones, friend, and I've already turned half of them into jerkins. You did me a great service, and I hope the coin was enough for your travels." },
         { id = "h_tal", when = { questActive = TODO_QUEST("Tal the Wind Rider Master") },
-          text = "Take the leather goods to Tal at the top of the tower, and he'll arrange a wind rider to the Crossroads. Jahan has been waiting on them all week." },
+          text = "Take the leather goods to Tal at the top of the tower, and he'll arrange a wind rider to the Crossroads. Jahan Hawkwing, who sells my goods there, has been waiting on them all week." },
       },
       again = {
         { id = "h_again", text = "Anything else, friend? I can stitch and talk." },
@@ -201,6 +240,9 @@ P:NPC {
         { text = "Why does Jahan sell your goods?", next = "jahan" },
         { text = "What is Hewa's Armory?", next = "armory" },
         { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "Any advice for curing hides?", next = "curing", when = { profession = "Leatherworking" } },
+        { text = "My mother tanned hides too.", next = "tauren_mother", when = { race = "Tauren" } },
+        { text = "Does it trouble you, a druid seeing your hides?", next = "druid", when = { class = "DRUID" } },
         { text = "Farewell, Ahanu.", next = "END" },
       },
     },
@@ -215,22 +257,57 @@ P:NPC {
       big = true,
       lines = { { id = "hu_default", text = "Not any longer, my knees won't allow it, so I buy from the hunters and I thank each beast as I cut. Some say a tauren should only wear what he has hunted himself, but I think the hide doesn't care whose hands it passes through." } },
       choices = {
-        { text = "The old way is better. Hunt what you wear.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Trade lets everyone do what they do best.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The old way is better. Hunt what you wear.", next = "BACK", reply = "Then you can tell the hunters to bring me more, and I'll stitch whatever they carry in. My knees and I will stay here and thank the beasts from a stool.", fx = { align = { order = 1 } } },
+        { text = "Trade lets everyone do what they do best.", next = "BACK", reply = "That's how I see it too, and it keeps my old knees off the plains. The hunter hunts, I cut and stitch, and the beast is thanked twice over.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     jahan = {
       lines = { { id = "ja_default", text = "Jahan Hawkwing has a stall at the Crossroads, where every traveller in the Barrens passes sooner or later. I'm a good stitcher and a poor seller, and Jahan is the reverse, so we've worked together for years." } },
-      choices = { { text = "Something else, Ahanu.", next = "BACK" } },
+      choices = {
+        { text = "How did the two of you meet?", next = "jahan_meet" },
+        { text = "Something else, Ahanu.", next = "BACK" },
+      },
+    },
+    jahan_meet = {
+      lines = { { id = "jm_default", text = "He came up the lifts years ago with a cart and a terrible sales pitch, and I bought his whole load of thread out of pity. Then he sold my first jerkins at the Crossroads for twice what I'd have asked, and I stopped pitying him." } },
+      choices = {
+        { text = "What's the Crossroads like?", next = "jahan_crossroads" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jahan_crossroads = {
+      lines = { { id = "jc_default", text = "Loud and dusty and full of orcs arguing over the price of everything, or so Jahan tells me. I went once, and the Razormane were raiding the road that week, so I came straight home and haven't gone back since." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    curing = {
+      lines = { { id = "cu_default", text = "Salt them the same day, stretch them in the shade and never in the sun, and don't be tempted to hurry. A hide cured in a rush cracks the first winter, and then you've wasted the beast and your own work besides." } },
+      choices = { { text = "Thank you, Ahanu.", next = "BACK" } },
+    },
+    tauren_mother = {
+      lines = { { id = "tm_default", text = "Then you'll know the smell of the tanning pits in your sleep, as I do. Give her my greetings, and tell her an old leatherworker on the bluff says she raised you well." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "Sometimes I wonder what a druid thinks, seeing a bear hide on my table. I'd like to believe the bear wouldn't mind, since nothing of it is wasted, though I admit I've never been brave enough to ask one of you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     armory = {
-      lines = { { id = "ar_default", text = "Hewa keeps the cloth and I keep the leather, and between us we dress half the young hunters who come up from Bloodhoof. We're at the foot of the wind rider tower, so whoever lands here sees us first." } },
+      lines = { { id = "ar_default", text = "Hewa keeps the cloth and I keep the leather, and between us we dress most of the young hunters who come up from Bloodhoof. We're at the foot of the wind rider tower, so whoever lands here sees us first." } },
+      choices = {
+        { text = "Tell me about Hewa.", next = "hewa" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hewa = {
+      lines = { { id = "hw_default", text = "Hewa runs the cloth side and keeps the coin, because he can count and I can't be trusted to. He tells me I give away too much, and he's right, but he's never turned away a young hunter in torn leathers either." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    quilboar = { { id = "tp_qb", text = "The Razormane on the Barrens road ruin more good hides in a season than I can mend in a year." } },
+    earth_mother = { { id = "tp_em", text = "Every hide is her gift, given through the beast. I thank them both when I cut." } },
     background = { { id = "tp_bg", text = "My mother tanned hides at Bloodhoof, and I learned at her side before I could walk properly." } },
     advice = { { id = "tp_ad", text = "Oil your leather before the rains, not after. Everyone learns that one the wet way." } },
     _none = { { id = "tp_none", text = "I don't know, friend. I mostly know hides, and which hunters lie about them." } },
@@ -268,6 +345,10 @@ P:NPC {
         { text = "I'd like to stable my companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you keep the beasts calm up here?", next = "calm" },
         { text = "Which beast here is your favourite?", next = "favourite" },
+        { text = "What beasts do the hunters bring you?", next = "beasts" },
+        { text = "What songs do you sing to them?", next = "songs" },
+        { text = "My companion doesn't like the stables.", next = "pet_stable", when = { class = "HUNTER" } },
+        { text = "Would you stable a raptor?", next = "raptor", when = { race = "Troll" } },
         { text = "Farewell, Bulrug.", next = "END" },
       },
     },
@@ -282,17 +363,52 @@ P:NPC {
       big = true,
       lines = { { id = "pl_default", text = "Every morning, when I look down at Mulgore and see the herds moving. Some of the elders say the bluff made us forget how to wander, and I think on bad mornings they may be right." } },
       choices = {
-        { text = "A home on the bluffs keeps the people safe.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then go wander. The beasts can come with you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A home on the bluffs keeps the people safe.", next = "BACK", reply = "Safe, yes, and I'm grateful for it every winter when the wind comes off the plains. Still, safety and freedom don't always graze the same grass.", fx = { align = { order = 1 } } },
+        { text = "Then go wander. The beasts can come with you.", next = "BACK", reply = "Ha, the kodo would like that more than you know, and so might I. But somebody has to keep the stables, and the plains will still be there tomorrow.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     favourite = {
       lines = { { id = "fa_default", text = "The old cat in the far stall, whose hunter never came back from the Barrens. Nobody has claimed her in two years, so I feed her and she lets me, which is as close to friendship as a cat allows." } },
-      choices = { { text = "Something else, Bulrug.", next = "BACK" } },
+      choices = {
+        { text = "Does she have a name?", next = "cat_name" },
+        { text = "Something else, Bulrug.", next = "BACK" },
+      },
+    },
+    cat_name = {
+      lines = { { id = "cn_default", text = "Her hunter called her Dusk, and I've kept it, because it would be rude to change it while he might still come back. Kary Thunderhorn says he won't, and I know she's right, but I keep the name all the same." } },
+      choices = {
+        { text = "What happened to her hunter?", next = "cat_hunter" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cat_hunter = {
+      lines = { { id = "ch_default", text = "He stabled her here, went south past Camp Taurajo after a Kolkar raiding party, and never came home. She still watches the lift every evening, as if he might step off it." } },
+      choices = {
+        { text = "That's a sad story, Bulrug.", next = "BACK" },
+        { text = "Farewell, Bulrug.", next = "END" },
+      },
+    },
+    beasts = {
+      lines = { { id = "be_default", text = "Cats and wolves and boars mostly, a bear now and then, and once a troll's bat that hung from my rafters and screamed all night. The bat turned out to be the politest guest I've had, once she'd eaten." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    songs = {
+      lines = { { id = "so_default", text = "Old herding songs, the ones my grandfather sang to the kodo on the long walks before we had a home. I won't sing them for you, but they're mostly about rain and grass and how far it is to the next water." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    pet_stable = {
+      lines = { { id = "ps_default", text = "Few do, the first time. Leave something of yours in the stall with them, a glove or an old cloak, and they'll settle, because then they'll know you're coming back." } },
+      choices = { { text = "I'll try that.", next = "BACK" } },
+    },
+    raptor = {
+      lines = { { id = "ra_default", text = "I would, and I have, and I'll thank you to keep it well away from the kodo. Darkspear raptors are clever beasts, and the last one learned to open the stall latch on her second night." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
+    centaur = { { id = "tp_ce", text = "The Kolkar have taken more than one hunter from these stables. The beasts remember, even when we try not to." } },
+    earth_mother = { { id = "tp_em", text = "She made the beasts gentle and the wind kind, and between the two of them my work is easy." } },
     background = { { id = "tp_bg", text = "I herded kodo for the Bloodhoof before Cairne brought us up here. The stables are only a smaller herd." } },
     _none = { { id = "tp_none", text = "I don't know, but the kodo might. Ask her, if you're brave." } },
   },

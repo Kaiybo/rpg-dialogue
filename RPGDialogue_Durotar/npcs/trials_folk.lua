@@ -58,14 +58,14 @@ P:NPC {
     },
 
     hanazua = {
-      lines = { { id = "hz_default", text = "An old warrior who fight the Burning Blade and lose, mon, though he will not tell it that way. He lie wounded in a hut near the scorpid nest, and the story he carry be a warnin' about what the cult do to orcs who listen." } },
+      lines = { { id = "hz_default", text = "A young Darkspear hunter who rush the big scorpid Sarkoth and lose, mon, though he will not tell it that way. He lie wounded on his mat near the scorpid nests, and his story be a warnin' about pride that every young one need to hear." } },
       choices = {
-        { text = "The Burning Blade? Here?", next = "hz_blade", fx = { learn = { "burning_blade" } } },
+        { text = "Is anything in the valley worse than scorpids?", next = "hz_blade", fx = { learn = { "burning_blade" } } },
         { text = "I'll go and see him.", next = "BACK" },
       },
     },
     hz_blade = {
-      lines = { { id = "hzb_default", text = "In the cave north of here, mon, where the felstalkers roam, and in the hearts of some orcs who miss the old power. The demons be gone from the world, they say, but the hunger for them be stickin' around like smoke in a hut." } },
+      lines = { { id = "hzb_default", text = "The Burning Blade, mon, a cult of orcs who miss the old demon power, hidin' in the cave north of here where the felstalkers roam. The demons be gone from the world, they say, but the hunger for them stick around like smoke in a hut." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -79,7 +79,7 @@ P:NPC {
       },
     },
     ea_more = {
-      lines = { { id = "eam_default", text = "You stop, mon, and you notice it, which be more than most do. Thrall come back to the old ways because the warlocks forget that, and the whole orc race pay for their forgetting." } },
+      lines = { { id = "eam_default", text = "You stop, mon, and you notice it, and most folk walk right past. Thrall come back to the old ways because the warlocks forget that, and the whole orc race pay for their forgetting." } },
       choices = {
         { text = "The Warchief is a shaman too.", next = "ea_thrall" },
         { text = "Something else.", next = "BACK" },
@@ -113,7 +113,7 @@ P:NPC {
     },
 
     trolls = {
-      lines = { { id = "tr_default", text = "Well enough, mon. The orcs save us from the sea witch's men when we be dyin' on the isles, and Vol'jin swear the Darkspear to Thrall for it. Some orcs still laugh at our tusks, but they laugh less after they see us fight." } },
+      lines = { { id = "tr_default", text = "Well enough, mon. The orcs save us from the sea witch and the human sailors when we be dyin' on the isles, and Vol'jin swear the Darkspear to Thrall for it. Some orcs still laugh at our tusks, but they laugh less after they see us fight." } },
       choices = {
         { text = "The Horde is stronger with the Darkspear in it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -122,10 +122,10 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "The earth of this valley, mon, and the young ones who walk on it." } },
-    background = { { id = "tp_bg", text = "Darkspear, from the isles, and a shaman since before the boats come. The earth do not care where I be born." } },
+    knows = { { id = "tp_knows", text = "I know the earth of this valley, mon, and the young ones who walk on it." } },
+    background = { { id = "tp_bg", text = "I be Darkspear, from the isles, and a shaman since before the boats come. The earth do not care where I be born." } },
     advice = { { id = "tp_ad", text = "Stand with your feet apart, mon. The earth like a body it can hold onto." } },
-    burning_blade = { { id = "tp_bb", text = "Orcs who miss the demons, mon. The earth do not like how they walk." } },
+    burning_blade = { { id = "tp_bb", text = "The Burning Blade be orcs who miss the demons, mon, and the earth do not like how they walk." } },
     _none = { { id = "tp_none", text = "The ground say nothin' about that, mon, so I say nothin' too." } },
   },
 }

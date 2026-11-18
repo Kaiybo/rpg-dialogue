@@ -43,6 +43,10 @@ P:NPC {
         { text = "What's the first lesson?", next = "lesson" },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "I worked the capital's markets too, Miles, before the plague.", next = "xorig_cutpurse", when = { origin = "forsaken_capital_cutpurse" } },
+        { text = "Tell me about Bess.", next = "bess" },
+        { text = "Who else works the Rogues' Quarter?", next = "quarter" },
+        { text = "Go on, then. What's in my pack?", next = "pack" },
+        { text = "Is there work in this city for a rogue?", next = "work", when = { class = "ROGUE" } },
         { text = "I'll see myself out.", next = "END" },
       },
     },
@@ -57,7 +61,7 @@ P:NPC {
       },
     },
     purse = {
-      lines = { { id = "pu_default", text = "The best in the Merchants' Row, if I say so myself, and I do. The watch caught me twice in ten years, and the second time I'd already spent the money." } },
+      lines = { { id = "pu_default", text = "I was, and the best in the Merchants' Row, if I say so myself, and I do. The watch caught me twice in ten years, and the second time I'd already spent the money." } },
       choices = {
         { text = "Do you regret it?", next = "purse_regret" },
         { text = "Something else.", next = "BACK" },
@@ -66,17 +70,79 @@ P:NPC {
     purse_regret = {
       lines = { { id = "pr_default", text = "I regret the ones who couldn't spare it. The rest were nobles who'd have burned the city before they'd fed it, and I'd lift their purses again tomorrow if they were still alive to carry them." } },
       choices = {
-        { text = "Theft from the greedy is no crime.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A thief is a thief, Miles.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Theft from the greedy is no crime.", next = "BACK", reply = "There, you see, you understand the trade better than most of my students. The greedy carry their purses loosely.", fx = { align = { order = -1 } } },
+        { text = "A thief is a thief, Miles.", next = "BACK", reply = "A thief is a thief, aye, and so is a lord who hoards bread in a famine. I know which of us sleeps better.", fx = { align = { order = 1 } } },
       },
     },
     lesson = {
       lines = { { id = "le_default", text = "Count the doors before you count the coins. Every room has more ways out than its owner thinks, and a rogue who doesn't know them is just a burglar with a short future." } },
+      choices = {
+        { text = "And the second lesson?", next = "lesson_two" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lesson_two = {
+      lines = { { id = "l2_default", text = "Never take everything. A man who's lost his whole purse calls the watch, but a man who's lost three coins thinks he miscounted, and a rogue who understands that eats every night." } },
+      choices = { { text = "Something else, Miles.", next = "BACK" } },
+    },
+    bess = {
+      lines = { { id = "be_default", text = "Bess Gale, the best pair of hands in Merchants' Row, and the only partner who never once shorted me on a split. She could lift a ring off a dancing man and put it back before the song ended, just to prove she could." } },
+      choices = {
+        { text = "What became of her?", next = "bess_fate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bess_fate = {
+      lines = { { id = "bf_default", text = "She left the capital a month before the plague came, for Southshore, with a fisherman she swore was only a mark. If she's alive, she's living, and if she's living, she'd scream to see me, so I've never gone looking." } },
+      choices = {
+        { text = "Maybe she'd be glad to see you anyway.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Better she remembers you as you were.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    quarter = {
+      lines = { { id = "qu_default", text = "Gregory Charles, who guarded a nobleman once and still stands like he's waiting for an assassin, and Carolyn Ward, who keeps her own counsel and a knife in her sleeve. Then there are the friends of Ravenholdt, who visit from the Alterac foothills and never stay long." } },
+      choices = {
+        { text = "Ravenholdt?", next = "quarter_ravenholdt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quarter_ravenholdt = {
+      lines = { { id = "qr_default", fx = { learn = { "ravenholdt" } }, text = "A manor in the hills where the best of our trade gather, and they don't advertise, so don't ask me for directions. They despise the Syndicate up in Alterac, which is one thing we agree on, since those are thugs in stolen silk." } },
+      choices = {
+        { text = "What's wrong with the Syndicate?", next = "quarter_syndicate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quarter_syndicate = {
+      big = true,
+      lines = { { id = "qs_default", fx = { learn = { "syndicate" } }, text = "Alterac's old nobles, who sold out Lordaeron in the war and now rob farmers on the Hillsbrad road and call it reclaiming their lands. A thief who takes from the hungry is no rogue, he's a tax." } },
+      choices = {
+        { text = "There's honor among thieves, then. Good.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A thief's a thief. The Syndicate's just better at it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pack = {
+      lines = {
+        { id = "pa_default", text = "Something you meant to sell and forgot about, a ration you don't like, and more silver than you should carry in here, all wrapped around one thing you'd never part with. Am I close?" },
+        { id = "pa_hunter", when = { class = "HUNTER" }, text = "Arrows, meat for {pet} that you're pretending is for you, and a map you drew yourself that's wrong in at least two places. Am I close?" },
+        { id = "pa_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "Candle ends, a book with the corners turned down, and a reagent you'll swear you never use, though you've used it twice today. Am I close?" },
+      },
+      choices = {
+        { text = "Closer than I'd like, Miles.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Not even slightly.", next = "BACK", fx = { trait = { cunning = 1 } } },
+      },
+    },
+    work = {
+      lines = { { id = "wo_default", text = "Always, if you're quiet and loyal, because the Deathstalkers are forever short of eyes in Silverpine and the Dark Lady likes to know things before they happen. Tell them I sent you, and they'll still not trust you, but they'll watch you more kindly." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "A cutpurse of Merchants' Row, ten years, caught twice. Then the plague, and now I teach. That's the honest version." } },
+    advice = { { id = "tp_ad", text = "Count the doors before you count the coins, and never take everything." } },
+    ravenholdt = { { id = "tp_raven", next = "quarter_ravenholdt", text = "Friends in the hills. That's all I'll say in a room with this many ears." } },
     _none = { { id = "tp_none", text = "Never heard a whisper about it, and I hear most whispers in this city." } },
   },
 }
@@ -110,7 +176,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gregory Charles. I train rogues for the Dark Lady's service, and before the plague I kept a nobleman of Lordaeron alive, which was the harder task by far." },
-        { id = "h_deathstalker", when = { origin = "forsaken_deathstalker_recruit" }, text = "Mennet's recruit. He tells me you have promise, and I've learned to doubt everything Mennet tells me, so you'll forgive me if I wait to see it." },
+        { id = "h_deathstalker", when = { origin = "forsaken_deathstalker_recruit" }, text = "Mennet's recruit. He tells me you have promise, and I've learned to doubt everything Mennet tells me, so I'll wait to see it for myself." },
         { id = "h_party", when = { party = true }, text = "You've brought company, I see, and you let them walk behind you. I'd not have kept my post a week with habits like that." },
       },
       again = {
@@ -128,7 +194,7 @@ P:NPC {
       },
     },
     noble = {
-      lines = { { id = "no_default", text = "A lord with lands near Andorhal, who paid well and trusted me completely. When the grain came, he ate the bread like everyone else, and there was no blade I could put between him and that." } },
+      lines = { { id = "no_default", text = "A lord with lands near Andorhal, who paid well and trusted me completely. When the plagued grain came, he ate the bread like everyone else, and there was no blade I could put between him and that." } },
       choices = {
         { text = "That wasn't your failing.", next = "noble_fail" },
         { text = "Something else.", next = "BACK" },
@@ -138,8 +204,8 @@ P:NPC {
       big = true,
       lines = { { id = "nf_default", text = "Perhaps not, but I was paid to keep him breathing, and he stopped. I serve the Dark Lady now with the same care, and I intend to finish the job this time." } },
       choices = {
-        { text = "Loyalty like that is rare. Hold to it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Serve yourself first. Lords never repay it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Loyalty like that is rare. Hold to it.", next = "BACK", reply = "I intend to, and I'll ask the same of you. A sworn blade is worth twenty bought ones.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Serve yourself first. Lords never repay it.", next = "BACK", reply = "Lords never did, that much is true, but the Dark Lady is no lord. I'll take my chances with her.", fx = { align = { honor = -1 } } },
       },
     },
     service = {
@@ -182,8 +248,8 @@ P:NPC {
     mennet = {
       lines = { { id = "me_default", text = "Because Mennet Carkad tells every recruit they have promise, and he tells it so warmly that they believe him. I have buried enough promising young people, in two lives, to prefer evidence." } },
       choices = {
-        { text = "Encouragement makes good recruits. Mennet's right.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Trust is earned. You're right to wait.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Encouragement makes good recruits. Mennet's right.", next = "BACK", reply = "He's right often enough to be dangerous. Show me some evidence and I'll warm to you as he did.", fx = { align = { order = -1 } } },
+        { text = "Trust is earned. You're right to wait.", next = "BACK", reply = "Good. Then we agree, and you'll understand why I'm watching you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

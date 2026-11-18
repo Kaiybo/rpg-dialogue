@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Keep your voice down and your back to the camp, if you would. I'd rather the whole of Chillwind didn't know my business." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Good; I remember faces, and I'd rather see yours than most." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good; I remember faces, and yours is one of the few I don't mind seeing twice." },
     { id = "g_active", when = { questActive = TODO_QUEST("The Eastern Plagues") }, text = "Marris Stead, in the Eastern Plaguelands, west of the road. Bring me what's left of my people, and watch the treeline." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You're a long way from your own lines, and I'm not the one you want to be seen talking to. Make it quick." },
   },
@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("The Eastern Plagues") },
           text = "Three of mine, Rutger, Fredo and Turyen, went east to the Marris Stead after word of the Blightcaller, and none of them reported back. I need to know what happened to them, and I need someone who can come back and tell me." },
         { id = "h_back", tags = { "news" }, when = { questDone = TODO_QUEST("The Eastern Plagues") },
-          text = "Their insignias, all three. Then they're gone, and the Blightcaller is Nathanos Marris, the old ranger lord, and Stormwind needs to hear it from someone who's been to that farm." },
+          text = "You've brought their insignias, all three. Then they're gone, and the Blightcaller is Nathanos Marris, the old ranger lord, and Stormwind needs to hear it from someone who's been to that farm." },
         { id = "h_after", when = { questDone = TODO_QUEST("The Blightcaller Cometh") },
           text = "Lord Bolvar has the report, and now the name's in the right ledgers. It doesn't bring my three back, but it means they died for something." },
         { id = "h_forsaken", when = { race = "Scourge" },
@@ -86,14 +86,14 @@ P:NPC {
       big = true,
       lines = { { id = "ad_default", text = "In this place, after this long, yes. What I want now is their insignias, so their families get something more than silence, and so the Blightcaller knows we came looking." } },
       choices = {
-        { text = "Their families deserve the truth, whatever it is.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Tell the families they died heroes, whatever happened.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Their families deserve the truth, whatever it is.", next = "BACK", reply = "They do, and I'll give it to them plainly, however it reads. Bring me those insignias and I'll write the letters myself.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Tell the families they died heroes, whatever happened.", next = "BACK", reply = "That's kind, and it's what most commanders do. But I've read too many of those letters to send another lie.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     si7 = {
-      lines = { { id = "si_default", text = "Stormwind likes to know what's moving on its borders, and the Plaguelands are moving a great deal. The Scourge, the Crusade, the Forsaken: somebody has to keep count, and the Dawn's too busy fighting to write it all down." } },
+      lines = { { id = "si_default", text = "Stormwind likes to know what's moving on its borders, and in the Plaguelands everything's moving. The Scourge, the Crusade, the Forsaken: somebody has to keep count, and the Dawn's too busy fighting to write it all down." } },
       choices = {
         { text = "Does Stormwind trust the Argent Dawn?", next = "si7_dawn" },
         { text = "Something else.", next = "BACK" },
@@ -103,14 +103,14 @@ P:NPC {
       big = true,
       lines = { { id = "sd_default", text = "Stormwind trusts nobody who sits down with the Forsaken, and the Dawn does, at the Bulwark, every day. Personally, I think they're the only sensible people in these lands, but I'm not paid for my opinions." } },
       choices = {
-        { text = "Working with the Forsaken against the Scourge is wise.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Stormwind's right. The Dawn should pick a side.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Working with the Forsaken against the Scourge is wise.", next = "BACK", reply = "It is, and I'll thank you not to repeat that in Stormwind. Bolvar has enough people telling him what he wants to hear.", fx = { align = { order = -1 } } },
+        { text = "Stormwind's right. The Dawn should pick a side.", next = "BACK", reply = "Stormwind would agree with you, and the Scourge would thank you both. The Dawn's the only thing holding this country together.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "argent_dawn" } } },
       },
     },
 
     camp = {
-      lines = { { id = "cp_default", text = "Valorfist runs a tight camp, and the Barov boy's an odd one to have around, and the priestess is the only one who doesn't ask what I'm writing. It's as safe as anywhere in the Plaguelands, which is to say not very." } },
+      lines = { { id = "cp_default", text = "Valorfist runs a tight camp, Weldon Barov's an odd one to have around, and the High Priestess is the only one who doesn't ask what I'm writing. It's as safe as anywhere in the Plaguelands, which is to say not very." } },
       choices = {
         { text = "What's odd about Weldon Barov?", next = "camp_barov" },
         { text = "Something else.", next = "BACK" },
@@ -135,8 +135,8 @@ P:NPC {
       big = true,
       lines = { { id = "nd_default", text = "Write it down, argue about it, and do nothing until he kills someone important. I'd go after him myself tonight if Bolvar gave me leave, and he won't." } },
       choices = {
-        { text = "Then go without leave. He killed your people.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Wait for orders. A lone hunt gets agents killed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then go without leave. He killed your people.", next = "BACK", reply = "Don't tempt me, {class}, because I've thought about it every night this week. I'll go when the orders come, and not a day before.", fx = { align = { order = -1 } } },
+        { text = "Wait for orders. A lone hunt gets agents killed.", next = "BACK", reply = "That's the sensible answer, and I hate it. Keep saying it, so I keep listening.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -209,8 +209,8 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Fear, I'd say. The Crusade's afraid of everythin' they cannae burn, an' a man who can make a better bow wi' a few words is a man they cannae control." } },
       choices = {
-        { text = "Fear like that rots an order from inside.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Some caution about mages is warranted, after Dalaran's mistakes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fear like that rots an order from inside.", next = "BACK", reply = "Aye, it does, an' I've watched it happen tae better orders than theirs. Fear's a slow rot, but a sure one.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some caution about mages is warranted, after Dalaran's mistakes.", next = "BACK", reply = "Mebbe so, after what Dalaran let loose. But there's caution an' there's burnin' folk, an' the Crusade forgot the difference.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
       },
     },
@@ -219,8 +219,8 @@ P:NPC {
       big = true,
       lines = { { id = "wa_default", text = "Tae see them, first, because I've an eye for a well-made thing. After that, I'd sooner they were in honest hands than rustin' in some Scarlet vault, or worse, pointed at us." } },
       choices = {
-        { text = "Honest hands like yours, I take it.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "If you find them, give them to the Dawn.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honest hands like yours, I take it.", next = "BACK", reply = "Ha! Aye, honest enough, an' I'd treat them better than any Scarlet ever did. But I'll not argue if the Dawn wants them.", fx = { align = { honor = -1 } } },
+        { text = "If you find them, give them to the Dawn.", next = "BACK", reply = "Fair enough, an' it's the proper thing. Just let me have a wee look first, eh?", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

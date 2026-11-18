@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Another of Lexlort's errand-runners, come all this way into a Blackrock fortress. Brave, or very stupid, and I've lost money betting on the first one before." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive? The Blackrock must be getting soft, and they were the last orcs with any blood left in them." },
-    { id = "g_chained", when = { questActive = TODO_QUEST("Precarious Predicament") }, text = "These shackles won't hold me for long, and they won't hold you up either, when my friends come." },
+    { id = "g_chained", when = { questActive = TODO_QUEST("Precarious Predicament") }, text = "These shackles won't hold me for long, and nothing will hold back my friends when they come for you." },
   },
 
   notice = {
@@ -31,7 +31,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Grark Lorkrub, and if Kargath sent you, then you've come to drag me back for Goretooth's axe. Can you not see the power we gain by joining the legion of Blackrock?" },
+          text = "Grark Lorkrub, and if Kargath sent you, then you've come to drag me back for Warlord Goretooth's axe. Can you not see the power we gain by joining the legion of Blackrock?" },
         { id = "h_bound", tags = { "news" }, when = { questActive = TODO_QUEST("Precarious Predicament") },
           text = "Do you really believe you'll make it to your rendezvous with me in custody? You broke into a fortress to take a prized asset of theirs, and you think nobody noticed?" },
         { id = "h_alliance", when = { faction = "Alliance" },
@@ -65,8 +65,8 @@ P:NPC {
         { id = "wp_default", text = "Renegades who've held this mountain since the Second War, while Thrall's Horde was rotting in human camps. Ask yourself which of us has been free longer." },
       },
       choices = {
-        { text = "Freedom built on demons and dragons isn't freedom.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Strength is strength. I can see the appeal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Freedom built on demons and dragons isn't freedom.", next = "BACK", reply = "Spoken like a dog who's never tasted real meat. The Blackrock feast while Kargath eats dust, and you call that freedom.", fx = { align = { order = 1 } } },
+        { text = "Strength is strength. I can see the appeal.", next = "BACK", reply = "Of course you can, because you've got eyes. Kargath will never give you what the Blackrock gave me, so think on that on the long road home.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -85,8 +85,8 @@ P:NPC {
         { id = "sc_default", text = "Some, and more will, because the Blackrock don't forget what they're told. I didn't hold the blades, so don't look at me as though I did." },
       },
       choices = {
-        { text = "You held the map. That's worse.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "War's war. Information's a weapon like any other.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You held the map. That's worse.", next = "BACK", reply = "Worse, is it? A map never killed anyone, whelp, and the hands that used it belong to braver orcs than you.", fx = { align = { honor = 1 } } },
+        { text = "War's war. Information's a weapon like any other.", next = "BACK", reply = "Now you talk like someone who's lived through a war. Kargath forgets that when it calls me traitor, and it won't remember until it's too late.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -115,8 +115,8 @@ P:NPC {
         { id = "xh_default", text = "Your people? I've been Horde longer than you, whelp, and I've watched it go soft under a Warchief who makes peace with humans. The Blackrock remember what we were, and so do I." },
       },
       choices = {
-        { text = "What we were nearly destroyed us. Thrall saved us.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Maybe we did go soft. But you're still a traitor.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What we were nearly destroyed us. Thrall saved us.", next = "BACK", reply = "Thrall saved us by teaching us to bow to humans. I'll take the old blood and the old fire over that kind of salvation every time.", fx = { align = { light = 1 } } },
+        { text = "Maybe we did go soft. But you're still a traitor.", next = "BACK", reply = "Traitor to a Horde that forgot itself, aye, and I'll wear the name gladly. At least you have the guts to admit what you see.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -126,8 +126,8 @@ P:NPC {
         { id = "xo_default", text = "Maybe, but they use me as a lieutenant uses a blade, and Kargath used me as a mule. Better to be a tool someone values than a beast someone forgets." },
       },
       choices = {
-        { text = "A free orc is no one's tool.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Everyone's someone's tool. You chose badly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A free orc is no one's tool.", next = "BACK", reply = "Pretty words for a mule in a free orc's harness. Go back to Kargath and tell me how free you feel.", fx = { align = { honor = 1 } } },
+        { text = "Everyone's someone's tool. You chose badly.", next = "BACK", reply = "Badly, you say, from where you stand on that dirt. Come up and see the forges in Blackrock Spire, and then tell me again.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

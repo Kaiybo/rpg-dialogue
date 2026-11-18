@@ -27,10 +27,10 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Some of them crossed themselves when they saw your totems, I'll confess. But the Light didn't object to dwarven coin when we built the Abbey, so I doubt it minds you." } },
+      lines = { { id = "xdsham_default", text = "Some of them made the sign of the Light when they saw your totems, I'll confess. But the Light didn't object to dwarven coin when we built the Abbey, and it won't object to yours going toward our leaking roof." } },
       choices = {
-        { text = "Then I'll give something for the roof, Brother. Gladly.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Let the Light fix its own roof, Brother Danil.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll give something for the roof, Brother. Gladly.", next = "BACK", reply = "Bless you, friend, and the Light will bless you too. The leaking corner's right over my cot.", fx = { align = { light = 1 } } },
+        { text = "Let the Light fix its own roof, Brother Danil.", next = "BACK", reply = "It might, in time, but in the meantime I'm sleeping under a bucket. Go in the Light anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -38,8 +38,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Only by eating them, friend, for study makes a hungry belly. Once you can conjure your own bread, I hope you'll remember the recruits who can't, because the Light asks us to feed the body as well as the mind." } },
       choices = {
-        { text = "I'll share what I conjure with the recruits, Brother.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "What I conjure is mine, Brother. They can buy theirs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll share what I conjure with the recruits, Brother.", next = "BACK", reply = "That's a kind heart, and the recruits will be grateful. The Light sees such things.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What I conjure is mine, Brother. They can buy theirs.", next = "BACK", reply = "It's yours, aye, but the Light asks more than it demands. I'll not press you.", fx = { align = { honor = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
@@ -47,8 +47,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Both, and the farmers sell to us dearer every year, because the Defias take a share of every harvest before it reaches the road. I pray for better weather and fewer bandits, though I'd settle for the roof being fixed." } },
       choices = {
-        { text = "Then the Abbey should pay fairly and keep the farms going.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Bargain harder. Farmers will always sell to a buyer with coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then the Abbey should pay fairly and keep the farms going.", next = "BACK", reply = "They should, and I keep telling the Brothers so. The farmers deserve to be paid.", fx = { align = { honor = 1 } } },
+        { text = "Bargain harder. Farmers will always sell to a buyer with coin.", next = "BACK", reply = "They will sell, aye, but they'll starve doing it, and I'd rather not be the reason. I'll pay what's fair.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -56,26 +56,26 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Bread and water, more than they think, and a bit of thread for the jerkin they'll tear on the first kobold. Most of them buy a whetstone instead and go hungry, and then they come back to me looking pale." } },
       choices = {
-        { text = "I'll eat first and sharpen second, Brother.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A sharp blade wins more than a full belly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll eat first and sharpen second, Brother.", next = "BACK", reply = "A wise recruit, and rarer than you'd think. Take a loaf and a whetstone both.", fx = { align = { order = 1 } } },
+        { text = "A sharp blade wins more than a full belly.", next = "BACK", reply = "Not if you faint before the first kobold. Take a loaf, at least, for my sake.", fx = { align = { order = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I think the Defias robbed Milly's vineyard within a bowshot of the Abbey walls, so I've stopped thinking anyone wouldn't. You've an honest enough face, but so did the last fellow who bought one loaf and left with three." } },
+      lines = { { id = "xrogue_default", text = "The Defias robbed Milly Osworth's vineyard within a bowshot of the Abbey walls, so I've stopped thinking anyone wouldn't. You've an honest enough face, but so did the last fellow who bought one loaf and left with three." } },
       choices = {
-        { text = "I'd never steal from the Abbey's stores, Brother.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If the Abbey can't guard its bread, that's the Abbey's fault.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd never steal from the Abbey's stores, Brother.", next = "BACK", reply = "I believe you, mostly, and I'll still count the loaves. It's nothing personal.", fx = { align = { honor = 1 } } },
+        { text = "If the Abbey can't guard its bread, that's the Abbey's fault.", next = "BACK", reply = "It might be, but the Abbey can't afford more guards. I'll pray you're honest.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Brothers mind a great deal, but they mind empty bellies more, and the Light never said a warlock had to starve. I sell to you as I'd sell to anyone, and then I pray a little extra at vespers." } },
+      lines = { { id = "xlock_default", text = "The Brothers mind very much, but they mind empty bellies more, and the Light never said a warlock had to starve. I sell to you as I'd sell to anyone, and then I pray a little extra at vespers." } },
       choices = {
-        { text = "Your charity does you credit, Brother. I'm grateful for it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Save your prayers. I'll pay for bread, not pity.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your charity does you credit, Brother. I'm grateful for it.", next = "BACK", reply = "You're welcome, and the Light's welcome too, if you ever want it. Go well.", fx = { align = { light = 1 } } },
+        { text = "Save your prayers. I'll pay for bread, not pity.", next = "BACK", reply = "Then you'll have both, whether you like it or not. That's how charity works.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,17 +83,17 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "When the Brothers remember to pay me for it, and they do, mostly, in blessings and the occasional copper. There are Westfall folk coming up the road with nothing in their hands, and I give them the stale loaves and pray nobody notices the fresh ones going too." } },
       choices = {
-        { text = "Give them the fresh ones, Brother. Charity is never wasted.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Charity empties wagons. Sell the fresh ones and stay open.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Give them the fresh ones, Brother. Charity is never wasted.", next = "BACK", reply = "I'd like to, and some days I do. The Brothers can scold me for it later.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Charity empties wagons. Sell the fresh ones and stay open.", next = "BACK", reply = "You're right, and I know it, and I'll still give them a fresh loaf now and then. Wagons can be refilled.", fx = { align = { light = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Water, mostly, because Sammuel works you lot in the sun until you see visions, and the visions are usually just thirst. And a little thread, for the tabard you'll tear on the first kobold you meet." } },
+      lines = { { id = "xapala_default", text = "Water, mostly, because Brother Sammuel works you lot in the sun until you see visions, and the visions are usually just thirst. And a little thread, for the tabard you'll tear on the first kobold you meet." } },
       choices = {
-        { text = "A paladin should pay his way, Brother, at full price.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Surely the Abbey can feed its own paladins for nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A paladin should pay his way, Brother, at full price.", next = "BACK", reply = "That's admirable, and Sammuel would be proud. Full price it is, then.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Surely the Abbey can feed its own paladins for nothing.", next = "BACK", reply = "It can, and it does, but you'll still need water for the road. Take some, at least.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -113,8 +113,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I keep the coin box under the bread, you know, and I've a very good memory for how many loaves I baked." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "You've come down from the graveyard, I can tell, and La Salle's students always look like they've slept badly. Bread helps with that, or so I tell myself." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from the barracks, and you'll want rations, I expect. Llane works recruits hard, and hungry recruits drop their shields." },
+          text = "You've come down from the graveyard, I can tell, and Drusilla La Salle's students always look like they've slept badly. Bread helps with that, or so I tell myself." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from the barracks, and you'll want rations, I expect. Llane Beshere works recruits hard, and hungry recruits drop their shields." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at Northshire, and plainly a long way from home! The Abbey's bread is humble, but it's honest, and I'd say the same of the thread." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage of the Abbey! Brother Bremen's students always buy the bread and forget the water, and then they come back thirsty." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and I'll wager a full purse with you. The Abbey's roof still leaks, you know. Perhaps your rain spirits could ask it to stop." },
@@ -171,7 +171,7 @@ P:NPC {
     },
     tools_approve = {
       lines = {
-        { id = "ta_default", text = "Brother Neals says honest trade counts as prayer. He says that about wine as well, so I don't lean on it." },
+        { id = "ta_default", text = "Brother Neals says honest trade counts as prayer, but he says that about wine as well, so I don't lean on it." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
@@ -186,7 +186,7 @@ P:NPC {
     },
     poor = {
       lines = {
-        { id = "p_default", text = "Then buy bread and water and nothing clever. A full stomach wins more fights than a sharp knife. Don't tell the smiths." },
+        { id = "p_default", text = "Then buy bread and water and nothing clever. A full stomach wins more fights than a sharp knife, though don't tell the smiths I said so." },
       },
       choices = {
         { text = "Bread and water it is.", next = "BUSINESS", fx = { affinity = 1, trait = { cautious = 1 } } },

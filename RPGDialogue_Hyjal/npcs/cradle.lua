@@ -86,7 +86,7 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid of the Circle, come to look at the outcast. Tell your elders I am still here, and still killing what they would rather pray away." },
         { id = "h_windwalk", tags = { "news" }, when = { questRecent = { TODO_QUEST("Yashiro's Windwalk"), days = 3 } },
-          text = "The orc killed his doomguard, and you were with him. Good work, but do not mistake one dead warlord for a clean mountain." },
+          text = "Yashiro killed his doomguard, and you were with him. Good work, but do not mistake one dead warlord for a clean mountain." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The night is when they move, the things the Legion left behind. I sleep in the day, when I sleep at all." },
         { id = "h_hyjal", when = { origin = "nightelf_hyjal_survivor" },
@@ -117,8 +117,8 @@ P:NPC {
         { id = "v_default", text = "We killed Archimonde, yes. To do it we burned the World Tree, and with it went our immortality, and the Legion's filth soaked into the forest until Felwood rotted below us. The Legion lost a general; we lost a part of what we were." },
       },
       choices = {
-        { text = "What was lost can be rebuilt.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Every victory costs. That's war.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What was lost can be rebuilt.", next = "BACK", reply = "Rebuilt, perhaps, but not returned, and you speak as one who has never woken to find ten thousand years taken from them in a single night.", fx = { align = { light = 1 } } },
+        { text = "Every victory costs. That's war.", next = "BACK", reply = "Spoken like a soldier, and I cannot fault it, though I would ask you to remember that some prices are paid long after the songs are finished.", fx = { align = { light = -1 } } },
         { text = "Do you regret the battle?", next = "victory_regret" },
         { text = "Something else.", next = "BACK" },
       },
@@ -129,8 +129,8 @@ P:NPC {
         { id = "xsv_default", text = "Then you know the sound it made, which nobody who wasn't here believes when I describe it. Afterward, the Sentinels went home to grieve their lost eternity, and I stayed to hunt what crawled out of the ashes, so tell me, which of those did you do?" },
       },
       choices = {
-        { text = "I went home. Someone had to carry the living.", next = "BACK", fx = { affinity = -1, align = { honor = 1 }, trait = { kind = 1 } } },
-        { text = "I kept fighting. Grief could wait for the Legion to be gone.", next = "BACK", fx = { affinity = 2, align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "I went home. Someone had to carry the living.", next = "BACK", reply = "Then you did the harder thing, perhaps, and I will not mock you for it, though the Legion was very glad of every blade that went home.", fx = { affinity = -1, align = { honor = 1 }, trait = { kind = 1 } } },
+        { text = "I kept fighting. Grief could wait for the Legion to be gone.", next = "BACK", reply = "Then we are of a kind, you and I, and the Sentinels will thank neither of us for it, but the forest is cleaner for our stubbornness.", fx = { affinity = 2, align = { honor = -1 }, trait = { stern = 1 } } },
         { text = "The mountain must still remember that day.", next = "xsurvivor_mem" },
       },
     },
@@ -169,7 +169,7 @@ P:NPC {
         { id = "wc_default", text = "My name, among the Sentinels, and my family's door, which closed behind me and stayed closed. And sleep; the fel does not let you forget what it is, and some nights I hear it bargaining with me in my own voice." },
       },
       choices = {
-        { text = "You've paid more than most.", next = "BACK", fx = { affinity = 2 } },
+        { text = "You've already given this mountain your share.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -204,8 +204,8 @@ P:NPC {
         { id = "uw_default", text = "I do not know, and I would rather know than guess. The Watchers left to chase their escaped prisoner, and whatever they left unwatched has had years to grow. When someone finally goes down in strength, I hope they go with their eyes open." },
       },
       choices = {
-        { text = "Some doors are better left sealed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then someone should go and look.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some doors are better left sealed.", next = "BACK", reply = "That is the counsel of the Wardens who sealed them, and it held for ten thousand years, but a seal nobody watches is only a door left closed.", fx = { align = { order = 1 } } },
+        { text = "Then someone should go and look.", next = "BACK", reply = "Agreed, and I would go myself if anyone would follow, but go with your eyes open and your blade drawn, because nothing down there is asleep.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -229,12 +229,12 @@ P:NPC {
     yashiro = {
       big = true,
       lines = {
-        { id = "ya_default", text = "The orc is a good hunter and a better killer, and his grief makes him careless with his own life. I have watched him from the ridge; we want the same thing, and neither of us would say so to the other." },
+        { id = "ya_default", text = "Yashiro, the orc blademaster in Dae'gun, is a good hunter and a better killer, and his grief makes him careless with his own life. I have watched him from the ridge; we want the same thing, and neither of us would say so to the other." },
       },
       choices = {
         { text = "Does everyone distrust you the way Yashiro does?", next = "op_ask" },
-        { text = "You should hunt together.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let him take the risks. You watch.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You should hunt together.", next = "BACK", reply = "Perhaps, if either of us could bear the other's company, but I suspect we would argue over who strikes the killing blow until the demon left of boredom.", fx = { align = { honor = 1 } } },
+        { text = "Let him take the risks. You watch.", next = "BACK", reply = "That is my habit already, and I am not proud of it, but if he falls I will be close enough to finish whatever killed him.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -242,12 +242,12 @@ P:NPC {
     xlight = {
       big = true,
       lines = {
-        { id = "xli_default", text = "It cannot be trusted; that is the point. I do not trust it either, which is why I am still myself. Your Light asks for faith, and mine asks for vigilance, and I have seen faith fail more often." },
+        { id = "xli_default", text = "It cannot be trusted; that is the point. I do not trust it either, and that distrust is what has kept me myself. Your Light asks for faith, and mine asks for vigilance, and I have seen faith fail more often." },
         { id = "xli_priest", when = { class = "PRIEST" }, text = "It cannot be trusted, priest, and I do not ask you to trust it. Your Light asks for faith, and mine asks for vigilance, and I would not trade my vigilance for all the faith in Stormwind's cathedral." },
       },
       choices = {
-        { text = "The Light would accept you, even so.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Use the enemy's weapons. It's only sense.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light would accept you, even so.", next = "BACK", reply = "The Light accepts many who never asked for it, but I think it would find me a poor guest, and I would find its house too bright to sleep in.", fx = { align = { light = 1 } } },
+        { text = "Use the enemy's weapons. It's only sense.", next = "BACK", reply = "At last, someone who does not flinch, and I will remember it, because sense is rarer than courage among those who come up this mountain.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -257,8 +257,8 @@ P:NPC {
         { id = "xne_default", text = "Some did, and some of them deserved what they got. I fought on this mountain for our people while the Sentinels spat at my back, and I would do it again, and I would still not ask them for forgiveness." },
       },
       choices = {
-        { text = "You fought for us. That should count.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The Sentinels have their reasons. Respect them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You fought for us. That should count.", next = "BACK", reply = "It should, and it does not, and I have stopped waiting for it to, but I thank you for saying it aloud where the wind could hear.", fx = { align = { order = -1 } } },
+        { text = "The Sentinels have their reasons. Respect them.", next = "BACK", reply = "They have, and I understand them better than they would like, but respecting their reasons will not make me sorry for what I did here.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -268,8 +268,8 @@ P:NPC {
         { id = "xlo_default", text = "We are very different. You bargain with demons and call it mastery, and I took one into myself so that I would never need to bargain again. One day yours will call in the debt, and I hope I am not the one sent to collect it." },
       },
       choices = {
-        { text = "My servants obey. That's all I need.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I hope you never have to.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My servants obey. That's all I need.", next = "BACK", reply = "Then may they keep obeying, warlock, for your sake, because the day they stop, you will learn how little mastery a contract buys.", fx = { align = { light = -1 } } },
+        { text = "I hope you never have to.", next = "BACK", reply = "So do I, more than you know, but hope is a thin ward against what you carry, and I will keep my glaives close all the same.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -390,8 +390,8 @@ P:NPC {
         { id = "ch_default", text = "Perhaps, if you mean help and not change. Many come up the mountain eager to fix it, as though it were a broken cart, and the mountain does not want to be fixed. It wants to grow, which is slower." },
       },
       choices = {
-        { text = "Then I'll tend, not change.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Some things need fixing, whether they want it or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll tend, not change.", next = "BACK", reply = "That is the beginning of wisdom, little one, and the mountain will feel the difference in your hands, even if it never says so.", fx = { align = { order = 1 } } },
+        { text = "Some things need fixing, whether they want it or not.", next = "BACK", reply = "Many have said that on this slope, and some were right, but the mountain remembers the ones who were wrong much longer.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -410,8 +410,8 @@ P:NPC {
         { id = "mt_default", text = "I trust that he hates them more than he loves himself, and that will have to do. Whether it holds, I will learn when it fails, and so will he." },
       },
       choices = {
-        { text = "That's not trust. That's a gamble.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Use what serves, and watch it closely.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That's not trust. That's a gamble.", next = "BACK", reply = "A gamble, yes, and the stakes are his soul and this forest, but I have played with worse odds and the mountain is still here.", fx = { align = { honor = 1 } } },
+        { text = "Use what serves, and watch it closely.", next = "BACK", reply = "That is how a raven watches everything, little one, and you have the makings of a good watcher if you can learn to be patient about it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

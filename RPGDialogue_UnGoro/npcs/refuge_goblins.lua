@@ -73,8 +73,8 @@ P:NPC {
         { id = "e_default", text = "Let's say a fella in Gadgetzan with a big desk and a short memory, and leave it there, huh? I signed a paper that said 'liability' on it about nine times, so I don't expect anybody's coming to fetch me." },
       },
       choices = {
-        { text = "Then they owe you. Make them pay when you're out.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "You signed it. A deal's a deal, even a bad one.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then they owe you. Make them pay when you're out.", next = "BACK", reply = "Make 'em pay? Pal, I'm gonna send 'em an invoice so big it'll need its own zeppelin. Liability works both ways, I figure.", fx = { align = { honor = -1 } } },
+        { text = "You signed it. A deal's a deal, even a bad one.", next = "BACK", reply = "Yeah, yeah, a deal's a deal, and I'm the sucker who signed it. Next time I'm readin' the back of the paper too.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -93,8 +93,8 @@ P:NPC {
         { id = "fl_default", text = "Define flown, pal. My cousin's rocket chair went up beautiful and came down in three pieces, and he lost his eyebrows but kept the rest, so technically that's a success in my family. This one's gonna be better, because I'm the one sitting in it." },
       },
       choices = {
-        { text = "Take your time and test it properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Strap in and light it. That's the goblin way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Take your time and test it properly.", next = "BACK", reply = "Test it properly, sure, pal, if the pterrordax give me the time. Patience is cheap, but rescue's expensive.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Strap in and light it. That's the goblin way.", next = "BACK", reply = "That's the spirit, pal, that's how my cousin lost his eyebrows! Give me a week and I'll light it, maybe.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -128,11 +128,11 @@ P:NPC {
     scared_shame = {
       big = true,
       lines = {
-        { id = "ss_default", text = "That's easy for you to say with all that armour on. Goblins who get brave around big lizards end up as stories other goblins tell to scare their kids, and I'd rather be a coward with a flyer than a hero in a nest." },
+        { id = "ss_default", text = "That's easy for you to say with all that armour on. Goblins who get brave around big lizards end up as stories other goblins tell to scare their kids, so I'll be a coward with a flyer before I'm a hero in a nest, pal." },
       },
       choices = {
-        { text = "Courage is facing fear. You'll find yours.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Smart. Let the fools do the fighting.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Courage is facing fear. You'll find yours.", next = "BACK", reply = "You think so, pal? Maybe I'll find it under a crate somewhere. I'll let you know.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Smart. Let the fools do the fighting.", next = "BACK", reply = "Now that's sound business advice, pal! Fools fight, and smart goblins sell 'em the bandages.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -215,8 +215,8 @@ P:NPC {
         { id = "t_default", text = "Listen, listen, it's called overhead, and every honest operation has it. I'm only skimming what they'd lose anyway to spoilage, and theft, and devilsaurs, so you could say I'm saving it from the devilsaurs." },
       },
       choices = {
-        { text = "It's still skimming. They trust you.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "Overhead's overhead. Everyone takes a cut.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "It's still skimming. They trust you.", next = "BACK", reply = "Trust is the most valuable thing I've got, friend, which is why I only skim a little. But you're makin' me feel bad about it, and I don't like that.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Overhead's overhead. Everyone takes a cut.", next = "BACK", reply = "Exactly, friend, that's how the world works! Everybody takes a cut, and mine's very modest.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -235,8 +235,8 @@ P:NPC {
         { id = "e_default", text = "Cruel's a strong word, friend. There's a million raptors down here and they'd eat you or me without a second thought, so a few eggs going to a nice collector in Booty Bay is practically charity, for the egg." },
       },
       choices = {
-        { text = "Leave the nests alone. This place should stay wild.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The crater's huge. A few eggs won't matter.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Leave the nests alone. This place should stay wild.", next = "BACK", reply = "Wild, sure, friend, but wild doesn't pay the bills. Fine, fine, I'll ease off the nests a bit, for my conscience.", fx = { align = { order = 1 } } },
+        { text = "The crater's huge. A few eggs won't matter.", next = "BACK", reply = "That's what I keep sayin', friend! A million raptors, a few eggs, and everybody's happy except the eggs.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -289,7 +289,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Gibbert's the name, weapons are the game, and in Un'Goro the game is staying alive, friend. Swords, axes, maces, a few staves, all hauled down the ramp from Gadgetzan at great personal expense, which is why the prices are what they are." },
+        { id = "h_default", key = true, text = "Gibbert's the name, weapons are the game, and in Un'Goro the game is staying alive, friend. Swords, axes, maces, a few staves, all hauled down the ramp from Gadgetzan at great personal expense, and that personal expense goes straight on the price tag." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter! I've got nothing that shoots, pal, but when a raptor gets inside your bow range you'll want somethin' sharp in the other hand, believe me." },
       },
@@ -307,7 +307,7 @@ P:NPC {
     },
     best = {
       lines = {
-        { id = "b_default", text = "Depends what you're fighting, pal. Raptors, somethin' quick; stegodons, somethin' heavy; devilsaurs, honestly, a fast pair of boots, but I don't sell those, so buy the biggest axe on the rack and hope." },
+        { id = "b_default", text = "Depends what you're fighting, pal. Raptors, somethin' quick; stegodons, somethin' heavy; devilsaurs, a fast pair of boots, but I don't sell those, so buy the biggest axe on the rack and hope." },
       },
       choices = {
         { text = "Have you ever fought a devilsaur?", next = "devilsaur" },
@@ -320,8 +320,8 @@ P:NPC {
         { id = "d_default", text = "Me? Ha! I hid under a crate while one walked past, and the ground shook so hard the crate fell over and I had to hide under a different crate. That's my one devilsaur story, and I tell it to every customer, so now you've heard it too." },
       },
       choices = {
-        { text = "Smart. Living merchants sell more swords.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "You should know the beasts your blades are meant for.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Smart. Living merchants sell more swords.", next = "BACK", reply = "That's what I say too, friend! A dead merchant's got no inventory and no customers.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "You should know the beasts your blades are meant for.", next = "BACK", reply = "Know 'em, sure, friend, from a safe distance under a crate. I know they're big, and that's all the research I need.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -340,8 +340,8 @@ P:NPC {
         { id = "p_default", text = "Overcharge is such an ugly word, friend; I prefer 'charging for the walk.' Every sword on that rack came down a ramp past three kinds of lizard, and the kodo driver wanted hazard pay, and so did his kodo." },
       },
       choices = {
-        { text = "Then your prices are honest enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A captive market is still robbery, Gibbert.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then your prices are honest enough.", next = "BACK", reply = "Glad you see it my way, friend! Honest prices for a dishonest walk, that's my motto.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A captive market is still robbery, Gibbert.", next = "BACK", reply = "Robbery? Friend, I walked those swords down a ramp past three kinds of teeth. Call it hazard pay and we're square.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

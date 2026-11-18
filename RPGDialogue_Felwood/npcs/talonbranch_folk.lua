@@ -17,13 +17,13 @@ P:NPC {
     { id = "g_default", text = "Ishnu-alah, and welcome to Talonbranch. If you're bound north toward Winterspring, I'd like a word before you go." },
     { id = "g_active", when = { questActive = TODO_QUEST("Wild Guardians") }, text = "You're back from the north already? Tell me what you saw of the owlbeasts, and leave nothing out." },
     { id = "g_secrets", when = { questActive = TODO_QUEST("Guarding Secrets") }, text = "Have you found what they were guarding? I've hardly slept since you left, wondering." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Guarding Secrets") }, text = "There you are, the one who carried Elune's answer out of the snow. I still turn that over in my mind every evening." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Guarding Secrets") }, text = "There you are, the one who found what the wildkin were guarding. I still turn it over in my mind every evening." },
     { id = "g_back", when = { metBefore = true }, text = "Back by the moonwell again. Sit, if you like; the wildkin can wait a moment." },
   },
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid, and I'd wager you've worn feathers yourself, or wished to. The wildkin will interest you more than most." },
+      text = "A druid, and I'd wager you've worn feathers yourself, or wished to. Then the wildkin of Talonbranch will speak to something in you." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf of Ironforge, in Felwood. Your scholars dig for the past and I watch birds for it, so perhaps we're in the same trade." },
   },
@@ -74,8 +74,8 @@ P:NPC {
         { id = "wg_default", text = "They drive them off, and lately they kill them, Kaldorei or not. I believe the old secrets should stay where Elune put them, but the Sentinels say a guardian that kills our own people has failed in its charge." },
       },
       choices = {
-        { text = "Then leave the secrets buried. The guardians are doing their duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Secrets hidden from us aren't worth killing for. Uncover them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then leave the secrets buried. The guardians are doing their duty.", next = "BACK", reply = "That's my belief too, and it comforts me to hear it from someone else. Elune hid those secrets for a reason, and the wildkin guard them for her.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Secrets hidden from us aren't worth killing for. Uncover them.", next = "BACK", reply = "The Sentinels would agree with you, and perhaps you're both right. I only hope whatever's uncovered is worth what it costs.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -104,8 +104,8 @@ P:NPC {
         { id = "mt_default", text = "Thin the worst of them, and bring me whatever they wear or carry, because a wildkin doesn't carry trinkets without a reason. I hate to ask it, but a dead guardian can still tell me what a living one would not." },
       },
       choices = {
-        { text = "I'll do it, and I'll make it quick for them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Mad beasts are mad beasts. I'll cut through them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll do it, and I'll make it quick for them.", next = "BACK", reply = "Thank you, and Elune bless you for the mercy in it. They were guardians once, and they deserve a clean end.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mad beasts are mad beasts. I'll cut through them.", next = "BACK", reply = "I won't stop you, but I wish you'd think of them as they were. They guarded these woods long before any of us came.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -169,8 +169,8 @@ P:NPC {
         { id = "xh_default", text = "I've heard hunters say so, and I've heard druids say the opposite, and I've never been sure which of you to believe. The wildkin aren't ordinary beasts, though, and I'd ask you to remember that before you loose an arrow at one." },
       },
       choices = {
-        { text = "I'll remember. Some creatures deserve more care than others.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A beast that kills is a beast that dies. That's all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll remember. Some creatures deserve more care than others.", next = "BACK", reply = "Thank you, and I'll feel easier knowing you will. The wildkin are Elune's own, whatever they've become.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast that kills is a beast that dies. That's all.", next = "BACK", reply = "Perhaps it is, out in the wider world, but the wildkin are not wolves. I'd ask you to remember that when you meet one.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -179,7 +179,7 @@ P:NPC {
   topics = {
     furbolgs = { { id = "tp_furb", text = "The Timbermaw are the only sane furbolgs left in the north, and they guard the only good road to Winterspring. Be polite to them." } },
     cenarion_circle = { { id = "tp_circ", text = "The druids of the Emerald Circle are working in the south of the forest. They're braver than I am, and I've told them so." } },
-    advice = { { id = "tp_ad", text = "Look at a creature's eyes before you decide it's a monster. Most of the time you'll be right, but not always." } },
+    advice = { { id = "tp_ad", text = "Look at a creature's eyes before you decide it's a monster. Most of the time it will be one, but not always." } },
     _none = { { id = "tp_none", text = "I'm afraid I know about owlbeasts and very little else. Ask Golhine, who knows a little about everything and says almost none of it." } },
   },
 }
@@ -205,7 +205,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Shi'alune doesn't mind you, so neither do I. What do you need?" },
+    { id = "g_default", text = "My cat Shi'alune doesn't mind you, so neither do I. What do you need?" },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, this far into Felwood. Come, let's see what you've learned on the way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Shi'alune remembered you before I did." },
   },
@@ -237,6 +237,9 @@ P:NPC {
         { text = "Tell me about Shi'alune.", next = "cat" },
         { text = "What does the corruption do to beasts?", next = "beasts" },
         { text = "What are the Ancients in the Irontree Woods?", next = "ancients", when = { class = "HUNTER" } },
+        { text = "What do you teach the Sentinels' scouts?", next = "scouts" },
+        { text = "How did Felwood get this way?", next = "felwood" },
+        { text = "Shi'alune doesn't like the Horde?", next = "horde", when = { faction = "Horde" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -245,7 +248,19 @@ P:NPC {
       choices = {
         { text = "She's beautiful.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Can you teach that to my pet?", next = "beasts" },
+        { text = "How did the moonwell die?", next = "cat_well" },
       },
+    },
+    cat_well = {
+      lines = { { id = "cw_default", text = "Satyrs fouled it, the way they foul everything they creep near, with the filth they carry south out of these woods. Her mother drank from it and didn't wake, and Shi'alune was curled against her, waiting. I sat with them both until morning before I took her." } },
+      choices = {
+        { text = "And her name? What does it mean?", next = "cat_name" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "satyrs" } } },
+      },
+    },
+    cat_name = {
+      lines = { { id = "cn_default", text = "Something like 'moon's shadow', near enough, because she was black as the night between the moons and she followed me everywhere I went. The Sentinels tease me for naming her so grandly, and she doesn't care, and neither do I." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "elune" } } } },
     },
     beasts = {
       big = true,
@@ -258,11 +273,44 @@ P:NPC {
     },
     beasts_end = {
       lines = { { id = "bee_default", text = "I put them down, and I do it quickly, and I don't enjoy it. Shi'alune watches me do it every time, and I like to think she understands." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Is there no way to heal them?", next = "beasts_heal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts_heal = {
+      lines = { { id = "bh_default", text = "The druids of the Emerald Circle are trying, with the cleansed soil and the little sprouts they plant along the road. Arathandris at the Sanctuary thinks the forest can be healed, given a hundred years; I think the beasts don't have a hundred years." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
     },
     ancients = {
       lines = { { id = "an_default", text = "Spirits of the Ancients of Lore, who died at Hyjal and never quite left. Vartrus and his brothers speak to hunters who've proven themselves, and what they ask is hard, but I've never heard of a hunter who regretted it." } },
-      choices = { { text = "I'll seek them out. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = {
+        { text = "What sort of thing do they ask?", next = "ancients_ask" },
+        { text = "I'll seek them out. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
+    },
+    ancients_ask = {
+      lines = { { id = "aa_default", text = "To hunt the things in this forest that should never have been born, and to bring proof. They don't care how strong your bow is; they watch how you treat what you kill, and the hunters who boast never hear them speak at all." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    scouts = {
+      lines = { { id = "sc_default", text = "How to read a track that's half rotted away, how to smell bad water, and how to tell a satyr's footprint from a deer's in mud, which is harder than it sounds. They come to me green and leave knowing which bushes bite." } },
+      choices = {
+        { text = "Do they all come back?", next = "scouts_back" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } },
+      },
+    },
+    scouts_back = {
+      lines = { { id = "sb_default", text = "Not all. Jaedenar takes some, and the Shadow Hold takes others, and once in a long while one simply walks into the Bloodvenom and doesn't think to stop. I keep their names on a strip of bark by the door, and Shi'alune sleeps under it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    felwood = {
+      lines = { { id = "fe_default", text = "The Burning Legion came through here in the war, to Hyjal and the World Tree, and wherever demons walked the ground remembered it. What they left behind seeped into the soil and the water, and the satyrs and the cultists have been feeding it ever since." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "burning_legion" } } } },
+    },
+    horde = {
+      lines = { { id = "ho_default", text = "She was a cub in Ashenvale, near where the axes ring now, and the first thing she learned to fear was that sound. She can't tell one of you from another, of course; she only knows the smell of an axe, and some of you carry it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
@@ -270,6 +318,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Beasts, the glade, and the hunters who train here." } },
     advice = { { id = "tp_ad", text = "Watch your pet's nose. If it won't drink, neither should you." } },
     sentinels = { { id = "tp_sent", text = "I train their scouts. They come to me green and leave knowing which bushes bite." } },
+    burning_legion = { { id = "tp_bl", text = "They've been gone for years, and the water still tastes of them. That's all I need to know of demons." } },
     _none = { { id = "tp_none", text = "I don't know. Ask Shi'alune, and she'll tell you just as much." } },
   },
 }

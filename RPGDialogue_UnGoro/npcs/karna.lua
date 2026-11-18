@@ -33,12 +33,12 @@ P:NPC {
   nodes = {
     op_gnomeregan = {
       lines = {
-        { id = "opg_q", text = "Some folks say gnomes should have stopped tinkering after Gnomeregan, which is silly, but I hear it a lot. What do you think, should we go back for it, or let it go?" },
+        { id = "opg_q", text = "Some folks say gnomes should have stopped tinkering after Gnomeregan, which is silly, but I hear it a lot. What do you think, should the gnomes go back for it, or let it go?" },
       },
       choices = {
         { text = "Take it back. It's your home, and the troggs don't deserve it.", next = "op_gnomeregan_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { gnomeregan = "reclaim" } } },
         { text = "Let it go. The radiation's not worth more gnome lives.", next = "op_gnomeregan_r2", fx = { affinity = -1, align = { honor = -1 }, trait = { cautious = 1 }, opinion = { gnomeregan = "lost" } } },
-        { text = "Your people poisoned it themselves. Be careful what you build next.", next = "op_gnomeregan_r3", fx = { trait = { stern = 1 }, opinion = { gnomes = "reckless" } } },
+        { text = "The gnomes poisoned it themselves. Be careful what you build next.", next = "op_gnomeregan_r3", fx = { trait = { stern = 1 }, opinion = { gnomes = "reckless" } } },
         { text = "Gnomeregan will be ours again, Karna. I'll see to it.", next = "op_gnomeregan_r4", fx = { affinity = 2, opinion = { gnomeregan = "reclaim" } }, when = { race = "Gnome" } },
         { text = "That's for the gnomes to decide, Karna.", next = "BACK" },
       },
@@ -116,8 +116,8 @@ P:NPC {
       big = true,
       lines = { { id = "as_default", text = "It worked beautifully until it didn't, and I learned more in three days than in three months. Spying is a strong word, though; I'd call it very polite watching." } },
       choices = {
-        { text = "Leave them be. They didn't ask to be studied.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Knowledge is worth a little trespass.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Leave them be. They didn't ask to be studied.", next = "BACK", reply = "They didn't, I'll grant you, and the alpha made that very clear to A-Me 01. Perhaps I'll study them from a polite distance next time.", fx = { align = { order = 1 } } },
+        { text = "Knowledge is worth a little trespass.", next = "BACK", reply = "That's my feeling too, though Hol'anyee would scold us both for it. A little trespass, a lot of notes, and nobody gets hurt, ideally.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -161,14 +161,14 @@ P:NPC {
     },
     next_voice = {
       lines = { { id = "nv_default", text = "Not for talking to the apes, silly, for talking to me! If she could say what she saw instead of only showing it, I'd stop chewing my nails every time the gems go dark." } },
-      choices = { { text = "You care about her a great deal.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "You care about her very much.", next = "BACK", fx = { affinity = 1 } } },
     },
     next_stance = {
       big = true,
       lines = { { id = "ns_default", text = "That's what Hol'anyee asked me, though less politely, and I didn't have a good answer. What would you do, if you could learn something nobody has ever known, and the only price was bothering some apes?" } },
       choices = {
-        { text = "Send A-Me 02. Knowledge builds a better world.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let the apes be. Not every door needs opening.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Send A-Me 02. Knowledge builds a better world.", next = "BACK", reply = "That's what I'd like to believe, and you've made me feel much better about the blueprints. A-Me 02 it is, with stronger shoulders this time.", fx = { align = { order = 1 } } },
+        { text = "Let the apes be. Not every door needs opening.", next = "BACK", reply = "Maybe you're right, and maybe some doors are better left shut. I'll keep the blueprints anyway, just in case.", fx = { align = { order = -1 } } },
         { text = "I'd need to think on that.", next = "BACK" },
       },
     },
@@ -197,8 +197,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "A dwarf engineer, a Remtravel, and a member of the Marshal Expedition, which mostly means I get to see wonderful things and run away from them." } },
     advice = { { id = "tp_ad", text = "Always build two of anything important. I only built one A-Me, and look how that turned out." } },
     explorers_league = { { id = "tp_el", text = "My uncle's the one for the Explorers' League; I'm more for building than digging. Still, I'd love to show them A-Me one day." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was the most wonderful city in the world, and we lost it, and I was too young to help. That's why I build things that go where things get dented, so I'm never too young again." } },
-    magni = { { id = "tp_magni", text = "King Magni gave the gnomes a home in Ironforge when we had nowhere else, and I'll always love him for it. He's very loud, though." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was the most wonderful city in the world, and I was too young to help when the gnomes lost it. That's why I build things that can go where people get hurt, so nobody else has to." } },
+    magni = { { id = "tp_magni", text = "King Magni gave the gnomes a home in Ironforge when they had nowhere else, and I'll always love him for it. He's very loud, though." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan sells good parts, if you check every one, and I check every one twice. A-Me 01's left arm came from there, and it's still the best part of her." } },
     silithid = { { id = "tp_silithid", text = "The bugs crawling up from Silithus are fascinating, mechanically speaking, all levers and plates. I'd like to take one apart, if it would hold still." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, {g:lad|lass}! But give me a forge and a wee bit of time, and I could build something that does." } },

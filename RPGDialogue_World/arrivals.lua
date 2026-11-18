@@ -6,8 +6,8 @@
 local P = RPGDialogueAPI:Pack("rpgd.world")
 
 P:Arrival { zone = "Elwynn Forest",
-  first = "Elwynn Forest, green and gold and quiet enough that you could forget the Defias and the kobolds were ever here. Almost.",
-  third = "{name} walked the roads of Elwynn Forest, where the farms are green and the kobolds in the mines keep stealing everyone's candles.",
+  first = "Elwynn Forest is green and gold, and quiet enough that you could almost forget the Defias and the kobolds were here.",
+  third = "{name} walked the roads of Elwynn Forest, where the farms are green and the kobolds have taken over the mines.",
 }
 
 -- Eastern Kingdoms -----------------------------------------------------------------------

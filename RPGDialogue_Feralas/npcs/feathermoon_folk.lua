@@ -38,13 +38,13 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Quintis Jonespyre, druid, researcher, and the stronghold's resident expert on curses, which is a speciality nobody wants until suddenly everybody does. What brings you up my ladder?" },
         { id = "h_request", when = { questActive = TODO_QUEST("Jonespyre's Request") },
-          text = "Shyria sent you, bless her. I've a small puzzle, and I need somebody with steady hands who doesn't ask too many questions of Darnassus." },
+          text = "Shyria at the inn sent you, bless her. I've a small puzzle, and I need somebody with steady hands who doesn't ask too many questions of Darnassus." },
         { id = "h_knife", when = { questActive = TODO_QUEST("The Knife Revealed") },
           text = "A knife, from the wreck of Raschal's boat? Give it here. If I hold it long enough, it will tell me where it has been, and who has been holding it." },
         { id = "h_reading", tags = { "news" }, when = { questActive = TODO_QUEST("Psychometric Reading") },
           text = "I saw gnolls, Woodpaw gnolls, quarrelling over packs by firelight, and a boat breaking in the surf. Take that to Ginro, and tell him the debt is paid in full." },
         { id = "h_druid", when = { class = "DRUID" },
-          text = "A druid, and a Moonglade one by the look of you. Then perhaps you can tell me something nobody in Darnassus will, which is why the Arch Druid needs quite so much morrowgrain." },
+          text = "A druid, and a Moonglade one by the look of you. Then perhaps you can tell me what nobody in Darnassus will: why the Arch Druid needs quite so much morrowgrain." },
       },
       again = {
         { id = "h_again", text = "What else? The tea's cooling, and I can't decide if that's a problem." },
@@ -79,21 +79,21 @@ P:NPC {
       big = true,
       lines = { { id = "pm_default", text = "I could, but I've learned to ask first, because people don't always like what their belongings remember. Some say a secret kept is a secret owed; others think the truth should always come out. Which are you?" } },
       choices = {
-        { text = "The truth should always come out.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Some secrets are nobody's business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The truth should always come out.", next = "BACK", reply = "Then I will tell you what I see, and I will trust you to carry it gently, because the truth is heavier than it looks.", fx = { align = { order = 1 } } },
+        { text = "Some secrets are nobody's business.", next = "BACK", reply = "A wise answer, and one the moon would approve of, so I will keep my hands in my sleeves and leave your things their silence.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     grain = {
-      lines = { { id = "gr_default", text = "A grain grown with a little nature magic, quickly, in great quantity. Arch Druid Staghelm wants a great deal of it gathered in the name of the Cenarion Circle, and the Circle's own druids can't tell me why." } },
+      lines = { { id = "gr_default", text = "A grain grown with a little nature magic, quickly, in great quantity. Arch Druid Staghelm wants sacks of it gathered in the name of the Cenarion Circle, and the Circle's own druids can't tell me why." } },
       choices = {
         { text = "Why does that trouble you?", next = "grain_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
     grain_why = {
-      lines = { { id = "gw_default", text = "Because when an Arch Druid spends the Circle's name and the Circle's coin on something, I'd like the Circle to know what it is. The general and I have spent a good many evenings on this, and on whether the High Priestess will ever ask him." } },
+      lines = { { id = "gw_default", text = "Because when an Arch Druid spends the Circle's name and the Circle's coin on something, I'd like the Circle to know what it is. General Feathermoon and I have spent a good many evenings on this, and on whether the High Priestess will ever ask Staghelm about it." } },
       choices = {
         { text = "And will she?", next = "grain_tyrande" },
         { text = "Something else.", next = "BACK" },
@@ -115,7 +115,7 @@ P:NPC {
       },
     },
     debt_cheat = {
-      lines = { { id = "dc_default", text = "I could, technically, and Ginro knows it, which is why he plays with a deck he carved himself from ironwood. Every card in it remembers only Ginro winning." } },
+      lines = { { id = "dc_default", text = "I could, technically, and Ginro knows it, so he plays with a deck he carved himself from ironwood. Every card in it remembers only Ginro winning." } },
       choices = {
         { text = "He's cleverer than he looks.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -184,9 +184,9 @@ P:NPC {
         { id = "h_boat", when = { questActive = TODO_QUEST("The Missing Courier") },
           text = "Search the Forgotten Coast, south of the jetty. If the boat sank, it'll be in the shallows, and if it's hidden, it'll be hidden badly; Raschal was never good at hiding things." },
         { id = "h_knife", when = { questActive = TODO_QUEST("The Knife Revealed") },
-          text = "A knife from the wreck. Take it up to Quint in his tree-house and tell him his Kalimdor Hold 'Em debt is paid if he works his mojo on it. I don't understand how he does it, but I've seen it work." },
+          text = "A knife from the wreck. Take it up to Quintis Jonespyre in his tree-house and tell him his Kalimdor Hold 'Em debt is paid if he works his mojo on it. I don't understand how he does it, but I've seen it work." },
         { id = "h_gnolls", when = { questActive = TODO_QUEST("The Woodpaw Gnolls") },
-          text = "Quint saw gnolls, so the Woodpaw camps in the south are where we start. Gnolls keep what they scavenge and fight over it, so if they found Raschal's packs, they'll still have them." },
+          text = "Quintis saw gnolls, so the Woodpaw camps in the south are where we start. Gnolls keep what they scavenge and fight over it, so if they found Raschal's packs, they'll still have them." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Thalanaar Delivery"), days = 5 } },
           text = "Falfindel has his parcel, and that's Raschal's last errand finished, whatever became of him. Thank you, {name}. I'll write it in the log in his name." },
       },
@@ -222,8 +222,8 @@ P:NPC {
       big = true,
       lines = { { id = "rh_default", text = "He might be, and I'll keep believing it until I'm shown otherwise. Some here say I should give up the search and spend our scouts on the naga instead." } },
       choices = {
-        { text = "Never leave a comrade behind. Keep searching.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The living need those scouts more. Let him go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Never leave a comrade behind. Keep searching.", next = "BACK", reply = "Thank you, and Elune bless you for saying it, because I have begun to feel very alone in that conviction.", fx = { align = { honor = 1 } } },
+        { text = "The living need those scouts more. Let him go.", next = "BACK", reply = "Perhaps you are right, and the Sentinels say the same, but I cannot stop listening for his footsteps on the road.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -263,7 +263,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "Who left, who came back, and who's late. That's the dispatch office, friend." } },
     background = { { id = "tp_bg", text = "One of the general's expedition, keeper of the stronghold's dispatches.", next = "stronghold" } },
-    sentinels = { { id = "tp_sent", text = "The finest soldiers in Kalimdor, and the worst at writing reports, which is why I'm here." } },
+    sentinels = { { id = "tp_sent", text = "The finest soldiers in Kalimdor, and the worst at writing reports, so the General keeps a clerk on the island, and the clerk is me." } },
     _none = { { id = "tp_none", text = "Nothing in the dispatches about that, I'm afraid." } },
   },
 }

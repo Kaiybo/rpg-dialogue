@@ -52,7 +52,7 @@ P:NPC {
 
     supply = {
       lines = {
-        { id = "su_default", text = "Up from Grom'gol, with Commander Aggro'gosh's lot guarding the wagons, through the jungle and past Deadwind Pass, which is a road nobody enjoys. When the caravan's late, Stonard eats crocolisk, and when it's very late, Stonard eats whatever Dar's hunters bring back and doesn't ask." },
+        { id = "su_default", text = "Up from Grom'gol, with Commander Aggro'gosh's lot guarding the wagons, through the jungle and past Deadwind Pass, which is a road nobody enjoys. When the caravan's late, Stonard eats crocolisk, and when it's very late, Stonard eats whatever the hunters bring back and doesn't ask." },
       },
       choices = {
         { text = "What happens if the caravan never comes?", next = "supply_late" },
@@ -64,8 +64,8 @@ P:NPC {
         { id = "sl_default", text = "Then I start rationing, and I've done it before, and the grunts call me every name they know. I keep a store back that nobody knows about, because hungry soldiers don't hold walls, and a quartermaster who shares everything at once is a fool." },
       },
       choices = {
-        { text = "A hidden store is wise. Hunger breaks discipline.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "You should tell Ruag. Secrets like that cause trouble.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A hidden store is wise. Hunger breaks discipline.", next = "BACK", reply = "It is, and that's why it stays hidden. A hungry grunt is a dangerous grunt, and a starving one's worse.", fx = { align = { honor = -1 } } },
+        { text = "Tell Commander Ruag. Secrets like that cause trouble.", next = "BACK", reply = "Tell Ruag, and he'll hand it out the first bad week. No, the store stays mine until we truly need it.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -84,8 +84,8 @@ P:NPC {
         { id = "ds_default", text = "I've thought about it, I'll admit, but then they'd only brew their own out of swamp water and fungus, and I've tasted what grunts brew. Better they drink mine, in measure, than go blind on theirs." },
       },
       choices = {
-        { text = "Orders are orders. Stop selling to the beach patrol.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A soldier's drink is his own business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Orders are orders. Stop selling to the beach patrol.", next = "BACK", reply = "Orders, aye, and I'll follow them when they come. Until then, the beach patrol drinks what I sell.", fx = { align = { order = 1 } } },
+        { text = "A soldier's drink is his own business.", next = "BACK", reply = "It is, mostly, until he's drunk on the wall. Still, I'd rather sell him decent stuff than let him brew his own.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -157,7 +157,7 @@ P:NPC {
 
     damp = {
       lines = {
-        { id = "da_default", text = "Wax, oilcloth, and a great deal of swearing. Powders clump and candles weep, and a crate that sits a day on the ground draws water up like a sponge, so everything I own lives on shelves and nothing I own touches the floor." },
+        { id = "da_default", text = "Wax, oilcloth, and more swearing than a grunt at drill. Powders clump and candles weep, and a crate that sits a day on the ground draws water up like a sponge, so everything I own lives on shelves and nothing I own touches the floor." },
       },
       choices = {
         { text = "Has the damp ever ruined a whole shipment?", next = "damp_lost" },
@@ -169,15 +169,15 @@ P:NPC {
         { id = "dl_default", text = "Once, when the caravan was caught in the rain at Deadwind Pass and the guards stacked my crates under the meat. Thultash got his meat dry and I got a crate of grey paste, and I still haven't entirely forgiven him." },
       },
       choices = {
-        { text = "It was an accident. Let it go.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "He owes you for that. Make him pay.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It was an accident. Let it go.", next = "BACK", reply = "Let it go? Every time I smell his meat I remember my ruined reagents. But aye, I suppose I should.", fx = { align = { light = 1 } } },
+        { text = "He owes you for that. Make him pay.", next = "BACK", reply = "Make him pay? Ha, I've been trying for two years. He pays me in stew and promises.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     rartar = {
       lines = {
-        { id = "ra_default", text = "We sell vials, but not the same vials, whatever Rogvar tells people. Mine are packed in straw and sealed, and his crack if you look at them unkindly, though I'll grant they come off the same wagon." },
+        { id = "ra_default", text = "We sell vials, but not the same vials, whatever Rartar tells people. Mine are packed in straw and sealed, and his crack if you look at them unkindly, though I'll grant they come off the same wagon." },
       },
       choices = {
         { text = "So they're the same vials?", next = "rartar_same" },
@@ -196,7 +196,7 @@ P:NPC {
 
     customers = {
       lines = {
-        { id = "cu_default", text = "Shamans buying ankhs, mages buying powder, Rogvar's students buying vials by the crate and breaking half of them, and once a warlock who wanted something I don't sell and won't name. The swamp brings more spellcasters than you'd think, all of them on their way to the temple or the Portal." },
+        { id = "cu_default", text = "Shamans buying ankhs, mages buying powder, Rogvar's students buying vials by the crate and breaking half of them, and once a warlock who wanted something I don't sell and won't name. The swamp draws spellcasters like flies, all of them on their way to the temple or the Portal." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -253,7 +253,7 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Does the rust really get that bad?", next = "rust" },
         { text = "Who are you arming against out here?", next = "ogres" },
-        { text = "Do Malosh's recruits buy from you?", next = "recruits" },
+        { text = "Do the warrior recruits buy from you?", next = "recruits" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -288,18 +288,18 @@ P:NPC {
     },
     ogres_rockard = {
       lines = {
-        { id = "or_default", text = "Every grunt in the great hall says so after his third drink, and Ruag says we've neither the warriors nor the reason. I say I'd sell a great many axes either way, so I keep my opinion to myself and my prices fair." },
+        { id = "or_default", text = "Every grunt in the great hall says so after his third drink, and Commander Ruag says we've neither the warriors nor the reason. I say I'd sell a great many axes either way, so I keep my opinion to myself and my prices fair." },
       },
       choices = {
-        { text = "Rockard was ours. The Horde should take it back.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let the ogres keep their ruin. Stonard's enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Rockard was ours. The Horde should take it back.", next = "BACK", reply = "Ours, aye, and the grunts say so too. Ruag's the one you'll have to convince.", fx = { align = { honor = 1 } } },
+        { text = "Let the ogres keep their ruin. Stonard's enough.", next = "BACK", reply = "Enough for now, aye. But I'd sell a lot of axes if it weren't, so forgive me for hoping.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     recruits = {
       lines = {
-        { id = "rc_default", text = "They do, and they all want the biggest thing on the rack, and Malosh sends them back to buy something they can actually lift. I don't mind, because I sell them twice that way." },
+        { id = "rc_default", text = "They do, and they all want the biggest thing on the rack, and Malosh, their trainer, sends them back to buy something they can actually lift. I don't mind, because I sell them twice that way." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -327,7 +327,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Plate and mail, brigandine and platemail, and a shield or two. Don't listen to Thralosh across the way." },
+    { id = "g_default", text = "Plate and mail, brigandine and platemail, and a shield or two. Don't listen to Thralosh across the square, who sells leather." },
     { id = "g_plate", when = { class = { "WARRIOR", "PALADIN" } }, text = "Now there's someone built to wear proper armor. Come and try the platemail on." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still alive, which I'll put down to good armor whether or not you bought it here." },
   },
@@ -355,6 +355,10 @@ P:NPC {
         { text = "Doesn't plate sink in this mud?", next = "sink" },
         { text = "What's the quarrel with Thralosh?", next = "thralosh" },
         { text = "Has your armor ever failed someone?", next = "failed" },
+        { text = "You said you wore plate in the war.", next = "war" },
+        { text = "Do you make any plate big enough for a tauren?", next = "tauren", when = { race = "Tauren" } },
+        { text = "Will plate sit right on Forsaken bones?", next = "undead", when = { race = "Scourge" } },
+        { text = "I fight at the front. What should I wear?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Farewell, Grimnal.", next = "END" },
       },
     },
@@ -364,8 +368,8 @@ P:NPC {
         { id = "si_default", text = "It does, if you stand about in it like a fool, and every grunt's heard the story of the one who went into the Pool of Tears in full plate. He came out again, I'll have you know, slowly, and he's alive today because the murlocs couldn't get their spears through." },
       },
       choices = {
-        { text = "Slow and alive beats fast and dead.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather be quick. Armor can't dodge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Slow and alive beats fast and dead.", next = "BACK", reply = "It does, and you'll live to say it again. Stand still in plate, and the swamp won't get you.", fx = { align = { order = 1 } } },
+        { text = "I'd rather be quick. Armor can't dodge.", next = "BACK", reply = "Quick, until you trip in the mud. Plate doesn't dodge, but it doesn't need to.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -396,7 +400,63 @@ P:NPC {
       choices = {
         { text = "Something else.", next = "BACK" },
         { text = "Then I'll buy a shield.", next = "BUSINESS" },
+        { text = "Dreadmaul? Where do they come from?", next = "fa_dreadmaul" },
       },
+    },
+    fa_dreadmaul = {
+      lines = {
+        { id = "fad_default", text = "Out of the Blasted Lands, past the Dark Portal, where nothing grows and the ogres grow bigger for it. They come up through the passes looking for meat, and Stonard's the nearest larder, so we keep our shields up and our walls patched." },
+      },
+      choices = {
+        { text = "Have you been to the Blasted Lands?", next = "fa_blasted" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fa_blasted = {
+      lines = {
+        { id = "fab_default", text = "Once, and I won't go again. It's red earth and dead air, and the Portal stands there cold, and you can feel the old war in the ground under your boots. The humans keep a fortress at Nethergarde to watch it, and for once I don't begrudge them the job." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_portal" } } } },
+    },
+
+    war = {
+      lines = {
+        { id = "wa_default", text = "The Second War, in a black iron hauberk that weighed more than my wife. I marched under the Horde's banner when the Horde was a different thing, and I'll not dress that up for you, because it wasn't pretty and neither were we." },
+      },
+      choices = {
+        { text = "What happened after the Portal fell?", next = "wa_after" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wa_after = {
+      lines = {
+        { id = "waf_default", text = "Some of us hid in this swamp and some were put in the camps, and I was one of the lucky ones, if you call it luck to eat frogs for ten years. When Thrall's Horde came looking for us, we had Stonard standing and our armor polished, and we've held it since." },
+      },
+      choices = {
+        { text = "The old Horde fought with honor, whatever they say.", next = "BACK", fx = { align = { light = -1 } },
+          reply = "Some did, some didn't. I'll not pretend the demon blood had nothing to do with it." },
+        { text = "Thrall's Horde is better. The old one deserved its fall.", next = "BACK", fx = { align = { light = 1 } },
+          reply = "Maybe it did. I'll say this, I sleep better under Thrall's banner than I ever did under the old one." },
+        { text = "Something else.", next = "BACK", fx = { learn = { "stonard" } } },
+      },
+    },
+
+    tauren = {
+      lines = {
+        { id = "ta_default", text = "Big enough? I've a breastplate in the back that I forged for an ogre who never came to collect, and it'll sit on your shoulders like it was made for them. Hooves I can't help you with, though, so mind the mud." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    undead = {
+      lines = {
+        { id = "un_default", text = "It'll sit loose, so pad it with wool, or it'll rattle and every murloc in the Pool of Tears will hear you coming. The Forsaken who buy from me say the weight helps, since it keeps the wind from blowing them about." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+
+    warrior = {
+      lines = {
+        { id = "wr_default", text = "Plate, a crested heater shield, and boots you've already broken in, because new boots in this swamp will cost you your feet. Stand where the mud's firm, {class}, and let them come to you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
@@ -404,6 +464,8 @@ P:NPC {
     background = { { id = "tp_ba", text = "I wore plate in the war and lived, so I sell plate now. It's a simple life." } },
     advice = { { id = "tp_ad", text = "Keep your feet moving in heavy armor, and the mud can't get a grip on you." } },
     _none = { { id = "tp_none", text = "That's not armor, so I don't know about it. Ask Thralosh, he knows about everything soft." } },
+    thralosh = { { id = "tp_thralosh", text = "He sells leather and calls it armor. Best drinking companion in Stonard, though." } },
+    dark_portal = { { id = "tp_portal", text = "It stands cold in the Blasted Lands, and you can feel the old war in the ground there." } },
   },
 }
 
@@ -446,6 +508,10 @@ P:NPC {
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "Why leather, in a swamp?", next = "leather" },
         { text = "Grimnal says plate keeps you alive.", next = "grimnal" },
+        { text = "Why leave the Barrens for a swamp?", next = "barrens" },
+        { text = "Who catches all these crocolisks for you?", next = "crocs" },
+        { text = "My people cure hides with smoke, not oil.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Does your cloth stand up to spellwork?", next = "cloth", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -474,8 +540,8 @@ P:NPC {
         { id = "gr_default", text = "He would, and he's been saying it for years, and he'll keep saying it until the swamp swallows his shop. Plate keeps you alive if you stand and fight, but out here half the fighting is getting away from what you can't fight." },
       },
       choices = {
-        { text = "A soldier stands his ground. Running isn't fighting.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Living to fight tomorrow is the smarter war.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A soldier stands his ground. Running isn't fighting.", next = "BACK", reply = "He'd say the same, and so would I, some days. But a soldier who stands in this swamp sinks.", fx = { align = { honor = 1 } } },
+        { text = "Living to fight tomorrow is the smarter war.", next = "BACK", reply = "Smarter, aye, and Grimnal will never admit it. Light leather and quick feet, that's the swamp way.", fx = { align = { honor = -1 } } },
         { text = "Do you two actually hate each other?", next = "grimnal_truth" },
       },
     },
@@ -488,11 +554,59 @@ P:NPC {
         { text = "My lips are sealed.", next = "END", fx = { affinity = 1 } },
       },
     },
+
+    barrens = {
+      lines = {
+        { id = "ba_default", text = "Because Dispatch Commander Ruag sent word that Stonard's soldiers were rotting in their boots, and a tanner goes where the leather's needed. The Barrens were dry and dusty and I miss them every day, but nobody in the Crossroads was ever going to die for want of a good jerkin." } },
+      choices = {
+        { text = "What were the Barrens like?", next = "ba_like" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ba_like = {
+      lines = {
+        { id = "bal_default", text = "Wide and gold and hot, with zhevra on the plains and kodo the size of a hut. The hides dried in a day there, and here they take a week and come out green, so you'll understand why I talk about it so much." } },
+      choices = {
+        { text = "Will you go back one day?", next = "ba_back" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ba_back = {
+      lines = {
+        { id = "bab_default", text = "When Stonard doesn't need me, which means never, because the swamp eats leather faster than I can sew it. Besides, if I left, Grimnal would win the argument by default, and I'll not give him that." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "stonard" } } } },
+    },
+
+    crocs = {
+      lines = {
+        { id = "cr_default", text = "Ogromm's hunters, mostly, and anyone else with a spear and a death wish. The sawtooth crocolisks in the south marsh have the best hides, because they're the oldest and the meanest, and every hide I cure cost somebody a bad afternoon." } },
+      choices = {
+        { text = "Then pay the hunters more. They take the risk.", next = "BACK", fx = { align = { order = -1 } },
+          reply = "You sound like the hunters. I pay what Ruag sets, and Ruag sets it low." },
+        { text = "They hunt for the Horde, not for coin. That's enough.", next = "BACK", fx = { align = { order = 1 } },
+          reply = "Spoken like a grunt. Tell that to Ogromm, if you like your ears where they are." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    tauren = {
+      lines = {
+        { id = "ta_default", text = "So I've heard, and in the Barrens I'd agree with you, because smoke keeps the flies off and the hide stays soft. Here the smoke can't win against the damp, so I use oil, and I hope the Earth Mother forgives the stink." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    cloth = {
+      lines = {
+        { id = "cl_default", text = "It won't stop a blade, but it won't catch fire from your own spells either, which is more than I can say for the last warlock's robes I sold. Keep it dry and it'll last you till you're sick of it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
     background = { { id = "tp_ba", text = "I tanned hides in the Barrens before this, and the hides there were dry. Everything was dry, now that I think of it." } },
     advice = { { id = "tp_ad", text = "Wear what lets you run, and know when to run in it." } },
+    grimnal = { { id = "tp_grimnal", text = "He's wrong about plate and right about ale, and he's never once paid for a round." } },
+    ruag = { { id = "tp_ruag", text = "He sent for me when his soldiers' boots were rotting. He sets the hunters' pay low." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask me about leather, and I'll have plenty to say." } },
   },
 }

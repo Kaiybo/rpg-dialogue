@@ -48,7 +48,7 @@ P:NPC {
       },
     },
     op_leave_1 = {
-      lines = { { id = "op_leave_r1", text = "That's Saldean's answer, and I'll tell him a stranger agrees with him, which will make him unbearable for a week. Mind you, staying's easier for those with a pitchfork and a full larder." } },
+      lines = { { id = "op_leave_r1", text = "That's Saldean's answer, and I'll tell him a stranger agrees with him, which will make him unbearable for a week. Still, staying's easier for those with a pitchfork and a full larder." } },
       choices = { { text = "Something else, Salma.", next = "BACK" } },
     },
     op_leave_2 = {
@@ -65,22 +65,22 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Whatever's to hand, dear: goretusk, onions, and maybe a murloc eye if I'm short. Your spirits needn't fret. It's filling." } },
+      lines = { { id = "xdsham_default", text = "Whatever's to hand, dear: goretusk, onions, and maybe a murloc eye if I'm short, and your spirits needn't fret, because it's filling." } },
       choices = {
-        { text = "A full pot for anyone hungry is a blessing, Salma.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Murloc eyes? You should feed your own first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A full pot for anyone hungry is a blessing, Salma.", next = "BACK", reply = "It's no more than my mother taught me, dear, but I'll take the kind word. Sit and eat, if you're hungry.", fx = { align = { light = 1 } } },
+        { text = "Murloc eyes? You should feed your own first.", next = "BACK", reply = "Saldean eats first, dear, and he grumbles about it, and then the rest of the pot goes out. Nobody in my house goes hungry.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Maybe it does, and I'd be lying if I said I've never wondered about some of the thin young men who come to my door at dusk. But a hungry boy is a hungry boy, and I'd rather fill him with stew than have him filling his pockets from my larder." },
+        { id = "xrogue_default", text = "Maybe it does, and I'd be lying if I said I've never wondered about some of the thin young men who come to my door at dusk. But a hungry boy is a hungry boy, and I'll fill him with stew before I let him fill his pockets from my larder." },
         { id = "xrogue_more1", text = "If you're asking whether I'd feed you, the answer's the same, and I'll not ask where you've been." },
       },
       choices = {
-        { text = "Then your rule is a good one, and I'll respect it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fill them up, then. It makes them easier to rob.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then your rule is a good one, and I'll respect it.", next = "BACK", reply = "Thank you, dear, and I can tell you mean it. Mind you wipe your feet on the way in.", fx = { align = { honor = 1 } } },
+        { text = "Fill them up, then. It makes them easier to rob.", next = "BACK", reply = "Oh, you cheeky thing, I've a wooden spoon for talk like that. Eat your stew and behave.", fx = { align = { honor = -1 } } },
         { text = "Something else, Salma.", next = "BACK" },
       },
     },
@@ -88,24 +88,24 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every one that comes by, and some twice a day, and they never say no to seconds. A fighter on an empty belly is no use to anyone, so I feed them, and they keep the thieves off my doorstep." } },
       choices = {
-        { text = "I'll eat, and I'll keep the thieves away.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll eat, but the thieves aren't my problem.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll eat, and I'll keep the thieves away.", next = "BACK", reply = "That's a fair trade, and you'll get the best of it. Seconds are on the stove, dear.", fx = { align = { honor = 1 } } },
+        { text = "I'll eat, but the thieves aren't my problem.", next = "BACK", reply = "Then eat, dear, and I'll feed the ones who do care. A full belly might change your mind.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Bless you, but conjured bread fills a belly for an hour and leaves a body hungrier after. My pot's got real murloc in it and real carrots, and that'll keep a militia man walking till supper." } },
       choices = {
-        { text = "A proper kitchen beats any spell. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Bread is bread, Salma. Take what magic gives.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A proper kitchen beats any spell. You're right.", next = "BACK", reply = "It does, dear, and I'm glad someone in this house agrees. Saldean only eats what's in front of him.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bread is bread, Salma. Take what magic gives.", next = "BACK", reply = "Your bread's very nice, I'm sure, dear, but it won't feed a farmer through a harvest. I'll stick with my pot.", fx = { align = { order = -1 } } },
         { text = "What's in the pot today?", next = "pot" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "I've fed Defias boys and Stormwind soldiers at the same table, so I'll not turn you away for whatever's following at your heel. Only keep it out of my kitchen, because I've a feeling it would sour the milk." } },
       choices = {
-        { text = "Kindness is its own power, Salma. Keep giving it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Kindness gets farmers killed out here.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Kindness is its own power, Salma. Keep giving it.", next = "BACK", reply = "It is, dear, and it's the only one I've got. Keep yours outside, and you're welcome to the stew.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Kindness gets farmers killed out here.", next = "BACK", reply = "Maybe, but cruelty gets them killed faster. I'll keep my rule, and the Light can sort the rest.", fx = { align = { light = -1 } } },
         { text = "Why do you feed everyone?", next = "fed" },
       },
     },
@@ -113,8 +113,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Never, not even the Defias boys, who come down thin and ashamed and eat with their masks in their laps. A full belly keeps a lad off the road better than any sword, in my experience." } },
       choices = {
-        { text = "Defias at your table should still answer to the law.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Your house, your rules. The law can wait outside.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Defias at your table should still answer to the law.", next = "BACK", reply = "They will answer, dear, someday, to someone. But they'll answer on a full belly in my house.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your house, your rules. The law can wait outside.", next = "BACK", reply = "That's right, and the law can have a bowl too, if it knocks politely.", fx = { align = { order = -1 } } },
         { text = "Something else, Salma.", next = "BACK" },
       },
     },
@@ -122,8 +122,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "A few onions and a row of okra behind the house, and they come up small and bitter in this dust. Saldean says the earth's given up, but I tell him it's only tired, the same as the rest of us." } },
       choices = {
-        { text = "Keep sowing your rows. Steady work brings the soil back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the wild herbs take that plot. They know this dust better.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep sowing your rows. Steady work brings the soil back.", next = "BACK", reply = "That's what I tell Saldean, and he never listens. Steady and patient, like a pot on the boil.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the wild herbs take that plot. They know this dust better.", next = "BACK", reply = "Herbs would be nice, dear, but you can't make a stew of herbs alone. I'll keep my onions.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -142,7 +142,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Westfall Stew"), days = 3 } },
           text = "Three pots were gone by sundown, and half the hill came down for it. One of them cried into his bowl, and I didn't ask why." },
         { id = "h_pie", when = { questActive = TODO_QUEST("Goretusk Liver Pie") },
-          text = "Goretusk liver, and fresh, mind you. A pie's only as good as what's in it, and that's a fact Verna will argue with." },
+          text = "Goretusk liver, and fresh this morning. A pie's only as good as what's in it, and that's a fact Verna will argue with." },
         { id = "h_furlbrows", when = { topicKnown = "old_blanchy" },
           text = "Verna and Theodore are up at the old Jansen place, poor dears, since their wagon broke. Theodore's pride broke worse than the wheel did." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -192,7 +192,7 @@ P:NPC {
     },
     pot = {
       lines = {
-        { id = "p_default", text = "Whatever Westfall gives me. Today it gave me a buzzard and some regret. It'll be lovely." },
+        { id = "p_default", text = "Whatever Westfall gives me, and today it gave me a buzzard and some regret. It'll be lovely." },
       },
       choices = {
         { text = "Smells wonderful.", next = "BACK", fx = { affinity = 1 } },
@@ -201,20 +201,20 @@ P:NPC {
       },
     },
     vulture = {
-      lines = { { id = "v_default", text = "Buzzard. They eat well out here, which is more than I can say for the people." } },
+      lines = { { id = "v_default", text = "Buzzard, and a fat one, since they eat better out here than the farmers do." } },
       choices = { { text = "Fair point. Something else.", next = "BACK" } },
     },
     recipe = {
-      lines = { { id = "re_default", text = "Vulture, goretusk snout, murloc eyes, and okra to thicken the broth. It's Verna's recipe, and she wrote it out for me herself, so don't tell her I add salt." } },
+      lines = { { id = "re_default", text = "It takes vulture, goretusk snout, murloc eyes and okra to thicken the broth. It's Verna's recipe, and she wrote it out for me herself, so don't tell her I add salt." } },
       choices = {
         { text = "Verna's? I thought it was yours.", next = "recipe_verna" },
         { text = "Something else.", next = "BACK" },
       },
     },
     recipe_verna = {
-      lines = { { id = "rv_default", text = "Hers, start to finish. She wanted it to stay in Westfall when they go. Born for the city, that one, whatever she tells you. It'll be the making of her." } },
+      lines = { { id = "rv_default", text = "Hers, start to finish. She wanted it to stay in Westfall when they go. She was born for the city, whatever she tells you, and Elwynn will be the making of her." } },
       choices = {
-        { text = "Does Verna really want to leave?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I'm not sure Verna wants to leave.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "You'll miss her.", next = "furlbrows_miss" },
       },
     },
@@ -228,13 +228,13 @@ P:NPC {
         { id = "g_default", text = "You feed people, and they come back. You listen to them, and they stay. Do that long enough and you've got a village again." },
       },
       choices = {
-        { text = "That's a fine way to live.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Feeding thieves only teaches them where the food is.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's a fine way to live.", next = "BACK", reply = "It's the only one I know, dear. Sit, eat, and tell me where you've come from.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Feeding thieves only teaches them where the food is.", next = "BACK", reply = "Then they know where to find a kind word, too. I'll take that trade.", fx = { align = { light = -1 } } },
         { text = "It won't stop the Defias.", next = "defias", fx = { trait = { stern = 1 } } },
       },
     },
     defias = {
-      lines = { { id = "d_default", text = "No, that's Gryan's work. Mine is making sure there's someone left to thank him." } },
+      lines = { { id = "d_default", text = "No, that's Gryan Stoutmantle's work, up on Sentinel Hill. Mine is making sure there's someone left to thank him." } },
       choices = {
         { text = "Have you ever fed a Defias at this door?", next = "fed" },
         { text = "I'll leave that be. Something else.", next = "BACK" },
@@ -242,10 +242,10 @@ P:NPC {
     },
     fed = {
       big = true,
-      lines = { { id = "fe_default", text = "I have. A hungry boy in a red mask is still a hungry boy, and he said thank you, and he's left my hens alone ever since, which is more than I can say for the fox." } },
+      lines = { { id = "fe_default", text = "I have. A hungry boy in a red mask is still a hungry boy, and he said thank you, and he's left my hens alone ever since, and the fox could stand to learn from him." } },
       choices = {
-        { text = "That's real kindness.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { kind = 1 } } },
-        { text = "He'll rob someone else tomorrow.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 }, opinion = { defias = "hardline" } } },
+        { text = "That's real kindness.", next = "BACK", reply = "It's just stew and manners, dear, but thank you. He's a good boy underneath it.", fx = { affinity = 2, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "He'll rob someone else tomorrow.", next = "BACK", reply = "Maybe he will, dear, and maybe he won't, and I've no way to know. But he'll not rob me, and that's a start.", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 }, opinion = { defias = "hardline" } } },
         { text = "Did that boy ever tell you anything, Salma?", tag = "Persuade", next = "fed_boy",
           check = { pass = { any = { { disposition = { min = 62 } }, { class = "PRIEST" }, { questDone = TODO_QUEST("Westfall Stew") } } } },
           fail = { next = "fed_pot", fx = { affinity = -1 } } },
@@ -284,16 +284,16 @@ P:NPC {
     priest = {
       lines = { { id = "pr_default", text = "Oh, go on with you! Say a word over the pot, then. The militia lads eat better when it's blessed, or they think they do, which comes to the same thing." } },
       choices = {
-        { text = "Gladly. Light bless this house and all it feeds.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, standing = { westfall_farms = 1 } } },
-        { text = "I'd rather not bless a soup pot, Salma.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Gladly. Light bless this house and all it feeds.", next = "BACK", reply = "Oh, that's lovely, dear, you'll make the lads smile. Now go on, have a bowl.", fx = { affinity = 3, align = { light = 1 }, standing = { westfall_farms = 1 } } },
+        { text = "I'd rather not bless a soup pot, Salma.", next = "BACK", reply = "Oh, suit yourself, dear, the soup won't mind. The lads might notice, though.", fx = { align = { light = -1 } } },
         { text = "Do you ever get to a church?", next = "priest_church" },
       },
     },
     priest_church = {
       lines = { { id = "pc_default", text = "Not since the roads went bad, so I pray at the stove. The Light knows where to find me; it's always warm here." } },
       choices = {
-        { text = "It does, and the Light always finds the warm places first.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Warm or not, I doubt the Light looks in kitchens.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It does, and the Light always finds the warm places first.", next = "BACK", reply = "That's a sweet thing to say, dear, and I'll believe it. The stove's always on.", fx = { align = { light = 1 } } },
+        { text = "Warm or not, I doubt the Light looks in kitchens.", next = "BACK", reply = "Well, I doubt you've looked in many kitchens, dear. The Light's been in mine every morning.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -325,13 +325,13 @@ P:NPC {
       },
     },
     pet2 = {
-      lines = { { id = "pet2_l", text = "Hunting out here? There's nothing left to hunt but vultures and the Furlbrows' old cow. Take the bone." } },
+      lines = { { id = "pet2_l", text = "Hunting out here? There's nothing left to hunt but vultures and the Furlbrows' poor old horse. Take the bone." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
-    holy_light = { { id = "tp_holy_light", text = "I say grace over every pot I cook, and I don't ask whether the guest at my table says it too. The Light feeds us both, and I'd rather it found us both thankful." } },
+    holy_light = { { id = "tp_holy_light", text = "I say grace over every pot I cook, and I don't ask whether the guest at my table says it too. The Light feeds us both, and it may as well find us both thankful." } },
     deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the mines under Moonbrook, they say, and they're eating our grain while they're down there. I hope they choke on it, though I'd feed them myself if they came to my door hungry." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I bought a recipe at the Darkmoon Faire once from a dwarf who swore it would make even murloc palatable. He wasn't lying, and that's why there's murloc in tonight's stew." } },
     booty_bay = { { id = "tp_booty_bay", text = "A sailor from Booty Bay stopped here once and told me the goblins eat crocolisk tail fried in butter. I've never seen a crocolisk, but I've got butter, and I've thought about it a good deal since." } },
@@ -339,11 +339,11 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Half of Westfall eats at my table sooner or later, and they all talk with their mouths full. Ask me about any of this while I stir." },
     },
-    background = { { id = "tp_bg", text = "A farmer's wife with a big pot and a long table. That's all anyone needs to know about me." } },
+    background = { { id = "tp_bg", text = "I'm a farmer's wife with a big pot and a long table. That's all anyone needs to know about me." } },
     advice = { { id = "tp_ad", text = "Eat before you fight, not after. And never trust a cook who won't taste her own stew." } },
-    trade = { { id = "tp_tr", text = "Cooking for whoever comes. Pay me in boar livers and stories.", next = "help" } },
+    trade = { { id = "tp_tr", text = "I cook for whoever comes, and they can pay me in boar livers and stories.", next = "help" } },
     defias = { { id = "tp_defias", text = "Some of them have come to my door, you know, hungry, and I fed them. I'd do it again." } },
-    people_militia = { { id = "tp_militia", text = "Good boys and girls, every one, and every one of them hungry. I see to that." } },
+    people_militia = { { id = "tp_militia", text = "Good boys and girls, every one, and they all eat at my table before patrol." } },
     westfall = { { id = "tp_westfall", text = "It'll come back. Land always comes back if there's people who love it." } },
     old_blanchy = { { id = "tp_blanchy", text = "That horse has more years than sense. Verna loves her like a daughter." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that. More stew?" } },

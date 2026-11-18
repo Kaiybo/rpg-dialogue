@@ -26,7 +26,7 @@ P:NPC {
     { id = "g_active", when = { questActive = QAK }, text = "The Hatefury still dance up at Sargeron, mon. Go and stop the music." },
     { id = "g_ready", when = { questReady = QAK }, text = "You stink of satyr, mon, and that's the best smell I've had all week. Come, tell me." },
     { id = "g_done", when = { questDone = QAK }, text = "The satyr-killer comes back to Shadowprey! Sit, mon, the fire is yours." },
-    { id = "g_away", when = { away = 14, questDone = QAK }, text = "Gone {away}, mon, and the Hatefury are breeding again up north. They always do." },
+    { id = "g_away", when = { away = 14, questDone = QAK }, text = "You been gone {away}, mon, and the Hatefury are breeding again up north. They always do." },
   },
   notice = {
     { id = "n_warlock", cat = "fel", when = { class = "WARLOCK" },
@@ -68,7 +68,7 @@ P:NPC {
     },
     hatefury = {
       lines = {
-        { id = "hf_default", text = "Satyrs, mon, horned and hoofed and rotten through. They hold the ruins of Sargeron in the north, and they've made friends with the Burning Blade, which tells you everything you need to know about them both.",
+        { id = "hf_default", text = "Satyrs, mon, horned and hoofed and rotten through. They hold the ruins of Sargeron in the north, and they've made friends with the Burning Blade, and dat be all you need to know about either of dem.",
           fx = { learn = { "satyrs", "burning_blade" } } },
       },
       choices = {
@@ -92,8 +92,8 @@ P:NPC {
         { id = "el_default", text = "The elves made them, mon, and then left everyone else to clean up the mess, which is very like the elves. But that's how power goes, isn't it? You reach for it, and it reaches back. Do you think they deserved what happened?" },
       },
       choices = {
-        { text = "They chose demons. They deserve every horn.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Nobody deserves that. They were fools, but they were people.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They chose demons. They deserve every horn.", next = "BACK", reply = "Ha, dat's a troll's answer, mon, and I'll drink to it, because every horn I break be one less for de elves to forget.", fx = { align = { light = -1 } } },
+        { text = "Nobody deserves that. They were fools, but they were people.", next = "BACK", reply = "Maybe so, mon, and maybe dat's de worst part of it, because people made de choice, and people still pay for it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -148,8 +148,8 @@ P:NPC {
         { id = "pl_default", text = "No, mon, it isn't, but it's a good fire to cook a plan on. Hate keeps me awake at night, and awake is where you need to be in Desolace. Or do you think a troll should let it go?" },
       },
       choices = {
-        { text = "Let it go. Hate makes you careless.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep it burning. It keeps you sharp.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let it go. Hate makes you careless.", next = "BACK", reply = "Careless? Mon, I been careful for years, and de hate never once made me trip, but I'll think on it, ya.", fx = { align = { order = 1 } } },
+        { text = "Keep it burning. It keeps you sharp.", next = "BACK", reply = "Ya, mon, it does, and I'll keep it burnin' till Sargeron be ash and de satyrs be a story for children.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -207,9 +207,9 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "Darkspear, born on the Echo Isles, come to Desolace to hunt satyrs. That's enough story for anybody, mon." } },
+    background = { { id = "tp_bg", text = "I be Darkspear, born on the Echo Isles, and I came to Desolace to hunt satyrs. That's enough story for anybody, mon." } },
     advice = { { id = "tp_ad", text = "When a satyr laughs, mon, duck. It means something's coming." } },
-    satyrs = { { id = "tp_satyrs", text = "Elves that sold themselves to demons, mon, and got horns for the trouble. Kill them where you find them." } },
+    satyrs = { { id = "tp_satyrs", text = "Satyrs be elves that sold themselves to demons, mon, and got horns for the trouble. Kill them where you find them." } },
     _none = { { id = "tp_none", text = "I don't know that one, mon. Ask the tauren up at Ghost Walker, they know this land better than me." } },
   },
 }
@@ -251,7 +251,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = QUM },
           text = "You have strong arms, outsider. In the Valley of Spears there is a khan called Hratha, of the Maraudine, and I want him dead before I am, and I have very little time left." },
         { id = "h_active", tags = { "news" }, when = { questActive = QUM },
-          text = "Hratha keeps to the Valley of Spears, with his guards and his advisors about him. He is strong and he is proud, and he will call you out himself if you make enough noise, so make a great deal of it." },
+          text = "Hratha keeps to the Valley of Spears, with his guards and his advisors about him. He is strong and he is proud, and he will call you out himself if you make enough noise, so make plenty of it." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { QUM, days = 3 } },
           text = "Hratha is dead. I have waited a long time to say those words, outsider, and I find they taste better than I imagined." },
         { id = "h_done", when = { questDone = QUM },
@@ -324,8 +324,8 @@ P:NPC {
         { id = "wo_default", text = "I have slept two nights without hearing him laugh. Whether that is worth a khan's life, you must judge, outsider, because you are the one who took it." },
       },
       choices = {
-        { text = "It was worth it. He earned his end.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I did it, but I take no joy in killing for a grudge.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It was worth it. He earned his end.", next = "BACK", reply = "Then I will take your word for it, outsider, and I will sleep a third night, and perhaps a fourth.", fx = { align = { light = -1 } } },
+        { text = "I did it, but I take no joy in killing for a grudge.", next = "BACK", reply = "That is a strange thing for a killer to say, but I think I understand it, and I will not ask more of you.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -343,8 +343,8 @@ P:NPC {
         { id = "ve_default", text = "No, it will not. But it will let me die without hearing that laugh, which is all I want now. Or do you think an old centaur should forgive?" },
       },
       choices = {
-        { text = "Some debts must be paid in blood. I'll pay it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Forgiving would free you more than his death will.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some debts must be paid in blood. I'll pay it.", next = "BACK", reply = "Then pay it, outsider, and I will remember your name for as long as my old legs carry me.", fx = { align = { light = -1 } } },
+        { text = "Forgiving would free you more than his death will.", next = "BACK", reply = "Perhaps it would, but I am too old to learn forgiveness now, and too tired to try.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -363,8 +363,8 @@ P:NPC {
         { id = "ab_default", text = "Abandoned is your word. We say the herd moves on, and the old ones stay behind, and that is how it has always been. It is not cruel, it is the way of things." },
       },
       choices = {
-        { text = "The strong lead. That's the way of the world.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A clan that leaves its elders isn't worth much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The strong lead. That's the way of the world.", next = "BACK", reply = "You speak like a Kolkar, outsider, and I am not sure whether that pleases me or shames me.", fx = { align = { order = 1 } } },
+        { text = "A clan that leaves its elders isn't worth much.", next = "BACK", reply = "Perhaps it is not, and perhaps that is why I want the khan dead, because he is the one who decided it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -404,7 +404,7 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I rode with the Kolkar for longer than you have been alive. Now I stand." } },
+    background = { { id = "tp_bg", text = "I rode with the Kolkar for longer than you have been alive. Now I only stand here and wait." } },
     advice = { { id = "tp_ad", text = "Never trust a centaur who smiles, outsider. Except me, perhaps." } },
     _none = { { id = "tp_none", text = "I do not know, and I do not care to. Go and ask some other outsider." } },
   },

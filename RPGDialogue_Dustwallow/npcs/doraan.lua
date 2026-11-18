@@ -86,8 +86,8 @@ P:NPC {
         { id = "ft_default", text = "Trust me as far as you can throw me, which is a dragon's old joke and still a good one. I have harmed nobody here, and you may judge me by that, or not at all." },
       },
       choices = {
-        { text = "Then I'll judge you by your deeds.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Dragons should answer to someone. I'll keep watch.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll judge you by your deeds.", next = "BACK", reply = "That is all I ask, and more than most of your kind offer. Watch me as long as you like, and you will see nothing worth the trouble.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Dragons should answer to someone. I'll keep watch.", next = "BACK", reply = "Keep it, then, and keep it well, since I have nothing to hide from you. Mortals watching dragons is an old and honest custom.", fx = { align = { order = 1 } } },
       },
     },
 
@@ -103,7 +103,7 @@ P:NPC {
         { id = "la_default", text = "There is, in the Wyrmbog, and I do not go there, and I advise you not to either unless you have a great many friends and no wish to see the morning. Ask me something pleasant." },
       },
       choices = {
-        { text = "Then she's no friend of yours?", next = "lair_friend" },
+        { text = "Then the dragon there is no friend of yours?", next = "lair_friend" },
         { text = "Something pleasant, then.", next = "BACK" },
       },
     },
@@ -119,8 +119,8 @@ P:NPC {
         { id = "da_default", text = "It is! You understand, then. Most of your kind run past this marsh with their heads down and never once look at the light on the water, and I pity them for it." },
       },
       choices = {
-        { text = "The world's worth slowing down for.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Beauty doesn't win wars.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "The world's worth slowing down for.", next = "BACK", reply = "It is, and you say it as if you mean it, which pleases me more than you would guess. Come back at dusk sometime, when the water turns gold.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Beauty doesn't win wars.", next = "BACK", reply = "No, and it was never meant to, which is rather the point of it. The wars end eventually, and someone ought to remember what they were fought for.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

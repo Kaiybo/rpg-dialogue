@@ -41,7 +41,7 @@ P:NPC {
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Missing Diplomat"), days = 5 } },
           text = "One of my own soldiers, mixed up in this. I'll be going through every name on the roster myself, {name}, and I won't be gentle about it." },
         { id = "h_alliance", when = { race = "Human" },
-          text = "From Stormwind? We get fewer of you than you'd think. Theramore was built by Lordaeron's survivors and Kul Tirans, and we've had to learn to trust Stormwind's people one at a time." },
+          text = "From Stormwind? We don't see many of you. Theramore was built by Lordaeron's survivors and Kul Tirans, and we've had to learn to trust Stormwind's people one at a time." },
       },
       again = {
         { id = "h_again", text = "Anything else? Be brief." },
@@ -59,7 +59,7 @@ P:NPC {
 
     hendel = {
       lines = {
-        { id = "he_default", text = "Steady, quiet, never late to his watch, which is more than I can say for most. He asked for Sentry Point himself, and I thought it was because he liked the quiet." },
+        { id = "he_default", text = "Steady, quiet, never late to his watch, and that's a rare thing in this garrison. He asked for Sentry Point himself, and I thought it was because he liked the quiet." },
         { id = "he_done", when = { questDone = TODO_QUEST("The Missing Diplomat") }, text = "I thought I knew him. He asked for Sentry Point himself, and now I know why he wanted a tower where nobody would be watching him." },
       },
       choices = {
@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "ht_default", text = "I have to, or I can't command them. But if one of mine has turned, I'll have to start asking every man on this isle where he goes at night, and a garrison that's watched that closely starts to rot from the inside." } },
       choices = {
-        { text = "Watch them all. Better safe than betrayed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Trust your men. Suspicion does more harm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Watch them all. Better safe than betrayed.", next = "BACK", reply = "Safe is a hard thing to be on this isle, and I'll do it if I must. I only hope the men forgive me for it when this is over.", fx = { align = { order = 1 } } },
+        { text = "Trust your men. Suspicion does more harm.", next = "BACK", reply = "I want to, and most days I do. But if Hendel's gone over and I'm wrong about my men, it's Jaina who'll pay for my trust.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -203,8 +203,8 @@ P:NPC {
       big = true,
       lines = { { id = "ew_default", text = "Because she's trying to keep a peace, and nothing says peace like a catapult pointed at Brackenwall. The captain says it's prudence; the archmage says it's an invitation." } },
       choices = {
-        { text = "The captain's right. Be ready for war.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "The archmage is right. Weapons invite war.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The captain's right. Be ready for war.", next = "BACK", reply = "Prudence, aye, and I'll keep building them, because that's what I'm paid for. If they never get fired, I'll call it the best work I ever did.", fx = { align = { light = -1 } } },
+        { text = "The archmage is right. Weapons invite war.", next = "BACK", reply = "The archmage is a smart lady, I'll give her that, and smarter than me about orcs. Still, the captain signs my orders, so I keep tightening bolts.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -273,8 +273,60 @@ P:NPC {
         { text = "Show me your guns.", next = "BUSINESS" },
         { text = "You fought in the Third War?", next = "war" },
         { text = "Any advice for the marsh?", next = "marsh" },
+        { text = "I saw you listening to that barrel like it could talk.", next = "ear" },
+        { text = "What do you make of Caz Twosprocket?", next = "caz" },
+        { text = "Which hold did ye learn yer trade in?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "So you'll fight any gnome? Here I am.", next = "gnome", when = { race = "Gnome" } },
+        { text = "What should a hunter carry in this swamp?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Farewell, Torq.", next = "END" },
       },
+    },
+    ear = {
+      lines = { { id = "ea_default", text = "It can talk, if ye know how tae listen! Tap a good barrel an' it rings clean, like a bell at the Great Forge, but a cracked one goes dull an' sour, an' I'll not sell a gun that's lyin' tae me." } },
+      choices = {
+        { text = "Who taught you that trick?", next = "ea_teacher" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ea_teacher = {
+      lines = { { id = "eat_default", text = "An old gunsmith in the Military Ward back in Ironforge, deaf in one ear from his own work an' still the best listener I ever met. He used tae say a dwarf who cannae hear his barrel deserves what it does tae him." } },
+      choices = {
+        { text = "Do you miss Ironforge?", next = "ea_home" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ea_home = {
+      lines = { { id = "eah_default", text = "Every time it rains, which here is every day. But I came over wi' the Alliance in the war an' stayed when the Lady built her walls, an' a dwarf finishes what he starts, even if it's a swamp." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "theramore" } } } },
+    },
+    caz = {
+      lines = { { id = "cz_default", text = "Ha! A clever wee gnome who builds siege engines that never see a siege, an' calls my rifles 'charmingly primitive'. I call his engines kindling, so we're even, an' we drink together on a Friday." } },
+      choices = {
+        { text = "Guns or engines, which wins a war?", next = "cz_war" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cz_war = {
+      lines = { { id = "czw_default", text = "Engines knock down walls, I'll grant him that, but walls don't win wars, lads wi' rifles do. Ye'll want both, if the peace ever breaks, an' I pray tae the stone it doesnae." } },
+      choices = {
+        { text = "A strong army keeps the peace. Build the engines.", next = "BACK", fx = { align = { order = 1 } },
+          reply = "Aye, that's Caz's argument too. Dinnae tell him ye agree." },
+        { text = "Engines are a threat. They invite the war they're built for.", next = "BACK", fx = { align = { order = -1 } },
+          reply = "Tervosh says the same. Maybe the both o' ye are right." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "Ironforge, Military Ward, under a master who'd box yer ears for a crooked sight. Ye'll know the type, {g:lad|lass}, every one o' us had one. Mind ye bring yer rifle tae me before ye go intae the marsh, an' I'll listen tae it for free." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "Ha! Ye've more nerve than height, I'll give ye that. It's a figure o' speech, wee one, mostly aimed at Caz, so put yer wrench away an' I'll show ye what a proper rifle looks like." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Twice the shot ye think ye'll need, oilcloth for the powder, an' a spare bowstring if ye shoot a bow, which I'll forgive. The crocolisks out past the Den have hides like a tavern door, so aim for the eye." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     war = {
       lines = { { id = "wa_default", text = "Aye, in the Stonetalon Mountains, holdin' a post when the Warsong came through. Grom Hellscream's lot hit us like a landslide, an' I'll not forget the sound o' them drums as long as I live." } },
@@ -287,8 +339,8 @@ P:NPC {
       big = true,
       lines = { { id = "wp_default", text = "She does, an' I sell guns to the men who keep her peace, which is a funny sort o' joke when ye think on it. Some nights I think she's right, an' some nights I hear them drums again." } },
       choices = {
-        { text = "She's right. The war has to end somewhere.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Keep your powder dry. Orcs don't change.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "She's right. The war has to end somewhere.", next = "BACK", reply = "Aye, it does, an' I'd like tae see it end afore I'm grey all the way through. Maybe she's the one tae do it, if anyone can.", fx = { align = { light = 1 } } },
+        { text = "Keep your powder dry. Orcs don't change.", next = "BACK", reply = "That's what the drums tell me, friend, an' I keep my powder dry anyway. Still, it'd be a fine thing tae be wrong for once.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -304,6 +356,8 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "Guns, powder, an' how tae keep 'em dry in a swamp." } },
     advice = { { id = "tp_ad", text = "Oilcloth, lad. Oilcloth for everythin'." } },
+    caz = { { id = "tp_caz", text = "Builds kindlin' an' calls it engines. Good company on a Friday, though." } },
+    warsong = { { id = "tp_warsong", text = "I still hear them drums some nights. I'll say no more about it." } },
     _none = { { id = "tp_none", text = "Never heard o' it, an' I'd sooner say so than make somethin' up." } },
   },
 }

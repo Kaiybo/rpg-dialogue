@@ -33,7 +33,7 @@ P:NPC {
     { id = "n_light", cat = "light", when = { class = { "PALADIN", "PRIEST" } },
       text = "One of the faithful, I see. They'll want you most of all up north, just as they wanted me." },
     { id = "n_scarlet", cat = "scarlet", when = { questActive = TODO_QUEST("Down the Scarlet Path") },
-      text = "That seal, red wax and a burning sword... I used to press it myself." },
+      text = "That letter bears the Crusade's seal, red wax and a burning sword, and I used to press it myself." },
   },
 
   start = "hello",
@@ -41,8 +41,8 @@ P:NPC {
     prej = {
       lines = { { id = "prej_default", text = "I do, and I know it. The Crusade taught me that every warlock is a door the Scourge can walk through, and I've unlearned most of what they taught me, but that lesson sits deeper than the rest." } },
       choices = {
-        { text = "I'm no more the Scourge's than you are. Unlearn it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Keep flinching. What I wield deserves a little fear.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'm no more the Scourge's than you are. Unlearn it.", next = "BACK", reply = "I'm trying, and I'll keep trying, though you'll forgive me if my hand still twitches when your shadow falls across the floor.", fx = { align = { light = 1 } } },
+        { text = "Keep flinching. What I wield deserves a little fear.", next = "BACK", reply = "Then we're both honest, at least. I'll keep my distance and my prayers, and you'll keep whatever it is that whispers to you.", fx = { align = { light = -1 } } },
         { text = "I'll sit by the door. Take whatever time you need.", next = "prej_ok", fx = { affinity = 1 } },
         { text = "Where did they teach you that?", next = "prej_why" },
         { text = "Something else, Raleigh.", next = "BACK" },
@@ -51,8 +51,8 @@ P:NPC {
     prej_why = {
       lines = { { id = "prejwhy_default", text = "In the Monastery's yard, with a straw man in a black robe and a torch in every recruit's hand. We practised on the straw man for a month, and then one day it wasn't straw, and nobody ever told us whether he'd been a warlock at all." } },
       choices = {
-        { text = "You followed orders. The blame belongs to the men who gave them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You held the torch. Some of that blame is yours to carry.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You followed orders. The blame belongs to the men who gave them.", next = "BACK", reply = "That's kind, and I've told myself the same a hundred nights running. It hasn't helped yet, but perhaps it sounds truer coming from someone else.", fx = { align = { order = 1 } } },
+        { text = "You held the torch. Some of that blame is yours to carry.", next = "BACK", reply = "I know it, and I carry it every day. You're the first who's said it to my face, and I think I'm grateful for that.", fx = { align = { order = -1 } } },
         { text = "Something else, Raleigh.", next = "BACK" },
       },
     },
@@ -84,7 +84,7 @@ P:NPC {
     },
     opn_crusade_r_hate = {
       lines = {
-        { id = "opn_crusade_r_hate", text = "Some will. Some will die in the breaking, and those are the ones I'd have to name in my prayers. I don't say you're wrong; I say it'll cost." },
+        { id = "opn_crusade_r_hate", text = "Some of the good ones will find their way out, and some will die in the breaking, and those are the ones I'd have to name in my prayers. I don't say you're wrong; I only say it'll cost." },
       },
       choices = {
         { text = "Something else, Raleigh.", next = "BACK" },
@@ -110,8 +110,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_priest_default", text = "Tell them to sleep when they can and eat before they pray, because a healer who falls in the road heals nobody, and I've watched good priests burn out in a single season at Hillsbrad. And tell them that the ones they couldn't save were never theirs to save; I wish someone had told me that sooner." } },
       choices = {
-        { text = "Wise words. A healer must look after themselves too.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "A healer's duty doesn't stop for sleep while people bleed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wise words. A healer must look after themselves too.", next = "BACK", reply = "Yes, and it's the hardest lesson of all for the young ones, who think exhaustion is a kind of devotion.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A healer's duty doesn't stop for sleep while people bleed.", next = "BACK", reply = "Then you'll learn it the way I did, at the bottom of a ditch with your hands shaking. I hope someone's there to pick you up when you do.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -119,8 +119,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_cath_default", text = "Then the High Inquisitor has met the judgement she handed out so freely, and I'll not pretend I'm sorry. She raised the fallen in the drill yard more than once, and the brothers called it a miracle, but I always wondered what answered her so quickly." } },
       choices = {
-        { text = "The Light judged her, and I was only its instrument.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The Light had nothing to do with it. She was a murderer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light judged her, and I was only its instrument.", next = "BACK", reply = "Be careful with that, friend, because the Crusade said exactly the same about every pyre they ever lit. Still, I'll not mourn her.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light had nothing to do with it. She was a murderer.", next = "BACK", reply = "Yes, she was, and it's a relief to hear someone say it plainly. The Light is not a word you put on a slaughter to make it holy.", fx = { align = { light = -1 } } },
         { text = "Will the Crusade break, now its leaders are gone?", next = "xcl_cath2" },
       },
     },
@@ -134,8 +134,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Without a moment's hesitation, because they decided long ago that anything not of the Light was of the Scourge, and they've grown no wiser since. I still believe the Light is the truest thing in this world, but I've learned it doesn't need me to hate everything else on its behalf." } },
       choices = {
-        { text = "The Crusade wasn't wrong to be careful. Faith needs walls.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Faith that fears everything else isn't faith, Raleigh.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Crusade wasn't wrong to be careful. Faith needs walls.", next = "BACK", reply = "Walls, yes, but the Crusade built so many walls they forgot what they were guarding. I'd rather keep a door open and pray I choose well.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Faith that fears everything else isn't faith, Raleigh.", next = "BACK", reply = "No, it isn't, and it took me years and a good deal of blood to learn that. You learned it faster, by the look of you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -143,8 +143,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Very likely, and I'd have carried the torch, once. The Crusade calls anything it doesn't understand a corruption, and it understands less every year. I left because I couldn't tell the difference anymore between cleansing a village and burning it." } },
       choices = {
-        { text = "You left. That took more courage than staying.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A man who carried torches should answer for them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You left. That took more courage than staying.", next = "BACK", reply = "Courage, or only a bad stomach, I've never been sure. Thank you all the same; it's a kind thing to say to a man who still dreams of smoke.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A man who carried torches should answer for them.", next = "BACK", reply = "I know it, and I answer for them every night on my knees. If the Light has a sterner court than that, I'll stand before it too.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -152,8 +152,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Too well, and for the wrong war. They teach you to hold a line against the Scourge, then they teach you the line runs through every village that won't wear the tabard, and by then you're too disciplined to ask why." } },
       choices = {
-        { text = "Discipline is no sin. It depends who's giving the orders.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A soldier who can't refuse an order is only a weapon.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Discipline is no sin. It depends who's giving the orders.", next = "BACK", reply = "Perhaps, but I gave myself to men who'd long since stopped deserving it, and discipline didn't save a single village from us.", fx = { align = { order = 1 } } },
+        { text = "A soldier who can't refuse an order is only a weapon.", next = "BACK", reply = "That's what I became, and I'm still learning how to be a man again. Some days it goes better than others.", fx = { align = { order = -1 } } },
         { text = "Something else, Raleigh.", next = "BACK" },
       },
     },
@@ -161,11 +161,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "With trackers and hounds both, the Houndmaster's best, bred in the kennels at the Monastery. I've seen those dogs run down a man who'd only been accused, and I've wondered since whether the dogs knew more about mercy than their masters did." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} hasn't growled at me once, and the Houndmaster's beasts growled at anyone not wearing red. I take that as a kindness, and I've had few enough of those lately." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "With trackers and the Houndmaster's dogs, and your {pet} hasn't growled at me once, which those dogs never managed for anyone not wearing red. I take that as a kindness, and I've had few enough of those lately." },
       },
       choices = {
-        { text = "A deserter is still a deserter, and the hunt is lawful.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "No one should be hunted for leaving a cause gone rotten.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A deserter is still a deserter, and the hunt is lawful.", next = "BACK", reply = "Lawful by whose law? The Crusade writes its own, and I've seen it signed in other men's blood.", fx = { align = { order = 1 } } },
+        { text = "No one should be hunted for leaving a cause gone rotten.", next = "BACK", reply = "I'd like to believe that, and most days I do, though the dogs in my dreams don't seem to agree with you.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -173,8 +173,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Not openly, but they remember every face that turned away, and they don't take kindly to it. I saw what they did at Hearthglen to a brother they suspected of the plague, and I left the next night without saying goodbye." } },
       choices = {
-        { text = "Then I'll keep watch for you. No one should be hunted for leaving.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Desertion is a crime, even from the Crusade.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll keep watch for you. No one should be hunted for leaving.", next = "BACK", reply = "You'd do that for a stranger? The Light sends help in strange shapes, it seems, and I'll not turn it away.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Desertion is a crime, even from the Crusade.", next = "BACK", reply = "Perhaps it is, and if they come for me I'll not run a second time. I'd only ask that you judge the Crusade by the same law.", fx = { align = { order = 1 } } },
         { text = "Something else, Raleigh.", next = "BACK" },
       },
     },
@@ -182,8 +182,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I don't know, and that frightens me more than you do. The Light teaches mercy, and the Crusade taught me to forget that, and every day in this room I try to remember which one I believe." } },
       choices = {
-        { text = "Mercy is the Light's true teaching. Hold on to that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The Crusade wasn't wrong about everything. Some things should burn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Mercy is the Light's true teaching. Hold on to that.", next = "BACK", reply = "I'll try, and I'll thank you for saying it. It's easier to hold on when someone else believes it too.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Crusade wasn't wrong about everything. Some things should burn.", next = "BACK", reply = "Some things, yes, and that's exactly the thought that lit every pyre I ever stood beside. Mind where it leads you.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -191,8 +191,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "They blame Kel'Thuzad, who was one of yours, and from him it's a short walk to blaming every robe in the kingdom. I heard it preached in the Monastery's chapel, and the men around me cheered, and I said nothing, which I'm told is how most terrible things begin." } },
       choices = {
-        { text = "Kel'Thuzad's crimes were his own. Dalaran paid for them too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Dalaran did breed Kel'Thuzad. The Crusade isn't entirely wrong.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Kel'Thuzad's crimes were his own. Dalaran paid for them too.", next = "BACK", reply = "They did, and I'd forgotten that, which shames me. The Crusade never mentions what Dalaran lost.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Dalaran did breed Kel'Thuzad. The Crusade isn't entirely wrong.", next = "BACK", reply = "Not entirely, perhaps, but a sermon that blames a whole city for one man's sin will burn the whole city sooner or later.", fx = { align = { light = -1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
@@ -202,7 +202,7 @@ P:NPC {
           text = "You travel with {companion}, and I'd know a fellow priest by the way they bow their head at my door. Southshore has buried too many lately, and I find I'm glad of every healer who passes through." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf. The Crusade would have named you a heretic before you'd finished speaking, {class}, and once I'd have agreed with them, so sit down and let me hear what I'd have condemned." },
         { id = "h_default", key = true,
-          text = "Raleigh. They call me the Devout, which is kind of them. I wore the Crusade's red once. Now I keep a room above an inn and watch the north road." },
+          text = "I'm Raleigh, and they call me the Devout, which is kind of them. I wore the Crusade's red once, and now I keep a room above an inn and watch the north road." },
         { id = "h_letter", tags = { "news" }, key = true, when = { questActive = TODO_QUEST("Down the Scarlet Path") },
           text = "Anton's letter? Give it here. Light help us, he still thinks I'm one of them, and there's something you need to hear before you go anywhere near Tirisfal." },
         { id = "h_monastery", tags = { "news" }, when = { questActive = TODO_QUEST("In the Name of the Light") },
@@ -214,7 +214,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Close the door, and I'll ask you plainly: were you sent by the Crusade? You move like the men they send for those of us who left." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Crusade would have burned you before you finished speaking, and once I'd have lit the pyre myself, which is something I think about more than I'd like." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You stand like a soldier, and I used to drill men to stand like that, under a red banner I'd rather not name. Close the door, please, and sit with your back to the wall if it makes you easier." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you came up the stairs quietly, which I'm grateful for. The Crusade used trackers to find those of us who left, so forgive me if I check the window." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you came up the stairs quietly, which I'm grateful for. The Crusade used trackers to find those of us who left, so you'll pardon me if I check the window." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, here in Southshore. I spent years being told your kind were heathens, and I'm ashamed of how readily I believed it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The Crusade counts Dalaran among the reasons Lordaeron fell, and I believed it once, because it was easier than believing we had failed on our own." },
       },
@@ -248,7 +248,7 @@ P:NPC {
       choices = {
         { text = "Why didn't you stop them?", next = "left_stop", fx = { trait = { stern = 1 } } },
         { text = "You did the right thing.", next = "left_right", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "You ran when it got hard, and that's all it was.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You ran when it got hard, and that's all it was.", next = "BACK", reply = "Perhaps it was, and I've asked myself the same on worse nights than this. But I'd rather be a coward who stopped than a brave man who kept going.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -260,7 +260,7 @@ P:NPC {
       },
     },
     left_right = {
-      lines = { { id = "lr_default", text = "Leaving was right, but staying quiet afterward wasn't, and that's why I tell everyone Anton sends me. Most of them go home, and some go north with a different reason." } },
+      lines = { { id = "lr_default", text = "Leaving was right, but staying quiet afterward wasn't, and that's why I tell the truth to everyone Anton sends me. Most of them go home, and some go north with a different reason." } },
       choices = {
         { text = "Something else.", next = "BACK" },
         { text = "You still haven't forgiven yourself, have you?", tag = "Persuade", next = "stayed",
@@ -283,8 +283,8 @@ P:NPC {
     monastery_white = {
       lines = { { id = "mw_default", text = "The High Inquisitor. People were taken to her suspected of the plague, and what was done to them is why I left. The rest you can see for yourself." } },
       choices = {
-        { text = "I'll go.", next = "BACK", fx = { align = { light = 1 }, trait = { brave = 1 } } },
-        { text = "Whitemane's business is her own, and I'll stay clear of it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll go.", next = "BACK", reply = "Go carefully, and remember they were people once, all of them, even the ones in red. The Light keep you.", fx = { align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "Whitemane's business is her own, and I'll stay clear of it.", next = "BACK", reply = "Wise, perhaps, and I'll not judge you for it. I stayed clear of it too, for far too long.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -317,24 +317,24 @@ P:NPC {
       },
     },
     paladin_pray = {
-      lines = { { id = "pp_default", text = "Quietly, and with my eyes open. The Crusade prayed loud and closed its eyes to everything else, and I'd rather see what I'm asking the Light to bless." } },
+      lines = { { id = "pp_default", text = "Quietly, and with my eyes open. The Crusade prayed loud and closed its eyes to everything else, and I want to see what I'm asking the Light to bless." } },
       choices = {
-        { text = "That's a good way.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
-        { text = "Prayer won't keep my eyes open. A sharp blade will.", next = "BACK", fx = { align = { light = -2 } } },
+        { text = "That's a good way.", next = "BACK", reply = "I've found it so. The Light seems to hear a quiet voice just as well as a loud one.", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Prayer won't keep my eyes open. A sharp blade will.", next = "BACK", reply = "A blade has its place, and I'll not argue that it doesn't. Only make sure you know which way it's pointed before you bless it.", fx = { align = { light = -2 } } },
       },
     },
     refugee = {
       lines = { { id = "r_default", text = "Then you know how it was at the start, with everyone afraid of everyone. The Crusade made a faith of that fear, so don't let anyone make one of yours." } },
       choices = {
-        { text = "I won't.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Fear kept me alive back then, and I'll keep it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I won't.", next = "BACK", reply = "Good, because you'll be tempted, and so was I. Fear is a terrible teacher and a worse priest.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Fear kept me alive back then, and I'll keep it.", next = "BACK", reply = "Keep it, then, but keep it on a leash. Fear that runs free soon starts choosing who lives.", fx = { align = { light = -1 } } },
       },
     },
     after = {
       lines = { { id = "af_default", text = "No servant of the Light should be glad of a death, though some are still needed. Carry it, don't wear it; that's the difference between you and them." } },
       choices = {
-        { text = "I'll carry it.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 } } },
-        { text = "I'd do it again.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "I'll carry it.", next = "BACK", reply = "Good, because it's heavy, and the weight is how you'll know you're still yourself. The Light walk with you.", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "I'd do it again.", next = "BACK", reply = "Perhaps you would, and perhaps you'd be right to. Only promise me you'll never be glad of it.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
     stayed = {
@@ -368,11 +368,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "If a man in red asks whether you're plagued, the right answer is to be somewhere else." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They started out against the plague and ended up against everyone. I was there for both halves.", next = "left" } },
     scarlet_monastery = { { id = "tp_monastery", text = "The heart of the Crusade, in Tirisfal. I can tell you who sits in it, if you mean to go.", next = "monastery" } },
-    argent_dawn = { { id = "tp_dawn", text = "Men who left the Hand before the rot set in, wiser than me, or quicker." } },
+    argent_dawn = { { id = "tp_dawn", text = "The Argent Dawn are men who left the Hand before the rot set in, wiser than me or quicker." } },
     holy_light = { { id = "tp_holy_light", text = "The Light is a hard master, and I served it in red once, and I served it badly. I serve it now in a quiet room in Southshore, and I think it prefers me this way." } },
     scourge = { { id = "tp_scourge", text = "I have burned the dead and watched them rise again, and I have seen what that does to a man's mind. The Crusade's madness started there, in the fields outside Stratholme." } },
     forsaken = { { id = "tp_forsaken", text = "They are dead, and they are thinking, and they are brewing something up the hill, and I'd sleep better if one of those three things weren't true. I pray for them anyway, and that's more than my old brothers would do." } },
-    stratholme = { { id = "tp_stratholme", text = "Stratholme was where I joined the Crusade, in the smoke of a city burned by its own prince. Half of it belongs to the dead now, and the other half to my old brothers, and I couldn't tell you which is worse." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was where I joined the Crusade, in the smoke of a city burned by its own prince. The dead hold the east of it now and my old brothers hold the gates, and I couldn't tell you which is worse." } },
     arthas = { { id = "tp_arthas", text = "I saw Prince Arthas once, in his golden armour, riding north to save us all. I don't pray for him, and I've stopped asking the Light whether I should." } },
     _none = { { id = "tp_none", text = "That's not something I know. Ask downstairs; they hear more than I do." } },
   },

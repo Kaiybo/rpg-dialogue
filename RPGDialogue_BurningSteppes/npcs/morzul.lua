@@ -24,7 +24,7 @@ P:NPC {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
       text = "Your demon has grown fat on your power, and that pleases me. A dreadsteed needs a master who has fed many things." },
     { id = "n_paladin", cat = "arcane", when = { class = "PALADIN" },
-      text = "A paladin at the Altar of Storms. You'll forgive me if I don't bow; this ground has seen your kind burn before." },
+      text = "A paladin at the Altar of Storms. I will not bow to you; this ground has seen your kind burn before." },
   },
 
   start = "hello",
@@ -59,7 +59,7 @@ P:NPC {
         { id = "h_lock", when = { class = "WARLOCK" },
           text = "Your mastery over the denizens of other worlds has grown, I see, and you've come to me for the greatest of steeds. The dreadsteeds dwell on the Plains of Xoroth, and binding one is not a task for the impatient." },
         { id = "h_blood", tags = { "news" }, when = { questActive = TODO_QUEST("Rage of Blood") },
-          text = "Thirty bottles of raging beast's blood, from the maddened owlkin of Winterspring. The ink for your glyphs must be strong, and nothing is stronger than madness in the veins." },
+          text = "Bring me thirty bottles of raging beast's blood, from the maddened owlkin of Winterspring. The ink for your glyphs must be strong, and nothing is stronger than madness in the veins." },
         { id = "h_blood_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rage of Blood"), days = 3 } },
           text = "The blood is distilling nicely. I may have kept a little aside for myself, for I hear its taste is quite euphoric, and I'll not apologise for it." },
         { id = "h_steed_active", tags = { "news" }, when = { questActive = TODO_QUEST("Dreadsteed of Xoroth") },
@@ -96,8 +96,8 @@ P:NPC {
         { id = "ac_default", text = "Among other places, and some of them still work, in Jaedenar in Felwood, under Lord Banehollow. I've no love for the Council, but I'll use their stardust and their roads, for knowledge owes nothing to the hands that hold it." },
       },
       choices = {
-        { text = "Knowledge is knowledge. Use what works.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some knowledge stains whoever touches it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Knowledge is knowledge. Use what works.", next = "BACK", reply = "You'd have made a fine student of the dark arts, I think. A blade does not ask whose forge made it, and neither should the hand that swings it.", fx = { align = { light = -1 } } },
+        { text = "Some knowledge stains whoever touches it.", next = "BACK", reply = "Every power stains, little one, and the only question is whether you get anything for the mark. I have always made very sure that I do.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -113,7 +113,7 @@ P:NPC {
     },
     blood_drink = {
       lines = {
-        { id = "bd_default", text = "A little, now and then, for science, and for pleasure, which is just science with a napkin. Gorzeeki prefers his warm and still moving, which I find rather vulgar, but we all have our tastes." },
+        { id = "bd_default", text = "A little, now and then, for science, and for pleasure, which is just science with a napkin. Gorzeeki, my goblin, prefers his warm and still moving, which I find rather vulgar, but we all have our tastes." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -162,8 +162,8 @@ P:NPC {
         { id = "xpa_default", text = "Abomination is a word for what frightens you, holy one. My students bind demons and ride them against the Legion's own servants, which is more than your sermons have managed lately." },
       },
       choices = {
-        { text = "Demons can't be tamed. You'll learn that too late.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If it works against the Legion, I'll hold my tongue.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Demons can't be tamed. You'll learn that too late.", next = "BACK", reply = "Perhaps I will, and you may come and gloat over my bones if you live so long. Until then, my dreadsteeds will keep riding where your Light does not reach.", fx = { align = { order = 1 } } },
+        { text = "If it works against the Legion, I'll hold my tongue.", next = "BACK", reply = "How unexpectedly sensible of you, holy one. Hold it a while longer and you may even learn something worth knowing.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

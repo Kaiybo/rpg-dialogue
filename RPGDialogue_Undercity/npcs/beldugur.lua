@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "ua_default", text = "Arugal lacked discipline, not courage, and the difference matters. The Forsaken cannot afford Ur's weakness if we are to survive, and if we are to conquer, we cannot afford Arugal's carelessness either." } },
       choices = {
-        { text = "Knowledge with discipline, then. That I can respect.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Ur turned back for good reason. So should you.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Knowledge with discipline, then. That I can respect.", next = "BACK", reply = "Respect is a start, and it is more than most bring to my door. Discipline will take you the rest of the way.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Ur turned back for good reason. So should you.", next = "BACK", reply = "Ur turned back, and Ur is dead. I prefer to keep walking forward, carefully.", fx = { affinity = -1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,7 +103,7 @@ P:NPC {
       },
     },
     parties_lady = {
-      lines = { { id = "pl_default", text = "I said I'd report your service to our Dark Lady, and I will. Everything I do here, I do for the Forsaken; whether the Forsaken would always understand it is another question." } },
+      lines = { { id = "pl_default", text = "The Dark Lady knows what she needs to, and I'll report your service to her myself. Everything I do here, I do for the Forsaken; whether the Forsaken would always understand it is another question." } },
       choices = {
         { text = "I'll keep my questions to myself, then.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "I'll be watching you, Keeper.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
@@ -125,7 +125,7 @@ P:NPC {
     worgen = { { id = "tp_worgen", text = "Arugal's failure, walking on four legs. Instructive, if you study it rather than run from it." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran's mages hoard knowledge they're too squeamish to use, and they keep it behind walls now while they rebuild. I've made a career of collecting what they left behind." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are brilliant, timid people who would rather debate a spell for a decade than cast it. Their dead are far more useful to me than their living." } },
-    shadowfang = { { id = "tp_shadowfang", text = "Arugal called the worgen into Silverpine because the Kirin Tor's courage failed them, and the wolves ate him from the inside out. I find the whole affair very instructive." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal called the worgen into Silverpine to fight the Scourge when the Kirin Tor's courage failed, and the wolves ate him from the inside out. I find the whole affair very instructive." } },
     scholomance = { { id = "tp_scholomance", text = "The school at Caer Darrow teaches what Dalaran forbade, and it does so with appalling sloppiness. I'd study its library, given the chance, and then I'd burn it." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was the most gifted necromancer the Kirin Tor ever produced, and they expelled him for it. They're still paying for that mistake, which I find rather satisfying." } },
     _none = { { id = "tp_none", text = "Not a subject I've collected. Perhaps you'll bring me a book on it someday." } },

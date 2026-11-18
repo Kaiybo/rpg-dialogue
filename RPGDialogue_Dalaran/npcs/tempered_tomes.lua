@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_human", when = { race = "Human" },
           text = "Winds be with you! You're human, aren't you? Then perhaps you can tell me, are all your histories this long, or only the ones about kings?" },
         { id = "h_horde", when = { faction = "Horde" },
-          text = "Oh! Winds be with you, I suppose. I'm only reading, honestly; La'tanja does all the talking with strangers, and she's just stepped out." },
+          text = "Oh! Winds be with you, I suppose. I'm only reading, I promise; La'tanja does all the talking with strangers, and she's just stepped out." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've lost my page again anyway." },
@@ -100,8 +100,8 @@ P:NPC {
         { id = "sh_default", text = "I think so, because their islands are drifting too, and a book doesn't care who reads it. La'tanja says they chose their side and their spirits, and that we owe them nothing after what happened in the highlands." },
       },
       choices = {
-        { text = "Share it. Knowledge belongs to everyone who needs it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "La'tanja's right. They chose another road.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Share it. Knowledge belongs to everyone who needs it.", next = "BACK", reply = "That's exactly what I said, nearly word for word, and I'm going to quote you to La'tanja the very next time she gives me that look over her list.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "La'tanja's right. They chose another road.", next = "BACK", reply = "Oh, I suppose that's fair, and La'tanja will be terribly pleased, but it still seems a pity to keep a book shut just because the wrong people want to read it.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -128,8 +128,8 @@ P:NPC {
         { id = "az_default", text = "Heavy, is the only word I have for it. Everything stays exactly where it's put, the rain falls straight down, and nobody looks over the edge of anything before they step. Do you love it here, or have you simply never known anything else?" },
       },
       choices = {
-        { text = "I love it. It's worth defending, every stone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "It's dirt and war. Don't get attached.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I love it. It's worth defending, every stone.", next = "BACK", reply = "I think I'm starting to as well, though I still look over the edge of things out of habit, and the Kirin Tor think I'm checking for dust.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It's dirt and war. Don't get attached.", next = "BACK", reply = "That seems a very sad way to live somewhere, and I don't think I believe you, because people don't defend dirt so fiercely unless they love it a little.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -195,7 +195,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "La'tanja Brightgale, of the High Order. I keep the list of what our people need from these books, and Kae'la keeps finding things that aren't on it, so if you've come to help, I'd be glad of it." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Winds be with you. You've come from the isles more recently than I have, so tell me honestly, are the outer anchors still holding? I'd rather hear it from you than read it in a letter." },
+          text = "Winds be with you. You've come from the isles more recently than I have, so tell me, are the outer anchors still holding? I'd sooner hear it from you than read it in a letter." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Winds be with you. You're Horde, and the Windshapers are Horde, so I'll assume you've heard their side of things. I'd ask you to keep it out of this shop." },
         { id = "h_mage", when = { class = "MAGE" },
@@ -247,11 +247,11 @@ P:NPC {
     trust = {
       big = true,
       lines = {
-        { id = "tr_default", text = "I trust them as far as I can read them, which grows a little every week. Our people hid in the sky for a long time, and I'd rather not trade one set of patrons who wouldn't explain themselves for another." },
+        { id = "tr_default", text = "I trust them as far as I can read them, which grows a little every week. Our people hid in the sky for a long time, and I've no wish to trade one set of patrons who wouldn't explain themselves for another." },
       },
       choices = {
-        { text = "They opened their gates to you. Trust them.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "Keep watching them. Generosity always has a price.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "They opened their gates to you. Trust them.", next = "BACK", reply = "They did, and I'm grateful, truly, but gratitude and trust are two different columns on my list, and only one of them is filled in yet.", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Keep watching them. Generosity always has a price.", next = "BACK", reply = "Finally, someone with sense, and I'll be adding your name to the short list of people in this city I needn't explain myself to.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -279,8 +279,8 @@ P:NPC {
         { id = "ws_default", text = "In the Shen'dar Highlands our apprentices studied the new ley lines, and the Windshapers called them scars and tried to heal them shut, and people died on both sides over it. I've heard their version, and I don't need to hear it again." },
       },
       choices = {
-        { text = "Blood on both sides. Someone has to forgive first.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "They brought it on themselves. Don't apologise for it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Blood on both sides. Someone has to forgive first.", next = "BACK", reply = "You sound like Ysa'bel, and she's kinder than I am, but I'll think on it, which is more than I've promised anyone else on the subject.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "They brought it on themselves. Don't apologise for it.", next = "BACK", reply = "I didn't intend to, and I'm glad someone from outside the High Order can see it plainly, because our own elders keep wringing their hands.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
@@ -300,7 +300,7 @@ P:NPC {
       },
       choices = {
         { text = "On the anchor. Tie it to something that doesn't move.", next = "xmage2" },
-        { text = "I don't know either, honestly.", next = "BACK", fx = { trait = { honest = 1 } } },
+        { text = "I don't know either, I'm afraid.", next = "BACK", fx = { trait = { honest = 1 } } },
       },
     },
     xmage2 = {
@@ -317,7 +317,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know what's on the list and what isn't, and a fair amount about the isles. Ask quickly." } },
     background = { { id = "tp_bg", text = "I was a ward-keeper's apprentice in Valanaar, and I watched the pylon by our house go dark. That's why I'm here, and that's all of it." } },
-    advice = { { id = "tp_ad", text = "Keep a list. Cross things off it. The world falls apart a great deal slower when you do." } },
+    advice = { { id = "tp_ad", text = "Keep a list and cross things off it, because the world falls apart much slower when you do." } },
     two_orders = { { id = "tp_orders", text = "We sought the arcane and they sought the spirits who abandoned us, and now they sit with the Horde in Mulgore. That's the short version, and the long one is worse." } },
     _none = { { id = "tp_none", text = "That isn't on the list. Ask Kae'la; she reads everything that isn't." } },
   },
@@ -356,7 +356,7 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Winds be with you, cousin. Did you know there are books in this shop that name Eldre'Thalas? Written by humans, who'd never seen it, and still they knew more than we were ever taught at home." },
         { id = "h_nightelf", when = { race = "NightElf" },
-          text = "Winds be with you, and forgive me if I stare. My ancestors left your people's lands so long ago that you've become a story to us, and here you are, standing in a bookshop." },
+          text = "Winds be with you, and pardon my staring. My ancestors left your people's lands so long ago that you've become a story to us, and here you are, standing in a bookshop." },
         { id = "h_tortheldrin", when = { killed = { name = "Prince Tortheldrin", min = 1 } },
           text = "They say you've walked the halls of Eldre'Thalas, the ruin your maps call Dire Maul, and faced the prince who still sat there. I don't know whether to thank you or grieve, and I suspect I'll do both." },
       },
@@ -406,8 +406,8 @@ P:NPC {
         { id = "hb_default", text = "Some were, the magisters the High Order descends from, and some were ordinary folk of the city. I came here hoping to read that the Highborne were wise and good, and so far I've read about the Well of Eternity and a queen who called demons into the world." },
       },
       choices = {
-        { text = "Your ancestors fled a tyrant. Be proud of that.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Highborne blood carries Highborne hunger. Watch for it.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Your ancestors fled a tyrant. Be proud of that.", next = "BACK", reply = "That's a gentle way to read it, and I'd like to believe it, so perhaps I'll go back to the passage about the ones who left and read it again more slowly.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Highborne blood carries Highborne hunger. Watch for it.", next = "BACK", reply = "I know, and that's the part I'm afraid of finding in the books, but I'd rather know it was there and watch for it than pretend we're different.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "highborne" } } },
       },
     },

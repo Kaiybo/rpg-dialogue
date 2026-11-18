@@ -35,10 +35,10 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "To heal it, if I can. A sick bear is a patient, not an enemy. Your spirits must understand that." } },
+      lines = { { id = "xdsham_default", text = "To heal it, if I can, because a sick bear is a patient and not an enemy. Your spirits will understand that better than most." } },
       choices = {
-        { text = "Then I will help you bring one alive, Tharnariun.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A sick bear is dangerous. End it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I will help you bring one alive, Tharnariun.", next = "BACK", reply = "Bless you, shaman, for the bears have few enough friends on this coast. Bring me one breathing, and we may save the rest.", fx = { align = { light = 1 } } },
+        { text = "A sick bear is dangerous. End it.", next = "BACK", reply = "Dangerous, yes, and so is a fever in a child, yet we do not end the child. I need one alive, if you can manage it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -46,8 +46,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Some of them, I'm afraid, for the madness has gone too deep in the worst of them. But I need one alive for my cure, so when you meet them, strike to stop them rather than to finish them, if you can manage it." } },
       choices = {
-        { text = "I'll strike to stop them, not to kill.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A mad bear is a dead bear. I won't hold back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll strike to stop them, not to kill.", next = "BACK", reply = "That is exactly what I hoped to hear from a warrior. Stopping is harder than killing, and kinder by far.", fx = { align = { honor = 1 } } },
+        { text = "A mad bear is a dead bear. I won't hold back.", next = "BACK", reply = "Then I cannot stop you, and I will not pretend the worst of them are saveable. Only bring me one alive before you are done.", fx = { align = { honor = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -56,8 +56,8 @@ P:NPC {
         { id = "xro_default", text = "Put down? I want them cured, not killed, if there is any cure to be had. If you're as good with poisons as you say, tell me what makes a bear foam and turn on its own cubs, for that is what I'm chasing." },
       },
       choices = {
-        { text = "I'll help you find a cure.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some can't be saved. A quick end is mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll help you find a cure.", next = "BACK", reply = "Thank you, rogue, and your knowledge of what goes into the blood may be the key. Tell me everything you know.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some can't be saved. A quick end is mercy.", next = "BACK", reply = "Some cannot, and I will grant you that much, for I have ended a few myself. But let us find out which ones first.", fx = { align = { light = -1 } } },
         { text = "What's causing the madness?", next = "cause" },
       },
     },
@@ -66,8 +66,8 @@ P:NPC {
         { id = "xma_default", text = "I wondered the same, for there is old Highborne magic in every ruin along this coast. But this smells of fel, not arcane, and fel is worse." },
       },
       choices = {
-        { text = "Then I'll help you trace it to its source.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fel or arcane, I'd still want to study it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll help you trace it to its source.", next = "BACK", reply = "Then you may find the Blackwood furbolgs at the end of the trail. Tread carefully, for fel spreads to whoever handles it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel or arcane, I'd still want to study it.", next = "BACK", reply = "Study it from a distance, mage, and with a great deal of care. Fel has a way of studying you back.", fx = { align = { light = -1 } } },
         { text = "Why do you need them alive?", next = "alive" },
       },
     },
@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "It might soothe the wounds, but the sickness is in the blood and the land beneath them, and I fear it runs deeper than any one prayer. Still, I would rather you tried than that you did not." } },
       choices = {
-        { text = "Every creature deserves healing if I can give it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Better to end their suffering cleanly than heal them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every creature deserves healing if I can give it.", next = "BACK", reply = "Then you have a druid's heart under a priest's robe. Lay hands on any bear you find, and I will watch for a change.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to end their suffering cleanly than heal them.", next = "BACK", reply = "Sometimes it is, and I have done it myself with a heavy heart. But let me try a cure before we decide that for all of them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -84,19 +84,19 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Kill the ones that attack you, because I would not ask you to die for a bear, but do not hunt them for sport. Every one you spare is one I might yet heal." } },
       choices = {
-        { text = "I'll only fight the ones that come for me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A rabid bear is a danger. I'll clear them out.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll only fight the ones that come for me.", next = "BACK", reply = "Then the bears will have one more friend on the coast, paladin. That is all I ask.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A rabid bear is a danger. I'll clear them out.", next = "BACK", reply = "They are a danger, and I cannot argue that. Only spare the ones who flee from you, for they may still be saved.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, which is why I need a sick bear brought to me alive, and not a dead one with a demon's claw marks across it." },
+        { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, which is why I need a sick bear brought to me alive, and not a dead one torn apart by a demon." },
       },
       choices = {
-        { text = "The bears deserve a cure, not a blade.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A sickness is a sickness. Put the poor beasts down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The bears deserve a cure, not a blade.", next = "BACK", reply = "Spoken like one who knows what fel does to a living thing. Help me find the cure, and the bears will be grateful.", fx = { align = { light = 1 } } },
+        { text = "A sickness is a sickness. Put the poor beasts down.", next = "BACK", reply = "A sickness can be cured, warlock, if someone cares enough to try. I would rather try than give up.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -117,7 +117,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I hope your order spares creatures as readily as it spares people, because the bears here never chose their madness." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll ask you to keep your demon well back from my bears, because whatever is souring their blood, it smells a good deal like what follows you." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Thistle Bear", min = 20 } },
-          text = "You've put down a good many of the thistle bears, I hear, and I'll not scold you, because a mad bear is a danger to everyone. But I'd still give a great deal for one brought to me alive." },
+          text = "You've put down a good many of the thistle bears, I hear, and I'll not scold you, because a mad bear is a danger to everyone. But one brought to me alive could teach me more than a hundred carcasses." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The thistle bears are sick, and I want one brought to me alive, so perhaps your spirits could calm it where my potions cannot." },
       },
       again = {
@@ -166,8 +166,8 @@ P:NPC {
         { id = "c3_default", text = "I will, though the bears cannot wait for me to be sure. That is what keeps me awake, friend: sometimes I must act on half an answer, and put down creatures I would rather have saved." },
       },
       choices = {
-        { text = "Save every one you can, whatever it costs.", next = "BACK", fx = { align = { order = -1 }, affinity = 2, trait = { kind = 1 } } },
-        { text = "Put down the sick ones and protect the rest.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Save every one you can, whatever it costs.", next = "BACK", reply = "Whatever it costs, yes, and I will pay my share. Thank you for believing it can be done.", fx = { align = { order = -1 }, affinity = 2, trait = { kind = 1 } } },
+        { text = "Put down the sick ones and protect the rest.", next = "BACK", reply = "That may be what we come to, and I will not pretend otherwise. But not before I have tried everything else.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
     alive = {
@@ -184,13 +184,13 @@ P:NPC {
         { id = "a2_default", text = "It is, a little, and I do not pretend otherwise. But one bear in a cage for a season may spare a hundred bears in the hills, and I sit with it every evening so it is not alone." },
       },
       choices = {
-        { text = "One suffering for a hundred is a fair bargain.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Then make its cage as gentle as you can.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "One suffering for a hundred is a fair bargain.", next = "BACK", reply = "It is a fair bargain, and a cruel one, and I hate myself a little for making it. The bear will be cared for.", fx = { align = { light = -1 } } },
+        { text = "Then make its cage as gentle as you can.", next = "BACK", reply = "I will, as gentle as I know how, and I will sit with it every night. That is my promise to the bear.", fx = { align = { light = 1 }, affinity = 1 } },
       },
     },
     terenthis_t = {
       lines = {
-        { id = "t_default", text = "Terenthis and I share a moonwell and an argument. He burns moss in the hills and I brew cures by the shore, and each of us thinks the other is a little too slow. Gwennyth has her dead sea creatures on the beach, too." },
+        { id = "t_default", text = "Terenthis and I share a moonwell and an argument. He burns moss in the hills and I brew cures by the shore, and each of us thinks the other is a little too slow. Gwennyth, the priestess on the beach, has her dead sea creatures too." },
         { id = "t_heard", when = { heardLine = "terenthis.h_default" },
           text = "You've heard him already, then, and he's told you the furbolgs are sick rather than evil. He's right, and I'd say the same of my bears, though I would say it more quietly." },
       },
@@ -207,7 +207,7 @@ P:NPC {
     },
     caught = {
       lines = {
-        { id = "ca_default", text = "That the sickness lives in the blood and grows worse in the dark of the moon, which I would never have learned from a corpse. She sleeps more quietly with the potion, though she is not cured, and she may never be." },
+        { id = "ca_default", text = "That the sickness lives in the blood and grows worse in the dark of the moon, which I would never have learned from a corpse. The bear sleeps more quietly with the potion, though she is not cured, and she may never be." },
       },
       choices = {
         { text = "Then the potion is a start.", next = "BACK", fx = { affinity = 2 } },
@@ -263,24 +263,24 @@ P:NPC {
 
   greetings = {
     { id = "g_stores", text = "Ishnu-alah. If you're here about supplies, speak quickly, and if you're carrying any, put them down gently." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. Everything you've carried for us has arrived whole, which is more than I can say for most." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. Everything you've carried for us has arrived whole, and the couriers before you lost a crate a week to the murlocs." },
   },
 
   notice = {
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "Another human! Delgren's company has taught me that your people keep their promises, so I'll assume you keep yours until you prove otherwise." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "A paladin, like the Purifier's company. They came across the sea to fight our demons, and I have not forgotten it." },
+      text = "A paladin, like Delgren the Purifier's company. They came across the sea to fight our demons, and I have not forgotten it." },
   },
 
   start = "hello",
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "We never get enough, but we manage. A shaman's help is counted gladly. Your spirits might guard the crates." } },
+      lines = { { id = "xdsham_default", text = "We never get enough, but we manage, and a shaman's help is counted gladly. If your spirits could keep the damp off the crates, I'd count that too." } },
       choices = {
-        { text = "Count me among the help, Elissa.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Supplies are someone else's worry.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Count me among the help, Elissa.", next = "BACK", reply = "Then you are counted, shaman, and gladly. My tally grows more cheerful already.", fx = { align = { order = 1 } } },
+        { text = "Supplies are someone else's worry.", next = "BACK", reply = "They are mine, and I would not wish them on anyone else. Still, every crate helps the Sentinels.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -288,8 +288,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Herbs and linen, mostly, and more clean water than you would think, because every sick creature they bring back to the village has to be washed and fed. I keep a careful tally, since the Circle asks for more each month and Darnassus sends less." } },
       choices = {
-        { text = "Keep your tally. Fair shares keep a village alive.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The sick need what they need. Give it without counting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep your tally. Fair shares keep a village alive.", next = "BACK", reply = "They do, and I am glad someone understands it. A village runs on fair shares.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The sick need what they need. Give it without counting.", next = "BACK", reply = "I wish I could, druid, but the stores run out faster than you would think. I give what I can.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -297,8 +297,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Better than I expected, and they hold against the Dark Strand with a stubbornness I've come to admire. They need blades more than prayers in Ashenvale, so if you're going south, carry their supplies and stay a while." } },
       choices = {
-        { text = "I'll carry the supplies and stand with them.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll carry the crates. The fighting's their business.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll carry the supplies and stand with them.", next = "BACK", reply = "Then they will be glad of both, warrior, and so will I. The Dark Strand respects a blade.", fx = { align = { honor = 1 } } },
+        { text = "I'll carry the crates. The fighting's their business.", next = "BACK", reply = "That is more than most offer, and I am grateful for it. The crates matter too.", fx = { align = { honor = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
@@ -306,11 +306,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Meat for the stores, hides for the Sentinels' winter gear, and the threshers kept away from the fishing boats. I count everything that comes in, so if you bring it, I'll know exactly whose it was." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its own entry in my head now, I'm afraid. Everything that comes through Auberdine gets counted, and that includes beasts that eat from its stores." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Meat for the stores, hides for the Sentinels' winter gear, and the threshers kept away from the fishing boats. Your {pet} has its own entry in my head now, I'm afraid. Everything that comes through Auberdine gets counted, and that includes beasts that eat from its stores." },
       },
       choices = {
-        { text = "I'll supply Auberdine before I sell anywhere else.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I sell to whoever pays the most.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll supply Auberdine before I sell anywhere else.", next = "BACK", reply = "Then Auberdine will be grateful, hunter, and so will the Sentinels in winter. Every hide counts.", fx = { align = { honor = 1 } } },
+        { text = "I sell to whoever pays the most.", next = "BACK", reply = "Then I hope Auberdine pays well enough, because we need you. I will not beg.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -319,8 +319,8 @@ P:NPC {
         { id = "xro_default", text = "They would, if I were not sitting on them, which I am, day and night. If you're so good at lifting, lift something from the Dark Strand and bring it to Delgren at Maestra's Post." },
       },
       choices = {
-        { text = "I'll bring it straight to Delgren.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll take it, and keep the best for myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll bring it straight to Delgren.", next = "BACK", reply = "Good, and Delgren will be glad of it. So will I.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take it, and keep the best for myself.", next = "BACK", reply = "Then bring the rest to Delgren, at least, and I will not ask about the best. The Dark Strand will not miss it.", fx = { align = { honor = -1 } } },
         { text = "Who are the Dark Strand?", next = "strand" },
       },
     },
@@ -329,8 +329,8 @@ P:NPC {
         { id = "xwl_default", text = "I am sure you do, and that is exactly why Delgren would want you in irons rather than in his camp. If you want to be useful, tell me where they meet, and then go somewhere the Sentinels are not." },
       },
       choices = {
-        { text = "I'll tell you everything, and fight them too.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Their methods aren't wrong, only their masters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll tell you everything, and fight them too.", next = "BACK", reply = "Then Delgren may yet be glad of you, warlock. Tell me everything, and fight well.", fx = { align = { light = 1 } } },
+        { text = "Their methods aren't wrong, only their masters.", next = "BACK", reply = "Their masters are the whole of what is wrong with them, warlock. Be careful whose methods you share.", fx = { align = { light = -1 } } },
         { text = "Who are Delgren and his paladins?", next = "delgren_e" },
       },
     },
@@ -338,8 +338,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Always, for linen and salves go out with every patrol and come back stained or not at all. If you have the gift of healing, spend it here before you spend it in the woods, because the Sentinels are what holds this coast." } },
       choices = {
-        { text = "Then I'll tend the patrols before I go anywhere.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I've my own road. The Sentinels manage without me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll tend the patrols before I go anywhere.", next = "BACK", reply = "Then the patrols will be glad of you, priest, and I will tell them you are coming. They need it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I've my own road. The Sentinels manage without me.", next = "BACK", reply = "They do, after a fashion, and they will go on managing. I only wish they did not have to.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -347,8 +347,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Well enough, so long as each keeps to its own orders, and Delgren keeps to his very carefully. Some of my sisters still mistrust humans with hammers, but I count crates, and the crates from Stormwind have always arrived." } },
       choices = {
-        { text = "Then we'll keep our word, as Delgren has.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I answer to the Light, not to Sentinel orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then we'll keep our word, as Delgren has.", next = "BACK", reply = "Delgren keeps his word, and I will be glad to see you do the same. The village needs it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I answer to the Light, not to Sentinel orders.", next = "BACK", reply = "Then the Light had better speak kindly of Sentinels, paladin. We will be watching.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -358,8 +358,8 @@ P:NPC {
         { id = "xmage_default", text = "Water is what we're always short of, because the barrels from Rut'theran go stale on the crossing and the Darkshore streams aren't to be trusted since the groves soured. Delgren's humans at Maestra's Post have a mage or two of their own, and I'll admit I envy them for it." },
       },
       choices = {
-        { text = "Then I'll help where I can, Sentinel.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'm no water-carrier. I came here to fight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll help where I can, Sentinel.", next = "BACK", reply = "Then help where the water is needed, and the Sentinels will thank you. Every barrel counts.", fx = { align = { order = 1 } } },
+        { text = "I'm no water-carrier. I came here to fight.", next = "BACK", reply = "Then fight, and I will find someone else to carry water. The Dark Strand will be glad of you.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -417,8 +417,8 @@ P:NPC {
         { id = "de2_default", text = "Because outsiders who come to help usually want something, and I have been a Sentinel a long time. Delgren wants nothing but to see the cult broken, so far as I can tell, and I've stopped looking for the catch." },
       },
       choices = {
-        { text = "Some people simply want to help.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Keep looking. Everyone wants something.", next = "BACK", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
+        { text = "Some people simply want to help.", next = "BACK", reply = "Some do, and I am trying to believe it of Delgren. It is not easy after so long.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Keep looking. Everyone wants something.", next = "BACK", reply = "I will, and I always have. It has kept me alive.", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
       },
     },
     strand = {
@@ -436,8 +436,8 @@ P:NPC {
         { id = "s2_default", text = "Darkshore is full of old Highborne stones that still remember magic, and a cult hungry for power would come to them like flies to a wound. I'd tear every one of those ruins down myself, but the elders call them our history." },
       },
       choices = {
-        { text = "Tear them down. History won't stop a warlock.", next = "BACK", fx = { align = { order = 1 }, learn = { "dark_strand" } } },
-        { text = "Keep them. Guard them better instead.", next = "BACK", fx = { align = { order = -1 }, learn = { "dark_strand" } } },
+        { text = "Tear them down. History won't stop a warlock.", next = "BACK", reply = "Perhaps they should come down, and I have thought it myself. But the elders would never allow it.", fx = { align = { order = 1 }, learn = { "dark_strand" } } },
+        { text = "Keep them. Guard them better instead.", next = "BACK", reply = "That is what the elders say, and they may be right. But guarding them takes Sentinels we do not have.", fx = { align = { order = -1 }, learn = { "dark_strand" } } },
       },
     },
     short = {
@@ -455,7 +455,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll earn the rest of it.", next = "BACK", fx = { affinity = 2 } },
-        { text = "Then I'll leave it. Something else.", next = "BACK" },
+        { text = "Fair enough.", next = "BACK" },
       },
     },
     thin_e = {
@@ -474,7 +474,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry more bandages than you think you need, because Darkshore has a way of using them up." } },
     dark_strand = { { id = "tp_strand", text = "Warlocks in the Tower of Althalaxx, and Delgren's paladins after them. I hope he gets there first." } },
     sentinels = { { id = "tp_sent", text = "We guard the village, the road and the boats, and we are never quite enough for all three." } },
-    blackfathom = { { id = "tp_blackfathom", text = "I've counted Twilight's Hammer patrols on the road south to Blackfathom, and the number goes up every month. I don't know how many there are inside, and I'd rather not count those myself." } },
+    blackfathom = { { id = "tp_blackfathom", text = "I've counted Twilight's Hammer patrols on the road south to Blackfathom, and the number goes up every month. How many wait inside, I leave to braver scouts than me." } },
     theramore = { { id = "tp_theramore", text = "I log every Theramore ship that docks, crew and cargo. They're always correct, which makes me trust them more than I'd like to admit." } },
     warsong = { { id = "tp_warsong", text = "The Warsong in Ashenvale aren't my count, but I keep an ear on the numbers. They're growing too." } },
     forsaken = { { id = "tp_forsaken", text = "There are reports of undead sailors on the coast now and then. I count those twice, and I count them with my bow." } },
@@ -507,10 +507,10 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They are restless, yes. Something on the coast unsettles them. Your spirits might calm them." } },
+      lines = { { id = "xdsham_default", text = "They are restless, yes, because something on this coast unsettles them. Perhaps your spirits could calm them." } },
       choices = {
-        { text = "Then I will help calm them, Caylais.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Restless birds fly faster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I will help calm them, Caylais.", next = "BACK", reply = "Thank you, shaman, and the birds will thank you too. They have been restless for weeks.", fx = { align = { order = 1 } } },
+        { text = "Restless birds fly faster.", next = "BACK", reply = "They do, but they also throw riders, and I would rather they were calm. Help me, if you can.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -518,8 +518,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every day, and back again with fewer of them, because the Warsong have been cruel in Ashenvale this season. I give the warriors my calmest birds on the way south, because they'll need to be calm when they land." } },
       choices = {
-        { text = "Then send me south. Astranaar needs blades.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll go south when the pay is worth it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then send me south. Astranaar needs blades.", next = "BACK", reply = "Then I will send you south with the next flight. Astranaar needs every blade it can get.", fx = { align = { honor = 1 } } },
+        { text = "I'll go south when the pay is worth it.", next = "BACK", reply = "Then you may wait a long time, warrior. Astranaar pays in gratitude, mostly.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -527,11 +527,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They fish, mostly, out over the water at dawn, and they'll take a crab off the beach if nobody stops them. The sea wind has been strange this season, though, and they come back tired, which worries me more than any beast on land." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} should stay on the ground while my birds are landing. A hippogryph coming down hard doesn't look where it puts its talons." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They fish, mostly, out over the water at dawn, and they'll take a crab off the beach if nobody stops them. Your {pet} should stay on the ground while my birds are landing. A hippogryph coming down hard doesn't look where it puts its talons." },
       },
       choices = {
-        { text = "I'll keep my companion clear of the roost.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My companion can look after itself near birds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my companion clear of the roost.", next = "BACK", reply = "Thank you, hunter, and the birds will thank you too. They are very protective of their roost.", fx = { align = { order = 1 } } },
+        { text = "My companion can look after itself near birds.", next = "BACK", reply = "It can, but the birds may not let it. Keep it close, please.", fx = { align = { order = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -540,8 +540,8 @@ P:NPC {
         { id = "xro_default", text = "My hippogryphs carry anyone who pays and doesn't kick them, and they see everything, whatever the passenger would prefer. The Sentinels at Rut'theran ask me who flies, and I tell them." },
       },
       choices = {
-        { text = "Good. I've nothing to hide.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then I'll make sure they don't recognise me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Good. I've nothing to hide.", next = "BACK", reply = "Good, and the birds will be glad of it. They do not like secrets.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll make sure they don't recognise me.", next = "BACK", reply = "They will, rogue, sooner or later. They never forget a face.", fx = { align = { honor = -1 } } },
         { text = "Are the flights safe?", next = "safe" },
       },
     },
@@ -550,8 +550,8 @@ P:NPC {
         { id = "xma_default", text = "Your spell takes you to the human cities and nowhere near the places that matter here, so I think you'll need my birds after all. They don't like the smell of magic much, so be gentle when you mount." },
       },
       choices = {
-        { text = "I'll be gentle with them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "They'll learn to like it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll be gentle with them.", next = "BACK", reply = "Thank you, mage, and they will remember it. Gentle riders get gentle flights.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They'll learn to like it.", next = "BACK", reply = "They will not, and neither will you. Be gentle, please.", fx = { align = { order = -1 } } },
         { text = "What are your birds like?", next = "birds" },
       },
     },
@@ -559,8 +559,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Now and then, when one flies too low over the Blackwood or a storm catches it off the coast. I mend what I can, but I'd welcome a priest's hands on a wing that won't set right." } },
       choices = {
-        { text = "I'll look at any bird that needs it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I tend people, not hippogryphs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll look at any bird that needs it.", next = "BACK", reply = "Thank you, priest, and the birds will thank you too. A healer's hand is rare on this coast.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I tend people, not hippogryphs.", next = "BACK", reply = "Then I will tend them myself, as I always have. They are not so different from people.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -568,8 +568,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Someone has to watch the roads below them, because a hippogryph can't land where the furbolgs are waiting. If you clear the ground, I'll keep the sky." } },
       choices = {
-        { text = "Then I'll keep the roads clear for your birds.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The skies can guard themselves. I've other duties.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll keep the roads clear for your birds.", next = "BACK", reply = "Thank you, paladin, and the birds will be safer for it. The furbolgs are bold this season.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The skies can guard themselves. I've other duties.", next = "BACK", reply = "Then the birds will manage, as they always have. But they would be grateful.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -579,8 +579,8 @@ P:NPC {
         { id = "xlock_default", text = "They'll carry you, but not your servant, and I'd ask you to dismiss it before you even reach the roost. A hippogryph that panics over open water is worse than any storm, and I've the sea wind to worry about already." },
       },
       choices = {
-        { text = "I'll dismiss it. The birds come first.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "They'll get used to it, or they'll learn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll dismiss it. The birds come first.", next = "BACK", reply = "Thank you, warlock, and the birds will be grateful. A panicked hippogryph is a dangerous thing.", fx = { align = { honor = 1 } } },
+        { text = "They'll get used to it, or they'll learn.", next = "BACK", reply = "They will not, I am afraid, and you will be walking. Dismiss it, please.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -620,7 +620,7 @@ P:NPC {
     },
     birds = {
       lines = {
-        { id = "b_default", text = "Proud and clever and moody as autumn, every one of them. They're the forest's own creatures, so they don't care for the salt here, but they put up with it for my sake." },
+        { id = "b_default", text = "Proud and clever and moody as autumn, all of them. They're the forest's own creatures, so they don't care for the salt here, but they put up with it for my sake." },
       },
       choices = {
         { text = "Do they ever refuse to fly?", next = "birds2" },
@@ -641,11 +641,11 @@ P:NPC {
     },
     first = {
       lines = {
-        { id = "fi_default", text = "Sit tall, hold the harness and not the feathers, and don't look down until you're over the water. If you're going to be sick, lean left, because she hates it on her right wing." },
+        { id = "fi_default", text = "Sit tall, hold the harness and not the feathers, and don't look down until you're over the water. If you're going to be sick, lean left, because the bird hates it on her right wing." },
       },
       choices = {
         { text = "Left. I'll remember.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
-        { text = "I'll manage. Something else.", next = "BACK" },
+        { text = "I'll manage.", next = "BACK" },
       },
     },
     druid_c = {

@@ -4,7 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.redridge")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
-  key = "guard_howe", id = TODO_NPC("Guard Howe"), name = "Guard Howe",
+  key = "guard_howe", id = TODO_NPC("Guard Howe"), name = "Guard Howe", gender = "male",
   bible = "bibles/guard_howe.md", role = "guard", tier = "quest",
   communities = { "lakeshire" }, temper = { "grim" }, values = { "duty", "loyal" },
   notices = { "race", "soldier" },
@@ -16,6 +16,12 @@ P:NPC {
 
   greetings = {
     { id = "g_bridge", text = "Halt. These mountains belong to the King of Stormwind, and I'd like to know you're on his side." },
+    { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "guard_howe_flirt_no" } }, cooldown = "2d",
+      text = "Halt. Oh, it's you, and you may pass, of course, though you needn't hurry about it." },
+    { id = "g_flirt_yes", when = { flirt = true, npcFlagBefore = "guard_howe_flirt_yes" }, priority = 8, cooldown = "1d",
+      text = "You came back. I've counted the Blackrock torches on the ridge since we spoke, as I always do, but I've thought about other things too, which isn't like me at all." },
+    { id = "g_flirt_no", when = { npcFlagBefore = "guard_howe_flirt_no" }, priority = 8, once = true,
+      text = "Back to business, then, and that suits me well enough. I'm better at orcs than at talking, as you saw." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. How many Blackrock have you put down since we spoke?" },
     { id = "g_active", when = { questActive = TODO_QUEST("Blackrock Bounty") }, text = "Return once you've slain fifteen of their champions. Not before." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. They raided twice while you were away, and I counted every torch." },
@@ -36,6 +42,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Guard Howe. The Blackrock clan has invaded our lands, and these mountains fall under the sovereign right of the King of Stormwind. I mean to see them driven out." },
+        { id = "h_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "guard_howe_flirt_no" } }, cooldown = "3d",
+          text = "I've stood on this bridge three seasons and counted every Blackrock torch on that ridge. I've no idea why I'm telling you that, except that you're easier to look at than the ridge." },
+        { id = "h_flirt_yes", when = { flirt = true, npcFlagBefore = "guard_howe_flirt_yes" }, priority = 6, cooldown = "1d",
+          text = "There you are. The ridge has been quiet, and I found I minded the quiet less when I thought you might come by." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Blackrock Bounty") },
           text = "Our sources tell us the leaders of each unit in the clan are called champions. They're camped to the north, just west of the road to the Burning Steppes, and I want them dead." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Blackrock Bounty"), days = 3 } },
@@ -53,7 +63,34 @@ P:NPC {
         { text = "Can the orcs ever be driven out for good?", next = "forgood" },
         { text = "I've fought orcs before, and they bleed like anyone.", next = "veteran", when = { minLevel = 20 } },
         { text = "I'll take the bounty.", next = "BUSINESS" },
+        { text = "Do you ever think about anything but the Blackrock, Howe?", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "guard_howe_flirt_no" } } },
         { text = "Stay vigilant, Howe.", next = "END" },
+      },
+    },
+    flirt = {
+      lines = {
+        { id = "fl_default", text = "Seldom, though I'll confess I've thought about you since you came up the road, which is a poor thing for a guard to admit while he's meant to be watching the ridge." },
+        { id = "fl_again", when = { npcFlagBefore = "guard_howe_flirt_yes" }, priority = 5,
+          text = "I think about the Blackrock, and then I think about you, and then I remember the Blackrock and feel guilty about it. It's been a confusing week on this bridge." },
+      },
+      choices = {
+        { text = "Watch the ridge, Howe. I'll keep you company while you do.", next = "flirt_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "guard_howe_flirt_yes" }, clear = { "guard_howe_flirt_no" } } } },
+        { text = "The Light smiles on devotion, Howe. Even yours.", next = "flirt_yes", when = { class = "PALADIN" },
+          reply = "Does it? Then I'll take that as a blessing, and say a prayer for some nerve to go with it.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "guard_howe_flirt_yes" }, clear = { "guard_howe_flirt_no" } } } },
+        { text = "You're sweet, Howe, but keep your eyes on the ridge.", next = "BACK",
+          reply = "Right, yes, the ridge, which is where my eyes belong. I'll thank you not to mention this to Berton.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "guard_howe_flirt_no" }, clear = { "guard_howe_flirt_yes" } } } },
+        { text = "I'm not interested, guard.", next = "BACK",
+          reply = "Understood, and no harm done. The orcs never turn me down, at least, though they do try to kill me.",
+          fx = { trait = { stern = 1 }, npcFlag = { set = { "guard_howe_flirt_no" }, clear = { "guard_howe_flirt_yes" } } } },
+      },
+    },
+    flirt_yes = {
+      lines = { { id = "fy_default", text = "Then stand there, on the left, where the wind's at your back and the ridge is in view. I don't know how courting's done in Stormwind, but in Lakeshire I'd say this counts, and I'll not hear otherwise." } },
+      choices = {
+        { text = "It counts, Howe.", next = "BACK",
+          reply = "Good. I'll write it in the watch log under 'nothing to report', which will be a lie for the first time in three seasons." },
       },
     },
     why = {
@@ -69,8 +106,8 @@ P:NPC {
       lines = { { id = "wr_default", text = "Call it what you like. A Blackrock killed a friend of mine at the old farmstead, and the King's law and my own grudge happen to point the same way." },
       },
       choices = {
-        { text = "Fight for the kingdom, not your grudge.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A grudge is as good a reason as any.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Fight for the kingdom, not your grudge.", next = "BACK", reply = "The kingdom and my grudge want the same dead orcs, so I don't see the harm. When the Blackrock are gone from Redridge, you can lecture me about my reasons.", fx = { align = { honor = 1 } } },
+        { text = "A grudge is as good a reason as any.", next = "BACK", reply = "It's kept me standing at this bridge through three winters, so I'd say it's better than most. Just don't let it make you careless up in those hills.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "I'm sorry for your friend.", next = "BACK", fx = { affinity = 1 } },
       },
     },

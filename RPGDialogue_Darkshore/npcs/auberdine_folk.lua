@@ -42,9 +42,9 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Hollee, of the Explorers' League, at your service, or at anyone's service who can swing a pick at a golem. I left Prospector Remtravel at the dig to the south when the ground opened up, and I've not slept properly since." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Absent Minded Prospector") },
-          text = "Follow the coast road south past the Ruins of Mathystra's turning and keep going until you see the tents. If the prospector is still alive, he'll be the one muttering at a rock and not looking at the golem behind him." },
+          text = "Follow the coast road south and keep going until you see the tents. If the prospector is still alive, he'll be the one muttering at a rock and not looking at the golem behind him." },
         { id = "h_done", when = { questDone = TODO_QUEST("The Absent Minded Prospector") },
-          text = "Master Greywhisker will hear how you went looking for the prospector, I promise you that. I've written him three letters already, and two of them were mostly about you." },
+          text = "Master Greywhisker, who runs the League's office in Darnassus, will hear how you went looking for the prospector, I promise you that. I've written him three letters already, and two of them were mostly about you." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "Another dwarf, and so far from the mountain! I'm Hollee, of the League, and I'm in a spot of trouble, so I'll skip the pleasantries if you don't mind." },
         { id = "h_gnome", when = { race = "Gnome" },
@@ -77,8 +77,8 @@ P:NPC {
     dig_left = {
       lines = { { id = "dl_default", text = "I begged him to come, I did, and he told me to fetch more brushes while I was in town. I'm no fighter, and one more dead dwarf in that trench wouldn't have helped him a bit." } },
       choices = {
-        { text = "You did right. Running for help took sense.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Running saves your skin. Don't dress it up.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You did right. Running for help took sense.", next = "BACK", reply = "Thank ye, that's what I keep tellin' myself, and it's nice to hear it from someone else. One more dead dwarf in a hole wouldn't help him.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Running saves your skin. Don't dress it up.", next = "BACK", reply = "Aye, fair, and I'll not pretend I wasn't scared. But I came for help, didn't I, and here ye are.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -94,8 +94,8 @@ P:NPC {
     rem_absent = {
       lines = { { id = "ra_default", text = "He once dated a pot shard while standing in the cook fire, and he only noticed when his trousers did. If the golems ever get him, he'll go on describing the craftsmanship of the fist all the way down." } },
       choices = {
-        { text = "Genius is worth a little danger.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A leader who ignores danger gets his people killed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Genius is worth a little danger.", next = "BACK", reply = "It is, and he'd say so himself, if he could stop talking about pots long enough. I'd still like him to keep his trousers.", fx = { align = { order = -1 } } },
+        { text = "A leader who ignores danger gets his people killed.", next = "BACK", reply = "Aye, and that's what keeps me up at night, if I'm honest. He's a genius, but he's a genius who forgets things.", fx = { align = { order = 1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -122,8 +122,8 @@ P:NPC {
     league_waste = {
       lines = { { id = "lw_default", text = "That's what my father said, and he's never once wondered why the oldest halls under Ironforge are cut so straight. You can mine iron anywhere, but you only get one chance to find out who you are." } },
       choices = {
-        { text = "The past should be remembered. Keep digging.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The past is dead. Leave it buried.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The past should be remembered. Keep digging.", next = "BACK", reply = "Aye, and I will, whatever my father says. The past has more to tell us than he knows.", fx = { align = { order = 1 } } },
+        { text = "The past is dead. Leave it buried.", next = "BACK", reply = "That's what my father says, and he's wrong, and so are ye, if ye don't mind me saying. The past is never dead.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -137,8 +137,8 @@ P:NPC {
     elves_mind = {
       lines = { { id = "em_default", text = "We don't touch the elf ruins, that was the bargain, and the dig is on older ground besides. Even so, a Sentinel comes by the camp now and then and counts our shovels, as if we'd steal a hillside." } },
       choices = {
-        { text = "Their land, their rules. They're right to watch.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Nobody owns the past. Dig where you please.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Their land, their rules. They're right to watch.", next = "BACK", reply = "Aye, and I don't begrudge them. A Sentinel by the camp keeps the golems honest, too.", fx = { align = { light = 1 } } },
+        { text = "Nobody owns the past. Dig where you please.", next = "BACK", reply = "That's what the League says, but the Sentinels say otherwise, and they've the arrows. I'll stick to the bargain.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -205,7 +205,7 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Researching the Corruption") },
           text = "The satyr and naga both haunt Blackfathom Deeps on the Ashenvale coast, which is a long road and a dark one. Bring me eight brain stems, and keep them out of the sun if you can." },
         { id = "h_done", when = { questDone = TODO_QUEST("Researching the Corruption") },
-          text = "The stems you brought have told me a great deal, and none of it comforting. The change begins in the mind long before it reaches the body, and the ones it happens to rarely notice." },
+          text = "The stems you brought have told me much, and none of it comforting. The change begins in the mind long before it reaches the body, and the ones it happens to rarely notice." },
         { id = "h_lock", when = { class = "WARLOCK" },
           text = "A warlock comes to the one elf in Auberdine who studies what fel magic does to a people. Either you're very brave or you haven't understood my work yet." },
         { id = "h_human", when = { race = "Human" },
@@ -218,7 +218,7 @@ P:NPC {
       choices = {
         { text = "Why study brain stems, of all things?", next = "stems" },
         { text = "Who do you fear will go the same way?", next = "fear" },
-        { text = "You have a brother in Stormwind?", next = "argos" },
+        { text = "Have you any family nearby?", next = "argos" },
         { text = "What does the change look like, at the start?", next = "change", when = { questDone = TODO_QUEST("Researching the Corruption") } },
         { text = "Fel magic is a tool. It only twists the weak.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll go.", next = "END" },
@@ -235,8 +235,8 @@ P:NPC {
     stems_grim = {
       lines = { { id = "sg_default", text = "It is, and I sleep poorly because of it. But someone in Auberdine must look closely at the ugly things, or one day they'll be at our gates and we'll have no idea what they once were." } },
       choices = {
-        { text = "Knowing the enemy is worth any cost.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some knowledge stains whoever gathers it. Be careful.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Knowing the enemy is worth any cost.", next = "BACK", reply = "It is, and I would pay it again. But I sleep poorly all the same.", fx = { align = { light = -1 } } },
+        { text = "Some knowledge stains whoever gathers it. Be careful.", next = "BACK", reply = "I know, and I am careful, as careful as anyone can be. That is why I sleep so poorly.", fx = { align = { light = 1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -250,10 +250,10 @@ P:NPC {
       },
     },
     fear_cousins = {
-      lines = { { id = "fc_default", text = "I don't know it, which is why I study and don't simply preach. But Azshara's court was full of clever, proud people who were certain they knew their own limits, and look at the sea where they used to live." } },
+      lines = { { id = "fc_default", text = "I don't know it, and that is why I study rather than simply preach. But Azshara's court was full of clever, proud people who were certain they knew their own limits, and look at the sea where they used to live." } },
       choices = {
-        { text = "Then warn them, before it's too late.", next = "BACK", fx = { align = { light = 1 }, learn = { "highborne" } } },
-        { text = "They made their choice. Let them pay for it.", next = "BACK", fx = { align = { light = -1 }, learn = { "highborne" } } },
+        { text = "Then warn them, before it's too late.", next = "BACK", reply = "I have tried, and they laugh, the way Azshara's court laughed. I will keep trying.", fx = { align = { light = 1 }, learn = { "highborne" } } },
+        { text = "They made their choice. Let them pay for it.", next = "BACK", reply = "They will, and so will everyone near them. That is what frightens me.", fx = { align = { light = -1 }, learn = { "highborne" } } },
       },
     },
     fear_care = {
@@ -262,7 +262,7 @@ P:NPC {
     },
 
     argos = {
-      lines = { { id = "ar_default", text = "Argos went to Stormwind to find help among the humans, because he says the adventurers there will go anywhere for the right word. He was always the one who talked and I was always the one who read." } },
+      lines = { { id = "ar_default", text = "My brother Argos went to Stormwind to find help among the humans, because he says the adventurers there will go anywhere for the right word. He was always the one who talked and I was always the one who read." } },
       choices = {
         { text = "Do you miss him?", next = "argos_miss" },
         { text = "Something else.", next = "BACK" },
@@ -284,8 +284,8 @@ P:NPC {
     xlock = {
       lines = { { id = "xl_default", text = "Every satyr in Ashenvale once believed the same thing, {class}, and they were not weak; they were the finest minds of their age. I'd take more care with that belief than you're taking now." } },
       choices = {
-        { text = "I'll master it, not the other way round.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "You may be right. I'll keep watch on myself.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll master it, not the other way round.", next = "BACK", reply = "So did they, {class}, every one of them. I hope you are the first to succeed.", fx = { align = { light = -1 } } },
+        { text = "You may be right. I'll keep watch on myself.", next = "BACK", reply = "Then you are wiser than most who carry it. Watch closely, and come back if you need help.", fx = { align = { light = 1 } } },
       },
     },
   },
@@ -371,8 +371,8 @@ P:NPC {
     ashen_stance = {
       lines = { { id = "ast_default", text = "Some say that, and some say we'll never be rid of them and should hold what we can. My mistress says only that the forest must outlast them, however long that takes." } },
       choices = {
-        { text = "Strike hard. Show them the forest has teeth.", next = "BACK", fx = { align = { light = -1 }, learn = { "warsong" } } },
-        { text = "Protect what's left. Heal it first.", next = "BACK", fx = { align = { light = 1 }, learn = { "warsong" } } },
+        { text = "Strike hard. Show them the forest has teeth.", next = "BACK", reply = "Hard, yes, and the forest has sharp teeth. My mistress would agree with you on some days.", fx = { align = { light = -1 }, learn = { "warsong" } } },
+        { text = "Protect what's left. Heal it first.", next = "BACK", reply = "That is what my mistress says, and I think she is right. The forest heals slowly.", fx = { align = { light = 1 }, learn = { "warsong" } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -400,8 +400,8 @@ P:NPC {
     xorcs = {
       lines = { { id = "xo_default", text = "Perhaps not, {class}, though the forest is patient and orcs are not. I've heard some of them are only cutting wood to build their new homes, and I've heard others boast of the demigod they killed there, so I can't tell you which kind will stay." } },
       choices = {
-        { text = "An orc with an axe in our forest is an enemy.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Some might be bargained with. Worth trying.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "An orc with an axe in our forest is an enemy.", next = "BACK", reply = "It is, and I have fought many of them. But some are only cutting wood to keep warm.", fx = { align = { honor = 1 } } },
+        { text = "Some might be bargained with. Worth trying.", next = "BACK", reply = "Perhaps, and I have heard of it, though I have never seen it. I would be glad to be proven wrong.", fx = { align = { honor = -1 } } },
       },
     },
   },
@@ -463,8 +463,8 @@ P:NPC {
     danger = {
       lines = { { id = "da_default", text = "There are things under the Great Sea that could swallow a ship whole, and every sailor here has seen a shadow pass under the hull that was longer than the hull. They've never come up for the Bravery, and I say a word to Elune each time she leaves, just to keep it that way." } },
       choices = {
-        { text = "Elune keeps the ships. That's good enough for me.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Prayers don't patch hulls. I'll trust the carpenters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Elune keeps the ships. That's good enough for me.", next = "BACK", reply = "It is good enough for me, too, and for every sailor on this dock. Elune has never failed us yet.", fx = { align = { order = 1 } } },
+        { text = "Prayers don't patch hulls. I'll trust the carpenters.", next = "BACK", reply = "They do not, I know, and the carpenters are very good. But I pray anyway.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -476,7 +476,7 @@ P:NPC {
       },
     },
     fly = {
-      lines = { { id = "fl_default", text = "Caylais will happily put you on a hippogryph, and plenty of folk prefer it. But you don't see the tree rise out of the sea from a hippogryph's back the way you do from the deck, and I'd not trade that sight for any amount of saved time." } },
+      lines = { { id = "fl_default", text = "Caylais, our hippogryph keeper, will happily put you on one, and plenty of folk prefer it. But you don't see the tree rise out of the sea from a hippogryph's back the way you do from the deck, and I'd not trade that sight for any amount of saved time." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     self = {
@@ -519,6 +519,7 @@ P:NPC {
   start = "hello",
   nodes = {
     hello = {
+      hub = true,
       lines = {
         { id = "h_default", key = true,
           text = "Kurdram Stonehammer, and I teach mining, for those who can stand the work. There's copper and tin in these hills if ye know where to look, and I'll teach ye where, for a price." },
@@ -528,41 +529,109 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Make it quick, the damp gets in my knees if I stand still." },
         { id = "h_again2", text = "Go on, then. I've opinions on everything from ore to elves." },
+        { id = "h_again3", text = "More? Fine, fine, but I'm sitting down for it." },
       },
       choices = {
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "What's worth digging in Darkshore?", next = "ore" },
         { text = "How do you get on with the elves?", next = "elves" },
         { text = "Any relation to Thelgrum Stonehammer?", next = "thelgrum" },
+        { text = "What's dangerous in those hills?", next = "hills" },
+        { text = "You sound homesick for the mountain.", next = "home", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Does it trouble you, digging in our land?", next = "kaldorei", when = { race = "NightElf" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
     ore = {
-      lines = { { id = "or_default", text = "Copper and tin in the hills along the road, and the odd seam of silver if ye're lucky and nobody's looking. The trouble is getting to it, because half the veins here have a tree growing out of them, and the elves get funny when ye take a pick near a tree." } },
+      lines = { { id = "or_default", text = "Copper and tin in the hills along the road, and the odd seam of silver if ye're lucky and nobody's looking. The trouble is getting to it, because every other vein here has a tree growing out of it, and the elves get funny when ye take a pick near a tree." } },
       choices = {
         { text = "Then I'll mine around the trees.", next = "ore_trees" },
+        { text = "Silver, you said?", next = "ore_silver" },
         { text = "Something else.", next = "BACK" },
       },
     },
     ore_trees = {
       lines = { { id = "ot_default", text = "Aye, that's the trick of it, and the rule I give every student. Some of them listen and some of them get a Sentinel's arrow in the dirt between their boots." } },
       choices = {
-        { text = "Their forest, their rules. I'll mind the trees.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Ore is ore. A tree can grow back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Their forest, their rules. I'll mind the trees.", next = "BACK", reply = "Good on ye, and ye'll keep yer hide that way. The Sentinels shoot first.", fx = { align = { order = 1 } } },
+        { text = "Ore is ore. A tree can grow back.", next = "BACK", reply = "Aye, in a hundred years, and the Sentinels will put an arrow in ye before then. Mind the trees, friend.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
+    ore_silver = {
+      lines = { { id = "os_default", text = "Silver, aye, threaded through the copper like a vein through a hand, and gone before ye've got a proper look at it. Ye'll find it by accident or not at all, so keep swinging at copper and let the silver find you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     elves = {
       lines = { { id = "el_default", text = "Well enough, once ye learn they say yes by saying nothing and no by saying it very slowly. They buy my copper and they feed me fish, and I'll not complain about either." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Fish every day? Truly?", next = "elves_fish" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves_fish = {
+      lines = { { id = "ef_default", text = "Every blessed day, baked and boiled and once, Light help me, raw. I'd trade a month's wages for a slab of Dun Morogh boar and a pint of something brown, but there's none of either this side of the sea." } },
+      choices = {
+        { text = "The inn must stock something stronger.", next = "elves_ale" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves_ale = {
+      lines = { { id = "ea_default", text = "Moonberry wine, which tastes like a flower fell in a cup and drowned. I keep a wee cask of Thunder Ale under my bench that came over with Hollee's crates, and I'll thank ye not to tell the Sentinels." } },
+      choices = { { text = "Not a word. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     thelgrum = {
       lines = { { id = "th_default", text = "My cousin, and he sells the picks I teach folk to use, which is a better business than mine and he knows it. Buy from him, but don't let him tell ye he taught me anything." } },
       choices = {
         { text = "I'll keep the family peace.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Did he teach you anything?", next = "thel_teach" },
         { text = "Something else.", next = "BACK" },
       },
     },
+    thel_teach = {
+      lines = { { id = "tt_default", text = "He taught me to hold a pick when we were bairns, and I've been teaching him to hold his tongue ever since, with less success. Don't ye dare tell him I said the first part." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hills = {
+      lines = { { id = "hi_default", text = "The Blackwood furbolgs up north, who've gone mad as a hatter and twice as mean, and the moonkin, who look soft and aren't. Down on the shore the murlocs will take your boots off your feet if ye stop to dig near the water." } },
+      choices = {
+        { text = "Any miners gone missing?", next = "hills_missing" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hills_missing = {
+      lines = {
+        { id = "hm_default", text = "Remtravel, the Explorers' League prospector, who wanders off with his head in a ruin and leaves his gear all over the coast. He's not lost so much as misplaced, and somebody always has to go and fetch him." },
+        { id = "hm_found", when = { questDone = TODO_QUEST("The Absent Minded Prospector") }, text = "Remtravel, but ye found him, didn't ye? Good. The man would lose his own beard if it weren't attached, and even then I've wondered." },
+      },
+      choices = {
+        { text = "Someone should keep him on a lead.", next = "hills_lead" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } },
+      },
+    },
+    hills_lead = {
+      lines = { { id = "hl_default", text = "I've suggested it, and Hollee laughed, and Remtravel thought I was serious and asked how long the lead would be. A dwarf with no sense of direction is a sad thing, but he does find good ruins." } },
+      choices = {
+        { text = "Digging up elf ruins is wrong. Leave them be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The past should be dug up. Someone should learn from it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = { { id = "ho_default", text = "Homesick for stone that stays dry, aye, and a hall where ye can't hear rain on the roof every blessed night. But the copper's good and the work's honest, and there's worse places for an old miner to grumble." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    kaldorei = {
+      lines = { { id = "ka_default", text = "It troubles me that ye would think so, {g:lad|lass}, because I take nothing your Sentinels haven't seen me take. I dig small and I fill in my holes, and that's more than most dwarves would do for anyone." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    advice = { { id = "tp_ad", text = "Dig around the trees, not through them, and keep yer pick sharp. A dull pick works ye twice as hard for half the ore." } },
+    explorers_league = { { id = "tp_explorers_league", text = "Hollee and Remtravel and their lot, digging up elf ruins up and down the coast. Good folk, if ye can keep them from wandering." } },
+    furbolgs = { { id = "tp_furbolgs", text = "The Blackwood up north have gone mad, and nobody can tell me why. I keep well clear of their camps." } },
+    _none = { { id = "tp_none", text = "Never heard of it. If it's not rock or rain, I've no opinion on it, and that's rare." } },
   },
 }
 
@@ -596,6 +665,7 @@ P:NPC {
   start = "hello",
   nodes = {
     hello = {
+      hub = true,
       lines = {
         { id = "h_default", key = true,
           text = "Jenna Lemkenilli, journeyman engineer, and the only person in Auberdine who knows what a sprocket is for. I'll teach you the basics, and maybe a bit past the basics if you promise not to blow up the inn." },
@@ -607,12 +677,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? I've a spring to rewind, but I can talk while I do it." },
         { id = "h_again2", text = "Ask! Questions are how inventions start." },
+        { id = "h_again3", text = "More? Wonderful, I was running out of things to say to this sprocket." },
       },
       choices = {
         { text = "Teach me engineering.", next = "BUSINESS" },
         { text = "Why does a gnome live in Auberdine?", next = "why" },
         { text = "What do the elves think of your work?", next = "elves" },
         { text = "Do you know Gelkak Gyromast?", next = "gelkak" },
+        { text = "What's engineering actually good for?", next = "what" },
+        { text = "Dwarves are engineers too, you know.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "I got out of Gnomeregan too.", next = "survivor", when = { race = "Gnome" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -626,18 +700,80 @@ P:NPC {
     gnomeregan = {
       lines = { { id = "gn_default", text = "The High Tinker says so, and I want to believe him. But the radiation and the troggs are still down there, and every month I tell myself next year." } },
       choices = {
-        { text = "It will be taken back. Hold on to that.", next = "BACK", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
-        { text = "Build a new home. That city is gone.", next = "BACK", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
+        { text = "It will be taken back. Hold on to that.", next = "BACK", reply = "I will, and I do, every day. Thank you for saying it.", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
+        { text = "Build a new home. That city is gone.", next = "BACK", reply = "Perhaps, and I have thought of it. But Gnomeregan was home, and I am not ready to give up on it.", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
+        { text = "Who let the troggs in?", next = "gnomeregan_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
+    gnomeregan_who = {
+      lines = { { id = "gw_default", text = "Nobody let them in, they came up from underneath, and then Thermaplugg had the clever idea of flooding the city with radiation to kill them, which killed rather more gnomes than troggs. I'd call him a fool, but fools don't usually come out on top, and he's still down there." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "troggs" } } } },
+    },
     elves = {
       lines = { { id = "el_default", text = "They're very polite about it, which is worse than shouting. Thundris asked me to keep my smoke on the far side of town, away from the moonwell, and I do, because I'd rather not find out what a moonwell does to a misfiring flare." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Has anything ever misfired here?", next = "elves_misfire" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves_misfire = {
+      lines = { { id = "em_default", text = "One small firework, over the water, and it was a perfectly lovely green until it set a fishing net alight. The Sentinels were very understanding, and I've not been allowed to test anything on the pier since." } },
+      choices = {
+        { text = "Do you think they'll ever trust gnomish work?", next = "elves_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves_trust = {
+      lines = { { id = "et_default", text = "They trust my cogs more than my rockets, and they're not wrong to. They remember a lot of things going very badly when people played with power they didn't understand, so I try to show them I understand mine." } },
+      choices = {
+        { text = "They're right to be careful with new things.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They'll fall behind if they won't change.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     gelkak = {
       lines = { { id = "ge_default", text = "The one who calls himself a pirate and talks about his machine like it's a sweetheart? He came through asking for gears a while ago, and he paid in sea-shells, which I've decided to count as payment out of politeness." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = {
+        { text = "What sort of machine is it?", next = "gelkak_machine" },
+        { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
     },
+    gelkak_machine = {
+      lines = { { id = "gm_default", text = "The Threshwackonator 4100, he calls it, which is a magnificent name for something held together with tar and hope. He swears it's his first mate, and from the bits he described, I'd stand well clear when he turns it on." } },
+      choices = { { text = "I'll keep my distance. Something else.", next = "BACK" } },
+    },
+    what = {
+      lines = { { id = "wa_default", text = "Explosives, mostly, at first, and then goggles so you can see what you blew up, and then all sorts of lovely gadgets for the adventurer who wants to be a little bit less dead. Everything starts with a rough blasting powder and a copper bolt." } },
+      choices = {
+        { text = "That sounds dangerous.", next = "what_danger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    what_danger = {
+      lines = { { id = "wd_default", text = "Oh, it's terribly dangerous, that's what makes it engineering! The trick is to be dangerous in the direction you mean to be, and I've a burn on my left thumb that reminds me of that every morning." } },
+      choices = {
+        { text = "How do you know which direction you mean?", next = "what_direction" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    what_direction = {
+      lines = { { id = "wdi_default", text = "Measure twice, light once, and always stand behind the elf who's laughing at you. Well, no, don't do that last part, they've very long ears and they hear everything." } },
+      choices = { { text = "Sound advice. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "I do know, and I've learned a great deal from Ironforge's engineers, mostly what not to do with a boiler. Your people make sturdier guns than we do; ours just have more buttons." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    survivor = {
+      lines = { { id = "su_default", text = "Then you know, and I needn't say any of it. If you ever want to sit here and not talk about it over a cup of something, my workbench has two stools, and one of them hardly wobbles." } },
+      choices = { { text = "I'd like that. Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+  },
+
+  topics = {
+    gnomeregan = { { id = "tp_gnomeregan", text = "Home, until Thermaplugg ruined it. I tell myself we'll go back next year, every year." } },
+    advice = { { id = "tp_ad", text = "Wear goggles. I know they look silly, but eyebrows grow back and eyes don't." } },
+    _none = { { id = "tp_none", text = "No idea! But give me an afternoon and a spanner, and I could probably build something that knows." } },
   },
 }

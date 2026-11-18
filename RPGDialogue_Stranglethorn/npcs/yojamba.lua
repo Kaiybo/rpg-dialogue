@@ -41,11 +41,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Molthor, de Hand of King Rastakhan, and I speak for de Zandalar on dis shore. De Gurubashi priests have called Hakkar de Soulflayer back into Zul'Gurub, and if he grows strong enough to leave it, every troll and every outsider in dis world will bleed to feed him." },
         { id = "h_hand", tags = { "news" }, when = { questActive = TODO_QUEST("The Hand of Rastakhan") },
-          text = "You were sent by de prospector, Ironboot? His words are wise, and wiser still to send you here. Speak with all of my people on dis isle, and heed dem, for de task before you is soaked in blood." },
+          text = "You were sent by Ironboot, de dwarf prospector? He was wise to send you here. Speak with all of my people on dis isle, and heed dem, for de task before you is soaked in blood." },
         { id = "h_low", when = { maxLevel = 55 },
           text = "You are young yet, and Zul'Gurub would swallow you whole. Go, grow strong, and come back when de jungle has stopped frightening you, for I will still be here." },
         { id = "h_heart_ready", tags = { "news" }, when = { questActive = TODO_QUEST("The Heart of Hakkar") },
-          text = "You carry it. I can feel it from here, beating where no heart should beat. Give it to me, quickly, before it learns your name." },
+          text = "You carry de heart of Hakkar. I can feel it from here, beating where no heart should beat. Give it to me, quickly, before it learns your name." },
         { id = "h_heart_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Heart of Hakkar"), days = 3 } },
           text = "De Soulflayer's heart is in Zandalari hands, and de Spirit of Zandalar has been called down over dis whole coast. You did dat, and every troll who remembers de old empire will know it." },
         { id = "h_cleared", when = { cleared = "Zul'Gurub" },
@@ -86,8 +86,8 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "Yes, every one of dem, and when dey fall de power dey stole goes back to de loa, and Hakkar grows weaker. Some of my people would rather capture de priests and free dem of de god's grip, but I have seen what a man becomes when Hakkar has held him, and dere is nothing left to save." } },
       choices = {
-        { text = "Then kill them cleanly. Mercy is wasted on them now.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "If any can be saved, they should be. Try first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then kill them cleanly. Mercy is wasted on them now.", next = "BACK", reply = "Dat is de warrior's answer, and maybe de right one, but de priests were our brothers once. I will remember dem as dey were, even as I cut dem down.", fx = { align = { light = -1 } } },
+        { text = "If any can be saved, they should be. Try first.", next = "BACK", reply = "You have a gentle heart for dis work, and I will not mock it, for some of my elders say de same. Try if you can, but do not die trying, because Hakkar will not wait.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -119,7 +119,7 @@ P:NPC {
       },
     },
     zg_spoils = {
-      lines = { { id = "zs_default", text = "De coins and de bijous of de old empire, which Vinchaxa and Jin'rokh and de others will trade for. Speak with dem, and with Exzhal, for each of my people has a part in dis, and dey will tell you dat part better dan I can." } },
+      lines = { { id = "zs_default", text = "De coins and de bijous of de old empire, which my people here on de isle will trade for. Speak with dem, and with Exzhal, for each of my people has a part in dis, and dey will tell you dat part better dan I can." } },
       choices = {
         { text = "I'll speak with them.", next = "BACK" },
       },
@@ -144,8 +144,8 @@ P:NPC {
       big = true,
       lines = { { id = "ou_default", text = "I trust what you do, not what you are. Orc, human, dwarf or elf, I do not care, so long as de priests die. Some of my elders think it a disgrace dat Zandalari must beg help from strangers, and dey are not entirely wrong." } },
       choices = {
-        { text = "Pride is a poor weapon. You were right to ask.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then pay us well, and keep your pride.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Pride is a poor weapon. You were right to ask.", next = "BACK", reply = "Dese are wise words from an outsider, and I will carry dem to de elders who grumble. Pride never stopped a god, but heroes might.", fx = { align = { honor = 1 } } },
+        { text = "Then pay us well, and keep your pride.", next = "BACK", reply = "Ha! You talk like a goblin, but at least you talk honest. De Zandalar pay in what de Zandalar have, and our pride we keep in our own pockets.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -239,8 +239,8 @@ P:NPC {
       big = true,
       lines = { { id = "ph_default", text = "De circle does most of it, and fear does de rest. Molthor says I am too hard on him, and I say dat a man who would feed his own children to de Soulflayer has given up any claim to gentleness." } },
       choices = {
-        { text = "Whatever he did, torture shames the one who does it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Wring every word out of him. He's earned it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Whatever he did, torture shames the one who does it.", next = "BACK", reply = "Molthor would kiss you for dat, outsider, and maybe he is right. But Molthor has not looked into dis man's eyes and seen what he fed to de Soulflayer.", fx = { align = { light = 1 } } },
+        { text = "Wring every word out of him. He's earned it.", next = "BACK", reply = "Dat is my thinking, and it is good to hear it from someone not of my tribe. He gave his children to Hakkar, so let him give de rest of his secrets to me.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -261,7 +261,7 @@ P:NPC {
     },
 
     king = {
-      lines = { { id = "ki_default", text = "Rastakhan is old, and wise, and he does not leave Zandalar for anything less dan de end of de world, which is why he sent me. He chose me because I do not forget a word he says, and I will not forget yours either." } },
+      lines = { { id = "ki_default", text = "Rastakhan is old, and wise, and he does not leave Zandalar for anything less dan de end of de world, and so he sent me. He chose me because I do not forget a word he says, and I will not forget yours either." } },
       choices = {
         { text = "Then I'll choose my words carefully.", next = "BACK", fx = { trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -276,7 +276,7 @@ P:NPC {
       },
     },
     pride = {
-      lines = { { id = "pd_default", text = "I speak highly of de king, and I happen to be standing in front of him when I do it. If you hear pride in dat, you are hearing de king's, not mine, and you would be wise not to mock it." } },
+      lines = { { id = "pd_default", text = "I speak highly of de king, because his voice is de one you hear when I speak. If you hear pride in dat, you are hearing de king's, not mine, and you would be wise not to mock it." } },
       choices = {
         { text = "No mockery meant, Servitor.", next = "BACK", fx = { affinity = 1 } },
         { text = "I hear a little of yours too.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -351,8 +351,8 @@ P:NPC {
       big = true,
       lines = { { id = "zo_default", text = "Dey answer whoever feeds dem, and dat is de danger, for it is how de Gurubashi priests came to bind our gods to Hakkar. Some of my people say outsiders should never be taught de loa's names at all, and I am not sure dey are wrong." } },
       choices = {
-        { text = "Keep your gods' names to yourselves. It's safer.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Knowledge hidden is knowledge stolen. Teach whoever asks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep your gods' names to yourselves. It's safer.", next = "BACK", reply = "Dat is de careful way, and de elders who say it are not fools. But silence did not save de Gurubashi gods, so I am not sure it will save ours.", fx = { align = { order = 1 } } },
+        { text = "Knowledge hidden is knowledge stolen. Teach whoever asks.", next = "BACK", reply = "You speak like a scholar of de Zandalar, and I am glad to hear it. Knowledge kept in de dark grows teeth, and de Gurubashi priests showed us whose teeth.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -380,7 +380,7 @@ P:NPC {
       },
     },
     bijou = {
-      lines = { { id = "bi_default", text = "It breaks, and de mojo in it goes back to de loa it was stolen from, which is why de bijou screams a little when it dies. Do not listen too closely, and do not try to keep one, for dey whisper to dose who carry dem too long." } },
+      lines = { { id = "bi_default", text = "It breaks, and de mojo in it goes back to de loa it was stolen from, and so de bijou screams a little when it dies. Do not listen too closely, and do not try to keep one, for dey whisper to dose who carry dem too long." } },
       choices = {
         { text = "I'll be quick about it.", next = "BACK", fx = { trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -408,7 +408,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "I am Jin'rokh de Breaker, envoy of Mugamba, de Fist of Rastakhan. My dealings are with warriors and heathens, so tell me which you are." },
+    { id = "g_default", text = "I am Jin'rokh de Breaker, envoy of Mugamba, de Fist of Rastakhan. My dealings are with warriors and paladins, so tell me which you are." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did you kill anything since I last saw you, or only talk?" },
   },
 
@@ -456,8 +456,8 @@ P:NPC {
       big = true,
       lines = { { id = "pw_default", text = "Because armor on a shelf kills nobody. Exzhal says de tribe's craft should stay with de tribe, and I say a dead hero takes nothing to his grave, so let dem wear it." } },
       choices = {
-        { text = "Gear belongs on whoever fights hardest. You're right.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A tribe's craft is its own. Exzhal has a point.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Gear belongs on whoever fights hardest. You're right.", next = "BACK", reply = "Ha! Dat is what I tell Exzhal every morning, and he scowls at me every morning. Fight hard, hero, and de armor will find you.", fx = { align = { order = -1 } } },
+        { text = "A tribe's craft is its own. Exzhal has a point.", next = "BACK", reply = "Exzhal will be very pleased to hear an outsider say so, and he will never let me forget it. But a craft dat sits in a chest does not save anyone from Hakkar.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -473,8 +473,8 @@ P:NPC {
     armor = {
       lines = {
         { id = "ar_default", text = "Bracers first, when de tribe calls you friend, den a belt when it honors you, and de breastplate when it reveres you. Nothing comes free, and nothing comes early, so do not ask me twice." },
-        { id = "ar_paladin", when = { class = "PALADIN" }, text = "For you, de Freethinker's pieces, bracers and belt and breastplate, one as de tribe trusts you more. De name was not my idea, so do not ask me what it means." },
-        { id = "ar_warrior", when = { class = "WARRIOR" }, text = "For you, de Vindicator's pieces, armguards, belt and breastplate, one as de tribe trusts you more. Each one is heavy, and each one is worth it." },
+        { id = "ar_paladin", when = { class = "PALADIN" }, text = "For you, de Freethinker's pieces, bracers and belt and breastplate, one at a time as de tribe trusts you more. De name was not my idea, so do not ask me what it means." },
+        { id = "ar_warrior", when = { class = "WARRIOR" }, text = "For you, de Vindicator's pieces, armguards, belt and breastplate, one at a time as de tribe trusts you more. Each one is heavy, and each one is worth it." },
       },
       choices = {
         { text = "I'll earn every piece.", next = "BACK", fx = { affinity = 1 } },

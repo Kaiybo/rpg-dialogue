@@ -18,7 +18,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "If ye've come tae gawp at the old stair, gawp quickly, for I've ledgers tae finish." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Good; at least you came up the stair, which is more than I can say for my keepers." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good; at least you came up the stair, while my keepers wait for the stair to come to them." },
     { id = "g_quest", when = { questActive = TODO_QUEST("The Restless Dead") }, text = "I don't have time for ghouls and ghosts, so I'm hopin' you've made some for me. Well?" },
     { id = "g_after", when = { questDone = TODO_QUEST("The Restless Dead") }, text = "There's the one who put my dead back tae bed. The keepers are goin' below again, grumblin', but goin'." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the hall stayed quiet, which I'll take as a compliment tae your work." },
@@ -29,7 +29,7 @@ P:NPC {
     { id = "n_priest", cat = "spirits", when = { class = { "PRIEST", "PALADIN" } },
       text = "Light-bearer, are ye? Good, for the dead below are restless and I'd sooner they were laid down gently than hacked at by some mercenary." },
     { id = "n_dwarf", cat = "kin", when = { race = "Dwarf" },
-      text = "Your grandsires might well be lyin' in those vaults, so mind your manners down there more than most." },
+      text = "Your grandsires might well be lyin' in those vaults, so mind your manners down there, of all places." },
     { id = "n_league", cat = "lore", when = { origin = "dwarf_explorers_league" },
       text = "League, are ye? Then you'll know better than tae pocket anything below, and I'll hold you tae that." },
   },
@@ -43,7 +43,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("The Restless Dead"), minLevel = 10 },
           text = "Something's disturbed the tombs in the Hall of Thanes, and the keepers swear they hear the dead walkin' in the vaults. I need someone with a strong arm and a short memory tae go down and settle things." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Restless Dead") },
-          text = "Apparitions, tormented souls, and somethin' wearin' the Anvilmar name that ought tae be dust. Put them all back down, and mind the carvings while you do it." },
+          text = "Apparitions, tormented souls, and somethin' wearin' the Anvilmar name that ought tae be dust, all down in the Hall of Thanes. Put them back down, and mind the carvings while you do it." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Restless Dead"), days = 3 } },
           text = "It's done, then, and the keepers can stop refusin' tae do their duty on account of angry dead. I've already had two of them back at work this mornin', and only one of them fainted." },
         { id = "h_done", when = { questDone = TODO_QUEST("The Restless Dead") },
@@ -83,7 +83,7 @@ P:NPC {
     },
     hall_families = {
       lines = {
-        { id = "hf_default", text = "Bronzebeards, of course, and the Anvilmars, who sat the high throne before the clans split and still have their seat in the Senate. There's a whole rest of Anvilmar dead down there, and the eldest of them was never a quiet sleeper." },
+        { id = "hf_default", text = "Bronzebeards, of course, and the Anvilmars, one of the oldest clans in the mountain, and a hundred lesser families besides. There's a whole row of Anvilmar dead down there, and the eldest of them was never a quiet sleeper." },
       },
       choices = {
         { text = "The clans split? Tell me about it.", next = "hall_war" },
@@ -95,8 +95,8 @@ P:NPC {
         { id = "hw_default", text = "The War of the Three Hammers: Bronzebeard, Wildhammer and Dark Iron all wantin' the one throne. The Dark Irons lost and ran tae their mountain in the south, and they've never once stopped thinkin' this hall belongs tae them." },
       },
       choices = {
-        { text = "Old grudges should stay buried with the dead.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The Dark Irons chose their side. Let them live with it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Old grudges should stay buried with the dead.", next = "BACK", reply = "They should, an' I'd sleep easier if they did, but the Dark Irons have never once let anythin' stay buried, least of all a grudge with a throne in it.", fx = { align = { order = -1 } } },
+        { text = "The Dark Irons chose their side. Let them live with it.", next = "BACK", reply = "That's my thinkin' too, an' the book agrees, though I'd rather they lived with it in their own mountain than came up through my floor tae argue.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -105,16 +105,16 @@ P:NPC {
         { id = "hb_default", text = "To the lowest vault, once, with a lamp and a younger set of knees. It's cold and it's dark and it smells of old stone, and I never once heard a ghost, so you'll understand why I find all this talk tryin'." },
       },
       choices = {
-        { text = "And now?", next = "woke" },
+        { text = "So what woke them now?", next = "woke" },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     woke = {
       lines = {
-        { id = "wo_default", text = "Noise, I'd say, and a great deal of it. The spirits are light sleepers, and somethin' down in the deep vaults has been diggin' and bangin' where nobody's dug in centuries." },
+        { id = "wo_default", text = "Noise, I'd say, and plenty of it. The spirits are light sleepers, and somethin' down in the deep vaults has been diggin' and bangin' where nobody's dug in centuries." },
         { id = "wo_map", when = { questDone = TODO_QUEST("Underground Map") },
-          text = "You've seen that Wildhammer's map, haven't you? Dark Iron tunnels, right under my vaults, and the dead woke up cross because of it, which is exactly how I'd feel." },
+          text = "You've seen the map of those tunnels, haven't you? Dark Iron diggings, right under my vaults, and the dead woke up cross because of it, which is exactly how I'd feel." },
       },
       choices = {
         { text = "Dark Irons, under Ironforge?", next = "woke_dark" },
@@ -124,7 +124,7 @@ P:NPC {
     },
     woke_dark = {
       lines = {
-        { id = "wd_default", text = "Mole machines, the gnome says, and for once I believe him. If Thaurissan's lot can dig under the High Seat, they can dig anywhere, and nobody up here wants tae think about that.",
+        { id = "wd_default", text = "Mole machines, Thom Filch says, and for once I believe that gnome. If Thaurissan's lot can dig under the High Seat, they can dig anywhere, and nobody up here wants tae think about that.",
           fx = { learn = { "dark_iron" } } },
       },
       choices = {
@@ -136,7 +136,7 @@ P:NPC {
       lines = {
         { id = "wk_default", text = "Someone has, I'm told, and he's not pleased. There's a commander down there by the sound of it, and if you're the sort who goes lookin' for commanders, the King will want his head more than I want my quiet." },
         { id = "wk_done", when = { questDone = TODO_QUEST("Old Ironforge Incursion") },
-          text = "And you brought it tae him, I hear, the Dirgehammer fellow's head in a sack. The King sent me a note sayin' the lower vaults are tae be sealed and walled, and I've never been so glad tae lose access tae my own records." },
+          text = "And you brought it tae him, I hear, the Dark Iron commander's head in a sack. The King sent me a note sayin' the lower vaults are tae be sealed and walled, and I've never been so glad tae lose access tae my own records." },
       },
       choices = {
         { text = "I'll see to it.", next = "BACK" },
@@ -148,8 +148,8 @@ P:NPC {
         { id = "wg_default", text = "I believe in what's written down, and what's written down says the dead stay put. If they've stopped stayin' put, then somebody's tae blame, and it isn't the dead." },
       },
       choices = {
-        { text = "The dead deserve their rest, whatever stirred them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Dead is dead. Smash them and be done.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The dead deserve their rest, whatever stirred them.", next = "BACK", reply = "Aye, they do, an' I'll write down that ye said so, because it's the dead who've been wronged here, not the ones doin' the stirrin'.", fx = { align = { light = 1 } } },
+        { text = "Dead is dead. Smash them and be done.", next = "BACK", reply = "That's quicker, I'll grant ye, but every one o' them has a name in my book, so mind ye don't smash the carvin' along wi' the thane.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -169,8 +169,8 @@ P:NPC {
         { id = "kaf_default", text = "Right tae be afraid, perhaps, but not right tae leave the work undone. The names down there need dustin' and the seals need checkin', and if nobody does it, the dead are forgotten twice." },
       },
       choices = {
-        { text = "Duty comes first, ghost or no ghost.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Nobody should be ordered into a haunted tomb.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Duty comes first, ghost or no ghost.", next = "BACK", reply = "Exactly, an' I've told my keepers as much, though they looked at me as if I'd asked them tae go down an' dust the ghosts themselves.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Nobody should be ordered into a haunted tomb.", next = "BACK", reply = "Perhaps not, an' I'll no' order them, but somebody has tae go, an' if it's no' them it's you, so I'll thank ye for not complainin'.", fx = { align = { honor = -1 } } },
       },
     },
 
@@ -191,8 +191,8 @@ P:NPC {
         { id = "tt_default", text = "I think he says 'catalogue' the way a raven says 'shiny'. Still, he saw the Dark Irons come up, and he came straight here tae say so, and a true thief would have kept quiet." },
       },
       choices = {
-        { text = "Then watch him, but let him help.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Have him turned out before something goes missing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then watch him, but let him help.", next = "BACK", reply = "That's my plan exactly, an' I've already counted every goblet in the lower vault twice, so if one walks off I'll know whose pockets tae turn out.", fx = { align = { order = -1 } } },
+        { text = "Have him turned out before something goes missing.", next = "BACK", reply = "I've thought about it, believe me, but he's the only one who's seen them come up, an' I'd rather have his eyes down there than his absence.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -208,17 +208,17 @@ P:NPC {
         { id = "xk_default", text = "Thanes and their households, miners who died in the deep seams, a few soldiers from the old wars who were brought home on shields. Tell me your clan's name and I'll look it up, though I can't promise you'll like what the book says." },
       },
       choices = {
-        { text = "I'd be honoured to know where they lie.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The dead are dead. I care for the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd be honoured to know where they lie.", next = "BACK", reply = "Then give me the name, an' I'll find the page, an' whatever's written there, I'll read it tae ye properly, the way the dead deserve.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The dead are dead. I care for the living.", next = "BACK", reply = "Fair enough for the livin', but the dead dinnae have anybody else tae care for them, an' I'd rather ye didnae make that my problem alone.", fx = { align = { light = -1 } } },
       },
     },
     xpriest = {
       lines = {
-        { id = "xp_default", text = "Properly, is it? Then do it properly, with whatever words your order teaches, and I'll write down that it was done. I'm not much for prayers, but I'm a great deal for things bein' done right." },
+        { id = "xp_default", text = "Properly, is it? Then do it properly, with whatever words your order teaches, and I'll write down that it was done. I'm not much for prayers, but I'm all for things bein' done right." },
       },
       choices = {
-        { text = "The Light will grant them peace. I'll see it done.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Peace or not, they'll stay down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light will grant them peace. I'll see it done.", next = "BACK", reply = "Good, an' I'll put it in the book in my best hand, because a thane laid tae rest by the Light deserves a proper line, no' a scribble.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Peace or not, they'll stay down.", next = "BACK", reply = "Well, I'm no' going tae argue with results, priest, so long as ye write down which ones ye put down an' where they ended up.", fx = { align = { light = -1 } } },
       },
     },
     xshaman = {
@@ -226,8 +226,8 @@ P:NPC {
         { id = "xs_default", text = "Speak with them? You'll have tae speak loudly, then, for the Anvilmar dead were deaf tae good sense when they were livin'. Ask them who woke them, if they'll answer you, and write it down for me." },
       },
       choices = {
-        { text = "I'll listen first and strike only if I must.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Some spirits only listen to steel.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll listen first and strike only if I must.", next = "BACK", reply = "Sensible, an' rarer than ye'd think among the folk who come down here, so ask them who woke them, an' if they answer, write it in my book.", fx = { align = { honor = 1 } } },
+        { text = "Some spirits only listen to steel.", next = "BACK", reply = "Some do, an' I've met a few o' them in the old records, but try words first, because a thane who's insulted stays awake a good deal longer.", fx = { align = { honor = -1 } } },
       },
     },
   },
@@ -314,8 +314,8 @@ P:NPC {
         { id = "ph_default", text = "Hands are a perfectly respectable way of looking at things! You can't tell real gold from gilt by staring, not unless you're a goblin, and I am very much not a goblin, whatever anyone in Gadgetzan says." },
       },
       choices = {
-        { text = "A thief is a thief, Thom.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "Dead kings don't need gold. I don't blame you.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "A thief is a thief, Thom.", next = "BACK", reply = "Well, that's very hurtful, and very nearly accurate, but I'm a reformed sort of thief now, mostly, so I'd thank you to keep your voice down.", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Dead kings don't need gold. I don't blame you.", next = "BACK", reply = "Oh, thank you, at last someone sensible, and I'll remember you said so when the dwarves come asking who's been in the third vault, I mean, patrolling it.", fx = { affinity = 2, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -330,7 +330,7 @@ P:NPC {
     },
     patrol_afadra = {
       lines = {
-        { id = "pf_default", text = "Afadra? She doesn't trust ink unless it's her own. I like her, mind you, she's the only one up here who looks at me long enough to be suspicious." },
+        { id = "pf_default", text = "Afadra? She doesn't trust ink unless it's her own. I like her, though, because she's the only one up here who looks at me long enough to be suspicious." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -367,7 +367,7 @@ P:NPC {
 
     heirlooms = {
       lines = {
-        { id = "he_default", text = "Catalogued, every one, and returned to its proper place of honour. I give you my word as a gnome, and my word is worth a great deal, more than most gnomes' and nearly as much as a goblin's." },
+        { id = "he_default", text = "Catalogued, every one, and returned to its proper place of honour. I give you my word as a gnome, and my word holds up better than most gnomes' and nearly as well as a goblin's contract." },
       },
       choices = {
         { text = "And if you sold a few?", next = "heirlooms_sold" },
@@ -377,11 +377,11 @@ P:NPC {
     },
     heirlooms_sold = {
       lines = {
-        { id = "hs_default", text = "Sold? Sold! I'd never, not to just anybody. There are collectors in Gadgetzan who'd pay a fortune for a dwarven goblet, I'm told, by people, not that I'd know any of them." },
+        { id = "hs_default", text = "Sold? Sold! I'd never, not to just anybody. There are collectors in Gadgetzan who'd pay a fortune for a dwarven goblet, or so I'm told, not that I'd know any of them." },
       },
       choices = {
-        { text = "The dead's goods belong to the dead.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If they're paying that much, I want a share.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The dead's goods belong to the dead.", next = "BACK", reply = "Belong to the dead, yes, of course, absolutely, I was only cataloguing them, and you can't catalogue a thing without picking it up, can you?", fx = { align = { honor = 1 } } },
+        { text = "If they're paying that much, I want a share.", next = "BACK", reply = "A share? Well, I don't know anything about any collectors, as I said, but if I did, I'd certainly remember a friendly face like yours.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -414,8 +414,8 @@ P:NPC {
         { id = "xr_default", text = "Shh! Not so loud, there are dwarves everywhere. Between professionals, then, the third vault from the bottom has a loose stone in its west wall, and I'm only telling you so you can patrol it." },
       },
       choices = {
-        { text = "Then I'll patrol it with you, partner.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "I don't rob the dead, Thom.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Then I'll patrol it with you, partner.", next = "BACK", reply = "Partner, oh, I like the sound of that, and I'll patrol the left side and you take the right, and if anything falls into our pockets, it's purely an accident.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "I don't rob the dead, Thom.", next = "BACK", reply = "No, no, of course you don't, nor do I, I was only testing you, and you passed with flying colours, so do forget I mentioned that vault.", fx = { affinity = -1, align = { order = 1 } } },
       },
     },
     xgnome = {
@@ -423,8 +423,8 @@ P:NPC {
         { id = "xg_default", text = "For a while, until the troggs came up and the radiation came down and Mekkatorque decided we'd all live in Ironforge with the dwarves. I went south instead, because there's no room to grow in somebody else's house, and Gadgetzan pays." },
       },
       choices = {
-        { text = "You should have stayed with your people.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Somebody has to make a living. Good for you.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "You should have stayed with your people.", next = "BACK", reply = "Maybe I should have, and my mother certainly thinks so, but you can't invent anything new in a city where every bench already belongs to a dwarf.", fx = { align = { honor = 1 } } },
+        { text = "Somebody has to make a living. Good for you.", next = "BACK", reply = "Thank you, really, and I'd like that written down somewhere official, because people in Ironforge keep looking at me as if I'd stolen the furniture.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
   },

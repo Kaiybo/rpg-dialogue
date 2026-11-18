@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_farm", text = "Good day to you. Mind the apples on the table; they're spoken for." },
-    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. Markus will be pleased; he's been playing at being you all week." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. My Markus will be pleased; he's been playing at being you all week." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and nothing's changed here, which out on this road counts as good news." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your boots since you last came by, if you don't mind me saying. Markus says you'll be a hero, and I'm starting to think he's right." },
     { id = "g_word_helped", when = { word = "helped" }, text = "They tell me you've been helping folk along the road. It's good to know somebody is." },
@@ -25,7 +25,7 @@ P:NPC {
 
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
-      text = "Oh! Light above, you gave me a turn, creeping about like that. I get enough of that from the bushes by the well." },
+      text = "Oh! Light above, you gave me a turn, creeping about like that. I get enough of that from the men hiding in the bushes by my well." },
     { id = "n_hungry", cat = "hunger", when = { maxLevel = 10 },
       text = "You look half-starved, dear. I can't spare the apples, but there's bread on the shelf if you're desperate." },
   },
@@ -61,7 +61,7 @@ P:NPC {
       },
     },
     well_why = {
-      lines = { { id = "ww_default", text = "We need water, dear, and the Defias haven't taken any of it yet. I think they're watching the road, not me, and I'd rather not give them a reason to change their minds." },
+      lines = { { id = "ww_default", text = "We need water, dear, and the Defias haven't taken any of it yet. I think they're watching the road, not me, and I don't mean to give them a reason to change their minds." },
       },
       choices = {
         { text = "That's brave of you.", next = "BACK", fx = { affinity = 1 } },
@@ -73,8 +73,8 @@ P:NPC {
       lines = { { id = "wg_default", text = "I've told them, and they come and look, and the men are gone, and the guards go home. If you were me, would you keep complaining, or keep your head down and your boy safe?" },
       },
       choices = {
-        { text = "Keep complaining. The guards owe you protection.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Keep your head down. The law won't save you here.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep complaining. The guards owe you protection.", next = "BACK", reply = "You're right, and I know it, though it's hard to keep knocking on a door that never opens. I'll go to the Marshal again tomorrow, and I'll keep on going until somebody listens.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Keep your head down. The law won't save you here.", next = "BACK", reply = "That's what my head says too, though my heart hates hearing it. I'll keep the shutters closed and my boy close, and pray the Light keeps watch where the guards won't.", fx = { align = { order = -1 } } },
         { text = "I don't know, Clara.", next = "BACK" },
       },
     },
@@ -89,7 +89,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     ambush = {
-      lines = { { id = "am_default", text = "Then you'll have seen they never go far. If you can see them, dear, please don't start anything near the house, not with Markus in the garden." },
+      lines = { { id = "am_default", text = "Then you'll have seen they never go far. Please don't start anything near the house, dear, not with Markus in the garden." },
       },
       choices = {
         { text = "I'll wait until the boy is inside.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },

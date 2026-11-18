@@ -79,8 +79,8 @@ P:NPC {
       big = true,
       lines = { { id = "ls_default", text = "No, it shouldn't. There isn't time to send word to Darnassus and wait, but some here say we should, rather than send more brave souls after the first two." } },
       choices = {
-        { text = "Don't wait. Strike the crone now.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Send word to Darnassus first. Do it properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Don't wait. Strike the crone now.", next = "BACK", reply = "That is my heart's answer too, and I will find the arrows for whoever is willing, though I fear for them.", fx = { align = { order = -1 } } },
+        { text = "Send word to Darnassus first. Do it properly.", next = "BACK", reply = "You are right, and it is the proper way, but the crone will not wait for a reply from Darnassus.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -118,7 +118,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "The road, the couriers, and the names of the scouts who didn't come back." } },
+    knows = { { id = "tp_knows", text = "I know the road, the couriers, and the names of the scouts who didn't come back." } },
     background = { { id = "tp_bg", text = "A sentry of the Kaldorei, keeper of a small post on a long road.", next = "post" } },
     _none = { { id = "tp_none", text = "No courier has brought me word of that." } },
   },
@@ -140,7 +140,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Down, and quiet. The Grimtotem have ears, and some of them have good ones." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Doling Justice") }, text = "Raiders, naturalists, shamans. They're still down there, so neither of us is finished." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Doling Justice") }, text = "The Grimtotem raiders, naturalists and shamans are still down there, so neither of us is finished." },
     { id = "g_done", when = { questDone = TODO_QUEST("Doling Justice") }, text = "They felt that, all through the camp. I heard them wailing from up here." },
   },
 
@@ -189,8 +189,8 @@ P:NPC {
       big = true,
       lines = { { id = "cw_default", text = "Power, Kindal thinks, or spite against the forest that won't bow to them. I don't care why anymore. Some of my sisters say we should try to reason with their elders; I say an arrow is the only reason they'll hear." } },
       choices = {
-        { text = "Then let arrows do the talking.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Try to reason first. Not all of them choose this.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then let arrows do the talking.", next = "BACK", reply = "Then you and I agree, and Kindal can keep his patience while we keep our bows strung.", fx = { align = { light = -1 } } },
+        { text = "Try to reason first. Not all of them choose this.", next = "BACK", reply = "Kindal would like you, and perhaps he is right, but I have seen the cages, and I have run out of reasons to talk.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -211,7 +211,7 @@ P:NPC {
     },
 
     sentinels = {
-      lines = { { id = "se_default", text = "The general has the naga on the coast and the ogres to the north, and only so many bows. Two Sentinels in the hills cost her nothing, and we can do a great deal of damage for nothing." } },
+      lines = { { id = "se_default", text = "The general has the naga on the coast and the ogres to the north, and only so many bows. Two Sentinels in the hills cost her nothing, and two Sentinels who know these hills can bleed an ogre camp for a month." } },
       choices = {
         { text = "You're brave to try alone.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -231,9 +231,9 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "The Grimtotem camps, their patrols, and every cage they keep." } },
+    knows = { { id = "tp_knows", text = "I know the Grimtotem camps, their patrols, and every cage they keep." } },
     background = { { id = "tp_bg", text = "A Sentinel who came with the expedition and stayed in the hills.", next = "kindal" } },
-    grimtotem = { { id = "tp_grim", text = "Cruel to the forest and proud of it. I've no pity left for them." } },
+    grimtotem = { { id = "tp_grim", text = "The Grimtotem are cruel to the forest and proud of it. I've no pity left for them." } },
     _none = { { id = "tp_none", text = "I don't know, and I haven't the time to find out." } },
   },
 }

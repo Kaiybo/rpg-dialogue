@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_done", when = { questDone = TODO_QUEST("The Road to Darnassus") }, text = "The merchants have stopped asking for escorts since you cleared the ambushers. Elune's light on you, {class}." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "A fine night for the road, with the moon this high. She watches it with me." },
     { id = "g_away", when = { away = 14 }, text = "You have been away {away}, and the road has missed a friend. Welcome back to it." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You were new to the bow when you first cleared this road for me, and now you carry yourself like a Sentinel. Elune has been generous with you." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You were new to the road when you first cleared it for me, and now you carry yourself like a Sentinel. Elune has been generous with you." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear there were sharp words with someone in Dolanaar. Settle it, {class}, because a quarrel on the road is how ambushes begin." },
   },
 
@@ -51,7 +51,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you ask, {class}? Speak while we ride, and keep one eye on the trees, as every Sentinel learns to." },
-        { id = "h_again2", text = "Ask, and then let me return to watching the trees. The Gnarlpine have learned patience from us, and I would not have them learn more." },
+        { id = "h_again2", text = "Ask, and then let me return to watching the trees. The Gnarlpine are patient, and they wait for us to look away." },
       },
       choices = {
         { text = "Why do you guard this road yourself?", next = "road" },
@@ -88,8 +88,8 @@ P:NPC {
         { id = "rp_default", text = "I pity what they were, and I pray for what they might be again. But the ambusher on this road is not a patient to be healed, {class}; he is a danger to children walking to Darnassus." },
       },
       choices = {
-        { text = "The road comes first. I'll do what's needed.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll fight them, but I'll pray for them too.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The road comes first. I'll do what's needed.", next = "BACK", reply = "The road does come first, and I am glad you understand it. Do what you must, and I will do the praying for both of us.", fx = { align = { light = -1 } } },
+        { text = "I'll fight them, but I'll pray for them too.", next = "BACK", reply = "Then you have the heart of a priestess under that {class}'s gear, and Elune will see it. Go gently, even with a blade drawn.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,8 +109,8 @@ P:NPC {
         { id = "bs_default", text = "Some of them, gently, in the way priestesses disapprove of things. The High Priestess has never told me to come in from the road, and I take that as her answer." },
       },
       choices = {
-        { text = "Faith should be lived where the danger is.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The Temple's ways exist for good reasons.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Faith should be lived where the danger is.", next = "BACK", reply = "That is what I have always believed, and I am glad to hear it from someone who walks this road too. Elune's light shines best in the dark.", fx = { align = { order = -1 } } },
+        { text = "The Temple's ways exist for good reasons.", next = "BACK", reply = "They do, and I honour them, even from out here. I only think the Temple is wherever someone needs it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "sisterhood_of_elune" } } },
       },
     },
@@ -162,7 +162,7 @@ P:NPC {
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine were not always like this, and I pray they will not always be. Until then, the road comes first." } },
     elune = { { id = "tp_elune", text = "Elune rides with me on every road I patrol, and she is better company than most of my sisters. She never asks why I'm late back to the Temple." } },
     nordrassil = { { id = "tp_nordrassil", text = "The first tree stands on Hyjal, and I rode up its slopes once as a girl to see it. Teldrassil is grand, but it has never made me catch my breath like that." } },
-    tyrande = { { id = "tp_tyrande", text = "The High Priestess gave me this saber and these roads, and she trusts me to keep both. I'd ride through fire for her, and she knows it, which is why she never asks." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess gave me this saber and these roads, and she trusts me to keep both. I'd ride through fire for her, and she knows it, so she has never once needed to ask." } },
     blackfathom = { { id = "tp_blackfathom", text = "That was Elune's temple once, on the Ashenvale shore, before the sea took it. Cultists pray in it now, and I'd ride in and drag them out myself if the Temple let me." } },
     _none = { { id = "tp_none", text = "I keep a road, {class}, not a library, and my saddle's softer than most books besides. Ask the priestesses in Darnassus." } },
   },

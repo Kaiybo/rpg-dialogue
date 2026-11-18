@@ -33,17 +33,17 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hadric Harlson, of the Argent Dawn. Keep your voice down, {class}, because there are Cult of the Damned skulking around the outskirts of the city, and I'd rather they didn't hear us coming." },
+          text = "Hadric Harlson, of the Argent Dawn. Keep your voice down, {class}, because there are Cult of the Damned skulking around the outskirts of the city, and I want them to hear nothing until we're on them." },
         { id = "h_emissary", tags = { "news" }, when = { questActive = TODO_QUEST("The Argent Emissary") },
-          text = "Terrence sent you after me, I suppose, to see what the Argent Dawn is doing poking about Tirisfal unsupervised. Stay low and try not to be seen, {class}; these cultists are not to be trifled with." },
+          text = "The Deathguard sent you after me, I suppose, to see what the Argent Dawn is doing poking about Tirisfal unsupervised. Stay low and try not to be seen, {class}; these cultists are not to be trifled with." },
         { id = "h_crystals", when = { questActive = TODO_QUEST("Remnants of War") },
           text = "Don't handle those crystals more than you must. Even shattered and spent, the necrotic magic left in them is dangerous." },
         { id = "h_cult", when = { questActive = TODO_QUEST("The Cult of the Damned") },
-          text = "Neophytes and enforcers, eight of each, and don't let them talk to you. The cult is very good at talking." },
+          text = "Kill eight of their neophytes and eight of their enforcers, and don't let them talk to you. The cult is very good at talking." },
         { id = "h_both", tags = { "news" }, when = { questDone = TODO_QUEST("Remnants of War"), questBefore = TODO_QUEST("Bandarion Keep") },
           text = "You've done a great thing for the Dawn's cause here today. My commander and I were bound for Bandarion Keep before we learned of the cult, and if you want to know more of our mission, that's where you'll find him." },
         { id = "h_keep", when = { questActive = TODO_QUEST("Bandarion Keep") },
-          text = "Northwest, to Bandarion Keep, and give my commander my regards. I'll stay here and mop up the rest of this mess." },
+          text = "Head northwest to Bandarion Keep, and give my commander, Leonid, my regards. I'll stay here and mop up the rest of this mess." },
         { id = "h_keepdone", when = { questDone = TODO_QUEST("Bandarion Keep") },
           text = "You met Leonid, then. He'll have told you what that keep means to him, and I'll only say that he doesn't tell everyone." },
       },
@@ -57,7 +57,7 @@ P:NPC {
         { text = "What do you know of the Cult of the Damned?", next = "cult" },
         { text = "Who is your commander?", next = "leonid" },
         { text = "Are you Forsaken, or Argent Dawn?", next = "both" },
-        { text = "Kristof thinks someone is raising Scourge inside our borders.", next = "kristof", when = { any = { { questDone = TODO_QUEST("Patience") }, { questActive = TODO_QUEST("Patience") } } } },
+        { text = "Deathguard Kristof thinks someone is raising Scourge inside our borders.", next = "kristof", when = { any = { { questDone = TODO_QUEST("Patience") }, { questActive = TODO_QUEST("Patience") } } } },
         { text = "I'll keep low. Farewell.", next = "END" },
       },
     },
@@ -85,8 +85,8 @@ P:NPC {
         { id = "m_default", text = "Not if Danitha has her way. She says her knights are meant to serve the Forsaken first and the wider world second, and I can't fault her for it, though I'd have welcomed them in the Plaguelands. What do you think, {class}?" },
       },
       choices = {
-        { text = "She's right. Her knights belong to the Forsaken.", next = "BACK", fx = { align = { order = 1 }, learn = { "argent_dawn" } } },
-        { text = "The Scourge threatens everyone. She should join you.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, learn = { "argent_dawn" } } },
+        { text = "She's right. Her knights belong to the Forsaken.", next = "BACK", reply = "That's her answer too, and I respect it, even if my patrols in the Plaguelands could use a few more swords. She knows her people better than I do.", fx = { align = { order = 1 }, learn = { "argent_dawn" } } },
+        { text = "The Scourge threatens everyone. She should join you.", next = "BACK", reply = "It does, and I'll tell her you said so the next time she lets me through her gate. She'll listen politely and then do exactly as she pleases, which is rather the point of being free.", fx = { affinity = 1, align = { order = -1 }, learn = { "argent_dawn" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "argent_dawn" } } },
       },
     },
@@ -101,7 +101,7 @@ P:NPC {
     },
     naxx = {
       lines = {
-        { id = "n_default", text = "It wasn't long ago, {class}, and both the Forsaken and the Dawn lost a great deal that day to secure the Forsaken's future. Leonid fought there, and so did I, and we both have names we don't say anymore." },
+        { id = "n_default", text = "It wasn't long ago, {class}, and both the Forsaken and the Dawn bled for it that day to secure the Forsaken's future. Leonid fought there, and so did I, and we both have names we don't say anymore." },
         { id = "n_forsaken", when = { race = "Scourge" },
           text = "You'll have risen after, or you'd remember the sky going dark over the ruins. Both the Forsaken and the Dawn lost a great deal that day, and the city you walk into owes its life to people whose names you'll never hear." },
       },
@@ -129,7 +129,7 @@ P:NPC {
     },
     pieces = {
       lines = {
-        { id = "p_default", text = "I don't know, and I'd rather not find out. The denizens of Tirisfal will be pulling those crystals out of the ground for years, I expect, but every piece we take from the cult is one less they can use." },
+        { id = "p_default", text = "I don't know, and I'm not eager to find out. The denizens of Tirisfal will be pulling those crystals out of the ground for years, I expect, but every piece we take from the cult is one less they can use." },
       },
       choices = {
         { text = "Then I'll gather what I can.", next = "BACK", fx = { affinity = 1 } },
@@ -142,8 +142,8 @@ P:NPC {
         { id = "cu_default", key = true, text = "I have a special disgust for the living servants of the Scourge. They have the free will to walk away, and the promise of power and immortality has robbed them of their reason and their decency both, and if we don't wish to see Lordaeron's history repeat itself, we must stamp them out wherever they spring up." },
       },
       choices = {
-        { text = "No mercy for them. They chose the Scourge.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some were desperate. Stop them, but take prisoners where we can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "No mercy for them. They chose the Scourge.", next = "BACK", reply = "They did, with their eyes open and their hearts still beating, and that's what I can't forgive. Strike them down, and don't let them talk you out of it.", fx = { align = { light = -1 } } },
+        { text = "Some were desperate. Stop them, but take prisoners where we can.", next = "BACK", reply = "Perhaps, and a prisoner can tell us where the next cell is hiding, so I'll not argue. Only don't mistake desperation for innocence, {class}.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Why do they serve it willingly?", next = "willing" },
       },
     },
@@ -170,8 +170,8 @@ P:NPC {
         { id = "il_default", text = "On good days I do. On bad days I think it's simply what I am now, and that there's no cure coming, and I fight anyway. Which do you believe, {class}?" },
       },
       choices = {
-        { text = "It's a sickness, and the Light can ease it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "It's what we are. No cure, and no shame either.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It's a sickness, and the Light can ease it.", next = "BACK", reply = "Then I hope you're right, and I'll pray on the good days that you are. Until then I'll keep fighting and let the Light decide what I am.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's what we are. No cure, and no shame either.", next = "BACK", reply = "There's a hard sort of peace in that, and on the bad days I find I share it. No shame, then, only the work, and plenty of it.", fx = { align = { light = -1 } } },
       },
     },
     both = {
@@ -223,7 +223,7 @@ P:NPC {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armor's in pieces. Brill has a smith; use him before the Scourge finishes the job." },
     { id = "n_fpal", cat = "class", when = { class = "PALADIN", race = "Scourge" },
-      text = "A paladin. I'd heard Billmuth was telling stories about your kind, and I'll reserve judgment until I've seen you fight." },
+      text = "A paladin. I'd heard Deathguard Billmuth was telling stories about your kind, and I'll reserve judgment until I've seen you fight." },
   },
 
   start = "hello",
@@ -233,13 +233,13 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Deathguard Kristof. I keep the waystation on the Undercity road, and I give directions to those who need them, though lately I've been watching for something other than lost travellers." },
         { id = "h_patience", tags = { "news" }, when = { questActive = TODO_QUEST("Patience") },
-          text = "Zygand wants my report? Then take it, and please see that he reads it at once, because I fear our Scourge problem has only just begun. Come back to me in due time, too; I believe I've nearly uncovered something I could use a willing blade for." },
+          text = "Executor Zygand wants my report? Then take it, and please see that he reads it at once, because I fear our Scourge problem has only just begun. Come back to me in due time, too; I believe I've nearly uncovered something I could use a willing blade for." },
         { id = "h_discipline", when = { questActive = TODO_QUEST("Discipline") },
-          text = "I see the Executor's given you his motivator. Go on, then, if you must; there is no escape, even in death, and I'd rather it were your hand than his." },
+          text = "I see the Executor's given you his motivator. Go on, then, if you must; there is no escape, even in death, and it may as well be your hand as his." },
         { id = "h_wrath", tags = { "news" }, when = { questBefore = TODO_QUEST("The Wrath of Rath'mael"), minLevel = 15 },
           text = "Reports have come in from the Lordamere Overlook, deep in the Ruins of Lordaeron. An unholy fog has taken the streets and the graveyard up there, and my scouts say it's being conjured by a necromancer named Rath'mael." },
         { id = "h_wrathact", when = { questActive = TODO_QUEST("The Wrath of Rath'mael") },
-          text = "Has the skeletal lieutenant been slain? Bring allies if you have them, because Rath'mael won't fall to one blade." },
+          text = "Has Rath'mael's skeletal lieutenant been slain? Bring allies if you have them, because Rath'mael won't fall to one blade." },
         { id = "h_wrathdone", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Wrath of Rath'mael"), days = 3 } },
           text = "Rath'mael is gone, and the fog over the ruins is already thinning. Something of his kind will take his place, I have no doubt, but we can hope their ranks thin in the meantime." },
         { id = "h_later", when = { questLater = { TODO_QUEST("The Wrath of Rath'mael"), days = 7 } },
@@ -283,9 +283,9 @@ P:NPC {
     },
     riptear = {
       lines = {
-        { id = "rt_default", text = "Linnea, at the rear guard, had a rogue abomination wandering near Venomweb Vale, and she kept it quiet, as she should. Abominations don't stroll past the Bulwark unnoticed, {name}, so somebody stitched that thing together on our side of the wall, and that's my whole case in one corpse." },
+        { id = "rt_default", text = "Deathguard Linnea, at the rear guard east of Brill, had a rogue abomination wandering near Venomweb Vale, and she kept it quiet, as she should. Abominations don't stroll past the Bulwark unnoticed, {name}, so somebody stitched that thing together on our side of the wall, and that's my whole case in one corpse." },
         { id = "rt_done", when = { questDone = TODO_QUEST("Rear Guard Patrol") },
-          text = "You put down Linnea's abomination, I hear, and good riddance. But think on it: that thing didn't stroll past the Bulwark unnoticed, so somebody stitched it together on our side of the wall, and that's my whole case in one corpse." },
+          text = "You put down Deathguard Linnea's abomination, I hear, and good riddance. But think on it: that thing didn't stroll past the Bulwark unnoticed, so somebody stitched it together on our side of the wall, and that's my whole case in one corpse." },
       },
       choices = {
         { text = "Then we find whoever's stitching.", next = "BACK", fx = { affinity = 1 } },
@@ -298,14 +298,14 @@ P:NPC {
         { id = "d_default", text = "Dillinger says a great many things, most of them in writing and all of them demanding reinforcements. He's not a fool, but he sees a corpse on the road and assumes it walked in through the front door. Which of us do you believe?" },
       },
       choices = {
-        { text = "Dillinger. Trust the walls' reports, not hunches.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You. Something here is working against us.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Dillinger. Trust the walls' reports, not hunches.", next = "BACK", reply = "Then you're in good company, because the Bulwark thinks the same. I'll keep my hunches to myself until I can put a name to one of them.", fx = { align = { order = 1 } } },
+        { text = "You. Something here is working against us.", next = "BACK", reply = "Thank you, and keep your voice down when you say it. Whoever it is, I'd rather they didn't know we're both watching.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     zygand = {
       lines = {
-        { id = "zy_default", text = "The Executor listens to everything and believes nothing until it's been proven twice. His patience ran out on our reports, which is fair, because mine ran out on his instructions some time ago, but he reads every word, and that's more than most commanders do." },
+        { id = "zy_default", text = "Executor Zygand listens to everything and believes nothing until it's been proven twice, but he reads every word, and that's more than most commanders do." },
       },
       choices = {
         { text = "Then give him proof.", next = "BACK", fx = { affinity = 1 } },
@@ -323,9 +323,9 @@ P:NPC {
     },
     hadric = {
       lines = {
-        { id = "ha_default", text = "Hadric Harlson, yes, one of ours who went over to the Dawn. Terrence doesn't trust him out of sight, but I've watched him, and he kills cultists with the kind of care you only see in someone who hates them personally." },
+        { id = "ha_default", text = "Hadric Harlson, yes, one of ours who went over to the Dawn. Some of the Deathguard don't trust him out of sight, but I've watched him, and he kills cultists with the kind of care you only see in someone who hates them personally." },
         { id = "ha_cult", when = { questDone = TODO_QUEST("The Cult of the Damned") },
-          text = "Hadric and his cultists, yes. You helped him clear them, I hear, and if the Cult of the Damned is this close to the city, it explains a great deal of what I've been seeing. Perhaps I should speak to the man." },
+          text = "Hadric and his cultists, yes. You helped him clear them, I hear, and if the Cult of the Damned is this close to the city, it explains the lights I've been seeing in the woods. Perhaps I should speak to the man." },
       },
       choices = {
         { text = "You should. You're both after the same enemy.", next = "BACK", fx = { affinity = 1 } },
@@ -367,8 +367,8 @@ P:NPC {
         { id = "di_default", text = "Zygand hands that motivator to every stranger who'll carry it, and half my fellow Deathguard thank him for the pain. I've said it before: there is no escape, even in death, and I'm not certain he means that as a comfort." },
       },
       choices = {
-        { text = "A little pain keeps soldiers sharp. He's right.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Beating your own soldiers wins nothing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A little pain keeps soldiers sharp. He's right.", next = "BACK", reply = "Perhaps it does, though I've yet to see a ghoul slow down because a deathguard was bruised. Zygand will be glad to hear you agree, at any rate.", fx = { align = { order = 1 } } },
+        { text = "Beating your own soldiers wins nothing.", next = "BACK", reply = "No, it doesn't, and I'm glad to hear someone say so out loud. Keep that thought, and keep it away from Zygand's hearing.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -392,7 +392,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I served, I died, I serve. The middle part I don't discuss." } },
+    background = { { id = "tp_bg", text = "I served, then I died, and now I serve again. The middle part I don't discuss." } },
     advice = { { id = "tp_ad", text = "When the reports don't add up, believe your own eyes before the reports." } },
     _none = { { id = "tp_none", text = "Not my concern. Ask in Brill." } },
   },
@@ -462,7 +462,7 @@ P:NPC {
     },
     life = {
       lines = {
-        { id = "lf_default", text = "Standing, mostly, and not complaining where the Executor can hear. We don't sleep and we don't eat, so the Dark Lady gets a great deal of standing out of each of us, and we're expected to be grateful, and on the whole I am." },
+        { id = "lf_default", text = "Standing, mostly, and not complaining where the Executor can hear. We don't sleep and we don't eat, so the Dark Lady gets every hour of standing out of each of us, and we're expected to be grateful, and on the whole I am." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -474,8 +474,8 @@ P:NPC {
         { id = "mo_default", text = "Most of my fellows thank him for it and ask for another. I suppose pain is one of the few delights left to us, but I've always thought a guard who does her job shouldn't need a stranger hitting her with a stick." },
       },
       choices = {
-        { text = "Discipline keeps the Deathguard strong.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're right. You've earned better than a stick.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Discipline keeps the Deathguard strong.", next = "BACK", reply = "Strong, perhaps, but I've never seen a stick stop a ghoul. Carry the motivator if you must, and I'll be standing very straight when you pass.", fx = { align = { order = 1 } } },
+        { text = "You're right. You've earned better than a stick.", next = "BACK", reply = "That's kind, and rarer than you'd think in Brill. I'll be at my post either way, but I'll stand there a little prouder for hearing it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -524,7 +524,7 @@ P:NPC {
         { id = "h_raised", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Lesson in Divinity"), days = 2 }, class = "PALADIN" },
           text = "Thank you, stranger. I'd never have expected a paladin to do such a thing for me, and I'm in your debt for as long as this body holds together." },
         { id = "h_plans", when = { questActive = TODO_QUEST("A Lesson in Divinity"), class = "PALADIN" },
-          text = "Their friars and zealots carry satchels with their deployment orders. Bring a copy to Billmuth, and he'll take it from there, so we can warn the Deathguard and set an ambush of our own." },
+          text = "Their friars and zealots carry satchels with their deployment orders. Bring a copy to Deathguard Billmuth at Bandarion Keep, and he'll take it from there, so we can warn the Deathguard and set an ambush of our own." },
       },
       again = {
         { id = "h_again", text = "What else? Quietly." },
@@ -572,8 +572,8 @@ P:NPC {
         { id = "s_default", text = "Somebody had to slow them down, and Billmuth is a better runner than a fighter, bless him. I'd do it again, though I'd prefer to pick a spot with fewer spiders. Would you have stayed?" },
       },
       choices = {
-        { text = "Yes. You don't leave a friend behind.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "No. One dead scout is better than two.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Yes. You don't leave a friend behind.", next = "BACK", reply = "Then you'd have been good company out there, spiders and all. Billmuth would say the same, if he ever stopped apologising long enough.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "No. One dead scout is better than two.", next = "BACK", reply = "That's the sensible answer, and I'd likely tell a recruit the same. But sensible doesn't keep you warm at night, even when you're dead.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -603,8 +603,8 @@ P:NPC {
         { id = "pa_default", text = "Plenty of our people mistrust paladins, and I was one of them. Billmuth went to the priests for help and they turned him away, and it was the knights at Bandarion Keep who came, so I've had to think again about a few things." },
       },
       choices = {
-        { text = "Good. They've earned a second look.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "One good deed doesn't make the Light trustworthy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Good. They've earned a second look.", next = "BACK", reply = "They have, and it costs us nothing to give it. I'd rather be wrong about them than wrong about Billmuth.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "One good deed doesn't make the Light trustworthy.", next = "BACK", reply = "It doesn't, and I'll not be preaching for them anytime soon. But it made me ask the question, which is more than the priests ever did.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -618,7 +618,7 @@ P:NPC {
     },
     vale = {
       lines = {
-        { id = "v_default", text = "Venomweb Vale. It was good hunting country once, all deer and rabbits, and now it's spiders the size of carts and a Scarlet camp in the north end. The Scarlet Monastery is just beyond, which is why they're so thick on the ground." },
+        { id = "v_default", text = "This is Venomweb Vale. It was good hunting country once, all deer and rabbits, and now it's spiders the size of carts and a Scarlet camp in the north end. The Scarlet Monastery is just beyond, which is why they're so thick on the ground." },
       },
       choices = {
         { text = "Tell me about the Scarlet camp.", next = "camp" },
@@ -628,7 +628,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Village lad, then a soldier, then a corpse, then a Deathguard, and now a corpse again, briefly. I've had a busy few years." } },
+    background = { { id = "tp_bg", text = "I was a village lad, then a soldier, then a corpse, then a Deathguard, and lately a corpse again, briefly. I've had a busy few years." } },
     advice = { { id = "tp_ad", text = "Look where you put your feet. Billmuth will tell you why." } },
     _none = { { id = "tp_none", text = "No idea, friend. Ask Billmuth; he'll worry about it for both of us." } },
   },
@@ -662,7 +662,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Deyrek Duke. I watch the zeppelins, since somebody ought to, and the goblins certainly won't. One goes to Durotar and one to Grom'gol in Stranglethorn, and neither of them keeps to the timetable." },
         { id = "h_fire", tags = { "news" }, when = { questDone = TODO_QUEST("A Lesson in Divinity") },
-          text = "I hear the Scarlets meant to set this tower alight to draw off Brill's guards. I'd have seen them coming, mind you, but I'm glad somebody read their orders first." },
+          text = "I hear the Scarlets meant to set this tower alight to draw off Brill's guards. I'd have seen them coming, of course, but I'm glad somebody read their orders first." },
       },
       again = {
         { id = "h_again", text = "What else? I've nothing but time until the next ship." },
@@ -687,7 +687,7 @@ P:NPC {
     },
     passengers = {
       lines = {
-        { id = "ps_default", text = "A tauren who got off, looked at Tirisfal, and got straight back on again, which I thought showed great wisdom. And a troll who wanted to know where the beach was, and wouldn't believe me when I told him Lordaeron's beaches are mostly murlocs." },
+        { id = "ps_default", text = "There was a tauren who got off, looked at Tirisfal, and got straight back on again, which I thought showed great wisdom. And a troll who wanted to know where the beach was, and wouldn't believe me when I told him Lordaeron's beaches are mostly murlocs." },
       },
       choices = {
         { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
@@ -713,11 +713,11 @@ P:NPC {
     allies = {
       big = true,
       lines = {
-        { id = "a_default", text = "The orcs and the trolls? They're loud and they eat a great deal, and they look at us as if we might fall apart at any moment, which is fair. Some in Brill say the Dark Lady only made this alliance because she needed bodies on her walls, and I'd like to know what you think." },
+        { id = "a_default", text = "The orcs and the trolls? They're loud and they eat enough for a garrison, and they look at us as if we might fall apart at any moment, which is fair. Some in Brill say the Dark Lady only made this alliance because she needed bodies on her walls, and I'd like to know what you think." },
       },
       choices = {
-        { text = "The Horde stands together. The alliance is real.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "It's a bargain. We use them, and they use us.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Horde stands together. The alliance is real.", next = "BACK", reply = "I'd like to believe that, and some days at the Bulwark it's easy, when the orcs are standing on the wall beside us. Brill talks a great deal, but Brill doesn't hold the line.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It's a bargain. We use them, and they use us.", next = "BACK", reply = "That's the Undercity talking, and I suspect it's half right. Still, a bargain kept long enough starts to look a lot like friendship.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -779,8 +779,8 @@ P:NPC {
         { id = "m_default", text = "He found me, not long after I came out here, and he never seemed to notice I was dead. People in Brill told me a corpse has no business keeping a living dog, but he's fed and warm and happy, so I can't see who's being harmed." },
       },
       choices = {
-        { text = "He chose you. That's a kind of blessing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A dog's a guard. Sentiment doesn't come into it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "He chose you. That's a kind of blessing.", next = "BACK", reply = "That's a lovely way to think of it, and I believe Max would agree, if he had the words. He's the best company I've had in either life.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A dog's a guard. Sentiment doesn't come into it.", next = "BACK", reply = "He's a fine guard, and a better friend, and I'll not apologise for the second part. You'd feel the same if he ever leaned against your leg.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -805,7 +805,7 @@ P:NPC {
     },
     maxkeep = {
       lines = {
-        { id = "mk_default", text = "They spoil him dreadfully. Breton keeps a bone by the gate for him, and Danitha pretends not to notice, and I've seen grown knights who can't hold the Light without wincing kneel down in the mud to scratch his ears." },
+        { id = "mk_default", text = "They spoil him dreadfully. Breton Samuels keeps a bone by the gate for him, and Danitha pretends not to notice, and I've seen grown knights who can't hold the Light without wincing kneel down in the mud to scratch his ears." },
       },
       choices = {
         { text = "Max has good taste in friends.", next = "BACK", fx = { affinity = 1 } },
@@ -833,7 +833,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I've a cottage and a dog, and that's more than most of us have. I don't go looking for the rest." } },
+    background = { { id = "tp_bg", text = "I've a cottage and a dog, and most of us came back to neither. I don't go looking for the rest." } },
     advice = { { id = "tp_ad", text = "Find something that's glad to see you. It makes the long nights shorter." } },
     _none = { { id = "tp_none", text = "I wouldn't know. Max might, but he's not telling." } },
   },
@@ -882,7 +882,7 @@ P:NPC {
     },
     wall = {
       lines = {
-        { id = "w_default", text = "Quieter than it was. The plaguemist used to sit on this place like a wet blanket, all yellow and grey, and since the work in the Plaguelands began, it's thinned. I don't trust it, mind, because I've never known the Scourge to give up anything for free." },
+        { id = "w_default", text = "It's quieter than it was. The plaguemist used to sit on this place like a wet blanket, all yellow and grey, and since the work in the Plaguelands began, it's thinned. I don't trust it, mind, because I've never known the Scourge to give up anything for free." },
       },
       choices = {
         { text = "Who holds the Bulwark?", next = "holds" },
@@ -891,7 +891,7 @@ P:NPC {
     },
     holds = {
       lines = {
-        { id = "h2_default", text = "High Executor Derrington, and the Argent Dawn alongside him, more's the pity or more's the blessing depending on who you ask. This was Uther's camp once, for the folk who got out of the capital when it fell, and I like to think we're keeping it for the same reason." },
+        { id = "h2_default", text = "High Executor Derrington, and the Argent Dawn alongside him, more's the pity or more's the blessing depending on who you ask. This was a refugee camp once, for the folk who got out of the capital when it fell, and I like to think we're keeping it for the same reason." },
       },
       choices = {
         { text = "That's a good reason.", next = "BACK", fx = { affinity = 1, learn = { "argent_dawn" } } },
@@ -922,8 +922,8 @@ P:NPC {
         { id = "e_default", text = "The Western Plaguelands, and Andorhal, and more Scourge than there are stones in this wall. Some of the young ones want to march east and finish it, and I say a wall that holds is worth more than an army that doesn't come back. Where do you stand?" },
       },
       choices = {
-        { text = "Hold the wall. Patience wins this.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Take the fight to them. Walls only delay.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Hold the wall. Patience wins this.", next = "BACK", reply = "Good, and you'll live longer for it, which is not nothing even for us. The wall holds, and the Scourge breaks itself on it, one ghoul at a time.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Take the fight to them. Walls only delay.", next = "BACK", reply = "Spoken like one of the young ones, and they never come back to say how it went. Go east if you must, but I'll keep the wall standing behind you.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -978,7 +978,7 @@ P:NPC {
     },
     eye = {
       lines = {
-        { id = "e_default", text = "Lost it, and I'd rather not say how, because the true story is less impressive than the ones I tell at the inn. The other one sees well enough, and it's had more practice since." },
+        { id = "e_default", text = "Lost it, and I won't say how, because the true story is less impressive than the ones I tell at the inn. The other one sees well enough, and it's had more practice since." },
       },
       choices = {
         { text = "Then I won't ask again.", next = "BACK", fx = { affinity = 1 } },
@@ -997,7 +997,7 @@ P:NPC {
     },
     adelbert = {
       lines = {
-        { id = "ad_default", text = "Loud, stubborn, certain of everything, and the best man I've ever stood a wall beside. We've been arguing since before either of us died, and I expect we'll keep it up until the Scourge gets bored and goes home." },
+        { id = "ad_default", text = "He's loud, stubborn and certain of everything, and the best man I've ever stood a wall beside. We've been arguing since before either of us died, and I expect we'll keep it up until the Scourge gets bored and goes home." },
       },
       choices = {
         { text = "That's a fine friendship.", next = "BACK", fx = { affinity = 1 } },
@@ -1006,7 +1006,7 @@ P:NPC {
     },
     crows = {
       lines = {
-        { id = "cr_default", text = "Not one I've ever seen. When the cult moves along the ridge the crows go up all at once and circle and won't come down, and the mindless dead don't bother them at all. Learned that my first winter here, and it's never once been wrong." },
+        { id = "cr_default", text = "Not a single one that I've seen. When the cult moves along the ridge the crows go up all at once and circle and won't come down, and the mindless dead don't bother them at all. I learned that my first winter here, and it's never once been wrong." },
       },
       choices = {
         { text = "I'll remember that.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -1019,8 +1019,8 @@ P:NPC {
         { id = "d_default", text = "He would, the old goat, and he'll tell you that one every day until the wall falls. Let him; it's the only joke he has, and I'd miss it. Some friendships run on insults, and some on honesty; which kind do you keep?" },
       },
       choices = {
-        { text = "Honest ones. I say what I mean.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The other kind. Honesty is overrated.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Honest ones. I say what I mean.", next = "BACK", reply = "A rare thing in Brill, and Rickard would call you a fool for it. I'll take a friend who tells me the truth, though I'd not say no to a few insults besides.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The other kind. Honesty is overrated.", next = "BACK", reply = "Then you and Rickard will get on splendidly, and I'll be the one stuck listening to the pair of you. Mind the old goat doesn't steal your boots.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

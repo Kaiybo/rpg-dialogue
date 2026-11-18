@@ -37,7 +37,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Agriel Firebrew, an' this is the Drunken Dwarf. We converted an old lookout the kingdom was tired o' maintainin', an' it's been well over a year now." },
+        { id = "h_default", key = true, text = "Agriel Firebrew, an' this is the Drunken Dwarf. We converted an old lookout the kingdom was tired o' maintainin', an' we've been pourin' here well over a year now." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Ye're Horde, an' I can see that from here. I serve whoever sits quiet an' pays, an' I'll thank ye tae do both." },
       },
@@ -49,7 +49,7 @@ P:NPC {
         { text = "What can I get here?", next = "BUSINESS" },
         { text = "Does it get busy here?", next = "busy" },
         { text = "Why turn a lookout into a tavern?", next = "lookout" },
-        { text = "What are Aetherstill Spirits?", next = "spirits" },
+        { text = "What are the Aetherstill Spirits on your shelf?", next = "spirits" },
         { text = "Any news from the road?", next = "road" },
         { text = "Good day, Agriel.", next = "END" },
       },
@@ -69,8 +69,8 @@ P:NPC {
         { id = "bd_default", text = "It's no' about the coin. We're happy mindin' our own business an' lettin' folk come as they may, an' the day I'm sellin' some Booty Bay rotgut tae make a merchant rich is the day I close the door." },
       },
       choices = {
-        { text = "Good. Keep it your own.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "A deal or two would keep you safe in hard times.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Good. Keep it your own.", next = "BACK", reply = "Aye, that's the plan, an' it's held fine for longer than ye've been alive. Sit down an' have a pint, then, if ye're no' sellin' anythin'.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "A deal or two would keep you safe in hard times.", next = "BACK", reply = "Safe? I've a stone tower, a full cellar an' a stout door, an' that's all the safe a dwarf needs. Keep yer deals for the harbour folk.", fx = { affinity = -1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -138,7 +138,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "You came just in time! We ran into some trouble, and then some problems, and then there were several accidents!" },
-    { id = "g_back", when = { metBefore = true }, text = "Still here, still alive, still not starting a garden. What do you need?" },
+    { id = "g_back", when = { metBefore = true }, text = "Still here, still alive, and still not moving any faster. What do you need?" },
     { id = "g_heart", when = { questActive = TODO_QUEST("Heartwoven") }, text = "Have you still got the heart? Don't squash it; I braided it with shaking hands." },
     { id = "g_home", when = { questDone = TODO_QUEST("Heartwoven") }, text = "Caitlin got the heart? Then she'll be cooking, and I'd better hurry home before it gets cold." },
   },
@@ -157,7 +157,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Ardin Grassman, of Menethil Harbor, and very glad to be of anywhere at all right now. The excavation team's in shambles, but thanks to you we've a chance to make it out alive." },
+        { id = "h_default", key = true, text = "Ardin Grassman, of Menethil Harbor, and very glad to be alive at all right now. The excavation team's in shambles, but thanks to you we've a chance to make it out." },
         { id = "h_found", tags = { "news" }, when = { questReady = TODO_QUEST("Lost in the Thicket Things") },
           text = "Caitlin sent you? Of course she did, she must be worried sick. Light, I told her a week and it's been, well, I've lost count, actually." },
         { id = "h_heart", when = { questActive = TODO_QUEST("Heartwoven") },
@@ -206,8 +206,8 @@ P:NPC {
         { id = "gw_default", text = "Ask me again when I'm home with a bowl of Caitlin's stew in front of me. Right now I'd trade every bushel I've picked for one dry pair of boots." },
       },
       choices = {
-        { text = "A gift like yours is worth following, risk or not.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "You had a wife waiting. You should've stayed home.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A gift like yours is worth following, risk or not.", next = "BACK", reply = "That's what I told Caitlin before I left, almost word for word. She rolled her eyes at me then, and I suspect she's rolling them now.", fx = { align = { order = -1 } } },
+        { text = "You had a wife waiting. You should've stayed home.", next = "BACK", reply = "Oh, thank you, that's just what a man stuck in a ruined dig needs to hear. Believe me, I've said it to myself more times than you could count.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -236,7 +236,7 @@ P:NPC {
     },
     team_lead = {
       lines = {
-        { id = "tl_default", text = "Some Loch Modan crew, all beards and brass instruments, and they argued so much I never worked out who was in charge. I think that was half the trouble, if I'm honest." },
+        { id = "tl_default", text = "Some Loch Modan crew, all beards and brass instruments, and they argued so much I never worked out who was in charge. I think that was most of the trouble." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -259,11 +259,11 @@ P:NPC {
 
     relic = {
       lines = {
-        { id = "re_default", text = "Something under the guardian, the dwarves said, old as the mountains and carved by hands that weren't dwarven. The big stone thing that guards it hasn't let anyone close, and I'm not inclined to try." },
+        { id = "re_default", text = "Something old as the mountains, the dwarves said, carved by hands that weren't dwarven. A great stone guardian stands over it and hasn't let anyone close, and I'm not inclined to try." },
       },
       choices = {
-        { text = "Some things should stay buried.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If it's that old, it's worth taking.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some things should stay buried.", next = "BACK", reply = "Finally, someone with sense in this valley! Tell that to the dwarves, though I warn you, they've never yet met a hole they didn't want to make deeper.", fx = { align = { light = 1 } } },
+        { text = "If it's that old, it's worth taking.", next = "BACK", reply = "Then you can go and ask the big stone fellow for it yourself, and I'll watch from a very safe distance with a very large bush between us.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -289,7 +289,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Menethil born, plant-mad from a boy, and married to the best alchemist on the harbour. That's me, and that's more than enough." } },
     advice = { { id = "tp_ad", text = "If a dig crew tells you about giant grasses, buy them a drink and stay home." } },
-    _none = { { id = "tp_none", text = "No idea, and I'd rather think about getting out of here." } },
+    _none = { { id = "tp_none", text = "No idea, and right now I'm thinking about getting out of here." } },
   },
 }
 
@@ -307,7 +307,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind your voice. The marsh carries it further than you'd think." },
+    { id = "g_default", text = "Mind your voice, because the marsh carries it all the way to the Dragonmaw." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Quietly, this time." },
     { id = "g_rumors", when = { questReady = TODO_QUEST("Dragonmaw Rumors") }, text = "These are the courageous few? Mind your voices, and come down off the skyline." },
     { id = "g_maw", when = { questActive = TODO_QUEST("Open the Maw") }, text = "We're here to get the important job done. If you can help, prove it." },
@@ -318,7 +318,7 @@ P:NPC {
     { id = "n_forsaken", cat = "forsaken", when = { race = "Scourge" },
       text = "One of ours. Good; you won't need to stop and eat, and you won't flinch at what's in the Dragonmaw's tents." },
     { id = "n_orc", cat = "orc", when = { race = "Orc" },
-      text = "An orc, come to watch orcs. You'll forgive me if I watch you too, at least until I know which kind you are." },
+      text = "An orc, come to watch orcs. I'll watch you too, then, at least until I know which kind you are." },
     { id = "n_noise", cat = "noise", when = { class = { "WARRIOR", "PALADIN" } },
       text = "Do you clank like that everywhere you go, or only when I'm trying to stay hidden?" },
   },
@@ -330,11 +330,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Deathstalker, on the Dark Lady's business, and that's as much of a name as you'll need. The Dragonmaw are in the excavation below us, and I'm here to learn why." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Open the Maw") },
-          text = "The remnants of the dragon-wrangling clan think they've found something that will raise them to their former power. Power in whose eyes, I wonder; their false warchief's?" },
+          text = "The Dragonmaw, what's left of the old dragon-riding clan, think they've found something here that will raise them to their former power. Power in whose eyes, I wonder, their false warchief's?" },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Open the Maw") },
           text = "Clear out their saboteurs and warders inside so my Deathstalkers can move in unseen. If they carry anything written, it comes to me, and to nobody else." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Open the Maw"), days = 3 } },
-          text = "So they hope to appease Rend. A fruitless and wasted effort, but valuable knowledge all the same, and the Dark Lady will consider it." },
+          text = "So they hope to appease Rend Blackhand. A fruitless and wasted effort, but valuable knowledge all the same, and the Dark Lady will consider it." },
       },
       again = {
         { id = "h_again", text = "Something else? Keep it short." },
@@ -343,7 +343,7 @@ P:NPC {
       choices = {
         { text = "Who are the Dragonmaw?", next = "dragonmaw" },
         { text = "Why does Undercity care about orcs in the Wetlands?", next = "why" },
-        { text = "Who is this false warchief?", next = "rend" },
+        { text = "Who is this false warchief the Dragonmaw serve?", next = "rend" },
         { text = "What's in the excavation?", next = "dig" },
         { text = "I serve the Dark Lady as well.", next = "xrecruit", when = { origin = "forsaken_deathstalker_recruit" } },
         { text = "The Dragonmaw are orcs. Thrall would want to know.", next = "xorc", when = { race = "Orc" } },
@@ -364,7 +364,7 @@ P:NPC {
     },
     dragonmaw_bind = {
       lines = {
-        { id = "db_default", text = "The rumours say they're preparing some display of it, which is why I'm lying in wet grass instead of standing in a dry crypt. Whether it's truth or bluster, the Deathstalkers can't act on half-formed whispers." },
+        { id = "db_default", text = "The rumours say they're preparing some display of it, hence my lying in wet grass instead of standing in a dry crypt. Whether it's truth or bluster, the Deathstalkers can't act on half-formed whispers." },
       },
       choices = {
         { text = "Then let's turn whispers into facts.", next = "BUSINESS" },
@@ -374,7 +374,7 @@ P:NPC {
 
     why = {
       lines = {
-        { id = "wh_default", text = "Because anything that can leash a dragon can leash a great deal else, and the Dark Lady prefers to know about such things before anyone else does. What she does with it is her concern, not yours and not mine." },
+        { id = "wh_default", text = "Because anything that can leash a dragon can leash a kingdom, and the Dark Lady prefers to know about such things before anyone else does. What she does with it is her concern, not yours and not mine." },
       },
       choices = {
         { text = "The Horde should share what we learn.", next = "why_share" },
@@ -387,19 +387,19 @@ P:NPC {
         { id = "ws_default", text = "This information stays between us and our royal command, and you'll not talk about it in Orgrimmar or anywhere else. The Horde is a useful arrangement, and useful arrangements are kept by knowing more than your partners." },
       },
       choices = {
-        { text = "Allies who keep secrets aren't allies at all.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Understood. The Dark Lady first.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Allies who keep secrets aren't allies at all.", next = "BACK", reply = "Then you have never had allies, only friends, and friends are a luxury of the living. The Dark Lady keeps the Horde close by knowing what it does not.", fx = { align = { honor = 1 } } },
+        { text = "Understood. The Dark Lady first.", next = "BACK", reply = "Good. You may yet be worth the trouble of briefing. Keep your mouth shut and your eyes open, and the Royal Apothecaries may hear your name kindly.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
 
     rend = {
       lines = {
-        { id = "re_default", text = "Rend Blackhand, who sits in Blackrock Spire calling himself Warchief of a Horde that doesn't want him. The Dragonmaw seem to think a gift from this dig will win his favour, which tells you how far they've fallen.",
+        { id = "re_default", text = "Rend Blackhand, who sits in Blackrock Spire calling himself Warchief of a Horde that doesn't want him. The Dragonmaw seem to think a gift from this dig will win his favour, a fair measure of how far they've fallen.",
           fx = { learn = { "blackrock_spire" } } },
       },
       choices = {
-        { text = "Rend is a traitor to the Horde.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every orc chooses his own warchief.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Rend is a traitor to the Horde.", next = "BACK", reply = "A traitor and a fool, though the fool is the more dangerous of the two. Let the orcs settle their own blood; I only want to know what he is buying.", fx = { align = { order = 1 } } },
+        { text = "Every orc chooses his own warchief.", next = "BACK", reply = "How charmingly tribal of you. Choose whom you like, but remember that only one of them is sending dragons to dig in the mud for presents.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -418,8 +418,8 @@ P:NPC {
         { id = "ds_default", text = "Dwarves are the Alliance's problem, and I'm not here to be anyone's nursemaid. Step over them or don't, but don't make noise doing it." },
       },
       choices = {
-        { text = "A dying man's a dying man, whatever his banner.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Fewer dwarves, fewer problems.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A dying man's a dying man, whatever his banner.", next = "BACK", reply = "Sentiment, from you of all creatures? I was a dying man once, and no one stepped over the Plague to help me. Do as you like, quietly.", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Fewer dwarves, fewer problems.", next = "BACK", reply = "At last, someone who can do sums. Leave them to the mud, then, and keep your attention on the Dragonmaw, who are the problem that matters.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -437,8 +437,8 @@ P:NPC {
         { id = "xo_default", text = "Then by all means tell him, once we know what we're telling him. I'd rather your Warchief heard facts from us than stories from a drunk in Hammerfall." },
       },
       choices = {
-        { text = "Thrall deserves the truth, all of it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Facts first, then. I'll wait.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Thrall deserves the truth, all of it.", next = "BACK", reply = "He will have it, every word, once we know which words are true. Run to Orgrimmar half-informed and you serve your Warchief worse than silence would.", fx = { align = { honor = 1 } } },
+        { text = "Facts first, then. I'll wait.", next = "BACK", reply = "Patience, from the living. How refreshing. Wait in the shadows, and when the facts are ready, you may carry them to your Warchief yourself.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
   },

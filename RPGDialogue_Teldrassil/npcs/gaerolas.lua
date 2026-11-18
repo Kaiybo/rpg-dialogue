@@ -90,8 +90,8 @@ P:NPC {
           text = "There was one, Oben Rageclaw, whose body the furbolg shaman stole while his spirit dreamed. You set him free, I am told, and I owe you for that more than I can say." },
       },
       choices = {
-        { text = "I'll go into the barrow and find out.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If he serves the furbolgs now, he's an enemy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll go into the barrow and find out.", next = "BACK", reply = "Then you are braver than any of my brothers who went before you. Go carefully, and bring word back to me if you can.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If he serves the furbolgs now, he's an enemy.", next = "BACK", reply = "If he does, then he is lost to us, and I will grieve him. But be sure before you strike, for he was one of ours once.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -99,11 +99,11 @@ P:NPC {
     gnarlpine = {
       big = true,
       lines = {
-        { id = "gn_default", text = "They were a peaceful tribe once, and they suffered this corruption before, back before Teldrassil was cleansed. That it has returned means the blessing of the aspects did not take root as deeply as we told ourselves." },
+        { id = "gn_default", text = "They were a peaceful tribe once, and we believed the new tree would keep them so. That this madness has taken them means Teldrassil is not as whole as we told ourselves." },
       },
       choices = {
-        { text = "Then they're victims. Spare those you can.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Victims or not, they nearly killed you. Cut them down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then they're victims. Spare those you can.", next = "BACK", reply = "Thank you for seeing it, friend. Every Gnarlpine you spare is one the forest may yet heal.", fx = { align = { light = 1 } } },
+        { text = "Victims or not, they nearly killed you. Cut them down.", next = "BACK", reply = "They did, and I bear no grudge for your anger on my behalf. Still, I would rather they were healed than slain.", fx = { align = { light = -1 } } },
         { text = "What is making them mad?", next = "gnarlpine_moss" },
       },
     },
@@ -132,7 +132,7 @@ P:NPC {
       },
       choices = {
         { text = "You did your duty. There's no shame in it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "It looks as though they carried off whatever they could.", next = "village_take" },
+        { text = "Did they take anything that matters?", next = "village_take" },
       },
     },
     village_take = {
@@ -159,8 +159,8 @@ P:NPC {
         { id = "dg_default", text = "Perhaps, if the Circle asks it and you are willing. It is not a rest, whatever the young think, but a long watch in a place where the paths move under your feet." },
       },
       choices = {
-        { text = "I would be honoured to keep that watch.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather walk this world while I can.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I would be honoured to keep that watch.", next = "BACK", reply = "Then the Circle would be glad of you, and the Dream will welcome you when the time comes. It is a great honour, and a great burden.", fx = { align = { order = 1 } } },
+        { text = "I'd rather walk this world while I can.", next = "BACK", reply = "Many young druids feel the same, and there is no shame in it. The world has need of watchers on this side too.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -181,7 +181,7 @@ P:NPC {
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine were good neighbours before the fel moss, and I would like to believe they will be again.", next = "gnarlpine" } },
     fel_moss = { { id = "tp_felmoss", text = "It grows where something rotten feeds it, and it rots whatever eats it. Keep it off your hands." } },
     teldrassil = { { id = "tp_tree", text = "We were told the tree was blessed and whole, and I believed it, and I would still like to." } },
-    emerald_dream = { { id = "tp_emerald_dream", text = "The Sleepers in the barrows dream of the Emerald Dream, and some of them have walked so far into it that I am no longer sure they are coming back. I keep watch anyway." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Sleepers in the barrows walk the Emerald Dream, and some of them have walked so far into it that I am no longer sure they are coming back. I keep watch anyway." } },
     nordrassil = { { id = "tp_nordrassil", text = "Nordrassil kept our Sleepers for ten thousand years beneath Hyjal. Teldrassil keeps them now, and I hope it keeps them as gently." } },
     malfurion = { { id = "tp_malfurion", text = "Malfurion sleeps the deepest of all our druids, and I watch the barrows partly in his honour. When he wakes, I hope he finds the watch was kept." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are what the Gnarlpine were, before the madness came. I find it comforting that some furbolgs remain whole." } },

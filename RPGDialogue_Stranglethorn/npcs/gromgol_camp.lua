@@ -77,13 +77,13 @@ P:NPC {
       big = true,
       lines = { { id = "ra_default", text = "Two hatchlings, taken from a nest the lashtails left behind outside the gate. Some of the grunts say we should crack the eggs before they hatch and be done with it, but a raptor raised by an orc hand will run for the Horde one day." } },
       choices = {
-        { text = "Tame them. The jungle's beasts should serve the Horde.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Leave them wild. A raptor isn't meant for a pen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Tame them. The jungle's beasts should serve the Horde.", next = "BACK", reply = "A tame raptor is a strong friend, and a fed one even better. I'll raise them well, and the grunts who wanted eggs for breakfast can find their own.", fx = { align = { order = 1 } } },
+        { text = "Leave them wild. A raptor isn't meant for a pen.", next = "BACK", reply = "Maybe so, and I won't pretend they'll ever love a fence. But two hatchlings alone outside the gate are panther food by morning, so the pen is kinder.", fx = { align = { order = -1 } } },
         { text = "Has anyone ever ridden one?", next = "ride" },
       },
     },
     ride = {
-      lines = { { id = "ri_default", text = "The Darkspear say their people rode them long ago, and Kin'weelay says it as though it were yesterday. I have tried once, and I have the scar on my thigh to show you how that went." } },
+      lines = { { id = "ri_default", text = "The Darkspear say their people rode them long ago, and old Kin'weelay, the Darkspear here in camp, tells it as though it were yesterday. I have tried once, and I have the scar on my thigh to show you how that went." } },
       choices = {
         { text = "Keep trying. You'll get there.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -120,13 +120,13 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Tirisfal Glades, pal, the Undercity line, leaving from the top of the tower whenever the wind and the Cartel agree, which is more often than you'd think!" },
+    { id = "g_default", text = "Tirisfal Glades, pal, the Undercity line, leaving from the top of the tower whenever the wind and the Cartel agree, which is about twice a day if the gas bags behave!" },
     { id = "g_back", when = { metBefore = true }, text = "My favorite repeat customer! Well, top five, but the list is short and you're on it." },
   },
 
   notice = {
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
-      text = "Going home, are ya? Lovely, lovely, and listen, you don't need a seat by the rail for the air, so I'll sell that one to a troll." },
+      text = "Going home, are ya? Lovely, lovely, and listen, you folks don't breathe, so you won't need a seat by the rail for the air, and I'll sell that one to a troll." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "Whoa, you look like you've been run through the Spirit Healer twice, buddy. Sit down at the top of the tower and don't fall off, because the paperwork's murder." },
   },
@@ -150,7 +150,7 @@ P:NPC {
         { text = "Is the zeppelin really safe?", next = "safe" },
         { text = "What's the Undercity like to deal with?", next = "undercity" },
         { text = "Why does a goblin run Horde zeppelins?", next = "cartel" },
-        { text = "When's the next zeppelin?", next = "END" },
+        { text = "I'll go and wait for the zeppelin.", next = "END" },
       },
     },
 
@@ -165,8 +165,8 @@ P:NPC {
       big = true,
       lines = { { id = "pi_default", text = "He drinks a little to calm his nerves, and he flies a little better calm, so I call it a safety measure and I bill it as one. You want a nervous pilot over Arathi with the wind coming off the mountains? I didn't think so." } },
       choices = {
-        { text = "A pilot who drinks shouldn't fly. Ground him.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If he gets us there, I don't care what he drinks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A pilot who drinks shouldn't fly. Ground him.", next = "BACK", reply = "Ground him? Pal, do you know what a grounded pilot costs me per day in idle zeppelin? I'll take a calm drunk over an empty sky every time, and so will my ledger.", fx = { align = { order = 1 } } },
+        { text = "If he gets us there, I don't care what he drinks.", next = "BACK", reply = "Now that's a customer I can work with, friend! Arrival's what you paid for, and arrival's what you get, give or take a bit of tree on the gondola.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -216,7 +216,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Blades, axes and maces, and every one of them will hold an edge through a troll's skull. Look, but do not touch the edges." },
+    { id = "g_default", text = "Blades, axes and maces, and each will hold an edge through a troll's skull. Look, but do not touch the edges." },
     { id = "g_back", when = { metBefore = true }, text = "Back, and still in one piece, so the steel I sold you did its work." },
   },
 
@@ -246,6 +246,10 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What weapon works best against the trolls here?", next = "trolls" },
         { text = "You don't think much of the goblins.", next = "goblins" },
+        { text = "Your thumb has more scars than mine.", next = "thumb" },
+        { text = "What about the ogres in the Mosh'Ogg mound?", next = "ogres" },
+        { text = "I need a blade that bites, smith. What do you have?", next = "warrior", when = { class = { "WARRIOR", "ROGUE" } } },
+        { text = "Do Forsaken hands suit an orc's axe?", next = "undead", when = { race = "Scourge" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -261,10 +265,48 @@ P:NPC {
       big = true,
       lines = { { id = "da_default", text = "The Darkspear are Horde, and I sell to them gladly. But a troll is a troll in the jungle at night, and some of the grunts here have trouble telling one kind from another when the screaming starts." } },
       choices = {
-        { text = "The Darkspear are our brothers. Tell your grunts to learn the difference.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then the Darkspear should keep clear of the fighting.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Darkspear are our brothers. Tell your grunts to learn the difference.", next = "BACK", reply = "I have told them, and I will tell them again, louder. A Darkspear speared by a grunt in the dark is a shame on the whole camp.", fx = { align = { honor = 1 } } },
+        { text = "Then the Darkspear should keep clear of the fighting.", next = "BACK", reply = "That would be easier, but it would not be Horde. Thrall made them our brothers, and we will learn to see in the dark before we send them away.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+
+    thumb = {
+      lines = { { id = "th_default", text = "Every scar is a blade I would not sell. If it cuts my thumb with no weight behind it, it will cut a troll with my arm behind it, and if it does not, it goes back on the zeppelin to the smith who made it." } },
+      choices = {
+        { text = "Who makes your steel in Orgrimmar?", next = "th_smith" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    th_smith = {
+      lines = { { id = "ths_default", text = "The forges in the Valley of Honor, where the smiths remember the old ways from before the demon blood. The steel there is honest, and I send them back the bad blades with a note so they remember Vharr's thumb." } },
+      choices = {
+        { text = "Do you ever forge your own?", next = "th_own" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    th_own = {
+      lines = { { id = "tho_default", text = "Not here; the damp would rust my anvil in a week. One day, when the jungle is ours and the camp has stone walls, I will build a forge here, and the grunts will carry Grom'gol steel. Until then I sharpen and I sell." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    ogres = {
+      lines = { { id = "og_default", text = "Big, slow and stupid, until one of their mages throws fire at you, and then only big and slow. A mace for an ogre, because their hides turn a blade, and aim for the knees, because you will not reach the head." } },
+      choices = {
+        { text = "Some ogres fight for the Horde now.", next = "BACK", fx = { learn = { "mosh_ogg" } },
+          reply = "Some do, the Stonemaul down in the Dustwallow marsh. These do not, and they will learn the difference from my maces." },
+        { text = "Something else.", next = "BACK", fx = { learn = { "mosh_ogg" } } },
+      },
+    },
+
+    warrior = {
+      lines = { { id = "wa_default", text = "Then hold out your hand and let me see how you grip. Too tight, and the blade will turn in your palm the first time it strikes bone. Loosen it, {class}, and let the weight do the work." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } } },
+    },
+
+    undead = {
+      lines = { { id = "un_default", text = "Forsaken hands are weaker and colder, but they do not flinch, and that counts for a great deal. Take something lighter than an orc would carry and strike more often, and do not let the troll's spear reach what is left of your ribs." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
 
     goblins = {
@@ -278,6 +320,8 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I sell weapons. Ask someone who sells talk." } },
+    mosh_ogg = { { id = "tp_moshogg", text = "Take a mace and aim for the knees. You will not reach the head." } },
+    goblins = { { id = "tp_goblins", text = "They forge for their purse, and they sell to anyone. I trust orc steel." } },
   },
 }
 
@@ -325,6 +369,10 @@ P:NPC {
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What's in the stew?", next = "stew" },
         { text = "What's the strangest thing you've cooked here?", next = "strange" },
+        { text = "Who eats at your fire?", next = "who" },
+        { text = "Your pot looks older than the camp.", next = "pot" },
+        { text = "Is there really no kodo in that pot?", next = "kodo", when = { race = "Tauren" } },
+        { text = "That root you use, mon, I know it.", next = "troll", when = { race = "Troll" } },
         { text = "I'm not hungry, thanks.", next = "END" },
       },
     },
@@ -340,14 +388,52 @@ P:NPC {
       big = true,
       lines = { { id = "ye_default", text = "One grunt went very quiet for a day, but he was a quiet one already, so I do not count him. The commander says I am to tell the grunts what goes in the pot, and I say a cook who explains himself never gets to cook anything new." } },
       choices = {
-        { text = "The commander's right. Tell them what they're eating.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "They'll eat what you give them. Keep your secrets.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The commander's right. Tell them what they're eating.", next = "BACK", reply = "The commander's right about many things, but not about my pot. Tell a grunt what he eats and he stops eating it, and a hungry grunt is a weak one.", fx = { align = { honor = 1 } } },
+        { text = "They'll eat what you give them. Keep your secrets.", next = "BACK", reply = "Ha! Now you talk like a cook, and I like you for it. Full bellies ask no questions, and that is how the camp stays strong.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    who = {
+      lines = { { id = "wh_default", text = "Every grunt, every scout back from the Mosh'Ogg mound, and Commander Aggro'gosh himself, who eats standing up so no one thinks he is resting. The Far Seer eats last and least, and I save him the best of the pot, though he never notices." } },
+      choices = {
+        { text = "Why does the Far Seer eat so little?", next = "wh_seer" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wh_seer = {
+      lines = { { id = "whs_default", text = "Mok'thardin says the spirits speak more clearly to an empty belly. I say the spirits would speak more kindly to a full one, and we have had this argument every night since we landed on this shore." } },
+      choices = {
+        { text = "Who wins the argument?", next = "wh_win" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wh_win = {
+      lines = { { id = "whw_default", text = "He does, because he is a Far Seer and I am a cook. But I notice his bowl comes back empty, and the spirits have never once complained about my stew." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+
+    pot = {
+      lines = { { id = "po_default", text = "It is older than the camp and older than me, almost. It hung over a fire in the internment camps, and when Thrall freed us I carried it out on my back, because a cook without his pot is just another orc with a spoon." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    kodo = {
+      lines = { { id = "ko_default", text = "No kodo, I swear it on my pot. There is no kodo in all of Stranglethorn, and if there were I would leave it for your people to honour. Raptor only, and a little crocolisk, and the root." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    troll = {
+      lines = { { id = "tr_default", text = "Of course you know it, it was a Darkspear who showed it to me, and he laughed for an hour when I tasted it raw. Tell me, how much do your people put in? I have been guessing, and the grunts have been paying for my guesses." } },
+      choices = {
+        { text = "A pinch only. You're using far too much.", next = "BACK",
+          reply = "A pinch! That explains the quiet grunt. Thank you, friend." },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     strange = {
-      lines = { { id = "sr_default", text = "A basilisk, from up by the crystal mines, and the meat glittered in the pot like it was full of little stones. It tasted of nothing at all, and Kin'weelay would not touch it, which tells you something." } },
+      lines = { { id = "sr_default", text = "A basilisk, from up by the crystal mines, and the meat glittered in the pot like it was full of little stones. It tasted of nothing at all, and Kin'weelay, the Darkspear by the north gate, would not touch it, which tells you something." } },
       choices = {
         { text = "I'll take the raptor, then.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -357,6 +443,8 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I do not know that, but I know you look hungry. Eat something." } },
+    advice = { { id = "tp_ad", text = "Never go into the jungle hungry. The jungle is always hungry too." } },
+    mokthardin = { { id = "tp_seer", text = "He says the spirits like an empty belly. His bowl always comes back empty, though." } },
   },
 }
 
@@ -402,24 +490,73 @@ P:NPC {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "How do you keep anything dry here?", next = "damp" },
         { text = "Where do your goods come from?", next = "supply" },
+        { text = "What sells fastest in a war camp?", next = "sells" },
+        { text = "You count those crates like a quartermaster.", next = "count" },
+        { text = "I came down on the zeppelin from the Undercity.", next = "undead", when = { race = "Scourge" } },
+        { text = "How do you keep silk from rotting?", next = "silk", when = { profession = "Tailoring" } },
         { text = "Nothing today.", next = "END" },
       },
     },
 
     damp = {
-      lines = { { id = "dm_default", text = "Salt in the bottom of every crate, oilcloth over the top, and nothing ever touches the ground, which is why my stall stands on stones. A grunt laughed at my stones once, and then his tent flooded in the rains, and he has not laughed since." } },
+      lines = { { id = "dm_default", text = "Salt in the bottom of every crate, oilcloth over the top, and nothing ever touches the ground, and so my stall stands on stones. A grunt laughed at my stones once, and then his tent flooded in the rains, and he has not laughed since." } },
       choices = {
         { text = "That's careful work.", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "What rots the worst?", next = "dm_worst" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    dm_worst = {
+      lines = { { id = "dmw_default", text = "Leather, then thread, then the grunts' boots, and the boots I cannot help. A hide left out for one night grows a green fur by morning, so the hunters bring their skins to me before they bring them to the fire." } },
+      choices = {
+        { text = "And the vials? Does the damp spoil them?", next = "dm_vials" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dm_vials = {
+      lines = { { id = "dmv_default", text = "The glass does not rot, but the corks swell and split, and then whatever is inside turns to swamp water. I seal them with wax from the Undercity, which the Forsaken make from things I do not ask about." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    sells = {
+      lines = { { id = "se_default", text = "Linen for bandages, before everything else, and after that salt for the meat and flux for the smiths. A camp at war bleeds and eats and breaks things, and I sell to all three." } },
+      choices = {
+        { text = "Do the wounded pay for their own bandages?", next = "se_pay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    se_pay = {
+      lines = { { id = "sep_default", text = "The commander's purse pays for the grunts, and the travellers pay for themselves, and that is the rule. Some say the Horde should give freely to any who bleed for it, and some say a trader who gives freely has nothing left to give." } },
+      choices = {
+        { text = "Give the wounded what they need. The Horde is family.", next = "BACK", fx = { align = { light = 1 } },
+          reply = "Family still needs thread, and thread still costs coin. But I will not turn away a bleeding grunt." },
+        { text = "Charge everyone. Free goods make soft warriors.", next = "BACK", fx = { align = { light = -1 } },
+          reply = "Then we agree, and my crates stay full." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    count = {
+      lines = { { id = "co_default", text = "I was one, at the internment camps, before Thrall broke them open. A camp guard counted us every morning, and when I was free I swore that I would do the counting from then on, and I have counted ever since." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+
+    undead = {
+      lines = { { id = "un_default", text = "Then you know the zeppelin smells of goblin oil and the rain does not stop when you land. Keep your bandages in oilcloth, Forsaken; you heal slower than we do, and the jungle knows it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    silk = {
+      lines = { { id = "si_default", text = "Wrap it in linen, pack it in salt, and keep it off the ground, the same as everything else. Silk is costly and rot is cheap, so do not trust a trader who keeps silk in a basket." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } } },
     },
 
     supply = {
       big = true,
       lines = { { id = "su_default", text = "Most of it comes by zeppelin from Orgrimmar and the Undercity, and the rest I buy from goblins on the coast road who do not ask where I am taking it. The commander says I should buy only from the Horde, but the Horde does not make enough thread to sew a sail." } },
       choices = {
-        { text = "Buy from the Horde first. Our coin should stay with our own.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Buy wherever it's cheapest. The commander needn't know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Buy from the Horde first. Our coin should stay with our own.", next = "BACK", reply = "That is my thinking too, and I do it when I can. But Orgrimmar's thread rots in this damp as fast as any goblin's, so I buy what lasts.", fx = { align = { order = 1 } } },
+        { text = "Buy wherever it's cheapest. The commander needn't know.", next = "BACK", reply = "The commander knows more than he says, and he would say I am being sneaky if he caught me. Still, a dry tent matters more to the grunts than where the thread came from.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -427,5 +564,8 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I sell goods. I do not sell answers." } },
+    knows = { { id = "tp_knows", text = "Every crate in Grom'gol, and what is in it, and how long before it rots." } },
+    advice = { { id = "tp_ad", text = "Keep everything off the ground. Everything." } },
+    aggrogosh = { { id = "tp_aggro", text = "The commander pays for the grunts' bandages and asks me to buy Horde thread. I do one of those." } },
   },
 }

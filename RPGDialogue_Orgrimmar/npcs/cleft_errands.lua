@@ -19,7 +19,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Walk with me a moment, would you? I think better on my feet, and this ramp is the only stretch of the Cleft nobody sells anything on." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and walking the same circle I walk. People will think we're plotting something." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Alliance Relations") }, text = "Keldran speaks well of you, which he doesn't do often. Mind you, he doesn't speak often at all." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Alliance Relations") }, text = "Keldran speaks well of you, and he barely speaks at all, so I'd listen when he does." },
   },
 
   notice = {
@@ -33,9 +33,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Craven Drok, and before you ask, the name was my grandfather's joke and I've stopped arguing with it. Our Warchief is a wiser orc than most of his grunts give him credit for, and there are people in this city working quietly to prove it." },
+        { id = "h_default", key = true, text = "Craven Drok, and before you ask, the name is the clan's old joke about my grandfather, and I've stopped arguing with it. Our Warchief is a wiser orc than most of his grunts give him credit for, and there are people in this city working quietly to prove it." },
         { id = "h_before", when = { minLevel = 28, questBefore = TODO_QUEST("Alliance Relations") },
-          text = "Be still a moment and hear me, because what I have to say matters to our people, though it won't look like it at first. Thrall is a diplomat at heart, and he learned more than the humans' cruelty in their camps. Keldran, near the Valley of Spirits, could use someone like you." },
+          text = "Be still a moment and hear me, because this matters to our people, though it won't look like it at first. The Warchief means to make peace one day, and Keldran, near the Valley of Spirits, needs someone like you to help make it possible." },
         { id = "h_active", when = { questActive = TODO_QUEST("Alliance Relations") },
           text = "Keldran is north of the Valley of Spirits, near the water, and he'll be expecting you. Go on, and don't shout his business about on the way." },
       },
@@ -78,8 +78,8 @@ P:NPC {
       lines = { { id = "pe_default", text = "Because one day the war will end, or it won't, and the difference may be whether some human lord believes we still bargain with demons. Thrall has had his fill of fighting, I think, and Keldran means to make peace a little easier to reach when the time comes." },
       },
       choices = {
-        { text = "Then I'll help. Peace is worth the quiet work.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The humans caged us. Let them believe what they like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll help. Peace is worth the quiet work.", next = "BACK", reply = "Good, and Keldran will be glad of the help. Peace is quiet work, but it's still work.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The humans caged us. Let them believe what they like.", next = "BACK", reply = "They may, and they will, until the day we need them to believe otherwise. I'd rather plant the seed now.", fx = { align = { light = -1 } } },
         { text = "Something else, Drok.", next = "BACK", fx = { learn = { "burning_blade" } } },
       },
     },
@@ -104,8 +104,8 @@ P:NPC {
       big = true,
       lines = { { id = "oh_default", text = "I miss the feeling of it, the drums and ten thousand voices, and I'd be lying if I said otherwise. I don't miss what fed it, though, because I remember the green in our blood and what we did with it." } },
       choices = {
-        { text = "We were strong then. We should be strong again.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Thrall's Horde is better, even if it's quieter.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We were strong then. We should be strong again.", next = "BACK", reply = "We were strong, and we were slaves to it. Strength again, aye, but not that way.", fx = { align = { order = -1 } } },
+        { text = "Thrall's Horde is better, even if it's quieter.", next = "BACK", reply = "It is, and I'm glad to hear it from a young one. Quieter, and ours.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -160,7 +160,7 @@ P:NPC {
         { text = "Why does it matter what the Alliance believes?", next = "why" },
         { text = "Does the Warchief know about this?", next = "thrall" },
         { text = "What sort of magic do you study?", next = "magic" },
-        { text = "A Forsaken warlock hunting warlocks? Explain Maurin.", next = "maurin", when = { race = "Scourge" } },
+        { text = "I hear a Forsaken warlock works for you. Who is Maurin?", next = "maurin", when = { race = "Scourge" } },
         { text = "I'll take my leave, Keldran.", next = "END" },
       },
     },
@@ -186,8 +186,8 @@ P:NPC {
       big = true,
       lines = { { id = "pe_default", text = "I'm doing it so peace is possible, which isn't the same thing as wanting it tomorrow. The Warchief is growing weary of the war, I think, and when he reaches for a truce I want the humans to have no excuse to slap his hand away." } },
       choices = {
-        { text = "A truce would save more lives than any battle.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The humans don't deserve our courtesy, Keldran.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A truce would save more lives than any battle.", next = "BACK", reply = "It would, and that's why I do it. Help me, and we'll save more lives than any warband.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The humans don't deserve our courtesy, Keldran.", next = "BACK", reply = "They don't, and maybe never will, but the Warchief deserves the chance. I'll be courteous for his sake.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -202,8 +202,8 @@ P:NPC {
       big = true,
       lines = { { id = "or_default", text = "I'm acting in the spirit of them, which is what a good servant does when his master has a hundred other fires to put out. If I'm wrong, I'll answer for it, and the Warchief will be no worse off for my mistake." } },
       choices = {
-        { text = "That's not your choice to make. Tell him.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Sometimes the work gets done faster without asking.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "That's not your choice to make. Tell him.", next = "BACK", reply = "Maybe you're right, and maybe I should. But he has a hundred fires, and I'd rather not light another.", fx = { align = { order = 1 } } },
+        { text = "Sometimes the work gets done faster without asking.", next = "BACK", reply = "Exactly, and that's how I've always worked. If I'm wrong, the mistake is mine alone.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else, Keldran.", next = "BACK" },
       },
     },
@@ -282,8 +282,8 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "The old Horde conquered a world, recruit, and it was the demon blood that ruined us, not the strength. Take the demons away and keep the strength, and you have something the humans would never dare to cage again." } },
       choices = {
-        { text = "Then let the Horde be conquerors again.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Thrall's caution kept us alive. I'll keep it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then let the Horde be conquerors again.", next = "BACK", reply = "Now that's a recruit after my own heart. The Shattered Hand will remember you.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Thrall's caution kept us alive. I'll keep it.", next = "BACK", reply = "Kept us alive, aye, and kept us small. Keep it if you like, recruit, but don't come crying when the humans return.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -302,8 +302,8 @@ P:NPC {
       big = true,
       lines = { { id = "th_default", text = "I serve the Horde, and the Warchief leads it, so I do as I'm told. But he is too subtle, too slow to unleash what we are, and somebody has to keep the old edge sharp for the day he needs it." } },
       choices = {
-        { text = "The Warchief's word is law. Remember that.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Someone should keep the edge sharp. You're right.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Warchief's word is law. Remember that.", next = "BACK", reply = "It is, and I obey it. But a sharp edge is still a sharp edge, and I'll keep mine ready.", fx = { align = { order = 1 } } },
+        { text = "Someone should keep the edge sharp. You're right.", next = "BACK", reply = "Good, I knew you had it in you. We'll keep it sharp together.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -323,7 +323,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I carried a blade for the Hand at the Dark Portal, and I've been carrying it since. Some of us never put it down." } },
     advice = { { id = "tp_ad", text = "Never let anyone see the knife until it's in them, and never tell anyone who gave you the order." } },
-    _none = { { id = "tp_none", text = "The Hand knows a great deal, recruit, but it doesn't share for free, and it doesn't share that." } },
+    _none = { { id = "tp_none", text = "The Hand knows plenty, recruit, but it doesn't share for free, and it doesn't share that." } },
   },
 }
 
@@ -332,6 +332,7 @@ P:NPC {
 ---------------------------------------------------------------------------
 P:NPC {
   key = "jesrimon", id = TODO_NPC("Jes'rimon"), name = "Jes'rimon",
+  gender = "male",
   bible = "bibles/cleft_errands.md", role = "questgiver", tier = "quest",
   communities = { "orgrimmar" }, temper = { "smooth", "cheerful" }, values = { "cunning", "greedy" },
   notices = { "class", "purse" },
@@ -343,17 +344,45 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Ah, you find the stairs, mon, and most folk never even look up. That be the first good sign." },
     { id = "g_tablet", when = { questActive = TODO_QUEST("Delivery to Jes'rimon") }, text = "That be Jediga's package you carryin', me can smell the Azshara salt on it from here. Come, come, set it down gentle." },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "jr_fl_no" } }, text = "Jes'rimon been sittin' up here all day waitin' for somethin' worth the view, and here you be, climbin' the stairs like the loa heard me. Come in, come in, and mind the low beam." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "jr_fl_yes" }, text = "There be the one who give Jes'rimon a smile worth more than anything on these shelves. Me been keepin' the good stool by the window for you, mon." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "jr_fl_no" }, text = "Business only, me remember, and Jes'rimon keep his word to a friend. Still, nobody can stop a troll from noticin' when the view improve." },
   },
 
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You walk like the Hand teach you, or like you teach yourself, and either way me like it. Keep that up, mon." },
     { id = "n_purse", cat = "purse", when = { class = "WARRIOR" },
-      text = "Your purse be hangin' loose on the outside of your belt, warrior, and half the Drag already see it. Me not sayin' anything, me just sayin'." },
+      text = "Your purse be hangin' loose on the outside of your belt, warrior, and every cutpurse from here to the bank already see it. Me not sayin' anything, me just sayin'." },
   },
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Everyone get a welcome, mon, but not everyone get the good one, and you be gettin' the good one. A fence learn to know a rare piece the moment it come up the stairs, and me not seen one this fine since Jediga send that tablet." } },
+      choices = {
+        { text = "Flatter me some more and I might believe you.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "jr_fl_yes" }, clear = { "jr_fl_no" } } } },
+        { text = "Me grandmother warned me about smooth trolls like you.", next = "fl_yes", when = { race = "Troll" }, fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "jr_fl_yes" }, clear = { "jr_fl_no" } } }, reply = "Your grandmother be a wise woman, mon, and she probably say the same thing about your grandfather." },
+        { text = "I thought Jediga had your heart, Jes'rimon.", next = "fl_jediga" },
+        { text = "I'm flattered, but I'm only here on business.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "jr_fl_no" }, clear = { "jr_fl_yes" } } }, reply = "Business it be, then, and Jes'rimon be a professional, mostly. The good stool by the window stay open all the same, mon." },
+        { text = "Save the honey for your buyers, troll.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "jr_fl_no", "jr_fl_rebuff" }, clear = { "jr_fl_yes" } } }, reply = "Ha! Fair enough, mon, me hear you. Jes'rimon put the honey back on the shelf where it belong." },
+      },
+    },
+    fl_jediga = {
+      lines = { { id = "flj_default", text = "Jediga have Jes'rimon's admiration, mon, and his respect, and a very sharp knife waitin' if he ever forget either one. But she be all the way off in Azshara with the night elf ruins, and a man can still enjoy the scenery close to home." } },
+      choices = {
+        { text = "Then enjoy it while I'm standing here.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "jr_fl_yes" }, clear = { "jr_fl_no" } } } },
+        { text = "I'd rather not come between a troll and his knife-woman.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "jr_fl_no" }, clear = { "jr_fl_yes" } } }, reply = "Smart, mon, very smart. Jediga throw straighter than anybody in the Hand." },
+        { text = "Something else, Jes'rimon.", next = "BACK" },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Flattery be the only thing Jes'rimon give away for nothin', mon, so take all you like. Come up these stairs some night when you not got a package under your arm, and me show you the Drag from the window, when the lanterns be lit and nobody look up." } },
+      choices = {
+        { text = "I might just do that, Jes'rimon.", next = "BACK", reply = "Jes'rimon be right here, mon. He always be right here." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Jes'rimon and the Shattered Hand both bid you welcome, {class}. Don't look so surprised, mon, because even the highest roofs in Orgrimmar throw a shadow, and somebody got to live in it." },
@@ -371,6 +400,7 @@ P:NPC {
         { text = "Where is Un'Goro Crater?", next = "ungoro" },
         { text = "Who buys weapons made of raptor claw?", next = "claws" },
         { text = "Tell me about Jediga.", next = "jediga" },
+        { text = "Do you greet everyone this sweetly, Jes'rimon?", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "jr_fl_rebuff" } } },
         { text = "I'll leave you to your perch.", next = "END" },
       },
     },
@@ -385,8 +415,8 @@ P:NPC {
       big = true,
       lines = { { id = "fe_default", text = "It be a fence's excuse and a true thing both, mon, and those be the best kind. A city need somewhere for the quiet goods to go, or they go to the pirates instead, and then where be the Horde?" } },
       choices = {
-        { text = "Better the Hand than the pirates. I see that.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Stolen goods are stolen goods, whoever buys them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Better the Hand than the pirates. I see that.", next = "BACK", reply = "Ya, mon, you understand the city better than most. Quiet goods for quiet people.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Stolen goods are stolen goods, whoever buys them.", next = "BACK", reply = "They be, mon, and I won't argue. But the Horde still need somewhere to put them.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

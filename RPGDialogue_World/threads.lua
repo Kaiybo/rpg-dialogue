@@ -198,7 +198,7 @@ P:Thread {
     {
       id = "b8_maxwell", npc = "maxwell",
       when = { questDone = TODO_QUEST("The True Masters"), thread = { id = "solomons_letters", notBeat = "b8_maxwell" } },
-      text = "You thought Lakeshire's letters were the first? I've been writing the same letters from this ridge, and every one of them asks the same thing: how many more soldiers before Stormwind acts?",
+      text = "You thought Lakeshire's letters were the first? I've been writing the same letters from this ridge, and they all end on the same question: how many more soldiers before Stormwind acts?",
       fx = { thread = { id = "solomons_letters", beat = "b8_maxwell" }, standing = { morgans_vigil = 2 } },
     },
   },
@@ -324,7 +324,7 @@ P:Thread {
     {
       id = "b4_mathrengyl", npc = "mathrengyl",
       when = { class = "DRUID", any = { { thread = { id = "the_circle", beat = "b3_tonga" } }, { thread = { id = "the_circle", beat = "b3_terenthis" } } } },
-      text = "Moonglade has been asking about you; Remulos worries a great deal. Go and tell him what you saw, then come back and train. Worry is no substitute for skill.",
+      text = "Moonglade has been asking about you, because Remulos frets over every rumour from the south. Go and tell him what you saw, then come back and train, since his fretting won't sharpen your claws.",
       fx = { thread = { id = "the_circle", beat = "b4_mathrengyl" } },
     },
     {
@@ -442,7 +442,7 @@ P:Thread {
       id = "b3_raleigh", npc = "raleigh",
       when = { any = { { thread = { id = "scarlet_path", beat = "b2_anton" } }, { questActive = TODO_QUEST("Down the Scarlet Path") } },
                ["not"] = { thread = { id = "scarlet_path", beat = "b3_raleigh" } } },
-      text = "Anton sends me the faithful, and I send them home with the truth. He thinks I'm still one of them. I was, until the Monastery.",
+      text = "Brother Anton sends me the faithful, and I send them home with the truth. He thinks I'm still one of them. I was, until the Monastery.",
       fx = { thread = { id = "scarlet_path", beat = "b3_raleigh", state = "unfolding" }, learn = { "scarlet_monastery" } },
     },
     {
@@ -537,7 +537,7 @@ P:Thread {
   story = {   -- the journal's Stories page, by state
     stirring = { first = "Gregor Greystone writes to Chillwind Camp every month from Everlook, whatever the goblins charge to carry it. He says the Argent Dawn is a few good people spread very thin, and letters are most of what holds it together.",
       third = "{name} heard Gregor Greystone in Everlook say that letters were most of what held the Argent Dawn together." },
-    unfolding = { first = "Gregor's reports go to Pureheart, and Pureheart's go to Light's Hope, where Lord Tyrosus reads them in the one quiet hour of the day. Every one of them asks after somebody else, and none of them says a word about the writer.",
+    unfolding = { first = "Gregor's reports go to Pureheart, and Pureheart's go to Light's Hope, where Lord Tyrosus reads them in the one quiet hour of the day. Each asks after somebody else, and none of them says a word about the writer.",
       third = "{name} followed the Argent Dawn's letters from Everlook to Chillwind to Light's Hope, and found that each writer asked after the next and never spoke of themselves." },
     resolved = { first = "I've been to Light's Hope and back, and Gregor wanted to know if Lord Tyrosus looked well. I told him what I could, and he wrote it down as carefully as any report.",
       third = "{name} brought word of Lord Tyrosus back to Gregor Greystone, who wrote it down as carefully as any report." },

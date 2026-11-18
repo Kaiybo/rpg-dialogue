@@ -157,8 +157,8 @@ P:NPC {
       lines = { { id = "tb_default", text = "Ye sound like my mother. Aye, some places hold things best left alone, but if nobody looks, nobody learns what's dangerous until it comes lookin' fer us." },
       },
       choices = {
-        { text = "You're right. Knowledge protects us.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "And some knowledge is better left with the dead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right. Knowledge protects us.", next = "BACK", reply = "Aye, that's the Explorers' League creed, near enough, an' I'll drink tae ye fer sayin' it without bein' paid to.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "And some knowledge is better left with the dead.", next = "BACK", reply = "Ye an' my mother both, then. Maybe the pair o' ye are right, but I've never yet left a door unopened an' I'm too old tae start now.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -185,8 +185,8 @@ P:NPC {
       lines = { { id = "rs_default", text = "Because the tram brings me home in an hour whenever I'm homesick, an' because the League's southern digs all report through here. An' I'll be honest wi' ye: Ironforge is full o' dwarves who remember me young, an' I'd rather they kept rememberin' it that way." },
       },
       choices = {
-        { text = "Pride's a poor reason to stay away from home.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let them remember you young. That's a wise choice.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Pride's a poor reason to stay away from home.", next = "BACK", reply = "Ach, that one stings, because it's true. I'll think on it over my next ale, an' likely the one after.", fx = { align = { honor = 1 } } },
+        { text = "Let them remember you young. That's a wise choice.", next = "BACK", reply = "That's kindly said. Let the lads in Ironforge remember Brohann wi' a beard still half red an' a pick in his hand.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -219,8 +219,8 @@ P:NPC {
       lines = { { id = "pd_default", text = "I'll carry that, then, alongside the rest. I've a mind tae send him a cask o' the best Ironforge has, an' I've an equal mind that it's the last thing the poor fellow needs. What would ye do?" },
       },
       choices = {
-        { text = "Go and see him yourself. A cask's no apology.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Send the cask. He'll take it the way it's meant.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Go and see him yourself. A cask's no apology.", next = "BACK", reply = "Ye're a hard one, but ye're not wrong. A dwarf ought tae say his sorry to a man's face, even if it means a long climb up the Wetlands.", fx = { align = { honor = 1 } } },
+        { text = "Send the cask. He'll take it the way it's meant.", next = "BACK", reply = "Aye, he will. Ye don't fly gryphons that long without learnin' tae read what's in a cask.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -241,8 +241,8 @@ P:NPC {
       lines = { { id = "tf_default", text = "Some say lock 'em in the Hall o' Explorers an' let scholars pore over 'em, an' some priests say smash 'em, so nobody learns the prayers carved on 'em. I've my own view, but I'd like tae hear yers first." },
       },
       choices = {
-        { text = "Study them. Knowing the enemy's prayers is how we stop them.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Smash them. Some words should never be read again.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Study them. Knowing the enemy's prayers is how we stop them.", next = "BACK", reply = "That's my thinkin' too, an' the League's. Ye can't fight a god ye don't understand, an' ye'll never understand one ye refuse tae read.", fx = { align = { light = -1 } } },
+        { text = "Smash them. Some words should never be read again.", next = "BACK", reply = "There's a priest in Ironforge who'd shake yer hand fer that. I'll not smash anythin' carved by a dead hand, but I'll grant ye some prayers are poison.", fx = { align = { light = 1 } } },
         { text = "What's your own view, Brohann?", next = "tablets_view" },
       },
     },
@@ -295,11 +295,11 @@ P:NPC {
     },
     district_humans = {
       big = true,
-      lines = { { id = "dh_default", text = "Well enough, though some o' them think every dwarf is a smith an' every smith is a drunk, an' I'm only one o' those. Stormwind owes Ironforge a great deal, an' I'll say this: the humans remember it better than their nobles do." },
+      lines = { { id = "dh_default", text = "Well enough, though some o' them think every dwarf is a smith an' every smith is a drunk, an' I'm only one o' those. Stormwind owes Ironforge fer half its walls an' most o' its cannon, an' I'll say this: the humans remember it better than their nobles do." },
       },
       choices = {
-        { text = "Stormwind should honour that debt properly.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Allies help each other. Nobody owes anyone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stormwind should honour that debt properly.", next = "BACK", reply = "Ye've a good heart, friend. A few more tankards raised tae Ironforge in the Pig an' Whistle would be a start.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Allies help each other. Nobody owes anyone.", next = "BACK", reply = "Maybe so, but tell that tae the lads who held the line at Grim Batol. Help's a fine word, but debt's the one that gets remembered.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

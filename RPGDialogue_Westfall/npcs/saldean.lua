@@ -19,10 +19,10 @@ P:NPC {
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again. I took you for another lord's child come to gawp at the poor, and you rolled your sleeves up and proved me wrong, which my Salma won't let me forget." },
     { id = "g_op_leave_stay", when = { gossip = { topic = "westfall_leave", stance = "stay" } }, text = "Salma tells me you think we ought to stay and see it through. Took a stranger to say it, but you're right, and you can tell Theodore I said so." },
     { id = "g_fields", text = "Step careful. The furrows are all I've got left that's straight." },
-    { id = "g_watchers", when = { questActive = TODO_QUEST("The Killing Fields") }, text = "Still standing out there, aren't they. I can see them from the porch." },
+    { id = "g_watchers", when = { questActive = TODO_QUEST("The Killing Fields") }, text = "Those harvest watchers are still standing out in my field. I can see them from the porch." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Killing Fields") }, text = "I walked my own field this morning, for the first time since spring." },
     { id = "g_away", when = { away = 14 }, text = "Haven't seen you down this lane in {away}. The field's still here and so am I, which is about all a man can say in Westfall." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your boots since you last stood in my furrows. You've the look of someone who can finish what he starts now." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your boots since you last stood in my furrows. You've the look of someone who finishes what they start now." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Heard you spun some yarn for one of the neighbours and they believed it. Round here a man's word is all he's got left, so I'd keep yours straight." },
   },
 
@@ -46,7 +46,7 @@ P:NPC {
       },
     },
     prej_a = {
-      lines = { { id = "prej_a_default", text = "The crown's law is a handful of militiamen at Sentinel Hill with no supplies, and Gryan holding the rest together himself. Tell your father that, if he still writes to you." } },
+      lines = { { id = "prej_a_default", text = "The crown's law is a handful of militiamen at Sentinel Hill with no supplies, and Gryan Stoutmantle holding the rest together himself. Tell your father that, if he still writes to you." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
     },
     prej_b = {
@@ -77,15 +77,15 @@ P:NPC {
       choices = { { text = "Something else, then.", next = "BACK" } },
     },
     op_tithe_3 = {
-      lines = { { id = "op_tithe_r3", text = "Now that's a thought I hadn't had, and I've had most of them, sitting here. The Militia eat what they're given and say thank you, which is more than the Keep ever did." } },
+      lines = { { id = "op_tithe_r3", text = "Now that's a thought I hadn't had, and I've had most of them, sitting here. The Militia eat what they're given and say thank you, which is more than Stormwind Keep ever did." } },
       choices = { { text = "Something else, then.", next = "BACK" } },
     },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Because a farmer belongs on his farm, thieves or not. My furrows are straight, and they're the only straight thing left. The earth here deserves someone who stays." } },
       choices = {
-        { text = "Staying took courage, Saldean. The land is lucky to have you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Staying was foolish. Your family's safety matters more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Staying took courage, Saldean. The land is lucky to have you.", next = "BACK", reply = "Lucky, is it? I don't know about luck, but I know about staying, and I'll keep doing it. My furrows thank you.", fx = { align = { honor = 1 } } },
+        { text = "Staying was foolish. Your family's safety matters more.", next = "BACK", reply = "Salma's safe enough with me and my pitchfork. Leaving would've been safer for a season and foolish for a lifetime.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -95,17 +95,17 @@ P:NPC {
         { id = "xmage_default", text = "My field doesn't need fixing, it needs those cursed watchers knocked down and kept down, and then it needs a man with a plough. I'll grant a fireball might do the first part quicker than a pitchfork, so long as you remember where the wheat ends and the scarecrows begin." },
       },
       choices = {
-        { text = "I'll aim carefully and leave the ploughing to you.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If the field burns, at least the watchers burn too.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll aim carefully and leave the ploughing to you.", next = "BACK", reply = "Good, and I'll hold you to that, because every row out there is a winter's bread. Knock them down and leave the rest to me.", fx = { align = { order = 1 } } },
+        { text = "If the field burns, at least the watchers burn too.", next = "BACK", reply = "Burn my field and you can plough it yourself next spring. Mind where you aim.", fx = { align = { order = -1 } } },
         { text = "Something else, Saldean.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Slow and stupid, but they don't tire, and they swing those straw arms like flails. You'll want to take them apart limb by limb, and burn the bits, because I swear they put themselves back together." } },
+      lines = { { id = "xwarcl_default", text = "They're slow and stupid, but they don't tire, and they swing those straw arms like flails. You'll want to take them apart limb by limb, and burn the bits, because I swear they put themselves back together." } },
       choices = {
-        { text = "I'll take them apart and burn every one.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Burn the whole field. It's quicker.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take them apart and burn every one.", next = "BACK", reply = "That's the way of it, and I'll bring the kindling. Watch the arms, they hit harder than you'd think.", fx = { align = { honor = 1 } } },
+        { text = "Burn the whole field. It's quicker.", next = "BACK", reply = "Quicker for you, and it's a year's hunger for us. Take them apart by hand, or don't bother.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -113,35 +113,35 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Coyotes at night and vultures by day, and the Goretusks when they're feeling brave. Salma says the boars come for the scraps, and I say they come because nobody's here to stop them anymore." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours would scare off the coyotes, I'd bet. Bring it round at night, if you're passing." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Coyotes at night and vultures by day, and the goretusks when they're feeling brave. That {pet} of yours would scare off the coyotes, I'd bet, so bring it round at night if you're passing." },
       },
       choices = {
-        { text = "I'll keep the beasts off your farm, Saldean.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll hunt where the game is, not where you need it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll keep the beasts off your farm, Saldean.", next = "BACK", reply = "Then you're the first help I've had out here in a long while. Salma will want to feed you for it.", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt where the game is, not where you need it.", next = "BACK", reply = "That's your right, I suppose, though the game's here because nobody's stopping it. Go on, then.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "Do you now? Then you'll know they came at night, took the Molsens' plough first and the Molsens next, and never once looked a man in the eye. If you can think like that and still stand on my porch honest, you're welcome here." } },
       choices = {
-        { text = "I'll give them a taste of their own medicine.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll stand honest, Saldean. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll give them a taste of their own medicine.", next = "BACK", reply = "A taste of it, aye, and I'll hold the spoon. Just don't let it go to your head, or you'll be no better than them.", fx = { align = { honor = -1 } } },
+        { text = "I'll stand honest, Saldean. You have my word.", next = "BACK", reply = "Your word's good enough for me. There's few enough honest folk left in Westfall.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Where did your neighbours go?", next = "neighbours" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "I didn't need a warlock to tell me that, though I'll admit it's a strange comfort to hear it said aloud. Something puts the walk in those scarecrows, and it isn't Westfall straw." } },
       choices = {
-        { text = "I'll find what moves them and turn it to my use.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll burn them down and let the darkness go with them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll find what moves them and turn it to my use.", next = "BACK", reply = "Turn it to your use, eh? I'll not ask what you mean by that, so long as it's off my land.", fx = { align = { light = -1 } } },
+        { text = "I'll burn them down and let the darkness go with them.", next = "BACK", reply = "That's what I'd do, if I knew how. Burn them, and I'll stand at the edge and cheer.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Where did the watchers come from?", next = "watchers" },
       },
     },
     druid_talk = {
       lines = { { id = "dt_default", text = "That's the best news I've had since the Defias took the Jansen farm. My father always said Westfall dirt was stubborn, and I reckon he was right about that much." } },
       choices = {
-        { text = "Then rest a field each year, and it will repay you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the weeds have it awhile. The wild knows best.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then rest a field each year, and it will repay you.", next = "BACK", reply = "That's what my father did, and his father before him. Good to hear a druid say it too.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the weeds have it awhile. The wild knows best.", next = "BACK", reply = "Weeds? I've fought weeds my whole life, druid, and I'll not hand them the farm now.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -149,8 +149,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Salma does the praying for the both of us, and I do the ploughing, and that seems a fair split. I'll say this, though: every morning I'm still standing here feels like an answer to something." } },
       choices = {
-        { text = "That's faith holding you up, Saldean. Don't let go of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "That's your own stubbornness. Give yourself the credit.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's faith holding you up, Saldean. Don't let go of it.", next = "BACK", reply = "I'll try, though some mornings it's hard to say which of us is holding which. Salma would say faith, and she's usually right.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's your own stubbornness. Give yourself the credit.", next = "BACK", reply = "Ha, I'll take that, since nobody else will give me credit for anything. Salma will say otherwise.", fx = { align = { light = -1 } } },
         { text = "Something else, Saldean.", next = "BACK" },
       },
     },
@@ -158,8 +158,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Gryan's militia, when he can spare a man, and me with a pitchfork when he can't. I'm not proud, so if the Silver Hand wants to send a few of its own down this road, Salma will feed them." } },
       choices = {
-        { text = "The Silver Hand stands with those who stay. So will I.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A lone farm out here isn't worth defending, Saldean.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Silver Hand stands with those who stay. So will I.", next = "BACK", reply = "Then you're welcome at my table, and Salma will make sure you leave full. The Silver Hand's always welcome out here.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A lone farm out here isn't worth defending, Saldean.", next = "BACK", reply = "It's worth defending to me, and to Salma, and to my grandfather in the ground. That's enough.", fx = { align = { honor = -1 } } },
         { text = "Something else, Saldean.", next = "BACK" },
       },
     },
@@ -217,14 +217,14 @@ P:NPC {
         { id = "s_default", text = "My grandfather cleared this land. I'm not handing it to a man in a red mask because he asked with a knife." },
       },
       choices = {
-        { text = "Good for you.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Pay them off and live. Land can be bought back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Good for you.", next = "BACK", reply = "It's not good, it's just right, and there's a difference. Thank you all the same.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Pay them off and live. Land can be bought back.", next = "BACK", reply = "Bought back with what, the money they'd take? No, I'll keep my land, and my knife's as sharp as theirs.", fx = { align = { honor = -1 } } },
         { text = "Pride won't stop a knife.", next = "pride", fx = { trait = { skeptical = 1 } } },
         { text = "Everyone else left. Doesn't that worry you?", next = "fool" },
       },
     },
     pride = {
-      lines = { { id = "p_default", text = "No. But it gets me up in the morning, and that's something a knife can't take." } },
+      lines = { { id = "p_default", text = "No, but it gets me up in the morning, and that's something a knife can't take." } },
       choices = {
         { text = "Do you still send the city its tithe?", next = "op_tithe" }, { text = "Right. Something else, then.", next = "BACK" } },
     },
@@ -237,7 +237,7 @@ P:NPC {
     },
     watchers = {
       lines = {
-        { id = "w_default", text = "Don't know, and I've stopped guessing. One day the fields were empty, next day they were full of things that wouldn't stay put." },
+        { id = "w_default", text = "I don't know, and I've stopped guessing. One day the fields were empty, and the next they were full of things that wouldn't stay put." },
       },
       choices = {
         { text = "There must be a good many of them out there.", next = "count" },
@@ -287,7 +287,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     salma = {
-      lines = { { id = "sa_default", text = "Best cook in Westfall, and the kindest. She'd feed a man in a red mask if he knocked politely. Don't tell her I know about that." } },
+      lines = { { id = "sa_default", text = "She's the best cook in Westfall, and the kindest. She'd feed a man in a red mask if he knocked politely. Don't tell her I know about that." } },
       choices = {
         { text = "She's fed Defias?", next = "salma_defias" },
         { text = "Something else.", next = "BACK" },
@@ -317,8 +317,8 @@ P:NPC {
     bless = {
       lines = { { id = "bl_default", text = "Bless them after they're cleared. The Light's welcome here, but it won't pull a scarecrow out of my corn." } },
       choices = {
-        { text = "Then I'll clear them first.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The Light pulls more than you'd think.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Then I'll clear them first.", next = "BACK", reply = "That's the order of it, aye, and the Light can follow once the corn's clear. Watch your back in the rows.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The Light can pull harder than any plough-horse.", next = "BACK", reply = "Does it now? Then it can start with that big one by the fence, and I'll believe you.", fx = { align = { light = 1 }, trait = { pious = 1 } } },
       },
     },
   },
@@ -332,13 +332,13 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I've farmed this land all my life, and there's not much happens on it I don't hear about. Ask me about any of this." },
     },
-    background = { { id = "tp_bg", text = "A farmer on the land my grandfather cleared. That's the whole of it, and it isn't finished yet.", next = "stay" } },
+    background = { { id = "tp_bg", text = "I'm a farmer on the land my grandfather cleared. That's the whole of it, and it isn't finished yet.", next = "stay" } },
     advice = { { id = "tp_ad", text = "Don't stand still in a field after dark. The watchers don't see well, but they don't need to." } },
     harvest_watchers = {
       { id = "tp_watchers", text = "There were twenty in my field alone, last I counted, and then I stopped counting." },
     },
     defias = { { id = "tp_defias", text = "Thieves, the lot of them. They took the Furlbrows' farm and the Molsens', but they'll not take mine." } },
-    westfall = { { id = "tp_westfall", text = "Best soil in the kingdom, under all that dust. People forget." } },
+    westfall = { { id = "tp_westfall", text = "It's the best soil in the kingdom under all that dust, though people forget." } },
     old_blanchy = { { id = "tp_blanchy", text = "That's the Furlbrows' horse, older than sin and twice as stubborn. A good animal, though." } },
     people_militia = { { id = "tp_militia", text = "Good lads and lasses, the lot of them. They walk past my fence twice a day, and I sleep better for it." } },
     _none = { { id = "tp_none", text = "I can't help you there, friend. Ask me about soil instead." } },

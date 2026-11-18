@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Not as much as the dwarves digging to the north. They carry the Light too, I'm told, and they tear the earth open without asking. You I'll watch, but if you help us guard the road, I'll count you as a friend of the braves." } },
       choices = {
-        { text = "I'll guard the road with you, Morin.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll guard what I choose, not your road.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll guard the road with you, Morin.", next = "BACK", reply = "Then you're welcome on my road, Light or no Light. The braves will be glad of another spear, or hammer, or whatever it is you carry.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll guard what I choose, not your road.", next = "BACK", reply = "Then I'll watch you and the dwarves both, and trust neither. The road needs guarding, whoever chooses to do it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "We burned what was left and sang over the ashes as the elders taught us, but it was hurried, and I fear it was not enough. If your prayers can reach the dead, say one on the road where the wagons fell, because I still feel them watching it." } },
       choices = {
-        { text = "I'll pray on that road, Morin, and stay until they rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The dead have had their rites. Watch the living instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll pray on that road, Morin, and stay until they rest.", next = "BACK", reply = "Thank you, friend, and the dead thank you, I hope. I'll stand watch beside you while you pray.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead have had their rites. Watch the living instead.", next = "BACK", reply = "I'll watch the living, as I always do, but the dead still watch me. If you change your mind, you know where the road is.", fx = { align = { light = -1 } } },
         { text = "Something else, Morin.", next = "BACK" },
       },
     },
@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The dwarves, I believe, or the beasts they've driven off their land, for they blast the earth at Bael'dun and the plains shake for miles. A warrior who goes there will find guns waiting, so stay low and strike quickly, and come back to me before you go too deep." } },
       choices = {
-        { text = "I'll scout first, and fight only if I must.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll charge their camp and break them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll scout first, and fight only if I must.", next = "BACK", reply = "Good, that's wise, and the dwarves will never see you coming. Come back with what you find, and we'll decide together.", fx = { align = { order = 1 } } },
+        { text = "I'll charge their camp and break them.", next = "BACK", reply = "Then you'll find their guns waiting, as I said, and they won't be kind. Come back alive if you can, and tell me how far you got.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -98,11 +98,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boots, heavy ones, and the marks of carts dragged north toward Bael'dun, though the beasts came afterward to pick at what was left. Follow the cart tracks and you'll find the dwarves' digging, and from there you can judge for yourself who struck first." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can follow a scent where my eyes can't. Let it lead you up the north road, and stay close behind it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boots, heavy ones, and the marks of carts dragged north toward Bael'dun, though the beasts came afterward to pick at what was left. Your {pet} can follow a scent where my eyes can't. Let it lead you up the north road, and stay close behind it." },
       },
       choices = {
-        { text = "I'll follow the tracks and judge fairly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Dwarves are guilty enough. I'll hunt them anyway.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll follow the tracks and judge fairly.", next = "BACK", reply = "Good, and I'll trust your judgement when you come back. The truth is more use to me than another dead dwarf.", fx = { align = { honor = 1 } } },
+        { text = "Dwarves are guilty enough. I'll hunt them anyway.", next = "BACK", reply = "Then you'll find them guilty, as you wanted, and I'll never know the truth. I'd rather know, friend, before I blame them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -112,8 +112,8 @@ P:NPC {
         { id = "xrogue_default", text = "Then go and look at Bael'dun, because I want to know what those dwarves are pulling from the earth. They have guns and guards and little patience, so come back with what you saw and leave the fighting for a day when the braves can stand with you." },
       },
       choices = {
-        { text = "I'll spoil their digging while I'm there.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll look, and fight beside the braves when it's time.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll spoil their digging while I'm there.", next = "BACK", reply = "Spoil it if you can, and quietly, but don't get caught. I'd rather have you back alive than a broken pump.", fx = { align = { honor = -1 } } },
+        { text = "I'll look, and fight beside the braves when it's time.", next = "BACK", reply = "Good, that's what I hoped to hear. Look, and come back, and the braves will stand with you when the time comes.", fx = { align = { honor = 1 } } },
         { text = "What are the dwarves digging for?", next = "dwarves" },
       },
     },
@@ -123,8 +123,8 @@ P:NPC {
         { id = "xwarlock_default", text = "My road was safer before you walked onto it with that thing beside you. I'll not stop you, because the Warchief's word is our word now, but I've seen caravans burned and I know fire that's wrong when I see it." },
       },
       choices = {
-        { text = "I understand. I'll keep it far from your caravans.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Wrong fire burns your enemies just the same.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I understand. I'll keep it far from your caravans.", next = "BACK", reply = "Thank you, that's all I'll ask of you. The caravans have suffered enough without your demon frightening the kodo.", fx = { align = { light = 1 } } },
+        { text = "Wrong fire burns your enemies just the same.", next = "BACK", reply = "It does, but it burns the grass just as quickly. Keep it off my road, warlock, and use it where the dwarves are.", fx = { align = { light = -1 } } },
         { text = "What happened to the caravan?", next = "caravan" },
       },
     },
@@ -132,8 +132,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "They dig into the hills looking for something old, and they leave the spoil heaped where the grass used to grow. The Earth Mother does not ask much of anyone, but she does ask that we not tear her open for treasure, and the dwarves have never learned that." } },
       choices = {
-        { text = "Then we drive them out openly, with the braves beside us.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Spoil their dig quietly, and let the hills swallow their work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then we drive them out openly, with the braves beside us.", next = "BACK", reply = "Then the braves will be glad to go with you, and so will I. Openly, so they know who sent them.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Spoil their dig quietly, and let the hills swallow their work.", next = "BACK", reply = "Quietly, then, and let the earth have its revenge. I'll not ask how you did it, but I'll be grateful if the digging stops.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -143,8 +143,8 @@ P:NPC {
         { id = "xmage_default", text = "The dwarves at the Bael'dun digsite tear at the earth, the Venture Company hacks at our trees, and a caravan of ours burned on this road not long ago. Your spells could do much good here, but I ask you to keep your fire off the plains." },
       },
       choices = {
-        { text = "I'll guard the caravans and leave the diggers to the braves.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll drive the diggers off the Earth Mother's land myself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll guard the caravans and leave the diggers to the braves.", next = "BACK", reply = "Good, that's where you'll do the most good. The braves will deal with the diggers, and you'll keep the caravans moving.", fx = { align = { light = 1 } } },
+        { text = "I'll drive the diggers off the Earth Mother's land myself.", next = "BACK", reply = "Then go, but leave the grass unburned behind you. The Earth Mother would not thank you for driving them out with fire.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -200,8 +200,8 @@ P:NPC {
     dwarves_morin = {
       lines = { { id = "dm_default", text = "I would ask them once, plainly, to leave. If they would not, then the Earth Mother would forgive us for making them." } },
       choices = {
-        { text = "Then ask them, and make them go if they refuse.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Asking only warns them. Strike before they're ready.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Then ask them, and make them go if they refuse.", next = "BACK", reply = "That's my way too, and the braves would follow it. Ask first, and the Earth Mother will forgive what comes after.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Asking only warns them. Strike before they're ready.", next = "BACK", reply = "You sound like the young braves, and maybe you're right. But I'd rather ask once and be refused than strike first and be wrong.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else, Morin.", next = "BACK" },
       },
     },
@@ -221,8 +221,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Mend what can be mended, and remember what can't. The dwarves dig at Bael'dun and the goblins dig at their mine, and neither asks the earth's leave, so someone must ask its pardon for them, and someone must make them stop." } },
       choices = {
-        { text = "I would ask its pardon first, and help it heal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I would make them stop, and let the earth have them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I would ask its pardon first, and help it heal.", next = "BACK", reply = "Then the earth will thank you, and so will I. Pardon and healing go together, and the dwarves will never learn it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I would make them stop, and let the earth have them.", next = "BACK", reply = "That's the harder way, and maybe the needed one. Make them stop, then, but let the earth decide what's left of them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -254,8 +254,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I do not know. The night elves taught us that healing comes from the green and growing earth, and the Light comes from somewhere else. But if it heals, it heals, and I am curious to see what yours mends." } },
       choices = {
-        { text = "Then I'll heal the land and its people.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The Light heals people. Land is your business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll heal the land and its people.", next = "BACK", reply = "Then you'll find a welcome at my fire, and a curious one. Show me what your Light mends, and I'll show you how the green does it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light heals people. Land is your business.", next = "BACK", reply = "Perhaps it is, and I'll keep it. But you might be surprised how much the land and its people share, child.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -263,17 +263,17 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "Not quite, I think, because a druid asks the land to mend itself and a priest asks something greater to mend it for them. Both are still asking, though, and I have never thought the land minded who did the asking, so long as it was asked kindly." } },
       choices = {
-        { text = "Then we're kin in the asking, Gennia.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My prayers don't ask. They command.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then we're kin in the asking, Gennia.", next = "BACK", reply = "We are, and it's good to find kin in strange places. Ask kindly, and the land will answer us both.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My prayers don't ask. They command.", next = "BACK", reply = "Then I hope whatever you command is a kind master. The land does not like being commanded, and I suspect your Light doesn't either.", fx = { align = { light = -1 } } },
         { text = "Something else, Gennia.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "That a bear fights only to protect its cubs and its den, and stops the moment the danger has passed. Our family learned that from the night elves long ago, and the warriors who learn it fight hard and stop in time, which is rarer than you'd think." } },
+      lines = { { id = "xwarcl_default", text = "That a bear fights only to protect its cubs and its den, and stops the moment the danger has passed. Our family learned that from the night elves long ago, and the few warriors who learn it fight hard and stop in time." } },
       choices = {
-        { text = "I'll fight only to protect, and stop when it's done.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll fight until there's nothing left to fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight only to protect, and stop when it's done.", next = "BACK", reply = "Then you've learned the bear's lesson already, and I'm glad. Few warriors stop in time, and fewer stop willingly.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight until there's nothing left to fight.", next = "BACK", reply = "Then you'll fight forever, child, because there's always something more. The bear stops when the cubs are safe, and that's when she rests.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -281,11 +281,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A hunter bonds with a beast and a druid becomes one, but both of us must respect the creature's spirit, or the bond turns sour. I've seen hunters treat their companions better than some druids treat their own forms, so I'll not claim my path is the wiser." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a gentle spirit; I can sense it. You've treated it well, and the Earth Mother sees that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A hunter bonds with a beast and a druid becomes one, but both of us must respect the creature's spirit, or the bond turns sour. Your {pet} has a gentle spirit; I can sense it. You've treated it well, and the Earth Mother sees that." },
       },
       choices = {
-        { text = "My beast and I share the hunt as equals.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I command my beast. That's the way of it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "My beast and I share the hunt as equals.", next = "BACK", reply = "Then you'll be a fine hunter, and the beast will thank you in its way. That's the respect I spoke of, and it's rarer than you'd think.", fx = { align = { honor = 1 } } },
+        { text = "I command my beast. That's the way of it.", next = "BACK", reply = "Then I hope it never decides otherwise. A beast that's commanded only obeys until it doesn't.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -295,8 +295,8 @@ P:NPC {
         { id = "xmage_default", text = "They say the arcane once broke their world, and that their highborne grew so proud of it that the Sundering was the price. I don't know every word of it, child, but the Runetotem have kept that warning alongside the rest of what the night elves gave us." },
       },
       choices = {
-        { text = "Then I'll study with care, and remember the warning.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "That was ten thousand years ago. Magic has moved on.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll study with care, and remember the warning.", next = "BACK", reply = "Good, that's all the warning asks of you. Remember it, and the arcane will serve you better than it served the highborne.", fx = { align = { order = 1 } } },
+        { text = "That was ten thousand years ago. Magic has moved on.", next = "BACK", reply = "Magic may have, but pride hasn't, and it was pride that broke the world. Remember that, child, if nothing else.", fx = { align = { order = -1 } } },
         { text = "How did the tauren learn from the night elves?", next = "elves" },
       },
     },
@@ -306,8 +306,8 @@ P:NPC {
         { id = "xwarlock_default", text = "Balance needs two things that belong to the world, and the creature beside you does not. I won't turn you away from my fire, but a druid feels a demon the way you'd feel a thorn under the skin, and I can't pretend otherwise." },
       },
       choices = {
-        { text = "I understand. I'll keep it from your students.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then your balance is too narrow for this world.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I understand. I'll keep it from your students.", next = "BACK", reply = "Thank you, that's kind of you, and my students will rest easier for it. The thorn is still there, but it's a small one.", fx = { align = { light = 1 } } },
+        { text = "Then your balance is too narrow for this world.", next = "BACK", reply = "Perhaps it is, and I've wondered that myself on long nights. Still, I'll keep my balance, and you keep your demon close.", fx = { align = { light = -1 } } },
         { text = "What does a druid do, exactly?", next = "druid" },
       },
     },
@@ -317,8 +317,8 @@ P:NPC {
         { id = "xrogue_default", text = "To move through the wild without leaving it worse, because a cat stalks only what it needs and leaves the rest alone. The night elves taught us that, and I'd teach it to you if you have the patience, though I suspect you have other uses for a quiet step." },
       },
       choices = {
-        { text = "I'll take only what I need, Gennia.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A quiet step serves me, whatever the night elves taught.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll take only what I need, Gennia.", next = "BACK", reply = "Then you have the patience already, and the cat will teach you the rest. Come by the fire, and we'll walk the plains together.", fx = { align = { light = 1 } } },
+        { text = "A quiet step serves me, whatever the night elves taught.", next = "BACK", reply = "It will, and I'll not ask what for. Only remember that the wild sees what you do with it, even when no one else does.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -326,7 +326,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. The Runetotems learned the old ways from strangers, so I will not turn a stranger away." },
         { id = "h_default", key = true, text = "I am Gennia Runetotem, and I teach the druids of Bloodhoof what the land is willing to share. Our family learned the old ways from the night elves, long ago, and we keep them still." },
-        { id = "h_druid", when = { class = "DRUID" }, text = "Welcome back, little druid. Show me what the wild has taught you since last we spoke." },
+        { id = "h_druid", when = { class = "DRUID" }, text = "Welcome, little druid. Show me what the wild has taught you so far." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman among my druids? You're welcome here, because the Earth Mother speaks to both of us, only in different voices." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You carry the strength of a bear without its patience, and the druids could teach you the second." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The druids and the hunters both walk with the beasts, though we walk inside them and you walk beside." },
@@ -359,16 +359,16 @@ P:NPC {
     druid = {
       lines = { { id = "d_default", text = "A druid keeps the balance between growth and decay, and between the wild and the people who live within it. We heal, and we take the shapes of beasts, and sometimes we must let things die." } },
       choices = {
-        { text = "Balance means accepting hard things.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd save what I could, balance or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Balance means accepting hard things.", next = "BACK", reply = "It does, and it's the hardest thing a druid learns. I'm glad to hear you understand it so young.", fx = { align = { order = 1 } } },
+        { text = "I'd save what I could, balance or not.", next = "BACK", reply = "That's a kind heart speaking, and I would never fault it. But the land sometimes needs things to end, child, and a druid must learn to let them.", fx = { align = { order = -1 } } },
       },
     },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The night elves taught my family to walk with the wild until we became part of it. Your path is older among the tauren, speaking with the elements and asking their aid, and I think the Earth Mother is glad of both." } },
       choices = {
-        { text = "Both paths serve her, so we should share what each learns.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The night elves' ways are theirs. Tauren need only the old rites.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Both paths serve her, so we should share what each learns.", next = "BACK", reply = "That's what I believe too, and my family has lived by it for generations. Share freely, and both paths grow stronger.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The night elves' ways are theirs. Tauren need only the old rites.", next = "BACK", reply = "The old rites are good, and I honour them. But the night elves gave us something worth keeping, and I'd not throw it away.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -398,10 +398,10 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Everything worth anything takes something. The plains feed us, and we thank the beast that gives. I expect your Light takes pain, from what the orcs say. If you thank it, as we thank the beasts, I think you're closer to us than you seem." } },
+      lines = { { id = "xfpala_default", text = "Everything worth having takes something in return, and we thank the beast that feeds us. From what I've heard, your Light takes pain, so if you thank it the way we thank the beasts, I think you're closer to us than you seem." } },
       choices = {
-        { text = "I thank it, every time it burns.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I thank nothing. I take what I need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I thank it, every time it burns.", next = "BACK", reply = "Then you're closer to us than you seem, as I said. Thank it, and it will keep giving, as the beasts do.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I thank nothing. I take what I need.", next = "BACK", reply = "Then you'll find the plains less generous than you'd like. Everything that gives can stop giving, if it's never thanked.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -409,8 +409,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "Some do, and I do not stop them, because a wounded companion deserves every kindness. A troll priest once mended my old cat after a Palemane spear found her, and I have thought better of the loa ever since." } },
       choices = {
-        { text = "Every living thing deserves healing, beast or brave.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My prayers are for people, not for pets.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every living thing deserves healing, beast or brave.", next = "BACK", reply = "It does, and I'm glad you see it. My cat would thank you, if she could, and I'll thank you for her.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My prayers are for people, not for pets.", next = "BACK", reply = "That's your choice, and I'll not argue with it. But my cat was a person to me, and the troll who mended her saw that.", fx = { align = { light = -1 } } },
         { text = "Something else, Yaw.", next = "BACK" },
       },
     },
@@ -418,8 +418,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "To take only what you need, which is the first lesson I give my hunters and the last one most warriors learn. The plains feed us because we never strip them bare, and a warrior who fights the same way, only as much as is needed, will find the Earth Mother kind to him." } },
       choices = {
-        { text = "Only as much as is needed. I'll remember that, Yaw.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "When I fight, I fight to win completely.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Only as much as is needed. I'll remember that, Yaw.", next = "BACK", reply = "Good, then you're ahead of most warriors, and some hunters too. Take only what you need, and the plains will feed you for life.", fx = { align = { honor = 1 } } },
+        { text = "When I fight, I fight to win completely.", next = "BACK", reply = "Winning completely is how the plains get stripped bare, warrior. Win, by all means, but leave something standing behind you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -427,11 +427,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Feed it before you feed yourself, speak to it every day, and never send it into a fight you wouldn't take yourself. The beasts of Mulgore are proud, and they remember every kindness and every slight, so earn their trust each day as though you'd never earned it before." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks at you with trust. Good, {class}; keep it that way, and it'll follow you anywhere." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Feed it before you feed yourself, speak to it every day, and never send it into a fight you wouldn't take yourself. Your {pet} looks at you with trust. Good, {class}; keep it that way, and it'll follow you anywhere." },
       },
       choices = {
-        { text = "I'll earn its trust every day, Yaw.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "It obeys me. Trust is a luxury.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll earn its trust every day, Yaw.", next = "BACK", reply = "Good, that's the only way to do it. The beast will remember, and so will I.", fx = { align = { honor = 1 } } },
+        { text = "It obeys me. Trust is a luxury.", next = "BACK", reply = "It obeys, for now, until it decides it doesn't. Earn its trust, and it'll stand by you when obedience isn't enough.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -441,8 +441,8 @@ P:NPC {
         { id = "xrogue_default", text = "Does he, now? I'd like to believe that, but I've met more than one rogue on the bluffs who took all he could carry and thanked nobody, so if you mean it, show me by how you walk the plains." },
       },
       choices = {
-        { text = "I mean it. I take only what I need.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I take what I can. The plains won't miss it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I mean it. I take only what I need.", next = "BACK", reply = "Then I'll watch you walk the plains, and I hope to see it. Show me, and I'll believe you.", fx = { align = { light = 1 } } },
+        { text = "I take what I can. The plains won't miss it.", next = "BACK", reply = "The plains miss everything, rogue, they just don't say so. Take only what you need, or don't hunt here.", fx = { align = { light = -1 } } },
         { text = "What makes a good hunter?", next = "good" },
       },
     },
@@ -452,8 +452,8 @@ P:NPC {
         { id = "xmage_default", text = "It's different, because you never look the beast in the eye and you never thank it. The plains don't care what weapon kills a plainstrider, but I do, so if you hunt here, take a moment after and say a word for what was given." },
       },
       choices = {
-        { text = "I'll thank the beast. That's only fair.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A kill is a kill, and words won't change it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll thank the beast. That's only fair.", next = "BACK", reply = "Good, that's all I ask. The beast gave what it had, and a word costs you nothing.", fx = { align = { light = 1 } } },
+        { text = "A kill is a kill, and words won't change it.", next = "BACK", reply = "Words don't change a kill, but they change the hunter. Say one anyway, and see whether it changes you.", fx = { align = { light = -1 } } },
         { text = "What's the hunting like in Mulgore?", next = "plains" },
       },
     },
@@ -461,8 +461,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Often, and mostly about the Palemane gnolls, because the druids say even a gnoll has its place on the plains while my students would sooner see the Palemane gone. I take only what I need from the beasts, but I'm not sure a gnoll who spears my cat counts as one." } },
       choices = {
-        { text = "The Palemane threaten Bloodhoof, so they must be driven from Mulgore.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The plains have room for the gnolls, if they keep to the west.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Palemane threaten Bloodhoof, so they must be driven from Mulgore.", next = "BACK", reply = "That's what my students say, and I'm half inclined to agree. Still, take only the Palemane who threaten us, and leave the rest to the druids.", fx = { align = { order = 1 } } },
+        { text = "The plains have room for the gnolls, if they keep to the west.", next = "BACK", reply = "That's what the druids say, and maybe they're right. But a gnoll who spears my cat has wandered far from the west.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -472,8 +472,8 @@ P:NPC {
         { id = "xwarlock_default", text = "I'm a hunter, so I can only tell you what I know of companions, which is that a beast trusts you as far as you've earned it. I don't think demons trust at all, so I'd keep it bound tightly and never forget what it is." },
       },
       choices = {
-        { text = "I'll keep it bound tightly, Yaw.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll treat it however serves me best.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep it bound tightly, Yaw.", next = "BACK", reply = "Good, that's wise, and the beasts will be glad of it. Never forget what it is, as I said.", fx = { align = { order = 1 } } },
+        { text = "I'll treat it however serves me best.", next = "BACK", reply = "Then I hope what serves you best is never letting it go. A demon is no companion, and never will be.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -508,8 +508,8 @@ P:NPC {
     good = {
       lines = { { id = "g_default", text = "Patience first, and respect after, and only then the bow. A hunter who kills for sport forgets that the plains are watching him." } },
       choices = {
-        { text = "Every kill should be honored.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A beast is a beast. Meat's meat.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every kill should be honored.", next = "BACK", reply = "Then you'll be a good hunter, and the plains will be good to you. That's the lesson, and you've learned it already.", fx = { align = { light = 1 } } },
+        { text = "A beast is a beast. Meat's meat.", next = "BACK", reply = "Then you're no hunter of mine, and the plains will remember it. Meat's meat, until there's none left.", fx = { align = { light = -1 } } },
       },
     },
     plains = {
@@ -524,8 +524,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Not in words, the way the elements speak to you, but a good hunter learns to listen all the same. When my hawk won't leave my arm, I know something on the plains is wrong, and most often it's the Palemane gnolls." } },
       choices = {
-        { text = "Then the beasts and the elements both deserve our thanks.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A hunter owes the beast a clean kill, and nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then the beasts and the elements both deserve our thanks.", next = "BACK", reply = "They do, and I thank both, every morning before I string my bow. My hawk seems to like it, anyway.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A hunter owes the beast a clean kill, and nothing more.", next = "BACK", reply = "A clean kill is a great deal, and more than many give. But a word of thanks costs nothing, and the plains notice it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

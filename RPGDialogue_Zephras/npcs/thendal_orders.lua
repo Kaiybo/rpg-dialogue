@@ -50,9 +50,9 @@ P:NPC {
         { id = "h_ho", when = { race = "Skyborne", faction = "Alliance" },
           text = "I'll offer you a single warning, High Order, and then we needn't speak of it again. Outside the grove, the divisions between our orders run deep enough to turn into violence, so do not cross the Windshapers." },
         { id = "h_forsaken", when = { race = "Scourge" },
-          text = "You carry death about with you, and the winds around you go very still. I'll speak with you, since the Horde has been good to my order, but forgive me if I stand upwind." },
+          text = "You carry death about with you, and the winds around you go very still. I'll speak with you, since the Horde has been good to my order, though I'll be standing upwind, if it's all the same to you." },
         { id = "h_orc", when = { race = "Orc" },
-          text = "An orc, and one who walked through the grove without starting a fight, which is more than I can say for the High Order's apprentices. Winds guide you." },
+          text = "An orc, and one who walked through the grove without starting a fight, and the High Order's apprentices can rarely manage that much. Winds guide you." },
         { id = "h_wsorigin", when = { origin = "skyborne_windshaper" },
           text = "I remember your face from the trials, pale as cloud after the sapta and still standing. The winds that sheltered us are gone, but an oath sworn to the absent is still an oath, and you swore it well." },
       },
@@ -65,7 +65,7 @@ P:NPC {
         { text = "What do the Windshapers want?", next = "order" },
         { text = "What is skysight?", next = "skysight" },
         { text = "Why warn me off the Windshapers?", next = "xwarn", when = { race = "Skyborne", faction = "Alliance" } },
-        { text = "Your shaman must differ from mine.", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
+        { text = "Your shamans must differ from mine.", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
         { text = "My people have welcomed yours in Mulgore.", next = "xmulgore", when = { race = "Tauren" } },
         { text = "I drank the sapta, Ventaari. The winds still don't answer me.", next = "xsapta", when = { origin = "skyborne_windshaper" } },
         { text = "I wore the grey robes once, Ventaari. I walk with the Windshapers now.", next = "xorig_aketh", when = { origin = "skyborne_former_alaketh" } },
@@ -107,8 +107,8 @@ P:NPC {
         { id = "il_default", text = "Many of us fear we're all that remains of the shen'dorei, and I've stopped telling them they're wrong. I'll keep listening as long as I have breath, because silence isn't proof, but some nights it feels very much like an answer." },
       },
       choices = {
-        { text = "Silence isn't proof. Keep listening.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Mourn them, then. Hope is a poor shelter.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Silence isn't proof. Keep listening.", next = "BACK", reply = "I will, child, and it's good to hear the young say it. Winds keep you.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Mourn them, then. Hope is a poor shelter.", next = "BACK", reply = "Hope is the only shelter we've had for ten thousand years, child. I'll not tear it down tonight.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -138,14 +138,14 @@ P:NPC {
           text = "Your order wants to master this realm and bend it, as your Highborne forebears wanted to master theirs. That path drove us out of Kalimdor once, and I fear your elders' confidence has long since outrun their competence." },
       },
       choices = {
-        { text = "You're right. Mastery is what drove us from Kalimdor.", next = "BACK", fx = { opinion = { zep_high_order = "arrogant", zep_windshapers = "trust" }, affinity = 2, align = { order = -1 }, learn = { "two_orders" } } },
-        { text = "Waiting for absent spirits is worse than any arrogance.", next = "BACK", fx = { opinion = { zep_windshapers = "foolish" }, affinity = -2, align = { order = 1 }, learn = { "two_orders" } } },
+        { text = "You're right. Mastery is what drove us from Kalimdor.", next = "BACK", reply = "I'm glad someone listens, and gladder that it's you. Winds keep you from the highlands.", fx = { opinion = { zep_high_order = "arrogant", zep_windshapers = "trust" }, affinity = 2, align = { order = -1 }, learn = { "two_orders" } } },
+        { text = "Waiting for absent spirits is worse than any arrogance.", next = "BACK", reply = "Waiting is not the same as doing nothing, initiate. We keep the stones and the oath, and that's work.", fx = { opinion = { zep_windshapers = "foolish" }, affinity = -2, align = { order = 1 }, learn = { "two_orders" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
     callhome = {
       lines = {
-        { id = "ch_default", text = "We don't know yet, and I'll not pretend we do. Some of us believe the shaman below the clouds, the ones who call themselves the Earthen Ring, know far more of the elemental planes than we've ever learned, and Ayessa Dawnsinger means to find out." },
+        { id = "ch_default", text = "We don't know yet, and I'll not pretend we do. Some of us believe the shamans below the clouds, the ones who call themselves the Earthen Ring, know far more of the elemental planes than we've ever learned, and Ayessa Dawnsinger means to find out." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -155,7 +155,7 @@ P:NPC {
       lines = {
         { id = "sk_default", text = "A gift some of us carry, to see past this world and hear the spirits that move behind it. You can draw on it anywhere, but it's far stronger where the elements converge, and the spirits drawn to such places sometimes let slip a little wisdom." },
         { id = "sk_outsider", when = { ["not"] = { race = "Skyborne" } },
-          text = "A gift some shen'dorei carry, to see past this world and hear the spirits behind it. I doubt you have it, traveller, though your shaman may have something like it under another name." },
+          text = "A gift some shen'dorei carry, to see past this world and hear the spirits behind it. I doubt you have it, traveller, though your shamans may have something like it under another name." },
       },
       choices = {
         { text = "A gift like that could fade, I'd guess.", next = "skysight_fade" },
@@ -177,8 +177,8 @@ P:NPC {
         { id = "xw_default", text = "Because your order's apprentices keep trampling our standing stones in the highlands, and patience is running thin on both sides. I'd rather warn you now, in the grove, than hear your name in a list of the dead later." },
       },
       choices = {
-        { text = "I'll respect your sacred places. You have my word.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "I'll go where my order needs me, warning or not.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll respect your sacred places. You have my word.", next = "BACK", reply = "Then you're wiser than your order, and I'm grateful. Winds keep you on the highland paths.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll go where my order needs me, warning or not.", next = "BACK", reply = "Then go carefully, and know that I warned you. I'd still rather not hear your name.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -206,8 +206,8 @@ P:NPC {
         { id = "xsa_default", text = "Nor me, initiate, nor anyone who's taken the sapta these last years, and I won't tell you otherwise to make you feel better. We drink it so the spirits will know us when they come home, not so they'll answer today, so tell me, do you still mean to keep the oath with nobody listening?" },
       },
       choices = {
-        { text = "I do. A debt doesn't lapse because the creditor's gone.", next = "BACK", fx = { affinity = 3, align = { honor = 1 }, trait = { pious = 1 } } },
-        { text = "I'll honor them, but I won't wait on them forever.", next = "BACK", fx = { affinity = -1, align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "I do. A debt doesn't lapse because the creditor's gone.", next = "BACK", reply = "Then you have the heart of a Windshaper, initiate. The spirits will know you when they return.", fx = { affinity = 3, align = { honor = 1 }, trait = { pious = 1 } } },
+        { text = "I'll honor them, but I won't wait on them forever.", next = "BACK", reply = "That's honest, and I'll respect it, though it grieves me. Keep the oath as long as you can.", fx = { affinity = -1, align = { honor = -1 }, trait = { stern = 1 } } },
         { text = "Did anyone ever hear an answer after the sapta?", next = "xsapta_heard" },
       },
     },
@@ -229,7 +229,7 @@ P:NPC {
     al_aketh = { { id = "tp_aketh", text = "They looked across Skywall, saw Al'Akir's might, and knelt to it. That isn't faith; it's fear in grey robes." } },
     highborne = { { id = "tp_highborne", text = "The High Order is arrogant in exactly the way our Highborne ancestors were, and they wear it proudly. I can read it in their auras, and it looks like an old wound." } },
     the_elements = { { id = "tp_the_elements", text = "We owe the spirits our lands, our lives and our gifts, and we've done very little to deserve them. The Windshapers mean to pay that debt, whatever it costs us." } },
-    earth_mother = { { id = "tp_earth_mother", text = "The tauren of the Earthen Ring speak to the elements as partners, and they call the earth their mother. I think we have a great deal to learn from them, and very little to teach." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren of the Earthen Ring speak to the elements as partners, and they call the earth their mother. I think we have much to learn from them, and very little to teach." } },
     dalaran = { { id = "tp_dalaran", text = "The High Order looks to the Kirin Tor in Dalaran for teaching, as if human wizards could give back what the Highborne lost. They'll learn power there, and very little wisdom." } },
     elune = { { id = "tp_elune", text = "Our cousins pray to the moon, and I don't scorn them, but the spirits of the air raised us. I'll owe the moon when the moon has done as much." } },
     _none = { { id = "tp_none", text = "The winds don't speak of it, and neither will I." } },
@@ -260,7 +260,7 @@ P:NPC {
 
   notice = {
     { id = "n_human", cat = "race", when = { race = "Human" },
-      text = "A human! Are you one of the Kirin Tor's? It was their magi who saw us through the High Order's keyhole and saw us back, and I'd give a great deal to meet one in person." },
+      text = "A human! Are you one of the Kirin Tor's? It was their magi who saw us through the High Order's keyhole and saw us back, and I've longed to meet one in person ever since." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "Remarkable. I'd heard the Kirin Tor counted gnomes among their scholars, and I confess I didn't believe it until this moment." },
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
@@ -330,8 +330,8 @@ P:NPC {
         { id = "ab_default", text = "Vanished, abandoned, I see little difference from where we stand. The spirits wouldn't even speak of Al'Akir when we asked, and the High Order always said we ought to understand what powers we were living among, while the Windshapers trusted them to tell us what we needed. Well, they didn't." },
       },
       choices = {
-        { text = "You were right. Trust without knowledge was folly.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
-        { text = "They sheltered us for millennia. They earned that trust.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "You were right. Trust without knowledge was folly.", next = "BACK", reply = "At last, someone with sense on this island. Knowledge is the only shelter that doesn't vanish.", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "They sheltered us for millennia. They earned that trust.", next = "BACK", reply = "Earned it, and then walked away from it, which tells you how much our trust was worth to them. I'll not mourn that.", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -351,8 +351,8 @@ P:NPC {
         { id = "ws_default", text = "That we're reckless and arrogant, which is rich, because they'll entertain no idea about this crisis but their own. Frankly, kneeling to uncaring spirits isn't so very different from what the Al'Aketh do, so tell me, which of us is the arrogant one?" },
       },
       choices = {
-        { text = "Fair point. Self-reliance beats waiting on spirits.", next = "BACK", fx = { opinion = { zep_high_order = "trust", zep_windshapers = "foolish" }, affinity = 2, align = { order = 1 }, learn = { "two_orders" } } },
-        { text = "Comparing them to the Al'Aketh is beneath you.", next = "BACK", fx = { opinion = { zep_windshapers = "respect" }, affinity = -2, align = { order = -1 }, learn = { "two_orders" } } },
+        { text = "Fair point. Self-reliance beats waiting on spirits.", next = "BACK", reply = "Of course it does, and I'm glad you see it. The High Order will welcome you.", fx = { opinion = { zep_high_order = "trust", zep_windshapers = "foolish" }, affinity = 2, align = { order = 1 }, learn = { "two_orders" } } },
+        { text = "Comparing them to the Al'Aketh is beneath you.", next = "BACK", reply = "Beneath me, perhaps, but not beneath the truth. Think on it, youngster.", fx = { opinion = { zep_windshapers = "respect" }, affinity = -2, align = { order = -1 }, learn = { "two_orders" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
@@ -389,8 +389,8 @@ P:NPC {
         { id = "ls_default", text = "Safe enough, for anyone of our blood, and the benefits range from the profound to the subtle. If we're to survive these times, we must be relentless in our search for knowledge, and for power, and I won't apologise for the second word." },
       },
       choices = {
-        { text = "Power serves the people, or it serves nothing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Power is its own reason. Take what you can.", next = "BACK", fx = { align = { light = -1 }, trait = { ambitious = 1 } } },
+        { text = "Power serves the people, or it serves nothing.", next = "BACK", reply = "A pretty sentiment, and true enough as far as it goes. But the people won't be served by power we refused to take.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is its own reason. Take what you can.", next = "BACK", reply = "Careful, youngster. That's the road Tortheldrin walked, and even I won't follow it to the end.", fx = { align = { light = -1 }, trait = { ambitious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -415,22 +415,22 @@ P:NPC {
     xwarn = {
       big = true,
       lines = {
-        { id = "xw_default", text = "Because Windshaper novices keep trying to heal the ley lines shut, and the High Order regards them as treasures. People have already died over it in the highlands, and I'd rather not add a promising youngster to the count, even one of yours." },
+        { id = "xw_default", text = "Because Windshaper novices keep trying to heal the ley lines shut, and the High Order regards them as treasures. People have already died over it in the highlands, and I won't add a promising youngster to the count, even one of yours." },
       },
       choices = {
-        { text = "I'll keep clear of your order's work. I've no wish to fight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If your people harm the land, I'll stand in their way.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
+        { text = "I'll keep clear of your order's work. I've no wish to fight.", next = "BACK", reply = "Then you'll live longer than most of your order, and I'll be glad of it. Keep away from the highland lines.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If your people harm the land, I'll stand in their way.", next = "BACK", reply = "Then stand, and see how long the Windshapers' good intentions hold against a living ley line. I'll not warn you twice.", fx = { affinity = -2, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
       lines = {
-        { id = "xl_default", text = "Interest me? It terrifies me, and those are not always different things. Our ancestors bled to stop Tortheldrin drinking from the Nether, so tell me honestly, what makes you so sure you won't end the way he meant to?" },
+        { id = "xl_default", text = "Interest me? It terrifies me, and those are not always different things. Our ancestors bled to stop Tortheldrin drinking from the Nether, so tell me plainly, what makes you so sure you won't end the way he meant to?" },
       },
       choices = {
-        { text = "Discipline. The demons serve me, never the reverse.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'm not sure. That's what makes it worth doing.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Discipline. The demons serve me, never the reverse.", next = "BACK", reply = "Discipline, is it? Tortheldrin said the same, I'm told, right up until he didn't. I'll watch you closely.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm not sure. That's what makes it worth doing.", next = "BACK", reply = "That's an honest answer, and a frightening one. Keep your distance from my students.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -440,8 +440,8 @@ P:NPC {
         { id = "xb_default", text = "Good, because every old line has the same complaint: a spell that stops halfway down the page, a ward with no key, a history that skips a century. The Kirin Tor's libraries may hold the other halves, so when you find them, will you bring them home to the Order, or keep them for your family?" },
       },
       choices = {
-        { text = "To the Order. Knowledge hoarded is knowledge lost.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, trait = { generous = 1 } } },
-        { text = "My line kept them alive. My line keeps what I find.", next = "BACK", fx = { affinity = -1, align = { order = -1 }, trait = { ambitious = 1 } } },
+        { text = "To the Order. Knowledge hoarded is knowledge lost.", next = "BACK", reply = "Good, that's what the Order needs, and what our forebears would have wanted. Bring them home.", fx = { affinity = 2, align = { order = 1 }, trait = { generous = 1 } } },
+        { text = "My line kept them alive. My line keeps what I find.", next = "BACK", reply = "Then you're no better than the line that hid them. I'd hoped for more from you.", fx = { affinity = -1, align = { order = -1 }, trait = { ambitious = 1 } } },
         { text = "Which gaps worry you most?", next = "xbooks_gap" },
       },
     },

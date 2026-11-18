@@ -20,7 +20,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Hey there, pal, hey! You look like somebody who wants to hear who's been stealin' the inn's pickled herring, and I've got it on good authority, which is to say mine." },
-    { id = "g_winna", when = { questActive = TODO_QUEST("A Strange One") }, text = "Did you meet her yet? No, no, don't tell me, chum, I want to imagine your face, and I'm savin' the story for a rainy day." },
+    { id = "g_winna", when = { questActive = TODO_QUEST("A Strange One") }, text = "Did you meet Winna at Bloodvenom Post yet? No, no, don't tell me, chum, I want to imagine your face, and I'm savin' the story for a rainy day." },
     { id = "g_wildkin", when = { questActive = TODO_QUEST("Enraged Wildkin") }, text = "Found that survivor yet, pal? Starfall Village, west of here, you can't miss it, and I've got a whole page waiting for whatever you hear." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you didn't send me so much as a postcard! What's new out there, pal, and don't leave out the good parts, because I'll know." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, all grown and dangerous since I first talked your ear off. That's a story I'd pay for, pal, and I don't pay for anything." },
@@ -110,8 +110,8 @@ P:NPC {
         { id = "fd_default", text = "Dangerous? Maybe, though she seemed mostly interested in the forest, and in what it does to things. Felwood's poison, pal, and she's got a gleam about it like a goblin looking at an unclaimed mine, and I'm still not sure if that's science or madness." },
       },
       choices = {
-        { text = "Someone has to study the poison. Good for her.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Some things shouldn't be meddled with.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Someone has to study the poison. Good for her.", next = "BACK", reply = "That's what I told my cousin, pal, because somebody's got to know what's in that muck before it crawls up here. Better a curious scholar than a surprised town.", fx = { align = { order = -1 } } },
+        { text = "Some things shouldn't be meddled with.", next = "BACK", reply = "You sound like my mother, and she was right about most things, except the rocket. Still, I'd keep clear of anyone who smiles at a poisoned forest like that.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -148,8 +148,8 @@ P:NPC {
         { id = "es_default", text = "Sell it? I give it away, mostly, which is a terrible way for a goblin to do business, and believe me, I've done the sums. My cousins say I'm a disgrace to the Cartel, pal, but news is more fun when it's moving." },
       },
       choices = {
-        { text = "Secrets should cost something. Charge for them.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Good news should be free. Keep giving it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Secrets should cost something. Charge for them.", next = "BACK", reply = "Don't you start, pal, I get enough of that at family dinners. The trouble is, once I put a price on a rumour, everybody stops tellin' me the good ones.", fx = { align = { honor = -1 } } },
+        { text = "Good news should be free. Keep giving it.", next = "BACK", reply = "See, you get it! Gossip's like a fire in the inn, chum, because it's only worth anything if everybody gets to stand around it and warm up.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -181,7 +181,7 @@ P:NPC {
     everlook = { { id = "tp_everlook", text = "Everlook's the best town in the world for news, pal, because everybody passes through and nobody keeps their mouth shut. I keep mine shut least of all, but I always save the best part." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the most gossip south of here, but it's mostly about pirates. The news up here is better, because it's mostly about bears and furbolgs, which are more surprising." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's a fine town, if you like sand in your shoes and scorpids in your bed. I've heard stories about the Zul'Farrak trolls that'd curl your toes." } },
-    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are a strange bunch, but they keep their word, and that's more than I can say for most. Go see for yourself, if you can get past the guards." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are a strange bunch, but they keep their word, and in Everlook that makes them nearly unique. Go see for yourself, if you can get past the guards." } },
     _none = { { id = "tp_none", text = "I haven't heard about that one yet! Find out and come back and tell me, would you, pal, because I hate being outbid on news." } },
   },
 }
@@ -202,7 +202,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "There's trouble in Winterspring, you know, sweetie! Oh, and hello, and you didn't come to buy anything, did you, because I've left the shop somewhere." },
-    { id = "g_donova", when = { questActive = TODO_QUEST("Trouble in Winterspring!") }, text = "Donova Snowden, at the hot springs. That was it. I knew I'd remember." },
+    { id = "g_donova", when = { questActive = TODO_QUEST("Trouble in Winterspring!") }, text = "Donova Snowden, at the hot springs, that's who you want! I knew I'd remember." },
     { id = "g_done", when = { questDone = TODO_QUEST("Trouble in Winterspring!") }, text = "Donova says you've been a help with the furbolgs, sweetie. I knew you had the look of someone who appreciates the hills, and that's worth more than a pocketful of thorium, nearly." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were you? Out in the hills, I hope, cultivating your reflexes." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, you've got that keen eye now, the one I was talking about, the one you can't buy for any price. Was I talking about it?" },
@@ -249,7 +249,7 @@ P:NPC {
     },
     donova = {
       lines = {
-        { id = "d_default", text = "A dwarf, and a clever one, who studies the springs and the beasts around them. She's got a kind heart, which is why the furbolgs going bad is hurting her so much, and she'd be glad of help." },
+        { id = "d_default", text = "A dwarf, and a clever one, who studies the springs and the beasts around them. She's got a kind heart, so the furbolgs going bad is hurting her terribly, and she'd be glad of help." },
       },
       choices = {
         { text = "I'll go and see her.", next = "donova_go" },
@@ -259,11 +259,11 @@ P:NPC {
     donova_go = {
       big = true,
       lines = {
-        { id = "dg_default", text = "Good! Mind you watch the furbolgs, though, because they're not themselves. Donova will tell you they can be helped, and maybe she's right, but they'll still bite while she's working it out." },
+        { id = "dg_default", text = "Good! Watch the furbolgs, though, because they're not themselves. Donova will tell you they can be helped, and maybe she's right, but they'll still bite while she's working it out." },
       },
       choices = {
-        { text = "If they can be saved, I'll try to save them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If they bite, they'll be put down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If they can be saved, I'll try to save them.", next = "BACK", reply = "That's the spirit, and Donova will be glad of you, because she says each one saved is a cub that grows up remembering. Just keep your hands where their teeth can't reach.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they bite, they'll be put down.", next = "BACK", reply = "Hmph, well, you're not wrong that they bite, and I've got the scar to prove it. Only be sure it's really needed before you do it, because Donova will ask.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -308,7 +308,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Goblin, Everlook, the hills, sweetie, in that order, though some days I'd swap the first two and sell the third." } },
     advice = { { id = "tp_ad", text = "Take your time out there, and keep your eyes open, and write down what you meant to do before you set out. I never do, but you should." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall have gone wrong, and it's a shame, because they used to keep to themselves. Donova knows why, or she will soon." } },
-    steamwheedle = { { id = "tp_sw", text = "Everlook's a cartel town, sweetie, and very safe, and very dull, and everything in it costs double, which is why I go out into the hills." } },
+    steamwheedle = { { id = "tp_sw", text = "Everlook's a cartel town, sweetie, and very safe, and very dull, and everything in it costs double, so I go out into the hills." } },
     everlook = { { id = "tp_everlook", text = "Everlook is the loveliest place in the world, all snow and sky and quiet, and I'd tell you all about it if I could remember where I started. Where was I?" } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw live in the tunnels to the south, and they're very particular about who comes through. I meant to tell you something important about them, but it's gone right out of my head." } },
     booty_bay = { { id = "tp_booty_bay", text = "I've never been to Booty Bay, but I hear it's very warm and very loud. I like the snow better, though I can't remember why I came up here in the first place." } },

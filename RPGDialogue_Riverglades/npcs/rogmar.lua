@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Speak quickly. Krol'dok does not rest, so neither does the Horde." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back from the glades on your own feet, which is more than most can say this season." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back from the glades on your own feet, and this season that counts for something." },
     { id = "g_hero", when = { townStanding = { town = "rogmar", min = 55 } }, text = "Make way for this one; Rog'mar owes them blood and remembers it." },
     { id = "g_distrust", when = { townStanding = { town = "rogmar", max = -20 } }, text = "You again. Say what you want, and say it from over there." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, and Krol'dok did not rest while you were away, so neither did we." },
@@ -55,12 +55,12 @@ P:NPC {
         { id = "h_tauren", when = { race = "Tauren" },
           text = "Thunder Bluff sends one of its own this far east? Good, because the Hammer poisons the land as well as the people, and I'm told your kind takes that badly." },
         { id = "h_troll", when = { race = "Troll" },
-          text = "Another Darkspear. Tan'jani will want to talk spears with you, so let him, then come to me for real work." },
+          text = "Another Darkspear. Tan'jani, our headhunter, will want to talk spears with you, so let him, then come to me for real work." },
         { id = "h_forsaken", when = { race = "Scourge" },
           text = "The Forsaken, here. The Hammer worships death and darkness too, so you'll forgive the grunts if they watch you closely until you have killed a few cultists in front of them." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. Good, because Krol'dok is full of ogres who think they are hard to kill, and I want someone who will prove them wrong." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. Neza Bloodsnout will want to measure you, so stand still for it, because I trust Neza's measure more than my own." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came up quiet. The humans' best kill was done that way, twenty years ago, so I don't laugh at knives in the dark." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. Neza Bloodsnout, our huntress, will want to size you up, so stand still for it, because I trust Neza's measure more than my own." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came up quiet. One human assassin broke the old Horde's siege of Farholde that way, twenty years ago, so I don't laugh at knives in the dark." },
         { id = "h_hpriest", when = { class = "PRIEST" }, text = "A priest. The cultists pray too, and their prayers bleed, so show me what yours can do." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The cultists hold a human tower in Sunnyglade and do things with it at night, and I would like it burned by someone who understands what burns." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Warlock. The Horde has made use of your kind before, and paid for it, so keep that demon on a short chain in my hall." },
@@ -72,10 +72,10 @@ P:NPC {
         { id = "h_o_soft", once = true, when = { gossip = { topic = "warchief", stance = { "soft", "weak" } } },
           text = "I hear you think the Warchief has gone soft. You'll find agreement among the young grunts here, and none from me, so choose your fire carefully tonight." },
         { id = "h_o_common", once = true, when = { opinion = { topic = "horde", stance = "common_cause" } }, priority = 5,
-          text = "My scouts say you told Brant's riders that the Horde and Farholde fight the same enemy. It is true, and it is not wise to say it in their keep, but it is true." },
+          text = "My scouts say you told the riders at Farholde that the Horde and Farholde fight the same enemy. It is true, and it is not wise to say it in their keep, but it is true." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask, and then sharpen something, warrior." },
+        { id = "h_again", text = "What else? Ask, and then go and sharpen something." },
         { id = "h_again2", text = "Go on. Deeds matter more to me than words, so keep them few." },
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask. The cultists chant at night, so I don't sleep much anyway." },
       },
@@ -128,11 +128,11 @@ P:NPC {
     kd_altars = {
       big = true,
       lines = {
-        { id = "ka_default", text = "They take our allies alive, and they don't bring them back. I won't tell you what the scouts found, because you'll see it yourself soon enough, and then you'll understand why I want every one of them dead." },
+        { id = "ka_default", text = "They take our allies alive, and they don't bring them back. I won't tell you what the scouts found, because you'll see it yourself soon enough, and then you'll understand why I want them all dead." },
       },
       choices = {
-        { text = "Then they all die. No prisoners.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
-        { text = "Free the captives first. Vengeance can wait an hour.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then they all die. No prisoners.", next = "BACK", reply = "No prisoners, then, and no mercy. The scouts would say the same, if they could still speak of it.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Free the captives first. Vengeance can wait an hour.", next = "BACK", reply = "You have a cool head, and the captives will thank you for it. Free them, and then we will settle the rest.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -149,7 +149,7 @@ P:NPC {
     },
     why_old = {
       lines = {
-        { id = "wo_default", text = "Ogres and orcs of the old Horde, running from some ruin in the south sea after Gul'dan fell. They found an ogre mound here and dug in, and the Hammer has been rotting these glades ever since." },
+        { id = "wo_default", text = "Since the Second War. Ogres and orcs of the old Horde fled here from some ruin in the southern seas after Gul'dan fell, dug into an ogre mound, and the Hammer has been rotting these glades ever since." },
       },
       choices = {
         { text = "They say Cho'gall came with them.", next = "why_chogall" },
@@ -162,8 +162,8 @@ P:NPC {
         { id = "wc_default", text = "They say a great many things in the dark. If the two-headed one were alive and here, I think the caves would be louder, but I keep my axe sharp in case I'm wrong." },
       },
       choices = {
-        { text = "Rumors are for peons. Fight what you can see.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather chase a rumor than be caught by one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Rumors are for peons. Fight what you can see.", next = "BACK", reply = "Good. A grunt who jumps at shadows is no use to me, and the caves are full of them.", fx = { align = { order = 1 } } },
+        { text = "I'd rather chase a rumor than be caught by one.", next = "BACK", reply = "There is sense in that, and I will not mock it. Go and find out, but come back alive.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -188,8 +188,8 @@ P:NPC {
         { id = "fg_default", text = "It did, with demon blood in its veins and warlocks at its ear. The Warchief broke those chains, and we do not answer for what the old Horde did in them, but I won't call it nothing either." },
       },
       choices = {
-        { text = "They have a right to their anger.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "That was their war. This one is ours.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "They have a right to their anger.", next = "BACK", reply = "They do, and I will not deny it. But a right to anger is not a right to our heads.", fx = { align = { honor = 1 } } },
+        { text = "That was their war. This one is ours.", next = "BACK", reply = "Spoken like a young orc who never wore the chains. Perhaps that is a good thing.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -219,7 +219,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rm_chief_soft = {
-      lines = { { id = "rcs_default", text = "Hm. Then he and Brant would make a strange pair at the same fire. I have heard the same from younger grunts, and I tell them what I'll tell you: the Warchief broke the camps, so the word soft does not fit him." } },
+      lines = { { id = "rcs_default", text = "Hm. Then he and the Knight Commander of Farholde would make a strange pair at the same fire. I have heard the same from younger grunts, and I tell them what I'll tell you: the Warchief broke the camps, so the word soft does not fit him." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rm_chief_hammer = {
@@ -239,11 +239,11 @@ P:NPC {
     bo_trust = {
       big = true,
       lines = {
-        { id = "bt_default", text = "They hate the cult more than they love their dinner, and with ogres that's saying something. The Hammer drags them up to its altars when it can catch them, which is why I want Krol'dok finished." },
+        { id = "bt_default", text = "They hate the cult more than they love their dinner, and with ogres that's saying something. The Hammer drags them up to its altars when it can catch them, and that's reason enough to finish Krol'dok." },
       },
       choices = {
-        { text = "A shared enemy makes a good ally.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Trust is earned in battle, not in grudges.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A shared enemy makes a good ally.", next = "BACK", reply = "It does, for now. When the cult is gone, we will see what the ogres love more.", fx = { align = { order = -1 } } },
+        { text = "Trust is earned in battle, not in grudges.", next = "BACK", reply = "Then let them earn it beside you in the caves. I will watch how they fight.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -261,7 +261,7 @@ P:NPC {
       lines = {
         { id = "rf_default", text = "Neza, because if Neza thinks little of you, nobody here will think more. After that, Kreza, because your armor is a disgrace." },
         { id = "rf_kit", when = { durability = { min = 0.6 } },
-          text = "Neza, because if Neza thinks little of you, nobody here will think more. Your armor at least has the right number of pieces, which is more than most." },
+          text = "Neza, because if Neza thinks little of you, nobody here will think more. Your armor at least has the right number of pieces, and Neza notices such things." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -272,8 +272,8 @@ P:NPC {
         { id = "am_default", text = "Now the caves fight among themselves, and we take the hills one by one while they do. The Hammer will send another to sit in Mugg's place, but it will take them a long time to find one who frightens the ogres as much." },
       },
       choices = {
-        { text = "Then we strike again before they find one.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Hold the hills and make them come to us.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then we strike again before they find one.", next = "BACK", reply = "Good. Hit them while they argue, and they will never stop arguing.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Hold the hills and make them come to us.", next = "BACK", reply = "Patience, then. The hills are ours, and the caves will have to climb to reach them.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -284,8 +284,8 @@ P:NPC {
         { id = "xo_default", text = "They were, if any of them still live down there. They came east with the Hammer after the Second War and stayed in its shadow while the Warchief freed the rest of us, so they chose their masters, and I will treat them as I treat their masters." },
       },
       choices = {
-        { text = "Any who lay down their arms should be brought home.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They chose the Hammer. Let them die with it.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Any who lay down their arms should be brought home.", next = "BACK", reply = "They should, and I would welcome them. Every orc we bring back is one the Hammer loses.", fx = { align = { light = 1 } } },
+        { text = "They chose the Hammer. Let them die with it.", next = "BACK", reply = "That is the harder road, and maybe the truer one. I will not stop you.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -295,8 +295,8 @@ P:NPC {
         { id = "xw_default", text = "They think a lot of things, being ogres, and most of them are wrong. Go in with a shield and a good healer, and don't let the big ones pin you against the rock." },
       },
       choices = {
-        { text = "I'll go in first and come out last.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "I'll let the ogres tire themselves out first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll go in first and come out last.", next = "BACK", reply = "Then you will be the last one out, and the first one we sing about. Go well.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I'll let the ogres tire themselves out first.", next = "BACK", reply = "Clever, and patient, and very much unlike an orc. It may even work.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -306,8 +306,8 @@ P:NPC {
         { id = "xr_default", text = "A human woman, the story goes, who walked into the old Horde's camp at night and killed every chieftain in it. The siege broke the next morning, and nobody has seen her since, so I'd like to know where she learned it." },
       },
       choices = {
-        { text = "A blade in the night ends wars fastest.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Killing chieftains in their sleep isn't a warrior's way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A blade in the night ends wars fastest.", next = "BACK", reply = "Fastest, yes, and the old Horde learned it the hard way. I do not have to like it.", fx = { align = { honor = -1 } } },
+        { text = "Killing chieftains in their sleep isn't a warrior's way.", next = "BACK", reply = "No, it is not, and that is why the story still stings. But it worked, and that is what frightens me.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -317,8 +317,8 @@ P:NPC {
         { id = "xl_default", text = "I trust you as far as I can throw that demon of yours. The Horde drank from that cup once and lost its soul in it, so be useful and be careful, and I will judge you by the first and watch you for the second." },
       },
       choices = {
-        { text = "The demon serves me. Never the other way around.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Power is power. I'll use what works.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The demon serves me. Never the other way around.", next = "BACK", reply = "Good. Keep it that way, and I will keep my eyes on you both.", fx = { align = { order = 1 } } },
+        { text = "Power is power. I'll use what works.", next = "BACK", reply = "Then use it far from my camp. The Horde lost its soul to that cup once, and I will not watch it drink again.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -328,14 +328,14 @@ P:NPC {
         { id = "xs_default", text = "That is what I am asking you. The old Horde burned this land, and the Hammer has been poisoning it since, and I don't know whether the spirits can tell us apart." },
       },
       choices = {
-        { text = "Then we'll show them, by healing what we can.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The spirits will know us by the cultists we kill.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then we'll show them, by healing what we can.", next = "BACK", reply = "Good. Healing is slower than burning, but it lasts. The spirits will notice.", fx = { align = { light = 1 } } },
+        { text = "The spirits will know us by the cultists we kill.", next = "BACK", reply = "They will, and they will remember who poisoned the land too. Kill the cult, and let the spirits judge.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xland = {
       lines = {
-        { id = "xd_default", text = "Sunnyglade's fields are black and the water near the Shroud smells of their rituals. Whatever the cultists pour on the ground, nothing grows there after." },
+        { id = "xd_default", text = "Sunnyglade's fields are black, and the water near the Twilight's Shroud smells of their rituals. Whatever the cultists pour on the ground, nothing grows there after." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -396,14 +396,14 @@ P:NPC {
         { id = "h_feathers", when = { questActive = TODO_QUEST("Feathers for Fletching") },
           text = "Feathers first, because an arrow that flies crooked is just a stick with ideas. Bring me good ones." },
         { id = "h_poison", when = { questActive = TODO_QUEST("Poison Tips") },
-          text = "The vipers by the pools to the south, remember, and don't get bitten collecting it, because I won't come and carry you home." },
+          text = "The venom comes from the vipers by the pools to the south, remember, and don't get bitten collecting it, because I won't come and carry you home." },
         { id = "h_poison_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Poison Tips"), days = 3 } },
           text = "That venom would drop a kodo in minutes and a human much faster. I'm pleased with you, which doesn't happen often, so enjoy it." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A tauren, so you've hunted kodo on the plains. Then you'll know that a beast this size wants patience more than arrows." },
         { id = "h_troll", when = { race = "Troll" },
-          text = "Another troll. If Tan'jani sent you to prove spears are better than arrows, you can tell him I said no." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, and you'll have your own poisons, no doubt. Show me yours sometime and I'll show you mine, and we'll see whose kill quicker." },
+          text = "Another troll. If Tan'jani, our spear-thrower, sent you to prove spears are better than arrows, you can tell him I said no." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, and you'll have your own poisons, no doubt. Show me yours sometime and I'll show you mine, and we'll see whose kills quicker." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You'll want to stand in front and hit things, and I'll want to stand behind you and shoot them, so we'll get along." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Keep your imp away from my traps; the last one sprang three of them and laughed the whole time." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. If you go about on four legs out there, wear something bright, or I'll mistake you for supper." },
@@ -415,7 +415,7 @@ P:NPC {
       choices = {
         { text = "What do you hunt out here?", next = "hunt" },
         { text = "Arrows seem to do the job well enough without poison.", next = "poison" },
-        { text = "What did you estimate about me?", next = "measure" },
+        { text = "What did you make of me when you sized me up?", next = "measure" },
         { text = "Do you ever hunt with spears?", next = "tanjani" },
         { text = "How does my beast measure up?", next = "xpet", when = { class = "HUNTER" } },
         { text = "My poisons kill faster than yours.", next = "xrogue", when = { class = "ROGUE" } },
@@ -443,8 +443,8 @@ P:NPC {
         { id = "po_default", text = "Poison ruins the meat, so I never use it on anything I mean to eat. On something I only need dead, like a cultist or an ogre twice my size, I don't care what it does to the taste." },
       },
       choices = {
-        { text = "Poison is a coward's weapon.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Dead is dead. The method doesn't matter.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Poison is a coward's weapon.", next = "BACK", reply = "A coward's weapon kills cultists just as dead. I'll keep my poison, and you keep your opinion.", fx = { align = { honor = 1 } } },
+        { text = "Dead is dead. The method doesn't matter.", next = "BACK", reply = "Exactly. The meat matters to me, and the cultist does not.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Where do you get it?", next = "poison_where" },
       },
     },
@@ -456,7 +456,7 @@ P:NPC {
     },
     measure = {
       lines = {
-        { id = "me_default", text = "That you'd go where you were told and come back, which is rarer than you'd think. Krom'rosh trusts my measure, so I take it seriously, and so should you." },
+        { id = "me_default", text = "That you'd go where you were told and come back, and few grunts manage both. Krom'rosh trusts my measure, so I take it seriously, and so should you." },
         { id = "me_done", when = { questDone = TODO_QUEST("Poison Tips") },
           text = "That you'd fetch venom from a live snake and come back without a bite, and you did. I'm seldom wrong, but it's always nice to be right." },
       },
@@ -467,24 +467,24 @@ P:NPC {
     },
     measure_wrong = {
       lines = {
-        { id = "mw_default", text = "Then the vipers would have told me so, and I'd have sent someone else. The glades are honest that way, which is more than I can say for most people." },
+        { id = "mw_default", text = "Then the vipers would have told me so, and I'd have sent someone else. The glades are honest that way, and people rarely are." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     tanjani = {
       big = true,
       lines = {
-        { id = "tj_default", text = "A spear is fine if you can get close, and Tan'jani always gets close, which is why he has so many scars. I'd rather drop a thing from a hundred paces and walk over to it afterward." },
+        { id = "tj_default", text = "A spear is fine if you can get close, and Tan'jani always gets close, and that's where his scars come from. Me, I drop a thing from a hundred paces and walk over to it afterward." },
       },
       choices = {
-        { text = "Getting close takes more nerve.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Distance is sense. Only fools bleed for nothing.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Getting close takes more nerve.", next = "BACK", reply = "More nerve and more scars, yes, and Tan'jani has both. I prefer to keep my skin.", fx = { align = { order = -1 } } },
+        { text = "Distance is sense. Only fools bleed for nothing.", next = "BACK", reply = "Spoken like a hunter. Tell Tan'jani, and watch him sulk.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xpet = {
       lines = {
-        { id = "xp_default", text = "Its coat is clean and it watches your hands, not mine, so you feed it well and it trusts you. That's half of hunting, and the other half is aim, which I'll judge later." },
+        { id = "xp_default", text = "Its coat is clean and it watches your hands, not mine, so you feed it well and it trusts you. That's most of hunting, and the rest is aim, which I'll judge later." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -494,8 +494,8 @@ P:NPC {
         { id = "xr_default", text = "Perhaps, on a man, but mine will stop a kodo's heart, and yours were brewed for alleys. Bring me something from the glades that kills quicker, and I'll owe you an apology." },
       },
       choices = {
-        { text = "Then I'll prove it on a cultist.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Fair. A hunter knows the wild better.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Then I'll prove it on a cultist.", next = "BACK", reply = "Do that, and I'll admit you're right. Bring me the cultist, not the story.", fx = { align = { honor = -1 } } },
+        { text = "Fair. A hunter knows the wild better.", next = "BACK", reply = "Good. Alleys are for rats, and the wild is for hunters.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -542,7 +542,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Tan'jani, headhunter. Orcs be good at hittin' humans with axes, but when ya want to stick 'em before dey see ya comin', dat's when ya call on me, and I make my spears from de humans' own wood." },
         { id = "h_fletch", when = { questActive = TODO_QUEST("Fetch 'n' Fletch") },
-          text = "Ya got dat wood yet? De human camp to de west, mon, and take a knife to sharpen 'em with." },
+          text = "Ya got dat wood yet? It be stacked at de human loggin' camp to de west, mon." },
         { id = "h_fletch_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Fetch 'n' Fletch"), days = 3 } },
           text = "Dese spears be nice and sharp, mon. Dey gonna stick good, and de humans gonna wonder where all dey firewood went." },
         { id = "h_orc", when = { race = "Orc" },
@@ -562,7 +562,7 @@ P:NPC {
       choices = {
         { text = "What's a headhunter?", next = "headhunter" },
         { text = "Why steal the humans' wood?", next = "wood" },
-        { text = "Some hunters say arrows beat spears.", next = "neza" },
+        { text = "Neza says arrows beat spears.", next = "neza" },
         { text = "What comes after the spears?", next = "after", when = { questDone = TODO_QUEST("Fetch 'n' Fletch") } },
         { text = "You must miss the Echo Isles.", next = "xhome", when = { race = "Troll" } },
         { text = "Those loggers aren't soldiers, Tan'jani.", next = "xloggers", when = { faction = "Alliance" } },
@@ -593,8 +593,8 @@ P:NPC {
         { id = "wo_default", text = "'Cause it be good wood, mon, already cut and stacked nice by de humans, and it make fine spears. Dey cut it to build walls against us, so I take it to make spears against dem, and dat seem fair to Tan'jani." },
       },
       choices = {
-        { text = "Take what the enemy leaves out. Their loss.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
-        { text = "Stealing from woodcutters is beneath a warrior.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Take what the enemy leaves out. Their loss.", next = "BACK", reply = "Ya, dere loss and Tan'jani's gain, mon. De spears thank dem.", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Stealing from woodcutters is beneath a warrior.", next = "BACK", reply = "Beneath, ya? Tan'jani be warrior and thief both, mon, and he sleep fine.", fx = { align = { honor = 1 } } },
         { text = "The humans must notice.", next = "wood_notice" },
       },
     },
@@ -610,8 +610,8 @@ P:NPC {
         { id = "ne_default", text = "Heh, Neza say dat 'cause Neza never hit nothin' up close. Arrows be fine for rabbits, but when ya want a thing to know who killed it, ya look it in de eye and stick it." },
       },
       choices = {
-        { text = "Up close is the warrior's way.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Neza's right. Kill from far and stay alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Up close is the warrior's way.", next = "BACK", reply = "Ya, de warrior's way, mon! Neza can keep her rabbits.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Neza's right. Kill from far and stay alive.", next = "BACK", reply = "Hah, Neza pay you to say dat, mon? Tan'jani not believe it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -633,8 +633,8 @@ P:NPC {
         { id = "xl_default", text = "No, mon, dey just choppin' wood, and I just takin' it. Nobody get stuck who don't come runnin' at me with an axe, and ya can tell dem dat from Tan'jani." },
       },
       choices = {
-        { text = "Leave them be, or I'll stop you myself.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
-        { text = "Take the wood, then. Just leave the loggers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Leave them be, or I'll stop you myself.", next = "BACK", reply = "Stop Tan'jani? Ha, you can try, mon, but de loggers be very slow.", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Take the wood, then. Just leave the loggers.", next = "BACK", reply = "Ya, dat be de plan, mon. Tan'jani never touch a logger who stay put.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -682,7 +682,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Kreza Darkthorn. I keep this forge burning for Rog'mar, so if it's bent, broken or needs a better edge, it comes to me." },
         { id = "h_mould", when = { questActive = TODO_QUEST("Krol'dok Moulding") },
-          text = "What's that you've got? A mould for a key, and from the stronghold, by the look of it, so it must be important to somebody." },
+          text = "What's that you've got? A mould for a key, and from Krol'dok, by the look of it, so it must be important to somebody." },
         { id = "h_key", when = { questActive = TODO_QUEST("Key Ingredients") },
           text = "Thick leather and iron bars, remember, and as many as I asked for. I'll keep the coals hot until you're back." },
         { id = "h_key_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Key Ingredients"), days = 3 } },
@@ -705,7 +705,7 @@ P:NPC {
         { text = "Working a forge out here can't be easy.", next = "forge" },
         { text = "Will this key really open Krol'dok?", next = "key_after", when = { questDone = TODO_QUEST("Key Ingredients") } },
         { text = "I've worked a forge myself.", next = "xsmith", when = { profession = { name = "Blacksmithing", min = 1 } } },
-        { text = "Fire keeps us warm.", next = "END" },
+        { text = "Keep the fire hot, Kreza.", next = "END" },
       },
     },
     mould = {
@@ -732,8 +732,8 @@ P:NPC {
         { id = "mb_default", text = "You could try, and the whole stronghold would hear you knocking. A key lets you in quiet, and quiet is how you come back out again." },
       },
       choices = {
-        { text = "Quiet is smart. We'll use the key.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
-        { text = "Let them hear us coming. Fear is a weapon too.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Quiet is smart. We'll use the key.", next = "BACK", reply = "Good. Quiet keeps you alive, and the key keeps the door from screaming.", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Let them hear us coming. Fear is a weapon too.", next = "BACK", reply = "Fear is a weapon, yes, but so is a locked door. Make your choice, and don't blame me after.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -761,8 +761,8 @@ P:NPC {
         { id = "xs_default", text = "Then you know iron doesn't lie. Make it in a hurry and it breaks in a hurry, and that's true of a lot more than iron." },
       },
       choices = {
-        { text = "Good work takes time. No shortcuts.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "In war, fast and good enough wins.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good work takes time. No shortcuts.", next = "BACK", reply = "Then you understand iron, and iron understands you. Take your time.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "In war, fast and good enough wins.", next = "BACK", reply = "Fast and good enough breaks at the wrong moment, every time. I'll not make it for you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

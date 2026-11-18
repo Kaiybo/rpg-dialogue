@@ -16,9 +16,9 @@ P:NPC {
   greetings = {
     { id = "g_fire", text = "Warm your hands, {class}. The fire belongs to everyone who passes, as the plains belong to every herd." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The fire is lit, and the ancestors can see their way home. Sit, if you like." },
-    { id = "g_phial", when = { questActive = TODO_QUEST("The Sacred Flame") }, text = "A dryad's phial, filled at the moonwell by the Falfarren. Be gentle with it; the water remembers how it was carried." },
+    { id = "g_phial", when = { questActive = TODO_QUEST("The Sacred Flame") }, text = "Fill the dryad's phial at the moonwell by the Falfarren River, and be gentle with it. The water remembers how it was carried." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you sat by this fire. It burned every night without you, but it's glad of the company." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you carried the phial for me. The fire throws a longer shadow behind you now." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you last sat by this fire. It throws a longer shadow behind you now." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear kind words about you on the rises. They warm an old tauren nearly as well as the fire." },
   },
 
@@ -44,7 +44,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The fire keeps talking, and the ancestors listen, so I might as well join in." },
-        { id = "h_again2", text = "Ask what you will. The evening is long, and the kettle has barely started to grumble." },
+        { id = "h_again2", text = "Ask what you will. The evening is long, and the fire is in no hurry." },
       },
       choices = {
         { text = "Why light the fire every night?", next = "fire" },
@@ -73,8 +73,8 @@ P:NPC {
       big = true,
       lines = { { id = "ce_default", text = "Cities protect us, and I would not tear this one down for anything. But a city that forgets the plains beneath it is only a high place to fall from, so I light the fire, and the rest is up to each of us." } },
       choices = {
-        { text = "The old ways must be kept, whatever the cost.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "People change. Let them find new ways.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The old ways must be kept, whatever the cost.", next = "BACK", reply = "You speak like my grandmother, who kept the fire burning through three hard winters. Only take care the cost is not paid by the young, who never chose it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "People change. Let them find new ways.", next = "BACK", reply = "Perhaps they will, and the Earth Mother is patient with change. But a new trail is still walked on old ground, and I would have them remember that much.", fx = { align = { order = -1 } } },
         { text = "Something else, Zangen.", next = "BACK" },
       },
     },
@@ -88,8 +88,8 @@ P:NPC {
     moonwell = {
       lines = { { id = "m_default", text = "Rau says the artifact is bound in a way that only pure water can loosen, and the moonwells are the purest water in Kalimdor. The night elves would not give it to us, so we must take it gently and hope they forgive us." } },
       choices = {
-        { text = "Taking from a moonwell is still taking.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The elves don't own the water. We need it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Taking from a moonwell is still taking.", next = "BACK", reply = "It is, and I feel the weight of it each time I think of the elves. We will take only what we need, and give thanks to the water as we would to the hunt.", fx = { align = { light = 1 } } },
+        { text = "The elves don't own the water. We need it.", next = "BACK", reply = "The water belongs to the Earth Mother, yes, though the elves have kept it longer than we have had a city. Need is a good reason, but it is not the same as a right.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -15,17 +15,17 @@ P:NPC {
 
   greetings = {
     { id = "g_duty", text = "We have our duties, {class}. Duties to the Horde." },
-    { id = "g_bracers", when = { questActive = TODO_QUEST("Centaur Bracers") }, text = "Marauders and stormseers, around the Lushwater Oasis. Bring me a heap of their bracers." },
-    { id = "g_counter", when = { questActive = TODO_QUEST("Counterattack!") }, text = "They're coming from the west. Hold the bunkers, and kill them until Krom'zar shows his face." },
+    { id = "g_bracers", when = { questActive = TODO_QUEST("Centaur Bracers") }, text = "The Kolkar marauders and stormseers camp around the Lushwater Oasis. Bring me a heap of their bracers as proof of the kills." },
+    { id = "g_counter", when = { questActive = TODO_QUEST("Counterattack!") }, text = "The centaur are coming at us from the west. Hold the bunkers and keep killing them until their warlord, Krom'zar, shows his face." },
     { id = "g_won", when = { questDone = TODO_QUEST("Counterattack!") }, text = "Krom'zar's banner hangs in my burrow now. I look at it every morning, and the morning goes better." },
-    { id = "g_away", when = { away = 14 }, text = "{away} gone. The Kolkar weren't, so you've some catching up to do." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Kolkar haven't, so you've some catching up to do." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into a proper killer since you first came to my camp. The centaur have noticed, believe me." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Word reached me that you've made somebody angry. Save that temper for the Kolkar, {class}." },
   },
 
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
-      text = "A warrior. Good. The Kolkar respect two things, and one of them's a heavy blade." },
+      text = "A warrior. Good. The Kolkar respect a heavy blade more than any treaty." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armor's in pieces. The centaur go for the gaps, so get it mended before you go back out." },
   },
@@ -49,9 +49,9 @@ P:NPC {
           text = "The Kolkar who came at us from the west have kin in Desolace, and the Warchief wants them dealt with. The road is long, so don't dawdle." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kolkar", min = 40 } }, text = "My scouts are running out of Kolkar to count, and they tell me whose work that is. Keep it up, because the ones you leave alive are the ones who learn." },
         { id = "h_kw_resolved", tags = { "news" }, when = { thread = { id = "kolkar_war", state = "resolved" } },
-          text = "Lanti'gah's been insufferable since we let Krom'zar's stragglers go, because the road's been quiet ever since and he won't stop saying so. I'll grant him the quiet, and nothing else." },
+          text = "My troll Lanti'gah has been insufferable since we let Krom'zar's stragglers go, because the road's been quiet ever since and he won't stop saying so. I'll grant him the quiet, and nothing else." },
         { id = "h_kw_soured", tags = { "news" }, when = { thread = { id = "kolkar_war", state = "soured" } },
-          text = "Not one of Krom'zar's riders reached the hills, and my grunts sing about it at night. Lanti'gah doesn't sing, and he's taken to walking the perimeter facing west." },
+          text = "Not one of Krom'zar's riders reached the hills, and my grunts sing about it at night. Lanti'gah, my troll, doesn't sing, and he's taken to walking the perimeter facing west." },
       },
       again = {
         { id = "h_again", text = "What else? I've a war to run, and the Kolkar don't respect talk, only blood." },
@@ -87,8 +87,8 @@ P:NPC {
       big = true,
       lines = { { id = "fe_default", text = "Then the Kolkar either stop their advance or they lash out at us in a foolish strike, and I hope it's the second. A centaur who charges my bunkers is a centaur I don't have to chase across the Barrens." } },
       choices = {
-        { text = "Better they stop. Fewer graves on both sides.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "Let them charge. We'll break them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Better they stop. Fewer graves on both sides.", next = "BACK", reply = "Fewer graves for us, maybe, but the Kolkar don't count graves the way we do. Still, if they pull back from the oases, I'll take the quiet and keep my blade sharp for when it ends.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Let them charge. We'll break them.", next = "BACK", reply = "That's the answer I wanted from you, {class}. Let them hit my bunkers head-on, and we'll stack their bracers higher than the pig pens.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -107,10 +107,10 @@ P:NPC {
       },
     },
     kolkar_op = {
-      lines = { { id = "ko_default", text = "Half the grunts at the Crossroads say so after a few drinks, and the other half say we've enough enemies already. I've fought centaur longer than most of them have been alive, so I'd like to hear it from you: what would you do?" } },
+      lines = { { id = "ko_default", text = "Some of the grunts at the Crossroads say so after a few drinks, and the rest say we've enough enemies already. I've fought centaur longer than most of them have been alive, so I'd like to hear it from you: what would you do?" } },
       choices = {
         { text = "Carry the war to Desolace and finish them.", next = "ko_war", fx = { affinity = 1, align = { light = -1 }, opinion = { centaur = "war" } } },
-        { text = "Hold the oases. Desolace isn't worth the blood.", next = "ko_hold", fx = { align = { light = 1 }, opinion = { centaur = "contain" } } },
+        { text = "Hold the oases here. Desolace isn't worth the blood.", next = "ko_hold", fx = { align = { light = 1 }, opinion = { centaur = "contain" } } },
         { text = "Let the clans fight each other. They hate each other more.", next = "ko_divide", fx = { trait = { practical = 1 }, opinion = { centaur = "divide" } } },
         { text = "They hunted my people for generations. No mercy.", next = "ko_tauren", when = { race = "Tauren" }, fx = { affinity = 1, opinion = { centaur = "hate" } } },
         { text = "That's for wiser heads than mine, Regthar.", next = "BACK" },
@@ -140,7 +140,7 @@ P:NPC {
       },
     },
     lantigah = {
-      lines = { { id = "la_default", text = "Troll, sharp eyes, sharper tongue. He walks the perimeter at night and complains about the pigs, and I've never once had a centaur reach my door, so he can complain all he likes." } },
+      lines = { { id = "la_default", text = "He's a troll with sharp eyes and a sharper tongue, and he keeps my camp. He walks the perimeter at night and complains about the pigs, and I've never once had a centaur reach my door, so he can complain all he likes." } },
       choices = { { text = "Something else, Regthar.", next = "BACK" } },
     },
     fighting = {
@@ -152,7 +152,7 @@ P:NPC {
     },
     stragglers = {
       big = true,
-      lines = { { id = "st_default", text = "Then say your piece, because I've grunts saddling wolves as we speak. A centaur who runs home is a centaur who comes back one day, and I'd rather not meet him twice, whatever Lanti'gah says about sparing them." } },
+      lines = { { id = "st_default", text = "Then say your piece, because I've grunts saddling wolves as we speak. A centaur who runs home is a centaur who comes back one day, and I've no wish to meet him twice, whatever Lanti'gah says about sparing them." } },
       choices = {
         { text = "Let them run. Fear will hold the road better than graves.", next = "st_let",
           fx = { thread = { id = "kolkar_war", state = "resolved" }, affinity = -1, align = { light = 1 } },

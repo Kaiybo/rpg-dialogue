@@ -28,7 +28,7 @@ P:NPC {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" }, faction = "Alliance" },
       text = "Now there's a soldier's frame! The Guard could use a hundred like ye, an' I'd take the lot." },
     { id = "n_exalted", cat = "reputation", when = { reputation = { faction = "Stormpike Guard", min = "exalted" } },
-      text = "A legend o' the Guard, standin' at my post! Ye'll forgive me if I salute, for I don't do it often." },
+      text = "A legend o' the Guard, standin' at my post! I'll salute ye for that, an' I don't do it often." },
   },
 
   start = "hello",
@@ -131,8 +131,8 @@ P:NPC {
           text = "Between us, aye, they've a better claim tae the snow than we do, but we've a better claim tae the iron under it. Wars have started over less, an' this one's no' stoppin' for my opinion." },
       },
       choices = {
-        { text = "Ironforge's claim is just. We hold the valley.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Claims aside, iron is iron. Take what we can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Ironforge's claim is just. We hold the valley.", next = "BACK", reply = "That's the spirit, an' ye'll make a fine Stormpike, so take your insignia an' keep your head down when the Frostwolf riders come over the ridge.", fx = { align = { honor = 1 } } },
+        { text = "Claims aside, iron is iron. Take what we can.", next = "BACK", reply = "Hmph, Ironforge didnae send us up there for iron alone, but I'll not turn down a strong arm for the sake of a speech, so sign your name an' get warm.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -355,8 +355,8 @@ P:NPC {
         { id = "vt_default", text = "Born to Durotan and Draka, and taken from them as a babe when they were murdered. He came back to us grown, and Drek'Thar knew him, and the clan has followed him since." },
       },
       choices = {
-        { text = "Then the valley is his birthright. We hold it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Birthrights mean nothing. Hold it because it's strong ground.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then the valley is his birthright. We hold it.", next = "BACK", reply = "You understand, then, and the clan will be glad of you, because the Frostwolves have bled for that snow longer than the dwarves have dug in it.", fx = { align = { honor = 1 } } },
+        { text = "Birthrights mean nothing. Hold it because it's strong ground.", next = "BACK", reply = "Strong ground is reason enough for a soldier, I suppose, but do not say that around Drek'Thar, for he would tell you the ground remembers whose it is.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -384,8 +384,8 @@ P:NPC {
       },
       choices = {
         { text = "What do you make of the dwarves, Warmaster?", next = "opn_dwarves" },
-        { text = "Drive them out. No terms until they go.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Talk is cheaper than war. Offer terms.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Drive them out. No terms until they go.", next = "BACK", reply = "That is the Frostwolf answer, and the one I would give, so go and show the Stormpike what it means when an orc stops talking.", fx = { align = { order = -1 } } },
+        { text = "Talk is cheaper than war. Offer terms.", next = "BACK", reply = "You speak like a diplomat, and Thrall might even agree, but the Stormpike came with picks and cannons, not with words, and I have not heard them offer any.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

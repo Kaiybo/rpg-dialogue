@@ -78,8 +78,8 @@ P:NPC {
         { id = "s2_default", text = "That is the harder storm. Fear, and grief, and the anger that wants to break something because something has broken you. Some druids think strength is mastering those things, and some think it is letting them pass through you, and I have known great druids of both kinds." },
       },
       choices = {
-        { text = "Master them. A bear that loses its temper is only a beast.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "Let them pass through. Holding them only makes them heavier.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Master them. A bear that loses its temper is only a beast.", next = "BACK", reply = "Then you will be a fearsome bear, child, and a lonely one. Walk the path you have chosen with care.", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Let them pass through. Holding them only makes them heavier.", next = "BACK", reply = "That is the way of the old willows in the storm, and it has kept many druids whole. Walk it with care.", fx = { affinity = 1, align = { order = -1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,8 +109,8 @@ P:NPC {
         { id = "me_default", text = "I would have her suffering ended, and I cannot do it myself. I have asked it of the young ones who come to learn my shape, because there is no strength in the bear's way that does not also know mercy. Tell me, child: is it mercy to end a life that has lost itself, or should one wait, in case it finds its way back?" },
       },
       choices = {
-        { text = "End it. Suffering with no way back is no life.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Wait. Nobody should decide another's life is spent.", next = "BACK", fx = { affinity = -1, align = { light = -1 }, trait = { cautious = 1 } } },
+        { text = "End it. Suffering with no way back is no life.", next = "BACK", reply = "You speak as one who has seen suffering, child. Go gently, if you go.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Wait. Nobody should decide another's life is spent.", next = "BACK", reply = "That is the hope I cling to as well, and it has grown very thin. I will wait a little longer, then.", fx = { affinity = -1, align = { light = -1 }, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -125,7 +125,7 @@ P:NPC {
     },
     xcat = {
       lines = {
-        { id = "xc_default", text = "Saeyleenan's shape, sleek and quick, and it suits you, though I'd not tell the cat I said so. The cat teaches you when to strike and the bear teaches you when to stand, and a druid who knows only one of those will not live to learn the other." },
+        { id = "xc_default", text = "The shape of Saeyleenan, the Great Windborne Cat, sleek and quick, and it suits you, though I'd not tell the cat I said so. The cat teaches you when to strike and the bear teaches you when to stand, and a druid who knows only one of those will not live to learn the other." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -202,7 +202,7 @@ P:NPC {
     { id = "n_alaketh", cat = "origin", when = { origin = "skyborne_former_alaketh" },
       text = "I know that face. You sat three rows behind me at Lorthuna's sermons and fell asleep during the long one. Your hair's grown back nicely." },
     { id = "n_peace", cat = "origin", when = { origin = "skyborne_peacekeeper" },
-      text = "A Peacekeeper. Before you reach for anything, I've never hurt a soul, and I can't say that about the cut of my hems." },
+      text = "A Peacekeeper. Before you reach for anything, I've never hurt a soul; I only sew." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest, in robes, saying prayers. You'll get looks on this isle, friend, and I say that as a man in grey robes who also gets looks." },
   },
@@ -240,8 +240,8 @@ P:NPC {
         { id = "su_default", text = "That's what I tell myself, most nights. The Peacekeepers might call it something else, and so might the families of the people the cult hurt, and I've never quite had the nerve to ask them." },
       },
       choices = {
-        { text = "You survived. Nobody has the right to judge that.", next = "BACK", fx = { affinity = 2, align = { honor = -1 }, trait = { kind = 1 } } },
-        { text = "You clothed them while they killed. That counts for something.", next = "BACK", fx = { affinity = -2, align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "You survived. Nobody has the right to judge that.", next = "BACK", reply = "Thank you, friend. I'll try to believe you, though some nights I can't.", fx = { affinity = 2, align = { honor = -1 }, trait = { kind = 1 } } },
+        { text = "You clothed them while they killed. That counts for something.", next = "BACK", reply = "It does, and I'll carry it for the rest of my days. Thank you for being honest with me.", fx = { affinity = -2, align = { honor = 1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -275,7 +275,7 @@ P:NPC {
     },
     xalaketh = {
       lines = {
-        { id = "xa_default", text = "I know you did; I sewed the seams on yours. You've walked away from it, and I'm still standing here in grey, so tell me honestly, is there anything on the other side worth leaving for?" },
+        { id = "xa_default", text = "I know you did; I sewed the seams on yours. You've walked away from it, and I'm still standing here in grey, so tell me, is there anything on the other side worth leaving for?" },
       },
       choices = {
         { text = "There is. Take off the robes, Zendraas.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -314,7 +314,7 @@ P:NPC {
 
   notice = {
     { id = "n_young", cat = "kin", when = { race = "Skyborne", maxLevel = 6 },
-      text = "Aetheen sent you, didn't she? She sends me the ones with that look about them, the restless one. I had it too, and it never went away." },
+      text = "Elder Aetheen sent you, didn't she? She sends me the ones with that look about them, the restless one. I had it too, and it never went away." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! I hear your people can make camp in a snowdrift with nothing but a hammer and a sour temper. Teach me that one before you go." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -384,8 +384,8 @@ P:NPC {
         { id = "gl_default", text = "I'll be honest, a bit of fortune wouldn't go amiss, and a bit of glory never hurt anyone either. But I've met adventurers who wander for the joy of it and adventurers who wander to bring something home, and I've never decided which kind I am." },
       },
       choices = {
-        { text = "For the joy of it. The road is reason enough.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "To bring something home. The isle needs us.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, trait = { kind = 1 } } },
+        { text = "For the joy of it. The road is reason enough.", next = "BACK", reply = "That's what I'd like to say, and most days I mean it. Sit down, the fire's warm.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "To bring something home. The isle needs us.", next = "BACK", reply = "That's the better reason, I'll admit, and the one I'd like to be true. Come back with something.", fx = { affinity = 1, align = { order = 1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -399,7 +399,7 @@ P:NPC {
     },
     xoutsider = {
       lines = {
-        { id = "xo_default", text = "I don't doubt it, and I'd love to hear about every one of them. Tell me, what's the worst night you ever spent under the stars down there?" },
+        { id = "xo_default", text = "I don't doubt it, and I'd love to hear them all. Tell me, what's the worst night you ever spent under the stars down there?" },
       },
       choices = {
         { text = "In the rain, with a wolf pack circling.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },

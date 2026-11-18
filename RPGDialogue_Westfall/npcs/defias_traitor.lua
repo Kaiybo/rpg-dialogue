@@ -20,8 +20,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Because they'd have hanged me sooner or later, and the Militia pays better for what I know. Don't look at me like that; your spirits can judge me if they want." } },
       choices = {
-        { text = "You did right to come forward. Now see it through.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A man who sells one crew will sell the next.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You did right to come forward. Now see it through.", next = "BACK", reply = "I mean to, if my nerve holds and my neck does too. Just walk close, will you, because every hedge looks like a Defias to me now.", fx = { align = { honor = 1 } } },
+        { text = "A man who sells one crew will sell the next.", next = "BACK", reply = "Maybe so, and you'd be fool not to think it. But the Brotherhood's the only crew I've ever sold, and they'd sooner kill me than pay me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -29,8 +29,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "In threes, with one in front to keep you busy and two coming round the side with knives. They'll pick off the one who stops to help a friend, so keep moving and don't look back, whatever you hear." } },
       choices = {
-        { text = "I'll protect anyone who falls, knives or not.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then I'll keep moving and let the slow ones fall.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll protect anyone who falls, knives or not.", next = "BACK", reply = "Then you're a better friend than any I had in the Brotherhood. Just don't stop for me, because I'll be running too fast to fall.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll keep moving and let the slow ones fall.", next = "BACK", reply = "Cold, but it's the only way through, and I'll not be the slow one, I promise you that. My legs have been practising.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -38,27 +38,27 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Where the road narrows by the old farms, and the hedges are thickest. They'll have a man up a tree and two in the ditch, and they'll let you pass, then take me from behind." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} smells them before we see them, I hope. If its hackles go up, trust it more than me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Where the road narrows by the old farms and the hedges are thickest, with a man up a tree and two in the ditch. Your {pet} will smell them before we see them, I hope, so if its hackles go up, trust it more than me." },
       },
       choices = {
-        { text = "I'll get you to Moonbrook alive, traitor or not.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll get you there, but my beast comes first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll get you to Moonbrook alive, traitor or not.", next = "BACK", reply = "Traitor or not, he says, and I'll take it gladly. Get me there breathing, and you can call me anything you like.", fx = { align = { honor = 1 } } },
+        { text = "I'll get you there, but my beast comes first.", next = "BACK", reply = "Wonderful, I'm second to a beast, and I suppose that's fair. Tell it to bite the man in the tree first, will you?", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "Pillagers, they call them, and they throw fire about like it costs nothing, which to them it doesn't. Where they learned it I never asked, but they've no love for Stormwind's towers, I'll tell you that for free." } },
+      lines = { { id = "xma_default", text = "They do: Pillagers, they call them, and they throw fire about like it costs nothing, which to them it doesn't. Where they learned it I never asked, but they've no love for Stormwind's towers, I'll tell you that for free." } },
       choices = {
-        { text = "Then they've betrayed the craft as well as the kingdom.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Stormwind threw away a lot of good people. That's on the city.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then they've betrayed the craft as well as the kingdom.", next = "BACK", reply = "Betrayed it gladly, I'd say, and they'll tell you they had reasons. Most of them were turned away from the towers same as the masons were from their wages.", fx = { align = { order = 1 } } },
+        { text = "Stormwind threw away a lot of good people. That's on the city.", next = "BACK", reply = "It is, and I'll not pretend otherwise, though it doesn't make me sleep any easier. The city left us, and then we left ourselves.", fx = { align = { order = -1 } } },
         { text = "Where is VanCleef now?", next = "vancleef" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "You've a whiff of sulphur about you, friend, and that frightens me some, I don't mind saying. But the Brotherhood know my face and my name, and you only know my price, so I'll take my chances with you." } },
       choices = {
-        { text = "Talk straight with me and you've nothing to fear.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Sell me out and you'll learn what I keep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Talk straight with me and you've nothing to fear.", next = "BACK", reply = "Straight is all I've got left, friend, so you'll have it. I'd only ask you keep that whiff to yourself on the road.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sell me out and you'll learn what I keep.", next = "BACK", reply = "I'll not sell you, I swear it on what's left of my good name. Not that it's worth much, and not that I'd dare.", fx = { align = { honor = -1 } } },
         { text = "Why did you turn on them?", next = "why" },
       },
     },
@@ -66,8 +66,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Peace? If VanCleef's lot catch me on that road, they won't wait while I make it. Say something over me if it pleases you, but say it walking." } },
       choices = {
-        { text = "There's forgiveness for men who turn from wrong. Even you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Forgiveness is wasted on a turncoat. Just walk.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "There's forgiveness for men who turn from wrong. Even you.", next = "BACK", reply = "That's a kind thing to say to a man like me, and I'll hold on to it. Walk faster, though, and say the rest when we're through.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Forgiveness is wasted on a turncoat. Just walk.", next = "BACK", reply = "Walking, aye, I've been walking since the day I ran. You don't have to forgive me, just get me past the farms.", fx = { align = { light = -1 } } },
         { text = "Never mind. Let's go over the road again.", next = "BACK" },
       },
     },
@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "You shouldn't, not all the way, and I'd think less of you if you did. I sold them out because they stopped being masons with a grudge and started being killers, and I'd sooner hang a turncoat than live a murderer." } },
       choices = {
-        { text = "You turned from murder. I'll guard you with my life for that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A man who betrays once betrays twice. I'll be watching you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You turned from murder. I'll guard you with my life for that.", next = "BACK", reply = "Light's mercy, I didn't expect that from a paladin. I'll walk straight and keep my hands where you can see them, all the way to Moonbrook.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A man who betrays once betrays twice. I'll be watching you.", next = "BACK", reply = "Watch me all you like, then, and I'll watch the hedges. Between us, we might both live to Moonbrook.", fx = { align = { honor = -1 } } },
         { text = "Something else, before we go.", next = "BACK" },
       },
     },
@@ -84,15 +84,15 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "If you can do that, then you'll spot the lookouts VanCleef keeps in the Moonbrook houses before they spot me. Only don't leave me alone on the road while you're prowling, because I'm the one they want." } },
       choices = {
-        { text = "I'll stay at your side, as I promised Stoutmantle.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If they catch you, that's the price of your choices.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stay at your side, as I promised Stoutmantle.", next = "BACK", reply = "Then I'll stop jumping at shadows, mostly. Stoutmantle was right to trust you, and I'm glad of it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If they catch you, that's the price of your choices.", next = "BACK", reply = "And a heavy price it'd be, so I'll thank you to stay close anyway. Prowl if you must, but don't prowl far.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", text = "Stoutmantle says you're the one taking me to Moonbrook. I'll show you where the Brotherhood hides, but you keep me alive on the road, because they'll be watching for me." },
+        { id = "h_default", text = "Gryan Stoutmantle says you're the one taking me to Moonbrook. I'll show you where the Brotherhood hides, but you keep me alive on the road, because they'll be watching for me." },
         { id = "h_active", when = { questActive = TODO_QUEST("The Defias Brotherhood") },
           text = "Right, we're doing this, then. Stay close, keep your blade out and don't stop for anything, not even if they call my name." },
         { id = "h_rogue", when = { class = "ROGUE" },
@@ -152,22 +152,22 @@ P:NPC {
       },
     },
     why_farm = {
-      lines = { { id = "wf_default", text = "Burned the house with the old man still arguing inside it, over a cart of turnips. I held the torches, and I've not slept right since." } },
+      lines = { { id = "wf_default", text = "They burned the house with the old man still arguing inside it, over a cart of turnips. I held the torches, and I've not slept right since." } },
       choices = {
-        { text = "Then what's your price for the truth?", next = "why_price" },
+        { text = "What do you want in return for helping us?", next = "why_price" },
         { text = "Something else.", next = "BACK" },
       },
     },
     why_price = {
       lines = { { id = "wp_default", text = "A pardon from Stoutmantle and a road out of Westfall, that's all. He's promised me both, though I've learned not to trust promises much." } },
       choices = {
-        { text = "You held the torches. You deserve the gallows.", next = "BACK", fx = { align = { order = 1 }, affinity = -2 } },
-        { text = "A man who turns from evil deserves a second chance.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "You held the torches. You deserve the gallows.", next = "BACK", reply = "Maybe I do, and I've thought about it every night since I ran. But I'll be worth more to Westfall alive than swinging.", fx = { align = { order = 1 }, affinity = -2 } },
+        { text = "A man who turns from evil deserves a second chance.", next = "BACK", reply = "That's all I'm asking for, though I've no right to it. If I get out of Westfall, I'll not waste it.", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     moonbrook = {
-      lines = { { id = "m_default", text = "An old smithy that looks empty and isn't, and under it a tunnel down into the mines. That's where VanCleef keeps the whole operation, ships and all, if you'll believe it." } },
+      lines = { { id = "m_default", text = "There's an old smithy that looks empty and isn't, and under it a tunnel down into the mines. That's where VanCleef keeps the whole operation, ships and all, if you'll believe it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     vancleef = {
@@ -185,7 +185,7 @@ P:NPC {
     the_stockade = { { id = "tp_the_stockade", text = "The Stockade's full of Defias who got caught, and the ones inside are running the place now, I've heard. I'd sooner die out here than end up in a cell next to someone who knows what I've done." } },
     syndicate = { { id = "tp_syndicate", text = "VanCleef did business with the Syndicate up north, or tried to, and they're worse than us, believe it or not. At least we started honest." } },
     si7 = { { id = "tp_si7", text = "SI:7's had eyes on the Brotherhood since the beginning, and I'd bet my last copper one of us is theirs already. That's why I sleep with my back to a wall and my boots on." } },
-    defias = { { id = "tp_defias", text = "Good men turned bad, and bad men who never needed turning. I was somewhere in between." } },
+    defias = { { id = "tp_defias", text = "They're good men turned bad, and bad men who never needed turning, and I was somewhere in between." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, can we just go?" } },
   },
 }

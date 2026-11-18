@@ -27,16 +27,16 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They mind it about as much as Curly minds being flattened, I'd wager. Turner says trees don't have feelings, but Turner's never had one fall on him." } },
+      lines = { { id = "xdsham_default", text = "If they do, they get their own back; one's flattened Curly twice this month. Turner says trees don't have feelings, but Turner's never had one fall on him." } },
       choices = {
-        { text = "Thank the trees before you cut them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Trees are timber. Cut them and be done.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Thank the trees before you cut them.", next = "BACK", reply = "I do, quietly, when Turner isn't looking. It feels daft, but it feels dafter not to.", fx = { align = { light = 1 } } },
+        { text = "Trees are timber. Cut them and be done.", next = "BACK", reply = "That's Turner's view, word for word. I'll keep my quiet thanks to myself, then.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Name's Hurley. I cut trees for Turner and keep Curly from getting himself killed, and the trees are the easy part, though somebody keeps raiding our woodpiles." },
+        { id = "h_default", key = true, text = "Name's Hurley. I cut trees for Halligan Turner and keep my partner Curly from getting himself killed, and the trees are the easy part." },
         { id = "h_helping", tags = { "news" }, when = { questActive = TODO_QUEST("Helping Hands") },
           text = "Come on, come on. Curly's in trouble out there and we haven't much time." },
         { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Helping Hands"), days = 3 } },
@@ -80,7 +80,7 @@ P:NPC {
       choices = { { text = "That's a good reason.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
     raids = {
-      lines = { { id = "r_default", text = "Somebody's been at the woodpiles at night, and spear-length pieces have gone missing. Halligan thinks it's the Horde. I think so too, but I like to let Halligan be right first." } },
+      lines = { { id = "r_default", text = "Somebody's been at the woodpiles at night, and spear-length pieces have gone missing. Halligan, the camp boss, thinks it's the Horde. I think so too, but I like to let Halligan be right first." } },
       choices = {
         { text = "I'll keep watch.", next = "BACK", fx = { affinity = 1, standing = { farholde = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -96,10 +96,10 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdr_default", text = "Not mine, no, they're Turner's, or the Brotherhood's, or Stormwind's if anyone there remembers us. But the keep needs walls and the walls need timber, and I'd rather cut a tree than bury a soldier." } },
+      lines = { { id = "xdr_default", text = "Not mine, no, they're Turner's, or the Brotherhood's, or Stormwind's if anyone there remembers us. But the keep needs walls and the walls need timber, and every tree I fell is a soldier I don't have to bury." } },
       choices = {
-        { text = "Walls first. The forest will grow back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Take what you need, and not one tree more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Walls first. The forest will grow back.", next = "BACK", reply = "That's what Turner says, and he's the one paying. The forest's patient, I suppose.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Take what you need, and not one tree more.", next = "BACK", reply = "I'd like that, and so would the deer. Tell Turner, though, not me.", fx = { align = { order = -1 } } },
       },
     },
     xwarcl = {
@@ -108,8 +108,8 @@ P:NPC {
         { id = "xwc_default", text = "Cultists sometimes, Horde raiders after the woodpiles, and whatever eats the deer, which I've never seen and don't want to. Curly says he could take any of them, and that's exactly what worries me." },
       },
       choices = {
-        { text = "I'll stand with Curly. Nothing gets past me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let Curly get bitten, then. He'll learn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll stand with Curly. Nothing gets past me.", next = "BACK", reply = "Thank you. Curly's brave, but he'd stand there and let a raider take the axe out of his hands.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let Curly get bitten, then. He'll learn.", next = "BACK", reply = "Bitten, he'd only laugh it off and go back to felling. He never learns, that's the trouble.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -119,8 +119,8 @@ P:NPC {
         { id = "xpa_default", text = "It would for me. Curly's strong as an ox, but oxen get stuck in bogs too, and I've nothing to keep him safe but nagging, and a blessing's better than nagging." },
       },
       choices = {
-        { text = "The Light watches over good men. I'll bless him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Blessings won't save him. Teach him some caution.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light watches over good men. I'll bless him.", next = "BACK", reply = "Bless him, then, and I'll owe you for it. He'll not even notice, but I will.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Blessings won't save him. Teach him some caution.", next = "BACK", reply = "I've tried for three years, friend, and he still walks into bogs. A blessing might stick better.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,8 +130,8 @@ P:NPC {
         { id = "xhc_default", text = "Like wet fur and campfire, down by the north woodpiles, the mornings after things go missing. Halligan says that's the Horde, and I expect he's right, but I wish they'd wash." },
       },
       choices = {
-        { text = "I'll track them back and warn the Brotherhood.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll track them and deal with it myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll track them back and warn the Brotherhood.", next = "BACK", reply = "Good. The Brotherhood will want to know, and Turner will want them to know first.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll track them and deal with it myself.", next = "BACK", reply = "Just come back and tell me what it was. I'd like to sleep without wondering.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -141,8 +141,8 @@ P:NPC {
         { id = "xro_default", text = "Would you? Halligan pays the lookout in stew, so I can't promise you much, but nobody hears a raider better than someone who walks the way you do." },
       },
       choices = {
-        { text = "I'll catch them alive, for the Brotherhood to question.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If they come, they won't be leaving.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll catch them alive, for the Brotherhood to question.", next = "BACK", reply = "Alive's better, aye. The Brotherhood will have questions, and so will Turner.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they come, they won't be leaving.", next = "BACK", reply = "Then I'll sleep easier, and I'll not ask what happened. Stew's on the fire.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -152,8 +152,8 @@ P:NPC {
         { id = "xap_default", text = "Not today, thank the Light. Curly's always cutting himself, though, and he won't let anyone look at it till it's gone green, so if you've anything for stubborn men, that's what we need." },
       },
       choices = {
-        { text = "I'll see to him, whether he likes it or not.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A grown man can tend his own cuts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll see to him, whether he likes it or not.", next = "BACK", reply = "He'll not like it, but he'll thank you after. Maybe.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A grown man can tend his own cuts.", next = "BACK", reply = "He can, but he doesn't, and then he bleeds on the timber. Turner hates that.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -163,8 +163,8 @@ P:NPC {
         { id = "xmg_default", text = "Because I spend it all on Curly. Every tree he fells lands a foot from his head, and every time I think, well, there goes another bit of luck." },
       },
       choices = {
-        { text = "Luck runs out. Teach him to fell properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Some men are just lucky. Let him be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Luck runs out. Teach him to fell properly.", next = "BACK", reply = "I've tried, and he nods, and then a tree lands a foot from his head again. You try.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some men are just lucky. Let him be.", next = "BACK", reply = "Lucky, aye, so far. I just wish he'd spread it around a bit.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -174,8 +174,8 @@ P:NPC {
         { id = "xlk_default", text = "A little, yes, no offense meant. Curly would want to pet it, and then I'd have to stop him, and I'm tired enough already." },
       },
       choices = {
-        { text = "Don't worry. It stays on a short leash.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "It's harmless, unless I say otherwise.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Don't worry. It stays on a short leash.", next = "BACK", reply = "Good. Curly will still want to pet it, but at least I'll know it won't bite.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's harmless, unless I say otherwise.", next = "BACK", reply = "Unless you say otherwise is what worries me. Keep it away from Curly, please.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -203,7 +203,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "If you're buying, talk. If you're standing around, there's an axe, and my blisters have blisters." },
+    { id = "g_default", text = "If you're buying timber, talk. If you're just standing around, there's an axe over there." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Pick up a saw or pick a direction." },
   },
 
@@ -218,8 +218,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I mind anyone who's not working. If you can keep the cultists off the timber, you can talk to the trees all you like." } },
       choices = {
-        { text = "I'll keep the cultists off your timber.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The spirits don't work for loggers, Turner.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep the cultists off your timber.", next = "BACK", reply = "Then talk to the trees all you like, and I'll stop minding. The cultists are worse than any spirits.", fx = { align = { order = 1 } } },
+        { text = "The spirits don't work for loggers, Turner.", next = "BACK", reply = "No, but they don't pay rent either. Keep out of the way of the axes, at least.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -227,7 +227,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Halligan Turner. This camp feeds Farholde its timber, the Brotherhood keeps the cultists off it, mostly, and I keep the loggers off each other." },
         { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Helping Hands"), days = 3 } },
-          text = "You brought the kid back. He's a good worker when he isn't being an idiot, so... thanks, and that's all you're getting." },
+          text = "You brought Curly back. He's a good worker when he isn't being an idiot, so... thanks, and that's all you're getting." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. If you're here to bless the trees, they're getting cut down anyway, so save your breath." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, good. My meat store keeps getting raided, and my lads couldn't track a cart down a road." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "I know your sort. Keep your hands where I can see them when you're near the payroll." },
@@ -267,7 +267,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     brotherhood = {
-      lines = { { id = "b_default", text = "They pay in silver when they have it and in promises when they don't, and I've had more promises than silver this year. Brant keeps his, eventually." } },
+      lines = { { id = "b_default", text = "They pay in silver when they have it and in promises when they don't, and I've had more promises than silver this year. Commander Brant keeps his promises, eventually." } },
       choices = {
         { text = "Is their protection worth the silver?", next = "bh_ask", fx = { learn = { "brotherhood_horse" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "brotherhood_horse" } } },
@@ -276,7 +276,7 @@ P:NPC {
     -- Opinion pass: Halligan asks the player how he should deal with the raids.
     bh_ask = {
       big = true,
-      lines = { { id = "bq_default", text = "Ask me that when the Horde stops raiding my woodpiles. You've seen both banks of the river, so you tell me: do I keep paying the Brotherhood, or make my own peace with the orcs and save the silver?" } },
+      lines = { { id = "bq_default", text = "Some months it is and some it isn't, with the Horde still raiding my woodpiles. You've seen both banks of the river, so you tell me: do I keep paying the Brotherhood, or make my own peace with the orcs and save the silver?" } },
       choices = {
         { text = "Pay the Brotherhood. They're all that stands between you and Rog'mar.", next = "bh_ask_pay", fx = { opinion = { brotherhood_horse = "trust" }, align = { order = 1 }, affinity = 1 } },
         { text = "Make your own peace. A woodpile isn't worth a life.", next = "bh_ask_peace", fx = { opinion = { peace = "for" }, align = { order = -1 } } },
@@ -314,11 +314,11 @@ P:NPC {
     xapala = {
       big = true,
       lines = {
-        { id = "xpa_default", text = "Every week. Axes slip, trees roll, and Curly exists, so I send them up to the keep, and Rowland sends them back with a lecture for me. Stay a day if you like; you'd save me the lecture." },
+        { id = "xpa_default", text = "Every week. Axes slip, trees roll, and Curly exists, so I send them up to the keep, and Sister Rowland sends them back with a lecture for me. Stay a day if you like; you'd save me the lecture." },
       },
       choices = {
-        { text = "I'll stay. Your lads deserve better care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Better tools mean fewer accidents. That's your job, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll stay. Your lads deserve better care.", next = "BACK", reply = "Good. They'll grumble, and they'll be glad of you. Rowland will too.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better tools mean fewer accidents. That's your job, not mine.", next = "BACK", reply = "Better tools cost money I haven't got, and Curly would find a way to cut himself on a spoon. Suit yourself.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -328,8 +328,8 @@ P:NPC {
         { id = "xhc_default", text = "Something with four legs and no manners, I'd guess. The Horde takes the wood, but it doesn't take the bacon, and the bacon's going too, so find out what, and I'll owe you." },
       },
       choices = {
-        { text = "I'll track it and drive it off.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'll track it down and skin it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll track it and drive it off.", next = "BACK", reply = "Good. Drive it off and the lads will stop jumping at shadows.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll track it down and skin it.", next = "BACK", reply = "Skin it, and bring me the hide. We'll call it the camp's trophy.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -339,8 +339,8 @@ P:NPC {
         { id = "xro_default", text = "Worried? I've got eleven men and one silver box, and I count both twice a day. You do the sums on which one keeps me up at night." },
       },
       choices = {
-        { text = "Your silver's safe from me, Turner.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A box like that wants a better lock.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your silver's safe from me, Turner.", next = "BACK", reply = "Glad to hear it. I'll still count the box twice tonight, mind.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A box like that wants a better lock.", next = "BACK", reply = "It does, and so do I, but Farholde's locks are dear. I'll make do with counting.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -350,8 +350,8 @@ P:NPC {
         { id = "xap_default", text = "Looked after? They're fed, they're paid, mostly, and they're alive, which out here is the best I can do. If you want to do better, there's a bucket and bandages by the saw pit." },
       },
       choices = {
-        { text = "Then I'll do better. Show me the bucket.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fed and paid is enough. Grown men mend.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll do better. Show me the bucket.", next = "BACK", reply = "Then you're welcome to try, and you'll find the bucket by the stumps. The lads will be grateful.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fed and paid is enough. Grown men mend.", next = "BACK", reply = "That's my view too, mostly. They're tougher than they look.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -361,8 +361,8 @@ P:NPC {
         { id = "xmg_default", text = "Because the whole camp is dry timber and sawdust, and one careless spark puts me out of business by suppertime. The cultists tried it once, and the lads put it out with their lunch." },
       },
       choices = {
-        { text = "Fair. I'll keep my spells cold here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A careful mage doesn't start fires by accident.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair. I'll keep my spells cold here.", next = "BACK", reply = "Thank you. Cold spells I can live with, and so can the sawdust.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A careful mage doesn't start fires by accident.", next = "BACK", reply = "Careful, yes, and the last careful mage burnt my tent. Keep it cold, please.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -372,8 +372,8 @@ P:NPC {
         { id = "xlk_default", text = "Ha! If it can, I'll pay it in stew, same as everyone. If it can't, keep it out of the sawdust, because I don't want to know what it does when it's bored." },
       },
       choices = {
-        { text = "It'll haul logs. Better than what it usually does.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My servant isn't for hire, Turner.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It'll haul logs. Better than what it usually does.", next = "BACK", reply = "It'll haul logs? Then it's the hardest worker here, and I'll pay it in stew like the rest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My servant isn't for hire, Turner.", next = "BACK", reply = "Not for hire, then, and not near my sawdust either. We'll get along fine.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -383,8 +383,8 @@ P:NPC {
         { id = "xdr_default", text = "When I can, and I can't often. Farholde needs walls more than the glades need saplings, and I'll plant when the war's done, if anyone ever tells me when that is." },
       },
       choices = {
-        { text = "Plant now. The glades won't wait for peace.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Walls first. Saplings can wait.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Plant now. The glades won't wait for peace.", next = "BACK", reply = "You're right, and I know it. I'll plant a few saplings this spring, whatever the keep says.", fx = { align = { light = 1 } } },
+        { text = "Walls first. Saplings can wait.", next = "BACK", reply = "That's how I see it, and Farholde agrees. The glades can wait a season.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -425,8 +425,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They walk the rows all night and never stop. If the earth can feel them, I hope it hates them as much as I do." } },
       choices = {
-        { text = "Stay and fight for the grange, Benjy.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Leave the grange. Fields can be planted again.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stay and fight for the grange, Benjy.", next = "BACK", reply = "I'm trying, I am, but there's only me and the porch. If you're staying too, I'll stay longer.", fx = { align = { order = 1 } } },
+        { text = "Leave the grange. Fields can be planted again.", next = "BACK", reply = "Maybe they can, but my father planted these. I'll not leave them to the reapers yet.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -500,8 +500,8 @@ P:NPC {
         { id = "xwc_default", text = "Too many to count from the porch, and I've tried. Every one you break, another seems to turn up the next week, though I couldn't tell you from where." },
       },
       choices = {
-        { text = "I'll clear the near rows first, one at a time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll wade in and smash every one I see.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll clear the near rows first, one at a time.", next = "BACK", reply = "Thank you. One row at a time is more than I've managed in months.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll wade in and smash every one I see.", next = "BACK", reply = "Then I'll watch from the porch and cheer you on. Mind the blades; they don't stop.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -511,8 +511,8 @@ P:NPC {
         { id = "xpa_default", text = "Couldn't say. They're machines, and I don't know that the Light pays much mind to machines, but it might give a man the courage to walk out past the fence, and that'd be something." },
       },
       choices = {
-        { text = "Courage is the Light's gift. I'll walk out with you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Courage won't stop a blade. Stay behind the fence.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Courage is the Light's gift. I'll walk out with you.", next = "BACK", reply = "Would you? Then maybe I'll find the nerve after all. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Courage won't stop a blade. Stay behind the fence.", next = "BACK", reply = "You're right, and I'll stay behind it. I'm not brave, only stubborn.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -522,8 +522,8 @@ P:NPC {
         { id = "xhc_default", text = "Up the hills, past the woods, where it's quiet. The reapers cut anything that moves in the rows, and the deer learned that faster than we did." },
       },
       choices = {
-        { text = "Then leave them be. They've earned some peace.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll bring one back for your table anyway.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Then leave them be. They've earned some peace.", next = "BACK", reply = "I'd like that. Something on this farm should get to rest.", fx = { align = { light = 1 } } },
+        { text = "I'll bring one back for your table anyway.", next = "BACK", reply = "That's kind of you, though I'd rather the deer kept their peace. Still, I'll not say no to supper.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -533,8 +533,8 @@ P:NPC {
         { id = "xro_default", text = "Sometimes, and that's the worst of it. One came right up to the porch last month and stood there clicking till dawn, and I sat inside with the poker across my knees the whole night." },
       },
       choices = {
-        { text = "Send for me next time. You shouldn't face that alone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You should have fought it. Sitting doesn't help.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Send for me next time. You shouldn't face that alone.", next = "BACK", reply = "I will, I promise. I sat there shaking for an hour, and I'd rather not do it again.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You should have fought it. Sitting doesn't help.", next = "BACK", reply = "With what? A rake? I'd be in pieces in the rows. But maybe you're right.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -544,8 +544,8 @@ P:NPC {
         { id = "xap_default", text = "Because of the reapers, mostly, and the road's not safe besides. It's been a long time without a rest-day sermon, and I miss it more than I'd have guessed." },
       },
       choices = {
-        { text = "Then I'll say a few words for you, right here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Sermons won't clear the road. Swords will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll say a few words for you, right here.", next = "BACK", reply = "Would you? It's been so long since anyone did. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sermons won't clear the road. Swords will.", next = "BACK", reply = "They won't, and I know it. But a word or two might help me sleep.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -555,8 +555,8 @@ P:NPC {
         { id = "xmg_default", text = "Iron and old wood, and something that keeps them moving that I don't understand. Melt the iron and the rest would burn well enough, I'd guess." },
       },
       choices = {
-        { text = "Careful. Fire in a field spreads fast.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Then I'll burn them, row by row.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Careful. Fire in a field spreads fast.", next = "BACK", reply = "Careful, aye, the weeds are dry. Burn them on the road, if you can.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll burn them, row by row.", next = "BACK", reply = "Then I'll stand back and watch, and pray the barn doesn't go with them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -566,8 +566,8 @@ P:NPC {
         { id = "xlk_default", text = "Afraid? No. I'm afraid of the reapers, and of the winter, and of the Commander forgetting us out here, so your friend's somewhere down the list." },
       },
       choices = {
-        { text = "Good. It's no threat to honest folk.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "It ought to be higher on the list.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Good. It's no threat to honest folk.", next = "BACK", reply = "Good. I've enough to be afraid of without your friend.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It ought to be higher on the list.", next = "BACK", reply = "Maybe it should, but there's only so much room on the list. I'll put it fifth.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -577,8 +577,8 @@ P:NPC {
         { id = "xdr_default", text = "Good and dark, the best around Farholde. It's only the reapers that keep us off it, and the weeds have taken whatever rows the reapers haven't." },
       },
       choices = {
-        { text = "Then it can be saved. I'll help clear it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let the weeds have it. It's past saving.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then it can be saved. I'll help clear it.", next = "BACK", reply = "Then you're the first who's said so in a year. Thank you, truly.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let the weeds have it. It's past saving.", next = "BACK", reply = "Maybe it is, but I'll not give it up yet. My father planted these rows.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

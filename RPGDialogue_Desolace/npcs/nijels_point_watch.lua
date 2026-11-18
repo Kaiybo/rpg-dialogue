@@ -15,9 +15,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Corporal Melkins, Nijel's Point garrison. If you're here about the bounty, I've the ledger right here." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Centaur Bounty") }, text = "Fifteen ears, {class}, from any clan. I'm not fussy, only thorough." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Centaur Bounty") }, text = "Your name's in the ledger with a good number beside it. The Captain reads it every week, you know." },
+    { id = "g_default", text = "I'm Corporal Melkins of the Nijel's Point garrison. If you're here about the bounty, I've the ledger right here." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Centaur Bounty") }, text = "I need fifteen ears, {class}, from any clan. I'm not fussy, only thorough." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Centaur Bounty") }, text = "Your name's in the ledger with a good number beside it. Captain Pentigast reads it every week, you know." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. Three of the lads on the wall rotated home in that time, and I'm still here, of course." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You look harder than when you first came up the pass. Desolace does that to everyone, me included." },
   },
@@ -26,9 +26,9 @@ P:NPC {
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "Another Stormwind face! Where are you from? I'm Elwynn born, near Goldshire, and I haven't seen a green field in two years." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest. Would you say a word over the lads' graves behind the barracks before you go? Brother Anton offers, but he says the wrong sort of words." },
+      text = "A priest. Would you say a word over the lads' graves behind the barracks before you go? Brother Anton of the Scarlet Crusade offers, but he says the wrong sort of words." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf! Kreldig will want to know you're here, and he'll talk your ear off about salvage, so consider yourself warned." },
+      text = "A dwarf! Kreldig Ungor, our salvager, will want to know you're here, and he'll talk your ear off about salvage, so consider yourself warned." },
     { id = "n_kills", cat = "soldier", when = { killed = { name = "Kolkar", min = 30 } },
       text = "The patrols say the Kolkar camps are thinner, and your name keeps coming up. That's the kind of report I like writing." },
   },
@@ -38,13 +38,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Corporal Melkins, of the Stormwind Army's garrison here at Nijel's Point. I keep the watch rota, the stores ledger and the bounty book, which makes me the most important man in the outpost, according to me." },
+          text = "I'm Corporal Melkins, of the Stormwind Army's garrison here at Nijel's Point. I keep the watch rota, the stores ledger and the bounty book, which makes me the most important man in the outpost, according to me." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Centaur Bounty") },
           text = "Many clans make up the centaur race, each with its own leader and its own plans, but they all share one thing, and that's cruelty. If we're ever to have peace out here, they must be driven off, so hunt them as you cross Desolace and bring me their ears, as many as you can carry." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Centaur Bounty") },
           text = "Fifteen ears, from any clan, and I'll mark them down in the book. Do it in the Alliance's service, and every ear brings this war one step closer to its end." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Centaur Bounty"), days = 3 } },
-          text = "Fifteen, all counted, all in the book, and the Captain will be pleased. I'll be honest, I wash my hands three times after every count, but the numbers look good." },
+          text = "That's fifteen, all counted and all in the book, and the Captain will be pleased. I'll be honest, I wash my hands three times after every count, but the numbers look good." },
         { id = "h_priest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Light at Nijel's Point, and not a Scarlet one, I hope. We've had enough preaching from Brother Anton, and too little praying from anyone else." },
       },
@@ -57,7 +57,7 @@ P:NPC {
         { text = "How bad are the centaur here?", next = "centaur" },
         { text = "What's it like serving at Nijel's Point?", next = "post" },
         { text = "What do you think of Captain Pentigast?", next = "captain" },
-        { text = "You miss Elwynn?", next = "home" },
+        { text = "Where's home for you, Corporal?", next = "home" },
         { text = "What needs doing?", next = "BUSINESS" },
         { text = "Carry on, Corporal.", next = "END" },
       },
@@ -78,8 +78,8 @@ P:NPC {
         { id = "eb_default", text = "Every day, if I'm honest, but the centaur took two of our patrols last winter and left them in the pass for us to find. I tell myself it's a ledger, not a trophy shelf, and some days I even believe it." },
       },
       choices = {
-        { text = "They earned it. Count every ear proudly.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "It should bother you. That keeps you decent.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They earned it. Count every ear proudly.", next = "BACK", reply = "Proudly might be a stretch, but I'll count them, and I'll remember why the count started.", fx = { align = { light = -1 } } },
+        { text = "It should bother you. That keeps you decent.", next = "BACK", reply = "That's what my mother would say, and she's probably right, so I'll keep letting it bother me a little.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -99,8 +99,8 @@ P:NPC {
         { id = "cp_default", text = "The Captain's sure of it, and he's been right before. I'd rather we just held the Point and let them be, but that's a corporal's opinion, and it's worth exactly a corporal's pay." },
       },
       choices = {
-        { text = "Holding the Point is enough. Leave the clans alone.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The Captain's plan is sound. Follow it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Holding the Point is enough. Leave the clans alone.", next = "BACK", reply = "That's my thinking too, but it'll stay between you and me and the corporal's pay.", fx = { align = { order = -1 } } },
+        { text = "The Captain's plan is sound. Follow it.", next = "BACK", reply = "It is, I suppose, and I'll follow it, because that's what corporals do, even when they've got doubts.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -141,8 +141,8 @@ P:NPC {
         { id = "gw_default", text = "Because I keep the ledger, and their names were in it, and it felt wrong to just strike them out. The Captain says a soldier shouldn't dwell on the dead, and he's probably right, but somebody ought to." },
       },
       choices = {
-        { text = "The dead deserve remembering. Keep going.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The Captain's right. Duty is for the living.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The dead deserve remembering. Keep going.", next = "BACK", reply = "Thank you, I'll keep at it, and maybe one day somebody will do the same for me.", fx = { align = { order = -1 } } },
+        { text = "The Captain's right. Duty is for the living.", next = "BACK", reply = "He probably is, and I'll keep the ledger for the living, but I'll keep a page at the back for the dead.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -168,8 +168,8 @@ P:NPC {
 
     home = {
       lines = {
-        { id = "ho_default", text = "Every day. My mother keeps sheep near Goldshire, and she writes to tell me which ones have died, as if I'd remember them. I do, mind you, every one." },
-        { id = "ho_human", when = { race = "Human" }, text = "Every day, and you'll understand that better than the elves do. My mother keeps sheep near Goldshire, and her letters are all about which ones have died, and I read every one twice." },
+        { id = "ho_default", text = "Elwynn, near Goldshire, and I miss it every day. My mother keeps sheep there, and she writes to tell me which ones have died, as if I'd remember them, and I do, mind you, every one." },
+        { id = "ho_human", when = { race = "Human" }, text = "Elwynn, near Goldshire, and you'll understand missing it better than the elves do. My mother keeps sheep there, and her letters are all about which ones have died, and I read every one twice." },
       },
       choices = {
         { text = "You'll see Elwynn again.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -179,7 +179,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Elwynn farm boy, Stormwind recruit, Desolace corporal. Two promotions and both of them farther from home." } },
+    background = { { id = "tp_bg", text = "I was an Elwynn farm boy, then a Stormwind recruit, and now I'm a Desolace corporal, which makes two promotions, both of them farther from home." } },
     advice = { { id = "tp_ad", text = "Keep to the road through the pass, and if you hear hooves, get off it." } },
     _none = { { id = "tp_none", text = "Not in my ledger, I'm afraid. Try the Captain, or Kreldig, who knows everything that can be sold." } },
   },
@@ -198,8 +198,8 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Ishnu-alah, {class}. You've the look of someone who might go where I cannot." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Vyletongue Corruption") }, text = "The orange pool, then the vines. Be ready for what Vyletongue sends out of them." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Vyletongue Corruption") }, text = "Eight vines healed. Small, against all he has poisoned, but every healing is a word against him." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Vyletongue Corruption") }, text = "Fill the vial at the orange pool, then pour it on the vines. Be ready for what Vyletongue sends out of them." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Vyletongue Corruption") }, text = "Eight vines are healed. It is a small thing against all he has poisoned, but every healing is a word against him." },
     { id = "g_cleared", when = { cleared = "Maraudon" }, text = "You walked to the bottom of Maraudon and returned. I can feel it on you, like the air after a storm." },
   },
 
@@ -223,7 +223,7 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Vyletongue Corruption") },
           text = "The vines will purge the corruption when you pour the draught on them, and it will come out as a living thing, a scion of rot. Destroy it, and the plant is free; eight of them, and I will know the caverns can still be saved." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Vyletongue Corruption"), days = 3 } },
-          text = "Eight healed, and the scions destroyed. Elune be thanked, and you as well, {name}; Maraudon is not lost yet." },
+          text = "Eight vines are healed and their scions destroyed. Elune be thanked, and you as well, {name}; Maraudon is not lost yet." },
         { id = "h_young", when = { maxLevel = 38 },
           text = "You are not ready for Maraudon. Its corruption would eat you before you found the pool, so grow stronger, and then come back to me." },
       },
@@ -257,8 +257,8 @@ P:NPC {
         { id = "ss_default", text = "Some of the priestesses say Elune's mercy reaches even them, and I have never seen it reach one. Vyletongue has had ten thousand years to repent, and he has spent them poisoning caves." },
       },
       choices = {
-        { text = "Then show him no mercy. Destroy him.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Elune's mercy shouldn't have limits.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then show him no mercy. Destroy him.", next = "BACK", reply = "That is my wish too, and I would see it done, though the priestesses would frown at me for saying so.", fx = { align = { light = -1 } } },
+        { text = "Elune's mercy shouldn't have limits.", next = "BACK", reply = "Perhaps it shouldn't, and perhaps I am too young to understand, but I have seen what he did to the caves.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -274,7 +274,7 @@ P:NPC {
     },
     why_zaetar = {
       lines = {
-        { id = "wz_default", text = "A son of the forest lord, who loved Theradras, a princess of the earth, and their children were the first centaur. Those children killed him, and his lover hid his body in the caves, and the centaur have been savage ever since." },
+        { id = "wz_default", text = "A son of the forest lord Cenarius, who loved Theradras, a princess of the earth, and their children were the first centaur. Those children killed him, and his lover hid his body in the caves, and the centaur have been savage ever since." },
       },
       choices = {
         { text = "The centaur killed their own father?", next = "why_father" },
@@ -284,11 +284,11 @@ P:NPC {
     why_father = {
       big = true,
       lines = {
-        { id = "wf_default", text = "They did, and the keepers have never forgiven it, though Marandis says the children were born mad and were not to blame. I think a mad child is still a child, and a murderer is still a murderer, and I cannot decide which matters more." },
+        { id = "wf_default", text = "They did, and the keepers have never forgiven it, though Keeper Marandis says the children were born mad and were not to blame. I think a mad child is still a child, and a murderer is still a murderer, and I cannot decide which matters more." },
       },
       choices = {
-        { text = "They were born wrong. They're not to blame.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Murder is murder. Their blood answers for it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "They were born wrong. They're not to blame.", next = "BACK", reply = "Marandis would agree with you, and perhaps you are both kinder than I am, but I have seen the bodies.", fx = { align = { honor = 1 } } },
+        { text = "Murder is murder. Their blood answers for it.", next = "BACK", reply = "That is my view, though it grieves me to hold it, because they are the children of a keeper.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -333,7 +333,7 @@ P:NPC {
     },
     self_dream = {
       lines = {
-        { id = "sd_default", text = "Purple light, and something laughing behind it, and vines that tighten when I try to step back. I wake with my hands clenched, and I go to the moonwell and wash them, and it helps a little." },
+        { id = "sd_default", text = "I dream of purple light with something laughing behind it, and of vines that tighten when I try to step back. I wake with my hands clenched, and I go to the moonwell and wash them, and it helps a little." },
       },
       choices = {
         { text = "I'll carry the vial for both of us.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -354,7 +354,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I came to Desolace with the keeper's people. I stayed because Maraudon would not let me forget it." } },
+    background = { { id = "tp_bg", text = "I came to Desolace with Keeper Marandis and his people. I stayed because Maraudon would not let me forget it." } },
     advice = { { id = "tp_ad", text = "In Maraudon, trust the glow of the crystals to guide you, but never touch them." } },
     cenarion_circle = { { id = "tp_cc", text = "The Circle sends its keepers where the land is sick. Desolace is very sick." } },
     _none = { { id = "tp_none", text = "I don't know that, and I don't care to guess." } },
@@ -385,7 +385,7 @@ P:NPC {
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "One of the sky folk! I've heard you can ride the winds yourselves, and I must admit I'm a little jealous." },
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
-      text = "You're battered. Rest at Lyshaerya's before you fly; the winds over the mountains are no place to faint." },
+      text = "You're battered. Rest at Innkeeper Lyshaerya's before you fly; the winds over the mountains are no place to faint." },
   },
 
   start = "hello",
@@ -393,11 +393,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Baritanas Skyriver, keeper of the hippogryphs at Nijel's Point. From here my birds fly north to Stonetalon Peak and south to Feathermoon in Feralas, and from above, even Desolace looks almost beautiful." },
+          text = "I'm Baritanas Skyriver, keeper of the hippogryphs at Nijel's Point. From here my birds fly north to Stonetalon Peak and south to Feathermoon in Feralas, and from above, even Desolace looks almost beautiful." },
       },
       again = {
         { id = "h_again", text = "What else? The birds are preening, so I've a moment." },
-        { id = "h_again2", text = "Ask away. A hippogryph master has more time than you'd think." },
+        { id = "h_again2", text = "Ask away. A hippogryph master has long hours between flights." },
       },
       choices = {
         { text = "Desolace looks beautiful from above?", next = "above" },
@@ -441,7 +441,7 @@ P:NPC {
 
     danger = {
       lines = {
-        { id = "da_default", text = "The harpies in Stonetalon come up at the birds sometimes, and the winds off the mountains can throw a young one into a spin. I only send the steady ones out with riders, and I lose sleep over every one of them." },
+        { id = "da_default", text = "The harpies in Stonetalon come up at the birds sometimes, and the winds off the mountains can throw a young one into a spin. I only send the steady ones out with riders, and I lose sleep over each flight all the same." },
       },
       choices = {
         { text = "What do you do about the harpies?", next = "danger_harpy" },
@@ -451,11 +451,11 @@ P:NPC {
     danger_harpy = {
       big = true,
       lines = {
-        { id = "dh_default", text = "Fly higher, and wider, and longer, and the birds hate it. The Sentinels say I should send the birds out with archers to clear the cliffs, and I say a hippogryph is a messenger, not a soldier." },
+        { id = "dh_default", text = "We fly higher and wider and longer, and the birds hate it. The Sentinels say I should send the birds out with archers to clear the cliffs, and I say a hippogryph is a messenger, not a soldier." },
       },
       choices = {
-        { text = "Send the archers. Clear the skies.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep the birds out of the fighting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Send the archers. Clear the skies.", next = "BACK", reply = "Archers would clear them, perhaps, but my birds would never trust the sky again, and I'd rather they did.", fx = { align = { order = 1 } } },
+        { text = "Keep the birds out of the fighting.", next = "BACK", reply = "Thank you, friend, that's exactly what I say, and the birds would agree if they could talk.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

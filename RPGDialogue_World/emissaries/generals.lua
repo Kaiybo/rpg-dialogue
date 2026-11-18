@@ -89,8 +89,8 @@ P:NPC {
         { id = "ti_default", text = "Hand them over, then, and know that I'll send word to Silverwing Hold, Refuge Pointe and Dun Baldar that one soldier fought for all three. Tell me, why did you do it, when most folk only fight where the honor comes easiest?" },
       },
       choices = {
-        { text = "Because the Alliance is one army, or it's nothing.", next = "BACK", fx = { opinion = { alliance = "united" }, align = { order = 1 }, affinity = 1 } },
-        { text = "Because I go wherever the best fight is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Because the Alliance is one army, or it's nothing.", next = "BACK", reply = "Well said, soldier, and I'll put those very words in the report, because the generals need reminding of it more than you'd think. An army that fights only for its own valley loses all the others.", fx = { opinion = { alliance = "united" }, align = { order = 1 }, affinity = 1 } },
+        { text = "Because I go wherever the best fight is.", next = "BACK", reply = "Ha, I had a sergeant like you once, and she was the best I ever served with, though I spent half my time pulling her out of fights she hadn't been invited to.", fx = { align = { order = -1 } } },
         { text = "The honor, General. I won't lie about it.", next = "BACK", fx = { trait = { honest = 1 } } },
       },
     },
@@ -148,8 +148,8 @@ P:NPC {
       big = true,
       lines = { { id = "fb_default", text = "I tried, once, and the Sentinel captain spent the evening staring at the dwarf's pipe while the Arathorian asked who was paying for the supper. So I'll ask you instead: should the Alliance put one commander over all three fronts, or let each fight its own way?" } },
       choices = {
-        { text = "One commander. An army with three heads loses.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let each fight its own way. They know their ground.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "One commander. An army with three heads loses.", next = "BACK", reply = "You'd have the Sentinels and the Stormpike agreeing for once, which is to say against you, but I've thought the same many nights, and I'll put it in my next letter to Stormwind.", fx = { align = { order = 1 } } },
+        { text = "Let each fight its own way. They know their ground.", next = "BACK", reply = "That's the answer the captains themselves would give, and I suspect you're right, because a Sentinel in Ashenvale knows things about those trees that no general in Stormwind ever will.", fx = { align = { order = -1 } } },
         { text = "Who'd you pick to command it?", next = "fronts_who" },
       },
     },
@@ -196,7 +196,7 @@ P:NPC {
     sport = {
       big = true,
       lines = {
-        { id = "sp_default", text = "I've heard that said in every tavern from Goldshire to Menethil, usually by men who've never stood on the field. The blood's real, the ground's real and the Horde would take every inch of it if we let them, but I'll grant you the tabards and the weekly tallies make it look like a tourney. Which do you think it is?" },
+        { id = "sp_default", text = "I've heard that said in every tavern from Goldshire to Menethil, usually by men who've never stood on the field. The blood's real, the ground's real and the Horde would take every inch of it if we let them, though I admit the tabards and the weekly tallies make it look like a tourney. Which do you think it is?" },
         { id = "sp_rank", when = { pvpRank = 10 }, text = "You've climbed higher in those tallies than nearly anyone, {rank}, so you'd know better than I would. Is it a war you're fighting, or a ladder you're climbing?" },
       },
       choices = {
@@ -263,7 +263,7 @@ P:NPC {
       choices = { { text = "Another field, then.", next = "BACK" } },
     },
     ab_defilers = {
-      lines = { { id = "abd_default", text = "Forsaken, and the cruellest lot the Horde has sent, from what the Arathorians tell me. They're not out for land so much as for the people on it, which is why the League fights that basin like a family defending its own farm." } },
+      lines = { { id = "abd_default", text = "Forsaken, and the cruellest lot the Horde has sent, from what the Arathorians tell me. They're not out for land so much as for the people on it, and so the League fights that basin like a family defending its own farm." } },
       choices = { { text = "Then I'll fight it the same way.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
     av = {
@@ -277,8 +277,8 @@ P:NPC {
       big = true,
       lines = { { id = "avf_default", text = "They were, and I'll say it here though I'd not say it in Ironforge. Gul'dan exiled Durotan's clan into those mountains before the First War, and they made a home of it, but the Stormpike are Alliance and Alterac's under Alliance banners now, so what would you have me do with a fact like that?" } },
       choices = {
-        { text = "Nothing. Alliance land is Alliance land.", next = "BACK", fx = { opinion = { alterac_valley = "alliance" }, align = { light = -1 } } },
-        { text = "Remember it. Even an enemy can have a just claim.", next = "BACK", fx = { opinion = { alterac_valley = "frostwolf" }, align = { light = 1 } } },
+        { text = "Nothing. Alliance land is Alliance land.", next = "BACK", reply = "That's how Stormwind sees it, and Ironforge too, and I'll not argue with you in front of the men. But I've found it pays to know the enemy's reasons, even when I've no use for them.", fx = { opinion = { alterac_valley = "alliance" }, align = { light = -1 } } },
+        { text = "Remember it. Even an enemy can have a just claim.", next = "BACK", reply = "That's a rare thing to hear in a soldier, and I'll admit I've thought it myself on cold nights. A just claim doesn't make the Frostwolves our friends, but it might keep us honest in how we fight them.", fx = { opinion = { alterac_valley = "frostwolf" }, align = { light = 1 } } },
         { text = "Another field.", next = "BACK" },
       },
     },
@@ -286,7 +286,7 @@ P:NPC {
     -- Ranks
     ranks = {
       lines = {
-        { id = "rk_default", text = "The ranks were the marshals' idea, so the army could see who's doing the fighting without reading my reports. Private to Grand Marshal, all of it counted weekly, and I'll tell you honestly that it's made men fight harder and some of them fight worse." },
+        { id = "rk_default", text = "The ranks were the marshals' idea, so the army could see who's doing the fighting without reading my reports. Private to Grand Marshal, all of it counted weekly, and I'll tell you plainly, it's made men fight harder and some of them fight worse." },
       },
       choices = {
         { text = "Fight worse? How so?", next = "ranks_worse" },
@@ -311,17 +311,17 @@ P:NPC {
       big = true,
       lines = { { id = "kr_default", text = "What's next is the hardest part, {rank}, which is staying worthy of it when nobody's watching. The recruits copy everything you do, so tell me: do you lead them, or do you let them find their own way?" } },
       choices = {
-        { text = "I lead them. A rank is a duty to the men below.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "They find their own way, as I did.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I lead them. A rank is a duty to the men below.", next = "BACK", reply = "That's the right answer, and the one I'd hope for, because the men below you will forgive a hard order far sooner than they'll forgive an empty saddle in front of them.", fx = { align = { order = 1 } } },
+        { text = "They find their own way, as I did.", next = "BACK", reply = "I suppose that worked for you, and you turned out well enough, but not all of them have your luck, and some won't live long enough to learn what you did.", fx = { align = { order = -1 } } },
         { text = "I hadn't thought of it that way.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
     k_dishonor = {
       big = true,
-      lines = { { id = "kd_default", text = "Because word of every one of them reaches Orgrimmar, soldier, and the Horde's officers make sure their grunts hear it before every battle. Each dead cook puts another angry orc on the field against us, and I'd rather you did your killing where it does the Alliance some good." } },
+      lines = { { id = "kd_default", text = "Because word of each one reaches Orgrimmar, soldier, and the Horde's officers make sure their grunts hear it before every battle. Each dead cook puts another angry orc on the field against us, so do your killing where it does the Alliance some good." } },
       choices = {
-        { text = "You're right. I'll keep my blade for soldiers.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The Horde's all the same to me, armed or not.", next = "BACK", fx = { opinion = { horde = "hate" }, align = { honor = -1 } } },
+        { text = "You're right. I'll keep my blade for soldiers.", next = "BACK", reply = "Good, because the Alliance needs every blade you've got, and I'd rather you spent your anger on men who can fight back than give the Horde another grievance.", fx = { align = { honor = 1 } } },
+        { text = "The Horde's all the same to me, armed or not.", next = "BACK", reply = "Then the Horde will be all the same to them about you, soldier, and they'll come for every farmer in Arathi just as you came for their cooks. Think on that before your next battle, I beg you.", fx = { opinion = { horde = "hate" }, align = { honor = -1 } } },
         { text = "They keep a list?", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -402,7 +402,7 @@ P:NPC {
         { id = "h_marks", when = ALL_MARKS, priority = 5,
           text = "All three marks, carried by one warrior! Sit with me a moment, because I want to hear how you earned them." },
         { id = "h_rank", when = { pvpRank = 10 },
-          text = "{rank}, it's an honor. You've fought more battles than half the officers in this city, so speak to me as one veteran to another." },
+          text = "{rank}, it's an honor. You've seen more battles than the officers who dine at the Keep, so speak to me as one veteran to another." },
         { id = "h_young", when = { maxLevel = 19 },
           text = "You're young for the battlegrounds, whelp, but don't be ashamed of it. Everyone I've ever fought beside started where you stand now." },
         { id = "h_dishonor", when = { dishonorKills = { min = 1 } },
@@ -440,8 +440,8 @@ P:NPC {
         { id = "ti_default", text = "Then I'll send word to the Outriders, the Defilers and the Frostwolves that a warrior of the Horde fought for all of them. But tell me, warrior, what did you fight for?" },
       },
       choices = {
-        { text = "For the Horde's honor.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "For victory. Honor comes after.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "For the Horde's honor.", next = "BACK", reply = "Then you fought for the right thing, warrior, and Thrall himself would say so, because the Horde's honor is the only thing that ever set us free.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "For victory. Honor comes after.", next = "BACK", reply = "Hmph, you sound like a grunt who has never had to live with what he did to win, but you are young yet, and the years will teach you otherwise.", fx = { align = { honor = -1 } } },
         { text = "For the warriors beside me.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -501,8 +501,8 @@ P:NPC {
       big = true,
       lines = { { id = "pwh_default", text = "To the Alliance, to the world, and to ourselves most of all, warrior, because there are orcs who still remember the bloodlust and want it back. What do you think the Horde should be, when the battle's done?" } },
       choices = {
-        { text = "What Thrall says: warriors with honor.", next = "BACK", fx = { opinion = { warchief = "trust" }, align = { honor = 1 } } },
-        { text = "Strong enough that no one can cage us again.", next = "BACK", fx = { opinion = { horde = "strength" }, align = { honor = -1 } } },
+        { text = "What Thrall says: warriors with honor.", next = "BACK", reply = "Lok'tar, then you understand the Warchief's heart. Fight with honor in every battle, warrior, and the Alliance will one day have nothing to say about orcs that is not grudging respect.", fx = { opinion = { warchief = "trust" }, align = { honor = 1 } } },
+        { text = "Strong enough that no one can cage us again.", next = "BACK", reply = "Strength, yes, and no orc who wore the chains will argue with you. But strength without honor is what the demons gave us, warrior, so be strong and be careful what you become.", fx = { opinion = { horde = "strength" }, align = { honor = -1 } } },
         { text = "I don't know yet.", next = "BACK", fx = { trait = { honest = 1 } } },
       },
     },
@@ -526,8 +526,8 @@ P:NPC {
       big = true,
       lines = { { id = "ha_default", text = "Some do, and I've seen a human knight let a wounded grunt crawl away in Alterac when she could have finished him. Others hunt our peons and call it war. Should we answer them in kind, or keep to our own laws?" } },
       choices = {
-        { text = "Keep to our laws, whatever they do.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Answer them in kind. They started it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Keep to our laws, whatever they do.", next = "BACK", reply = "Then you are the kind of warrior Thrall built the new Horde for, and I would trust you on any field, whatever the Alliance chooses to be.", fx = { align = { honor = 1 } } },
+        { text = "Answer them in kind. They started it.", next = "BACK", reply = "I understand the anger, for I have felt it too, but if we fight as the humans' worst fight, then what were the camps and the chains for?", fx = { align = { honor = -1 } } },
         { text = "What happened to the knight?", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -594,8 +594,8 @@ P:NPC {
       big = true,
       lines = { { id = "wsgf_default", text = "They say it, and some of the shamans in Orgrimmar say it too, quietly. But Ashenvale has trees enough for a thousand cities, and the night elves would let us freeze before they'd share one, so tell me, warrior, who's in the right?" } },
       choices = {
-        { text = "We are. A people must build to survive.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "The shamans. We should take only what we need.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "We are. A people must build to survive.", next = "BACK", reply = "Spoken like an orc who has felt winter in Durotar, and I will not argue, because our children need roofs more than the night elves need another grove.", fx = { align = { light = -1 } } },
+        { text = "The shamans. We should take only what we need.", next = "BACK", reply = "The shamans would be glad of you, and maybe you are right, but tell that to the peons who die felling those trees with Sentinel arrows in their backs.", fx = { align = { light = 1 } } },
         { text = "Another field.", next = "BACK" },
       },
     },
@@ -630,8 +630,8 @@ P:NPC {
       big = true,
       lines = { { id = "kr_default", text = "The Horde wants you to lead, {rank}, because the young warriors watch everything you do. Will you show them how to fight with honor, or how to win at any cost?" } },
       choices = {
-        { text = "With honor. The Horde must be better than its enemies.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "To win. Victory is the only lesson that matters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "With honor. The Horde must be better than its enemies.", next = "BACK", reply = "Good, because the young ones are watching, and the Horde was not freed from the camps to become what the demons made of us once.", fx = { align = { honor = 1 } } },
+        { text = "To win. Victory is the only lesson that matters.", next = "BACK", reply = "That is how the old Horde thought, before Thrall, and it nearly destroyed us, so do not be surprised if I keep my eye on the grunts you train.", fx = { align = { honor = -1 } } },
         { text = "I'll think on it, Warbringer.", next = "BACK" },
       },
     },

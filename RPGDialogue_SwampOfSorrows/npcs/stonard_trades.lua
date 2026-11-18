@@ -28,7 +28,7 @@ P:NPC {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Your {pet} has swamp mud between its toes, and that mud breeds rot if you leave it, so let me see that paw before you go anywhere." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter, and your beast looks well kept, which is more than I can say for most who come through that gate." },
+      text = "A hunter, and your beast looks well kept, and most who come through that gate can't say as much for their wolves." },
   },
 
   start = "hello",
@@ -88,7 +88,7 @@ P:NPC {
       },
     },
     wilds_dragon = {
-      lines = { { id = "wid_default", text = "Green ones, around the temple in the Pool of Sorrow, and they don't sleep the way they ought to. Fel'zerul says the trolls in the temple are behind something, so if you want the rest of that story, ask him and not me." } },
+      lines = { { id = "wid_default", text = "Green ones, around the sunken temple in the Pool of Tears, and they don't sleep the way they ought to. Fel'zerul, our troll who watches the temple, says the trolls in the temple are behind something, so if you want the rest of that story, ask him and not me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     wilds_log = {
@@ -100,8 +100,8 @@ P:NPC {
       big = true,
       lines = { { id = "wa_default", text = "The Horde has always fought beside wolves, and the wolves have never complained, but I've buried enough of them to wonder. A beast follows because it trusts you, and that trust is a heavy thing to spend." } },
       choices = {
-        { text = "A beast that trusts you deserves to be kept from harm.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A beast is a weapon. Weapons get used.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A beast that trusts you deserves to be kept from harm.", next = "BACK", reply = "It does, and I've tried to keep them so. You speak like someone who has had a beast of their own.", fx = { align = { light = 1 } } },
+        { text = "A beast is a weapon. Weapons get used.", next = "BACK", reply = "A weapon, yes, until it looks at you the morning before a battle. Then tell me it's only a weapon.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -151,7 +151,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Rartar, and these are my supplies: vials, flasks, a few reagents that keep in the damp. If you're an alchemist, you'll know what you need, and if you're not, you'll want to ask Rogvar first." },
+          text = "Rartar, and these are my supplies: vials, flasks, a few reagents that keep in the damp. If you're an alchemist, you'll know what you need, and if you're not, you'll want to ask Rogvar the alchemist first." },
         { id = "h_alch", when = { profession = "Alchemy" },
           text = "An alchemist, and a working one by the look of you, so you'll know that the swamp air ruins anything that isn't stoppered. I keep the stoppers tight, so what do you need?" },
         { id = "h_lock", when = { class = "WARLOCK" },
@@ -187,8 +187,8 @@ P:NPC {
       big = true,
       lines = { { id = "ro_default", text = "Rogvar is the finest alchemist in Stonard and the messiest, and he'll tell you the mess is where the discoveries live. I sweep up after him and say nothing, mostly, though I do keep a count of the scorch marks." } },
       choices = {
-        { text = "Discoveries need a little chaos. Let him work.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Careful work saves lives. You're right to keep count.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Discoveries need a little chaos. Let him work.", next = "BACK", reply = "Let him, I do, and I sweep. But somebody has to count what he's broken before it breaks someone.", fx = { align = { order = -1 } } },
+        { text = "Careful work saves lives. You're right to keep count.", next = "BACK", reply = "Someone agrees with me at last! Don't tell Rogvar, or he'll sulk in the fumes for a week.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -281,14 +281,14 @@ P:NPC {
     },
 
     ledger = {
-      lines = { { id = "le_default", text = "I don't name names, but I'll say that a certain cook buys more salt than any orc could eat and pays for it in stew. And a certain smith pays on time to the day, which is why I sell him the good flux." } },
+      lines = { { id = "le_default", text = "I don't name names, but I'll say that a certain cook buys more salt than any orc could eat and pays for it in stew. And a certain smith pays on time to the day, so he gets the good flux." } },
       choices = {
-        { text = "Thultash pays in stew?", next = "ledger_stew" },
+        { text = "This cook pays you in stew?", next = "ledger_stew" },
         { text = "Something else.", next = "BACK" },
       },
     },
     ledger_stew = {
-      lines = { { id = "les_default", text = "I didn't say his name, and you didn't hear it from me, but aye, and it's good stew. My ledger says he owes me forty bowls, and I'm eating my way through the debt." } },
+      lines = { { id = "les_default", text = "Aye, and it's good stew, though you didn't hear it from me. My ledger says he owes me forty bowls, and I'm eating my way through the debt." } },
       choices = { { text = "Sounds like a good bargain. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
@@ -296,8 +296,8 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "Because the thread came across the sea, down the coast, through the jungle and up the swamp road, and every one of those legs had a toll on it. I could sell cheaper, I suppose, if I didn't want to eat." } },
       choices = {
-        { text = "A merchant has a right to his margin. Charge what you must.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "The Horde's soldiers shouldn't pay a merchant's margin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A merchant has a right to his margin. Charge what you must.", next = "BACK", reply = "Thank you. You'd be amazed how many grunts think thread grows on trees in the swamp.", fx = { align = { honor = -1 } } },
+        { text = "The Horde's soldiers shouldn't pay a merchant's margin.", next = "BACK", reply = "They shouldn't, and I'd lower it if the tolls came down. Take it up with the trolls on the coast, not me.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -357,14 +357,14 @@ P:NPC {
         { text = "Let me see the supplies.", next = "BUSINESS" },
         { text = "Why is the swamp a bad place to work iron?", next = "swamp" },
         { text = "Where does your ore come from?", next = "ore" },
-        { text = "You and Hartash work together?", next = "hartash" },
+        { text = "Do you work with Hartash, the weaponsmith?", next = "hartash" },
         { text = "What's the secret to working iron in the damp?", next = "xsmith", when = { profession = "Blacksmithing" } },
         { text = "I'll be going.", next = "END" },
       },
     },
 
     swamp = {
-      lines = { { id = "sw_default", text = "Because the coal's always damp, so it smokes instead of burning, and the iron rusts between the forge and the quench. I spend half my day keeping things dry and the other half fixing what got wet anyway." } },
+      lines = { { id = "sw_default", text = "Because the coal's always damp, so it smokes instead of burning, and the iron rusts between the forge and the quench. I spend my mornings keeping things dry and my evenings fixing what got wet anyway." } },
       choices = {
         { text = "Why not move the forge somewhere drier?", next = "swamp_move" },
         { text = "Something else.", next = "BACK" },
@@ -379,8 +379,8 @@ P:NPC {
       big = true,
       lines = { { id = "or_default", text = "From the caravans, mostly, though there's iron in the hills to the south, under Dreadmaul ground. The Commander won't send miners there, and I don't blame him, though it galls me to buy ore from goblins when there's ore a day's walk away." } },
       choices = {
-        { text = "Send the miners in with guards. Take what's yours.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The Commander's right to keep them safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Send the miners in with guards. Take what's yours.", next = "BACK", reply = "With guards, aye, and that's what I keep telling the Commander. He keeps saying no, and I keep running short.", fx = { align = { order = -1 } } },
+        { text = "The Commander's right to keep them safe.", next = "BACK", reply = "Safe and poor, aye, and that's Stonard. I'll keep working with what the caravans bring.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -398,6 +398,6 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I worked a forge for a war band, and when the war band settled, so did I. The forge is all I've ever really wanted." } },
-    _none = { { id = "tp_none", text = "I know iron. Ask Thultash about the rest, he'll talk for hours." } },
+    _none = { { id = "tp_none", text = "I know iron. Ask Thultash the cook about the rest, because he'll talk for hours." } },
   },
 }

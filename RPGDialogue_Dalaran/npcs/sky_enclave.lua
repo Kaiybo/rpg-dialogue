@@ -62,7 +62,7 @@ P:NPC {
         { text = "This city doesn't look all that safe to me.", next = "safe" },
         { text = "How long have you kept this post?", next = "post" },
         { text = "Can I ride that ship home to Valanaar?", next = "xhome", when = { race = "Skyborne" } },
-        { text = "You laughed just now. Is it really that bad?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Mostly harmless? Is it really that bad?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does a Horde visitor frighten you, Arcanist?", next = "xhorde", when = { faction = "Horde" } },
         { text = "Thank you, Arcanist.", next = "END" },
       },
@@ -123,8 +123,8 @@ P:NPC {
           text = "It is now, I think, truly! The lamps haven't flickered since whatever was in the Citadel stopped, and I've only flinched twice this week." },
       },
       choices = {
-        { text = "Courage is flinching and staying anyway. You're doing fine.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If you're that frightened, find a quieter post.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Courage is flinching and staying anyway. You're doing fine.", next = "BACK", reply = "Oh, that's a lovely thing to say, and I'm going to remember it the next time the lamps go funny, though I'll probably still squeak a little.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If you're that frightened, find a quieter post.", next = "BACK", reply = "Well, I suppose I could, but then who would tell the new arrivals where the exits are, and I've got the speech memorised, you see.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -172,8 +172,8 @@ P:NPC {
         { id = "xho_default", text = "A little, I admit, though Archmage Modera says you're here at her leave. I'm trying very hard to be welcoming, and I'd appreciate it if you didn't make that difficult." },
       },
       choices = {
-        { text = "I'm here to help. You've nothing to fear from me.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Fear's healthy, Arcanist. Keep it.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'm here to help. You've nothing to fear from me.", next = "BACK", reply = "That's a relief, honestly, and I'm sorry for staring, because the guidebooks don't say much about orcs except where not to stand.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Fear's healthy, Arcanist. Keep it.", next = "BACK", reply = "Oh, I intend to, believe me, though I'd rather you didn't sound quite so pleased about it while you're standing that close to the skycutter.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -184,7 +184,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Walk, don't run, and always know where the nearest magus is. That's the whole of the procedure, really." } },
     dalaran = { { id = "tp_dalaran", text = "Welcome, welcome, and yes, it's still being rebuilt, and no, that tower isn't supposed to lean like that! We're doing our best, and the dome came down only lately, so mind the scaffolding and smile at the magi." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor run Dalaran, and they're very wise and very busy, so please don't interrupt any of them mid-spell. I'm one rung below an archmage, which means I get all the greeting and none of the authority." } },
-    scourge = { { id = "tp_scourge", when = { faction = "Horde" }, text = "I'm told we're to be polite to you, and I'm trying, so please don't make me regret it! The Scourge came within sight of these walls once, and I'd rather we kept our enemies to the dead ones." }, { id = "tp_scourge2", text = "The Scourge came within sight of these very walls, and we lost good magi stopping them. I still check the north road from the landing every morning, though I'm told that's not my job." } },
+    scourge = { { id = "tp_scourge", when = { faction = "Horde" }, text = "I'm told we're to be polite to you, and I'm trying, so please don't make me regret it! The Scourge came within sight of these walls once, so let's keep our enemies to the dead ones." }, { id = "tp_scourge2", text = "The Scourge came within sight of these very walls, and we lost good magi stopping them. I still check the north road from the landing every morning, though I'm told that's not my job." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Oh, please don't say that name too loudly, everyone here gets twitchy. He was one of ours once, a member of the council, and he left with his necromancy and our secrets." } },
     _none = { { id = "tp_none", text = "Oh, I couldn't say! Try one of the magi in the Citadel; they know everything, or say they do." } },
   },
@@ -218,7 +218,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Wind's greetings, friend. This portal goes to Stormwind, though I'm only permitted to send our own people through it, so if you aren't shen'dorei, I'm afraid the road is yours." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Wind's greetings! The portal behind me goes straight to Stormwind whenever you need it, and between you and me, it's a great deal warmer there than in these mountains." },
+          text = "Wind's greetings! The portal behind me goes straight to Stormwind whenever you need it, and between you and me, it's much warmer there than in these mountains." },
         { id = "h_arrived", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Magical City of Dalaran"), days = 3 } },
           text = "You made the crossing, and in one piece! Welcome to Dalaran, and welcome to Azeroth, which I'm told is the proper way to put it." },
         { id = "h_welcome", when = { questActive = TODO_QUEST("Welcome to Azeroth") },
@@ -286,8 +286,8 @@ P:NPC {
         { id = "sw_default", text = "Grey stone, enormous walls, and more people in one market than lived in all of Valanaar. They stared at us at first, and then a crier started calling us friends of the Kirin Tor, and they stared a little more politely." },
       },
       choices = {
-        { text = "Give them time. Most folk are kind underneath.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let them stare. Respect is earned, not handed out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Give them time. Most folk are kind underneath.", next = "BACK", reply = "I hope so, and some of them have been very kind already, though one fishwife asked whether we could float her baskets up the stairs for her.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them stare. Respect is earned, not handed out.", next = "BACK", reply = "A proud answer, and perhaps a true one, but I'd rather be smiled at in the market than respected from across the street.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -295,11 +295,11 @@ P:NPC {
     xmiss = {
       big = true,
       lines = {
-        { id = "xm_default", text = "Every hour, and I'd not go back if the ship were free and the winds were kind. There's nothing there that isn't drifting away from everything else, and here, at least, the ground stays where you left it." },
+        { id = "xm_default", text = "Every hour, and yet I'd not go back even if the ship were free and the winds were kind. Everything there is drifting away from everything else, and here, at least, the ground stays where you left it." },
       },
       choices = {
-        { text = "Zephras can still be saved. I believe that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let it go. Our future is down here now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Zephras can still be saved. I believe that.", next = "BACK", reply = "I want to believe it as much as you do, and I'll keep the portal swept for the day someone brings us good news from home.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let it go. Our future is down here now.", next = "BACK", reply = "Perhaps it is, and my head agrees with you, but my heart still looks up every time the wind turns, as if Valanaar might drift past.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -407,7 +407,7 @@ P:NPC {
       },
       choices = {
         { text = "From those I've fought. They had no further use for it.", next = "sk_fought", fx = { trait = { practical = 1 } } },
-        { text = "I bought it honestly, at market.", next = "sk_bought", fx = { affinity = 1, trait = { honest = 1 } } },
+        { text = "I paid good coin for it at market.", next = "sk_bought", fx = { affinity = 1, trait = { honest = 1 } } },
         { text = "Better you don't ask, I think.", next = "sk_secret", fx = { trait = { discreet = 1 } } },
       },
     },
@@ -444,8 +444,8 @@ P:NPC {
         { id = "vw_default", text = "Nothing at all, in its place. At home a weaver chose a colour for the sky it would be worn under, pale for the high winds and dark for the storms, and here it seems colour is chosen so everyone knows who owns the building." },
       },
       choices = {
-        { text = "A city should show who keeps it. That's only right.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Colour should belong to the wearer, not the council.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A city should show who keeps it. That's only right.", next = "BACK", reply = "You sound like the Kirin Tor's own clerks, and they mean no harm by it, but I'll keep a little sky colour in my stitching all the same.", fx = { align = { order = 1 } } },
+        { text = "Colour should belong to the wearer, not the council.", next = "BACK", reply = "I'm glad someone down here thinks so, because the High Order keeps sending back my samples with polite little notes about the right shade of violet.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -488,7 +488,7 @@ P:NPC {
       { id = "tp_scourge", text = "The magi say the dead walk to the north and east of here, and I've seen the soldiers come back from it. I gather cloth for bandages too, now, and I thank everyone who brings it." },
     },
     _none = {
-      { id = "tp_none", text = "Forgive me, I only know cloth and the people who need it, and I'd rather not guess at the rest in a city where everyone else knows everything." },
+      { id = "tp_none", text = "Forgive me, I only know cloth and the people who need it, and I won't guess at the rest in a city where everyone else knows everything." },
     },
   },
 }
@@ -512,7 +512,7 @@ P:NPC {
 
   notice = {
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
-      text = "You'll forgive me if I keep an eye on your hands near my seedlings, magus. This city has made me nervous of spellwork." },
+      text = "Keep your hands where I can see them near my seedlings, magus. This city has made me nervous of spellwork." },
     { id = "n_druid", cat = "class", when = { class = "DRUID", race = "Skyborne" },
       text = "One of my Skyborne pupils, or soon to be. You pray to the winds before the moon, I know, and I've stopped trying to change that." },
   },
@@ -528,7 +528,7 @@ P:NPC {
         { id = "h_nightelf", when = { race = "NightElf" },
           text = "Ishnu-alah. Yes, I'm a long way from Darnassus, and no, I can't quite explain how I came to be teaching in a city of mages." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Welcome. Your druids are few, and I teach every one of them who'll come, so if you've the calling, you know where to find me." },
+          text = "Welcome. Your druids are few, and I teach any who'll come, so if you've the calling, you know where to find me." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. You tend the wound and I tend the soil under it; between us, perhaps this valley mends someday." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -581,8 +581,8 @@ P:NPC {
           text = "You've seen it yourself, then, if you cut a blossom from it. Felwood's green, in a mage's garden, and they call it botany." },
       },
       choices = {
-        { text = "Cleanse it. Even tainted ground can heal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Burn it out before it spreads.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Cleanse it. Even tainted ground can heal.", next = "BACK", reply = "I hope you're right, and the Cenarion Circle has seen Felwood's edges heal before, but it takes patience, and the Kirin Tor have very little of that.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn it out before it spreads.", next = "BACK", reply = "That's what any Sentinel would say, and I'm half inclined to agree, though fire in a city of mages is its own kind of trouble.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -612,8 +612,8 @@ P:NPC {
         { id = "xm_default", text = "Your spells don't, but your certainty might. Every mage I've met here believes the power will always do what it's told, and my people believed that too, once." },
       },
       choices = {
-        { text = "You're right. I'll respect the limits.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fear of power never built anything worth having.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "You're right. I'll respect the limits.", next = "BACK", reply = "Then you're wiser than most who come through here, mage, and I'll trust you a little further than I'd trust the rest of your order.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fear of power never built anything worth having.", next = "BACK", reply = "My people said much the same, ten thousand years ago, and the ocean still sits where their city used to be, so think on that.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

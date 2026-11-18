@@ -15,8 +15,8 @@ P:NPC {
 
   greetings = {
     { id = "g_dock", text = "Mind the ropes, friend. My crew coils them as if their lives depend on it, and on a ship they do." },
-    { id = "g_guns", when = { questActive = TODO_QUEST("The Guns of Northwatch") }, text = "Northwatch Hold, south along the coast. Their marines first, and then they'll think twice before firing on a privateer." },
-    { id = "g_firebough", when = { questDone = TODO_QUEST("Free From the Hold") }, text = "Gilthares is still telling the story of his rescue, and it improves every night. You come out of it very well." },
+    { id = "g_guns", when = { questActive = TODO_QUEST("The Guns of Northwatch") }, text = "Northwatch Hold lies south along the coast. Thin out their marines, and they'll think twice before firing on a privateer again." },
+    { id = "g_firebough", when = { questDone = TODO_QUEST("Free From the Hold") }, text = "Gilthares, my deckhand, is still telling the story of his rescue, and it improves every night. You come out of it very well." },
     { id = "g_away", when = { away = 14 }, text = "Back from {away} ashore? The sea doesn't change, but Ratchet does, and usually for the louder." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry yourself like a seasoned hand now. I'd sign you on, if you could stand the smell of tar." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "The docks say you were caught in a lie. A privateer lives on his word, friend, so I'd mend that one quickly." },
@@ -24,7 +24,7 @@ P:NPC {
 
   notice = {
     { id = "n_ally", cat = "race", when = { race = { "Human", "NightElf" } },
-      text = "You'll forgive me if I look twice. My people and yours were allies once, and some days I miss it more than I let my crew see." },
+      text = "Pardon me for looking twice. My people and yours were allies once, and some days I miss it more than I let my crew see." },
     { id = "n_travel", cat = "travel", when = { mounted = true },
       text = "You'll want to leave that beast on the pier, friend. The planks are older than they look, and so am I." },
   },
@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_guns_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Guns of Northwatch"), days = 3 } },
           text = "Northwatch's marines are fewer by your hand, and my crew raised a cup to you last night. The guns are still there, but the men behind them are thinking harder." },
         { id = "h_firebough_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Free From the Hold"), days = 3 } },
-          text = "And to think we believed Firebough long dead! You have earned a place of honor with the Thalo'dan Privateers, and I don't say that lightly." },
+          text = "And to think we believed Gilthares Firebough long dead! You have earned a place of honor with the Thalo'dan Privateers, and I don't say that lightly." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Alliance colors in Ratchet. Peace, friend, I bear you no ill will, though I'll not pretend Theramore's soldiers have earned much of mine." },
       },
@@ -74,15 +74,15 @@ P:NPC {
       big = true,
       lines = { { id = "we_default", text = "I don't know, friend, and I've stopped caring which. A sunk ship is a sunk ship, and someone will answer for it, whether by order of Lady Proudmoore or in spite of her." } },
       choices = {
-        { text = "Then they'll answer for it. I'll see to it.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, opinion = { theramore = "distrust" } } },
-        { text = "Take it to Theramore's lady. Let her judge them.", next = "BACK", fx = { align = { order = 1 }, opinion = { jaina = "trust" } } },
+        { text = "Then they'll answer for it. I'll see to it.", next = "BACK", reply = "I'd like to believe that, friend, though I've heard brave promises at sea before. If you bring me a name from Northwatch, I'll drink to you whether or not the Horde approves.", fx = { affinity = 1, align = { order = -1 }, opinion = { theramore = "distrust" } } },
+        { text = "Take it to Theramore's lady. Let her judge them.", next = "BACK", reply = "Jaina Proudmoore is a fair woman, but she can't be everywhere at once. I'll write to her, and you may carry the letter if you like, though I doubt the answer will raise my ship.", fx = { align = { order = 1 }, opinion = { jaina = "trust" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     firebough = {
       lines = {
-        { id = "f_default", text = "One deckhand, Gilthares Firebough, or so I hope, because there were rumors of a prisoner in the hold's cells. If he lives, he's spent every day since in an Alliance cell for the crime of hauling barrels." },
-        { id = "f_done", when = { questDone = TODO_QUEST("Free From the Hold") }, text = "Gilthares Firebough, and he's alive thanks to you. He hauls barrels for me again now, and he whistles while he does it, which I'll allow." },
+        { id = "f_default", text = "One may have: my deckhand Gilthares Firebough, since there are rumors of a prisoner in Northwatch's cells. If he lives, he's spent every day since in an Alliance cell for the crime of hauling barrels." },
+        { id = "f_done", when = { questDone = TODO_QUEST("Free From the Hold") }, text = "One did, my deckhand Gilthares Firebough, and he's alive thanks to you. He hauls barrels for me again now, and he whistles while he does it, which I'll allow." },
       },
       choices = { { text = "Something else, Captain.", next = "BACK" } },
     },
@@ -135,10 +135,10 @@ P:NPC {
       },
     },
     alliance = {
-      lines = { { id = "al_default", text = "Then you'll forgive me if I don't ask you to sail against them, friend. I'll not hold Northwatch's guns against everyone who wears the same tabard, but I'll not pretend they didn't sink my ship, either." } },
+      lines = { { id = "al_default", text = "Then I'll not ask you to sail against them, friend. I'll not hold Northwatch's guns against everyone who wears the same tabard, but I'll not pretend they didn't sink my ship, either." } },
       choices = {
-        { text = "Some of our soldiers forget whose peace they keep.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A ship from a Horde port takes its chances.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Some of our soldiers forget whose peace they keep.", next = "BACK", reply = "That's a generous thing to admit, and you're the first in that tabard to say it to me. Perhaps the peace is worth more than I've been giving it credit for.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A ship from a Horde port takes its chances.", next = "BACK", reply = "Spoken like someone who's never watched cannon fire take a hull to pieces. My crew weren't soldiers, friend, and they took no chances but the sea's.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -150,9 +150,9 @@ P:NPC {
     steamwheedle = { { id = "tp_sw", text = "The Cartel keeps Ratchet open to anyone who pays, and that makes it the only harbor on this coast where an elf captain can tie up without a flag." } },
     theramore = { { id = "tp_theramore", text = "Lady Proudmoore I have no quarrel with, and I'd drink to her health in any port. But it was Northwatch Hold's guns that sank my ship, and Northwatch flies her colours, so you'll forgive me if I don't toast too often." } },
     bloodsail = { { id = "tp_bloodsail", text = "They are pirates in red, sailing out of Stranglethorn and stealing from honest privateers like myself. There is a difference between us, and it is mostly that I keep a contract." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is a fine harbour with a terrible reputation, which suits me perfectly. Half of my crew signed on there, and the other half drank there first." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is a fine harbour with a terrible reputation, which suits me perfectly. Most of my crew signed on there, and the rest drank there first." } },
     dalaran = { { id = "tp_dalaran", text = "My family had friends in Dalaran before the war, and I have not heard from them since it fell. They say the Kirin Tor are raising it again, though slowly, and behind a great many locked doors." } },
-    ratchet = { { id = "tp_ratchet", text = "Ratchet took us in when Northwatch made us homeless, and Gazlowe has been decent about it, for a goblin. We pay our berth and we keep the pirates off his docks, which is a trade that suits us both." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet took us in when Northwatch made us homeless, and Gazlowe, who runs the port, has been decent about it, for a goblin. We pay our berth and we keep the pirates off his docks, which is a trade that suits us both." } },
     _none = { { id = "tp_none", text = "I'm afraid that's beyond what a sea captain hears, friend. Try the goblins; they hear everything and sell half of it." } },
   },
 }

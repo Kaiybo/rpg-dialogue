@@ -19,7 +19,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "The League of Arathor stands ready, {class}. The basin won't win itself back, and the Defilers are digging in while we talk." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still standing, which is the first thing I ask of anyone I send to Arathi. What do you need?" },
-    { id = "g_marks", when = { carrying = { 20559, min = 3 } }, text = "Those are Arathi marks in your pack, unless my eyes have gone. Every one of them is a stretch of the basin we held for a while, and I'm glad to take them." },
+    { id = "g_marks", when = { carrying = { 20559, min = 3 } }, text = "Those are Arathi marks in your pack, unless my eyes have gone. Each mark stands for a stretch of the basin we held for a while, and I'm glad to take them." },
     { id = "g_honored", when = { reputation = { faction = "League of Arathor", min = "honored" } }, text = "They speak your name at Trollbane Hall now, friend, and not just when they're counting the dead. Sit down a moment before you go back out." },
     { id = "g_horde_kills", when = { honorKills = { min = 500 } }, text = "You've the look of someone the Horde has learned to avoid on a battlefield. Arathi could use that look, if you've time for it." },
   },
@@ -102,8 +102,8 @@ P:NPC {
         { id = "bf_default", text = "Ask ten soldiers and you'll get ten answers, but for me it's the Farm, because my grandmother's people worked those fields before the troll wars and the orcs and the Plague. Some of the Defilers who come down to take it were farmhands there once, and I've heard them call the rows by name." },
       },
       choices = {
-        { text = "Then they've as much right to mourn it as you.", next = "BACK", fx = { opinion = { forsaken = "pity" }, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "They gave up that right when they died and came back.", next = "BACK", fx = { opinion = { forsaken = "hate" }, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Then they've as much right to mourn it as you.", next = "BACK", reply = "Perhaps they have, and that's the cruel part of it, because the fields remember them too. I'll still fight them for every row, but I'll not pretend they never loved the place.", fx = { opinion = { forsaken = "pity" }, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "They gave up that right when they died and came back.", next = "BACK", reply = "That's what the Highlands tell themselves, and maybe it's true, because the dead have no business in a living field. Fight them hard, then, and let the Farm grow wheat for the living again.", fx = { opinion = { forsaken = "hate" }, align = { light = -1 }, trait = { stern = 1 } } },
         { text = "That must make the fighting there very strange.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -141,7 +141,7 @@ P:NPC {
     },
     defilers_den = {
       lines = {
-        { id = "dn_default", text = "We don't, and that's the worst of it. Some say they're raising soldiers from the old bones, others say they're grinding them for the plague cauldrons, and the dead don't come back to tell us which, or if they do, they come back wearing Defiler colors." },
+        { id = "dn_default", text = "We don't know what they take from the barrows, and that's the worst of it. Some say they're raising soldiers from the old bones, others say they're grinding them for the plague cauldrons, and the dead don't come back to tell us which, or if they do, they come back wearing Defiler colors." },
       },
       choices = {
         { text = "Then I'll take the Farm and hold it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
@@ -175,8 +175,8 @@ P:NPC {
         { id = "sw_default", text = "Because a city can be taken back with stone and swords, but not without bread and iron, and the basin is where both come from. If we lose Arathi's fields to the Horde, Stromgarde stays a ruin forever." },
       },
       choices = {
-        { text = "Then the basin comes first. That's sound soldiering.", next = "BACK", fx = { opinion = { stromgarde = "patience" }, align = { honor = 1 } } },
-        { text = "Let the Horde bleed for the basin. Strike Stromgarde while they're busy.", next = "BACK", fx = { opinion = { stromgarde = "reclaim" }, align = { honor = -1 } } },
+        { text = "Then the basin comes first. That's sound soldiering.", next = "BACK", reply = "It is, and it's what Stromgarde's generals have said since the Plague took Lordaeron. Hold the basin, feed the men, and the old walls will be ours again in time.", fx = { opinion = { stromgarde = "patience" }, align = { honor = 1 } } },
+        { text = "Let the Horde bleed for the basin. Strike Stromgarde while they're busy.", next = "BACK", reply = "A bold plan, and I've heard it argued over many a campfire, but Stromgarde's ogres and Syndicate thieves aren't idle while the Horde is busy. Take the basin first, or we'll starve halfway up the walls.", fx = { opinion = { stromgarde = "reclaim" }, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -244,7 +244,7 @@ P:NPC {
     },
     k_dwarf = {
       lines = {
-        { id = "kd_default", text = "Thandol Span is the only road from the Highlands to your mountains, and the Dark Iron dwarves have made it a misery to cross. As for the Wildhammer, they flew beside Stromgarde in the Second War, and I'd give a great deal to see a gryphon over the basin again." },
+        { id = "kd_default", text = "Thandol Span is the only road from the Highlands to your mountains, and the Dark Iron dwarves have made it a misery to cross. As for the Wildhammer, they flew beside Stromgarde in the Second War, and I'd give my best horse to see a gryphon over the basin again." },
       },
       choices = {
         { text = "I'll write to Aerie Peak for you.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -266,8 +266,8 @@ P:NPC {
         { id = "kn_default", text = "You've no need to, and I'd not blame you if you stayed home. But the Defilers are spreading their plague across the old forests too, and I'd sooner stop them in a human valley than in your own woods." },
       },
       choices = {
-        { text = "Any land poisoned is a wound to all. I'll come.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then I'll fight there for Ashenvale's sake, not yours.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Any land poisoned is a wound to all. I'll come.", next = "BACK", reply = "That's a generous thing to say, and I'll not forget it, because few enough have come to Arathi out of anything but duty or plunder, and the League will be glad of you.", fx = { align = { light = 1 } } },
+        { text = "Then I'll fight there for Ashenvale's sake, not yours.", next = "BACK", reply = "I'll take your reasons and gladly, friend, because the Defilers' plague doesn't much care why you're standing in its way, only that you are.", fx = { align = { light = -1 } } },
         { text = "I'll think on it.", next = "BACK" },
       },
     },
@@ -276,17 +276,17 @@ P:NPC {
     xpala = {
       big = true,
       lines = {
-        { id = "xp_default", text = "It goes with the paladins of the League, and some of them are Stromgarde men who never left the Highlands. Mind you, many of the Forsaken knelt in Lordaeron's chapels once, and that makes the Light a heavy thing to carry into the basin." },
+        { id = "xp_default", text = "It goes with the paladins of the League, and some of them are Stromgarde men who never left the Highlands. Remember, though, many of the Forsaken knelt in Lordaeron's chapels once, and that makes the Light a heavy thing to carry into the basin." },
       },
       choices = {
-        { text = "The Light shows them mercy. I can do no less.", next = "BACK", fx = { opinion = { undeath = "mercy" }, align = { light = 1 } } },
-        { text = "The dead belong in the ground. I'll put them back.", next = "BACK", fx = { opinion = { undeath = "put_down" }, align = { light = -1 } } },
+        { text = "The Light shows them mercy. I can do no less.", next = "BACK", reply = "Then you're a better paladin than many I've known, and the Light will see it. I hope the Forsaken you spare know what it cost you, though I doubt they'll thank you for it.", fx = { opinion = { undeath = "mercy" }, align = { light = 1 } } },
+        { text = "The dead belong in the ground. I'll put them back.", next = "BACK", reply = "There's a grim mercy in that too, and many of the League's paladins would agree with you. Do it cleanly, then, because the dead were our own folk once, whatever they are now.", fx = { opinion = { undeath = "put_down" }, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xpriest = {
       lines = {
-        { id = "xpr_default", text = "Not enough of your kind, friend, which is why I'm asking. The barrow fields need blessing again after every fight, and the priests at the Hall can't keep up." },
+        { id = "xpr_default", text = "Not enough of your kind, friend, and that's the reason I'm asking. The barrow fields need blessing again after every fight, and the priests at the Hall can't keep up." },
       },
       choices = {
         { text = "I'll bless the barrows myself.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -299,8 +299,8 @@ P:NPC {
         { id = "xl_default", text = "The League would take you, I expect, because the League takes anyone who'll stand on the Alliance's side of the field. I'd ask you not to summon anything near the graves, though, because I've had enough of the dead being disturbed." },
       },
       choices = {
-        { text = "I'll respect the graves. They're not mine to use.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "War doesn't stop at a gravestone, emissary.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll respect the graves. They're not mine to use.", next = "BACK", reply = "Thank you, warlock, truly, because half the men in my company buried family in those graves, and they'll fight easier knowing you mean it.", fx = { align = { order = 1 } } },
+        { text = "War doesn't stop at a gravestone, emissary.", next = "BACK", reply = "Maybe not, but my men's grandfathers lie under those stones, and if you raise so much as a whisper there, you'll find the League's swords turned the wrong way.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -334,7 +334,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "The Defilers have need of you, living or otherwise. Speak, if you've come about Arathi." },
-    { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, which is more than I can say for most of the people I send to the basin. What is it?" },
+    { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, though most of the people I send to the basin come back in pieces, if they come back. What is it?" },
     { id = "g_marks", when = { carrying = { 20559, min = 3 } }, text = "You carry Arathi marks, and enough of them to be useful. The Defilers keep a careful count, and they'll count yours." },
     { id = "g_honored", when = { reputation = { faction = "The Defilers", min = "honored" } }, text = "The Den speaks well of you, and the Den speaks well of almost no one. Come closer, ally." },
     { id = "g_kills", when = { honorKills = { min = 500 } }, text = "You've killed enough of the Alliance to make the League remember your face. I find that very encouraging." },
@@ -392,7 +392,7 @@ P:NPC {
     -- What they want (chain: basin -> basin_points -> basin_strip)
     basin = {
       lines = {
-        { id = "bs_default", text = "Gold, timber, iron and grain, and the basin has all four, which is more than Tirisfal can say. The Undercity is a great deal of mouth for very little field, and the Horde's war doesn't feed itself, though the League howls whenever we go near their old barrows." },
+        { id = "bs_default", text = "Gold, timber, iron and grain, and the basin has all four, while Tirisfal's fields grow mostly blight. The Undercity is a great deal of mouth for very little field, and the Horde's war doesn't feed itself, though the League howls whenever we go near their old barrows." },
       },
       choices = {
         { text = "How does the fighting go there?", next = "basin_points" },
@@ -416,8 +416,8 @@ P:NPC {
         { id = "bst_default", text = "The Gold Mine, because gold buys everything else, and the League's soldiers die there rather than give it up. They say we strip the land bare, and they're right, but the land was Lordaeron's neighbor and we were Lordaeron's people, and nobody asked us when the Plague took our own fields." },
       },
       choices = {
-        { text = "The Forsaken earned that land with their suffering. Take it.", next = "BACK", fx = { opinion = { forsaken = "deserving" }, align = { order = -1 } } },
-        { text = "Take what the Horde needs, and leave the rest in order.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Forsaken earned that land with their suffering. Take it.", next = "BACK", reply = "We did, every one of us, in a coin no living soldier would ever accept. I'm glad to hear someone besides the Dark Lady say so, and I'll see you at the Gold Mine.", fx = { opinion = { forsaken = "deserving" }, align = { order = -1 } } },
+        { text = "Take what the Horde needs, and leave the rest in order.", next = "BACK", reply = "Order? There's no order left in Arathi to keep, but I'll leave the farmhouses standing, if only so the League has something to weep over when we've gone.", fx = { align = { order = 1 } } },
         { text = "That's a bitter way to see it.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -427,8 +427,8 @@ P:NPC {
         { id = "bg_default", text = "The League says many things, and some of them are even true. Arathor's dead have been in the ground long enough to be of no use to anyone but the apothecaries, and the Dark Lady doesn't waste what's useful." },
       },
       choices = {
-        { text = "The dead should rest. Leave the barrows alone.", next = "BACK", fx = { opinion = { necromancy = "wrong" }, align = { light = 1 } } },
-        { text = "The dead don't need their bones. The living do.", next = "BACK", fx = { opinion = { necromancy = "useful" }, align = { light = -1 } } },
+        { text = "The dead should rest. Leave the barrows alone.", next = "BACK", reply = "Rest is a privilege of the living, I'm afraid, and the dead have so very little else to offer. Still, I'll make a note of your scruples, and the apothecaries can decide if they've any value.", fx = { opinion = { necromancy = "wrong" }, align = { light = 1 } } },
+        { text = "The dead don't need their bones. The living do.", next = "BACK", reply = "Exactly, and how refreshing to hear it said without all the sentiment. The Royal Apothecary Society would welcome you, I think, though do wash your hands before you meet them.", fx = { opinion = { necromancy = "useful" }, align = { light = -1 } } },
         { text = "I can't think what the apothecaries want with them.", next = "basin_apoth" },
       },
     },
@@ -459,8 +459,8 @@ P:NPC {
         { id = "lh_default", text = "No, it isn't, and that's what makes them dangerous. A man defending his grandfather's grave will hold a flag long after he ought to have run, and I've watched them do it." },
       },
       choices = {
-        { text = "Then they deserve an honorable death in the field.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then strike when they're tired, and strike from behind.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then they deserve an honorable death in the field.", next = "BACK", reply = "Honorable death is an orc's notion, but I'll give them a quick one if they ask nicely, which is more than the Scourge gave any of us.", fx = { align = { honor = 1 } } },
+        { text = "Then strike when they're tired, and strike from behind.", next = "BACK", reply = "Now that's the sort of counsel I'd expect from a Forsaken, and I'll tell my deathguards you said so, though the Horde's orcs may like it less.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -495,7 +495,7 @@ P:NPC {
     },
     self_dog = {
       lines = {
-        { id = "sd_default", text = "I've no idea, and I'd rather not guess, since the Plague went through the Highlands before I did. I don't look for it anymore when I pass the Farm, and I want that understood." },
+        { id = "sd_default", text = "I've no idea, and I won't guess, since the Plague went through the Highlands before I did. I don't look for it anymore when I pass the Farm, and I want that understood." },
       },
       choices = {
         { text = "I understand.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -545,8 +545,8 @@ P:NPC {
         { id = "ko_default", text = "Because the League marches under the same Alliance banner that built the camps your people rotted in. I'd have thought that was reason enough to come to Arathi, orc." },
       },
       choices = {
-        { text = "Then the camps will be avenged in Arathi.", next = "BACK", fx = { opinion = { peace = "against" }, align = { honor = -1 } } },
-        { text = "The Warchief says we leave the camps behind us.", next = "BACK", fx = { opinion = { warchief = "trust" }, align = { honor = 1 } } },
+        { text = "Then the camps will be avenged in Arathi.", next = "BACK", reply = "Good, because the League will not apologize for those camps, and nor will they stop building them if they win. Bring that anger to Arathi, orc, and point it where it will do some good.", fx = { opinion = { peace = "against" }, align = { honor = -1 } } },
+        { text = "The Warchief says we leave the camps behind us.", next = "BACK", reply = "So I've heard, and your Warchief is wiser than I am, which is no small thing. But the League hasn't left the camps behind them, and you'll find that out in Arathi soon enough.", fx = { opinion = { warchief = "trust" }, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -574,8 +574,8 @@ P:NPC {
         { id = "kf_default", text = "Then you know what's down there as well as I do: the farm with the red door, the old millrace, and the graves of people we both buried once. Do you mean to take it back for the Dark Lady, or only to see it again?" },
       },
       choices = {
-        { text = "For the Dark Lady. What I was is buried with them.", next = "BACK", fx = { opinion = { sylvanas = "loyal" }, align = { order = 1 } } },
-        { text = "For me. The Dark Lady can have whatever's left.", next = "BACK", fx = { opinion = { sylvanas = "indifferent" }, align = { order = -1 } } },
+        { text = "For the Dark Lady. What I was is buried with them.", next = "BACK", reply = "Spoken like one of the Dark Lady's own, and she will be glad to hear it. Bury what you were, then, and come take the basin back with nothing soft left in you.", fx = { opinion = { sylvanas = "loyal" }, align = { order = 1 } } },
+        { text = "For me. The Dark Lady can have whatever's left.", next = "BACK", reply = "Honest of you, and more honest than most will admit within earshot of the Undercity. Go and see it, then, and if the red door's still standing, knock once for me.", fx = { opinion = { sylvanas = "indifferent" }, align = { order = -1 } } },
         { text = "I don't know yet.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -596,8 +596,8 @@ P:NPC {
         { id = "xpr_default", text = "Some do, though not to pray, since most of us gave that up when we woke in the earth. The Light still answers some Forsaken, I'm told, and the shadow answers more." },
       },
       choices = {
-        { text = "The Light answers anyone who still asks.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The shadow is more honest with the dead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light answers anyone who still asks.", next = "BACK", reply = "Perhaps, though I've not asked in some time, and I'm not sure I'd care to hear what it had to say to a thing like me.", fx = { align = { light = 1 } } },
+        { text = "The shadow is more honest with the dead.", next = "BACK", reply = "It is, and it doesn't flinch at what we've become, which is a courtesy the Light has never once extended to me since I climbed out of my grave.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -20,7 +20,7 @@ P:Pool {
   },
   choices = { { text = "For Stromgarde.", next = "END", fx = { standing = { refuge_pointe = 1 } } } },
   topics = {
-    _none = { { id = "t_none", text = "Ask the Captain, and she'll tell you, briefly, and probably while she's eating." } },
+    _none = { { id = "t_none", text = "Ask Captain Nials, and she'll tell you, briefly, and probably while she's eating." } },
   },
 }
 

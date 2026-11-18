@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Jern Hornhelm, Explorers' League. If ye've come from the dig, I'll want tae hear about it before ye've sat down." },
+    { id = "g_default", text = "I'm Jern Hornhelm, o' the Explorers' League. If ye've come from the dig, I'll want tae hear about it before ye've sat down." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Sit, sit, an' mind the ledgers, for they're in an order only I understand." },
     { id = "g_away", when = { away = 14 }, text = "There ye are, after {away} away! The League's sent three letters since ye left, an' none o' them pleasant." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at ye now! Ye've the look o' someone who could carry a barrel o' powder tae Ironband an' a trogg under the other arm." },
@@ -35,11 +35,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Jern Hornhelm, an' I'm the Explorers' League in Thelsamar, or the bit o' it that holds the pen. Prospector Ironband's diggin' east o' the loch, an' everythin' he needs or says comes through this table." },
+          text = "Jern Hornhelm's the name, an' I'm the Explorers' League in Thelsamar, or the bit o' it that holds the pen. Prospector Ironband's diggin' east o' the loch, an' everythin' he needs or says comes through this table." },
         { id = "h_progress", tags = { "news" }, when = { questActive = TODO_QUEST("Excavation Progress Report") },
           text = "Is that Ironband's report under yer arm? Give it here, then, for I've been waitin' on it near a fortnight." },
         { id = "h_progress_done", when = { questRecent = { TODO_QUEST("Excavation Progress Report"), days = 3 } },
-          text = "Troggs at the dig, an' Ironband wantin' more powder. What puzzles me is that I sent him plenty weeks ago, an' I'd like tae know where it went." },
+          text = "So it's troggs at the dig, an' Ironband wantin' more powder. What puzzles me is that I sent him plenty weeks ago, an' I'd like tae know where it went." },
         { id = "h_powder", tags = { "news" }, when = { questActive = TODO_QUEST("Powder to Ironband") },
           text = "Ye've brought the League's answer back from Ironforge, have ye? Stormpike's approved more powder, I take it, an' only shouted a little." },
         { id = "h_resupply", when = { questActive = TODO_QUEST("Resupplying the Excavation") },
@@ -47,7 +47,7 @@ P:NPC {
         { id = "h_ambush", tags = { "news" }, when = { questDone = TODO_QUEST("Protecting the Shipment") },
           text = "I heard about Saean, an' I've not slept right since. Near a year he drew League wages from this very table, an' all that time he was sellin' us tae the Dark Irons." },
         { id = "h_fellhew", when = { questActive = TODO_QUEST("Ironband's Excavation") },
-          text = "Round the south tip o' the loch an' then east, an' ask for Magmar Fellhew. He minds the details at the dig, so he'll know why it's slowed." },
+          text = "Go round the south tip o' the loch an' then east, an' ask for Magmar Fellhew. He minds the details at the dig, so he'll know why it's slowed." },
         { id = "h_fellhew_done", when = { questDone = TODO_QUEST("Ironband's Excavation") },
           text = "Troggs, Fellhew says, an' he said it wi' two exclamation marks in the letter. I believe him, though I'd rather it had been bad weather." },
         { id = "h_dwarf", when = { race = "Dwarf" },
@@ -77,7 +77,7 @@ P:NPC {
 
     dig = {
       lines = {
-        { id = "dg_default", text = "Ruins east o' the loch, older than Ironforge an' maybe older than that. Ironband's a stout, honest dwarf who values results, which is why it worries me that he's had so few o' late." },
+        { id = "dg_default", text = "He's diggin' ruins east o' the loch, older than Ironforge an' maybe older than that. Ironband's a stout, honest dwarf who values results, which is why it worries me that he's had so few o' late." },
       },
       choices = {
         { text = "What's he hoping to find?", next = "dig_find" },
@@ -90,8 +90,8 @@ P:NPC {
         { id = "df_default", text = "Where we came from, if ye want the League's answer, an' a good deal o' carved stone if ye want mine. The old stories say the mountain made us, an' every ruin in Khaz Modan might say how." },
       },
       choices = {
-        { text = "Some old things are better left buried.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A people should know where they came from.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, learn = { "explorers_league" } } },
+        { text = "Some old things are better left buried.", next = "BACK", reply = "Ye sound like my mother, an' she was wiser than the whole League. Still, we've dug this far, an' I'd no' stop now if the King himself asked.", fx = { align = { order = -1 } } },
+        { text = "A people should know where they came from.", next = "BACK", reply = "Aye, that's the League's whole heart in one breath. A dwarf who doesnae know his roots is just a beard wi' boots on.", fx = { affinity = 1, align = { order = 1 }, learn = { "explorers_league" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,8 +114,8 @@ P:NPC {
       },
       choices = {
         { text = "Someone on that road must be handling the barrels.", next = "powder_who" },
-        { text = "Count the barrels at both ends from now on.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
-        { text = "Let the dig blow its own walls without powder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Count the barrels at both ends from now on.", next = "BACK", reply = "Both ends, aye, an' the middle too if I can manage it. I'll have a ledger on every cart by the end o' the week.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Let the dig blow its own walls without powder.", next = "BACK", reply = "Ha! Tell that tae Ironband an' watch his face go purple. Without powder, the dig's just a lot o' dwarves wi' sore arms.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -156,8 +156,8 @@ P:NPC {
         { id = "spy_default", text = "In ink, aye, an' ink shouts louder than ye'd think. I don't mind it, for he cares about the work, an' a dwarf who cares that much is worth a few hot letters." },
       },
       choices = {
-        { text = "A hot letter is still poor leadership.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Loyal of you, Jern. The League's lucky.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A hot letter is still poor leadership.", next = "BACK", reply = "Maybe it is, but I'd rather a leader who shouts than one who doesnae care. Ye've no' met Stormpike, or ye'd see what I mean.", fx = { align = { honor = -1 } } },
+        { text = "Loyal of you, Jern. The League's lucky.", next = "BACK", reply = "Lucky, aye, or foolish, dependin' on who ye ask. I'll take it as kindness, an' thank ye for it.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -170,8 +170,8 @@ P:NPC {
           text = "I'll tell ye what I've told nobody else: I wrote tae Ironforge offerin' tae step down over it. Stormpike wrote back one line, which was 'Don't be daft,' an' it's the kindest letter he's ever sent me." },
       },
       choices = {
-        { text = "Anyone can be fooled by a friendly face.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "You should have watched him closer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Anyone can be fooled by a friendly face.", next = "BACK", reply = "Aye, they can, an' I was. I'll no' let it make me hard, though, for most smiles in this town are honest ones.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "You should have watched him closer.", next = "BACK", reply = "I should have, an' I'll be tellin' myself that for years. Rub it in a wee bit more, if ye like.", fx = { align = { light = -1 } } },
         { text = "Something else, Jern.", next = "BACK" },
       },
     },
@@ -201,8 +201,8 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Everythin' the League sends or receives in Loch Modan crosses this table, so I know a fair bit. Ask away." } },
     background = { { id = "tp_bg", text = "I'm a clerk o' the Explorers' League, an' proud o' it. Somebody has tae write it all down, or the diggin' never happened." } },
     advice = { { id = "tp_ad", text = "Count everythin' twice, friend, an' trust the count over the face." } },
-    explorers_league = { { id = "tp_league", text = "The finest body o' dwarves under the mountain, an' the worst at sendin' their paperwork on time." } },
-    dark_iron = { { id = "tp_di", text = "They want our powder, an' I'd give a year's wages tae know what for.", next = "powder" } },
+    explorers_league = { { id = "tp_league", text = "The League's the finest body o' dwarves under the mountain, an' the worst at sendin' their paperwork on time." } },
+    dark_iron = { { id = "tp_di", text = "The Dark Irons want our powder, an' I'd give a year's wages tae know what for.", next = "powder" } },
     troggs = { { id = "tp_troggs", text = "Ironband's got them in his trench an' Rugelfuss has them in the valley. They seem tae come up wherever a dwarf puts a shovel in." } },
     _none = { { id = "tp_none", text = "That's no' in any ledger o' mine, friend. Try the Stoutlager, for they keep a different sort o' book." } },
     uldaman = { { id = "tp_uldaman", text = "Uldaman's down in the Badlands, an' the League wants in very badly. Ironband says the troggs came up out o' the same kind o' digs, an' I've the reports tae prove it." } },

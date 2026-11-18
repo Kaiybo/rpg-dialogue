@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_doll", when = { questDone = TODO_QUEST("Pamela's Doll") },
           text = "Pamela showed me her doll, all stitched back together, and she says a stranger did it. That was you, I think, and I'll not forget it." },
         { id = "h_warrior", when = { class = "WARRIOR" },
-          text = "You carry yourself like a soldier, {class}. I had farmers with pitchforks that day, and they stood like soldiers too, every one of them, right up until the end." },
+          text = "You carry yourself like a soldier, {class}. I had farmers with pitchforks that day, and they stood like soldiers too, all of them, right up until the end." },
         { id = "h_horde", when = { faction = "Horde", race = { "Orc", "Tauren", "Troll" } },
           text = "I fought orcs once, in the Second War, and I thought I'd never want one standing in my town. Yet here you are, and the Scourge is the enemy we share, so I've no quarrel left in me." },
       },
@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "ps_default", text = "For as long as the Light lets me, and then I'll take her wherever we go next, by the hand, so she's not frightened. Do you think that's selfish, keeping her here a little longer when she ought to be at rest?" } },
       choices = {
-        { text = "Stay with her. She's waited long enough for her father.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Let her go on. Holding her here is for your sake, not hers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Stay with her. She's waited long enough for her father.", next = "BACK", reply = "Thank you, friend. I'll hold her hand a little longer, and we'll go together when it's time.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Let her go on. Holding her here is for your sake, not hers.", next = "BACK", reply = "You may be right, and it's a hard thing to hear. I'll think on it, while she sleeps.", fx = { align = { light = -1 } } },
         { text = "That's not for me to say, Joseph.", next = "BACK" },
       },
     },
@@ -100,11 +100,11 @@ P:NPC {
     },
     battle_remember = {
       big = true,
-      lines = { { id = "br_default", text = "Pieces, like a fever dream, and I'd rather not have any of them. The Scourge didn't care who I'd been, only what I could do for it, and it used me hard. Tell me true, friend: is a man to blame for what his body does when he's gone?" } },
+      lines = { { id = "br_default", text = "Pieces, like a fever dream, and I'd give them all back if I could. The Scourge didn't care who I'd been, only what I could do for it, and it used me hard. Tell me true, friend: is a man to blame for what his body does when he's gone?" } },
       choices = {
-        { text = "No. The Scourge did those things, not you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Blame or not, you carry it. That's what honor asks.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "It's done, Joseph. Weighing it changes nothing now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "No. The Scourge did those things, not you.", next = "BACK", reply = "Thank you. I've wanted someone to say that for a very long time.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Blame or not, you carry it. That's what honor asks.", next = "BACK", reply = "It is, and I'll carry it, as long as I have arms to carry anything. That's fair.", fx = { align = { honor = 1 } } },
+        { text = "It's done, Joseph. Weighing it changes nothing now.", next = "BACK", reply = "No, it doesn't, and I suppose I knew that. Thank you for saying it plainly.", fx = { align = { honor = -1 } } },
       },
     },
 
@@ -126,7 +126,7 @@ P:NPC {
       },
     },
     carlin_message = {
-      lines = { { id = "cm_default", text = "Tell him I'm with Pamela, and that she's not afraid anymore, and that he's to stop sitting in a chapel feeling sorry and go see Marlene on Sorrow Hill. He'll know it's me, because I always did tell him what to do." } },
+      lines = { { id = "cm_default", text = "Tell him I'm with Pamela, and that she's not afraid anymore, and that he's to stop sitting in a chapel feeling sorry and go and see our sister Marlene on Sorrow Hill. He'll know it's me, because I always did tell him what to do." } },
       choices = {
         { text = "I'll tell him, word for word.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -159,8 +159,8 @@ P:NPC {
       big = true,
       lines = { { id = "tr_default", text = "Not by me, and not soon, but I'd like to think the land remembers how to grow. What do you think, friend? Should someone come back here one day and plant, or should it be left to the dead?" } },
       choices = {
-        { text = "Someone should plant here again. The living reclaim what was theirs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Leave it be. Some places should stay as they fell.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Someone should plant here again. The living reclaim what was theirs.", next = "BACK", reply = "I'd like that, very much. Plant something green in the square, if you ever can.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leave it be. Some places should stay as they fell.", next = "BACK", reply = "Perhaps you're right, and it would make a fine grave for those who fell. Let it stay, then.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -199,7 +199,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A farmer's son who became a farmer, and a captain for a day. That's the whole of it, and I'd not trade the farming years for anything." } },
     advice = { { id = "tp_ad", text = "Put the little ones somewhere safe before you do anything brave. I did that much right, and it's the only part I'd do the same." } },
-    scarlet_crusade = { { id = "tp_scarlet", text = "I don't know them; they came after my time. If they'd have burned Pamela for being a ghost, I don't care to." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "I don't know them; they came after my time. If they'd burn Pamela for being a ghost, I don't care to know them." } },
     _none = { { id = "tp_none", text = "I've been gone a long while, friend, and I'm the last to ask about anything past Darrowshire's fences. Carlin would know, I expect." } },
   },
 }

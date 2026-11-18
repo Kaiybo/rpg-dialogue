@@ -38,14 +38,14 @@ P:NPC {
         { id = "h_bag", tags = { "news" }, when = { questRecent = { TODO_QUEST("Krastinov's Bag of Horrors"), days = 3 } },
           text = "You've brought his bag out of that place. I don't wish to see inside it, and I'd thank you not to describe it, but I'm grateful beyond what I can show." },
         { id = "h_herald", when = { questActive = TODO_QUEST("Kirtonos the Herald") },
-          text = "The herald comes when he is called, and the house will be ready for him, it always is. Please don't let him stay long." },
+          text = "Kirtonos the Herald comes when he is called, and the house will be ready for him, it always is. Please don't let him stay long." },
         { id = "h_done", tags = { "news" }, when = { questDone = TODO_QUEST("Kirtonos the Herald") },
-          text = "The edges of things are going soft, and Eva is smiling, which I had nearly forgotten she could do. You have my deepest thanks, and I'm sorry I can't say it better." },
+          text = "The edges of things are going soft, as if we might finally be allowed to leave, and Eva is smiling, which I had nearly forgotten she could do. You have my deepest thanks, and I'm sorry I can't say it better." },
         { id = "h_forsaken", when = { race = "Scourge" },
           text = "You are one of the risen, but your eyes are your own. Forgive me if I keep a little distance; the last of your kind I saw up close were carrying my wife down the cellar stairs." },
       },
       again = {
-        { id = "h_again", text = "Is there anything further? Take your time; we have a great deal of it." },
+        { id = "h_again", text = "Is there anything further? Take your time; the dead have little else." },
         { id = "h_again2", text = "Please, go on. Eva says I don't let people finish, and I'm trying to improve." },
       },
       choices = {
@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "hb_default", text = "Every evening, I think, though it's hard to tell evenings apart now. If I had asked, I'd have been dismissed and my questions forgotten, and if I hadn't asked, well, here we are." } },
       choices = {
-        { text = "It wasn't your place. You did your duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "You should have asked. Duty isn't an excuse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "It wasn't your place. You did your duty.", next = "BACK", reply = "That is what I told myself, for a great many years. It is a comfort to hear someone else say it, though I'm not sure it's true.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You should have asked. Duty isn't an excuse.", next = "BACK", reply = "Perhaps I should have. I'll carry that answer with me, as I carry the rest.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -118,7 +118,7 @@ P:NPC {
       lines = { { id = "no_default", text = "Then you'll know there was always someone like me just behind the door, listening for the bell. I hope you were kind to yours; most of the families were, and the ones who weren't, we remembered." } },
       choices = {
         { text = "I tried to be. I hope I was.", next = "BACK", fx = { affinity = 1 } },
-        { text = "I barely noticed them, honestly.", next = "BACK", fx = { affinity = -1 } },
+        { text = "I barely noticed them, to tell the truth.", next = "BACK", fx = { affinity = -1 } },
       },
     },
   },

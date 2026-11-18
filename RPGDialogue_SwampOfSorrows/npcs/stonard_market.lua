@@ -35,7 +35,7 @@ P:NPC {
         { id = "h_scourge", when = { race = "Scourge" },
           text = "You're one of them. I've nothing to say to you, nothing at all, and if you've come to finish what your friends started, the orcs will want to know why." },
         { id = "h_alliance", when = { faction = "Alliance" },
-          text = "Listen, there's no time. I was sent to watch the roads near Deadwind, and I saw something there that Stormwind needs to know, and the orcs need to know it too, strange as that sounds." },
+          text = "Listen, there's no time. I was sent to watch the roads in Duskwood, and I saw something there that Stormwind needs to know, and the orcs need to know it too, strange as that sounds." },
         { id = "h_brew", when = { questReady = TODO_QUEST("Nothing But The Truth") },
           text = "A drink for me? How kind. Let me drink it down, and then I'll tell you what I've learned, because I've a feeling you're the one they'll actually listen to." },
         { id = "h_default", key = true,
@@ -73,8 +73,8 @@ P:NPC {
         { id = "wr_default", text = "I knew it, aye, and I took the coin anyway, and here I am. But a cheap life is still the only one I've got, and I'd like to keep it a while longer." },
       },
       choices = {
-        { text = "Every life is worth saving, even a spy's.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Then you'd better make your secret worth something.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every life is worth saving, even a spy's.", next = "BACK", reply = "Even a spy's? Light bless you, friend, though I'm not sure the orcs agree. You're kinder than I deserve.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Then you'd better make your secret worth something.", next = "BACK", reply = "I mean to, friend, believe me. It's the only coin I've got left, and I'll spend it carefully.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -97,19 +97,19 @@ P:NPC {
         { id = "sp_default", text = "You might, and they might not listen, and then I've thrown away the only coin I have. I've been a spy too long to spend it on a kind face, friend, so forgive me." },
       },
       choices = {
-        { text = "Smart. Keep your bargain until it pays.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Hoarding the truth won't save you. Honesty might.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Smart. Keep your bargain until it pays.", next = "BACK", reply = "It will, if I hold it long enough. You understand the trade better than you let on.", fx = { align = { honor = -1 } } },
+        { text = "Hoarding the truth won't save you. Honesty might.", next = "BACK", reply = "Honesty? Friend, honesty got me caught in the first place. I'll keep my secret a while longer.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     guards = {
       lines = {
-        { id = "gu_default", text = "Better than I'd treat them, if I'm honest. Tharlak growls at me and Zuul pretends I'm not here, but they feed me, and nobody's cut anything off yet, which is more than the stories promised." },
+        { id = "gu_default", text = "Better than I'd treat them, if I'm honest. My guards, Tharlak and Zuul, growl at me or ignore me by turns, but they feed me, and nobody's cut anything off yet, which is more than the stories promised." },
       },
       choices = {
-        { text = "The Horde keeps its prisoners fairly.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "They should have broken you by now.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "The Horde keeps its prisoners fairly.", next = "BACK", reply = "They do, and I'll admit it surprised me. Don't tell Stormwind I said so.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "They should have broken you by now.", next = "BACK", reply = "Broken? Light, don't give them ideas. I'd rather keep my fingers and my secrets both.", fx = { align = { order = -1 }, affinity = -1 } },
         { text = "What do the orcs want from you?", next = "guards_want" },
       },
     },
@@ -145,8 +145,8 @@ P:NPC {
         { id = "wt_default", text = "The Forsaken? Then they know I'm here, and that means they know what I saw. Light help me, I'd rather the orcs hang me than have those things reach me in the dark." },
       },
       choices = {
-        { text = "Nobody deserves to die like that, not even a spy.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "I've warned you. What you do now is your own affair.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Nobody deserves to die like that, not even a spy.", next = "BACK", reply = "Not even a spy, no, but the Forsaken won't see it that way. Thank you, friend, for that much.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "I've warned you. What you do now is your own affair.", next = "BACK", reply = "My own affair, aye, and a short one by the sound of it. Thank you for the warning, at least.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -166,8 +166,8 @@ P:NPC {
         { id = "es_default", text = "Through a town full of orcs and a swamp full of crocolisks, with legs that haven't walked in a week? I'd get as far as the bridge, and that's being generous to myself." },
       },
       choices = {
-        { text = "Then wait. Stormwind may yet bargain for you.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd risk the bridge. Waiting gets you hanged.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then wait. Stormwind may yet bargain for you.", next = "BACK", reply = "Wait, then, and pray Stormwind remembers me. It's a thin hope, but it's all I've got.", fx = { align = { order = 1 } } },
+        { text = "I'd risk the bridge. Waiting gets you hanged.", next = "BACK", reply = "You'd risk it, would you? Then you've never seen a crocolisk up close. I'll wait, thanks.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

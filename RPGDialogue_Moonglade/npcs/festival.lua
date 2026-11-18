@@ -18,7 +18,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome, welcome! Mind the crates, because half of them are rockets and the other half are cakes, and I can never remember which." },
+    { id = "g_default", text = "Welcome, welcome! Mind the crates, because some are rockets and some are cakes, and I can never remember which." },
     { id = "g_festival", when = { holiday = "lunar" }, text = "Happy new year, and Elune's light on you! The sky's been quiet for a whole twelvemonth, so let's make up for it tonight." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Either you liked the rockets, or you've come to complain about them, and I'm happy either way." },
     { id = "g_omen", when = { questActive = TODO_QUEST("Elune's Blessing") }, text = "Off to wake Omen, are you? Take more rockets than you think you'll need, because he never wakes as quickly as anyone hopes." },
@@ -42,7 +42,7 @@ P:NPC {
         { id = "h_horde", when = { faction = "Horde" },
           text = "A guest from the Horde, and very welcome! For these few days the glade belongs to everyone, and I've never once asked a customer which banner they fight under, because a rocket doesn't care." },
         { id = "h_druid", when = { class = "DRUID" },
-          text = "One of the Circle, home for the festival! The druids here pretend they don't like the noise, but I've caught Loganaar watching the rockets with his mouth open." },
+          text = "One of the Circle, home for the festival! The druids here pretend they don't like the noise, but I've caught Loganaar, their trainer, watching the rockets with his mouth open." },
       },
       again = {
         { id = "h_again1", text = "What else can I tell you? I've got all night, and so has the moon." },
@@ -86,8 +86,8 @@ P:NPC {
         { id = "rd_default", text = "Valadar says it isn't about whether they see, it's about whether we remember. I say if I were an elder, I'd want a very large rocket in my honour and I'd be cross not to get one. What do you think, friend?" },
       },
       choices = {
-        { text = "Remembering matters more than the show. Valadar's right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "If I were an elder, I'd want the biggest rocket you have.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Remembering matters more than the show. Valadar's right.", next = "BACK", reply = "Oh, you sound just like him, and he'll be insufferable when I tell him. Still, I'll fire a rocket for the remembering, then.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If I were an elder, I'd want the biggest rocket you have.", next = "BACK", reply = "There, you see? I knew I wasn't the only sensible one in Moonglade! I'll make sure there's a very big one in your honour, someday far off.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -128,8 +128,8 @@ P:NPC {
         { id = "bo_default", text = "Every year, whether quieting him is mercy or cruelty, and every year I tell him the same thing: Elune blessed Omen, and Elune doesn't make mistakes. I think Omen's spirit gets a little lighter each time we send him back down, though I've never said so to his face." },
       },
       choices = {
-        { text = "Trust Elune's blessing. It's mercy, as you say.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A blessing that won't let him die sounds like a curse.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Trust Elune's blessing. It's mercy, as you say.", next = "BACK", reply = "Thank you, and I'll tell Valadar you agreed with me, which will annoy him nicely. Elune knows what she's doing, even when we don't.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A blessing that won't let him die sounds like a curse.", next = "BACK", reply = "Oh, don't say that, or you'll start Valadar off again, and he frets enough already. I have to believe it's a kindness.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -147,11 +147,11 @@ P:NPC {
     xtinker = {
       big = true,
       lines = {
-        { id = "xt_default", text = "Oh, I know, and I'm hopelessly jealous! A gnome told me last year that my blue rocket was 'charmingly rustic', and I've been trying to decide ever since whether that was a compliment. Tell me honestly, are mine any good?" },
+        { id = "xt_default", text = "Oh, I know, and I'm hopelessly jealous! A gnome told me last year that my blue rocket was 'charmingly rustic', and I've been trying to decide ever since whether that was a compliment. Be a friend and tell me, are mine any good?" },
       },
       choices = {
-        { text = "They're lovely. Craft made with joy beats precision.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Honestly? They'd never pass inspection in Ironforge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "They're lovely. Craft made with joy beats precision.", next = "BACK", reply = "That's what I always say, and now I'll say it louder! A rocket made with joy flies higher, I'm sure of it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honestly? They'd never pass inspection in Ironforge.", next = "BACK", reply = "Oh, you're as bad as the gnome! Well, they'd never pass inspection in Darnassus either, and I still sell every one of them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -170,8 +170,8 @@ P:NPC {
         { id = "xfr_default", text = "Then light a rocket for them anyway, and let it be hard. Valadar says grief is only love with nowhere to go, and I've always thought a rocket gives it somewhere to go, even if it's only up." },
       },
       choices = {
-        { text = "I'll light one for them, then.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The dead are gone. Rockets won't change that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll light one for them, then.", next = "BACK", reply = "Thank you, and I'll light one beside you, if you'll let me. Grief should never go up alone.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The dead are gone. Rockets won't change that.", next = "BACK", reply = "Maybe not, but they change us, and that's something. The dead don't need rockets, but the living do.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -181,8 +181,8 @@ P:NPC {
         { id = "xd_default", text = "Quiet? At the new year? Remulos himself watches the rockets from the shrine, I've seen him, and I'm sure Cenarius enjoyed a bang now and then. Balance means a little noise as well as a lot of silence, don't you think?" },
       },
       choices = {
-        { text = "Balance needs a celebration now and then. Agreed.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "The glade's quiet should be kept. Fire them over the lake.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Balance needs a celebration now and then. Agreed.", next = "BACK", reply = "Exactly, and I knew a druid would see sense eventually! Remulos would be the first to clap, I'm certain of it.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The glade's quiet should be kept. Fire them over the lake.", next = "BACK", reply = "Over the lake? Oh, that would look lovely in the water, actually. You might have just made my festival better.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

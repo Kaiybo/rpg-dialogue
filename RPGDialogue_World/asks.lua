@@ -261,8 +261,8 @@ P:Pool {
   id = "ask_priest", role = "priest", askOnly = true,
   topics = {
     knows = {
-      { id = "kn1", text = "Confessions stay with me, but much else is said in the pews, and some of it may help you. Ask, and I'll answer as honestly as I can." },
-      { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've a kind heart, and I'd trust you with more than most, so sit, and ask whatever you need." },
+      { id = "kn1", text = "Confessions stay with me, but much else is said in the pews, and some of it may help you. Ask, and I'll answer as truthfully as the Light allows." },
+      { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've a kind heart, and I'd trust you with what I keep from most of the congregation, so sit, and ask whatever you need." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer you as I'd answer anyone, though I'll pray for you afterwards whether you want it or not." },
     },
     trade = { { id = "tr1", text = "I tend the sick, bury the dead and listen to everyone in between. The Light does the heavy lifting, and I do the laundry." } },
@@ -669,7 +669,7 @@ P:Pool {
       { id = "w_strat_h", when = { faction = "Horde" }, text = "A human city gone rotten, with the Scourge in one half and the Scarlet zealots in the other. If you go in, take friends, and leave by the same gate you came in." },
     },
     lordaeron = {
-      { id = "w_lordaeron_a", when = { faction = "Alliance" }, text = "We lost a kingdom in a season, and the king with it, by his own son's hand. Every soldier in the Alliance knows the story, and every one of them wonders what he'd have done in the prince's boots." },
+      { id = "w_lordaeron_a", when = { faction = "Alliance" }, text = "We lost a kingdom in a season, and the king with it, by his own son's hand. Every soldier in the Alliance knows the story, and not one of them has stopped wondering what he'd have done in the prince's boots." },
       { id = "w_lordaeron_h", when = { faction = "Horde" }, text = "The humans' great kingdom, and its fields are full of plague and graves now. The Forsaken claim what's left of it, and they're welcome to the place." },
     },
     arthas = {
@@ -813,7 +813,7 @@ P:Pool {
   id = "ask_noble_world", role = "noble", askOnly = true,
   topics = {
     varian = {
-      { id = "w_varian_a", when = { faction = "Alliance" }, text = "His Majesty went to Theramore to make a peace nobody at court wanted, and his ship arrived without him. One doesn't speculate in public, of course, but in private one speculates a great deal." },
+      { id = "w_varian_a", when = { faction = "Alliance" }, text = "His Majesty went to Theramore to make a peace nobody at court wanted, and his ship arrived without him. One doesn't speculate in public, of course, but in private one speculates over every course of dinner." },
     },
     bolvar = {
       { id = "w_bolvar_a", when = { faction = "Alliance" }, text = "Fordragon is a soldier, and soldiers make dependable regents and dreadful dinner guests. He listens to the Lady Prestor, which is the most sensible thing he does." },

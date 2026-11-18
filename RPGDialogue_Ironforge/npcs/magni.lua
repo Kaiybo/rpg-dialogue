@@ -18,7 +18,7 @@ P:NPC {
   greetings = {
     { id = "g_king", text = "Ye stand before the King of Ironforge. Speak up; the forges are loud." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "One o' mine, by the look o' ye. Welcome home, whatever road ye've been walkin'." },
-    { id = "g_hero", when = { minLevel = 50 }, text = "I know that face; half the Alliance does by now. Come, sit, an' tell me how the world's been treatin' ye." },
+    { id = "g_hero", when = { minLevel = 50 }, text = "I know that face, an' so does every tavern from here tae Stormwind. Come, sit, an' tell me how the world's been treatin' ye." },
     { id = "g_incursion", when = { questDone = TODO_QUEST("Old Ironforge Incursion") },
       text = "There's the one who went down under my hall an' came back up again. Come in, come in." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone from the mountain {away}, an' the forges kept singin' without ye. Welcome back tae Ironforge all the same." },
@@ -51,7 +51,7 @@ P:NPC {
     },
     opn_horde_r = {
       lines = {
-        { id = "opn_horde_r_default", text = "Aye, the Plague's taught us all new arithmetic. I'll still count the orcs, mind, but I'll count the dead first." },
+        { id = "opn_horde_r_default", text = "Aye, the Plague's changed how we all reckon our enemies. I'll still keep an eye on the orcs, mind, but the walkin' dead come first." },
       },
       choices = {
         { text = "Something else, Your Majesty.", next = "BACK" },
@@ -91,10 +91,10 @@ P:NPC {
     },
     xpt_magni = {
       big = true,
-      lines = { { id = "xpt_magni_default", text = "We think the same as we always have: a company's a clan ye choose, an' ye owe it what ye'd owe yer kin. My brothers an' I fought back tae back long before any o' us wore a crown, an' I'd still trust a band o' honest travellers over half the Senate." } },
+      lines = { { id = "xpt_magni_default", text = "We think the same as we always have: a company's a clan ye choose, an' ye owe it what ye'd owe yer kin. My brothers an' I fought back tae back long before any o' us wore a crown, an' I'd still trust a band o' honest travellers over most o' the Senate." } },
       choices = {
-        { text = "Then I'll stand by my company as I would by kin.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Kin is kin. A company is just a contract that lasts.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll stand by my company as I would by kin.", next = "BACK", reply = "Then ye're a dwarf at heart, whatever yer blood, an' I'll drink tae yer company the next time ye bring them through my gates.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Kin is kin. A company is just a contract that lasts.", next = "BACK", reply = "A contract, is it? Well, that's a cold way tae see it, but I've seen contracts outlast oaths, so I'll no' call ye wrong, only lonely.", fx = { align = { honor = -1 } } },
         { text = "Do you miss your brothers, Your Majesty?", next = "xpt_magni2" },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -109,20 +109,20 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "When the throne lets me, which isnae often, for there's no air like the air above Kharanos an' no ram like an Amberstill ram. I've brought down a bear or two in my time, an' I'll tell ye about every one o' them if ye've an hour." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' that's a fine {pet} ye have! Treat it well, for a beast that trusts ye is worth more than a mountain o' gold, an' I say that as a dwarf who has the gold." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When the throne lets me, which isnae often, for there's no air like the air above Kharanos. An' that's a fine {pet} ye have! Treat it well, for a beast that trusts ye is worth more than a mountain o' gold." },
       },
       choices = {
-        { text = "I'd be honoured to hunt beside you someday, Your Majesty.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Royal hunts are for show. Real hunters go alone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd be honoured to hunt beside you someday, Your Majesty.", next = "BACK", reply = "Ha, I'd like that, I truly would, an' if the Senate ever gives me a week, I'll send for ye, an' we'll see whose arrow finds the bear first.", fx = { align = { honor = 1 } } },
+        { text = "Royal hunts are for show. Real hunters go alone.", next = "BACK", reply = "Show? I'll have ye know I brought down a bear on a royal hunt wi' half my court watchin', an' it was the bear who put on the show, no' me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because they've been thievin' in my city, an' I'll no' have that, whatever good they think they're doin'. If ye want tae serve Ironforge from the shadows, go after the Dark Iron, for they've a great deal I'd like tae know, an' I'll forget yer friends' names for it." } },
+      lines = { { id = "xrogue_default", text = "Because they've been thievin' in my city, an' I'll no' have that, whatever good they think they're doin'. If ye want tae serve Ironforge from the shadows, go after the Dark Iron, for they've secrets in Shadowforge I'd like tae know, an' I'll forget yer friends' names for it." } },
       choices = {
-        { text = "Then I'll serve the throne, Your Majesty, against the Dark Iron.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The Circle serves itself, Your Majesty. So do I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll serve the throne, Your Majesty, against the Dark Iron.", next = "BACK", reply = "Good, then we've a bargain, an' every Dark Iron secret ye bring me is one less reason for my guards tae ask what ye're doin' in my vaults.", fx = { align = { order = 1 } } },
+        { text = "The Circle serves itself, Your Majesty. So do I.", next = "BACK", reply = "Then serve yerself well an' far from my treasury, rogue, because the throne has a long memory an' a longer reach than any circle.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,16 +130,16 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "As guests who've earned their place, for the Mystic Ward has never been sharper an' the gnomes fight like dwarves twice their size. I'd only ask them tae stop blowin' holes in my walls when they practise." } },
       choices = {
-        { text = "Ironforge's kindness deserves loyalty. I'll serve it well.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Gnomes or dwarves, mages answer to their art first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Ironforge's kindness deserves loyalty. I'll serve it well.", next = "BACK", reply = "That's what I like tae hear, an' the Mystic Ward will be glad of ye, so long as ye practise yer fire somewhere other than near my anvils.", fx = { align = { honor = 1 } } },
+        { text = "Gnomes or dwarves, mages answer to their art first.", next = "BACK", reply = "Aye, I've heard that before, an' it's why there's a scorch mark on my study wall, but serve yer art well an' it'll serve Ironforge too.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "More than ye'd guess. Ye listen tae the forest an' we listen tae the mountain, an' the both of us know the world's older than any crown sittin' on it, mine included." } },
       choices = {
-        { text = "The land comes before any crown, Your Majesty.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A strong crown is what keeps the land safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The land comes before any crown, Your Majesty.", next = "BACK", reply = "Spoken like a druid, an' I'll no' quarrel, because I've felt the mountain's moods, an' I know it was here long before a Bronzebeard sat down.", fx = { align = { order = -1 } } },
+        { text = "A strong crown is what keeps the land safe.", next = "BACK", reply = "Aye, an' that's the burden o' it, keepin' the land safe while the land itself doesnae care who wears the crown, but somebody must.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -147,8 +147,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_brd_default", text = "Then the Dark Iron have lost their emperor, an' I've lost the one enemy I could put a name tae. But naebody's brought my Moira through that gate yet, so maybe she's hurt, or maybe she's hidin' her face for shame, an' if it's shame she's a fool, for there's nothin' I wouldnae forgive her." } },
       choices = {
-        { text = "I'll go back down and find her myself, Your Majesty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I went down for Thaurissan, Your Majesty, not for a princess.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll go back down and find her myself, Your Majesty.", next = "BACK", reply = "Ye'd do that? Then go wi' my blessin' an' my thanks, an' if ye find her, tell her that her father's door has never once been shut tae her.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I went down for Thaurissan, Your Majesty, not for a princess.", next = "BACK", reply = "Aye, I understand, an' I'll no' ask more of ye than ye've already given, but if ye hear her name down there, I'd take it kindly tae know.", fx = { align = { honor = -1 } } },
         { text = "What will you do if she won't come home?", next = "xcl_brd2" },
       },
     },
@@ -160,10 +160,10 @@ P:NPC {
     },
     xalt_magni = {
       big = true,
-      lines = { { id = "xalt_magni_default", text = "{alt}, a {altrace} {altclass}, an' as fine a guest as this hall's had in a season. That one brought me word from the road an' stayed for a pint, which is more than the Senate's envoys ever do, an' I've a fondness for folk who'll do both." } },
+      lines = { { id = "xalt_magni_default", text = "{alt}, a {altrace} {altclass}, an' as fine a guest as this hall's had in a season. I'd guess ye're kin by the look o' ye, though that one earned my welcome wi' news from the road an' a pint shared, no' wi' a family name." } },
       choices = {
-        { text = "Kin should stand together, Your Majesty. Blood comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A body's worth is in their deeds, not their family.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Kin should stand together, Your Majesty. Blood comes first.", next = "BACK", reply = "Aye, an' that's how it's always been among dwarves, so I'm glad tae have the both o' ye under my roof an' at my table.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A body's worth is in their deeds, not their family.", next = "BACK", reply = "Well said, an' that's a lesson the Senate could stand tae learn, but I'll still be glad tae see the both o' ye standin' together.", fx = { align = { order = -1 } } },
         { text = "Something else, Your Majesty.", next = "BACK" },
       },
     },
@@ -197,7 +197,7 @@ P:NPC {
         { id = "h_incursion", tags = { "news" }, when = { questRecent = { TODO_QUEST("Old Ironforge Incursion"), days = 7 } },
           text = "Dark Irons diggin' under my own hall, an' ye brought me their commander's head. It was Farsen's eyes an' yer arm that did it, an' Ironforge owes ye both." },
         { id = "h_priest", when = { race = "Human", class = "PRIEST" },
-          text = "A priest o' the Cathedral, under my mountain. Our own keep the Hall o' Mysteries, wi' Rohan. They'll make ye welcome, an' they'll make ye tea." },
+          text = "A priest o' the Cathedral, under my mountain. Our own priests keep the Hall o' Mysteries under High Priest Rohan, an' they'll make ye welcome, an' they'll make ye tea." },
         { id = "h_hunter", when = { race = "Dwarf", class = "HUNTER" },
           text = "A dwarf wi' a rifle an' a beast at heel. The Mountaineers will try tae recruit ye. Make 'em buy the first round." },
         { id = "h_warm", when = { disposition = { min = 70 } },
@@ -207,7 +207,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid o' the Cenarion Circle in my throne room! Ye keep the old forests, I'm told, an' I keep the old stone, so we're no' so different as folk think." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "One o' the shadowy sort, in my own throne room. I've had my guards pull yer friends from the Hidden Circle out o' the Commons, so ye'll forgive me if I keep an eye on ye." },
+          text = "One o' the shadowy sort, in my own throne room. I've had my guards pull yer friends from the Hidden Circle out o' the Commons, so I'll be keepin' an eye on ye." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, an' welcome. Most o' the mages in my city are gnomes who came tae us wi' nothin' after Gnomeregan fell, an' I'll no' have it said Ironforge turned them away." },
       },
@@ -223,7 +223,7 @@ P:NPC {
         { text = "Why did a king take up digging for the past?", next = "league" },
         { text = "You gave the gnomes part of your city.", next = "gnomes" },
         { text = "How did the Light come to Ironforge?", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "The Senate's envoys use your name a great deal.", next = "senate",
+        { text = "I hear you've been going around the Senate, Your Majesty.", next = "senate",
           when = { any = { { heardLine = "grelin.h_default" }, { questDone = TODO_QUEST("The Reports") } } } },
         { text = "Farsen sends his regards, my king.", next = "incursion", when = { questDone = TODO_QUEST("Old Ironforge Incursion") } },
         { text = "I came out of Lordaeron, Your Majesty.", next = "terenas", when = { origin = "human_lordaeron_refugee" } },
@@ -248,14 +248,14 @@ P:NPC {
       choices = {
         { text = "And the Horde, Your Majesty? What of the orcs?", next = "opn_horde" },
         { text = "Tell me about the Dark Iron.", next = "dark" },
-        { text = "The Alliance seems to have most of your axes already.", next = "reserve" },
-        { text = "I'll lend mine.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Keep your axes at home, Your Majesty, because Ironforge comes first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where have your axes gone, Your Majesty?", next = "reserve" },
+        { text = "I'll lend mine.", next = "BACK", reply = "Then ye'll have the gratitude o' the King, an' I'll see the Ward knows yer name, because an axe offered freely is worth ten that are ordered.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Keep your axes at home, Your Majesty, because Ironforge comes first.", next = "BACK", reply = "Some in the Senate say exactly that, an' maybe they're right, but I gave my word tae the Alliance, an' a Bronzebeard keeps his word.", fx = { align = { honor = -1 } } },
       },
     },
     dark = {
       lines = {
-        { id = "dk_default", text = "They were our kin, once. Now they're at the dam on the loch, in Uldaman an' out in the Badlands, diggin' an' burnin' where they've no right tae be." },
+        { id = "dk_default", text = "They were our kin, once. Now they're at the great dam in Loch Modan, in Uldaman an' out in the Badlands, diggin' an' burnin' where they've no right tae be." },
       },
       choices = {
         { text = "Why do they hate you so?", next = "dark_why" },
@@ -265,17 +265,17 @@ P:NPC {
     dark_why = {
       big = true,
       lines = {
-        { id = "dw_default", text = "Madoran Bronzebeard broke their armies at our gates. His statue still watches the pass in Loch Modan. Some grudges outlive everyone who started them." },
+        { id = "dw_default", text = "Madoran Bronzebeard broke their armies at our gates in the War o' the Three Hammers, an' they've never forgiven us for it. Some grudges outlive everyone who started them." },
       },
       choices = {
-        { text = "Then it's time someone ended it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 }, align = { honor = 1 } } },
-        { text = "Grudges can be set down, too.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Keep the gate shut, then.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Then it's time someone ended it.", next = "BACK", reply = "Aye, an' I'd like tae be the king who does it, but it takes two tae end a feud an' Thaurissan's heirs are bowin' tae a fire lord. Bring me a Dark Iron who'll talk instead o' fight, an' I'll listen.", fx = { affinity = 1, trait = { brave = 1 }, align = { honor = 1 } } },
+        { text = "Grudges can be set down, too.", next = "BACK", reply = "Aye, they can, an' I'd set mine down tomorrow if the Dark Iron would, but they've no' shown the slightest sign o' wantin' tae.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Some grudges are earned. Keep this one, and keep the gate shut.", next = "BACK", reply = "That's the Senate's answer, an' usually mine too, though I'd like tae think my grandchildren might one day open it for somethin' better.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
     reserve = {
       lines = {
-        { id = "rs_default", text = "At the Alliance's front, mostly. The Reserve's been called up, so Loch Modan holds wi' half a garrison an' Captain Rugelfuss countin' troggs in his sleep." },
+        { id = "rs_default", text = "At the Alliance's front, mostly. The Ironforge Reserve's been called up, so Loch Modan holds wi' half a garrison an' Captain Rugelfuss countin' troggs in his sleep." },
       },
       choices = {
         { text = "That's a great many soldiers to send away.", next = "reserve_why" },
@@ -287,8 +287,8 @@ P:NPC {
         { id = "rw_default", text = "I gave my word after the Second War. The Alliance helped us take this mountain back. A dwarf who forgets that isnae worth his beard." },
       },
       choices = {
-        { text = "Spoken like a king.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Your own valleys bleed for it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, align = { honor = -1 } } },
+        { text = "Spoken like a king.", next = "BACK", reply = "Ha, flattery, is it? Well, it's the right kind, so I'll take it, an' I'll keep my word tae the Alliance as long as there's a beard on my chin.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your own valleys bleed for it.", next = "BACK", reply = "Dinnae think I dinnae know it, for I hear every name read out from Dun Morogh tae the Wetlands. But a promise kept only when it's cheap isnae a promise, an' Ironforge keeps its word.", fx = { affinity = -1, trait = { stern = 1 }, align = { honor = -1 } } },
       },
     },
 
@@ -326,7 +326,7 @@ P:NPC {
         { text = "Where is the sword now?", next = "blade_where" },
         { text = "The Light answers grief, Your Majesty. It answered yours.", next = "BACK",
           when = { class = { "PRIEST", "PALADIN" } }, fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "Grief made that sword, Your Majesty, not the Light.", next = "BACK", when = { class = { "PRIEST", "PALADIN" } }, fx = { align = { light = -1 } } },
+        { text = "Grief made that sword, Your Majesty, not the Light.", next = "BACK", reply = "Aye, maybe it did, an' I'll no' pretend the grief wasnae in every blow, but somethin' answered me at that anvil, an' it wasnae only sorrow.", when = { class = { "PRIEST", "PALADIN" } }, fx = { align = { light = -1 } } },
         { text = "Grief makes hard steel.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -341,7 +341,7 @@ P:NPC {
         { id = "br_default", text = "Off past the edge o' the maps, as ever, an' no word from him in months. The League keeps sayin' he always turns up, but I've stopped sayin' it back." },
       },
       choices = {
-        { text = "Magellas still keeps a chair for him.", next = "BACK", when = { heardLine = "magellas.h_brann" }, fx = { affinity = 2 } },
+        { text = "High Explorer Magellas still keeps a chair for him.", next = "BACK", when = { heardLine = "magellas.h_brann" }, fx = { affinity = 2 } },
         { text = "He'll turn up.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "I'll keep an ear out on the road.", next = "BACK", fx = { affinity = 1 } },
       },
@@ -350,11 +350,11 @@ P:NPC {
       lines = {
         { id = "h2_default", text = "Aye, someone should. When ye're strong enough, come back an' say that tae me again, an' I'll be listenin'." },
         { id = "h2_ready", when = { minLevel = 50 },
-          text = "Ye might be strong enough now. Others have gone intae that mountain for her. Mind that, an' come tae me when ye mean it." },
+          text = "Ye might be strong enough now. Others have gone intae Blackrock Mountain for her an' no' come back, so mind that, an' come tae me when ye mean it." },
       },
       choices = {
-        { text = "I will.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Perhaps she doesn't want bringing home, Your Majesty.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I will.", next = "BACK", reply = "Good, then I'll hold ye tae it, an' when the day comes, ye'll find this King waitin' wi' an open door an' a full mug.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Perhaps she doesn't want bringing home, Your Majesty.", next = "BACK", reply = "Aye, I've thought it too, on the long nights, an' it's the hardest thought a father can have, but I'll still keep the door open for her.", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
 
@@ -370,7 +370,7 @@ P:NPC {
     },
     league_halls = {
       lines = {
-        { id = "lh_default", text = "Nothin' yet that anyone'll swear to. Magellas has his theories an' Archesonus has her doubts, an' if ye ask either one ye'll lose an afternoon." },
+        { id = "lh_default", text = "Nothin' yet that anyone'll swear to. High Explorer Magellas has his theories an' Royal Historian Archesonus has her doubts, an' if ye ask either one ye'll lose an afternoon." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } } },
     },
@@ -412,7 +412,7 @@ P:NPC {
 
     light = {
       lines = {
-        { id = "li_default", text = "Up from the humans, after the Second War. The Silver Hand took some o' my folk intae its ranks, an' the Church's teachin' came wi' them. Now Rohan keeps a whole hall for it." },
+        { id = "li_default", text = "Up from the humans, after the Second War. The Silver Hand took some o' my folk intae its ranks, an' the Church's teachin' came wi' them, so now High Priest Rohan keeps a whole hall for it." },
       },
       choices = {
         { text = "You don't strike me as a dwarf who follows the Light.", next = "light_self" },
@@ -425,14 +425,14 @@ P:NPC {
       },
       choices = {
         { text = "What did it do in steel?", next = "blade" },
-        { text = "That sounds like faith to me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Steel and sense have served you better than prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That sounds like faith to me.", next = "BACK", reply = "Maybe it is, an' a priest told me the same once, but I'll stick wi' callin' it respect, for a smith knows when somethin's bigger than his hammer.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Steel and sense have served you better than prayer.", next = "BACK", reply = "Aye, they have, an' I'll no' pretend otherwise, but I've seen too much in this world tae laugh at anyone's prayers, mine or yours.", fx = { align = { light = -1 } } },
       },
     },
 
     senate = {
       lines = {
-        { id = "se_default", text = "The Senate likes reports an' I like trolls dead, so I signed Grelin's letter m'self. Senator Redstone's been shoutin' about it ever since." },
+        { id = "se_default", text = "The Senate likes reports an' I like trolls dead, so I signed Grelin Whitebeard's letter about the Frostmane m'self. Senator Redstone's been shoutin' about it ever since." },
       },
       choices = {
         { text = "Is the Senate wrong?", next = "senate_wrong" },
@@ -444,8 +444,8 @@ P:NPC {
         { id = "sw_default", text = "No. It's slow, but it's right more often than I'd like, an' a king needs somebody tae tell him no. I just dinnae need it tae take a month." },
       },
       choices = {
-        { text = "That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A king shouldn't wait on anyone.", next = "BACK", fx = { trait = { stern = 1 }, align = { order = -1 } } },
+        { text = "That's fair.", next = "BACK", reply = "Glad ye see it, because there's a few in this hall who'd happily tell the Senate tae take the month an' then another for good measure.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A king shouldn't wait on anyone.", next = "BACK", reply = "Ha, ye'd fit right in wi' my grandfather's court, an' look how well that served the Dark Iron. A king who answers tae no one ends up answerin' tae his own worst temper, an' I've a fair bit o' that already.", fx = { trait = { stern = 1 }, align = { order = -1 } } },
       },
     },
 
@@ -460,14 +460,14 @@ P:NPC {
     },
     incursion_sealed = {
       lines = {
-        { id = "is_default", text = "Sealed an' doubled, an' the lower halls are full o' guards who'd rather be at the Stonefire. They'll live, an' so will the rest of us, thanks tae ye, {name}." },
+        { id = "is_default", text = "Sealed an' doubled, an' the lower halls are full o' guards who'd rather be at the Stonefire Tavern. They'll live, an' so will the rest of us, thanks tae ye, {name}." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, standing = { ironforge = 1 } } } },
     },
 
     terenas = {
       lines = {
-        { id = "te_default", text = "Then ye've lost more than I have. Terenas was a good man, wise an' fair. Word o' his death reached me at the anvil, an' I've no' forgiven the hour." },
+        { id = "te_default", text = "Then ye've lost more than I have. Terenas was a good man, wise an' fair, an' word o' his death reached me at the Great Anvil, where I was workin' a sword for my brother. I've no' forgiven the hour." },
       },
       choices = {
         { text = "Thank you, Your Majesty.", next = "BACK", fx = { affinity = 2 } },
@@ -499,14 +499,14 @@ P:NPC {
     shaman = {
       big = true,
       lines = {
-        { id = "sh_default", text = "So my granddad wasnae mad after all, or else ye're both mad together. Half my court says it's Wildhammer superstition an' the other half wants tae know what the mountain thinks o' the Senate, so what does it say tae ye?" },
+        { id = "sh_default", text = "So my granddad wasnae mad after all, or else ye're both mad together. Some o' my court say it's Wildhammer superstition, an' the rest want tae know what the mountain thinks o' the Senate, so what does it say tae ye?" },
         { id = "sh_listener", when = { origin = "dwarf_stone_listener" },
           text = "I'm told ye were listenin' at the walls o' the deep halls since ye were a bairn, an' the miners called ye odd for it. The mountain's had a long time tae get a word in, so I'd like tae hear what it's been sayin'." },
       },
       choices = {
         { text = "It says the Dark Iron dig where they shouldn't.", next = "shaman_deep" },
-        { text = "The elements are older than any king, Your Majesty.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
-        { text = "I serve Ironforge first, and the stone second.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "The elements are older than any king, Your Majesty.", next = "BACK", reply = "Older than kings, aye, an' they let us know it every time the mountain shakes, so I'll take that as their opinion o' the Senate as well.", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "I serve Ironforge first, and the stone second.", next = "BACK", reply = "Good answer, an' a wise one tae give a king, though I'd wager the stone has its own thoughts about which comes first.", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Something else, Your Majesty.", next = "BACK" },
       },
     },
@@ -524,17 +524,17 @@ P:NPC {
       lines = {
         { id = "wl_default", text = "Ye're honest enough tae say it tae my face, an' I'll grant ye that much. I've seen what fel did tae the orcs an' what it's done tae the Dark Iron's masters, an' I dinnae want it in my halls, so tell me why I should." },
         { id = "wl_gnome", when = { race = "Gnome" },
-          text = "A gnome wi' fel on yer hands, under my mountain. Gelbin vouches for his people, every one, but I'd like tae hear why ye went lookin' for that kind o' power before I vouch for ye myself." },
+          text = "A gnome wi' fel on yer hands, under my mountain. Mekkatorque vouches for his people, every one, but I'd like tae hear why ye went lookin' for that kind o' power before I vouch for ye myself." },
       },
       choices = {
-        { text = "Power is a tool. I hold the chain.", next = "BACK", fx = { align = { light = -1 }, affinity = -2 } },
-        { text = "I use it against the things that made it, Your Majesty.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Power is a tool. I hold the chain.", next = "BACK", reply = "A tool, is it? Well, the orcs thought the same, an' the Dark Iron too, so mind ye keep yer grip, because I'll be watchin' who holds who.", fx = { align = { light = -1 }, affinity = -2 } },
+        { text = "I use it against the things that made it, Your Majesty.", next = "BACK", reply = "That's a better answer than most, an' it'll do for now, but if ye bring anythin' through that I dinnae like, I'll be the one dealin' wi' it.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Who in your hall would watch me?", next = "warlock_watch" },
       },
     },
     warlock_watch = {
       lines = {
-        { id = "ww_default", text = "Rohan, if he takes a likin' tae ye, an' my guards whether he does or no'. Dinnae take it hard; I've buried too many friends tae trust a thing because it's polite." },
+        { id = "ww_default", text = "High Priest Rohan, if he takes a likin' tae ye, an' my guards whether he does or no'. Dinnae take it hard; I've buried too many friends tae trust a thing because it's polite." },
       },
       choices = {
         { text = "Fair, Your Majesty.", next = "BACK", fx = { affinity = 1 } },
@@ -548,8 +548,8 @@ P:NPC {
           text = "I've seen yer name on a roster, I think, or yer da's. The Military Ward breeds good soldiers an' then I send them away from it, an' some nights I wonder whether it's a king's work or a fool's." },
       },
       choices = {
-        { text = "The road needs axes too, Your Majesty.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Call me home and I'll come.", next = "BACK", fx = { align = { order = 1 }, affinity = 2, standing = { ironforge = 1 } } },
+        { text = "The road needs axes too, Your Majesty.", next = "BACK", reply = "They do, an' I'll no' argue, for the roads are where the trolls and the Dark Iron strike first, so swing that axe wherever it's needed.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Call me home and I'll come.", next = "BACK", reply = "Good, I'll remember that, an' I hope I never have tae send for ye, but it's a comfort tae know there's an axe I can count on.", fx = { align = { order = 1 }, affinity = 2, standing = { ironforge = 1 } } },
         { text = "Where's the line thinnest?", next = "reserve" },
       },
     },
@@ -565,11 +565,11 @@ P:NPC {
     },
     kaldorei_dig = {
       lines = {
-        { id = "kd_default", text = "I've heard, an' I've heard why. Ye've had your share o' things comin' up out o' the ground ye wish had stayed down, an' so have we, so I'll tell Magellas tae ask twice before he digs once." },
+        { id = "kd_default", text = "I've heard, an' I've heard why. Ye've had your share o' things comin' up out o' the ground ye wish had stayed down, an' so have we, so I'll tell High Explorer Magellas tae ask twice before he digs once." },
       },
       choices = {
-        { text = "Some things should stay buried, Your Majesty.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Better to know what's down there, Your Majesty.", next = "BACK", fx = { align = { order = -1 }, trait = { curious = 1 } } },
+        { text = "Some things should stay buried, Your Majesty.", next = "BACK", reply = "Maybe some should, an' I've lost a few dwarves tae things they woke, but the League will dig carefully, an' Magellas will ask twice.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Better to know what's down there, Your Majesty.", next = "BACK", reply = "Aye, that's the Explorers' League creed, an' my own heart says the same, but I'll hear yer kin's fears before we dig any deeper.", fx = { align = { order = -1 }, trait = { curious = 1 } } },
       },
     },
   },
@@ -583,8 +583,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Keep yer word, keep yer axe sharp, an' keep the Senate waitin' just long enough tae be polite." } },
     dark_iron = { { id = "tp_dark_iron", text = "Thaurissan's get. I'll no' waste my breath cursin' them when I've a mountain tae hold against them.", next = "dark" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "A good city, poisoned from inside. Mekkatorque blames himself for it, an' I'd take that off his shoulders if he'd let me." } },
-    explorers_league = { { id = "tp_league", text = "The League was my idea, an' my best one. Ask Magellas; he'll agree wi' me, at length." } },
-    frostmane = { { id = "tp_frostmane", text = "Grelin's business, an' the Senate's. I keep my own counsel on the Frostmane. They've cost my house more than a few sheep." } },
+    explorers_league = { { id = "tp_league", text = "The League was my idea, an' my best one. Ask High Explorer Magellas; he'll agree wi' me, at length." } },
+    frostmane = { { id = "tp_frostmane", text = "The Frostmane trolls are Grelin Whitebeard's business, an' the Senate's, though they've cost the crown more than a few sheep." } },
     troggs = { { id = "tp_troggs", text = "Up from the deep places, into Gnomeregan first an' now our quarries. Somethin' woke them. I'd like tae know what before it wakes worse." } },
     defias = { { id = "tp_defias", text = "Stormwind's thieves? That's the humans' business, an' we've our own rot in the mountain tae deal with." } },
     westfall = { { id = "tp_westfall", text = "Farmland, isn't it? Never trust ground ye cannae dig a decent tunnel through." } },

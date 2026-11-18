@@ -22,7 +22,7 @@ P:NPC {
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter. Your string's been waxed by somebody who cared, which is rarer than you'd think." },
+      text = "A hunter. Your string's been waxed by somebody who cared, and I see that seldom among the younger races." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your gear's in tatters. If the bow's as bad as the boots, hand it here before it snaps in your face." },
   },
@@ -48,7 +48,7 @@ P:NPC {
     },
     op_orc_drive = {
       lines = {
-        { id = "opod_default", text = "That's the Sentinel's answer, and it's the one I give when the Captain asks. Keep it, but don't let it make you careless; the orcs can hate us back just as well." },
+        { id = "opod_default", text = "That's the Sentinel's answer, and it's the one I give when our captain asks. Keep it, but don't let it make you careless; the orcs can hate us back just as well." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -81,8 +81,8 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Call it what you like. I've seen a bow of local yew split in the cold for no reason, and I've seen a satyr laugh when it happened, and that's enough for me." } },
       choices = {
-        { text = "Good. Some lines should never be crossed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Wood is wood. Fear wastes good timber.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good. Some lines should never be crossed.", next = "BACK", reply = "They should, and that's one of mine. I'll carry wood from Ashenvale until the satyrs stop laughing.", fx = { align = { order = 1 } } },
+        { text = "Wood is wood. Fear wastes good timber.", next = "BACK", reply = "Maybe, until your bow splits mid-draw with a satyr in front of you. Fear's cheaper than a funeral.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -94,7 +94,7 @@ P:NPC {
       },
     },
     border_orcs = {
-      lines = { { id = "bo_default", text = "They lost warriors to an elf mage of their own choosing, I hear, and they've been quiet since. I'd almost pity them, if they weren't cutting down Ashenvale on the other side of the river." } },
+      lines = { { id = "bo_default", text = "They lost a dozen warriors to an elf mage they'd hired, I hear, and they've been quiet since. I'd almost pity them, if they weren't cutting down Ashenvale on the other side of the river." } },
       choices = {
         { text = "Should the Sentinels make peace with that camp?", next = "op_orcs" },
         { text = "Something else.", next = "BACK" },

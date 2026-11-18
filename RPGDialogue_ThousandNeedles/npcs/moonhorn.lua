@@ -26,7 +26,7 @@ P:NPC {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of the shu'halo, far from Mulgore. Mind the Grimtotem if you meet them; they don't greet kin the way they used to." },
     { id = "n_travel", cat = "travel", when = { mounted = true },
-      text = "Get down before the lift, or that beast will have a long fall. Nobody built that platform with kodos in mind." },
+      text = "Get down off that beast before you ride the lift, or it will have a long fall. Nobody built that platform with kodos in mind." },
   },
 
   start = "hello",
@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "ce_default", text = "Maybe. But Freewind can't wait to find out, so Longhorn has to get my message and decide. If they're hungry, we hold, and if they're being pushed, we need to know who's doing the pushing." } },
       choices = {
-        { text = "Hold the line. Let Longhorn decide.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Don't wait for orders. Strike them first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Hold the line. Let Longhorn decide.", next = "BACK", reply = "Then I will hold, and I will carry the message, and may the Earth Mother make Longhorn wise and quick.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Don't wait for orders. Strike them first.", next = "BACK", reply = "My heart wants it too, but a brave who strikes without orders can start a war, and Freewind has enough of those already.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -90,8 +90,8 @@ P:NPC {
     kin = {
       lines = { { id = "k_default", text = "Because they don't think like us anymore. Cairne brought the tribes together, and the Grimtotem came because they had to, and they've been waiting ever since for a reason to leave." } },
       choices = {
-        { text = "The tribes should stay united.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, learn = { "grimtotem" } } },
-        { text = "Let them go, if they want to.", next = "BACK", fx = { align = { light = -1 }, learn = { "grimtotem" } } },
+        { text = "The tribes should stay united.", next = "BACK", reply = "That is what Cairne wants, and I want it too, though I fear the Grimtotem have never truly wanted it at all.", fx = { affinity = 1, align = { light = 1 }, learn = { "grimtotem" } } },
+        { text = "Let them go, if they want to.", next = "BACK", reply = "Perhaps it would be better, but if they leave, they will not leave quietly, and the plains will bleed for it.", fx = { align = { light = -1 }, learn = { "grimtotem" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } },
       },
     },
@@ -103,7 +103,7 @@ P:NPC {
     grimtotem = { { id = "tp_grim", text = "Tauren who'd rather we weren't here. Watch them, and don't let them get behind you." } },
     centaur = { { id = "tp_centaur", text = "The Galak raid from the south, and they grow bolder every season. I warn every traveller who comes up the lift, and I hope they listen." } },
     cairne = { { id = "tp_cairne", text = "Cairne is the High Chieftain, and he trusts Freewind to hold the Needles. I mean to prove him right, even if the Grimtotem make it harder." } },
-    razorfen = { { id = "tp_razorfen", text = "The Razorfen Downs lie to the north, and the quilboar there have grown strange and cold. I don't know what has happened to them, and I'd rather not find out." } },
+    razorfen = { { id = "tp_razorfen", text = "The Razorfen Downs lie to the north, and the quilboar there have grown strange and cold. I don't know what has happened to them, and I hope the winds never carry the answer here." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the Needles tall so that her children could see far. I watch from the top of the lift, and I see more than I'd like." } },
     _none = { { id = "tp_none", text = "I only know the lift and the road, traveler. Ask at Freewind, and may the Earth Mother keep the centaur off your trail." } },
   },

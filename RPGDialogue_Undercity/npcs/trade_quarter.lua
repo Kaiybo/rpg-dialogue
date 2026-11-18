@@ -21,7 +21,7 @@ P:NPC {
     { id = "g_default", text = "What? You want a roach or not? I haven't got all night, and neither have they." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did the last roach die? They don't, usually; they're tougher than you." },
     { id = "g_blues", when = { questActive = TODO_QUEST("The Jeremiah Blues") }, text = "Who sent you? Bauhaus? That census-counting busybody needs to keep my old name out of his mouth." },
-    { id = "g_charm", when = { questActive = TODO_QUEST("Good Luck Charm") }, text = "Did you find it yet? Then why are you standing here looking at me?" },
+    { id = "g_charm", when = { questActive = TODO_QUEST("Good Luck Charm") }, text = "Did you get my good luck charm back from Janice's farm yet? Then why are you standing here looking at me?" },
   },
 
   notice = {
@@ -37,9 +37,9 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Jeremiah Payson, and I sell cockroaches. Good ones, healthy ones, the kind that'll follow you about and won't bite more than twice." },
         { id = "h_blues_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Jeremiah Blues"), days = 3 } },
-          text = "So Janice sent a parcel, years late, and you went to the trouble of finding me. I suppose I owe you something for that, though I'd rather not think about how much." },
+          text = "So my sister Janice sent a parcel, years late, and you went to the trouble of finding me. I suppose I owe you something for that, though I'd rather not think about how much." },
         { id = "h_charm_done", tags = { "news" }, when = { questDone = TODO_QUEST("Good Luck Charm") },
-          text = "You saw her, then, out at the farm. Don't tell me how she looked. I've decided to remember her the way she was, and that's my right." },
+          text = "You saw Janice, then, out at the farm. Don't tell me how she looked. I've decided to remember her the way she was, and that's my right." },
         { id = "h_scourge", when = { race = "Scourge", ["not"] = { questDone = TODO_QUEST("The Jeremiah Blues") } },
           text = "You're dead like me, so you'll understand when I say I don't want to talk about before. Buy a roach or move along." },
       },
@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "ra_default", text = "That's what all of us want down here, if we're honest, and most of us aren't. The Dark Lady gave us our minds back, and I'd like to spend mine on something that doesn't hurt." } },
       choices = {
-        { text = "The past is gone. You're right to leave it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Hiding from it won't make it hurt less.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The past is gone. You're right to leave it.", next = "BACK", reply = "Gone, aye, and I'm happy to let it lie. The roaches don't ask me about it, which is why I like them.", fx = { align = { light = -1 } } },
+        { text = "Hiding from it won't make it hurt less.", next = "BACK", reply = "Maybe not, but it hurts less down here among the roaches. I'll go back up when I'm ready, if I'm ever ready.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,8 +103,8 @@ P:NPC {
       big = true,
       lines = { { id = "fs_default", text = "I know she does, and that's what I can't stand. She sent that parcel when we were both alive, and it took four years and a stranger to reach me, and now I don't know what to do with it." } },
       choices = {
-        { text = "Go and see her, Jeremiah. Before it's too late.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Some doors stay shut. Let her keep her memories.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Go and see her, Jeremiah. Before it's too late.", next = "BACK", reply = "Too late was four years ago, friend, but I'll think on it. Perhaps a letter, first, to see if she'd even want me.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some doors stay shut. Let her keep her memories.", next = "BACK", reply = "Perhaps that's kindest, for both of us. She can remember her brother, and I can remember the parcel.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -121,6 +121,7 @@ P:NPC {
 ---------------------------------------------------------------------------
 P:NPC {
   key = "uc_luca", id = TODO_NPC("Alessandro Luca"), name = "Alessandro Luca", title = "Blue Moon Odds and Ends",
+  gender = "male",
   bible = "bibles/uc_luca.md", role = "vendor", tier = "service",
   communities = { "undercity" }, temper = { "smooth", "cheerful" }, values = { "greedy" },
   notices = { "purse", "race" },
@@ -133,6 +134,9 @@ P:NPC {
     { id = "g_default", text = "Ah, a discerning customer! I can always tell; they look at the blue things first." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite customer returns! Well, one of my favourites, but you're very high on the list." },
     { id = "g_green", when = { race = "Scourge" }, text = "Welcome, welcome, and you'll forgive me for saying it, but a touch of blue would do wonders against that greenish cast of yours." },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "luca_fl_no" } }, text = "Ah, a customer who makes even my midnight blue look dull! Come a little closer, my dear, because the light down here is dreadful and I'd like a better look at you." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "luca_fl_yes" }, text = "My favourite customer, and this time I mean it with all my heart, or what the apothecaries left of it. I put a scarf aside that's very nearly the colour of your eyes." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "luca_fl_no" }, text = "Ah, the customer who only comes for the shirts! Quite right, and the shirts are very glad to see you, even if I'm not allowed to say so." },
   },
 
   notice = {
@@ -144,6 +148,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Am I? Forgive me, but I've spent all day among faded grey and canal green, and then you walk in, and suddenly I remember what a summer sky over Lordaeron looked like. I'd wrap you in Capital blue myself, if it weren't so terrible for business." } },
+      choices = {
+        { text = "Then I'll take the compliment, and pay full price.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "luca_fl_yes" }, clear = { "luca_fl_no" } } } },
+        { text = "Your heart doesn't even beat, Luca. What's all this?", next = "fl_pulse" },
+        { text = "We're both dead, Luca. Isn't this a little forward?", next = "fl_dead", when = { race = "Scourge" } },
+        { text = "Admiring my blue again, Luca?", next = "fl_yes", when = { race = "Troll" }, fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "luca_fl_yes" }, clear = { "luca_fl_no" } } }, reply = "Admiring it, coveting it, and writing very bad poems about it in the stockroom, yes." },
+        { text = "Kind words, but I'm only here to browse.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "luca_fl_no" }, clear = { "luca_fl_yes" } } }, reply = "Browse away, my friend, and I'll keep my poetry to the price tags." },
+        { text = "Save the patter for paying customers, Luca.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "luca_fl_no", "luca_fl_rebuff" }, clear = { "luca_fl_yes" } } }, reply = "Ouch! Straight between the ribs, and I've precious few left. The patter goes back in its box." },
+      },
+    },
+    fl_pulse = {
+      lines = { { id = "flp_default", text = "It hasn't beaten since the Plague, my friend, so you can be quite sure it isn't racing now. I simply have an eye for lovely things, and I've never seen the harm in saying so out loud, since the dead have so little else to say that's pleasant." } },
+      choices = {
+        { text = "Then say it as often as you like.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "luca_fl_yes" }, clear = { "luca_fl_no" } } } },
+        { text = "I'd rather you kept your eye on the stock.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "luca_fl_no" }, clear = { "luca_fl_yes" } } }, reply = "As you wish. The stock has never once complained about being looked at." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fl_dead = {
+      lines = { { id = "fld_default", text = "Forward? My dear, we've both been buried once already, and I see no reason to waste what time we've got left on modesty. Besides, you've kept your looks far better than most of us, and that deserves celebrating in blue." } },
+      choices = {
+        { text = "Then I'll take that as a compliment.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "luca_fl_yes" }, clear = { "luca_fl_no" } } } },
+        { text = "Let's leave the celebrating to the living, Luca.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "luca_fl_no" }, clear = { "luca_fl_yes" } } }, reply = "The living never celebrate anything properly, but as you like." },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Then we have an understanding, and the best of the midnight blue will sit under my counter with your name on it. Do come by often, because a merchant needs something lovely to look at between customers, and the canal does not qualify." } },
+      choices = {
+        { text = "I'll be back, Luca.", next = "BACK", reply = "I'll be here, among the blue, counting the hours. Well, the minutes, mostly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Alessandro Luca, purveyor of Blue Moon odds and ends. Shirts, trinkets and small comforts, all in blue, because grey is the colour of the dead and green is the colour of the canals, and I am tired of both." },
@@ -160,14 +197,15 @@ P:NPC {
         { text = "I'm already blue, Luca.", next = "troll", when = { race = "Troll" } },
         { text = "Some of this looks rather purple to me.", next = "purple", when = { class = "MAGE" } },
         { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "You're very attentive today, Luca.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "luca_fl_rebuff" } } },
         { text = "Good day, Luca.", next = "END" },
       },
     },
     blue = {
       lines = { { id = "bl_default", text = "The sky over Lordaeron was blue, once, on a good summer day, and we can't see it from down here. So I sell a little bit of it by the yard, and people pay surprisingly well for a reminder." } },
       choices = {
-        { text = "It's a kind thing to sell, Luca.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Selling nostalgia to the dead. Clever business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It's a kind thing to sell, Luca.", next = "BACK", reply = "Kind, perhaps, and profitable, which is the happiest combination I know. Take a yard, and think of summer.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Selling nostalgia to the dead. Clever business.", next = "BACK", reply = "Clever, yes, and I'll take that as a compliment. The dead pay for memories more readily than for bread.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -199,7 +237,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     shades_red = {
-      lines = { { id = "sr_default", text = "Red! Well, I don't sell it, but I can respect a person who knows their own sky. A deep blue sets off red beautifully, mind you, so we needn't quarrel." } },
+      lines = { { id = "sr_default", text = "Red! Well, I don't sell it, but I can respect a person who knows their own sky. A deep blue sets off red beautifully, so we needn't quarrel." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     shades_grey = {
@@ -210,8 +248,8 @@ P:NPC {
     buyers = {
       lines = { { id = "bu_default", text = "The dead who want to feel dressed, the living who want a souvenir of the Undercity, and the occasional goblin who wants to buy my whole stock and sell it in Booty Bay. I tell the goblins no, because some things are art." } },
       choices = {
-        { text = "Art, Luca. They are only shirts.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Good. Some things shouldn't be for sale.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Art, Luca. They are only shirts.", next = "BACK", reply = "Only shirts, he says! You may leave, and take your colourless soul with you.", fx = { align = { honor = -1 } } },
+        { text = "Good. Some things shouldn't be for sale.", next = "BACK", reply = "Exactly so, and the goblins can find their own sky to sell. Mine stays in the Undercity.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -279,8 +317,8 @@ P:NPC {
     william = {
       lines = { { id = "wi_default", text = "Everyone asks that, and William and I agreed long ago that it's more fun not to say. Brother, cousin, husband, perfect stranger, it hardly matters after a plague, does it?" } },
       choices = {
-        { text = "Family should still matter, even after death.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "It doesn't. Death made us all strangers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Family should still matter, even after death.", next = "BACK", reply = "Should it? Then William would be terribly pleased with you. I'll tell him you said so.", fx = { align = { light = 1 } } },
+        { text = "It doesn't. Death made us all strangers.", next = "BACK", reply = "Strangers, perhaps, but very good company. William and I have done rather well out of it.", fx = { align = { light = -1 } } },
         { text = "I'll ask William, then.", next = "william_ask" },
         { text = "Something else.", next = "BACK" },
       },
@@ -323,15 +361,15 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     keep_forgot = {
-      lines = { { id = "kf_default", text = "Then you've a clean vault and a clean slate, which is rarer down here than you'd think. If anything ever comes back to you, bring it here, and I'll keep it safe until you're ready for it." } },
+      lines = { { id = "kf_default", text = "Then you've a clean vault and a clean slate, and that's a rare thing in the Undercity. If anything ever comes back to you, bring it here, and I'll keep it safe until you're ready for it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     locks = {
       lines = { { id = "lo_default", text = "I'm sure they wouldn't, and that's why the locks aren't what keeps the vaults. The Dark Lady's Deathstalkers know every name on my ledger, and none of them has a sense of humour about it." } },
       choices = {
-        { text = "Then I'll keep my hands where you can see them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every vault has a weakness, Ophelia. Even yours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll keep my hands where you can see them.", next = "BACK", reply = "Wise, very wise, and they'll be glad of the exercise if you don't. Shall we discuss your account?", fx = { align = { order = 1 } } },
+        { text = "Every vault has a weakness, Ophelia. Even yours.", next = "BACK", reply = "Every vault does, darling, and mine is that the Deathstalkers find you first. Do try it, I could use the entertainment.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -377,7 +415,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've got a fuse burning, but it's a long one." },
-        { id = "h_again2", text = "Go on, ask! That's a two-second fuse of a question on your face, I can tell." },
+        { id = "h_again2", text = "Go on, ask! I can see a question burning on your face like a short fuse." },
         { id = "h_again3", text = "Where was I? Oh, yes, you were asking things, and I was answering them. Carry on!" },
       },
       choices = {
@@ -391,11 +429,11 @@ P:NPC {
       },
     },
     fingers = {
-      lines = { { id = "fi_default", text = "A clockwork dragonling I was building for a nephew, before the plague. It worked, for a moment, and then it worked rather too well, and I've been trying to build a better one ever since." } },
+      lines = { { id = "fi_default", text = "Once, with a clockwork dragonling I was building for a nephew before the plague, and it cost me two fingers. It worked, for a moment, and then it worked rather too well, and I've been trying to build a better one ever since." } },
       choices = {
         { text = "How is the new one coming along?", next = "dragonling" },
-        { text = "Some things are worth losing a finger for.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Next time, follow the schematics exactly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some things are worth losing a finger for.", next = "BACK", reply = "There! Somebody understands. I'll name the next dragonling after you, if it doesn't take a finger.", fx = { align = { order = -1 } } },
+        { text = "Next time, follow the schematics exactly.", next = "BACK", reply = "Schematics are for engineers who never want to be surprised, and where's the joy in that? I'll keep my fingers crossed, what's left of them.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -416,7 +454,7 @@ P:NPC {
       },
     },
     bang_toward = {
-      lines = { { id = "bt_default", text = "Wonderful! Then you're welcome at my bench any time, though I'll ask you to sign something first for Franklin's peace of mind. He keeps a wall about people like us." } },
+      lines = { { id = "bt_default", text = "Wonderful! Then you're welcome at my bench any time, though I'll ask you to sign something first for Franklin's peace of mind. He keeps a tally on his wall of people like us." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     bang_away = {
@@ -439,8 +477,8 @@ P:NPC {
     school = {
       lines = { { id = "sc_default", text = "Oh, don't make me choose! The gnomes are clever and careful and terribly smug about it, and the goblins are reckless and brilliant and terribly cheap about it. I'd say goblin, but only because a gnome would never let me near the good parts." } },
       choices = {
-        { text = "Gnomish. Precision wins in the end.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Goblin. Bigger bangs, fewer rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Gnomish. Precision wins in the end.", next = "BACK", reply = "Precision! Oh, a gnomish soul, and I'll not hold it against you. I'll lend you my calipers sometime.", fx = { align = { order = 1 } } },
+        { text = "Goblin. Bigger bangs, fewer rules.", next = "BACK", reply = "A goblin heart! You'll go far and lose eyebrows doing it. I'll keep a spare pair for you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -471,7 +509,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Blasting powder, bolts, copper tubes. Whatever you're building, I hope it works better than Graham's." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Still in one piece, I see, which puts you ahead of most of my customers." },
-    { id = "g_regular", when = { timesTalked = { min = 4 } }, text = "You again, and all your fingers, too. I may have to stop keeping a space for you on the wall." },
+    { id = "g_regular", when = { timesTalked = { min = 4 } }, text = "You again, and with all your fingers, too. I may stop saving you a space on my wall of customers who never came back." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Yes, I'm open. Explosions don't keep shop hours, so I gave up keeping them myself." },
   },
 
@@ -504,8 +542,8 @@ P:NPC {
     graham = {
       lines = { { id = "gr_default", text = "Every day for six years, and I've made my peace with it. If he blows up the quarter, at least I won't have to listen to him talk about dragonlings anymore." } },
       choices = {
-        { text = "Then move your shop somewhere safer.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Safe is dull, Franklin. Stay where the sparks are.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then move your shop somewhere safer.", next = "BACK", reply = "Safer from Graham? There's no such thing in the whole of the Undercity, friend. I'll keep the shop and my eyebrows close.", fx = { align = { order = 1 } } },
+        { text = "Safe is dull, Franklin. Stay where the sparks are.", next = "BACK", reply = "Spoken like one of Graham's students, and I'll be the one sweeping up after you. Mind the sparks.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -560,7 +598,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Never heard of it, and I'd rather not, if it's anything Graham's interested in. Those things tend to end with me sweeping." } },
+    _none = { { id = "tp_none", text = "Never heard of it, and I don't care to, if it's anything Graham's interested in. Those things tend to end with me sweeping." } },
   },
 }
 
@@ -614,8 +652,8 @@ P:NPC {
     smell = {
       lines = { { id = "sm_default", text = "Not the tannery, but I miss bread, and wet grass, and my wife's hair. Funny, the things you find you've lost when you can't smell them anymore." } },
       choices = {
-        { text = "Hold on to those memories, Arthur.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Better not to dwell on what's gone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Hold on to those memories, Arthur.", next = "BACK", reply = "I'll try, though they're getting thin. My wife's hair is the hardest to keep, and I'd not let go of it for anything.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better not to dwell on what's gone.", next = "BACK", reply = "You're right, I suppose, and that's what the Society tells us too. Still, I'll dwell a little, in the quiet.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -655,8 +693,8 @@ P:NPC {
     tailor = {
       lines = { { id = "ta_default", text = "Bowen's a fine hand with a needle, I'll grant him that, and he knows it, too. But cloth's for people who don't expect to be hit, and down here, everyone ought to expect it." } },
       choices = {
-        { text = "Leather's honest work. Cloth is for show.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "A city needs both, Arthur. Make peace with him.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leather's honest work. Cloth is for show.", next = "BACK", reply = "Ha! I'll tell Bowen you said that, and you'll have made an enemy for life. Leather keeps you alive.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A city needs both, Arthur. Make peace with him.", next = "BACK", reply = "Peace with Bowen? He'd sooner sew his own mouth shut, and I'd almost pay to see it. I'll consider it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -732,8 +770,8 @@ P:NPC {
       big = true,
       lines = { { id = "ca_default", text = "I hate him with every stitch I've sewn since, and there have been a great many. I hope one day someone hangs him up in that riding coat, and I hope the seams hold." } },
       choices = {
-        { text = "Hate him all you like, Bowen. He earned every stitch.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Hate won't mend anything, Bowen.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hate him all you like, Bowen. He earned every stitch.", next = "BACK", reply = "Every stitch and more, and I've a riding coat picked out already. May the seams hold, as I said.", fx = { align = { light = -1 } } },
+        { text = "Hate won't mend anything, Bowen.", next = "BACK", reply = "No, but it gives me something to do with the needle. Mending is for those who still have something to mend.", fx = { align = { light = 1 } } },
       },
     },
     dead = {
@@ -754,7 +792,7 @@ P:NPC {
     },
 
     outfit = {
-      lines = { { id = "ou_default", text = "Where to begin, my dear? The shoulders fight the sleeves, the hem has given up entirely, and someone has mended that seam with what I can only hope was fishing line. So tell me honestly, who chose all this?" } },
+      lines = { { id = "ou_default", text = "Where to begin, my dear? The shoulders fight the sleeves, the hem has given up entirely, and someone has mended that seam with what I can only hope was fishing line. So tell me truthfully, who chose all this?" } },
       choices = {
         { text = "I did, and I like it very much.", next = "outfit_proud", fx = { trait = { proud = 1 } } },
         { text = "Whatever the last thing I killed was wearing.", next = "outfit_loot", fx = { trait = { witty = 1 } } },

@@ -2,6 +2,13 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.38.0 (2026-11-18)
+- Writing pass: repeated phrases cut and replaced with concrete detail.
+- Clarity pass: answers answer the question, names are introduced, quest lines stand alone, fewer contradictions.
+- Some NPCs of the opposite sex flirt with you, and remember how you answered (needs core 0.83.0).
+- NPCs who had only a few lines now have full conversations.
+- NPCs answer each stance reply before the talk moves on.
+
 ## 1.37.0 (2026-11-18)
 - Speak your mind: views (things you can say back) for every "Ask about" topic, plus the "ask anyone" topics and a fallback set (`views.lua`, `views_1.lua` to `views_5.lua`). New files: restart the game fully (a /reload won't load them).
 - Paladin trainers have a lot more to say:

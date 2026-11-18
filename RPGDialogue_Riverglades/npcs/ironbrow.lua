@@ -36,7 +36,7 @@ P:NPC {
         { id = "h_gnome", when = { race = "Gnome" },
           text = "A gnome! Don't touch the scaffolding, don't improve the scaffolding, and for pity's sake don't put a motor on the scaffolding." },
         { id = "h_warrior", when = { class = { "WARRIOR", "PALADIN" } },
-          text = "A fighter. Ye'll be off to Twilight's Shroud with the rest of them, I expect, and I'll be here fixing whatever they knock down while ye're gone." },
+          text = "A fighter. Ye'll be off to the Twilight's Shroud, the cult's fortress, with the rest of them, I expect, and I'll be here fixing whatever they knock down while ye're gone." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Working late, aye. Mortar doesn't care if it's dark, and neither do the Hammer's raiders, so the wall gets done when the wall gets done." },
       },
@@ -54,7 +54,7 @@ P:NPC {
     },
 
     how = {
-      lines = { { id = "ho_default", text = "Same as Thaddeus, more or less: came for a job and stayed for the company, and the company keeps needing walls. Ironforge has a thousand masons; Farholde has me, and that's a better count for a craftsman." } },
+      lines = { { id = "ho_default", text = "Same as Thaddeus Brillyard, our other dwarf, more or less: came for a job and stayed for the company, and the company keeps needing walls. Ironforge has a thousand masons; Farholde has me, and that's a better count for a craftsman." } },
       choices = {
         { text = "You must miss the mountain.", next = "how_miss" },
         { text = "Something else, Bertrand.", next = "BACK" },
@@ -69,7 +69,7 @@ P:NPC {
     },
 
     walls = {
-      lines = { { id = "wa_default", text = "Badly, because they were thrown up in a hurry by frightened folk who'd never laid a course in their lives. I've been replacing them a stone at a time for years, and I'm about halfway." } },
+      lines = { { id = "wa_default", text = "They look it, but they were thrown up in a hurry by frightened folk who'd never laid a course in their lives. I've been replacing them a stone at a time for years, and I'm about halfway." } },
       choices = {
         { text = "What's the weakest point?", next = "walls_weak" },
         { text = "Something else.", next = "BACK" },
@@ -86,8 +86,8 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Should, aye, but there's never enough of anything, and Demar would rather buy steel than stone. I can't say he's wrong, only that steel doesn't keep the water out." } },
       choices = {
-        { text = "Walls first. A keep that stands can always fight.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Steel first. Take the fight to the enemy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Walls first. A keep that stands can always fight.", next = "BACK", reply = "Aye, that's my thinkin' too, an' I'll tell Demar ye said so. A wall that stands today saves a funeral tomorrow.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Steel first. Take the fight to the enemy.", next = "BACK", reply = "Demar would buy ye a drink for that. I'll keep mixin' mortar wi' whatever's left over, then.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

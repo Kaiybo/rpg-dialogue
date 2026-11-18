@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_track", text = "Stay off the track when the flags are up, friend. The racers don't brake for anything, tauren included." },
-    { id = "g_active", when = { questActive = TODO_QUEST("A Bump in the Road") }, text = "Basilisks, the big ones and the crystal-hided ones, out on the flats. Not on the track, please." },
+    { id = "g_active", when = { questActive = TODO_QUEST("A Bump in the Road") }, text = "Thin out the basilisks on the flats, the big ones and the crystal-hided ones, but please don't kill them on the track." },
     { id = "g_done", when = { questDone = TODO_QUEST("A Bump in the Road") }, text = "Not a single basilisk on the course last race. The goblins thanked me, which I didn't enjoy as much as I expected." },
     { id = "g_away", when = { away = 14 }, text = "{away} away from the flats, and you missed three crashes. Two were basilisks, and one was pure goblin." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You track better than when you first came out here. I can see it in how you walk the salt." },
@@ -108,8 +108,8 @@ P:NPC {
       lines = { { id = "r_default", text = "Never, as far as I can tell. They build faster cars to beat each other, and they crash them faster too, and in between they sabotage each other's tents. I just keep the track clear and try not to take sides." } },
       choices = {
         { text = "What do you make of the raceway yourself?", next = "op_raceway" },
-        { text = "Competition drives them to build better things.", next = "BACK", fx = { align = { order = -1 }, learn = { "mirage_raceway" } } },
-        { text = "Someone should set rules before someone dies.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, learn = { "mirage_raceway" } } },
+        { text = "Competition drives them to build better things.", next = "BACK", reply = "Better and faster and louder, yes, and I keep counting the pieces they leave on the flats, so I'm not sure what better means.", fx = { align = { order = -1 }, learn = { "mirage_raceway" } } },
+        { text = "Someone should set rules before someone dies.", next = "BACK", reply = "I have said so, gently, and they nodded and built a faster car, so I walk the track a little earlier each morning.", fx = { affinity = 1, align = { order = 1 }, learn = { "mirage_raceway" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "mirage_raceway" } } },
       },
     },
@@ -123,8 +123,8 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "The raceway pays well, and nobody else wanted to walk the flats all day under An'she's full glare. Thunder Bluff gave me my tracking, and the goblins give me my coin, and I don't see why I can't keep both." } },
       choices = {
-        { text = "Coin is coin. Smart choice.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Your people might need that skill more.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coin is coin. Smart choice.", next = "BACK", reply = "It keeps me fed, and the goblins pay on time, which is more than I can say for some hunts I have walked.", fx = { align = { honor = -1 } } },
+        { text = "Your people might need that skill more.", next = "BACK", reply = "Perhaps they might, and the thought follows me across the flats every evening, so I will not tell you that you are wrong.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

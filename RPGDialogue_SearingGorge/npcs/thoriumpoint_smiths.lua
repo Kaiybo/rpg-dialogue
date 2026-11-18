@@ -78,8 +78,8 @@ P:NPC {
         { id = "to_default", text = "From the cliffs, an' from the Cauldron when Scrange can spare the lads. Down there our kin dig it for the Firelord under the whip, an' I'll no' lie, it galls me that the best seams are on their side." },
       },
       choices = {
-        { text = "Then take the seams from them.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Better to dig honest ore than start a war for it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then take the seams from them.", next = "BACK", reply = "Aye, an' I'd swing the first pick if I thought we'd keep them. But the Firelord's people would be up the cliff by nightfall, so we bide.", fx = { align = { order = -1 } } },
+        { text = "Better to dig honest ore than start a war for it.", next = "BACK", reply = "That's the Brotherhood's way, an' it's kept us breathin'. I'll no' pretend I don't dream o' those seams, though.", fx = { align = { order = 1 } } },
         { text = "Who's Scrange?", next = "thorium_scrange" },
       },
     },
@@ -107,8 +107,8 @@ P:NPC {
         { id = "qr_default", text = "I regret where it went, but no' the work, for the work was good, an' that's the bitter part. A tyrant's sword can still be well made, an' I made them well because I didnae know how tae make them badly." },
       },
       choices = {
-        { text = "Good work is good work, whoever pays.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
-        { text = "A craftsman answers for what his blades do.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Good work is good work, whoever pays.", next = "BACK", reply = "Spoken like a smith, an' it's a comfort o' sorts. But I'd still sooner my good work had gone tae better hands.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "A craftsman answers for what his blades do.", next = "BACK", reply = "Aye, he does, an' I've been answerin' for mine every night since I came up the cliff. That's why I'm here an' no' down there.", fx = { align = { light = 1 } } },
         { text = "And now you choose who buys.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -156,7 +156,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll ruin a few dozen bars.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Which three places?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "I'll trust your word over the book.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
 
@@ -166,8 +166,8 @@ P:NPC {
         { id = "r_default", text = "Are they, now? Ironforge makes fine work, I'll grant, but yer smiths learned at leisure, an' mine learned wi' the Firelord watchin' an' the cost o' a mistake bein' a finger. We'll see whose blade's still sharp in ten years." },
       },
       choices = {
-        { text = "Ironforge will always stand first. That won't change.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
-        { text = "Then let the work decide, not the clan.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "Ironforge will always stand first. That won't change.", next = "BACK", reply = "Maybe it will, an' maybe it won't, but we'll see whose anvil's still ringin' when the Firelord's gone. Come back in ten years.", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Then let the work decide, not the clan.", next = "BACK", reply = "Now that's a fair-minded thing tae hear from a stranger. Let the steel speak, an' I'll stand by mine.", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -200,7 +200,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was born tae the anvil an' I'll likely die at it, but at least now it's my own anvil.", next = "quota" } },
     advice = { { id = "tp_ad", text = "Oil yer kit every night, even when ye're tired, because especially when ye're tired." } },
-    dark_iron = { { id = "tp_dark_iron", text = "They make good steel down there for a bad master, an' I'd give a great deal tae see them make it for themselves." } },
+    dark_iron = { { id = "tp_dark_iron", text = "They make good steel down there for a bad master, an' I'd give my best hammer tae see them make it for themselves." } },
     _none = { { id = "tp_none", text = "If I cannae hit it wi' a hammer, I've no opinion on it, so ask the Overseer." } },
   },
 }
@@ -303,8 +303,8 @@ P:NPC {
         { id = "tk_default", text = "So I don't forget it. Every mornin' somebody calls me Taskmaster, an' every mornin' I make sure the lads get their supper an' nobody gets the whip, an' one day that'll square the ledger, or it won't." },
       },
       choices = {
-        { text = "A debt like that can be paid off.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Some ledgers never balance, Scrange.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "A debt like that can be paid off.", next = "BACK", reply = "I hope so, an' I'll keep payin' till it is. One supper at a time.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Some ledgers never balance, Scrange.", next = "BACK", reply = "Maybe they don't, but a dwarf keeps payin' anyway. That's the only honest thing left tae do.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -317,7 +317,7 @@ P:NPC {
 
     slaves = {
       lines = {
-        { id = "s_default", text = "There's hundreds still workin' the Cauldron, our own kin among them, an' worse besides. Maltorius keeps the whips goin' down there, an' Lolo's had a price on his head this long while." },
+        { id = "s_default", text = "There's hundreds still workin' the Cauldron, our own kin among them, an' worse besides. Maltorius keeps the whips goin' down there, an' Captain Lolo's had a price on that overseer's head this long while." },
       },
       choices = {
         { text = "Could the Brotherhood free them?", next = "slaves_free" },
@@ -329,8 +329,8 @@ P:NPC {
         { id = "sf_default", text = "With what, a dozen smiths an' a blind lookout? If we stormed the Cauldron, the Firelord's people would come up the cliff after us, an' then there'd be no Point an' no Brotherhood, only more slaves." },
       },
       choices = {
-        { text = "Then you wait, and save the ones you can.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Waiting is how slaves stay slaves. Someone has to strike.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then you wait, and save the ones you can.", next = "BACK", reply = "That's the plan, an' it's a slow one, but it's the only one that doesnae end in more chains. Every one we save counts.", fx = { align = { order = 1 } } },
+        { text = "Waiting is how slaves stay slaves. Someone has to strike.", next = "BACK", reply = "Aye, an' I've said the same in my cups. But I'll no' throw away the Point on a bad night's courage.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -346,8 +346,8 @@ P:NPC {
         { id = "hn_default", text = "Hansel's on my rota for the night carts three nights a week, an' he's turned up for one of them since the spring. I've stopped countin' him, which is the only time I've ever stopped countin' anythin'." },
       },
       choices = {
-        { text = "Let the man rest. He's earned it.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
-        { text = "A rota is a rota. He should be on it.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Let the man rest. He's earned it.", next = "BACK", reply = "I've let him, mostly, an' I'll keep lettin' him. Some men have done enough night carts for a lifetime.", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "A rota is a rota. He should be on it.", next = "BACK", reply = "It is, an' I'll put him back on it the day he's fit. Until then, the ledger can wait.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -387,7 +387,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I kept the count in the mountain, an' I keep it here, but here the numbers are mine.", next = "title" } },
     advice = { { id = "tp_ad", text = "Count everythin' that matters, twice, an' count the people first." } },
-    dark_iron = { { id = "tp_dark_iron", text = "Half the faces in the Cauldron I could name, if I let myself, so I don't." } },
+    dark_iron = { { id = "tp_dark_iron", text = "I could put names tae a good many faces in the Cauldron if I let myself, so I don't." } },
     _none = { { id = "tp_none", text = "It's no' on my tally, so I couldnae tell ye." } },
   },
 }

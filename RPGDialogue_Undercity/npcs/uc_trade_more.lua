@@ -61,15 +61,15 @@ P:NPC {
       choices = { { text = "Something else, Patrick.", next = "BACK" } },
     },
     uldaman = {
-      lines = { { id = "ul_default", text = "We Garretts toiled there as diggers once, for the dwarves' Explorers, back when the Badlands were only bad and not yet unbearable. Honest labour, mind you, but labour with a certain dignity to it, and we kept our chest in the common hall." } },
+      lines = { { id = "ul_default", text = "We Garretts toiled there as diggers once, for the dwarves' Explorers, back when the Badlands were only bad and not yet unbearable. Honest labour, to be sure, but labour with a certain dignity to it, and we kept our chest in the common hall." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     bats = {
       big = true,
-      lines = { { id = "ba_default", text = "They eat, they sleep upside down, and the rest I'd rather not describe, all day and all night, and I have to sweep up after every one of them. A Garrett was made for better things, and I'll have them yet." } },
+      lines = { { id = "ba_default", text = "They eat, they sleep upside down, and the rest is not fit for polite company, all day and all night, and I have to sweep up after the lot of them. A Garrett was made for better things, and I'll have them yet." } },
       choices = {
-        { text = "Honest work is nothing to be ashamed of.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You deserve better. Reach for it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Honest work is nothing to be ashamed of.", next = "BACK", reply = "It isn't, I suppose, but it's beneath a Garrett all the same. Tell the bats that, if you see them.", fx = { align = { order = 1 } } },
+        { text = "You deserve better. Reach for it.", next = "BACK", reply = "I shall, and I'll remember you said so when I'm out of this tower. Every Garrett deserves better than guano.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -101,7 +101,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "If you're looking for a cook, I'm no longer one. Try the inn." },
-    { id = "g_ring", when = { questActive = TODO_QUEST("Raleigh and the Undercity") }, text = "That ring in your hand, let me see it. Yes, I know it." },
+    { id = "g_ring", when = { questActive = TODO_QUEST("Raleigh and the Undercity") }, text = "That ring you're carrying, let me see it. Yes, I know it, because I gave it to my wife." },
   },
 
   notice = {
@@ -139,7 +139,7 @@ P:NPC {
       },
     },
     ring = {
-      lines = { { id = "ri_default", text = "I gave it to her the summer I was made head cook at a lord's table in Lordaeron, and I meant every word I said that day. Take it back, if you want it, because it's a bauble now, and the hands are all I care to keep." } },
+      lines = { { id = "ri_default", text = "I gave it to her the summer I was made head cook at a lord's table in Lordaeron, and I meant every word I said that day. Keep it, if you want it, because it's a bauble now, and the hands are all I care to keep." } },
       choices = { { text = "Something else, Raleigh.", next = "BACK" } },
     },
     valdred = {
@@ -157,8 +157,8 @@ P:NPC {
       big = true,
       lines = { { id = "fe_default", text = "Grief is for the living, who can still be hurt by what they've lost. Revenge is simpler, because it only needs to know who did it, and I know exactly who did it." } },
       choices = {
-        { text = "Then he should pay for what he did.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Revenge won't give you anything back. Let it go.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then he should pay for what he did.", next = "BACK", reply = "He will, and I'll be the one to serve it to him. Cold, as revenge should be.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Revenge won't give you anything back. Let it go.", next = "BACK", reply = "Nothing gives anything back, friend, not to the dead. Revenge at least gives me something to do.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -206,7 +206,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Velora Nitely, armorsmith, and I used to be the best in Lordaeron, or so the lords told me when they wanted a discount. These days I don't care much for my craft, but it beats being a mindless minion of the Scourge, I suppose." },
         { id = "h_brutal", when = { questActive = TODO_QUEST("Velora Nitely and the Brutal Legguards") },
-          text = "Thun'grim sent you for the brutal legguards, did he? I can make them, but I'll need materials, and the materials are attached to some rather angry orcs in the Wetlands." },
+          text = "Thun'grim in the Barrens sent you for the brutal legguards, did he? I can make them, but I'll need materials, and the materials are attached to some rather angry orcs in the Wetlands." },
         { id = "h_done", when = { questDone = TODO_QUEST("Brutal Legguards") },
           text = "How do the legguards fit? Let me know if you need any changes, I aim to please, or at least I used to aim to please." },
       },
@@ -225,9 +225,9 @@ P:NPC {
     },
     jokes = {
       big = true,
-      lines = { { id = "jo_default", text = "Because I used to be funny, everyone said so, and I keep hoping that one day a joke will come out the way it used to. How did those orcs mind you taking their shins, by the way? Complain much? You're not laughing, are you?" } },
+      lines = { { id = "jo_default", text = "Because I used to be funny, everyone said so, and I keep hoping that one day a joke will come out the way it used to. Here's one: a Dragonmaw orc walks into my forge and limps out without his shins. You're not laughing, are you?" } },
       choices = {
-        { text = "Laugh anyway, to be kind.", next = "jokes_kind", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll laugh anyway, to be kind.", next = "jokes_kind", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "No. But keep trying. It'll come back.", next = "jokes_honest", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -69,7 +69,7 @@ P:NPC {
     },
 
     camp = {
-      lines = { { id = "ca_default", text = "Ravaged, as you see. The others here served the Hammer and its dark master, and they are gone now, scattered or dead, and I do not mourn them. I came for the wind, not for their doomsaying, and the wind kept me when they were swept away." } },
+      lines = { { id = "ca_default", text = "Waiting, among the ruins, as you see. The others here served the Hammer and its dark master, and they are gone now, scattered or dead, and I do not mourn them. I came for the wind, not for their doomsaying, and the wind kept me when they were swept away." } },
       choices = {
         { text = "You were one of the Twilight's Hammer?", next = "camp_hammer" },
         { text = "Something else.", next = "BACK" },
@@ -96,7 +96,7 @@ P:NPC {
           text = "You have shown me the vessel, so you know the path. The bindings, the elementium, the essence of the Firelord, and then we will call him, together." },
       },
       choices = {
-        { text = "That's a great deal to ask.", next = "need_much" },
+        { text = "That's a lot to ask of me.", next = "need_much" },
         { text = "Something else.", next = "BACK" },
       },
     },

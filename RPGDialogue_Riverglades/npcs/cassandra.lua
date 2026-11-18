@@ -68,8 +68,8 @@ P:NPC {
       big = true,
       lines = { { id = "fr_default", text = "It's how Demar wants it, and I agree, mostly. Though I sneak a bit extra to the sick ones in Sister Rowland's chapel, and if he notices, he hasn't said." } },
       choices = {
-        { text = "Good. The sick need it more than the rules do.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Orders are orders, even in a kitchen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good. The sick need it more than the rules do.", next = "BACK", reply = "That's what I tell myself when Demar counts the sacks. Don't tell him, mind, or I'll be cooking for the riders alone.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Orders are orders, even in a kitchen.", next = "BACK", reply = "They are, and I follow them, mostly. The sick ones only get the scrapings, honest.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -82,7 +82,7 @@ P:NPC {
       },
     },
     gossip_worry = {
-      lines = { { id = "gw_default", text = "The cultists up at the Shroud, the soldiers coughing in the chapel, and the Horde over at Rog'mar. Nobody says Stormwind's coming to help, and nobody's said it in years." } },
+      lines = { { id = "gw_default", text = "The cultists in their fortress up the river, the soldiers coughing in the chapel, and the Horde over at Rog'mar. Nobody says Stormwind's coming to help, and nobody's said it in years." } },
       choices = {
         { text = "Maybe I can change that.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "twilights_hammer" } } },
@@ -102,7 +102,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Farholde born and bred, love, and I've fed it since I could reach the counter. There's not much more to say than that." } },
     advice = { { id = "tp_ad", text = "Eat before you fight, not after, because after you might not be in a state to." } },
     siege_of_farholde = { { id = "tp_siege", text = "Half rations and no ships. I was small, but I remember every hungry night of it." } },
-    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar sends us letters, love, and very little else, and you can't feed a keep on letters. I'll say that much and no more, because the Knight Commander says plenty." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar sends us letters, love, and very little else, and you can't feed a keep on letters. I'll say that much and no more; the Knight Commander says plenty on that score." } },
     holy_light = { { id = "tp_holy_light", text = "Sister Rowland prays over the sick in the chapel, and I bring them soup, and between the two of us I think we do some good. The Light can have the credit, so long as they eat." } },
     booty_bay = { { id = "tp_booty_bay", text = "The boats from the south bring salt fish and gossip, and both of them smell of Booty Bay. I'll take the fish, love, and leave the gossip on the dock." } },
     second_war = { { id = "tp_second_war", text = "Farholde stood through the old war when the orcs came to the gate, and my mother kept the ovens going the whole time. I learned that a full belly holds a wall as well as any mortar does." } },

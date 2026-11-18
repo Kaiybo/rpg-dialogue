@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Tharg see you, and Tharg not get up, because Tharg's knees are older than Tharg is." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Army of the Black Dragon") }, text = "The Firemane still walk in Tharg's old village, so you go and make fewer of them." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Army of the Black Dragon") }, text = "The Firemane, the black dragon's army, still walk in Tharg's old village, so you go and make fewer of them." },
     { id = "g_done", when = { questDone = TODO_QUEST("Army of the Black Dragon") }, text = "The brave one comes back! Sit by Tharg, because Tharg likes you better than most of Brackenwall." },
     { id = "g_away", when = { away = 14 }, text = "You gone {away}, and Tharg counted the days, because there is nothing else to do in this wet place." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You bigger now than when Tharg first sent you south, and harder to kill, Tharg thinks. That is good, because the dragons are bigger too." },
@@ -37,7 +37,7 @@ P:NPC {
         { id = "opd_q", text = "Tharg asks every traveller the same thing, because Tharg is old and wants to know if Tharg is mad. The black dragons in the Wyrmbog, what do you think of them?" },
       },
       choices = {
-        { text = "They're monsters. Every one of them should die.", next = "op_dragons_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { black_dragonflight = "hate" } } },
+        { text = "They're monsters, and every last one should die.", next = "op_dragons_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { black_dragonflight = "hate" } } },
         { text = "Not every dragon is wicked, Tharg, but those ones are.", next = "op_dragons_r2", fx = { affinity = 1, align = { light = 1 }, opinion = { dragons = "mixed" } } },
         { text = "They're too strong to fight. Best leave them be.", next = "op_dragons_r3", fx = { affinity = -1, trait = { cautious = 1 }, opinion = { black_dragonflight = "fear" } } },
         { text = "I don't know enough of dragons to say.", next = "BACK" },
@@ -85,7 +85,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Tharg is still listening, so talk." },
-        { id = "h_again2", text = "What else? Tharg has nowhere to be, which is the whole trouble, and the roof still leaks on Tharg's good side." },
+        { id = "h_again2", text = "What else? Tharg has nowhere to be, which is the whole trouble." },
       },
       choices = {
         { text = "What happened to the Stonemaul village?", next = "village" },
@@ -118,8 +118,8 @@ P:NPC {
       big = true,
       lines = { { id = "vb_default", text = "Tharg says yes, every day, and the young ones laugh at Tharg. Brackenwall is not home, it is a wet place where ogres hide, and ogres are not good at hiding." } },
       choices = {
-        { text = "Then go back and take it. Hiding shames you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Home is where your people live now. Let it go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then go back and take it. Hiding shames you.", next = "BACK", reply = "Tharg wants to, very much, and Tharg's fists want to most of all. But Tharg is old, and the Overlord says wait, and Tharg is tired of waiting.", fx = { align = { honor = 1 } } },
+        { text = "Home is where your people live now. Let it go.", next = "BACK", reply = "Small friend is kind, and maybe small friend is right. But Tharg's wife is in the old village, in the ground, and Tharg cannot let that go.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -138,8 +138,8 @@ P:NPC {
       big = true,
       lines = { { id = "wr_default", text = "Tharg wants revenge, yes, and Tharg wants to go home, and Tharg does not know any more which one Tharg wants more. Maybe they are the same thing, for an old ogre." } },
       choices = {
-        { text = "Revenge is fair. The dragons earned it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Go home for her, Tharg, not for hate.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Revenge is fair. The dragons earned it.", next = "BACK", reply = "They did, and Tharg will smash them for it, if Tharg's legs hold. Thank you, small friend, for not saying Tharg is wrong.", fx = { align = { light = -1 } } },
+        { text = "Go home for her, Tharg, not for hate.", next = "BACK", reply = "For her, yes, for her. Tharg will think about that, and Tharg does not think quickly, but Tharg will remember it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -152,7 +152,7 @@ P:NPC {
     },
     overlord_who = {
       big = true,
-      lines = { { id = "ow_default", text = "Draz'Zilb watches the Overlord with sharp eyes, and Draz'Zilb is clever, cleverer than Tharg. Tharg does not know what Draz'Zilb thinks, but Tharg sees him thinking it." } },
+      lines = { { id = "ow_default", text = "Draz'Zilb, the Overlord's adviser, watches the Overlord with sharp eyes, and Draz'Zilb is clever, cleverer than Tharg. Tharg does not know what Draz'Zilb thinks, but Tharg sees him thinking it." } },
       choices = {
         { text = "Mok'Morokk kept your people alive. That counts.", next = "overlord_end", fx = { align = { order = 1 } } },
         { text = "A chief who runs should be pulled down.", next = "overlord_end", fx = { align = { order = -1 } } },
@@ -183,8 +183,8 @@ P:NPC {
     },
     spirits = {
       lines = { { id = "sp_default", text = "You would do that for an old ogre? Tharg does not know if spirits listen to ogres, but if they do, tell her Tharg is still angry, and Tharg is still waiting, and Tharg did not forget." } },
-      choices = { { text = "I'll ask them, Tharg.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Some words are best kept for yourself.", next = "BACK", fx = { align = { light = -1 } } },
+      choices = { { text = "I'll ask them, Tharg.", next = "BACK", reply = "Thank you, small friend. Tharg does not know words for this, so Tharg will just say thank you again.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Some words are best kept for yourself.", next = "BACK", reply = "Maybe so, and Tharg will keep them, then. Tharg has kept them a long time already, and they are heavy, but Tharg is strong.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" } },
     },
     after = {

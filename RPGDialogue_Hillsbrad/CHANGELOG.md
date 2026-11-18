@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.29.0 (2026-11-18)
+- Writing pass: repeated phrases cut and replaced with concrete detail.
+- Clarity pass: answers answer the question, names are introduced, quest lines stand alone, fewer contradictions.
+- NPCs answer each stance reply before the talk moves on.
+
 ## 1.28.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
 - Prejudices (0.80.0): Raleigh the Devout (warlocks) and High Executor Darthalia (the living Horde). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.

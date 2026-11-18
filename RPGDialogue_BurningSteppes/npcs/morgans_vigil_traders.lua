@@ -43,7 +43,7 @@ P:NPC {
         { id = "h_windsor", when = { questActive = Q_JAILBREAK },
           text = "Is it true you're going into the mountain after Marshal Windsor? Eat something first, please, because I won't have it said that anyone left my tent hungry before something like that." },
         { id = "h_windsor_done", tags = { "news" }, when = { questDone = Q_JAILBREAK },
-          text = "You're the one who brought the Marshal out of the mountain! The whole Vigil's been talking about it, and Maxwell even smiled, which I've never seen him do before." },
+          text = "You're the one who brought the Marshal out of the mountain! The whole Vigil's been talking about it, and Marshal Maxwell even smiled, which I've never seen him do before." },
       },
       again = {
         { id = "h_again", text = "What else, love? The kettle's on." },
@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "sth_default", text = "Would you? His name's Tomas, and he's tall and loud and hopeless at cards, and he'll be wherever the fighting is thickest. People tell me I'm a fool to keep hoping, but I'd sooner be a fool than a widow-in-waiting." } },
       choices = {
-        { text = "Keep hoping. Hope is worth more than odds.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Prepare yourself, Gabrielle. The mountain doesn't give people back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep hoping. Hope is worth more than odds.", next = "BACK", reply = "Bless you for that, love, it's more than most up here will give me. If you see a tall, loud fool losing at cards, tell him his supper's going cold.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Prepare yourself, Gabrielle. The mountain doesn't give people back.", next = "BACK", reply = "I know it, I do, and I've heard it from wiser folk than you. I'll keep the pot on all the same, because the day I stop is the day I've buried him myself.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -91,7 +91,7 @@ P:NPC {
       },
     },
     town_wall = {
-      lines = { { id = "tow_default", text = "Because it's the last bit that's still standing, and Oralius says a wall that's survived that much has earned its place. I hang my washing on it, which I think the wall would like." } },
+      lines = { { id = "tow_default", text = "Because it's the last bit that's still standing, and old Oralius at the supply tent says a wall that's survived that much has earned its place. I hang my washing on it, which I think the wall would like." } },
       choices = { { text = "I'm sure it does. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
 
@@ -115,6 +115,6 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I kept the kitchen at an inn in Lakeshire before I came up here. I miss the lake, and I miss walls that aren't scorched, but I don't miss the orcs from Stonewatch." } },
-    _none = { { id = "tp_none", text = "I wouldn't know, love, but have a cup of something and ask Maxwell. He knows everything up here." } },
+    _none = { { id = "tp_none", text = "I wouldn't know, love, but have a cup of something and ask Marshal Maxwell. He knows everything up here." } },
   },
 }

@@ -32,8 +32,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "They'll carry anyone who pays. Some of the older riders don't like the Light; they fought human knights in the Second War, and they remember. But the wind doesn't care what you pray to, and neither do the beasts." } },
       choices = {
-        { text = "Then I'll ride and give them no reason to mind.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Their memories are no concern of mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll ride and give them no reason to mind.", next = "BACK", reply = "Then they'll soon forget the glow and remember the rider. The wind carries the honest ones lighter, or so the old orcs say.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Their memories are no concern of mine.", next = "BACK", reply = "They're no concern of yours, but they're the ones holding the reins. Mind your manners at the roost, or you'll be walking to Ratchet.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -41,8 +41,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "The riders come down with arrows in them more often than I'd like, because the harpies over the Dry Hills aren't shy. I'd rather have a priest at the roost than a goblin's ointment, and so would my wind riders." } },
       choices = {
-        { text = "I'll tend your riders whenever I pass through, Devrak.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'm here to fly, not to nurse beasts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll tend your riders whenever I pass through, Devrak.", next = "BACK", reply = "Then you'll be welcome here every time, and the riders will learn your smell. A wind rider never forgets who pulled the arrow out.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'm here to fly, not to nurse beasts.", next = "BACK", reply = "Then fly, and I'll find a goblin with ointment. Just don't be surprised if your beast takes the long way round over the harpies.", fx = { align = { light = -1 } } },
         { text = "Something else, Devrak.", next = "BACK" },
       },
     },
@@ -50,11 +50,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They'd like to, and I've caught more than one diving at a zhevra herd on the way to Ratchet. I feed them well enough that they shouldn't need to, but a wind rider is a hunter at heart, same as you, and the Barrens is a long way to fly past a meal." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} by your side near the roost. My wind riders know a hunter's beast from a meal, mostly, but I'd not test it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They'd like to, and they'd count your {pet} as fair game if it wandered off. Keep it by your side near the roost, because my wind riders know a hunter's beast from a meal, mostly." },
       },
       choices = {
-        { text = "A hunter at heart deserves respect, beast or rider.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A beast that hunts without leave needs a firmer hand.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A hunter at heart deserves respect, beast or rider.", next = "BACK", reply = "Spoken like one who knows beasts, and they'll know it too. Treat them as hunters, and they'll carry you like one of their own.", fx = { align = { order = 1 } } },
+        { text = "A beast that hunts without leave needs a firmer hand.", next = "BACK", reply = "A firmer hand gets you thrown into the grass, and I've seen it happen to bigger orcs than you. Respect works better up there, believe me.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -62,8 +62,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Everywhere the wind riders fly, from what I hear. The Kolkar raid the roads, the quilboar raid the caravans and the humans at Northwatch Hold raid whoever they please, so a warrior with wings can be where he's needed by sundown." } },
       choices = {
-        { text = "Then fly me where the Horde needs me most.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fly me where the bounties are richest, Devrak.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then fly me where the Horde needs me most.", next = "BACK", reply = "Then climb up, warrior, and I'll send you where the fighting's hottest. The Horde will be glad of you by sundown.", fx = { align = { honor = 1 } } },
+        { text = "Fly me where the bounties are richest, Devrak.", next = "BACK", reply = "Bounties are richest where the arrows are thickest, so mind yourself. I'll fly you, but I won't fly you back if you're in pieces.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Every afternoon, when the wind turns hot off the plains. The riders open their wings into it and hang there without a single beat, and I don't need a shaman to tell me something out there is holding them up." } },
       choices = {
-        { text = "The air spirits deserve thanks for every safe flight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The riders fly on their own wings. Leave the spirits out of it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The air spirits deserve thanks for every safe flight.", next = "BACK", reply = "They do, and the riders seem to agree, in their own way. Leave a word for the wind when you land, and it'll carry you home again.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The riders fly on their own wings. Leave the spirits out of it.", next = "BACK", reply = "Maybe so, but I've never seen wings hang still without help. Fly with whatever you believe, and the wind won't mind either way.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -82,19 +82,19 @@ P:NPC {
         { id = "xrogue_default", text = "Somebody tried it last spring, and the wind rider took two of his fingers before he got anywhere near a saddle. The beasts know their riders by smell, so if you want to sneak past them, you'd best smell like an honest orc." },
       },
       choices = {
-        { text = "Then I'll fly honestly, with your blessing.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'd find a way past them, if it came to it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll fly honestly, with your blessing.", next = "BACK", reply = "That's the only way to fly from my roost. The beasts will know you by your smell soon enough, and they'll be glad of it.", fx = { align = { honor = 1 } } },
+        { text = "I'd find a way past them, if it came to it.", next = "BACK", reply = "You'd lose more than two fingers trying, and I'd let them have them. Try it, and you'll find out how a wind rider deals with a thief.", fx = { align = { honor = -1 } } },
         { text = "What are the wind riders like?", next = "riders" },
       },
     },
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Because teleporting only takes you to the big cities, and my wind riders go wherever the Horde has a roost. Besides, I've never seen a mage enjoy the view over the Barrens on the way, and that's half the reason to fly." },
+        { id = "xmage_default", text = "Because teleporting only takes you to the big cities, and my wind riders go wherever the Horde has a roost. Besides, I've never seen a mage enjoy the view over the Barrens on the way, and the view is the best reason to fly." },
       },
       choices = {
-        { text = "Fair point. A wind rider's flight it is.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Views are for tourists. I'll take the shortcut.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair point. A wind rider's flight it is.", next = "BACK", reply = "Good choice, and you'll thank me when you see the sunset over the Barrens. Some things are worth the slower road.", fx = { align = { order = 1 } } },
+        { text = "Views are for tourists. I'll take the shortcut.", next = "BACK", reply = "Then take your shortcut, and miss the best view in Kalimdor. The riders won't be sorry to carry one less grumbler.", fx = { align = { order = -1 } } },
         { text = "Is it safe flying over the Barrens?", next = "safe" },
       },
     },
@@ -102,8 +102,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "They won't, not since the druids went down into that place, because the air above it smells wrong to them and they veer off every time. I route every flight around it now, and not one wind rider has ever told me I was wrong to." } },
       choices = {
-        { text = "Trust the beasts. Keep every flight well clear of it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Avoiding the place won't heal it. Someone should go and look.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Trust the beasts. Keep every flight well clear of it.", next = "BACK", reply = "That's what I do, and they've never steered me wrong. The air above that place is no place for any living thing.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Avoiding the place won't heal it. Someone should go and look.", next = "BACK", reply = "Someone should, but not with my riders. Go down on your own feet if you must, and may the spirits watch over you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -113,8 +113,8 @@ P:NPC {
         { id = "xwarlock_default", text = "They fear anything that smells of the Twisting Nether, and they're right to, because a frightened wind rider throws its rider over the Barrens. Send your demon away before you climb up, and they'll carry you anywhere, from Ratchet to Orgrimmar." },
       },
       choices = {
-        { text = "I'll dismiss it before I fly. They've earned that.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They'll learn to carry whatever I bring.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll dismiss it before I fly. They've earned that.", next = "BACK", reply = "Then you'll find them gentle as lambs, and they'll carry you anywhere you like. Thank you for that, warlock.", fx = { align = { light = 1 } } },
+        { text = "They'll learn to carry whatever I bring.", next = "BACK", reply = "They won't, and they'll throw you in the grass to prove it. Send the thing away, or walk.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -147,19 +147,19 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else? The beasts are restless, and so am I." } },
     },
     riders = {
-      lines = { { id = "r_default", text = "Proud beasts with a lion's body and a bat's wings, and they bite if you don't respect them. The Horde has ridden them since we came to Kalimdor, because nothing else crosses all this empty land as fast." } },
+      lines = { { id = "r_default", text = "They're proud beasts with a lion's body and a bat's wings, and they bite if you don't respect them. The Horde has ridden them since we came to Kalimdor, because nothing else crosses all this empty land as fast." } },
       choices = { { text = "How do you train them?", next = "riders_train" } },
     },
     riders_train = {
       lines = { { id = "rt_default", text = "With patience and a lot of meat, and by never letting them see you scared. A wind rider follows a rider it trusts, and it will throw anyone it doesn't straight into the grass." } },
       choices = {
-        { text = "Respect is better than fear with beasts.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "Beasts should know who is master.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Respect is better than fear with beasts.", next = "BACK", reply = "That's the truth of it, and the best riders know it from the start. You'd make a fine handler, if you ever wanted the work.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Beasts should know who is master.", next = "BACK", reply = "Try being master to a wind rider, and see how long you stay in the saddle. They choose their riders, and they don't choose the ones who shout.", fx = { affinity = -1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     safe = {
-      lines = { { id = "s_default", text = "Safer than walking, because the centaur and the quilboar can't reach you up there. The harpies of the Dreadmist Peak are another matter, but my riders know how to fly high over them." } },
+      lines = { { id = "s_default", text = "Safer than walking, because the centaur and the quilboar can't reach you up there. The harpies around Dreadmist Peak are another matter, but my riders know how to fly high over them." } },
       choices = { { text = "Good to know. Something else.", next = "BACK" } },
     },
   },
@@ -167,7 +167,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "I know the skies, not that. Ask Thork; he knows the ground, and he likes reminding me of it." } },
     thrall = { { id = "tp_thrall", text = "The Warchief rides wolves, but I've flown him once, and he held on like a recruit. Don't tell him I said so." } },
     centaur = { { id = "tp_centaur", text = "The Kolkar shoot at my riders from the ground, and the riders shoot back from the sky, so it's an argument we usually win. Still, I keep the routes off their camps when I can." } },
-    ratchet = { { id = "tp_ratchet", text = "Bragok runs the birds down at Ratchet, and he complains about the goblins every time I see him. I've never once disagreed with him." } },
+    ratchet = { { id = "tp_ratchet", text = "Bragok keeps the wind riders down at Ratchet, and he complains about the goblins every time I see him. I've never once disagreed with him." } },
     quilboar = { { id = "tp_quilboar", text = "The Razormane can't shoot worth anything, so they're the least of my worries in the sky. It's what they do to the caravans that keeps me up." } },
   },
 }
@@ -196,8 +196,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Bandages, oil for that armour, and a good reason to be here. The orcs who came out of the camps remember the Silver Hand's paladins, so you'll want friends at the Crossroads. Buy from me, and I'll be one." } },
       choices = {
-        { text = "I'll buy honestly, Barg, and be glad of a friend.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll buy what I need. Friends aren't my concern.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll buy honestly, Barg, and be glad of a friend.", next = "BACK", reply = "Then you've got a friend at the Crossroads, and that's worth more than oil. Come by whenever you need bandages.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll buy what I need. Friends aren't my concern.", next = "BACK", reply = "Then buy what you need and be on your way. The orcs will remember either way, so suit yourself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -205,8 +205,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "Half of them, some days, with the sun in their heads and a Kolkar arrow in their leg. I sell bandages, but a priest standing by my stall would sell nothing and do twice the good, so stay as long as you like." } },
       choices = {
-        { text = "Then I'll stay a while and see who comes in hurt.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fools who walk out without water deserve their lesson.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll stay a while and see who comes in hurt.", next = "BACK", reply = "Stay as long as you like, and I'll send the limping ones your way. The grunts will be grateful, even if they're too proud to say it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fools who walk out without water deserve their lesson.", next = "BACK", reply = "Maybe they do, but the lesson often kills them. I'd rather they lived to learn it twice.", fx = { align = { light = -1 } } },
         { text = "Something else, Barg.", next = "BACK" },
       },
     },
@@ -214,8 +214,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Twice the water you think, and bandages enough for three bad days, because that's how long it takes to walk to the next well. The centaur fight hard and the sun fights harder, so don't leave the Crossroads short of either." } },
       choices = {
-        { text = "I'll carry enough for the grunts beside me too.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll carry for myself. The others can manage.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll carry enough for the grunts beside me too.", next = "BACK", reply = "That's a good grunt, and you'll be the one they follow home. Take an extra skin, then, for the road.", fx = { align = { light = 1 } } },
+        { text = "I'll carry for myself. The others can manage.", next = "BACK", reply = "Then carry for yourself, and hope the others carry for you when you need it. The Barrens doesn't care who goes thirsty.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -223,11 +223,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "For the beast, aye, because a thirsty companion is a slow one, and a slow one gets you killed. The oases are fouled more often than not these days, so carry clean water from here and share it with whatever walks at your side." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks parched already. Give it water first, before anything else, and it'll carry you through the Barrens." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "For the beast, aye, and your {pet} looks parched already. Give it water before anything else, and it'll carry you through the Barrens." },
       },
       choices = {
-        { text = "My beast drinks before I do.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "My beast can find its own water.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "My beast drinks before I do.", next = "BACK", reply = "Spoken like a true hunter, and your beast will be loyal for it. Take an extra skin for the pair of you.", fx = { align = { light = 1 } } },
+        { text = "My beast can find its own water.", next = "BACK", reply = "It'll find water, sure, but maybe not clean water. Take a skin anyway, because a sick beast is worse than a thirsty one.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -235,8 +235,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Some can, if you believe the tauren, and I've seen one kneel by a dry wash and dig until his hands came up wet. But I've also sold water to three shamans this week, so I'll keep stocking it." } },
       choices = {
-        { text = "Water should be shared freely in a land this dry.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Water this scarce is worth whatever you can charge.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Water should be shared freely in a land this dry.", next = "BACK", reply = "In a fair world it would be, but someone has to haul it here. I'll keep my prices low, and that's the best I can do.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Water this scarce is worth whatever you can charge.", next = "BACK", reply = "Not by me, it isn't, and I'd have the whole Crossroads after me if I tried. A fair price and a full skin, that's my trade.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -244,30 +244,30 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "It is, and faster every season, so I sell more waterskins every month. The Lushwater Oasis used to reach the rocks on its western side, and now you can walk all the way round it before your skin's half full." } },
       choices = {
-        { text = "Ration the water and guard it. That's the only way through.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Water belongs to all. Nobody should be guarding an oasis.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Ration the water and guard it. That's the only way through.", next = "BACK", reply = "Ration it, aye, and guard it from the Kolkar. That's how the Crossroads has lasted this long.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Water belongs to all. Nobody should be guarding an oasis.", next = "BACK", reply = "In a kinder land, maybe, but the Kolkar don't share. Somebody has to stand by the water, or nobody drinks.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Water, same as everyone, because nobody sneaks far across the Barrens with a dry throat. I've had rogues come in boasting about the Kolkar camps they crept through, and every one of them came back with cracked lips and bought two skins." },
+        { id = "xrogue_default", text = "Water, same as everyone, because nobody sneaks far across the Barrens with a dry throat. I've had rogues come in boasting about the Kolkar camps they crept through, and they all came back with cracked lips and bought two skins." },
       },
       choices = {
-        { text = "I'll pay for my water like anyone else.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Easier to take water from the Kolkar's wells.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll pay for my water like anyone else.", next = "BACK", reply = "Good, then you'll come back with wet lips, and I'll be glad to see you. Honest coin keeps the skins full.", fx = { align = { honor = 1 } } },
+        { text = "Easier to take water from the Kolkar's wells.", next = "BACK", reply = "And come back with a Kolkar spear in your back? Pay for your water, rogue, and live to drink it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Because conjured water keeps you alive and nothing else does, and the Barrens takes more than water out of you. You'll want bread, thread and a pack that won't split, and you'll want to share that water with the grunts on the road, because they can't make their own." },
+        { id = "xmage_default", text = "Because conjured water only keeps off thirst, and the Barrens takes more than water out of you. You'll want bread, thread and a pack that won't split, and you'll want to share that water with the grunts on the road, because they can't make their own." },
       },
       choices = {
-        { text = "I'll share my water with anyone who needs it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "My water's for me. The grunts can buy their own.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll share my water with anyone who needs it.", next = "BACK", reply = "Then you'll have friends on every road out of here. A shared skin is a long memory in the Barrens.", fx = { align = { light = 1 } } },
+        { text = "My water's for me. The grunts can buy their own.", next = "BACK", reply = "Then you'll drink alone, and maybe die alone. The grunts remember who shared and who didn't.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -277,8 +277,8 @@ P:NPC {
         { id = "xwarlock_default", text = "I don't know and I don't want to know, but I know you do, because demons don't carry packs. Buy your own water and bread, and keep that thing out of my sacks, because the last imp in here got into the flour and I'm still finding sooty handprints." },
       },
       choices = {
-        { text = "I'll keep my imp out of your sacks.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My imp goes where it likes, Barg.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my imp out of your sacks.", next = "BACK", reply = "Thank you, because I'm still sweeping flour out of the corners. Keep it out, and you'll always be welcome here.", fx = { align = { order = 1 } } },
+        { text = "My imp goes where it likes, Barg.", next = "BACK", reply = "Then it'll go where my broom goes, and it won't like that much. Keep it leashed or keep it outside.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -319,8 +319,8 @@ P:NPC {
     carry_fouled = {
       lines = { { id = "cf_default", text = "Something wrong in the Wailing Caverns is poisoning the water, or that's what Tonga Runetotem says. I don't know the reason, but I know I'm selling a lot more water than I used to." } },
       choices = {
-        { text = "Someone should find out what's wrong.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Good for your business, at least.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Someone should find out what's wrong.", next = "BACK", reply = "Someone should, and I hope it's somebody brave. All I can do is keep the skins filled until they do.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Good for your business, at least.", next = "BACK", reply = "At least, aye, though I'd rather sell less water and have the oases back. Bad water isn't good for anyone, in the end.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -341,6 +341,7 @@ P:NPC {
 -- Hula'mahi: reagents and herbs at the Crossroads.
 P:NPC {
   key = "hulamahi", id = TODO_NPC("Hula'mahi"), name = "Hula'mahi", title = "Reagents and Herbs",
+  gender = "female",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "crossroads" }, temper = { "cheerful" }, values = { "curious", "shrewd" },
   notices = { "craft", "class" },
@@ -351,6 +352,9 @@ P:NPC {
   greetings = {
     { id = "g_shop", text = "Herbs and reagents, mon, for every spell and every sickness. What you be needing?" },
     { id = "g_apprentice", when = { origin = "troll_witch_doctor_apprentice" }, text = "Ah, you got a witch doctor's hands, mon, all stained and careful. You grind roots for one of the old ones at Sen'jin, I bet, so you know already that nothing on my shelf be safe to boil if you don't know what it want first." },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "hula_fl_no" } }, text = "Ooh, look what the road bring Hula'mahi today! Come in, mon, and stand where the light be good, because me want a proper look at you." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "hula_fl_yes" }, text = "There be my sweet one! Me been tellin' the herbs about you all week, mon, and every one of them be jealous." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "hula_fl_no" }, text = "Herbs and reagents only, me remember. Hula'mahi be on her best behaviour today, mostly." },
   },
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
@@ -360,12 +364,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Me always in a fine mood, mon, but some customers make it better, and you be one of them. A girl from the Echo Isles learn to know a good catch when it swim by, and you got the look of a big one." } },
+      choices = {
+        { text = "Then reel me in, Hula'mahi.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hula_fl_yes" }, clear = { "hula_fl_no" } } } },
+        { text = "Aren't I a bit large for you, Hula'mahi?", next = "fl_tauren", when = { race = "Tauren" } },
+        { text = "Echo Isles girls always did talk too much.", next = "fl_yes", when = { race = "Troll" }, fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hula_fl_yes" }, clear = { "hula_fl_no" } } }, reply = "And Echo Isles boys always stand there listenin', mon, so who be the fool?" },
+        { text = "Do you sell a love charm among those herbs?", next = "fl_charm" },
+        { text = "I'm flattered, but I'm only after herbs today.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "hula_fl_no" }, clear = { "hula_fl_yes" } } }, reply = "Herbs it be, mon, and Hula'mahi not hold it against you." },
+        { text = "Throw this one back, Hula'mahi.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "hula_fl_no", "hula_fl_rebuff" }, clear = { "hula_fl_yes" } } }, reply = "Ha! Back in the sea you go, mon. Hula'mahi got a good net and plenty of patience." },
+      },
+    },
+    fl_charm = {
+      lines = { { id = "flc_default", text = "Me sell the herbs that go into every love charm a witch doctor ever make, mon, but Hula'mahi never once need one herself. Me just smile like this, and the rest take care of itself, see?" } },
+      choices = {
+        { text = "I see it working, Hula'mahi.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hula_fl_yes" }, clear = { "hula_fl_no" } } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fl_tauren = {
+      lines = { { id = "flt_default", text = "Large? Mon, me be lookin' up at you like you a mesa out on the plains, and me always did like the view from up high. You tauren be gentle as rain and big as a kodo, and that be a fine thing for a girl who like a challenge." } },
+      choices = {
+        { text = "Then I'll try not to step on you, Hula'mahi.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hula_fl_yes" }, clear = { "hula_fl_no" } } } },
+        { text = "I'll stay down on the plains, thanks.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "hula_fl_no" }, clear = { "hula_fl_yes" } } }, reply = "Suit yourself, big one. The view still be fine from here." },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Ha! Now we be talkin', mon. You come back when the Crossroads be quiet and the stars be out, and Hula'mahi show you which herbs be good for the heart and which ones only be good for the head." } },
+      choices = {
+        { text = "I'll be back when the stars are out.", next = "BACK", reply = "Me be watchin' the road, mon. Don't keep a girl waitin' too long." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Trust? We watch the dead careful, mon, and we watch the Light careful, and you be both. But your coin be the same as anyone's, and the symbols of kings you need be on my shelf." } },
       choices = {
-        { text = "I'll trade fair and earn your trust.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll trade. Your trust I don't need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll trade fair and earn your trust.", next = "BACK", reply = "Fair trade be the only way to trust, mon, so we start well. Come back often, and we see how it goes.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll trade. Your trust I don't need.", next = "BACK", reply = "Then trade, mon, and keep your trust for somebody else. My shelves don't care, and neither do I.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -373,8 +409,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "Every morning, mon, a little word to the loa so the spirits be watching my stall and not my debts. The Darkspear priests speak to the loa properly, with shadow and offerings and all, but a merchant only need the loa to look kindly on her prices." } },
       choices = {
-        { text = "The loa deserve proper rites, not a merchant's bargain.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A bargain with the spirits is still a prayer, I suppose.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The loa deserve proper rites, not a merchant's bargain.", next = "BACK", reply = "You speak like a priest of the Darkspear, mon, and maybe you be right. But a merchant's bargain be better than no word at all.", fx = { align = { order = 1 } } },
+        { text = "A bargain with the spirits is still a prayer, I suppose.", next = "BACK", reply = "It be a prayer, mon, a small one, and the loa never complained yet. Maybe they like a good bargain too.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else, Hula'mahi.", next = "BACK" },
       },
     },
@@ -382,11 +418,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The smart ones do, mon, because they walk past peacebloom and earthroot every day and never think to bend down. Bring me what you find around the oases, and the mages and the shaman of the Crossroads be grateful, even if they never know your name." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keep sniffin' at my jars, mon. Some of them herbs make a beast sleepy, so keep it close." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The smart ones do, mon, and your {pet} keep sniffin' at my jars like it want to help. Keep it close, though, because some of them herbs make a beast sleepy." },
       },
       choices = {
-        { text = "I'll gather for the healers of the Crossroads.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll gather what sells, troll, and nothing more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll gather for the healers of the Crossroads.", next = "BACK", reply = "The healers be grateful, mon, even if they never say so out loud. Bring me peacebloom and earthroot, and I'll see it gets to them.", fx = { align = { honor = 1 } } },
+        { text = "I'll gather what sells, troll, and nothing more.", next = "BACK", reply = "Fair enough, mon, I'll buy what sells too, and everybody be happy. Just bring me plenty.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -394,8 +430,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not for themselves, mon, but the smart ones buy a few for their healer friends. A priest with no candles or a shaman with no ankh be no help when you lyin' in the dirt, so think of it as an investment in your own skin." } },
       choices = {
-        { text = "I'll look after the healers who look after me.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Healers can buy their own reagents, troll.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll look after the healers who look after me.", next = "BACK", reply = "Now that be smart thinking, mon. A healer with a full pouch be worth more than any armor.", fx = { align = { honor = 1 } } },
+        { text = "Healers can buy their own reagents, troll.", next = "BACK", reply = "They can, mon, but they be busy keeping you alive. Your choice, but I'd think about it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -406,8 +442,8 @@ P:NPC {
         { id = "xmage_troll", when = { race = "Troll" }, text = "A Darkspear mage, look at you, mon! The runes be behind the counter, and don't you go teleporting to Orgrimmar three times a day like the last one who bought a stack." },
       },
       choices = {
-        { text = "Smart mage. Walking is for people without runes.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Wasteful. Runes should be saved for real need.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Smart mage. Walking is for people without runes.", next = "BACK", reply = "Ha! You be one of them, mon, I can tell already. Buy a stack, and eat at the Broken Tusk till you're fat.", fx = { align = { order = -1 } } },
+        { text = "Wasteful. Runes should be saved for real need.", next = "BACK", reply = "Saved for real need, mon, and every mage think hunger be a real need. Still, I respect a thrifty one.", fx = { align = { order = 1 } } },
         { text = "Where do your herbs come from?", next = "herbs" },
       },
     },
@@ -417,8 +453,8 @@ P:NPC {
         { id = "xwarlock_default", text = "No, mon, and I wouldn't if I could, because the loa don't like trade with things from outside the world. I'll sell you herbs and powder for the spells you cast, and the soul shards you carry be your own business, but don't you go asking me where to find more." },
       },
       choices = {
-        { text = "Fair. The loa deserve respect, even from me.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The loa can mind their own business, then.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fair. The loa deserve respect, even from me.", next = "BACK", reply = "That be wise of you, mon, and the loa remember who respect them. Buy your herbs, and we stay friends.", fx = { align = { light = 1 } } },
+        { text = "The loa can mind their own business, then.", next = "BACK", reply = "They will, mon, and they'll remember you said so. Careful how you speak of the loa near a troll.", fx = { align = { light = -1 } } },
         { text = "What brings a troll to the Crossroads?", next = "troll" },
       },
     },
@@ -426,8 +462,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Some from the tauren herbalists, and some from goblin traders who don't say where they found them, mon. I pay the tauren more because their seeds be grown right, but a seed be a seed once it's on my shelf." } },
       choices = {
-        { text = "Buy only the honest seeds. The goblin ones may be stolen.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A seed is a seed. Where it came from hardly matters.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Buy only the honest seeds. The goblin ones may be stolen.", next = "BACK", reply = "Honest seeds be expensive, mon, but they grow right, and that be worth the price. You speak sense.", fx = { align = { honor = 1 } } },
+        { text = "A seed is a seed. Where it came from hardly matters.", next = "BACK", reply = "It matter to the loa, mon, if not to the market. But a seed be a seed, and I'll sell it either way.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -437,8 +473,8 @@ P:NPC {
         { id = "xrogue_default", text = "Flash powder, mon, for when you need to vanish, and the herbs that make your blades sting, though you get your poisons from the trainers. I ask no questions about who it be for, but if it be a tauren, I don't want to hear it." },
       },
       choices = {
-        { text = "My blades are for the Horde's enemies, nobody else.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Who it's for is between me and my blade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "My blades are for the Horde's enemies, nobody else.", next = "BACK", reply = "Good, mon, then we have no trouble between us. Buy your powder and hunt our enemies.", fx = { align = { honor = 1 } } },
+        { text = "Who it's for is between me and my blade.", next = "BACK", reply = "Then I don't ask, mon, and you don't tell me. Just keep it away from the tauren.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -464,6 +500,7 @@ P:NPC {
         { text = "I'd guess you pray to the loa yourself, Hula'mahi.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you sell what a rogue needs, Hula'mahi?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do trolls trust the Light, Hula'mahi?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You're in a fine mood today, Hula'mahi.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "hula_fl_rebuff" } } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "What else you want to know, mon? Ask while the shop be quiet." } },
@@ -475,8 +512,8 @@ P:NPC {
     herbs_oasis = {
       lines = { { id = "ho_default", text = "Bad business, mon, because the herbs that grow near bad water be bad themselves. I check every leaf now, and I throw out the ones that smell wrong, even when it cost me." } },
       choices = {
-        { text = "That's honest of you.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Most merchants would sell them anyway.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "That's honest of you.", next = "BACK", reply = "It be the only way, mon, because a bad herb makes a bad potion and a dead customer. The loa watch what I sell.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Most merchants would sell them anyway.", next = "BACK", reply = "Most would, mon, but most don't have the loa watching their shelves. I'd rather lose a sale than a customer.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -486,7 +523,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Hula'mahi not know that, mon. Ask Sergra; she know everything about this place." } },
+    _none = { { id = "tp_none", text = "Hula'mahi not know that, mon. Ask Sergra Darkthorn; she know everything about this place." } },
     darkspear = { { id = "tp_darkspear", text = "The Darkspear came over the sea with Thrall, and we been his people ever since. I sell to orc and tauren both now, but I still miss the sound of the waves." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin keeps the Darkspear proud even out here in the dust, mon. I pray he takes back the Echo Isles before I get too old to go home." } },
     the_elements = { { id = "tp_the_elements", text = "The shaman buy my herbs to speak with the spirits, and the spirits seem to like them well enough. I never ask what they say about me." } },
@@ -517,8 +554,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Because the humans' paladins always charged in close, and my people killed plenty of them from a distance in the Second War. You're Horde now, so learn from us, and don't charge across open ground at anything you could shoot instead." } },
       choices = {
-        { text = "I'll charge in close. That's the paladin's way.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fair point. Better to kill from range.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll charge in close. That's the paladin's way.", next = "BACK", reply = "Charge, then, and see how far you get before the Kolkar spears find you. I'll sell you a gun for when you learn.", fx = { align = { honor = 1 } } },
+        { text = "Fair point. Better to kill from range.", next = "BACK", reply = "Now you're learning, paladin. A dead centaur at a hundred paces can't hit back.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -526,17 +563,17 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "A good gun, every time, because a gun stops the centaur before anyone needs healing. I'll admit a priest dragged me out of the Stagnant Oasis when a crocolisk got my leg, though, so I keep a little room in my heart for your kind." } },
       choices = {
-        { text = "Healing is the better gift. Anyone can pull a trigger.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Can't argue. Dead centaur need no priest at all.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Healing is the better gift. Anyone can pull a trigger.", next = "BACK", reply = "Maybe it is, and that priest would agree with you. But I'll still sell you a gun, just in case.", fx = { align = { light = 1 } } },
+        { text = "Can't argue. Dead centaur need no priest at all.", next = "BACK", reply = "That's the truth, and I'm glad you see it. Buy the gun, and leave the priest a quiet day.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else, Uthrok.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every warrior should carry something that reaches further than his arm, because the Kolkar throw spears and the harpies stay up in the air. A gun or a bow won't win you the fight, but it'll start one on your terms, and that's half the battle in the Barrens." } },
+      lines = { { id = "xwarcl_default", text = "Every warrior should carry something that reaches further than his arm, because the Kolkar throw spears and the harpies stay up in the air. A gun or a bow won't win you the fight, but it'll start one on your terms, and in the Barrens, that's how you live through it." } },
       choices = {
-        { text = "I'll carry a gun, and use it wisely.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Guns are for cowards. I'll charge them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll carry a gun, and use it wisely.", next = "BACK", reply = "Good, because a wise gun is worth two careless ones. Keep it clean, and it'll start every fight on your terms.", fx = { align = { order = 1 } } },
+        { text = "Guns are for cowards. I'll charge them.", next = "BACK", reply = "Then charge, and I'll watch the spears find you first. Courage is fine, but it's slower than a bullet.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -544,20 +581,20 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Range, mostly, because out here you'll see your target long before it sees you. A bow strung with zhevra gut holds well in the heat, and a gun needs keeping clean of the dust, so whatever you carry, clean it every night." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it could use some exercise. Take it out to the plains and let it run, and your aim will thank you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A string of zhevra gut, because it holds in the heat. And let your {pet} run on the plains while you practise, because a restless beast spoils your aim." },
       },
       choices = {
-        { text = "I'll keep my weapon clean every night.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll clean it when it jams. That's soon enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my weapon clean every night.", next = "BACK", reply = "That's the spirit, hunter, and your weapon will thank you. A clean gun never jams when it matters.", fx = { align = { order = 1 } } },
+        { text = "I'll clean it when it jams. That's soon enough.", next = "BACK", reply = "Then it'll jam at the worst time, and you'll be cleaning it while a raptor eats you. Every night, hunter, every night.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "A bullet, every time, because I can count on it. Lightning hits harder when it lands, I'll give you that, but I've watched a shaman's bolt crackle off a Kolkar stormer like rain off a roof, and the Kolkar didn't wait for a second try." } },
+      lines = { { id = "xhsham_default", text = "A bullet, every time, because I can count on it. Lightning hits harder when it lands, I'll give you that, but I've watched a shaman's bolt crackle off a Kolkar stormseer like rain off a roof, and the Kolkar didn't wait for a second try." } },
       choices = {
-        { text = "I'll trust the spirits over a goblin's gunpowder.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Trust whatever kills fastest. Nothing else matters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll trust the spirits over a goblin's gunpowder.", next = "BACK", reply = "The spirits are fine, but they don't always answer, and powder always does. Trust what you like, but I'll trust my gun.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Trust whatever kills fastest. Nothing else matters.", next = "BACK", reply = "That's what I keep telling people, and nobody listens. Buy the gun, and you'll see I'm right.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -565,8 +602,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Some do, and the zhevra herds are thinner than they were when I first came to the Crossroads. I sell them the bows, and what they do after that is their own business, though I'd rather they left something for next year." } },
       choices = {
-        { text = "The Crossroads should set limits on the hunting.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A trader's job is trade. The hunters can answer for themselves.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Crossroads should set limits on the hunting.", next = "BACK", reply = "Maybe they should, but Thork has more to worry about than zhevra. I'll mention it, for all the good it'll do.", fx = { align = { order = 1 } } },
+        { text = "A trader's job is trade. The hunters can answer for themselves.", next = "BACK", reply = "That's how I see it, though I'm not proud of it. I sell the bows, and the hunters answer to the land.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -576,8 +613,8 @@ P:NPC {
         { id = "xrogue_default", text = "Every rogue should, because you can pull a Kolkar scout off his feet from the grass and never step into the open. A gun's louder, and loud is the opposite of what you want, so for once I'll tell you to buy the bow." },
       },
       choices = {
-        { text = "I'll fight close and look them in the eye.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A shot from cover is still a kill.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight close and look them in the eye.", next = "BACK", reply = "Brave, but I've seen how those stories end. Look them in the eye if you like, but take a bow for when you can't.", fx = { align = { honor = 1 } } },
+        { text = "A shot from cover is still a kill.", next = "BACK", reply = "It is, and the scout won't complain about how he died. Take the bow, rogue, and stay in the grass.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -587,8 +624,8 @@ P:NPC {
         { id = "xmage_default", text = "Not often, because you carry wands, which are sticks with a bit of spark in them if you ask me, though I'll admit they do the job when your mana's spent. The raptors close fast out here, so keep frost between you and them, and stay near the grunts on the road." },
       },
       choices = {
-        { text = "I'll fight beside the grunts, not off on my own.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I fight alone, and I like it that way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll fight beside the grunts, not off on my own.", next = "BACK", reply = "Good, because the grunts need cover, and you need someone to hold the raptors off. Stay close, and you'll both live longer.", fx = { align = { order = 1 } } },
+        { text = "I fight alone, and I like it that way.", next = "BACK", reply = "Then you'll be the one the raptors pick first. Fight alone if you like, but keep the frost close.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -598,8 +635,8 @@ P:NPC {
         { id = "xwarlock_default", text = "Not many, because a wand does most of what you want and the demon does the rest. The ones who come back are the ones whose demon got sent home in the middle of a fight, and they always want something that shoots, fast." },
       },
       choices = {
-        { text = "I'll face my enemies myself, demon or no demon.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let the demon take the blows. That's what it's for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll face my enemies myself, demon or no demon.", next = "BACK", reply = "Good, because the demon won't always be there. A blade in your hand never gets sent home.", fx = { align = { honor = 1 } } },
+        { text = "Let the demon take the blows. That's what it's for.", next = "BACK", reply = "Then buy something for when it gets sent home, because it will. Demons always leave at the worst moment.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -635,7 +672,7 @@ P:NPC {
     },
     which = {
       lines = {
-        { id = "w_default", text = "A bow is quiet and never jams, and you can make arrows from anything. A gun is loud and hits hard, and the noise scares off half the beasts before you even hit them." },
+        { id = "w_default", text = "A bow is quiet and never jams, and you can make arrows from anything. A gun is loud and hits hard, and the noise scatters the zhevra before you even hit them." },
         { id = "w_tauren", when = { race = "Tauren" }, text = "Your people like guns, I've noticed, and a tauren with a big rifle is a frightening sight. But a bow is quiet and never jams, so think about it." },
       },
       choices = {
@@ -649,14 +686,14 @@ P:NPC {
       choices = { { text = "What's at Bael Modan?", next = "guns_bael" } },
     },
     guns_bael = {
-      lines = { { id = "gb_default", text = "Dwarves digging in the south of the Barrens, past Camp Taurajo, with guns and steam machines. The tauren there hate them, and I don't blame them." } },
+      lines = { { id = "gb_default", text = "A dwarf dig in the south of the Barrens, past Camp Taurajo, full of guns and steam machines. The tauren there hate them, and I don't blame them." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
     _none = { { id = "tp_none", text = "I couldn't tell you, grunt, so ask Thork or Sergra; they run this place." } },
     centaur = { { id = "tp_centaur", text = "Centaur are fast, but an arrow is faster, and a bullet's faster still. That's why I sell both, and I'll tell you which to buy." } },
-    quilboar = { { id = "tp_quilboar", text = "A quilboar charge is all tusks and noise, and you'll have time for two shots if you keep your nerve. Most don't keep their nerve, which is why I sell bandages next door." } },
+    quilboar = { { id = "tp_quilboar", text = "A quilboar charge is all tusks and noise, and you'll have time for two shots if you keep your nerve. Most don't keep their nerve, which is why Barg sells bandages next door." } },
     ratchet = { { id = "tp_ratchet", text = "The goblins make good guns and charge like they're made of gold. Mine are plainer, and they shoot where you point them." } },
     second_war = { { id = "tp_second_war", text = "The old Horde didn't trust guns, and we lost to dwarves who did. I learned that lesson on a battlefield, and I've been selling it ever since." } },
   },
@@ -689,8 +726,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "No, but we do not know it. The Earth Mother gave us what we needed long before we met the orcs and their memories of the Silver Hand. I am curious what the Light asks of you, since nothing in this world gives without asking." } },
       choices = {
-        { text = "It asks me to protect the living. I do.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "It asks nothing. I take what I need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It asks me to protect the living. I do.", next = "BACK", reply = "Then the Earth Mother will smile on you, I think. Protecting the living is a good thing to be asked.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It asks nothing. I take what I need.", next = "BACK", reply = "Then the Light is a generous master, or a careless one. I'd be wary of anything that gives without asking.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -698,8 +735,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "The dwarves dig at Bael Modan to the south, and the quilboar of the Razorfen grow bolder every season, so the camp's healers are seldom idle. If you stay, the Earth Mother will not mind whom you pray to, and neither will I." } },
       choices = {
-        { text = "I'll stay a while and help your healers, Omusa.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Taurajo has its own healers. I've roads to fly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll stay a while and help your healers, Omusa.", next = "BACK", reply = "Then you're welcome here as long as you stay. The healers will be glad of the help, and so will I.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Taurajo has its own healers. I've roads to fly.", next = "BACK", reply = "Then fly, and the winds go with you. The healers will manage, as they always have.", fx = { align = { light = -1 } } },
         { text = "Something else, Omusa.", next = "BACK" },
       },
     },
@@ -707,8 +744,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Digging, and blasting, and pulling things from the earth that should have stayed buried. The elders at Thunder Bluff want to know what they've found, and the dwarves want no one to see it, so any warrior who goes there will be met with more than words." } },
       choices = {
-        { text = "I'll go there and drive them out.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let them dig. It's not my business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll go there and drive them out.", next = "BACK", reply = "Then go carefully, because the dwarves have guns and they dig deep. The elders will be glad to hear of it.", fx = { align = { order = 1 } } },
+        { text = "Let them dig. It's not my business.", next = "BACK", reply = "Perhaps not, but the land will make it your business soon enough. The earth there groans louder every night.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -716,20 +753,20 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because the quilboar and the dwarves have driven off the zhevra, and the lions must eat something. A hunter who thins them carefully keeps the camp safe, but a hunter who takes too many leaves the plains to the quilboar, and that is worse." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would be a fine sight from the air. My wind riders always notice the beasts that walk beside a hunter." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The quilboar and the dwarves have driven off the zhevra, so the lions have little to eat, and your {pet} should stay close to you out there. My wind riders spot a hungry lion long before you would." },
       },
       choices = {
-        { text = "I'll thin them carefully and leave the rest.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Lions are a threat. I'll clear the plains of them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll thin them carefully and leave the rest.", next = "BACK", reply = "That's the way of the hunter, and the Earth Mother will thank you. The plains need their lions as much as their zhevra.", fx = { align = { honor = 1 } } },
+        { text = "Lions are a threat. I'll clear the plains of them.", next = "BACK", reply = "Then the quilboar will have the plains to themselves, and that's worse. Thin them, hunter, but don't clear them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Old earth, older than the tauren, and the herders say the ground there groans at night. The dwarves dig for treasure and the quilboar dig for their god, and between them the land south of Taurajo has no peace." } },
+      lines = { { id = "xhsham_default", text = "They are digging into old earth, older than the tauren, and the herders say the ground there groans at night. The dwarves dig for treasure and the quilboar dig for their god, and between them the land south of Taurajo has no peace." } },
       choices = {
-        { text = "The land deserves defending from both of them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let the dwarves and quilboar weaken each other first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The land deserves defending from both of them.", next = "BACK", reply = "It does, and the Earth Mother will thank you for it. Go carefully, because both of them dig deep.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the dwarves and quilboar weaken each other first.", next = "BACK", reply = "A cold plan, but perhaps a wise one. Let them bleed each other, and the land may heal faster.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -739,19 +776,19 @@ P:NPC {
         { id = "xrogue_default", text = "That would be a kindness, because the dwarves dig deeper every season and they post guards who watch the sky for my riders. Count their guns and see what they carry out of the ground, and the elders at Thunder Bluff will hear of it on the next wind rider north." },
       },
       choices = {
-        { text = "They'll never know I was there. That's the point.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll watch, but if it comes to blows, I'll fight openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They'll never know I was there. That's the point.", next = "BACK", reply = "That's the way, and the elders will be grateful. Count their guns, and come back unseen.", fx = { align = { honor = -1 } } },
+        { text = "I'll watch, but if it comes to blows, I'll fight openly.", next = "BACK", reply = "If it comes to that, fight well and come home. The elders want answers, not more graves.", fx = { align = { honor = 1 } } },
         { text = "What troubles Camp Taurajo most?", next = "trouble" },
       },
     },
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "They do, and so do I, though I'm better at hiding it. My riders have never smelled anything like it and they will not carry it, so it must stay behind while you fly, as the Warchief's own warlocks do." },
+        { id = "xwarlock_default", text = "They do, and so do I, though I'm better at hiding it. My riders have never smelled anything like it and they will not carry it, so it must stay behind while you fly, the same as for the Warchief's own warlocks." },
       },
       choices = {
-        { text = "It can stay behind. Your riders deserve calm skies.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Your beasts should learn to bear it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It can stay behind. Your riders deserve calm skies.", next = "BACK", reply = "They do, and they'll thank you in their own way. Fly calm, and the wind will be kind.", fx = { align = { light = 1 } } },
+        { text = "Your beasts should learn to bear it.", next = "BACK", reply = "They won't, and they'll throw you from the sky to prove it. Leave it behind, or walk to Thunder Bluff.", fx = { align = { light = -1 } } },
         { text = "Do your wind riders have names?", next = "names" },
       },
     },
@@ -759,8 +796,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Old things, buried under the earth long before any tauren walked these plains, and they dig as though the ground owed them every one. My riders fly wide around the place now, because the noise and the smoke frighten them." } },
       choices = {
-        { text = "Ask them to leave first. If they refuse, then we fight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Strike their camp at night and be done with it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Ask them to leave first. If they refuse, then we fight.", next = "BACK", reply = "That's the tauren way, and the elders would approve. Speak first, and fight only if they won't listen.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Strike their camp at night and be done with it.", next = "BACK", reply = "That would end it quickly, but the earth there has had enough violence. Ask the elders first, at least.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -770,8 +807,8 @@ P:NPC {
         { id = "xmage_default", text = "They'll carry anyone the Horde trusts, and they don't care whether you carry a spear or a spellbook. What troubles them is the south, where the dwarves have dug in at Bael Modan and the quilboar are stirring, so they come back tense from every flight that way." },
       },
       choices = {
-        { text = "The dwarves are digging, not fighting. Leave them be.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The dwarves should be driven out of Bael Modan.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The dwarves are digging, not fighting. Leave them be.", next = "BACK", reply = "They're digging up what the Earth Mother buried, and that's a kind of fighting. Still, I'll not argue with you over the dwarves.", fx = { align = { light = 1 } } },
+        { text = "The dwarves should be driven out of Bael Modan.", next = "BACK", reply = "The elders would agree, and so would the shamans. Go carefully, because the dwarves have guns and they don't miss.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -782,8 +819,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders have been uneasy since the dwarves came south with their digging, and perhaps you can feel what they feel." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, at Taurajo's roost. My wind riders have been uneasy since the dwarves started digging at Bael Modan, and I think you'll feel that same unease if you go near it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The dwarves at Bael Modan carry guns, and a warrior is the first thing they'll shoot at, so I hope you're as tough as you look." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My wind riders see a great deal from the sky, and they tell me the lions of the southern Barrens are hungrier than usual." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. My wind riders are calm around you, which is more than I can say for most strangers who come to Taurajo." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My wind riders see the whole plain from the sky, and they tell me the lions of the southern Barrens are hungrier than usual." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. My wind riders are calm around you, and they lay back their ears at most strangers who come to Taurajo." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at Taurajo. The wind riders don't mind your magic, though they snort at the smell of the burning." },
       },
       choices = {
@@ -810,8 +847,8 @@ P:NPC {
     trouble_dwarves = {
       lines = { { id = "td_default", text = "They dig for old things, buried things, and they don't ask the Earth Mother's permission. Every shaman in the camp says the land is angry there, and I believe them, because I can feel it under my hooves." } },
       choices = {
-        { text = "They must be driven off.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Perhaps they can be reasoned with.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "They must be driven off.", next = "BACK", reply = "Perhaps they must, and I'll not argue. The land has had enough of their digging.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Perhaps they can be reasoned with.", next = "BACK", reply = "Perhaps they can, though I've seen no sign of it yet. Try, if your heart says so, and the Earth Mother will see.", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -852,8 +889,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Some do. I saw the Silver Hand's glow in the camps, the same as every orc my age, and I don't love it. But fair is fair: you pay, you fly, and the beasts don't care what you pray to." } },
       choices = {
-        { text = "Fair is fair. I'll pay and fly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Your memories are your burden, not mine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair is fair. I'll pay and fly.", next = "BACK", reply = "Good, that's all I ask. Fly well, and come back in one piece.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your memories are your burden, not mine.", next = "BACK", reply = "My burden, aye, and I've carried it a long while. Pay and fly, and we'll leave it at that.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -861,8 +898,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "A temple in Ratchet? The goblins would sell the pews and rent out the altar by the hour. No, a priest does more good up here with my wind riders, where nobody's counting coins." } },
       choices = {
-        { text = "Faith shouldn't have a price. Ratchet could learn that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Goblins pay well. A temple there would turn a profit.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Faith shouldn't have a price. Ratchet could learn that.", next = "BACK", reply = "Ratchet could learn plenty, but it won't learn that. The goblins would charge for the lesson.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Goblins pay well. A temple there would turn a profit.", next = "BACK", reply = "It would, and that's exactly why I don't want one there. Some things shouldn't turn a profit.", fx = { align = { light = -1 } } },
         { text = "Something else, Bragok.", next = "BACK" },
       },
     },
@@ -870,11 +907,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Crocolisks in the shallows, raptors up in the hills and the odd shark the fishermen drag in, though you'll have to fight the goblins for that one. The goblins pay well for crocolisk hides, so a hunter who comes through my roost rarely leaves empty-handed." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it wants to go after the gulls on the docks. Let it, if you like; the goblins hate those gulls more than anything." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "There's crocolisk in the shallows, and your {pet} looks like it wants the gulls on the docks too. Let it, if you like; the goblins hate those gulls more than anything." },
       },
       choices = {
-        { text = "I'll hunt only what keeps Ratchet's roads safe.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll hunt whatever the goblins pay for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt only what keeps Ratchet's roads safe.", next = "BACK", reply = "Then you're a better hunter than most who come through here. Ratchet's roads could use you.", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt whatever the goblins pay for.", next = "BACK", reply = "Then you'll do well here, because the goblins pay for everything. Just don't let them haggle you down.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -882,8 +919,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They'd say no, and then hire you anyway. The Southsea pirates come up the beach often enough, and the bruisers can't be everywhere, so a warrior who stops by Ratchet can always find a fight, and usually some coin with it." } },
       choices = {
-        { text = "I'll fight for the town, Bragok, not just the coin.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The coin's the only reason I'd fight for goblins.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight for the town, Bragok, not just the coin.", next = "BACK", reply = "That's a warrior I can respect. Ratchet's goblins will pay you anyway, so you might as well feel good about it.", fx = { align = { honor = 1 } } },
+        { text = "The coin's the only reason I'd fight for goblins.", next = "BACK", reply = "Honest, at least, and the goblins would agree with you. They don't fight for anything but coin either.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -891,8 +928,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Ask them yourself, but my beasts mind it, and they cough every morning the forges are lit. The sea spirits must be patient, or Ratchet would have washed away long ago." } },
       choices = {
-        { text = "The goblins should answer for what they burn.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the goblins burn what they like. Ratchet isn't ours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The goblins should answer for what they burn.", next = "BACK", reply = "They should, but they won't, and the spirits seem to forgive them. I'll leave it to the sea to decide.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the goblins burn what they like. Ratchet isn't ours.", next = "BACK", reply = "It isn't, but my beasts have to breathe it. Still, you're not wrong about whose town it is.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -900,8 +937,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because the Horde needs a roost by the sea, and the goblins want our coin more than they want us gone. I don't like their prices or their smoke, but I like the wind riders, and they like the sea air." } },
       choices = {
-        { text = "The Horde's needs come first. Your duty is here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "No roost is worth breathing goblin smoke. Move it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Horde's needs come first. Your duty is here.", next = "BACK", reply = "That's how I see it, and that's why I'm still here. The smoke is a small price for the sea air.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No roost is worth breathing goblin smoke. Move it.", next = "BACK", reply = "Move it where, the middle of the ocean? The Horde needs a roost here, and I'll stay until it doesn't.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -911,8 +948,8 @@ P:NPC {
         { id = "xrogue_default", text = "I trust my wind riders, and the goblins as far as their prices let me, which isn't far. The Southsea pirates on the coast steal from the goblins, and a rogue who watches them closely might learn where all that stolen cargo ends up." },
       },
       choices = {
-        { text = "Thieves are thieves, whoever they rob. I'll stop them.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'd rather learn where it goes and take a share.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Thieves are thieves, whoever they rob. I'll stop them.", next = "BACK", reply = "Then you'll be busy, because Ratchet's full of thieves of every stripe. Start with the pirates, and work your way down.", fx = { align = { honor = 1 } } },
+        { text = "I'd rather learn where it goes and take a share.", next = "BACK", reply = "Then you'd be a pirate yourself, and the bruisers would treat you like one. Mind yourself in this town.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -922,8 +959,8 @@ P:NPC {
         { id = "xmage_default", text = "Because a teleport takes you home and nowhere else, and my wind riders go wherever the Horde keeps a perch. You'll see the Barrens from above, too, and that view's cheaper than anything the goblins sell in this town." },
       },
       choices = {
-        { text = "Then I'll fly the Horde's way, and mind the droppings.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My way is faster, and I've no time for scenery.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll fly the Horde's way, and mind the droppings.", next = "BACK", reply = "Good, and you'll thank me when you see the view. The droppings are part of the ride, I'm afraid.", fx = { align = { order = 1 } } },
+        { text = "My way is faster, and I've no time for scenery.", next = "BACK", reply = "Then take your shortcut, mage, and miss the best part of the journey. The wind riders won't mind.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -933,8 +970,8 @@ P:NPC {
         { id = "xwarlock_default", text = "Because they've got more sense than most orcs had back when the Horde drank what the Legion poured for it. Keep the thing dismissed while you fly, and I'll not ask what you do with it on the ground." },
       },
       choices = {
-        { text = "I'll dismiss it. The beasts deserve that much.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "My demon stays. Your beasts can learn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll dismiss it. The beasts deserve that much.", next = "BACK", reply = "Good, and they'll carry you for it. That's all I ask of any warlock.", fx = { align = { light = 1 } } },
+        { text = "My demon stays. Your beasts can learn.", next = "BACK", reply = "They won't learn, and you'll fall. Dismiss it, or walk to Orgrimmar.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -947,7 +984,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Ratchet's goblins'll sell you anything, but they won't fight for you, so I'm glad to see somebody who will." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The crocolisks along the coast near Ratchet grow fat on the goblins' fish scraps, if you're after a fight." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because the goblins charge for everything here, and I'd bet they'd charge for praying too if they could work out how." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in Ratchet. You'll fit right in, since half the goblins here are thieves with ledgers." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in Ratchet. You'll fit right in, since the goblins here are mostly thieves with ledgers." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could probably teleport home cheaper than my wind riders fly, though the goblins would find a way to charge you for it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wind riders won't like your demon, so put it away before you come near my perch." },
       },
@@ -969,14 +1006,14 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else? Ask it quick, because the beasts are getting restless." } },
     },
     ratchet = {
-      lines = { { id = "r_default", text = "Too loud, too salty and too many goblins. They'll sell you your own boots if you stand still long enough, so keep walking." } },
+      lines = { { id = "r_default", text = "It's too loud, too salty and too full of goblins. They'll sell you your own boots if you stand still long enough, so keep walking." } },
       choices = { { text = "Why stay, then?", next = "ratchet_why" } },
     },
     ratchet_why = {
       lines = { { id = "rw_default", text = "Because the Barrens need a roost by the sea, and somebody has to keep it. The goblins pay on time, I'll give them that, which is more than some orcs do." } },
       choices = {
-        { text = "Goblins keep their deals. That counts for something.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I wouldn't trust a goblin's deal.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Goblins keep their deals. That counts for something.", next = "BACK", reply = "It does, more than I like to admit. They pay on time, and that's more than most.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I wouldn't trust a goblin's deal.", next = "BACK", reply = "Neither would I, at first, but they've kept every one with me. Still, keep your eyes open, because they're goblins.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -990,7 +1027,7 @@ P:NPC {
     ratchet = { { id = "tp_ratchet", text = "Ratchet's full of goblins who'd sell you your own boots back, and I'm the only one here who doesn't charge for advice. You're welcome." } },
     booty_bay = { { id = "tp_booty_bay", text = "The boat goes to Booty Bay, and the goblins on the other end are no better than the ones here. At least the beasts don't care where you're going." } },
     thrall = { { id = "tp_thrall", text = "The Warchief gave the goblins this town because he owed Gazlowe for Orgrimmar. Some days I think he should have given them the bill instead." } },
-    bloodsail = { { id = "tp_bloodsail", text = "They're pirates off the coast, with red sails and bad manners, and my riders spot them from the cliffs, and Gazlowe doesn't pay me extra for it." } },
+    bloodsail = { { id = "tp_bloodsail", text = "They're pirates off the coast, with red sails and bad manners. My riders spot them from the cliffs, and Gazlowe doesn't pay me extra for it." } },
   },
 }
 
@@ -1017,8 +1054,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Oh, I've thought about this already. The old Silver Hand wore blue and white and gold, but on you, I'd use the Dark Lady's purple and keep a little gold at the trim, so nobody forgets the Light. Truthful colours, I think." } },
       choices = {
-        { text = "Gold at the trim, then. The Light deserves its mark.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Just the purple. I'll leave the old colours behind.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Gold at the trim, then. The Light deserves its mark.", next = "BACK", reply = "Gold at the trim, then, and it'll look lovely. The Light should always show a little, even on the dead.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Just the purple. I'll leave the old colours behind.", next = "BACK", reply = "Just the purple, then, and I'll make it the richest purple you've ever seen. A fresh start deserves fresh colours.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1026,8 +1063,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "The troll priests want reds and bone-white for their loa, and the Forsaken want black and violet and never smile while they choose. I sell to both and pray to neither, but I've found a good dye says as much about faith as any sermon." } },
       choices = {
-        { text = "Faith lives in the heart, not in the colour of a robe.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A priest should look the part. Show me your black.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Faith lives in the heart, not in the colour of a robe.", next = "BACK", reply = "It does, honey, but a robe is how the rest of us see it. Still, I'll not argue with a priest about faith.", fx = { align = { light = 1 } } },
+        { text = "A priest should look the part. Show me your black.", next = "BACK", reply = "Here's the black, and it's the finest in Ratchet, I promise you. You'll look every bit the part, and then some.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else, Wenna.", next = "BACK" },
       },
     },
@@ -1035,20 +1072,20 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than they'll ever admit, friend, because the padding under that mail is cloth, and cloth tears. A warrior with a good quilted shirt can take a centaur's arrow and live to complain about it, so learn a few stitches, or pay somebody like me." } },
       choices = {
-        { text = "I'll learn to mend my own padding.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Mending is somebody else's work. I'll pay.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll learn to mend my own padding.", next = "BACK", reply = "Good for you, and I'll show you a stitch or two that'll hold through anything. A warrior who mends his own padding lives longer.", fx = { align = { order = 1 } } },
+        { text = "Mending is somebody else's work. I'll pay.", next = "BACK", reply = "Then come to me, honey, and I'll stitch it right. Just don't wait until it's in rags.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "From the Southsea pirates and the Venture Company lads, if you're not squeamish about where it came from. The silk's what fetches the coin, mind, and the spiders in the hills spin a fine thread, if you can stand to collect it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep that {pet} of yours away from my thread, would you? The last beast in here tangled itself in a whole bolt of linen." },
+        { id = "xhuntcl_default", text = "There is, off the Southsea pirates and the Venture Company lads, if you're not squeamish about where it came from. The silk's what fetches the coin, mind, and the spiders in the hills spin a fine thread, if you can stand to collect it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "There's linen to be had off the bandits, but keep that {pet} of yours away from my thread, would you? The last beast in here tangled itself in a whole bolt of linen." },
       },
       choices = {
-        { text = "I'll take the cloth fairly, from bandits only.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Cloth is cloth. I'll take it from anyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take the cloth fairly, from bandits only.", next = "BACK", reply = "That's a fair way to do it, and I'll buy every bolt you bring me. The bandits won't miss it.", fx = { align = { honor = 1 } } },
+        { text = "Cloth is cloth. I'll take it from anyone.", next = "BACK", reply = "Cloth is cloth, sure, but some of it has blood on it. I'll buy it anyway, but I'll wash it twice.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1056,19 +1093,19 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Ochre from the red cliffs near Ratchet and rust from the iron in the water, and the tauren trade me a blue from a root they won't name. They told me it was a gift from the Earth Mother and that I was to treat it kindly, so I do." } },
       choices = {
-        { text = "A gift from the Earth Mother should be treated kindly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A dye is a dye. Just tell me the price.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A gift from the Earth Mother should be treated kindly.", next = "BACK", reply = "It should, and I always will. The tauren know their colours better than anyone.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A dye is a dye. Just tell me the price.", next = "BACK", reply = "The price is fair, honey, but the dye's worth more than coin. Treat it kindly anyway, for my sake.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "More than you'd think, honey, because a mage's robe gets singed at the hem every week and somebody has to mend it. The silly ones always want purple, which I keep in stock just for them, and I never tell them it's the same dye the pirates use on their sashes." },
+        { id = "xmage_default", text = "Oh, plenty, honey, because a mage's robe gets singed at the hem every week and somebody has to mend it. The silly ones always want purple, which I keep in stock just for them, and I never tell them it's the same dye the pirates use on their sashes." },
       },
       choices = {
-        { text = "Purple is the only proper color for a mage.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Plain colors suit a working mage better.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Purple is the only proper color for a mage.", next = "BACK", reply = "It is, honey, and I'll never tell you otherwise. You'll look wonderful in it.", fx = { align = { order = -1 } } },
+        { text = "Plain colors suit a working mage better.", next = "BACK", reply = "You're the first mage who's said that to me, and I agree entirely. I'll find you a good grey.", fx = { align = { order = 1 } } },
         { text = "Where do your dyes come from?", next = "dyes" },
       },
     },
@@ -1078,8 +1115,8 @@ P:NPC {
         { id = "xwarlock_default", text = "Warlocks want everything black and red with little spikes on the shoulders, honey, and they want it to look like it came out of a nightmare. I'll sell you the dye, but I won't sew the spikes, because the last one who asked tried to pay me in soul shards." },
       },
       choices = {
-        { text = "Let them fear the look of me. It saves time.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'd rather not look like a nightmare, frankly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them fear the look of me. It saves time.", next = "BACK", reply = "It does save time, I suppose, but it costs a lot of dye. I'll sell you the black and the red, but not the spikes.", fx = { align = { light = -1 } } },
+        { text = "I'd rather not look like a nightmare, frankly.", next = "BACK", reply = "Oh, thank goodness, a sensible one at last. I'll find you something dark and elegant without a single spike.", fx = { align = { light = 1 } } },
         { text = "Why do you sell in Ratchet?", next = "ratchet" },
       },
     },
@@ -1087,8 +1124,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Bark and berries and a few things off the riverbanks, mostly, and the blue comes from a lichen that only grows in the damp corners of the Barrens, which aren't many anymore. I gather what I need and leave the rest, because there won't be any blue next year if I don't." } },
       choices = {
-        { text = "That's the right way. Take only what the land can spare.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If it's drying out anyway, gather all you can while it lasts.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That's the right way. Take only what the land can spare.", next = "BACK", reply = "That's how I do it, and the lichen comes back every year. The land is kinder to those who leave a little.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If it's drying out anyway, gather all you can while it lasts.", next = "BACK", reply = "And then there'd be none at all next year, honey. I'll take my share and leave the rest, if it's all the same to you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1098,8 +1135,8 @@ P:NPC {
         { id = "xrogue_default", text = "Black is for the ones who want to be seen being mysterious, and a clever rogue wears dusty brown, because the Barrens is brown and nobody looks twice at it. I learned that from a customer off a Booty Bay boat who wouldn't give his name, and he paid in gold, so I believed him." },
       },
       choices = {
-        { text = "I'll take the brown. Nobody needs to know I'm there.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I wear my colors openly. Let them see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take the brown. Nobody needs to know I'm there.", next = "BACK", reply = "Brown it is, and you'll vanish into the Barrens like a shadow. Nobody looks twice at dust.", fx = { align = { honor = -1 } } },
+        { text = "I wear my colors openly. Let them see me coming.", next = "BACK", reply = "Then wear your colours, honey, and I'll make them bright enough to see from Ratchet. Bold suits some people.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1138,8 +1175,8 @@ P:NPC {
     ratchet = {
       lines = { { id = "r_default", text = "Because everyone comes through Ratchet, Horde and Alliance alike, and the goblins don't care whose coin it is. It's the only place in the Barrens where I can sell to both sides without anyone getting killed." } },
       choices = {
-        { text = "Neutral ground is a good thing.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Selling to the enemy isn't right.", next = "BACK", fx = { affinity = -2, align = { honor = -1 } } },
+        { text = "Neutral ground is a good thing.", next = "BACK", reply = "It is, and it's kept me in business for years. Everybody needs thread, whatever their banner.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Selling to the enemy isn't right.", next = "BACK", reply = "Maybe it isn't, but thread doesn't fight wars, honey. I sell to the people, not the armies.", fx = { affinity = -2, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1174,19 +1211,19 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Belonged to a knight of the Silver Hand, back before the plague, or so the seller told me. Now it can belong to a dead knight with the Light, which is poetic, and poetry costs extra. Interested?" } },
+      lines = { { id = "xfpala_default", text = "It belonged to a knight of the Silver Hand, back before the plague, or so the seller told me. Now it can belong to a dead knight with the Light, which is poetic, and poetry costs extra. Interested?" } },
       choices = {
-        { text = "No. A dead knight's hammer belongs in his grave.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll take it, but I'm not paying for the poetry.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "No. A dead knight's hammer belongs in his grave.", next = "BACK", reply = "That's a noble thought, pal, and a terrible business plan. I'll keep it on the rack for someone less sentimental.", fx = { align = { honor = 1 } } },
+        { text = "I'll take it, but I'm not paying for the poetry.", next = "BACK", reply = "No poetry, huh? Fine, pal, I'll knock a little off, but only because you've got good taste.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Pal, out in the Barrens everybody needs a weapon, and a priest more than most, because the centaur aim for whoever's doing the healing. A good mace in your hand means you're still around to cast the next spell, and that's worth a few silver." } },
+      lines = { { id = "xhpriest_default", text = "Pal, out in the Barrens everybody needs a weapon, and a priest especially, because the centaur aim for whoever's doing the healing. A good mace in your hand means you're still around to cast the next spell, and that's worth a few silver." } },
       choices = {
-        { text = "My faith protects me better than any goblin steel.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair point. Show me what will crack a centaur's skull.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "My faith protects me better than any goblin steel.", next = "BACK", reply = "Your faith, sure, until a centaur knocks the faith right out of you. I'll keep a mace ready for when you change your mind.", fx = { align = { light = 1 } } },
+        { text = "Fair point. Show me what will crack a centaur's skull.", next = "BACK", reply = "Now we're talkin', pal! This one here's cracked more skulls than I can count, and it'll crack plenty more.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else, Ironzar.", next = "BACK" },
       },
     },
@@ -1194,8 +1231,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "That depends on how much you're spending, pal, but I've got a beauty out of Booty Bay that'll split a centaur's shield in one swing. Of course, I've also got cheaper ones that'll split it in two or three, and they all look about the same from where the centaur's standing." } },
       choices = {
-        { text = "I'll pay for quality. My life depends on it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll take the cheap one and loot a better axe later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll pay for quality. My life depends on it.", next = "BACK", reply = "Smart customer, pal, and I'll give you the Booty Bay beauty for it. Your life's worth the extra coin.", fx = { align = { order = 1 } } },
+        { text = "I'll take the cheap one and loot a better axe later.", next = "BACK", reply = "A practical one, I like it. Just don't come back complaining when the cheap one splits on the first centaur.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1203,11 +1240,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Plenty, pal, though they always want the lightest weapons, so they can run. I've got a few short swords and axes that weigh next to nothing, which is perfect for when your pet's busy and something big is chewing on your boot." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks like a good customer, pal. Shame it can't hold a sword, because I'd sell it one in a heartbeat." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Plenty, pal, and that {pet} of yours looks like a good customer too. Shame it can't hold a sword, because I'd sell it one in a heartbeat." },
       },
       choices = {
-        { text = "I'll buy something sturdy and fight beside my beast.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll buy the lightest blade. Running is a skill too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll buy something sturdy and fight beside my beast.", next = "BACK", reply = "Sturdy, it is, and your beast'll be proud of you. This axe here won't let you down.", fx = { align = { honor = 1 } } },
+        { text = "I'll buy the lightest blade. Running is a skill too.", next = "BACK", reply = "Running's a skill, sure, and I'll sell you the lightest blade I've got. Just don't run into anything too big.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1215,19 +1252,19 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Does it? Sure, probably, but I'm not an engineer, pal. What I know is that shamans pay extra for anything that sounds like it'll help with the sparks, and I'm not in the business of arguing with paying customers." } },
       choices = {
-        { text = "A merchant should sell honestly, Ironzar.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "If they believe it, it's their coin to waste.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A merchant should sell honestly, Ironzar.", next = "BACK", reply = "Honestly? Pal, I sell honest weapons with honest stories, mostly. Whatever they believe about the sparks is on them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If they believe it, it's their coin to waste.", next = "BACK", reply = "Exactly, pal, and I'm not the one to tell 'em otherwise. A happy customer is a returning customer.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Short, sharp and quiet is my favorite kind of customer, pal! I've got daggers from Booty Bay and a few from places I don't mention, and every one of them is balanced well enough to throw, though I'd rather you didn't test that in the shop." },
+        { id = "xrogue_default", text = "Short, sharp and quiet is my favorite kind of customer, pal! I've got daggers from Booty Bay and a few from places I don't mention, and every blade's balanced well enough to throw, though testing that in the shop goes on your bill." },
       },
       choices = {
-        { text = "Daggers in the back end fights early. Good.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I want it for honest duels, not for backs.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Daggers in the back end fights early. Good.", next = "BACK", reply = "Now you're speakin' my language, pal. This dagger's ended more fights than I can count.", fx = { align = { honor = -1 } } },
+        { text = "I want it for honest duels, not for backs.", next = "BACK", reply = "An honest rogue, huh? I'll sell you a good dagger for that, pal, but don't tell anyone I said so.", fx = { align = { honor = 1 } } },
         { text = "Where do your weapons come from?", next = "where" },
       },
     },
@@ -1237,8 +1274,8 @@ P:NPC {
         { id = "xmage_default", text = "Oh no? Then why does every mage who comes in here end up buying a staff, pal? A spell runs out when your mana does, and that's when you'll wish you'd invested in something heavy to hit the raptor with." },
       },
       choices = {
-        { text = "Fair. A wise mage plans for empty mana.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My spells won't run out. Keep your sticks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair. A wise mage plans for empty mana.", next = "BACK", reply = "There's a smart mage, pal, and I've got just the staff for you. Hit something with it when the spells run dry.", fx = { align = { order = 1 } } },
+        { text = "My spells won't run out. Keep your sticks.", next = "BACK", reply = "Everybody's spells run out, pal, sooner or later. Come back when yours do, and I'll have a staff waiting.", fx = { align = { order = -1 } } },
         { text = "Who buys weapons in Ratchet?", next = "who" },
       },
     },
@@ -1246,8 +1283,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because claws don't come with a story, pal, and this staff here went through three Kolkar raids before it reached my rack. Whether every word of that is true is between me and the staff, but it's more of a story than any claw can tell." } },
       choices = {
-        { text = "I'd rather hear the honest story, even if it's duller.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A good story sells. I'd tell it too, true or not.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather hear the honest story, even if it's duller.", next = "BACK", reply = "Duller? Pal, honest stories don't sell, and you're asking me to go broke. But I'll tell you the true one, for a price.", fx = { align = { honor = 1 } } },
+        { text = "A good story sells. I'd tell it too, true or not.", next = "BACK", reply = "Ha! A druid after my own heart, pal. You'd make a fine salesman, if you ever tire of being a bear.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1257,8 +1294,8 @@ P:NPC {
         { id = "xwarlock_default", text = "Because demons get sent home at the worst moment, friend, and your spells take a breath to cast that a raptor won't give you. This dagger here came off a ship from Booty Bay, and every warlock who bought one before you is still alive and still a customer, as far as I know." },
       },
       choices = {
-        { text = "Fair price, fair blade. I'll pay what it's worth.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll pay half, and you'll still turn a profit.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fair price, fair blade. I'll pay what it's worth.", next = "BACK", reply = "A fair customer, pal, and I'll remember you for it. That dagger'll serve you well.", fx = { align = { honor = 1 } } },
+        { text = "I'll pay half, and you'll still turn a profit.", next = "BACK", reply = "Half? Pal, I'd turn a profit, sure, but I'd cry about it later. Meet me at three quarters, and we've got a deal.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1297,8 +1334,8 @@ P:NPC {
     where_pirates = {
       lines = { { id = "wp_default", text = "The Southsea Freebooters? Dangerous enough, pal, and they keep hitting the Steamwheedle ships along the coast, which drives up the price of everything, including my swords. Gazlowe would love it if someone cleaned 'em out, and so would my margins." } },
       choices = {
-        { text = "I'll help with the pirates.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "Pirates are just goblins without a cartel.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll help with the pirates.", next = "BACK", reply = "Gazlowe'll be glad to hear it, pal, and so will I. Clean 'em out and the prices'll drop, maybe.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Pirates are just goblins without a cartel.", next = "BACK", reply = "Ha! You're not wrong, pal, but don't say it near the bruisers. They take that sort of thing personal.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1311,7 +1348,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "Don't know, friend, but for the right price, I can find out. Just kidding, ask Gazlowe, he charges less for gossip than I do." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got a blacksmith on every corner and a pirate who wants their wares on every other, so the prices down there are criminal, pal. Mine are only a little criminal, and that's a bargain." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena's where the real money is, kid, because every scrapper there needs a blade and every blade gets broken. I ship a crate a month, and I'd ship two if they'd stop dying with my merchandise." } },
-    venture_company = { { id = "tp_venture_company", text = "Venture Company boys buy axes by the hundred and never ask for a discount, which tells you they ain't payin' with their own money. I sell to 'em anyway, because business is business." } },
+    venture_company = { { id = "tp_venture_company", text = "Venture Company boys buy axes by the hundred and never ask for a discount, so you know they ain't payin' with their own money. I sell to 'em anyway, because business is business." } },
     centaur = { { id = "tp_centaur", text = "Kolkar spears break, and when they break the riders want something better, and I'd sell to 'em if they'd stop stabbing my customers. That's the trouble with centaur, all market and no manners." } },
   },
 }

@@ -34,7 +34,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Katar, and I lead the patrols along this beach for the Horde. I've no love for the sea, nor for any creature I've seen come from it, and if it were in my power I'd slay the fish men by the hundreds, as my clan once slew its enemies." },
         { id = "h_threat_active", tags = { "news" }, when = { questActive = TODO_QUEST("Threat From the Sea") },
-          text = "How many can you slay, {class}? The marsh murlocs, their inkspewers and their flesheaters, and I'll take my pleasure in hearing them die." },
+          text = "Slay the marsh murlocs, their inkspewers and their flesheaters, as many as you can, {class}, and I'll take my pleasure in hearing them die." },
         { id = "h_threat_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Threat From the Sea"), days = 3 } },
           text = "You've stained the sea with the blood of her own spawn, and the fish men know pain tonight. I'll smile every time I hear one silenced." },
         { id = "h_continued", tags = { "news" }, when = { questActive = TODO_QUEST("Continued Threat") },
@@ -69,7 +69,7 @@ P:NPC {
     },
     sea_loss = {
       lines = {
-        { id = "sl_default", text = "You ask what Tok'Kar asked, and I'll give you the same answer, which is nothing at all. Kill the fish men and I'll think better of you than of anyone who asks questions." },
+        { id = "sl_default", text = "Tok'Kar asked me that once, and he got no answer, and neither will you. Kill the fish men and I'll think better of you than of anyone who asks questions." },
       },
       choices = {
         { text = "I'll leave it, then. Your grief is yours.", next = "sea_respect" },
@@ -78,11 +78,11 @@ P:NPC {
     },
     sea_respect = {
       lines = {
-        { id = "sr_default", text = "Perhaps, but it's kept me sharp on this beach for a long time, and the camp's alive because of it. When the sea stops sending murlocs, I'll consider stopping hating it." },
+        { id = "sr_default", text = "My hate has kept me sharp on this beach for a long time, and the camp's alive because of it. When the sea stops sending murlocs, I'll consider letting it go." },
       },
       choices = {
-        { text = "Hate that keeps the camp alive is no sin.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'd rather fight for something than against it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hate that keeps the camp alive is no sin.", next = "BACK", reply = "It isn't, and I'm glad someone sees it. The sea can have my hatred; it gave me reason enough.", fx = { align = { light = -1 } } },
+        { text = "I'd rather fight for something than against it.", next = "BACK", reply = "For something? I fight for the camp, if that helps. But it's the sea that gets my axe.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -117,11 +117,11 @@ P:NPC {
     },
     patrol_more = {
       lines = {
-        { id = "pm_default", text = "I need soldiers who don't drink, and those are rarer than pearls out here. Tok'Kar's right about that, though I'd never tell him." },
+        { id = "pm_default", text = "I need soldiers who don't drink, and those are rarer than pearls out here. Tok'Kar the cook says the same, though I'd never tell him he's right." },
       },
       choices = {
-        { text = "Discipline should be enforced. Punish the drinkers.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let them drink. It's a miserable post.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Discipline should be enforced. Punish the drinkers.", next = "BACK", reply = "Punished, aye, and they will be, if I catch them. Tok'Kar can keep his sympathy.", fx = { align = { order = 1 } } },
+        { text = "Let them drink. It's a miserable post.", next = "BACK", reply = "Miserable, aye, and drunk makes it worse. A drunk on watch is a murloc's dinner.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -132,8 +132,8 @@ P:NPC {
         { id = "xs_default", text = "Then they're not the spirits that live in this sea, shaman, or they've grown deaf to whatever happens beneath it. Pray to them if you like, but bring your axe to the beach either way." },
       },
       choices = {
-        { text = "The spirits can be called to help. I'll ask.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "You're right. Here, the axe speaks louder.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The spirits can be called to help. I'll ask.", next = "BACK", reply = "Ask, then, and I'll watch. If they answer, I'll owe you an apology, shaman.", fx = { align = { honor = 1 } } },
+        { text = "You're right. Here, the axe speaks louder.", next = "BACK", reply = "It does, and it always has. Pick up an axe, and I'll stand you on the beach.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -143,8 +143,8 @@ P:NPC {
         { id = "xf_default", text = "You'd know, I suppose, that it doesn't care whether you're living or dead, only whether you're in it. I'll trust a corpse who's seen the sea's indifference over a living orc who hasn't." },
       },
       choices = {
-        { text = "The sea's just water. It's the murlocs we fight.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Some things deserve hatred. The sea's one of them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The sea's just water. It's the murlocs we fight.", next = "BACK", reply = "Just water, aye, and the murlocs are its children. You'll forgive me if I hate the mother as well.", fx = { align = { order = 1 } } },
+        { text = "Some things deserve hatred. The sea's one of them.", next = "BACK", reply = "You understand, then, corpse. Stand on my beach whenever you like.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

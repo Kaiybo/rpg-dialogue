@@ -15,10 +15,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Well, hello there! Ye found yer way out here, which is more than I can say for the way back." },
+    { id = "g_default", text = "Well, hello there! Ye found yer way out here, an' that's the easy part; the way back's a tricky wee path after a dram or two." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I'd offer ye a seat, but there's only the one, an' it's a long way down." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' I'm still here, which tells ye how the rescue's goin'." },
-    { id = "g_active", when = { questActive = TODO_QUEST("MacKreel's Moonshine") }, text = "Southshore, an' Bilger, an' hurry! He's countin' the minutes, an' so am I." },
+    { id = "g_active", when = { questActive = TODO_QUEST("MacKreel's Moonshine") }, text = "Take that moonshine tae Bilger in Southshore, an' hurry! He's countin' the minutes, an' so am I." },
     { id = "g_drunk", when = { drunk = true }, text = "Ye've had a nip yerself, I see! Good, then ye'll understand me better than most." },
   },
 
@@ -83,8 +83,8 @@ P:NPC {
         { id = "st2_default", text = "Tell him I was drunk on watch while the Dark Irons blew the Span? He'd throw me off it himself, an' I'd no' blame him." },
       },
       choices = {
-        { text = "The truth is owed to the dead, Foggy.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your secret's safe. It changes nothing now.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "The truth is owed to the dead, Foggy.", next = "BACK", reply = "Aye, it is, an' I know it, which is why I drink. Maybe one day I'll have the stones tae say it to his face.", fx = { align = { honor = 1 } } },
+        { text = "Your secret's safe. It changes nothing now.", next = "BACK", reply = "Bless ye for that. It changes nothin', true, but it lets an old fool sleep a wee bit easier.", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -100,7 +100,7 @@ P:NPC {
     },
     span_see = {
       lines = {
-        { id = "sw_default", text = "No' a one, which tells ye somethin' about how sharp my watch was. If ye see Rhag Garmason, tell him I'm alive, an' leave the rest out." },
+        { id = "sw_default", text = "No' a one, which tells ye somethin' about how sharp my watch was. If ye see Rhag Garmason on the Wetlands side, tell him I'm alive, an' leave the rest out." },
       },
       choices = { { text = "Something else, Foggy.", next = "BACK", fx = { learn = { "thandol_span" } } } },
     },
@@ -116,7 +116,7 @@ P:NPC {
     },
     moonshine_in = {
       lines = {
-        { id = "mi_default", text = "Barley, a wee bit o' Arathi heather an' a great deal o' patience. The rest is a family secret, an' the family's mostly me." },
+        { id = "mi_default", text = "Barley, a wee bit o' Arathi heather an' three winters o' patience in the cask. The rest is a family secret, an' the family's mostly me." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_hostile", when = { reputation = { faction = "Magram Clan Centaur", max = "neutral" } }, text = "Go away, outsider! Warug does not talk to weaklings; the Magram only kill them." },
     { id = "g_friend", when = { reputation = { faction = "Magram Clan Centaur", min = "friendly" } }, text = "The Gelkis cry when they hear your name! Come, strong one, and talk with Warug." },
-    { id = "g_shaka", when = { questActive = TODO_QUEST("Khan Shaka") }, text = "Shaka still prays to his mother. Go and see if she saves him." },
+    { id = "g_shaka", when = { questActive = TODO_QUEST("Khan Shaka") }, text = "Khan Shaka of the Gelkis still prays to his mother, Theradras. Go and see if she saves him." },
     { id = "g_gizmo", when = { questDone = TODO_QUEST("Gizmo for Warug") }, text = "The gizmo still clicks and whirs! I watch it at night, and it makes me laugh." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you come back alive. That is how the Magram know who is strong." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You are stronger than when you first came. Warug sees it, and Warug likes it." },
@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_alliance", tags = { "news" }, when = { questActive = TODO_QUEST("Magram Alliance"), reputation = { faction = "Magram Clan Centaur", min = "friendly" } },
           text = "The Gelkis fear you, and they hate you as they hate the Magram. Maybe you are strong like the Magram, then. We will see." },
         { id = "h_hratha", tags = { "news" }, when = { questRecent = { TODO_QUEST("Khan Hratha"), days = 3 } },
-          text = "Hratha is dead! The Kolkar will run in circles for a year, and the Magram will laugh the whole time." },
+          text = "Khan Hratha is dead! The Maraudine will run in circles for a year, and the Magram will laugh the whole time." },
         { id = "h_hostile", when = { reputation = { faction = "Magram Clan Centaur", max = "unfriendly" } },
           text = "Go away! Warug does not waste words on the weak, and you are weak until the Gelkis know your name. Kill many of them, and then come back." },
       },
@@ -109,8 +109,8 @@ P:NPC {
         { id = "gp_default", text = "Ha! Then let it break us, and we will break the Gelkis first. You talk like a shaman, strong one, but you fight like a Magram, and that is the part Warug likes." },
       },
       choices = {
-        { text = "The strong should rule. You're right.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Strength without wisdom just gets you killed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The strong should rule. You're right.", next = "BACK", reply = "Ha! Warug knew it, strong one, and you will run with the Magram when the Gelkis fall.", fx = { align = { order = -1 } } },
+        { text = "Strength without wisdom just gets you killed.", next = "BACK", reply = "Wisdom is for old shamans with no legs left, strong one, and Warug still has four good ones.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -120,7 +120,7 @@ P:NPC {
         { id = "or_default", text = "The Gelkis tell the story of Zaetar and Theradras, the son of the forest god and the earth mother, and the first centaur born in the deep caves. Maybe it is true, but it does not matter, because what matters is who is strong now." },
       },
       choices = {
-        { text = "You don't care where you came from?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Then the past means nothing to the Magram.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -139,8 +139,8 @@ P:NPC {
         { id = "gk_default", text = "He was weak, and he was on Magram land, and that is how it is in Desolace. But I kept one of his little machines, and sometimes I wind it, and I am sorry there are no more." },
       },
       choices = {
-        { text = "That's cruel, Warug.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The desert is hard. I understand.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's cruel, Warug.", next = "BACK", reply = "Cruel is the desert, strong one, and Warug only lives in it, but Warug still winds the little machine.", fx = { align = { light = 1 } } },
+        { text = "The desert is hard. I understand.", next = "BACK", reply = "Yes, you understand, strong one, and that is why Warug talks to you and not the others.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -162,7 +162,7 @@ P:NPC {
     maraudon = { { id = "tp_maraudon", text = "The Gelkis say Maraudon is holy, and the Maraudine say Maraudon is theirs. Warug says Maraudon is a big hole full of rocks, and the Magram do not need holes." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Warug hears the little gnomes had a city full of gadgets, and lost it! Warug would have kept it, and Warug would have all the gadgets." } },
     scourge = { { id = "tp_scourge", text = "The dead in the Valley of Bones fight for the Magram now, so even death obeys the strong. Warug likes this very much." } },
-    burning_legion = { { id = "tp_burning_legion", text = "The orcs in the fortress talk to demons, and the demons talk back. Warug thinks demons are strong, but Warug does not trust a thing that will not come out and fight." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The orcs in Thunder Axe Fortress talk to demons, and the demons talk back. Warug thinks demons are strong, but Warug does not trust a thing that will not come out and fight." } },
     _none = { { id = "tp_none", text = "Warug does not know, and Warug does not care. Kill some Gelkis, and ask again." } },
   },
 }

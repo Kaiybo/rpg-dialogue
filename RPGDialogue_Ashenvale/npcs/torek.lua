@@ -38,8 +38,8 @@ P:NPC {
       lines = { { id = "pj_torek_default", text = "Plainly, then. An orc fights to be remembered, and every scar is a story his children will tell, but you dead fight like you're clearing a field, with no joy in it at all. And the grunts say the apothecaries brew things under your city that a warrior shouldn't touch." } },
       choices = {
         { text = "What have the grunts heard about the apothecaries?", next = "pj_torek2" },
-        { text = "A fight's a fight. I'll earn your respect on the field.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Joy doesn't win wars, orc. Patience and poison do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A fight's a fight. I'll earn your respect on the field.", next = "BACK", reply = "Hah! Now that's an answer I can respect. Show me on the field, and I'll eat my words with a smile.", fx = { align = { honor = 1 } } },
+        { text = "Joy doesn't win wars, orc. Patience and poison do.", next = "BACK", reply = "Maybe they do, dead one, but they don't make songs either. I'll take my scars and my stories, thank you.", fx = { align = { honor = -1 } } },
         { text = "I see why we unsettle you. Give it time.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -125,15 +125,15 @@ P:NPC {
         { id = "wf_default", text = "Maybe not, but the Horde needs timber and the elves won't sell it, so here we are. I didn't start this, {class}; I just mean to finish my part of it well." },
       },
       choices = {
-        { text = "Then we'll finish it together.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "There must be another way than burning their homes.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then we'll finish it together.", next = "BACK", reply = "Together, then, and we'll make a song of it. Lok'tar, {class}.", fx = { align = { light = -1 } } },
+        { text = "There must be another way than burning their homes.", next = "BACK", reply = "Maybe there is, and if you find it, tell the Warchief. Until then, I've got trees to guard.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     duriel = {
       lines = {
-        { id = "du_default", text = "She commands Silverwing, and she's good at it, which is why she has to fall. Night elves are decent foes, a little skinny but strong and fierce, and I'd sooner fight a good one than a bad one." },
+        { id = "du_default", text = "She commands Silverwing, and she's good at it, so she has to fall. Night elves are decent foes, a little skinny but strong and fierce, and I'd sooner fight a good one than a bad one." },
       },
       choices = {
         { text = "You respect them.", next = "duriel_respect" },
@@ -146,8 +146,8 @@ P:NPC {
         { id = "dr_default", text = "Course I do. Only a fool sneers at someone who can put an arrow through his eye at a hundred paces, and I've buried fools." },
       },
       choices = {
-        { text = "Respect your enemy, and fight them fairly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Respect gets you killed. Hit them while they sleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Respect your enemy, and fight them fairly.", next = "BACK", reply = "Aye, and that's the orc way, the old way. Duriel would agree, I think, if she didn't want me dead.", fx = { align = { honor = 1 } } },
+        { text = "Respect gets you killed. Hit them while they sleep.", next = "BACK", reply = "It gets you killed slower than a sentinel's arrow, I'll grant. But I'd rather die knowing I fought well.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -163,7 +163,7 @@ P:NPC {
     },
     scars_best = {
       lines = {
-        { id = "sb_default", text = "This one, along the jaw, from a Sentinel's glaive on the Falfarren. I don't remember her name, but I hope she remembers mine." },
+        { id = "sb_default", text = "This one, along the jaw, from a Sentinel's glaive by the Falfarren River. I don't remember her name, but I hope she remembers mine." },
       },
       choices = {
         { text = "That's a good story, Torek.", next = "BACK", fx = { affinity = 1 } },
@@ -193,12 +193,12 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A raider of the Horde, born in the camps and freed by Thrall. Since then I've been looking for a good fight, and Ashenvale's full of them." } },
+    background = { { id = "tp_bg", text = "I'm a raider of the Horde, born in the camps and freed by Thrall. Since then I've been looking for a good fight, and Ashenvale's full of them." } },
     advice = { { id = "tp_ad", text = "In these woods, the arrow comes before the sound. Keep your shield up even when it's quiet." } },
-    warsong = { { id = "tp_warsong", text = "Hellscream's own clan, out there cutting timber for the Horde. Somebody has to guard them, and I'd rather it was me." } },
+    warsong = { { id = "tp_warsong", text = "Hellscream's own clan, out there cutting timber for the Horde. Somebody has to guard them, and it may as well be me." } },
     sentinels = { { id = "tp_sentinels", text = "Good fighters, every one, and quieter than any orc. I like them better than I should." } },
     thrall = { { id = "tp_thrall", text = "Thrall broke the chains on my people and gave us back our honour. I raid these woods because he needs the timber, and I'd raid anywhere he asked." } },
-    tyrande = { { id = "tp_tyrande", text = "The night elves' high priestess, and her Sentinels are the best fighters I've ever faced. I'd like to meet her across a battlefield, just once." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande is the night elves' high priestess, and her Sentinels are the best fighters I've ever faced. I'd like to meet her across a battlefield, just once." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Legion used my people once, and Grom paid for our freedom with his life at Ashenvale. I'll fight the demons any day, and I'll laugh while I do it." } },
     centaur = { { id = "tp_centaur", text = "Centaur are a good fight, all charge and fury. I'd raid them for sport if the Warchief allowed it." } },
     _none = { { id = "tp_none", text = "No idea. Ask Ertog in Splintertree; he does the thinking, and I do the bleeding." } },

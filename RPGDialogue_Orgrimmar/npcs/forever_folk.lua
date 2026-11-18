@@ -85,8 +85,8 @@ P:NPC {
         { id = "ag_default", text = "Older than most wolves get, and slower in the mornings. Some say a hunter should let an old beast go before it fails him in the field, and others say you stay with it to the end. What would you do?" },
       },
       choices = {
-        { text = "Stay with him to the end. He's earned that.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Let him rest, and find a younger hunting partner.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Stay with him to the end. He's earned that.", next = "BACK", reply = "That's what I'll do, then, and Evermore will hunt beside me till he can't. He's earned his last run.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Let him rest, and find a younger hunting partner.", next = "BACK", reply = "Maybe that's wiser, but I couldn't do it. Evermore stays, and I'll carry the slower mornings.", fx = { align = { honor = -1 } } },
         { text = "That's between you and Evermore.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -195,8 +195,8 @@ P:NPC {
         { id = "gh_default", text = "The cove, every time, because the tide comes in and the humans come with it. Some fighters say you hold your ground no matter what, and some say you fall back and take it again later. What kind of fighter be you?" },
       },
       choices = {
-        { text = "I hold the line. Nobody gives up ground.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I fall back, wait, and strike where they're weak.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I hold the line. Nobody gives up ground.", next = "BACK", reply = "Dat be the warrior's way, mon, and the cove need more like you. Hold it, and the tide break on you.", fx = { align = { order = 1 } } },
+        { text = "I fall back, wait, and strike where they're weak.", next = "BACK", reply = "Smart, mon, very smart, and the humans never see it coming. Fall back, and take it again.", fx = { align = { order = -1 } } },
         { text = "I'll find out when I get there.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -243,7 +243,7 @@ P:NPC {
     { id = "n_broken", cat = "gear", when = { durability = { max = 0.25 } },
       text = "That armor be held together by hope, mon. Mon'ye can make it look like new, but it won't stop a blade any better, so go see a smith first." },
     { id = "n_sky", cat = "race", when = { race = "Skyborne" },
-      text = "Your people make such fine cloth, Mon'ye hears, with the feathers in the hair and all. One day you must tell me how you dye it." },
+      text = "Mon'ye hears your people weave such fine cloth, with feathers worked right into it. One day you must tell me how you dye it." },
   },
 
   start = "hello",
@@ -264,6 +264,10 @@ P:NPC {
         { text = "How does the weaving work?", next = "how" },
         { text = "Why should anyone care how armor looks?", next = "why" },
         { text = "Why work in the Cleft of Shadow?", next = "cleft" },
+        { text = "You're from Sen'jin, then?", next = "senjin" },
+        { text = "What would you dress me in?", next = "suggest" },
+        { text = "Did the witch doctors mind you selling their tricks?", next = "witch", when = { race = "Troll" } },
+        { text = "Could you make me look alive again?", next = "undead", when = { race = "Scourge" } },
         { text = "Show me what you can do.", next = "BUSINESS" },
         { text = "Not today, Mon'ye.", next = "END" },
       },
@@ -283,14 +287,14 @@ P:NPC {
         { id = "he_default", text = "Your armor, yes, but never your face, and Mon'ye don't do that kind of work. Some customers want to look humble so nobody sees them coming, and some want to look exactly as dangerous as they be. Which kind be you?" },
       },
       choices = {
-        { text = "Let them see exactly what's coming.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Humble. Let them underestimate me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let them see exactly what's coming.", next = "BACK", reply = "Then Mon'ye make you look like the storm, mon, and they see you coming a mile off. Good choice.", fx = { align = { honor = 1 } } },
+        { text = "Humble. Let them underestimate me.", next = "BACK", reply = "Humble it is, mon, and they never know what hit them. Mon'ye like that kind of customer.", fx = { align = { honor = -1 } } },
         { text = "I haven't decided yet.", next = "BACK" },
       },
     },
     why = {
       lines = {
-        { id = "wy_default", text = "Because a warrior who loves the look of his armor stands taller in it, and standing tall wins more fights than you'd think. And because some folk spend their whole lives in hand-me-downs, and they deserve to look grand for once." },
+        { id = "wy_default", text = "Because a warrior who loves the look of his armor stands taller in it, and a grunt standing tall has already half-won before the first swing. And because some folk spend their whole lives in hand-me-downs, and they deserve to look grand for once." },
       },
       choices = {
         { text = "That's kinder than I expected.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -306,11 +310,67 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    senjin = {
+      lines = { { id = "sj_default", text = "Sen'jin Village, on the Durotar coast, where the Darkspear been living since the Warchief gave us a home. Mon'ye grew up between the huts and the surf, watching the witch doctors paint their faces and make a hut vanish into the trees." },
+      },
+      choices = {
+        { text = "Why did the Darkspear need a home?", next = "senjin_isles" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    senjin_isles = {
+      lines = { { id = "si_default", fx = { learn = { "echo_isles" } }, text = "Because the Echo Isles be ours by right, and Zalazane took them, mon, with his madness and his hexed trolls walking around like puppets. Vol'jin brought us to the mainland, and every Darkspear in Sen'jin looks out at those islands every evening." },
+      },
+      choices = {
+        { text = "Will the Darkspear take them back?", next = "senjin_back" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    senjin_back = {
+      lines = { { id = "sb_default", text = "One day, when Vol'jin says the time be right, and Mon'ye will weave every warrior who goes a coat that makes Zalazane wet himself with fear. Until then the tide comes in, the tide goes out, and we wait the way trolls wait, which be patiently and with a grudge." } },
+      choices = {
+        { text = "Patience is wise. Strike when you're ready.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Waiting is for cowards. Take them back now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    suggest = {
+      lines = {
+        { id = "sg_default", text = "Hmm, turn around for Mon'ye, slowly. You got the shoulders for something darker than what you wear, and a hood would suit you, because a little mystery never hurt anybody in Orgrimmar." },
+        { id = "sg_warrior", when = { class = "WARRIOR" }, text = "Something with spikes, {class}, because you be the kind who wants the enemy to see you coming and think again. Mon'ye would put you in black iron with red trim, Warsong colors, and let them sing about you." },
+        { id = "sg_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "A long robe with a deep hood, {class}, and something that catches the light when you cast. Folk should look at your hands and not your face, because your hands be where the danger lives." },
+        { id = "sg_tauren", when = { race = "Tauren" }, text = "Big and plain and good leather, the way your people like, and maybe a little paint on the shoulders. A tauren in fancy cloth looks like a kodo in a wedding dress, mon, and Mon'ye won't do that to you." },
+      },
+      choices = {
+        { text = "And what does it cost?", next = "suggest_cost" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    suggest_cost = {
+      lines = { { id = "sc_default", text = "Less than you fear and more than you'd like, which be the honest price of anything worth having. Some folk spend more on looking good than on staying alive, and Mon'ye takes their coin and tells them to visit the smith after." } },
+      choices = { { text = "Something else, Mon'ye.", next = "BACK" } },
+    },
+    witch = {
+      lines = { { id = "wi_default", text = "Some did, and one old witch doctor told Mon'ye the loa would sour my weaving for selling a sacred thing. I asked Bwonsamdi myself, by way of a very long night and a very strong drink, and he didn't seem to mind, so here I be." } },
+      choices = {
+        { text = "Sacred things shouldn't be sold.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "A gift unused is a gift wasted.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    undead = {
+      lines = { { id = "ud_default", text = "Mon'ye weaves armor, not skin, so the face underneath stays your own. But I can put you in the clothes you wore when you were breathing, if you remember them, and some Forsaken tell me that's a strange kind of comfort." } },
+      choices = {
+        { text = "I don't want to remember.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Maybe. I'll think about it.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "A Darkspear girl from Sen'jin who learned the witch doctors' tricks and found a better use for them. That be all the story Mon'ye sells for free." } },
     advice = { { id = "tp_ad", text = "Dress for the fight you want, but armor for the fight you'll get." } },
+    echo_isles = { { id = "tp_echo", next = "senjin_isles", text = "Our islands, mon, with a madman on them. Every Darkspear knows the name Zalazane." }, { id = "tp_echo2", text = "The Echo Isles be close enough to see from Sen'jin and too far to swim home to, which be the cruellest distance there is." } },
     _none = { { id = "tp_none", text = "Mon'ye knows cloth and steel and how they look, mon, and not much else." } },
   },
 }

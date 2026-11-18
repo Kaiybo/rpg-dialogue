@@ -42,8 +42,8 @@ P:NPC {
         { id = "xalt_sylvanas_risen", when = { alt = { race = "Scourge" } }, text = "{alt} still clung to some memory of a life before the plague, more tightly than I would advise. If you knew them then, do not expect them to know you now, because the grave takes more than breath." },
       },
       choices = {
-        { text = "Whatever they were in life, they serve you now.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "They belong to themselves, my Lady, not to any queen.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Whatever they were in life, they serve you now.", next = "BACK", reply = "So they do, and so do you. I will remember that you vouched for them, should either of you forget it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They belong to themselves, my Lady, not to any queen.", next = "BACK", reply = "Then they are Forsaken in the truest sense, and I would not have it otherwise. Freedom was the only gift I ever meant to give.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else, my Lady.", next = "BACK" },
       },
     },
@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_sylvanas_default", text = "Nothing about the living troubles me any longer, except how quickly they forget. The Horde took us in because we hate the Scourge, and I'm content with that arrangement so long as every one of Thrall's people remembers who stands between Lordaeron's plague and their borders." } },
       choices = {
-        { text = "The Forsaken have earned their place in the Horde, my lady.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The Horde owes you nothing. You need it more than it needs you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Forsaken have earned their place in the Horde, my lady.", next = "BACK", reply = "They have, with blood they no longer have to spare. See that the orcs remember it as well as you do.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Horde owes you nothing. You need it more than it needs you.", next = "BACK", reply = "Perhaps, but it is unwise to say so in Orgrimmar's hearing. Keep that thought for my court, where it belongs.", fx = { align = { honor = -1 } } },
         { text = "What do you want from the Horde, my lady?", next = "xpt_sylvanas2" },
         { text = "Something else, my lady.", next = "BACK" },
       },
@@ -94,10 +94,10 @@ P:NPC {
     },
     xcl_strat = {
       big = true,
-      lines = { { id = "xcl_strat_default", text = "Then the Baron has rejoined his master's servants in the only way left to him, and the city where Arthas began has one less of his creatures in it. I take no joy in ruins, but I take a great deal in seeing his work undone, one stone at a time." } },
+      lines = { { id = "xcl_strat_default", text = "Then the Baron has rejoined his master's servants in the only way left to him, and the city where Arthas began has one less of his creatures in it. I take no joy in ruins, but I take a cold satisfaction in seeing his work undone, one stone at a time." } },
       choices = {
-        { text = "I serve your vengeance, my lady, and I'll serve it again.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I did it for my own reasons, not for your vengeance.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I serve your vengeance, my lady, and I'll serve it again.", next = "BACK", reply = "Then you will have the chance soon enough. Arthas left a great many servants behind him, and I want every one of them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I did it for my own reasons, not for your vengeance.", next = "BACK", reply = "Your reasons are your own, so long as they end with the Scourge in ashes. I will take the result and leave you the reasons.", fx = { align = { order = -1 } } },
         { text = "Did you ever see Stratholme, before the plague?", next = "xcl_strat2" },
       },
     },
@@ -111,8 +111,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "That they hold when the Scourge comes, and hold again when it comes back, because Arthas never tires and neither may we. Loyalty I expect, {class}, but endurance is what I will remember." } },
       choices = {
-        { text = "I will hold, my lady, for as long as it takes.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll hold for the Forsaken, my lady, not for orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I will hold, my lady, for as long as it takes.", next = "BACK", reply = "Then you will be remembered, {class}, which is more than most of my soldiers can say.", fx = { align = { order = 1 } } },
+        { text = "I'll hold for the Forsaken, my lady, not for orders.", next = "BACK", reply = "For the Forsaken, then, and I am one of them. We want the same thing, whatever you call it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -123,8 +123,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "To be patient and unseen, and never to let the quarry choose the ground. Your {pet} knows that by instinct, which is more than I could say for many of my rangers." },
       },
       choices = {
-        { text = "I'll hunt as your rangers did, my lady, with patience.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I hunt my own way, my lady, as I always have.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll hunt as your rangers did, my lady, with patience.", next = "BACK", reply = "Good. Learn it well enough to survive what they did not.", fx = { align = { order = 1 } } },
+        { text = "I hunt my own way, my lady, as I always have.", next = "BACK", reply = "As you always have, and as you will until it fails you. My rangers thought the same once.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -144,7 +144,7 @@ P:NPC {
         { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme", faction = "Horde" },
           text = "Stratholme's masters have fallen, and my rangers tell me you walked out of its gates when others did not. Arthas began his crimes in that city, and I am glad to hear it has finally been made to answer." },
         { id = "h_zygand", when = { heardLine = "zygand.h_default" },
-          text = "Zygand holds Tirisfal against the Crusade, and good; the zealots should learn that the dead have long memories." },
+          text = "Executor Zygand holds Brill against the Crusade, and good; the zealots should learn that the dead have long memories." },
         { id = "h_hamuul", when = { heardLine = "hamuul.h_default" },
           text = "The tauren Arch Druid spoke for the Forsaken before the Horde, when the orcs would have turned us away. Remember that, when you hear the tauren speak of balance." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Thrall's people speak of spirits and of balance, and I have heard enough of spirits to last me the rest of my long existence." },
@@ -164,7 +164,7 @@ P:NPC {
         { text = "I served the Cult once, before the end.", next = "cult", when = { race = "Scourge", class = "WARLOCK" } },
         { text = "My people spoke for yours. Was it a mistake?", next = "tauren", when = { race = "Tauren" } },
         { text = "My spells are yours, my lady.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "You must ask a great deal of your warriors, my lady.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "You must ask much of your warriors, my lady.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What did the rangers of Quel'Thalas teach their hunters, my lady?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Stratholme has fallen silent, my lady. I saw to it.", next = "xcl_strat", when = { cleared = "Stratholme", faction = "Horde" } },
         { text = "My companion is living. I'd guess that troubles you, my lady.", next = "xpt_sylvanas", when = { party = { race = { "Orc", "Troll", "Tauren" } } } },
@@ -182,13 +182,13 @@ P:NPC {
     paladin = {
       big = true,
       lines = {
-        { id = "pa_default", text = "So I'm told. The Light that let Arthas march into Quel'Thalas with a paladin's hammer, and now it answers to my people too. I find that more amusing than holy, but if it burns the Scourge, carry it, and let it hurt." },
+        { id = "pa_default", text = "So I'm told. The same Light let Arthas march into Quel'Thalas with a paladin's hammer, and now it answers to my people too. I find that more amusing than holy, but if it burns the Scourge, carry it, and let it hurt." },
         { id = "pa_knight", when = { origin = "forsaken_risen_knight" },
-          text = "Silver Hand. Arthas wore your order's colours when he came for my people, and you wore them when he came for you. Remember that, every time it burns." },
+          text = "You were Silver Hand, then. Arthas wore your order's colours when he came for my people, and you wore them when he came for you. Remember that, every time it burns." },
       },
       choices = {
-        { text = "The Light is mine, not his. I'll prove it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "It's a weapon, my lady. I'll aim it at him.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "The Light is mine, not his. I'll prove it.", next = "BACK", reply = "Prove it, then, on the Scourge's own ground. I will be watching to see whose Light it really is.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's a weapon, my lady. I'll aim it at him.", next = "BACK", reply = "Good. Aim it well, and keep aiming until there is nothing left of him to burn.", fx = { affinity = 2, align = { light = -1 } } },
         { text = "Does it trouble you that it still answers us?", next = "paladin_trouble" },
       },
     },
@@ -199,8 +199,8 @@ P:NPC {
     priest = {
       lines = { { id = "pr_default", text = "Do you? The Light watched Silvermoon burn and lifted no finger, and it watched every one of us die. Pray if it comforts you, but when it fails you again, the shadows will still be here, and so will I." } },
       choices = {
-        { text = "It hasn't failed me yet, my lady.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You're right. I'll turn to the shadow.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "It hasn't failed me yet, my lady.", next = "BACK", reply = "Yet is a long word for the dead. When it does fail you, remember where to find me.", fx = { align = { light = 1 } } },
+        { text = "You're right. I'll turn to the shadow.", next = "BACK", reply = "Wise. The shadows have never once abandoned my people.", fx = { affinity = 2, align = { light = -1 } } },
       },
     },
     rogue = {
@@ -209,15 +209,15 @@ P:NPC {
         { id = "ro_deathstalker", when = { origin = "forsaken_deathstalker_recruit" },
           text = "You're already one of them, I see. Good. My deathstalkers are my eyes in Silverpine and Hillsbrad, and I want to know everything they see, before anyone else does." },
       },
-      choices = { { text = "Before anyone else. Understood.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "I'll keep some secrets for myself, my lady.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } } },
+      choices = { { text = "Before anyone else. Understood.", next = "BACK", reply = "Good. The deathstalkers will expect nothing less.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll keep some secrets for myself, my lady.", next = "BACK", reply = "Everyone does, and I learn most of them anyway. Keep yours small, and keep them well away from me.", fx = { affinity = -2, align = { order = -1 } } } },
     },
     cult = {
       big = true,
       lines = { { id = "cu_default", text = "Then you knelt to Kel'Thuzad, and you helped spread the plague that made us all. Many of my people would hang you in the Apothecarium for that, and I'm not certain they'd be wrong. Tell me why I shouldn't." } },
       choices = {
-        { text = "Because I know how the Scourge thinks. Use me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I owe no one apologies. Least of all the dead.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "Because I know how the Scourge thinks. Use me.", next = "BACK", reply = "A practical answer, and the only one that would have saved you. Serve me well, and the Apothecarium will wait a while longer.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I owe no one apologies. Least of all the dead.", next = "BACK", reply = "Bold, and foolish, and very nearly worth admiring. Watch your back in my city, cultist.", fx = { affinity = -2, align = { order = -1 } } },
         { text = "I have no reason, my lady. Only regret.", next = "cult_regret" },
       },
     },
@@ -239,7 +239,7 @@ P:NPC {
     want = {
       big = true,
       lines = {
-        { id = "w_default", text = "A home no one can take from us, and freedom from the Lich King's voice. And his ruin, slowly, piece by piece. Is that so much, after what was done to us?" },
+        { id = "w_default", text = "A home no one can take from us, freedom from the Lich King's voice, and his ruin, slowly, piece by piece. Is that so much, after what was done to us?" },
       },
       choices = {
         { text = "It isn't.", next = "BACK", fx = { affinity = 2 } },
@@ -251,7 +251,7 @@ P:NPC {
       choices = { { text = "...", next = "END" } },
     },
     arthas = {
-      lines = { { id = "ar_default", text = "He burned my people's forests and murdered them in their homes, and then he made me watch, as this. I'll say no more of it, not to you and not to anyone." } },
+      lines = { { id = "ar_default", text = "He burned my people's forests and murdered them in their homes, and then he made me into this and made me watch. I'll say no more of it, not to you and not to anyone." } },
       choices = {
         { text = "...", next = "END" },
         { text = "What do you remember of Quel'Thalas?", tag = "Persuade", next = "quelthalas",
@@ -279,10 +279,10 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I was one, for a time, bound and wailing at Arthas's heel, and nothing about that time was balanced. Turn your elements on the Scourge and I will call you an ally, but do not speak to me of harmony with the dead, because the dead in this city have had their fill of other people's harmony." } },
+      lines = { { id = "xhsham_default", text = "I was a spirit myself for a time, bound and wailing at Arthas's heel, and nothing about that time was balanced. Turn your elements on the Scourge and I will call you an ally, but do not speak to me of harmony with the dead, because the dead in this city have had their fill of other people's harmony." } },
       choices = {
-        { text = "The Scourge, then. My elements will answer for your people.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Balance is the Horde's way, my lady, whether it suits you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Scourge, then. My elements will answer for your people.", next = "BACK", reply = "Good. That is all the harmony I ask of anyone.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Balance is the Horde's way, my lady, whether it suits you.", next = "BACK", reply = "Then the Horde may keep its balance, and I will keep my vengeance. We need not share either.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -290,8 +290,8 @@ P:NPC {
       big = true,
       lines = { { id = "dq_default", text = "Their voice in the Horde, and their patience, which they have in greater supply than the orcs. They speak of healing us, and I let them, because a people who wish to heal you will rarely wish to burn you; whether I wish to be healed is a question for another day." } },
       choices = {
-        { text = "Their hope is honest, my lady. Don't spend it cruelly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Use their hope, then. The Forsaken need allies.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Their hope is honest, my lady. Don't spend it cruelly.", next = "BACK", reply = "I will spend it carefully, because it is rarer than gold in Lordaeron. Their hope is safe with me, for now.", fx = { align = { honor = 1 } } },
+        { text = "Use their hope, then. The Forsaken need allies.", next = "BACK", reply = "We do, and the tauren are the best of them. I will be gentle with their hope, for as long as it serves us.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -303,8 +303,8 @@ P:NPC {
         { id = "xmage_troll", when = { race = "Troll" }, text = "The Darkspear send me mages now, and I find I respect a people who know what it is to lose a homeland. Burn the Scourge for me, troll, and we will understand each other well enough." },
       },
       choices = {
-        { text = "I serve you, my lady, and not Dalaran.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "I serve my own studies first, my lady.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I serve you, my lady, and not Dalaran.", next = "BACK", reply = "Good. Dalaran has had enough of its mages' loyalty, and it squandered it.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I serve my own studies first, my lady.", next = "BACK", reply = "Then study well, and remember whose city shelters your studies.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "What do the Forsaken want, my lady?", next = "want" },
       },
     },
@@ -355,13 +355,13 @@ P:NPC {
       },
     },
     apothecarium3 = {
-      lines = { { id = "ap3_default", text = "Then we agree, which should comfort you, and it is why my deathstalkers guard the Apothecarium as closely as they guard me. The Alliance would give a great deal to know what Faranell keeps in his cellars, and they will never learn it." } },
+      lines = { { id = "ap3_default", text = "Then we agree, which should comfort you, and it is why my deathstalkers guard the Apothecarium as closely as they guard me. The Alliance would pay dearly to know what Faranell keeps in his cellars, and they will never learn it." } },
       choices = { { text = "Something else, my lady.", next = "BACK" } },
     },
     scarlet = {
       lines = {
         { id = "sc_default", text = "Zealots who survived the plague and decided the Light had spared them to burn everything that moves wrongly, which in Tirisfal means us. They hold the monastery in the north of these glades and Hearthglen beyond, and they kill my people with the same fervour they save for the Scourge, because they cannot tell us apart and do not care to.", fx = { learn = { "scarlet_crusade" } } },
-        { id = "sc_priest", when = { origin = "forsaken_chapel_priest" }, text = "You preached the same Light they burn us in the name of, and I suspect you knew some of them, which makes them your concern more than most. They hold the monastery in the north of these glades and kill my people as gladly as they kill the Scourge.", fx = { learn = { "scarlet_crusade" } } },
+        { id = "sc_priest", when = { origin = "forsaken_chapel_priest" }, text = "You preached the same Light they burn us in the name of, and I suspect you knew some of them, which makes them your concern before anyone's. They hold the monastery in the north of these glades and kill my people as gladly as they kill the Scourge.", fx = { learn = { "scarlet_crusade" } } },
       },
       choices = {
         { text = "Should they be shown mercy, my lady?", next = "scarlet2" },
@@ -373,8 +373,8 @@ P:NPC {
       big = true,
       lines = { { id = "s2_default", text = "Mercy is a word the living use once they've already won, and the Crusade has never offered it to us. Some of my people would spare the ones who lay down their swords and some would drown every zealot in the canals, and I am curious which kind you are." } },
       choices = {
-        { text = "Spare those who yield, my lady. We're better than them.", next = "BACK", fx = { align = { light = 1 }, opinion = { scarlet_crusade = "mercy" } } },
-        { text = "They chose their war. Let them have all of it.", next = "BACK", fx = { affinity = 1, align = { light = -1 }, opinion = { scarlet_crusade = "hardline" } } },
+        { text = "Spare those who yield, my lady. We're better than them.", next = "BACK", reply = "Some of my people would agree, and I let them believe it. We are not the Crusade, and that matters a little.", fx = { align = { light = 1 }, opinion = { scarlet_crusade = "mercy" } } },
+        { text = "They chose their war. Let them have all of it.", next = "BACK", reply = "Then they will have it, every bitter drop. The Crusade never once offered us a choice.", fx = { affinity = 1, align = { light = -1 }, opinion = { scarlet_crusade = "hardline" } } },
         { text = "Something else, my lady.", next = "BACK" },
       },
     },
@@ -429,7 +429,7 @@ P:NPC {
     freedom = {
       lines = {
         { id = "fr_default", text = "His power waned for reasons I have never learned, and the chains slackened, and I was the first to slip them because I had been waiting for nothing else. I gathered every one of the dead who woke beside me with their own minds again, and I named them the Forsaken, because that is what the world had made of us." },
-        { id = "fr_scourge", when = { origin = "forsaken_scourge_remembered" }, text = "You remember the time before, as I do, every village and every face, so I'll tell you what I tell myself. His power waned and the chains slackened, and the hand that did those things was yours, but the will was his, and he will answer for both." },
+        { id = "fr_scourge", when = { origin = "forsaken_scourge_remembered" }, text = "You remember your time under him, as I do, every village and every face, so I'll tell you what I tell myself: the hand that did those things was yours, but the will was his, and he will answer for both." },
       },
       choices = {
         { text = "Waking must have been strange.", next = "freedom2" },
@@ -502,7 +502,7 @@ P:NPC {
       },
     },
     thrall_truth = {
-      lines = { { id = "tt_default", text = "Thrall is an honest king, which is rarer than a living one in these parts and a great deal more dangerous to the people around him, because honest kings expect honesty back. He was a slave and remembers it, so he looks at my people and sees chains where I see a weapon, and I have never once corrected him, because his pity has served us better than his respect would." } },
+      lines = { { id = "tt_default", text = "Thrall is an honest king, which is rarer than a living one in these parts and far more dangerous to the people around him, because honest kings expect honesty back. He was a slave and remembers it, so he looks at my people and sees chains where I see a weapon, and I have never once corrected him, because his pity has served us better than his respect would." } },
       choices = {
         { text = "Does he know you think this?", next = "thrall_truth2" },
         { text = "I'll keep that to myself, my lady.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
@@ -513,7 +513,7 @@ P:NPC {
       choices = { { text = "Understood, my lady.", next = "BACK" } },
     },
     thrall_no = {
-      lines = { { id = "tx_default", text = "The Warchief is our ally, and I speak of him as such to strangers. You will need to be a great deal less of one before I say more." } },
+      lines = { { id = "tx_default", text = "The Warchief is our ally, and I speak of him as such to strangers. You will need to be considerably less of one before I say more." } },
       choices = { { text = "As you say, my lady.", next = "BACK" } },
     },
     cairne = {
@@ -531,8 +531,8 @@ P:NPC {
       big = true,
       lines = { { id = "hs_default", text = "My people ask me that every day in one way or another, and I give them whatever answer keeps them standing. Some tell me the living will turn on us the moment the Scourge is beaten and some tell me we owe the Horde everything, so tell me which you would say." } },
       choices = {
-        { text = "The Horde has kept faith, my lady. Keep faith with it.", next = "BACK", fx = { align = { honor = 1 }, opinion = { forsaken_horde = "loyal" } } },
-        { text = "Trust only your own, my lady. The living forget.", next = "BACK", fx = { affinity = 1, align = { honor = -1 }, opinion = { forsaken_horde = "wary" } } },
+        { text = "The Horde has kept faith, my lady. Keep faith with it.", next = "BACK", reply = "Faith with the Horde is kept, for now, because it serves us both. I will decide when it no longer does.", fx = { align = { honor = 1 }, opinion = { forsaken_horde = "loyal" } } },
+        { text = "Trust only your own, my lady. The living forget.", next = "BACK", reply = "The living do forget, and they forget quickest when it suits them. I will not let my people forget that.", fx = { affinity = 1, align = { honor = -1 }, opinion = { forsaken_horde = "wary" } } },
         { text = "Something else, my lady.", next = "BACK" },
       },
     },
@@ -639,11 +639,11 @@ P:NPC {
     xalt_varimathras = {
       lines = {
         { id = "xalt_varimathras_default", text = "I keep notes on everyone, and the Dark Lady is grateful for it, or so I choose to believe. Your friend was polite and asked few questions, which is the kind of guest I like best." },
-        { id = "xalt_varimathras_kin", when = { alt = { kin = true } }, text = "{alt} asked a great many questions about the Royal Apothecary Society, and I answered every one of them with a smile and very little else. If you are family, you might tell them that curiosity is not always rewarded in the Undercity." },
+        { id = "xalt_varimathras_kin", when = { alt = { kin = true } }, text = "{alt} asked a great many questions about the Royal Apothecary Society, and I answered each with a smile and very little else. If you are family, you might tell them that curiosity is not always rewarded in the Undercity." },
       },
       choices = {
-        { text = "My kin have nothing to hide from the Dark Lady.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Everyone has secrets, Varimathras, yourself most of all.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "My kin have nothing to hide from the Dark Lady.", next = "BACK", reply = "Then they will not mind being watched. The Dark Lady likes nothing better than an open book.", fx = { align = { honor = 1 } } },
+        { text = "Everyone has secrets, Varimathras, yourself most of all.", next = "BACK", reply = "Oh, most of all, little one, and I keep them beautifully. Do mind your own.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -675,8 +675,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_varimathras_default", text = "Sworn, are you? Oaths are easy things to make in a throne room and hard things to keep in the field, as the Dark Lady learned when Arthas's servants wore her people like puppets. Keep your companions honest, and I'll have no reason to learn their names." } },
       choices = {
-        { text = "We keep our oaths. Watch us all you like.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Oaths bend when they must. Surviving comes first.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "We keep our oaths. Watch us all you like.", next = "BACK", reply = "Of course you do, and I shall watch you all the same. It passes the time.", fx = { align = { honor = 1 } } },
+        { text = "Oaths bend when they must. Surviving comes first.", next = "BACK", reply = "How refreshingly honest, and how very like a survivor. You and I may understand each other after all.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -684,8 +684,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_cath_default", text = "And how splendidly you managed it. The Crusade believed its faith made it untouchable, and there is nothing quite so instructive as watching a zealot discover she was wrong. The Dark Lady's enemies in Tirisfal have lost their heart, and I shall make certain she remembers whose hand held the knife." } },
       choices = {
-        { text = "I did it for the Dark Lady, and for no one else.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I did it for myself. The court can take what credit it likes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I did it for the Dark Lady, and for no one else.", next = "BACK", reply = "Of course you did, and I shall be sure to tell her so. She does enjoy hearing about her loyal servants.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I did it for myself. The court can take what credit it likes.", next = "BACK", reply = "How candid. The court will take all of it, I promise you, and you'll be grateful for the leftovers.", fx = { align = { order = -1 } } },
         { text = "What will become of the cathedral now?", next = "xcl_cath2" },
       },
     },
@@ -699,8 +699,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "I think they are useful to the Dark Lady, as all her servants are, and I serve her as faithfully as any of you. Pray to whatever you like, little priest, but remember who rules in this city, and that her will is the only one that matters here." } },
       choices = {
-        { text = "The Dark Lady has my loyalty, Varimathras.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My faith answers to me, not to any throne.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Dark Lady has my loyalty, Varimathras.", next = "BACK", reply = "As does mine, little priest. We are all her loyal servants here.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My faith answers to me, not to any throne.", next = "BACK", reply = "A dangerous creed in a city with a throne. I'll remember you said it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -711,8 +711,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Far more than you would think, and your {pet} would agree, if it could speak. The hunt is only patience and appetite, and the Dark Lady's enemies never see either coming." },
       },
       choices = {
-        { text = "I hunt for the Dark Lady, Varimathras, not for appetite.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Every hunter hungers, dreadlord. Mine's no secret.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I hunt for the Dark Lady, Varimathras, not for appetite.", next = "BACK", reply = "Of course you do. Appetite is such an unbecoming word for loyalty.", fx = { align = { honor = 1 } } },
+        { text = "Every hunter hungers, dreadlord. Mine's no secret.", next = "BACK", reply = "No, it isn't, and that is precisely what I like about you. Hunt well, mortal.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -730,23 +730,23 @@ P:NPC {
         { id = "h_deathstalkers", tags = { "news" }, when = { questActive = TODO_QUEST("The Deathstalkers") },
           text = "The Deathstalkers are the Dark Lady's eyes and blades. Go where they send you and do what they ask, and then tell me what they tell you." },
         { id = "h_hillsbrad", when = { questActive = TODO_QUEST("Battle of Hillsbrad") },
-          text = "The living cling to Hillsbrad like rats to a ship. Help Darthalia sink it." },
+          text = "The living cling to Hillsbrad like rats to a ship. Help High Executor Darthalia sink it." },
         { id = "h_alliance", when = { questActive = TODO_QUEST("An Unholy Alliance") },
-          text = "An alliance between our enemies? How very unholy. Break it before it learns to stand." },
+          text = "An alliance between the Scourge and the quilboar of Razorfen? How very unholy. Break it before it learns to stand." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Royal Quarter. Your people knelt to my kind once and then changed their minds, which I have always found rather ungrateful." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You smell of grass and wet fur, which is a novelty down here, though not one I'd ask you to repeat." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I have watched a great many mortal hunters stalk their prey, {class}, and I confess I still find it charming." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, before me. How interesting, because I have watched mortals pray to many things, and I have never once seen those things answer quickly." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hillsbrad", min = 30 } }, text = "Hillsbrad's farmers and footmen fall before you rather efficiently, I'm told. The Dark Lady will be pleased, and I make a point of remembering those who please her." },
         { id = "h_cl_cath", tags = { "news" }, when = { cleared = "Scarlet Cathedral", faction = "Horde" },
-          text = "The High Inquisitor has fallen, and her commander with her, and the Dark Lady was pleased to hear it from my lips before anyone else's. I do so enjoy delivering good news, and you have given me a great deal to deliver." },
+          text = "The High Inquisitor has fallen, and her commander with her, and the Dark Lady was pleased to hear it from my lips before anyone else's. I do so enjoy delivering good news, and you have given me so much to deliver." },
       },
       choices = {
         { text = "You've been keeping notes on someone I know?", next = "xalt_varimathras", when = { alt = true } },
         { text = "What do you think of mortal priests, Varimathras?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do you miss your hold on my people, dreadlord?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you miss your hold on the orcs, dreadlord?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does a dreadlord make of the Emerald Dream?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Your guards are dreadlords, Varimathras. Mine is a shield.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "You have your guards, Varimathras. I have my shield.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "A dreadlord serving the Dark Lady seems unlikely.", next = "serve" },
         { text = "I command demons too, dreadlord.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The Light answers me. That must trouble you.", next = "paladin", when = { class = "PALADIN" } },
@@ -770,15 +770,15 @@ P:NPC {
           text = "A troll who whispers into the Nether. Your people's spirits must be terribly jealous. Do tell me what you hear; I may recognize the voice." },
       },
       choices = {
-        { text = "I'll tell the Dark Lady first, dreadlord.", next = "BACK", fx = { affinity = -2, align = { order = 1 } } },
-        { text = "And if something larger answers, I'll come to you.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "I'll tell the Dark Lady first, dreadlord.", next = "BACK", reply = "Naturally, as any loyal servant would. I'll hear about it soon enough regardless.", fx = { affinity = -2, align = { order = 1 } } },
+        { text = "And if something larger answers, I'll come to you.", next = "BACK", reply = "How very wise of you. I'll be waiting, as I always am.", fx = { affinity = 2, align = { order = -1 } } },
       },
     },
     paladin = {
       lines = { { id = "pa_default", text = "Trouble me? It offends me, which is not the same thing. The Light is so very loud, and it insists on itself everywhere. Do keep it sheathed in my presence, and we'll get along as well as anyone does with me." } },
       choices = {
-        { text = "The Light goes where I go, dreadlord.", next = "BACK", fx = { affinity = -2, align = { light = 1 } } },
-        { text = "As you wish. I'll keep it sheathed.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Light goes where I go, dreadlord.", next = "BACK", reply = "Then you go noisily, paladin, and I'll hear you coming from three halls away. How convenient.", fx = { affinity = -2, align = { light = 1 } } },
+        { text = "As you wish. I'll keep it sheathed.", next = "BACK", reply = "A gracious answer. We shall get along splendidly, you and I.", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
     mage = {
@@ -800,8 +800,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhwar_default", text = "How refreshingly blunt, warrior. A shield is an honest thing, at least, and the Dark Lady values honest things, or so she tells me. Lean on it as you like; just don't lean on me." } },
       choices = {
-        { text = "My shield serves the Dark Lady, and so do I.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My shield serves me. Remember that, demon.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "My shield serves the Dark Lady, and so do I.", next = "BACK", reply = "How touching. I'm sure she's very grateful.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My shield serves me. Remember that, demon.", next = "BACK", reply = "I'll remember it, warrior, which you may come to regret. Demons have excellent memories.", fx = { align = { order = -1 } } },
       },
     },
     answer = {
@@ -810,10 +810,10 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Miss it? My dear shaman, I serve the Dark Lady now, faithfully and gladly, and the Legion's affairs are no concern of mine. Still, I do remember how eagerly your fathers drank, and I wonder now and then how thirsty their children are." } },
+      lines = { { id = "xhsham_default", text = "Miss it? My dear shaman, I serve the Dark Lady now, faithfully and gladly, and the Legion's affairs are no concern of mine. Still, I do remember how eagerly the orcs drank, and I wonder now and then how thirsty their children are." } },
       choices = {
-        { text = "We'll never drink again, dreadlord. Not one drop.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A strong people takes power wherever it finds it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "We'll never drink again, dreadlord. Not one drop.", next = "BACK", reply = "A noble vow, shaman, and I'm sure you'll keep it. Your fathers made such vows too, before the cup came round.", fx = { align = { light = 1 } } },
+        { text = "A strong people takes power wherever it finds it.", next = "BACK", reply = "How very wise, and how very like your fathers. I do hope you find a generous supplier.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -821,8 +821,8 @@ P:NPC {
       big = true,
       lines = { { id = "dq_default", text = "Very little, I'm pleased to say. Dreams are where the weak go to hide from the world, and from what I hear of your Wailing Caverns, even the dreamers have started having nightmares, so do sleep well, druid." } },
       choices = {
-        { text = "The Dream is sacred. Mock it at your peril.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Dreams are for the weak. On that, we agree.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Dream is sacred. Mock it at your peril.", next = "BACK", reply = "At my peril? How deliciously dramatic. I'll mock it quietly, then, so as not to wake anyone.", fx = { align = { light = 1 } } },
+        { text = "Dreams are for the weak. On that, we agree.", next = "BACK", reply = "How splendid to find a druid with sense. We shall get along famously.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -833,8 +833,8 @@ P:NPC {
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "You stole for the living kings of Lordaeron, I imagine, and now you steal for the Banshee Queen, which is a considerable promotion. She rewards loyalty as surely as she punishes its lack, as you will find." },
       },
       choices = {
-        { text = "Her enemies' names will reach her through you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll bring my findings to the Dark Lady myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Her enemies' names will reach her through you.", next = "BACK", reply = "Splendid. I'll see they reach her, in time.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll bring my findings to the Dark Lady myself.", next = "BACK", reply = "Of course you will, little knife. I'll be in the room when you do.", fx = { align = { order = -1 } } },
         { text = "A dreadlord serving the Dark Lady seems unlikely.", next = "serve" },
       },
     },
@@ -907,7 +907,7 @@ P:NPC {
       choices = { { text = "Something else, Master Apothecary.", next = "BACK" } },
     },
     op_undeath_r3 = {
-      lines = { { id = "opud_r3", text = "A sensible subject, and those are rarer than you'd think. I'll note it down beside your name, which is a compliment, mostly." } },
+      lines = { { id = "opud_r3", text = "A sensible subject, and the dead rarely bring me one. I'll note it down beside your name, which is a compliment, mostly." } },
       choices = { { text = "Something else, Master Apothecary.", next = "BACK" } },
     },
     op_undeath_r4 = {
@@ -918,17 +918,17 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_faranell_default", text = "Only a little of their time and a few of their prayers, said over subjects in the next room. If faith really holds the rot at bay in the Forsaken, the Royal Apothecary Society should know it, and if it doesn't, the priests should know that too." } },
       choices = {
-        { text = "Knowledge is worth having, whatever it costs your subjects.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Prayers aren't instruments for your experiments, Faranell.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Knowledge is worth having, whatever it costs your subjects.", next = "BACK", reply = "There's a mind after my own heart! I'll put you down as a supporter of the project, and do mind the stains.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Prayers aren't instruments for your experiments, Faranell.", next = "BACK", reply = "Instruments, reagents, hypotheses, it's all a matter of vocabulary, really. I'll find another priest who's less precious.", fx = { align = { light = 1 } } },
         { text = "Something else, Master Apothecary.", next = "BACK" },
       },
     },
     xcl_sm = {
       big = true,
-      lines = { { id = "xcl_sm_default", text = "Wonderful! The Crusade's hearts are remarkable specimens, you know, so swollen with zeal that I've had to send for bigger jars, and every one of them beats the same way when it's frightened. If they ever learn to be afraid sensibly, I'll be out of a research topic." } },
+      lines = { { id = "xcl_sm_default", text = "Wonderful! The Crusade's hearts are remarkable specimens, you know, so swollen with zeal that I've had to send for bigger jars, and each one beats the same way when it's frightened. If they ever learn to be afraid sensibly, I'll be out of a research topic." } },
       choices = {
-        { text = "Fanatics or not, they were people. Their hearts aren't specimens.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Take whatever you need from them. They'd do worse to us.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Fanatics or not, they were people. Their hearts aren't specimens.", next = "BACK", reply = "Specimens they are, and splendid ones, and they'd have made specimens of us gladly. Your scruples are noted.", fx = { align = { light = 1 } } },
+        { text = "Take whatever you need from them. They'd do worse to us.", next = "BACK", reply = "Splendid! I'll send for even bigger jars, then, and think of you every time.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "What do you actually do with their hearts?", next = "xcl_sm2" },
       },
     },
@@ -942,8 +942,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Only your cooperation, and perhaps a few drops of whatever runs in you now! The Light burns the Scourge, and so will our plague, and you are the only thing in this city the Light touches without destroying, so you see why I'm curious." } },
       choices = {
-        { text = "The Light isn't a reagent. Leave it out of your bottles.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If it helps the Dark Lady, study me as you like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light isn't a reagent. Leave it out of your bottles.", next = "BACK", reply = "Oh, but it's such a fascinating reagent, and so few of you exist to sample. I'll ask again next week.", fx = { align = { light = 1 } } },
+        { text = "If it helps the Dark Lady, study me as you like.", next = "BACK", reply = "Marvellous! Sit down, sit down, and don't mind the needles.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -951,8 +951,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "I have a theory that it does, because a Forsaken who believes in something mends a little faster and rots a little slower than one who doesn't. I can't prove it yet, but I'd be delighted to take a few measurements of you, purely in the interests of science." } },
       choices = {
-        { text = "If faith helps us endure, I'll take your theory.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Faith is chemistry, then. Nothing sacred about it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If faith helps us endure, I'll take your theory.", next = "BACK", reply = "Splendid, and I'll write it down as an endorsement. Faith with a measurable outcome!", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith is chemistry, then. Nothing sacred about it.", next = "BACK", reply = "Chemistry, yes, and I find that very sacred indeed. You'll go far in the Society.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -963,8 +963,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Need them? I crave them, and that is a fine {pet} you have there, though I'm only looking, I assure you. Every beast in Lordaeron carries a little of the plague, and I mean to know which bit." },
       },
       choices = {
-        { text = "I'll bring them, Faranell. The Scourge must be stopped.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Find your own bear hearts. I hunt for myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll bring them, Faranell. The Scourge must be stopped.", next = "BACK", reply = "It must, and it will, with your help. Fresh, mind, and with the glands intact.", fx = { align = { order = 1 } } },
+        { text = "Find your own bear hearts. I hunt for myself.", next = "BACK", reply = "Pity, a terrible pity, but I suppose a hunter must eat. Do consider it if you find a spare bear.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -974,7 +974,7 @@ P:NPC {
           text = "You've the same build as {alt}, who carried a crate of my reagents across the Quarter without dropping a single vial! Is it family, or has the Society finally learned to breed reliable couriers?" },
         { id = "h_alt_risen", tags = { "news" }, when = { alt = { race = "Scourge", notKin = true } },
           text = "One of our own, {alt}, was down here only recently, and between you and me, they asked to see the testing cages and didn't even blanch. If you know them, do tell them the Society has a long memory for steady stomachs." },
-        { id = "o_ktadmire", tags = { "news" }, when = { gossip = { topic = "kirin_tor", stance = "admire" } }, text = "Bethor says you'd go running back to Dalaran if they'd have you. I'd advise against it, because I've seen what the Kirin Tor do with specimens." },
+        { id = "o_ktadmire", tags = { "news" }, when = { gossip = { topic = "kirin_tor", stance = "admire" } }, text = "Bethor Iceshard says you'd go running back to Dalaran if they'd have you. I'd advise against it, because I've seen what the Kirin Tor do with specimens." },
         { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" } },
           text = "Your companion is a priest, I think, from the way they keep looking at my jars. Tell {companion} that I'm still measuring whether faith slows the decay of the dead, and I'd welcome a priest's help with the trial, so long as they don't mind the smell." },
         { id = "h_default", key = true,
@@ -984,14 +984,14 @@ P:NPC {
         { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Horde" },
           text = "You've been to the Monastery, haven't you? You've the look of someone who's seen zealots up close, which is a very particular look. I've been hoping someone would bring me news from inside!" },
         { id = "h_agony", when = { questActive = TODO_QUEST("Elixir of Agony") },
-          text = "Lydon's colloid, applied correctly, and then a few reagents to wake the mixture! Don't sniff it, though; Lydon sniffed it, and Lydon has been melancholy ever since." },
+          text = "Apothecary Lydon's colloid from Tarren Mill, applied correctly, and then a few reagents to wake the mixture! Don't sniff it, though; Lydon sniffed it, and Lydon has been melancholy ever since." },
         { id = "h_lydon", when = { heardLine = "lydon.h_default" },
           text = "Lydon, in Tarren Mill? Yes, yes, a brilliant mind and terrible company. He named his frog, and I told him not to name the frog!" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, how marvellous, you put your hands into lightning and come out the other side, and I'd simply adore a sample of whatever's left in your blood afterwards." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Bear, cat, seal, whatever you like, all of them so wonderfully alive, so do hold still while I take a few notes, nothing invasive, I swear." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Oh, splendid, splendid, you'll be bringing me bear hearts and spider blood by the bucket, I can feel it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Marvellous, because you're a living, or once-living, example of a hypothesis I've never managed to test properly, which is whether faith changes the body's chemistry." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Oh, how marvellous, a Forsaken who carries the Light and walks into the Apothecarium anyway. I would give a great deal to know what holy power does to a sample of the new plague, purely in the name of science." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Oh, how marvellous, a Forsaken who carries the Light and walks into the Apothecarium anyway. I would dearly love to know what holy power does to a sample of the new plague, purely in the name of science." },
       },
       choices = {
         { text = "Does faith change the body, Master Apothecary?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -1016,13 +1016,13 @@ P:NPC {
     },
     rogue = {
       lines = {
-        { id = "ro_default", text = "Help? My dear, the Society practically invented half the poisons on your belt! Crippling, mind-numbing, the deadly ones, all far too crude, of course. Bring me spider venom from Silverpine and I'll show you what a real toxin looks like." },
+        { id = "ro_default", text = "Help? My dear, the Society practically invented half the poisons on your belt! Crippling, mind-numbing and deadly, all of them far too crude, of course. Bring me spider venom from Silverpine and I'll show you what a real toxin looks like." },
         { id = "ro_deathstalker", when = { origin = "forsaken_deathstalker_recruit" },
           text = "A deathstalker! My favourite customers; you always bring the bottles back empty. Do tell your captains the new batch is ready, and that it was very nearly an accident." },
       },
       choices = {
-        { text = "Show me, then. The stronger the better.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
-        { text = "I'll keep to the crude ones. Clean kills only.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Show me, then. The stronger the better.", next = "BACK", reply = "Oh, splendid! A rogue of discernment, at last. Bring me that venom and we'll make something lovely together.", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "I'll keep to the crude ones. Clean kills only.", next = "BACK", reply = "Clean kills are so wasteful, but I'll respect your preference. The crude ones are still mine, you know.", fx = { affinity = -1, align = { light = 1 } } },
       },
     },
     mage = {
@@ -1060,10 +1060,10 @@ P:NPC {
     },
     xhwar = {
       big = true,
-      lines = { { id = "xhwar_default", text = "More than you'd guess, though fewer than I'd like. A warrior with a few of my tonics fights longer and heals faster, and if the work goes well, the Scourge will one day have none of either." } },
+      lines = { { id = "xhwar_default", text = "More than you'd guess, though fewer than I'd like. A warrior with a few of my tonics fights longer and heals faster, and if the plague we're brewing works, the Scourge won't be fighting at all." } },
       choices = {
-        { text = "Poison is a coward's weapon. I'll keep my axe.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Your plague will end the Scourge. I'll fight beside it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A plague is a coward's weapon. I'll keep my axe.", next = "BACK", reply = "Cowardly or clever, it's all the same to the Scourge. Keep your axe, warrior, and I'll keep my vials.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your plague will end the Scourge. I'll fight beside it.", next = "BACK", reply = "Splendid! The plague and the axe, side by side, how very poetic.", fx = { align = { light = -1 } } },
       },
     },
     only = {
@@ -1074,8 +1074,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "The same fight? Of course, of course! You call the earth and the storm against the Scourge, and I call on chemistry, and between us there won't be a corpse left standing that shouldn't be; purely academically, I'd love to know what your earth thinks of my runoff." } },
       choices = {
-        { text = "The earth thinks it's poison, Faranell. Mind your runoff.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Whatever kills the Scourge, I'll not complain about.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The earth thinks it's poison, Faranell. Mind your runoff.", next = "BACK", reply = "The earth has opinions? How charming. I'll note it, and then I'll carry on.", fx = { align = { light = 1 } } },
+        { text = "Whatever kills the Scourge, I'll not complain about.", next = "BACK", reply = "A practical shaman, how refreshing. The Scourge will thank us both, in its way.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1083,8 +1083,8 @@ P:NPC {
       big = true,
       lines = { { id = "dq_default", text = "That you're terribly fragile and endlessly fascinating, and that a tauren's constitution is very nearly the sturdiest I've studied. It's all for the Scourge, naturally, and for the cure your Arch Druid keeps asking after, if there is one, which is a big word, and I'm a careful man." } },
       choices = {
-        { text = "Take your notes. I trust the Society's purpose.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "No more notes. I'm not your test subject.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Take your notes. I trust the Society's purpose.", next = "BACK", reply = "Wonderful! I'll be sure to send your Arch Druid a full report, minus the boring parts.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No more notes. I'm not your test subject.", next = "BACK", reply = "Not my test subject, merely my most interesting visitor. I'll take my notes from memory, then.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1094,7 +1094,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Oh, I collect information the way I collect reagents: eagerly, and without asking too closely where it came from! Pick something, anything." },
     },
-    wailing_caverns = { { id = "tp_caverns", text = "A poisoned dream leaking into water? Oh, I'd give a great deal for a sample. Helbrim is being very slow about it." } },
+    wailing_caverns = { { id = "tp_caverns", text = "A poisoned dream leaking into water? Oh, I'd trade a month of my own research for a sample. Helbrim is being very slow about it." } },
     scourge = { { id = "tp_scourge", text = "The Scourge's plague is a marvel of crude engineering, and I have the deepest admiration for its efficiency! Of course, we mean to do better, purely for use against the Scourge." } },
     new_plague = { { id = "tp_new_plague", when = { race = "Scourge" }, text = "You're one of us, so I'll tell you that it's coming along splendidly, and that you mustn't breathe near the vats. Our enemies will never know what hit them." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken are the finest scholars in the world, because we've already conquered death and can now focus on more interesting problems. The Royal Apothecary Society is proof of that!" } },
@@ -1120,7 +1120,7 @@ P:NPC {
   greetings = {
     { id = "g_magic", text = "The Magic Quarter. Knowledge is the only weapon the Forsaken never had to dig out of a grave. What do you need?" },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Magic Quarter has kept its secrets in your absence. Now that you're back, what do you need?" },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear one of your lies was found out in the city. I swore an oath once beside a friend who lied to us all, so forgive me if I'm slow to trust you." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear one of your lies was found out in the city. I swore an oath once beside a friend who lied to us all, so my trust comes slowly now." },
   },
 
   notice = {
@@ -1163,17 +1163,17 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_bethor_default", text = "I miss the library and very little else, because the Kirin Tor were never kind to anyone who asked uncomfortable questions. I'd tell your friend to learn what they can and to trust no council that claims to know what magic is for." } },
       choices = {
-        { text = "No one should tell a mage what to study.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Magic needs a council to govern it, or it runs wild.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No one should tell a mage what to study.", next = "BACK", reply = "Nobody should, and Thule proved what happens when nobody does. Choose your studies, then, and choose them carefully.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Magic needs a council to govern it, or it runs wild.", next = "BACK", reply = "A council like Dalaran's? I watched it govern itself straight into the plague. Find a better one first.", fx = { align = { order = 1 } } },
         { text = "Something else, Bethor.", next = "BACK" },
       },
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "My oath did not, and Thule's certainly didn't, so I have reason to be cold about it. But if the Light still answers you after everything Lordaeron's dead have suffered, then perhaps loyalty is something we choose, rather than something we're owed." } },
+      lines = { { id = "xfpala_default", text = "My oath didn't keep faith with me, and Thule certainly didn't, so I have reason to be cold about it. But if the Light still answers you after everything Lordaeron's dead have suffered, then perhaps loyalty is something we choose, rather than something we're owed." } },
       choices = {
-        { text = "Loyalty is a choice. I chose the Light again.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Nothing keeps faith. I hold the Light because it's useful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Loyalty is a choice. I chose the Light again.", next = "BACK", reply = "Then you chose more bravely than I did. I'll think about that tonight.", fx = { align = { light = 1 } } },
+        { text = "Nothing keeps faith. I hold the Light because it's useful.", next = "BACK", reply = "Useful is honest, at least. Thule called it useful too, at the start.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1181,17 +1181,17 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "It burned with the rest of Lordaeron, I imagine, and I've not gone back to look. The oath was the thing that mattered, and one of us broke it, so I've stopped expecting the place to have kept faith better than he did." } },
       choices = {
-        { text = "The oath still matters, Bethor. You kept yours.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Oaths are words. He broke his, so you may break yours.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The oath still matters, Bethor. You kept yours.", next = "BACK", reply = "I kept it, and it kept me, which is more than it did for him. Thank you for remembering.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Oaths are words. He broke his, so you may break yours.", next = "BACK", reply = "Then I'd be no better than Thule, and I've no intention of becoming him. I'll keep my oath, thank you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than most mages would admit, because a lich spends its time guarding against spells and forgets that steel still cuts. Thule always did underestimate anyone who couldn't quote the Kirin Tor's charter, and I'd like to think that will be his undoing." } },
+      lines = { { id = "xwarcl_default", text = "A good deal, though few mages would admit it, because a lich spends its time guarding against spells and forgets that steel still cuts. Thule always did underestimate anyone who couldn't quote the Kirin Tor's charter, and I'd like to think that will be his undoing." } },
       choices = {
-        { text = "Then point me at Thule, and I'll remind him.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your old friend is your business, Bethor. I fight for pay.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then point me at Thule, and I'll remind him.", next = "BACK", reply = "Do, and remind him of me while you're at it. I'd like him to know who sent you.", fx = { align = { honor = 1 } } },
+        { text = "Your old friend is your business, Bethor. I fight for pay.", next = "BACK", reply = "Fair enough, and I'll pay you fairly. Thule's sins are mine to carry.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1202,7 +1202,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "My name is Bethor Iceshard. I studied at Dalaran with two friends, and we crossed our wands as apprentices and swore we'd always stand together. One of them sold his soul to the Lich King, and his name was Thule Ravenclaw." },
         { id = "h_renferrel", when = { heardLine = "renferrel.h_default" },
-          text = "Renferrel's work in Silverpine keeps turning up my old friend's name. I'd rather it didn't, but I'd rather know than not." },
+          text = "Apothecary Renferrel's work at the Sepulcher keeps turning up my old friend's name. I'd rather it didn't, but I'd rather know than not." },
         { id = "h_prodigal", tags = { "news" }, when = { questActive = TODO_QUEST("The Prodigal Lich") },
           text = "Somewhere out there, a lich calls himself by an old friend's name. Find out if it's true, though I'd rather it weren't." },
         { id = "h_returns", tags = { "news" }, when = { questActive = TODO_QUEST("The Prodigal Lich Returns") },
@@ -1241,20 +1241,20 @@ P:NPC {
           text = "You were an apprentice there when the plague came, weren't you? Then you were in the same lecture halls Thule and I sat in, a few years later. I find I'm glad of the company." },
       },
       choices = {
-        { text = "Dalaran abandoned us. Let it stay behind its walls.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "One day the Kirin Tor may welcome us back.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dalaran abandoned us. Let it stay behind its walls.", next = "BACK", reply = "It may, and it may keep its towers too. I've no wish to go back and be pitied.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "One day the Kirin Tor may welcome us back.", next = "BACK", reply = "Perhaps, when the Kirin Tor learn humility. I'll not hold my breath, since I no longer have any.", fx = { align = { order = 1 } } },
       },
     },
     orcmage = {
-      lines = { { id = "om_default", text = "That Dalaran spent a war telling us orcs couldn't learn anything but the axe and the fel, and here you are, proving us wrong in the Undercity of all places. Learn carefully; the arcane rewards patience, and it punishes hunger." } },
+      lines = { { id = "om_default", text = "That Dalaran spent a war teaching that orcs could learn nothing but the axe and the fel, and here you are, proving it wrong in the Undercity of all places. Learn carefully; the arcane rewards patience, and it punishes hunger." } },
       choices = { { text = "Patience, not hunger. I'll remember.", next = "BACK", fx = { affinity = 2 } } },
     },
     warlock = {
       big = true,
       lines = { { id = "wl_default", text = "As Thule did? He sold himself whole, and you rent pieces of yourself by the hour, but the ledger is kept by the same people. I don't judge you for it, but I'll be watching what you trade, because I didn't watch him, and I should have." } },
       choices = {
-        { text = "Watch, then. I know where my line is.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Thule was weak. He sold too cheaply.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
+        { text = "Watch, then. I know where my line is.", next = "BACK", reply = "Good, and keep it there, warlock. Thule thought he knew his too.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Thule was weak. He sold too cheaply.", next = "BACK", reply = "Weak, perhaps, but he believed he was getting a fair price. That's the trap, warlock, not the price.", fx = { affinity = -2, align = { light = -1 } } },
       },
     },
     xhhunt = {
@@ -1264,8 +1264,8 @@ P:NPC {
         { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "When the reagents still have teeth, yes, and I see {pet} has teeth enough to match them. Half my research waits on things in the deep woods of Silverpine, and a beast's nose would find them faster than any apprentice of mine." },
       },
       choices = {
-        { text = "Tell me what you need, and I'll fetch it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Pay me first, and I'll think about it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Tell me what you need, and I'll fetch it.", next = "BACK", reply = "Splendid. I'll write you a list, and do try to bring them back in one piece.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Pay me first, and I'll think about it.", next = "BACK", reply = "A sensible hunter, and a mercenary one. Very well, payment first, and I'll expect the best.", fx = { align = { order = -1 } } },
       },
     },
     thule = {
@@ -1282,8 +1282,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "The arcane is taken, shaman, and the elements are asked, and I've seen what happens to men who stop asking. Thule began by taking a little more than his share and ended by selling himself whole, so I'd keep asking your spirits nicely, if I were you." } },
       choices = {
-        { text = "Power should be asked for, never seized.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Asking is slow, Bethor. Sometimes you must take.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Power should be asked for, never seized.", next = "BACK", reply = "It should, and Thule is my proof. Keep asking, shaman, and you'll stay yourself.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Asking is slow, Bethor. Sometimes you must take.", next = "BACK", reply = "Sometimes, perhaps, but Thule began exactly that way. Mind where it ends.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1291,20 +1291,20 @@ P:NPC {
       big = true,
       lines = { { id = "dq_default", text = "Wiser than some mages, certainly, and wiser than Thule, which is no great feat. But I've heard of your Druids of the Fang in the Barrens, who dreamed too greedily and woke as something else, so perhaps no school is safe from its own ambition." } },
       choices = {
-        { text = "Then ambition must be watched, in mages and druids both.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Ambition built the Horde. I won't apologise for it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then ambition must be watched, in mages and druids both.", next = "BACK", reply = "Watched, always, and I'm grateful a druid sees it. Ambition never knows when it's had enough.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ambition built the Horde. I won't apologise for it.", next = "BACK", reply = "It built the Horde, and it built the Scourge too. Mind which one you're building.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Once, in Dalaran, when a friend's notes went missing and I paid a boy to find them, and I've regretted ever since not asking what else he found. Thule Ravenclaw keeps his secrets at Fenris Keep now, and I'd dearly like a thief in his study." },
+        { id = "xrogue_default", text = "I needed one once, in Dalaran, when a friend's notes went missing and I paid a boy to find them, and I've regretted ever since not asking what else he found. Thule Ravenclaw keeps his secrets at Fenris Keep now, and I'd dearly like a thief in his study." },
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "Dalaran had its thieves like any city, though the Kirin Tor liked to pretend otherwise, and some of them were cleverer than the apprentices. If you were one of them, you'll know how to get past a ward that thinks itself clever." },
       },
       choices = {
-        { text = "I'll fetch what you need and nothing more.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Whatever else I find there, I keep.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll fetch what you need and nothing more.", next = "BACK", reply = "Good, and if you find anything else, leave it buried. Thule's secrets are poison.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Whatever else I find there, I keep.", next = "BACK", reply = "Then keep it, and may it never keep you. Thule's things have a way of doing that.", fx = { align = { order = -1 } } },
         { text = "You speak of Thule with no love at all.", next = "thule" },
       },
     },
@@ -1314,7 +1314,7 @@ P:NPC {
     dalaran = { { id = "tp_dalaran", text = "I swore an oath in Dalaran as an apprentice, with friends who swore it beside me, and I still carry the wand. The city is rising again, but it isn't my city anymore, and I doubt it would have me." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught me everything I know, and then they watched the plague take Lordaeron and did nothing useful about it. I've grown cold, and they deserve most of the credit." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad walked the halls of the Violet Citadel when I was young, and the masters thought him a genius. They were right, and that's the terrible part." } },
-    scholomance = { { id = "tp_scholomance", text = "One of the friends who swore the apprentice's oath beside me sold himself to the Lich King, and the school at Caer Darrow is where such men go. I don't speak his name." } },
+    scholomance = { { id = "tp_scholomance", text = "One of the friends who swore the apprentice's oath beside me sold himself to the Lich King, and the school at Caer Darrow is where such men go. I'd rather not say more." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken have use for a mage who remembers Dalaran's secrets. I give the Dark Lady what I know, and she gives me a purpose, and I'd call that a fair trade." } },
     _none = { { id = "tp_none", text = "Research it; that's what we do here." } },
   },
@@ -1351,7 +1351,7 @@ P:NPC {
     op_peace = {
       big = true,
       lines = {
-        { id = "oppc_default", text = "Half my tables say the Alliance will march on Lordaeron the day the Scourge is done, and the other half say Thrall would sooner keep the peace with Theramore. What do you reckon, should the Horde have peace with the humans or not?" },
+        { id = "oppc_default", text = "Some of my tables say the Alliance will march on Lordaeron the day the Scourge is done, and the rest say Thrall would sooner keep the peace with Theramore. What do you reckon, should the Horde have peace with the humans or not?" },
       },
       choices = {
         { text = "Peace, Norman. Enough of us have died already.", next = "op_peace_r1", fx = { align = { light = 1 }, opinion = { peace = "peace" } } },
@@ -1379,10 +1379,10 @@ P:NPC {
     },
     xpt_norman = {
       big = true,
-      lines = { { id = "xpt_norman_default", text = "More than you'd think and fewer than we'd like. Most of the orcs who come down here stand very close to the door, but now and again a troll sits at my counter with a Forsaken friend and tells jokes until closing, and I count those as good nights." } },
+      lines = { { id = "xpt_norman_default", text = "A few, and fewer than we'd like. Most of the orcs who come down here stand very close to the door, but now and again a troll sits at my counter with a Forsaken friend and tells jokes until closing, and I count those as good nights." } },
       choices = {
-        { text = "The living and the dead should stand together against the Scourge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The living will never trust the dead, and they shouldn't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The living and the dead should stand together against the Scourge.", next = "BACK", reply = "They should, and some nights in here they nearly do. I'll pour for anyone who's willing to try.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The living will never trust the dead, and they shouldn't.", next = "BACK", reply = "Perhaps not, friend, but they'll drink in the same room, and that's a start. I'll take what I can get.", fx = { align = { light = -1 } } },
         { text = "Thanks, Norman.", next = "BACK" },
       },
     },
@@ -1390,8 +1390,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_sm_default", text = "I knew a few of the Crusade, back before, when I kept a different inn and everyone in it was breathing. They were decent lads at the start, most of them, and it's a strange thing to hear their halls are emptying and feel glad and sorry in the same chair." } },
       choices = {
-        { text = "Feel sorry, Norman. They were decent once, and that matters.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Don't waste your sorrow. They'd burn this inn with you inside.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Feel sorry, Norman. They were decent once, and that matters.", next = "BACK", reply = "They were, and I'll feel sorry for them, quietly, the way you do for old friends gone wrong.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Don't waste your sorrow. They'd burn this inn with you inside.", next = "BACK", reply = "They would, and I'd be sorry for them even then. That's the innkeeper in me, I'm afraid.", fx = { align = { light = -1 } } },
         { text = "What were they like, before?", next = "xcl_sm2" },
       },
     },
@@ -1405,8 +1405,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Some do, because the last Light they saw was in the hands of men burning the plague-dead in Lordaeron's streets, and you can't blame them for remembering. Others just stare, and staring's allowed down here, so long as nobody takes your chair." } },
       choices = {
-        { text = "Let them stare. I'll show them the Light isn't their enemy.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They're right to remember. The Light was not kind to us.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let them stare. I'll show them the Light isn't their enemy.", next = "BACK", reply = "Show them gently, friend, and give them time. Nobody stares forever, not even here.", fx = { align = { light = 1 } } },
+        { text = "They're right to remember. The Light was not kind to us.", next = "BACK", reply = "It wasn't, and you'll not hear me argue. Sit down, and let the dark do you some good.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1414,8 +1414,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "It's the only kind I can keep, a chair of your own where nobody asks anything of you. The Cathedral used to promise the same, and I think I keep it better, though I'll admit my roof leaks green when it rains." } },
       choices = {
-        { text = "A chair and peace is holy enough, Norman.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Sanctuary makes people soft. They should keep moving.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A chair and peace is holy enough, Norman.", next = "BACK", reply = "Holy enough for me, friend. Have a seat; they're all comfortable, even the green-stained ones.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sanctuary makes people soft. They should keep moving.", next = "BACK", reply = "Soft, perhaps, but rested, and rested folk fight better. I'll keep the chairs warm for when you change your mind.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1425,12 +1425,12 @@ P:NPC {
           text = "Funny, you put me in mind of {alt}, who took the corner chair and sat there a day and a half without a word. Some of us knew each other before, and some of us only think we did, so I never ask." },
         { id = "h_alt_living", tags = { "news" }, when = { alt = { notKin = true, race = { "Orc", "Troll", "Tauren", "Skyborne" } } },
           text = "We had a {altclass} named {alt} in here not long ago, one of the living, and they didn't even ask whether the food was safe. I liked them for it, and I'd like you for the same." },
-        { id = "o_npdanger", tags = { "news" }, when = { gossip = { topic = "new_plague", stance = "dangerous" } }, text = "One of Zinge's lot was in here grumbling that you think the plague will get loose. Keep your voice down about that in my common room, if you would, because the Deathguard drink here." },
+        { id = "o_npdanger", tags = { "news" }, when = { gossip = { topic = "new_plague", stance = "dangerous" } }, text = "One of Apothecary Zinge's lot was in here grumbling that you think the plague will get loose. Keep your voice down about that in my common room, if you would, because the Deathguard drink here." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
           text = "You've a Forsaken friend with you, so I'll not have to explain the rooms twice. {companion} will know they're for resting the bones rather than sleeping, and the living among you can sleep wherever you like, as long as it's quietly." },
         { id = "h_default", text = "Name's Norman, and I keep the inn by the Trade Quarter. We don't sleep, most of us, but we like a chair and a place that's ours, and that's what I sell, really." },
         { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Horde" },
-          text = "Somebody's been telling stories about the Scarlet Monastery at the bar all night, and every one of them has you in it. Pull up your chair and set them straight, because one of them had you riding a bat into the cathedral." },
+          text = "Somebody's been telling stories about the Scarlet Monastery at the bar all night, and you're in each of them. Pull up your chair and set them straight, because one of them had you riding a bat into the cathedral." },
         { id = "h_chair", when = { metBefore = true }, text = "Your chair's still there, and nobody's taken it. Nobody takes anyone's chair down here; it's the last courtesy we keep." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, under the city! Sit down by the stove, and if the fire starts muttering, I'd rather not hear what it thinks of the damp." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, under the city? You'll not find much growing down here, friend, except what's in the canals, and I wouldn't touch that." },
@@ -1462,8 +1462,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhwar_default", text = "Because even warriors stop eventually, friend, and then they want somewhere that's theirs. I've had Deathguard sit in that corner for a week without a word, and they left looking a little more like themselves." } },
       choices = {
-        { text = "Rest is part of the discipline. I'll take a chair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll rest when the Scourge is ash, not before.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Rest is part of the discipline. I'll take a chair.", next = "BACK", reply = "There's a warrior with sense. Pick a chair, and it's yours for as long as you like.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll rest when the Scourge is ash, not before.", next = "BACK", reply = "Then I'll keep a chair for you, friend, and it'll be waiting when you're done.", fx = { align = { order = -1 } } },
       },
     },
     xhhunt = {
@@ -1473,16 +1473,16 @@ P:NPC {
         { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}. It can have the floor by my feet, but not a chair, because nobody takes anyone's chair down here, not even a beast with manners like that." },
       },
       choices = {
-        { text = "It'll stay on the floor, where it belongs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "It'll sit where it likes. It's earned that much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "It'll stay on the floor, where it belongs.", next = "BACK", reply = "Thank you, friend, and the chairs thank you too. I'll find it a scrap.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It'll sit where it likes. It's earned that much.", next = "BACK", reply = "It has, I don't doubt, but so has everyone else down here. Floor or nothing, friend.", fx = { align = { order = -1 } } },
       },
     },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Bless it? Nobody's offered that since I died, and the stove smokes something awful, so I'll take help from anyone. Only mind you don't bless the chairs, because nobody takes anyone's chair down here, not even a spirit." } },
       choices = {
-        { text = "I'll bless the stove and leave the chairs alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Spirits sit where they like, Norman. I won't stop them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll bless the stove and leave the chairs alone.", next = "BACK", reply = "Bless you, and bless the stove twice. It's been smoking since the Dark Lady moved in.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Spirits sit where they like, Norman. I won't stop them.", next = "BACK", reply = "Then they'll have to stand, I'm afraid, because nobody takes anyone's chair. Not even spirits.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1490,8 +1490,8 @@ P:NPC {
       big = true,
       lines = { { id = "dq_default", text = "I miss the idea of it more than the sun itself, friend, since it hurts our eyes now and makes the skin itch. But I've a pot of mushrooms on the shelf behind the bar that never sees daylight, and I talk to them, which I'd not admit to anyone but a druid." } },
       choices = {
-        { text = "Talk to them all you like. Growing things listen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Mushrooms are for eating, Norman, not for talking to.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Talk to them all you like. Growing things listen.", next = "BACK", reply = "I will, and I'll tell them you said so. They're coming along nicely, if a little pale.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mushrooms are for eating, Norman, not for talking to.", next = "BACK", reply = "Eating? My friends? I'll pretend I didn't hear that, and so will they.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1502,20 +1502,20 @@ P:NPC {
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "Everyone gets a chair, and the old cutpurses always want the one nearest the door, which I keep for them. The only rule is that nobody takes anyone else's, and I trust you'll mind it." },
       },
       choices = {
-        { text = "I'll keep to my own chair, Norman.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A chair's only mine while I'm sitting in it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep to my own chair, Norman.", next = "BACK", reply = "Good, and it'll be the one with its back to the wall, I expect. Welcome.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A chair's only mine while I'm sitting in it.", next = "BACK", reply = "That's how it starts, and then somebody gets very upset. Mind my rule, friend.", fx = { align = { order = -1 } } },
         { text = "Can I ask you something else, Norman?", next = "BACK" },
       },
     },
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "A fire would suit the room and nobody in it, since the dead can't feel it and the living don't stay long. I keep the lamps low on purpose, because my guests have had enough brightness for one lifetime." },
+        { id = "xmage_default", text = "A fire would suit the room, but not the people in it, since the dead can't feel it and the living don't stay long. I keep the lamps low on purpose, because my guests have had enough brightness for one lifetime." },
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "You'd have sat by a proper hearth in Dalaran, I expect, and I'm sorry I can't give you one. I keep the lamps low on purpose, because most of my guests have had enough brightness for one lifetime." },
       },
       choices = {
-        { text = "Low lamps it is. Your house, your rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A little light would do them good, Norman.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Low lamps it is. Your house, your rules.", next = "BACK", reply = "Thank you, friend. My guests will be grateful, even if they never say so.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little light would do them good, Norman.", next = "BACK", reply = "It might, but it might also remind them of the pyres. Low lamps, friend, for their sake.", fx = { align = { order = -1 } } },
         { text = "Can I ask you something else, Norman?", next = "BACK" },
       },
     },
@@ -1526,8 +1526,8 @@ P:NPC {
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "There's a place for it on the floor, and you'll find the floor is stone, which is the only thing down here your demon can't scorch. I've nothing against it in principle, only against what it does to leather." },
       },
       choices = {
-        { text = "It'll sit on the floor, as you say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon sits where it pleases, Norman.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "It'll sit on the floor, as you say.", next = "BACK", reply = "Thank you, and my upholstery thanks you too. I'll find it a cushion, of sorts.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon sits where it pleases, Norman.", next = "BACK", reply = "Then it can please itself on the floor, friend, or outside. Good leather's hard to come by.", fx = { align = { order = -1 } } },
         { text = "Can I ask you something else, Norman?", next = "BACK" },
       },
     },

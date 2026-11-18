@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_default", text = "Spoogledorf, at your service! Yes, that's my real name, and no, I don't mind you smiling. In Gnomeregan it was a perfectly respectable name, I'll have you know." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again! Come in, come in. Mind the stairs, they were built for long legs, and I've been cursing them for years." },
     { id = "g_often", when = { timesTalked = { min = 5 } }, text = "You visit an old gnome more often than his own company does, and they're supposed to report to me. Sit down, I'll pretend you're one of them." },
-    { id = "g_gnome", when = { race = "Gnome" }, text = "A fellow gnome, and a young one! Spoogledorf, late of Gnomeregan, Tinker Town, fourth spiral down. Which level were you from, before it all went wrong?" },
+    { id = "g_gnome", when = { race = "Gnome" }, text = "A fellow gnome, and a young one! Spoogledorf, late of Gnomeregan, fourth spiral down. Which level were you from, before it all went wrong?" },
     { id = "g_horde", when = { faction = "Horde" }, text = "Oh! Well, this is unexpected. I'd ask how you got past the guards, but I've a feeling I'd rather not know. Spoogledorf, and please don't break anything." },
   },
 
@@ -35,7 +35,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm the founder, treasurer and oldest member of Uber Town, a company of the finest young adventurers you've never heard of. I'm a bit past crawling into dungeons myself, so I keep the ledgers and they keep me in stories. One day there'll be songs, mark my words." },
         { id = "h_gnome", when = { race = "Gnome" },
-          text = "It does an old heart good to see another of us walking about with a sword or a staff instead of a begging cup. Half of Gnomeregan ended up in Ironforge's back rooms, and the other half here, fixing human clocks for pennies." },
+          text = "It does an old heart good to see another of us walking about with a sword or a staff instead of a begging cup. Most of Gnomeregan ended up in Ironforge's back rooms, and the rest of us scattered to places like this, fixing human clocks for pennies." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A mage, I see. The robes? No, no, I'm no wizard. I was an engineer, and these are what I had on when we ran. They've been mended so often that there's more thread in them than robe." },
         { id = "h_warlock", when = { class = "WARLOCK" },
@@ -63,7 +63,7 @@ P:NPC {
     name = {
       lines = {
         { id = "nm_default", text = "A spoogle is a coiled spring, the very small kind that makes a pocket watch tick, and a dorf is a workshop. My great-grandfather made the best spoogles in Gnomeregan, and the name came with the shop. In Gnomish it sounds as dignified as Ironforge." },
-        { id = "nm_gnome", when = { race = "Gnome" }, text = "Well, you know what a spoogle is, so you know my great-grandfather made the finest watch springs in Tinker Town. It's only the humans who laugh. To them everything we name sounds like a sneeze." },
+        { id = "nm_gnome", when = { race = "Gnome" }, text = "Well, you know what a spoogle is, so you know my great-grandfather made the finest watch springs in Gnomeregan. It's only the humans who laugh. To them everything we name sounds like a sneeze." },
       },
       choices = {
         { text = "Does anyone ever get it wrong?", next = "name_wrong" },
@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "nc_default", text = "A clerk at the Stormwind gate told me to write down something simpler, like Spencer. I stood there with the quill for a long time. Four generations of springs in that name. What would you have done?" } },
       choices = {
-        { text = "Keep it. Your family earned that name.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Write Spencer. A name is a tool; use the one that works here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Keep it. Your family earned that name.", next = "BACK", reply = "You're right, and I knew it the moment I put the quill down, so I wrote every letter of it out in my neatest hand and made the clerk read it back to me twice.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Write Spencer. A name is a tool; use the one that works here.", next = "BACK", reply = "That's very practical of you, and I suppose a gnome ought to appreciate a good tool, but I don't think I could answer to Spencer without wincing every single time.", fx = { align = { honor = -1 } } },
         { text = "Spencer is a terrible name for a gnome.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -98,7 +98,7 @@ P:NPC {
     -- Gnomeregan
     gnomer = {
       lines = {
-        { id = "gr_default", text = "Seventy years in Tinker Town, and I left it in an afternoon with a ledger under one arm and my beard singed. The troggs came up from below, and then the gas came, and that was that. I don't talk about the gas." },
+        { id = "gr_default", text = "Seventy years in Gnomeregan, and I left it in an afternoon with a ledger under one arm and my beard singed. The troggs came up from below, and then the gas came, and that was that. I don't talk about the gas." },
         { id = "gr_gnome", when = { race = "Gnome" }, text = "You were there too, then, or your family was. I won't ask what you lost, and you needn't ask me. We both know what the air tasted like that last day." },
       },
       choices = {
@@ -118,8 +118,8 @@ P:NPC {
       big = true,
       lines = { { id = "gb_default", text = "The High Tinker says we will, and some days I believe him. Other days I think we ought to build a new city somewhere with sky over it, and leave the old one to the troggs and the ghosts. Which would you choose?" } },
       choices = {
-        { text = "Take it back. A people shouldn't give up its home.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Build something new. Old walls aren't worth the dying.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Take it back. A people shouldn't give up its home.", next = "BACK", reply = "I needed to hear someone say that today, because it's easy to forget there are still homes and workshops down there with our names on the doors.", fx = { align = { order = 1 } } },
+        { text = "Build something new. Old walls aren't worth the dying.", next = "BACK", reply = "Perhaps you're right, and I've drawn up three plans for such a city already, though I keep putting a little tram in the middle of it out of habit.", fx = { align = { order = -1 } } },
         { text = "That's for the gnomes to decide, not me.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -147,17 +147,17 @@ P:NPC {
     -- The company
     guild = {
       lines = {
-        { id = "gd_default", text = "Five young ones and me. A warrior who argues with doors, a rogue who's always somewhere else, a priest who prays more than she heals, and a hunter with a bad-tempered cat called Biscuit. I keep two ledgers for them: one for coin, one for promises. Neither has ever balanced." },
+        { id = "gd_default", text = "Four young ones and me. A warrior who argues with doors, a rogue who's always somewhere else, a priest who prays more than she heals, and a hunter with a bad-tempered cat called Biscuit. I keep two ledgers for them: one for coin, one for promises. Neither has ever balanced." },
       },
       choices = {
         { text = "Why call it Uber Town?", next = "guild_name" },
         { text = "Two ledgers?", next = "guild_ledger" },
-        { text = "How do the five of them get along?", next = "guild_priest" },
+        { text = "How do the four of them get along?", next = "guild_priest" },
         { text = "Something else.", next = "BACK" },
       },
     },
     guild_name = {
-      lines = { { id = "gn_default", text = "'Uber' is an old Tinker Town word for a thing that's better than its blueprint. We mean to buy a town one day, a whole one, with a wall and a tavern and a bell, and it'll be better than its blueprint too. We've saved eleven gold so far." } },
+      lines = { { id = "gn_default", text = "'Uber' is an old Gnomeregan word for a thing that's better than its blueprint. We mean to buy a town one day, a whole one, with a wall and a tavern and a bell, and it'll be better than its blueprint too. We've saved eleven gold so far." } },
       choices = {
         { text = "Eleven gold won't buy much of a town.", next = "guild_town" },
         { text = "I like it. Every town starts as a dream.", next = "BACK", fx = { affinity = 1 } },
@@ -167,13 +167,13 @@ P:NPC {
       big = true,
       lines = { { id = "gt_default", text = "It'll buy the bell, which is a start. The young ones say we should take a town that's been abandoned, and there are plenty since the plague and the wars. I say a town ought to be bought fair or built new. Which way would you go?" } },
       choices = {
-        { text = "Buy it fair or build it. Taking empty land invites trouble.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If no one's living there, it's yours for the taking.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Buy it fair or build it. Taking empty land invites trouble.", next = "BACK", reply = "That's my thinking too, and I'll tell the young ones a seasoned adventurer said so, which ought to count for more than an old gnome's grumbling.", fx = { align = { order = 1 } } },
+        { text = "If no one's living there, it's yours for the taking.", next = "BACK", reply = "That's just what the young ones say, and I suppose they'll be glad to hear you agree, but I'd want to know whose grandmother's house it was before I moved in.", fx = { align = { order = -1 } } },
         { text = "Why not just join a town that already exists?", next = "BACK", fx = { trait = { skeptical = 1 } } },
       },
     },
     guild_ledger = {
-      lines = { { id = "gl_default", text = "The coin ledger says we're eleven gold richer than last year. The promise ledger says we owe a farmer a sheep, a widow a roof and a dwarf in Thelsamar an apology. When they fail, I tell them it's one more story for the songs, and when they win, I say the same." } },
+      lines = { { id = "gl_default", text = "The coin ledger says we're eleven gold richer than last year. The promise ledger says we owe a farmer a sheep, a widow a roof and a dwarf in Thelsamar an apology. When the young ones fail, I tell them it's one more story for the songs, and when they win, I say the same." } },
       choices = {
         { text = "Sounds like someone worth following.", next = "BACK", fx = { affinity = 1 } },
         { text = "Two ledgers sounds like a lot of paperwork.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -190,8 +190,8 @@ P:NPC {
       big = true,
       lines = { { id = "gg_default", text = "It is. He once told the whole tavern her prayers sounded like a cat in a well. He won't apologise, because it would mean she's a better healer than he says. And she won't heal him until he does. Who should give way first?" } },
       choices = {
-        { text = "He should apologise. Pride isn't worth a boar in the back.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "She should heal him whatever he said. That's her duty.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "He should apologise. Pride isn't worth a boar in the back.", next = "BACK", reply = "I'll tell him you said so, though I expect he'll grumble that you've never heard her sing, and then he'll sulk for a week and finally apologise anyway.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "She should heal him whatever he said. That's her duty.", next = "BACK", reply = "She'd tell you a priest's duty doesn't extend to people who compare her to a drowning cat, but I'll pass it on, and perhaps it'll shame them both into talking.", fx = { align = { light = -1 } } },
         { text = "A cat in a well? That's actually quite funny.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -211,8 +211,8 @@ P:NPC {
       big = true,
       lines = { { id = "dc_default", text = "I know it, and it keeps me up at night when they're late coming back. I tell them to come home alive first and famous second, and they nod and don't listen. What about you? Is it glory you're after, or getting home?" } },
       choices = {
-        { text = "Glory fades. I fight so others get home alive.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I want my name remembered, same as you.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Glory fades. I fight so others get home alive.", next = "BACK", reply = "That's a fine thing to fight for, and I wish more of my guild thought the same, because I'd sleep a great deal better if they all came home ordinary.", fx = { align = { honor = 1 } } },
+        { text = "I want my name remembered, same as you.", next = "BACK", reply = "Ha, I can't scold you for that without scolding myself, but promise me you'll want to be alive to hear it, because a name sounds much better in your own ears.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "I haven't decided yet.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },

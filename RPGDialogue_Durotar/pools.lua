@@ -8,7 +8,7 @@ P:Pool {
     { id = "b_coast", text = "Kul Tiran sails off the coast again. Let them look; the Horde was born under harder eyes than theirs." },
   },
   greetings = {
-    { id = "g_xbhunt", when = { origin = "orc_blade_hunter" }, text = "Back from the canyons? Orgnil says you've a nose for Burning Blade cultists, and I'll take that over another grunt with a loud axe." },
+    { id = "g_xbhunt", when = { origin = "orc_blade_hunter" }, text = "Back from the canyons? Orgnil Soulscar says you've a nose for Burning Blade cultists, and I'll take that over another grunt with a loud axe." },
     { id = "g_hill", text = "You stand in Razor Hill, where the roads to Orgrimmar, Sen'jin and the Barrens meet. Trouble meets here too, and we meet it with axes." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's late to be on the road, and the Burning Blade likes the dark. Get inside the walls, {class}; there's no honor in a knife in the back." },
   },
@@ -28,10 +28,10 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "Everything that comes up the road from the Barrens or in off the coast passes this gate first. Here's what I've heard of it." },
-      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've held the line with us, so I'll tell you what Gar'Thok won't say out loud." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've held the line with us, so I'll tell you what Gar'Thok, our commander, won't say out loud." },
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ask, and keep it short, because the commander doesn't pay me to talk." },
     },
-    burning_blade = { { id = "t_blade", text = "Orgnil hunts them. Don't get in his way, and don't get in theirs." } },
+    burning_blade = { { id = "t_blade", text = "Orgnil Soulscar hunts the Burning Blade from the barracks here. Don't get in his way, and don't get in the cult's way either." } },
     _none = { { id = "t_none", text = "Ask Gar'Thok, in the barracks. He doesn't like questions, but he answers them, and he respects a grunt who asks to his face." } },
   },
 }
@@ -44,12 +44,12 @@ P:Pool {
   },
   greetings = {
     { id = "g_xfish", when = { origin = "troll_coast_fisher" }, text = "Good catch today, mon, or did the murlocs get there first? The cook been asking after your nets since dawn." },
-    { id = "g_xseacall", when = { origin = "troll_sea_spirit_caller" }, text = "The water been calm since you sang to it last week, mon. The fishers say thank you, though they be too proud to say it themselves." },
+    { id = "g_xseacall", when = { origin = "troll_sea_spirit_caller" }, text = "The water been calm since you sang to it last week, mon. The fishers be too proud to thank you themselves, so I say it for them." },
     { id = "g_xbwon", when = { origin = "troll_bwonsamdi_singer" }, text = "Sing quiet tonight, mon, so the dead hear you and the crabs don't. Bwonsamdi like your voice better than mine, anyway." },
     { id = "g_xspy", when = { origin = "troll_echo_isles_spy" }, text = "You be back from the isles again, and nobody saw you go. How many of the hexed ones did you count this time, mon?" },
     { id = "g_xraptor", when = { origin = "troll_raptor_rider" }, text = "Your raptor still be biting everybody but you, mon? The pen keeper be nursing his thumb from the last time, and he still blame you for it." },
     { id = "g_xspear", when = { origin = "troll_senjin_spear" }, text = "Back on the gate with us, mon? I remember you holding this spot the night the Kolkar came up from the south, and you didn't step back once." },
-    { id = "g_village", text = "This be Sen'jin Village, mon, named for the chief's father, so you walk respectful." },
+    { id = "g_village", text = "This be Sen'jin Village, mon, named for Sen'jin, the father of our chief Vol'jin, so you walk respectful." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Night on the shore be pretty and dangerous both. Stay by the fires, mon, where the spirits can see you." },
   },
   notice = {
@@ -73,7 +73,7 @@ P:Pool {
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You be a friend of the Darkspear, so I tell you everything, even what Gadrin mumble to himself." },
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I tell you a little, but you not be from here, and I got the water to watch." },
     },
-    echo_isles = { { id = "t_isles", text = "That be our home, and one day we take it back. Gadrin say so, and Gadrin don't lie." } },
+    echo_isles = { { id = "t_isles", text = "The Echo Isles be our home, and one day we take them back. Master Gadrin say so, and Gadrin don't lie." } },
     _none = { { id = "t_none", text = "Ask Master Gadrin. He know most things, and he tell you the rest whether you want it or not." } },
   },
 }

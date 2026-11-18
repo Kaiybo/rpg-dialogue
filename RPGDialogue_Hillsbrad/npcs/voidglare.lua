@@ -21,8 +21,8 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and Dalaran has not crumbled in your absence, much to my disappointment. What have you brought me?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have become rather more capable. I suppose I should take some credit for that." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Mill speaks well of you, which is unusual for the Mill. Don't let it go to your head; heads are hard to replace here." },
-    { id = "g_patrols", when = { questActive = TODO_QUEST("Dalaran Patrols") }, text = "Summoners and their elemental slaves. Thin them, and the ruins are mine to search." },
-    { id = "g_key", when = { questActive = TODO_QUEST("Key to the City") }, text = "Something that opens a door unnoticed. The internment camp is full of careless wizards; search them." },
+    { id = "g_patrols", when = { questActive = TODO_QUEST("Dalaran Patrols") }, text = "Dalaran's summoners and their elemental slaves still patrol the ruins. Thin them, and the ruins are mine to search." },
+    { id = "g_key", when = { questActive = TODO_QUEST("Key to the City") }, text = "I need something that opens one of Dalaran's doors unnoticed, and the internment camp is full of careless wizards, so search them." },
   },
 
   notice = {
@@ -89,8 +89,8 @@ P:NPC {
         { id = "dn_default", text = "Something went wrong in their Violet Citadel, and the wards are failing, and the proud Kirin Tor are too busy holding their city together to guard the gate. If Dalaran falls, it takes everything with it, but if it stands, it ought to stand open." },
       },
       choices = {
-        { text = "Then help them hold it. A catastrophe helps no one.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Their trouble is our opportunity. Take what we can.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then help them hold it. A catastrophe helps no one.", next = "BACK", reply = "Help the Kirin Tor? They locked their doors on half of Lordaeron and called it prudence, so forgive me if I find your charity a little naive.", fx = { align = { order = 1 } } },
+        { text = "Their trouble is our opportunity. Take what we can.", next = "BACK", reply = "Now you sound like someone worth talking to. A wounded city guards its pantry and forgets its library, and I intend to be standing at the library door.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -110,8 +110,8 @@ P:NPC {
         { id = "tw_default", text = "Fear, I imagine, of what the apothecaries meant to do with them, or greed, or some misplaced longing for the living. Whatever their reasons, they betrayed the Dark Lady, and that admits no defence." },
       },
       choices = {
-        { text = "Betrayal is betrayal. They earned their end.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Fear of the apothecaries sounds reasonable to me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Betrayal is betrayal. They earned their end.", next = "BACK", reply = "Quite so, and the Dark Lady does not forgive, which is precisely why the rest of us are still standing in her good graces.", fx = { align = { light = -1 } } },
+        { text = "Fear of the apothecaries sounds reasonable to me.", next = "BACK", reply = "Reasonable, perhaps, but reason is not loyalty, and I would keep that thought behind your teeth if I were you; the Mill has ears.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -139,8 +139,8 @@ P:NPC {
         { id = "mo_default", text = "Bargain with it, of course. They'll surely give anything to get it back, and what I want is a seat at their table, or at least a key to their library." },
       },
       choices = {
-        { text = "Hold the mote hostage? That's beneath us.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Squeeze them hard. They owe us.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Hold the mote hostage? That's beneath us.", next = "BACK", reply = "Beneath us? We are dead, my friend, and the dead have very little left beneath them, so spare me the scruples and fetch me results.", fx = { align = { honor = 1 } } },
+        { text = "Squeeze them hard. They owe us.", next = "BACK", reply = "At last, someone who understands negotiation. Every lesson the Kirin Tor never taught me, they will now pay for in books.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -150,14 +150,14 @@ P:NPC {
         { id = "ap_default", text = "Did you, now? Then you know the halls I'm trying to get into, and you know how they look at the likes of us now. Tell me everything you remember, slowly, and leave nothing out." },
       },
       choices = {
-        { text = "I remember the libraries. And the locks.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I remember the libraries, and the locks on them.", next = "BACK", fx = { affinity = 2 } },
         { text = "Some memories I'd rather keep, Magus.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know a great deal about magic and somewhat less about people, which suits me. Ask." } },
+    knows = { { id = "tp_knows", text = "I know a library's worth about magic and somewhat less about people, which suits me. Ask." } },
     background = { { id = "tp_bg", text = "A magus of the Undercity, sent to Tarren Mill to study. I study, among other things." } },
     advice = { { id = "tp_ad", text = "Never trust a wizard's door that's left unlocked. It's either a trap or a joke, and both are at your expense." } },
     alterac = { { id = "tp_alterac", text = "Ogres in the ruins, Syndicate in the hills and wizards in the crater. Alterac has always been a crowded place to die." } },
@@ -184,8 +184,8 @@ P:NPC {
     { id = "g_default", text = "Hello, {name}. The Magus is busy, which means I'm busy, which means you're probably about to be busy." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. I'd say I missed you, but I've been told I've lost the knack for sincerity." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. The Magus asked after you twice, which for him is practically a love letter." },
-    { id = "g_tokens", when = { questActive = TODO_QUEST("Stone Tokens") }, text = "Ten worn tokens, from Dalaran's people west of here. The internment camp is safer than the city." },
-    { id = "g_bracers", when = { questActive = TODO_QUEST("Bracers of Binding") }, text = "Bracers of earth binding, off the elementals in the ruins. They're tough quarry, but I know you're up to it." },
+    { id = "g_tokens", when = { questActive = TODO_QUEST("Stone Tokens") }, text = "I need ten worn stone tokens from Dalaran's wizards west of here, and the internment camp is safer hunting than the city." },
+    { id = "g_bracers", when = { questActive = TODO_QUEST("Bracers of Binding") }, text = "I need the bracers of earth binding worn by the elementals in the ruins. They're tough quarry, but I know you're up to it." },
   },
 
   notice = {
@@ -206,7 +206,7 @@ P:NPC {
         { id = "h_bracers_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bracers of Binding"), days = 3 } },
           text = "You found them. I trust the elementals you took these bracers from were amenable? That was a joke, I think; death has quite robbed me of my timing." },
         { id = "h_mage", when = { class = "MAGE", faction = "Horde" },
-          text = "A mage! You'll forgive me if I treat you as a reference book. The Magus certainly will." },
+          text = "A mage! Don't mind me if I treat you as a reference book. The Magus certainly will." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Alliance, in the Mill? I'd keep moving, if I were you, and I'd keep moving quickly." },
       },
@@ -238,15 +238,15 @@ P:NPC {
         { id = "bc_default", text = "I've wondered, though the Magus says elementals don't feel as we do. Then again, people said the same about us, once, and they were wrong." },
       },
       choices = {
-        { text = "Then free them when you've learned the trick.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A servant's a servant. Bind away.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then free them when you've learned the trick.", next = "BACK", reply = "Free them? Perhaps, once I understand what I'm freeing, though I doubt the Magus would thank me for emptying his workshop.", fx = { align = { light = 1 } } },
+        { text = "A servant's a servant. Bind away.", next = "BACK", reply = "You sound like the Magus, which I suppose is meant as a compliment. Still, I'll keep wondering, quietly, when he isn't listening.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     magus = {
       lines = {
-        { id = "ma_default", text = "Educational, and very quiet, for he talks mostly to his notes. He's brilliant, and he'd tell you so, and he'd be about half right, which is better than most." },
+        { id = "ma_default", text = "It's educational, and very quiet, for he talks mostly to his notes. He's brilliant, and he'd tell you so, and he'd be about half right, which is better than most." },
       },
       choices = {
         { text = "What does he really want?", next = "magus_want" },
@@ -255,7 +255,7 @@ P:NPC {
     },
     magus_want = {
       lines = {
-        { id = "mw_default", text = "Into Dalaran, and not as a thief, though he'll be one if he must. He wants them to look at him as one of their own, and I don't think he knows that's what he wants." },
+        { id = "mw_default", text = "He wants into Dalaran, and not as a thief, though he'll be one if he must. He wants them to look at him as one of their own, and I don't think he knows that's what he wants." },
       },
       choices = { { text = "Something else, Keeper.", next = "BACK" } },
     },

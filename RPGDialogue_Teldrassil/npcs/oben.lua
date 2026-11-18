@@ -51,7 +51,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, friend; spirits have time for conversation." },
       },
       choices = {
-        { text = "I can't see how they took your body.", next = "ritual" },
+        { text = "How did the shaman take your body from you?", next = "ritual" },
         { text = "It must be strange, being caught outside the Dream.", next = "dream" },
         { text = "Why were you sleeping here?", next = "sleepers" },
         { text = "You really want me to kill your body?", next = "body", when = { any = { { questActive = TODO_QUEST("Druid of the Claw") }, { questDone = TODO_QUEST("The Sleeping Druid") } } } },
@@ -85,8 +85,8 @@ P:NPC {
         { id = "re_default", text = "Yes, and Athridas in Dolanaar suspects the same, so tell him what you saw here. As for the shaman, they are only fools holding a knife someone else sharpened." },
       },
       choices = {
-        { text = "Fools with knives still need stopping.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Then I'll spare the shaman I can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fools with knives still need stopping.", next = "BACK", reply = "They do, and I will not ask you to stay your hand when the knives come out. Only remember that their madness was put upon them.", fx = { align = { light = -1 } } },
+        { text = "Then I'll spare the shaman I can.", next = "BACK", reply = "Then you carry more mercy than I could, after what they did to me. The Gnarlpine that live may yet remember who they were.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } },
       },
     },
@@ -115,7 +115,7 @@ P:NPC {
         { id = "sp_default", text = "Some of the Circle sleep for long years by Ysera's leave, keeping watch in the Dream, and the barrow dens keep our bodies safe while we do. Gaerolas Talvethren guards us, and he will be heartsick that this happened on his watch." },
       },
       choices = {
-        { text = "Gaerolas was wounded by the Gnarlpine himself.", next = "sleepers_gaerolas", when = { questDone = TODO_QUEST("A Troubling Breeze") } },
+        { text = "The Gnarlpine wounded Gaerolas too, out at his post.", next = "sleepers_gaerolas", when = { questDone = TODO_QUEST("A Troubling Breeze") } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,8 +135,8 @@ P:NPC {
         { id = "bo_default", text = "I do, and I have thought on it longer than you would think. A body that hurts the people I swore to protect is not mine any longer, whatever face it wears." },
       },
       choices = {
-        { text = "Then I'll do it quickly, and with respect.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A body's a body. It won't trouble me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll do it quickly, and with respect.", next = "BACK", reply = "Thank you, friend, truly. It is the last kindness anyone can do for me, and I am glad it will be you.", fx = { align = { honor = 1 } } },
+        { text = "A body's a body. It won't trouble me.", next = "BACK", reply = "Then let it not trouble you, and let that be my gift to you. Only be quick about it, for the thing it has become is not me.", fx = { align = { honor = -1 } } },
         { text = "There must be some other way.", next = "body_other" },
       },
     },
@@ -165,10 +165,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never leave your body unattended. I mean it more plainly than most people who say it." } },
     furbolgs = { { id = "tp_furbolgs", text = "The shaman are the ones to watch, because the warriors only do what the shaman tell them. Take the charm off a shaman and you take away half his tribe's mischief." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle keeps the balance, and some of us keep it by sleeping, which sounds easier than it is." } },
-    emerald_dream = { { id = "tp_emerald_dream", text = "I was in the Dream when the Gnarlpine trapped me in my sleep, and I can tell you it is a great deal nicer than a barrow. The food in both is terrible." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I was in the Dream when the Gnarlpine trapped me in my sleep, and I can tell you it is far nicer than a barrow. The food in both is terrible." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are a sensible clan, the only one left, and if I'd napped on their ground instead I'd have been fine. Lesson learned, and slowly, as I do everything." } },
     nordrassil = { { id = "tp_nordrassil", text = "The first tree, on Hyjal. I slept under it for a few centuries once, and I recommend it far more than a barrow full of Gnarlpine." } },
     green_dragons = { { id = "tp_green_dragons", text = "Ysera's children watch over the Dream, and they've nudged me awake more than once when I wandered too deep. Very polite dragons, for dragons." } },
-    _none = { { id = "tp_none", text = "I cannot say, friend. I have walked the Emerald Dream for a very long time, and since then I have been in no state to listen." } },
+    _none = { { id = "tp_none", text = "I cannot say, friend. I slept in the Dream for a very long time, and the world went on without me." } },
   },
 }

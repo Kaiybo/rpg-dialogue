@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Shh, friend, for they're bitin'. Warg Deepwater, an' if ye've come tae learn fishin', sit down an' be quiet, for that's the first lesson." },
+    { id = "g_default", text = "Shh, friend, for they're bitin'. I'm Warg Deepwater, an' if ye've come tae learn fishin', sit down an' be quiet, for that's the first lesson." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Sit, then, an' tell me what ye caught, an' I'll tell ye what ye did wrong." },
     { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "Mornin'. Best hour on the loch, this, before the wind comes up an' the mountaineers start shoutin' on the road." },
   },
@@ -62,8 +62,8 @@ P:NPC {
         { id = "ld_default", text = "Old houses, they say, an' a road, from before the valley was flooded. I've pulled up a door hinge once, rusted through, an' I hung it over my hearth, for I couldnae bring myself tae throw it back." },
       },
       choices = {
-        { text = "Leave the drowned houses in peace.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Dive down and see what's left.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Leave the drowned houses in peace.", next = "BACK", reply = "Aye, that's my thinkin', an' I hung the hinge as a kind o' apology. Whoever lived there deserves tae sleep.", fx = { align = { light = 1 } } },
+        { text = "Dive down and see what's left.", next = "BACK", reply = "Dive? In that cold? Ye'd come up blue an' wi' nothin' but weed. Go on, though, an' tell me what's down there if ye find it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "stonewrought_dam" } } },
       },
     },
@@ -72,8 +72,8 @@ P:NPC {
         { id = "se_default", text = "There's no secret, only sittin' still longer than ye think ye can, an' then a wee bit longer. Most folk quit just before the fish decides tae trust them." },
       },
       choices = {
-        { text = "Patience wins in the end.", next = "BACK", fx = { align = { order = 1 }, trait = { patient = 1 } } },
-        { text = "I'd rather try a new spot every hour.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience wins in the end.", next = "BACK", reply = "It does, an' ye've the makin's o' a proper fisher for knowin' it. Sit down an' I'll show ye how long a wee bit longer is.", fx = { align = { order = 1 }, trait = { patient = 1 } } },
+        { text = "I'd rather try a new spot every hour.", next = "BACK", reply = "Every hour? Ye'll spend more time walkin' than fishin', an' the fish will laugh at ye from every spot ye leave.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -97,7 +97,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born on this bank, an' I mean tae die on it, wi' a rod in my hand if I've any say." } },
+    background = { { id = "tp_bg", text = "I was born on this bank, an' I mean tae die on it, wi' a rod in my hand if I've any say." } },
     advice = { { id = "tp_ad", text = "Sit still. Most things in life go better if ye sit still a moment first." } },
     _none = { { id = "tp_none", text = "I couldnae say, friend. Ask me about fish." } },
   },
@@ -116,7 +116,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Khara Deepwater, fishin' supplies, an' I've a lot o' chores today, so what can I get ye?" },
+    { id = "g_default", text = "I'm Khara Deepwater, an' I sell fishin' supplies, but I've a lot o' chores today, so what can I get ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Lost another lure tae the big one, have ye? Everyone does." },
     { id = "g_clip", when = { questActive = TODO_QUEST("Silver of the Waves") }, text = "Ye've somethin' in yer hand that's glintin' like a fish scale, an' I'd know that glint anywhere." },
   },
@@ -131,7 +131,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hooks, lines, lures an' fish food, an' a recipe or two for when ye've caught somethin' worth cookin'. My brother Warg teaches, I sell, an' between us the loch's kept fed." },
+          text = "I sell hooks, lines, lures an' fish food, an' a recipe or two for when ye've caught somethin' worth cookin'. My brother Warg teaches, I sell, an' between us the loch's kept fed." },
         { id = "h_clip", tags = { "news" }, when = { questActive = TODO_QUEST("Silver of the Waves") },
           text = "Is that my hair clip? It is, wi' my letters on it an' all! I lost it off the boat last spring an' I'd given up hope." },
         { id = "h_clip_done", when = { questDone = TODO_QUEST("Silver of the Waves") },
@@ -164,8 +164,8 @@ P:NPC {
         { id = "sl_default", text = "Bright lures tae the young ones, who think fish care about shine, an' plain hooks tae the old ones, who know better. I sell the shiny ones at a better margin, an' I've no shame about it." },
       },
       choices = {
-        { text = "Then tell the young ones the truth.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "They'll learn. That's business.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then tell the young ones the truth.", next = "BACK", reply = "The truth? An' lose half my shiny sales? I'll tell them when they're old enough tae appreciate it.", fx = { align = { honor = 1 } } },
+        { text = "They'll learn. That's business.", next = "BACK", reply = "Aye, they will, an' they'll come back for plain hooks when they do. That's how a shop lasts.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -174,14 +174,14 @@ P:NPC {
         { id = "wg_default", text = "He did, did he? Half price on my best lure, an' he was so pleased wi' himself he bought the fella a drink. I love him dearly, but he'll never touch my till again." },
       },
       choices = {
-        { text = "Family and money don't mix.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let him try again. Everyone deserves a chance.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Family and money don't mix.", next = "BACK", reply = "They dinnae, an' I married one who proves it every week. I'd no' trade him, mind, but I'll keep the till.", fx = { align = { order = 1 } } },
+        { text = "Let him try again. Everyone deserves a chance.", next = "BACK", reply = "Again? He's had three chances this year! I'll give him a fourth, but only because I love the daft man.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     chores = {
       lines = {
-        { id = "ch_default", text = "Up before Warg, which isnae hard, nets tae mend, worms tae dig, tackle tae count, an' then the Stoutlager wants fish for supper. Somewhere in there I try tae eat." },
+        { id = "ch_default", text = "I'm up before Warg, which isnae hard, an' then there's nets tae mend, worms tae dig, tackle tae count, an' then the Stoutlager wants fish for supper. Somewhere in there I try tae eat." },
       },
       choices = {
         { text = "Who wants the fish at the Stoutlager?", next = "chores_inn" },
@@ -190,7 +190,7 @@ P:NPC {
     },
     chores_inn = {
       lines = {
-        { id = "ci_default", text = "Innkeeper Hearthstove, though Vidra would rather sell ye sausages than fish, an' says so tae anyone in earshot. I bring the fish anyway, an' the mountaineers eat every scrap." },
+        { id = "ci_default", text = "Innkeeper Hearthstove, though Vidra the cook would rather sell ye sausages than fish, an' says so tae anyone in earshot. I bring the fish anyway, an' the mountaineers eat every scrap." },
       },
       choices = {
         { text = "Fish over sausage, any day.", next = "BACK", fx = { affinity = 1 } },
@@ -221,9 +221,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Before ye ask, the answer's no. I will NOT open that gate, so save yer breath for the walk round." },
     { id = "g_back", when = { metBefore = true }, text = "You again, an' I can see the question in yer face from here. It's still no." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' ye've come back tae ask about the gate again, I suppose. My answer hasnae moved, an' neither have I." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' ye've come back tae ask about the gate again, I suppose. My answer hasnae moved, an' neither have I." },
     { id = "g_horn", when = { questActive = TODO_QUEST("The Horn of the Beast") }, text = "Is that a horn ye're carryin'? Wait, let me see it, for there's somethin' stuck in it I'd know anywhere." },
-    { id = "g_key", when = { questDone = TODO_QUEST("At Last!") }, text = "So Thorius gave ye a key, did he? Then ye can open that gate yerself, an' I'll still no' do it for ye." },
+    { id = "g_key", when = { questDone = TODO_QUEST("At Last!") }, text = "So Curator Thorius gave ye a key, did he? Then ye can open that gate yerself, an' I'll still no' do it for ye." },
   },
 
   notice = {
@@ -238,9 +238,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Mountaineer Pebblebitty, an' my orders are tae keep this gate shut, for beyond it lies the Searing Gorge an' every Dark Iron who'd like tae walk intae Loch Modan. If I let one o' ye through, I'll have tae let ye all through, an' then where would we be?" },
+          text = "I'm Mountaineer Pebblebitty, an' my orders are tae keep this gate shut, for beyond it lies the Searing Gorge an' every Dark Iron who'd like tae walk intae Loch Modan. If I let one o' ye through, I'll have tae let ye all through, an' then where would we be?" },
         { id = "h_horn", tags = { "news" }, when = { questActive = TODO_QUEST("The Horn of the Beast") },
-          text = "That's Margol's horn, an' that's MY axe head buried in it! I left it there when I ran, an' I've been waitin' for somebody daft enough tae go back for it." },
+          text = "That's the horn o' Margol the Rager, an' that's MY axe head buried in it! I left it there when I ran, an' I've been waitin' for somebody daft enough tae go back for it." },
         { id = "h_proof", tags = { "news" }, when = { questActive = TODO_QUEST("Proof of Deed") },
           text = "Take my word tae Curator Thorius in Ironforge, at the Hall o' Explorers. He keeps the keys tae more doors than I'd like, an' he'll know what tae do." },
         { id = "h_after", when = { questDone = TODO_QUEST("Proof of Deed") },
@@ -283,14 +283,14 @@ P:NPC {
         { id = "gw_default", text = "Because one person through means the gate's open, an' an open gate goes both ways. The Dark Irons have been tryin' tae come up the pass since before ye were born, an' this door's the only reason they've no' managed it." },
       },
       choices = {
-        { text = "Orders are orders. You're right to hold.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "A rule with no exceptions is a foolish rule.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Orders are orders. You're right to hold.", next = "BACK", reply = "Aye, they are, an' I'm glad someone understands. Most folk think I'm just bein' stubborn.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A rule with no exceptions is a foolish rule.", next = "BACK", reply = "Maybe it is, but it's kept the Dark Irons out o' Loch Modan since before ye were born. I'll keep my foolish rule.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     gate_king = {
       lines = {
-        { id = "gk_default", text = "Then I'd say the king can come an' tell me himself, an' bring a letter wi' his seal, an' I'd still check the seal twice. Don't push it, friend, or I'll go medieval on ye." },
+        { id = "gk_default", text = "Then I'd say the king can come an' tell me himself, an' bring a letter wi' his seal, an' I'd still check the seal twice. Don't push it, friend, or ye'll see how far the drop is from this ledge." },
       },
       choices = {
         { text = "Fair. I'll stop pushing.", next = "BACK" },
@@ -321,7 +321,7 @@ P:NPC {
 
     gorge = {
       lines = {
-        { id = "gg_default", text = "The Searing Gorge, an' it's well named. Fire from the ground, Dark Iron slavers in the Cauldron, an' things in the rocks that I've no names for an' don't want any." },
+        { id = "gg_default", text = "That's the Searing Gorge, an' it's well named. Fire from the ground, Dark Iron slavers in the Cauldron, an' things in the rocks that I've no names for an' don't want any." },
       },
       choices = {
         { text = "Dark Iron slavers?", next = "gorge_slaves" },
@@ -334,8 +334,8 @@ P:NPC {
         { id = "gs_default", text = "They take what workers they can catch an' work them in the Cauldron till they drop. Some say there are Dark Irons in the Gorge who've turned against their own, but I'll believe in a kind Dark Iron when one knocks on this gate an' says please." },
       },
       choices = {
-        { text = "Even Dark Irons can change their ways.", next = "BACK", fx = { align = { light = 1 }, learn = { "dark_iron" } } },
-        { text = "A Dark Iron is a Dark Iron. Keep it shut.", next = "BACK", fx = { align = { light = -1 }, learn = { "dark_iron" } } },
+        { text = "Even Dark Irons can change their ways.", next = "BACK", reply = "Maybe some can, an' I'd like tae believe it. But I'll no' bet the valley on it, no' wi' this gate.", fx = { align = { light = 1 }, learn = { "dark_iron" } } },
+        { text = "A Dark Iron is a Dark Iron. Keep it shut.", next = "BACK", reply = "That's what the sergeant says, an' it's what the gate's for. Shut an' barred, an' my axe on it.", fx = { align = { light = -1 }, learn = { "dark_iron" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -363,14 +363,14 @@ P:NPC {
         { id = "ma_default", text = "Aye, an' I'd do it again, though maybe wi' a heavier axe. My sergeant called it the bravest daft thing he'd ever seen, an' then he put me on gate duty for a year so I couldnae do it twice." },
       },
       choices = {
-        { text = "Brave is never daft.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Your sergeant was right to rein you in.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Brave is never daft.", next = "BACK", reply = "Is it no'? Ye'd make a fine sergeant, an' I'd follow ye anywhere. Brave an' daft both, that's me.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Your sergeant was right to rein you in.", next = "BACK", reply = "Aye, he was, though I'll no' admit it tae his face. A gate guard lives longer than a hero.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     margol_axe = {
       lines = {
-        { id = "mx_default", text = "The axe I can do without, but I'd like that horn, for then everybody who laughed would know I hit him. Bring me Margol's horn, an' I'll put in a word wi' Thorius that might be worth more than ye'd think." },
+        { id = "mx_default", text = "The axe I can do without, but I'd like that horn, for then everybody who laughed would know I hit him. Bring me Margol's horn, an' I'll put in a word wi' Curator Thorius that might be worth more than ye'd think." },
       },
       choices = {
         { text = "I'll bring you that horn.", next = "BACK", fx = { affinity = 1 } },
@@ -383,8 +383,8 @@ P:NPC {
         { id = "hn_default", text = "Ha! Look at that, my axe head still in it, rusted solid! Ye killed the brute, didn't ye, an' ye brought this back tae a stranger at a gate. I'll write ye a proof o' the deed, an' ye take it tae Curator Thorius in Ironforge." },
       },
       choices = {
-        { text = "Keep the axe head. You earned it first.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "I did the killing. The horn's my trophy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Keep the axe head. You earned it first.", next = "BACK", reply = "I will, then, an' I'll hang it over this gate for the sergeant tae see. Thank ye, truly.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I did the killing. The horn's my trophy.", next = "BACK", reply = "Yer trophy, aye, an' ye earned it fair. I'll only ask ye tae tell folk where the axe head came from.", fx = { align = { honor = -1 } } },
         { text = "What will Thorius do?", next = "route_key" },
       },
     },
@@ -410,9 +410,9 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know this gate, an' what's behind it, an' who's tried tae get through. That's enough for anyone." } },
-    background = { { id = "tp_bg", text = "Thelsamar Mountaineer, an' the gate's been mine since I came back from the Gorge without my axe." } },
+    background = { { id = "tp_bg", text = "I'm a Thelsamar Mountaineer, an' the gate's been mine since I came back from the Gorge without my axe." } },
     advice = { { id = "tp_ad", text = "Go round through the Badlands. Ye'll get there slower, but ye'll get there." } },
-    dark_iron = { { id = "tp_di", text = "They'd come up this pass in a heartbeat if I let them, so I don't." } },
+    dark_iron = { { id = "tp_di", text = "The Dark Irons would come up this pass in a heartbeat if I let them, so I don't." } },
     _none = { { id = "tp_none", text = "I'm a gate guard, friend, no' a scholar. Ask me about the gate, an' I'll still say no." } },
   },
 }

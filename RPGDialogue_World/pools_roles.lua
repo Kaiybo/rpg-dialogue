@@ -18,11 +18,11 @@ P:Pool {
   },
   notice = {
     { id = "n_xrider", cat = "origin", when = { origin = "skyborne_banaethal_rider" },
-      text = "You stand like someone used to a big bird under you, and a bad-tempered one at that. Is it true your Galestriders will let only one rider near them, or did you just never bother to share?" },
+      text = "You stand like someone used to a big bird under you, and a bad-tempered one at that. Is it true your Galestriders will only ever carry the one rider?" },
     { id = "n_pet_hurt", cat = "pet", when = { pet = { type = "Beast" }, durability = { max = 0.3 } },
       text = "You look like you've been dragged through a briar. Does {pet} look the same under all that fur?" },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "Good animal; let me see the teeth. No? Can't blame you; I wouldn't let me either." },
+      text = "That's a good animal. May I see its teeth? No? I can't blame it; I wouldn't let a stranger look either." },
     { id = "n_bear", cat = "form", when = { form = "bear" }, place = "replace",
       text = "I'm not stabling you; I've got goats in there." },
     { id = "n_travel", cat = "form", when = { form = "travel" },
@@ -101,7 +101,7 @@ P:Pool {
     care_food = {
       lines = {
         { id = "cf_default", text = "Then you're feeding it the wrong thing. Cats and wolves want meat or fish and nothing else, bears and boars will eat near anything you put down, and the gentler sort want fruit or a bit of mushroom. A beast that eats what it likes fights like it means it." },
-        { id = "cf_pet", when = { pet = { type = "Beast" } }, text = "Look at {pet}'s teeth and you'll know what it wants; flat teeth for greens, sharp ones for meat. Feed it what its teeth ask for, and feed it before it starts sulking." },
+        { id = "cf_pet", when = { pet = { type = "Beast" } }, text = "Then you're feeding it the wrong thing. Look at {pet}'s teeth and you'll know what it wants; flat teeth for greens, sharp ones for meat. Feed it what its teeth ask for, and feed it before it starts sulking." },
       },
       choices = {
         { text = "I'll buy it something better.", next = "BACK", fx = { trait = { kind = 1 } } },
@@ -122,7 +122,7 @@ P:Pool {
     },
     tame_kin = {
       lines = {
-        { id = "tk_default", text = "Then you know more than most who come through here, and you'll not need me telling you how to hold a leash." },
+        { id = "tk_default", text = "Then you know your way round a beast already, and you'll not need me telling you how to hold a leash." },
         { id = "tk_bear", when = { origin = "dwarf_bear_tracker" }, text = "A bear-tracker from the Dun Morogh hills! Then you know a bear will forgive you nearly anything except surprising it, and that's half of taming right there." },
         { id = "tk_saber", when = { origin = "nightelf_nightsaber_rider" }, text = "A nightsaber rider, is it? Your cats pick their own riders, I'm told, so you'll know already that the beast tames you at least as much as you tame it." },
         { id = "tk_plains", when = { origin = "tauren_plains_runner" }, text = "A plains runner! Your people walk with the herds rather than behind them, and the animals feel it; I've watched kodo follow a tauren like a calf follows its mother." },
@@ -149,7 +149,7 @@ P:Pool {
     },
     unclaimed = {
       lines = {
-        { id = "u_default", text = "Once. A hunter left me a big grey wolf and said a week, maybe two, and I fed that wolf through a whole season while it lay by the gate with its nose to the road. Then one morning the stall was empty and the latch was still shut, and I've never worked out how." },
+        { id = "u_default", text = "Not always. A hunter once left me a big grey wolf and said a week, maybe two, and I fed that wolf through a whole season while it lay by the gate with its nose to the road. Then one morning the stall was empty and the latch was still shut, and I've never worked out how." },
       },
       choices = {
         { text = "Did you ever learn what became of the hunter?", next = "unclaimed_end" },
@@ -205,8 +205,8 @@ P:Pool {
         { id = "c_nightelf", when = { race = "NightElf" }, text = "The kaldorei don't pen their sabers at all, I'm told; the cats come and go as they please. I'd try it, but my goats would never be seen again." },
       },
       choices = {
-        { text = "A good pen and a good keeper beat starving in the wild.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "Nothing wild should be caged, however kind the keeper.", next = "BACK", fx = { align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "A good pen and a good keeper beat starving in the wild.", next = "BACK", reply = "That's what I tell myself on the good days, and most of them grow fat and easy here, though I still catch the wild ones staring at the hills.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Nothing wild should be caged, however kind the keeper.", next = "BACK", reply = "I can't argue with you, and some nights I can't argue with myself either, but a wounded beast turned loose is a dead one, so I keep the pens and the doubts both.", fx = { align = { order = -1 }, trait = { kind = 1 } } },
         { text = "Do the animals ever forgive you for it?", next = "cages_mind" },
         { text = "The Earth Mother made the beasts our kin, not our property.", next = "cages_mind", when = { race = "Tauren" } },
         { text = "Our nightsabers choose whom they follow.", next = "cages_mind", when = { race = "NightElf" } },
@@ -214,7 +214,7 @@ P:Pool {
     },
     cages_mind = {
       lines = {
-        { id = "cm_default", text = "The tame ones never knew there was anything to forgive, and the wild ones only forgive you once they've decided you're theirs. It took that old hound under the trough three winters to decide it about me." },
+        { id = "cm_default", text = "The tame ones never knew any other life, and the wild ones only settle once they've decided you belong to them, not the other way round. It took that old hound under the trough three winters to decide it about me." },
         { id = "cm_druid", when = { class = "DRUID" }, text = "You'd know better than me, druid, having been a beast yourself. Did you ever want to be shut in somewhere warm, or did the cold always pull at you?" },
       },
       choices = {
@@ -249,7 +249,7 @@ P:Pool {
   id = "auctioneer", role = "auctioneer",
   greetings = {
     { id = "g_bid", text = "Bidding, buying out, or selling?" },
-    { id = "g_away", when = { away = 7 }, text = "Back after {away}? Half the listings have changed hands since, so have a look." },
+    { id = "g_away", when = { away = 7 }, text = "Back after {away}? Most of the listings have changed hands since, so have a look." },
   },
   lines = {
     { id = "l_default", text = "The house takes its cut, the seller takes the rest, and everybody blames me for the prices." },
@@ -363,8 +363,8 @@ P:Pool {
         { id = "n_default", text = "The heels of yesterday's loaves go out the back door at closing, to whoever's waiting there. I can't feed the whole town for nothing, or I'd be standing in that line myself by spring." },
       },
       choices = {
-        { text = "Nobody should go hungry while there's bread to spare.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Charity's a fine way to go out of business.", next = "BACK", fx = { align = { light = -1 }, trait = { greedy = 1 } } },
+        { text = "Nobody should go hungry while there's bread to spare.", next = "BACK", reply = "My mother would have said the same, and she gave away half her bread, which is why I still bake in her shop and not my own.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Charity's a fine way to go out of business.", next = "BACK", reply = "You sound like my ledger, and it's not wrong, but I've stood in that line myself once, and I'll not send folk away while there are heels to give.", fx = { align = { light = -1 }, trait = { greedy = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -419,7 +419,7 @@ P:Pool {
     gossip = {
       lines = {
         { id = "g_default", text = "Mostly who owes whom, whose cart lost a wheel, and which guard sleeps through the night watch. Folk don't tell a bartender secrets, they just forget I'm standing here, which comes to the same thing." },
-        { id = "g_alliance", when = { faction = "Alliance" }, text = "The caravan drivers say the king still hasn't come home, and the regent's doing his best, but nobody's buying rounds to his health. Folk are uneasy, and uneasy folk drink." },
+        { id = "g_alliance", when = { faction = "Alliance" }, text = "The caravan drivers say King Varian still hasn't come home, and Lord Bolvar is ruling as regent in his place. Folk are uneasy, and uneasy folk drink." },
         { id = "g_horde", when = { faction = "Horde" }, text = "The caravan drivers say the centaur are bolder on the Barrens roads than they've been in years, and nobody's riding out alone. Good for my trade, I suppose, since frightened folk drink." },
       },
       choices = {
@@ -443,8 +443,8 @@ P:Pool {
         { id = "c_default", text = "When they start crying into the cup or offering to fight the furniture, yes. A drunk who falls down the stairs is bad for trade, and a drunk who burns the place down is worse." },
       },
       choices = {
-        { text = "Somebody has to say when, and it may as well be you.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "Grown folk can decide for themselves when they've had enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Somebody has to say when, and it may as well be you.", next = "BACK", reply = "That's the way I see it, and nobody thanks me at the time, though they come back sober the next week with an apology and an empty purse.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Grown folk can decide for themselves when they've had enough.", next = "BACK", reply = "They can, friend, right up until they decide it on my stairs, and then it's my floor and my trade they're bleeding on.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -486,7 +486,7 @@ P:Pool {
       choices = {
         { text = "Let me see the shelves.", next = "BUSINESS" },
         { text = "Half of this I couldn't put a name to.", next = "uses" },
-        { text = "You've a great deal of stock in here.", next = "source" },
+        { text = "You've a lot of stock in here.", next = "source" },
         { text = "Do you ask what your customers do with it?", next = "asking" },
         { text = "Do you sell soul shards?", next = "shards", when = { class = "WARLOCK" } },
         { text = "Good day.", next = "END" },
@@ -495,7 +495,7 @@ P:Pool {
     uses = {
       lines = {
         { id = "u_default", text = "Candles for the priests, powders for the mages, little symbols for the paladins, and seeds and berries for the druids, who could pick their own but never seem to have the time. The rogues want flash powder and vials, and I've stopped asking why." },
-        { id = "u_shaman", when = { class = "SHAMAN" }, text = "And ankhs for your sort, of course. I've sold a good many of them to shamans who swore they'd never need one, and every one of them came back for more." },
+        { id = "u_shaman", when = { class = "SHAMAN" }, text = "And ankhs for your sort, of course. I've sold a good many of them to shamans who swore they'd never need one, and they all came back for more." },
         { id = "u_rogue", when = { class = "ROGUE" }, text = "You'll be after the vials and the flash powder, I expect, and you'll not tell me what for. That's fine; your coin's the same colour as anyone's." },
       },
       choices = {
@@ -513,11 +513,11 @@ P:Pool {
     asking = {
       big = true,
       lines = {
-        { id = "a_default", text = "Not often, because the answer's usually either dull or something I'd rather not know. Mind you, when a nervous sort buys three vials of the same thing, I do take a long look at their face." },
+        { id = "a_default", text = "Not often, because the answer's usually either dull or something I'd rather not know. Still, when a nervous sort buys three vials of the same thing, I do take a long look at their face." },
       },
       choices = {
-        { text = "You ought to know who you're selling to.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "What folk do with it is their own business.", next = "BACK", fx = { align = { order = -1 }, trait = { discreet = 1 } } },
+        { text = "You ought to know who you're selling to.", next = "BACK", reply = "You're right, and I've turned away a few whose faces I didn't like, though I'll never know if I stopped something or only lost a sale.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "What folk do with it is their own business.", next = "BACK", reply = "That's how most of my trade sees it, and it lets me sleep, but every so often I hear a story in the market and wonder whose vial it was.", fx = { align = { order = -1 }, trait = { discreet = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -544,9 +544,9 @@ P:Pool {
   id = "trainer_paladin", role = "trainer", subtitle = "paladin trainer", tier = "service",
   greetings = {
     { id = "g_light", text = "Be welcome, and be honest. Here to learn?" },
-    { id = "g_high", when = { minLevel = 40 }, text = "You've come a long way since your first lesson, when you dropped the hammer on your own foot. Come, there's more to learn." },
+    { id = "g_high", when = { minLevel = 40 }, text = "You carry yourself like someone who's come a long way since their first lesson. Come, there's always more to learn." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and I trust the Light walked with you. Come, let's see what it taught you." },
-    { id = "g_since", when = { levelsSince = 6 }, text = "You've come a long way since I last taught you, and it shows in how you stand. Come, there's more to learn." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "Look at you; you stand differently than you did at our last lesson. Let's find out what else has changed." },
     { id = "g_fem", when = { class = "PALADIN", gender = "female", maxLevel = 15 }, text = "Welcome, sister. Some of the old knights will tell you the order was a brotherhood, and you may tell them the Light never checked." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late for a lesson, but the Light keeps no hours and neither do I. Come in out of the dark." },
     { id = "g_ghost", when = { resSick = true }, text = "You've the grey look of someone the spirit healer has just sent back. Sit a moment before you swing anything." },
@@ -557,7 +557,7 @@ P:Pool {
     { id = "n_undead", cat = "class", when = { race = "Scourge", class = "PALADIN" },
       text = "The Light comes to you, and it hurts, doesn't it? I don't understand why it answers, but I've stopped pretending that it doesn't." },
     { id = "n_human", cat = "class", when = { race = "Human", class = "PALADIN" },
-      text = "Every human paladin I've taught had that same look, half sure the Light was listening and half afraid that it was. Both halves are right, so keep them." },
+      text = "Every human paladin I've taught had that same look, hoping the Light was listening and afraid that it was. Keep both; they'll serve you." },
     { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "PALADIN" },
       text = "You've a dwarf's patience with the hammer and a dwarf's impatience with everything else. The Light seems to like the combination, so I'll not argue with it." },
     { id = "n_deaths", cat = "class", when = { class = "PALADIN", deaths = { min = 20 } },
@@ -569,7 +569,7 @@ P:Pool {
   nodes = {
     hello = {
       lines = {
-        { id = "l_default", text = "Strength without humility is just a heavier sword. Now, what have you come to learn?" },
+        { id = "l_default", text = "Come in, and keep your voice low; there's a squire at prayer in the corner. Now, what have you come to learn?" },
         { id = "l_dwarf", when = { race = "Dwarf", class = "PALADIN" }, text = "A dwarf of the Light! Stubborn faith is the best kind, so let's begin." },
         { id = "l_young", when = { class = "PALADIN", maxLevel = 20 }, text = "Your hammer arm will learn before your heart does, and that's the wrong way round. Pray before you train, not after." },
         { id = "l_veteran", when = { class = "PALADIN", minLevel = 45 }, text = "You wear the Light now like an old coat you've stopped noticing. That's either grace or exhaustion, so tell me which." },
@@ -603,13 +603,13 @@ P:Pool {
     craft = {
       hub = true,
       lines = {
-        { id = "p_default", text = "Your blessings, and on other people. A paladin who keeps every blessing for their own skin is only a warrior who prays." },
+        { id = "p_default", text = "Your blessings, and practise them on other people. A paladin who keeps every blessing for their own skin is only a warrior who prays." },
         { id = "p_young", when = { maxLevel = 20 }, text = "Learn to heal in armour with a hammer still in your hand. Nobody will ever give you a quiet moment to set it down." },
         { id = "p_veteran", when = { minLevel = 40 }, text = "Learn when to step forward and take the blow meant for someone softer. The Light gave you that armour for exactly that." },
       },
       again = {
         { id = "c_again", text = "What else? There's always more to drill than there are hours to drill it." },
-        { id = "c_again2", text = "Ask away. I'd rather answer you here than have you find out the hard way on the road." },
+        { id = "c_again2", text = "Ask away. I'd rather answer you here than have the road answer you instead." },
       },
       choices = {
         { text = "Who should I bless, if I can only manage one?", next = "blessings" },
@@ -632,7 +632,7 @@ P:Pool {
       },
     },
     blessings_self = {
-      lines = { { id = "bs_default", text = "You're not last, you're simply not first. A paladin who's all bruises can still stand in a doorway, and that's worth more than a pretty one who's hiding behind it." } },
+      lines = { { id = "bs_default", text = "You're not last, you're simply not first. A paladin covered in bruises can still stand in a doorway, and that does more good than a clean one hiding behind it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     seals = {
@@ -678,8 +678,8 @@ P:Pool {
         { id = "rd_undead", when = { race = "Scourge" }, text = "I'd be frightened too, in your place. You call them back into warm flesh, which is more than anyone did for you, and I've no answer for why the Light allows the one and not the other." },
       },
       choices = {
-        { text = "It's a gift. I'll use it gladly.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Some souls are better left where they fell.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "It's a gift. I'll use it gladly.", next = "BACK", reply = "It is a gift, and I'm glad you see it that way, only don't forget the face they make when they wake, because it will tell you more than any sermon.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Some souls are better left where they fell.", next = "BACK", reply = "Some are, and you'll learn to feel the difference, though I pray you'll never have to be the one who decides it beside a grave.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -697,8 +697,8 @@ P:Pool {
       big = true,
       lines = { { id = "m_default", text = "Both, and never at the same moment. Mercy for the one who can still turn back, judgement for the one who won't, and Light help you telling them apart while they're both holding swords." } },
       choices = {
-        { text = "Mercy first, always. Judgement belongs to the Light.", next = "BACK", fx = { align = { light = 1, order = -1 }, trait = { kind = 1 } } },
-        { text = "Judgement first. Mercy to the wicked is cruelty to their victims.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Mercy first, always. Judgement belongs to the Light.", next = "BACK", reply = "That's the gentler path, and the Light walks it more often than we do, but be ready for the day mercy is spent on someone who means to use it.", fx = { align = { light = 1, order = -1 }, trait = { kind = 1 } } },
+        { text = "Judgement first. Mercy to the wicked is cruelty to their victims.", next = "BACK", reply = "There's iron in that, and the innocent will thank you, but watch yourself, because a paladin who stops looking for mercy soon stops finding any.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
         { text = "How do you tell them apart?", next = "mercy_tell" },
       },
     },
@@ -715,7 +715,7 @@ P:Pool {
         { id = "o_horde", when = { faction = "Horde" }, text = "The living knights would say nothing is left that belongs to us. We swore the same oaths before the plague, though, and the Light hasn't asked to have them back." },
       },
       again = {
-        { id = "o_again", text = "What else about the order? I'll tell you what I can, and what I can't I'll say so." },
+        { id = "o_again", text = "What else about the order? I'll tell you what I can, and say so plainly when I can't." },
         { id = "o_again2", text = "Ask on. Old knights like nothing better than talking about the old days." },
       },
       choices = {
@@ -729,7 +729,7 @@ P:Pool {
     },
     uther = {
       lines = {
-        { id = "ut_default", text = "He was the first of us, ordained by Archbishop Faol himself, and he was kinder off the field than anyone would believe from watching him on it. He died at Andorhal, defending a prince's ashes from the prince who killed him." },
+        { id = "ut_default", text = "He was the first of us, ordained by Archbishop Faol himself, and he was kinder off the field than anyone would believe from watching him on it. He died near Andorhal, guarding King Terenas's ashes from Arthas, the son who had murdered him." },
         { id = "ut_undead", when = { race = "Scourge" }, text = "You might have seen him once, in the life before. Plenty of Lordaeron's people did, riding at the head of the column with that great hammer across his saddle." },
       },
       choices = {
@@ -748,27 +748,27 @@ P:Pool {
         { id = "af_undead", when = { race = "Scourge" }, text = "You'd know his work better than any of my students. I'll only say that he was once exactly as earnest as you, and that's the part we're meant to remember." },
       },
       choices = {
-        { text = "Then any of us could fall the same way.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
-        { text = "He chose it. I'd never make that choice.", next = "BACK", fx = { align = { order = -1 }, trait = { proud = 1 } } },
+        { text = "Then any of us could fall the same way.", next = "BACK", reply = "Any of us could, and that's why I told you, because Arthas was the finest of us once, and he never thought it could happen to him either.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "He chose it. I'd never make that choice.", next = "BACK", reply = "That's exactly what he would have said, the year before Stratholme, and I'd sleep easier if you weren't quite so certain.", fx = { align = { order = -1 }, trait = { proud = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     scarlet = {
       big = true,
       lines = {
-        { id = "sc_default", text = "They say a great many things, mostly at the top of their lungs. Some of them were good knights once, and now they burn farmers for coughing and call it the Light's work, which it isn't." },
+        { id = "sc_default", text = "They say plenty, mostly at the top of their lungs. Some of them were good knights once, and now they burn farmers for coughing and call it the Light's work, which it isn't." },
         { id = "sc_undead", when = { race = "Scourge" }, text = "They'd say you're an abomination wearing a dead knight's armour, and they'd put you to the torch before you finished a prayer. Keep away from their monastery and their towers, unless you've come to end them." },
       },
       choices = {
-        { text = "Someone has to fight the Scourge without mercy.", next = "BACK", fx = { align = { order = 1, light = -1 }, opinion = { scarlet_crusade = "necessary" } } },
-        { text = "They've become as cruel as the dead they hunt.", next = "BACK", fx = { align = { light = 1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "Someone has to fight the Scourge without mercy.", next = "BACK", reply = "Someone does, and I'll not pretend the Scourge deserves mercy, but there's a difference between fighting the dead and burning the living because you're afraid.", fx = { align = { order = 1, light = -1 }, opinion = { scarlet_crusade = "necessary" } } },
+        { text = "They've become as cruel as the dead they hunt.", next = "BACK", reply = "They have, and it grieves me more than I can say, because I knew some of them when their tabards were clean and their prayers were honest.", fx = { align = { light = 1 }, opinion = { scarlet_crusade = "hate" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     argent = {
       lines = {
         { id = "ag_default", text = "They're the best of what came after, if you ask me. Priests, knights, farmers and scholars who'll stand beside anyone who fights the Scourge, and they don't ask what you were before you picked up a sword." },
-        { id = "ag_lvl", when = { minLevel = 50 }, text = "You're ready for the north, so go and find them at Light's Hope Chapel in the east. They'll have work for a paladin, and they'll pay in more than coin." },
+        { id = "ag_lvl", when = { minLevel = 50 }, text = "You're ready for the Plaguelands, so go and find them at Light's Hope Chapel, at the far eastern end. They'll have work for a paladin, and they'll pay in more than coin." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -790,7 +790,7 @@ P:Pool {
         { text = "To protect people who can't protect themselves.", next = "why_answer", fx = { align = { light = 1 }, trait = { kind = 1 }, affinity = 1 } },
         { text = "For justice. Somebody has to bring the wicked to account.", next = "why_answer", fx = { align = { order = 1 }, trait = { stern = 1 } } },
         { text = "For vengeance. The Scourge took everything from me.", next = "why_vengeance", fx = { align = { light = -1 }, trait = { stern = 1 } } },
-        { text = "Honestly, the order needed bodies and I needed bread.", next = "why_answer", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "The order needed bodies, and I needed bread. Simple as that.", next = "why_answer", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
         { text = "Do you ever doubt the Light?", next = "doubt" },
       },
     },
@@ -804,7 +804,7 @@ P:Pool {
       },
     },
     why_vengeance = {
-      lines = { { id = "wv_default", text = "I understand it, and I won't pretend I've never felt it. Vengeance will get you to the Plaguelands, but it won't keep the Light in your hands once you're there, so find another reason before you arrive." } },
+      lines = { { id = "wv_default", text = "I understand it, and I've felt it myself, more than once. Vengeance will get you to the Plaguelands, but it won't keep the Light in your hands once you're there, so find another reason before you arrive." } },
       choices = {
         { text = "I'll try.", next = "BACK", fx = { affinity = 1 } },
         { text = "Vengeance is reason enough for me.", next = "BACK", fx = { trait = { proud = 1 } } },
@@ -834,7 +834,7 @@ P:Pool {
       },
     },
     prayer = {
-      lines = { { id = "pr_default", text = "Here's the one we give squires on their first night: Light, make my arm strong and my judgement slow, and keep the people behind me safe from both. Say it before a fight and mean it, and that's half of what we do." } },
+      lines = { { id = "pr_default", text = "Here's the one we give squires on their first night: Light, make my arm strong and my judgement slow, and keep the people behind me safe from both. Say it before a fight and mean it, and you'll have the heart of what we do." } },
       choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } } },
     },
     priest = {
@@ -874,13 +874,13 @@ P:Pool {
         { id = "xo_risen", text = "Then you swore the oath once already, with a heartbeat behind it. I won't ask you to swear it again, only to keep it as well as you can now that you're cold." },
       },
       choices = {
-        { text = "My oath outlived me. I'll keep it.", next = "BACK", fx = { align = { honor = 1 }, trait = { pious = 1 } } },
-        { text = "Death released me from that oath.", next = "BACK", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "My oath outlived me. I'll keep it.", next = "BACK", reply = "Then the Light has more company than I thought, and I'll stand beside you, cold hands and all, for as long as you keep that oath.", fx = { align = { honor = 1 }, trait = { pious = 1 } } },
+        { text = "Death released me from that oath.", next = "BACK", reply = "Perhaps it did, and I won't hold you to words spoken by a living man, but I'd hope you'd find something worth swearing to again.", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xorig_unsworn = {
-      lines = { { id = "xo_unsworn", text = "Then you never knelt, and yet the Light came to you anyway, which tells me it doesn't care much for our ceremonies. If you want to say the words now, I'll hear them, and if not, the Light seems to have heard enough." } },
+      lines = { { id = "xo_unsworn", text = "Then you never knelt, and yet the Light came to you anyway, so it can't care much for our ceremonies. If you want to say the words now, I'll hear them, and if not, the Light seems to have heard enough." } },
       choices = {
         { text = "I'd like to say them now.", next = "oath" },
         { text = "Something else.", next = "BACK" },
@@ -893,7 +893,7 @@ P:Pool {
   },
   topics = {
     holy_light = {
-      { id = "w_light", text = "The Light is the strength in your arm when your arm has nothing left, and it asks only that you use it for others. Uther taught us that, and every paladin since has had to learn it the hard way." },
+      { id = "w_light", text = "The Light is the strength in your arm when your arm has nothing left, and it asks only that you use it for others. Uther taught us that, and every paladin since has had to learn it again with blood on their gauntlets." },
     },
     arthas = {
       { id = "w_arthas", text = "He was one of ours, ordained by Uther's own hand, and he broke the order when he broke his father's kingdom. We teach his name to every squire, so that none of them think the Light makes them incapable of falling." },
@@ -920,7 +920,7 @@ P:Pool {
       { id = "w_forsaken", text = "They're the people of Lordaeron, whatever else they are now, and some of them still kneel. I'd sooner judge them one at a time than all at once." },
     },
     knows = {
-      { id = "t_kn1", text = "The Light asks us to share whatever might help another, so I will. Ask me of these, and I'll answer you honestly." },
+      { id = "t_kn1", text = "The Light asks us to share whatever might help another, so I will. Ask me about any of these, and I'll give you a true answer." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You carry yourself with honor, and I'd gladly tell you all I know, and pray you use it well." },
     },
     _none = { { id = "t_none", text = "That's not a matter of the Light. Ask elsewhere, and kindly." } },
@@ -937,7 +937,7 @@ P:Pool {
     { id = "g_peace", text = "Peace. What do you need?" },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Back for more? Good; the Light rewards the stubborn." },
     { id = "g_away", when = { away = 7 }, text = "Back after {away}. I hope you prayed while you were gone, because I prayed for you." },
-    { id = "g_since", when = { levelsSince = 6 }, text = "You've grown a great deal since our last lesson, and the Light has grown in you with it. Sit, and we'll go on." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "You've grown since our last lesson, and the Light has grown in you with it. Sit, and we'll go on." },
   },
   notice = {
     { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "PRIEST" },
@@ -958,7 +958,7 @@ P:Pool {
       lines = {
         { id = "l_default", text = "Healing is the easy part. Knowing when to let someone fall and learn is harder." },
         { id = "l_young", when = { class = "PRIEST", maxLevel = 20 }, text = "Still learning to keep your friends standing? That takes longer than learning the words, so be patient with yourself." },
-        { id = "l_veteran", when = { class = "PRIEST", minLevel = 45 }, text = "You've seen things I only teach about. Don't let them make you hard; make them make you careful." },
+        { id = "l_veteran", when = { class = "PRIEST", minLevel = 45 }, text = "You've seen things I only teach about. Don't let them make you hard; let them make you careful." },
         { id = "l_other", when = { ["not"] = { class = "PRIEST" } }, text = "Not one of mine, but the Light doesn't mind. If you're ever hurt and far from a priest, pray anyway. It hears more than we do." },
       },
       again = { { id = "a_again", text = "Something else, while you're here?" } },
@@ -989,15 +989,15 @@ P:Pool {
       big = true,
       lines = { { id = "s_default", text = "Both, if you're brave and honest with yourself. The Light heals; the shadow teaches you what you're healing against. Just never let the second one become the reason you do the first." } },
       choices = {
-        { text = "I'll keep to the Light.", next = "BACK", fx = { align = { light = 2 }, trait = { pious = 1 } } },
-        { text = "I want to learn the shadow.", next = "BACK", fx = { align = { light = -1 }, trait = { curious = 1 } } },
+        { text = "I'll keep to the Light.", next = "BACK", reply = "A good choice, and an easier road to walk, though you'll still meet the shadow in other people's wounds, so don't think you've escaped it altogether.", fx = { align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "I want to learn the shadow.", next = "BACK", reply = "Then learn it carefully, and come back to the Light often, because the shadow is a fine teacher and a very poor master.", fx = { align = { light = -1 }, trait = { curious = 1 } } },
       },
     },
     shadow_fear = {
       lines = { { id = "sf_default", text = "Not the shadow itself, but the ease of it. Everything you do in that shape, you take from someone, and everything you do outside it, you give. I'd hate to see you forget how to give." } },
       choices = {
-        { text = "I won't forget.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Taking keeps people alive too.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "I won't forget.", next = "BACK", reply = "I'll hold you to that, and so will the people you heal, because they'll notice long before you do if you start to forget.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Taking keeps people alive too.", next = "BACK", reply = "It does, and I'll not tell you otherwise, but be sure you keep count of what you take, because the shadow certainly won't.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
       },
     },
     tired = {
@@ -1015,7 +1015,7 @@ P:Pool {
       { id = "w_elune", when = { race = "NightElf" }, text = "Elune hears your prayers as surely as the Light hears a human's, and the Sisterhood has healed under her moon for ten thousand years. Pray to her by name, child; she likes to be asked." },
     },
     scourge = {
-      { id = "w_scourge", text = "The Scourge are what happens when death is denied its due. Heal the living, give the dead their rest, and you'll have done more than most." },
+      { id = "w_scourge", text = "The Scourge are what happens when death is denied its due. Heal the living, give the dead their rest, and you'll have done what a priest is for." },
     },
     knows = {
       { id = "t_kn1", text = "The sick tell me everything, and the healthy tell me the rest. Here is what I can speak to without breaking a confidence." },
@@ -1045,7 +1045,7 @@ P:Pool {
     { id = "n_robes", cat = "gear", when = { class = "MAGE", durability = { max = 0.25 } },
       text = "Robes in tatters? The best mages never get close enough for that, you understand." },
     { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "MAGE" },
-      text = "A gnome of the arcane! Your people's last students are scattered across three cities since Gnomeregan fell, and every one of them corrects my diagrams." },
+      text = "A gnome of the arcane! Your people's last students are scattered across three cities since Gnomeregan fell, and each of them still corrects my diagrams." },
     { id = "n_undead", cat = "class", when = { race = "Scourge", class = "MAGE" },
       text = "Some of your people studied in Dalaran while they still breathed. They make the most patient students I have, since time no longer frightens them." },
     { id = "n_troll", cat = "class", when = { race = "Troll", class = "MAGE" },
@@ -1091,8 +1091,8 @@ P:Pool {
       big = true,
       lines = { { id = "pr_default", text = "Everything, if you let it. Dalaran's best minds studied until they couldn't see the edge of what they were doing, and some of them opened doors that should have stayed shut. The price of knowledge is knowing when to close the book." } },
       choices = {
-        { text = "Some books should stay closed.", next = "BACK", fx = { align = { order = 1, light = 1 }, trait = { cautious = 1 } } },
-        { text = "No knowledge is forbidden. Only what we do with it.", next = "BACK", fx = { align = { order = -1 }, trait = { curious = 1 } } },
+        { text = "Some books should stay closed.", next = "BACK", reply = "Wiser words than many in Dalaran ever spoke, and I'd say them more often myself if the books weren't so very tempting.", fx = { align = { order = 1, light = 1 }, trait = { cautious = 1 } } },
+        { text = "No knowledge is forbidden. Only what we do with it.", next = "BACK", reply = "That's the argument every fallen magus made, and they believed it as sincerely as you do, right up until they found out what they'd done with it.", fx = { align = { order = -1 }, trait = { curious = 1 } } },
         { text = "Who opened those doors?", next = "price_who" },
       },
     },
@@ -1167,7 +1167,7 @@ P:Pool {
         { id = "l_default", text = "Power is power. The ones who sneer at where it comes from never have enough of it." },
         { id = "l_young", when = { class = "WARLOCK", maxLevel = 20 }, text = "Your imp still talks back to you, doesn't it? Good; the day it goes quiet is the day you should start worrying." },
         { id = "l_veteran", when = { class = "WARLOCK", minLevel = 45 }, text = "You've bound things I'd hesitate to name aloud. Tell me how, quietly, and then tell me what they asked for in return." },
-        { id = "l_other", when = { ["not"] = { class = "WARLOCK" } }, text = "You're no warlock, so you'll forgive me if I don't explain myself. Most people who ask what I do don't really want to know." },
+        { id = "l_other", when = { ["not"] = { class = "WARLOCK" } }, text = "You're no warlock, so I'll not explain myself. Most people who ask what I do don't really want to know." },
       },
       again = {
         { id = "a_again", text = "Something else? Keep your voice low." },
@@ -1176,7 +1176,7 @@ P:Pool {
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
-        { text = "I'd guess the demon is never truly the servant.", next = "master", when = { class = "WARLOCK", minLevel = 10 } },
+        { text = "I'd guess the demon is never really the servant.", next = "master", when = { class = "WARLOCK", minLevel = 10 } },
         { text = "Some would call this work hard to justify.", next = "justify" },
         { text = "Farewell.", next = "END" },
       },
@@ -1200,8 +1200,8 @@ P:Pool {
       big = true,
       lines = { { id = "m_default", text = "The warlock is, always, right up until the moment the warlock isn't. Every one of us believes we hold the leash, and every one who fell believed it until they were on the other end of it." } },
       choices = {
-        { text = "I hold the leash. That's what mastery means.", next = "BACK", fx = { align = { order = 1, light = -1 }, trait = { stern = 1 } } },
-        { text = "Maybe I'm being used. I'll use it right back.", next = "BACK", fx = { align = { order = -1, honor = -1 }, trait = { witty = 1 } } },
+        { text = "I hold the leash. That's what mastery means.", next = "BACK", reply = "Then hold it tightly, and never let the thing on the other end hear you say that, because they all keep a careful count of every boast.", fx = { align = { order = 1, light = -1 }, trait = { stern = 1 } } },
+        { text = "Maybe I'm being used. I'll use it right back.", next = "BACK", reply = "That's the honest answer, and the one that keeps most of us alive, so long as you remember the demon is thinking exactly the same thing.", fx = { align = { order = -1, honor = -1 }, trait = { witty = 1 } } },
         { text = "Have you ever lost control?", next = "master_lost" },
       },
     },
@@ -1304,16 +1304,16 @@ P:Pool {
     practise_beast = {
       lines = {
         { id = "pb_default", text = "Choose the one that looks back at you. Teeth and claws you can train, but the nerve has to be there from the start." },
-        { id = "pb_pet", when = { pet = { type = "Beast" } }, text = "{pet} chose you as much as you chose {pet}, whatever you think. Look after that." },
+        { id = "pb_pet", when = { pet = { type = "Beast" } }, text = "Choose the one that looks back at you, because teeth you can train but nerve has to be there from the start. {pet} chose you as much as you chose {pet}, so look after that." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     sport = {
       big = true,
-      lines = { { id = "s_default", text = "For need, if I'm honest, and I'm not always honest. There's a pleasure in the chase that has nothing to do with supper, and the day you stop feeling it you should hang up the bow, but the day it's all you feel, hang it up sooner." } },
+      lines = { { id = "s_default", text = "For need, mostly, and I'll admit the 'mostly' is doing some work. There's a pleasure in the chase that has nothing to do with supper, and the day you stop feeling it you should hang up the bow, but the day it's all you feel, hang it up sooner." } },
       choices = {
-        { text = "I take only what I need from the wild.", next = "BACK", fx = { align = { order = 1, honor = 1 }, trait = { kind = 1 } } },
-        { text = "The chase is the point. The kill just proves it.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "I take only what I need from the wild.", next = "BACK", reply = "Then the wild will treat you kindly, and you'll still be hunting long after the ones who chase for sport have gone soft or gone under.", fx = { align = { order = 1, honor = 1 }, trait = { kind = 1 } } },
+        { text = "The chase is the point. The kill just proves it.", next = "BACK", reply = "I know the feeling, and I won't pretend I don't, but mind it doesn't grow until you're hunting things you'll never eat for the sake of a trophy.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
       },
     },
     lose = {
@@ -1360,7 +1360,7 @@ P:Pool {
     { id = "n_skyborne", cat = "class", when = { race = "Skyborne", class = "SHAMAN" },
       text = "Your Windshapers came to the Horde through the Earthen Ring, I'm told. Then you know already that the elements listen. Let's see if they answer." },
     { id = "n_orc", cat = "class", when = { race = "Orc", class = "SHAMAN" },
-      text = "The spirits turned from your people once, when the warlocks led them to the demons. That they answer you now is a gift, and you must never treat it like a debt repaid." },
+      text = "The spirits turned from your people once, when the warlocks led them to the demons. That they answer you now is a gift, so never take it as something you're owed." },
     { id = "n_troll", cat = "class", when = { race = "Troll", class = "SHAMAN" },
       text = "The Darkspear knew the spirits long before the orcs found their way back to them. Teach me a little of the island ways while I teach you the totems." },
     { id = "n_tauren", cat = "class", when = { race = "Tauren", class = "SHAMAN" },
@@ -1411,8 +1411,8 @@ P:Pool {
       big = true,
       lines = { { id = "c_default", text = "Ask. The orcs learned what commanding brings when their warlocks turned from the spirits to the demons, and their old world withered for it. A shaman who commands is only a warlock who hasn't met the right demon yet." } },
       choices = {
-        { text = "I ask. The elements are partners, not servants.", next = "BACK", fx = { align = { honor = 1, order = -1 }, trait = { patient = 1 } } },
-        { text = "Sometimes the world needs a firm hand, even the elements.", next = "BACK", fx = { align = { order = 1, honor = -1 }, trait = { stern = 1 } } },
+        { text = "I ask. The elements are partners, not servants.", next = "BACK", reply = "Then the elements will hear you, and they'll come when it matters most, because they remember who treated them as friends.", fx = { align = { honor = 1, order = -1 }, trait = { patient = 1 } } },
+        { text = "Sometimes the world needs a firm hand, even the elements.", next = "BACK", reply = "That's how it starts, and I've seen where it ends, so if the earth ever stops answering you, don't say you weren't warned.", fx = { align = { order = 1, honor = -1 }, trait = { stern = 1 } } },
         { text = "What happened to the orcs' old world?", next = "command_draenor" },
       },
     },
@@ -1440,7 +1440,7 @@ P:Pool {
     },
     knows = {
       { id = "t_kn1", text = "The spirits speak, and so do the people who come to hear them. These are things I can tell you of." },
-      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "The elements sit calm around you today, which tells me you can be trusted with more than most." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "The elements sit calm around you today, so I think you can be trusted with more." },
     },
     _none = { { id = "t_none", text = "The spirits have said nothing to me of that." } },
     background = { { id = "t_bg", text = "The spirits woke me one morning by shaking the tent down around my ears. I took the hint." } },
@@ -1466,7 +1466,7 @@ P:Pool {
     { id = "n_bear", cat = "form", when = { form = "bear" }, place = "replace",
       text = "Mind the lanterns. Every new bear knocks over a lantern." },
     { id = "n_nightelf", cat = "class", when = { race = "NightElf", class = "DRUID" },
-      text = "Your people's druids slept in the Dream for centuries while the Sentinels kept the world. Now you're awake, and the world is a great deal harder to balance than the stories promised." },
+      text = "Your people's druids slept in the Dream for centuries while the Sentinels kept the world. Now you're awake, and the world is far harder to balance than the stories promised." },
     { id = "n_tauren", cat = "class", when = { race = "Tauren", class = "DRUID" },
       text = "Hamuul brought the night elves' teaching to your people, and you're the proof that it took. The Earth Mother and the Circle aren't so far apart as some would like." },
     { id = "n_travel", cat = "form", when = { form = "travel" }, place = "replace",
@@ -1518,8 +1518,8 @@ P:Pool {
       big = true,
       lines = { { id = "w_default", text = "The Circle argues it every year in Moonglade. Some say the wild must be walled off from axes and plows, and others that people are part of it and must be taught to take gently; I've lived long enough to think both are right, which pleases nobody." } },
       choices = {
-        { text = "The wild must be protected, even from us.", next = "BACK", fx = { align = { order = -1 }, trait = { stern = 1 } } },
-        { text = "People belong in the balance. Teach them; don't wall them out.", next = "BACK", fx = { align = { order = 1 }, trait = { kind = 1 } } },
+        { text = "The wild must be protected, even from us.", next = "BACK", reply = "The Circle has plenty who'd agree, and I'll not say they're wrong, but walls have a way of keeping out the very people who need to learn.", fx = { align = { order = -1 }, trait = { stern = 1 } } },
+        { text = "People belong in the balance. Teach them; don't wall them out.", next = "BACK", reply = "You'd have friends in Moonglade, then, though not all of them, and I suspect you'll spend your life teaching people who'd rather not listen.", fx = { align = { order = 1 }, trait = { kind = 1 } } },
         { text = "Those arguments sound as though they never end.", next = "wild_who" },
       },
     },
@@ -1639,8 +1639,8 @@ P:Pool {
       big = true,
       lines = { { id = "lo_default", text = "Whoever's paying, some say, and they don't live long. The rest of us pick someone to be loyal to, a guild or a crown or a friend, and let coin fill in the gaps, because a blade for hire gets hired against you sooner or later." } },
       choices = {
-        { text = "I keep faith with my own. Coin comes second.", next = "BACK", fx = { align = { honor = 1 }, trait = { kind = 1 } } },
-        { text = "Coin never lies to me, which is more than I can say for people.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "I keep faith with my own. Coin comes second.", next = "BACK", reply = "Then you'll have someone at your back when it counts, which is more than most blades for hire can say when the job goes sour.", fx = { align = { honor = 1 }, trait = { kind = 1 } } },
+        { text = "Coin never lies to me. People do it all the time.", next = "BACK", reply = "No, it doesn't lie, but it doesn't guard your back either, and I've seen a full purse lying next to a lot of dead mercenaries.", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
         { text = "So who do you work for?", next = "loyalty_who" },
       },
     },
@@ -1741,10 +1741,10 @@ P:Pool {
     },
     refuse = {
       big = true,
-      lines = { { id = "r_default", text = "When the fight's only for your name. Glory's a fine thing to have and a poor thing to chase, and I've buried more glory-chasers than I can count; fight for the ones behind you, and the glory finds you anyway, or it doesn't and you're still alive." } },
+      lines = { { id = "r_default", text = "When the fight's only for your name. I've buried more glory-chasers than I can count, so fight for the ones behind you, and let the glory find you if it wants to." } },
       choices = {
-        { text = "I fight for the ones behind me.", next = "BACK", fx = { align = { order = 1, honor = 1 }, trait = { stern = 1 } } },
-        { text = "A warrior's name is worth fighting for.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "I fight for the ones behind me.", next = "BACK", reply = "Then you'll live long enough to have both, I'd wager, and the ones behind you will remember your name far better than any bard could.", fx = { align = { order = 1, honor = 1 }, trait = { stern = 1 } } },
+        { text = "A warrior's name is worth fighting for.", next = "BACK", reply = "It is, and I won't tell you otherwise, but make sure you're alive to hear it said, because the dead don't get to enjoy their reputations.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "Have you ever run from a fight?", next = "refuse_ran" },
       },
     },
@@ -1796,7 +1796,7 @@ P:Pool {
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "They say your people glide. Gliding is falling with manners, and a wind rider climbs." },
     { id = "n_mounted", cat = "mount", when = { mounted = true },
-      text = "Your beast walks and mine fly, so get off and get on." },
+      text = "Your beast walks and mine fly, so climb down off that one and up onto one of mine." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren on a wind rider. The beasts grumble about it, but they've carried heavier, mostly." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
@@ -1812,7 +1812,7 @@ P:Pool {
   },
   lines = {
     { id = "l_default", text = "Hold the harness, not the rider's neck. It bites." },
-    { id = "l_hunter", when = { class = "HUNTER" }, text = "Your beast stays below and finds you at the other end; they always do. Wind riders won't share a saddle with one." },
+    { id = "l_hunter", when = { class = "HUNTER" }, text = "Wind riders won't share a saddle with your beast, so it stays below and finds you at the other end. They always do." },
     { id = "l_warrior", when = { class = "WARRIOR" }, text = "You grip the harness like it's an axe haft. Loosen up, or the rider will shake you loose for the fun of it." },
   },
   choices = { { text = "Just the flight.", next = "BUSINESS" } },
@@ -1889,7 +1889,7 @@ P:Pool {
         { id = "h_o_peace_for", once = true, when = { gossip = { topic = "peace", stance = { "for", "mixed" } } },
           text = "Word at the barracks is you're all for Lady Jaina's peace with the orcs. Some of the lads call that soft, but I've buried enough friends to hope you're right." },
         { id = "h_o_peace_against", once = true, when = { gossip = { topic = "peace", stance = { "against", "war" } } },
-          text = "The lads tell me you'd march on Orgrimmar tomorrow if the regent gave the word. Half of them would buy you a drink for it, and the other half think you're mad." },
+          text = "The lads tell me you'd march on Orgrimmar tomorrow if the regent gave the word. The young ones would stand you a drink for it, and the old sergeants think you're mad." },
         { id = "h_o_prestor", once = true, when = { gossip = { topic = "prestor", stance = "distrust" } },
           text = "Somebody heard you speak against Lady Prestor, and now the whole watch has heard it too. I'd keep that sort of talk outside the city walls, friend, for your own sake." },
         { id = "h_o_defias_soft", once = true, when = { gossip = { topic = "defias", stance = { "masons_wronged", "sympathetic", "mercy" } } },
@@ -2104,7 +2104,7 @@ P:Pool {
       },
     },
     w_king_prestor = {
-      lines = { { id = "wkp_default", text = "Keep your voice down when you say that, friend. She's charmed half the court and every noble in it, and the ones who don't care for her have a way of being posted somewhere cold, though you never heard that from me." } },
+      lines = { { id = "wkp_default", text = "Keep your voice down when you say that, friend. She has the court eating from her hand, and the ones who don't care for her have a way of being posted somewhere cold, though you never heard that from me." } },
       choices = {
         { text = "Has that happened to anyone you know?", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -2121,8 +2121,8 @@ P:Pool {
     w_war = {
       big = true,
       lines = {
-        { id = "ww_default", text = "Half the barracks wants to march on Orgrimmar tomorrow, and the other half says Lady Jaina's right to keep her peace at Theramore. Every one of them lost someone to the orcs, so you'll understand it gets loud. Where do you stand?" },
-        { id = "ww_vet", when = { minLevel = 40 }, text = "You've fought more of the Horde than most of us have seen, so the lads would want your answer sooner than mine. Lady Jaina keeps her peace at Theramore, and half the barracks says she's wrong. Where do you stand?" },
+        { id = "ww_default", text = "The barracks is split clean down the middle: some want to march on Orgrimmar tomorrow, and some say Lady Jaina's right to keep her peace at Theramore. They've all lost someone to the orcs, so you'll understand it gets loud. Where do you stand?" },
+        { id = "ww_vet", when = { minLevel = 40 }, text = "You've fought more of the Horde than most of us have seen, so the lads would want your answer sooner than mine. Lady Jaina keeps her peace at Theramore, and plenty in the barracks say she's wrong. Where do you stand?" },
       },
       choices = {
         { text = "Lady Jaina's right. That peace is worth keeping.", next = "w_war_peace", fx = { opinion = { peace = "for", jaina = "trust" }, align = { light = 1 } } },
@@ -2170,9 +2170,9 @@ P:Pool {
         { id = "po_g_loyal", when = { gossip = { topic = "regency", stance = "trust_the_regency" } }, text = "Word reached the barracks that you'll hear no ill spoken of the Highlord's regency. The sergeants liked that, though a few of the younger lads called you a courtier when you weren't there." },
         { id = "po_g_king", when = { gossip = { topic = "regency", stance = "find_the_king" } }, text = "Somebody in town says you told them the court ought to be out looking for King Varian. Plenty of soldiers think the same, but they don't say it near an officer, and neither should you." },
         { id = "po_g_nobles", when = { gossip = { topic = "regency", stance = "curb_the_nobles" } }, text = "I hear you've been saying the nobles have their hands all over the young king's throne. You're not wrong, by the barracks' reckoning, but folk have lost their posts for saying less." },
-        { id = "po_g_peace", when = { gossip = { topic = "peace", stance = "for" } }, text = "I hear you've been telling folk that Lady Proudmoore's peace with the orcs is worth keeping. Half my company would argue it with you, and the other half have buried enough friends to agree." },
+        { id = "po_g_peace", when = { gossip = { topic = "peace", stance = "for" } }, text = "I hear you've been telling folk that Lady Proudmoore's peace with the orcs is worth keeping. The young bloods in my company would argue it with you, but the ones who've buried friends might not." },
         { id = "po_g_nopeace", when = { gossip = { topic = "peace", stance = "against" } }, text = "Word is you called the peace with the orcs a fool's bargain, and in front of witnesses. There's a few in the barracks who'd stand you a drink for it." },
-        { id = "po_g_burden", when = { gossip = { topic = "refugees", stance = "send_them_to_the_farms" } }, text = "Somebody said you think the Lordaeron folk are more trouble than they're worth. Mind who hears that, because half the watch has a cousin who came south with nothing." },
+        { id = "po_g_burden", when = { gossip = { topic = "refugees", stance = "send_them_to_the_farms" } }, text = "Somebody said you think the Lordaeron folk are more trouble than they're worth. Mind who hears that, because plenty in the watch have a cousin who came south with nothing." },
         { id = "po_contra", when = { contradiction = "regency" }, text = "Funny thing: I've heard from folk in this town that you trust the regency, and from others that you don't. A soldier learns to notice when someone tells each crowd what it wants to hear." },
       },
       choices = {
@@ -2222,11 +2222,11 @@ P:Pool {
       big = true,
       lines = {
         { id = "pp_default", text = "Lady Jaina Proudmoore keeps a peace with the orcs from her island in Dustwallow, and Warchief Thrall keeps his end of it, so they say. My father fought orcs at Blackrock Spire, and he spits whenever her name comes up. Me, I don't know. What do you think?" },
-        { id = "pp_nightelf", when = { race = "NightElf" }, text = "Your people have orcs cutting down Ashenvale while Lady Proudmoore sits in Theramore talking peace with their Warchief. I'd like to hear what an elf makes of that, honestly." },
+        { id = "pp_nightelf", when = { race = "NightElf" }, text = "Your people have orcs cutting down Ashenvale while Lady Proudmoore sits in Theramore talking peace with their Warchief. I'd like to hear what an elf makes of that, and plainly." },
         { id = "pp_refugee", when = { origin = "human_lordaeron_refugee" }, text = "You came south from Lordaeron, didn't you? Then you'll remember the camps we kept the orcs in, and what it cost to keep them. Now Lady Proudmoore treats with the orc who broke them open. What do you make of that?" },
       },
       choices = {
-        { text = "Peace with Thrall is worth more than a dozen victories.", next = "pol_peace_said", fx = { align = { light = 2 }, opinion = { peace = "for" } } },
+        { text = "Peace with Thrall beats a dozen victories.", next = "pol_peace_said", fx = { align = { light = 2 }, opinion = { peace = "for" } } },
         { text = "An orc's word means nothing. Arm Theramore and be ready.", next = "pol_peace_said", fx = { align = { order = 1, light = -1 }, opinion = { peace = "against" } } },
         { text = "Do the soldiers trust Thrall at all?", next = "pol_peace_thrall" },
       },
@@ -2242,7 +2242,7 @@ P:Pool {
     },
     pol_peace_said = {
       lines = {
-        { id = "pps_default", text = "Fair enough. It's not a question that'll be settled at a gate." },
+        { id = "pps_default", text = "Have it your way. It's not a question that'll be settled at a gate." },
         { id = "pps_for", when = { opinion = { topic = "peace", stance = "for" } }, text = "Maybe you're right. I'd sooner my children grew up afraid of nothing worse than wolves, and if a peace in Dustwallow buys that, I'll hold my tongue when my father spits." },
         { id = "pps_against", when = { opinion = { topic = "peace", stance = "against" } }, text = "My father would shake your hand for that. I only hope that when the fighting comes, it's the people who said it loudest who end up in the front rank." },
       },
@@ -2276,7 +2276,7 @@ P:Pool {
       lines = {
         { id = "pfs_default", text = "There's no easy answer, and anyone who says there is has never stood at the gate when the carts come in." },
         { id = "pfs_welcome", when = { opinion = { topic = "refugees", stance = "take_them_in" } }, text = "That's the Cathedral's view, and it's a good one. I only wish the Cathedral paid my rent, because the landlords have been raising it on every family that can't argue back." },
-        { id = "pfs_burden", when = { opinion = { topic = "refugees", stance = "send_them_to_the_farms" } }, text = "There's sense in that, I'll grant you, but there's not a farm in Westfall safe enough to send anyone to now. Say it to a priest and see what face they make." },
+        { id = "pfs_burden", when = { opinion = { topic = "refugees", stance = "send_them_to_the_farms" } }, text = "There's some sense in that, but there's not a farm in Westfall safe enough to send anyone to now. Say it to a priest and see what face they make." },
       },
       choices = {
         { text = "What else is the barracks arguing about?", next = "pol" },
@@ -2347,7 +2347,7 @@ P:Pool {
     { id = "n_claws", cat = "form", when = { form = { "bear", "cat" } },
       text = "A druid in claws. Walk on two legs past the wolf pens before something in there gets ideas." },
     { id = "n_hunter", cat = "pet", when = { class = "HUNTER", pet = { type = "Beast" } },
-      text = "Your {pet} has better manners than half the grunts. Keep it that way." },
+      text = "Your {pet} has better manners than most grunts. Keep it that way." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "Sky-elf. The tauren vouch for you, and I trust the tauren, so I'll trust you a little." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
@@ -2555,7 +2555,7 @@ P:Pool {
     },
     deathguard = {
       lines = {
-        { id = "dgd_default", text = "I'm told the Deathguard never sleep and never feel the cold, so they stand their watches without ever shifting their feet. I'd envy that, if I didn't know what it cost them to get that way." },
+        { id = "dgd_default", text = "The Deathguard keep watches like ours, only without sleep and without feeling the cold. It looks like an advantage, until you remember what it cost them to get that way." },
       },
       choices = {
         { text = "It cost us everything.", next = "BACK", fx = { affinity = 1 } },
@@ -2579,7 +2579,7 @@ P:Pool {
       },
     },
     h_chief_trust = {
-      lines = { { id = "hct_default", text = "Good. My father came out of the camps on Thrall's word, and he says no orc alive has earned more loyalty than that. Say it loud around the fires, because the grumblers need to hear it." } },
+      lines = { { id = "hct_default", text = "Good. Thousands of orcs walked out of the camps on Thrall's word, and they'll tell you nobody alive has earned more loyalty than that. Say it loud around the fires, because the grumblers need to hear it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     h_chief_soft = {
@@ -2594,7 +2594,7 @@ P:Pool {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     h_chief_cairne = {
-      lines = { { id = "hcc_default", text = "The old bull of Thunder Bluff doesn't trust lightly, so if Cairne vouches for the Warchief, the rest of us ought to listen. Your people have been good to ours, and we don't forget it." } },
+      lines = { { id = "hcc_default", text = "The old bull of Thunder Bluff doesn't trust lightly, so if Cairne vouches for the Warchief, the rest of us ought to listen. Your people have been good to the Horde, and the Horde doesn't forget it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     h_chief_scourge = {
@@ -2620,7 +2620,7 @@ P:Pool {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     h_war_war = {
-      lines = { { id = "hww_default", text = "I was born in one of those camps, so I'll not argue with you. But the Warchief says the camps are behind us, and I've decided to believe him, at least until a human gives me cause not to." } },
+      lines = { { id = "hww_default", text = "Plenty of the grunts were born in those camps, so I'll not argue with you. But the Warchief says the camps are behind us, and I've decided to believe him, at least until a human gives me cause not to." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     h_war_jaina = {
@@ -2664,10 +2664,10 @@ P:Pool {
     pol_peace = {
       big = true,
       lines = {
-        { id = "pp_default", text = "The Warchief and the human sorceress in Theramore keep a peace between them, and so far it holds. My father spent ten years in a human camp, and he says no peace with them is worth the breath. I say the camps are gone because Thrall chose his fights. What do you say?" },
-        { id = "pp_tauren", when = { race = "Tauren" }, text = "Your people took us in when we were strangers on this land, so perhaps you understand the Warchief better than we do. He keeps a peace with the human sorceress in Theramore, and the grunts argue about it every night. Where do you stand?" },
-        { id = "pp_undead", when = { race = "Scourge" }, text = "You'll know better than any orc what the living humans think of your kind. The Warchief keeps a peace with the human sorceress all the same, and the grunts argue about it every night. Where do you stand?" },
-        { id = "pp_camp", when = { origin = "orc_camp_born" }, text = "You grew up behind their fences, the same as my father. He says no peace with the humans is worth the breath, and the Warchief says otherwise, and you've as much right to an opinion as either of them. Well?" },
+        { id = "pp_default", text = "The Warchief and the human sorceress in Theramore keep a peace between them, and so far it holds. The old grunts who did years in the human camps say no peace with them is worth the breath, and the young ones say the camps are gone because Thrall chose his fights. What do you say?" },
+        { id = "pp_tauren", when = { race = "Tauren" }, text = "Your people welcomed the orcs when they were strangers on this land, so perhaps you understand the Warchief better than most. He keeps a peace with the human sorceress in Theramore, and the grunts argue about it every night. Where do you stand?" },
+        { id = "pp_undead", when = { race = "Scourge" }, text = "You'll know better than most of us what the living humans think of your kind. The Warchief keeps a peace with the human sorceress all the same, and the grunts argue about it every night. Where do you stand?" },
+        { id = "pp_camp", when = { origin = "orc_camp_born" }, text = "You grew up behind their fences, the same as half the old grunts. They say no peace with the humans is worth the breath, the Warchief says otherwise, and you've as much right to an opinion as any of them. Well?" },
       },
       choices = {
         { text = "The Warchief chose peace. That's the strength the old Horde lacked.", next = "pol_peace_said", fx = { align = { light = 1, honor = 1 }, opinion = { peace = "for" } } },
@@ -2688,7 +2688,7 @@ P:Pool {
       lines = {
         { id = "pps_default", text = "Hm. That'll be argued at every fire long after you and I are gone." },
         { id = "pps_for", when = { opinion = { topic = "peace", stance = "for" } }, text = "Spoken like the Warchief himself. I hope you're right, because I've a son who's never seen a camp, and I'd like to keep it that way." },
-        { id = "pps_against", when = { opinion = { topic = "peace", stance = "against" } }, text = "My father would clasp your arm for that. Just remember the Warchief says otherwise, and he's been right far more often than my father." },
+        { id = "pps_against", when = { opinion = { topic = "peace", stance = "against" } }, text = "The old grunts would clasp your arm for that. Just remember the Warchief says otherwise, and he's been right far more often than they have." },
       },
       choices = {
         { text = "What else do the grunts argue about?", next = "pol" },
@@ -2699,7 +2699,7 @@ P:Pool {
       big = true,
       lines = {
         { id = "pf_default", text = "The Dark Lady's people threw off the Lich King and came looking for allies, and the Warchief took them in. Some of my company trust them, and some say a corpse that turned on one master can turn on another. You've walked among them, so what do you think?" },
-        { id = "pf_undead", when = { race = "Scourge" }, text = "Forgive me asking you, of all people. Half the grunts I serve with would follow a Forsaken into battle, and the other half sleep with one eye open when one of you is on the next post. What do you say to that?" },
+        { id = "pf_undead", when = { race = "Scourge" }, text = "Forgive me asking you, of all people. There are grunts in my company who'd follow a Forsaken into battle, and others who sleep with one eye open when one of you is on the next post. What do you say to that?" },
         { id = "pf_tauren", when = { race = "Tauren" }, text = "Your own elders spoke for the Forsaken at the Warchief's fire, I hear, and the Warchief listened. Some of my company think the tauren were too kind. What do you say?" },
       },
       choices = {
@@ -2742,7 +2742,7 @@ P:Pool {
     },
     pol_warsong_who = {
       lines = {
-        { id = "pww_default", text = "The old Warsong captains, and every one of them keen to prove Grom's fire still burns in the clan. Grom died killing the demon that cursed us, and the Warsong haven't let anyone forget it, least of all the night elves." },
+        { id = "pww_default", text = "The old Warsong captains, each of them keen to prove Grom's fire still burns in the clan. Grom died killing the demon that cursed us, and the Warsong haven't let anyone forget it, least of all the night elves." },
       },
       choices = {
         { text = "Back to the Warsong, then.", next = "pol_warsong" },
@@ -2763,7 +2763,7 @@ P:Pool {
     pol_oldways = {
       big = true,
       lines = {
-        { id = "pow_default", text = "A few. The old ones talk about the days across the sea, when the clans were one fist and nothing could stand before them. Then you ask how they did it, and they go quiet, because the answer is demon blood and warlocks. Should we miss it?" },
+        { id = "pow_default", text = "A few. The old orcs talk about the days on Draenor, when the clans were one fist and nothing could stand before them. Then you ask how they did it, and they go quiet, because the answer is demon blood and warlocks. Should we miss it?" },
         { id = "pow_warlock", when = { class = "WARLOCK" }, text = "You'd know better than me. You deal in the same powers that poisoned our blood once, and the Warchief tolerates it because your kind keep them on a short leash. So tell me: should the Horde miss the old days?" },
         { id = "pow_frostwolf", when = { origin = "orc_frostwolf" }, text = "Not your clan, I'd guess. The Frostwolves never drank the blood, and they were exiled for it. But some of the others still talk about the old days as if they were glory and not a sickness. Should we miss them?" },
       },
@@ -2785,7 +2785,7 @@ P:Pool {
     pol_oldways_said = {
       lines = {
         { id = "pows_default", text = "The old ones will argue it until they're ash, and then their sons will take it up." },
-        { id = "pows_never", when = { opinion = { topic = "old_ways", stance = "never_again" } }, text = "Good. My grandfather drank Mannoroth's blood, and I saw what it left of him. I'd sooner be weaker and free." },
+        { id = "pows_never", when = { opinion = { topic = "old_ways", stance = "never_again" } }, text = "Good. I've seen what Mannoroth's blood left of the old orcs who drank it, and I'd sooner be weaker and free." },
         { id = "pows_soft", when = { opinion = { topic = "old_ways", stance = "the_horde_has_gone_soft" } }, text = "You'll find friends for that talk in some of the clans. Only remember what the price was, because nobody who paid it would pay it again." },
       },
       choices = {
@@ -2815,7 +2815,7 @@ P:Pool {
   greetings = {
     { id = "g_city", text = "Welcome to Stormwind. Keep your blade sheathed inside the walls." },
     { id = "g_lost", when = { timesTalked = { max = 1 } }, text = "Lost? Everyone's lost their first week, so ask me anything." },
-    { id = "g_hero", when = { townStanding = { town = "stormwind", min = 55 } }, text = "It's an honor, really, and I'm not just saying that." },
+    { id = "g_hero", when = { townStanding = { town = "stormwind", min = 55 } }, text = "It's an honor to have you in the city, really, and I'm not just saying that." },
     { id = "g_distrust", when = { townStanding = { town = "stormwind", max = -20 } }, text = "The Watch knows your face, so behave yourself." },
     { id = "g_away", when = { away = 7 }, text = "Back in Stormwind after {away}? Keep your blade sheathed, same as before." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word at the barracks is that you were caught lying to someone in the city. The Watch takes note of that sort of thing." },
@@ -2881,7 +2881,7 @@ P:Pool {
     { id = "n_xcampwatch", cat = "origin", when = { origin = "gnome_kharanos_watch" },
       text = "Ye held the line at the refugee camps by Kharanos, did ye no'? The lads on the gate still talk about the gnome wi' a shield bigger than the one holdin' it." },
     { id = "n_xthrallspy", cat = "origin", when = { origin = "dwarf_searing_gorge_spy" },
-      text = "Ye're one o' the Gorge lads, the ones the Ward sent intae the Dark Iron camps. The Captain says ye came back thinner an' quieter, an' he says it like it's a medal." },
+      text = "Ye're one o' the lads the king sent intae the Dark Iron camps in the Searing Gorge. The Captain says ye came back thinner an' quieter, an' he says it like it's a medal." },
     { id = "n_dwarf_shaman", cat = "class", when = { race = "Dwarf", class = "SHAMAN" },
       text = "A dwarf shaman! My granddad would've had words, but I've no words; just mind the Great Forge doesn't talk back to ye." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
@@ -2934,7 +2934,7 @@ local function sentinelTree()
         { id = "h_teldrassil", when = { zone = "Teldrassil" }, text = "Elune's light on you. The roads of Teldrassil are young, and so is the watch along them, but we are not careless. What brings you to me?" },
         { id = "h_darkshore", when = { zone = "Darkshore" }, text = "The sea is loud tonight, as it has been every night since the Sundering. Speak up, traveller, and tell me what you need." },
         { id = "h_ashenvale", when = { zone = "Ashenvale" }, text = "Keep your voice low. There are Warsong scouts in these woods, and they listen as well as we do. What is it?" },
-        { id = "h_feralas", when = { zone = "Feralas" }, text = "You came a long way for a stronghold on a rock in the sea. Shandris will be glad of another blade, and so will I. Speak." },
+        { id = "h_feralas", when = { zone = "Feralas" }, text = "You came a long way for a stronghold on a rock in the sea. Shandris Feathermoon, who commands here, will be glad of another blade, and so will I. Speak." },
         { id = "h_azshara", when = { zone = "Azshara" }, text = "This land still wears the name of the queen who drowned it, and none of us are glad to stand here. Still, we stand. What do you need?" },
         { id = "h_stonetalon", when = { zone = "Stonetalon Mountains" }, text = "Listen, and you can hear the goblins' saws from here. The mountain is bleeding, traveller, so be quick with your question." },
         { id = "h_kin", when = { race = "NightElf" }, text = "Elune keep you, kin. It is good to see one of our own on the road. What do you need of the watch?" },
@@ -3070,7 +3070,7 @@ local function sentinelTree()
     allies = {
       lines = {
         { id = "al_default", text = "We needed them at Hyjal, and we will need them again, and none of us enjoys needing anyone. The young races are loud and brief and build everything out of stone. They also stood with us when the Legion came, and I have not forgotten it." },
-        { id = "al_human", when = { race = "Human" }, text = "Your people are loud and brief, and they build everything out of stone, which the trees do not like. But Jaina Proudmoore's people stood with us at Hyjal when it would have been easier to run, and that buys a great deal of patience." },
+        { id = "al_human", when = { race = "Human" }, text = "Your people are loud and brief, and they build everything out of stone, which the trees do not like. But Jaina Proudmoore's people stood with us at Hyjal when it would have been easier to run, and we have not forgotten it." },
         { id = "al_dwarf", when = { race = "Dwarf" }, text = "Your Explorers' League digs in our ruins on the Darkshore coast and calls it scholarship. We call it something else. Still, your people fight like the mountain itself took offence, and I would rather have you beside me than across from me." },
         { id = "al_gnome", when = { race = "Gnome" }, text = "Your machines smell of oil and burning, and the dryads complain of the noise whenever one of your people visits. I am told you lost your city. I am sorry for it; we have lost a few ourselves, and it does not get easier." },
         { id = "al_kin", when = { race = "NightElf" }, text = "You know my mind already, because it is the mind of every one of us. We needed them, we still need them, and we have not yet learned how to be gracious about it." },
@@ -3083,7 +3083,7 @@ local function sentinelTree()
     faith = {
       big = true,
       lines = {
-        { id = "fa_default", text = "That is the question the priestesses argue over in the temple. The young races live so briefly that a promise made by the grandfather is a story to the grandson. Tell me honestly, traveller: will they keep faith with us once they no longer need us?" },
+        { id = "fa_default", text = "That is the question the priestesses argue over in the temple. The young races live so briefly that a promise made by the grandfather is a story to the grandson. Tell me plainly, traveller: will they keep faith with us once they no longer need us?" },
       },
       choices = {
         { text = "They will. An alliance is a promise, and promises are kept.", next = "faith_after", fx = { align = { honor = 1 }, affinity = 1 } },
@@ -3373,7 +3373,7 @@ P:Pool {
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
       text = "The Magic Quarter's warlocks keep their demons on short chains. You'll do the same, down here." },
     { id = "n_mage", cat = "class", when = { race = "Scourge", class = "MAGE" },
-      text = "Half the Magic Quarter studied in Dalaran before the plague. You'll find them there, still arguing about it." },
+      text = "Most of the Magic Quarter studied in Dalaran before the plague. You'll find them there, still arguing about it." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "The Rogues' Quarter is yours. Don't think we haven't noticed you counting the guards." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -3389,7 +3389,7 @@ P:Pool {
   lines = {
     { id = "l_default", text = "The Apothecarium, the Magic Quarter, the War Quarter and the Rogues' Quarter, all in a ring around the Trade Quarter. The Banshee Queen keeps the Royal Quarter, and you don't." },
     { id = "l_shaman", when = { class = "SHAMAN" }, text = "Shamans don't come down here much. The elements are a long way from the Undercity, and they seem to like it that way." },
-    { id = "l_lady", text = "The Dark Lady gave us our wills back, and we stand guard so no one takes them again. That's all the reason a Deathguard needs, and more than most of the living have." },
+    { id = "l_lady", text = "The Dark Lady gave us our wills back, and we stand guard so no one takes them again. That's all the reason a Deathguard needs, and a better one than the living ever gave me." },
     { id = "l_scarlet", text = "The Scarlet Crusade would burn this whole city with us in it, and they'd sing hymns while they did. Keep that in mind when the living tell you we're the monsters." },
   },
   choices = { { text = "Understood.", next = "END" } },
@@ -3433,7 +3433,7 @@ P:Pool {
   id = "guard_ratchet", role = "guard", community = "ratchet",
   barks = {
     { id = "b_boat", text = "Boat's in from Booty Bay, so everybody keep your hands where I can see 'em and your purses where you can, because I don't get paid extra for finding 'em." },
-    { id = "b_pirates", text = "Sails on the horizon again, boys, and if they're black, somebody ring the bell before they start chargin' us for the privilege." },
+    { id = "b_pirates", text = "Sails on the horizon again, boys, and if they're black, somebody ring the bell, because that's the Southsea pirates comin' callin'." },
   },
   greetings = {
     { id = "g_ratchet", text = "Welcome to Ratchet, pal, Cartel port and neutral ground. You trade here, you pay your fees here, and you do your fighting somewhere that isn't on my shift." },
@@ -3555,8 +3555,8 @@ P:Pool {
         { id = "ne_default", text = "Bother me? Pal, the war's the best thing that ever happened to Ratchet, because both sides need boats and both sides need goods. We sell to everybody, we side with nobody, and the gold keeps rollin' in, which is more than you can say for most wars." },
       },
       choices = {
-        { text = "Smart. Wars end, but trade doesn't.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
-        { text = "Profiting off a war isn't something to boast about.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "Smart. Wars end, but trade doesn't.", next = "BACK", reply = "Now you're talkin' my language, pal, and if you ever want a share in a boat, you come see me first, because the margins on peace are lousy.", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "Profiting off a war isn't something to boast about.", next = "BACK", reply = "Boast? Friend, I'm just tellin' you the weather, and if you don't like it you can swim to the next port, though I'll sell you the boat for a fair price.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
         { text = "Has anyone ever tried to take the port?", next = "neutral_take" },
       },
     },
@@ -3591,7 +3591,7 @@ P:Pool {
   },
   topics = {
     ratchet = { { id = "w_ratchet", text = "Ratchet's the Cartel's door on the Barrens, pal, and I'm the guy who keeps it from gettin' kicked in. Everybody's welcome, everybody pays, and nobody fights on the docks." } },
-    booty_bay = { { id = "w_booty_bay", text = "The boat to Booty Bay leaves right off the end of the pier, pal, and it's cheap at twice the price. Don't start nothin' on board, 'cause the sharks are hungry and the captain's got a long memory." } },
+    booty_bay = { { id = "w_booty_bay", text = "The boat to Booty Bay leaves right off the end of the pier, pal, and it won't cost you a copper. Don't start nothin' on board, 'cause the sharks are hungry and the captain's got a long memory." } },
     centaur = { { id = "w_centaur", text = "Centaur raid the caravans comin' in from the Barrens, and then they try to sell the goods back to us. We don't buy, pal, on principle and also 'cause they never got the paperwork." } },
     steamwheedle = { { id = "t_cartel", text = "Same Cartel as Booty Bay, Gadgetzan and Everlook, pal, and Ratchet's the one that keeps the Barrens supplied. Everything that crosses the sea comes through our docks first and pays its toll on the way." } },
     _none = { { id = "t_none", text = "Ask Gazlowe, pal. He knows everything, and he'll tell you whether you asked or not, and then he'll tell you what it cost him." } },

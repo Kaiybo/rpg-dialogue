@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_hic", text = "Well, isn't this a surprise? Come in, come in, and pardon the... hic... the smell." },
     { id = "g_back", when = { metBefore = true }, text = "My friend! I remember you, I think, or someone with your face. Sit down, there's a stool somewhere." },
-    { id = "g_tablet", when = { questActive = TODO_QUEST("Delivery to Andron Gant") }, text = "Is that the tablet? From Jediga? Oh, the scholars upstairs will weep, if they still can." },
+    { id = "g_tablet", when = { questActive = TODO_QUEST("Delivery to Andron Gant") }, text = "Is that the tablet Jediga sent from Azshara? Oh, the scholars upstairs will weep, if they still can." },
     { id = "g_away", when = { away = 14 }, text = "Where've you been these {away}? I've had nobody to drink at but the rats, and they never buy a round." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come up in the world since I saw you last, haven't you? I can always tell a rising star, it's my one talent." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "People are saying nice things about you around the quarter, which is more than they say about me. Drink to that?" },
@@ -101,8 +101,8 @@ P:NPC {
       big = true,
       lines = { { id = "th_default", text = "Honest enough, honest enough. Everyone gets paid, nobody gets hurt, and if a few of my friends are people the Dark Lady wouldn't invite to dinner, well, she doesn't invite me either." } },
       choices = {
-        { text = "Careful, Andron. Somebody might be listening.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Who's to know? Keep your friends quiet and rich.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Careful, Andron. Somebody might be listening.", next = "BACK", reply = "Somebody's always listening, friend, that's half my business. Keep your voice down and buy something.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Who's to know? Keep your friends quiet and rich.", next = "BACK", reply = "A person after my own heart! Quiet and rich, the best kind of friends, and I'll introduce you to a few.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -68,7 +68,7 @@ P:NPC {
       },
     },
     southwind_layo = {
-      lines = { { id = "sl_default", text = "The young druid from Valor's Rest. He is kind, and he means well, and some of them go gladly with him. I am not ready to go, and he has the grace not to insist." } },
+      lines = { { id = "sl_default", text = "Layo Starstrike, the young druid from Valor's Rest, tries to. He is kind, and he means well, and some of them go gladly with him. I am not ready to go, and he has the grace not to insist." } },
       choices = { { text = "Something else, Aendel.", next = "BACK" } },
     },
     chitin = {
@@ -82,8 +82,8 @@ P:NPC {
       big = true,
       lines = { { id = "cs_default", text = "Slowly, with patience the living rarely have, and with the reverence you would give any hide. The beasts of this land took everything from Southwind, and I take a little back, stitch by stitch." } },
       choices = {
-        { text = "Take back what you can. They owe you that.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Even craft shouldn't carry vengeance. Let it rest, Aendel.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Take back what you can. They owe you that.", next = "BACK", reply = "They owe Southwind a great deal more than hides, little one, but I take no joy in the taking, and you would not either if you had seen what I saw.", fx = { align = { light = -1 } } },
+        { text = "Even craft shouldn't carry vengeance. Let it rest, Aendel.", next = "BACK", reply = "You speak gently, and the Earth Mother would agree with you, but my hands remember the village even when my heart tries to forget.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

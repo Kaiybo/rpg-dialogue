@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_default", text = "Make it quick. I've a patrol to walk and the gnolls don't wait." },
     { id = "g_paladin", when = { class = "PALADIN", race = "Scourge" }, text = "Another paladin. Your lot are getting to be a habit around here." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still alive, in our sense of the word?" },
-    { id = "g_saved", when = { questDone = TODO_QUEST("The Windshaper's Wrath") }, text = "The paladin who found the elf. I'd never have bet on it, and I'm glad I didn't." },
+    { id = "g_saved", when = { questDone = TODO_QUEST("The Windshaper's Wrath") }, text = "You're the paladin who found that elf on Fenris Isle. I'd never have bet on it, and I'm glad I didn't." },
   },
 
   notice = {
@@ -60,7 +60,7 @@ P:NPC {
       lines = {
         { id = "p_default", text = "Two of them, cloaked, with an escort, heading east toward Tarren Mill. A tauren, which is ordinary enough for the Earthen Ring, and something slim and tall beside him that Trevan swears was an elf. I only saw the hood." },
         { id = "p_after", when = { questDone = TODO_QUEST("The Windshaper's Wrath") },
-          text = "A tauren and an elf of some sort she calls Skyborne, and I'll call her what she likes so long as she doesn't call down lightning on me. The tauren was the body on the pyre, poor beast, and from what I hear he went out fighting." },
+          text = "A tauren and an elf who calls herself Skyborne, and I'll call her what she likes so long as she doesn't call down lightning on me. The tauren was the body on the pyre, poor beast, and from what I hear he went out fighting." },
       },
       choices = {
         { text = "Do you think the elf survived?", next = "elf" },
@@ -71,7 +71,7 @@ P:NPC {
     },
     trevan = {
       lines = {
-        { id = "tv_default", text = "Trevan made a great deal of them, as he makes a great deal of everything. He's a decent sort for a paladin, I'll grant him, but he'd bet his last finger on a cloaked shadow, and as it happens he very nearly has." },
+        { id = "tv_default", text = "Trevan made a song and dance of them, as he does of everything. He's a decent sort for a paladin, I'll give him that, but he'd bet his last finger on a cloaked shadow, and as it happens he very nearly has." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -79,7 +79,7 @@ P:NPC {
     },
     lumina = {
       lines = {
-        { id = "lu_default", text = "Sharp-tongued and blue as a drowned man, and she looked at me the way I look at gnolls when she first came in. I've decided I like her, though I'll deny it if you repeat that to anyone." },
+        { id = "lu_default", text = "Sharp-tongued and blue as a drowned man, and when she first came in she looked at me the way I look at gnolls. I've decided I like her, though I'll deny it if you repeat that to anyone." },
       },
       choices = {
         { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } },
@@ -89,13 +89,13 @@ P:NPC {
     elf = {
       big = true,
       lines = {
-        { id = "e_default", text = "No, I don't. If you're brave or stupid, you can charge into Fenris Isle and look, but it's a great deal of work to find some snooty elf who's probably long dead. You paladins love swearing oaths and taking up lost causes, so I suppose you'll go anyway." },
+        { id = "e_default", text = "No, I don't. If you're brave or stupid, you can charge into Fenris Isle and look, but that's a lot of worgen to wade through for some snooty elf who's probably long dead. You paladins love swearing oaths and taking up lost causes, so I suppose you'll go anyway." },
         { id = "e_after", when = { questDone = TODO_QUEST("The Windshaper's Wrath") },
           text = "She did, as it turns out, and I was wrong, which I'll admit once and then never again. Tell me, was it stubbornness or faith that sent you in after her?" },
       },
       choices = {
-        { text = "Nobody gets left behind if I can help it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "It was a chance to win favour. I took it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Nobody gets left behind if I can help it.", next = "BACK", reply = "Then you're a better soldier than most, and the Dark Lady could use a few more like you. Go carefully on the isle.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It was a chance to win favour. I took it.", next = "BACK", reply = "Favour's worth winning, and I'll not fault you for it. Just come back with the elf, or the favour's wasted.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,7 +130,7 @@ P:NPC {
     },
     changed = {
       lines = {
-        { id = "c_default", text = "Maybe. I've heard Billmuth's story about Falgan, and I've seen what you did on Fenris Isle, and that's two more good deeds than the Scarlets ever managed. Don't tell Trevan I said so; he's unbearable enough already." },
+        { id = "c_default", text = "Maybe. I've seen what you did on Fenris Isle, and that's one more good deed than the Scarlets ever managed. Don't tell Trevan I said so; he's unbearable enough already." },
       },
       choices = {
         { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2 } },
@@ -153,7 +153,7 @@ P:NPC {
     },
     worgen = {
       lines = {
-        { id = "w_default", text = "Big, fast, and hard to kill, and they don't stay down the way they ought to. Some of the Deathguard say one of them takes a bite and the bitten one changes, and I'd rather not find out if it works on the dead." },
+        { id = "w_default", text = "Big, fast, and hard to kill, and they don't stay down the way they ought to. Some of the Deathguard say one bite changes you, and I've no wish to learn whether it works on the dead." },
       },
       choices = {
         { text = "Who commands here?", next = "hadrec" },
@@ -173,7 +173,7 @@ P:NPC {
         { id = "sh_default", text = "Gnoll boats, mostly, rowing low with no lights, and once in a while something swimming that's too big to be a gnoll. Last week the lamps on Dalaran's new walls across the lake went dark for most of an hour, and nobody in the Sepulcher could tell me why." },
       },
       choices = {
-        { text = "Dalaran's lamps went dark?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I'll keep an eye on the water too.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -184,8 +184,8 @@ P:NPC {
       },
       choices = {
         { text = "What do you see on the water?", next = "shore" },
-        { text = "Gladly. Duty doesn't keep hours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "No. I'd go hunting instead of waiting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Gladly. Duty doesn't keep hours.", next = "BACK", reply = "Good, then you'll be on the shore with me tonight. Bring something warm, if you still feel the cold.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No. I'd go hunting instead of waiting.", next = "BACK", reply = "Hunting's fine, until the gnolls land behind you. Suit yourself, but don't come crying to my post.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -193,9 +193,9 @@ P:NPC {
 
   topics = {
     worgen = { { id = "tp_worgen", text = "Wolves that walk like men and won't die. If you see one, don't stop to look at it." } },
-    background = { { id = "tp_bg", text = "Soldier, corpse, Deathguard. I've been told I complain more now than when I was alive, which I doubt." } },
+    background = { { id = "tp_bg", text = "I was a soldier, then a corpse, and now I'm Deathguard. I've been told I complain more now than when I was alive, which I doubt." } },
     advice = { { id = "tp_ad", text = "Don't swim to Fenris Isle. Take a boat, or take a lot of friends." } },
-    _none = { { id = "tp_none", text = "Ask Hadrec. He likes questions more than I do." } },
+    _none = { { id = "tp_none", text = "Ask High Executor Hadrec. He likes questions more than I do." } },
   },
 }
 
@@ -268,8 +268,8 @@ P:NPC {
         { id = "qu_default", text = "She freed us from the Scourge, and without her I'd be shambling through the ruins myself, perhaps past my own son's bones without knowing them. Some say she uses us, and perhaps she does, but I'd rather be used by someone who let me grieve. Do you serve her gladly?" },
       },
       choices = {
-        { text = "Gladly. She gave us back ourselves.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I serve myself first, and her when it suits.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Gladly. She gave us back ourselves.", next = "BACK", reply = "She did, and every one of us owes her that. You'll find no argument from me.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I serve myself first, and her when it suits.", next = "BACK", reply = "Careful, friend. The Dark Lady has long ears, and she remembers who serves her only when it suits.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -335,7 +335,7 @@ P:NPC {
     },
     grave = {
       lines = {
-        { id = "g_default", text = "It's his, our son's, though there's nothing beneath it. I needed somewhere to kneel, and Edward needed somewhere he wasn't, so he goes to the ruins and I come here, and between the two of us I suppose we've covered both." },
+        { id = "g_default", text = "It's his, our son's, though there's nothing beneath it. I needed somewhere to kneel, and Edward needed to keep searching, so he goes to the ruins and I come here, and between the two of us I suppose we've covered both." },
       },
       choices = {
         { text = "That's a sad sort of balance.", next = "BACK", fx = { affinity = 1 } },
@@ -344,7 +344,7 @@ P:NPC {
     },
     ruins = {
       lines = {
-        { id = "r_default", text = "There are things up there I can't contend with, and Edward knows it, which is why he never let me come. I've tried to warn him against searching those overrun ruins, but he refuses to give up, and now I've no one left to warn." },
+        { id = "r_default", text = "There are things up there I can't contend with, and Edward knows it, so he's never let me come. I've tried to warn him against searching those overrun ruins, but he refuses to give up, and now I've no one left to warn." },
         { id = "r_fog", when = { questBefore = TODO_QUEST("The Wrath of Rath'mael") },
           text = "There are things up there I can't contend with, and lately there's been a fog over the graveyard that the Deathguard don't like talking about. Edward went into it anyway, because Edward always goes." },
       },
@@ -359,8 +359,8 @@ P:NPC {
         { id = "w_default", text = "I've asked myself that every morning since you came back. He never found our boy, and it cost him everything he had left, but I don't think he could have stopped. What do you think, friend?" },
       },
       choices = {
-        { text = "Yes. Hope was what kept him going.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "No. He should have let the dead lie.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Yes. Hope was what kept him going.", next = "BACK", reply = "I think so too, most days. It kept him going longer than anything else could have.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "No. He should have let the dead lie.", next = "BACK", reply = "Perhaps he should have, and perhaps I'd say the same if I were wiser. I can't, though, not about my own boy.", fx = { align = { light = -1 } } },
         { text = "I don't think it's mine to judge.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -395,7 +395,7 @@ P:NPC {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your gear's taken a beating. Trust in the Light, by all means, but trust a good armorer too." },
     { id = "n_fpal", cat = "class", when = { class = "PALADIN", race = "Scourge" },
-      text = "You hold your weapon like a Keep-trained knight. Danitha's drills, I'd guess; she never did let anyone grip low." },
+      text = "You hold your weapon like a Keep-trained knight. Danitha Morr's drills, I'd guess; she never did let anyone grip low." },
   },
 
   start = "hello",
@@ -409,11 +409,11 @@ P:NPC {
         { id = "h_pair", when = { questActive = TODO_QUEST("A Curious Pair") },
           text = "Baldren's near the entrance, scowling at something. Ask him what he saw on patrol, and try not to let him put you off." },
         { id = "h_saved", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Windshaper's Wrath"), days = 3 } },
-          text = "You found her alive! Lumina's been telling me all about it, and about a great deal else, and I think Danitha will be very pleased with both of us." },
+          text = "You found her alive! Lumina's been telling me all about it, and about the sky, and the clouds, and her aunt, and I think Danitha will be very pleased with both of us." },
         { id = "h_bladeact", when = { questActive = TODO_QUEST("A Moon-Kissed Blade") },
           text = "Trust in the Light to guide your blade, but the Light needs a good blade to guide. Have you got my materials yet?" },
         { id = "h_ott", when = { questActive = TODO_QUEST("An Underrated Talent") },
-          text = "Ott's in Tarren Mill, by the smithy. Give him the materials and the commission, and don't let him talk himself out of it; he will try." },
+          text = "Ott, the orc smith, is in Tarren Mill by the smithy. Give him the materials and the commission, and don't let him talk himself out of it; he will try." },
         { id = "h_ottwait", when = { questActive = TODO_QUEST("The Moonsilver Blade") },
           text = "Was Ott able to carry out the commission? Let me see it, please; I've been waiting on this for weeks." },
         { id = "h_bladedone", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Moonsilver Blade"), days = 3 } },
@@ -449,8 +449,8 @@ P:NPC {
         { id = "l_default", text = "Partly, and I won't dress it up as anything nobler. Two people were lost and we'd have looked for them regardless, but if finding them makes the Horde think twice before spitting at a Forsaken paladin, I'll take that too. Does that sit badly with you?" },
       },
       choices = {
-        { text = "No. We do good, and let it be seen.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "A little. Good deeds shouldn't be done for credit.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "No. We do good, and let it be seen.", next = "BACK", reply = "That's how I'd like it too, and it's a better answer than mine. Thank you.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A little. Good deeds shouldn't be done for credit.", next = "BACK", reply = "No, they shouldn't, and I'm not proud of it. But the Undercity notices deeds that come with names.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -468,7 +468,7 @@ P:NPC {
     },
     pinky = {
       lines = {
-        { id = "pk_default", text = "The others aren't what they were, and I'll leave it at that. The Light mends a great deal, but it seems to draw the line at fingers, and I've learned to be grateful for the one that stayed put." },
+        { id = "pk_default", text = "The others aren't what they were, and I'll leave it at that. The Light mends bones and burns and worse, but it seems to draw the line at fingers, and I've learned to be grateful for the one that stayed put." },
       },
       choices = {
         { text = "That's a grim sort of humour.", next = "BACK", fx = { affinity = 1 } },
@@ -485,7 +485,7 @@ P:NPC {
     },
     why = {
       lines = {
-        { id = "w_default", text = "Because Danitha wants eyes beyond Tirisfal, and I volunteered before anyone could stop me. The Sepulcher sees everything that moves between the Undercity and the south, and a paladin who listens more than he preaches hears a great deal." },
+        { id = "w_default", text = "Because Danitha wants eyes beyond Tirisfal, and I volunteered before anyone could stop me. The Sepulcher sees everything that moves between the Undercity and the south, and a paladin who listens more than he preaches picks up all sorts." },
         { id = "w_fpal", when = { class = "PALADIN", race = "Scourge" },
           text = "Same reason you'll end up somewhere strange before long: Danitha wants eyes beyond Tirisfal. The Sepulcher sees everything that moves between the Undercity and the south, and the Keep needs friends out here more than it needs another knight on the walls." },
       },
@@ -535,7 +535,7 @@ P:NPC {
         { id = "ma_default", text = "Whitestone oak lumber, which the goblin woodcarvers in the Deadmines are hoarding, an enchanted silver ingot from Shadowfang Keep, near Arugal himself, and a purified Kor gem; Ulric Frostveil at Zoram'gar can clean one, if you bring him one from the naga at Blackfathom Deeps. It's all on the list, so don't lose it." },
       },
       choices = {
-        { text = "That's half the world.", next = "world" },
+        { text = "That's most of the world.", next = "world" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -554,8 +554,8 @@ P:NPC {
         { id = "o_default", text = "Because I bought a sword from him once, an ordinary-looking thing, and when I took it to the Undercity for maintenance the smiths there swore it came from a famous master. It came from Ott, a plain orc in Tarren Mill who has never been asked to do anything special. I'd like to give him the chance; wouldn't you?" },
       },
       choices = {
-        { text = "Yes. Talent deserves its chance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'd rather trust a proven master.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Yes. Talent deserves its chance.", next = "BACK", reply = "It does, and that sword proved it. I'll keep sending him business.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd rather trust a proven master.", next = "BACK", reply = "Proven masters were all once talents somebody took a chance on. Still, it's your coin.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -565,8 +565,8 @@ P:NPC {
         { id = "mc_default", text = "The Light, always, but the Light seems to appreciate a man who doesn't make it do all the work. Danitha says faith without readiness is only hope, and I've found that a good mace keeps a man humble about the difference." },
       },
       choices = {
-        { text = "Faith first. The Light provides.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Readiness first. The Light helps the prepared.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Faith first. The Light provides.", next = "BACK", reply = "You sound like Danitha, and she'd be pleased. I'll keep the faith, and the mace close.", fx = { align = { order = -1 } } },
+        { text = "Readiness first. The Light helps the prepared.", next = "BACK", reply = "That's my way, and the Light hasn't complained yet. Keep your mace sharp and your prayers ready.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -574,7 +574,7 @@ P:NPC {
 
   topics = {
     silver_hand = { { id = "tp_sh", text = "Danitha carried the Silver Hand's oaths through death, and she's teaching us to carry them too. They're heavier than they look." } },
-    worgen = { { id = "tp_worgen", text = "Arugal's children. Most of them die if you hit them hard enough, but Old Fire-Eye is another matter." } },
+    worgen = { { id = "tp_worgen", text = "The worgen are Arugal's children. Most of them die if you hit them hard enough, but Old Fire-Eye is another matter." } },
     background = { { id = "tp_bg", text = "I was a paladin, then I wasn't, then Danitha found me and I was again. The middle part involved fewer fingers." } },
     advice = { { id = "tp_ad", text = "Pray, and keep your mace oiled. In that order, but not by much." } },
     _none = { { id = "tp_none", text = "No idea, I'm afraid. I'd bet my good pinky finger that someone in the Sepulcher knows, though." } },
@@ -596,14 +596,14 @@ P:NPC {
     { id = "g_default", text = "Winds' blessings to you." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "Winds' blessings, paladin." },
     { id = "g_back", when = { metBefore = true, questDone = TODO_QUEST("The Windshaper's Wrath") }, text = "My rescuer returns. Winds' blessings, friend." },
-    { id = "g_kin", when = { race = "Skyborne" }, text = "Kin! Winds' blessings, and forgive me if I stare; I didn't expect to see one of us this far from the sky." },
+    { id = "g_kin", when = { race = "Skyborne" }, text = "Kin! Winds' blessings, and pardon my staring; I didn't expect to see one of us this far from the sky." },
   },
 
   notice = {
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "You speak to the elements as well; I can feel them leaning toward you. Do they answer you readily here? They still feel strange to me below the clouds." },
     { id = "n_kin", cat = "kin", when = { race = "Skyborne", faction = "Horde" },
-      text = "A Windshaper's child, sent down to the Horde like me. Did Ayessa warn you that the ground here is full of teeth?" },
+      text = "A Windshaper's child, sent down to the Horde like me. Did Ayessa Dawnsinger warn you that the ground here is full of teeth?" },
   },
 
   start = "hello",
@@ -647,7 +647,7 @@ P:NPC {
     },
     shendorei = {
       lines = {
-        { id = "sd_default", text = "The hidden people. Our ancestors left Eldre'Thalas rather than kneel to a prince who drank from the Nether, and we lived among the clouds for ten thousand years, and now we've come down. I'm sky-touched, too, which is why I'm this colour; it's a blessing among our newborns, though people here keep asking if I'm ill." },
+        { id = "sd_default", text = "The hidden people. Our ancestors left Eldre'Thalas rather than kneel to a prince who drank from the Nether, and we lived among the clouds for ten thousand years, and now we've come down. I'm sky-touched, too, so I'm this colour; it's a blessing among our newborns, though people here keep asking if I'm ill." },
       },
       choices = {
         { text = "Why come down now?", next = "why" },
@@ -683,7 +683,7 @@ P:NPC {
     },
     fireeye = {
       lines = {
-        { id = "fe_default", text = "Down by the Greymane Wall, in the south of this forest, where the worgen gather thickest. The biggest and meanest of them, and the one that never seems to stay dead, so we strike with Ott's blade first and everything else afterward." },
+        { id = "fe_default", text = "Down by the Greymane Wall, in the south of this forest, where the worgen gather thickest. He's the biggest and meanest of them, and he never seems to stay dead, so we strike with Ott's blade first and everything else afterward." },
       },
       choices = {
         { text = "Then let's pay your debt.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
@@ -696,8 +696,8 @@ P:NPC {
         { id = "pd_default", text = "Less than charitable things, mostly from Forsaken who don't trust the Light and from orcs who remember the Alliance's knights. As a sky-touched elf walking through Horde lands, I know how easily that sort of thing takes root, so I prefer to judge by what I see. What would you have me see in you?" },
       },
       choices = {
-        { text = "A shield for anyone who needs one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A weapon pointed at the Horde's enemies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A shield for anyone who needs one.", next = "BACK", reply = "A shield, yes, and it's the best answer I've heard here. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A weapon pointed at the Horde's enemies.", next = "BACK", reply = "Pointed at the enemies, yes, but I'd rather it protected than struck. Still, I'll not argue with you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -752,8 +752,8 @@ P:NPC {
         { id = "d_default", text = "He knew what would happen and he shielded me anyway. We Windshapers always pay our debts, and I owe him one, so if such a thing is possible I'll see the creature that doomed him dead, so it can never do this to another living thing. Do you understand that, or does it sound like vengeance to you?" },
       },
       choices = {
-        { text = "A debt is a debt. Pay it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Vengeance, and that's fine. Just make it hurt.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A debt is a debt. Pay it.", next = "BACK", reply = "Then I'll pay it, and the winds will see it done. Thank you for understanding.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Vengeance, and that's fine. Just make it hurt.", next = "BACK", reply = "Pain, yes, but clean pain. The Windshapers do not linger over cruelty.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -774,8 +774,8 @@ P:NPC {
           text = "Kinder than I was warned, starting with you. On the isle we scatter our dead to the wind, and here you are, standing and walking and arguing with me, and I can't decide yet whether that's a horror or a courage I don't have a word for. Which is it, from where you stand?" },
       },
       choices = {
-        { text = "Courage. We chose to keep going.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Neither. We simply refuse to lie down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Courage. We chose to keep going.", next = "BACK", reply = "Courage, then, and I'll tell my people so. It's not the story they expect.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Neither. We simply refuse to lie down.", next = "BACK", reply = "Simply refuse, yes, and I can see it in every face here. That's its own kind of strength.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -784,13 +784,13 @@ P:NPC {
         { id = "h2_default", text = "Friends who keep their word, Ayessa says, and teachers who understand the elements as we do. The tauren took us in at Skywatcher Plateau without asking anything in return, and I find I don't mind belonging to a Horde that does that." },
       },
       choices = {
-        { text = "And the High Order went to the Alliance?", next = "orders" },
+        { text = "Didn't some of your people go to the Alliance instead?", next = "orders" },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
     orders = {
       lines = {
-        { id = "o_default", text = "To Dalaran and the Kirin Tor, yes. They want back what the magisters knew, and we feel we owe the spirits everything, and we've quarrelled about it for longer than I've been alive. I'd rather not quarrel about it here, so far from home." },
+        { id = "o_default", text = "The High Order did, to Dalaran and the Kirin Tor. They want back what the magisters knew, and we feel we owe the spirits everything, and we've quarrelled about it for longer than I've been alive. I'd rather not quarrel about it here, so far from home." },
       },
       choices = {
         { text = "Then we won't. Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
@@ -801,7 +801,7 @@ P:NPC {
   topics = {
     two_orders = { { id = "tp_orders", text = "The High Order wants the magisters' knowledge back, and the Windshapers want to honour the spirits who sheltered us. Both are right, and both are stubborn." } },
     worgen = { { id = "tp_worgen", text = "A curse that walks on four legs and then on two. I've seen what it does from the inside, and I'll be glad never to see it again." } },
-    background = { { id = "tp_bg", text = "A Windshaper of Zephras Isle who passed her trials and came down to learn. I'm learning a great deal faster than I expected." } },
+    background = { { id = "tp_bg", text = "A Windshaper of Zephras Isle who passed her trials and came down to learn. The ground teaches faster than the winds did, and much more rudely." } },
     advice = { { id = "tp_ad", text = "Pay your debts, all of them. The ones you forget are the ones that come back to collect." } },
     _none = { { id = "tp_none", text = "I don't know; I've only been below the clouds a little while. Ask Trevan; he knows everything, or says he does." } },
   },

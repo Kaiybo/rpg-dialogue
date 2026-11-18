@@ -25,9 +25,9 @@ P:NPC {
 
   notice = {
     { id = "n_rank", cat = "pvp", when = { pvpRank = 6 },
-      text = "You wear an officer's rank in the Alliance's service, I see. Those titles are paid for in blood, and I'd rather that blood was spent at the Gulch than anywhere else." },
+      text = "You wear an officer's rank in the Alliance's service, I see. Those titles are paid for in blood, and if blood must be spent, let it be spent at the Gulch, where the forest gains by it." },
     { id = "n_kills", cat = "soldier", when = { honorKills = { min = 250 } },
-      text = "You've the bearing of someone who has faced the Horde many times and walked away, which is more than most recruits who come to me can say. The Gulch could use that steadiness." },
+      text = "You've the bearing of someone who has faced the Horde many times and walked away, and few of the recruits who come to me can claim the same. The Gulch could use that steadiness." },
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" }, place = "before",
       text = "One of our own, and a long way from the boughs of Teldrassil! Ashenvale is your forest too, sister or brother, and it is bleeding." },
   },
@@ -86,7 +86,7 @@ P:NPC {
     gulch_why = {
       lines = { { id = "glw_default", text = "It's the easiest road from the Barrens into the old forest, and the trees there are ancient and straight, the kind you can't find in Durotar's red dust. Every trunk they haul out of the Gulch goes south to build their walls and their wolf pens and their war machines." } },
       choices = {
-        { text = "Then the Gulch is the door to all of Ashenvale.", next = "gulch_hold", fx = { learn = { "ashenvale" } } },
+        { text = "And Silverwing Hold guards the door to Ashenvale.", next = "gulch_hold", fx = { learn = { "ashenvale" } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
@@ -125,13 +125,13 @@ P:NPC {
         { id = "mp_default", text = "When the orcs first came to Ashenvale, Grom Hellscream's warriors slew Cenarius himself, and that was before any of them had asked us for so much as a branch. Some of my sisters say the young orcs aren't to blame for that, and others say every axe in the Gulch is Hellscream's axe. Which would you say, friend?" },
       },
       choices = {
-        { text = "The orcs need wood to live. Let them take what they need, no more.", next = "BACK", fx = { opinion = { ashenvale = "share" }, align = { order = 1 }, learn = { "ashenvale" } } },
-        { text = "The forest has its own law. Drive every axe out of it.", next = "BACK", fx = { opinion = { ashenvale = "war" }, align = { order = -1 }, learn = { "ashenvale" } } },
+        { text = "The orcs need wood to live. Let them take what they need, no more.", next = "BACK", reply = "That is a fairer measure than most of my sisters would give them, and Elune knows I have wished for it. But the orcs have never once stopped at what they need, and so the Sentinels must stop them.", fx = { opinion = { ashenvale = "share" }, align = { order = 1 }, learn = { "ashenvale" } } },
+        { text = "The forest has its own law. Drive every axe out of it.", next = "BACK", reply = "That is the old law, and the Sentinels have kept it since before your grandmothers' grandmothers were born. Ride with us, then, and we will see every axe driven out of Ashenvale.", fx = { opinion = { ashenvale = "war" }, align = { order = -1 }, learn = { "ashenvale" } } },
         { text = "Hellscream died killing a demon. Doesn't that count for something?", next = "mill_grom" },
       },
     },
     mill_grom = {
-      lines = { { id = "mg_default", text = "It counts for a great deal, and we know it, for Mannoroth fell in our forest too. But a debt paid in one coin doesn't cancel a debt owed in another, and Cenarius is still dead, and the trees are still coming down." } },
+      lines = { { id = "mg_default", text = "It counts for much, and we know it, for Mannoroth fell in our forest too. But a debt paid in one coin doesn't cancel a debt owed in another, and Cenarius is still dead, and the trees are still coming down." } },
       choices = {
         { text = "Then the fight goes on. I understand.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Hard words, Sentinel, but honest ones.", next = "BACK", fx = { affinity = 1 } },
@@ -153,7 +153,7 @@ P:NPC {
     flags_why = {
       lines = { { id = "fw_default", text = "Because neither side has the strength to hold the whole valley, and both know it. The Warsong standard is the clan's pride, and every time we take it the axes go quiet for a while, so the banner is worth more to us than any fire." } },
       choices = {
-        { text = "So the war is fought over pride as much as wood.", next = "flags_run", fx = { trait = { skeptical = 1 } } },
+        { text = "Then everything rests on whoever carries the banner.", next = "flags_run", fx = { trait = { skeptical = 1 } } },
         { text = "Clever. Shaming them works better than burning them.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
@@ -161,8 +161,8 @@ P:NPC {
       big = true,
       lines = { { id = "fr_default", text = "Speed, mostly, and the nerve to keep running when you can hear wolves behind you. The best runners I've known wouldn't stop for a wounded friend on the way home, and I've never decided whether I admire them for it." } },
       choices = {
-        { text = "You never leave anyone behind. The banner can wait.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The banner wins the fight. A runner who stops loses it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You never leave anyone behind. The banner can wait.", next = "BACK", reply = "Elune bless you for saying it, because I have buried runners who carried the banner home and left a sister in the gulch, and the banner never meant as much to me afterward.", fx = { align = { honor = 1 } } },
+        { text = "The banner wins the fight. A runner who stops loses it.", next = "BACK", reply = "That is the hard truth of the gulch, and perhaps you are right, but I hope I never have to watch you run past someone I love with that banner on your back.", fx = { align = { honor = -1 } } },
         { text = "I've never carried a banner. I'd like to learn.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -190,7 +190,7 @@ P:NPC {
     city = {
       lines = {
         { id = "ct_default", text = "It's a strange post for a Sentinel, standing among walls when I'd rather be in the branches above the Hold. But Ashenvale can't win this alone, so here I am, asking strangers to care about a forest most of them have never seen." },
-        { id = "ct_if", when = { zone = "Ironforge" }, text = "Honestly, I find it hard to breathe in here, with the forges going day and night and no sky at all. The dwarves are kind enough, though, and one of them brought me a potted fern last week, which I've kept alive by the Great Forge's light." },
+        { id = "ct_if", when = { zone = "Ironforge" }, text = "I confess I find it hard to breathe in here, with the forges going day and night and no sky at all. The dwarves are kind enough, though, and one of them brought me a potted fern last week, which I've kept alive by the Great Forge's light." },
         { id = "ct_sw", when = { zone = "Stormwind City" }, text = "The humans stare at me as if I were a tall purple ghost, but they listen when I speak, which is more than I expected. Their children ask whether Ashenvale has wolves in it, and I tell them yes, and that some of the wolves have riders." },
         { id = "ct_dn", when = { zone = "Darnassus" }, text = "Here I'm among my own, which should be easier, and it isn't. Too many of our people think the war in Ashenvale is a matter for the Sentinels alone, and they'd rather tend Teldrassil's groves than look south across the water." },
       },
@@ -212,8 +212,8 @@ P:NPC {
       big = true,
       lines = { { id = "xd_default", text = "They did, in the war when the orcs first came to Kalimdor, and the forest still remembers where he fell. Some in the Circle say he'll return in time, as the Wild Gods do, and some say the orcs must pay for him first. What does your heart tell you, druid?" } },
       choices = {
-        { text = "The forest heals. Vengeance won't bring the Lord of the Grove back.", next = "BACK", fx = { opinion = { warsong = "forgive" }, align = { light = 1 } } },
-        { text = "Blood was spilled first. The Warsong must answer for it.", next = "BACK", fx = { opinion = { warsong = "hate" }, align = { light = -1 } } },
+        { text = "The forest heals. Vengeance won't bring the Lord of the Grove back.", next = "BACK", reply = "Your heart speaks with the Circle's patience, druid, and I envy you it. The forest does heal, given long enough, though I hope I live to see where Cenarius fell grow green again.", fx = { opinion = { warsong = "forgive" }, align = { light = 1 } } },
+        { text = "Blood was spilled first. The Warsong must answer for it.", next = "BACK", reply = "Then you speak for many of my sisters, druid, and the Warsong would be wise to fear it. The forest remembers its debts, and so do the Sentinels.", fx = { opinion = { warsong = "hate" }, align = { light = -1 } } },
         { text = "I don't know yet. I need time with the trees.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -249,8 +249,8 @@ P:NPC {
       big = true,
       lines = { { id = "xp_default", text = "Elune is our light, and I won't ask you to bow to her, but I've seen paladins at the Hold shield a fallen runner and carry the flag home after. Some of them refuse to strike an orc who has laid down his axe, and some of them don't, and I've learned not to judge either." } },
       choices = {
-        { text = "Spare those who yield. The Light asks mercy of us.", next = "BACK", fx = { opinion = { orcs = "mercy" }, align = { light = 1 } } },
-        { text = "An orc who yields today cuts trees tomorrow.", next = "BACK", fx = { opinion = { orcs = "hate" }, align = { light = -1 } } },
+        { text = "Spare those who yield. The Light asks mercy of us.", next = "BACK", reply = "Then you will be welcome at the Hold, paladin, for mercy is hard to carry into the gulch. Elune smiles on the merciful, I think, even when they are not her own.", fx = { opinion = { orcs = "mercy" }, align = { light = 1 } } },
+        { text = "An orc who yields today cuts trees tomorrow.", next = "BACK", reply = "A hard truth, paladin, and one I have learned on the riverbank myself. Strike if you must, but do not take any joy in it, for that is how the orcs lost themselves.", fx = { opinion = { orcs = "hate" }, align = { light = -1 } } },
         { text = "Something else, Sentinel.", next = "BACK" },
       },
     },
@@ -393,8 +393,8 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "They say it, and maybe they believe it, but they have a whole forest and we have a desert. Thrall teaches us to respect the land, and the Warsong do try, in our way, but no orc child ever grew up warm on respect. Which matters more, do you think?" } },
       choices = {
-        { text = "The Horde's survival comes first. Cut what you need.", next = "BACK", fx = { opinion = { ashenvale = "necessary" }, align = { order = 1 }, learn = { "ashenvale" } } },
-        { text = "A forest is not ours to tame. Take less, or nothing.", next = "BACK", fx = { opinion = { ashenvale = "wrong" }, align = { order = -1 }, learn = { "ashenvale" } } },
+        { text = "The Horde's survival comes first. Cut what you need.", next = "BACK", reply = "Spoken like a true child of the Horde, {g:brother|sister}, and I will not argue with you. Our children must grow up warm, and the elves can share their forest or watch us take it.", fx = { opinion = { ashenvale = "necessary" }, align = { order = 1 }, learn = { "ashenvale" } } },
+        { text = "A forest is not ours to tame. Take less, or nothing.", next = "BACK", reply = "You speak like a shaman, and perhaps that is no bad thing. But respect will not keep our children warm through a Durotar winter, and someone must swing the axe.", fx = { opinion = { ashenvale = "wrong" }, align = { order = -1 }, learn = { "ashenvale" } } },
         { text = "I'll have to think about that.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -414,7 +414,7 @@ P:NPC {
     flags_why = {
       lines = { { id = "fw_default", text = "Because neither side can hold the whole valley, and a stolen banner shames them more than a burnt wall. Every time we carry off the Silverwing standard, their archers stay in their towers for a while, and our axes go back to work." } },
       choices = {
-        { text = "So the war's half about pride.", next = "flags_run", fx = { trait = { skeptical = 1 } } },
+        { text = "So it all comes down to the runner.", next = "flags_run", fx = { trait = { skeptical = 1 } } },
         { text = "Shaming them works better than burning them, then.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
@@ -422,8 +422,8 @@ P:NPC {
       big = true,
       lines = { { id = "fr_default", text = "Legs, guts and friends who'll die for you on the way home. I've seen runners leave a wounded friend in the tunnel to get the banner back, and I've seen others turn around for them, and I still can't say which one Hellscream would have honored." } },
       choices = {
-        { text = "You never leave a comrade. The banner can wait.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The banner wins the fight. The runner keeps running.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You never leave a comrade. The banner can wait.", next = "BACK", reply = "Then you have Grom's heart, I think, because he did not leave his people behind, even at the very end, and I would run beside you anywhere.", fx = { align = { honor = 1 } } },
+        { text = "The banner wins the fight. The runner keeps running.", next = "BACK", reply = "Many would agree, and the gulch has been won that way before, but do not be surprised if the grunt you left in the tunnel never runs beside you again.", fx = { align = { honor = -1 } } },
         { text = "I'd like to try carrying it myself.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -469,8 +469,8 @@ P:NPC {
       big = true,
       lines = { { id = "gf_default", text = "He killed the demon who first put the curse on us, and the blood-lust broke with him. Some in the clan say we should carry on his fury in Ashenvale, and others say his death was to free us from that fury forever. Where do you stand, {g:brother|sister}?" } },
       choices = {
-        { text = "Honor his sacrifice. The fury should end with him.", next = "BACK", fx = { opinion = { warsong = "restrain" }, align = { light = 1 } } },
-        { text = "His fury won the war. Carry it into the Gulch.", next = "BACK", fx = { opinion = { warsong = "support" }, align = { light = -1 } } },
+        { text = "Honor his sacrifice. The fury should end with him.", next = "BACK", reply = "Then you understand Grom better than many who carried his banner. He gave his life to set us free, and I will not throw that gift back into the fire.", fx = { opinion = { warsong = "restrain" }, align = { light = 1 } } },
+        { text = "His fury won the war. Carry it into the Gulch.", next = "BACK", reply = "His fury won us Ashenvale, it is true, and the Gulch could use some of it. But be careful, {g:brother|sister}, for that same fury nearly made slaves of us all.", fx = { opinion = { warsong = "support" }, align = { light = -1 } } },
         { text = "I'd rather hear what you think.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -501,8 +501,8 @@ P:NPC {
       big = true,
       lines = { { id = "xs_default", text = "I'm no shaman, but our shamans at the mill say the spirits there are restless and that we owe them offerings for every tree we take. Some of my clan listen, and some say the spirits forgot the orcs long ago and we owe them nothing." } },
       choices = {
-        { text = "Make the offerings. The spirits keep the balance.", next = "BACK", fx = { opinion = { the_elements = "respect" }, align = { order = 1 } } },
-        { text = "The spirits don't feed the Horde. Cut what you need.", next = "BACK", fx = { opinion = { the_elements = "useful" }, align = { order = -1 } } },
+        { text = "Make the offerings. The spirits keep the balance.", next = "BACK", reply = "Our shamans will be glad to hear you say it, and I confess I sleep easier when they make them. If the spirits are restless, it costs us little to keep them calm.", fx = { opinion = { the_elements = "respect" }, align = { order = 1 } } },
+        { text = "The spirits don't feed the Horde. Cut what you need.", next = "BACK", reply = "That is the warrior's answer, and many in the Horde would agree with you. Still, I would not want to be the orc the spirits remember when they finally decide to answer.", fx = { opinion = { the_elements = "useful" }, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -524,7 +524,7 @@ P:NPC {
   },
 
   topics = {
-    ashenvale = { { id = "tp_ash", text = "More trees than a whole clan could cut in a lifetime, and the night elves guard every one of them as if it were their own child." } },
+    ashenvale = { { id = "tp_ash", text = "More trees than a whole clan could cut in a lifetime, and the night elves guard each trunk as if it were their own child." } },
     _none = { { id = "tp_none", text = "I'm a soldier of the Warsong, not a scholar. Ask me about the Gulch, and you'll get a straight answer." } },
   },
 }

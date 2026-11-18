@@ -67,8 +67,8 @@ P:NPC {
       big = true,
       lines = { { id = "ss_default", text = "Kilram be a smith, not a fool. Da Spire be full of orcs and dragons, and Kilram would die on da first stair. So I trade what I know for what I want, and some say dat be cowardly, and some say dat be smart." } },
       choices = {
-        { text = "A man should settle his own scores.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Smart. Let others take the risk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A man should settle his own scores.", next = "BACK", reply = "Hah, you sound like a young troll who never lost a brother on a bad hunt, mon. Kilram settled plenty of scores before, and now he be old enough to pick which ones be worth dyin' for.", fx = { align = { honor = 1 } } },
+        { text = "Smart. Let others take the risk.", next = "BACK", reply = "Ya, you understand Kilram, and dat be why he still got both his hands for de anvil. Let de heroes climb dat Spire, and Kilram will sell dem de axes when dey come back down.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -181,8 +181,8 @@ P:NPC {
       big = true,
       lines = { { id = "cn_default", text = "Because it's made to kill the corrupted, and because a name should warn the one it's pointed at. Some say a blade born of the Scourge's own craft will poison the hand that holds it. I say a sword is only steel, and steel goes where you swing it." } },
       choices = {
-        { text = "Some craft is tainted. Leave it buried.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A weapon's a weapon. Use what works.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some craft is tainted. Leave it buried.", next = "BACK", reply = "Buried things have a way of digging themselves back up, and the Scourge never waited for anyone's permission. I'll keep my forge hot and my conscience my own, thank you.", fx = { align = { light = 1 } } },
+        { text = "A weapon's a weapon. Use what works.", next = "BACK", reply = "Exactly so, and the dead I put this blade into will not be asking where the steel was learned. Bring me the materials, and I'll give you something they will fear.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -269,7 +269,7 @@ P:NPC {
       },
     },
     serenity = {
-      lines = { { id = "se_default", text = "Because it's beautiful, darling, a hammer made by people who thought they were holy, and hit very hard because of it. The Scarlet Crusade burned half the people I knew in life, and I want their best hammer in the hands of a Forsaken smith, for the joke of it." } },
+      lines = { { id = "se_default", text = "Because it's beautiful, darling, a hammer made by people who thought they were holy, and hit very hard because of it. The Scarlet Crusade burned my neighbours in life, and I want their best hammer in the hands of a Forsaken smith, for the joke of it." } },
       choices = {
         { text = "Revenge, then?", next = "serenity_rev" },
         { text = "Something else.", next = "BACK" },
@@ -279,8 +279,8 @@ P:NPC {
       big = true,
       lines = { { id = "sr_default", text = "Revenge, craft, spite, a little of each. The Crusade say we're abominations, and they kill us on sight, and they'd kill you too if you stood next to me long enough. Some of my people would have me forgive them, and I think those people are idiots." } },
       choices = {
-        { text = "Take their hammer. They've earned it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Hate eats the hater. Make the hammer for its own sake.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Take their hammer. They've earned it.", next = "BACK", reply = "Now there's a living one with sense. Every blow I put into that hammer is one more Crusader who learns what it is to be hunted for what he is.", fx = { align = { light = -1 } } },
+        { text = "Hate eats the hater. Make the hammer for its own sake.", next = "BACK", reply = "How very wise of you, and how very easy to say with a pulse. Still, a hammer made with care strikes truer than one made in a rage, so perhaps I'll take half your advice.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -293,7 +293,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     uc = {
-      lines = { { id = "uc_default", text = "Never. The Apothecarium would want to measure my knees, and the Royal Guard would write me up for loitering. Down there everyone shuffles, darling, and I'd rather be cold up here than shuffle." } },
+      lines = { { id = "uc_default", text = "Never. The Apothecarium would want to measure my knees, and the Royal Guard would write me up for loitering. Down there everyone shuffles, darling, and I'll take the cold up here over the shuffle." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },

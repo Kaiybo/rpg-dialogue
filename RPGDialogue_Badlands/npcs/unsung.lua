@@ -26,17 +26,17 @@ P:NPC {
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
       text = "A smith, or a miner! Either way, friend, the Badlands is full of ore and also full of things that want to eat you while you dig it out, and I sell the picks for both jobs." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "An orc, good, good! Please tell Goretooth I'm a very helpful goblin and not at all the sort he needs to shout at, friend, and I'll remember the favour at the counter, in spirit." },
+      text = "An orc, good, good! Please tell Warlord Goretooth I'm a very helpful goblin and not at all the sort he needs to shout at, friend, and I'll remember the favour at the counter, in spirit." },
   },
 
   start = "hello",
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Can I sell? Buddy, I can sell anything to anybody, and a dead knight with holy hands is a whole new market I've been itchin' to crack. Better iron, I'd guess, since the Light doesn't sharpen anything and I do." } },
+      lines = { { id = "xfpala_default", text = "Can I sell? Buddy, I can sell anything to anybody, and a dead knight with holy hands is a whole new market I've been itchin' to crack. What you'd want is better iron, I'd guess, since the Light doesn't sharpen a blade and my whetstones do." } },
       choices = {
-        { text = "Sell me honest iron at an honest price.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Charge the orcs double and sell me the good iron.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Sell me honest iron at an honest price.", next = "BACK", reply = "Honest iron at an honest price? Sure, buddy, and I'll even throw in a smile for free. Don't tell the orcs about the smile.", fx = { align = { honor = 1 } } },
+        { text = "Charge the orcs double and sell me the good iron.", next = "BACK", reply = "Now that's a customer after my own heart, friend! Double for the orcs and the good stuff for you, and we never had this conversation.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -44,8 +44,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "As well as coal and iron allow, friend, and both cost a fortune to haul over the Gorge road, which comes out of my margin and then out of yours. The Dark Irons have all the iron they want under their mountain, which is a monopoly, and it isn't fair, because they're the ones tryin' to kill everybody." } },
       choices = {
-        { text = "Then the Horde's smiths deserve your coal at a fair price.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Raid the Dark Irons for iron and never pay goblin prices.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then the Horde's smiths deserve your coal at a fair price.", next = "BACK", reply = "Fair price, sure, sure, and fair is what the coal costs me plus a little somethin' for my trouble. That's fair, right, buddy?", fx = { align = { honor = 1 } } },
+        { text = "Raid the Dark Irons for iron and never pay goblin prices.", next = "BACK", reply = "Raid the Dark Irons? Buddy, you'll put me out of business! Go on, then, but if you bring back iron, I'm buyin' it.", fx = { align = { honor = -1 } } },
         { text = "Something else, Jazzrik.", next = "BACK" },
       },
     },
@@ -53,11 +53,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Terrible, friend, because the coyotes and basilisks love the mines as much as I do and never pay for anything. I lose a mule a month to the basilisks, so I've started billing the orcs for the mule, which they don't appreciate one bit." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} off my coal cart! I had a beast roll in it once, buddy, and its owner tried to charge ME for the bath, which is backwards accounting." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Terrible, friend, because the coyotes and basilisks love the mines as much as I do and never pay for anything. And keep {pet} off my coal cart, buddy, because the last beast that rolled in it cost me a bath I somehow paid for." },
       },
       choices = {
-        { text = "Charging the Horde for your dead mule is plain swindling.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Charging extra for the mule? That's sharp business, goblin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Charging the Horde for your dead mule is plain swindling.", next = "BACK", reply = "Swindling's a strong word, friend, I prefer cost recovery. A mule's an asset, and assets need replacin'.", fx = { align = { honor = 1 } } },
+        { text = "Charging extra for the mule? That's sharp business, goblin.", next = "BACK", reply = "Sharp business, that's my whole philosophy, buddy! Somebody's gotta pay for the mule, and it ain't gonna be me.", fx = { align = { honor = -1 } } },
         { text = "Something else, Jazzrik.", next = "BACK" },
       },
     },
@@ -65,17 +65,17 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "If it minded, it should've said so before I signed the contracts, friend, because a deal's a deal. I buy my ore off miners who dig out near Uldaman, and the only thing in the Badlands that's ever complained is the troggs, and they complain about everything." } },
       choices = {
-        { text = "The earth remembers greed. Take only what you need, Jazzrik.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Dig deep. The earth has plenty, and the Horde needs steel.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The earth remembers greed. Take only what you need, Jazzrik.", next = "BACK", reply = "Take only what I need? Pal, I need everything, that's the whole point of business. The earth'll forgive me eventually.", fx = { align = { light = 1 } } },
+        { text = "Dig deep. The earth has plenty, and the Horde needs steel.", next = "BACK", reply = "Now you're talkin' my language, friend! Dig deep, haul it up, sell it on, and everybody's happy except the earth.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Not yet, friend, but give me a list and a deposit and I'll have it hauled in from Orgrimmar at Badlands prices, plus a handlin' fee. I'd want it in writing, mind, because the Shadowmage once ordered something from me that hissed in the crate, and I haven't slept right since." } },
+      lines = { { id = "xhcast_default", text = "Not yet, friend, but give me a list and a deposit and I'll have it hauled in from Orgrimmar at Badlands prices, plus a handlin' fee. I'd want it in writing, mind, because Shadowmage Vivian Lagrave once ordered something from me that hissed in the crate, and I haven't slept right since." } },
       choices = {
-        { text = "Order it through the Expeditionary Force, properly, with papers.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Skip the paperwork. Just haul it in quietly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Order it through the Expeditionary Force, properly, with papers.", next = "BACK", reply = "Papers? Buddy, papers mean taxes and taxes mean less for me. But sure, if you insist, I'll fill out somethin'.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Skip the paperwork. Just haul it in quietly.", next = "BACK", reply = "Quietly, eh? I like your style, friend. Quiet costs extra, but it's worth every copper.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,17 +83,17 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Blasting powder, mostly, which the warlord's sappers buy by the barrel and which I keep well away from the forge, for reasons that cost me my last cart and both eyebrows. Anybody walks off with a barrel of that, I hope they don't walk past a campfire." } },
       choices = {
-        { text = "Your powder's safe. I don't rob honest merchants.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Blasting powder? Now that's worth a little risk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your powder's safe. I don't rob honest merchants.", next = "BACK", reply = "Glad to hear it, buddy, because I've had enough explosions this month. Honest merchants are a dying breed out here.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Blasting powder? Now that's worth a little risk.", next = "BACK", reply = "Whoa, whoa, hold on there, pal! That powder's spoken for, and the last guy who got curious ain't got eyebrows anymore.", fx = { align = { honor = -1 } } },
         { text = "Something else, Jazzrik.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No? Shame, buddy, because I've been lookin' for a new market ever since the smiths started haggling. Still, if it ever gets peckish, you know where to find me, and coal's cheaper than whatever it eats now, I'd bet." } },
+      lines = { { id = "xlock_default", text = "No? Shame, buddy, because I've been lookin' for a new market ever since the smiths started haggling. Still, if your imp ever gets peckish, you know where to find me, and coal's cheaper than whatever it eats now, I'd bet." } },
       choices = {
-        { text = "You'd sell to a demon? That's a step too far.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Gold's gold. I admire a goblin with no limits.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You'd sell to a demon? That's a step too far.", next = "BACK", reply = "A step too far? Friend, I don't even know where the line is, and I've stepped over it twice this week. But sure, sure.", fx = { align = { light = 1 } } },
+        { text = "Gold's gold. I admire a goblin with no limits.", next = "BACK", reply = "No limits, that's my motto, buddy! Well, that and time is money, but who's countin'.", fx = { align = { light = -1 } } },
         { text = "Never mind that for now.", next = "BACK" },
       },
     },
@@ -101,8 +101,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Out of the hills to the west, friend, where the Dark Irons left half their old workings behind without so much as a claim notice. I'm just finishing what they started, and if you ask me, the hills are glad of the company after all those dwarves." } },
       choices = {
-        { text = "Dig what's already dug. Leave the rest alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Dig wherever the coal is. The Badlands won't notice.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Dig what's already dug. Leave the rest alone.", next = "BACK", reply = "Leave it alone? Pal, the Dark Irons left it lyin' around for anybody. That's practically an invitation.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dig wherever the coal is. The Badlands won't notice.", next = "BACK", reply = "That's what I keep sayin', friend! The Badlands are mostly rock anyway, and rock don't complain.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -137,7 +137,7 @@ P:NPC {
         { text = "Let me see your stock.", next = "BUSINESS" },
         { text = "Why is everything so expensive here?", next = "price" },
         { text = "What's out in the Badlands worth mining?", next = "ore" },
-        { text = "Goretooth looks like a hard master.", next = "goretooth" },
+        { text = "Warlord Goretooth looks like a hard master.", next = "goretooth" },
         { text = "The dwarves must trouble Kargath often.", next = "darkiron" },
         { text = "How do the orcs here treat my people?", next = "forsaken", when = { race = "Scourge" } },
         { text = "What do you keep that's worth stealing, Jazzrik?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -162,14 +162,14 @@ P:NPC {
         { id = "pb_default", text = "It is! But you can buy from me or you can walk to Orgrimmar, buddy, and I promise the walk costs more. I've done the sums, friend, and believe me, the sums like me better." },
       },
       choices = {
-        { text = "Fair is fair. You earned it.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
-        { text = "That's gouging, and you know it.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "Fair is fair. You earned it.", next = "BACK", reply = "Thanks, buddy, I appreciate a customer who understands margins. Come back anytime, and bring friends with coin.", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "That's gouging, and you know it.", next = "BACK", reply = "Gouging? Friend, I'm hurt, I'm deeply hurt. That's just what things cost when you haul 'em over the Gorge road.", fx = { align = { honor = 1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     ore = {
       lines = {
-        { id = "o_default", text = "Iron in the hills, and mithril if you're lucky and brave, but the Badlands are crawling with ogres, troggs and Dark Iron dwarves, and every one of them's a cost I can't pass on. Every good seam out here is guarded by something with a club or a hammer or both." },
+        { id = "o_default", text = "Iron in the hills, and mithril if you're lucky and brave, but the Badlands are crawling with ogres, troggs and Dark Iron dwarves, and every last one's a cost I can't pass on. Every good seam out here is guarded by something with a club or a hammer or both." },
       },
       choices = {
         { text = "Troggs?", next = "ore_troggs" },
@@ -184,13 +184,13 @@ P:NPC {
     },
     goretooth = {
       lines = {
-        { id = "g_default", text = "Hard? He's a rock with a grudge, buddy, but he pays on time and he's never once broken a contract, which is more than I can say for some goblins I know. I just make very sure he's never got a reason to look at me, or at my books." },
+        { id = "g_default", text = "Hard? He's a rock with a grudge, buddy, but he pays on time and he's never once broken a contract, and I can't say that of my own cousins. I just make very sure he's never got a reason to look at me, or at my books." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     forsaken = {
       lines = {
-        { id = "fs_default", text = "Politely, friend, mostly because the Shadowmage at the warlord's fire is one of yours and nobody wants to annoy her, least of all me, because she's a customer. The grunts mutter a bit when your lot walk by, but they mutter at me too, and I'm still here and still sellin'." },
+        { id = "fs_default", text = "Politely, friend, mostly because Shadowmage Vivian Lagrave, the warlord's spellcaster, is one of yours and nobody wants to annoy her, least of all me, because she's a customer. The grunts mutter a bit when your lot walk by, but they mutter at me too, and I'm still here and still sellin'." },
       },
       choices = {
         { text = "Muttering I can live with.", next = "BACK", fx = { trait = { witty = 1 } } },

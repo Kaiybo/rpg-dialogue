@@ -28,7 +28,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "I am Karne Grayhoof, and I help the young of Narache find a trade. It can feel like a great deal at first, but you can always come back to me, or to the teachers in Thunder Bluff when you're older." },
+        { id = "h_default", key = true, text = "I am Karne Grayhoof, and I help the young of Narache find a trade. It can feel like a lot at first, but you can always come back to me, or to the teachers in Thunder Bluff when you're older." },
         { id = "h_nontauren", when = { ["not"] = { race = "Tauren" } }, text = "A guest on Red Cloud Mesa, and far from home. The Earth Mother's gifts are the same here as anywhere, so let me tell you which of our teachers can show you how to use them." },
       },
       again = {
@@ -58,8 +58,8 @@ P:NPC {
         { id = "c_default", text = "Choose what gives you peace in the doing, because you will do it a great many times. Some are happiest out on the plains, and others at the fire with their hands busy, and only you know which you are." },
       },
       choices = {
-        { text = "Choose what helps the tribe most, not what pleases you.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Choose what calls to you. The tribe will benefit anyway.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Choose what helps the tribe most, not what pleases you.", next = "BACK", reply = "That is an old answer, and a good one, though a tired heart serves the tribe poorly. Find the work the tribe needs that you can also love, and you will do it well for many years.", fx = { align = { order = 1 } } },
+        { text = "Choose what calls to you. The tribe will benefit anyway.", next = "BACK", reply = "I think so too, young one. A tauren who loves her work does it with care, and care is what the tribe needs most.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -186,8 +186,8 @@ P:NPC {
         { id = "th_default", text = "Because the land gives, and if you take too much it stops giving. My grandmother took only one in three, and left the rest to seed, so that there would be more the next spring." },
       },
       choices = {
-        { text = "Take only what you need, and the land provides.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The land is wide. Take what you can carry.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Take only what you need, and the land provides.", next = "BACK", reply = "My grandmother would have liked you. Leave the rest to seed, and you will be gathering here when you are as old as she was.", fx = { align = { order = 1 } } },
+        { text = "The land is wide. Take what you can carry.", next = "BACK", reply = "It is wide, and still it has edges, as my grandmother learned when the near hills went bare. Carry what you need, and let the land keep the rest.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -241,7 +241,7 @@ P:NPC {
     },
     beasts = {
       lines = {
-        { id = "b_default", text = "Plainstriders and prairie wolves on the mesa, and the cougars in the hills, if you are brave enough. The battleboars of the Bristleback have tough hides too, but they bite back harder than you'd think." },
+        { id = "b_default", text = "Plainstriders and prairie wolves on the mesa, and the cougars in the hills, if you are brave enough. The battleboars of the Bristleback have tough hides too, but they bite back hard enough to break a young hunter's spear." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -262,8 +262,8 @@ P:NPC {
         { id = "wk_default", text = "It is work, and it is respect. The wolf gave everything it had, so the least we can do is use everything it gave." },
       },
       choices = {
-        { text = "You're right. Every part honors the beast.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A dead wolf doesn't care. Take the hide and move on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right. Every part honors the beast.", next = "BACK", reply = "It does, and the wolf will rest easier for it. Come, I will show you how to take the sinew without spoiling the hide.", fx = { align = { light = 1 } } },
+        { text = "A dead wolf doesn't care. Take the hide and move on.", next = "BACK", reply = "The wolf may not care, but the Earth Mother does, and so do I. Take the hide, then, but you will never learn the craft that way.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -380,8 +380,8 @@ P:NPC {
         { id = "m_default", text = "I ask her leave before I swing, and I take only what I need. I think she does not mind a careful hand, though I have never heard her say so. What do you think?" },
       },
       choices = {
-        { text = "Asking is right. Respect the earth and it provides.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The earth is stone. Strike it and take what's there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Asking is right. Respect the earth and it provides.", next = "BACK", reply = "I think so too, and it is good to hear it from someone so young. The earth gives more to the patient hand.", fx = { align = { light = 1 } } },
+        { text = "The earth is stone. Strike it and take what's there.", next = "BACK", reply = "It is stone, and stone is her bones, young one. Strike if you must, but you may find the veins run thinner for a careless miner.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

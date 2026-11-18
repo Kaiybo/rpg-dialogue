@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_harpies", when = { questActive = TODO_QUEST("Securing the Lines") }, text = "Every harpy you drop is a caravan I don't have to explain to the boss, and that's worth more than gold to me, almost. Keep counting, pal!" },
     { id = "g_safe", when = { questDone = TODO_QUEST("Securing the Lines") }, text = "Two caravans through this week without a feather in sight, and the ledger's finally in the black! That's a record, pal, and you're half of it." },
     { id = "g_away", when = { away = 14 }, text = "There you are! {away} gone, and do you know what I lost while you were away, down to the copper? Don't answer that, buddy, it'll ruin both our days." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, all grown up and dangerous. If I'd known you'd turn out this tough, pal, I'd have charged you less for the privilege of working for me, and by my last copper, I mean that." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, all grown up and dangerous. If I'd known you'd turn out this tough, pal, I'd have paid you more from the start, and by my last copper, I almost mean that." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word on the road says you've been helping folks out, pal. Good for business, because helpful people are the ones I hire, and they come cheap." },
   },
 
@@ -79,8 +79,8 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "Sure it is! The other thing the boss taught me is that you can get anything done for a price, so doing it myself means finding the price, see? Anyway, pal, the harpies don't care whose coin it is, and neither should you." } },
       choices = {
-        { text = "Fair work for fair pay. I'll take it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd clear those harpies for nothing. They're a menace.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Fair work for fair pay. I'll take it.", next = "BACK", reply = "Now that's a professional, pal, and I like doin' business with professionals. Bring me the proof and I'll count it out right here.", fx = { align = { order = 1 } } },
+        { text = "I'd clear those harpies for nothing. They're a menace.", next = "BACK", reply = "For nothin'? Pal, you're makin' me nervous, because nobody works for free in my experience. I'll pay you anyway, so the books stay balanced.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -136,8 +136,8 @@ P:NPC {
     alliance = {
       lines = { { id = "al_default", text = "Because the Tinkers' Union doesn't take sides, pal, it takes orders and it fills 'em. You get your hands dirty with my harpies, I pay you the same as anybody, and nobody in Orgrimmar has to know who cleared the road." } },
       choices = {
-        { text = "A neutral road helps everyone. I'll do it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll take Horde-side coin and enjoy it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A neutral road helps everyone. I'll do it.", next = "BACK", reply = "A neutral road's a profitable road, and you just made my whole week. Go get 'em, pal, and send the bill to me.", fx = { align = { order = 1 } } },
+        { text = "I'll take Horde-side coin and enjoy it.", next = "BACK", reply = "Coin's coin, pal, and it spends the same in Orgrimmar as anywhere else. Enjoy it all you like.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -152,7 +152,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never trust a canyon, buddy, and never pay up front. Those two rules have kept me alive and solvent longer than any armor." } },
     steamwheedle = { { id = "tp_steam", text = "Gazlowe's in with the Steamwheedle folk down in Ratchet, pal, and that means a port that'll sell to anybody with coin. You want neutral, that's as neutral as it gets, and as profitable." } },
     thrall = { { id = "tp_thrall", text = "The Warchief's a great customer, pal, pays his bills, never haggles, and keeps the roads mostly clear. Mostly, I said, because these harpies don't read his treaties." } },
-    ratchet = { { id = "tp_ratchet", text = "Ratchet's home office, and Gazlowe's my boss, and every caravan I lose comes out of his ledger and then out of mine. I'd like to keep my hide, so I'd like to keep my caravans." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's the home office, and Gazlowe's my boss, and every caravan I lose comes out of his ledger and then out of mine. I'd like to keep my hide, so I'd like to keep my caravans." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the same problem I do, only with pirates instead of harpies. Different predator, same overhead, friend." } },
     venture_company = { { id = "tp_venture_company", text = "The Venture boys tried to hire me once, good pay, terrible benefits, mostly in explosions. I'm loyal to the Cartel, and I'm not just saying that because they might be listening." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, unless there's money in it. Is there money in it?" } },

@@ -5,8 +5,8 @@ local TODO_QUEST = P.TODO_QUEST
 P:Pool {
   id = "guard_farholde", role = "guard", community = "farholde",
   barks = {
-    { id = "b_fog", text = "Fog's coming off the river, so keep your eyes sharp, and somebody find out who keeps emptying his pot in the moat." },
-    { id = "b_ditch", text = "Someone ought to fill that ditch... no, best not, the Commander wants it." },
+    { id = "b_fog", text = "Fog's coming off the river, so keep your eyes sharp. Cultists like to move under it." },
+    { id = "b_ditch", text = "Somebody ought to fill in that ditch by the gate, but the Commander wants it left open." },
   },
   greetings = {
     { id = "g_default", text = "This is Farholde Keep, and it's Brotherhood ground." },
@@ -18,17 +18,17 @@ P:Pool {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin at the gate! Some of the old riders will want to shake your hand, so let them." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Cultists, was it? Alphonse is by the forge. Tell him a sentry sent you; he won't care, but tell him." },
+      text = "Your gear's in a sorry state. Alphonse is at the forge, and he'll mend it if you ask him." },
   },
   react = { { id = "r_stealth", on = "stealth", text = "Out from behind that barrel, you. Nobody creeps around this keep but us." } },
   lines = {
-    { id = "l_default", text = "Mind the ditches outside the gate. The Commander had them dug after Sunnyglade burned, and nobody's dared fill them since." },
+    { id = "l_default", text = "Mind the ditches outside the gate. The Commander had them dug after the cult burned the village of Sunnyglade, and nobody's dared fill them since." },
     { id = "l_hero", when = { townStanding = { town = "farholde", min = 30 } },
       text = "The Commander says you can be trusted. Sentries don't say that out loud, but we're thinking it." },
     { id = "l_distrust", when = { townStanding = { town = "farholde", max = -20 } },
       text = "Talk to the Commander if you must, and then go." },
     { id = "l_memorials", when = { metBefore = true },
-      text = "Seen the memorials? Read Roderick's; he'd want somebody to laugh at it." },
+      text = "Seen the memorial stones for our dead? Read Roderick's; he wrote it himself, and he'd want somebody to laugh at it." },
   },
   choices = {
     { text = "Anything to report?", next = "END", fx = { standing = { farholde = 1 } } },
@@ -46,14 +46,14 @@ P:Pool {
   id = "sick_farholde", role = "soldier", community = "farholde",
   greetings = {
     { id = "g_default", text = "Water, please, if you've any." },
-    { id = "g_close", text = "Don't come too close. I wouldn't give this to a cultist." },
+    { id = "g_close", text = "Don't come too close. I wouldn't wish this fever on a cultist." },
   },
   notice = {
     { id = "n_healer", cat = "class", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } },
       text = "You're a healer? Sit with me a while. Sister Rowland's got all of us, and only two hands." },
   },
   lines = {
-    { id = "l_default", text = "Sister says it'll pass, though she says that to everyone. I believe her anyway." },
+    { id = "l_default", text = "Sister Rowland says the fever will pass, though she says that to everyone. I believe her anyway." },
     { id = "l_bored", text = "Thirty days on this cot, and the bedbugs know me by name. I've counted the beams: forty-one, or forty-two if you count the cracked one." },
     { id = "l_story", when = { metBefore = true }, text = "You're back! Tell me something from outside, anything at all; lie, if you have to." },
   },
@@ -70,11 +70,11 @@ P:Pool {
   id = "worker_farholde", role = "worker", community = "farholde",
   greetings = { { id = "g_default", text = "Mind the mortar." } },
   lines = {
-    { id = "l_default", text = "Bertrand wants this wall done by dusk. Bertrand wanted the last wall done by dusk, too, and that one fell on him." },
-    { id = "l_dwarf", when = { race = "Dwarf" }, text = "You're a dwarf. Tell Bertrand the stones are straight. He won't believe me, but he'll believe one of his own." },
+    { id = "l_default", text = "Bertrand, our master mason, wants this wall done by dusk. He wanted the last one done by dusk too, and that one fell on him." },
+    { id = "l_dwarf", when = { race = "Dwarf" }, text = "You're a dwarf, so tell Bertrand these stones are laid straight. He won't believe me, but he'll believe one of his own." },
   },
   choices = { { text = "Back to work, then.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "I lay stone, friend, so ask somebody who talks." } } },
+  topics = { _none = { { id = "t_none", text = "I lay stone, friend. Ask somebody who does the talking." } } },
 }
 
 -- 1.10.0: the Horde side. Rog'mar and Bolder'ok aren't in RPGDialogue_World's town list, so their
@@ -99,7 +99,7 @@ P:Pool {
   id = "guard_rogmar", role = "guard", community = "rogmar",
   barks = {
     { id = "b_chant", text = "Chanting on the ridge again. Let them sing; we'll see how loud they are with an axe in them." },
-    { id = "b_fog", text = "This river fog gets into everything, even the meat, and the meat was bad already." },
+    { id = "b_fog", text = "This river fog gets into everything, even the meat, and the meat was bad to begin with." },
   },
   greetings = {
     { id = "g_default", text = "This is Rog'mar, and it's Horde ground, so walk like you belong here." },
@@ -108,15 +108,15 @@ P:Pool {
   },
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Lok'tar, {g:brother|sister}. The ogres in Krol'dok remember the old Horde, so they'll come for you first; make them regret it." },
+      text = "Lok'tar, {g:brother|sister}. The Twilight's ogres hate orcs most of all, so they'll come for you first. Make them regret it." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
-      text = "The Forsaken, this far east? Stay where the grunts can see you; the cultists dress their dead up too." },
+      text = "The Forsaken, this far east? Stay where the grunts can see you, because the cultists raise their own dead and the grunts might take you for one." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "The ogres got a piece of you, I see. Kreza's at the forge, so go before the rest of you falls off." },
+      text = "The ogres got a piece of you, I see. Kreza the smith is at the forge, so go before the rest of you falls off." },
   },
   react = { { id = "r_stealth", on = "stealth", text = "Show yourself! Only cultists sneak around Rog'mar, and we kill cultists." } },
   lines = {
-    { id = "l_default", text = "Krol'dok is up in the northwest mountains, full of ogres and the cultists who own them. We hold the glades between them and the Warchief's lands." },
+    { id = "l_default", text = "Krol'dok is up in the northwest mountains, full of ogres and the Twilight cultists who command them. We hold the glades between them and the Warchief's lands." },
     { id = "l_bolderok", text = "The Bolder'ok ogres turned on the cult and came to us. They smell, but they hit hard, and they hate the Hammer more than we do." },
     { id = "l_farholde", text = "The humans on the island remember the old Horde and spit when they see us. Let them; we're not the ones who burned their farms." },
     { id = "l_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") },
@@ -132,7 +132,7 @@ P:Pool {
     krol_dok = { { id = "t_kroldok", text = "Caves in the northwest. Our scouts go in, and most don't come back out." } },
     twilights_hammer = { { id = "t_hammer", text = "Cultists in robes, and ogres who do what they're told. They take prisoners for their altars, so don't get taken." } },
     brotherhood_horse = { { id = "t_brotherhood", text = "Humans on horses, holed up on an island to the southeast. They kill cultists too, so we leave them be, mostly." } },
-    _none = { { id = "t_none", text = "Not my business. Ask Krom'rosh, and don't mention the latrine pit; he's still angry about it." } },
+    _none = { { id = "t_none", text = "That's not my business. Ask Krom'rosh; he runs Rog'mar and decides what's worth knowing." } },
   },
 }
 
@@ -152,7 +152,7 @@ P:Pool {
       text = "Big little one! You almost as big as an ogre, so Bolder'ok likes you already." },
   },
   lines = {
-    { id = "l_default", text = "Twilight say ogres must bleed on the stones, and Bolder'ok said no, so the Twilight throw Bolder'ok out. Now Bolder'ok watches for Twilight, and hits them." },
+    { id = "l_default", text = "Twilight say ogres must bleed on their altar stones, and Bolder'ok said no, so the Twilight threw Bolder'ok out. Now Bolder'ok watches for Twilight, and hits them." },
     { id = "l_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") },
       text = "Mugg is dead, and little ones did it! Bolder'ok sang all night, and the singing was very loud and very bad." },
     { id = "l_jomjom", when = { questDone = TODO_QUEST("Jom-Jom's Escape") },
@@ -177,7 +177,7 @@ P:Pool {
   lines = {
     { id = "l_default", text = "Bolder'ok is a good place. Nobody here makes speeches about the end of the world, and the meat is good." },
     { id = "l_orcs", text = "The orcs from Rog'mar bring axes and take ogres to fight the Twilight. It is a good trade, because ogres like fighting the Twilight." },
-    { id = "l_humans", text = "The horse humans in the south do not like ogres. That is fair, because Twilight ogres burned their houses, but Bolder'ok did not do it, or not most of us." },
+    { id = "l_humans", text = "The horse humans in the south do not like ogres. That is fair, because Twilight ogres burned their houses, but Bolder'ok ogres did not do it." },
   },
   choices = { { text = "Take care.", next = "END" } },
   topics = { _none = { { id = "t_none", text = "Ogre does not know. Ogre knows meat, and fire, and hitting." } } },

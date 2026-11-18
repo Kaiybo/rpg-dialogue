@@ -507,6 +507,27 @@ def("prejudiced", 25, "hinge", nil, function(ctx, v, env)
   return state == v, "prejudice " .. tostring(state) .. " (" .. left .. "/" .. full .. ")"
 end)
 
+-- Flirting (0.83.0): this person is of the opposite sex to you and may flirt.
+-- flirt = true: they can (both sexes known and different, the `flirting` setting is on, the
+-- NPC isn't a child and hasn't `flirts = false`); flirt = false: they can't.
+-- The NPC's sex comes from the unit, else the def's `gender` ("male"/"female").
+-- Spoof with npcGender=female (and gender=male).
+function Cond.CanFlirt(ctx, env)
+  if ns.db and ns.db.settings and ns.db.settings.flirting == false then return false, "flirting off" end
+  local def = env and env.info and env.info.def
+  local role = (def and def.role) or (env and env.info and env.info.role)
+  if role == "child" or (def and def.flirts == false) then return false, "won't flirt" end
+  local npc = ctx.npcGender or (def and def.gender) or nil
+  local me = ctx.gender
+  if not npc or not me then return false, "sex unknown" end
+  return npc ~= me, "npc " .. npc .. ", you " .. me
+end
+def("flirt", 25, "hinge", nil, function(ctx, v, env)
+  local ok, why = Cond.CanFlirt(ctx, env)
+  if v == false then return not ok, why end
+  return ok, why
+end)
+
 -- Levels you've gained since you last spoke with this person (0.67.0): { min = , max = } or
 -- a number as a minimum. False if you never spoke, or spoke before 0.67.0 recorded levels.
 def("levelsSince", 30, "hinge", nil, function(ctx, v, env)

@@ -35,7 +35,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Windcaller Kaldon. Before I give you anything involved, you'll do your share of field duty like everyone else who comes to Cenarion Hold, because I need to know what you can do before I send you anywhere that matters." },
+          text = "I am Windcaller Kaldon. Before I give you any real work, you'll do your share of field duty like everyone else who comes to Cenarion Hold, because I need to know what you can do before I send you anywhere that matters." },
         { id = "h_alliance", when = { faction = "Alliance", questBefore = TODO_QUEST("Field Duty") },
           text = "You're Alliance, so you'll report to Captain Blackanvil's Ironforge Brigade outside Hive'Zora, or to his lieutenant, Janela Stouthammer. Get your papers signed there and come back to me, and please stay well away from the Orgrimmar Legion while you do it." },
         { id = "h_horde", when = { faction = "Horde", questBefore = TODO_QUEST("Field Duty") },
@@ -68,8 +68,8 @@ P:NPC {
       big = true,
       lines = { { id = "dw_default", text = "The soldiers always say combat, and the quartermasters always say logistics, and the truth is that a war is lost the moment either one runs out. Still, I've seen more brave fools than good haulers come through this hold." } },
       choices = {
-        { text = "Then I'll haul. Somebody has to keep the line fed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Hauling is for others. Send me where the fighting is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll haul. Somebody has to keep the line fed.", next = "BACK", reply = "You have the patience of the old Sentinels, and the line will be grateful for it long after the brave fools have been buried.", fx = { align = { order = 1 } } },
+        { text = "Hauling is for others. Send me where the fighting is.", next = "BACK", reply = "Then I will send you, but remember that a soldier with no water is a soldier lying in the sand, and someone has to carry it to you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -259,33 +259,95 @@ P:NPC {
           text = "I'm Zannok Hidepiercer, and I sell leatherworking supplies at Valor's Rest. Hardly anyone comes to the southeast corner of Silithus unless they've a reason, so if you're here, you're probably skinning something that bites." },
         { id = "h_leather", when = { profession = "Leatherworking" },
           text = "A leatherworker! Then you'll know what this heat does to a hide. Dry it fast or it rots, dry it too fast and it cracks, and the sand gets into the grain either way." },
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "Ishnu-alah, though Elune seems a long way off out here. I'm Zannok Hidepiercer, and I sell leatherworking supplies to whoever the desert hasn't finished with yet, which today, it seems, is you." },
       },
-      again = { { id = "h_again", text = "Something else? The wind will pick up soon." } },
+      again = {
+        { id = "h_again", text = "Something else? The wind will pick up soon." },
+        { id = "h_again2", text = "Ask, then. Sand won't sell itself, and neither will salt." },
+      },
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why set up shop at Valor's Rest?", next = "rest" },
         { text = "What hides does the desert give?", next = "hides" },
+        { text = "You don't seem to like it here much.", next = "weary" },
+        { text = "Any advice on working silithid plate?", next = "plate", when = { profession = { "Leatherworking", "Skinning" } } },
+        { text = "Who else keeps this place?", next = "neighbors" },
         { text = "Goodbye.", next = "END" },
       },
     },
     rest = {
       lines = { { id = "re_default", text = "Because the hunters pass through here on their way to the southern hives, and hunters need thread and salt. It's named for the soldiers buried here, and it's quiet, which suits me, though the quiet is not always a friendly one." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Who were the soldiers buried here?", next = "rest_dead" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rest_dead = {
+      lines = { { id = "rd_default", text = "Kaldorei, mostly, from the war against the swarm a thousand years ago, when the bugs came pouring out of Ahn'Qiraj and nearly overran us. Our people won, barely, and walled the insects in, and left the dead here because there was no one left to carry them home." } },
+      choices = {
+        { text = "And the quiet that isn't friendly?", next = "rest_quiet" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "ahn_qiraj" } } },
+      },
+    },
+    rest_quiet = {
+      lines = { { id = "rq_default", text = "Some nights the wind stops all at once, and the sand stops hissing, and you can hear the hives breathing under the ground, or I think I can. I don't sleep on those nights. I stitch, because a needle doesn't care what's underneath it." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "silithid" } } } },
     },
     hides = {
       big = true,
       lines = { { id = "hi_default", text = "Scorpid shell, sand worm hide if you're very brave, and the odd silithid plate, which won't take a stitch to save your life. Some of the Circle druids don't like me buying from the hives at all. They say it only teaches hunters to go back for more." },
       },
       choices = {
-        { text = "Hunt the hives dry. They'd do it to us.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "The druids are right. Take only what you need.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hunt the hives dry. They'd do it to us.", next = "BACK", reply = "They would, and they do, so I'll not argue, but bring me hides with fewer holes in them, because the holes don't sell.", fx = { align = { light = -1 } } },
+        { text = "The druids are right. Take only what you need.", next = "BACK", reply = "Maybe so, and I'll buy what I need and grumble about the rest, which is the only thing in Silithus I never run short of.", fx = { align = { light = 1 } } },
+        { text = "Sand worm hide? How big are these worms?", next = "worms" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    worms = {
+      lines = { { id = "wo_default", text = "Big enough that you feel them before you see them, and by the time you see them you've usually made a poor decision. One hunter brought me a strip as long as this stall and wouldn't say how he got it, and his hands shook the whole time we haggled." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    weary = {
+      lines = { { id = "we_default", text = "I don't, but I'm good at it, and that's what a craftsman learns to settle for. I worked hides in Ashenvale once, soft deer and saber pelts, and every so often I take one out of my pack just to remember what leather is supposed to feel like." } },
+      choices = {
+        { text = "Then why not go back to Ashenvale?", next = "weary_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    weary_why = {
+      lines = { { id = "ww_default", text = "Because the Circle needed someone out here who knew which end of a hide is which, and nobody else said yes fast enough. I said yes because I was bored, and I've had a great many years since to regret being bored." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
+    },
+    plate = {
+      lines = { { id = "pl_default", text = "Don't stitch it, drill it, with a fine awl and patience, and soak the thread in oil so the edges don't saw through it. Better yet, sell the plate to the Hold and buy scorpid shell, which is honest material and doesn't argue with you." } },
+      choices = {
+        { text = "Who at the Hold buys it?", next = "plate_buy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plate_buy = {
+      lines = { { id = "pb_default", text = "Vargus at the forge, for armour, and the Circle's quartermasters, who want to study it, though I've never seen what they learn. The goblins at the Hold buy anything, of course, but they pay in promises and charge in coin." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    neighbors = {
+      lines = { { id = "ne_default", text = "Layo Starstrike tends the graves and talks to the dead more kindly than he talks to me, which is fair, since they complain less. Beyond him there's only the wind, and whatever the wind brings, which lately has been cultists in robes asking for directions." } },
+      choices = {
+        { text = "Cultists? What sort?", next = "cultists" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cultists = {
+      lines = { { id = "cu_default", text = "Twilight's Hammer, the druids call them, humans and orcs and worse, all wearing the same robes and the same smile. One tried to buy rope from me last month, and I told him I was out, which was a lie, and I'd tell it again." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "twilights_hammer" } } } },
     },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "Hides, salt, and the hunters who come through Valor's Rest." } },
+    silithid = { { id = "tp_sil", text = "Hard shells, bad smell, and too many legs. Good for armour, if you can cut it, and you mostly can't." } },
+    twilights_hammer = { { id = "tp_th", text = "I don't sell them rope. That's the whole of my policy on the Twilight's Hammer." } },
     _none = { { id = "tp_none", text = "Don't know. Ask the wind, it's been everywhere in this desert." } },
   },
 }

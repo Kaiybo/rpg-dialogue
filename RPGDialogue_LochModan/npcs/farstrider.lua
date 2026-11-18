@@ -18,7 +18,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome tae the Farstrider Lodge. Wipe yer boots, an' if ye've killed somethin' worth talkin' about, I'm listenin'." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the lodge, eh? Pull up a stool by the fire an' tell me what ye've hunted." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away} an' back in one piece, which is more than some o' my lodgers manage. Sit down an' tell me where ye've been." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away} an' come back in one piece, which is more than some o' my lodgers manage. Sit down an' tell me where ye've been." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've the walk of a proper hunter now, quiet on the boards an' eyes on the door. That didnae come from nowhere." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Thelsamar says ye've been useful, which from that lot is high praise. The lodge noticed too." },
     { id = "g_croc_active", when = { questActive = TODO_QUEST("Crocolisk Hunting") }, text = "The crocs are on the islands, an' they're no' comin' tae you. Get yer boots wet." },
@@ -88,7 +88,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Marek Ironheart. Here at the Farstrider Lodge we prize huntin' skill above all else, so if ye want my approval, ye'll have tae earn it." },
+          text = "I'm Marek Ironheart. Here at the Farstrider Lodge we prize huntin' skill above all else, so if ye want my approval, ye'll have tae earn it." },
         { id = "h_croc_before", when = { questBefore = TODO_QUEST("Crocolisk Hunting") },
           text = "Loch Modan's famous for its crocs, an' there's always a merchant wantin' skins for armour or meat for the table. The beasts have dug in on the islands, mind, an' they're ferocious about it." },
         { id = "h_croc_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Crocolisk Hunting"), days = 3 } },
@@ -113,7 +113,7 @@ P:NPC {
         { text = "What is this lodge, exactly?", next = "lodge" },
         { text = "Daryl seems a lively sort.", next = "daryl" },
         { text = "A hunter's approval must be hard to earn in this lodge.", next = "approval" },
-        { text = "Will your hides fit my animal friends?", next = "druid", when = { class = "DRUID" } },
+        { text = "Your trophy wall troubles me, Marek.", next = "druid", when = { class = "DRUID" } },
         { text = "Farewell, Marek.", next = "END" },
       },
     },
@@ -122,10 +122,10 @@ P:NPC {
       lines = {
         { id = "cr_default", text = "Big an' mean, an' dug in on the islands where nothin' can come at them but a swimmer. It's quite an experience, wrestlin' wi' the jaws o' one, an' I say that as a dwarf who's done it more than once." },
         { id = "cr_active", when = { questActive = TODO_QUEST("Crocolisk Hunting") },
-          text = "Meat an' skins, an' don't hack the skins tae ribbons gettin' at the meat. Go for the soft under the jaw an' the beast does the rest." },
+          text = "I want meat an' skins, an' don't hack the skins tae ribbons gettin' at the meat. Go for the soft under the jaw an' the beast does the rest." },
       },
       choices = {
-        { text = "More than once? Tell me.", next = "crocs_story" },
+        { text = "Have you wrestled one yourself?", next = "crocs_story" },
         { text = "Something else, Marek.", next = "BACK" },
       },
     },
@@ -144,15 +144,15 @@ P:NPC {
         { id = "ce_default", text = "Ha! Maybe he did. The point is ye respect a beast that can kill ye, an' ye take only what ye need from it, or the loch runs empty an' we're all out o' work." },
       },
       choices = {
-        { text = "Take what you need and leave the rest. Agreed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Hunt what you like. The loch will always fill.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Take what you need and leave the rest. Agreed.", next = "BACK", reply = "Agreed, an' ye'd be welcome in this lodge any day for sayin' it. The loch feeds them who respect it.", fx = { align = { order = 1 } } },
+        { text = "Hunt what you like. The loch will always fill.", next = "BACK", reply = "Will it? Tell that tae the old hunters who emptied the north valleys. Hunt like that in my lodge an' ye'll no' be welcome back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     lodge = {
       lines = {
-        { id = "lo_default", text = "A huntin' lodge on the east shore, built where the boar an' the bear are thickest. Hunters come from Ironforge an' further tae test themselves here, an' I keep them fed, housed an' honest." },
+        { id = "lo_default", text = "It's a huntin' lodge on the east shore, built where the boar an' the bear are thickest. Hunters come from Ironforge an' further tae test themselves here, an' I keep them fed, housed an' honest." },
       },
       choices = {
         { text = "Farstrider sounds like an elven name to me.", next = "lodge_name" },
@@ -183,8 +183,8 @@ P:NPC {
         { id = "dsc_default", text = "A bear called Ol' Sooty gave him that, north in the caves, when he went after it alone tae prove himself. Ask Daryl an' ye'll hear a different story every time, but ask Vyrin an' ye'll hear the true one." },
       },
       choices = {
-        { text = "The boy needs humbling, Marek.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Go easy on him. He's learning.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The boy needs humbling, Marek.", next = "BACK", reply = "Humbled, aye, but no' broken. Ol' Sooty did the first part, an' I'll leave the second tae time.", fx = { align = { light = -1 } } },
+        { text = "Go easy on him. He's learning.", next = "BACK", reply = "He is, an' I go easier on him than he thinks. Just dinnae tell him I said so, or he'll be insufferable.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -197,8 +197,8 @@ P:NPC {
           text = "Ye've half o' it already, carryin' a bow like that. The other half is patience, an' I'll know if ye have it by how ye skin a croc." },
       },
       choices = {
-        { text = "I'll earn it the honest way.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll earn it however gets the beast down.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll earn it the honest way.", next = "BACK", reply = "Good, that's the only way that counts. Bring it back clean, an' ye'll have a seat by my fire.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll earn it however gets the beast down.", next = "BACK", reply = "However gets it down, aye, but bring it clean. A hunter who makes a mess o' a kill isnae welcome here.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -218,7 +218,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the beasts o' this valley better than anyone livin', an' a fair bit about the folk who hunt them. Ask." } },
     background = { { id = "tp_bg", text = "I've hunted Khaz Modan since I was a beardless lad, an' I've run this lodge for longer than I'll admit." } },
     advice = { { id = "tp_ad", text = "Never turn yer back on a croc that's stopped movin', for it's only thinkin'." } },
-    troggs = { { id = "tp_troggs", text = "Nothin' sporting about troggs. Ye kill them because they're there, an' ye don't hang them on any wall." } },
+    troggs = { { id = "tp_troggs", text = "There's nothin' sportin' about troggs. Ye kill them because they're there, an' ye don't hang them on any wall." } },
     _none = { { id = "tp_none", text = "Never hunted it, never ate it, so I couldnae tell ye. Ask Vyrin, for she's read more books than I've skinned crocs." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer hunt from gryphon-back, which is cheatin', but I'll grant ye they're good at it. I'd love tae see one try it in a Loch Modan fog." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire bought a bear pelt off the lodge once for their strongman's cape. It was a better bear than he was a strongman." } },
@@ -244,7 +244,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Oh, it's you, back after {away}. I'd assumed the buzzards got you, and I'd already composed a very moving speech." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've... grown a bit more capable than I'd expected. Not that I didn't expect it, of course." },
     { id = "g_boast", when = { questActive = TODO_QUEST("A Hunter's Boast") }, text = "The clock's ticking on those buzzards! Not that I'm counting, though I am." },
-    { id = "g_challenge", when = { questActive = TODO_QUEST("A Hunter's Challenge") }, text = "Twelve minutes, and those are elder boars, not Coldridge piglets. Go on, then!" },
+    { id = "g_challenge", when = { questActive = TODO_QUEST("A Hunter's Challenge") }, text = "You've twelve minutes, and those are elder boars, not Coldridge piglets. Go on, then!" },
   },
 
   notice = {
@@ -263,7 +263,7 @@ P:NPC {
         { id = "h_boast_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Hunter's Boast"), days = 3 } },
           text = "About those buzzards: any unshaven boy with a bow could have managed it, so don't let it go to your head. I kept my word all the same, and Daryl the Bold always does." },
         { id = "h_challenge_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Hunter's Challenge"), days = 3 } },
-          text = "The boars. Yes. I'm not surprised in the least, and if anyone mentions a bet, I've no idea what they're talking about." },
+          text = "Ah, the boars, yes. I'm not surprised in the least, and if anyone mentions a bet, I've no idea what they're talking about." },
         { id = "h_sooty", tags = { "news" }, when = { questDone = TODO_QUEST("Vyrin's Revenge") },
           text = "Please don't bring that thing in here again. I don't want to talk about the bear, and I don't want to talk about the scar, and I'd thank you to stop looking at it." },
         { id = "h_hunter", when = { class = "HUNTER", faction = "Alliance" },
@@ -300,7 +300,7 @@ P:NPC {
     },
     challenge_time = {
       lines = {
-        { id = "ct_default", text = "Because anyone can kill a buzzard in a week! A real hunter reads the hills, finds the flock and finishes before the light changes, which is exactly what I'd do, if I weren't so busy." },
+        { id = "ct_default", text = "Because anyone can kill a beast in a week! A real hunter reads the hills, finds his quarry and finishes before the light changes, which is exactly what I'd do, if I weren't so busy." },
       },
       choices = {
         { text = "Busy with what, exactly?", next = "challenge_busy" },
@@ -313,8 +313,8 @@ P:NPC {
         { id = "cb_default", text = "Waxing my bowstring, mostly, and thinking about my next great hunt. A hunter of my standing has to choose his quarry carefully, you understand, or he wastes his legend on buzzards." },
       },
       choices = {
-        { text = "A real hunter lets his kills do the boasting.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Boast away. A legend is half the hunt.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A real hunter lets his kills do the boasting.", next = "BACK", reply = "Well, of course they do, but my kills need a bit of help to be heard all the way in Ironforge. Someone has to tell the stories properly.", fx = { align = { honor = 1 } } },
+        { text = "Boast away. A legend is half the hunt.", next = "BACK", reply = "Exactly! Finally, someone who understands! You and I should hunt together sometime, if you can keep up.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else, Daryl.", next = "BACK" },
       },
     },
@@ -338,8 +338,8 @@ P:NPC {
           text = "All right, it was Ol' Sooty, and I ran, and I've been running from it every night since in my sleep. Don't tell Marek I said so, or I'll deny everything." },
       },
       choices = {
-        { text = "Running was the smart choice, Daryl.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Then stop calling yourself the Bold.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Running was the smart choice, Daryl.", next = "BACK", reply = "It was, wasn't it? I mean, I wasn't running, of course, I was regrouping, but it was very smart regrouping.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then stop calling yourself the Bold.", next = "BACK", reply = "Stop calling myself... I'll have you know the title is entirely deserved, and one day the bear will regret it too.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -380,7 +380,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know a great deal, naturally, about hunting and about my own exploits. Ask, and I'll decide which to tell you." } },
+    knows = { { id = "tp_knows", text = "I know everything worth knowing, naturally, about hunting and about my own exploits. Ask, and I'll decide which to tell you." } },
     background = { { id = "tp_bg", text = "I came to the lodge to make my name, and I've very nearly made it. Daryl the Bold, remember that." } },
     advice = { { id = "tp_ad", text = "Never hunt in a cave alone. That's just good sense, and it has nothing to do with anything." } },
     _none = { { id = "tp_none", text = "That's beneath my notice, I'm afraid. Try Marek, for he notices everything and never lets you forget it." } },

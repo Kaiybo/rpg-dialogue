@@ -75,7 +75,7 @@ P:NPC {
 
     razelikh = {
       lines = {
-        { id = "ra_default", text = "Razelikh the Defiler, a demon lord who oversees the Legion's work in these lands, and the one who took our regiment. His cunning is almost as calculated as his brutality, and that's saying a great deal." },
+        { id = "ra_default", text = "Razelikh the Defiler, a demon lord who oversees the Legion's work in these lands, and the one who took our regiment. His cunning is almost as calculated as his brutality, and I watched both on the day he took us." },
       },
       choices = {
         { text = "A demon lord like that won't be without servants.", next = "razelikh_triad" },
@@ -94,7 +94,7 @@ P:NPC {
 
     amulet = {
       lines = {
-        { id = "am_default", text = "Each of the triad wears a third of an amulet of Razelikh's own making, and you'll need the whole of it to summon the arch demon. He made it so he couldn't be called without his servants' leave, which tells you how much he trusts them." },
+        { id = "am_default", text = "Each of the triad wears a third of an amulet of Razelikh's own making, and you'll need the whole of it to summon the arch demon. He made it so he couldn't be called without his servants' leave, so he trusts his servants no further than they trust him." },
       },
       choices = {
         { text = "Then I take the amulet from their corpses.", next = "amulet_plan" },
@@ -106,8 +106,8 @@ P:NPC {
         { id = "ap_default", text = "From their corpses, yes, and it won't be as simple as freeing one damned soldier. Take friends you trust, and don't let Lady Sevine speak to you for long, for she lies better than Allistarj tortures." },
       },
       choices = {
-        { text = "Strike them one at a time, quiet and quick.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll face each of them openly, as a soldier would.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Strike them one at a time, quiet and quick.", next = "BACK", reply = "A wise choice, and the one I'd have made in life. Shadow fights shadow best, but strike true, because they won't give you a second chance.", fx = { align = { honor = -1 } } },
+        { text = "I'll face each of them openly, as a soldier would.", next = "BACK", reply = "Then you have a soldier's heart, and I honour it. Go openly, but go with friends at your back, as I wish I had.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,8 +145,8 @@ P:NPC {
       big = true,
       lines = { { id = "rr_default", text = "My captain, and that's all I know of, though there may be others bound in the stones who'd thank you for breaking them. We waited a long time for orders from Stonard, and they never came, and I've stopped asking why." } },
       choices = {
-        { text = "Someone failed you. Those orders should have reached you.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Soldiers hold without orders. You did your duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Someone failed you. Those orders should have reached you.", next = "BACK", reply = "Perhaps they should have, and I've had long enough in the stone to think on it. But blame is a poor thing for a spirit to carry.", fx = { align = { order = -1 } } },
+        { text = "Soldiers hold without orders. You did your duty.", next = "BACK", reply = "We did, and it cost us everything, but we held. It is good to hear a living voice call it duty and not folly.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -171,8 +171,8 @@ P:NPC {
         { id = "xp_default", text = "Not yet, healer, not while Razelikh still walks these lands. Let me linger a little longer and be some use, and when it's done, say whatever words you like over the place I stood." },
       },
       choices = {
-        { text = "The dead deserve rest, not more duty.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A soldier's duty doesn't end. I understand.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The dead deserve rest, not more duty.", next = "BACK", reply = "Rest will come, healer, and I'll welcome it when it does. But not while Razelikh still breathes and my brothers stay bound.", fx = { align = { order = -1 } } },
+        { text = "A soldier's duty doesn't end. I understand.", next = "BACK", reply = "You understand, then, and that is a comfort to an old soldier. Thank you, healer.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -182,7 +182,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "I was a lieutenant of Thrall's Grasp, and then a demon's plaything, as our fathers were before Thrall freed them, and now I'm neither, which I'm grateful for." } },
     advice = { { id = "tp_ad", text = "If they cage you, don't listen to the voice that says it would be easier to agree. That's how they get in." } },
     thrall = { { id = "tp_thrall", text = "The Warchief's name was on our banner, and I like to think he'd have laughed at how I went out. Maybe not, he's a serious sort." } },
-    second_war = { { id = "tp_second_war", text = "I was too young for the Second War, so this swamp was my first real fight. I'd have liked a better one." } },
+    second_war = { { id = "tp_second_war", text = "I was too young for the Second War, so these wastes were my first real fight. I'd have liked a better one." } },
     dark_portal = { { id = "tp_dark_portal", text = "The Portal's shadow is where the demons waited for us, and they knew our names before we knew theirs. Don't go near the Tainted Scar unless you mean to kill something." } },
     dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres watched the demons take us and didn't lift a finger. I'd have done the same, in their place, but I still hope you kill a few." } },
     _none = { { id = "tp_none", text = "I don't know that, and a dead warrior hasn't time to wonder about it." } },

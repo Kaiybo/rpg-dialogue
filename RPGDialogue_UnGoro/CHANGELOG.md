@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-18)
+- Writing pass: repeated phrases cut and replaced with concrete detail.
+- Clarity pass: answers answer the question, names are introduced, quest lines stand alone, fewer contradictions.
+- Some NPCs of the opposite sex flirt with you, and remember how you answered (needs core 0.83.0).
+- NPCs answer each stance reply before the talk moves on.
+
 ## 1.20.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
 - New people to talk to: Simone the Inconspicuous (hunters on the Stave of the Ancients may see through her), Shizzle and Quixxil at Marshal's Refuge. Karna, Larion, Petra and Spark have more to say. New files: restart the game fully (a /reload won't load them).

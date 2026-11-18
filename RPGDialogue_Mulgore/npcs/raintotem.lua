@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_rocks", text = "Walk softly here, {class}. Every stone on this hill has a name beneath it." },
     { id = "g_active", when = { questActive = TODO_QUEST("A Sacred Burial") }, text = "The Bristleback are among the graves still. Drive them off, and quickly." },
     { id = "g_done", when = { questDone = TODO_QUEST("A Sacred Burial") }, text = "The hill is quiet again, as it should be. The honored dead thank you, and so do I." },
-    { id = "g_away", when = { away = 14 }, text = "{away} away, and the hill has kept its peace. I hope your travels did the same for you." },
+    { id = "g_away", when = { away = 14 }, text = "You have been {away} away, and the hill has kept its peace. I hope your travels did the same for you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown strong since you cleared this hill for an old man. The ancestors watch the strong ones closely, so walk well." },
   },
 
@@ -71,16 +71,16 @@ P:NPC {
       big = true,
       lines = { { id = "ne_default", text = "Then another lorekeeper takes the names, if one comes, and if none comes, the Earth Mother holds them anyway. I try not to fear that, but I am old, and my knees ache before rain, and I fear more than I used to." } },
       choices = {
-        { text = "The dead live on in those who remember them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The dead are gone. The living matter more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The dead live on in those who remember them.", next = "BACK", reply = "They do, and that is why I keep the names. Thank you, young one, for reminding an old lorekeeper what his work is for.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are gone. The living matter more.", next = "BACK", reply = "The living matter, yes, but the living are only here because the dead walked first. Remember them a little, for my sake if not for theirs.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     quilboar = {
       lines = { { id = "q_default", text = "For the grave goods, I think, the weapons and charms we lay beside our warriors. Or perhaps only to shame us, because the Bristleback know where it hurts us most." } },
       choices = {
-        { text = "They'll pay for it.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Drive them off, but don't add more graves.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They'll pay for it.", next = "BACK", reply = "They will, if the braves have anything to say about it, and I'll not ask them to stop. Only bring back what was taken, so the dead can sleep again.", fx = { align = { honor = -1 } } },
+        { text = "Drive them off, but don't add more graves.", next = "BACK", reply = "That is wisely said, and my old heart thanks you for it. Enough tauren lie in this ground already, and quilboar too.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

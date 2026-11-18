@@ -23,7 +23,7 @@ P:NPC {
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Young, and free, and never wore a chain. I'm glad of it, and I'll thank you not to waste it." },
+      text = "You're young, and you never wore a chain in the camps. I'm glad of it, and I'll thank you not to waste it." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior. Then you'll know that a blade carries every hand that's held it, and the Horde's carries some ugly ones." },
   },
@@ -102,8 +102,8 @@ P:NPC {
         { id = "hd_default", text = "They shouldn't, but they will if we old ones sit by the fire and pretend it was someone else. I fought in that war, and I took what the dragons gave, so I'll see the drakes dead and call it settled." },
       },
       choices = {
-        { text = "Settling old debts is a matter of honor.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "The past is dead. Kill them because they're dangerous.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Settling old debts is a matter of honor.", next = "BACK", reply = "It is, and it's mine to settle before I die. Help me, and you'll carry a share of that honor.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "The past is dead. Kill them because they're dangerous.", next = "BACK", reply = "Dead? Not while I still dream of their fire, young one. Kill them for whatever reason suits you, so long as they die.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -124,8 +124,8 @@ P:NPC {
           text = "Tho'grun is dead and his corpse picked clean by the desert winds, and the ogres at Camp Boff are in disarray. Small victory, but it led to a large one." },
       },
       choices = {
-        { text = "Hiring traitors to fix old treachery. Fitting.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Next time, send orc soldiers. Discipline wins.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ogres for hire were a fair gamble. It just went bad.", next = "BACK", reply = "Fitting, yes, and bitter as ash in my mouth. The old Horde would laugh at me, if any of them were still alive to laugh.", fx = { align = { order = -1 } } },
+        { text = "Next time, send orc soldiers. Discipline wins.", next = "BACK", reply = "You speak true, and I was a fool to think otherwise. Next time, orcs only, and orcs who know what the drakes did.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -152,19 +152,19 @@ P:NPC {
         { id = "xt_default", text = "No, and be glad of it, because your people walked their plains while mine burned the world for masters who laughed at us. I'll not ask you to carry our shame, only to help me bury a piece of it." },
       },
       choices = {
-        { text = "The Horde's shame is all of ours now.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Your shame is yours. I'm here for the drakes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Horde's shame is all of ours now.", next = "BACK", reply = "All of ours? You're kinder than the Horde deserves, tauren. Your people never chose that shame, and still you'd share it.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Your shame is yours. I'm here for the drakes.", next = "BACK", reply = "Then you'll have the drakes, and I'll have my shame, and we'll both be satisfied. That's fair enough for me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xcaster = {
       big = true,
       lines = {
-        { id = "xc_default", text = "Because chains are what spellcasters trust, and I've watched warlocks break better chains than these. A dead drake stays dead, and I'll take the risk of waking them over the risk of someone else doing it later." },
+        { id = "xc_default", text = "Because I've watched warlocks break better chains than these, and the Blackrock have warlocks. A dead drake stays dead, so I'll risk waking them now over someone else freeing them later." },
       },
       choices = {
-        { text = "Killing is surer than any binding.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "A prisoner could be redeemed. A corpse can't.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Killing is surer than any binding.", next = "BACK", reply = "It is, and every orc who served the dragons knows it. A chain can be broken, but a corpse stays where you leave it.", fx = { align = { light = -1 } } },
+        { text = "A prisoner could be redeemed. A corpse can't.", next = "BACK", reply = "Redeemed? Those beasts burned villages for sport. I'll not wait to see if they've grown a conscience.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

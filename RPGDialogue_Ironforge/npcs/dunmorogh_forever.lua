@@ -19,7 +19,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Mind the draught, an' shut the door behind ye if ye've come in. I've a patient here." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Gozwin's colour's better today, an' he asked after ye, near enough." },
-    { id = "g_quest", when = { questActive = TODO_QUEST("Grund and Gozwin") }, text = "Any luck? The lad's not gettin' warmer on wishes alone." },
+    { id = "g_quest", when = { questActive = TODO_QUEST("Grund and Gozwin") }, text = "Any luck fetchin' what Gozwin needs? The lad's not gettin' warmer on wishes alone." },
     { id = "g_after", when = { questDone = TODO_QUEST("Grund and Gozwin") }, text = "There's the friend o' Gozwin's! Come in by the fire an' see what yer help's done." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "Look at ye, filled out like a proper mountaineer since ye first came through Anvilmar." },
   },
@@ -56,7 +56,7 @@ P:NPC {
       choices = {
         { text = "How did you find him?", next = "found" },
         { text = "Where did Gozwin come from?", next = "gnomeregan" },
-        { text = "What's this about a pocket shotgun?", next = "shotgun" },
+        { text = "Does Gozwin have plans, once he's well?", next = "shotgun" },
         { text = "Why go to such trouble for a stranger?", next = "why" },
         { text = "Let me look at him. I can heal.", next = "xheal", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
         { text = "I'm a gnome too. Can I help him?", next = "xgnome", when = { race = "Gnome" } },
@@ -80,7 +80,7 @@ P:NPC {
         { id = "fb_default", text = "Springs, gears, a wee hammer, an' a drawin' o' somethin' I took for a gun, folded so many times it near fell apart. He'd not let go o' it even half dead, so I reckon it matters tae him more than his boots did." },
       },
       choices = {
-        { text = "That's the shotgun, then?", next = "shotgun" },
+        { text = "Was that drawing one of his designs?", next = "shotgun" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -124,8 +124,8 @@ P:NPC {
         { id = "sw_default", text = "The troggs, the cold, the folk in Ironforge who sigh when they see another gnome comin' up the road. Everybody, I suppose, an' a gnome who's lost everythin' is entitled tae want tae show everybody." },
       },
       choices = {
-        { text = "A weapon won't give him back his home.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Good. Let him make the troggs pay.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A weapon won't give him back his home.", next = "BACK", reply = "No, it willnae, an' I've told him so, but it gives him a reason tae get out o' bed in the mornin', an' that's a start for a lad who's lost everythin'.", fx = { align = { honor = 1 } } },
+        { text = "Good. Let him make the troggs pay.", next = "BACK", reply = "That's what he says, near enough, an' I'll no' stop him, but I'd like tae see him build somethin' that isnae meant tae kill, one o' these days.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -167,7 +167,7 @@ P:NPC {
     },
     xgnome = {
       lines = {
-        { id = "xgn_default", text = "Ye can talk tae him in that quick gnomish o' yours, which is more than I can. He nods at my jokes, but I don't think he understands half o' them, an' the other half he's too polite tae laugh at." },
+        { id = "xgn_default", text = "Ye can talk tae him in that quick gnomish o' yours, which is more than I can. He nods at my jokes, but I think he's only bein' polite, an' the polite ones are the worst." },
       },
       choices = {
         { text = "I'll sit with him a while.", next = "BACK", fx = { affinity = 2 } },
@@ -205,7 +205,7 @@ P:NPC {
     { id = "n_gnome", cat = "gnome", when = { race = "Gnome" },
       text = "Oh, a gnome! Did you get out too? Don't tell me how, I don't think I could bear it, just tell me you're all right." },
     { id = "n_eng", cat = "engineer", when = { profession = { "Engineering" } },
-      text = "Is that grease under your fingernails? An engineer! Oh, thank goodness, someone who'll understand the barrel problem." },
+      text = "Is that grease under your fingernails? An engineer! Oh, thank goodness, someone who'll understand the barrel problem on my pocket shotgun." },
   },
 
   start = "hello",
@@ -225,7 +225,7 @@ P:NPC {
         { text = "How did you end up in the snow?", next = "snow" },
         { text = "Tell me about the pocket shotgun.", next = "gun" },
         { text = "What do you think of Grund?", next = "grund" },
-        { text = "Can I help with the barrel problem?", next = "xeng", when = { profession = { "Engineering" } } },
+        { text = "Can I help with your shotgun's barrel problem?", next = "xeng", when = { profession = { "Engineering" } } },
         { text = "Rest well, Gozwin.", next = "END" },
       },
     },
@@ -278,8 +278,8 @@ P:NPC {
         { id = "gf_default", text = "Every gnome who ran out of Gnomeregan with nothing in their hands. Next time something comes up out of the dark at us, I'd like us to have something in our pockets besides spanners." },
       },
       choices = {
-        { text = "Next time, you'll be ready.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Guns won't keep your people safe. Each other will.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Next time, you'll be ready.", next = "BACK", reply = "You think so, really, because I've drawn the barrel seven times and I think the eighth will finally fire without catching my eyebrows alight.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Guns won't keep your people safe. Each other will.", next = "BACK", reply = "That's what Grund says, and I believe him, I do, but I'd still feel a great deal safer with each other and a very loud gun in my pocket.", fx = { align = { light = 1 } } },
       },
     },
 
@@ -296,13 +296,13 @@ P:NPC {
       },
       choices = {
         { text = "Try a recoil spring in the stock.", next = "BACK", fx = { affinity = 2 } },
-        { text = "Honestly? Just build a bigger gun.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Why not just build a bigger gun?", next = "BACK", fx = { affinity = -1 } },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Gnomeregan, a workshop on the fourth level, ten years of good work, and then the alarms. That's everything, really, and I'd rather talk about barrels." } },
+    background = { { id = "tp_bg", text = "Gnomeregan, a workshop on the fourth level, ten years of good work, and then the alarms. That's everything, really, so let's talk about barrels instead." } },
     advice = { { id = "tp_ad", text = "Always carry your toolbag, even when you're running for your life. Especially then." } },
     _none = { { id = "tp_none", text = "I don't know, sorry, my head's still half frozen. Ask Grund, he knows everything that isn't engineering." } },
   },
@@ -327,7 +327,7 @@ P:NPC {
     { id = "g_visitor", when = { questActive = TODO_QUEST("A Visitor to Dun Morogh") }, text = "Ah, did Steelgrill send ye tae see who was burnin' a fire up here? Well, it's me, an' I'm friendly." },
     { id = "g_watch", when = { questActive = TODO_QUEST("Farsen's Watch") }, text = "Ready tae see what I've been seein'? It's no' a pretty view." },
     { id = "g_spies", when = { questActive = TODO_QUEST("Nip 'Em in the Bud") }, text = "The spies are still at Ironband's Compound, an' they'll no' leave on their own." },
-    { id = "g_incursion", when = { questActive = TODO_QUEST("Old Ironforge Incursion") }, text = "Down under Old Ironforge wi' ye, an' bring yer friends. Durgen Dirgehammer won't come up tae meet ye." },
+    { id = "g_incursion", when = { questActive = TODO_QUEST("Old Ironforge Incursion") }, text = "Down under Old Ironforge wi' ye, an' bring yer friends. Their commander, Durgen Dirgehammer, won't come up tae meet ye." },
     { id = "g_after", when = { questDone = TODO_QUEST("Old Ironforge Incursion") }, text = "There's the one who delivered a Dark Iron's head tae Magni! Did he laugh? Tell me he laughed." },
   },
 
@@ -337,7 +337,7 @@ P:NPC {
     { id = "n_wild", cat = "wildhammer", when = { origin = "dwarf_wildhammer_kin" },
       text = "There's Aerie blood in ye, I can smell the gryphon on yer cloak. Welcome, cousin." },
     { id = "n_dwarf", cat = "dwarf", when = { race = "Dwarf", class = { "WARRIOR", "PALADIN", "HUNTER" } },
-      text = "A Bronzebeard wi' a proper weapon. Good, for I'm a shaman, an' my violence comes by way o' lightning, which is slow tae explain tae a Dark Iron." },
+      text = "A Bronzebeard wi' a proper weapon. Good, for I'm a shaman, an' I'd like a strong arm beside me when the Dark Irons come close." },
   },
 
   start = "hello",
@@ -354,7 +354,7 @@ P:NPC {
         { id = "h_map", tags = { "news" }, when = { questRecent = { TODO_QUEST("Underground Map"), days = 3 } },
           text = "Tunnels, all runnin' tae one point under Ironforge itself. That band ye busted up was a scoutin' force, an' if we hurry we'll beat the rest tae whatever they're after." },
         { id = "h_done", when = { questDone = TODO_QUEST("Old Ironforge Incursion") },
-          text = "The wind's quieter now the Dirgehammer's dead, an' I've stopped seein' Dark Irons in my dreams. I'll be goin' home tae the Aerie soon, once I've had one more look at that mountain." },
+          text = "The wind's quieter now Durgen Dirgehammer's dead, an' I've stopped seein' Dark Irons in my dreams. I'll be goin' home tae the Aerie soon, once I've had one more look at that mountain." },
       },
       again = {
         { id = "h_again", text = "What else? The fire'll keep a while yet." },
@@ -392,8 +392,8 @@ P:NPC {
         { id = "dk_default", text = "Cousins, aye, but they ain't family, an' that's the truth of it. Thaurissan's folk threw their lot in wi' fire an' worse, an' I shed no tears for those that stray too far from that accursed mountain o' theirs." },
       },
       choices = {
-        { text = "Cousins can still come home, Earthseer.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They chose fire. Let them burn in it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Cousins can still come home, Earthseer.", next = "BACK", reply = "Ye've a gentle heart, an' I'll no' laugh at it, but I've watched Dark Irons burn too many villages tae leave the door open for them.", fx = { align = { light = 1 } } },
+        { text = "They chose fire. Let them burn in it.", next = "BACK", reply = "Aye, an' I'll no' weep when they do, though I'll say a word tae the winds for the bairns among them who never got tae choose.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -422,8 +422,8 @@ P:NPC {
         { id = "wc_default", text = "Better than we did, which isnae sayin' much. We left for the Hinterlands after the war an' we liked the sky better than the stone, an' some in Ironforge never forgave us for it." },
       },
       choices = {
-        { text = "The clans should stand together. Old wars are over.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every clan should go its own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The clans should stand together. Old wars are over.", next = "BACK", reply = "That's what the King says, an' he means it, an' I'll drink to it at his table, but there's grudges in that city older than me granddad.", fx = { align = { order = 1 } } },
+        { text = "Every clan should go its own way.", next = "BACK", reply = "Spoken like a Wildhammer, an' maybe ye've a bit o' the sky in ye after all, because it's the stone-bound lot who cannae bear to let us go.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -488,8 +488,8 @@ P:NPC {
         { id = "xs_default", text = "Sit wi' me an' put yer hand flat on the rock. Feel that, the wee trembling? That's diggin', far below, an' the earth doesnae like bein' dug at by folk who hate it." },
       },
       choices = {
-        { text = "The earth will help us drive them out.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The earth can complain. I'll do the fighting.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The earth will help us drive them out.", next = "BACK", reply = "Aye, it will, if ye ask it right, an' it's angry enough tae listen, so we'll go down there together an' let the stone do some o' the shoutin'.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The earth can complain. I'll do the fighting.", next = "BACK", reply = "Ha, ye sound like a Bronzebeard, but the earth doesnae take kindly tae bein' ignored, so dinnae be surprised if it shakes under yer boots.", fx = { align = { light = -1 } } },
       },
     },
     xwild = {

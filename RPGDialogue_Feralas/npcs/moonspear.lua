@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "o_tyr_admire", when = { gossip = { topic = "tyrande", stance = "admire" } }, text = "The General says you spoke well of the High Priestess. That will earn you some patience from me, and I have very little to spare." },
     { id = "g_default", text = "State your business. The naga don't stop for pleasantries, so neither do I, and my boots have been full of seawater since dawn." },
-    { id = "g_scales", when = { questActive = TODO_QUEST("Against the Hatecrest") }, text = "Ten Hatecrest scales, in good condition. You know how to get them." },
+    { id = "g_scales", when = { questActive = TODO_QUEST("Against the Hatecrest") }, text = "Bring me ten Hatecrest scales, in good condition. You know where the naga are." },
     { id = "g_shalzaru", when = { questDone = TODO_QUEST("Against Lord Shalzaru") }, text = "Ah, the one who put Shalzaru down. You're welcome on this island any time, and I mean that." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the naga have been busy in that time. I hope you have too." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Sentinels tell me you've been of use around the Stronghold. Good; there's always more to do." },
@@ -25,9 +25,9 @@ P:NPC {
 
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
-      text = "You carry yourself like a soldier, which is more than I can say for most who wash up on this island." },
+      text = "You carry yourself like a soldier, and most who wash up on this island carry themselves like driftwood." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Your gear's in tatters. See Pratt before you go anywhere near Sardor's shore, or the naga will finish what someone else started." },
+      text = "Your gear's in tatters. See Pratt McGrubben at the stronghold before you go anywhere near Sardor's shore, or the naga will finish what someone else started." },
   },
 
   start = "hello",
@@ -80,7 +80,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Latronicus Moonspear, and I serve General Feathermoon and this Stronghold. If you're here to fight the naga, you're welcome, and if you're here for chit-chat, I'm afraid I'm unavailable." },
         { id = "h_fs", when = { questActive = TODO_QUEST("Feathermoon Stronghold") },
-          text = "So the city sent you. Good, because we need every blade we can get, and the city sends us precious few." },
+          text = "So Darnassus sent you. Good, because we need every blade we can get, and Darnassus sends us precious few." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Against the Hatecrest") },
           text = "Whatever the naga are doing at Solarsal, sooner or later they'll move to take this island for their own. I intend to counter that before it's too late." },
         { id = "h_scales", tags = { "news" }, when = { questRecent = { TODO_QUEST("Against the Hatecrest"), days = 3 } },
@@ -95,7 +95,7 @@ P:NPC {
           text = "One of our own, good. You'll understand why I don't let the island go unwatched for a single night." },
       },
       again = {
-        { id = "h_again", text = "Something else? Make it quick; the naga have had ten thousand years to plan, and I'd rather not give them another hour." },
+        { id = "h_again", text = "Something else? Make it quick; the naga have had ten thousand years to plan, and I will not hand them another hour." },
         { id = "h_again2", text = "Go on. I can spare a moment more, Elune grant me patience." },
       },
       choices = {
@@ -146,8 +146,8 @@ P:NPC {
       big = true,
       lines = { { id = "st_default", text = "We night elves are dedicated to peace and harmony, and that doesn't mean we wait politely for our throats to be cut. I'll protect this Stronghold's interests before the naga come for them, and that is my duty to the General." } },
       choices = {
-        { text = "Striking first is how a careful soldier survives.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Striking first makes you the aggressor.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Striking first is how a careful soldier survives.", next = "BACK", reply = "Precisely, and I'm glad someone who isn't a Sentinel understands it, because Shandris has heard it from me often enough.", fx = { align = { order = 1 } } },
+        { text = "Striking first makes you the aggressor.", next = "BACK", reply = "Perhaps, but the naga were aggressors long before the Stronghold was raised, and I would rather be called harsh than mourned.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -165,7 +165,7 @@ P:NPC {
     elune = { { id = "tp_elune", text = "Elune keeps my wife safe in those ruins, and my arrows keep the naga busy elsewhere. I trust both, but I sharpen the arrows myself." } },
     highborne = { { id = "tp_highborne", text = "The Highborne built the ruins my wife studies, and the naga are what the Highborne became under the sea. I find that a poor advertisement for their wisdom." } },
     dire_maul = { { id = "tp_dire_maul", text = "Eldre'Thalas was the Highborne's last great city, and now we call it Dire Maul because the ogres moved in. My wife grieves the name more than the city." } },
-    queen_azshara = { { id = "tp_queen_azshara", text = "The naga call her their queen still, after ten thousand years at the bottom of the sea. Some loyalties should be allowed to drown." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The naga call Azshara their queen still, after ten thousand years at the bottom of the sea. Some loyalties should be allowed to drown." } },
     _none = { { id = "tp_none", text = "I've no time for that. Ask Shyria at the inn; she hears everything and has the time to repeat it." } },
   },
 }
@@ -192,7 +192,7 @@ P:NPC {
     { id = "n_lore", cat = "lore", when = { class = "MAGE" },
       text = "You've the look of someone who reads, and probably someone who reads things they shouldn't. I won't tell." },
     { id = "n_priest", cat = "priest", when = { class = "PRIEST" },
-      text = "A fellow priest! Then you'll forgive me if I ask how you keep your prayers and your studies from fighting each other." },
+      text = "A fellow priest! Then tell me, if you would, how you keep your prayers and your studies from fighting each other." },
   },
 
   start = "hello",
@@ -200,7 +200,7 @@ P:NPC {
     op_arcane = {
       lines = {
         { id = "opa_q", text = "That's the question I ask myself every time Latronicus brings me another relic, and I'd like an outsider's answer for once. What do you think of arcane magic?" },
-        { id = "opa_q_mage", when = { class = "MAGE" }, text = "You're a mage, so you'll have thought about this more than most. Tell me honestly what you think of the arcane, now that you've seen what it did to the highborne." },
+        { id = "opa_q_mage", when = { class = "MAGE" }, text = "You're a mage, so you'll have weighed this longer than I have. I would hear what you think of the arcane, now that you've seen what it did to the highborne." },
       },
       choices = {
         { text = "It's a tool. In careful hands it does great good.", next = "op_arcane_r1", fx = { align = { order = 1 }, opinion = { arcane_magic = "useful" } } },
@@ -282,10 +282,10 @@ P:NPC {
     },
     relic_stance = {
       big = true,
-      lines = { { id = "rs_default", text = "Perhaps, but not knowing has never kept anyone safe that I've heard of. The naga dug this out of the ground for a reason, and I'd rather understand that reason than be surprised by it." } },
+      lines = { { id = "rs_default", text = "Perhaps, but not knowing has never kept anyone safe that I've heard of. The naga dug this out of the ground for a reason, and I mean to understand that reason before it surprises us." } },
       choices = {
-        { text = "Knowledge is the best shield we have. Keep at it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Be careful. Some secrets are buried for a reason.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge is the best shield we have. Keep at it.", next = "BACK", reply = "Thank you, and I'll tell Latronicus you said so, since he worries every time I open one of these crates.", fx = { align = { order = -1 } } },
+        { text = "Be careful. Some secrets are buried for a reason.", next = "BACK", reply = "I am careful, I promise you, and I keep a ward on the table, but I would still rather understand than guess.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -308,11 +308,11 @@ P:NPC {
       choices = { { text = "He seems lucky to have you.", next = "BACK", fx = { affinity = 1 } } },
     },
     naga = {
-      lines = { { id = "n_default", text = "They are, and that is what I lose sleep over. They're not simply raiding; they're excavating, carefully, as if they know exactly what they're looking for." } },
+      lines = { { id = "n_default", text = "They worry me more than they worry Latro, and I lose sleep over them. They're not simply raiding; they're excavating, carefully, as if they know exactly what they're looking for." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     priest = {
-      lines = { { id = "p_default", text = "I don't think they fight at all. Elune gave us minds, and I can't believe she wants them left on the shelf." } },
+      lines = { { id = "p_default", text = "I don't think prayer and study fight at all. Elune gave us minds, and I can't believe she wants them left on the shelf." } },
       choices = { { text = "I agree, Vestia.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -320,9 +320,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A priestess, a scholar and Latro's wife. I've been asked which matters most, and I've never managed an answer." } },
     advice = { { id = "tp_ad", text = "Write things down. Memory is a kind priestess but a poor scholar." } },
-    highborne = { { id = "tp_hb", text = "Brilliant and reckless, and their reckless brilliance broke the world. I study them so I'm never tempted to admire them." } },
+    highborne = { { id = "tp_hb", text = "The Highborne were brilliant and reckless, and their reckless brilliance broke the world. I study them so I'm never tempted to admire them." } },
     elune = { { id = "tp_elune", text = "I am a priestess of Elune before I am a scholar, though Latro says the order runs the other way. He is usually right about me, which is very annoying." } },
-    dire_maul = { { id = "tp_dire_maul", text = "The library of Eldre'Thalas was the greatest the Highborne ever built, and it is still there, under the ogres. I would give a great deal to read a single shelf of it." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The library of Eldre'Thalas was the greatest the Highborne ever built, and it is still there, under the ogres. I would sit through a century of ogre grunting to read a single shelf of it." } },
     queen_azshara = { { id = "tp_queen_azshara", text = "The tablets Latro brings back from the naga ruins speak of Azshara as a goddess. It is chilling to read, and very well written, which is more chilling still." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The druids walk in the Dream, and the priestesses of Elune pray beneath the moon, and we have had ten thousand years to argue about which is wiser. I think we are both a little right." } },
     tyrande = { { id = "tp_tyrande", text = "Tyrande blessed our marriage herself, and Latro cried, though he will tell you it was the incense. Please do not tell him I told you." } },

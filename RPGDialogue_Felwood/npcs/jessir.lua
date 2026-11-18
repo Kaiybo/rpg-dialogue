@@ -16,21 +16,21 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Ishnu-alah. Have you come up the road from Jaedenar? Forgive me, I ask everyone that." },
-    { id = "g_della", text = "Della, sit. She growls at strangers, but she doesn't mean a word of it." },
-    { id = "g_wait", when = { questBefore = TODO_QUEST("Rescue From Jaedenar") }, text = "Still no word from them, and they're days late now. I keep telling myself the road is simply slow." },
+    { id = "g_della", text = "Della, sit. Don't mind my wolf; she growls at strangers, but she doesn't mean a word of it." },
+    { id = "g_wait", when = { questBefore = TODO_QUEST("Rescue From Jaedenar") }, text = "Still no word from Arko'narin and Trey, and they're days late now. I keep telling myself the road is simply slow." },
     { id = "g_arko", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Arko's on her way to Darnassus because of you. I can breathe again, a little." },
     { id = "g_trey", when = { questDone = TODO_QUEST("The Remains of Trey Lightforge") }, text = "Trey's resting now, thanks to you. I light a candle for him every night, and Della sits with me while I do." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I caught myself watching the road for you as well. Old habits, I suppose." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much harder since you first stopped here, and I think Jaedenar would think twice about you now." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The druids say you've been helping around the sanctuary. It's good to know there are kind hands on this road." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "Someone at the sanctuary is cross with you, and I'd rather not know the details. We're all frightened up here, and fear makes short tempers." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone at the sanctuary is cross with you, and I don't want to know the details. We're all frightened up here, and fear makes short tempers." },
   },
 
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Della likes {pet}, which is rare; she usually just stares at other beasts until they leave. Keep it close in Felwood, because the wolves here aren't wolves any more." },
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN" },
-      text = "You carry yourself the way Trey does, with that same Light about you. It's a comfort to see it, and it hurts a little too." },
+      text = "You carry yourself the way my friend Trey does, with that same Light about you. It's a comfort to see it, and it hurts a little too." },
   },
 
   start = "hello",
@@ -38,7 +38,7 @@ P:NPC {
     op_ask = {
       big = true,
       lines = {
-        { id = "op_ask_default", text = "Arko'narin went into Shadow Hold because the Sentinels sent her, and nobody came after her but me. You've met the High Priestess's people. Do you think Darnassus cares what happens to its soldiers this far out?" },
+        { id = "op_ask_default", text = "Arko'narin went into Shadow Hold to bring Darnassus proof, and nobody has come after her but me. Tell me honestly: do you think Darnassus cares what happens to its soldiers this far out?" },
       },
       choices = {
         { text = "Tyrande cares. She's just stretched too thin.", next = "op_r1", fx = { align = { honor = 1 }, opinion = { tyrande = "trust" } } },
@@ -118,14 +118,14 @@ P:NPC {
         { id = "fs_default", text = "Because someone had to be waiting with water and bandages when they came out, and they agreed it should be me. I've gone over that conversation a hundred times since, and every time I wish I'd said no." },
       },
       choices = {
-        { text = "You kept your word. That's what friends do.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Waiting got you nothing. You should have followed them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You kept your word. That's what friends do.", next = "BACK", reply = "Thank you, I needed to hear someone say it. Some nights I think waiting is the hardest thing I've ever done.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Waiting got you nothing. You should have followed them.", next = "BACK", reply = "I've told myself the same a hundred times, and it doesn't help. Maybe you're right, and maybe I'd be down there with them now.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     council = {
       lines = {
-        { id = "c_default", text = "Warlocks, mostly, who sold their souls to the demons long before the orcs ever came to this world. They're the ones who claim the credit for most of what the orcs suffered, and now they seem to want some of that power back." },
+        { id = "c_default", text = "Warlocks, mostly, who sold their souls to the demons long before the orcs ever came to this world. They're the ones who led the orcs to the demons in the first place, and now they seem to want some of that power back." },
       },
       choices = {
         { text = "Why would they come to Felwood?", next = "council_why", fx = { learn = { "burning_legion" } } },
@@ -147,8 +147,8 @@ P:NPC {
         { id = "cp_default", text = "Then Darnassus has to listen, and the Sentinels have to come north in force, and that means fewer of them in Ashenvale. It's a hard thing to ask of them, but a nest of warlocks in Felwood is worse than any war on the border." },
       },
       choices = {
-        { text = "Darnassus should root them out, whatever it costs.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Sentinels won't fix this. A few good blades will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Darnassus should root them out, whatever it costs.", next = "BACK", reply = "It will cost, and I'll be the one asking for it, but I can't see another way. A nest of warlocks doesn't empty itself.", fx = { align = { order = 1 } } },
+        { text = "Sentinels won't fix this. A few good blades will.", next = "BACK", reply = "Maybe so, and I'd be glad of yours among them. But a few blades can't hold Jaedenar once they've cleared it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -165,7 +165,7 @@ P:NPC {
     alive = {
       lines = {
         { id = "a_default", text = "I have to think so, because the alternative is that I've been sitting here doing nothing while they died. If the Council took them, they'd keep them, at least for a while, because cultists like to ask questions." },
-        { id = "a_done", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "One of them was, and that's because of you. The other I already know about, and I'd rather not say it aloud again today." },
+        { id = "a_done", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "One of them was, and that's because of you. The other I already know about, and I can't bring myself to say it aloud again today." },
       },
       choices = {
         { text = "I'll look for them in Jaedenar.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
@@ -197,8 +197,8 @@ P:NPC {
         { id = "ta_default", text = "She'd like me to believe she's fine, and that she's strong enough to carry it on her own. I know better, but I can't make her stop and grieve, so the least we can do is finish what was started in there." },
       },
       choices = {
-        { text = "She deserves peace, and Rakaiah deserves justice.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Grief is for later. Rakaiah dies first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "She deserves peace, and Rakaiah deserves justice.", next = "BACK", reply = "She does, and I hope she gets both, one after the other. Thank you for seeing her grief, and not just her anger.", fx = { align = { light = 1 } } },
+        { text = "Grief is for later. Rakaiah dies first.", next = "BACK", reply = "I know you're right about the order, and I know Arko'narin would say the same. Just don't let her forget to grieve when it's done.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -217,19 +217,19 @@ P:NPC {
         { id = "xp_default", text = "Then you'll understand him better than I ever could, because he never once spoke of the Light as if it were a weapon. He spoke of it as a promise, and he'd want whoever avenges him to remember that." },
       },
       choices = {
-        { text = "I'll avenge him as he lived, with the Light.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Promises didn't save him. Steel will answer for him.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll avenge him as he lived, with the Light.", next = "BACK", reply = "Thank you, and I think he'd be glad of it. He'd want his Light to finish what it started.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Promises didn't save him. Steel will answer for him.", next = "BACK", reply = "Perhaps, but I hope you'll carry his promise with you anyway. Steel and promises aren't so different, in the right hands.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
       lines = {
-        { id = "xl_default", text = "You'll forgive me if I find that hard to believe today, with my friends in their hands. I'll grant you this much: you came and spoke to me in the open, which is more than any of them ever has." },
+        { id = "xl_default", text = "I find that hard to believe today, with my friends in their hands. Still, you came and spoke to me in the open, and not one of them ever has." },
       },
       choices = {
-        { text = "Judge me by what I do in Jaedenar.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Believe what you like. Power is power.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Judge me by what I do in Jaedenar.", next = "BACK", reply = "I will, and I'll try to be fair about it. Bring my friends home, and I'll believe you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Believe what you like. Power is power.", next = "BACK", reply = "Then I'll believe what I see, and nothing more. I hope you prove me wrong about you.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -247,13 +247,13 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm from Darnassus, and I came north to meet two friends who were braver than I am. That's all of it, really." } },
     advice = { { id = "tp_ad", text = "Don't drink from the streams up here, and don't go into Jaedenar alone. My friends went in together, and look how that turned out." } },
-    silver_hand = { { id = "tp_sh", text = "Trey's order. He wore their tabard as if it were the finest thing he owned, and to him I think it was." } },
+    silver_hand = { { id = "tp_sh", text = "The Silver Hand was Trey's order. He wore their tabard as if it were the finest thing he owned, and to him I think it was." } },
     burning_legion = { { id = "tp_bl", text = "Gone from this forest, they say, except that everything here still remembers them, and so do the warlocks who serve them." } },
     cenarion_circle = { { id = "tp_cc", text = "The Emerald Circle's druids have been kind to me while I wait, though they've far more to worry about than my friends." } },
-    holy_light = { { id = "tp_holy_light", text = "Trey prays to the Light, and he believes it goes with him everywhere. I'm a moon girl, myself, but I hope he's right tonight." } },
+    holy_light = { { id = "tp_holy_light", text = "Trey prays to the Light, and he believes it goes with him everywhere. I pray to Elune myself, but I hope he's right tonight." } },
     elune = { { id = "tp_elune", text = "I pray to Elune for Arko'narin every night, and for Trey, and a little for myself. She hasn't said no yet." } },
     satyrs = { { id = "tp_satyrs", text = "Shadow Hold is full of satyrs, and they took my friends. I'm not brave, but I'm not leaving them there." } },
     scourge = { { id = "tp_scourge", text = "Trey fought the dead in the human lands before he came here, and he doesn't talk about it. He only goes very quiet." } },
-    _none = { { id = "tp_none", text = "I'm sorry, I can't think about much besides Jaedenar just now, Elune forgive me. Ask Greta; she knows this forest far better than I do." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I can't think about much besides Jaedenar just now, Elune forgive me. Ask Greta Mosshoof at the sanctuary; she knows this forest far better than I do." } },
   },
 }

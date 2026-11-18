@@ -50,7 +50,7 @@ function Spoof.Parse(token)
   if qid then return "quest", { [tonumber(qid)] = raw:lower() } end
   if key == "race" then return key, RACES[raw:lower():gsub(" ", "")] or raw end
   if key == "class" then return key, raw:upper() end
-  if key == "gender" or key == "tod" or key == "form" then return key, raw:lower() end
+  if key == "gender" or key == "npcGender" or key == "tod" or key == "form" then return key, raw:lower() end
   if key == "pet" then
     if raw:lower() == "none" then return key, false end
     return key, { family = raw, name = "Spot" }

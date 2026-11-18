@@ -69,8 +69,8 @@ P:NPC {
     cult_kal = {
       lines = { { id = "ck_default", text = "Some of them, yes, and that's what frightens me most. We swore off the arcane ten thousand years ago because of what it did to us, and here they are, a day's walk from Auberdine, lighting the old fires again." } },
       choices = {
-        { text = "Then they must be stopped, whatever it costs.", next = "BACK", fx = { align = { order = 1 }, learn = { "dark_strand" } } },
-        { text = "They chose their path. Watch them, but don't start a war.", next = "BACK", fx = { align = { order = -1 }, learn = { "dark_strand" } } },
+        { text = "Then they must be stopped, whatever it costs.", next = "BACK", reply = "It may cost a great deal, {class}, and I would rather it cost them than us. Still, I hope it does not come to blades.", fx = { align = { order = 1 }, learn = { "dark_strand" } } },
+        { text = "They chose their path. Watch them, but don't start a war.", next = "BACK", reply = "That is wise, and probably what Delgren would say too. I will keep watching, and you keep listening.", fx = { align = { order = -1 }, learn = { "dark_strand" } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -86,16 +86,16 @@ P:NPC {
     delgren_mind = {
       lines = { { id = "dm_default", text = "Some of the elder ones think I've forgotten Elune, and they say so, usually when I'm in earshot. I haven't forgotten her at all, but Delgren speaks to me as an equal, and the elders never once have." } },
       choices = {
-        { text = "Good teachers earn loyalty. You chose well.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your elders have a point. Remember who you are.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Good teachers earn loyalty. You chose well.", next = "BACK", reply = "They do, and I would choose him again a hundred times. Thank you for saying so.", fx = { align = { honor = 1 } } },
+        { text = "Your elders have a point. Remember who you are.", next = "BACK", reply = "They do, I suppose, and I have never truly forgotten. But a good teacher is worth a little grumbling.", fx = { align = { honor = -1 } } },
       },
     },
 
     stay = {
       lines = { { id = "st_default", text = "Because the day I leave will be the day they do something worth seeing, and I'll have missed it. Elissa will be cross, I know, and she'll be right to be." } },
       choices = {
-        { text = "Duty first. A report late is a report wasted.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're right to stay. Trust your instincts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Duty first. A report late is a report wasted.", next = "BACK", reply = "You are probably right, and Elissa would agree with you. I will send the report, and stay a little longer anyway.", fx = { align = { order = 1 } } },
+        { text = "You're right to stay. Trust your instincts.", next = "BACK", reply = "Thank you, and Elissa will be cross with both of us. I would rather see what they do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -179,8 +179,8 @@ P:NPC {
     pity = {
       lines = { { id = "pi_default", text = "Some days I do, because plenty of them were only servants and scribes who never chose anything. Other days I remember what Azshara's court did to the rest of us and I can't find much pity at all." } },
       choices = {
-        { text = "Servants or not, they shared the blame.", next = "BACK", fx = { align = { light = -1 }, learn = { "highborne" } } },
-        { text = "The dead deserve rest, whatever they did.", next = "BACK", fx = { align = { light = 1 }, learn = { "highborne" } } },
+        { text = "Servants or not, they shared the blame.", next = "BACK", reply = "Perhaps they did, and the Sentinels would agree with you. Still, I cannot help pitying the scribes.", fx = { align = { light = -1 }, learn = { "highborne" } } },
+        { text = "The dead deserve rest, whatever they did.", next = "BACK", reply = "They do, I suppose, though the ruins do not let them have it. Perhaps someday they will.", fx = { align = { light = 1 }, learn = { "highborne" } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -195,8 +195,8 @@ P:NPC {
     spirits_run = {
       lines = { { id = "sr_default", text = "A dead Sentinel guards nothing, {class}, and I've a road to watch. If you think yourself braver, the ruins are just east of here and they'll be glad of the company." } },
       choices = {
-        { text = "Courage means standing your ground.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "You're right. Living to fight again is smarter.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Courage means standing your ground.", next = "BACK", reply = "It does, and I will stand mine, but not in the ruins. I have a road to watch, {class}.", fx = { align = { honor = 1 } } },
+        { text = "You're right. Living to fight again is smarter.", next = "BACK", reply = "It is, and I am glad you understand. A dead Sentinel guards nothing.", fx = { align = { honor = -1 } } },
       },
     },
 

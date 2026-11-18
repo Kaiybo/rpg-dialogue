@@ -88,7 +88,7 @@ P:NPC {
     },
     migi_friends = {
       lines = {
-        { id = "mf_default", text = "Mogra, who bosses the rest of them, and Puk, who lets her, and Thra and Brog besides. Thra's the one with the ideas, which is why I worry about Thra most of all." },
+        { id = "mf_default", text = "Mogra, who bosses the rest of them, and Puk, who lets her, and Thra and Brog besides. Thra's the one with the ideas, so Thra's the one I lie awake over." },
       },
       choices = {
         { text = "They sound like a war band already.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -110,8 +110,8 @@ P:NPC {
         { id = "dc_default", text = "Because a Horde child grows up into a Horde warrior, and warriors who don't listen get killed. But he's free, which I never was at his age, and when I see him run I can't bring myself to call him back. What would you do with him?" },
       },
       choices = {
-        { text = "Teach him to obey now, and the world won't have to.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let him run. He's earned a childhood you never had.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Teach him to obey now, and the world won't have to.", next = "BACK", reply = "Maybe you're right, and it's what my own trainers would have said. I'll try, though it'll break something in me to do it.", fx = { align = { order = 1 } } },
+        { text = "Let him run. He's earned a childhood you never had.", next = "BACK", reply = "Earned it? Aye, I suppose he has, though he doesn't know it. I'll let him run a while longer, then.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "I've no children. I'd only be guessing.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -158,7 +158,7 @@ P:NPC {
     -- His work
     work = {
       lines = {
-        { id = "wk_default", text = "Soran sells leather and steel below, and I keep the stock and the fitting orders up here, so that every grunt who comes in gets a jerkin that closes over his chest. It's no glorious work, but the guards on the gate are wearing my numbers." },
+        { id = "wk_default", text = "Soran sells leather and steel below, and I keep the stock and the fitting orders up here, so that every grunt who comes in gets a jerkin that closes over his chest. It's no glorious work, but the guards on the gate are wearing armor I fitted." },
       },
       choices = {
         { text = "Were you a warrior once?", next = "work_war" },
@@ -182,8 +182,8 @@ P:NPC {
         { id = "wh_default", text = "Some of the young ones on the Drag say an orc who doesn't fight is half an orc, and they say it loudly near my window. I think they've never seen what the fighting cost. Which of us is right, do you think?" },
       },
       choices = {
-        { text = "You've served. Let the loud ones earn their scars first.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "They're right. An orc should be ready to fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You've served. Let the loud ones earn their scars first.", next = "BACK", reply = "That's what I tell myself, and it's good to hear it from someone else. Let them earn their scars, and then we'll talk.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "They're right. An orc should be ready to fight.", next = "BACK", reply = "Maybe they are, and I'll be ready if the Horde calls. But I'll pray it calls them first, and not my boy.", fx = { align = { honor = -1 } } },
         { text = "I'd rather not take sides on that.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -201,7 +201,7 @@ P:NPC {
     },
     game_hold = {
       lines = {
-        { id = "gh_default", text = "Under his walls, yes, and the guards there know every one of them by name. They'd tell me if anything happened to him, and that's the only reason I let him go at all." },
+        { id = "gh_default", text = "Under his walls, yes, and the guards there know all those children by name. They'd tell me if anything happened to him, and that's the only reason I let him go at all." },
       },
       choices = {
         { text = "I'd like to see that game.", next = "BACK", fx = { trait = { curious = 1 } } },

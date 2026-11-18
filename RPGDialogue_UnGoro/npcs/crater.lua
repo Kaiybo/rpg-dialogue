@@ -11,7 +11,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Hold up there. Let me see if you're injured before you come any closer." },
-    { id = "g_back", when = { metBefore = true }, text = "You made it back, and in one piece. That's more than I can say for my brother's tent, which a stegodon sat on last night." },
+    { id = "g_back", when = { metBefore = true }, text = "You made it back, and in one piece. My brother's tent can't say the same, since a stegodon sat on it last night." },
   },
   start = "hello",
   nodes = {
@@ -19,8 +19,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I've watched one swallow a pterrordax whole, so I wouldn't bet against it. The crater doesn't care how powerful you think you are, and I've buried people who were sure of themselves, so if your demon can keep the beasts busy while you get clear, use it, and don't be proud about it." } },
       choices = {
-        { text = "Good advice. I'll keep my demon as a shield, not a show.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon can handle anything this crater throws at it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good advice. I'll keep my demon as a shield, not a show.", next = "BACK", reply = "That's the way of it, and you'll live longer for it. A shield the devilsaur doesn't notice is worth ten it does.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon can handle anything this crater throws at it.", next = "BACK", reply = "I said the same about my rifle once, so I did, and the crater taught me otherwise. Keep your demon close and your feet closer.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -28,11 +28,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Devilsaur, no question, because a thing that size has no business moving that quietly, and it hunts by feel through the ground. I've lain in the ferns with my rifle on one for an hour and never once found the nerve to fire." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close and quiet when the ground starts to shake, because a devilsaur will take a beast before it takes a hunter, and it won't stop to tell the difference." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Devilsaur, the worst of them, and it hunts by feel through the ground. Keep {pet} close and quiet when the ground starts to shake, because a devilsaur will take a beast before it takes a hunter." },
       },
       choices = {
-        { text = "A beast that fearsome deserves respect, not a trophy hunt.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Every beast can fall. I'd have taken the shot.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A beast that fearsome deserves respect, not a trophy hunt.", next = "BACK", reply = "Spoken like a hunter who's lived long enough to learn something. Respect it, and you'll keep your boots.", fx = { align = { honor = 1 } } },
+        { text = "Every beast can fall. I'd have taken the shot.", next = "BACK", reply = "Plenty of hunters would have, and plenty of them are bones in the ferns now. Take the shot if you must, but take it from far away.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -40,16 +40,16 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Anyone who went near the stegodons this week, and the two scholars a devilsaur chased into the tar pits. I can shoot what's hunting us, but I can't stitch up what it leaves behind, so I'll take whatever a priest can spare." } },
       choices = {
-        { text = "I'll tend them before I head back into the crater.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The crater culls the careless. Your scholars should learn from it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll tend them before I head back into the crater.", next = "BACK", reply = "Bless you for that, the infirmary tent's been full since the tar pits. They'll be glad of a kind face and a steady hand.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The crater culls the careless. Your scholars should learn from it.", next = "BACK", reply = "They're learning, so they are, the hard way and slowly. I'd still rather they lived long enough to finish the lesson.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "They hunt in packs and they're cleverer than any wolf I've seen, so they are. I know they were here long before us, but I've buried two scholars this season and I'm out of patience with them." } },
       choices = {
-        { text = "You're in their crater. Learn their ways.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then thin the packs before you lose more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're in their crater. Learn their ways.", next = "BACK", reply = "That's my thinking too, and the hard lessons have taught me plenty. We're guests here, and rude guests get eaten.", fx = { align = { light = 1 } } },
+        { text = "Then thin the packs before you lose more.", next = "BACK", reply = "We've tried, and every pack we thin, two more come out of the ferns. I'd rather learn their ways than lose more trying.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -57,8 +57,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Wilder, and the elementals that walk its slopes don't stay put, either. I've shot at things on that ridge that took a bullet the way a candle takes a raindrop, so I go round it now, and I'd advise you to do the same." } },
       choices = {
-        { text = "Fire like that needs binding before it spreads.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Leave the mountain be. Its fire isn't ours to tame.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Fire like that needs binding before it spreads.", next = "BACK", reply = "Binding fire's a shaman's work, and I'll leave it to you gladly. Just don't stand too near the ridge when you try it.", fx = { align = { order = 1 } } },
+        { text = "Leave the mountain be. Its fire isn't ours to tame.", next = "BACK", reply = "I'd sleep easier if everyone thought that way, so I would. The mountain's temper is its own business, and we keep well clear.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -66,8 +66,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "More than another rifle would, some days. A scout who can slip past a devilsaur without stirring it can warn a camp before the raptors reach it, and my last two scouts were brave and loud, and I buried them both." } },
       choices = {
-        { text = "A good scout slips past the beast. Fighting it is a fool's job.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather face a beast than creep around it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A good scout slips past the beast. Fighting it is a fool's job.", next = "BACK", reply = "That's the scout I need, and the expedition will thank you. Slip past and bring back what you see.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather face a beast than creep around it.", next = "BACK", reply = "Then you'll have a short career in this crater, so you will. Brave's grand, but a live scout's better.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I've watched a mage freeze a whole raptor pack in the mud, so I know it works. But mana runs dry and I've never yet run out of shot, so I'd want both, and I'd want the mage standing behind my rifle." } },
       choices = {
-        { text = "Then hire mages. The expedition needs proper guards.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Every scholar ought to learn to defend themselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then hire mages. The expedition needs proper guards.", next = "BACK", reply = "I'd hire every mage in Stormwind if Williden's coffers allowed it. As it is, I'll take whoever walks through the gate.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every scholar ought to learn to defend themselves.", next = "BACK", reply = "That's what I keep telling them, and some of them even listen. A scholar with a staff is better than a scholar with only a book.", fx = { align = { order = -1 } } },
         { text = "Let's leave spells be.", next = "BACK" },
       },
     },
@@ -84,8 +84,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "More than I like to count, and I count every one of them. We lost both base camps, and some of the folk who were there we never found, so I don't know whether to pray for them or keep looking." } },
       choices = {
-        { text = "Keep looking, and pray as you search. Hope costs nothing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Mourn them and move on. The crater doesn't give back its dead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep looking, and pray as you search. Hope costs nothing.", next = "BACK", reply = "I'll keep looking, and I'll try the praying, for whatever good it does. Thank you for the hope, it's in short supply up here.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mourn them and move on. The crater doesn't give back its dead.", next = "BACK", reply = "It doesn't, and I know it, but I can't stop counting all the same. Moving on is harder than it sounds.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -93,8 +93,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Maybe it should, and I've said so to Williden more than once, but he won't leave without his crystals, and I won't leave without him. So I keep the raptors off the scholars, and I hope someone like you is around when I can't." } },
       choices = {
-        { text = "Your leader has decided. Stand by him and see it through.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Lives matter more than crystals. Drag him out if you must.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your leader has decided. Stand by him and see it through.", next = "BACK", reply = "I have stood by him, every step of the way, and I'll go on doing it. But it's hard to watch the graves pile up.", fx = { align = { order = 1 } } },
+        { text = "Lives matter more than crystals. Drag him out if you must.", next = "BACK", reply = "Drag him? You've not met Williden, he'd dig his heels in like a mule. But maybe you're right, and maybe I'll have to.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You came up my path without me hearing a single step, and that's a rare thing in this crater. I could use feet like yours on patrol, because the raptors hear everything else." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A spellcaster at my campfire, so Williden will want you near his crystals by sundown. Just don't set anything alight, because the ferns down there burn quicker than you'd think." },
+          text = "A spellcaster at my campfire, so Williden will want you near his crystals by sundown. Just don't set anything alight, because the ferns down there go up like oil-soaked rags." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, all the way down in the crater. I won't ask why, because frankly the Refuge needs a healer more than it needs answers." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, down here? Good, because my scholars keep coming back from the crater bitten, stung and poisoned all at once, and Williden's bandages only go so far." },
@@ -165,13 +165,13 @@ P:NPC {
     },
     s_1 = {
       lines = { { id = "s_1_l", text = "Williden won't give up, and part of me admires him for it. The other part wonders how many more we'll lose." } },
-      choices = { { text = "Keep going. Discovery is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Pull out before you lose anyone else.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Keep going. Discovery is worth the risk.", next = "BACK", reply = "That's what Williden says, and you two would get along. I'll keep going, but I'll keep counting too.", fx = { affinity = 1, align = { order = 1 } } }, { text = "Pull out before you lose anyone else.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's our lifeline, for water and powder and bandages, and the goblins know it, so they charge accordingly. My brother pays without blinking, and I blink for both of us." } },
     silithid = { { id = "tp_silithid", text = "The bugs from Silithus have started crawling up out of the crater's southern edge, and I don't like it one bit. They didn't used to come this far north." } },
-    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League would kill for half the bones we've dug up, and some of them have tried, in a manner of speaking. My brother keeps the best ones for himself." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League would kill for the bones we've dug up, and some of them have tried, in a manner of speaking. My brother keeps the best ones for himself." } },
     booty_bay = { { id = "tp_booty_bay", text = "I bought my first rifle in Booty Bay, from a goblin who swore it'd never misfire. It misfired twice the first week, and I've kept it twenty years anyway." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't think the crater does either." } },
   },
@@ -194,8 +194,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because he is the greatest of the crater's raptors, and he has taught me more than any elder on the plains. To hunt him is to honour him, and I would not have him fall to a fireball thrown from a distance, for that is no hunt at all." } },
       choices = {
-        { text = "Then I'll leave him to you. He deserves an honest hunt.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A dead raptor is a dead raptor, however it falls.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll leave him to you. He deserves an honest hunt.", next = "BACK", reply = "You understand, then, and I am grateful. An honest hunt is the only way to thank such a teacher.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A dead raptor is a dead raptor, however it falls.", next = "BACK", reply = "To the crater, perhaps, but not to me. How a teacher falls is the last lesson he gives.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -203,8 +203,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Because Lar'korwi, the great raptor, has killed every hunter who came at him in haste. I have watched him for many moons, learning where he drinks and where he sleeps, and when I am ready, I will face him, but I will not rush, and neither should you." } },
       choices = {
-        { text = "Patience wins the hunt. I'll learn from you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Waiting gives the beast time to kill again.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience wins the hunt. I'll learn from you.", next = "BACK", reply = "Then you are already wiser than the ones who came before you. Sit with me at the water, and watch how he moves.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Waiting gives the beast time to kill again.", next = "BACK", reply = "It does, and every day I wait, I carry that weight. But a hasty hunter feeds Lar'korwi, and that helps no one.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -212,8 +212,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "There is, if the warrior learns to stand still, for the raptors of this crater test a line before they strike it. Lar'korwi's pack will circle you three times, and the one who breaks first and charges is the one they take." } },
       choices = {
-        { text = "Holding firm wins. I'll let them break on my shield.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'd charge the first raptor that showed itself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Holding firm wins. I'll let them break on my shield.", next = "BACK", reply = "You have the warrior's patience, and the raptors will not know what to make of it. Let them break, and then finish them.", fx = { align = { honor = 1 } } },
+        { text = "I'd charge the first raptor that showed itself.", next = "BACK", reply = "Then the second and third raptors would finish you, young one. Stand still, and let them come.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -221,11 +221,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the greatest hunter does not need to chase, for Lar'korwi waits by the water where the prey must come, and he never wastes a step. I have learned more from following him than from all the elders of Mulgore, though I would not say so in Thunder Bluff." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches the tree line the way Lar'korwi does, and that is a fine thing to see. The Earth Mother made it to hunt, and you have not trained that out of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the greatest hunter waits where the prey must come, and your {pet} watches the tree line the way he does. The Earth Mother made it to hunt, and you have not trained that out of it." },
       },
       choices = {
-        { text = "A worthy quarry deserves a hunter's respect, even in death.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A hunt is a hunt. Respect doesn't fill a belly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A worthy quarry deserves a hunter's respect, even in death.", next = "BACK", reply = "Yes, and in death most of all. Lar'korwi will be honored, whoever takes him.", fx = { align = { honor = 1 } } },
+        { text = "A hunt is a hunt. Respect doesn't fill a belly.", next = "BACK", reply = "No, but it fills the heart, and the heart is hungrier than the belly. Think on it, hunter.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -233,16 +233,16 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "The crater has room for everything, priest, because it is older than prayer and younger than the hills around it. Lar'korwi hunts without hate and dies without fear, and if your Light or your loa can teach that, they are welcome here." } },
       choices = {
-        { text = "I'll pray for the hunter and the hunted alike, Torwa.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The strong feed on the weak. No prayer changes that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll pray for the hunter and the hunted alike, Torwa.", next = "BACK", reply = "Then the crater has room for your prayers too. The Earth Mother hears them, I think, even here.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The strong feed on the weak. No prayer changes that.", next = "BACK", reply = "Perhaps not, but prayer changes the one who prays. That is no small thing.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Because that is how the lesson ends, with the student proving what he has learned. I take no pleasure in it, but I will honor him with the hunt and waste nothing he leaves behind." } },
       choices = {
-        { text = "That is the way of the hunt. Honor him well.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A teacher should be thanked, not hunted.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That is the way of the hunt. Honor him well.", next = "BACK", reply = "I will, with every step of the hunt. That is my promise to him.", fx = { align = { honor = 1 } } },
+        { text = "A teacher should be thanked, not hunted.", next = "BACK", reply = "Thanked, yes, and the hunt is my thanks. You will understand, perhaps, when you have had such a teacher.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -250,8 +250,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "She speaks louder here, I think, and with less patience. The beasts are larger, the plants hungrier and the mountain breathes fire, as if this were a place she shaped first and never finished taming." } },
       choices = {
-        { text = "Then we must hunt here with great care and humility.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A wild land rewards the boldest hunter. Take what you can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then we must hunt here with great care and humility.", next = "BACK", reply = "That is the only way, and you have learned it quickly. The Earth Mother smiles on the humble.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A wild land rewards the boldest hunter. Take what you can.", next = "BACK", reply = "The boldest hunter feeds the boldest raptor here. Take what you need, and leave the rest for the crater.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -259,8 +259,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The great raptor hides in the ferns and strikes from them, and no one calls him dishonorable. I would only ask that you take what you kill with respect, whether you killed it in the open or from behind a fern." } },
       choices = {
-        { text = "A kill is a kill. The prey doesn't care how it died.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather meet my quarry face to face.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A kill is a kill. The prey doesn't care how it died.", next = "BACK", reply = "Then you hunt as the raptor does, and I will not call it shame. But the prey remembers, even if it does not care.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather meet my quarry face to face.", next = "BACK", reply = "Then we hunt alike, you and I. Face to face is the honest way.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Tell me something else.", next = "BACK" },
       },
     },
@@ -268,8 +268,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "The Earth Mother made the raptors and the ferns and the fire under this crater, and none of them were made to be bound. What you call upon was made somewhere else entirely, and the creatures of Un'Goro know it, even if your own people pretend not to." } },
       choices = {
-        { text = "Power is power. I use what answers me.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I keep it leashed. I know the danger better than you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. I use what answers me.", next = "BACK", reply = "Power answers many, warlock, and not all who answer are friends. Use it carefully, under the Earth Mother's sky.", fx = { align = { light = -1 } } },
+        { text = "I keep it leashed. I know the danger better than you.", next = "BACK", reply = "Then you are wiser than most who carry it. Keep it leashed, and the crater will tolerate you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "We should speak of other things.", next = "BACK" },
       },
     },
@@ -338,7 +338,7 @@ P:NPC {
     },
     s_1 = {
       lines = { { id = "s_1_l", text = "Some at the Refuge say the beast should be left in peace. I say the hunt is part of the balance." } },
-      choices = { { text = "The hunt is part of the balance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Some beasts should be left to live.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "The hunt is part of the balance.", next = "BACK", reply = "You understand, then, and it eases my heart to hear it. The balance must be kept, even when it is hard.", fx = { affinity = 1, align = { light = 1 } } }, { text = "Some beasts should be left to live.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -367,8 +367,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "A sap that numbs whatever it touches, which is how they catch the insects. Larion thinks it would make a terrible weapon, and I think it would make a wonderful medicine, so we argue about it every night, and I suppose you'd side with him." } },
       choices = {
-        { text = "Medicine first. A poison like that could do terrible harm.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A numbing poison? I'd pay well for that, Muigin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Medicine first. A poison like that could do terrible harm.", next = "BACK", reply = "That's what I keep telling Larion, and he won't listen! Medicine first, always, and poison never.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A numbing poison? I'd pay well for that, Muigin.", next = "BACK", reply = "Pay well? Oh, I don't sell poison, friend, it's against everything I believe. Ask Larion, he might sell you some out of spite.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -376,29 +376,29 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Because they eat insects, and sometimes fingers, and they grow faster near the crater's crystals than anywhere else in the world. Larion says they're dangerous and I say they're fascinating, and we're both right, but I'd never have discovered half of what I know if I'd listened to him." } },
       choices = {
-        { text = "Curiosity is a virtue, but caution is wiser.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "You're right to follow your curiosity, Muigin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Curiosity is a virtue, but caution is wiser.", next = "BACK", reply = "You sound like Larion, and that's not a compliment, though you mean well. I'll be careful, I promise.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right to follow your curiosity, Muigin.", next = "BACK", reply = "Thank you, finally someone understands! Curiosity is how we learn, and the bloodpetals have so much to teach.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Because a bloodpetal feels the ground through its roots, and a nervous body shakes it far more than a steady one! A warrior who keeps still in his boots is as safe as a stone, which is why I always ask the steady ones to hold the basket." } },
+      lines = { { id = "xwarcl_default", text = "Because a bloodpetal feels the ground through its roots, and a nervous body shakes it far more than a steady one! A warrior who keeps still in his boots is as safe as a stone, so I always ask the steady ones to hold the basket." } },
       choices = {
-        { text = "Steadiness is a warrior's best armour. I won't flinch.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If a plant lashes at me, I'll cut it to the roots.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Steadiness is a warrior's best armour. I won't flinch.", next = "BACK", reply = "That's the spirit, and the bloodpetals will respect you for it. Steady feet, steady hands, and no lashing.", fx = { align = { order = 1 } } },
+        { text = "If a plant lashes at me, I'll cut it to the roots.", next = "BACK", reply = "Cut them to the roots? Oh, please don't, they're only plants, and they're only hungry. Stand still instead.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Some of them hunt everything, and the bloodpetals are very good at it! They lie quiet under the ferns until something warm walks by, which is why the raptors here step so carefully, and why you ought to as well." },
+        { id = "xhuntcl_default", text = "Some of them hunt everything, and the bloodpetals are very good at it! They lie quiet under the ferns until something warm walks by, and so the raptors here step very carefully, and you ought to as well." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do keep {pet} away from the red blooms, please, because the lashers have a taste for fur, and I'd hate to have to write it up as a scientific observation." },
       },
       choices = {
-        { text = "Even dangerous plants have their place. Leave them be.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Anything that eats beasts should be burned out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Even dangerous plants have their place. Leave them be.", next = "BACK", reply = "That's what I always say! Even the hungriest plant has its place in the crater.", fx = { align = { light = 1 } } },
+        { text = "Anything that eats beasts should be burned out.", next = "BACK", reply = "Burned? Oh, that's awful, and very wasteful. They're only doing what they were made to do.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -406,8 +406,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "I've no idea, and that's the wonderful part, because nobody's ever tried it on Un'Goro soil! Some folk at the Refuge would call it nonsense, but they said the same about talking to my plants, and now they lean toward me when I do." } },
       choices = {
-        { text = "I'll bless them, and we'll see what grows from it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Feed them shadow instead. Hungry things grow strongest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll bless them, and we'll see what grows from it.", next = "BACK", reply = "Wonderful! Let's see what the Light does to Un'Goro soil. I'll take notes.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Feed them shadow instead. Hungry things grow strongest.", next = "BACK", reply = "Shadow? Oh, I don't think that's a good idea, they're hungry enough already. Let's try the Light first.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -415,8 +415,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Heat from below, water from the springs and something in the soil I can't name, all pushing them to grow faster than anything I studied back home. The bloodpetals bite, the vines strangle, and some of the bigger ones get up and walk about, which Larion insists is perfectly natural." } },
       choices = {
-        { text = "Wild growth needs pruning. Study it, then control it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Life this wild should be left to grow as it will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Wild growth needs pruning. Study it, then control it.", next = "BACK", reply = "Control it? Oh, I'm not sure we can, but studying it is a wonderful start. Let's begin there.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Life this wild should be left to grow as it will.", next = "BACK", reply = "That's what I think too, though Larion calls me soft for it. Let them grow, and let us watch.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -424,8 +424,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Only a little spell, and only on the small ones, because the big ones bite. Plants that eat meat shouldn't exist anywhere, so I can't help wondering if something odd was done to this crater long ago, and magic might be how we find out." } },
       choices = {
-        { text = "Science should be careful. Larion's right to worry.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Try it. You'll never learn anything by being timid.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Science should be careful. Larion's right to worry.", next = "BACK", reply = "Larion's always right to worry, that's his job. But science needs a little courage too.", fx = { align = { order = 1 } } },
+        { text = "Try it. You'll never learn anything by being timid.", next = "BACK", reply = "That's the spirit! Larion would faint to hear you, but I'll try it, very carefully.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'll think about it. Something else.", next = "BACK" },
       },
     },
@@ -433,8 +433,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They do, just a little, the way they lean from a cold draught! I don't know what that means, and I'm not sure I want to, but if you'd stand still by that pot for a moment, I'd be ever so grateful for the data." } },
       choices = {
-        { text = "Study it. Every power should be understood.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Maybe the plants know better than we do.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Study it. Every power should be understood.", next = "BACK", reply = "I will, and I'll write everything down. Understanding is the first step to anything good.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Maybe the plants know better than we do.", next = "BACK", reply = "Maybe they do, and maybe I should listen to them more. Plants are very wise in their own way.", fx = { align = { light = 1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -476,7 +476,7 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "Carnivorous plants, and very clever ones, which is why I love them. They lure insects and small creatures, and sometimes larger creatures, too, if they're hungry enough." } },
+      lines = { { id = "b1_1_l", text = "Carnivorous plants, and very clever ones, and I adore them for it! They lure insects and small creatures, and sometimes larger creatures, too, if they're hungry enough." } },
       choices = { { text = "What makes them worth studying?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
@@ -484,7 +484,7 @@ P:NPC {
       choices = { { text = "Isn't that dangerous?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "And very dangerous, of course, but exciting! Science is often both." } },
+      lines = { { id = "b1_3_l", text = "Oh, very dangerous, of course, but exciting! Science is often both." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -501,7 +501,7 @@ P:NPC {
     },
     s_1 = {
       lines = { { id = "s_1_l", text = "Some at the Refuge think the plants should be left alone. I think understanding them is the highest form of respect." } },
-      choices = { { text = "Understanding is a form of respect.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Leave the crater's plants in peace.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Understanding is a form of respect.", next = "BACK", reply = "It is, and I'm so glad you see it that way. Understanding is how we honor things, not harm them.", fx = { affinity = 1, align = { light = 1 } } }, { text = "Leave the crater's plants in peace.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -530,8 +530,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I don't know, buddy, I've just heard stories, and I'm too tired to be sensible about it. I've been lost for days and Spraggle must be frantic, so if you'll help me get home, I'll stop being frightened of your demon, I promise, or at least I'll try." } },
       choices = {
-        { text = "Your soul is safe, Ringo. I'll help you home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You should be frightened. It keeps you careful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your soul is safe, Ringo. I'll help you home.", next = "BACK", reply = "You will? Oh, buddy, you're a lifesaver, a real lifesaver. I'll follow you anywhere, as long as it's away from here.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You should be frightened. It keeps you careful.", next = "BACK", reply = "Frightened? Buddy, I've been frightened for days, and I'm very careful now. Too careful to sleep.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -539,8 +539,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Not yet, but I think one of 'em was about to, and that worries me more than anything else. Please, buddy, a little water, and then help me back to Spraggle at the Refuge, because she must be worried sick, and I'm too tired to find the way." } },
       choices = {
-        { text = "Here's water, Ringo. I'll see you safely home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Drink up, and then find your own way back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Here's water, Ringo. I'll see you safely home.", next = "BACK", reply = "Oh, bless you, buddy, bless you! Home, and water, and somebody who knows the way.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Drink up, and then find your own way back.", next = "BACK", reply = "My own way? Buddy, my own way got me lost! But thanks for the water, I suppose.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -548,8 +548,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I wandered off to look at a crystal I thought might fetch a good price, and then a pterrordax looked at me, and I ran, and when I stopped running, nothing looked familiar. Spraggle must be worried sick, buddy, so if you can get me home, I'll owe you everything I've got, which isn't much, but it's yours." } },
       choices = {
-        { text = "I'll get you home safe, Ringo. Stay close.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Next time, stay with the expedition. You'll get yourself killed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll get you home safe, Ringo. Stay close.", next = "BACK", reply = "Close, buddy, I'll stay so close you'll think I'm your shadow. Thank you, thank you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Next time, stay with the expedition. You'll get yourself killed.", next = "BACK", reply = "I know, I know, and I'll never wander off again, I promise. Well, I'll try very hard.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -557,8 +557,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A raptor, then another raptor, then something so big the trees moved out of its way, and I didn't stop to price it. I've slept in hollow logs ever since, buddy, and I'd give anything for somebody to watch the dark while I close my eyes." } },
       choices = {
-        { text = "I'll stand watch while you rest. Nobody gets left behind.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You wandered off alone. You'll have to keep up.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll stand watch while you rest. Nobody gets left behind.", next = "BACK", reply = "You'd do that? Buddy, you're the best thing I've seen in days. I'll sleep, just for a moment.", fx = { align = { light = 1 } } },
+        { text = "You wandered off alone. You'll have to keep up.", next = "BACK", reply = "Keep up? Buddy, my legs are jelly, but I'll try. Don't leave me behind, please.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -566,11 +566,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Everything has seen me, I think, and most of it was hungry, but the gorillas were the worst because they kept throwin' things. I tried following a stegodon back to water once, and it turned round and looked at me like I owed it money, and believe me, I know that look." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} friendly? Please say yes, buddy, because I've been lonely enough out here to talk to the ferns, and I'd much rather talk to something on our side." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Everything has seen me, buddy, and most of it was hungry. Is {pet} friendly? Please say yes, because I've been lonely enough out here to talk to the ferns." },
       },
       choices = {
-        { text = "Stay close and follow my lead. That's how we get home.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Trust your own feet. Instinct will get you home.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stay close and follow my lead. That's how we get home.", next = "BACK", reply = "Your lead, buddy, all the way. I'm done following my own.", fx = { align = { order = 1 } } },
+        { text = "Trust your own feet. Instinct will get you home.", next = "BACK", reply = "My feet got me here, buddy, and I don't trust 'em anymore. I'll follow you, if it's all the same.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -578,17 +578,17 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "I followed a pterrordax because I wanted to see where it nested, and nests have eggs, and eggs have buyers, which was foolish, and by the time I stopped running I couldn't see the Refuge at all. Spraggle will be frantic, buddy, and I'd much rather she didn't end up praying over me." } },
       choices = {
-        { text = "Nobody's praying over you today. Lean on me, Ringo.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Foolishness has a price. Walk, and pay it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Nobody's praying over you today. Lean on me, Ringo.", next = "BACK", reply = "Thank you, buddy, I'll lean, I'll lean. My legs are grateful, and so am I.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Foolishness has a price. Walk, and pay it.", next = "BACK", reply = "Pay it, sure, buddy, I'm paying it every step. Slow down a little, would you?", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The springs, honestly, buddy: I wanted to see the steam vents near the volcano up close, and then the ground got hotter and the paths kept changing. I'd swear the crater moved its trails about behind me, just to be unkind." } },
+      lines = { { id = "xhsham_default", text = "The springs, buddy, plain and simple: I wanted to see the steam vents near the volcano up close, and then the ground got hotter and the paths kept changing. I'd swear the crater moved its trails about behind me, just to be unkind." } },
       choices = {
-        { text = "The crater was warning you. You should have turned back.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You followed your curiosity. That's no crime.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The crater was warning you. You should have turned back.", next = "BACK", reply = "It was, buddy, and I should've listened. Next time, I'll run the other way.", fx = { align = { order = 1 } } },
+        { text = "You followed your curiosity. That's no crime.", next = "BACK", reply = "Thanks, buddy, that's the nicest thing anyone's said to me since I got lost. Curiosity's got me in trouble, though.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -652,7 +652,7 @@ P:NPC {
     },
     s_1 = {
       lines = { { id = "s_1_l", text = "Williden told us to always go in pairs, buddy. I didn't listen, and look where it got me." } },
-      choices = { { text = "Rules exist for good reason. Follow them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Sometimes you have to take your own path.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Rules exist for good reason. Follow them.", next = "BACK", reply = "They do, buddy, they really do, and I'll follow every one from now on. Pairs, always pairs.", fx = { affinity = 1, align = { order = 1 } } }, { text = "Sometimes you have to take your own path.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -680,8 +680,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Not yet, and I'd like to keep it that way, since the springs are my retirement plan! The crater's dangerous enough without a demon scaring off the paying guests, so if you need to call something up, do it over by the tar pits, where nobody's paying attention." } },
       choices = {
-        { text = "I'll keep my demon out of your springs, Krakle.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A demon would draw a crowd, you know. Think about it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my demon out of your springs, Krakle.", next = "BACK", reply = "You're a gem, friend, a real gem. My retirement plan thanks you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A demon would draw a crowd, you know. Think about it.", next = "BACK", reply = "A crowd? Friend, a demon by the springs would scare off every customer I've got. Thanks for the thought, though.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -689,8 +689,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Why not? The springs here are warm, the crater's full of crystals, and people will pay for anything that sounds healing! I'd give you a percentage, of course, a small one, and if it turns out the blessing doesn't stick, well, we'll call it a promotional offer." } },
       choices = {
-        { text = "The Light isn't for sale, Krakle. Find another scheme.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A small percentage? Make it a large one, and I'll think on it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The Light isn't for sale, Krakle. Find another scheme.", next = "BACK", reply = "Not for sale? Friend, everything's for sale, it's just a question of price. But fine, fine, I'll keep the Light out of it.", fx = { align = { honor = 1 } } },
+        { text = "A small percentage? Make it a large one, and I'll think on it.", next = "BACK", reply = "Large? Now you're talkin', friend! We'll call it a partnership, and I'll draw up the papers.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -698,8 +698,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Help? They practically sell themselves, because a soak in Golakka water takes the ache right out of a shield arm! At least I think it does, since I haven't found anybody brave enough to sit in long enough for me to measure." } },
       choices = {
-        { text = "A soldier who tends his wounds fights another day.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Pain keeps me sharp. I'll heal when it's all over.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A soldier who tends his wounds fights another day.", next = "BACK", reply = "Exactly, friend, and my springs are the best place to tend 'em. A soak a day keeps the healer away.", fx = { align = { order = 1 } } },
+        { text = "Pain keeps me sharp. I'll heal when it's all over.", next = "BACK", reply = "Sharp, sure, friend, and very sore. Come soak when it's over, and I'll give you the first dip at a discount. Kidding, the price is the price.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -707,11 +707,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because the water can boil a raptor's foot clean off, which is a selling point I'm still working on. The big beasts won't come near it, but the little lizards love lying on the warm rocks, and I've started charging them rent in my head." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now, {pet} looks like it'd enjoy a warm soak, so keep it well back from the hot ones, because I don't have the paperwork to explain a boiled companion." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because the water can boil a raptor's foot clean off. {pet} looks like it'd enjoy a warm soak, so keep it well back from the hot ones, because I don't have the paperwork to explain a boiled companion." },
       },
       choices = {
-        { text = "The springs belong to the crater. They aren't yours to sell.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Anything that warm should turn a profit. Sell it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The springs belong to the crater. They aren't yours to sell.", next = "BACK", reply = "Not mine? Friend, I found 'em first, and the crater doesn't have a lawyer. I'll keep sellin', thanks.", fx = { align = { honor = 1 } } },
+        { text = "Anything that warm should turn a profit. Sell it.", next = "BACK", reply = "That's what I keep sayin', friend! Warm water, hot profits, and a raptor foot or two as a warning.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -719,16 +719,16 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Everybody, friend, once they hear it's warm, healing and blessed by a genuine priest, which is where you come in. The Golakka springs have the minerals already, so all they need is a little Light, or a little loa, depending on the customer." } },
       choices = {
-        { text = "No. I won't sell blessings to line a goblin's pockets.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fine, but I take half, and my blessing costs extra.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "No. I won't sell blessings to line a goblin's pockets.", next = "BACK", reply = "Suit yourself, friend, but the springs will get blessed one way or another. Maybe I'll find a less principled priest.", fx = { align = { light = 1 } } },
+        { text = "Fine, but I take half, and my blessing costs extra.", next = "BACK", reply = "Half? Friend, that's robbery, but I respect it. Let's talk, and I'll bring the contracts.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Everything gets sold eventually, pal, and better me than some Venture Company crew with a drill. I just want the water, and they'd want the whole crater." } },
       choices = {
-        { text = "Leave the springs alone. Some things aren't for sale.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Better you than the Venture Company. Sell away.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Leave the springs alone. Some things aren't for sale.", next = "BACK", reply = "Alone? Friend, if I leave 'em alone, the Venture Company won't. Better me than a drill.", fx = { align = { light = 1 } } },
+        { text = "Better you than the Venture Company. Sell away.", next = "BACK", reply = "Now you're thinkin' straight, friend! Better me than the Venture boys, and I'll even plant a few flowers.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -736,8 +736,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "The volcano, mostly, or whatever's under it, pushing heat up through the rock until the water can't sit still. There's minerals in it too, fizzy ones, and I swear a dip in there takes ten years off you, or at least ten layers of skin." } },
       choices = {
-        { text = "Those springs are sacred water. Don't sell them.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Hot water, good health, fair price. Bottle it, Krakle.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Those springs are sacred water. Don't sell them.", next = "BACK", reply = "Sacred? Friend, it's hot water with minerals in it. But if you want, I'll call it sacred on the label.", fx = { align = { honor = 1 } } },
+        { text = "Hot water, good health, fair price. Bottle it, Krakle.", next = "BACK", reply = "My kind of shaman, friend! Hot water, good health, and a fair price, that's my whole pitch.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -745,8 +745,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Not the spring, the idea! If the Venture Company hears there's bottled mineral water to be had in Un'Goro, they'll be down here with pumps before I've finished drawing the label, and you look like you'd know how they think." } },
       choices = {
-        { text = "A good idea belongs to whoever gets there first.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Stake your claim properly with the Cartel, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A good idea belongs to whoever gets there first.", next = "BACK", reply = "That's the goblin way, friend! First come, first served, and I'm already here.", fx = { align = { order = -1 } } },
+        { text = "Stake your claim properly with the Cartel, then.", next = "BACK", reply = "Properly? Friend, the Cartel takes forty percent of everything. But fine, maybe I'll think about it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Never mind the water.", next = "BACK" },
       },
     },
@@ -754,17 +754,17 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Not boil, temper! The minerals do something to aches and pains, and if a mage could cool it to drinking heat, I could sell it in Gadgetzan by the barrel. I'm not saying the Kirin Tor would approve, but the Kirin Tor aren't paying my bills." } },
       choices = {
-        { text = "Magic isn't for peddling bathwater.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A spell's worth whatever someone will pay for it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Magic isn't for peddling bathwater.", next = "BACK", reply = "Bathwater? Friend, it's premium mineral water, and it's worth every copper. But suit yourself.", fx = { align = { order = 1 } } },
+        { text = "A spell's worth whatever someone will pay for it.", next = "BACK", reply = "That's the spirit, friend! Name your price, and we'll talk business.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else, Krakle.", next = "BACK" },
       },
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Sell's an ugly word, friend, when I'd be offering a premium bathing experience with spiritual benefits. The springs really do ease a sore back, mind you, so if your Light wants to take a bit of the credit, I'm happy to share it, for a percentage." } },
+      lines = { { id = "xapriest_default", text = "Sell's an ugly word, friend, when I'd be offering a premium bathing experience with spiritual benefits. The springs really do ease a sore back, so if your Light wants to take a bit of the credit, I'm happy to share it, for a percentage." } },
       choices = {
-        { text = "Blessings aren't for sale. Find another way to get rich.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If folk feel better, a little exaggeration does no harm.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Blessings aren't for sale. Find another way to get rich.", next = "BACK", reply = "Not for sale? Friend, I'm not selling blessings, I'm selling bathing experiences. The blessing's just a bonus.", fx = { align = { honor = 1 } } },
+        { text = "If folk feel better, a little exaggeration does no harm.", next = "BACK", reply = "Exactly, friend, exactly! A little exaggeration makes everybody feel better, including me.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -821,7 +821,7 @@ P:NPC {
     },
     s_1 = {
       lines = { { id = "s_1_l", text = "Some at the Refuge say the crater shouldn't be bought and sold, pal. I say everything's for sale, if the price is right and the paperwork's quick." } },
-      choices = { { text = "Nature shouldn't be for sale.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Profit is how anything gets done.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Nature shouldn't be for sale.", next = "BACK", reply = "Shouldn't? Friend, the crater's for sale whether you like it or not, and I'd rather it was me selling. At least I'm honest about it.", fx = { affinity = 1, align = { light = 1 } } }, { text = "Profit is how anything gets done.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {

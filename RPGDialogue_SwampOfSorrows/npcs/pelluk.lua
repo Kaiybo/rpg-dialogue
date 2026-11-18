@@ -75,7 +75,7 @@ P:NPC {
     },
     harborage_remember = {
       lines = {
-        { id = "hr_default", text = "Not all of us do. At Fallow Sanctuary to the south there are others like us who have forgotten too much, and they are angry and they do not know why. We do not go near them, and you should not either." },
+        { id = "hr_default", text = "Some of our people have forgotten too much of who they were. At Fallow Sanctuary to the south there are others like us who have gone that way, and they are angry and do not know why. We do not go near them, and you should not either." },
       },
       choices = {
         { text = "Can nothing be done for them?", next = "harborage_help" },
@@ -87,8 +87,8 @@ P:NPC {
         { id = "hh_default", text = "Perhaps once something could have been done, and perhaps one day again. For now we keep our own minds as best we can, and we grieve for theirs." },
       },
       choices = {
-        { text = "They're still your kin. Don't give up on them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If they attack you, defend yourselves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They're still your kin. Don't give up on them.", next = "BACK", reply = "We do not, and we never will, but we cannot reach them either. Thank you for seeing them as kin, stranger.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they attack you, defend yourselves.", next = "BACK", reply = "We do, when we must, and it is a sorrow every time. They were our friends once.", fx = { align = { light = -1 } } },
       },
     },
     harborage_war = {
@@ -96,8 +96,8 @@ P:NPC {
         { id = "hw_default", text = "Mostly, because we have nothing either of them wants. Stonard trades with us, and the Alliance travellers on the road nod and keep walking, and that suits us very well." },
       },
       choices = {
-        { text = "Neutrality is wise. Stay out of their quarrels.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Sooner or later, you'll have to choose a side.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Neutrality is wise. Stay out of their quarrels.", next = "BACK", reply = "We do, and we have so far. It is a small and quiet life, but it is ours.", fx = { align = { honor = -1 } } },
+        { text = "Sooner or later, you'll have to choose a side.", next = "BACK", reply = "Perhaps, and I fear the day. But until it comes, we will keep our heads down and our baskets full.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,8 +109,8 @@ P:NPC {
           text = "It is back now, thanks to you, and I have stopped being angry with the thieves. It is hard to stay angry with a full belly." },
       },
       choices = {
-        { text = "Thieves deserve what they get.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Maybe they were just as hungry as you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Thieves deserve what they get.", next = "BACK", reply = "Perhaps they do, but I would rather they had asked. We would have shared.", fx = { align = { order = 1 } } },
+        { text = "Maybe they were just as hungry as you.", next = "BACK", reply = "Perhaps, and I have wondered it too. Hunger makes thieves of the best of us, and I will not curse them.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -140,7 +140,7 @@ P:NPC {
 
     fishing = {
       lines = {
-        { id = "fi_default", text = "Better than you would think in water this dark. The lake gives up fat fish if you know the deep places, and the bait is everything, which is why losing it was so bad for us." },
+        { id = "fi_default", text = "Better than it looks in water this dark. The lake gives up fat fish if you know the deep places, and the bait is everything, so losing it hurt us badly." },
       },
       choices = {
         { text = "What lives in the deep places?", next = "fishing_deep" },

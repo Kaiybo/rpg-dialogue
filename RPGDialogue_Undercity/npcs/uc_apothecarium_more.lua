@@ -17,7 +17,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the bucket, she's been ill again. Now, what can I do for you?" },
+    { id = "g_hi", text = "Mind the bucket, my patient's been ill again. Now, what can I do for you?" },
     { id = "g_vials", when = { questActive = TODO_QUEST("Seeping Corruption") }, text = "Have you filled the vials? Thersa's colour is going from grey to green, and I'd like the samples before she reaches blue." },
   },
 
@@ -53,12 +53,12 @@ P:NPC {
     thersa = {
       lines = { { id = "th_default", text = "Nausea, fever, a greenish tint, and she's been sick three or four times on my floor today, which is quite a lot for one tauren. Whatever's in those tide pools came from the naga's ruins, and I suspect it's been seeping into the sea for a very long time." } },
       choices = {
-        { text = "Will your elixir cure her?", next = "elixir" },
+        { text = "Can you cure her?", next = "elixir" },
         { text = "Something else.", next = "BACK" },
       },
     },
     elixir = {
-      lines = { { id = "el_default", text = "Perhaps it will cure her, and perhaps not, and we won't know until after she drinks it. That's rather the exciting part, isn't it?" } },
+      lines = { { id = "el_default", text = "I'm brewing an elixir that may cure her or may not, and we won't know until she drinks it. That's rather the exciting part, isn't it?" } },
       choices = {
         { text = "That's no way to treat a patient.", next = "patient" },
         { text = "Something else.", next = "BACK" },
@@ -68,8 +68,8 @@ P:NPC {
       big = true,
       lines = { { id = "pa_default", text = "She came to us, friend, after the priests and the shaman both failed her, and I'm the only one still trying. If she's also teaching the Society something useful while I try, I don't see the harm in it." } },
       choices = {
-        { text = "Knowledge gained from her pain is still knowledge.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "She's a person, not a sample. Remember that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Knowledge gained from her pain is still knowledge.", next = "BACK", reply = "It is, friend, and she'd say the same if she could still speak clearly. I'll write her name at the top of the findings.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "She's a person, not a sample. Remember that.", next = "BACK", reply = "I remember it every morning when I change her dressings, friend, which is more than the priests did. Don't lecture me in my own ward.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -147,7 +147,7 @@ P:NPC {
       },
     },
     felwood = {
-      lines = { { id = "fe_default", text = "Infernals, demons and the Scourge, and the slimes there supposedly crept up through the earth during the attacks, around pools touched by fel. Bring me samples and use the testing equipment beside me, and we'll have a control group against everything else." } },
+      lines = { { id = "fe_default", text = "Infernals, demons and the Scourge, and the slimes there supposedly crept up through the earth during the attacks, around pools touched by fel. Bring me samples, test them on the equipment beside me, and we'll learn which are the most corrupt." } },
       choices = {
         { text = "And then?", next = "ungoro" },
         { text = "Something else.", next = "BACK" },
@@ -161,8 +161,8 @@ P:NPC {
       big = true,
       lines = { { id = "de_default", text = "She broke our chains when the Lich King's voice was all we had in our heads, and she gave us a city and a purpose instead. We will not remain weak, and we won't be told by the living what we're allowed to become." } },
       choices = {
-        { text = "The Forsaken have earned the right to choose.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Devotion that blind is dangerous, chemist.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Forsaken have earned the right to choose.", next = "BACK", reply = "We have, with every bone we carried out of Lordaeron's ruin. Say it louder, if you like; the living should hear it.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Devotion that blind is dangerous, chemist.", next = "BACK", reply = "Dangerous to whom, friend, the living? I'll keep my devotion, and they can keep their fear.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -170,8 +170,8 @@ P:NPC {
       big = true,
       lines = { { id = "pu_default", text = "Whatever she wants, and I've learned not to ask. The Society's masters have their own work, with their own plans, and I'd be lying if I said I knew all of it, but I trust her completely." } },
       choices = {
-        { text = "So do I. She's earned it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Trust is fine. I'd still like to know.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "So do I. She's earned it.", next = "BACK", reply = "She has, a hundred times over, and every Forsaken who can still think owes her for it.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Trust is fine. I'd still like to know.", next = "BACK", reply = "So would I, some nights, but wanting to know is how the living got into so much trouble. I'll wait to be told.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "new_plague" } } },
       },
     },
@@ -213,9 +213,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Parqual Fintallas, historian, though there's very little history in this city that anyone wants recorded. I knew all there was to know about Lordaeron once, and I'm still learning, though of a different nature now." },
+        { id = "h_default", key = true, text = "Parqual Fintallas, historian, though there's very little history in this city that anyone wants recorded. I knew all there was to know about Lordaeron once, and now I'm learning a darker sort of history." },
         { id = "h_braug", when = { questActive = TODO_QUEST("Test of Lore") },
-          text = "Braug sent you? You braved Dor'Danil, took a leap of faith, and overpowered an elemental, did you? You're probably some adventurer who overheard it in a tavern, but so be it, I'll set you my task." },
+          text = "Braug Dimspirit sent you? You braved Dor'Danil, took a leap of faith, and overpowered an elemental, did you? You're probably some adventurer who overheard it in a tavern, but so be it, I'll set you my task." },
         { id = "h_passed", when = { questDone = TODO_QUEST("Final Passage") },
           text = "You passed, and I'll admit I had my doubts whether you'd studied that book. Knowledge outlasts strength, {name}, and it seems you have some of both." },
       },
@@ -245,10 +245,10 @@ P:NPC {
     },
     knowledge = {
       big = true,
-      lines = { { id = "kn_default", text = "Because even as others pass you by in strength, your knowledge of the world goes on being useful long after your arm gives out. Every fool with a sword in Lordaeron died just as quickly as the scholars did, and the scholars at least understood why." } },
+      lines = { { id = "kn_default", text = "Because your arm will give out in time, and what you know of the world stays useful long after. Every fool with a sword in Lordaeron died just as quickly as the scholars did, and the scholars at least understood why." } },
       choices = {
-        { text = "Understanding why didn't save anyone, Parqual.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Then I'll learn the history before I swing again.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Understanding why didn't save anyone, Parqual.", next = "BACK", reply = "It didn't, and that's my great failure, I suppose. But it might save the next lot, if they ever listen.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll learn the history before I swing again.", next = "BACK", reply = "Splendid, and you'll be the first of my students who ever said so. Sit down, and I'll start with the Second War.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -264,15 +264,15 @@ P:NPC {
       choices = { { text = "Something else, Parqual.", next = "BACK", fx = { learn = { "scarlet_crusade" } } } },
     },
     life = {
-      lines = { { id = "li_default", text = "I wrote the histories of half the noble houses in Lordaeron, and I could tell you which ones lied about their ancestors. Most of them did, and most of them are standing in this city now, pretending they never had any." } },
+      lines = { { id = "li_default", text = "I wrote the histories of a dozen noble houses in Lordaeron, and I could tell you which ones lied about their ancestors. Most of them did, and most of them are standing in this city now, pretending they never had any." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     books = {
       big = true,
       lines = { { id = "bo_default", text = "The Forsaken are strongly discouraged from going back to our old lives, so I tried to fetch my books quietly, and they were taken from me at the gate. I don't regret trying, though I'd advise you to be more careful than I was." } },
       choices = {
-        { text = "The past is gone. The Dark Lady is right.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your books are yours. They had no right.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The past is gone. The Dark Lady is right.", next = "BACK", reply = "She may be, and I'll not argue with her in her own city. I only wish she'd let me keep the books.", fx = { align = { order = 1 } } },
+        { text = "Your books are yours. They had no right.", next = "BACK", reply = "They had every right, because she gave it to them, and that's the trouble with rights. Still, thank you for saying it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_flame", text = "Keep clear of the lamp. It's the only thing here still alive, in its way." },
-    { id = "g_murkeye", when = { questActive = TODO_QUEST("The Coastal Menace") }, text = "Murk-Eye still breathes. I can feel it in the tide." },
+    { id = "g_murkeye", when = { questActive = TODO_QUEST("The Coastal Menace") }, text = "Old Murk-Eye, the murloc who rules this shore, still breathes. I can feel it in the tide." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Coastal Menace") }, text = "The beach is quiet. Quiet enough that I can hear the gulls again." },
   },
 
@@ -35,8 +35,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I mind the loneliness more than the dying. I tend the flame so no other ship meets the rocks mine did. Perhaps the spirits you speak with understand that." } },
       choices = {
-        { text = "Your watch is a kindness, Captain. Keep the flame burning.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You've done enough, Captain. Let yourself rest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your watch is a kindness, Captain. Keep the flame burning.", next = "BACK", reply = "Aye, that I will, as long as there's oil and night. It's good to hear a living voice call it kindness instead of madness.", fx = { align = { light = 1 } } },
+        { text = "You've done enough, Captain. Let yourself rest.", next = "BACK", reply = "Rest, is it? I'd like it well enough, but the rocks don't rest and neither do the ships. Ask me again when they stop sailing.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -44,36 +44,36 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Murlocs, mostly; they've no respect for the dead or the living, and they've taken the shore below the lighthouse. I can't lift a sword any more, but I can watch, and I'd like to watch them lose." } },
       choices = {
-        { text = "I'll drive the murlocs back for you, Captain.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your lamp's no business of mine, Captain.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll drive the murlocs back for you, Captain.", next = "BACK", reply = "Ha, now there's a sight I'd stay up for, if I slept at all. I'll be watching from the gallery, cheering like a sailor in port.", fx = { align = { honor = 1 } } },
+        { text = "Your lamp's no business of mine, Captain.", next = "BACK", reply = "No, I suppose it isn't, and I've learned not to expect it. The flame keeps itself company well enough.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "It looks right through me, which is more than most people manage. The gulls see me too, and the murlocs, and they're the ones I'd least like to. Old Murk-Eye looks at me every night, and I swear he grins." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} hasn't stopped staring at me since you came up the path. Tell it I'm harmless, would you?" },
+        { id = "xhuntcl_default", text = "It does, and it looks right through me, which is more than most people manage. The murlocs see me too, and old Murk-Eye, their leader, looks up at me every night and grins." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It does, and it looks right through me, which is more than most people manage. Your {pet} hasn't stopped staring at me since you came up the path, so tell it I'm harmless, would you?" },
       },
       choices = {
-        { text = "I'll hunt Murk-Eye for you, and the keeper's family.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll leave Murk-Eye be. He's not my quarrel.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt Murk-Eye for you, and the keeper's family.", next = "BACK", reply = "You'd do that for the keeper's family? Then I'll watch for you every night, and I'll grin at old Murk-Eye first, for once.", fx = { align = { honor = 1 } } },
+        { text = "I'll leave Murk-Eye be. He's not my quarrel.", next = "BACK", reply = "Fair, he's my quarrel and the keeper's, not yours. But I'd sleep easier, if I slept, knowing he wasn't grinning up at me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Aye, and a spell might fail on the one night the fog rolls in thick off the Great Sea. I've had years to think about it, {class}, and I trust a flame I can tend myself." } },
       choices = {
-        { text = "Keep your watch, Captain. It's an honest duty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let the ships fend for themselves. You've earned your rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Keep your watch, Captain. It's an honest duty.", next = "BACK", reply = "That it is, and I'll keep it honest till the oil runs dry or the sea takes the rocks. Thank you for seeing it so.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the ships fend for themselves. You've earned your rest.", next = "BACK", reply = "Earned it, have I? A pirate doesn't earn rest, {class}, he steals it, and I'd rather not steal from the ships.", fx = { align = { honor = -1 } } },
         { text = "How did your ship go down?", next = "ship" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "I've no doubt you could try, and I've no doubt it would be a poor trade for both of us. I keep this light burning by my own will, and if you take that from me, it's only a lamp and a dead man." } },
       choices = {
-        { text = "I'd never bind a soul that keeps a light burning.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A bound spirit keeps a flame lit just as well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd never bind a soul that keeps a light burning.", next = "BACK", reply = "Then we understand each other, and I'm glad of it. I'd not want to find out what I'd be without the flame.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A bound spirit keeps a flame lit just as well.", next = "BACK", reply = "Just as well, maybe, but not by my will, and that's the difference that matters to me. Take your hand off my lamp, if you please.", fx = { align = { light = -1 } } },
         { text = "Why do you stay here?", next = "stay" },
       },
     },
@@ -81,8 +81,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "It warms rather than burns, and nobody was more surprised than me. I was no saint in life, paladin, but I think whatever judges the dead is weighing the ships this lamp has saved against the ones I sank." } },
       choices = {
-        { text = "Your watch is atonement enough. Rest when you're ready, Captain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A pirate's ghost has no claim on the Light's mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your watch is atonement enough. Rest when you're ready, Captain.", next = "BACK", reply = "That's kinder than I deserve, paladin, and I'll hold on to it on the long nights. When the coast is safe, perhaps.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A pirate's ghost has no claim on the Light's mercy.", next = "BACK", reply = "Maybe not, and I never asked it for any. I'll keep the lamp lit all the same, mercy or none.", fx = { align = { light = -1 } } },
         { text = "Let's speak of something else, Captain.", next = "BACK" },
       },
     },
@@ -90,14 +90,14 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because the rocks below this light are still there, and ships still come round the point at night with no one to warn them. When some living captain knows these waters as well as I do, perhaps I'll let the flame go out." } },
       choices = {
-        { text = "The dead must move on, Captain. That's the natural order.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Stay as long as you like. No law binds a willing spirit.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The dead must move on, Captain. That's the natural order.", next = "BACK", reply = "Natural order sank my ship and drowned my crew, druid. I'll move on when the rocks do.", fx = { align = { order = 1 } } },
+        { text = "Stay as long as you like. No law binds a willing spirit.", next = "BACK", reply = "That's a kind way to put it, and an old sailor's way too. I'll stay, then, and keep the lamp.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_default", text = "Captain Grayson, of a ship that isn't, from a crew that aren't. I mean no harm to the living; I mean only to keep this flame lit." },
+        { id = "h_default", text = "Captain Grayson, of a ship long sunk and a crew long drowned. I mean no harm to the living; I mean only to keep this flame lit." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Keeper of the Flame") },
           text = "The night my ship came in, this lamp was dark and we hit the rocks. I'd not wish that on any captain, honest or otherwise." },
         { id = "h_flame", tags = { "news" }, when = { questActive = TODO_QUEST("Keeper of the Flame") },
@@ -105,20 +105,20 @@ P:NPC {
         { id = "h_coast", when = { questActive = TODO_QUEST("The Coast Isn't Clear") },
           text = "The murlocs on the shore grow bolder every tide. Thin them, and the next keeper might live to see old age." },
         { id = "h_menace", tags = { "news" }, when = { questActive = TODO_QUEST("The Coastal Menace") },
-          text = "Old Murk-Eye drove the keeper's family off once, and when they came back and lit the lamp, he came back too. I watched it all, and I couldn't do a thing." },
+          text = "Old Murk-Eye, the murloc chief, drove the keeper's family off once, and when they came back and lit the lamp, he came back too. I watched it all, and I couldn't do a thing." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Coastal Menace"), days = 3 } },
           text = "He's gone; I felt it in the tide. The family's beyond thanking you, so I'll do it for them: thank you." },
         { id = "h_pirate", when = { class = "ROGUE" },
           text = "You've a pirate's way of standing, weight on the balls of the feet and one hand near the knife. I'd have signed you on." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The flame burns brightest when nobody's looking at it, and I'm always looking at it. That comes with being dead, I find." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a living one. I mean you no harm; I only mean to keep the flame lit, and you could help." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast sees me, I think, though you might not; animals are better at seeing the dead than the living are." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast sees me plainly, I think, because animals are better at seeing the dead than people are." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'd half expected your Light to burn me where I stand, but it only feels warm, which is a strange thing for a dead man to feel." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A child of the kaldorei, if this old ghost's eyes still serve. I never sailed far enough to see your people's shores, and now I never shall." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, living, and come to see a ghost. Do your spirits speak to me, then? I've had little enough company out here." },
       },
       again = {
-        { id = "h_again", text = "Ask on. The dead have nothing but time, and I've more than most." },
+        { id = "h_again", text = "Ask on. The dead have nothing but time, and I've had a good many years of it." },
         { id = "h_again2", text = "What else? The tide's turning, as it always is." },
       },
       choices = {
@@ -145,8 +145,8 @@ P:NPC {
         { id = "s_default", text = "Because a dark lamp killed my crew, and a dark lamp killed that family. If keeping it lit is the only good I do, dead, it'll be enough." },
       },
       choices = {
-        { text = "That's a noble penance.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "A dead man keeping a lamp lit is just stubbornness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's a noble penance.", next = "BACK", reply = "Penance, aye, that's as good a word as any. It doesn't feel noble most nights, just cold.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A dead man keeping a lamp lit is just stubbornness.", next = "BACK", reply = "Stubbornness has kept more sailors alive than prayer ever did. I'll take the word as a compliment.", fx = { align = { light = -1 } } },
         { text = "You don't owe anyone anything now.", next = "owe", fx = { trait = { kind = 1 } } },
         { text = "Who was the keeper's family?", next = "family" },
       },
@@ -163,7 +163,7 @@ P:NPC {
       },
     },
     pirate = {
-      lines = { { id = "p_default", text = "A pirate, a privateer, a merchant with flexible morals. Depends who you asked and what they'd lost." } },
+      lines = { { id = "p_default", text = "A pirate, a privateer or a merchant with flexible morals, depending on who you asked and what they'd lost." } },
       choices = {
         { text = "Ha. Fair.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "What was your ship called?", next = "ship" },
@@ -173,7 +173,7 @@ P:NPC {
       },
     },
     ship = {
-      lines = { { id = "sh_default", text = "Depends which year you mean. She wore a few names and a few coats of paint. The sea knows which one stuck. I'll let it keep that." } },
+      lines = { { id = "sh_default", text = "That depends which year you mean, because she wore a few names and a few coats of paint. The sea knows which one stuck, and I'll let it keep that." } },
       choices = {
         { text = "A careful answer.", next = "pirate_wrecks", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -185,7 +185,7 @@ P:NPC {
     },
     murkeye = {
       lines = {
-        { id = "mu_default", text = "An old murloc with a long memory. He leads the weaker ones the way a gull leads a flock to scraps. The lighthouse family were scraps, to him." },
+        { id = "mu_default", text = "Murk-Eye is an old murloc with a long memory, and he leads the weaker ones the way a gull leads a flock to scraps. The lighthouse family were scraps, to him." },
         { id = "mu_active", when = { questActive = TODO_QUEST("The Coastal Menace") },
           text = "He walks the shore with his kin about him, so wait till he wanders clear of them. Then bring me one of his scales." },
       },
@@ -199,7 +199,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     dead = {
-      lines = { { id = "de_default", text = "Cold, mostly, and quiet. You'd think the dead would have plenty to say to each other, but we don't." } },
+      lines = { { id = "de_default", text = "It's cold, mostly, and quiet. You'd think the dead would have plenty to say to each other, but we don't." } },
       choices = {
         { text = "Are there others like you here?", next = "dead_others" },
         { text = "Something else.", next = "BACK" },
@@ -213,23 +213,23 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "Rest? Kind of you. But I've a lamp to keep, and I'd not trust the next fellow to keep it. When this coast is safe, ask me again." } },
       choices = {
-        { text = "Then I'll make it safe.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { brave = 1 } } },
-        { text = "Suit yourself. The lamp can keep you company forever.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll make it safe.", next = "BACK", reply = "Then I'll watch you do it, and I'll be glad of it. Come back and tell me when the last murloc's gone.", fx = { affinity = 2, align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "Suit yourself. The lamp can keep you company forever.", next = "BACK", reply = "Aye, it can, and it has so far. There are worse companions than a good flame.", fx = { align = { light = -1 } } },
         { text = "Let me at least pray for your crew.", next = "priest_crew" },
       },
     },
     priest_crew = {
       lines = { { id = "pc_default", text = "Do, by all means. They were rough men and they'd laugh at you for it, but pray anyway; somebody should, and it can't be me." } },
       choices = {
-        { text = "Light keep them, wherever the sea put them.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
-        { text = "If they'd laugh at prayer, I'll spare them one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Light keep them, wherever the sea put them.", next = "BACK", reply = "That's a fine thing to say over them, and they'd pretend not to hear it. Thank you, for their sake.", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "If they'd laugh at prayer, I'll spare them one.", next = "BACK", reply = "Ha, you're right, they'd only make rude remarks. I'll say a word for them myself, then, when nobody's listening.", fx = { align = { light = -1 } } },
       },
     },
     scourge = {
       lines = { { id = "sc_default", text = "Bitter? A dark lamp killed me, not a plague. No one did this to me but the rocks, and it's hard to hate rocks. You've better reason than I have." } },
       choices = {
-        { text = "I do.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
-        { text = "Maybe I'll try your way.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I do.", next = "BACK", reply = "Then you've more right to bitterness than I'll ever have. Don't let it sink you, that's all I ask.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Maybe I'll try your way.", next = "BACK", reply = "It's a lonely way, I'll warn you, but it keeps a flame lit. You might find it suits you.", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
     pirate_honest = {
@@ -279,6 +279,6 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never sail a strange coast at night without a light to steer by. I'd know." } },
     defias = { { id = "tp_defias", text = "I've seen their ships slip along this coast at night, running dark. I know the trick; I used it myself." } },
     westfall = { { id = "tp_westfall", text = "From up here it looks peaceful. That's the trouble with lighthouses. Everything looks peaceful from a height." } },
-    _none = { { id = "tp_none", text = "The dead hear less than you'd think. Mostly waves." } },
+    _none = { { id = "tp_none", text = "The dead hear less than the living suppose, and out here it's mostly waves." } },
   },
 }

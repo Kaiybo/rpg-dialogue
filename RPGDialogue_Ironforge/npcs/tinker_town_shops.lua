@@ -22,7 +22,7 @@ P:NPC {
 
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = { "Engineering" } },
-      text = "Singed eyebrows, if I'm not mistaken. Welcome, fellow engineer; you'll want the coarse powder, not the rough, whatever you used last time." },
+      text = "Singed eyebrows, if I'm not mistaken. Welcome, fellow engineer; you'll want the coarse powder this time, whatever you used last time." },
     { id = "n_apprentice", cat = "origin", when = { origin = "gnome_tinker_apprentice" },
       text = "You're an apprentice, I can tell by the way you're counting the blasting powder in your head. How many explosions so far? Don't tell me, because I'd rather not know which of my parts were involved." },
   },
@@ -33,8 +33,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "My readings say maybe, and my readings are usually right about maybes. The trouble is that lightning doesn't arrive in a steady current, it arrives in a temper. I'd need a shaman with a calm disposition and a very forgiving eyebrow." } },
       choices = {
-        { text = "The storm isn't a battery. I'll not misuse it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll test it for you. Forgiving eyebrows and all.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The storm isn't a battery. I'll not misuse it.", next = "BACK", reply = "That's a pity for my readings but probably a kindness to my workshop, which has survived four lightning tests already and would like to retire.", fx = { align = { honor = 1 } } },
+        { text = "I'll test it for you. Forgiving eyebrows and all.", next = "BACK", reply = "Splendid, and I'll put the insulated gloves on the counter for you, though I'll warn you the last volunteer still smells faintly of burnt pudding.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -42,8 +42,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Only when it's used badly, which is more often than I'd like, because people buy cheap flux elsewhere. Good engineering makes a clean hole exactly where you want it and nowhere else." } },
       choices = {
-        { text = "Careful work is the best anyone can ask for.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "No blast is ever clean. The land remembers every one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Careful work is the best anyone can ask for.", next = "BACK", reply = "Exactly so, and I wish more of my customers agreed, because a careful engineer is worth three clever ones and about nine cheap ones.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "No blast is ever clean. The land remembers every one.", next = "BACK", reply = "Hmm, I suppose the land would have very good records, then, and I'll take that as a note on my error margins, though I still think mine are cleaner than most.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -51,8 +51,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only in a charge, and only if you throw it first and run second, which is the order most warriors get wrong. I'd sell you a stick if you were an engineer, but you're not, so I'll sell you a whetstone and save us both the explosion." } },
       choices = {
-        { text = "A whetstone, then. I'll trust plain steel.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Sell me the powder anyway. I'll learn quickly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A whetstone, then. I'll trust plain steel.", next = "BACK", reply = "A sensible choice, and plain steel has a ninety-nine percent record of not exploding in its owner's hand, which is better than my best powder manages.", fx = { align = { order = 1 } } },
+        { text = "Sell me the powder anyway. I'll learn quickly.", next = "BACK", reply = "Learn quickly, he says, as if that's how powder works, but very well, I'll sell it, and I'll keep the bandages within arm's reach of the till.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -60,11 +60,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A good one will, if it's mounted straight, and a cheap one will throw your shot a hand's width to the left, which is how bears get close. I sell the parts and the engineers mount them, so if it's crooked, it's their fault." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep your {pet} away from the flux, please, for it smells sweet and it isn't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A good one will, if it's mounted straight, and a cheap one will throw your shot a hand's width to the left. And keep your {pet} away from the flux, please, for it smells sweet and it isn't." },
       },
       choices = {
-        { text = "I'll pay for good parts, mounted straight.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A cheap scope and a good eye will do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll pay for good parts, mounted straight.", next = "BACK", reply = "Now that's a customer after my own heart, and I'll sell you the parts and send you to a good engineer, so the bear stays where it belongs.", fx = { align = { order = 1 } } },
+        { text = "A cheap scope and a good eye will do.", next = "BACK", reply = "A good eye compensates for roughly four percent of a bad scope, by my figures, so do let me know how the bear takes the other ninety-six.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -72,8 +72,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "To anyone who pays, and I assume they're for opening chests in Gnomeregan, which is a perfectly honest use. What you do with them after is between you and the guards." } },
       choices = {
-        { text = "They'll open chests in Gnomeregan, nothing more.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The guards and I have an understanding. I avoid them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "They'll open chests in Gnomeregan, nothing more.", next = "BACK", reply = "Splendid, that's what I wrote on the receipt, and I'd much rather read it there than in the guards' reports.", fx = { align = { honor = 1 } } },
+        { text = "The guards and I have an understanding. I avoid them.", next = "BACK", reply = "Well, I'll not ask what sort, and I'll not remember your face, which is a service I don't charge for, but please don't make me regret it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -81,8 +81,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Once, and the smell lingered for a month. I've no objection to your craft, mind, but I'd like my parts used for engineering and not for whatever it is you do in the dark." } },
       choices = {
-        { text = "I'll use your parts for engineering, Gearcutter. Honestly.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "What I do in the dark is my own business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll use your parts for engineering, Gearcutter, on my word.", next = "BACK", reply = "Thank you, truly, because I've only just got the last smell out of the curtains, and I'd like the next month to smell of oil and brass.", fx = { align = { light = 1 } } },
+        { text = "What I do in the dark is my own business.", next = "BACK", reply = "Of course it is, and the smell is my business, so we'll both keep to our own affairs, and you'll kindly open the window before you leave.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -90,8 +90,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "More than I'd like, and almost always because they bought cheap flux somewhere else, which I tell them every time. The Mystic Ward's priests have patched up half of Tinker Town, and I've stopped counting the eyebrows." } },
       choices = {
-        { text = "Then I'll help where I can. Carelessness shouldn't cost a life.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Buy cheap flux, get cheap welds. Let them find out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll help where I can. Carelessness shouldn't cost a life.", next = "BACK", reply = "Oh, that's very good of you, and if you could tell them to stop buying cheap flux while you're at it, I'd be eternally grateful.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Buy cheap flux, get cheap welds. Let them find out.", next = "BACK", reply = "That's what I tell them, nearly word for word, but somehow they keep coming back with bandaged fingers expecting me to sympathise.", fx = { align = { light = -1 } } },
         { text = "Let me see your parts.", next = "BACK" },
       },
     },
@@ -99,8 +99,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "In Tinker Town? No, but in the Commons there's a trader who sells flux he hasn't tested, and he knows it, and I've told the guards, and they've done nothing. A paladin who'd have a word with him would do more good than I can." } },
       choices = {
-        { text = "I'll have a word. Cheating buyers is theft with a smile.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let the market punish him. Buyers should test their own parts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll have a word. Cheating buyers is theft with a smile.", next = "BACK", reply = "Would you? Oh, that would be marvellous, and if he argues, ask him to light a match near his own flux, because I already know how that ends.", fx = { align = { order = 1 } } },
+        { text = "Let the market punish him. Buyers should test their own parts.", next = "BACK", reply = "That's what the guards said, more or less, and in the meantime the market punishes my customers' eyebrows, which seems a very slow kind of justice.", fx = { align = { order = -1 } } },
         { text = "Something else, Gearcutter.", next = "BACK" },
       },
     },
@@ -110,8 +110,8 @@ P:NPC {
         { id = "xmage_default", text = "Once, and only a little, though it took me a week to find every washer! Most explosions in Tinker Town come from cheap flux, but the rest come from mages who think a little frost won't hurt anything, and it always does." },
       },
       choices = {
-        { text = "Fair. I'll cast nothing near your stock.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A little frost never hurt anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair. I'll cast nothing near your stock.", next = "BACK", reply = "Thank you, and I'll mark it down as a confirmed safe customer, which puts you in a very small and very select category in this shop.", fx = { align = { order = 1 } } },
+        { text = "A little frost never hurt anyone.", next = "BACK", reply = "It hurt my entire stock of copper tubing, which shattered like sugar glass, so please keep your frost in your pockets while you browse.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
@@ -126,7 +126,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! I'll warn you that none of my parts are rated for fel energy, and I won't take them back if they melt." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want blasting powder, I imagine; everybody does, sooner or later." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've parts for rifle scopes in the back, and every one of them's been tested twice, like everything else here." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've parts for rifle scopes in the back, and each scope's been tested twice, like everything else here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I don't suppose you'll be buying blasting powder, but you're welcome to look, as long as you don't shed on the flux." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Please don't cast anything near the blasting powder, because it has a temper, and so do I when my stock goes up in smoke." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've wondered whether a lightning totem would charge a battery. Purely theoretically, of course. I wouldn't sell it without testing it twice." },
@@ -155,7 +155,7 @@ P:NPC {
 
     need = {
       lines = {
-        { id = "ne_default", text = "A blacksmith hammer, an arclight spanner, a steady hand and a great deal of copper. Springspindle will teach you the rest next door, though he'll talk about wheels a great deal longer than you'd like." },
+        { id = "ne_default", text = "A blacksmith hammer, an arclight spanner, a steady hand and a sack of copper bars. Springspindle will teach you the rest next door, though he'll talk about wheels until your ears ring." },
       },
       choices = {
         { text = "What's wrong with wheels?", next = "need_wheels" },
@@ -174,8 +174,8 @@ P:NPC {
         { id = "pa_default", text = "From the Great Forge, mostly, which makes good bronze but very silly bolts. In Gnomeregan we had our own foundries, but those are full of troggs and leper gnomes now, and nobody's going back for the machinery." },
       },
       choices = {
-        { text = "Then someone should go and reclaim it.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 }, learn = { "gnomeregan" } } },
-        { text = "Better to start over than die for old machines.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 }, learn = { "gnomeregan" } } },
+        { text = "Then someone should go and reclaim it.", next = "BACK", reply = "Someone should, and the High Tinker says someone will, though I've noticed nobody ever volunteers to be the first someone through the door.", fx = { align = { honor = 1 }, trait = { brave = 1 }, learn = { "gnomeregan" } } },
+        { text = "Better to start over than die for old machines.", next = "BACK", reply = "That's the sensible view, and I hold it on Mondays and Thursdays, but on the other days I miss my old foundry so much I could weep into my washers.", fx = { align = { honor = -1 }, trait = { cautious = 1 }, learn = { "gnomeregan" } } },
       },
     },
 
@@ -225,8 +225,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I think the earth has put up with gnomes for a very long time and complained remarkably little. If I abolish the wheel, it'll be rolled over less, so I like to imagine it's on my side. You might ask it for me, though, in case it's grown fond of carts." } },
       choices = {
-        { text = "I'll ask it honestly and tell you whatever it says.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Oh, it adores carts. You'd best give up now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask it plainly and tell you whatever it says.", next = "BACK", reply = "Oh, would you, that's wonderful, and I'll record its answer very precisely, especially if it says anything about carts, which I suspect it will.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Oh, it adores carts. You'd best give up now.", next = "BACK", reply = "Nonsense, nobody adores carts, people simply put up with them because they don't know there's anything better, and soon there will be.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -234,8 +234,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Your people ride great cats and walk everywhere else, which makes you the most advanced civilisation I've met, technically. I'm not sure that's what you were aiming for, but I admire the result." } },
       choices = {
-        { text = "Change for its own sake is wasted effort.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep inventing. Someone has to replace the wheel.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Change for its own sake is wasted effort.", next = "BACK", reply = "Wasted? Only in the short term, and only if you don't count the data, which is the part everybody forgets when they're laughing at me.", fx = { align = { order = 1 } } },
+        { text = "Keep inventing. Someone has to replace the wheel.", next = "BACK", reply = "Thank you, at last, someone with vision, and I'll name the first prototype after you if it survives the first test, which most don't.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -243,8 +243,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Legs! Mechanical legs, on carts and cannons and very possibly on soldiers, so that nothing ever gets stuck in the mud again. The current prototype only walks backwards, and it occasionally explodes, but the principle is sound." } },
       choices = {
-        { text = "Wheels work well enough. I'll keep my own legs.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Build it. I'd ride a walking cannon gladly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Wheels work well enough. I'll keep my own legs.", next = "BACK", reply = "Your legs are fine prototypes, I'll grant you, but they get tired, and mine only go backwards, so between us we've a very balanced army.", fx = { align = { order = 1 } } },
+        { text = "Build it. I'd ride a walking cannon gladly.", next = "BACK", reply = "Oh, splendid, I'll put your name on the waiting list, which is currently very short, mostly because the last volunteer is still recovering.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -252,11 +252,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That four legs are better than two, that a cat never falls over, and that a bear is just a very angry machine with excellent balance. My next prototype walks like a wolf, or it will, once it stops walking like a startled chicken." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Might I measure your {pet}'s stride while you're here? Purely for science, and I promise not to bring the calipers too close." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That four legs are better than two, and that a bear is just a very angry machine with excellent balance. Might I measure your {pet}'s stride while you're here? Purely for science, I promise." },
       },
       choices = {
-        { text = "Measure away, if my beast agrees to it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Pay me first. My beast isn't free for study.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Measure away, if my beast agrees to it.", next = "BACK", reply = "Splendid, I'll fetch the measuring tape, and if your beast objects to my calipers, I'll take that as data too, from a safe distance.", fx = { align = { honor = 1 } } },
+        { text = "Pay me first. My beast isn't free for study.", next = "BACK", reply = "Pay? Well, I suppose that's fair, and I can offer you a fascinating mention in my next paper, which I'm told is worth something to somebody.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -264,8 +264,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "That's precisely the question, and my best guess is that the arcane doesn't like going in circles. Gnomeregan's engineers had it solved before the fall, but their notes are in the radiation, so I'm starting from nothing." } },
       choices = {
-        { text = "Then we'll solve it again, safely, from the beginning.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Explosions are only data. Turn it up and see.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then we'll solve it again, safely, from the beginning.", next = "BACK", reply = "From the beginning is the only way, and the safest, and I've already started on page one, though page one has been rewritten eleven times.", fx = { align = { order = 1 } } },
+        { text = "Explosions are only data. Turn it up and see.", next = "BACK", reply = "Spoken like a true gnome, and I'll do it, but you'll stand behind the blast shield with me, because data is only useful if someone survives to write it down.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -273,17 +273,17 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Mostly on its own, though there was an imp nearby at the time, and I have my suspicions. I'm a scientist, so I can't prove it, but I've also stopped inviting warlocks to my demonstrations." } },
       choices = {
-        { text = "I'll keep my imp well clear of your demonstrations.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The imp probably improved it, Springspindle.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep my imp well clear of your demonstrations.", next = "BACK", reply = "Thank you, very thoughtful, and I'll mark your imp down as cleared of suspicion until the next unexplained explosion, at least.", fx = { align = { light = 1 } } },
+        { text = "The imp probably improved it, Springspindle.", next = "BACK", reply = "Improved it? It turned it into a crater, which I suppose is an improvement in depth, but not in any of the directions I was hoping for.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Every day, which is why I test them on myself first, and why I've lost a great deal of hair. A good engineer worries about the people at the other end of the invention, and a great one does something about it." } },
+      lines = { { id = "xapriest_default", text = "Every day, so I test them on myself first, and I've lost roughly forty percent of my hair to it. A good engineer worries about the people at the other end of the invention, and a great one does something about it." } },
       choices = {
-        { text = "Then you're a good engineer. You think about who's standing nearby.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Inventors who worry too much never invent anything great.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then you're a good engineer. You think about who's standing nearby.", next = "BACK", reply = "Thank you, that's very kind, and I'll tell my last test subject you said so, though he's still not speaking to me about the eyebrows.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Inventors who worry too much never invent anything great.", next = "BACK", reply = "That's what my old mentor said, and he invented a great many marvellous things, and he also blew up three workshops and one very large goat.", fx = { align = { light = -1 } } },
         { text = "Tell me about the wheel instead.", next = "BACK" },
       },
     },
@@ -291,8 +291,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Better in some ways, worse in others, for it'll never tire, but it'll never love you either, and I've heard paladins and their chargers are very close. I'll keep working on it, but I'll leave the loving to the real ones." } },
       choices = {
-        { text = "A living charger is a companion. Nothing should replace that.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A machine that never tires would serve better. Build it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A living charger is a companion. Nothing should replace that.", next = "BACK", reply = "That's a lovely way to see it, and I'll keep the living chargers well in mind, though I may put a little spring in the saddle for comfort.", fx = { align = { order = 1 } } },
+        { text = "A machine that never tires would serve better. Build it.", next = "BACK", reply = "I will, I will, and you'll be the first to ride it, though I'd advise against taking it into battle until it stops hopping sideways.", fx = { align = { order = -1 } } },
         { text = "Something else, Springspindle.", next = "BACK" },
       },
     },
@@ -302,8 +302,8 @@ P:NPC {
         { id = "xrogue_default", text = "Because a wheel squeaks, rattles and leaves tracks, and my replacement will do none of those things once I've stopped it exploding! Imagine a carriage that makes no sound at all, gliding along the road without a single rut to give it away." },
       },
       choices = {
-        { text = "Some things should stay as they are, Springspindle.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Throw out the wheel. I'm with you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some things should stay as they are, Springspindle.", next = "BACK", reply = "Some things, perhaps, but the wheel isn't one of them, and I'll prove it, as soon as I've stopped my replacement from exploding.", fx = { align = { order = 1 } } },
+        { text = "Throw out the wheel. I'm with you.", next = "BACK", reply = "At last, someone who understands, and I'll name a cog after you, a small one admittedly, but a cog is a very high honour in my workshop.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -318,7 +318,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! I'd ask you not to summon anything near my prototypes, for the last one caught fire on its own and I don't need help." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Imagine a battlefield without wheels, with no carts and no chariots, only my marvellous replacement, which I'll describe if you've a minute." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've been studying how your beasts walk, you know, for my wheel replacement, and they've taught me a great deal." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've been studying how your beasts walk, you know, for my wheel replacement, and their knees have taught me more than any textbook." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Tell me, do your people use the wheel? Because I'm about to make it obsolete, and I'd hate for you to have invested heavily." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll appreciate this, then, because rogues move quietly and wheels squeak, and that's only the first of a hundred reasons the wheel is doomed!" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do the elements have an opinion on wheels? Because if the earth objects to being rolled over, I'd like that in writing." },
@@ -360,8 +360,8 @@ P:NPC {
         { id = "wc_default", text = "The legs work splendidly, but only one at a time, so at the moment the machine hops. It hops very well, I'll say that for it, and I'm treating the hopping as an advantage until I fix it." },
       },
       choices = {
-        { text = "Every great invention starts with failures.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Maybe the wheel is good enough.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Every great invention starts with failures.", next = "BACK", reply = "Exactly, and this one has had seventeen of them so far, which by my reckoning means it's very nearly great, or very nearly a pile of scrap.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Maybe the wheel is good enough.", next = "BACK", reply = "Good enough? Good enough is what people said about candles before someone invented the lantern, and the lantern only exploded twice.", fx = { align = { order = 1 }, affinity = -1 } },
       },
     },
 
@@ -371,8 +371,8 @@ P:NPC {
       },
       choices = {
         { text = "A chicken? Really?", next = "spec_chicken" },
-        { text = "I'd choose the gnomish way.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "I'd choose the goblin way. More explosions.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "I'd choose the gnomish way.", next = "BACK", reply = "Splendid choice, and the right one, and I'll train you properly so you'll only turn into a chicken on the very rare occasion it's useful.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'd choose the goblin way. More explosions.", next = "BACK", reply = "Oh, well, every engineer to their own taste, I suppose, but do keep a healer nearby, and maybe a spare pair of eyebrows.", fx = { align = { order = -1 }, affinity = -1 } },
       },
     },
     spec_chicken = {
@@ -411,7 +411,7 @@ P:NPC {
 
 -- Tally Berryfizz: alchemy trainer at Berryfizz's Potions and Mixed Drinks in Tinker Town.
 P:NPC {
-  key = "if_tally", id = TODO_NPC("Tally Berryfizz"), name = "Tally Berryfizz",
+  key = "if_tally", id = TODO_NPC("Tally Berryfizz"), name = "Tally Berryfizz", gender = "female",
   bible = "bibles/tinker_town_shops.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "eager" }, values = { "curious", "friendly" },
   notices = { "craft" },
@@ -424,6 +424,12 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to Berryfizz's Potions and Mixed Drinks! Potions on the left, drinks on the right, a precise three feet between them, and please don't mix them up." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did that last potion agree with you? I hope so, because I measured it to the drop, and it was meant to." },
+    { id = "g_fl_spill", when = { flirt = true, metBefore = true, chance = 0.4 },
+      text = "Oh! It's you, and I've just spilled a measured dram of peacebloom tincture down my sleeve, which I almost never do. That's the third time this month, and each time you've been standing exactly where you are now." },
+    { id = "g_fl_back", when = { flirt = true, npcFlagBefore = "fl_yes" }, cooldown = "3d",
+      text = "You're back! I've put a cushion on the stool by the bench, raised a precise nine inches, in case you'd like to sit and watch me boil things." },
+    { id = "g_fl_no", when = { flirt = true, npcFlagBefore = "fl_no" }, once = true,
+      text = "Welcome back! Potions on the left, drinks on the right, and no more clumsy remarks from me; I've written that down, so it must be true." },
   },
 
   notice = {
@@ -437,8 +443,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I suspect you do! A Wildhammer I bought from once said a word over every root before he pulled it, and his peacebloom outlasted mine by a week. I tried saying words too, but I think the herbs could tell I was reading them off a card." } },
       choices = {
-        { text = "It's the respect that matters, not the words, Tally.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "It's probably the soil. Sentiment doesn't keep herbs fresh.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "It's the respect that matters, not the words, Tally.", next = "BACK", reply = "Oh, that's lovely, and I'll try respect next time instead of the words, though I'm not quite sure how you measure it in a phial.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It's probably the soil. Sentiment doesn't keep herbs fresh.", next = "BACK", reply = "It might well be, and I've taken soil samples to check, but I still say a word over my peacebloom now, just in case.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -446,8 +452,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Healing, first and always, and an elixir of strength if you're going up against the ogres of Mo'grosh. I've watched warriors come back from Loch Modan with nothing in their packs but empty vials, and I take it as a compliment." } },
       choices = {
-        { text = "I'll carry plenty and save them for need.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll drink them freely. That's what they're for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll carry plenty and save them for need.", next = "BACK", reply = "Good, because the warriors who save them are the ones who come back to buy more, and I'd like to see you back here, healthy and spending.", fx = { align = { order = 1 } } },
+        { text = "I'll drink them freely. That's what they're for.", next = "BACK", reply = "They are, I suppose, but please don't drink them all before you've even reached Loch Modan, or you'll be very healthy and very broke.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -455,11 +461,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Peacebloom and silverleaf, mostly, and earthroot from the hills above Kharanos, for it grows where the boars root about. A hunter has an eye for where things grow, because a hunter has an eye for where things eat." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} probably knows more about herbs than either of us, since it's been sniffing them all its life." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Peacebloom and silverleaf, mostly, and earthroot from the hills above Kharanos, where the boars root about. Your {pet} probably knows more about herbs than either of us, since it's been sniffing them all its life." },
       },
       choices = {
-        { text = "I'll pick carefully and leave the roots to regrow.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll pick the hills bare and sell the lot to you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll pick carefully and leave the roots to regrow.", next = "BACK", reply = "Wonderful, and the hills will thank you, and so will I, because it means there'll be earthroot next season and the season after that.", fx = { align = { honor = 1 } } },
+        { text = "I'll pick the hills bare and sell the lot to you.", next = "BACK", reply = "Well, I'll buy what you bring, I suppose, but if the hills are bare next year, I'll be selling very thin potions and blaming you for it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -467,8 +473,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because I'd rather my students saved lives than ended them, and because the guards would ask questions. The Forlorn Cavern has others who teach your sort of brewing, and I'd prefer not to know the details." } },
       choices = {
-        { text = "Healing's the better art, Tally. I respect your choice.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A poison and a potion are the same art, Tally.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Healing's the better art, Tally. I respect your choice.", next = "BACK", reply = "Thank you, really, and I'll tell my students a rogue said so, which might make them pay a bit more attention in class.", fx = { align = { honor = 1 } } },
+        { text = "A poison and a potion are the same art, Tally.", next = "BACK", reply = "They might be, technically, but I'd rather my reagents ended up in someone's healing than someone's soup, so I'll keep my shelves as they are.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -476,8 +482,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Like berries mixed with something that isn't berries, which is the best I've managed so far. Gnomeregan's alchemists had a better recipe, but they left it behind, and I'm working from memory." } },
       choices = {
-        { text = "I'll drink it gladly and help you improve it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Taste doesn't matter. Just make it stronger.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll drink it gladly and help you improve it.", next = "BACK", reply = "Oh, splendid, I'll pour you a glass, and if you could tell me which part tastes most like not-berries, that would help my notes enormously.", fx = { align = { order = 1 } } },
+        { text = "Taste doesn't matter. Just make it stronger.", next = "BACK", reply = "Stronger I can do, though the last batch made a dwarf hiccup bubbles for an hour, so I'll need to adjust the ratios slightly first.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -485,8 +491,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Very well, though some of the older priests think potions are cheating, which makes me laugh, because they'll drink one quick enough when the trolls are coming. I think a healer should use whatever saves a life, and I'll say so to anyone." } },
       choices = {
-        { text = "Faith first, then potions. Prayer comes before anything brewed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Whatever saves a life is right. Potions and prayers both.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Faith first, then potions. Prayer comes before anything brewed.", next = "BACK", reply = "That's a very proper answer, and the older priests would love you, though I'll still keep a healing potion in your pack just in case.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever saves a life is right. Potions and prayers both.", next = "BACK", reply = "Exactly, that's what I've always said, and you'll find a potion and a prayer get along much better than the old priests think.", fx = { align = { light = -1 } } },
         { text = "Teach me alchemy, Tally.", next = "BACK" },
       },
     },
@@ -494,19 +500,19 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Oh, I've a potion that hardens the skin, very useful if you're standing in front of someone and something's trying to hit them. I'd give one to every paladin in Ironforge if they'd stand still long enough to drink it." } },
       choices = {
-        { text = "Then I'll take one, to protect whoever stands behind me.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll keep it for myself. A paladin can't protect anyone dead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll take one, to protect whoever stands behind me.", next = "BACK", reply = "That's lovely, and I'll make it a good one, because anyone who stands in front of people deserves the very best I can brew.", fx = { align = { honor = 1 } } },
+        { text = "I'll keep it for myself. A paladin can't protect anyone dead.", next = "BACK", reply = "Well, that's very practical, and I'll not argue with the logic, but do share one or two, because the ones behind you drink potions too.", fx = { align = { honor = -1 } } },
         { text = "Goodbye, Tally.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Because half my potions need it and the other half are mixed drinks, which is why I keep them on very separate shelves! Your servant can sit by the door if it likes, but if it touches the green bottles, I won't be held responsible." },
+        { id = "xlock_default", text = "Because half my potions need sulfur, which is why the mixed drinks sit on a very separate shelf! Your servant can wait by the door if it likes, but if it touches the green bottles, I won't be held responsible." },
       },
       choices = {
-        { text = "I'll keep it by the door.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "It'll touch what it likes. Fair warning.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep it by the door.", next = "BACK", reply = "Thank you, and I'll keep the cider well away from it, because the last imp that wandered in here drank half a shelf and started singing.", fx = { align = { order = 1 } } },
+        { text = "It'll touch what it likes. Fair warning.", next = "BACK", reply = "Fair warning taken, and I'll move the mixed drinks out of reach, because I'd rather lose a potion than explain to a customer what happened to their cider.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -546,7 +552,35 @@ P:NPC {
         { text = "Do you ever brew anything to protect others, Tally?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why does your shop smell of sulfur, Tally?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does a shaman pick herbs differently, Tally?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You've measured that same vial three times, Tally.", next = "fl_vial", when = { flirt = true } },
         { text = "Goodbye, Tally.", next = "END" },
+      },
+    },
+    fl_vial = {
+      lines = {
+        { id = "fl_vial_default", text = "Have I? Oh dear, I have. I've been working out a little formula for how much nicer the shop is when you're in it, and I keep getting a number that's frankly unscientific." },
+        { id = "fl_vial_tall", when = { race = { "Human", "NightElf", "Dwarf" } },
+          text = "Have I? Oh dear, I have. I keep looking up at you and losing count, and I've worked out that the shop is roughly forty percent nicer when you're in it, which is a frankly unscientific result." },
+        { id = "fl_vial_gnome", when = { race = "Gnome" },
+          text = "Have I? Oh dear, I have. You've the steadiest hands I've seen since Gnomeregan, and I've been wondering whether you'd share a pot of tea after closing, purely in the interest of research." },
+      },
+      choices = {
+        { text = "Your numbers sound right to me, Tally.", next = "fl_vial2",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_yes" } } } },
+        { text = "I'd be glad to share that tea, Tally.", next = "fl_vial2", when = { race = "Gnome" },
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_yes" } } } },
+        { text = "Check your sums again, Tally. I'm only a customer.", next = "BACK",
+          reply = "Oh! Yes, of course, a customer, which is a perfectly good thing to be. I'll check my sums at once, and then possibly hide under the bench for a while.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "fl_no" } } } },
+      },
+    },
+    fl_vial2 = {
+      lines = {
+        { id = "fl_vial2_default", text = "Oh! Well, that's very good to hear, and I'm writing it in the margin of my ledger right next to the price of earthroot, so I don't forget it. Now hand me that vial, please, before I drop something that explodes." },
+      },
+      choices = {
+        { text = "Carefully, Tally. I'd like you in one piece.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -578,8 +612,8 @@ P:NPC {
         { id = "us_default", text = "A healing potion, every time, because a dead adventurer can't buy anything else from me. After that, I'd say a potion that lets you breathe underwater, since half of Azeroth seems to be lakes." },
       },
       choices = {
-        { text = "I'd rather save my potions for my friends.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Potions are for me first. Friends can buy their own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd rather save my potions for my friends.", next = "BACK", reply = "That's very thoughtful, and I'll make sure you've enough to go round, because a friend who saves potions is a friend worth brewing for.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Potions are for me first. Friends can buy their own.", next = "BACK", reply = "Well, I suppose that's sensible, and good for business too, but I'd hate to think of your friends coming back to my shop looking quite so bruised.", fx = { align = { honor = -1 } } },
       },
     },
   },

@@ -96,8 +96,8 @@ P:NPC {
       big = true,
       lines = { { id = "gt_default", key = true, text = "Very well, since you ask so sensibly. The Highborne left more than broken towers when the sea took their city: focusing stones, half-cast wards, things that hum in the dark under the water. None of it is safe, and all of it is fascinating, and I confess I'd guard it for the fascination alone." } },
       choices = {
-        { text = "Then destroy it. No one should have that power.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Keep it guarded, then. That's wiser than destroying it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then destroy it. No one should have that power.", next = "BACK", reply = "Destroy it? Spoken like a mortal who has never tried to break a Highborne ward, which tends to break you first. I'll keep it, thank you, and keep it quiet.", fx = { align = { order = -1 } } },
+        { text = "Keep it guarded, then. That's wiser than destroying it.", next = "BACK", reply = "Finally, a mortal who understands the virtue of a good lock. You'd make a passable dragon, if you were taller and considerably older.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -120,7 +120,7 @@ P:NPC {
       },
     },
     attackers_stance = {
-      lines = { { id = "as_default", text = "Because leaving means letting them have what's here, and they would blow themselves and half the coast to pieces within the week. Somebody has to be the large blue obstacle, and it might as well be someone with a sense of humour." } },
+      lines = { { id = "as_default", text = "Because leaving means letting them have what's here, and they would blow themselves and the whole coast to pieces within the week. Somebody has to be the large blue obstacle, and it might as well be someone with a sense of humour." } },
       choices = {
         { text = "That's a noble burden, Azuregos.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -149,8 +149,8 @@ P:NPC {
       lines = { { id = "m_default", text = "Mortals and magic are like children and knives: occasionally useful, mostly bloody, and someone always has to clean up afterwards. Usually that someone is a dragon." } },
       choices = {
         { text = "Should mortals have magic at all, then?", next = "op_arcane" },
-        { text = "Magic belongs to whoever is bold enough to learn it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Then guard it well. Some power needs keepers.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic belongs to whoever is bold enough to learn it.", next = "BACK", reply = "Bold, yes, and bold mortals make the most interesting craters. I'll be sure to tidy yours up afterwards.", fx = { align = { order = -1 } } },
+        { text = "Then guard it well. Some power needs keepers.", next = "BACK", reply = "Precisely, and that is why I'm here, being dreadfully patient with all of you. Thank you for noticing.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -176,7 +176,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know a great deal more than you, which isn't hard. Choose your question carefully; I'm not in the mood to answer many." } },
+    knows = { { id = "tp_knows", text = "I know more than you by some ten thousand years, which isn't hard. Choose your question carefully; I'm not in the mood to answer many." } },
     background = { { id = "tp_bg", text = "A dragon of the blue flight, charged with watching over what the Highborne left behind. The charge is tedious, the company worse." } },
     advice = { { id = "tp_ad", text = "If you find a glowing thing in a ruin, leave it there. I'll be along shortly to make sure you did." } },
     highborne = { { id = "tp_hb", text = "Brilliant, vain and catastrophically curious. I admire them a little more than I should." } },

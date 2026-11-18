@@ -32,7 +32,7 @@ P:NPC {
     { id = "n_bear", cat = "form", when = { form = "bear" },
       text = "Bear's a fine shape for holding a line, but it's terrible for keeping up with me. Change back when you want to talk." },
     { id = "n_cat", cat = "form", when = { form = "cat" },
-      text = "Ha! Somebody's been teaching you the cat's patience. Mind you don't stalk the owls; they're not prey up here." },
+      text = "Ha! Somebody's been teaching you the cat's patience. Just don't go stalking the owls; they're not prey up here." },
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
       text = "Whatever that darkness is that you've wrapped yourself in, keep it away from my birds. They've seen enough shadow on this mountain to last them a lifetime." },
     { id = "n_warlock", cat = "class", place = "before", when = { class = "WARLOCK" },
@@ -82,7 +82,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Thisalee Crow, of the Druids of the Talon. If you came up through Darkwhisper, you've already met the worst welcome this mountain has, and Nordrassil's shadow has seen worse than you, so you may as well tell me what you're after." },
+          text = "I am Thisalee Crow, of the Druids of the Talon. If you came up through Darkwhisper Gorge, you've already had the worst welcome this mountain offers, so you may as well tell me what you're after." },
         { id = "h_young", when = { maxLevel = 55 },
           text = "You're young to have climbed this high. The mountain doesn't grade its dangers by who's asking, so stay close to the paths until you know the slopes." },
         { id = "h_feathers", tags = { "news" }, when = { questActive = TODO_QUEST("Feathers in Flight") },
@@ -128,7 +128,7 @@ P:NPC {
 
     talon = {
       lines = {
-        { id = "ta_default", text = "We're the druids who learned the shape of the crow and the storm, and we take our gift from Aviana, the Mistress of Birds. Every winged thing on this mountain is ours to look after, which means I spend half my life chasing owls and the other half chasing the things that eat them." },
+        { id = "ta_default", text = "We're the druids who learned the shape of the crow and the storm, and we take our gift from Aviana, the Mistress of Birds. Every winged thing on this mountain is ours to look after, so my days go to chasing owls and my nights to chasing the things that eat them." },
       },
       choices = {
         { text = "I know little of Aviana.", next = "aviana" },
@@ -144,8 +144,8 @@ P:NPC {
       },
       choices = {
         { text = "And the World Tree?", next = "aviana_seed" },
-        { text = "Gods die. The living have to carry on.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then some of her fury lives on in you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Gods die. The living have to carry on.", next = "BACK", reply = "Maybe, but carrying on means remembering her, and I don't think the mountain would let us forget even if we tried.", fx = { align = { order = 1 } } },
+        { text = "Then some of her fury lives on in you.", next = "BACK", reply = "I like to think so, and the elders frown when I say it, but every time a demon crawls out of that gorge, I feel her wings in my own.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -184,8 +184,8 @@ P:NPC {
         { id = "gw_default", text = "If anyone knows, they're not telling a Talon as young as me. All I know is that the demons who fled into the gorge after Archimonde fell are still in there, and now people are walking past them with packs on their backs." },
       },
       choices = {
-        { text = "The mountain needs hands. Let them come.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "It should have stayed sealed until it healed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The mountain needs hands. Let them come.", next = "BACK", reply = "Then you'd better be one of the hands that knows where the demons are, because I'm tired of hauling travellers out of the gorge by their packs.", fx = { align = { order = -1 } } },
+        { text = "It should have stayed sealed until it healed.", next = "BACK", reply = "That's what I said to Omnuron, and he told me I was being rash, which is the first time anyone has accused me of being too careful.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -206,8 +206,8 @@ P:NPC {
       },
       choices = {
         { text = "Surely the tree could heal faster with help.", next = "tree_faster" },
-        { text = "Some things should heal in their own time.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then we push, and help it along.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some things should heal in their own time.", next = "BACK", reply = "That's what the elders say, and I suppose you're all right, but patience is easy to preach when you're not the one watching it wither.", fx = { align = { order = 1 } } },
+        { text = "Then we push, and help it along.", next = "BACK", reply = "Now you sound like a Talon worth flying with, and if Omnuron asks, you can tell him I didn't put the idea in your head.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -245,8 +245,8 @@ P:NPC {
         { id = "wy_default", text = "Yashiro walks alone, fights alone, and doesn't ask anyone's leave. I like him more than I should, since he does exactly what I'd do if Omnuron would let me. He means to light fires in Dae'gun until the demons come out to answer them." },
       },
       choices = {
-        { text = "An orc fighting demons on your mountain is a gift.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'd watch him. Orcs and demons have history.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "An orc fighting demons on your mountain is a gift.", next = "BACK", reply = "Exactly, and I keep telling the Circle so, though they look at him the way they look at a fire somebody else lit.", fx = { align = { honor = 1 } } },
+        { text = "I'd watch him. Orcs and demons have history.", next = "BACK", reply = "Oh, I watch him, and he knows it, and I think he likes it better that way, but he hasn't given me a single reason to worry yet.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -277,8 +277,8 @@ P:NPC {
         { id = "od_default", text = "I agree with him about everything except speed. He says the mountain's survived ten thousand years and can survive a careful plan, and I say the mountain survived because somebody fought for it when it mattered." },
       },
       choices = {
-        { text = "He's right. Rash druids get killed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're right. Act first, report later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "He's right. Rash druids get killed.", next = "BACK", reply = "Maybe he is, and maybe I'll be the one they bury, but I'd rather that than watch the mountain lose another grove while we draw up plans.", fx = { align = { order = 1 } } },
+        { text = "You're right. Act first, report later.", next = "BACK", reply = "Finally, someone who understands, but please don't say it near Omnuron, because he'll know exactly whose idea it was.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -300,7 +300,7 @@ P:NPC {
 
     supply = {
       lines = {
-        { id = "su_default", text = "Everlook, mostly, through the snow. A goblin called Azzleby runs his beasts through the passes for me, and Evie Whirlbrew trades for what the Talon can spare. It works well enough when the Winterfall furbolgs aren't robbing the caravans." },
+        { id = "su_default", text = "A goblin there does, for fletching, and he'll get none from me. Everlook's where our supplies come from, though: a goblin called Azzleby runs his beasts through the passes for me, and it works well enough when the Winterfall furbolgs aren't robbing the caravans." },
       },
       choices = {
         { text = "I'd not have thought you'd trust a goblin.", next = "supply_goblins" },
@@ -311,11 +311,11 @@ P:NPC {
     supply_goblins = {
       big = true,
       lines = {
-        { id = "sg_default", text = "I trust Azzleby to want his money, which is the same thing as trusting him, near enough. He's never cheated me, and he's never asked what the crates are for, and that's more than I can say for some druids." },
+        { id = "sg_default", text = "I trust Azzleby to want his money, which is the same thing as trusting him, near enough. He's never cheated me and never asked what the crates are for, and a few druids I could name have pried harder than that goblin ever has." },
       },
       choices = {
-        { text = "An honest bargain is worth respecting.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A goblin who asks nothing is hiding something.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "An honest bargain is worth respecting.", next = "BACK", reply = "It is, and Azzleby's earned it, though I'd never tell him so, because then he'd find a way to charge me for the compliment.", fx = { align = { honor = 1 } } },
+        { text = "A goblin who asks nothing is hiding something.", next = "BACK", reply = "Maybe, but I've looked, and all I found was a goblin who likes gold more than questions, which is more than I can say for most visitors.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -332,8 +332,8 @@ P:NPC {
         { id = "fe_default", text = "The owls shed feathers in their nests all the time, and there's no harm in gathering them. But the birds are Aviana's children, and some of the hunters coming up the gorge seem to think a live owl is just a feather that hasn't fallen yet." },
       },
       choices = {
-        { text = "I'll only take what's been shed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Arrows keep people alive. The owls will manage.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll only take what's been shed.", next = "BACK", reply = "Thank you, truly, because the owls know who's been kind to them, and they'll watch your back in the gorge even if you never see them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Arrows keep people alive. The owls will manage.", next = "BACK", reply = "They'd better manage, because if I catch you with a live one on your belt, you'll find out Aviana's children have friends with talons.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -345,8 +345,8 @@ P:NPC {
         { id = "xp_shadow", when = { form = "shadow" }, text = "Not like that, you won't. Whatever shadow you're wearing, the wounded will run from it, so put it away before you go near anyone hurt." },
       },
       choices = {
-        { text = "I'll lay the dead to rest, gently.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The dead can wait. The living fight first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll lay the dead to rest, gently.", next = "BACK", reply = "Thank you, and the dead will thank you too in their way, because nothing in this forest deserves to wake like that.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead can wait. The living fight first.", next = "BACK", reply = "Tell that to the dead, then, and see if they wait for you, because they've been very impatient up here so far.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -356,8 +356,8 @@ P:NPC {
         { id = "xd_default", text = "Help me clear the rot, and help me keep the newcomers from trampling everything they don't understand. The Circle sends too few of us and expects the tree to do the work alone." },
       },
       choices = {
-        { text = "The Circle should send more. I'll tell them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Forget Nighthaven. I'll stay and work.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Circle should send more. I'll tell them.", next = "BACK", reply = "Please do, and tell them loudly, because they only seem to hear me when I'm shouting, and I've nearly run out of voice.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget Nighthaven. I'll stay and work.", next = "BACK", reply = "That's the best thing I've heard all season, and I'll find you work before you change your mind, so don't change it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -367,8 +367,8 @@ P:NPC {
         { id = "xn_default", text = "Because the tree was burned and the Shan'do said it needed rest, and Teldrassil was planted far away in the sea. I understand it, but every time I fly over the summit I think we left our home to strangers and called it patience." },
       },
       choices = {
-        { text = "Teldrassil is our home now.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Hyjal will always be home. We should return.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Teldrassil is our home now.", next = "BACK", reply = "I know it is, and I try to love it, but the summit was where our grandmothers sang, and Teldrassil still smells of sea to me.", fx = { align = { order = 1 } } },
+        { text = "Hyjal will always be home. We should return.", next = "BACK", reply = "You feel it too, then, and that makes me feel a little less foolish, so maybe one day we'll both be standing up there to welcome everyone home.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -378,19 +378,19 @@ P:NPC {
         { id = "xh_default", text = "I carried messages over the lines that day instead of standing in them, but I remember the banners of the humans who came across the sea, and I remember how many of them were carried off the slopes afterwards. Their camp was where Mourning's Rest is now, and I hear the dead there have started walking." },
       },
       choices = {
-        { text = "Then I'll see them properly buried.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The dead are dead. I'll fight what walks.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll see them properly buried.", next = "BACK", reply = "Thank you, and I'll show you where their camp was, because I think they'd want someone from their own land to say a word over them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are dead. I'll fight what walks.", next = "BACK", reply = "Then fight it, and I'll be glad of you, but a few of those walking dead had names once, and somebody ought to remember them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
       lines = {
-        { id = "xl_default", text = "Because fel is what made this mountain sick. It rained down when the Legion came, and the brambles drank it, and the brambles are still killing things years later. You'll forgive me if I don't like what you carry." },
+        { id = "xl_default", text = "Because fel is what made this mountain sick. It rained down when the Legion came, the brambles drank it, and they are still killing things years later, so I flinch at what you carry." },
       },
       choices = {
-        { text = "I use it so others don't have to.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power's power. Your brambles don't scare me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I use it so others don't have to.", next = "BACK", reply = "Perhaps you do, and I'd like to believe it, but the brambles drank the same reasons once, and look at them now.", fx = { align = { light = 1 } } },
+        { text = "Power's power. Your brambles don't scare me.", next = "BACK", reply = "They should, because they don't care what you think you are, and they'll grow straight through you the same as everything else.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -400,8 +400,8 @@ P:NPC {
         { id = "xhu_default", text = "Owls by night and hawks by day, and things with too many teeth in between. The fel soured some of the beasts as badly as the brambles, and those you can hunt with my blessing; the clean ones, leave be." },
       },
       choices = {
-        { text = "I'll take only the corrupted ones.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A hunter takes what feeds the hunt.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll take only the corrupted ones.", next = "BACK", reply = "Then you'll have my blessing and Aviana's too, and I'll point you to the dens where the worst of them have gone to ground.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A hunter takes what feeds the hunt.", next = "BACK", reply = "Then hunt elsewhere, or hunt the corrupted, because the clean beasts on this mountain have suffered enough without your appetite.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -411,8 +411,8 @@ P:NPC {
         { id = "xho_default", text = "An orc blademaster called Yashiro, for one, who's been killing demons in Dae'gun like he's paying back a debt. And there's a troll camp somewhere on the slopes that keeps trying to leave and keeps getting dragged back into the fighting." },
       },
       choices = {
-        { text = "We fought here together. We can again.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The Horde will hold its own ground.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "We fought here together. We can again.", next = "BACK", reply = "We did, and I remember it, even if Orgrimmar and Darnassus would both prefer I didn't, so I'm glad you remember too.", fx = { align = { honor = 1 } } },
+        { text = "The Horde will hold its own ground.", next = "BACK", reply = "Then hold it, and stay off mine, and I won't have to decide whether I'm a Talon or a Sentinel when I see you on the slopes.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_wagon", text = "Careful round the wagon, dear. It's held up with string and prayer." },
     { id = "g_oats", when = { questActive = TODO_QUEST("Poor Old Blanchy") }, text = "Any oats? She's been looking at me like I've forgotten her." },
-    { id = "g_after", when = { questDone = TODO_QUEST("Poor Old Blanchy") }, text = "Blanchy's put on a little weight, thanks to you. Don't tell her I said." },
+    { id = "g_after", when = { questDone = TODO_QUEST("Poor Old Blanchy") }, text = "Blanchy's put on a little weight, thanks to you. Don't tell her I said so." },
     { id = "g_away", when = { away = 14 }, text = "There you are, dear, after {away}! Blanchy's been looking up the road for somebody, and I think it was you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, you've grown since you brought oats for Blanchy, dear. You stand like someone folk can lean on, and Westfall has need of that." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I've been hearing kind things about you from the neighbours, dear, and it's done my heart good. There's little enough to smile about out here." },
@@ -38,8 +38,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They might, dear, if anything could. She's worn to the bone and frightened of sparks, so go gently. Your spirits must have a soft side." } },
       choices = {
-        { text = "I'll be gentle with her, Verna. She deserves kindness.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "She's old. Spirits won't fix tiredness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll be gentle with her, Verna. She deserves kindness.", next = "BACK", reply = "Bless you, dear, she does, and she'll know it from your hands. She's been more patient with us than we've any right to.", fx = { align = { light = 1 } } },
+        { text = "She's old. Spirits won't fix tiredness.", next = "BACK", reply = "No, I suppose not, and I know she's old, dear. But a kind word costs nothing, and she's given us everything she had.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -49,8 +49,8 @@ P:NPC {
         { id = "xlock_default", text = "A little, I'll admit, though I've seen worse than you come up this road in the last year, and they wore red masks. Theodore says we can't be choosy about who helps us anymore, and for once I think he's right." },
       },
       choices = {
-        { text = "I'll help where I can, Verna, and keep it gentle.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Theodore's right. Choosy folk don't keep their farms.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll help where I can, Verna, and keep it gentle.", next = "BACK", reply = "That's all anyone could ask, dear, and more than most have offered. Blanchy might even let you near her, if you're very gentle.", fx = { align = { light = 1 } } },
+        { text = "Theodore's right. Choosy folk don't keep their farms.", next = "BACK", reply = "He'll be insufferable now, you know, if he hears you agreeing with him. Still, it's the truth, and I'll not argue with it.", fx = { align = { light = -1 } } },
         { text = "Something else, Verna.", next = "BACK" },
       },
     },
@@ -58,24 +58,24 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every morning, and I'll not pretend otherwise. But if a warrior could take it back from the thieves, I'd want to go home, and Theodore would want to go home, and Blanchy would want her stall back." } },
       choices = {
-        { text = "I'll help you take your farm back.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The farm's gone, Verna. Make a home here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll help you take your farm back.", next = "BACK", reply = "Oh, dear, don't say that unless you mean it, because Theodore will start packing tonight. But thank you, truly, thank you.", fx = { align = { honor = 1 } } },
+        { text = "The farm's gone, Verna. Make a home here.", next = "BACK", reply = "I know, dear, I know it, I just haven't said it aloud. Here or there, as long as we're together, I'll make it a home.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "That's sweet of you, though Theodore will grumble that he's watching it himself, and he'll be asleep before the moon's up. If you sit out there in the dark, mind Blanchy, because she'll kick at anything she can't see." } },
       choices = {
-        { text = "I'll guard your family, Verna. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If anyone comes, they won't be leaving.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll guard your family, Verna. You have my word.", next = "BACK", reply = "Oh, you're good to us, and I'll sleep easier knowing it. Do mind Blanchy, though, she won't care whose side you're on.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If anyone comes, they won't be leaving.", next = "BACK", reply = "Goodness, that sounds frightening, and I'll thank you not to tell Theodore. He'll want to stay up and watch.", fx = { align = { honor = -1 } } },
         { text = "Is there anything else you need?", next = "BACK" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Oh, she'd like that, she's been shivering since the fog came off the sea. Only go gently, because she's old and frightened of sparks, the poor dear." } },
       choices = {
-        { text = "Gently, then. Slow and steady.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A little fire never hurt a horse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Gently, then. Slow and steady.", next = "BACK", reply = "That's the way, dear, just like I do with the stew. She'll warm right through and never know it was magic.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little fire never hurt a horse.", next = "BACK", reply = "It's not the fire, dear, it's what the fire reminds her of. Please, gently, for my sake if not hers.", fx = { align = { order = -1 } } },
         { text = "How is Blanchy holding up?", next = "blanchy" },
       },
     },
@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "By counting what's left, dear, which is Theodore and Blanchy and a good stew. The Light didn't take our farm, the thieves did, and I'll not blame the one for what the other did." } },
       choices = {
-        { text = "That's wise faith, Verna. Hold on to it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Your Light let it happen. I'd blame it a little.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's wise faith, Verna. Hold on to it.", next = "BACK", reply = "I'll try, dear, though some nights it's harder than others. Thank you for saying so, it helps more than you'd think.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your Light let it happen. I'd blame it a little.", next = "BACK", reply = "Perhaps a little, on the bad nights. But blame doesn't fill a pot, and the stew needs stirring.", fx = { align = { light = -1 } } },
         { text = "Something else, Verna.", next = "BACK" },
       },
     },
@@ -98,8 +98,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Oh, you're sweet to say it, but there's a dozen of them in our house and only one of you. If you do go up there, mind you bring out Theodore's pocket watch first, because he'd sooner have that than the walls." } },
       choices = {
-        { text = "I'll bring back what's yours, Verna. That's a promise.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Some things are better left lost, Verna.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll bring back what's yours, Verna. That's a promise.", next = "BACK", reply = "Oh, the pocket watch, really? He'd weep, you know, though he'd pretend it was the dust. Thank you, dear.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some things are better left lost, Verna.", next = "BACK", reply = "Maybe so, but that watch was his father's. Still, I'd rather have you back whole than the watch.", fx = { align = { honor = -1 } } },
         { text = "Something else, Verna.", next = "BACK" },
       },
     },
@@ -165,13 +165,13 @@ P:NPC {
       lines = { { id = "lu_default", text = "Bad luck follows us like a stray dog, dear. First the farm, then the wagon. I keep waiting to find out what's third." } },
       choices = {
         { text = "Where will you go now?", next = "elwynn" },
-        { text = "Maybe your luck's turning.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Luck like that doesn't turn. Get to Elwynn quickly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Maybe your luck's turning.", next = "BACK", reply = "Oh, I'd like to think so, dear, and with you here, perhaps it is. Blanchy seems to think so too.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Luck like that doesn't turn. Get to Elwynn quickly.", next = "BACK", reply = "That's what Theodore says, and he's right, the stubborn old thing. We'll go as soon as the wheel's fixed.", fx = { align = { light = -1 } } },
       },
     },
     elwynn = {
       big = true,
-      lines = { { id = "el_default", text = "Start over, Theodore says. As if a farm were a coat you could take off. Elwynn isn't what I want, dear. It's what's left." } },
+      lines = { { id = "el_default", text = "Theodore says we'll start over, as if a farm were a coat you could take off. Elwynn isn't what I want, dear; it's what's left." } },
       choices = {
         { text = "Salma thinks you'll love the city.", next = "BACK", fx = { trait = { curious = 1 } }, when = { heardLine = "salma.rv_default" } },
         { text = "Then don't give up on the farm.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
@@ -181,7 +181,7 @@ P:NPC {
       lines = { { id = "st_default", text = "It's mine, whatever she tells you! I wrote it out so it wouldn't leave Westfall with us, because a recipe belongs where its ingredients are." } },
       choices = {
         { text = "Murloc eyes, though?", next = "BACK", fx = { trait = { witty = 1 } } },
-        { text = "You two seem to argue about food a great deal.", next = "bicker" },
+        { text = "You two seem to argue about food constantly.", next = "bicker" },
       },
     },
     bicker = {
@@ -211,10 +211,10 @@ P:NPC {
       },
     },
     pray = {
-      lines = { { id = "pr_default", text = "For a horse? Oh, dear, yes, please do. She's carried us this far, and she's earned a prayer more than most people I know." } },
+      lines = { { id = "pr_default", text = "For a horse? Oh, dear, yes, please do. She's carried us this far, and she's earned a prayer twice over, carrying us all the way from the farm." } },
       choices = {
-        { text = "Light keep you, Blanchy.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, learn = { "old_blanchy" } } },
-        { text = "Perhaps oats would serve her better.", next = "BACK", fx = { align = { light = -1 }, trait = { witty = 1 } } },
+        { text = "Light keep you, Blanchy.", next = "BACK", reply = "Thank you, dear, she's pricked her ears at that. I think she likes you.", fx = { affinity = 3, align = { light = 1 }, learn = { "old_blanchy" } } },
+        { text = "Perhaps oats would serve her better.", next = "BACK", reply = "Ha, you're not wrong, she'd tell you so herself. A prayer and a handful of oats, then, and she'll be right as rain.", fx = { align = { light = -1 }, trait = { witty = 1 } } },
       },
     },
   },
@@ -227,14 +227,14 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "You hear all sorts when you're stuck by the road waiting on a wagon wheel, dear. Ask me about any of this." },
     },
-    background = { { id = "tp_bg", text = "A pumpkin farmer's wife, a horse's nursemaid, and the one in this family who remembers where things are." } },
+    background = { { id = "tp_bg", text = "I'm a pumpkin farmer's wife, a horse's nursemaid, and the one in this family who remembers where things are." } },
     advice = { { id = "tp_ad", text = "Feed the animal first, dear, because it can't ask and you can." } },
     old_blanchy = {
       { id = "tp_blanchy", text = "She's over by the wagon, dear, but mind her back legs. She kicks when she's hungry, and she's always hungry." },
       { id = "tp_blanchy2", text = "My Blanchy? Ask away, dear.", next = "blanchy" },
     },
     defias = { { id = "tp_defias", text = "They took our farm and Theodore's nerve. I've decided they'll not have mine." } },
-    harvest_watchers = { { id = "tp_watchers", text = "Nasty things, and they're stuffed with oats, you know. It's a waste of good oats." } },
+    harvest_watchers = { { id = "tp_watchers", text = "Those Harvest Watchers are nasty things, and they're stuffed with oats, you know, which is a waste of good oats." } },
     westfall = { { id = "tp_westfall", text = "It's home, dear, even now. Especially now." } },
     _none = { { id = "tp_none", text = "Couldn't say, dear. Ask Salma; she hears everything over that stove." } },
   },

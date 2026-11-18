@@ -131,8 +131,8 @@ P:NPC {
         { id = "wv_default", text = "Vengeance, I think, though I tell myself it is duty on the days I want to sleep. The demons will come seeking dominance when they see my fires, and they will find vengeance waiting instead, and I will not be sorry." },
       },
       choices = {
-        { text = "Vengeance keeps the blade sharp. Use it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Fight for the living, not the dead.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Vengeance keeps the blade sharp. Use it.", next = "BACK", reply = "It does, and I will not pretend otherwise, but a blade kept sharp too long cuts the hand that holds it, and some nights I can feel the edge.", fx = { align = { light = -1 } } },
+        { text = "Fight for the living, not the dead.", next = "BACK", reply = "You speak like Thrall, and he would be glad to hear it, so I will try to remember the living when I light the next fire, though the dead are louder.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -169,8 +169,8 @@ P:NPC {
         { id = "bff_default", text = "A little, yes, and the druids frown at me for it. But a burned clearing grows back in a season, and a demon left alone poisons the ground for a hundred years, so I will take the frowns." },
       },
       choices = {
-        { text = "A small wound to heal a greater one. Agreed.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Ask the druids first. It's their mountain.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A small wound to heal a greater one. Agreed.", next = "BACK", reply = "Then you understand the hard arithmetic of this mountain, and I am glad, because the druids will not do it for me and the demons will not wait.", fx = { align = { order = -1 } } },
+        { text = "Ask the druids first. It's their mountain.", next = "BACK", reply = "I have asked, and they answered with frowns and long silences, but you are right that it is their mountain, so I will ask again and listen better.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -187,7 +187,7 @@ P:NPC {
     xarkul = {
       lines = {
         { id = "xk_default", text = "A doomguard named Xarkul, who has made Dae'gun his kingdom since the battle. The lesser demons answer to him, and when he falls, they will scatter like crows." },
-        { id = "xk_dead", when = { questDone = TODO_QUEST("Yashiro's Windwalk") }, text = "Xarkul was a doomguard who made Dae'gun his kingdom, and now he is a carcass that Marrosis would probably refuse to eat. The lesser ones are scattering, and I will hunt them as they go." },
+        { id = "xk_dead", when = { questDone = TODO_QUEST("Yashiro's Windwalk") }, text = "Xarkul was a doomguard who made Dae'gun his kingdom, and now he is a carcass that even Marrosis, the vulture at Mourning's Rest, would refuse to eat. The lesser ones are scattering, and I will hunt them as they go." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -207,8 +207,8 @@ P:NPC {
         { id = "dc_default", text = "Thrall brought us across the sea and up this mountain to stand with the humans and the night elves, enemies who had every reason to want us dead. We held our ground until the end, and now demons sleep where our warriors slept, and that is why I light the fires there first." },
       },
       choices = {
-        { text = "That alliance should have lasted.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Alliances of need end when the need does.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That alliance should have lasted.", next = "BACK", reply = "It should have, and I was there to see it stand, which makes it all the harder to watch it fall apart over trees and old grudges.", fx = { align = { honor = 1 } } },
+        { text = "Alliances of need end when the need does.", next = "BACK", reply = "Perhaps, and the Horde has learned that lesson too often, but I would like to believe something on this mountain was more than a bargain.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -228,8 +228,8 @@ P:NPC {
         { id = "ps_default", text = "A warrior who rages swings wide and dies tired. A blademaster waits until the enemy has shown him everything, and then he ends it in one stroke, and the stroke is the easy part; the waiting is the discipline." },
       },
       choices = {
-        { text = "Patience is the harder strength.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather strike first and keep striking.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience is the harder strength.", next = "BACK", reply = "It is, and few young warriors believe it until they have been cut by someone calmer than themselves, so remember you heard it from me first.", fx = { align = { order = 1 } } },
+        { text = "I'd rather strike first and keep striking.", next = "BACK", reply = "Then you will win many fights and lose the last one, young warrior, and I hope you learn otherwise before that one finds you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -246,8 +246,8 @@ P:NPC {
         { id = "xa_default", text = "We did. Your sorceress brought her people over the sea, and Thrall brought ours, and the night elves held the summit while we held the slopes. Now your people and mine kill each other in Ashenvale over firewood, and I wonder sometimes what the dead would make of it." },
       },
       choices = {
-        { text = "I'd fight beside the Horde again, gladly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Hyjal was one battle. Ashenvale is the war.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd fight beside the Horde again, gladly.", next = "BACK", reply = "Then you are rarer than you know, human, and if we ever stand on the same field again, I will be glad to see you on my side of it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Hyjal was one battle. Ashenvale is the war.", next = "BACK", reply = "You are probably right, and that is what grieves me, because I bled on this mountain beside your people and now I am told to forget it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -258,8 +258,8 @@ P:NPC {
         { id = "xh_priest", when = { class = "PRIEST" }, text = "A priest at my back, in Dae'gun. My grandfather would choke on his grog, but my grandfather never fought a doomguard, and I will take any light that keeps me standing." },
       },
       choices = {
-        { text = "Mend first. Glory can wait.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll keep you standing, and the demons won't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Mend first. Glory can wait.", next = "BACK", reply = "Wise words from a healer, and the shaman who saved me would have said the same, though he cursed me loudly the whole time he was doing it.", fx = { align = { light = 1 } } },
+        { text = "I'll keep you standing, and the demons won't.", next = "BACK", reply = "Then we will have a good fight, you and I, and the demons will learn that a blademaster with a healer at his back does not fall easily.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -269,8 +269,8 @@ P:NPC {
         { id = "xb_default", text = "I cannot teach you in a day what took me twenty years, but I can tell you where to start. Stop watching the blade in your enemy's hand and watch his feet instead, because the feet always tell you where the blade will be." },
       },
       choices = {
-        { text = "I'll learn it the patient way.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I learn faster by fighting. Point me at a demon.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll learn it the patient way.", next = "BACK", reply = "Good, because the patient way is the only way that lasts, and I will be watching your feet as closely as you watch theirs.", fx = { align = { order = 1 } } },
+        { text = "I learn faster by fighting. Point me at a demon.", next = "BACK", reply = "Hah, you sound as I did at your age, so go, and come back with your bruises, and then we will talk about watching feet again.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -280,8 +280,8 @@ P:NPC {
         { id = "xl_default", text = "I do not hate you, warlock, though I watch you. My people learned what demons give and what they take in return, and I hope you are wiser than we were, because we were not wise at all." },
       },
       choices = {
-        { text = "I command them. They never command me.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I know the price. I'll pay it carefully.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I command them. They never command me.", next = "BACK", reply = "That is what Gul'dan's warlocks told us, too, every one of them, and I watched what they became, so forgive me if I keep my hand near my blade.", fx = { align = { light = -1 } } },
+        { text = "I know the price. I'll pay it carefully.", next = "BACK", reply = "Then you are wiser than my people were, warlock, and I will trust you a little, though the demons on this mountain will test that promise.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -291,8 +291,8 @@ P:NPC {
         { id = "xo_default", text = "Because Orgrimmar has its own wars, and I could not ask anyone to carry my debts up a mountain. Hellscream broke the blood-curse with his own life, and I think every one of us owes the Legion something for that." },
       },
       choices = {
-        { text = "Then I'll stand with you. That's the Horde.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Debts are personal. Pay yours alone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll stand with you. That's the Horde.", next = "BACK", reply = "Lok'tar, then, and I am not too proud to say it warms me, because the fires are lonely up here and the debt is heavier with only one to carry it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Debts are personal. Pay yours alone.", next = "BACK", reply = "You are right, I suppose, and that is why I came alone, but it is a colder truth than I expected to hear from another orc.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -300,7 +300,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I know blades and demons and the slopes between here and Dae'gun. Ask about those, and I will answer honestly." },
+      { id = "tp_knows", text = "I know blades and demons and the slopes between here and Dae'gun. Ask about those, and you will get a straight answer." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Ask, if you must. I will decide if the question deserves an answer." },
     },
     background = { { id = "tp_bg", text = "I was born in the camps, freed by Thrall, and taught the blade by an old master who never told me his true name. That is all of my story worth telling." } },

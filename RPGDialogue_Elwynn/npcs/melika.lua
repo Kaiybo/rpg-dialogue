@@ -17,14 +17,14 @@ P:NPC {
     { id = "g_busy", text = "Sit wherever there's a chair. I'll get to you." },
     { id = "g_regular", when = { timesTalked = { min = 3 } }, text = "Same table as last time? It's free, for once." },
     { id = "g_home", when = { homeInn = { "Goldshire", "Lion's Pride Inn" } }, text = "Back already? Your bed's where you left it, and I've aired it." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Kitchen's shut, fire isn't. Keep your voice down, the upstairs is asleep." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The kitchen's shut, but the fire isn't. Keep your voice down, because the upstairs is asleep." },
   },
 
   notice = {
     { id = "n_cat", cat = "form", place = "before", when = { form = "cat" },
       text = "Off the bench, puss. I only just wiped it." },
     { id = "n_bear", cat = "form", place = "before", when = { form = "bear" },
-      text = "A bear. In the main room. Farley's going to have something to say about his tables." },
+      text = "A bear, in the main room! Farley's going to have something to say about his tables." },
     { id = "n_travel", cat = "form", place = "before", when = { form = "travel" },
       text = "We stable animals out back, even the ones that talk." },
     { id = "n_road", cat = "road", place = "after", when = { minLevel = 18 },
@@ -41,10 +41,10 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "More than they'd like. A shaman sits like someone listening to the floor. You've earned your rest, I'd say." } },
+      lines = { { id = "xdsham_default", text = "More than they'd like. You, for one, sit like someone listening to the floor, and I'd say you've earned your rest." } },
       choices = {
-        { text = "A well-run inn is a blessing, Melika. Thank you.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll sit where I please. No need for fuss.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A well-run inn is a blessing, Melika. Thank you.", next = "BACK", reply = "Kind of you to notice, and Farley will never believe it. Sit by the fire and I'll bring you something warm.", fx = { align = { order = 1 } } },
+        { text = "I'll sit where I please. No need for fuss.", next = "BACK", reply = "Sit where you like, then, so long as it's not on the hearth. One of you tried that already.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -52,8 +52,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Some do and some don't, and the ones who don't come up at midnight wanting bread and cheese. I feed them all the same, because a guest is a guest, but I'll not have demons sitting on my benches." } },
       choices = {
-        { text = "A guest is a guest. That's fair of you, Melika.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My demon's better company than half your guests.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A guest is a guest. That's fair of you, Melika.", next = "BACK", reply = "Thank you, it's how I've always run things. Bread and cheese for anybody, and no demons on the benches.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My demon's better company than half your guests.", next = "BACK", reply = "Maybe so, but it's not paying for supper, so it can wait outside. Your table's by the window.", fx = { align = { light = -1 } } },
         { text = "Something else, Melika.", next = "BACK" },
       },
     },
@@ -61,8 +61,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Mud, mostly, and dented tables, and one who slept on the hearth and wouldn't be moved. They pay well and tip badly and come back every time, so I suppose I'm fond of them." } },
       choices = {
-        { text = "I'll keep the mud outside and the tables whole.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A little mud never hurt a tavern.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll keep the mud outside and the tables whole.", next = "BACK", reply = "Bless you for that, I'd be grateful. Farley might even smile.", fx = { align = { honor = 1 } } },
+        { text = "A little mud never hurt a tavern.", next = "BACK", reply = "It never hurt the tavern, no, only my back with all the scrubbing. Boots off at the door, if you would.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -70,20 +70,20 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Out the back by the woodpile, where Farley won't trip on it. I'll put out the scraps after the supper rush, and if it's polite, there'll be a bone in it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is polite enough, I suppose. Better than some of Farley's guests, who track mud up my stairs and sing." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Out the back by the woodpile, where Farley won't trip on it, and I'll put out the scraps after the supper rush. Your {pet} is polite enough, I suppose, and better than some of Farley's guests, who track mud up my stairs." },
       },
       choices = {
-        { text = "I'll keep it in the yard and out of your way.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "It's well trained. It can eat where I eat.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep it in the yard and out of your way.", next = "BACK", reply = "Thank you, I'll make sure it gets a bone. It's always the polite ones who get the best scraps.", fx = { align = { order = 1 } } },
+        { text = "It's well trained. It can eat where I eat.", next = "BACK", reply = "Not at my tables, it can't, trained or not. The woodpile's a fine place for a dinner.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Sylvius's students practice in the common room when they think nobody's watching, and I watch everything that happens in here. I don't mind you learning your trade, but I do mind boot marks on clean wood." } },
+      lines = { { id = "xrogue_default", text = "Keryn Sylvius's students practice in the common room when they think nobody's watching, and I watch everything that happens in here. I don't mind you learning your trade, but I do mind boot marks on clean wood." } },
       choices = {
-        { text = "I'll practice elsewhere and leave your benches clean.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your benches are perfect cover. I'll keep using them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll practice elsewhere and leave your benches clean.", next = "BACK", reply = "Thank you, and I'll keep quiet about what I've seen. That's how we get along, you and I.", fx = { align = { order = 1 } } },
+        { text = "Your benches are perfect cover. I'll keep using them.", next = "BACK", reply = "Then I'll keep a rag handy and a close eye on you. You'll find I'm better at watching than most.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -91,8 +91,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Not since he moved in, because he says the common room's too loud for thinking, and Farley says that's what a common room is for. I take it up and he forgets to eat it, so I suppose I'm feeding the rats as well." } },
       choices = {
-        { text = "I'll take his supper up and see he eats it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If he won't come down, let him go hungry.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take his supper up and see he eats it.", next = "BACK", reply = "Would you? He'd be grateful, though he'd never say it. Take the bread and the cheese both.", fx = { align = { honor = 1 } } },
+        { text = "If he won't come down, let him go hungry.", next = "BACK", reply = "I've thought of it, believe me, but Farley would never let me. Somebody has to keep him alive.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -100,17 +100,17 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Not that I'd say out loud, though there are folk who come up from the cellar at odd hours, and I don't like the way they look at the kitchen. Farley says they're harmless, and Falkhaan says to keep my knife handy, and I believe Falkhaan." } },
       choices = {
-        { text = "Then I'll watch them, and see the law kept.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "If they've done nothing, they're free to come and go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll watch them, and see the law kept.", next = "BACK", reply = "I'd sleep better for it, and so would the kitchen. Falkhaan will be glad of the help.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If they've done nothing, they're free to come and go.", next = "BACK", reply = "I suppose they are, and I'll keep my knife handy anyway. A girl can't be too careful.", fx = { align = { order = -1 } } },
         { text = "Something else, Melika.", next = "BACK" },
       },
     },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit by the door, if you would, because Farley gets nervous when the cellar folk come up for supper." },
-        { id = "h_default", text = "Melika. Farley talks to the guests, I feed them. What do you need?" },
+        { id = "h_default", text = "I'm Melika. Farley talks to the guests and I feed them, so what do you need?" },
         { id = "h_rest", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rest and Relaxation"), days = 1 } },
-          text = "Falkhaan sent you up the road? He sends all the tired ones. Farley gets the thanks and I get the dishes." },
+          text = "Falkhaan sent you down the road? He sends all the tired ones here. Farley gets the thanks and I get the dishes." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "One of the sky folk! We don't get many through Goldshire. Is it true your people came down out of the clouds, or is that Remy talking?" },
         { id = "h_sky_druid", when = { race = "Skyborne", class = "DRUID" },
@@ -118,13 +118,13 @@ P:NPC {
         { id = "h_visitor", when = { minLevel = 18 },
           text = "You're past Goldshire's usual sort. Passing through, or did the road bring you back?" },
         { id = "h_liked", when = { townStanding = { town = "goldshire", min = 30 } },
-          text = "Folk talk about you in here. Mostly kindly. I'd keep it that way." },
+          text = "Folk talk about you in here, mostly kindly, and I'd keep it that way." },
         { id = "h_distrust", when = { townStanding = { town = "goldshire", max = -20 } },
-          text = "I'll serve you. Don't make me sorry I did." },
+          text = "I'll serve you, but don't make me sorry I did." },
         { id = "e_farley_cart", when = { heardLine = "farley.r_hogger" },
-          text = "Did Farley tell you about the hunter on the cart? He tells it every night. The cart gets longer every time." },
+          text = "Did Farley tell you his story about the hunter on the cart? He tells it every night, and the cart gets longer every time." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "Josetta's upstairs, if it's her you're after. If it's supper, it's me. Most priests want both, in that order." },
+          text = "Priestess Josetta's upstairs, if it's her you're after. If it's supper, it's me. Most priests want both, in that order." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Mind the bench, rogue, because I polish it every morning and I can tell when someone's been crouching behind it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -152,14 +152,14 @@ P:NPC {
         { text = "Will you let my beast eat in the yard, at least?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is anyone in Goldshire in danger, Melika?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do warlocks from the cellar eat with the other guests, Melika?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "You seem to notice a great deal about your guests, Melika.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You seem to notice everything about your guests, Melika.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
       },
     },
 
     kitchen = {
       lines = {
         { id = "k_default", text = "Mutton stew, this morning's bread, and a cheese that's better than both. Dobbins has the ale, but don't let him choose it for you." },
-        { id = "k_night", when = { timeOfDay = "night" }, text = "Kitchen's shut. There's bread, if you don't mind yesterday's." },
+        { id = "k_night", when = { timeOfDay = "night" }, text = "The kitchen's shut, but there's bread, if you don't mind yesterday's." },
       },
       choices = {
         { text = "Who does the cooking?", next = "kitchen_cook" },
@@ -169,7 +169,7 @@ P:NPC {
     },
     kitchen_cook = {
       lines = {
-        { id = "kc_default", text = "Tomas. He cooks, Dobbins pours, Toddrick cuts the meat, Farley talks. I carry it all and taste the stew when Tomas isn't looking." },
+        { id = "kc_default", text = "Tomas does. He cooks, Dobbins pours, Toddrick cuts the meat and Farley talks, and I carry it all and taste the stew when Tomas isn't looking." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -179,14 +179,14 @@ P:NPC {
         { id = "w_default", text = "The Westfall wagons come in short a crate or two. Everyone blames the Defias, and nobody's been wrong yet.",
           fx = { learn = { "defias" } } },
         { id = "w_hogger", when = { questBefore = TODO_QUEST("WANTED: \"Hogger\"") },
-          text = "Hogger again. Half the room wants him dead and the other half's scared of him. Same half, mostly.",
+          text = "Hogger again. The whole room wants him dead, and the whole room's scared of him, and they're the same men.",
           fx = { learn = { "hogger" } } },
         { id = "w_hogger_done", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
-          text = "Since Hogger went down, the hunters drink to celebrate instead of to forget. Better for the floor." },
+          text = "Since Hogger went down, the hunters drink to celebrate instead of to forget, which is better for my floor." },
         { id = "w_murlocs", when = { heardClaim = "murlocs_in_elwynn" },
-          text = "Remy's murlocs? He's told every table. I'll believe it when one orders a drink." },
+          text = "Remy's murlocs? He's told every table about them, and I'll believe it when one orders a drink." },
         { id = "w_lovers", when = { topicKnown = "maybell_tommy" },
-          text = "Maybell Maclure's been in twice this week, both times when William was. I clear their table slowly." },
+          text = "Maybell Maclure's been in twice this week, both times when William Pestle was, and I clear their table slowly." },
       },
       choices = {
         { text = "Who'd know more?", next = "news_more" },
@@ -196,7 +196,7 @@ P:NPC {
     },
     news_more = {
       lines = {
-        { id = "nm_default", text = "Farley, if you've an hour. Remy, if you've two and don't mind hearing it twice. The Marshal, if you want it true and short." },
+        { id = "nm_default", text = "Ask Farley, if you've an hour, or Remy, if you've two and don't mind hearing it twice. Ask Marshal Dughan if you want it true and short." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -222,7 +222,7 @@ P:NPC {
 
     farley = {
       lines = {
-        { id = "fa_default", text = "Loud, kind, and he'll tell every guest his family's kept this inn since the first King Llane. I've heard it a thousand times. It's still true." },
+        { id = "fa_default", text = "He's loud and kind, and he'll tell every guest his family's kept this inn since the first King Llane. I've heard it a thousand times, and it's still true." },
       },
       choices = {
         { text = "He never seems to stop talking.", next = "farley_quiet" },
@@ -253,27 +253,27 @@ P:NPC {
         { id = "ro_default", text = "Then sit and tell me one thing worth hearing. Everyone who comes back down that road has one. Most have three and tell the worst." },
       },
       choices = {
-        { text = "The sea's bigger than you'd think.", next = "BACK", fx = { affinity = 2 } },
+        { text = "The sea's bigger than any map makes it look.", next = "BACK", fx = { affinity = 2 } },
         { text = "Nothing out there beats a bed in Goldshire.", next = "BACK", fx = { affinity = 2, standing = { goldshire = 1 } } },
       },
     },
 
     healer = {
       lines = {
-        { id = "he_default", text = "Dobbins scalded his hand on the kettle this morning and won't admit it. Go and have a look. Don't tell him I sent you." },
+        { id = "he_default", text = "Dobbins scalded his hand on the kettle this morning and won't admit it, so go and have a look, and don't tell him I sent you." },
       },
       choices = {
-        { text = "I'll see to him.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { goldshire = 1 } } },
-        { text = "Dobbins is a grown man, and he can come to me himself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll see to him.", next = "BACK", reply = "Thank you, and mind you don't let on. He's proud about his kettle.", fx = { affinity = 2, align = { light = 1 }, standing = { goldshire = 1 } } },
+        { text = "Dobbins is a grown man, and he can come to me himself.", next = "BACK", reply = "He won't, you know, he'll just keep scalding himself. Never mind, I'll see to it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I carry plates at the Lion's Pride, and I'm Falkhaan's family. That's all anybody needs to know, and more than Remy does." } },
+    background = { { id = "tp_bg", text = "I carry plates at the Lion's Pride, and I'm Falkhaan's family. That's all anybody needs to know." } },
     advice = { { id = "tp_ad", text = "Eat before you go out, not after. You'll fight better and I'll have fewer people fainting into the stew." } },
-    lions_pride = { { id = "t_inn", text = "Upstairs for sleeping, downstairs for everything else. Farley's family has kept it for generations, and he'll name every one of them." } },
+    lions_pride = { { id = "t_inn", text = "Upstairs for sleeping, downstairs for everything else. Farley's family has kept it for generations, and he'll name them all, back to his great-great-grandfather." } },
     hogger = { { id = "t_hogger", text = "Big, mean and southwest of here. Don't go alone, and don't go hungry." } },
     defias = { { id = "t_defias", text = "Red bandanas. They don't wear them in here. That doesn't mean they aren't in here." } },
     murlocs_east = { { id = "t_murlocs", text = "Ask Remy, and then ask anyone else." } },

@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_quiet", text = "Keep your voice down. The Council could walk through that door any moment." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back to Pyrewood on purpose. Either you're brave, or you like the way I keep a room." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back to Pyrewood on purpose. Either you're brave, or you've come to help me finish the job." },
     { id = "g_ready", when = { questActive = TODO_QUEST("Pyrewood Ambush") }, text = "Be ready. They come in waves, and the Lord Mayor always arrives last, as if he were too important to die early." },
     { id = "g_done", when = { questDone = TODO_QUEST("Pyrewood Ambush") }, text = "The Council's chairs are still empty. I like them that way." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and Pyrewood didn't miss you, though I'll admit I did, a little. Lurking alone gets dull." },
@@ -36,13 +36,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Deathstalker Faerleia, on the Dark Lady's business. You've arrived just in time, because the Pyrewood Council will be back soon, Arugal's puppets every one, and I can't take them all by myself." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Pyrewood Ambush") },
-          text = "Arugal has better things to do in his keep than mind a village, so he rules Pyrewood through its Council. Cut the Council down, and I think his sons will turn on him." },
+          text = "Arugal has better things to do in his keep than mind a village, so he rules Pyrewood through its Council. Cut the Council down, and I think his worgen will turn on him." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Pyrewood Ambush"), days = 3 } },
           text = "You fought like a true disciple of the Dark Lady. With the Council dead, the Sepulcher has a chance to take this town and drive Arugal out of Shadowfang." },
         { id = "h_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep" },
           text = "Arugal's dead, they're saying at the Sepulcher, and you were there. I'd hoped to do it myself, but I'll settle for having helped you get up the hill." },
         { id = "h_rogue", when = { class = "ROGUE", race = "Scourge" },
-          text = "One of Varimathras's own, or near enough. Then you'll understand why I'm sitting in the dark in an enemy town hall and enjoying it." },
+          text = "A rogue, and one of the Dark Lady's own. Then you'll understand why I'm sitting in the dark in an enemy town hall and enjoying it." },
       },
       again = {
         { id = "h_again", text = "Quickly. I'm listening for footsteps as well as you." },
@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "cf_default", text = "That's the idea. Some of them were good townsfolk once, I don't doubt, but Lady Sylvanas has no use for a village that howls at the Sepulcher's door every night." } },
       choices = {
-        { text = "Then it's a mercy to end it quickly.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Mercy doesn't come into it. They chose Arugal.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Then it's a mercy to end it quickly.", next = "BACK", reply = "Quickly, yes, and without speeches. The Dark Lady prefers her mercy brief and her villages empty.", fx = { align = { light = 1 } } },
+        { text = "Mercy doesn't come into it. They chose Arugal.", next = "BACK", reply = "They did, every one of them, when they barred their doors to us and opened them to him. I'll waste no tears on Pyrewood.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -136,7 +136,7 @@ P:NPC {
     worgen = { { id = "tp_worgen", text = "They come out of Pyrewood's windows at night and go back in at dawn. Draw your own conclusions; mine are already drawn." } },
     shadowfang = { { id = "tp_shadowfang", text = "Arugal sits in Shadowfang Keep and calls the worgen his children, and Pyrewood pays for his madness every night. Cut the strings in the village, and the keep will start to shake." } },
     gilneas = { { id = "tp_gilneas", text = "The Gilneans walled themselves off from Lordaeron before the plague ever came, and they let us all die on the other side. Some of their wall's shadow still falls on Pyrewood." } },
-    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages squat in Ambermill as though Silverpine were theirs to take. They're rebuilding their city behind its shields, and they've decided they want a garden." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages squat in Ambermill as though Silverpine were theirs to take. They're rebuilding their city behind its shields, and now they want the forest around it as well." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady sends her Deathstalkers where others won't go, and I go where I'm sent. That's the whole of it." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken can wait in a dark room for days without growing bored or restless. It's the one trick the living can never learn." } },
     _none = { { id = "tp_none", text = "Not my concern while the Council's alive. Ask me again when they aren't." } },

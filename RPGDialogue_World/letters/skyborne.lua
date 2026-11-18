@@ -16,7 +16,7 @@ P:Letter {
   id = "origin_skyborne_high_order_2", from = "Magister Caelaanor Vey", stranger = true, delay = 2400,
   when = { origin = "skyborne_high_order", cleared = "Scarlet Monastery" },
   subject = "The library at Tirisfal",
-  body = "{name},\n\nWord reached the Enclave that you forced your way into the Scarlet Monastery and walked through its library. I confess that my first question was not whether you were hurt but whether you had read anything, and I am ashamed of that, a little.\n\nThe Crusade keep their books the way a miser keeps his coin, which is to say badly and with a great deal of shouting. If you saw anything older than the human kingdoms on those shelves, I would like a description of the binding, the script and the smell of the pages, because forgeries never smell right.\n\nI am glad you are alive. I mention it second only because you already knew that.\n\nCaelaanor",
+  body = "{name},\n\nWord reached the Enclave that you forced your way into the Scarlet Monastery and walked through its library. I confess that my first question was not whether you were hurt but whether you had read anything, and I am ashamed of that, a little.\n\nThe Crusade keep their books the way a miser keeps his coin, which is to say badly and with a lot of shouting. If you saw anything older than the human kingdoms on those shelves, I would like a description of the binding, the script and the smell of the pages, because forgeries never smell right.\n\nI am glad you are alive. I mention it second only because you already knew that.\n\nCaelaanor",
 }
 
 ---------------------------------------------------------------------------
@@ -67,7 +67,7 @@ P:Letter {
   id = "origin_skyborne_thendal_ranger_2", from = "Elaaria Whisperwind", stranger = true, delay = 2400,
   when = { origin = "skyborne_thendal_ranger", minLevel = 20 },
   subject = "You were right",
-  body = "{name},\n\nYour letters made me jealous enough that I took the skydock down for a week to see a mainland forest for myself. You were right, and I am annoyed about it. The trees went on until I could not see the end of them, and the birds sang songs I did not know, and I got completely lost twice in a single afternoon.\n\nI came back to Thendal with burrs in my cloak and a new respect for you. The grove felt very small when I returned, and very dear.\n\nThe offended rabbit has been seen again near the stream. He seems to have forgiven nobody, which I respect.\n\nElaaria",
+  body = "{name},\n\nYour letters made me jealous enough that I took passage down from the skydock for a week to see a mainland forest for myself. You were right, and I am annoyed about it. The trees went on until I could not see the end of them, and the birds sang songs I did not know, and I got completely lost twice in a single afternoon.\n\nI came back to Thendal with burrs in my cloak and a new respect for you. The grove felt very small when I returned, and very dear.\n\nThe offended rabbit has been seen again near the stream. He seems to have forgiven nobody, which I respect.\n\nElaaria",
 }
 
 ---------------------------------------------------------------------------
@@ -186,7 +186,7 @@ P:Letter {
   id = "origin_skyborne_siroccas_cliff_hunter_2", from = "Vaanir Longshot", stranger = true, delay = 2400,
   when = { origin = "skyborne_siroccas_cliff_hunter", minLevel = 20 },
   subject = "A wager",
-  body = "{name},\n\nThe whole village is talking about your shooting, which I find very irritating, since they never talked about mine. I have a wager with the fisherman's wife that you can now hit a target at fifty paces with no wind to help you, and I would like you to prove me right as soon as you can.\n\nThe birds still own the ledges. I have stopped shooting at them and started feeding them instead, which is a great deal cheaper in arrows. They seem to prefer this arrangement as well.\n\nThe cliffs are still here, and the wind is as fickle as ever. Come and show the village how a {class} shoots when the sky is no longer doing half the work.\n\nVaanir",
+  body = "{name},\n\nThe whole village is talking about your shooting, which I find very irritating, since they never talked about mine. I have a wager with the fisherman's wife that you can now hit a target at fifty paces with no wind to help you, and I would like you to prove me right as soon as you can.\n\nThe birds still own the ledges. I have stopped shooting at them and started feeding them instead, which costs me far fewer arrows. They seem to prefer this arrangement as well.\n\nThe cliffs are still here, and the wind is as fickle as ever. Come and show the village how a {class} shoots when the sky is no longer doing half the work.\n\nVaanir",
 }
 
 ---------------------------------------------------------------------------
@@ -213,7 +213,7 @@ P:Letter {
   id = "origin_skyborne_windstone_runner_1", from = "Someone who owes you", stranger = true, delay = 1200,
   when = { origin = "skyborne_windstone_runner", minLevel = 6 },
   subject = "A small matter",
-  body = "{name},\n\nYou left before I could pay you for the last run to Shen'dramar, and I want you to know that I have not forgotten, which is more than most people in our line of work can say. I have also not paid, because you are not here, which is very convenient for me.\n\nThe Council has started counting windstones at the skydocks, so the old routes have gone cold. Half the runners I know have taken up honest work. The other half are worse at hiding than they think.\n\nIf you find a mainland trade worth the risk, keep it to yourself. Silence was the only thing we ever sold that held its value.\n\nSomeone who owes you",
+  body = "{name},\n\nYou left before I could pay you for the last run to Shen'dramar, and I want you to know that I have not forgotten, and in our line of work remembering a debt is rarer than paying one. I have also not paid, because you are not here, which is very convenient for me.\n\nThe Council has started counting windstones at the skydocks, so the old routes have gone cold. Most of the runners I know have taken up honest work, and the few who haven't are worse at hiding than they think.\n\nIf you find a mainland trade worth the risk, keep it to yourself. Silence was the only thing we ever sold that held its value.\n\nSomeone who owes you",
 }
 
 P:Letter {
@@ -298,7 +298,7 @@ P:Letter {
   id = "origin_skyborne_former_alaketh_1", from = "Naavira", stranger = true, delay = 1200,
   when = { origin = "skyborne_former_alaketh", minLevel = 6 },
   subject = "Your hair",
-  body = "{name},\n\nI saw you leave Gev'rek with your hair grown out and the grey robes gone, and I wanted to tell you that I noticed, and that I was glad. I left the Al'Aketh too, a little after you did, though I did not have the courage to go as far.\n\nSome of the Windshapers still look at me as if I might light another beacon. I do not blame them. I would watch me too, if I were them.\n\nWe were told that the Windlord would lift us up. Instead we nearly brought him down upon everyone we loved. Do good work out there, {name}, and do enough of it that one day people forget the robes.\n\nNaavira",
+  body = "{name},\n\nI saw you leave Gev'rek with your hair grown out and the grey robes gone, and I wanted to tell you that I noticed, and that I was glad. I left the Al'Aketh too, a little after you did, though I did not have the courage to go as far.\n\nSome of the Windshapers still look at me as if I might light another beacon for the Windlord. I do not blame them. I would watch me too, if I were them.\n\nWe were told that the Windlord would lift us up. Instead we nearly brought him down upon everyone we loved. Do good work out there, {name}, and do enough of it that one day people forget the robes.\n\nNaavira",
 }
 
 P:Letter {

@@ -31,14 +31,14 @@ P:NPC {
     { id = "n_stealth", cat = "stealth", place = "replace", when = { stealthed = true },
       text = "I heard you at the door, and at the bar, and just now. You want to work on that." },
     { id = "n_watch", cat = "watch", when = { questDone = TODO_QUEST("Red Leather Bandanas") },
-      text = "You've been collecting bandanas for Galiaan. Folk who wear them have started asking who you are. Thought you'd want to know." },
+      text = "You've been collecting red bandanas for Scout Galiaan at Sentinel Hill, and the men who wear them have started asking who you are. Thought you'd want to know." },
   },
 
   start = "hello",
   nodes = {
     op_militia = {
       lines = {
-        { id = "op_militia_a", text = "Honestly? You don't get that from me for free, but I'll trade. Farmers with pitchforks holding a hill against men who build things under mountains. I've my view, so let's hear yours first." },
+        { id = "op_militia_a", text = "My opinion? You don't get that from me for free, but I'll trade. It's farmers with pitchforks holding a hill against men who build things under mountains. I've my view, so let's hear yours first." },
       },
       choices = {
         { text = "They're the bravest men in the kingdom. I'd stand with them.", next = "op_militia_1", fx = { opinion = { peoples_militia = "admire", westfall = "abandoned" }, align = { honor = 1 }, trait = { brave = 1 } } },
@@ -61,10 +61,10 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Honesty, mostly, and patience. A shaman might have both, but I'll judge you." } },
+      lines = { { id = "xdsham_default", text = "Honesty, mostly, and patience. A shaman might have both, but I'll be the judge of that." } },
       choices = {
-        { text = "Then I'll earn it honestly, Wiley.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Keep your secrets. I'll find my own way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll earn it fair and square, Wiley.", next = "BACK", reply = "Honestly is the slow road, shaman, and the slow road suits me. Come back when you've walked a bit of it, and we'll see.", fx = { align = { honor = 1 } } },
+        { text = "Keep your secrets. I'll find my own way.", next = "BACK", reply = "Suit yourself, and mind the gnolls on the way. Everybody finds their own way eventually, though most of them find it face down.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -72,36 +72,36 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They hire anyone who can swing a weapon and keep their mouth shut, and most warriors can do one of those. Stoutmantle would pay you better, but the Brotherhood pays sooner, and some folk prefer that." } },
       choices = {
-        { text = "I'll fight for Stoutmantle. The Defias get nothing from me.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Sooner pay sounds better. I'll hear their offer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight for Stoutmantle. The Defias get nothing from me.", next = "BACK", reply = "Good, because Gryan saved my neck once and I'd hate to see you sold for less than he paid. Just keep your eyes open at Sentinel Hill.", fx = { align = { honor = 1 } } },
+        { text = "Sooner pay sounds better. I'll hear their offer.", next = "BACK", reply = "Of course you will, and they'll be glad of the sword. I'll be sure to tell Gryan which side of the ledger you landed on.", fx = { align = { honor = -1 } } },
         { text = "Something else, Wiley.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "That the gnolls know them better than the guard does, and the Blackrock know them better than the gnolls. A hunter who can track a gnoll back to its camp could learn a great deal, and I'd pay to hear it." },
+        { id = "xhuntcl_default", text = "That the gnolls know them better than the guard does, and the Blackrock know them better than the gnolls. A hunter who can track a gnoll back to its camp could learn who's paying whom, and I'd pay to hear it." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its eye on my drink, {class}, and it can have the rest, because I don't like the look of it either." },
       },
       choices = {
-        { text = "I'll take what I learn to the Marshal, not to you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If the price is right, I'll tell you everything.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take what I learn to the Marshal, not to you.", next = "BACK", reply = "The Marshal, eh? Then you're honest, and honest men are cheap to read. I'll hear it from him eventually anyway.", fx = { align = { honor = 1 } } },
+        { text = "If the price is right, I'll tell you everything.", next = "BACK", reply = "Now we're talking the same language, hunter. Bring me the camps and the counts, and we'll see what they're worth.", fx = { align = { honor = -1 } } },
         { text = "Something else, Wiley.", next = "BACK" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Pillagers, they call them, with more fire than sense and a habit of singeing their own boots. I could tell you which of them matter, but nothing I know comes free." } },
       choices = {
-        { text = "Name your price. Information is information.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll not trade favours with the Defias.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Name your price. Information is information.", next = "BACK", reply = "Glad someone in this inn has sense. Sit down and keep your voice low, and we'll discuss what you can afford.", fx = { align = { honor = -1 } } },
+        { text = "I'll not trade favours with the Defias.", next = "BACK", reply = "Then you'll go in blind, mage, and you'll come back singed like they do. That's your choice, not mine.", fx = { align = { honor = 1 } } },
         { text = "What favour do you want?", next = "favor" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "Am I? Funny, I didn't think your sort had any light to stand in. Sit down, then, because anyone who frightens the Brotherhood is someone I might want to talk to." } },
       choices = {
-        { text = "Talk, then, and I'll keep the dark off you.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "I'm no friend of the Defias or their shadows.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Talk, then, and I'll keep the dark off you.", next = "BACK", reply = "Keep the dark off me? That's the kindest threat I've heard all week. Pull up a chair, then, and don't let anything sit on my shoulder.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'm no friend of the Defias or their shadows.", next = "BACK", reply = "Nor am I, though I'll admit I've drunk with a few. Run along, then, and frighten them for me, since you're good at it.", fx = { align = { light = 1 } } },
         { text = "Who leads the Defias?", next = "leader" },
       },
     },
@@ -115,8 +115,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Gryan might, though he'd never admit it, and that's about the whole list. I've done things that wouldn't sit well in a sermon, priest, so if you're thinking of starting one, you'll find I've heard better." } },
       choices = {
-        { text = "Then I'll pray for you anyway, Wiley. No one's beyond it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some men aren't worth the breath. I'll save mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll pray for you anyway, Wiley. No one's beyond it.", next = "BACK", reply = "Waste it on me if you like, priest, but don't expect me to feel any better for it. The ale does that job well enough.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some men aren't worth the breath. I'll save mine.", next = "BACK", reply = "Finally, a priest with some sense of thrift. You and I might get along after all.", fx = { align = { light = -1 } } },
         { text = "Something else, Wiley.", next = "BACK" },
       },
     },
@@ -124,8 +124,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "It shouldn't, and that's why I only tell Gryan, who knows exactly how much to believe. What I know is true, but I don't tell all of it, and the parts I leave out are mine." } },
       choices = {
-        { text = "Then tell the Magistrate too. The law deserves the whole truth.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Keep your secrets, Wiley. Some things the law needn't hear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then tell the Magistrate too. The law deserves the whole truth.", next = "BACK", reply = "The Magistrate would have me hanged before he finished reading it. Gryan gets the truth, and the law gets whatever Gryan decides it can stomach.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep your secrets, Wiley. Some things the law needn't hear.", next = "BACK", reply = "You'd make a poor paladin and a fine friend, and I don't say that often. Leave the parts I keep to me, and we'll both sleep better.", fx = { align = { order = -1 } } },
         { text = "Something else, Wiley.", next = "BACK" },
       },
     },
@@ -137,7 +137,7 @@ P:NPC {
         { id = "h_defias", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Defias Brotherhood") },
           text = "Gryan did me a favor once, the kind you don't repay with coin. So I pay him in what I know about the Brotherhood, and you'd best listen close." },
         { id = "h_deadmines", when = { deed = "dungeon:The Deadmines" },
-          text = "Under Moonbrook, and back out again. I've heard a lot of stories about that place. Yours is the first one I believe." },
+          text = "You've been down into the Deadmines under Moonbrook, and back out again. I've heard a lot of stories about that place. Yours is the first one I believe." },
         { id = "h_rude", when = { trait = "witty" },
           text = "Clever mouth. I like a clever mouth, but Gryan doesn't; Gryan likes manners, and that's why he needs me." },
         { id = "h_price", when = { metBefore = true }, text = "You're back, good. I've heard three new things since yesterday, and one of them's even true; guess which." },
@@ -149,7 +149,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. That beast of yours is in my light as well, and it's bigger than you, so I'll let it stay." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you're here to save me, you're standing in my light, and I'm not for saving." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You walked in like the law, and that's twice as bad as walking in like a warrior." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You're in my light. A shaman. Hmm. I'll share what I know only if you deserve it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You're in my light, shaman. I'll share what I know only if you deserve it." },
       },
       again = {
         { id = "h_again", text = "Something else? Keep your voice down, the floor's thin." },
@@ -194,7 +194,7 @@ P:NPC {
     network = {
       big = true,
       lines = {
-        { id = "nw_default", text = "Every mine from Westfall to Elwynn, with kobolds and gnolls doing the digging. Goblins build the metal scarecrows for the fields. And the tunnels run closer to the Keep than anyone likes.",
+        { id = "nw_default", text = "They hold every mine from Westfall to Elwynn, with kobolds and gnolls doing the digging and goblins building their iron golems. And the tunnels run closer to the Keep than anyone likes.",
           fx = { learn = { "defias", "harvest_watchers" } } },
       },
       choices = {
@@ -222,7 +222,7 @@ P:NPC {
         { id = "f_default", text = "The kind that kept me breathing, and he's never let me forget it, or let me thank him properly. He thinks I'm rude, and I am." },
       },
       choices = {
-        { text = "What do you make of Gryan's militia, honestly?", next = "op_militia" },
+        { text = "What do you really make of Gryan's militia?", next = "op_militia" },
         { text = "Sounds like you respect him.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Sounds like you owe him.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "You sound like you were in some kind of trouble.", next = "favor_rot" },
@@ -234,7 +234,7 @@ P:NPC {
     },
 
     corner = {
-      lines = { { id = "c_default", text = "Sightlines: the door, the stairs, the window. And Daniels doesn't charge for the corner." } },
+      lines = { { id = "c_default", text = "It has sightlines to the door, the stairs and the window, and Daniels doesn't charge extra for it." } },
       choices = {
         { text = "Who's worth watching in here?", next = "watching" },
         { text = "Something else.", next = "BACK" },
@@ -256,14 +256,14 @@ P:NPC {
       },
     },
     vancleef = {
-      lines = { { id = "vc_default", text = "Then the masons lost their foreman. Doesn't mean they've stopped building. Check your exits for a while." } },
+      lines = { { id = "vc_default", text = "Then the masons lost their foreman, but that doesn't mean they've stopped building. Check your exits for a while." } },
       choices = {
         { text = "I always do.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     farm = {
-      lines = { { id = "fa_default", text = "Then you know more than my note does, and I'm sorry. I don't say that often, so take it while it's offered." } },
+      lines = { { id = "fa_default", text = "Then you know the Brotherhood better than anything I could tell you, and I'm sorry. I don't say that often, so take it while it's offered." } },
       choices = {
         { text = "Thank you, Wiley.", next = "BACK", fx = { affinity = 2 } },
         { text = "I don't want sorry. I want names.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { defias = "hardline" } } },

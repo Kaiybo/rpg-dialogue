@@ -7,7 +7,7 @@ P:Rumors {
   id = "stormwind_inns", roles = { "innkeeper" }, zones = { "Stormwind City" },
   lines = {
     { id = "king", text = "Nobody at the Keep will say where the king went, and the more they don't say it, the more people guess. My money's on the Defias, but my money's on everything." },
-    { id = "prestor", text = "Lady Prestor was at the Keep again, whispering in Bolvar's ear. Half the lords love her and the other half are too frightened to say they don't." },
+    { id = "prestor", text = "Lady Prestor was at the Keep again, whispering in Bolvar's ear. The lords fawn over her, and the ones who don't are too frightened to say so." },
     { id = "masons", text = "The stonemasons still haven't been paid for the city they built. Some of them have gone west, and some of them have gone quiet, and I don't like either." },
     { id = "tram", text = "A gnome rode the Deeprun Tram both ways forty times yesterday, taking notes. The guards asked what for, and he gave them a lecture." },
     { id = "orphans", text = "Matron Battlewail's had three more children brought to the orphanage this month. That's what a war leaves behind, long after the songs." },
@@ -19,7 +19,7 @@ P:Rumors {
 P:Rumors {
   id = "ironforge_inns", roles = { "innkeeper" }, zones = { "Ironforge", "Dun Morogh" },
   lines = {
-    { id = "magni", text = "The King's been pacing the throne room half the night, they say, over his daughter again. The princess ran off with a Dark Iron, and nobody's sure she went willing." },
+    { id = "magni", text = "King Magni's been pacing the throne room half the night, they say, over his daughter again. The princess ran off with a Dark Iron, and nobody's sure she went willing." },
     { id = "gnomes", text = "The gnomes in Tinker Town blew the lights out in three streets yesterday. They called it a successful test, and they meant it." },
     { id = "explorers", text = "The Explorers' League dug up another statue nobody can read. Brann wrote to say it was important, from somewhere very far off, as always." },
     { id = "gnomeregan", text = "There's still a smell of something wrong coming down the tunnels from Gnomeregan. The gnomes say it's the radiation, and they say it like that's better." },

@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Cave Mushrooms"), days = 3 } },
           text = "You have my mushrooms, and you have seen the cave. Tell me nothing yet, because if the Ancients feared it, it is Onu who should hear it first." },
         { id = "h_onu", tags = { "news" }, when = { questActive = TODO_QUEST("Onu") },
-          text = "Onu, an Ancient of Lore, knows you went to the falls and wishes to speak with you. The Ancients are patient beyond our understanding, so if he is in a hurry, I fear it is urgent." },
+          text = "Onu, an Ancient of Lore, knows you went to the falls and wishes to speak with you. The Ancients are patient beyond our understanding, so if he asks for you quickly, it must be urgent." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid. Then you may hear what the Ancients hear better than I can, and perhaps you will tell me whether I was a coward to stay away from that cave." },
       },
@@ -70,7 +70,7 @@ P:NPC {
     },
     potion_poison = {
       lines = {
-        { id = "pp_default", text = "In a large measure, certainly, and in a careless one. Most good medicines are poisons that someone measured patiently, which is why I do not let apprentices near the death caps." },
+        { id = "pp_default", text = "In a large measure, certainly, and in a careless one. Most good medicines are poisons that someone measured patiently, and so I keep the death caps on the top shelf, far from my apprentices." },
       },
       choices = {
         { text = "I'll be careful how I carry it.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -93,8 +93,8 @@ P:NPC {
         { id = "cs_default", text = "I did, and I will not pretend otherwise. You are an adventurer, and I am a potion-maker who would be killed by the first thing that looked at him, and Auberdine needs to know what is in that cave." },
       },
       choices = {
-        { text = "You did right. Someone had to look.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "You should have warned me plainly first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You did right. Someone had to look.", next = "BACK", reply = "Thank you, though it does not make me feel much better about sending you. I am glad you came back to say so.", fx = { align = { honor = -1 } } },
+        { text = "You should have warned me plainly first.", next = "BACK", reply = "Perhaps I should have, and I am sorry for it. Fear makes poor manners of us all, and mine were very poor.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,8 +134,8 @@ P:NPC {
         { id = "na_default", text = "Naga, behind our own falls? Then the Ancients were right to be afraid, and so am I. Whatever they are doing in there, the water runs down from that cave to every stream on this coast." },
       },
       choices = {
-        { text = "Then we drive them out before it spreads.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Let Onu advise us before anyone acts.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then we drive them out before it spreads.", next = "BACK", reply = "Then let it be done soon, and quietly, before the sickness reaches the deer at the shore. I will brew what I can for whoever goes.", fx = { align = { light = -1 } } },
+        { text = "Let Onu advise us before anyone acts.", next = "BACK", reply = "Onu is wise, and he is old, and he will take his time about it. I pray the water waits for him.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -144,7 +144,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A maker of potions, and a careful one. Careful people live long in Darkshore; I would like to be one of them." } },
     advice = { { id = "tp_ad", text = "When the Ancients warn you away from a place, believe them. Then, if you must go, go carefully." } },
-    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is the reason I'm careful. I've seen what it does to those who brewed it carelessly, and I'd rather be dull and alive." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is the reason I'm careful. I've seen what it does to those who brewed it carelessly, and a dull alchemist lives longer than a bold one." } },
     blackfathom = { { id = "tp_blackfathom", text = "The water near Blackfathom is fouled with something I can't name, and I don't want to name it. I keep my vials far from that coast." } },
     highborne = { { id = "tp_highborne", text = "Highborne alchemy was brilliant and reckless, and the ruins prove both. I've found their vials, and I've put them back where I found them." } },
     _none = { { id = "tp_none", text = "I could not say. Ask at the Grove of the Ancients, if you have the patience for the answer." } },

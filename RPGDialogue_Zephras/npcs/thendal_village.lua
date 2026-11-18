@@ -30,7 +30,7 @@ P:NPC {
     { id = "n_young", cat = "kin", when = { race = "Skyborne", maxLevel = 3 },
       text = "Look at you, so bright-eyed I could read by you. You only come of age once, so try to remember how today feels." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter! Tai'ree will want you before the day's out, and the Rangers will want you after that, so you'll be a busy one." },
+      text = "A hunter! Tai'ree, our hunter trainer, will want you before the day's out, and the Rangers will want you after that, so you'll be a busy one." },
     { id = "n_ranger", cat = "origin", when = { origin = "skyborne_thendal_ranger" },
       text = "I'd know a Ranger's walk anywhere: heel down, quiet, and always looking past whoever you're talking to." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -92,14 +92,14 @@ P:NPC {
         { id = "hl_default", text = "It means that wherever you go, the winds of home and everyone who held it before you go with you. Some people find that a comfort and some find it a weight, and I've never been able to decide which it is for me." },
       },
       choices = {
-        { text = "I'll carry it with honor, for everyone who held it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, trait = { kind = 1 } } },
-        { text = "It's a trinket. What I do with my own hands matters more.", next = "BACK", fx = { affinity = -1, align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "I'll carry it with honor, for everyone who held it.", next = "BACK", reply = "Then it's in good hands, and the winds of home will know it. Go to Rorian now.", fx = { affinity = 2, align = { honor = 1 }, trait = { kind = 1 } } },
+        { text = "It's a trinket. What I do with my own hands matters more.", next = "BACK", reply = "Your hands matter, aye, but they're not the only ones in this. The relic remembers even when you forget.", fx = { affinity = -1, align = { honor = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     nerves = {
       lines = {
-        { id = "ne_default", text = "It is a happy day, mostly! Our people have had a hard time of it, so we hold on to the good days with both hands. So tell me honestly, are you nervous, or are you hiding it very well?" },
+        { id = "ne_default", text = "It is a happy day, mostly! Our people have had a hard time of it, so we hold on to the good days with both hands. So tell me, are you nervous, or are you hiding it very well?" },
       },
       choices = {
         { text = "Terrified, if I'm honest.", next = "nerves_yes", fx = { affinity = 1, trait = { cautious = 1 } } },
@@ -136,7 +136,7 @@ P:NPC {
     },
     rorian2 = {
       lines = {
-        { id = "r2_default", text = "He doesn't like to see the gifts of our people wasted on games, and he'll tell you so, at length, if you're caught using them for fun. Myriaal gets that speech about once a week, and I'm fairly sure she's started to enjoy it." },
+        { id = "r2_default", text = "He doesn't like to see the gifts of our people wasted on games, and he'll tell you so, at length, if you're caught using them for fun. Myriaal, up on the watchtower, gets that speech about once a week, and I'm fairly sure she's started to enjoy it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -153,7 +153,7 @@ P:NPC {
     },
     pests = {
       lines = {
-        { id = "pe_default", text = "The vuldren were always docile, and now some of them are turning on people, and the cirrusflies are swarming in the east of the grove like nothing I've ever seen. Elatrell says it's the magic out of balance, and I've no better answer than hers." },
+        { id = "pe_default", text = "The vuldren were always docile, and now some of them are turning on people, and the cirrusflies are swarming in the east of the grove like nothing I've ever seen. Elatrell, who's been fighting the cirrusflies, says it's the magic out of balance, and I've no better answer than his." },
       },
       choices = {
         { text = "So what do the Rangers do about it?", next = "wildstance" },
@@ -166,8 +166,8 @@ P:NPC {
         { id = "ws_default", text = "We cull what we must and leave the rest be, though there are arguments every night about where that line ought to fall. Some of us want the grove kept neat and safe, and some say the wild was here before the village and we ought to make room for it." },
       },
       choices = {
-        { text = "Keep the grove safe. Cull whatever threatens the village.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The wild was here first. Give it room.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Keep the grove safe. Cull whatever threatens the village.", next = "BACK", reply = "That's one side of it, and a fair one with children in the village. I'll pass it along.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The wild was here first. Give it room.", next = "BACK", reply = "That's the other side, and it gets louder every night. The wild is listening, I think.", fx = { affinity = 1, align = { order = -1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -208,13 +208,13 @@ P:NPC {
       lines = {
         { id = "xor_default", text = "That's not a question for a ranger, and it's not one I'll answer for you either, because both orders have good people in them and both have done things I'd rather forget. The grove is the one place they don't fight, so I suppose my answer is to trust the grove." },
         { id = "xor_ho", when = { faction = "Alliance" },
-          text = "You're High Order, so you'll hear plenty about the Windshapers' faults from Falorne, and Ventaari will tell you all about yours. Both orders have good people and both have done things I'd rather forget, so I'll only say this: the grove is the one place they don't fight." },
+          text = "You're High Order, so you'll hear plenty about the Windshapers' faults from Falorne, your order's teacher here, and Ventaari of the Windshapers will tell you all about yours. Both orders have good people and both have done things I'd rather forget, so I'll only say this: the grove is the one place they don't fight." },
         { id = "xor_ws", when = { faction = "Horde" },
-          text = "You're with the Windshapers, so Ventaari will tell you all about the High Order's faults, and Falorne will tell you all about yours. Both orders have good people and both have done things I'd rather forget, so I'll only say this: the grove is the one place they don't fight." },
+          text = "You're with the Windshapers, so Ventaari will tell you all about the High Order's faults, and Falorne of the High Order will tell you all about yours. Both orders have good people and both have done things I'd rather forget, so I'll only say this: the grove is the one place they don't fight." },
       },
       choices = {
-        { text = "Then I'll keep the grove's peace, whatever my order says.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "My order first. The grove can look after itself.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Then I'll keep the grove's peace, whatever my order says.", next = "BACK", reply = "Good, and the grove will be grateful. Keep that in mind when your order calls.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "My order first. The grove can look after itself.", next = "BACK", reply = "Then you'll learn the hard way, I suppose. The grove is the only thing they share.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -242,7 +242,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know the grove's paths and most of the faces in the village, so ask and I'll help if I can." } },
     advice = { { id = "tp_ad", text = "Watch the edges of the paths, because they crumble, and never turn your back on a vuldren that's stopped eating." } },
-    windstones = { { id = "tp_stones", text = "Dalia's the one to ask about windstones. She knows where to look, and she'll tell you how precious they've become." } },
+    windstones = { { id = "tp_stones", text = "Dalia the Collector is the one to ask about windstones. She knows where to look, and she'll tell you how precious they've become." } },
     two_orders = { { id = "tp_orders", text = "The orders don't fight in the grove, and that's the most I'll say about them.", next = "xorders" } },
     al_aketh = { { id = "tp_aketh", text = "If you see grey robes and shaved heads near the village, tell Rorian or a Peacekeeper, and don't try anything clever on your own." } },
     _none = { { id = "tp_none", text = "Oh, that's beyond me, I'm afraid. Ask Rorian; he's forgotten more than I'll ever know." } },
@@ -274,7 +274,7 @@ P:NPC {
     { id = "n_shaman_out", cat = "class", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } },
       text = "The elements answer you, don't they? I can feel it from here, and I confess it makes me envious and glad in the same breath." },
     { id = "n_totem", cat = "origin", when = { origin = "skyborne_gevrek_totem_keeper" },
-      text = "You've the look of someone who tends totems for a living, careful with your hands and always glancing at the sky. Ayessa chose well." },
+      text = "You've the look of someone who tends totems for a living, careful with your hands and always glancing at the sky. Grand Skyseer Ayessa chose well." },
     { id = "n_alaketh", cat = "origin", when = { origin = "skyborne_former_alaketh" },
       text = "Your hair's still short at the roots, and I think I know why. You're among Windshapers now, and nobody here will hold the grey robes against you if you've really set them down." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
@@ -326,8 +326,8 @@ P:NPC {
         { id = "f2_default", text = "Then we go to the door ourselves. The burden falls to us to brave the elemental plane and bring the spirits home, and our survival depends on it, whatever the High Order says about standing on our own feet." },
       },
       choices = {
-        { text = "We owe them that. I'll go to the door with you.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, trait = { pious = 1 } } },
-        { text = "We should learn to live without them, not chase them.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "We owe them that. I'll go to the door with you.", next = "BACK", reply = "Then you'll go with me, and the spirits will know you when we find them. Thank you.", fx = { affinity = 2, align = { honor = 1 }, trait = { pious = 1 } } },
+        { text = "We should learn to live without them, not chase them.", next = "BACK", reply = "Some days I wonder if that's wisdom, and then I remember what we owe them. I'll keep going.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -389,8 +389,8 @@ P:NPC {
           text = "Your order means well, most of you, and you're clever, which is the trouble. You think the spirits can be replaced by spells, but I've lived beside both, and a spell has never once asked how I was." },
       },
       choices = {
-        { text = "You're right. Spells are tools, and the spirits were kin.", next = "BACK", fx = { affinity = 2, align = { order = -1 }, learn = { "two_orders" } } },
-        { text = "Spells answer when called. Your spirits stopped answering.", next = "BACK", fx = { affinity = -2, align = { order = 1 }, learn = { "two_orders" } } },
+        { text = "You're right. Spells are tools, and the spirits were kin.", next = "BACK", reply = "Thank you, child. It's good to hear it from someone so young.", fx = { affinity = 2, align = { order = -1 }, learn = { "two_orders" } } },
+        { text = "Spells answer when called. Your spirits stopped answering.", next = "BACK", reply = "They stopped, aye, but they never once lied to us. Give them time.", fx = { affinity = -2, align = { order = 1 }, learn = { "two_orders" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
@@ -398,7 +398,7 @@ P:NPC {
       lines = {
         { id = "xm_default", text = "Then you're luckier than any of us, and I hope you never learn what the silence is like. Is it true that your elements simply answer when you call, without any bargaining or pleading?" },
         { id = "xm_tauren", when = { race = "Tauren" },
-          text = "Then you're luckier than any of us, and I hope your Earth Mother keeps it that way. Ayessa says the tauren of Mulgore welcomed our people as if we'd always been neighbors, so tell me, do your elements answer when you call, or must you plead?" },
+          text = "Then you're luckier than any of us, and I hope your Earth Mother keeps it that way. Grand Skyseer Ayessa says the tauren of Mulgore welcomed our people as if we'd always been neighbors, so tell me, do your elements answer when you call, or must you plead?" },
       },
       choices = {
         { text = "They answer, but only when I respect them.", next = "xmainland2", fx = { affinity = 1, trait = { pious = 1 } } },
@@ -419,8 +419,8 @@ P:NPC {
         { id = "xa_default", text = "Many did, when the spirits left and fear walked the isle looking for somewhere to live. I won't ask what you did in them, but I will ask whether you came to us because you believe, or only because the cult lost." },
       },
       choices = {
-        { text = "Because I believe. Al'Akir was never going to save us.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "Because the cult lost. I go where I'll live longest.", next = "BACK", fx = { affinity = -2, align = { light = -1 }, trait = { cautious = 1 } } },
+        { text = "Because I believe. Al'Akir was never going to save us.", next = "BACK", reply = "Good, and the spirits will know it when they come home. Welcome back to the grove.", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Because the cult lost. I go where I'll live longest.", next = "BACK", reply = "Honest, at least, and that's a start. Prove it to me over time.", fx = { affinity = -2, align = { light = -1 }, trait = { cautious = 1 } } },
       },
     },
     xho = {
@@ -467,8 +467,8 @@ P:NPC {
   notice = {
     { id = "n_blade", cat = "origin", when = { origin = "skyborne_empyrean_recruit" },
       text = "You hold your weapon the way the Empyrean Blades drill their recruits, point low and elbow in. Whoever started you knew their business." },
-    { id = "n_repair", cat = "kit", when = { durability = { max = 30 } },
-      text = "Your gear's half falling off you. Go and see Destin before you come to me, because I won't teach someone whose straps are about to give way." },
+    { id = "n_repair", cat = "kit", when = { durability = { max = 0.30 } },
+      text = "Your gear's half falling off you. Go and see Destin, the weapon merchant, before you come to me, because I won't teach someone whose straps are about to give way." },
   },
 
   start = "hello",
@@ -477,7 +477,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Ren, and I teach the blade here. Our world is changing, and it will need people with the will to lead and protect the others if our people are going to survive it, so I don't waste my time on anyone who isn't serious." },
         { id = "h_path", tags = { "news" }, when = { questDone = TODO_QUEST("The Warrior's Path") },
-          text = "You found me, then, and you read my note. Come back to me as you grow, because you'll need guidance more than you think, and I'd rather you got it from me than from your mistakes." },
+          text = "You found me, then, and you read my note. Come back to me as you grow, because you'll need guidance more than you think, and better you get it from me than from your mistakes." },
         { id = "h_outsider", when = { class = "WARRIOR", ["not"] = { race = "Skyborne" } },
           text = "A warrior from below the clouds. I'd like to see how your people fight, because ours have had ten thousand years to grow comfortable, and comfortable warriors are dead ones." },
       },
@@ -509,8 +509,8 @@ P:NPC {
         { id = "f2_default", text = "Fear's useful before the fight, when it tells you to sharpen your blade and check your straps. Once the fight's begun, it's only a hand on your arm, pulling you the wrong way at the worst moment, so which of those are you going to listen to?" },
       },
       choices = {
-        { text = "I'll keep my fear and use it. It keeps me alive.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
-        { text = "I'll train it out of me. Discipline first.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "I'll keep my fear and use it. It keeps me alive.", next = "BACK", reply = "Then you'll do, and you'll live to see a few battles yet. Use it well.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll train it out of me. Discipline first.", next = "BACK", reply = "Discipline's good, but don't train out what keeps you careful. Fear's a tool too.", fx = { affinity = 2, align = { order = 1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -613,11 +613,11 @@ P:NPC {
     wilds2 = {
       big = true,
       lines = {
-        { id = "w2_default", text = "To keep our people safe, first and last. Some hunters out there think it's their job to put the wild back the way it was, but I don't think anyone can, and I'd rather spend my arrows on what's in front of me." },
+        { id = "w2_default", text = "To keep our people safe, first and last. Some hunters out there think it's their job to put the wild back the way it was, but I don't think anyone can, so I spend my arrows on what's in front of me." },
       },
       choices = {
-        { text = "Protect the people first. The wild can fend for itself.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "We should try to heal the wild, not just shoot it.", next = "BACK", fx = { affinity = -1, align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Protect the people first. The wild can fend for itself.", next = "BACK", reply = "Good, that's my thinking. The wild can look after itself, most days.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "We should try to heal the wild, not just shoot it.", next = "BACK", reply = "Maybe we should, and I'll not stop you trying. But keep your bow ready while you do.", fx = { affinity = -1, align = { order = -1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -673,14 +673,14 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Blades, mending, an honest opinion. Which will it be?" },
-    { id = "g_broken", when = { durability = { max = 30 } }, text = "Winds above, what have you been hitting? Let me see that." },
+    { id = "g_broken", when = { durability = { max = 0.30 } }, text = "Winds above, what have you been hitting? Let me see that." },
   },
 
   notice = {
-    { id = "n_repair", cat = "kit", when = { durability = { max = 30 } },
+    { id = "n_repair", cat = "kit", when = { durability = { max = 0.30 } },
       text = "That edge has more nicks than a cirrusfly has legs. I can mend it, and you should let me before it fails you." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf! I've heard your people are the finest smiths below the clouds. Would you look at one of my blades and tell me honestly what you think?" },
+      text = "A dwarf! I've heard your people are the finest smiths below the clouds. Would you look at one of my blades and tell me straight what you think?" },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You've been eyeing the dirks. They're good dirks, so I don't blame you, but I count them every evening." },
   },
@@ -732,11 +732,11 @@ P:NPC {
     name2 = {
       big = true,
       lines = {
-        { id = "n2_default", text = "Honestly? I couldn't tell you, but people buy from a man called Thriceforged, and they don't buy from a man called Twice-If-I-Have-Time. Some say a tradition's worth keeping for its own sake, and some say it's only habit with a fancy name." },
+        { id = "n2_default", text = "I couldn't tell you, but people buy from a man called Thriceforged, and they don't buy from a man called Twice-If-I-Have-Time. Some say a tradition's worth keeping for its own sake, and some say it's only habit with a fancy name." },
       },
       choices = {
-        { text = "Keep the tradition. It's what makes the blade yours.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "If it doesn't help the blade, drop it.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Keep the tradition. It's what makes the blade yours.", next = "BACK", reply = "Good, because I'd hate to change the sign. People like a name.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "If it doesn't help the blade, drop it.", next = "BACK", reply = "Honest advice, and my wallet disagrees. The name stays.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -751,7 +751,7 @@ P:NPC {
   },
 
   topics = {
-    windstones = { { id = "tp_stones", text = "Windstones or coin. I like the stones better, and so does everyone, which is why they keep getting dearer." } },
+    windstones = { { id = "tp_stones", text = "Windstones or coin. I like the stones better, and so does everyone, so they keep getting dearer." } },
     advice = { { id = "tp_ad", text = "Keep your edge oiled and your grip dry, and come and see me before it breaks, not after." } },
     _none = { { id = "tp_none", text = "I know steel, friend, and not much else. Ask in the grove." } },
   },

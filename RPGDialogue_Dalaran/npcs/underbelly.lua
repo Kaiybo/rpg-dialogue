@@ -101,8 +101,8 @@ P:NPC {
         { id = "st_default", text = "Stealin'? The mages ain't usin' it, the shop ain't usin' it, and the city's fallin' down anyhow, so I prefer to think of myself as a rescuer of misplaced goods, with a modest recovery fee." },
       },
       choices = {
-        { text = "Put it back. This city's suffering enough.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "Finders keepers, I always say.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Put it back. This city's suffering enough.", next = "BACK", reply = "Aw, now you sound like my mother, and she was a crook too, but fine, fine, I'll think about it real hard, which is more than the mages ever do.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Finders keepers, I always say.", next = "BACK", reply = "See, now you and me understand each other, sweetheart, and if anybody asks, you never saw me and I never saw you, which is how the best friendships go.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

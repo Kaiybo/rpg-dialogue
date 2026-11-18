@@ -47,7 +47,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Migi, and this is the war, and I'm winning, mostly. Mogra says she's winning but that's because she makes up rules when she's losing." },
         { id = "h_food", tags = { "news" }, when = { questActive = TODO_QUEST("Favorite Food") },
-          text = "Borstan's Meats? Is that for one of us? Oh, it's for me! It smells really good, like the sweetglaze but different, and my father sent you, didn't he?" },
+          text = "Borstan's Meats? Is that for one of us? Oh, it's for me! It smells really good, and my father sent you, didn't he?" },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Favorite Food"), days = 3 } },
           text = "I can tell what Borstan's making from the road now, just by the smell, and today it's the sweetglaze again! We stop the game at midday and all eat together, it was Mogra's rule but I thought of it first." },
         { id = "h_rocks", tags = { "news" }, when = { questDone = TODO_QUEST("Rocks to Rests") },
@@ -93,8 +93,8 @@ P:NPC {
         { id = "gp_default", text = "All right, but you have to be the Alliance, and you have to lose at the end, because the Horde always wins. Mogra says that's not fair but it's my rule. Do you want to win or be fair?" },
       },
       choices = {
-        { text = "A game's only fun if anyone can win, Migi.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll lose on purpose. Just don't tell Mogra.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "A game's only fun if anyone can win, Migi.", next = "BACK", reply = "Mogra says that too, and now you're saying it. All right, but if the Alliance wins, I'm not playing anymore.", fx = { align = { honor = 1 } } },
+        { text = "I'll lose on purpose. Just don't tell Mogra.", next = "BACK", reply = "I won't tell, I promise! You're the best Alliance anybody ever played, honest.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Maybe another time.", next = "BACK" },
       },
     },
@@ -184,6 +184,10 @@ P:NPC {
         { text = "How do you win this game?", next = "rules" },
         { text = "Why are you in charge?", next = "charge" },
         { text = "Do you want to be a warrior when you're grown?", next = "grown" },
+        { text = "Who else plays the game?", next = "players" },
+        { text = "Why is this patch Ashenvale?", next = "board" },
+        { text = "When I was your age, we were in the camps.", next = "camps", when = { race = "Orc" } },
+        { text = "Shamans fight too, you know.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Good luck, general.", next = "END" },
       },
     },
@@ -202,8 +206,8 @@ P:NPC {
         { id = "ch_default", text = "Because I'm the best at it, and because I'm the only one who remembers all the rules. Brog says that's not why, he says it's because I shout loudest. Is it better to be the best or the loudest?" },
       },
       choices = {
-        { text = "The best. Lead because you're good at it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The loudest. Whoever takes charge, gets it.", next = "BACK", fx = { align = { order = -1 }, trait = { witty = 1 } } },
+        { text = "The best. Lead because you're good at it.", next = "BACK", reply = "The best, I knew it! I'm going to tell Brog you said so, and he'll have to stop shouting.", fx = { align = { order = 1 } } },
+        { text = "The loudest. Whoever takes charge, gets it.", next = "BACK", reply = "Then I'll shout even louder, and nobody will ever take my place. Thanks!", fx = { align = { order = -1 }, trait = { witty = 1 } } },
         { text = "Both, I think, in your case.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -216,11 +220,78 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    players = {
+      lines = { { id = "pl_default", text = "Migi plays wolves, Puk plays the shaman, Thra plays whatever I tell her, and Brog plays the night elves because nobody else will. I play the general, which means I get to tell all of them what to do, and they mostly listen." } },
+      choices = {
+        { text = "Mostly?", next = "players_migi" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    players_migi = {
+      lines = { { id = "pm_default", text = "Migi never listens. Yesterday he charged all his wolves across the whole Barrens at once, and they all got eaten by Brog's trees, and then he said the trees weren't allowed to move." } },
+      choices = {
+        { text = "Can trees move in your game?", next = "players_trees" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    players_trees = {
+      lines = { { id = "pt_default", text = "Brog says the night elves have trees that walk, real ones, and his uncle saw one in Ashenvale. I don't believe it, but I let him have one walking tree, because otherwise the game's too easy and I'd win every time." } },
+      choices = {
+        { text = "Brog's uncle is right. Some trees walk.", next = "BACK", fx = { trait = { honest = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    board = {
+      lines = { { id = "bo_default", text = "Because my uncle's in Ashenvale with the Warsong, cutting down trees for the Horde, so that patch is where the real war is. The scratch in the dirt is the river, and the pebbles are the night elves, and they're always hiding." } },
+      choices = {
+        { text = "What does your uncle say about it?", next = "board_uncle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    board_uncle = {
+      lines = { { id = "bu_default", fx = { learn = { "warsong" } }, text = "He says the night elves shoot from the trees and never come out to fight properly, and that the forest is so dark you can't see the sky. He sent me a feather from one of their arrows, and I keep it under my rock." } },
+      choices = {
+        { text = "What do you think of the night elves, Mogra?", next = "board_elves" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    board_elves = {
+      big = true,
+      lines = { { id = "be_default", text = "Brog says the night elves were there first and they're only protecting their trees, and that's why he plays them. But we need the wood to build things, so who's right?" } },
+      choices = {
+        { text = "Brog. It's their forest, and we're taking it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You. The Horde needs the wood to survive.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "That's for grown-ups to sort out.", next = "BACK", fx = { affinity = -1 } },
+      },
+    },
+    camps = {
+      lines = { { id = "ca_default", text = "My mother says that too, and then she goes quiet and doesn't finish. Is it true there were walls and humans, and nobody was allowed to fight, not even the warriors?" } },
+      choices = {
+        { text = "It's true. Thrall freed us.", next = "camps_thrall" },
+        { text = "I'd rather not talk about it.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    camps_thrall = {
+      lines = { { id = "ct_default", fx = { learn = { "internment" } }, text = "I know that part! The Warchief broke the walls and everybody came out, and that's why nobody's allowed to put an orc in a cage ever again. When I'm a general, I'm going to make sure of it." } },
+      choices = {
+        { text = "See that you do, general.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "Really? Then can you tell Puk, because he only ever heals and never throws lightning, and I need him to throw lightning at Brog's tree. If a real shaman says so, he'll have to listen." } },
+      choices = {
+        { text = "A good shaman knows when to heal, too.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "I'll tell him. Lightning wins wars.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "I'm Mogra. I live near the Valley of Wisdom and I'm the best at the war, and that's all you need to know." } },
     advice = { { id = "tp_ad", text = "Never put all your figures in one place. Migi does, and that's why he loses." } },
+    warsong = { { id = "tp_warsong", next = "board_uncle", text = "My uncle's with the Warsong in Ashenvale. They're the bravest of all, and they cut down the biggest trees." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is the best general in the whole world, but I'll be second best, and then first when he's old." } },
     _none = { { id = "tp_none", text = "That's not part of the game, so I don't care about it." } },
   },
 }
@@ -273,6 +344,10 @@ P:NPC {
         { text = "Why do you always play the shaman?", next = "shaman" },
         { text = "Don't you want to win sometimes?", next = "win" },
         { text = "What do you think of Migi and Mogra?", next = "friends" },
+        { text = "Tell me about your grandmother.", next = "grandma" },
+        { text = "Have you ever watched a real healer work?", next = "healers" },
+        { text = "Do you want to see a real totem, Puk?", next = "totem", when = { class = "SHAMAN" } },
+        { text = "Could you heal someone like me?", next = "undead", when = { race = "Scourge" } },
         { text = "Take care of them, healer.", next = "END" },
       },
     },
@@ -301,8 +376,8 @@ P:NPC {
         { id = "wi_default", text = "Sometimes, but if I stopped healing, everybody would lose their figures and the game would be over too soon. Mogra says healers never win wars, but my grandmother says nobody wins wars without them. Who's right?" },
       },
       choices = {
-        { text = "Your grandmother. Keeping people alive matters most.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Mogra. Sometimes you have to fight to win.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your grandmother. Keeping people alive matters most.", next = "BACK", reply = "I knew it! I'm going to tell Mogra right now, and she'll have to let me keep healing.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Mogra. Sometimes you have to fight to win.", next = "BACK", reply = "Maybe, but if I stop healing, nobody's left to fight. I'll ask my grandmother again.", fx = { align = { light = -1 } } },
         { text = "I think you already know.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -312,11 +387,59 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    grandma = {
+      lines = { { id = "gm_default", text = "She's very old and she tells the best stories, but only at night, because she says stories are for when the work's done. She was in the camps, before the Warchief came, and she looked after the sick orcs there." } },
+      choices = {
+        { text = "What did she tell you about the camps?", next = "grandma_camps" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grandma_camps = {
+      lines = { { id = "gc_default", fx = { learn = { "internment" } }, text = "She says everybody was tired all the time, and sad, and nobody knew why, and the shamans had all forgotten how to talk to the spirits. Then the Warchief came, and he remembered, and she says that's when she knew things would be all right." } },
+      choices = {
+        { text = "Why had the shamans forgotten?", next = "grandma_lesson" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grandma_lesson = {
+      lines = { { id = "gl_default", text = "She says a long time ago the orcs did something bad with dark magic, and the spirits stopped listening, and it took a long time to say sorry. That's why I want to be a shaman, so I can keep saying sorry until they've forgiven us all the way." } },
+      choices = {
+        { text = "That's a good reason, Puk.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    healers = {
+      lines = { { id = "he_default", text = "Once, in the Valley of Wisdom, when a grunt came back from the Barrens with a big cut on his arm. The shaman put her hands on it and said something to the water spirits, and the cut closed up, and I wasn't even scared." } },
+      choices = {
+        { text = "And you've been practicing ever since?", next = "healers_stick" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    healers_stick = {
+      lines = { { id = "hs_default", text = "I made a totem out of a stick and some feathers, and I put it next to my rock in the game. It doesn't do anything yet, but Migi says his wolves feel better when it's there, and I think that counts." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    totem = {
+      lines = { { id = "to_default", text = "Yes, please! Can I touch it? I won't break it, I promise, and I'll tell Mogra I saw a real one, and then she'll have to let me use my totem in the game properly." } },
+      choices = {
+        { text = "Go on. Gently, though.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Totems aren't toys, Puk.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    undead = {
+      lines = { { id = "ud_default", text = "I don't know if pretend healing works on Forsaken. My grandmother says the Forsaken are hurt in a way that doesn't close, but I could try, if you sit by my rock and don't mind waiting a turn." } },
+      choices = {
+        { text = "I'll wait my turn. Thank you, Puk.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Some wounds can't be healed, child.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "I'm Puk. I live with my grandmother near the Valley of Wisdom, and I play the war with my friends every day." } },
     advice = { { id = "tp_ad", text = "Heal your friends first, even if they're being rude. My grandmother says that's the hard part." } },
+    thrall = { { id = "tp_thrall", next = "grandma_camps", text = "The Warchief is a shaman, like I'm going to be. My grandmother says he remembered what everybody else forgot." } },
+    internment = { { id = "tp_intern", text = "My grandmother was in the camps. She doesn't like talking about it, except at night, and only a little." } },
     _none = { { id = "tp_none", text = "I don't know about that. Maybe the shamans in the valley know." } },
   },
 }

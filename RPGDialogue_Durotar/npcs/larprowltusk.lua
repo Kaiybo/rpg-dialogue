@@ -15,8 +15,8 @@ P:NPC {
 
   greetings = {
     { id = "g_low", text = "Lower your voice, mon. The wind carry from here to the ridge, and so do careless words." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Thwarting Kolkar Aggression") }, text = "Three leaders, three pieces of the plan. Burn them all, or the centaur only lose a little time." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Thwarting Kolkar Aggression") }, text = "The ridge be quiet, mon. I like it quiet." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Thwarting Kolkar Aggression") }, text = "Three Kolkar leaders each carry a piece of the plan, mon. Burn all three pieces, or the centaur only lose a little time." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Thwarting Kolkar Aggression") }, text = "The ridge be quiet since the Kolkar plans burned, mon, and I like it quiet." },
     { id = "g_away", when = { away = 14 }, text = "You been gone {away}, mon. I watch the ridge the whole time, so I can tell you nothing come over it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You walk different now, mon, heavier and surer. The Kolkar would see you coming, but they'd think twice about it." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Somebody say you got caught in a lie, mon. A scout lives on true words, so I listen to yours a little closer today." },
@@ -70,7 +70,7 @@ P:NPC {
       },
     },
     plans_wait = {
-      lines = { { id = "pw_default", text = "Gar'Thok would love that, mon, a big fight on open ground. But every warrior who fall on that ground be one the Horde lose for nothing, when we could have stopped it with a torch." } },
+      lines = { { id = "pw_default", text = "Gar'Thok in Razor Hill would love that, mon, a big fight on open ground. But every warrior who fall on that ground be one the Horde lose for nothing, when we could have stopped it with a torch." } },
       choices = {
         { text = "Then we stop it with a torch.", next = "bloodshed" },
         { text = "Something else, Lar.", next = "BACK" },
@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "b_default", text = "Because the Darkspear lose too many already, mon, on the isles and before that in the jungle. As sure as there be sand in Tanaris, there will be blood before these times be through, but I won't spend it where I don't have to." } },
       choices = {
-        { text = "A war won without bloodshed is the best kind.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Some blood should be spilled. They'd spill ours.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A war won without bloodshed is the best kind.", next = "BACK", reply = "Dat be the best kind, mon, and the hardest to find. The Darkspear been bleeding long enough, so I hunt for it every day.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some blood should be spilled. They'd spill ours.", next = "BACK", reply = "They would, and they will, if we let them. When the time come, I'll spill it gladly, but not one drop before.", fx = { align = { honor = -1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -99,8 +99,8 @@ P:NPC {
     kolkar = {
       lines = { { id = "k_default", text = "The centaur been in these lands longer than us, mon, and they don't like sharing them with orcs and trolls. The Kolkar raid the caravans and the farms, and now they think they got enough spears to take more." } },
       choices = {
-        { text = "They were here first. Maybe they have a claim.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "This land is the Horde's now. That's the end of it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They were here first. Maybe they have a claim.", next = "BACK", reply = "A claim, maybe, but they make it with spears on our caravans. Speak to the spirits about it, {class}, and see what they say.", fx = { align = { order = -1 } } },
+        { text = "This land is the Horde's now. That's the end of it.", next = "BACK", reply = "Dat be what the Warchief say, and I stand with him. The Kolkar will learn it, one way or the other.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -115,7 +115,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Lower your voice, mon. The Kolkar hear a loud mouth from a mile off, and so do the vultures." } },
     echo_isles = { { id = "tp_isles", text = "I can see them from the shore, mon, but I don't look long. A scout keep his eyes on the danger in front of him." } },
     centaur = { { id = "tp_centaur", text = "The Kolkar at the Crag think Durotar is empty because it's red and dry. They're wrong, and I've the battle plans to prove it, though I'd rather they never needed using." } },
-    darkspear = { { id = "tp_darkspear", text = "My people came out of the sea with Thrall, and we've been paying him back since. I'm Darkspear to my bones, and I watch the ridge so Sen'jin can sleep." } },
+    darkspear = { { id = "tp_darkspear", text = "My people crossed the sea with Thrall, and we've been paying him back since. I'm Darkspear to my bones, and I watch the ridge so Sen'jin can sleep." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin don't say much he don't mean, mon. When he tells me to watch the ridge, I watch the ridge, and I don't ask why." } },
     thrall = { { id = "tp_thrall", text = "The Warchief saved us from the murlocs and the humans both, back on the islands. A troll don't forget a debt like that, and a Darkspear don't let anyone else forget it either." } },
     _none = { { id = "tp_none", text = "That be nothing I scouted, mon. Ask somebody who sit by a fire, not in a bush." } },

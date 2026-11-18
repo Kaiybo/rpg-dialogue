@@ -21,14 +21,14 @@ P:NPC {
     { id = "g_priest", when = { class = "PRIEST" }, text = "One of ours. Sit, if you've a moment, because you rarely will, later." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "Duthorian's latest, I suspect, and he speaks well of very few. Welcome." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, child, and I wondered now and then where the road had taken you. Come in and rest a while." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since last we spoke, child, and I can see the road has asked a great deal of you. I hope it left you some kindness to bring home." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since last we spoke, child, and I can see the road has taken its toll on you. I hope it left you some kindness to bring home." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear harsh words passed between you and one of our neighbors. I won't ask what was said, child, but the Light is patient with those who mend things." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the city has been speaking warmly of you, child, and it did an old man good to hear it." },
   },
 
   notice = {
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
-      text = "Step out of the shadow while you're under this roof, child. Not because the Light minds. Because I'd like to see your face while we talk." },
+      text = "Step out of the shadow while you're under this roof, child. Not because the Light minds, but because I'd like to see your face while we talk." },
     { id = "n_light", cat = "light", when = { alignment = { axis = "light", min = 50 } },
       text = "You keep the Light close and say little about it, which is the rarest way. Most people wear it like a badge, and badges come off." },
     { id = "n_sick", cat = "affliction", place = "before", when = { debuffType = { "Disease", "Curse" } },
@@ -45,8 +45,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_benedictus_default", text = "By remembering that you are not the one who mends them, for the Light does that, and you are only the hand it passes through. The healers who break are the ones who come to believe that every death in their company was theirs to prevent." } },
       choices = {
-        { text = "Then I'll trust the Light to carry what I can't.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'll trust my own hands before any sermon, Archbishop.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll trust the Light to carry what I can't.", next = "BACK", reply = "Then you'll last longer than most of the healers I've buried, child. Lean on it; it can bear the weight.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll trust my own hands before any sermon, Archbishop.", next = "BACK", reply = "Your hands will tire, child, and on that day I hope you'll remember this conversation. The door is always open.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -54,8 +54,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_strat_default", text = "I pray that's so. Rivendare was a lord of Lordaeron before he gave himself to the Scourge, and a man who chooses that has made a darker bargain than any poor soul the plague took unawares. Archbishop Faol taught that the Light is offered even to such men, though I confess I find it hard to say over this one." } },
       choices = {
-        { text = "The Light is offered to all, Archbishop, even to him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some men are past saving. Rivendare chose his side.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light is offered to all, Archbishop, even to him.", next = "BACK", reply = "It is, and that's the hardest truth of our faith. I pray for him, though I'll not pretend it's easy.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some men are past saving. Rivendare chose his side.", next = "BACK", reply = "He did, and the Light will judge him for it. I'll pray anyway, because that's my part.", fx = { align = { light = -1 } } },
         { text = "Did you know anyone in Stratholme, Archbishop?", next = "xcl_strat2" },
       },
     },
@@ -69,17 +69,17 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I don't know, and I would be a poor Archbishop if I pretended to. High Priestess Laurena and I have talked of it many evenings, and we agree only that both teach mercy, which may be all that matters." } },
       choices = {
-        { text = "Mercy is enough. I'd gladly kneel beside your faithful, Your Grace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My faith is Elune's, Your Grace, and I won't blur it with yours.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Mercy is enough. I'd gladly kneel beside your faithful, Your Grace.", next = "BACK", reply = "Then kneel, child, and the Light and Elune can share you for an hour. I don't think either will mind.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My faith is Elune's, Your Grace, and I won't blur it with yours.", next = "BACK", reply = "I understand, and I'd not ask you to. Laurena would tell me I was foolish to hope otherwise.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Not fear, child, but we remember that the more magic men wielded, the more the darkness noticed them, which is why there was ever a Guardian at all. Power that serves only the curious tends to forget the people standing near it." } },
+      lines = { { id = "xmage_default", text = "Not fear, child, but we remember that the more magic men wielded, the more the darkness noticed them, and the Guardian of Tirisfal was set to watch for exactly that. Power that serves only the curious tends to forget the people standing near it." } },
       choices = {
-        { text = "My power will serve the people standing near it, Your Grace.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Curiosity built Dalaran, Your Grace, and I won't apologise for mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "My power will serve the people standing near it, Your Grace.", next = "BACK", reply = "Then it will be well used, child. That's all the Church has ever asked of Dalaran.", fx = { align = { light = 1 } } },
+        { text = "Curiosity built Dalaran, Your Grace, and I won't apologise for mine.", next = "BACK", reply = "Nor should you, but remember what else curiosity built. Dalaran knows that better than anyone.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -87,8 +87,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only what it asks of anyone: that you remember the people behind you are the reason you carry the sword. Archbishop Faol used to say a soldier's mercy is harder won than a priest's, because the soldier has the means to refuse it." } },
       choices = {
-        { text = "My sword is for protecting people, not for punishing them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Mercy is a priest's business. Mine is winning.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "My sword is for protecting people, not for punishing them.", next = "BACK", reply = "Then you've understood Faol better than half my priests. Go with the Light.", fx = { align = { light = 1 } } },
+        { text = "Mercy is a priest's business. Mine is winning.", next = "BACK", reply = "Winning without mercy has a way of losing what you won. I'll pray you learn it gently.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -96,11 +96,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I believe it does, though the Church has been slow to say so. Our priests in Northshire bless the harvest every autumn, and I've never understood why we don't bless the woods that feed half of Elwynn." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been very patient with the incense, I notice. Bring it to the steps whenever you like; the children would be glad of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I believe it does, though the Church has been slow to say so. Your {pet} has been very patient with the incense, I notice. Bring it to the steps whenever you like; the children would be glad of it." },
       },
       choices = {
-        { text = "The wild has its own holiness, Archbishop.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The forest is just meat and timber. The Light is for people.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The wild has its own holiness, Archbishop.", next = "BACK", reply = "It does, and I'll say so in the next sermon, though I'll expect some letters about it.", fx = { align = { light = 1 } } },
+        { text = "The forest is just meat and timber. The Light is for people.", next = "BACK", reply = "Then I'll pray for the forest too, child, since you won't. It's no trouble.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,7 +114,7 @@ P:NPC {
           text = "You've brought a company to the Cathedral, and not one of them carries a healer's training, unless I misjudge them, which I seldom do. You'll be the one they turn to when the blood runs, my child, so be sure the Light has you before they need it to." },
         { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme" },
           text = "You've been inside Stratholme, I'm told, and come out again, which is more than the city's own people managed when the plague came. I'll say a prayer tonight for the ones who still walk its streets." },
-        { id = "h_default", text = "Benedictus. I tend the Church as Archbishop Faol tended it before me. He built it to hold people. I try to keep the doors open." },
+        { id = "h_default", text = "Benedictus. I tend the Church as Archbishop Faol tended it before me, and where he built it to hold people, I try to keep its doors open." },
         { id = "h_priest", when = { class = "PRIEST", minLevel = 20 },
           text = "You've grown since you first knelt here, child. The Light hasn't changed, but you have, and that is how it's meant to work." },
         { id = "h_eye", when = { questActive = TODO_QUEST("Cleansing the Eye") },
@@ -144,7 +144,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The Cathedral is in no hurry, and neither am I." },
       },
       choices = {
-        { text = "Archbishop Faol must have taught you a great deal.", next = "faol" },
+        { text = "Archbishop Faol must have taught you much.", next = "faol" },
         { text = "Does the Light ever abandon anyone?", next = "abandon" },
         { text = "Tell me about the Cathedral.", next = "cathedral" },
         { text = "Why let the Scarlet Crusade recruit downstairs?", next = "crusade" },
@@ -198,8 +198,8 @@ P:NPC {
         { id = "f_default", text = "He taught that the Light isn't owned by the strong, and a farmer at his plough can carry as much of it as a king on his throne. I believed him, and since I look like a farmer, it helped." },
       },
       choices = {
-        { text = "That's a kind teaching.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The Light favors the strong, whatever Faol taught.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's a kind teaching.", next = "BACK", reply = "It is, and it's the one I've tried hardest to keep. Thank you.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The Light favors the strong, whatever Faol taught.", next = "BACK", reply = "The strong say so, child, and the weak have always disagreed. I'll stand with Faol.", fx = { align = { light = -1 } } },
         { text = "What was he like?", next = "faol_man" },
       },
     },
@@ -214,13 +214,13 @@ P:NPC {
           text = "I asked that when Lordaeron fell, and the prince, the king and the Silver Hand with it, and I asked it every night for a year. I won't tell you I found the answer, only that I found I could keep working without it." },
       },
       choices = {
-        { text = "That takes faith.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
-        { text = "I'd have stopped asking and turned my back on it.", next = "BACK", fx = { align = { light = -2 } } },
+        { text = "That takes faith.", next = "BACK", reply = "It does, and some days I have very little left. But I keep asking.", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "I'd have stopped asking and turned my back on it.", next = "BACK", reply = "Many have, child, and the Light didn't turn its back on them. It's still waiting.", fx = { align = { light = -2 } } },
         { text = "Maybe there's no answer.", next = "none", fx = { trait = { skeptical = 1 } } },
       },
     },
     none = {
-      lines = { { id = "n_default", text = "Maybe. Then the work is still worth doing. That was always the point." } },
+      lines = { { id = "n_default", text = "Maybe there isn't, and the work is still worth doing. That was always the point." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     cathedral = {
@@ -234,7 +234,7 @@ P:NPC {
       big = true,
       lines = { { id = "cm_default", text = "The same. Their hands built this house of the Light, and the city's purse forgot them. I've said so in the Keep and I'll say it again; it's not much, but it's what an old priest has." } },
       choices = {
-        { text = "It's more than most said.", next = "BACK", fx = { affinity = 2, learn = { "defias" }, opinion = { defias = "masons_wronged" } } },
+        { text = "Few others said so at the time.", next = "BACK", fx = { affinity = 2, learn = { "defias" }, opinion = { defias = "masons_wronged" } } },
         { text = "Saying isn't doing.", next = "BACK", fx = { trait = { stern = 1 }, learn = { "defias" } } },
         { text = "Did the Church ever ask the crown to pay them?", tag = "Persuade", next = "masons_ledger",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { opinion = { topic = "defias", stance = "masons_wronged" } } } } },
@@ -259,8 +259,8 @@ P:NPC {
     crusade_road2 = {
       lines = { { id = "cr2_default", text = "Then I'll stop pretending not to know. I won't close the doors; that isn't who we are. But no one goes down those stairs again without praying with me first." } },
       choices = {
-        { text = "That's something.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "It isn't enough.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
+        { text = "That's something.", next = "BACK", reply = "It's a beginning, and a small one. I'll pray it's enough.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "It isn't enough.", next = "BACK", reply = "It isn't, and I know it. But it's what I can do without becoming what I fear.", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
     crusade_harm = {
@@ -271,8 +271,8 @@ P:NPC {
       big = true,
       lines = { { id = "p_default", text = "Heal the people who annoy you, bless the ones who don't thank you, and sit with the dying even when you can do nothing. The spells come with practice; that comes with choosing, every day." } },
       choices = {
-        { text = "That's harder than any spell.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
-        { text = "Healing people who never thank me isn't a habit I'll keep.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's harder than any spell.", next = "BACK", reply = "It is, child, and that's why most priests never learn it. You might.", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Healing people who never thank me isn't a habit I'll keep.", next = "BACK", reply = "Then you'll learn it the hard way, or not at all. I'll pray for the first.", fx = { align = { light = -1 } } },
         { text = "And when I fail?", next = "priest_fail" },
       },
     },
@@ -284,8 +284,8 @@ P:NPC {
       big = true,
       lines = { { id = "s_default", text = "It calls shadow a blade with no handle. Some of our brothers and sisters learn to hold it and do good with it, but I never have, so I'd ask you to watch your hands, and come and see me if they start to feel cold." } },
       choices = {
-        { text = "I'll keep to the Light.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
-        { text = "Shadow is a tool. I'll use what works.", next = "BACK", fx = { affinity = -1, align = { light = -2 }, trait = { stern = 1 } } },
+        { text = "I'll keep to the Light.", next = "BACK", reply = "Good. That's the choice I made, and I've never regretted it.", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "Shadow is a tool. I'll use what works.", next = "BACK", reply = "Then use it carefully, child, and count every time you do.", fx = { affinity = -1, align = { light = -2 }, trait = { stern = 1 } } },
         { text = "Has a priest ever gone too far into it?", next = "shadow_far" },
       },
     },
@@ -300,15 +300,15 @@ P:NPC {
     shadow_wrong = {
       lines = { { id = "sw_default", text = "About the need? Perhaps not, but about how much of herself to pay for it, yes, and that's all I'd ask of you. Count what it costs, every time, and if you ever stop counting, come and see me." } },
       choices = {
-        { text = "I'll keep count.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { cautious = 1 } } },
-        { text = "Some costs are worth paying.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "I'll keep count.", next = "BACK", reply = "Thank you. That's all I ask.", fx = { affinity = 2, align = { light = 1 }, trait = { cautious = 1 } } },
+        { text = "Some costs are worth paying.", next = "BACK", reply = "Some are, and only you can know which. I'll pray you choose well.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
       },
     },
     lordaeron = {
       lines = { { id = "lo_default", text = "Then you've seen what I only heard about, and heard about every night for a year. You're welcome here, and you always will be; light a candle for someone, if you'd like, as many do." } },
       choices = {
-        { text = "I will.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "Candles won't bring them back, so I'll keep my grief to myself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I will.", next = "BACK", reply = "Thank you, child. The Light remembers every one of them.", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Candles won't bring them back, so I'll keep my grief to myself.", next = "BACK", reply = "Keep it, then, but don't keep it alone. My door is open.", fx = { align = { light = -1 } } },
       },
     },
     masons_ledger = {
@@ -320,13 +320,13 @@ P:NPC {
       },
       choices = {
         { text = "Then carry it up now, Your Grace.", next = "BACK", fx = { trait = { brave = 1 } } },
-        { text = "You've done more than most, Your Grace.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "You've done more than anyone could ask, Your Grace.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Thank you for telling me.", next = "BACK" },
       },
     },
     masons_gentle = {
       lines = {
-        { id = "mg_default", text = "The Church spoke for them, child, and it still does. That's all I'll say on it today, I think, because it's an old ache and I'd rather not wake it in front of the altar." },
+        { id = "mg_default", text = "The Church spoke for them, child, and it still does. That's all I'll say on it today, I think, because it's an old ache, and the altar is no place to wake it." },
         { id = "mg_default2", text = "We asked, as we ask for many things, and the asking goes on. Come and pray with me for them some evening; that's the better answer, and the only one I have just now." },
       },
       choices = {
@@ -336,11 +336,11 @@ P:NPC {
     },
     paladin_doubt = {
       big = true,
-      lines = { { id = "paladin_doubt_l", text = "Every one of them should, child, and the good ones do it before they swing the hammer rather than after. A paladin who never doubts is only a soldier who glows." } },
+      lines = { { id = "paladin_doubt_l", text = "They all should, child, and the good ones do it before they swing the hammer rather than after. A paladin who never doubts is only a soldier who glows." } },
       choices = {
         { text = "Then I'll keep my doubts close.", next = "paladin_doubt2" },
-        { text = "Doubt gets people killed. I'll leave it to priests.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
-        { text = "Doubt keeps the hammer honest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Doubt gets people killed. I'll leave it to priests.", next = "BACK", reply = "Then you'll be a soldier with a hammer, child, and nothing more. I'll pray for you.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Doubt keeps the hammer honest.", next = "BACK", reply = "It does, and you've understood it better than many. The Light go with you.", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
     paladin_doubt2 = {
@@ -352,8 +352,8 @@ P:NPC {
       lines = { { id = "warlock_l", text = "The Light doesn't turn anyone away, child, though I'll not lie to you: some of my brothers might. You're standing under this roof, and nobody has struck you down, which tells you something about whose house it is." } },
       choices = {
         { text = "And if I never give up what I've learned?", next = "warlock_keep" },
-        { text = "I don't need the Light's welcome.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Then I'll come back, Your Grace.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I don't need the Light's welcome.", next = "BACK", reply = "Perhaps not, child, but it's there all the same. It doesn't need you to need it.", fx = { align = { light = -1 } } },
+        { text = "Then I'll come back, Your Grace.", next = "BACK", reply = "Do, child. The candles will be lit, and I'll be here.", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
     warlock_keep = {
@@ -376,7 +376,7 @@ P:NPC {
       lines = { { id = "rogue_l", text = "Then you've done what kingdoms ask of their quieter children, and you've come to an archbishop about it, which tells me you're not sure it was right. Do you want absolution, child, or only someone to know?" } },
       choices = {
         { text = "Only someone to know.", next = "rogue_know" },
-        { text = "It was necessary. I don't need absolution.", next = "BACK", fx = { align = { light = -1, order = 1 } } },
+        { text = "It was necessary. I don't need absolution.", next = "BACK", reply = "Perhaps it was, and I'll not offer absolution unasked. But you came here, and that means something.", fx = { align = { light = -1, order = 1 } } },
         { text = "Absolution, if the Light will give it.", next = "rogue_know", fx = { align = { light = 1 } } },
       },
     },
@@ -418,11 +418,11 @@ P:NPC {
       { id = "tp_knows", text = "People bring the Cathedral their troubles from every corner of the kingdom, and some of it sticks to an old priest. Ask me about any of this, child." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I've all the time the bells allow. Ask me anything here, and I'll tell you what I know, and what I only hope." },
     },
-    background = { { id = "tp_ba", text = "A student of Archbishop Faol who never stopped being one. The robes came later. The look of a farmer never left.", next = "faol" } },
+    background = { { id = "tp_ba", text = "A student of Archbishop Faol who never stopped being one. The robes came later, and the look of a farmer never left.", next = "faol" } },
     advice = { { id = "tp_ad", text = "Pray when you're grateful, not only when you're frightened. The Light enjoys being thanked, I think. Most of us do." } },
-    tome_of_divinity = { { id = "tp_tome", text = "Duthorian's test. I've read the book, but I've never had the patience to teach from it, and he has." } },
-    northshire_abbey = { { id = "tp_abbey", text = "Where many of us began. The bells there are older than this Cathedral." } },
-    defias = { { id = "tp_defias", text = "I pray for the masons. I pray for the people they rob. Some days I run out of prayers before I run out of names." } },
+    tome_of_divinity = { { id = "tp_tome", text = "The Tome of Divinity is Duthorian Rall's test for paladins. I've read the book, but I've never had the patience to teach from it, and he has." } },
+    northshire_abbey = { { id = "tp_abbey", text = "Northshire Abbey is where many of us began, and its bells are older than this Cathedral." } },
+    defias = { { id = "tp_defias", text = "I pray for the masons who became the Defias, and for the people they rob. Some days I run out of prayers before I run out of names." } },
     _none = { { id = "tp_none", text = "I don't know, child. I'd rather say that than pretend." } },
   },
 }
@@ -455,19 +455,19 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Prayers and patience, they give me. Our folk listen to the stone, not the wind, but if your spirits can do better than an altar, I'll take it." } },
       choices = {
-        { text = "I'll help you search, Gazin. A friend isn't left to prayers alone.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Wait a while longer. Rushing out blind helps no one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll help you search, Gazin. A friend isn't left to prayers alone.", next = "BACK", reply = "Thank ye, friend. Henze would've liked ye, an' I'll be glad o' the company.", fx = { align = { honor = 1 } } },
+        { text = "Wait a while longer. Rushing out blind helps no one.", next = "BACK", reply = "Aye, maybe ye're right, an' maybe it's only cowardice talkin'. I'll wait, but no' long.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "I asked, lad, an' they told me scrying costs money an' a lock o' the man's hair, an' I had neither. Henze went into the dark wi' the proof we gathered, an' I'll not rest till someone fetches him or tells me plain what's become of him." },
+        { id = "xmage_default", text = "I asked, {g:lad|lass}, an' they told me scrying costs money an' a lock o' the man's hair, an' I had neither. Henze went into the dark wi' the proof we gathered, an' I'll not rest till someone fetches him or tells me plain what's become of him." },
       },
       choices = {
-        { text = "Then I'll go looking myself, Gazin, without coin.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The Quarter's right. Nobody works for free.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll go looking myself, Gazin, without coin.", next = "BACK", reply = "Ye'd do that? Then ye're a better friend tae Henze than the whole Quarter. Thank ye.", fx = { align = { honor = 1 } } },
+        { text = "The Quarter's right. Nobody works for free.", next = "BACK", reply = "They're no' wrong, I suppose, but it's a cold way tae run a city. I'll keep prayin'.", fx = { align = { honor = -1 } } },
         { text = "Something else, Gazin.", next = "BACK" },
       },
     },
@@ -475,8 +475,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "If they could talk, I'd buy every wolf in the forest a pint. Ye're the only one who's offered tae ask them, so I'll take it, though I'll keep prayin' all the same." } },
       choices = {
-        { text = "I'll ask every creature in Elwynn until one of them answers.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Henze chose his danger. The forest owes him nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask every creature in Elwynn until one of them answers.", next = "BACK", reply = "Thank ye, friend. If one o' them answers, I'll buy it that pint.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Henze chose his danger. The forest owes him nothing.", next = "BACK", reply = "Maybe no', but I owe him, an' I'll keep askin'. That's what friends do.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -484,8 +484,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Near enough, though no' on any list ye'll find, which is how Shaw likes it. We were tae follow the coin from the Defias tae whoever's payin' them in the city, an' we got close enough tae be stabbed for it." } },
       choices = {
-        { text = "Whoever's paying them should face the King's justice.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Find the payer and settle it quietly, without any courts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Whoever's paying them should face the King's justice.", next = "BACK", reply = "Aye, an' I'll stand at the trial wi' my own beard trimmed for it.", fx = { align = { order = 1 } } },
+        { text = "Find the payer and settle it quietly, without any courts.", next = "BACK", reply = "Quiet's how Shaw likes it, an' maybe ye're right. Just make sure it's the right man.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -493,8 +493,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Ye'd raise him, would ye, wi' that fel stuff? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' I'd rather he stayed dead than that." } },
       choices = {
-        { text = "You're right. Some help costs more than it gives.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Dead is dead, dwarf, and I'd bring him back any way I could.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right. Some help costs more than it gives.", next = "BACK", reply = "Aye, it does, an' I'm glad ye see it. Henze would agree wi' me.", fx = { align = { light = 1 } } },
+        { text = "Dead is dead, dwarf, and I'd bring him back any way I could.", next = "BACK", reply = "No' Henze, ye won't, no' while I'm breathin'. Keep yer fel away from him.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -502,8 +502,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Cannae say, an' I've asked meself every night since. The Defias came quiet an' many, an' a good shield would've bought time, but time against that many is only a slower endin'." } },
       choices = {
-        { text = "Then I'll be the shield the next one needs.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Some fights can't be won. Better to know when to run.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll be the shield the next one needs.", next = "BACK", reply = "That's the spirit, friend. Henze would've raised a glass tae ye.", fx = { align = { honor = 1 } } },
+        { text = "Some fights can't be won. Better to know when to run.", next = "BACK", reply = "Aye, an' I ran, an' I've regretted it every night since. Some fights ye stay for.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -511,11 +511,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, if they knew where tae start. The Defias move through Westfall like foxes through wheat, an' they leave sign if ye know how tae read it: cart ruts tae the old mines, an' red cloth snagged on fences." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} could sniff out a Defias camp, I'd wager, if ye let it loose near the Westfall farms. Mind it doesnae find a trap first." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, if they knew where tae start. That {pet} could sniff out a Defias camp, I'd wager, if ye let it loose near the Westfall farms. Mind it doesnae find a trap first." },
       },
       choices = {
-        { text = "I'll follow the trail and bring the evidence back for justice.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll follow it, and settle things myself when I get there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll follow the trail and bring the evidence back for justice.", next = "BACK", reply = "Good. Bring it back tae the king's advisors, an' Henze's death won't be for nothin'.", fx = { align = { order = 1 } } },
+        { text = "I'll follow it, and settle things myself when I get there.", next = "BACK", reply = "Then be careful, friend. Settlin' things yerself is how Henze ended up where he is.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -538,7 +538,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye'll know how tae follow a trail, then, which is more than the king's advisors seem able tae do with the one Henze an' I left 'em." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, eh? Ye've a nose for the wild, an' Henze is still out there somewhere wi' the Defias. If ye could track a man by the smell o' him, I'd be in yer debt." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, eh? Ye'll know a fair bit about readin' old scripts, I'd guess, an' Henze an' me had papers that needed readin'." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You talk to the earth? Then ask it where my friend is, because the priests here only tell me to wait, and I'm sick of waiting." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Ye talk tae the earth? Then ask it where my friend is, because the priests here only tell me tae wait, an' I'm sick o' waitin'." },
       },
       again = {
         { id = "h_again", text = "Aye? What else?" },
@@ -555,8 +555,8 @@ P:NPC {
         { text = "Would a warlock's help be welcome for Henze?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could the beasts of Elwynn tell us where Henze went, Gazin?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Have the priests given you any hope for your friend, Gazin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "I'll bring him back.", next = "END", when = { class = "PALADIN" }, fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Henze is beyond saving, friend, so let him rest.", next = "END", when = { class = "PALADIN" }, fx = { align = { light = -1 } } },
+        { text = "I'll bring him back.", next = "END", reply = "Bring him back, then, an' I'll be waitin' right here wi' a pint for each o' ye. May the stone keep ye safe.", when = { class = "PALADIN" }, fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Henze is beyond saving, friend, so let him rest.", next = "END", reply = "Maybe he is, an' maybe ye're right. But I'll no' rest until I know, so walk careful out there, friend.", when = { class = "PALADIN" }, fx = { align = { light = -1 } } },
         { text = "Could the Mage Quarter help you find Henze, Gazin?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
@@ -575,7 +575,7 @@ P:NPC {
       choices = { { text = "Brave of you.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     henze = {
-      lines = { { id = "he_default", text = "Henze Faulk. Stubborn as a rockslide an' braver than he's got sense for. He held them off on that island so I could run. So I ran." } },
+      lines = { { id = "he_default", text = "Henze Faulk, stubborn as a rockslide an' braver than he's got sense for. He held them off on that island so I could run, an' so I ran." } },
       choices = {
         { text = "You had no choice.", next = "henze_guilt", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "You left him?", next = "henze_guilt", fx = { trait = { stern = 1 } } },
@@ -585,8 +585,8 @@ P:NPC {
       big = true,
       lines = { { id = "hg_default", text = "Aye, an' every night since I've asked myself which o' us was the brave one. I know the answer, an' I dinnae like it." } },
       choices = {
-        { text = "Running took courage too.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Then make it right.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "Running took courage too.", next = "BACK", reply = "Maybe it did, but it doesnae feel like it. Thank ye for sayin' so.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then make it right.", next = "BACK", reply = "Aye, that's what I mean tae do, an' ye've given me the push. Thank ye.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
       },
     },
     script = {
@@ -597,8 +597,8 @@ P:NPC {
     priest = {
       lines = { { id = "pr_default", text = "Ach, the Cathedral's priests have done what they can, an' it's plenty. If ye've Light tae spare, spend it on Henze. I'll live." } },
       choices = {
-        { text = "Then I'll pray for Henze.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Henze is gone, Gazin, and my prayers are for the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll pray for Henze.", next = "BACK", reply = "Thank ye. He'd be glad o' it, wherever he is.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Henze is gone, Gazin, and my prayers are for the living.", next = "BACK", reply = "Fair enough. I'll keep prayin' for him meself, then.", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -614,12 +614,12 @@ P:NPC {
     deadmines = { { id = "tp_deadmines", text = "Henze and I followed the Defias trail far enough to know they've a nest under Moonbrook. We never got close enough to see it, and that's the only reason I'm still breathin'." } },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a curse on every dwarf, and I'd hammer them flat if I could. Henze always said we'd go after them once the Defias were done, and I mean to hold him to it." } },
     knows = {
-      { id = "tp_knows", text = "I've been sitting by this altar long enough to hear half the Trade District's business, lad. Ask me about any of it, and I'll tell you what I can between prayers." },
+      { id = "tp_knows", text = "I've been sitting by this altar long enough to hear half the Trade District's business, {g:lad|lass}. Ask me about any of it, and I'll tell you what I can between prayers." },
     },
     background = { { id = "tp_bg", text = "A dwarf who went lookin' for proof an' found more than he wanted. That's me lately. Ask me again when Henze is on his feet." } },
     advice = { { id = "tp_ad", text = "If a friend tells ye tae run, run, but then come back with help. Dinnae skip the second part." } },
-    defias = { { id = "tp_defias", text = "Organized, well-armed, an' meaner than they look. They look plenty mean." } },
-    tome_of_divinity = { { id = "tp_tome", text = "Rall's book. I'm no paladin, but I've seen what it does tae the ones who finish it." } },
+    defias = { { id = "tp_defias", text = "The Defias are organized, well-armed an' meaner than they look, an' they look plenty mean." } },
+    tome_of_divinity = { { id = "tp_tome", text = "The Tome's Rall's book. I'm no paladin, but I've seen what it does tae the ones who finish it." } },
     _none = { { id = "tp_none", text = "Cannae help ye there. I'm a worrier, no' a scholar." } },
   },
 }
@@ -653,8 +653,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Every day, and I've no good answer for them. Some of them lost fathers to the orcs, so you might keep the spirit-talk quiet around them, love." } },
       choices = {
-        { text = "Then I'll show them a shaman can be a friend to Stormwind.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They'll have to learn the world's not simple. Better now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll show them a shaman can be a friend to Stormwind.", next = "BACK", reply = "That would be a fine thing, love, and a hard one. Go gently with them.", fx = { align = { light = 1 } } },
+        { text = "They'll have to learn the world's not simple. Better now.", next = "BACK", reply = "They'll learn it soon enough, love. I'd rather they had a few more years of thinking it was.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -664,8 +664,8 @@ P:NPC {
         { id = "xlock_default", text = "Frighten? They'd climb all over your imp and ask it its name, and then they'd have nightmares for a week and I'd be the one up with them. These children have seen enough already, from the north and the farms and the war, so I'd thank you to keep your magic where they can't see it." },
       },
       choices = {
-        { text = "I'll keep it hidden, Stephanie. They've seen enough.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They'll see worse in this world. Better they learn now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep it hidden, Stephanie. They've seen enough.", next = "BACK", reply = "Thank you, love. They've seen far too much already.", fx = { align = { light = 1 } } },
+        { text = "They'll see worse in this world. Better they learn now.", next = "BACK", reply = "They will, love, and I'll be up with them every night. Keep it hidden anyway.", fx = { align = { light = -1 } } },
         { text = "Something else, Stephanie.", next = "BACK" },
       },
     },
@@ -673,8 +673,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "They'd love it, and they'd dig it up again by morning to see if it had roots yet. There's nowhere to plant one here anyway, unless the Archbishop lends me a corner of the square, and I'd not dare ask him." } },
       choices = {
-        { text = "Ask the Archbishop properly. A tree in his square needs his leave.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Don't ask. Plant it at night and let him find it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Ask the Archbishop properly. A tree in his square needs his leave.", next = "BACK", reply = "That's the proper way, love, and he'll probably say yes. He's soft about trees.", fx = { align = { order = 1 } } },
+        { text = "Don't ask. Plant it at night and let him find it.", next = "BACK", reply = "Ha! The children would love that, and the Archbishop would pretend not to notice.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -682,8 +682,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Some do, love, when the bread runs short, and the Defias are always waiting at the canal's edge with a warm coat and a knife. I lose one or two a year to them, and I lie awake over every one." } },
       choices = {
-        { text = "The men who recruit children should answer to the Watch.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A hungry child takes the coat that's offered. I don't blame them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The men who recruit children should answer to the Watch.", next = "BACK", reply = "They should, love, and they never do. I'll keep the children away from the canal.", fx = { align = { order = 1 } } },
+        { text = "A hungry child takes the coat that's offered. I don't blame them.", next = "BACK", reply = "Nor do I, love. I just wish I had more coats to give them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -691,8 +691,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Would you, love? Something small and pretty, a bit of frost on the window or a little light, because they've seen enough fire for one lifetime, and the ones from Lordaeron don't laugh at flames." } },
       choices = {
-        { text = "Only gentle things, then. I'll keep it soft for them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fire's part of the world, so they may as well get used to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Only gentle things, then. I'll keep it soft for them.", next = "BACK", reply = "Thank you, love. A little frost would make their whole week.", fx = { align = { light = 1 } } },
+        { text = "Fire's part of the world, so they may as well get used to it.", next = "BACK", reply = "They've had enough of it, love, more than you know. Gentle things, please.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -700,8 +700,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Half of the boys do, and a few of the girls, and I can't blame them when every soldier they see is a hero in a story. I only wish they'd remember that their own fathers marched off the same way." } },
       choices = {
-        { text = "I'll tell them the truth: it's hard, and it costs people.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Let them dream. They'll learn soon enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll tell them the truth: it's hard, and it costs people.", next = "BACK", reply = "Thank you, love. They'll listen to you more than they listen to me.", fx = { align = { light = 1 } } },
+        { text = "Let them dream. They'll learn soon enough.", next = "BACK", reply = "They will, love, and I'd rather they learned it from you than from a field.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -709,25 +709,25 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Every night, if you could spare it, though I'd settle for once a week. Half of them lost their families to the Defias or the plague, and the prayers I know are only the ones my mother taught me, which aren't nearly enough." } },
       choices = {
-        { text = "Then I'll come when I can. No child should sleep without comfort.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Prayers don't fill bellies, Stephanie. Food would help them more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll come when I can. No child should sleep without comfort.", next = "BACK", reply = "Thank you, love. They'll sleep better knowing you're coming.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers don't fill bellies, Stephanie. Food would help them more.", next = "BACK", reply = "They don't, love, and food's always welcome. But a child who's frightened at night needs both.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Every one of them, and half the girls too, though I'd sooner they wanted to be bakers. It's a fine thing to protect people, but I've seen too many go off to war and never come home." } },
+      lines = { { id = "xapala_default", text = "All the boys do, and a good many girls too, though I'd sooner they wanted to be bakers. It's a fine thing to protect people, but I've seen too many go off to war and never come home." } },
       choices = {
-        { text = "Someone must stand between them and the dark. Let them dream.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "You're right. Let them choose a safer trade while they can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Someone must stand between them and the dark. Let them dream.", next = "BACK", reply = "Someone must, love, and I suppose it might as well be someone who was once an orphan.", fx = { align = { honor = 1 } } },
+        { text = "You're right. Let them choose a safer trade while they can.", next = "BACK", reply = "I'd like that, love, though they never listen. They all want to be paladins.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The little ones sleep better on the nights someone from the Cathedral comes to say prayers with them, so you'll forgive me if I ask." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The little ones sleep better on the nights someone from the Cathedral comes to say prayers with them, so I hope you won't mind my asking." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, don't let the boys see you, or they'll follow you to the gate and I'll spend the afternoon fetching them back." },
-        { id = "h_default", text = "Stephanie Turner. My husband and I run the orphanage. I make their clothes and keep them fed; John's off begging for the rest. Neither of us sleeps much." },
+        { id = "h_default", text = "Stephanie Turner. My husband John and I help keep the orphanage: I make the children's clothes and keep them fed, and John's off begging for the rest. Neither of us sleeps much." },
         { id = "h_tome", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Divinity") },
           text = "You'd help? Then it's linen I need, plain linen cloth, because I've more children than shirts this winter. Bring me ten pieces and I'll have something to sew." },
         { id = "h_john", text = "John's up in Ironforge asking the dwarves for help. They're generous, once they've decided you're not a fool. It takes them a while." },
@@ -771,8 +771,8 @@ P:NPC {
         { id = "c_default", text = "Too many, and not enough beds. The wars made orphans faster than anyone could build homes for them." },
       },
       choices = {
-        { text = "That's a hard thing.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
-        { text = "Orphans are the price of war, and they'd better learn it early.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's a hard thing.", next = "BACK", reply = "It is, love, and harder still on them, though they're braver about it than most grown folk. Visit them if you've a moment, because a friendly face does them more good than you'd think.", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Orphans are the price of war, and they'd better learn it early.", next = "BACK", reply = "They've learned it already, love. That's why they're here.", fx = { align = { light = -1 } } },
         { text = "Someone should do something.", next = "someone" },
       },
     },
@@ -781,7 +781,7 @@ P:NPC {
       choices = { { text = "Ha. Fair.", next = "BACK", fx = { affinity = 1 } } },
     },
     john = {
-      lines = { { id = "j_default", text = "He's in Ironforge, asking the dwarves for help. He writes that the beer is strong and the purses are slow to open. Then they open all the way." } },
+      lines = { { id = "j_default", text = "He's in Ironforge, asking the dwarves for help. He writes that the beer is strong and the purses are slow to open, but then they open all the way." } },
       choices = {
         { text = "It can't be enough.", next = "john_enough" },
         { text = "Something else.", next = "BACK" },
@@ -806,7 +806,7 @@ P:NPC {
       lines = { { id = "r_default", text = "Then tell me something, love. What helped you, that first winter here? I'll do more of it." } },
       choices = {
         { text = "Someone who didn't ask questions.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Bread, honestly.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Bread, if I'm choosing.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
       },
     },
     sew = {
@@ -828,7 +828,7 @@ P:NPC {
 
   topics = {
     holy_light = { { id = "tp_holy_light", text = "The Light watches over every child in that orphanage, and I'd like it to send a few more blankets while it's watching. I pray every night, and I darn every night, and I think the Light prefers the darning." } },
-    scourge = { { id = "tp_scourge", text = "Half the new children come from Lordaeron, and some of them won't sleep without a candle. I don't ask what they've seen, because I can see it in their faces when the lights go out." } },
+    scourge = { { id = "tp_scourge", text = "Most of the new children come from Lordaeron, and some of them won't sleep without a candle. I don't ask what they've seen, because I can see it in their faces when the lights go out." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I took the children to the Darkmoon Faire when it came to Goldshire, all thirty of them, and only lost one for an hour. He was found asleep in the fortune-teller's tent, and he said she'd promised him a dog." } },
     deadmines = { { id = "tp_deadmines", text = "Some of my older boys talk about running off to join the Defias in their mines under Moonbrook. I tell them the Defias have no orphanage, and they go quiet, and I pray it's enough." } },
     knows = {
@@ -836,7 +836,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "John's wife, and everything else the orphans need. There isn't time for more of a story than that, love. There's a hem waiting." } },
     advice = { { id = "tp_ad", text = "Mend a thing before it tears all the way, whether it's clothes, roofs or people. It's always cheaper early." } },
-    tome_of_divinity = { { id = "tp_tome", text = "Duthorian's young paladins come to me. I put them to work. They go away a little kinder." } },
+    tome_of_divinity = { { id = "tp_tome", text = "Duthorian Rall's young paladins come to me with linen for their test, and I put them to work, and they go away a little kinder." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, love, but ask me about children's sizes." } },
   },
 }
@@ -874,8 +874,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Yes, and Father says ours isn't one, but he's wrong, because it's warm and there's milk. You could talk to his spirit and fix him." } },
       choices = {
-        { text = "Ask your father honestly, Timmy, and keep asking.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Hide the kitten in the cellar. He'll never know.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Ask your father straight out, Timmy, and keep asking.", next = "BACK", reply = "I will! I'll ask him every morning until he says yes.", fx = { align = { honor = 1 } } },
+        { text = "Hide the kitten in the cellar. He'll never know.", next = "BACK", reply = "In the cellar? Mum would find her, and then I'd be in trouble too. But it's a good idea.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -885,8 +885,8 @@ P:NPC {
         { id = "xlock_default", text = "I don't think so, she's hiding in my coat now, and she only does that when the guards' dogs go past. Dad says demons are bad and people who keep them are worse, but you don't look worse, you look tired, and maybe that's different." },
       },
       choices = {
-        { text = "Your dad means well, Timmy. Keep her away from it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Your dad doesn't know everything, Timmy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your dad means well, Timmy. Keep her away from it.", next = "BACK", reply = "All right. I'll keep her in my coat when demons go by.", fx = { align = { light = 1 } } },
+        { text = "Your dad doesn't know everything, Timmy.", next = "BACK", reply = "He doesn't! He doesn't know about cats at all. You're right.", fx = { align = { light = -1 } } },
         { text = "Something else, Timmy.", next = "BACK" },
       },
     },
@@ -894,8 +894,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "She'd love it, but she'd want to be the boss, because she's the boss of the whole bakery and the mice know it. Can you be a little cat, though, and not a big one, because a big one might eat her?" } },
       choices = {
-        { text = "Every house needs a boss, Timmy, and she can be it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Cats don't have bosses, Timmy. Every cat is free.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Every house needs a boss, Timmy, and she can be it.", next = "BACK", reply = "She can be the boss of the bakery, and I'll be the boss of her. That's fair.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Cats don't have bosses, Timmy. Every cat is free.", next = "BACK", reply = "Then she's free to come home with me! I'll tell Dad you said so.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -903,8 +903,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Very sneaky, which is good, because my mum says sneaky people and cats get along. If you took her home, she could teach you to catch mice, and you could teach her to open doors." } },
       choices = {
-        { text = "She'd be safest with someone honest, Timmy, not someone sneaky.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A sneak and a kitten sounds like the perfect team.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "She'd be safest with someone honest, Timmy, not someone sneaky.", next = "BACK", reply = "Oh. Then she should stay with me, because I'm honest. Mostly.", fx = { align = { honor = 1 } } },
+        { text = "A sneak and a kitten sounds like the perfect team.", next = "BACK", reply = "That's what I said! Mum says it's a terrible idea.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -912,8 +912,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Only a little bit, just so he'd say yes about the kitten, and then you could unmagic him after. Mum says that's not fair, but Mum didn't say it was impossible." } },
       choices = {
-        { text = "That wouldn't be fair, Timmy, so ask him honestly instead.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A little spell never hurt anyone, Timmy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That wouldn't be fair, Timmy, so ask him plainly instead.", next = "BACK", reply = "All right, I'll ask him honestly. It won't work, though.", fx = { align = { honor = 1 } } },
+        { text = "A little spell never hurt anyone, Timmy.", next = "BACK", reply = "See? That's what I told Mum! Can you do it now?", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -921,8 +921,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Yes, please, because the guards keep telling me to move and the cats in the alley keep hissing at her! If you guarded her nobody would hiss, I bet, not even the big orange one." } },
       choices = {
-        { text = "Every little one deserves someone to stand up for them, Timmy.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A warrior has bigger things to guard than kittens, Timmy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every little one deserves someone to stand up for them, Timmy.", next = "BACK", reply = "That's what I think too! You can guard her and I'll guard you.", fx = { align = { light = 1 } } },
+        { text = "A warrior has bigger things to guard than kittens, Timmy.", next = "BACK", reply = "Oh. Bigger things like dragons? I suppose that's fair.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -930,8 +930,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Yes! Pray she finds a good home, and pray my dad changes his mind, because that would be the same home and then everybody's happy." } },
       choices = {
-        { text = "I'll pray she finds a loving home, Timmy, wherever it is.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Prayers won't change your father's mind. You'll have to ask nicely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll pray she finds a loving home, Timmy, wherever it is.", next = "BACK", reply = "Thank you! I hope it's my home, though, really.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't change your father's mind. You'll have to ask nicely.", next = "BACK", reply = "I've asked nicely a hundred times. I'll try a hundred and one.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -939,8 +939,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Would you really? She'd be Sir Whiskers, then, and my dad couldn't say no to a knight, could he, because that would be against the law." } },
       choices = {
-        { text = "Knighthood is a solemn oath, Timmy, even for kittens.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Kneel, Sir Whiskers, and never mind the rules.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Knighthood is a solemn oath, Timmy, even for kittens.", next = "BACK", reply = "Then I'll make her take it seriously. She'll be the best knight.", fx = { align = { order = 1 } } },
+        { text = "Kneel, Sir Whiskers, and never mind the rules.", next = "BACK", reply = "Arise, Sir Whiskers! Dad can't say no now, it's the law!", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1057,8 +1057,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_laurena_default", text = "A paladin teaches you to stand your ground when your instinct is to step back and mend, and you teach them that the Light is not only a hammer. The best pairs I've known argued constantly and never once let the other fall." } },
       choices = {
-        { text = "Then I'll stand my ground beside them, whatever comes.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll let them stand. A fallen healer helps nobody.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll stand my ground beside them, whatever comes.", next = "BACK", reply = "Good. The paladin will be grateful, and you'll learn more than any lesson I could give.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll let them stand. A fallen healer helps nobody.", next = "BACK", reply = "Sometimes that's true, and sometimes it's an excuse. Learn which is which before it matters.", fx = { align = { honor = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -1066,8 +1066,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_whitemane_default", text = "Then the Light answered her even at the end, or she believed it did, and I can't say which troubles me more. A priest's power isn't proof of a priest's righteousness, and that's the hardest thing I teach, because most students want the one to mean the other." } },
       choices = {
-        { text = "Faith needs humility, Priestess, or it ends on Whitemane's road.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Faith needs steel. Whitemane only forgot where to point it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Faith needs humility, Priestess, or it ends on Whitemane's road.", next = "BACK", reply = "It does, and I pray every morning that I remember it. Her road began with the same prayers as mine.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith needs steel. Whitemane only forgot where to point it.", next = "BACK", reply = "That's what the Crusade tells itself, and it frightens me how easily it sounds right.", fx = { align = { light = -1 } } },
         { text = "Someone ought to have reined the Crusade in.", next = "xcl_whitemane2" },
       },
     },
@@ -1081,8 +1081,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I think the Light is not jealous, though some of my brothers would argue. But I have seen what spirits did for the orcs, and I am slow to trust them." } },
       choices = {
-        { text = "The Light and the spirits both shelter the living. I believe that.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The Light alone is enough. I'll not pretend otherwise here.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light and the spirits both shelter the living. I believe that.", next = "BACK", reply = "I'm not so sure, but I'll grant you've seen more of it than I have. Prove it to me in time.", fx = { align = { light = 1 } } },
+        { text = "The Light alone is enough. I'll not pretend otherwise here.", next = "BACK", reply = "Good. Then you'll find the Cathedral a comfortable home.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1092,8 +1092,8 @@ P:NPC {
         { id = "xrogue_default", text = "The Light sees the dark as clearly as the day, though I'll grant it is more patient than the city guard. I've healed more of the king's quiet servants than you'd believe, and they all asked me that question, usually while I was stitching them up." },
       },
       choices = {
-        { text = "Then I'll try to give it less to be patient with.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Patience suits me. I'll keep working in the dark.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll try to give it less to be patient with.", next = "BACK", reply = "That would be a kindness to both of you, and to my healers. Thank you.", fx = { align = { light = 1 } } },
+        { text = "Patience suits me. I'll keep working in the dark.", next = "BACK", reply = "Then I'll keep healing you when you come in at night, and I'll not ask why.", fx = { align = { light = -1 } } },
         { text = "Something else, High Priestess.", next = "BACK" },
       },
     },
@@ -1101,8 +1101,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "The Light answers whoever turns to it, though mages are so used to commanding that they rarely think to ask. That's the lesson your kind find hardest, and it isn't in any of your books either." } },
       choices = {
-        { text = "I can learn to ask, High Priestess, rather than command.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'd rather command a power than wait for one to answer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I can learn to ask, High Priestess, rather than command.", next = "BACK", reply = "That's harder than it sounds, and you've taken the first step by saying it. Kneel when you're ready.", fx = { align = { light = 1 } } },
+        { text = "I'd rather command a power than wait for one to answer.", next = "BACK", reply = "Then the Light will be patient with you, and so will I, though I'll pray you learn.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1110,20 +1110,20 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "By staying behind you and staying alive, mostly, which is harder than it sounds when you charge off without looking. The best pairs I've trained learn each other's habits, because a shield and a prayer work best when they trust each other." } },
       choices = {
-        { text = "I'll keep the line, and trust my healer to keep me.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll charge when I see fit. Healers can keep up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep the line, and trust my healer to keep me.", next = "BACK", reply = "That's how the best pairs I've trained work. You'll come home more often.", fx = { align = { order = 1 } } },
+        { text = "I'll charge when I see fit. Healers can keep up.", next = "BACK", reply = "They can't always, and the day they don't, you'll remember this. Look back once in a while.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than you'd think, because a hunter and a priest can both stand back and see the whole of a fight. I've sent many young priests out to Redridge with hunter companions, and most came back telling me it was the hunter who kept them alive." },
+        { id = "xhuntcl_default", text = "Often, and gladly, for a hunter and a priest can both stand back and see the whole of a fight. I've sent many young priests out to Redridge with hunter companions, and most came back telling me it was the hunter who kept them alive." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} will be the one taking the blows, I suppose. I've mended a few beasts in my time, and they're far better patients than soldiers." },
       },
       choices = {
-        { text = "My pet takes the blows so others don't. I honour that.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "That's what a pet is for. Better it than me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "My pet takes the blows so others don't. I honour that.", next = "BACK", reply = "Then you understand more about sacrifice than many of my priests.", fx = { align = { light = 1 } } },
+        { text = "That's what a pet is for. Better it than me.", next = "BACK", reply = "Better it than you, perhaps, but it's still a life. I'd ask you to remember that.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1131,8 +1131,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "My students learn to listen to the Light, and yours learn to carry it into places it isn't welcome. Both are needed, but I've seen paladins forget to listen, and priests forget that someone has to go out and fight." } },
       choices = {
-        { text = "The oath and the Church should guide me together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll follow the Light as I feel it, not the Church's rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The oath and the Church should guide me together.", next = "BACK", reply = "That's the right balance, and the hardest one. Hold to it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll follow the Light as I feel it, not the Church's rules.", next = "BACK", reply = "That's how Whitemane began, child. I'd be careful with that thought.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1164,7 +1164,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Some lessons aren't in any book, I'd guess.", next = "lessons", when = { class = "PRIEST" } },
-        { text = "A high priestess must have a great deal to do.", next = "duty" },
+        { text = "A high priestess must have little time to herself.", next = "duty" },
         { text = "Josetta speaks well of you.", next = "josetta", when = { heardLine = "josetta.h_prayer" } },
         { text = "The Abbey raised me. I'm one of theirs.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I doubt the Light can mend what a demon has touched.", next = "warlock", when = { class = "WARLOCK" } },
@@ -1193,11 +1193,11 @@ P:NPC {
     },
     lessons = {
       big = true,
-      lines = { { id = "l_default", text = "You learn that you can't save everyone. That you'll be thanked least by the people you helped most. That the Light doesn't make you good; it shows everyone whether you are." } },
+      lines = { { id = "l_default", text = "You learn that you can't save everyone, and that you'll be thanked least by the people you helped most. Above all, the Light doesn't make you good; it shows everyone whether you are." } },
       choices = {
         { text = "That's frightening.", next = "lessons_fear", fx = { trait = { cautious = 1 } } },
-        { text = "I'm ready for that.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { brave = 1 } } },
-        { text = "I'd rather not have the Light judge me so plainly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'm ready for that.", next = "BACK", reply = "Then you're readier than most. Come and kneel with me tomorrow.", fx = { affinity = 2, align = { light = 2 }, trait = { brave = 1 } } },
+        { text = "I'd rather not have the Light judge me so plainly.", next = "BACK", reply = "Nobody would, child, but it does it anyway. Better to know than to wonder.", fx = { align = { light = -1 } } },
         { text = "What has the Light shown you about yourself?", tag = "Persuade", next = "lessons_own",
           check = { pass = { any = { { all = { { class = "PRIEST" }, { disposition = { min = 60 } } } }, { disposition = { min = 72 } }, { trait = "pious" } } } },
           fail = { next = "lessons_mine", fx = { affinity = -1 } } },
@@ -1208,14 +1208,14 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
     duty = {
-      lines = { { id = "d_default", text = "Teach, mostly. Bless the services when His Grace is at the Keep. Sit up with the city's sick when they come to the doors at night. They always come at night." } },
+      lines = { { id = "d_default", text = "I teach, mostly, and bless the services when His Grace is at the Keep, and sit up with the city's sick when they come to the doors at night. They always come at night." } },
       choices = {
         { text = "Why at night?", next = "duty_night" },
         { text = "Something else.", next = "BACK" },
       },
     },
     duty_night = {
-      lines = { { id = "dn_default", text = "Pride, by day, and fear by night. Fear is the more honest of the two, and it knocks louder." } },
+      lines = { { id = "dn_default", text = "Because pride keeps them home by day, and fear brings them by night. Fear is the more honest of the two, and it knocks louder." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     josetta = {
@@ -1225,8 +1225,8 @@ P:NPC {
     novice = {
       lines = { { id = "n_default", text = "Then you were taught by people who'd sooner scrub a floor than preach about it, and you should keep that. The Cathedral has marble, and marble makes some priests forget floors." } },
       choices = {
-        { text = "I won't forget.", next = "BACK", fx = { affinity = 3, align = { light = 1, order = 1 } } },
-        { text = "Marble suits a priest better than a scrubbing brush, frankly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I won't forget.", next = "BACK", reply = "Good. Scrub the floor here as well, and you'll be a better priest than half my novices.", fx = { affinity = 3, align = { light = 1, order = 1 } } },
+        { text = "Marble suits a priest better than a scrubbing brush, frankly.", next = "BACK", reply = "Then you'll be comfortable here, and you'll lose something on the way. Keep the brush close.", fx = { align = { light = -1 } } },
       },
     },
     lessons_own = {
@@ -1256,8 +1256,8 @@ P:NPC {
       lines = { { id = "warlock_l", text = "Sometimes, if the person wants it mended, and usually they come to my door at night when they've finally decided they do. You're asking in daylight, warlock, which is either a good sign or a very bad one." } },
       choices = {
         { text = "I'm asking for someone else.", next = "warlock2" },
-        { text = "I don't want mending. I want to know my options.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "A good sign, I hope.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I don't want mending. I want to know my options.", next = "BACK", reply = "Then you'll have them, and the Light will be one of them. Come back when you want it.", fx = { align = { light = -1 } } },
+        { text = "A good sign, I hope.", next = "BACK", reply = "It is, and the best one I've seen in a long while. Come back at night, if you'd rather.", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
     warlock2 = {
@@ -1287,10 +1287,10 @@ P:NPC {
       { id = "tp_knows", text = "I know the Cathedral and the people who come to its doors, and very little of what happens beyond them. Ask me about any of this, and keep your voice down." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer on these, briefly, and then I've a service to prepare." },
     },
-    background = { { id = "tp_bg", text = "A priest who stayed when others went home. That's how most high priestesses happen. Stubbornness, mistaken for calling." } },
+    background = { { id = "tp_bg", text = "A priest who stayed when others went home. That's how most high priestesses happen: stubbornness, mistaken for a calling." } },
     advice = { { id = "tp_ad", text = "Heal first and ask questions after. The questions will still be there. The wounded may not be." } },
-    northshire_abbey = { { id = "tp_abbey", text = "Where the Light learns your name. The Cathedral only learns what you've done with it." } },
-    scarlet_crusade = { { id = "tp_scarlet", text = "They heal no one. I've never trusted a faith that only burns." } },
+    northshire_abbey = { { id = "tp_abbey", text = "Northshire Abbey is where the Light learns your name; the Cathedral only learns what you've done with it." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "The Scarlet Crusade heals no one, and I've never trusted a faith that only burns." } },
     _none = { { id = "tp_none", text = "I don't know. Ask the library, and if the library doesn't know, ask the Light. It's better at waiting for an answer than I am." } },
   },
 }
@@ -1325,8 +1325,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "In the first light through the east window, yes, as if the stone were holding its breath. Perhaps your spirits would call that something else." } },
       choices = {
-        { text = "Call it holy, Brother. The name matters less than the reverence.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Stone is stone. Only the Light makes it holy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Call it holy, Brother. The name matters less than the reverence.", next = "BACK", reply = "That's a generous way to put it, and I'll pray on it. Thank you.", fx = { align = { light = 1 } } },
+        { text = "Stone is stone. Only the Light makes it holy.", next = "BACK", reply = "Perhaps, but the stone holds the Light very well. I'll keep watching the window.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1336,8 +1336,8 @@ P:NPC {
         { id = "xmage_default", text = "People ask that, and I tell them the arcane is something you take hold of, and the Light is something that takes hold of you, if you let it. I've no quarrel with Dalaran, but I've watched mages pray here, and the first thing they have to learn is how to stop trying to grip." },
       },
       choices = {
-        { text = "Then I'll try letting go, Brother.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'd rather keep my grip, Brother.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll try letting go, Brother.", next = "BACK", reply = "That's all it asks. Kneel when you're ready, and see what happens.", fx = { align = { light = 1 } } },
+        { text = "I'd rather keep my grip, Brother.", next = "BACK", reply = "Then keep your grip, and I'll keep praying for you. There's room for both.", fx = { align = { light = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
@@ -1345,8 +1345,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Warmer, I'd say, and louder, though the window can't help that. I've often wondered whether your goddess and my Light stand at the same window from two sides, and I'm content not to know." } },
       choices = {
-        { text = "Light and moon share one sky. I'm glad to share your window.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The moon keeps her own counsel, Brother, and so do I.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Light and moon share one sky. I'm glad to share your window.", next = "BACK", reply = "So am I. It's a lovely window, and big enough for two faiths.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The moon keeps her own counsel, Brother, and so do I.", next = "BACK", reply = "Then she and I share that too, I think. Come back any morning.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1354,8 +1354,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Not watching so much as waiting, I think, the way it waits for everyone who comes near it. You'd be surprised how many of Shaw's people kneel here at dawn, when they think nobody's looking." } },
       choices = {
-        { text = "Then I'll kneel openly, because I've nothing to hide from the Light.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll keep my own counsel, Brother, and the Light can wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll kneel openly, because I've nothing to hide from the Light.", next = "BACK", reply = "Good. That's how the Light likes it, though it'll wait for the others.", fx = { align = { light = 1 } } },
+        { text = "I'll keep my own counsel, Brother, and the Light can wait.", next = "BACK", reply = "It will, and very patiently. It's waited for Shaw's people for years.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1363,8 +1363,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "It hears everyone, and I've never once seen it turn its face away, though I've seen plenty of people turn theirs. What you bind doesn't decide that, friend, but what you do with it does." } },
       choices = {
-        { text = "Then I'll bind them only to keep worse things away.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll do what I must with them, and the Light can watch.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll bind them only to keep worse things away.", next = "BACK", reply = "That's a good reason, if it stays the reason. I'll pray it does.", fx = { align = { light = 1 } } },
+        { text = "I'll do what I must with them, and the Light can watch.", next = "BACK", reply = "Then it will watch, and so will I, with hope.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1372,8 +1372,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "For the reason you fight, because it gets lost under all the noise of the fighting itself. I've known soldiers who swung for years before they could say why, and they were the ones who broke first." } },
       choices = {
-        { text = "I fight for the people of this kingdom.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I fight because I'm good at it. That's reason enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I fight for the people of this kingdom.", next = "BACK", reply = "That's a fine reason, and I'll pray you remember it in the noise.", fx = { align = { light = 1 } } },
+        { text = "I fight because I'm good at it. That's reason enough.", next = "BACK", reply = "It's a reason, but it won't sustain you forever. Find another while you can.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1381,11 +1381,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The Light teaches it through prayer, and the forest teaches it through hunger, and I suspect they're the same lesson. You wait, you watch, and you act only when the moment is right." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has it too, that stillness. Watch how it sits by the pews; it's a better student than half my novices." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The Light teaches it through prayer, and the forest teaches it through hunger, and I suspect they're the same lesson. Your {pet} has it too, that stillness. Watch how it sits by the pews; it's a better student than half my novices." },
       },
       choices = {
-        { text = "Waiting on the Light is still praying, Brother.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Patience is just how you catch dinner.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Waiting on the Light is still praying, Brother.", next = "BACK", reply = "It is, and you've understood it better than many novices. Thank you.", fx = { align = { light = 1 } } },
+        { text = "Patience is just how you catch dinner.", next = "BACK", reply = "And prayer is how you catch something else entirely. I'll keep both.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1393,8 +1393,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Some do, and they're the quiet ones, who kneel a long while and say nothing aloud. The loud ones I worry about, because a paladin who never kneels starts to believe the Light belongs to him." } },
       choices = {
-        { text = "The Light belongs to no one. I'm only its servant.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The Light chose me, Brother. I've earned the right to wield it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light belongs to no one. I'm only its servant.", next = "BACK", reply = "Then you'll kneel well, and long. That's what I'd hope for.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light chose me, Brother. I've earned the right to wield it.", next = "BACK", reply = "That's what the loud ones say, and I worry for them. Kneel a little, anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1403,7 +1403,7 @@ P:NPC {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at first light. Your order has sworn its oaths at altars like this one, so you'll know how the morning lies across the stone." },
         { id = "h_default", key = true, text = "Brother Joshua. I teach by the altar, because people pay attention near it. They don't always notice they're doing it." },
-        { id = "h_dawn", when = { timeOfDay = "dawn" }, text = "First light through the east window. I've watched it every morning for years. It's never once been the same." },
+        { id = "h_dawn", when = { timeOfDay = "dawn" }, text = "Look, the first light through the east window. I've watched it every morning for years, and it's never once been the same." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You came in without a sound, but the altar noticed anyway, because it always does and it isn't a thing you can sneak past." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -1455,16 +1455,16 @@ P:NPC {
       big = true,
       lines = { { id = "aw_default", text = "By healing someone who goes on to heal someone else, mostly, the way the dawn comes through the east window and lights the whole nave, not just the altar. A priest who keeps the Light for himself is a window with the shutters closed." } },
       choices = {
-        { text = "The Light is meant for everyone, or it's meant for no one.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Some don't deserve healing. A priest must choose.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light is meant for everyone, or it's meant for no one.", next = "BACK", reply = "That's what I believe, and what I try to teach. Thank you.", fx = { align = { light = 1 } } },
+        { text = "Some don't deserve healing. A priest must choose.", next = "BACK", reply = "Some priests do, and some of them end up in the Crusade. I'd rather heal everyone I can.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     pray = {
       lines = { { id = "p_default", text = "Badly, and often. Mostly I say thank you and then I listen. The listening is the part people skip." } },
       choices = {
-        { text = "Listening is the part I skip, so I'll try harder.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "I'd rather talk than listen, and the Light can wait its turn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Listening is the part I skip, so I'll try harder.", next = "BACK", reply = "That's honest, and it's a good start. The Light is a patient listener too.", fx = { align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "I'd rather talk than listen, and the Light can wait its turn.", next = "BACK", reply = "It will, and it's very patient. But it might have something to say.", fx = { align = { light = -1 } } },
         { text = "What do you hear, when you listen?", next = "pray_listen" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1505,8 +1505,8 @@ P:NPC {
       lines = { { id = "tfl_default", text = "One, a bright young woman who went north to Lordaeron with the relief caravans and came back unable to pray at all. She said she'd called on the Light in Andorhal and it hadn't come, and I had no answer for her that she'd accept.",
           fx = { learn = { "scourge", "andorhal" } } } },
       choices = {
-        { text = "The Light never left her. She'll find it again.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Maybe it truly didn't come. Faith has its limits.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light never left her. She'll find it again.", next = "BACK", reply = "I pray so every day. She writes to me sometimes, and the letters are getting longer.", fx = { align = { light = 1 } } },
+        { text = "Maybe it truly didn't come. Faith has its limits.", next = "BACK", reply = "Maybe it didn't, and that's the hardest thing I've ever had to think. I'll keep praying for her.", fx = { align = { light = -1 } } },
         { text = "What became of her?", next = "teach_after" },
       },
     },
@@ -1545,8 +1545,8 @@ P:NPC {
       lines = { { id = "cr_default", text = "Brother Crowley, yes, and he's sincere, which is what troubles me. The Crusade fights the Scourge with real courage, but I've heard what it does to the living it suspects, and a light that only burns isn't one I recognise.",
           fx = { learn = { "scarlet_crusade" } } } },
       choices = {
-        { text = "The Scourge must be stopped at any cost. The Crusade understands that.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "A Light that tortures the living isn't the Light at all.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Scourge must be stopped at any cost. The Crusade understands that.", next = "BACK", reply = "They understand courage, and that's all they understand. I'd not follow them.", fx = { align = { light = -1 } } },
+        { text = "A Light that tortures the living isn't the Light at all.", next = "BACK", reply = "That's what I believe, and what I pray Crowley learns before it's too late.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1610,7 +1610,7 @@ P:NPC {
     holy_light = { { id = "tp_holy_light", text = "I teach here beside the altar because I've watched the first light come through that window every morning for years. Every time, it reminds me the Light comes back whether we deserve it or not." } },
     scourge = { { id = "tp_scourge", text = "The Scourge is a darkness that doesn't sleep, and I've seen priests come home from Lordaeron who'd forgotten how to pray. I sit with them, and sometimes they remember, and sometimes they don't." } },
     brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood at Northshire are good people, and they taught me how to pray when I was a boy who'd rather be fishing. I still go back now and then, mostly for the bread." } },
-    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "Brave people, and frightened ones, and I've learned that the two together can do terrible things in the Light's name. I pray for them, and I pray for whoever they've decided is unclean." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "The Crusaders are brave people, and frightened ones, and I've learned that the two together can do terrible things in the Light's name. I pray for them, and I pray for whoever they've decided is unclean." } },
     elune = { { id = "tp_elune", text = "The night elves pray to Elune by moonlight, and I've learned to love the quiet of their prayers. I've told them our Light comes with the morning, and they smiled, as if they knew something I didn't." } },
     background = { { id = "tp_bg", text = "A brother of the Cathedral, and nothing else I'd want to be." } },
     advice = { { id = "tp_ad", text = "When you heal someone, look at their face, not the wound. The wound is the easy part." } },
@@ -1632,7 +1632,7 @@ P:NPC {
 
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Walk with me. I think better moving, and so will you." },
-    { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "Don't turn your back on the Light, friend. It walks faster than you'd think." },
+    { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "Don't turn your back on the Light, friend. It keeps pace with you, whether you look back or not." },
   },
 
   notice = {
@@ -1646,8 +1646,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Whether they love you back, I suppose. The Light warms, but I've never heard it laugh, and I wonder whether your spirits do." } },
       choices = {
-        { text = "They do, Brother, and so should we. Faith can be joyful.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Spirits are wild things. Better to keep your faith quiet.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They do, Brother, and so should we. Faith can be joyful.", next = "BACK", reply = "Then I'll take heart from that. A little joy wouldn't hurt this Cathedral.", fx = { align = { light = 1 } } },
+        { text = "Spirits are wild things. Better to keep your faith quiet.", next = "BACK", reply = "Perhaps, but I'd like to hear one laugh before I die. Brother Joshua says I'm hopeless.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1657,8 +1657,8 @@ P:NPC {
         { id = "xlock_default", text = "Does it hurt, for a start, and does the demon talk back, and when it does, does it ever say anything true? Brother Joshua says I'm not to ask such things, because curiosity is how Morbent Fel and his like began, but I think a priest who won't ask questions is a priest who can't answer them either." },
       },
       choices = {
-        { text = "It does hurt, Brother, and it rarely tells the truth.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "It tells truths you'd rather not hear, Brother.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It does hurt, Brother, and it rarely tells the truth.", next = "BACK", reply = "Then I'll pray for you twice, and I'll stop asking. That's terrible.", fx = { align = { light = 1 } } },
+        { text = "It tells truths you'd rather not hear, Brother.", next = "BACK", reply = "Those are the worst kind, aren't they? I'll not ask more.", fx = { align = { light = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
@@ -1666,8 +1666,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "More than anything, though I suspect you'll tell me words won't do it justice, and you'll be right. I've only ever felt the Light come into me, and I'd like to know if it's at all the same as becoming something else." } },
       choices = {
-        { text = "Some of it is taught only in Moonglade, by those who keep its rules.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "There are no rules to it, Brother. It's wild, and it's freeing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some of it is taught only in Moonglade, by those who keep its rules.", next = "BACK", reply = "Moonglade? I've never heard of it, and now I want to go. Brother Joshua will be appalled.", fx = { align = { order = 1 } } },
+        { text = "There are no rules to it, Brother. It's wild, and it's freeing.", next = "BACK", reply = "That sounds wonderful, and terrifying. I'm jealous, really.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1675,8 +1675,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Only the novices who run in the nave, and I mostly fail. Brother Joshua says my sandals squeak like a mouse in a trap, so I've taken to doing my rounds in my stockings." } },
       choices = {
-        { text = "Quiet steps should serve the Light, then, not hide from it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I walk quietly so that no one knows I was there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Quiet steps should serve the Light, then, not hide from it.", next = "BACK", reply = "That's a good thought. I'll try to squeak for the Light, then.", fx = { align = { light = 1 } } },
+        { text = "I walk quietly so that no one knows I was there.", next = "BACK", reply = "That's what I do too, but for less interesting reasons. Mostly avoiding Brother Joshua.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1684,17 +1684,17 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Alike in the effort, perhaps, but a mage pulls and a priest opens, and I suspect the pulling is more tiring. Jennea would tell you I don't know what I'm talking about, and she'd be partly right." } },
       choices = {
-        { text = "I'd sooner open than pull, Brother, if the Light allows it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Pulling gets results, Brother, and waiting rarely does.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd sooner open than pull, Brother, if the Light allows it.", next = "BACK", reply = "That's what I'd hope for. Brother Joshua would like you.", fx = { align = { light = 1 } } },
+        { text = "Pulling gets results, Brother, and waiting rarely does.", next = "BACK", reply = "Results, yes, but tired ones. I'll keep waiting a little longer.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than either would admit, I think, because both of us spend our days standing between people and harm. The difference is that you can see what you're fighting, and I've to take a great deal on faith." } },
+      lines = { { id = "xwarcl_default", text = "More than either would admit, I think, because both of us spend our days standing between people and harm. The difference is that you can see what you're fighting, and I've to take most of mine on faith." } },
       choices = {
-        { text = "We're both servants. My arm and your prayers serve the same people.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I can see what I hit. That makes my work more honest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "We're both servants. My arm and your prayers serve the same people.", next = "BACK", reply = "That's exactly what I think. We're on the same side of the line.", fx = { align = { light = 1 } } },
+        { text = "I can see what I hit. That makes my work more honest.", next = "BACK", reply = "Perhaps it does. I'll have to think about that, and probably lose sleep.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1702,11 +1702,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not often enough, I'm afraid, though I walked to Northshire Abbey once on a dare and it took me two days because I stopped to talk to everyone. I saw a doe and her fawn by the river and thought of it for a month." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is doing better than I am at keeping pace. A good companion, that one, and very forgiving of the incense." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not often enough, I'm afraid, though I walked to Northshire Abbey once on a dare and it took me two days because I stopped to talk to everyone. Your {pet} is doing better than I am at keeping pace. A good companion, that one, and very forgiving of the incense." },
       },
       choices = {
-        { text = "Every creature is the Light's, and deserves a quiet death.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A hunter can't afford to be sentimental about the kill.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every creature is the Light's, and deserves a quiet death.", next = "BACK", reply = "They do, and I'll pray for every one. Thank you for saying so.", fx = { align = { light = 1 } } },
+        { text = "A hunter can't afford to be sentimental about the kill.", next = "BACK", reply = "I suppose not, though I'd hope you're sentimental later, when no one's looking.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1714,15 +1714,15 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Because if I knew, I might teach it better, and because nobody's ever explained it to my satisfaction. Brother Joshua says the Light can't be measured, and I say that's only because nobody's tried hard enough." } },
       choices = {
-        { text = "Some mysteries are best left to the Church's teaching.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep asking, Brother. Questions are how we learn.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some mysteries are best left to the Church's teaching.", next = "BACK", reply = "Brother Joshua would agree with you, and he'd be pleased. I'll keep wondering quietly.", fx = { align = { order = 1 } } },
+        { text = "Keep asking, Brother. Questions are how we learn.", next = "BACK", reply = "I will! Thank you. Nobody ever tells me that.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Tell me, do you feel the Light in your arms when you swing, or in your chest, or nowhere at all? I've asked six paladins and had seven answers." },
-        { id = "h_default", key = true, text = "Brother Benjamin. I teach on my feet, up and down this hall. Brother Joshua says I'll wear a groove in the floor. He's probably right." },
+        { id = "h_default", key = true, text = "Brother Benjamin. I teach on my feet, up and down this hall. Brother Joshua says I'll wear a groove in the floor, and he's probably right." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You walk more quietly than I do, and I've been pacing this hall for years. Walk with me, then, and see if you can keep in step without a sound." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -1754,7 +1754,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hardest = {
-      lines = { { id = "h2_default", text = "Rest. Young priests heal until they fall over and call it devotion. It's vanity. The Light doesn't need you exhausted." } },
+      lines = { { id = "h2_default", text = "Rest, because young priests heal until they fall over and call it devotion, when it's really vanity. The Light doesn't need you exhausted." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
   },
@@ -1791,7 +1791,7 @@ P:NPC {
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
       text = "Shadow, on a priest, in the Cathedral of Light? In Lordaeron the Crusade would have some very hard questions for you. Here I'll only ask you to take it off." },
     { id = "n_paladin", cat = "light", when = { class = { "PALADIN", "PRIEST" } },
-      text = "A servant of the Light. You'll have heard of the Crusade, then. Most of it lies, and the rest is the plague's own work." },
+      text = "A servant of the Light. You'll have heard of the Crusade, then, and most of what you've heard is lies spread by the plague's own servants." },
     { id = "n_elf", cat = "race", when = { race = { "NightElf", "Skyborne" } },
       text = "An elf, in Stormwind's catacombs. The Crusade asks only that you hate the dead as much as we do." },
   },
@@ -1806,8 +1806,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_sm_default", text = "It's a fortress in a land of walking corpses, so of course it's grim, and the men who hold it have buried more friends than you've ever met. Whatever you saw there, you saw it in a single day, and they've lived it every day since the plague came to Tirisfal." } },
       choices = {
-        { text = "Torturing prisoners is no way to fight anything, Brother.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "War against the dead needs hard men. I won't judge them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Torturing prisoners is no way to fight anything, Brother.", next = "BACK", reply = "Then you've never stood on those walls at night, and you've never heard what crawls up them. Spare me your pity.", fx = { align = { honor = 1 } } },
+        { text = "War against the dead needs hard men. I won't judge them.", next = "BACK", reply = "Good. The Crusade needs fewer critics and more swords.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Who leads the Crusade inside the Monastery?", next = "xcl_sm2" },
       },
     },
@@ -1821,8 +1821,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I count every heathen rite a door left unbarred, and I have seen what walks through such doors. Prove yourself, dwarf, if you can." } },
       choices = {
-        { text = "Judge me by my deeds, Brother, not by orcish crimes.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The Crusade's fear has made it cruel. Look to yourself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Judge me by my deeds, Brother, not by orcish crimes.", next = "BACK", reply = "Your deeds will be judged in Lordaeron, dwarf, where everyone's are. Come and prove yourself there.", fx = { align = { light = 1 } } },
+        { text = "The Crusade's fear has made it cruel. Look to yourself.", next = "BACK", reply = "Look to myself? I look to the dead every night, and they look back. You'd do well to remember them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1832,8 +1832,8 @@ P:NPC {
         { id = "xlock_default", text = "The Crusade burns your kind on the same pyre as the dead, and Grand Inquisitor Isillien would say I'm being generous telling you so. Lordaeron fell because men bargained with powers they couldn't hold, and you carry that same bargain in your satchel." },
       },
       choices = {
-        { text = "Then the Crusade and I will keep our distance.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Your Crusade would burn the whole north to save it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then the Crusade and I will keep our distance.", next = "BACK", reply = "That would be best for both of us. Stay away from the north.", fx = { align = { light = 1 } } },
+        { text = "Your Crusade would burn the whole north to save it.", next = "BACK", reply = "To save it, yes, if that's what it takes. Better a burned land than a dead one.", fx = { align = { light = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
@@ -1841,8 +1841,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Healed? No, it must be burned, root and branch, and every grove that drinks the plague must burn with it. Your people talk of balance, but there is no balance with the dead, and the Crusade will not wait for the trees to agree." } },
       choices = {
-        { text = "Then burn it. Sometimes a forest must fall to save the rest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Burned land never heals. The Crusade would kill what it means to save.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then burn it. Sometimes a forest must fall to save the rest.", next = "BACK", reply = "At last, a druid with sense. The Crusade could use you, if you'd cut your ties to heathen groves.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Burned land never heals. The Crusade would kill what it means to save.", next = "BACK", reply = "It heals slower than plague spreads, druid. I've watched it happen.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1850,8 +1850,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Scouting the plague villages, mostly, and finding which of the living have been turned by the Cult of the Damned before they turn anyone else. It's grim work, and it ends with a fire more often than I'd tell the Archbishop." } },
       choices = {
-        { text = "Every accusation needs proof before anyone burns, Brother.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If they might be cultists, burning them is the safe choice.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Every accusation needs proof before anyone burns, Brother.", next = "BACK", reply = "Proof takes time, and time is what the Cult has in abundance. I'll not wait for it.", fx = { align = { honor = 1 } } },
+        { text = "If they might be cultists, burning them is the safe choice.", next = "BACK", reply = "Exactly. You understand Lordaeron better than most in this city.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1859,8 +1859,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Kel'Thuzad was one of theirs, and he walked out of the Violet Citadel with his books and turned Lordaeron into a graveyard. The Kirin Tor have spent years saying it wasn't their fault, and the dead have spent the same years walking." } },
       choices = {
-        { text = "Dalaran should be held to account for what it bred.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "One traitor's crimes belong to him alone, not to Dalaran.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Dalaran should be held to account for what it bred.", next = "BACK", reply = "It should, and it never will, because the Kirin Tor still wear their violet like a halo. One day.", fx = { align = { order = 1 } } },
+        { text = "One traitor's crimes belong to him alone, not to Dalaran.", next = "BACK", reply = "So say the Kirin Tor, every one of them. I've heard it before.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1868,8 +1868,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Everything, as the Light asks everything. In Lordaeron the dead outnumber the living, and a warrior who stands with the Crusade fights where it matters, not on some Stormwind parade ground." } },
       choices = {
-        { text = "I'll fight the Scourge, but I'll keep my own judgement.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then point me at the dead. I'll ask no questions.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll fight the Scourge, but I'll keep my own judgement.", next = "BACK", reply = "Your own judgement is how the plague got in. I'd keep it on a short leash, if I were you.", fx = { align = { order = 1 } } },
+        { text = "Then point me at the dead. I'll ask no questions.", next = "BACK", reply = "Now that's the kind of warrior the Crusade needs. Report to Brother Anton.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1877,11 +1877,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The plague takes beast and man alike, and what it takes it does not give back. Our scouts in Tirisfal burn every carcass they find, because the rot spreads through the wolves and the bats before it reaches the farms." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks clean of taint, which is well, because I would not let it near the Crusade's camps otherwise. Keep it so." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The plague takes beast and man alike, and what it takes it does not give back. That {pet} of yours looks clean of taint, which is well, because I would not let it near the Crusade's camps otherwise. Keep it so." },
       },
       choices = {
-        { text = "Some of those beasts can still be saved, Brother.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Burn them all. The plague can't be risked.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some of those beasts can still be saved, Brother.", next = "BACK", reply = "Saved? Nothing that touches the plague can be saved, hunter. Learn that before it learns you.", fx = { align = { light = 1 } } },
+        { text = "Burn them all. The plague can't be risked.", next = "BACK", reply = "Good. That's the only safe answer, and few in this city will say it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1889,8 +1889,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "To stand in the plaguelands and speak the Light's name where the dead can hear it, and to judge the living who have let the plague into their hearts. Brother Anton will tell you the rest, if you've the courage to go to him." } },
       choices = {
-        { text = "Judgement belongs to the divine, Brother, not to you or me.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If judgement is needed, I'll carry it out myself.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Judgement belongs to the divine, Brother, not to you or me.", next = "BACK", reply = "The divine is very busy, priest. Someone has to carry the torch.", fx = { align = { light = 1 } } },
+        { text = "If judgement is needed, I'll carry it out myself.", next = "BACK", reply = "Then you'll make a fine Scarlet priest, if you have the stomach for it.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1926,26 +1926,26 @@ P:NPC {
         { text = "Raleigh told me what the Monastery does.", next = "raleigh", when = { thread = { id = "scarlet_path", beat = "b3_raleigh" } } },
         { text = "I doubt the Crusade has much use for a rogue.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "You seem to hold something against Dalaran, Brother.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "The Scarlet Crusade must ask a great deal of a warrior.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The Scarlet Crusade must ask hard things of a warrior.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Are the beasts of Lordaeron truly sick, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you count every shaman an enemy, Brother Crowley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've seen inside the Monastery, Brother. It isn't what you think.", next = "xcl_sm", when = { cleared = "Scarlet Monastery" } },
-        { text = "I'll go to Brother Anton.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll go to Brother Anton.", next = "END", reply = "Good. Brother Anton will see you're properly blessed for the road, and the Light will see you through the rest.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I've sworn the Silver Hand's oath, not yours.", next = "paladin_oath", when = { class = "PALADIN" } },
         { text = "What would the Crusade ask of a priest, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you believe plagued land can be healed, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Crusade have any use for a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "I'll fight the dead my own way, without your tabard.", next = "END", fx = { align = { order = -1 } } },
+        { text = "I'll fight the dead my own way, without your tabard.", next = "END", reply = "Then fight them, and pray the dead don't find you first. You'll learn soon enough why we wear the tabard.", fx = { align = { order = -1 } } },
       },
     },
     crusade = {
       big = true,
-      lines = { { id = "c_default", text = "What's left of the Silver Hand that still remembers what it swore. We hold the line in Lordaeron, where the plague began, and we purify what we must, because someone has to." },
+      lines = { { id = "c_default", text = "The Crusade is what's left of the Silver Hand that still remembers what it swore. We hold the line in Lordaeron, where the plague began, and we purify what we must, because someone has to." },
         },
       choices = {
         { text = "Purify how?", next = "burn" },
-        { text = "Someone does have to.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "Purity at the point of a sword isn't the Light's way.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Someone does have to.", next = "BACK", reply = "Someone does, and few will. I'm glad you're not among the cowards.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Purity at the point of a sword isn't the Light's way.", next = "BACK", reply = "Then the dead will thank you for your mercy. I've no time for it.", fx = { align = { light = 1 } } },
       },
     },
     burn = {
@@ -1953,7 +1953,7 @@ P:NPC {
       lines = { { id = "b_default", key = true, text = "Lies, spread by the cowards and the Forsaken. When a village is sick with the plague, you cleanse it, and everyone who's watched the dead rise knows what that means; only those who haven't stand back and judge." } },
       choices = {
         { text = "You're talking about burning people.", next = "burn_people", fx = { align = { light = 2 } } },
-        { text = "I've seen the plague. I understand.", next = "BACK", fx = { affinity = 2, align = { light = -1, order = 1 } } },
+        { text = "I've seen the plague. I understand.", next = "BACK", reply = "Then you're wiser than most in this Cathedral. Come and see the north for yourself.", fx = { affinity = 2, align = { light = -1, order = 1 } } },
       },
     },
     burn_people = {
@@ -1971,8 +1971,8 @@ P:NPC {
     raleigh_innocent = {
       lines = { { id = "ri_default", text = "Innocent. Nobody in Lordaeron is innocent of the plague until they're proven clean. If that offends you, the stairs are behind you." } },
       choices = {
-        { text = "The Light doesn't work that way.", next = "BACK", fx = { affinity = -2, align = { light = 2 } } },
-        { text = "In a plagued land, I'd suspect everyone too.", next = "BACK", fx = { align = { light = -2 } } },
+        { text = "The Light doesn't work that way.", next = "BACK", reply = "It does in Lordaeron. You'd learn that quickly enough.", fx = { affinity = -2, align = { light = 2 } } },
+        { text = "In a plagued land, I'd suspect everyone too.", next = "BACK", reply = "Then you'd make a fine Crusader. Think on it.", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK", fx = { affinity = -1 } },
       },
     },
@@ -1983,17 +1983,17 @@ P:NPC {
     tyrosus = {
       lines = { { id = "t_default", text = "Tyrosus left because the work got hard. The Dawn asks politely and hopes, but the Crusade doesn't hope; it acts, and you can tell him that next time." } },
       choices = {
-        { text = "He'd say you've lost your way.", next = "BACK", fx = { affinity = -2, align = { light = 1 } } },
-        { text = "Acting beats hoping, and the Dawn could learn from you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "He'd say you've lost your way.", next = "BACK", reply = "He'd say it, and he'd be wrong. Tell him I said so.", fx = { affinity = -2, align = { light = 1 } } },
+        { text = "Acting beats hoping, and the Dawn could learn from you.", next = "BACK", reply = "They could, and they won't. Tell Tyrosus that, if you see him.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     paladin_oath = {
       big = true,
-      lines = { { id = "paladin_oath_l", text = "The Hand's oath! Half the Crusade swore it first, paladin, and then watched Uther's order sit on its hands while the plague walked into Andorhal. The Crusade is the Hand with its eyes open." } },
+      lines = { { id = "paladin_oath_l", text = "The Hand's oath! Our commanders swore it first, paladin, and then watched Uther's order sit on its hands while the plague walked into Andorhal. The Crusade is the Hand with its eyes open." } },
       choices = {
-        { text = "The Hand kept its mercy. You threw yours away.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Perhaps the Hand was too gentle.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Hand kept its mercy. You threw yours away.", next = "BACK", reply = "Mercy? The Hand's mercy let Andorhal rot. Keep yours, paladin, and see where it gets you.", fx = { align = { light = 1 } } },
+        { text = "Perhaps the Hand was too gentle.", next = "BACK", reply = "Too gentle by half, and the dead walked through its gentleness. You understand.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Who in the Crusade swore it?", next = "paladin_oath2" },
       },
     },
@@ -2006,7 +2006,7 @@ P:NPC {
   topics = {
     scourge = { { id = "tp_scourge", text = "The Scourge is a plague on the living and a mockery of the dead, and the Scarlet Crusade will burn it from Lordaeron or die in the trying. Every soul that stands aside is one more for the Lich King's army." } },
     forsaken = {
-      { id = "tp_forsaken", text = "The Forsaken are the Scourge with better manners, and nothing more. They walk, they speak, they claim to be free, and every one of them belongs in a pyre." },
+      { id = "tp_forsaken", text = "The Forsaken are the Scourge with better manners, and nothing more. They walk, they speak, they claim to be free, and each rotting one of them belongs in a pyre." },
       { id = "tp_forsaken2", when = { race = "Undead" }, text = "You dare walk in this Cathedral, corpse? The Crusade would put you to the torch on the steps, and I'd say the prayers myself." },
     },
     sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner was a hero once, and the Scourge made her a monster, and now she calls herself a queen. The Crusade will see her crowned in fire, if the Light grants us strength." } },
@@ -2016,14 +2016,14 @@ P:NPC {
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a mage of Dalaran who sold his soul to the dead, and now he commands them from a floating citadel over the Plaguelands. The Crusade will drag him down from his tower, or die trying." } },
     holy_light = { { id = "tp_holy_light", text = "The Light is a fire, and fire burns away corruption, and that's all the Crusade asks of it. The soft-hearted priests here have forgotten that." } },
     knows = {
-      { id = "tp_knows", text = "The Crusade keeps itself well informed, and so do I. Ask, and I'll answer honestly, which is more than the Church upstairs does about us." },
+      { id = "tp_knows", text = "The Crusade keeps itself well informed, and so do I. Ask, and I'll answer you straight, which the Church upstairs never does about us." },
     },
     background = { { id = "tp_bg", text = "A priest who saw what the plague does and stopped pretending prayer alone would hold it back." } },
     advice = { { id = "tp_ad", text = "If someone you love is bitten, don't wait to be sure. Waiting is how Lordaeron fell." } },
-    scarlet_crusade = { { id = "tp_scarlet", text = "The last true servants of the Light in the north. Whatever you've heard, that's the heart of it." } },
-    raleigh = { { id = "tp_raleigh", text = "A deserter in a Southshore inn, telling tales to anyone who'll buy him a drink.", next = "raleigh" } },
-    scarlet_monastery = { { id = "tp_monastery", text = "Our stronghold in Tirisfal. If you're worthy, you'll see it. If you're not, you'll hear lies about it." } },
-    argent_dawn = { { id = "tp_dawn", text = "Well-meaning. Soft. They'll make peace with the Forsaken and be eaten for it." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "The Scarlet Crusade are the last true servants of the Light in the north, and whatever you've heard, that's the heart of it." } },
+    raleigh = { { id = "tp_raleigh", text = "Raleigh is a deserter in a Southshore inn, telling tales to anyone who'll buy him a drink.", next = "raleigh" } },
+    scarlet_monastery = { { id = "tp_monastery", text = "The Scarlet Monastery is our stronghold in Tirisfal. If you're worthy, you'll see it. If you're not, you'll hear lies about it." } },
+    argent_dawn = { { id = "tp_dawn", text = "The Argent Dawn are well-meaning and soft, and they'll make peace with the Forsaken and be eaten for it." } },
     _none = { { id = "tp_none", text = "Does it touch the plague? No? Then ask someone upstairs, because it isn't my concern." } },
   },
 }

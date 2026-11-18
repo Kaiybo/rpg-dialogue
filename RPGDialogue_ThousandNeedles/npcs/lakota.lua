@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_grim_redeem", when = { opinion = { grimtotem = "redeemable" } }, text = "They say you think the Grimtotem can be redeemed. Arnak killed my brother in front of me, so forgive me if I don't want to hear it today." },
+    { id = "o_grim_redeem", when = { opinion = { grimtotem = "redeemable" } }, text = "They say you think the Grimtotem can be redeemed. Arnak killed my brother in front of me, so I do not want to hear it today." },
     { id = "g_whisper", text = "Quietly, please. The Grimtotem guards come by when they hear voices." },
     { id = "g_active", when = { questActive = TODO_QUEST("Free At Last") }, text = "Stay close to me. If we stop, they'll surround us." },
     { id = "g_done", when = { questDone = TODO_QUEST("Free At Last") }, text = "You came back up here? After everything? You're braver than I am, and I've been braver than I ever wanted to be." },
@@ -72,8 +72,8 @@ P:NPC {
       big = true,
       lines = { { id = "he_default", text = "Go to Freewind, and sleep somewhere with a door that locks from the inside. And then, I don't know, maybe I'll stop hearing his voice every time the wind moves the tent flaps." } },
       choices = {
-        { text = "Then let Arnak face justice, not just your anger.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Arnak deserves whatever you decide to give him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then let Arnak face justice, not just your anger.", next = "BACK", reply = "You are kind to say it, and perhaps you are right, though justice is a cold thing to hope for when the wind still carries his voice.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Arnak deserves whatever you decide to give him.", next = "BACK", reply = "I do not know what I will decide, and that frightens me, but thank you for leaving the choice in my hands where it belongs.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

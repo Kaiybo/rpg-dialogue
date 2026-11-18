@@ -29,7 +29,7 @@ P:Thread {
   },
   pacing = { minConversations = 2, minSeconds = 900 },
   reflection = {
-    first = "A bishop, a brawler, a barman and an archmage have each told me a piece of this, and every one of them lowered their voice to do it.",
+    first = "A bishop, a brawler, a barman and an archmage have each told me a piece of this, and all four lowered their voices to do it.",
     third = "{name} had heard of the missing diplomat from a bishop, a brawler, a barman and an archmage, and each of them had lowered their voice.",
   },
   beats = {
@@ -43,7 +43,7 @@ P:Thread {
       id = "b2_dashel", npc = "dashel",
       when = { any = { { thread = { id = "missing_diplomat", beat = "b1_delavey" } }, { questActive = TODO_QUEST("The Missing Diplomat") } },
                ["not"] = { thread = { id = "missing_diplomat", beat = "b2_dashel" } } },
-      text = "Aye, I took coin for a part in that diplomat business, an' I'll no' say I'm proud of it. The fella payin' had soft hands an' kept lookin' at the door like a Defias does, an' when my part went sour, they sent for Slim in Menethil instead.",
+      text = "Aye, I took coin for a part in that diplomat business, an' I'll no' say I'm proud of it. The fella payin' had soft hands an' kept lookin' at the door, an' when my part went sour, they hired a man called Slim Jahn in Menethil instead.",
       fx = { thread = { id = "missing_diplomat", beat = "b2_dashel", state = "stirring" } },
     },
     {
@@ -56,7 +56,7 @@ P:Thread {
     {
       id = "b4_tervosh", npc = "tervosh",
       when = { thread = { id = "missing_diplomat", beat = "b3_mikhail" }, ["not"] = { thread = { id = "missing_diplomat", beat = "b4_tervosh" } } },
-      text = "Mikhail sent you on to us, I expect, since nobody else in Menethil ever sends us anything but fish. The trail you're following runs into Theramore's own colours, I'm afraid, and the Lady is taking that harder than she lets anyone see.",
+      text = "Mikhail the barman sent you on to us, I expect, since nobody else in Menethil ever sends us anything but fish. The trail you're following runs into Theramore's own colours, I'm afraid, and Lady Jaina is taking that harder than she lets anyone see.",
       fx = { thread = { id = "missing_diplomat", beat = "b4_tervosh", state = "unfolding" } },
     },
     {
@@ -95,14 +95,14 @@ P:Thread {
   },
   pacing = { minConversations = 3, minSeconds = 1200 },
   reflection = {
-    first = "Menethil, Dun Modr, Ironforge and Refuge Pointe all say the Span matters, and every one of them is waiting on somebody else to send the soldiers.",
+    first = "Menethil, Dun Modr, Ironforge and Refuge Pointe all say the Span matters, and not one of them has soldiers to spare for it.",
     third = "{name} had heard from Menethil to Ironforge that the Thandol Span mattered, and that someone else ought to send the soldiers.",
   },
   beats = {
     {
       id = "b1_stoutfist", npc = "stoutfist",
       when = { minLevel = 20, thread = { id = "dwarves_and_dark_iron", notBeat = "b1_stoutfist" } },
-      text = "Shut Dun Algaz an' the Thandol Span both, an' this harbour's all that joins Khaz Modan tae the rest o' the Alliance. The Dark Irons know it an' the Dragonmaw know it, an' I'd sleep better if Ironforge remembered it.",
+      text = "Wi' Dun Algaz watched an' the Thandol Span broken, this harbour's all that joins Khaz Modan tae the rest o' the Alliance. The Dark Irons know it an' the Dragonmaw know it, an' I'd sleep better if Ironforge remembered it.",
       fx = { thread = { id = "dwarves_and_dark_iron", beat = "b1_stoutfist", state = "stirring" }, learn = { "thandol_span", "dragonmaw" } },
     },
     {
@@ -116,13 +116,13 @@ P:Thread {
       when = { any = { { thread = { id = "dwarves_and_dark_iron", beat = "b1_stoutfist" } }, { thread = { id = "dwarves_and_dark_iron", beat = "b2_longbraid" } },
                        { questActive = TODO_QUEST("The Thandol Span") } },
                ["not"] = { thread = { id = "dwarves_and_dark_iron", beat = "b3_rhag" } } },
-      text = "Longbraid writes tae Ironforge every week, an' every week the answer's the same: the reserves are comin'. I've stopped tellin' the lads when a letter arrives, because they've started countin' them.",
+      text = "Longbraid at Refuge Pointe writes tae Ironforge every week, an' every week the answer's the same: the reserves are comin'. I've stopped tellin' the lads when a letter arrives, because they've started countin' the broken promises.",
       fx = { thread = { id = "dwarves_and_dark_iron", beat = "b3_rhag", state = "unfolding" } },
     },
     {
       id = "b4_magni", npc = "magni",
       when = { thread = { id = "dwarves_and_dark_iron", beat = "b3_rhag" }, ["not"] = { thread = { id = "dwarves_and_dark_iron", beat = "b4_magni" } } },
-      text = "Ye've come from Dun Modr, I can see it in yer boots. I read every letter Longbraid sends, an' I answer every one the same, because half the Reserve's gone south tae the Alliance's wars an' the other half's holdin' the loch. I've one mountain an' too many walls, an' I hate it.",
+      text = "Ye've come from Dun Modr, I can see it in yer boots. I read every letter Longbraid sends, an' I answer every one the same, because the best o' the Reserve's gone south tae the Alliance's wars an' what's left is holdin' the loch. I've one mountain an' too many walls, an' I hate it.",
       fx = { thread = { id = "dwarves_and_dark_iron", beat = "b4_magni", state = "unfolding" } },
     },
     {
@@ -184,20 +184,20 @@ P:Thread {
       id = "b3_larksbane", npc = "larksbane",
       when = { minLevel = 55, any = { { thread = { id = "silithus_stirring", beat = "b1_pestlezugg" } }, { thread = { id = "silithus_stirring", beat = "b2_williden" } } },
                ["not"] = { thread = { id = "silithus_stirring", beat = "b3_larksbane" } } },
-      text = "The bugs are on the move in Tanaris an' Un'Goro as well, ye say? That fits, for the crystals hum loudest near the hives an' the hives grow fuller every week. I don't think the bugs are the ones doin' the callin'.",
+      text = "The bugs are on the move in Tanaris an' Un'Goro as well, ye say? That fits, for the crystals I study hum loudest near the hives an' the hives grow fuller every week. I don't think the bugs are the ones doin' the callin'.",
       fx = { thread = { id = "silithus_stirring", beat = "b3_larksbane", state = "unfolding" }, learn = { "silithid_hives" } },
     },
     {
       id = "b4_maralith", npc = "maralith",
       when = { questDone = TODO_QUEST("Into The Maw of Madness"), thread = { id = "silithus_stirring", notBeat = "b4_maralith" } },
-      text = "Natalia went into Hive'Regal to learn what the crystals were saying, and she came out speaking a name for it. I have written to Nighthaven, and the Circle answers me with patience, which is a fine thing to send a man who is out of it.",
+      text = "Natalia went into Hive'Regal to learn what the crystals were saying, and she came out speaking a name for it. I have written to Nighthaven, and the Circle answers me with counsels of patience, when I have none left to give.",
       fx = { thread = { id = "silithus_stirring", beat = "b4_maralith", state = "unfolding" }, learn = { "cthun" } },
     },
     {
       id = "b5_baristolth", npc = "baristolth",
       when = { any = { { thread = { id = "silithus_stirring", beat = "b3_larksbane" } }, { thread = { id = "silithus_stirring", beat = "b4_maralith" } } },
                ["not"] = { thread = { id = "silithus_stirring", beat = "b5_baristolth" } } },
-      text = "The dwarf counts the hum and the commander has heard the name, mortal, and so your kind learns in a season what my Brood has known for a thousand years. The wall holds, and those who watch it are watching still, and for now that must be enough.",
+      text = "The dwarf has measured the hum and the commander has heard the name, mortal, and so your kind learns in a season what my Brood has known for a thousand years. The Scarab Wall holds, and those who watch it are watching still, and for now that must be enough.",
       fx = { thread = { id = "silithus_stirring", beat = "b5_baristolth", state = "resolved" }, learn = { "bronze_dragonflight" } },
     },
   },

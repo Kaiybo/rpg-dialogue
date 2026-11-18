@@ -38,7 +38,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Blixie Fitzwink, in service to Master Theocritus of the tower just up the hill. I'm usually inside sweeping up after his experiments, but today I'm out here having the worst afternoon of my life." },
+        { id = "h_default", key = true, text = "I'm Blixie Fitzwink, in service to Master Theocritus of the tower just up the hill. I'm usually inside sweeping up after his experiments, but today I'm out here having the worst afternoon of my life." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Stolen Enchanting Supplies") },
           text = "The Master sent me down for a parcel of enchanting supplies, and on the way back a whole pack of gnolls jumped out at me. I dropped everything and ran, and I'm not proud of it, but I'm not a gnoll's supper either." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Stolen Enchanting Supplies") },
@@ -51,7 +51,7 @@ P:NPC {
           text = "You'll understand better than anyone why a gnome takes work in a human wizard's tower. When your own city's full of poison and troggs, a damp tower in Elwynn feels like a palace." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm in no hurry to go back up those stairs, honestly." },
+        { id = "h_again", text = "Anything else? I'm in no hurry to go back up those stairs, I'll tell you that." },
         { id = "h_again2", text = "Ask away! Talking takes my mind off the gnolls." },
       },
       choices = {
@@ -90,8 +90,8 @@ P:NPC {
         { id = "gn_default", text = "They are! The farmers say they used to keep to the hills, and now they're down by the lake and the road like they own it. With the soldiers off in Westfall and Redridge, there's nobody left to tell them otherwise." },
       },
       choices = {
-        { text = "Stormwind should send soldiers back to guard its roads.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Folk out here should arm themselves, not wait for Stormwind.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stormwind should send soldiers back to guard its roads.", next = "BACK", reply = "Oh, I'd like that very much, and so would every farmer between here and the lake. Somebody ought to write to the King, though I suppose the King is ten years old and busy.", fx = { align = { order = 1 } } },
+        { text = "Folk out here should arm themselves, not wait for Stormwind.", next = "BACK", reply = "Arm themselves with what, though? Pitchforks against gnolls is roughly forty percent better than nothing, by my count, but I wouldn't want to be the one holding the fork.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -100,8 +100,8 @@ P:NPC {
         { id = "ar_default", text = "That's what I keep telling myself! A gnome against five gnolls isn't a battle, it's a snack. Still, I keep thinking a braver servant would have held on to the parcel." },
       },
       choices = {
-        { text = "A braver servant would be dead. You're alive.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
-        { text = "You were trusted with it. You should have held on.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "A braver servant would be dead. You're alive.", next = "BACK", reply = "That's a very kind way of putting it, and I'm going to write it down so I can read it to myself later. Alive is good, alive I can work with!", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "You were trusted with it. You should have held on.", next = "BACK", reply = "I know, I know, and you needn't say it twice because I've said it to myself about a hundred times since. Master Theocritus will say it too, only louder and with sparks.", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
 
@@ -120,8 +120,8 @@ P:NPC {
         { id = "ec_default", text = "Oh, it's not cruel exactly, it's just very, very messy. Sheep can't hold their dinners in, and neither can frogs, and a pig once got into the flour store and there was no saving the flour." },
       },
       choices = {
-        { text = "A master who'd punish you that way doesn't deserve you.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Mistakes cost something. That's how the tower runs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A master who'd punish you that way doesn't deserve you.", next = "BACK", reply = "Oh, he doesn't punish me, not on purpose, it's just that the mess has to go somewhere and I'm the one with the mop. Still, it's nice of you to take my side.", fx = { align = { order = -1 } } },
+        { text = "Mistakes cost something. That's how the tower runs.", next = "BACK", reply = "That's exactly what Master Theocritus says, almost word for word, and he usually says it while I'm mopping. I suppose you'd fit right in at the tower.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -167,7 +167,7 @@ P:NPC {
     gnomes = {
       lines = {
         { id = "gs_default", text = "There's a few of us at the tower, all gnomes. After Gnomeregan, a lot of us went looking for work wherever there was a roof and a wage, and a wizard's tower is about as close to home as Elwynn gets.", fx = { learn = { "gnomeregan" } } },
-        { id = "gs_gnome", when = { race = "Gnome" }, text = "You know how it was. Half of us went to Ironforge and the other half scattered, and I ended up here, sweeping a human's floors and missing the noise of real machines." },
+        { id = "gs_gnome", when = { race = "Gnome" }, text = "You know how it was. Most of us ran to Ironforge, the rest scattered wherever the roads went, and I ended up here, sweeping a human's floors and missing the noise of real machines." },
       },
       choices = {
         { text = "Will you go back when Gnomeregan is retaken?", next = "gnomes_back" },
@@ -179,14 +179,14 @@ P:NPC {
         { id = "gb_default", text = "When, you say, and not if. I like that. I think I'd go back the very day they open the gates, even if it meant scrubbing the whole city clean with my own toothbrush." },
       },
       choices = {
-        { text = "Gnomeregan will be yours again. I'm sure of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some places are lost for good. Make your home here.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Gnomeregan will be yours again. I'm sure of it.", next = "BACK", reply = "Oh, you've got me all misty now, and gnomes don't do misty, we do steam. When the gates open, I'll save you a spot on the first tram down.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some places are lost for good. Make your home here.", next = "BACK", reply = "I know you mean it kindly, but a gnome without Gnomeregan is like a cog without a gear. I'll make do here, and I'll keep the toothbrush ready all the same.", fx = { align = { light = -1 } } },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Gnomeregan first, then the road, then the tower. I've been a servant here long enough to know which stairs creak." } },
+    background = { { id = "tp_bg", text = "It was Gnomeregan first, then the road, then the tower, and I've been a servant here long enough to know which stairs creak." } },
     advice = { { id = "tp_ad", text = "If you ever carry anything for a wizard, hold on tighter than I did, and take the long way round the lake." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that. Ask the Master, if you can get him to look up from his books, which you can't." } },
   },
@@ -216,7 +216,7 @@ P:NPC {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Your {pet} looks healthy and sure of itself. That's your doing, and I'll say it once, so enjoy it." },
     { id = "n_dwarf", cat = "class", when = { class = "HUNTER", race = "Dwarf" },
-      text = "A dwarf hunter. Your folk taught half the hunters in this kingdom to shoot straight, so there's little I can show you about a rifle." },
+      text = "A dwarf hunter. Your folk taught this kingdom's hunters to shoot straight, so there's little I can show you about a rifle." },
   },
 
   start = "hello",
@@ -224,15 +224,15 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Josephine Carson. I teach hunters, which is to say people who can read a track, keep a beast's trust and hit what they aim at. If that's not you, I'm not sure what I can do for you." },
+        { id = "h_default", key = true, text = "I'm Josephine Carson, and I teach hunters, which is to say people who can read a track, keep a beast's trust and hit what they aim at. If that's not you, I'm not sure what I can do for you." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "Hunting in Elwynn's no small thing anymore, with wolves on every hillside and gnolls in the hills. I'll make sure you're ready for both, and for whatever's waiting past Goldshire." },
         { id = "h_tame_before", when = { class = "HUNTER", questBefore = TODO_QUEST("Taming the Beast") },
-          text = "You're ready to take a beast of your own, I think, or near enough. There's a way to do it, and it starts with a rod and a great deal of patience." },
+          text = "You're ready to take a beast of your own, I think, or near enough. There's a way to do it, and it starts with a rod and a long, quiet wait." },
         { id = "h_tame_active", tags = { "news" }, when = { class = "HUNTER", questActive = TODO_QUEST("Taming the Beast") },
           text = "Use the rod, hold your nerve, and don't let the creature see you're afraid of it. Once it settles, you'll feel it, and then send it off and come back to me." },
         { id = "h_training", tags = { "news" }, when = { class = "HUNTER", questDone = TODO_QUEST("Taming the Beast") },
-          text = "You've tamed three beasts now, each harder than the last, and you're still in one piece. The next lesson is about keeping one, and that's where Training the Beast comes in." },
+          text = "You've tamed three beasts now, each harder than the last, and you're still in one piece. The next lesson is about keeping one, and that one's called Training the Beast." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; I've a pupil coming at the hour." },
@@ -303,8 +303,8 @@ P:NPC {
         { id = "tt_default", text = "Then you weren't ready, and you'll have learned something the hard way, as most of us do. Every hunter I know has a scar from that lesson, and I've two." },
       },
       choices = {
-        { text = "I'll take the risk. Fear never trained anything.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "I'll go carefully and do it your way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take the risk. Fear never trained anything.", next = "BACK", reply = "Brave words, and I've heard them from every recruit who ever lost a finger. Go on, then, but don't come crying to me with your arm in a sling.", fx = { align = { order = -1 } } },
+        { text = "I'll go carefully and do it your way.", next = "BACK", reply = "Good, that's the most sense I've heard at this door all week. Watch the beast's ears and tail before you move, and you'll keep all your fingers.", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
 
@@ -322,14 +322,14 @@ P:NPC {
         { id = "hr_default", text = "It is, and I'll not apologise. Hunting badly gets people hurt, and a little rudeness at my door costs nobody anything but their pride." },
       },
       choices = {
-        { text = "Being plain with people is a kindness.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A little courtesy would cost you nothing either.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Being plain with people is a kindness.", next = "BACK", reply = "Finally, somebody who understands. I'd sooner hurt a recruit's feelings than watch a boar open up their leg because I was too polite to correct them.", fx = { align = { honor = 1 } } },
+        { text = "A little courtesy would cost you nothing either.", next = "BACK", reply = "It might not, but I've buried a few people who were treated too gently. You'll get my courtesy when you've earned my respect, and not before.", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
 
     elwynn = {
       lines = {
-        { id = "el_default", text = "Wolves, mostly, prowlers and timber wolves both, and they've grown bold since the patrols thinned out. Boars in the woods, bears up north, and gnolls in the west hills who'd hunt you back if they got the chance." },
+        { id = "el_default", text = "Wolves, mostly, prowlers and timber wolves both, and they've grown bold since the patrols thinned out. There are boars in the woods, bears up north and gnolls in the west hills who'd hunt you back if they got the chance." },
       },
       choices = {
         { text = "Why have the wolves grown bold?", next = "elwynn_wolves" },
@@ -357,7 +357,7 @@ P:NPC {
     },
     goldshire_miss = {
       lines = {
-        { id = "gm_default", text = "Every day there's sun on the hills. But I'd rather put a hundred hunters into the world than take a hundred deer out of it, and that's the trade I made." },
+        { id = "gm_default", text = "Every day there's sun on the hills, but I'd rather put a hundred hunters into the world than take a hundred deer out of it, and that's the trade I made." },
       },
       choices = {
         { text = "That's a good trade.", next = "BACK", fx = { affinity = 1 } },
@@ -377,8 +377,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born at the forest's edge, raised on rabbit stew, and teaching hunters in Goldshire since I was old enough to be listened to." } },
-    advice = { { id = "tp_ad", text = "Let the animal come to you. Most hunters who go home empty went chasing." } },
+    background = { { id = "tp_bg", text = "I was born at the forest's edge and raised on rabbit stew, and I've been teaching hunters in Goldshire since I was old enough to be listened to." } },
+    advice = { { id = "tp_ad", text = "Let the animal come to you, because most hunters who go home empty went chasing." } },
     _none = { { id = "tp_none", text = "That's no business of a hunter's, so it's no business of mine. Ask at the inn." } },
   },
 }
@@ -435,7 +435,7 @@ P:NPC {
 
     gunbow = {
       lines = {
-        { id = "gb_default", text = "Well, I'm a dwarf, so ye know what I'll say. A gun makes a noise that tells every wolf in the valley ye mean business, an' a blunderbuss'll stop a boar in its tracks. A bow's quieter, mind, an' cheaper to feed." },
+        { id = "gb_default", text = "Well, I'm a dwarf, so ye know what I'll say: a gun makes a noise that tells every wolf in the valley ye mean business, an' a blunderbuss'll stop a boar in its tracks. A bow's quieter, mind, an' cheaper to feed." },
         { id = "gb_nelf", when = { race = "NightElf" }, text = "Oh, I know what yer people think o' guns. Noisy, smoky, an' all that. But I'll wager ye a silver ye'd come round to a blunderbuss if ye ever fired one." },
       },
       choices = {
@@ -485,8 +485,8 @@ P:NPC {
         { id = "bd_default", text = "Because I'll not have my guns pointed at the folk who buy my guns, that's why. Business is business, but a dwarf has his limits, an' I'll not arm bandits." },
       },
       choices = {
-        { text = "Some of them are just hungry men.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Bandits are bandits. You chose well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some of them are just hungry men.", next = "BACK", reply = "Hungry men can buy bread, an' I'll not sell a hungry man a rifle so he can rob the baker. Pity's fine, but it doesnae belong behind a trigger.", fx = { align = { light = 1 } } },
+        { text = "Bandits are bandits. You chose well.", next = "BACK", reply = "Aye, I'll sleep sound on that, so long as nobody tells me otherwise. A gun's an honest tool in honest hands, an' that's the only kind I sell to.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -530,7 +530,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Kelsey Fargo, junior mining trainer, and I'd be a senior one by now if I could get into my own mine. Well, I've got nothing better to do: would you like to learn about mining, or do you just need new tools?" },
+        { id = "h_default", key = true, text = "I'm Kelsey Fargo, the junior mining trainer here, and I'd be a senior one by now if I could get into my own mine. Would you like to learn about mining, or do you just need new tools?" },
         { id = "h_consult", tags = { "news" }, when = { questActive = TODO_QUEST("Mining Consultant") },
           text = "Somebody sent you to consult, did they? Good, because I've been wanting a second pair of hands out here for weeks." },
         { id = "h_big_before", when = { questDone = TODO_QUEST("Mining Consultant"), questBefore = TODO_QUEST("The Big Picture") },
@@ -556,7 +556,7 @@ P:NPC {
 
     kobolds = {
       lines = {
-        { id = "ko_default", text = "They're everywhere inside, and they've taken to the tunnels like they own them. Some of them dig, some of them guard the ones who dig, and every one of them yells about candles if you get near." },
+        { id = "ko_default", text = "They're everywhere inside, and they've taken to the tunnels like they own them. Some of them dig, some of them guard the ones who dig, and they all yell about candles if you get near." },
         { id = "ko_done", when = { questDone = TODO_QUEST("Investigate Echo Ridge") }, text = "You've been inside, so you've seen them, hundreds of the little rats with candles on their heads. The Abbey sends recruits, and the recruits come out bloodied, and still the kobolds keep digging." },
       },
       choices = {
@@ -570,8 +570,8 @@ P:NPC {
         { id = "kw_default", text = "I wish I knew. They pick at the walls like they're after something, but they've no idea what copper's worth. If you ask me, they just like being underground and hate anybody else being there." },
       },
       choices = {
-        { text = "Then they've as much right to the dark as anyone.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Vermin don't get rights. Clear them out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then they've as much right to the dark as anyone.", next = "BACK", reply = "Rights? They've been trying to cave in my head with a rusty pick all spring. They can have the dark when they give me back my mine.", fx = { align = { light = 1 } } },
+        { text = "Vermin don't get rights. Clear them out.", next = "BACK", reply = "Now that's talk I can get behind. Bring me a few dozen candles off their heads and I'll call it a fair start on the job.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -618,8 +618,8 @@ P:NPC {
         { id = "tra_default", text = "Every day. Teaching's good work, but there's nothing like the sound of a pick biting into a fresh seam. One day I'll have this mine back and I'll do both." },
       },
       choices = {
-        { text = "Teaching others matters more than digging yourself.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Go dig, then. Let someone else teach.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Teaching others matters more than digging yourself.", next = "BACK", reply = "Maybe so, and I tell myself that every time a new apprentice swings a pick into their own foot. Still, somebody's got to show them how before they lose a toe.", fx = { align = { order = 1 } } },
+        { text = "Go dig, then. Let someone else teach.", next = "BACK", reply = "Ha, if only it were that easy! There's nobody else who'll teach out here with kobolds at the door, so it's me or nobody, and I'll not leave them to nobody.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -646,7 +646,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Miner's daughter from the hills above Goldshire. I had a pick in my hands before I had boots that fit." } },
+    background = { { id = "tp_bg", text = "I'm a miner's daughter from the hills above Goldshire, and I had a pick in my hands before I had boots that fit." } },
     advice = { { id = "tp_ad", text = "Mine the vein, not the wall. You'll save your arms and your temper." } },
     _none = { { id = "tp_none", text = "If it's not in the rock, I don't know about it. Ask somebody who sees daylight more than I do." } },
   },
@@ -673,7 +673,7 @@ P:NPC {
 
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
-      text = "You've been picking, I can tell, and you've left the roots in, which is more than most beginners manage." },
+      text = "You've been picking, I can tell, and you've left the roots in, and most beginners tear them up whole." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy", ["not"] = { profession = "Herbalism" } },
       text = "An alchemist who doesn't pick their own herbs? You'll pay double at every market from here to Stormwind, you know." },
   },
@@ -683,7 +683,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Nancy Songflower, and I teach the young ones how to pick herbs without ripping up the whole hillside. Northshire's a lovely place to learn, too, with peacebloom and silverleaf all over the valley." },
+        { id = "h_default", key = true, text = "I'm Nancy Songflower, and I teach the young ones how to pick herbs without ripping up the whole hillside. Northshire's a lovely place to learn, too, with peacebloom and silverleaf all over the valley." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid! I've always wanted to ask one of your kind whether the plants really talk to you, or whether that's just a story the Brothers tell." },
       },
@@ -749,8 +749,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born in Goldshire, trained under an herbalist in Stormwind, and sent back here to teach the beginners." } },
-    advice = { { id = "tp_ad", text = "Leave the roots in. The valley will thank you." } },
+    background = { { id = "tp_bg", text = "I was born in Goldshire, trained under an herbalist in Stormwind and sent back here to teach the beginners." } },
+    advice = { { id = "tp_ad", text = "Leave the roots in, and the valley will thank you." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know, I'm afraid! Ask me about a flower and I'll talk your ears off." } },
   },
 }
@@ -778,7 +778,7 @@ P:NPC {
     { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
       text = "That's clean work on those pelts you're carrying. Somebody's been teaching you right." },
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking", ["not"] = { profession = "Skinning" } },
-      text = "A leatherworker who doesn't skin? You'll spend a fortune on hides, and half the time they'll be badly cut." },
+      text = "A leatherworker who doesn't skin? You'll spend a fortune on hides, and too many of them will come to you badly cut." },
   },
 
   start = "hello",
@@ -786,7 +786,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Riley Peltskinner. The Peltskinners have been skinning and tanning in this valley longer than anyone remembers, and Eagan's the one you'll hear about, but somebody has to teach the young ones." },
+        { id = "h_default", key = true, text = "I'm Riley Peltskinner. The Peltskinners have been skinning and tanning in this valley longer than anyone remembers, and Eagan's the one you'll hear about, but somebody has to teach the young ones." },
         { id = "h_wolves", when = { questDone = TODO_QUEST("Wolves Across the Border") },
           text = "Eagan says you cleared out a good few of those wolves for him. That's meat for his table and hides for mine, so I'm grateful too." },
       },
@@ -889,7 +889,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Tordrin Sternblade, hunter o' Ironforge, teachin' the young ones here how to track an' shoot an' keep their heads. The Abbey's got its priests an' its warriors, an' now it's got me." },
+        { id = "h_default", key = true, text = "I'm Tordrin Sternblade, hunter o' Ironforge, teachin' the young ones here how to track an' shoot an' keep their heads. The Abbey's got its priests an' its warriors, an' now it's got me." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Scribbled Letter"), days = 1 } },
           text = "So ye've come to learn the hunter's way, an' brought a scrap o' paper to prove it. Good! There's no better teacher than a kobold that bites, an' Northshire's full o' them." },
         { id = "h_before", when = { class = "HUNTER", questBefore = TODO_QUEST("Shhh! We're Hunting Kobolds") },
@@ -940,8 +940,8 @@ P:NPC {
         { id = "dh_default", text = "Good folk, mostly, if a bit soft an' loud. They pray more than they drink, which is backwards, but they stood with us in the war, an' a dwarf doesnae forget that." },
       },
       choices = {
-        { text = "Humans and dwarves should stand together always.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every people should look after their own first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Humans and dwarves should stand together always.", next = "BACK", reply = "Aye, that's my thinkin' too, an' it's why I'm out here teachin' human lads to shoot straight. Ironforge an' Stormwind are stronger together, an' the Horde knows it.", fx = { align = { order = 1 } } },
+        { text = "Every people should look after their own first.", next = "BACK", reply = "That's how ye lose wars, friend. If the Alliance had looked after its own first, there'd be orcs drinkin' in Ironforge right now, an' I'd rather not picture it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -961,8 +961,8 @@ P:NPC {
         { id = "qf_default", text = "Aye, an' that's the whole lesson. Patience gets ye more than an arrow ever will, an' if ye can follow a kobold without bein' seen, ye can follow anythin'." },
       },
       choices = {
-        { text = "Patience wins the hunt.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Patience is fine. Speed wins more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience wins the hunt.", next = "BACK", reply = "Ye're learnin' faster than most of the lads I get, an' that's the truth. Keep that in yer head an' ye'll come home from more hunts than ye don't.", fx = { align = { order = 1 } } },
+        { text = "Patience is fine. Speed wins more.", next = "BACK", reply = "Speed gets ye a fine view o' the beast's backside as it runs off. Come back an' tell me that after ye've chased a stag through a whole forest.", fx = { align = { order = -1 } } },
       },
     },
     quiet_kill = {
@@ -977,7 +977,7 @@ P:NPC {
     lesson = {
       lines = {
         { id = "le_default", text = "To keep quiet an' watch. Then to shoot straight, then to tame a beast an' keep it. But the watchin' comes first, an' it's the hardest, because every young hunter wants to loose an arrow." },
-        { id = "le_tame", when = { class = "HUNTER", minLevel = 10 }, text = "Ye're past the first lessons now. Ye'll want a beast o' yer own next, an' there's a trainer in Goldshire who'll see to that. Josephine Carson, sharp as a knife an' twice as pointed." },
+        { id = "le_tame", when = { class = "HUNTER", minLevel = 10 }, text = "Ye're past the first lessons now. Ye'll want a beast o' yer own next, an' there's a trainer in Goldshire who'll see to that: Josephine Carson, sharp as a knife an' twice as pointed." },
       },
       choices = {
         { text = "Tell me about Josephine Carson.", next = "josephine", when = { class = "HUNTER" } },
@@ -998,8 +998,8 @@ P:NPC {
         { id = "ko_default", text = "Vermin, but clever vermin. They've candles on their heads an' no sense in them, but they dig like miners an' they'll defend a tunnel to the last rat. I've seen worse foes, but not many more stubborn.", fx = { learn = { "kobolds" } } },
       },
       choices = {
-        { text = "They're only trying to survive, same as us.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Vermin is vermin. Clear them out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They're only trying to survive, same as us.", next = "BACK", reply = "Aye, an' so's a wolf, but I'll still not let a wolf into the pen. They chose to fight for that mine, an' the miners have bairns to feed.", fx = { align = { light = 1 } } },
+        { text = "Vermin is vermin. Clear them out.", next = "BACK", reply = "That's the job, but don't go in thinkin' it'll be easy. Clever vermin have killed better hunters than you, so mind yer back in them tunnels.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1052,7 +1052,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Ormin Pelford. I haul supplies from the trading post to Eastvale's logging camp, and I've done it a hundred times without a scratch. Today the wagon tipped, and everything went into the river." },
+        { id = "h_default", key = true, text = "I'm Ormin Pelford, and I haul supplies from the trading post to Eastvale's logging camp, and I've done it a hundred times without a scratch. Today the wagon tipped, and everything went into the river." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Downstream") },
           text = "By the time I'd got the wagon upright, the axe and the saw and the toolbox were already floating off downstream. Between the murlocs and the wolves down there, I don't stand a chance of getting them back on my own." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Downstream") },
@@ -1119,8 +1119,8 @@ P:NPC {
         { id = "rm_default", text = "Nobody knows. The farmers say they've always been in the lake, but they never came this far before. Some say they've been pushed out by something worse, and I don't like to think what." },
       },
       choices = {
-        { text = "Someone should drive them back to the lake.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Leave them be. They were here first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Someone should drive them back to the lake.", next = "BACK", reply = "I'd be grateful, honestly, and so would my horse. Every crossing past that river feels like I'm daring them to come up out of the reeds.", fx = { align = { light = -1 } } },
+        { text = "Leave them be. They were here first.", next = "BACK", reply = "Here first or not, they took my wagon and every crate on it. It's easy to be generous when it's somebody else's flour at the bottom of the river.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1146,7 +1146,7 @@ P:NPC {
 
     post = {
       lines = {
-        { id = "po_default", text = "Where I pick up the camp's supplies, a good ride from here. It's always busy, with traders and wagons coming and going, and I've never had a problem there. It's the road back that's the trouble." },
+        { id = "po_default", text = "It's where I pick up the camp's supplies, a good ride from here. It's always busy, with traders and wagons coming and going, and I've never had a problem there. It's the road back that's the trouble." },
       },
       choices = {
         { text = "Is the road dangerous?", next = "post_road" },
@@ -1158,15 +1158,15 @@ P:NPC {
         { id = "pr_default", text = "More than it used to be. There's wolves and gnolls, and the odd fellow in a red bandana watching from the trees. I keep my head down and my horse moving, and most days that's enough." },
       },
       choices = {
-        { text = "Stormwind should patrol these roads.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Carry a weapon. Don't wait for the guard.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stormwind should patrol these roads.", next = "BACK", reply = "They should, and I'll say so to anybody who'll listen. A few more guards on the road would do more good than all the posters in Goldshire.", fx = { align = { order = 1 } } },
+        { text = "Carry a weapon. Don't wait for the guard.", next = "BACK", reply = "I've a cudgel under the seat for that very reason, though I've never had the stomach to swing it. Still, maybe the next fellow in a bandana won't know that.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Goldshire born, a hauler by trade, and a man with a very wet wagon this week." } },
+    background = { { id = "tp_bg", text = "I'm Goldshire born and a hauler by trade, and this week I'm a man with a very wet wagon." } },
     advice = { { id = "tp_ad", text = "Take the ford slow, and tie your load down twice. I learned that the hard way." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that. Ask at the logging camp; they know everything that happens along this road." } },
   },

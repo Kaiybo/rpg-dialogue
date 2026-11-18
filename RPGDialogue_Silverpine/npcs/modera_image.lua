@@ -34,7 +34,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "You've likely heard that Dalaran is suffering a magical outbreak, and that every mage we have is too busy holding the city's wards to contain it. I am Modera of the Kirin Tor, or her image, and I need hands that aren't already full." },
         { id = "h_jacques", tags = { "news" }, when = { questActive = TODO_QUEST("An Alarming Request") },
-          text = "I see Jacques was successful in finding aid. It isn't strictly permitted, but we can't let our pride turn away allies in our hour of need, and don't let the guards fool you, because things in the city are anything but under control." },
+          text = "I see Emissary Jacques was successful in finding aid. It isn't strictly permitted, but we can't let our pride turn away allies in our hour of need, and don't let the guards fool you, because things in the city are anything but under control." },
         { id = "h_sewer", tags = { "news" }, when = { questActive = TODO_QUEST("Blood in the Streets") },
           text = "Stay your weapon, {race}. That key won't get you past my wards; you didn't really think we'd leave such a weakness open at a time like this? It's no coincidence the Horde has taken an interest in my city now, and in fact, I was counting on it." },
         { id = "h_heart", when = { questActive = TODO_QUEST("Heart of Disruption") },
@@ -113,8 +113,8 @@ P:NPC {
         { id = "pr_default", text = "Simple enough: you came to pick over my city while it was weak, and I'll let you in to do something useful instead. Help me put down the disruption, and I'll forget I ever found a Horde key in my sewers. Will the Horde keep its side of that bargain?" },
       },
       choices = {
-        { text = "We'll keep it. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "We'll keep it as long as it serves us.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "We'll keep it. You have my word.", next = "BACK", reply = "Your word, from a Horde adventurer in my ruins. Strange times, but I'll take it, and I'll remember it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "We'll keep it as long as it serves us.", next = "BACK", reply = "Then we understand each other perfectly, and I'll keep it for exactly as long as it serves me too.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -129,7 +129,7 @@ P:NPC {
     },
     after = {
       lines = {
-        { id = "af_default", text = "A great deal, most of it about procedure, and none of it about the fact that the city is still standing. Let them; Archmage Celindra will tell them what you did, and the Six can't deny results, however much they'd like to." },
+        { id = "af_default", text = "Pages of it, most of it about procedure, and none of it about the fact that the city is still standing. Let them; Archmage Celindra will tell them what you did, and the Six can't deny results, however much they'd like to." },
       },
       choices = {
         { text = "Who is Celindra?", next = "celindra" },
@@ -168,21 +168,21 @@ P:NPC {
         { id = "co_default", text = "The high council ordered us to keep the matter private, so as not to shame the Kirin Tor, and I understand why. But we can't keep up the charade forever while the city is overrun, so I sent Jacques out for help and came out here myself, and I'll answer to the Six afterward. Do you think me a traitor to my order for it?" },
       },
       choices = {
-        { text = "No. Your city comes before your council's pride.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Orders exist for a reason. You should have obeyed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No. Your city comes before your council's pride.", next = "BACK", reply = "You sound like my own conscience, and it's been saying the same for months. I'll carry that, whatever comes.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Orders exist for a reason. You should have obeyed.", next = "BACK", reply = "I did obey, and look where obedience has left me, an image guarding a broken door. Perhaps you're right, but I doubt it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     horde = {
       big = true,
       lines = {
-        { id = "ho_default", text = "Because the Horde was already at my door, picking at my patrols and looking for a way in. I'd do anything to protect my city, even this, and I'd rather have you inside on my terms than outside on yours. Tell me honestly why the Horde wants in." },
+        { id = "ho_default", text = "Because the Horde was already at my door, picking at my patrols and looking for a way in. I'd do anything to protect my city, even this, and I prefer you inside on my terms than outside on yours. Tell me plainly why the Horde wants in." },
         { id = "ho_forsaken", when = { race = "Scourge" },
-          text = "Because your queen's people were already at my door, and I'd do anything to protect my city, even consort with the likes of you. I'd rather have you inside on my terms than outside on yours. Tell me honestly, undead, why does the Undercity want in?" },
+          text = "Because your queen's people were already at my door, and I'd do anything to protect my city, even consort with the likes of you. Better you inside on my terms than outside on yours. So tell me, undead, and don't dress it up: why does the Undercity want in?" },
       },
       choices = {
-        { text = "I will be honest. We want what your city knows.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The Horde's reasons are the Horde's business, Archmage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I will be honest. We want what your city knows.", next = "BACK", reply = "Honesty, at last, and from the Horde of all places. Then we both know what we're bargaining over.", fx = { align = { honor = 1 } } },
+        { text = "The Horde's reasons are the Horde's business, Archmage.", next = "BACK", reply = "Then keep them, and I'll keep mine. We needn't like each other to be useful to each other.", fx = { align = { honor = -1 } } },
         { text = "I'm here to help. A broken Dalaran helps no one.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -198,7 +198,7 @@ P:NPC {
     },
     skyborne = {
       lines = {
-        { id = "sk_default", text = "One of Elaadrin's people, out here on the shore! Ansirem will be beside himself; he's been talking about the Skyborne for months. You'll find the wards hum differently around you, I suspect, and I'd dearly love to know why once all this is over." },
+        { id = "sk_default", text = "One of the Skyborne, out here on the shore! Archmage Ansirem of our council will be beside himself; he's been talking about your people for months. You'll find the wards hum differently around you, I suspect, and I'd dearly love to know why once all this is over." },
       },
       choices = {
         { text = "I'd be glad to tell you, Archmage.", next = "BACK", fx = { affinity = 1 } },

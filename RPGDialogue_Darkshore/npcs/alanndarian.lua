@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_deer", when = { questActive = TODO_QUEST("Curing the Sick") }, text = "Ten doses, ten deer. Every one you reach is one less I lie awake over." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the stew's been made and eaten three times since. Sit down; there's a fourth." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, grown broad as a strider since you first fetched meat for my pot. I'd like to think my stew had something to do with it." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "Half of Auberdine says you've been helping out, and the other half hasn't noticed yet. Come and eat; you've earned it." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The fishermen on the dock say you've been helping out, and the rest of Auberdine will catch up soon enough. Come and eat; you've earned it." },
   },
 
   notice = {
@@ -41,7 +41,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Easy Strider Living") },
           text = "Perhaps you'd like to learn my strider stew? First prove you can handle the beasts: bring me a few cuts of their meat, and I may be persuaded to show you how it's done." },
         { id = "h_strider_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Easy Strider Living"), days = 3 } },
-          text = "Fantastic meat! Now try a bowl and tell me honestly what you think, though if you say it needs salt, we will be having words." },
+          text = "Fantastic meat! Now try a bowl and tell me what you think, and spare me nothing, though if you say it needs salt, we will be having words." },
         { id = "h_source", tags = { "news" }, when = { questActive = TODO_QUEST("The Principal Source") },
           text = "You're the one the Cenarion Circle sent from Moonglade? Wonderful! Have you the water sample Dendrite Starblaze promised me?" },
         { id = "h_source_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Principal Source"), days = 3 } },
@@ -79,7 +79,7 @@ P:NPC {
     },
     deer_bears = {
       lines = {
-        { id = "db_default", text = "Tharnariun thinks his bears and my deer share a sickness, and I think he's half right. The water's poisoned, but there's something else at work too, something that wants Darkshore sick." },
+        { id = "db_default", text = "Tharnariun, who tends the bears, thinks his bears and my deer share a sickness, and I think he's half right. The water's poisoned, but there's something else at work too, something that wants Darkshore sick." },
       },
       choices = {
         { text = "Something that wants it? Who?", next = "deer_who" },
@@ -92,8 +92,8 @@ P:NPC {
         { id = "dw_default", text = "I don't know, and I'm a cook, not a Sentinel. But there are those in Darnassus who see the signs and those who look away, and I know which I'd rather be." },
       },
       choices = {
-        { text = "Then I won't look away either.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Darnassus will act when it's sure. Trust the elders.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I won't look away either.", next = "BACK", reply = "Then there are two of us at least, and Elune knows that is more than there were yesterday. Keep your eyes on the deer, friend.", fx = { align = { order = -1 } } },
+        { text = "Darnassus will act when it's sure. Trust the elders.", next = "BACK", reply = "They will, I am sure, in a decade or two, and by then I will have nothing left to cook. Forgive a cook her impatience.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -119,7 +119,7 @@ P:NPC {
 
     circle = {
       lines = {
-        { id = "ci_default", text = "I wrote to Moonglade when the first deer died, and I didn't expect an answer, honestly. Dendrite Starblaze sent one, and then he sent helpers, and that's how I came to be mixing salves instead of soups." },
+        { id = "ci_default", text = "I wrote to Moonglade when the first deer died, and I never expected the druids to answer a cook. Dendrite Starblaze sent a reply, and then he sent helpers, and that's how I came to be mixing salves instead of soups." },
       },
       choices = {
         { text = "Do you trust the Circle?", next = "circle_trust" },
@@ -131,7 +131,7 @@ P:NPC {
         { id = "ct_default", text = "I trust anyone who answers a letter about sick deer. That's a short list in this world, so I'm keeping them on it." },
       },
       choices = {
-        { text = "Your secret's safe. Something else.", next = "BACK" },
+        { text = "That's a fair rule.", next = "BACK" },
         { text = "Goodbye, Alanndarian.", next = "END" },
       },
     },
@@ -142,8 +142,8 @@ P:NPC {
         { id = "fa_default", text = "Something in the cave behind the falls, where naga have taken up living. Whatever they're doing in there, it runs out with the water and into every stream in Darkshore." },
       },
       choices = {
-        { text = "Then the naga must be driven out.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "The cure comes first. The deer can't wait.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then the naga must be driven out.", next = "BACK", reply = "Yes, and may Elune guide whoever does it, for I am not that brave. The water will not heal while they foul it.", fx = { align = { light = -1 } } },
+        { text = "The cure comes first. The deer can't wait.", next = "BACK", reply = "Bless you for thinking of the deer first, because most only think of the naga. The cure, then, and the fighting after.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

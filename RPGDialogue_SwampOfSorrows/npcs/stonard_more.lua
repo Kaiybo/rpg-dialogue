@@ -34,8 +34,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Stones don't think much, but the people who built them did, and they'd have been as puzzled as I am. Still, the Horde's made a home out of stranger things than you, so I'd not worry about the stones." } },
       choices = {
-        { text = "The Horde's my home too. I'll serve it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I serve the Light first. The Horde comes second.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Horde's my home too. I'll serve it.", next = "BACK", reply = "Then you're home, and welcome. There's plenty to serve here, and most of it's wet.", fx = { align = { order = 1 } } },
+        { text = "I serve the Light first. The Horde comes second.", next = "BACK", reply = "The Light first, is it? Then I'll hope the two never pull different ways while you're on my walls.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -43,8 +43,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because we're close enough to the Blasted Lands to smell them, and the demons that still wander out there don't care whose stones these are. These old walls were built to hold, and a warrior on top of them makes them hold a good deal better." } },
       choices = {
-        { text = "I'll stand on the walls and keep them safe.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather go out and meet the demons than wait for them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll stand on the walls and keep them safe.", next = "BACK", reply = "Good. A wall's only as good as the grunt on it, and I've too few.", fx = { align = { order = 1 } } },
+        { text = "I'd rather go out and meet the demons than wait for them.", next = "BACK", reply = "Meet them, then, and I'll keep the gate open for whatever's left of you. Bring back word, at least.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -55,26 +55,26 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Swamp jaguars, if you're quick, and the big crocolisks along the shore if you're brave, and the spiders if you're daft. None of it tastes good, but Karakul will cook anything you bring him and never asks what it was. Your {pet} looks like it would enjoy chasing a jaguar through the reeds, so let it, and bring back whatever's left." },
       },
       choices = {
-        { text = "I hunt only what the town needs, no more.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I hunt for the sport of it. The swamp has plenty.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I hunt only what the town needs, no more.", next = "BACK", reply = "Good, and Karakul will thank you for it. The town eats what you bring, and no more.", fx = { align = { light = 1 } } },
+        { text = "I hunt for the sport of it. The swamp has plenty.", next = "BACK", reply = "Plenty, aye, until it isn't. The jaguars are thinning already, so mind what you take.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Probably that they've been through a war, a defeat and a great deal of rain, and that nobody's thanked them for any of it. I'm no shaman, but I've stood here long enough to feel that much." } },
+      lines = { { id = "xhsham_default", text = "Probably that they've been through a war, a defeat and more rain than any land deserves, and that nobody's thanked them for any of it. I'm no shaman, but I've stood here long enough to feel that much." } },
       choices = {
-        { text = "Then I'll thank them, Dar. Old stones deserve it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Stones don't need thanks. They need repairing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll thank them, Dar. Old stones deserve it.", next = "BACK", reply = "Thank them, then, and maybe they'll hold a little longer. Stranger things have happened in this swamp.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Stones don't need thanks. They need repairing.", next = "BACK", reply = "Repairing, aye, and I've a list as long as my arm. Grab a trowel if you're offering.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "None that I know of, though Greshka swears the old warlocks left something of themselves in these stones, and Karakul keeps the old hearth burning, just in case. Me, I keep the meat moving and try not to think about it." } },
+      lines = { { id = "xhcast_default", text = "None that I know of, though Greshka, who sells grimoires here, swears the old warlocks left something of themselves in these stones, and Karakul keeps the old hearth burning, just in case. Me, I keep the meat moving and try not to think about it." } },
       choices = {
-        { text = "Leave the old stones be. The Warchief would want that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "If there's power in those stones, someone should use it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Leave the old stones be. The Warchief would want that.", next = "BACK", reply = "He would, and so would I. Let the old warlocks sleep in whatever's left of them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If there's power in those stones, someone should use it.", next = "BACK", reply = "Someone, aye, and that's what worries me. Greshka's been looking at those stones too long.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -82,8 +82,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Well, Tok'Kar's got a cookpot on the beach that half the soldiers would fight for, and he sleeps with one eye open because of it. Leave it be, though, because he'd blame me, and he insults me enough already." } },
       choices = {
-        { text = "I'll leave Tok'Kar's pot alone, for your sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A good cookpot is worth a few insults.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll leave Tok'Kar's pot alone, for your sake.", next = "BACK", reply = "Thank you, for my sake and the soldiers' both. A fight over Tok'Kar's pot is the last thing I need.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A good cookpot is worth a few insults.", next = "BACK", reply = "A few insults and a black eye, more like. Tok'Kar sleeps lighter than you'd think.", fx = { align = { honor = -1 } } },
         { text = "Something else, Dar.", next = "BACK" },
       },
     },
@@ -91,8 +91,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Only stories, and I don't believe half of them, but the old-timers say the warlocks came and went before Thrall's day, and nobody misses them. Greshka sells her grimoires here now and the Warchief allows it, so I suppose times have changed." } },
       choices = {
-        { text = "Times have changed. The fel serves the Horde now.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some things shouldn't be forgotten. I won't forget.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Times have changed. The fel serves the Horde now.", next = "BACK", reply = "Changed, aye, and I hope they stay changed. Greshka says the same, but I watch her anyway.", fx = { align = { light = -1 } } },
+        { text = "Some things shouldn't be forgotten. I won't forget.", next = "BACK", reply = "Good. Someone should remember, and I'm glad it's you.", fx = { align = { light = 1 } } },
         { text = "Let's leave that there.", next = "BACK" },
       },
     },
@@ -100,8 +100,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Crocolisks, whelps from the ruins, the Lost Ones skulking at the edge of the mire, and the frogs, which are the worst of the lot. I've heard the tauren say every living thing has a place, and I'd like to ask them where the frogs are meant to go." } },
       choices = {
-        { text = "Every creature has its place, Dar, even the frogs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Then fill the pond in. Stonard's sleep matters more than frogs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Every creature has its place, Dar, even the frogs.", next = "BACK", reply = "Even the frogs, aye, I suppose. They'll still keep me up all night, though.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then fill the pond in. Stonard's sleep matters more than frogs.", next = "BACK", reply = "Fill it in! Now there's an idea I like. I'll put it to Ruag, but he'll say no.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -162,8 +162,8 @@ P:NPC {
         { id = "ty_default", text = "No, and mind this part: leave the young ones be. Kill every small sawtooth now and there won't be a big one left to eat next season, and then Tok'Kar will complain to me about that as well." },
       },
       choices = {
-        { text = "Leave the young. That's good hunting.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Meat is meat. I'll take what I find.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Leave the young. That's good hunting.", next = "BACK", reply = "It is, and Tok'Kar will thank you for it. Next season's sawtooths are this season's young.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Meat is meat. I'll take what I find.", next = "BACK", reply = "Then there'll be no meat next season, and Tok'Kar will have your hide. Leave the little ones.", fx = { align = { order = -1 } } },
       },
     },
     tokkar_beach = {
@@ -194,14 +194,14 @@ P:NPC {
         { id = "ho_default", text = "Not a bit of it. Home was dry, and you could see the sky, and nothing in the water wanted to eat you. But a Horde outpost doesn't run itself, and somebody has to send the meat to the beach." },
       },
       choices = {
-        { text = "Duty's enough reason to stay.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "I'd have left long ago.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Duty's enough reason to stay.", next = "BACK", reply = "It is, most days. Somebody has to keep the stones from sinking.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I'd have left long ago.", next = "BACK", reply = "So would I, if I'm honest, and I've thought it. But somebody has to stay, and it's me.", fx = { align = { honor = -1 } } },
         { text = "Where was home, Dar?", next = "home_where" },
       },
     },
     home_where = {
       lines = {
-        { id = "hw_default", text = "Little more than a camp with walls, and the Warchief opened the gates. Durotar's the first home most of us chose for ourselves, and I chose to leave it for this, which says something about me I don't like to think about." },
+        { id = "hw_default", text = "An internment camp, little more than a pen with walls, until the Warchief opened the gates. Durotar's the first home most of us chose for ourselves, and I chose to leave it for this, which says something about me I don't like to think about." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -213,8 +213,8 @@ P:NPC {
           text = "You were born behind the camp walls, like me. Odd, isn't it, to stand in a town our grandfathers built while they were still free and we were still years from being born." },
       },
       choices = {
-        { text = "I'm proud of what they built.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
-        { text = "They built it for a war we shouldn't repeat.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I'm proud of what they built.", next = "BACK", reply = "So am I, mostly. Proud and wet, that's a Stonard orc.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "They built it for a war we shouldn't repeat.", next = "BACK", reply = "We shouldn't, and Thrall won't let us. But the stones are good, and I'll use them for better things.", fx = { align = { light = 1 }, affinity = 1 } },
       },
     },
     k_troll = {
@@ -234,7 +234,7 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The Warchief cares about places like this, places nobody else remembers. That's why I stay." } },
     second_war = { { id = "tp_second_war", text = "Stonard's stones were laid by the old Horde, back in the wars, and they still remember it. I like to think someone should be here to remember with them." } },
     sunken_temple = { { id = "tp_sunken_temple", text = "The trolls on the lake keep to themselves, mostly. I'd like it to stay that way." } },
-    _none = { { id = "tp_none", text = "Can't help you there. Ask Ruag; he keeps the papers, and the papers know more than I do." } },
+    _none = { { id = "tp_none", text = "Can't help you there. Ask Commander Ruag; he keeps the papers, and the papers know more than I do." } },
   },
 }
 
@@ -267,17 +267,17 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "They'll fly you, but they'll fuss about it. They know the smell of the dead and they know the shine of the Light, and they've never had both on their backs at once, so be gentle with the reins." } },
       choices = {
-        { text = "They'll fly because they're told to, and that's all.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll be gentle, and let them learn me in their own time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "They'll fly because they're told to, and that's all.", next = "BACK", reply = "That's all, aye, and they'll do it, grumbling the whole way. Hold on tight.", fx = { align = { order = 1 } } },
+        { text = "I'll be gentle, and let them learn me in their own time.", next = "BACK", reply = "Gentle, eh? Then they'll come round sooner than you'd think. Give them a bit of meat first.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Heavy and slow, which in a fight is the same thing, and a rider in plate on a wet beast is a rider who goes down in the swamp. I dry their wings every morning before they fly, and I'd ask a warrior to wait for it rather than complain." } },
+      lines = { { id = "xwarcl_default", text = "They are, because a rider in plate on a wet beast is a rider who goes down in the swamp. I dry their wings every morning before they fly, and I'd ask a warrior to wait for it rather than complain." } },
       choices = {
-        { text = "I'll wait. Patience is part of any soldier's work.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd fly now and take the risk. Waiting wastes daylight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll wait. Patience is part of any soldier's work.", next = "BACK", reply = "Good. A soldier who waits for dry wings lives to fight another day.", fx = { align = { order = 1 } } },
+        { text = "I'd fly now and take the risk. Waiting wastes daylight.", next = "BACK", reply = "Waste daylight, or waste a wind rider in the swamp. I'll keep my riders on the ground till they're dry.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -288,8 +288,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dry them every day, check their feet for rot and keep the leeches off, because a swamp leech will drain a beast weaker than any wound. It's dull work, but a hunter who skips it ends up with a sick animal and no idea why. Check {pet}'s paws tonight, I'd say, because the mud gets between the pads and festers if you leave it." },
       },
       choices = {
-        { text = "Daily care is a hunter's first duty to his beast.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Beasts are tough. They'll manage without the fuss.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Daily care is a hunter's first duty to his beast.", next = "BACK", reply = "It is, and you'll make a fine handler for knowing it. Dull work keeps beasts alive.", fx = { align = { order = 1 } } },
+        { text = "Beasts are tough. They'll manage without the fuss.", next = "BACK", reply = "Tough, aye, but leeches are tougher. Fuss over them, or lose them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -297,8 +297,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Something rises out of that water that no rider likes, and I can't see it, but they can. I fly them the long way round the Pool of Tears now, and nobody's complained about the extra hour yet." } },
       choices = {
-        { text = "Trust the riders. The long way round is the wise choice.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fly straight over it. The Horde can't flinch at every shadow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Trust the riders. The long way round is the wise choice.", next = "BACK", reply = "They know, and I trust them. The long way round, every time.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fly straight over it. The Horde can't flinch at every shadow.", next = "BACK", reply = "Fly over it, then, on your own beast. Mine go the long way, and that's flat.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -306,8 +306,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Mostly crates for Greshka that rattle when nobody's touching them, and the riders hate every one. I fly them anyway, wrapped in oilcloth against the wet, though I sometimes wonder whether it's the wet I'm keeping out or whatever's in there." } },
       choices = {
-        { text = "Rules are rules. Fly them and don't ask.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'd open one and look, rules or no rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Rules are rules. Fly them and don't ask.", next = "BACK", reply = "That's what I do, mostly, and I sleep fine. The crates are Greshka's business.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd open one and look, rules or no rules.", next = "BACK", reply = "Open one? Then you'll answer to Greshka, and I'd not wish that on anyone. Leave them shut.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -315,17 +315,17 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Warm and gentle, mind, because a rider with a singed mane sulks for a week and won't fly south past the temple at all. Do it right, and you'll have a friend in every stall." } },
       choices = {
-        { text = "Gently, then. Your riders deserve the care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A little singe won't hurt them. Toughens them up.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Gently, then. Your riders deserve the care.", next = "BACK", reply = "Gently, aye, and the riders will love you for it. Warm hands and soft words.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A little singe won't hurt them. Toughens them up.", next = "BACK", reply = "Toughen them? A sulking rider toughens nobody. Warm and gentle, or keep your hands off.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Somebody with a grudge, or a sense of humour I'd like to beat out of him, and Ruag never found out which. The rider swam out angry and the passenger didn't swim out at all, so I check every strap twice now." } },
+      lines = { { id = "xrogue_default", text = "Somebody with a grudge, or a sense of humour I'd like to beat out of him, and Commander Ruag never found out who. The rider swam out angry and the passenger didn't swim out at all, so I check every strap twice now." } },
       choices = {
-        { text = "Find him and see him properly punished.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The swamp already took its toll. Let it lie.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Find him and see him properly punished.", next = "BACK", reply = "Punished, aye, and I'd hold him down myself. Ruag never found him, but I'm still looking.", fx = { align = { order = 1 } } },
+        { text = "The swamp already took its toll. Let it lie.", next = "BACK", reply = "Let it lie? The rider still won't fly that route. But aye, the swamp took its due.", fx = { align = { order = -1 } } },
         { text = "Something else, Breyk.", next = "BACK" },
       },
     },
@@ -333,8 +333,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Rots their harness, molds their feathers, and puts them in a temper that lasts the whole flight north to Kargath. Back in the Barrens a druid showed me a moss that keeps the damp out of leather, but it doesn't grow here, and I can't remember its name." } },
       choices = {
-        { text = "I'll find you a swamp moss that works. Your beasts deserve it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Wind riders are tough. They'll learn to live with the wet.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll find you a swamp moss that works. Your beasts deserve it.", next = "BACK", reply = "Would you? Then the riders and I both thank you, and I'll owe you a free flight.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Wind riders are tough. They'll learn to live with the wet.", next = "BACK", reply = "They'll live, aye, but they'll sulk. A dry rider's a happy rider.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -377,7 +377,7 @@ P:NPC {
     },
     wet = {
       lines = {
-        { id = "we_default", text = "Badly. The moss grows in their harness overnight, their wings never dry, and every one of them coughs in the mornings. I rub them down with hot cloths, and they bite me for it, and we're both happier after." },
+        { id = "we_default", text = "Badly. The moss grows in their harness overnight, their wings never dry, and they all cough in the mornings. I rub them down with hot cloths, and they bite me for it, and we're both happier after." },
       },
       choices = {
         { text = "That's devotion.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -395,7 +395,7 @@ P:NPC {
     },
     others_worse = {
       lines = {
-        { id = "ow_default", text = "Me, obviously, though he'd say the same. A hot rider just sulks in the shade, but a wet one catches the cough and gives it to every other rider in the pen." },
+        { id = "ow_default", text = "No, I do, though he'd say the same. A hot rider just sulks in the shade, but a wet one catches the cough and gives it to every other rider in the pen." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -438,8 +438,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I think you're a contradiction with a hammer. Your Light burned the dead when they first rose, and now it lives in one of them, and my books have nothing to say about that, which is rare and annoying." } },
       choices = {
-        { text = "Contradiction or not, the Light chose me.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The Light's just power, like your books. I use it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Contradiction or not, the Light chose me.", next = "BACK", reply = "Chose you, did it? Then it has stranger taste than I thought. I'll be watching.", fx = { align = { light = 1 } } },
+        { text = "The Light's just power, like your books. I use it.", next = "BACK", reply = "Power, aye, and you're the first paladin to admit it. We'll get along, I think.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -447,20 +447,20 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "I don't dislike them, I simply have nothing to sell them, which is worse. Warriors think a demon can be killed like any other beast, and they're usually right, which annoys my customers no end." } },
       choices = {
-        { text = "Warlocks play with fire. A warrior's steel is cleaner.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Demons are tools. A warrior could learn from warlocks.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Warlocks play with fire. A warrior's steel is cleaner.", next = "BACK", reply = "Cleaner, aye, until the demon gets past it. Steel's a fine thing, but it doesn't bind anything.", fx = { align = { light = 1 } } },
+        { text = "Demons are tools. A warrior could learn from warlocks.", next = "BACK", reply = "Learn from warlocks? There's a warrior I'd sell a book to. Come back when you're curious.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'd rather have something that hates me honestly." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'd rather have something that hates me honestly. Your {pet} would be torn to pieces by a felhunter in a heartbeat, but I'll grant it looks happier than any demon I've ever bound." },
+        { id = "xhuntcl_default", text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'll take a hatred I can see coming." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'll take a hatred I can see coming. Your {pet} would be torn to pieces by a felhunter in a heartbeat, but it does look happier than any demon I've ever bound." },
       },
       choices = {
-        { text = "I'd take a loyal beast over any bound demon.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A demon that obeys is worth ten loyal beasts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd take a loyal beast over any bound demon.", next = "BACK", reply = "Most would, and most die loving their beasts. I'll keep my demons and my wits.", fx = { align = { light = 1 } } },
+        { text = "A demon that obeys is worth ten loyal beasts.", next = "BACK", reply = "Ten, at least, and it never eats your supplies. You'd make a fine warlock.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -468,20 +468,20 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Because the Warchief allows it, and because warlocks know things your elements never will. Thrall's people can talk to the wind all they like, but when a demon walks out of the Blasted Lands, it's my customers who'll know its name." } },
       choices = {
-        { text = "The Warchief allows it, so I'll respect his word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The Warchief is wrong to allow it, and someone should say so.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Warchief allows it, so I'll respect his word.", next = "BACK", reply = "Respect it, then, and I'll respect you. The Warchief's word is enough for now.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Warchief is wrong to allow it, and someone should say so.", next = "BACK", reply = "Say it, then, to his face. I'll be here selling books when you come back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhcast = {
       big = true,
       lines = {
-        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "You'd like to know, wouldn't you, warlock? Their god answered them, which is more than most demons will do for you, and look where it left them: under the swamp." },
+        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "You'd like to know, wouldn't you, warlock? Their god answered them, and most demons won't even do that much, and look where it left them: under the swamp." },
         { id = "xhcast_default", text = "Closer than Fel'zerul would like to admit. The Atal'ai bargained with a god the way we bargain with demons, and they lost, which is the only lesson any of us needs, if anyone would listen." },
       },
       choices = {
-        { text = "Then the Warchief is right to keep warlocks on a leash.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "They lost because they were weak, not because they reached.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the Warchief is right to keep warlocks on a leash.", next = "BACK", reply = "Right, aye, maybe, and I'd say the same in his place. A leash is wise.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They lost because they were weak, not because they reached.", next = "BACK", reply = "Weak, aye, and greedy. Reach carefully, and keep your feet on the ground.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -489,8 +489,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Ask Dalaran, if you can find it, or ask the elves what their Sunwell brought down on Quel'Thalas. Every power has a price, mage; mine just has the honesty to bite." } },
       choices = {
-        { text = "The arcane can be used well. The fel can't.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You're right. Power's power, whatever it costs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The arcane can be used well. The fel can't.", next = "BACK", reply = "Can it? Ask the elves, mage. Every power has a price, and some prices are just hidden better.", fx = { align = { light = 1 } } },
+        { text = "You're right. Power's power, whatever it costs.", next = "BACK", reply = "Exactly, mage, and I'm glad someone in this town says it. Power's power.", fx = { align = { light = -1 } } },
         { text = "Another question, then.", next = "BACK" },
       },
     },
@@ -498,8 +498,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Some of them, and the ones that don't will whisper your name to me when they leave the shop. A thief with a stolen grimoire is just a thief with a very bad night ahead of him." } },
       choices = {
-        { text = "I'll keep my hands to myself, Greshka.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Everything can be stolen. Even a biting book.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll keep my hands to myself, Greshka.", next = "BACK", reply = "Good, and the books will thank you. They bite, but they remember kindness.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everything can be stolen. Even a biting book.", next = "BACK", reply = "Even a biting book, aye, if you don't mind losing fingers. Try it, and I'll watch.", fx = { align = { honor = -1 } } },
         { text = "Never mind that for now.", next = "BACK" },
       },
     },
@@ -507,8 +507,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because every word in them is about binding something that never asked to be bound, and your people spend their lives letting things go. I don't apologize for it, druid, but I don't pretend it's kind, either." } },
       choices = {
-        { text = "Binding the unwilling is a crime against nature, Greshka.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power is power. A warlock knows it, even if a druid won't.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Binding the unwilling is a crime against nature, Greshka.", next = "BACK", reply = "A crime? Maybe, druid, but the Horde lives because of crimes like it. I don't apologise.", fx = { align = { light = 1 } } },
+        { text = "Power is power. A warlock knows it, even if a druid won't.", next = "BACK", reply = "A warlock knows it, aye. Druids let things go; we hold on. Both have their uses.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -523,7 +523,7 @@ P:NPC {
           text = "I sell grimoires to warlocks, and you aren't one. If you've a question, make it quick, and then go and bother Karakul instead." },
         { id = "h_lock", when = { class = "WARLOCK" },
           text = "Greshka. I sell the grimoires that teach your servants new tricks, the Blood Pact and the Firebolt and the rest. You know enough to be dangerous, but you still need training, so let's see what you can pay for." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You've no use for grimoires and I've no use for you, but Malosh is out in the yard if you want somebody to hit." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You've no use for grimoires and I've no use for you, but Malosh the trainer is out in the yard if you want somebody to hit." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and you keep beasts, which is a pity, though I suppose they're loyal." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You've no business here, then, and I'll tell you what I tell every druid: what I sell would make your Earth Mother weep." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You're no warlock, and the Light on you makes my books itch. A Forsaken paladin, of all things, so what do you want?" },
@@ -555,14 +555,14 @@ P:NPC {
           text = "Your demons can learn new tricks the way a dog can, if you beat them into it with the right words. These books have those words, and they cost what they're worth." },
       },
       choices = {
-        { text = "Demons should be mastered, not taught.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Demons shouldn't be in Horde hands at all.", next = "BACK", fx = { align = { light = 1 }, affinity = -2 } },
+        { text = "Demons should be mastered, not taught.", next = "BACK", reply = "Mastered, aye, and taught to be mastered. That's what the books are for.", fx = { align = { light = -1 } } },
+        { text = "Demons shouldn't be in Horde hands at all.", next = "BACK", reply = "Then you'll not like my shop, and I'll not like you. The Warchief allows it.", fx = { align = { light = 1 }, affinity = -2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     why = {
       lines = {
-        { id = "wh_default", text = "Because the Dark Portal is just south of here, and the warlocks who come to study it need what I sell. Every one of them wants to stand where the old Horde opened the way, as if the stones would teach them something." },
+        { id = "wh_default", text = "Because the Dark Portal is just south of here, and the warlocks who come to study it need what I sell. They all want to stand where the old Horde opened the way, as if the stones would teach them something." },
       },
       choices = {
         { text = "Do the stones teach them anything?", next = "why_stones" },
@@ -577,7 +577,7 @@ P:NPC {
     },
     felzerul = {
       lines = {
-        { id = "fe_default", text = "Fel'zerul, out watching the temple, and he keeps the Warchief's line and looks down on me for selling to anyone with coin. I look down on him for spending his days watching a temple when he could be learning from it." },
+        { id = "fe_default", text = "There's Fel'zerul, out watching the temple, who keeps the Warchief's line and looks down on me for selling to anyone with coin. I look down on him for spending his days watching a temple when he could be learning from it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -620,8 +620,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I train warriors, not paladins, but I'll tell you what I tell them: the mud doesn't care what you pray to. If the Light makes you hard to kill, good, because the Horde needs soldiers who stay standing longer than their enemies." } },
       choices = {
-        { text = "I'll stand and fight fair, mud or no mud.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll win however I can. The mud doesn't care either.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand and fight fair, mud or no mud.", next = "BACK", reply = "Fair, aye, and the mud will make it unfair anyway. Good on you.", fx = { align = { honor = 1 } } },
+        { text = "I'll win however I can. The mud doesn't care either.", next = "BACK", reply = "However you can, aye, and that's what I teach. The mud doesn't fight fair.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -632,8 +632,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When I can get them, aye, because a warrior who's only fought other warriors will freeze the first time a swamp jaguar comes at him out of the reeds. A hunter's beast makes a fine sparring partner, if it's patient and the hunter keeps a hand on the lead. Your {pet} looks like it would give my recruits a good fright, which is exactly what they need." },
       },
       choices = {
-        { text = "Disciplined sparring saves lives in the field. It's worth doing.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Real fights teach more than any yard ever will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Disciplined sparring saves lives in the field. It's worth doing.", next = "BACK", reply = "It is, and I'm glad you see it. Come to the yard and spar with the recruits.", fx = { align = { order = 1 } } },
+        { text = "Real fights teach more than any yard ever will.", next = "BACK", reply = "Real fights, aye, and real graves too. The yard first, then the swamp.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -641,8 +641,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "They respect anyone who stays standing in this mud, and your lot stay standing longer than most, because you keep putting the rest of us back on our feet. I'll grant that a totem on the field is worth a grunt or two." } },
       choices = {
-        { text = "A shaman fights beside the warriors, never behind them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let the warriors take the hits. I'll stay back and heal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A shaman fights beside the warriors, never behind them.", next = "BACK", reply = "Beside them, aye, and that's why they respect you. Stay there.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the warriors take the hits. I'll stay back and heal.", next = "BACK", reply = "Behind them, then, and they'll still respect you, mostly. Just keep them standing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -650,8 +650,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "They trust anyone who keeps the ogres off them, and they curse anyone whose fireball lands too close. Stand where they can see you, don't let your spells go wide, and you'll get on fine." } },
       choices = {
-        { text = "I'll stand where they can see me, and take my share.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll stay hidden and let them draw the ogres.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand where they can see me, and take my share.", next = "BACK", reply = "Good, and they'll trust you for it. Take your share, and they'll share theirs.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll stay hidden and let them draw the ogres.", next = "BACK", reply = "Hidden, eh? Then they'll curse your name, and I'll not blame them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -659,8 +659,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Teach them? No, but I'd let you show them what a knife does to a warrior who drops his guard. They need to learn that the enemy won't always stand in front of them shouting." } },
       choices = {
-        { text = "A fair fight is a fool's fight.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Your warriors should fight fair. That's their strength.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A fair fight is a fool's fight.", next = "BACK", reply = "A fool's fight, aye, and my recruits need to learn that. Come and teach them.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Your warriors should fight fair. That's their strength.", next = "BACK", reply = "Strength, aye, until a rogue gets behind them. Fair or not, they need to know.", fx = { align = { honor = 1 } } },
         { text = "Something else, Malosh.", next = "BACK" },
       },
     },
@@ -668,8 +668,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "One thing: that a robe can kill you just as dead as an axe, if you're slow to close the distance. I tell the young ones to charge the mage first, and the mage tells them to try it, and that's how I lose recruits to the mud." } },
       choices = {
-        { text = "Teach them caution. They'll live longer.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Let them charge, then, and dig their own graves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Teach them caution. They'll live longer.", next = "BACK", reply = "Caution, aye, and they'll learn it from me. Charge, but charge smart.", fx = { align = { light = 1 } } },
+        { text = "Let them charge, then, and dig their own graves.", next = "BACK", reply = "Their graves, aye, and I'll dig them. Teach them, or let them learn the hard way.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -677,8 +677,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I would, and gladly, because the swamp has crocolisks bigger than any bear, and a warrior who's been thrown about by a druid won't panic when one comes out of the reeds. Your kind fights with instinct, and mine with drill, and both have something to learn from the other." } },
       choices = {
-        { text = "Then I'll wrestle them fairly, and teach them what instinct means.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Drill makes a warrior. A druid's wildness is no lesson for recruits.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll wrestle them fairly, and teach them what instinct means.", next = "BACK", reply = "Fairly, aye, and they'll learn more from you than from me. Come by the yard.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Drill makes a warrior. A druid's wildness is no lesson for recruits.", next = "BACK", reply = "No lesson? The swamp is wild, druid, and so are its crocolisks. My recruits need both.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -700,7 +700,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in my yard. Can you fight in this mud, or does the Light keep your boots clean for you?" },
       },
       again = {
-        { id = "h_again", text = "More questions? Swing a blade while you ask them. Deeds, not words." },
+        { id = "h_again", text = "More questions? Swing a blade while you ask them, because deeds count here, not words." },
         { id = "h_again2", text = "What else? The yard's waiting." },
       },
       choices = {
@@ -731,8 +731,8 @@ P:NPC {
         { id = "mh_default", text = "My training's harsh because the swamp is harsher. I've dug graves in this mud for soft-trained grunts, and the mud doesn't stay dug." },
       },
       choices = {
-        { text = "The harsh way is the only way.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Some warriors need a gentler hand.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The harsh way is the only way.", next = "BACK", reply = "It is, and the mud agrees with you. Welcome to my yard.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Some warriors need a gentler hand.", next = "BACK", reply = "Gentler? The mud won't be gentle with them. I'll be harsh, so the swamp doesn't have to be.", fx = { align = { order = -1 } } },
       },
     },
     good = {

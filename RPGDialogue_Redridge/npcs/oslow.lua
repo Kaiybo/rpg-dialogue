@@ -61,8 +61,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Not if the orcs keep interfering. They've taken it personally, it seems. Your spirits might help, if they're willing." } },
       choices = {
-        { text = "Then let's finish it, Oslow. I'll help.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Forget the bridge. Defend the town.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then let's finish it, Oslow. I'll help.", next = "BACK", reply = "Now that's the kind of talk I like to hear on a work site. Grab a hammer or a spear, whichever suits, and we'll have it done before the rains.", fx = { align = { order = 1 } } },
+        { text = "Forget the bridge. Defend the town.", next = "BACK", reply = "The town's no good without a way out of it, friend, and that's what this bridge is. Defend it by all means, but the crossing is the defence.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -70,8 +70,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Guarding the crew while they work, because every time I turn my back the gnolls make off with another load of tools. I'd finish this bridge before the rains if I had one good fighter at the far end." } },
       choices = {
-        { text = "I'll guard your crew. The bridge needs finishing.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll go after the gnolls, not stand around watching masons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll guard your crew. The bridge needs finishing.", next = "BACK", reply = "Good, and my lads will work twice as fast knowing someone's watching their backs. Stand the far end and shout if anything with fur comes near.", fx = { align = { order = 1 } } },
+        { text = "I'll go after the gnolls, not stand around watching masons.", next = "BACK", reply = "Masons, is it? These masons are holding Lakeshire together with their bare hands. Go on, then, and bring my tools back while you're at it.", fx = { align = { order = -1 } } },
         { text = "Something else, Foreman.", next = "BACK" },
       },
     },
@@ -79,35 +79,35 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The gnolls' dogs do, digging under the stone piles, and a great boar knocked over two scaffolds last week as though they were made of straw. I'd pay a hunter in thanks, which is all I've got, to keep them off." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks better behaved than the gnolls' dogs, {class}, but I'd still rather it stayed off my scaffolding." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The gnolls' dogs do, digging under the stone piles, and a great boar knocked over two of my scaffolds last week. Your {pet} looks better behaved than the gnolls' dogs, {class}, but I'd still rather it stayed off my scaffolding." },
       },
       choices = {
-        { text = "I'll keep the beasts away from your bridge.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your scaffolding's your problem. I've bigger game.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll keep the beasts away from your bridge.", next = "BACK", reply = "Then my crew will toast your name at the inn, and they'll grumble about it. Mind the big boar, though, because it's got a temper like the Magistrate.", fx = { align = { honor = 1 } } },
+        { text = "Your scaffolding's your problem. I've bigger game.", next = "BACK", reply = "Bigger game, he says, while my scaffolds lie in the mud. Off you go, then, and I'll keep chasing dogs with a shovel.", fx = { align = { honor = -1 } } },
         { text = "Something else, Foreman.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "No, they didn't, and I've a fair idea the gnolls had them, but if you think one of my lads is skimming, you'd best bring proof. I trust my crew the way I trust a good keystone." } },
       choices = {
-        { text = "I'll find the thief, whoever it turns out to be.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Pinch them back and say nothing. Simpler.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll find the thief, whoever it turns out to be.", next = "BACK", reply = "Do that, and if it's one of mine, I'll handle him myself. But I'd bet my good trowel it's the gnolls.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Pinch them back and say nothing. Simpler.", next = "BACK", reply = "Pinch them back? Then I'm no better than the thief, and my lads would know it. Keep that kind of advice on your side of the lake.", fx = { align = { honor = -1 } } },
         { text = "Where did you lose them?", next = "tools_where" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "A wizard could drop my bridge in the lake in a week, more like, and I've met the sort who'd do it for a laugh. Stone is laid by hand and checked by eye, and that's how bridges stay up." } },
       choices = {
-        { text = "Craft and rules. I respect that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Bridges fall either way. Mine would be faster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Craft and rules. I respect that.", next = "BACK", reply = "Then you're the first wizard I've met who does, and I've met a few. Stand clear of the mortar, if you please.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bridges fall either way. Mine would be faster.", next = "BACK", reply = "Faster down, maybe, and never back up again. Mind your fireworks on the other side of the bridge, if you don't mind.", fx = { align = { order = -1 } } },
         { text = "Can I see your plans?", next = "plans" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "And frighten my crew into the bargain, and the fish, and every boat on the lake. If you want to frighten orcs, go across and do it there, because this side of the water stays clean while I'm foreman." } },
       choices = {
-        { text = "Clean it stays. I'll take it across.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fear works on both banks, Oslow.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Clean it stays. I'll take it across.", next = "BACK", reply = "Good, because I've enough trouble keeping masons on the job without them seeing things. Go and frighten orcs to your heart's content.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear works on both banks, Oslow.", next = "BACK", reply = "Maybe it does, but my crew are the ones who'd run, and then who builds the bridge? Do your work across the water.", fx = { align = { light = -1 } } },
         { text = "Why build the bridge at all?", next = "why" },
       },
     },
@@ -115,8 +115,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "They ask for their wages, on time, and they get them, and that's the only blessing I can promise. But we cut the names of the lost into the first pier, and if you'd say something over that stone, I'd not stop you." } },
       choices = {
-        { text = "I'll say the words over that stone, Foreman.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Pay them and work them, Oslow. Prayer won't raise stone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll say the words over that stone, Foreman.", next = "BACK", reply = "Thank you, truly, and I'll bring the crew to hear it. They'll pretend not to care and then stand very still.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pay them and work them, Oslow. Prayer won't raise stone.", next = "BACK", reply = "Wages and work, aye, that's my creed too. Still, the lads remember who said a word for the dead and who didn't.", fx = { align = { light = -1 } } },
         { text = "Something else, Foreman.", next = "BACK" },
       },
     },
@@ -124,8 +124,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Every one, and I'd tell their mothers so to their faces, because without that bridge Lakeshire is an island the Blackrock can starve at leisure. I don't build bridges for the beauty of them; I build them so people can run." } },
       choices = {
-        { text = "Then I'll guard it until the last stone is set.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Bridges come and go, Oslow. I won't bleed for one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll guard it until the last stone is set.", next = "BACK", reply = "Then you've a friend in Foreman Oslow for life, and that's no small thing. The crew will cheer when they see you at the far end.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Bridges come and go, Oslow. I won't bleed for one.", next = "BACK", reply = "Then you've never been trapped on the wrong side of the water with orcs at your back. I hope you never are.", fx = { align = { honor = -1 } } },
         { text = "Something else, Oslow.", next = "BACK" },
       },
     },
@@ -133,8 +133,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Strong enough to stand, aye, but nothing's strong enough against catapults when nobody's guarding the far end. Give me a company of soldiers and one dry month, and I'll give Lakeshire a bridge that outlasts us all." } },
       choices = {
-        { text = "The Marshal should send soldiers. Your crew shouldn't stand alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Forget soldiers. Build it quick, and rebuild when it falls.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Marshal should send soldiers. Your crew shouldn't stand alone.", next = "BACK", reply = "That's what I've been telling him for a year, and the Marshal agrees, until the Blackrock come down the north road. Tell him yourself, maybe he'll listen to you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget soldiers. Build it quick, and rebuild when it falls.", next = "BACK", reply = "Quick and cheap falls down, and I've a reputation to keep. I'll build it right or not at all, and the orcs can wait.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -144,15 +144,15 @@ P:NPC {
         { id = "h_tools", when = { questBefore = TODO_QUEST("The Lost Tools") },
           text = "My tools came across the lake by boat, and a catapult put the boat at the bottom. They're down there with it, my good hammer and all." },
         { id = "h_tools_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Lost Tools") },
-          text = "Off the end of the wreck, at the bottom. Hold your breath, mind the murlocs, and don't drop it on the way up." },
+          text = "My toolbox is off the end of the wreck, at the bottom of the lake. Hold your breath, mind the murlocs, and don't drop it on the way up." },
         { id = "h_tools_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Lost Tools"), days = 3 } },
-          text = "Rusted shut, but they're mine, and every one has my mark on the handle. Back to work, then." },
+          text = "My tools came up rusted shut, but they're mine, and every one has my mark on the handle. Back to work, then." },
         { id = "h_supplies", when = { questActive = TODO_QUEST("The Everstill Bridge") },
           text = "Gnolls ran off with my iron from Stormwind, pikes and rivets both. What does a gnoll want with rivets, when they don't even build?" },
         { id = "h_rains", when = { questDone = TODO_QUEST("The Everstill Bridge") },
           text = "The rains are coming, and the bridge will be done before they do. Write that down somewhere I can point at later." },
         { id = "h_ink", tags = { "news" }, when = { questActive = TODO_QUEST("Ink Supplies") },
-          text = "A librarian wants ore, for ink, while I've got a town to fortify. Northshire has a funny idea of what matters this month." },
+          text = "Brother Paxton, the librarian up at Northshire Abbey, wants ore for his ink while I've got a town to fortify. Northshire has a funny idea of what matters this month." },
         { id = "h_rethban", when = { questActive = TODO_QUEST("Rethban Ore") },
           text = "Rethban Caverns, north of town. The gnolls are digging the seam out themselves now, so take it off them and carry it to Paxton yourself." },
         { id = "h_bridge", when = { metBefore = true }, text = "Laid another span yesterday, straight as a ruler, and I stood on it a while. Don't tell the crew, or they'll think I've gone soft about bridges." },
@@ -240,7 +240,7 @@ P:NPC {
       choices = {
         { text = "I believe it.", next = "BACK", fx = { affinity = 2 } },
         { text = "Ten years? Lakeshire doesn't have ten weeks.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
-        { text = "Honestly, Oslow. Will it be done before the rains?", tag = "Persuade", next = "collapse_honest",
+        { text = "Straight answer, Oslow: will it be done before the rains?", tag = "Persuade", next = "collapse_honest",
           check = { pass = { any = { { disposition = { min = 62 } }, { profession = "Blacksmithing" }, { questDone = TODO_QUEST("The Everstill Bridge") } } } },
           fail = { next = "collapse_schedule", fx = { affinity = -1 } } },
       },
@@ -248,7 +248,7 @@ P:NPC {
 
     tools = {
       lines = {
-        { id = "t_default", text = "Shipped by wagon from Goldshire. The bridge was out, so we loaded them on a boat, and the orcs put a catapult stone through it. Toolbox went to the bottom, my good hammer with it." },
+        { id = "t_default", text = "My tools came by wagon from Goldshire, and with the bridge out we loaded them on a boat, and the orcs put a catapult stone through it. The toolbox went to the bottom, my good hammer with it." },
         { id = "t_done", when = { questDone = TODO_QUEST("The Lost Tools") },
           text = "Back on my bench now, thanks to you. I still look across the lake before I put anything in a boat." },
       },
@@ -267,7 +267,7 @@ P:NPC {
 
     supplies = {
       lines = {
-        { id = "su_default", text = "We smelted our own iron into swords and shot during the last attack. I sent to Stormwind for more. Redridge gnolls took the whole caravan into the hills behind town.",
+        { id = "su_default", text = "We smelted our own iron into swords and shot during the last attack, so I sent to Stormwind for more, and the Redridge gnolls carried the whole caravan off into the hills behind town.",
           fx = { learn = { "redridge_gnolls" } } },
       },
       choices = {
@@ -283,12 +283,12 @@ P:NPC {
       },
     },
     supplies_verner = {
-      lines = { { id = "sv_default", text = "He's begging for iron to shoe horses, and a gnoll's using a pike as a back-scratcher. Don't mention it near his forge; he's got hammers." } },
+      lines = { { id = "sv_default", text = "Verner's begging for iron to shoe horses, and a gnoll's using a pike as a back-scratcher. Don't mention it near his forge; he's got hammers." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     paxton = {
-      lines = { { id = "px_default", text = "Paxton's my usual buyer, and a decent man. But I've walls to raise. If Northshire wants Rethban ore this month, Northshire can dig it." } },
+      lines = { { id = "px_default", text = "Paxton's my usual buyer, and a decent man, but I've walls to raise. If Northshire wants Rethban ore this month, Northshire can dig it." } },
       choices = {
         { text = "Where would I dig?", next = "rethban" },
         { text = "Fair. Something else.", next = "BACK" },
@@ -318,7 +318,7 @@ P:NPC {
     },
     collapse_honest = {
       lines = {
-        { id = "co_default", text = "Honestly? No, it won't, not with the iron I've got and the crew I've got, and I've known it since the caravan went into the hills. I'll have the main span up, and the rest will be planks and prayer until spring." },
+        { id = "co_default", text = "Straight answer? No, it won't, not with the iron I've got and the crew I've got, and I've known it since the caravan went into the hills. I'll have the main span up, and the rest will be planks and prayer until spring." },
         { id = "co_after", text = "But I'll keep saying before the rains, because the crew works faster for a schedule than for the truth, and so does the town. Don't you go telling Solomon, or he'll write it down." },
       },
       choices = {

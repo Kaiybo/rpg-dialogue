@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Watch your step, for half of what's green on this slope wants to bite you, and the other half remembers the Legion." },
+    { id = "g_default", text = "Watch your step, for most of what grows green on this slope wants to bite you, and what doesn't still remembers the Legion's rain." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The weeds have grown since you left, but then, they always do." },
     { id = "g_done", when = { questDone = TODO_QUEST("Celastrus the Bitter") }, text = "There's the one who cut down Celastrus. The eastern hollow is greening already; go and look, when you've the time." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the slope has grown back over half the paths you knew, so mind your boots." },
@@ -60,7 +60,7 @@ P:NPC {
     },
     celastrus = {
       lines = {
-        { id = "c_default", text = "A great thornbush that lurks about the slopes to the east. It kills animals, it lashes out at the other plants, and it feeds on the bodies of the dead, which is why it's grown so big. It must be destroyed." },
+        { id = "c_default", text = "A great thornbush that lurks about the slopes to the east. It kills animals, it lashes out at the other plants, and it has fed on the bodies of the dead until it grew to the size of a barrow. It must be destroyed." },
         { id = "c_done", when = { questDone = TODO_QUEST("Celastrus the Bitter") }, text = "It was a thornbush the size of a house, and now it's a heap of kindling, thanks to you. I've kept its frond on my shelf, which is petty of me, but I've earned a little pettiness." },
       },
       choices = {
@@ -70,7 +70,7 @@ P:NPC {
     },
     celastrus_dead = {
       lines = {
-        { id = "cd_default", text = "Because there are plenty of them on this mountain, and the fel taught the plants to be hungry. A healthy thorn takes rain and sun; a poisoned one takes whatever it can catch, and it's caught a great deal." },
+        { id = "cd_default", text = "Because there are plenty of them on this mountain, and the fel taught the plants to be hungry. A healthy thorn takes rain and sun, but a poisoned one takes whatever wanders too close, and I have found deer bones knotted in its roots." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -89,8 +89,8 @@ P:NPC {
         { id = "fs_default", text = "I fear you're right. A druid might try to coax the poison out of a single bush, but there are thousands of them, and every day spent coaxing one is a day the rest spread further. I cut them out, and I don't apologise for it." },
       },
       choices = {
-        { text = "Cut them out. The mountain comes first.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Even weeds deserve a chance at healing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Cut them out. The mountain comes first.", next = "BACK", reply = "Good, then we see the same mountain, and I'll be glad of another pair of hands that won't hesitate when the thorns start to twist.", fx = { align = { light = -1 } } },
+        { text = "Even weeds deserve a chance at healing.", next = "BACK", reply = "They might, and in a gentler season I'd agree with you, but the mountain hasn't got that many seasons left to spare on mercy for brambles.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,8 +109,8 @@ P:NPC {
         { id = "xb_default", text = "Because the brambles have deeper roots than the good growth does. Burn the slope and the poisoned roots survive under the ash, and the clean ones don't, and you've handed the mountain to the very thing you meant to destroy." },
       },
       choices = {
-        { text = "Then I'll cut, slowly and carefully.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then burn deeper. Fire solves most things.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll cut, slowly and carefully.", next = "BACK", reply = "Then you understand the slope, and you'll be slower than the fire and far more use, so take the blade and mind the roots.", fx = { align = { order = 1 } } },
+        { text = "Then burn deeper. Fire solves most things.", next = "BACK", reply = "Fire solves what it touches and nothing beneath, which is exactly the problem, and I'd rather you didn't try it anywhere near my slope.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -193,8 +193,8 @@ P:NPC {
         { id = "l_default", text = "Every time we pack up, somebody gets cut off on da slopes, or a scout don't come back, an' we turn around ta fetch 'em. Ya don't leave ya own behind, mon, even when ya own be a fool who went chasin' a pretty bird." },
       },
       choices = {
-        { text = "Then you're right to stay. No one gets left.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Sometimes you cut your losses to save the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then you're right to stay. No one gets left.", next = "BACK", reply = "Dat be the only way I know, mon, and it be good to hear somebody else say it, because some days I think I be the only fool left who believes it.", fx = { align = { honor = 1 } } },
+        { text = "Sometimes you cut your losses to save the rest.", next = "BACK", reply = "Maybe you be right, an' the trolls who say dat be alive and warm in Durotar, but I couldn't look dem in the eye after, so here I stay.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -234,8 +234,8 @@ P:NPC {
         { id = "xt_default", text = "Tired, cousin, but standin'. Da loa feel far away up here, an' da cold gets in ya bones. Still, a Darkspear don't run from a fight, even when da fight won't leave him alone." },
       },
       choices = {
-        { text = "We endure. That's the Darkspear way.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Leave when you can. Pride won't keep you warm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "We endure. That's the Darkspear way.", next = "BACK", reply = "Ya, we do, cousin, and hearin' it from one of our own puts a little warmth back in dese old bones, so maybe I stand a while longer.", fx = { align = { order = 1 } } },
+        { text = "Leave when you can. Pride won't keep you warm.", next = "BACK", reply = "You not be wrong, cousin, and my knees be agreein' with you every mornin', but the loa know I can't leave dem fools on dis mountain alone.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

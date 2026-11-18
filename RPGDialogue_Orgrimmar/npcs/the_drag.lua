@@ -44,7 +44,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Dran Droffers, of Droffers and Son Salvage, and that's me at the front of the name, not the son, whatever he tells you. We buy what other folks dig up and we sell it to folks with more gold than sense, and the margins are beautiful." },
         { id = "h_goblin", when = { race = "Goblin" }, text = "Dran Droffers, and you're one of us, so I'll skip the sales pitch and give you the price I give my cousins. That's the same as everybody else's, by the way, but now you feel special." },
-        { id = "h_ready", when = { questReady = TODO_QUEST("Necklace Recovery") }, text = "Is that it? Is that my necklace? Hand it over, hand it over, and don't you dare tell Jarkal Mossmeld you came here first." },
+        { id = "h_ready", when = { questReady = TODO_QUEST("Necklace Recovery") }, text = "Is that it? Is that my necklace? Hand it over, hand it over, and don't you dare tell that troll Jarkal Mossmeld you came here first." },
       },
       again = {
         { id = "h_again", text = "What else, pal? Talkin' isn't buyin'." },
@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "sd_default", text = "Rob is a very ugly word, pal. The dead don't need their boots, and the livin' do, so I'm providing a public service, and charging a modest fee for my trouble." } },
       choices = {
-        { text = "True enough, the dead have no use for boots.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Some things should stay with the dead.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "True enough, the dead have no use for boots.", next = "BACK", reply = "Exactly, pal, and the livin' have very cold feet. You understand business.", fx = { align = { honor = -1 } } },
+        { text = "Some things should stay with the dead.", next = "BACK", reply = "Some things, sure, but boots? Pal, boots are the most useful thing a corpse ever owned.", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -105,13 +105,13 @@ P:NPC {
       big = true,
       lines = { { id = "js_default", text = "Then I'll curse your name for a week and do business with you on the eighth day, because a grudge never paid anybody's rent. But I'll remember, pal, and I'll charge you a little extra for the rest of your life." } },
       choices = {
-        { text = "I'll keep my word to you, Dran.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "I'll sell to whoever pays most.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll keep my word to you, Dran.", next = "BACK", reply = "That's what I like to hear, pal, a customer with a memory. Keep your word and I'll keep my prices.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll sell to whoever pays most.", next = "BACK", reply = "Then I'll curse your name for a week, pal, like I said. And on the eighth day we'll talk.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     ripple = {
-      lines = { { id = "ri_default", text = "Because it's fancy, and nobody in Orgrimmar knows what it tastes like, so they'll pay whatever I tell them. Every officer who wants to look cultured buys a bottle, and nobody dares say it tastes like boot polish." } },
+      lines = { { id = "ri_default", text = "Because it's a fancy wine out of the Hinterlands, and nobody in Orgrimmar knows what it should taste like, so they'll pay whatever I tell them. Every officer who wants to look cultured buys a bottle, and nobody dares say it tastes like boot polish." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -152,6 +152,10 @@ P:NPC {
       choices = {
         { text = "Working for your father can't be easy.", next = "father" },
         { text = "What's your best item right now?", next = "best" },
+        { text = "Where does all this salvage come from?", next = "salvage" },
+        { text = "You mentioned a bargain bin.", next = "bin" },
+        { text = "How does a goblin family end up in Orgrimmar?", next = "goblins" },
+        { text = "That hole in the helmet. It's my tusk's shape.", next = "tusk", when = { race = "Troll" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Farewell, Malton.", next = "END" },
       },
@@ -167,8 +171,8 @@ P:NPC {
       big = true,
       lines = { { id = "si_default", text = "Not yet, and I'd appreciate it if you didn't tell him. A little honesty's good for business, but a little secrecy's good for family, as long as it's the right kind." } },
       choices = {
-        { text = "Your secret's safe. Family deserves some patience.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I might tell him, if the price is right.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your secret's safe. Family deserves some patience.", next = "BACK", reply = "You're a real friend, pal, and I owe you one. Family's worth a little patience.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I might tell him, if the price is right.", next = "BACK", reply = "The price is right, is it? Pal, you're a Droffers at heart, and I mean that as a warning.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -176,9 +180,70 @@ P:NPC {
       lines = { { id = "be_default", text = "Today it's a dwarf's mining helmet with a hole in it that's shaped exactly like a troll's tusk. I don't know the story, but I'm charging extra for it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    salvage = {
+      lines = {
+        { id = "sa_default", text = "Everywhere, friend! The caravans bring us broken gear from the Crossroads, the grunts sell us what they don't want to carry home from Ashenvale, and Dad buys anything that's metal and can't run away. We clean it, fix it, and sell it on, and nothing goes to waste in this shop." },
+        { id = "sa_warrior", when = { class = "WARRIOR" }, text = "Everywhere, buddy, and half of it comes off folks like you who broke something in a fight and didn't want to pay to mend it. Dad calls warriors our favorite suppliers, and he doesn't mean it as a compliment." },
+      },
+      choices = {
+        { text = "What comes back from Ashenvale?", next = "salvage_ashenvale" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    salvage_ashenvale = {
+      lines = { { id = "sv_default", fx = { learn = { "warsong" } }, text = "Axes from the Warsong lumber camps, mostly, and arrows the night elves left stuck in them. Sometimes a grunt brings in a whole kit, helmet and all, and doesn't say whose it was, and I don't ask." } },
+      choices = {
+        { text = "You've had a kit like that recently?", next = "salvage_tag" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    salvage_tag = {
+      big = true,
+      lines = { { id = "st_default", text = "Last week, buddy, a good helmet with a name scratched inside the rim, Korv of the Warsong. Dad says sell it, and I've got it under the counter in case somebody comes looking for Korv, and I can't decide which of us is right." } },
+      choices = {
+        { text = "Keep it. His family deserves the chance to claim it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sell it. Korv isn't coming back for it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bin = {
+      lines = {
+        { id = "bi_default", text = "Under the window, buddy, where the light's bad, so Dad never looks at it. Odd boots, bent buckles, a shield with a bite out of it, all priced for folks having a lean week, and if it sits there long enough the price gets leaner." },
+        { id = "bi_poor", when = { money = { max = 1000 } }, text = "Right under the window, friend, and you look like exactly the customer it was made for, no offense. Have a dig, and if Dad comes out, you're just admiring the woodwork." },
+      },
+      choices = {
+        { text = "And your father really never checks it?", next = "bin_dad" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bin_dad = {
+      lines = { { id = "bd_default", text = "He checks it once a year and shouts for an hour, and then he forgets about it again. Between you and me, buddy, I think he knows exactly what I'm doing and just likes the shouting." } },
+      choices = { { text = "Something else, Malton.", next = "BACK" } },
+    },
+    goblins = {
+      lines = { { id = "go_default", fx = { learn = { "ratchet" } }, text = "Same way as Gazlowe, friend, because the Warchief needed builders when the city went up, and goblins who build stay to sell. We came over from Ratchet with a cart of scrap, and Dad's been shouting at the Drag ever since." } },
+      choices = {
+        { text = "Do the orcs treat you fairly?", next = "goblins_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    goblins_orcs = {
+      lines = { { id = "gr_default", text = "Fair enough, as long as the prices are fair too, and an orc remembers a bad deal longer than he remembers his own birthday. The trick is to be useful and a little bit cheaper than the next fella, and they'll walk past three shops to buy from you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tusk = {
+      lines = { { id = "tu_default", text = "Ha! Then you'd know the story better than me, buddy, and I'd love to hear it, because a good story sells a helmet twice as fast. Was it a fight with a dwarf, or was the dwarf just in the wrong place?" } },
+      choices = {
+        { text = "The dwarf started it. I finished it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "A troll never tells, goblin.", next = "BACK", fx = { trait = { cunning = 1 } } },
+      },
+    },
   },
   topics = {
     _none = { { id = "tp_none", text = "Couldn't tell you, buddy, but I'll ask around, and Dad'll probably charge you for the answer." } },
+    background = { { id = "tp_bg", text = "Born over a crate of scrap in Ratchet, buddy, and raised on the Drag. The shop's my whole story so far, but I'm working on the sign." } },
+    advice = { { id = "tp_ad", text = "Never buy the first thing you see, friend, unless you see it in my shop." } },
+    warsong = { { id = "tp_warsong", next = "salvage_ashenvale", text = "The Warsong send us their broken axes from Ashenvale, and some of them come back with stories." } },
   },
 }
 
@@ -195,7 +260,7 @@ P:NPC {
     third = "{name} met Magar, the tailoring trainer who owns Magar's Cloth Goods on Orgrimmar's Drag.",
   },
   greetings = {
-    { id = "g_hi", text = "Mind the bolts, {class}; they're stacked for Rashona, and she counts every one like a warband counts its dead." },
+    { id = "g_hi", text = "Mind the bolts, {class}; they're stacked for Rashona, the cloth quartermaster, and she counts every one like a warband counts its dead." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another lesson? Show me your stitches first, and I'll tell you if you're ready." },
     { id = "g_still", text = "Stand still a moment, would you? I'm not measuring you, I only like to know what I'm talking to." },
     { id = "g_scourge", when = { race = "Scourge" }, text = "Your sleeve's coming away at the shoulder, and I'd guess it has been since before you died. Sit down before it falls off entirely." },
@@ -230,8 +295,8 @@ P:NPC {
       lines = { { id = "wh_default", text = "Because every grunt needs a shirt and every warlock needs a robe, and somebody has to make them. In the camps we wore what the humans gave us, and I swore I'd never wear another human's cloth again." } },
       choices = {
         { text = "What did the humans give you to wear?", next = "camps" },
-        { text = "A people who make their own clothes are free.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Cloth is cloth. I'd wear whatever's warmest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A people who make their own clothes are free.", next = "BACK", reply = "They are, and I've never forgotten it. Every shirt I make is one more thing the humans didn't give us.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Cloth is cloth. I'd wear whatever's warmest.", next = "BACK", reply = "Spoken like someone who was never in the camps. Warm is good, but our own is better.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -247,7 +312,7 @@ P:NPC {
       choices = { { text = "Let's talk about something else.", next = "BACK" } },
     },
     seams = {
-      lines = { { id = "se_default", text = "Because a body's clothes tell me more than its mouth does, and they don't lie as often. Tell me honestly, who sewed what you're wearing?" } },
+      lines = { { id = "se_default", text = "Because a body's clothes tell me more than its mouth does, and they don't lie as often. So tell me true, who sewed what you're wearing?" } },
       choices = {
         { text = "I did, and it shows.", next = "seams_self", fx = { affinity = 1, trait = { honest = 1 } } },
         { text = "I bought it from a vendor. I don't sew.", next = "seams_bought", fx = { trait = { practical = 1 } } },
@@ -365,8 +430,8 @@ P:NPC {
       lines = { { id = "te_default", text = "Volunteers, yes, and sometimes they even know they're volunteering. I always pay them, though, and nobody's ever died, so I think that makes it fair." } },
       choices = {
         { text = "The apothecaries in the Undercity don't bother paying.", next = "apothecaries", when = { race = "Scourge" } },
-        { text = "They should always know what they're drinking.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Knowledge costs something. A blue grunt is cheap.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They should always know what they're drinking.", next = "BACK", reply = "They should, and I tell them, mostly. The blue usually wears off by the morning.", fx = { align = { light = 1 } } },
+        { text = "Knowledge costs something. A blue grunt is cheap.", next = "BACK", reply = "Ha! Now there's a scientist after my own heart. The blue's temporary, the knowledge isn't.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -474,8 +539,8 @@ P:NPC {
       lines = { { id = "go_default", text = "A clean kill, a clean skin and a clean tan, in that order. A beast that died slowly gives a tough, ugly hide, so I tell every hunter that a kind kill makes the best leather." } },
       choices = {
         { text = "As a druid, I'd rather you killed nothing.", next = "druid", when = { class = "DRUID" } },
-        { text = "A clean kill honors the beast.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I care about the hide, not the beast.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A clean kill honors the beast.", next = "BACK", reply = "It does, and it makes better leather too. A good hunter knows both.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I care about the hide, not the beast.", next = "BACK", reply = "Then you'll get tough, ugly hides, and I'll pay you accordingly. Kill clean anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -584,7 +649,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Felika, and I sell supplies to every crafter on the Drag and half the ones in the Valley of Honor. The Horde builds on small things, and if it's small, cheap and you'll need fifty of it, I sell it." },
+        { id = "h_default", key = true, text = "Felika, and I sell supplies to every crafter on the Drag and most of the ones in the Valley of Honor. The Horde builds on small things, and if it's small, cheap and you'll need fifty of it, I sell it." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's a line forming." },
@@ -600,7 +665,7 @@ P:NPC {
       },
     },
     best = {
-      lines = { { id = "be_default", text = "The engineers, because they blow through everything I sell and come back the next day for more. Nogg alone keeps me in business half the year." } },
+      lines = { { id = "be_default", text = "The engineers, because they blow through everything I sell and come back the next day for more. Nogg, who trains the engineers, keeps me in business half the year by himself." } },
       choices = {
         { text = "Nogg must be a good customer.", next = "nogg" },
         { text = "I'm an engineer. Am I a good customer?", next = "engineer", when = { profession = { name = "Engineering" } } },
@@ -611,8 +676,8 @@ P:NPC {
       big = true,
       lines = { { id = "no_default", text = "He pays on time, he never haggles and he's only set fire to my stall once, which is better than most of his students. I'd rather have a dozen engineers than one smith who argues over a copper." } },
       choices = {
-        { text = "Loyal customers are worth a little fire.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Fire's fire. I'd have banned him from the Drag.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Loyal customers are worth a little fire.", next = "BACK", reply = "They are, and he's never once argued over a copper. I'll take the fire.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Fire's fire. I'd have banned him from the Drag.", next = "BACK", reply = "Banned him? And lose my best customer? Fire's a small price for that kind of loyalty.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -632,7 +697,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     droffers = {
-      lines = { { id = "dr_default", text = "Dran sells junk at jewel prices and his son apologizes for it, and between the two of them they do very well. I sell useful things at fair prices and nobody ever thanks me, which tells you everything about the Drag." } },
+      lines = { { id = "dr_default", text = "Dran sells junk at jewel prices and his son apologizes for it, and between the two of them they do very well. I sell useful things at fair prices and nobody ever thanks me, and that's the Drag for you." } },
       choices = {
         { text = "Then why not charge more?", next = "droffers_more" },
         { text = "Something else.", next = "BACK" },
@@ -640,10 +705,10 @@ P:NPC {
     },
     droffers_more = {
       big = true,
-      lines = { { id = "dm_default", text = "Because a crafter who can't afford thread doesn't make anything, and then the whole Drag goes quiet. A fair price keeps this city sewing and smithing, and I'd rather be busy than rich." } },
+      lines = { { id = "dm_default", text = "Because a crafter who can't afford thread doesn't make anything, and then the whole Drag goes quiet. A fair price keeps this city sewing and smithing, and a busy stall suits me better than a fat purse." } },
       choices = {
-        { text = "Fair prices keep a city honest. You're right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Charge what they'll pay. Dran has the right idea.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fair prices keep a city honest. You're right.", next = "BACK", reply = "Exactly, and the Drag stays busy. I'd rather be busy than rich any day.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Charge what they'll pay. Dran has the right idea.", next = "BACK", reply = "Dran's richer, sure, but I've got more customers. Fair prices win in the end.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

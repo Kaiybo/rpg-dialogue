@@ -46,7 +46,7 @@ P:Pool {
       text = "Tarren Mill's just over the hills, and we haven't forgotten it. Do your business and be on your way." },
   },
   choices = {
-    { text = "Anything I should watch for?", next = "END" },
+    { text = "I'll keep my eyes open.", next = "END" },
     { text = "Carry on.", next = "END" },
   },
   topics = {
@@ -78,7 +78,7 @@ P:Pool {
     { id = "l_home", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
       text = "My family lived three streets from the Citadel before the Scourge came. The street's still there, more or less, and I mean to stand in it until it feels like home again." },
     { id = "l_crash", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
-      text = "I heard the crash from the Citadel clear down by the Charter, and the windows rang for an hour afterward. Nobody's told us what it was, and I've stopped asking." },
+      text = "I heard the crash from the Citadel clear down by the city gate, and the windows rang for an hour afterward. Nobody's told us what it was, and I've stopped asking." },
     { id = "l_skyborne", when = { all = { { ["not"] = { race = "Skyborne" } }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } },
       text = "The elves from the sky keep mostly to their enclave up north. They're polite enough, though they look at our lamps as if the lamps were talking to them." },
     { id = "l_skyborne_me", when = { all = { { race = "Skyborne" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } },
@@ -124,7 +124,7 @@ P:Pool {
 P:Pool {
   id = "scholar_dalaran", role = "scholar",
   greetings = {
-    { id = "g_xlumin", when = { all = { { origin = "skyborne_luminarian_scholar" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } }, text = "Oh, you're the Skyborne who keeps asking everyone about magesmiths! Have you found anyone in this city who can tell you why your spells come harder? I'd like to know too, honestly." },
+    { id = "g_xlumin", when = { all = { { origin = "skyborne_luminarian_scholar" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } }, text = "Oh, you're the Skyborne who keeps asking everyone about magesmiths! Have you found anyone in this city who can tell you why your spells come harder? I'd dearly like to know too." },
     { id = "g_default", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
       text = "Excuse me! Sorry, I'm carrying four hundred pages, and none of them are in order." },
   },

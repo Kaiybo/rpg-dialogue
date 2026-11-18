@@ -25,7 +25,7 @@ P:NPC {
 
   notice = {
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
-      text = "A mage. You'll forgive me if I watch your hands, because the last mage I heard of fouled my whole lake." },
+      text = "A mage. I will be watching your hands, because the last mage I heard of fouled my whole lake." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "One of the Forsaken, here? You walk like Sarilus must walk, and you'll understand why that does you no favours at Silverwind." },
   },
@@ -35,11 +35,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Velene Starstrike of the Sentinels, and I hold Silverwind Refuge above Mystral Lake. Something has fouled the water elementals in our lake, and as in the days of the Highborne, the first thing we must learn is who controls them." },
+          text = "I am Velene Starstrike of the Sentinels, and I hold Silverwind Refuge above Mystral Lake. Something has fouled the water elementals in our lake, and before anything else we must learn who controls them." },
         { id = "h_bracers_before", when = { questBefore = TODO_QUEST("Elemental Bracers") },
           text = "The elementals wear bracers, bound to them by whoever called them up. Bring me a few, and with a little divination I think we can read the name of the one who bound them." },
         { id = "h_bracers_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Elemental Bracers"), days = 3 } },
-          text = "The bracers have told us their maker, and I am not surprised in the least. Sarilus Foulborne, an undead mage of the Barrens, and exactly as foolish as I feared." },
+          text = "The bracers have told us their maker, and I am not surprised in the least. It is Sarilus Foulborne, an undead mage of the Barrens, and exactly as foolish as I feared." },
         { id = "h_sarilus", tags = { "news" }, when = { questActive = TODO_QUEST("Mage Summoner") },
           text = "There's only one undead mage in the Barrens capable of defiling this many elementals, and only one fool enough to try. He's probably sitting atop Dreadmist Peak laughing at me, so go and stop the laughter." },
         { id = "h_sarilus_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Mage Summoner"), days = 3 } },
@@ -75,7 +75,7 @@ P:NPC {
         { id = "es_default", text = "Because they wear bracers, {class}, and water doesn't forge its own jewellery. Whoever bound them left his mark on every one, and a mark can be read." },
       },
       choices = {
-        { text = "There must be more to it than that.", next = "elementals_then" },
+        { text = "And once you've read the mark?", next = "elementals_then" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -85,15 +85,15 @@ P:NPC {
         { id = "et_default", text = "And then I find the one who made them and I end him, so that no one is foolish enough to try it again. The Sentinels can't guard every lake, but they can make an example." },
       },
       choices = {
-        { text = "An example is exactly what's needed.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Justice, yes, but not a show of it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "An example is exactly what's needed.", next = "BACK", reply = "Good. You understand what the Sentinels are for, which is more than most outsiders do.", fx = { align = { light = -1 } } },
+        { text = "Justice, yes, but not a show of it.", next = "BACK", reply = "A show is what keeps the next fool at home, outsider. I'll make it quick, but I'll make it seen.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     sarilus = {
       lines = {
-        { id = "sa_default", text = "A Forsaken mage who has set himself up at Dreadmist Peak in the Barrens, and fancies himself clever. He is the only undead mage out there with the skill to do this, and the only one with so little sense." },
+        { id = "sa_default", text = "He's a Forsaken mage who has set himself up at Dreadmist Peak in the Barrens, and fancies himself clever. He is the only undead mage out there with the skill to do this, and the only one with so little sense." },
       },
       choices = {
         { text = "Why would he foul a lake so far from him?", next = "sarilus_why" },
@@ -106,8 +106,8 @@ P:NPC {
         { id = "sw_default", text = "To vex us, I think, or to see if he could. I have had enough of his idiocy, and we must show him what happens to those who annoy the Sentinels." },
       },
       choices = {
-        { text = "Then he'll learn, and I'll teach him.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Going into the Barrens risks open war.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then he'll learn, and I'll teach him.", next = "BACK", reply = "Good. Then go, and make sure he remembers who sent you.", fx = { align = { order = -1 } } },
+        { text = "Going into the Barrens risks open war.", next = "BACK", reply = "It risks a great deal, and I've weighed it. Sarilus has risked more by vexing us, and he'll learn it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -142,7 +142,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A Sentinel, {class}. I hold a post and I don't leave it, and that's the whole of my story worth telling." } },
+    background = { { id = "tp_bg", text = "I am a Sentinel, {class}. I hold a post and I don't leave it, and that's the whole of my story worth telling." } },
     advice = { { id = "tp_ad", text = "Don't drink from Mystral Lake, and don't trust anyone who tells you it's safe." } },
     sentinels = { { id = "tp_sentinels", text = "We hold more ground than we have warriors for. It's a habit of ours." } },
     blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's naga fill the coast like crabs, and the Twilight's Hammer feed them. I hold my post and I count every one I see." } },

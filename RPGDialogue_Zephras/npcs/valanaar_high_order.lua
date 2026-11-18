@@ -31,13 +31,13 @@ P:NPC {
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "A human, and of the Alliance. The Kirin Tor have been better friends to us than we had any right to expect, so you'll find the High Order's doors open to you." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome! Ansirem's letters spoke of gnomish scholars in Dalaran, and I took it for a joke at my expense. I'm glad to be wrong." },
+      text = "A gnome! Archmage Ansirem's letters spoke of gnomish scholars in Dalaran, and I took it for a joke at my expense. I'm glad to be wrong." },
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
       text = "Kaldorei. Our ancestors left yours ten thousand years ago in the middle of a quarrel, and I'd like to think we can both be more civil about it now." },
     { id = "n_enclave", cat = "origin", when = { origin = "skyborne_sky_enclave_student" },
       text = "You've been to the Sky Enclave already, I can see the Violet Citadel's dust on your hem. I expect every one of you to bring something useful home, and I haven't forgotten that I said so." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "Fel. Prince Tortheldrin reached for the same power, and our people have been paying for it for ten thousand years, so you'll forgive me if I keep my eyes on your hands." },
+      text = "Fel. Prince Tortheldrin reached for the same power, and our people have been paying for it for ten thousand years, so my eyes stay on your hands." },
   },
 
   start = "hello",
@@ -48,7 +48,7 @@ P:NPC {
         { id = "h_catch", tags = { "news" }, when = { questActive = TODO_QUEST("Catching Wind") },
           text = "The Index Esoteria needs its readings from the Overlook Standing Stones, and the Windshapers will complain whatever you do, so do it quickly. Without those numbers no skycutter can cross between the planes safely, and I'll not gamble our people on guesswork." },
         { id = "h_avenge", tags = { "news" }, when = { questActive = TODO_QUEST("Avenged Tenfold") },
-          text = "Belathaan went out to talk of peace, and they killed him for it. See that his death is answered, and don't come back to me with excuses." },
+          text = "Belathaan Brightwish, one of my magisters, went out to talk of peace, and the cult killed him for it. See that his death is answered, and don't come back to me with excuses." },
         { id = "h_lorthuna", tags = { "news" }, when = { questDone = TODO_QUEST("Confront Lorthuna") },
           text = "We stood on the Rohashi Spires and watched Rohash strike Lorthuna into the sky like a child knocking a cup from a table. The cult's broken, but the Windlord knows where we are now, and that's a price I'll be paying for the rest of my life." },
         { id = "h_next", tags = { "news" }, when = { questDone = TODO_QUEST("What Comes Next") },
@@ -97,8 +97,8 @@ P:NPC {
         { id = "sr_default", text = "I'd have us stand on our own feet, which isn't the same thing. We'll take the Kirin Tor's friendship gladly, but I'll not hand our survival to any power that might vanish one morning the way the spirits did." },
       },
       choices = {
-        { text = "Agreed. A people that depends on patrons is a people in danger.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "Nobody survives alone. Pride could sink us faster than the pylons.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "Agreed. A people that depends on patrons is a people in danger.", next = "BACK", reply = "Exactly, and I'm glad someone outside my order sees it. Valanaar could use more voices like yours.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Nobody survives alone. Pride could sink us faster than the pylons.", next = "BACK", reply = "Pride hasn't sunk us yet, and dependence nearly did. I'll take my chances with the first.", fx = { affinity = -2, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -117,8 +117,8 @@ P:NPC {
         { id = "so_default", text = "They are, and they've made sure everyone knows it. I'm sorry to tread on their feelings, but the stones sit where the energies converge, and I can't move the energies to suit a Windshaper's sense of reverence. Which matters more to you, their ground or our people's road home?" },
       },
       choices = {
-        { text = "Our people's road. The stones will survive a few readings.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
-        { text = "Their ground. Respect it, or we're no better than the cult.", next = "BACK", fx = { affinity = -2, align = { honor = 1 } } },
+        { text = "Our people's road. The stones will survive a few readings.", next = "BACK", reply = "Good, that's the answer I'd hoped for. The stones will be no worse for a little reading.", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Their ground. Respect it, or we're no better than the cult.", next = "BACK", reply = "No better than the cult, is it? Strong words, and I'll remember them. Choose your friends carefully.", fx = { affinity = -2, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -133,7 +133,7 @@ P:NPC {
     },
     shrine2 = {
       lines = {
-        { id = "s2_default", text = "Ayessa and I faced her on the Rohashi Spires, and she told us the wards had been down for days and she'd lit a beacon for Al'Akir's followers. Rohash of the Conclave answered it, struck her away into the sky, and promised us the Windlord's judgement, and if Ansirem hadn't brought the Kirin Tor through when he did, I wouldn't be here to tell you so." },
+        { id = "s2_default", text = "Ayessa Dawnsinger of the Windshapers and I faced her on the Rohashi Spires, and she told us the wards had been down for days and she'd lit a beacon for Al'Akir's followers. Rohash of the Conclave answered it, struck her away into the sky, and promised us the Windlord's judgement, and if Ansirem hadn't brought the Kirin Tor through when he did, I wouldn't be here to tell you so." },
       },
       choices = {
         { text = "So the orders fought side by side.", next = "ceasefire" },
@@ -146,8 +146,8 @@ P:NPC {
         { id = "cf_default", text = "For a day, and I told Ayessa to her face that it was a truce and nothing more. There's blood between our orders that a single battle doesn't wash away, and I'll not paper over it because the cult happened to be worse than both of us." },
       },
       choices = {
-        { text = "Then make it more than a truce. The isle can't afford this.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Some blood has to be answered. You're right to hold to that.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "Then make it more than a truce. The isle can't afford this.", next = "BACK", reply = "Ayessa would say the same, and I'll tell her you're on her side. I'll not promise more than that.", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Some blood has to be answered. You're right to hold to that.", next = "BACK", reply = "I'm glad someone understands. A truce is not forgiveness.", fx = { affinity = 2, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -162,7 +162,7 @@ P:NPC {
     },
     keyhole = {
       lines = {
-        { id = "kh_default", text = "They agreed to receive us as guests, and we've learned a great deal from them already, more than we've taught them, I suspect. Ansirem Runeweaver persuaded Rhonin himself to help open the portal that brought their magi to the Shrine, and the High Order won't forget that." },
+        { id = "kh_default", text = "They agreed to receive us as guests, and we've learned more from them already than we've taught them, I suspect. Ansirem Runeweaver persuaded Rhonin himself to help open the portal that brought their magi to the Shrine, and the High Order won't forget that." },
       },
       choices = {
         { text = "Where will the High Order go?", next = "dalaran" },
@@ -192,7 +192,7 @@ P:NPC {
     },
     belathaan = {
       lines = {
-        { id = "bt_default", text = "A magister of my order, and a cousin of Valennia Stormfist's, whose mother was a Windshaper, so he of all people should have been safe from that quarrel. He took parts from one of their old constructs, Ayessa sent someone to put a scare into him on the road, and then he was dead." },
+        { id = "bt_default", text = "A magister of my order and a cousin of Valennia Stormfist's, and his own mother was a Windshaper, so he of all people should have been safe from that quarrel. He took parts from one of their old constructs, Ayessa sent someone to put a scare into him on the road, and then he was dead." },
       },
       choices = {
         { text = "How did he die?", next = "belathaan2" },
@@ -222,7 +222,7 @@ P:NPC {
     },
     belathaan_fail = {
       lines = {
-        { id = "bf_default", text = "That's a question for the High Order, and you'll forgive me if I don't answer it to every passing stranger. Belathaan's dead, and the reasons are mine to carry." },
+        { id = "bf_default", text = "That's a question for the High Order, and I don't answer it for passing strangers. Belathaan's dead, and the reasons are mine to carry." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -250,7 +250,7 @@ P:NPC {
     },
     xenclave = {
       lines = {
-        { id = "xe_default", text = "Then you've seen what the Kirin Tor have that we don't, and you've seen what we have that they don't, which is rarer. Tell me honestly: did you bring anything useful home, or only a sore neck from staring at the ceilings?" },
+        { id = "xe_default", text = "Then you've seen what the Kirin Tor have that we don't, and you've seen what we have that they don't, which is rarer. So tell me: did you bring anything useful home, or only a sore neck from staring at the ceilings?" },
       },
       choices = {
         { text = "Notes, and a good deal of them.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
@@ -263,8 +263,8 @@ P:NPC {
         { id = "xg_default", text = "I know the type, and I've used the type, and I've never been sure whose secrets you were really keeping. Tell me now, while it's just the two of us: when the orders quarrelled, whose side were you on?" },
       },
       choices = {
-        { text = "The High Order's, always.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "My own. Both orders paid me, and both lied.", next = "BACK", fx = { affinity = -2, align = { honor = -1 }, trait = { skeptical = 1 } } },
+        { text = "The High Order's, always.", next = "BACK", reply = "Good, that's what I'd hoped. Keep it that way.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "My own. Both orders paid me, and both lied.", next = "BACK", reply = "Honest, at least, and that's rarer than loyalty. I'll be watching you all the same.", fx = { affinity = -2, align = { honor = -1 }, trait = { skeptical = 1 } } },
       },
     },
   },
@@ -347,11 +347,11 @@ P:NPC {
     blame = {
       big = true,
       lines = {
-        { id = "bl_default", text = "Some in the hall are already saying it was the Windshapers, because a High Order magister died on the road not long ago and nobody's forgotten who was waiting for him. I don't know, and I'd rather not name an enemy until I'm sure, but I'm in the minority." },
+        { id = "bl_default", text = "Some in the hall are already saying it was the Windshapers, because a High Order magister died on the road not long ago and nobody's forgotten who was waiting for him. I don't know, and I won't name an enemy until I'm sure, but I'm in the minority." },
       },
       choices = {
-        { text = "Don't blame the Windshapers without proof.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The Windshapers have earned the suspicion.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Don't blame the Windshapers without proof.", next = "BACK", reply = "Thank you, and I'll keep saying it in the hall, for whatever it's worth. Proof first.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Windshapers have earned the suspicion.", next = "BACK", reply = "Perhaps they have, and I'll not pretend they're innocent. But suspicion isn't proof.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -478,7 +478,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Iaadaria Bitterwind. I teach alchemy to the High Order and sell vials to anyone with coin, and I'd rather be doing the first than talking about it. What is it you need?" },
+        { id = "h_default", key = true, text = "Iaadaria Bitterwind. I teach alchemy to the High Order and sell vials to anyone with coin, and I'm happier doing the first than talking about it. What is it you need?" },
         { id = "h_before", when = { questBefore = TODO_QUEST("Unwelcome Visitors") },
           text = "If you're looking for work, I have a problem with some visitors I didn't invite and can't get rid of. I'd deal with them myself, but I've a batch on the flame that won't wait for anyone." },
         { id = "h_done", tags = { "news" }, when = { questDone = TODO_QUEST("Unwelcome Visitors") },
@@ -501,7 +501,7 @@ P:NPC {
     },
     alchemy = {
       lines = {
-        { id = "al_default", text = "More than most people think. The Highborne could coax power out of a leaf or a stone that the rest of us would walk past, and we lost most of that knowing in Skywall. I mean to win some of it back, one recipe at a time." },
+        { id = "al_default", text = "Far more than people suppose. The Highborne could coax power out of a leaf or a stone that the rest of us would walk past, and we lost most of that knowing in Skywall. I mean to win some of it back, one recipe at a time." },
       },
       choices = {
         { text = "What's stopping you?", next = "alchemy2" },
@@ -523,8 +523,8 @@ P:NPC {
         { id = "re_default", text = "That's the argument in every workroom in Valanaar. Some of us want the Highborne formulas exactly as written, and some of us would rather invent our own and stop chasing ghosts, and I change my mind about it roughly once a week." },
       },
       choices = {
-        { text = "Recover the old formulas exactly. That's our inheritance.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Invent new ones. The Highborne didn't have our problems.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, trait = { curious = 1 } } },
+        { text = "Recover the old formulas exactly. That's our inheritance.", next = "BACK", reply = "That's the High Order's view, and some weeks it's mine too. This week, perhaps.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Invent new ones. The Highborne didn't have our problems.", next = "BACK", reply = "That's the other side, and some weeks I'd agree. Leave me to my vials, please.", fx = { affinity = 1, align = { order = -1 }, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -541,7 +541,7 @@ P:NPC {
       lines = {
         { id = "vs_default", text = "The sort that don't knock, don't pay and won't leave, and that's all I care to say about them while I'm trying to concentrate. If you want to be useful, come back when you're ready to do something about them." },
         { id = "vs_done", when = { questDone = TODO_QUEST("Unwelcome Visitors") },
-          text = "Gone, thanks to you, and I'd rather not think about them again. I've already scrubbed the bench twice." },
+          text = "Gone, thanks to you, and I've no wish to think about them again. I've already scrubbed the bench twice." },
       },
       choices = {
         { text = "Should I drive them off or finish them?", next = "visitors2" },
@@ -554,8 +554,8 @@ P:NPC {
         { id = "v2_default", text = "I don't much care how, so long as they're gone, though I suppose you'll want me to say something wise about it. Some would say drive them off and give them a chance, and some would say anything that comes back twice should be made not to come back at all." },
       },
       choices = {
-        { text = "Drive them off. They're only doing what they must.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Finish them. Mercy just means they come back.", next = "BACK", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Drive them off. They're only doing what they must.", next = "BACK", reply = "That's the gentler answer, and I suppose I'll try it. They'd better not come back three times.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Finish them. Mercy just means they come back.", next = "BACK", reply = "Practical, and I'll not argue. I've vials to finish.", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -666,14 +666,14 @@ P:NPC {
         { id = "c2_default", text = "It does, and the High Order thinks that's sentimental nonsense from someone who should be studying runes. I think a people that's lost as much as we have needs small comforts as much as it needs spells." },
       },
       choices = {
-        { text = "Small comforts matter. Keep making it.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Comfort won't hold the island up. The order's right.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Small comforts matter. Keep making it.", next = "BACK", reply = "Thank you, and I will, whatever the High Order says. Feel the cloth before you go.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Comfort won't hold the island up. The order's right.", next = "BACK", reply = "It won't, no, but it'll keep a few spirits up, and that's not nothing. Off you go, then.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     name = {
       lines = {
-        { id = "na_default", text = "You and half of Valanaar. If you want to know whose family is whose, go and ask him, and when he gives you a straight answer, come and tell me, because I'd like to hear one too." },
+        { id = "na_default", text = "You and half of Valanaar ask me that. If you want to know whose family is whose, go and ask him, and when he gives you a straight answer, come and tell me, because I'd like to hear one too." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -681,9 +681,9 @@ P:NPC {
     },
     feathers = {
       lines = {
-        { id = "fe_default", text = "Hippogryph feathers, and because they're beautiful, and because we need beautiful things just now. Half my customers want one braided in with whatever I've made them, and I've stopped pretending I mind; it's the nicest part of the job." },
+        { id = "fe_default", text = "They're hippogryph feathers, and people wear them because they're beautiful, and we need beautiful things just now. Half my customers want one braided in with whatever I've made them, and I've stopped pretending I mind; it's the nicest part of the job." },
         { id = "fe_out", when = { ["not"] = { race = "Skyborne" } },
-          text = "Hippogryph feathers, and because they're beautiful, and we need beautiful things just now. I could braid one in for you, if your people wouldn't laugh at you for it when you go home." },
+          text = "They're hippogryph feathers, and people wear them because they're beautiful, and we need beautiful things just now. I could braid one in for you, if your people wouldn't laugh at you for it when you go home." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -739,7 +739,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Gelia. I sit here most days because you see everyone from this step: magisters going in and out of the hall, the dockhands coming up from the skycutters, and now mainlanders, which is the best thing that's happened to this town in years." },
       },
       again = {
-        { id = "h_again", text = "What else? I've all day, honestly." },
+        { id = "h_again", text = "What else? I've the whole day free." },
         { id = "h_again2", text = "Go on, I love a good question." },
       },
       choices = {
@@ -794,8 +794,8 @@ P:NPC {
         { id = "be_default", text = "I keep meaning to, and then I look over the edge of the dock and think better of it. Someone has to stay and keep the town going, I tell myself, but I can't decide whether that's wisdom or only fear." },
       },
       choices = {
-        { text = "Go. The world below is worth seeing.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, trait = { brave = 1 } } },
-        { text = "Stay. Valanaar needs people who stay.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Go. The world below is worth seeing.", next = "BACK", reply = "Maybe I will, one day, and I'll blame you if I fall. Winds guide you.", fx = { affinity = 1, align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Stay. Valanaar needs people who stay.", next = "BACK", reply = "That's what I tell myself, and it's nice to hear somebody agree. I'll stay a while longer.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -837,7 +837,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "This is the High Order's dock. The skycutter that comes in here will take you straight to Dalaran, at the northern end of the city, and from there the Kirin Tor can see you on to Stormwind if you've the need." },
+        { id = "h_default", key = true, text = "This is the High Order's dock. The skycutter that comes in here will take you straight to Dalaran, and from there the Kirin Tor can see you on to Stormwind if you've the need." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "This is the High Order's dock, and the ship here goes to Dalaran, which won't suit you. The Windshapers run their own skycutter from the western dock to Mulgore, so go and ask them for passage." },
       },

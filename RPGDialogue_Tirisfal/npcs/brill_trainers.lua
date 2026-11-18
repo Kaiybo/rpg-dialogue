@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_priest", when = { class = "PRIEST" }, text = "A priest. Good; come closer, and let me see how much of the Light still answers you." },
     { id = "g_active", when = { questActive = TODO_QUEST("Garments of Darkness") }, text = "Deathguard Kel is north of the cemetery, waiting on a healer. Mend him, shield him, and come back to me." },
     { id = "g_done", when = { questDone = TODO_QUEST("Garments of Darkness") }, text = "You passed my little test easily enough. Wear the robe as though you meant it, because others will be watching." },
-    { id = "g_away", when = { away = 14 }, text = "{away} gone. I hope you've been practising, because the shadow doesn't wait for anyone who stops." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. I hope you've been practising, because the shadow doesn't wait for anyone who stops." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry more power than when I first tested you. Be careful with it, because power is the easy part." },
   },
 
@@ -41,7 +41,7 @@ P:NPC {
         { id = "h_before", when = { class = "PRIEST", race = "Scourge", questBefore = TODO_QUEST("Garments of Darkness") },
           text = "I have a test for you, and it isn't the one you're expecting. You'll heal with the Light first, and shield with it, and only then will I trust you with anything darker." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Garments of Darkness"), days = 3 } },
-          text = "Kel says you mended him well, and he isn't easily impressed. Take the robe, and know that more will be asked of you, and darker powers offered, soon enough." },
+          text = "Deathguard Kel says you mended him well, and he isn't easily impressed. Take the robe, and know that more will be asked of you, and darker powers offered, soon enough." },
         { id = "h_notpriest", when = { ["not"] = { class = "PRIEST" } },
           text = "You're no priest, so I've nothing to teach you, but I don't mind questions as long as they're quiet ones." },
       },
@@ -78,8 +78,8 @@ P:NPC {
       big = true,
       lines = { { id = "ts_default", text = "It's a power, and powers don't care who uses them. That troubles some of my students, who want the Light to have hated them, because then their anger would have somewhere to go." } },
       choices = {
-        { text = "The Light abandoned us. I'll not forgive it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "The Light didn't abandon us. People did.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light abandoned us. I'll not forgive it.", next = "BACK", reply = "Then don't forgive it, and see whether the anger makes a good priest of you. Shadow will take that anger gladly, though it won't thank you for it.", fx = { align = { light = -1 } } },
+        { text = "The Light didn't abandon us. People did.", next = "BACK", reply = "That's the wiser view, and the harder one to live with, because people can still be punished. Keep that thought and you'll understand the shadow better than most.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -119,7 +119,7 @@ P:NPC {
     },
 
     shadow = {
-      lines = { { id = "sh_default", text = "Our faith, such as it is. The Cult of Forgotten Shadow teaches that death is a door we've already walked through, so there's nothing left behind it to fear, and the shadow is simply the power of standing on the other side." } },
+      lines = { { id = "sh_default", text = "It's our faith, such as it is. The Cult of Forgotten Shadow teaches that death is a door we've already walked through, so there's nothing left behind it to fear, and the shadow is simply the power of standing on the other side." } },
       choices = {
         { text = "Is it a faith or a philosophy?", next = "shadow_faith" },
         { text = "Something else.", next = "BACK" },
@@ -129,8 +129,8 @@ P:NPC {
       big = true,
       lines = { { id = "sf_default", text = "Both, and neither, depending on which of us you ask and how late it is. I've no gods to offer you, only the knowledge that you've already lost everything once and you're still here, which is more comfort than most gods give." } },
       choices = {
-        { text = "That's comfort enough for me.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "I'd rather have something to believe in.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "That's comfort enough for me.", next = "BACK", reply = "Then you're further along than most of my students, who spend months mourning the gods who never came. Survival is a quiet sort of faith, but it holds.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'd rather have something to believe in.", next = "BACK", reply = "Most of us would, and some of the cult find their way back to something. I'll not stop you looking, so long as you don't let it make a fool of you.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -146,15 +146,15 @@ P:NPC {
       big = true,
       lines = { { id = "aa_default", text = "Obedience, at first, and then judgement, and the hard part is knowing which one they want on a given day. Serve the Dark Lady well and the cult will reward you, but serve your own mind first, or you'll make a poor priest of any kind." } },
       choices = {
-        { text = "I'll serve the cult as it asks.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My own mind first, then. Always.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll serve the cult as it asks.", next = "BACK", reply = "The cult will find good use for you, then, and that's a safe road. Only remember that the cult is made of people, and people get things wrong.", fx = { align = { order = 1 } } },
+        { text = "My own mind first, then. Always.", next = "BACK", reply = "A dangerous answer to give in the Undercity, but the right one to give me. Keep your own mind, and serve the Dark Lady with it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Not a matter for a priest. Ask the magistrate, or ask nobody." } },
+    _none = { { id = "tp_none", text = "Not a matter for a priest. Ask Magistrate Sevren, or ask nobody." } },
   },
 }
 
@@ -169,13 +169,13 @@ P:NPC {
     third = "{name} met Cain Firesong, who trains mages at the Gallows' End in Brill.",
   },
   greetings = {
-    { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Sit down, sit down, and mind Renee's tablecloth, she's very particular after last time." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Sit down, sit down, and mind Innkeeper Renee's tablecloth, she's very particular after last time." },
     { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "You're not one of mine, but you may watch, provided you stand well back. My students have enthusiasm, and not all of it aims where they mean it to." },
-    { id = "g_anastasia", when = { questActive = TODO_QUEST("Speak with Anastasia") }, text = "Anastasia Hartwell, in the Undercity's Magic Quarter. Go, and give her my regards, and don't tell her about the tablecloth." },
+    { id = "g_anastasia", when = { questActive = TODO_QUEST("Speak with Anastasia") }, text = "Anastasia Hartwell is waiting in the Undercity's Magic Quarter, so go, and give her my regards, and don't tell her about the tablecloth." },
   },
   notice = {
     { id = "n_arcane", cat = "arcane", when = { class = { "MAGE", "WARLOCK" }, race = "Scourge" },
-      text = "Your hands still remember the gestures, I can see it. Death steals the names and faces, but it leaves the spellwork, which tells you something about where the mind keeps its treasures." },
+      text = "Your hands still remember the gestures, I can see it. Death steals the names and faces, but it leaves the spellwork, and I find that says something about where the mind keeps its treasures." },
   },
   start = "hello",
   nodes = {
@@ -202,7 +202,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dalaran = {
-      lines = { { id = "d_default", text = "I think they sat behind their walls arguing about protocol while Kel'Thuzad walked out of their halls with the plague in his pocket. Then they sent mages to Ambermill to guard a ruin, which tells you everything about their priorities." } },
+      lines = { { id = "d_default", text = "I think they sat behind their walls arguing about protocol while Kel'Thuzad walked out of their halls with the plague in his pocket. Then they sent mages to Ambermill in Silverpine to guard a ruin, which tells you everything about their priorities." } },
       choices = {
         { text = "They suffered too, Cain.", next = "dalaran_stance" },
         { text = "Something else.", next = "BACK" },
@@ -212,8 +212,8 @@ P:NPC {
       big = true,
       lines = { { id = "ds_default", text = "They did, and the demons laid their city low, and I'm not cruel enough to cheer it. But they had the knowledge to see it coming and the pride not to, and pride is a sin I'm qualified to recognise." } },
       choices = {
-        { text = "Dalaran's pride doomed Lordaeron. They earned it.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Hindsight is cheap. They did what they could.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Dalaran's pride doomed Lordaeron. They earned it.", next = "BACK", reply = "Earned it, perhaps, though I'd not say so over their graves. Whatever they deserved, Lordaeron paid the bill for them, and we're still paying it.", fx = { align = { honor = -1 } } },
+        { text = "Hindsight is cheap. They did what they could.", next = "BACK", reply = "Hindsight's all the dead have left, and I find it very cheap indeed. Still, you're more generous than I am, and perhaps that's a virtue worth keeping.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -247,7 +247,7 @@ P:NPC {
   greetings = {
     { id = "g_rogue", when = { class = "ROGUE" }, text = "There you are. I heard you on the stairs, which we'll work on." },
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "You've walked into the wrong corner, friend, but sit if you like. I don't bite, and I only listen when it's worth it." },
-    { id = "g_mennet", when = { questActive = TODO_QUEST("Mennet Carkad") }, text = "Mennet Carkad, in the Undercity's Rogues' Quarter. He'll find you before you find him, so don't worry about the finding." },
+    { id = "g_mennet", when = { questActive = TODO_QUEST("Mennet Carkad") }, text = "Mennet Carkad waits in the Undercity's Rogues' Quarter. He'll find you before you find him, so don't worry about the finding." },
   },
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
@@ -257,7 +257,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Marion Call. I teach the quiet arts to anyone with quick hands and a reason to use them. Brill's a small town, so I also hear most of what's said in it, and I tell the magistrate the parts that matter." },
+        { id = "h_default", key = true, text = "Marion Call. I teach the quiet arts to anyone with quick hands and a reason to use them. Brill's a small town, so I also hear most of what's said in it, and I tell Magistrate Sevren the parts that matter." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your voice low; Renee's tables have ears." },
@@ -285,19 +285,19 @@ P:NPC {
     },
     sevren_stance = {
       big = true,
-      lines = { { id = "ss_default", text = "I'm a citizen with good hearing, and that's a much nicer word for it. Every town needs someone who listens, and I'd rather it was me than someone with a grudge." } },
+      lines = { { id = "ss_default", text = "I'm a citizen with good hearing, and that's a much nicer word for it. Every town needs someone who listens, and better me than someone with a grudge." } },
       choices = {
-        { text = "Someone has to keep order. Good on you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A thief who reports to magistrates isn't much of one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Someone has to keep order. Good on you.", next = "BACK", reply = "Order, yes, and a quiet word to the magistrate keeps it better than a blade in an alley. I'm glad someone in Brill appreciates the service.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A thief who reports to magistrates isn't much of one.", next = "BACK", reply = "Not much of a thief, perhaps, but a very long-lived one. The rogues who scorned the magistrates are mostly hanging from the gallows outside, if you'd care to ask them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     gossip = {
-      lines = { { id = "g_default", text = "Coleman Farthing still talks to the Agamands' portrait when he thinks nobody's listening, and Johaan's been buying more vials than his work could possibly need. There's also a courier who passes through from the Sepulcher with very clean boots, and I don't trust clean boots." } },
+      lines = { { id = "go_default", text = "Coleman Farthing still talks to the Agamands' portrait when he thinks nobody's listening, and Johaan's been buying more vials than his work could possibly need. There's also a courier who passes through from the Sepulcher with very clean boots, and I don't trust clean boots." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     past = {
-      lines = { { id = "p_default", text = "Someone who knew which windows in Lordaeron's merchant quarter didn't latch. I don't miss it, though I miss the bread from the bakery across the way, which I never once paid for." } },
+      lines = { { id = "p_default", text = "I was someone who knew which windows in Lordaeron's merchant quarter didn't latch. I don't miss it, though I miss the bread from the bakery across the way, which I never once paid for." } },
       choices = {
         { text = "Then you were a thief.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
@@ -305,7 +305,7 @@ P:NPC {
     },
   },
   topics = {
-    syndicate = { { id = "tp_syndicate", text = "Alterac's old nobles playing at thieves. Not as clever as they think, and cleverer than the Deathguard think." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are Alterac's old nobles playing at thieves. They're not as clever as they think, but they're cleverer than the Deathguard think." } },
     _none = { { id = "tp_none", text = "Haven't heard that one. Give me a day." } },
   },
 }
@@ -322,7 +322,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Wipe your boots, please; you've brought half of the cemetery in on them." },
-    { id = "g_herb", when = { profession = "Herbalism" }, text = "An herbalist! Let me smell your satchel. Peacebloom, earthroot, and something that's gone off at the bottom." },
+    { id = "g_herb", when = { profession = "Herbalism" }, text = "An herbalist! Let me smell your satchel: peacebloom, earthroot, and something at the bottom that's gone off." },
   },
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -343,15 +343,65 @@ P:NPC {
         { text = "What grows in Tirisfal?", next = "grows" },
         { text = "Do the apothecaries buy from you?", next = "apoth" },
         { text = "Why herbs, for one of the dead?", next = "why" },
+        { text = "Do you keep a garden of your own?", next = "garden" },
+        { text = "What's the first thing an herbalist learns?", next = "lesson" },
+        { text = "Here. Smell my satchel and tell me what's off.", next = "xherb", when = { profession = "Herbalism" } },
+        { text = "The Earth Mother could heal this soil, in time.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Good day, Faruza.", next = "END" },
       },
     },
     grows = {
-      lines = { { id = "g_default", text = "Peacebloom and silverleaf near the roads, earthroot in the hills, and mageroyal by the water if you're lucky. Then there's doom weed, which Holland pays for, and which you should never, ever touch without gloves." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "gr_default", text = "Peacebloom and silverleaf near the roads, earthroot in the hills, and mageroyal by the water if you're lucky. Then there's doom weed, which Holland pays for, and which you should never, ever touch without gloves." } },
+      choices = {
+        { text = "Why gloves, for doom weed?", next = "grows2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grows2 = {
+      lines = { { id = "g2_default", text = "Because it grows where the plague sank deepest, and it carries some of it in the sap. I picked a sickly-looking stalk bare-handed once, early on, and my fingers went black to the knuckle for a week." } },
+      choices = {
+        { text = "What happened after that?", next = "grows3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grows3 = {
+      lines = { { id = "g3_default", text = "The apothecaries came asking where I'd found it, very politely, with their notebooks out. Holland still asks, every month, whether I've seen any more of it, and I always say no, whether or not it's true." } },
+      choices = {
+        { text = "You don't trust him.", next = "BACK", fx = { learn = { "new_plague" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    garden = {
+      lines = { { id = "ga_default", text = "A little one behind the inn, in three old crates of soil I carried up from the Glades. Half of it is weeds the apothecaries want, and the other half is marigolds, which nobody wants at all except me." } },
+      choices = {
+        { text = "Why marigolds?", next = "garden2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    garden2 = {
+      lines = { { id = "a2_default", text = "My mother grew them on her windowsill in Brill, before Brill was what it is now. I can't smell them properly anymore, but I remember they smelled of summer, and that's near enough." } },
+      choices = {
+        { text = "Keep growing them, Faruza.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lesson = {
+      lines = { { id = "le_default", text = "To take only what you need and leave the root, so there's something next season. The dead forget that, because we've stopped thinking about next season, and I won't teach anyone who strips a hillside bare." } },
+      choices = { { text = "Leave the root. I'll remember.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    xherb = {
+      lines = { { id = "xh_default", text = "Peacebloom, silverleaf, and yes, there, a bit of earthroot you packed wet that's gone soft at the bottom. Dry them in the sun before you bag them, even Tirisfal's poor excuse for sun." } },
+      choices = { { text = "I'll do better. Thank you.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xtauren = {
+      lines = { { id = "xt_default", text = "Do you think so? I've read that your people sing to the soil, and I'd laugh, except that I talk to mine every morning and it's the only thing in Brill that listens. Would she hear a prayer from one of us, do you think?" } },
+      choices = {
+        { text = "The Earth Mother hears all who tend her.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     apoth = {
-      lines = { { id = "a_default", text = "Johaan does, and Holland, for anything that grew in plague-soaked ground. I sell them what they ask for and I don't ask what it's for, because I've learned the answers are usually long and full of words I don't like." } },
+      lines = { { id = "a_default", text = "Apothecary Johaan does, and Apothecary Holland, for anything that grew in plague-soaked ground. I sell them what they ask for and I don't ask what it's for, because I've learned the answers are usually long and full of words I don't like." } },
       choices = {
         { text = "You should ask, Faruza.", next = "apoth_stance" },
         { text = "Something else.", next = "BACK" },
@@ -361,8 +411,8 @@ P:NPC {
       big = true,
       lines = { { id = "as_default", text = "Perhaps, but I'm one woman with a basket, and they're the Royal Apothecary Society. I'll grow what grows, and leave the questions to someone with more to lose than I have." } },
       choices = {
-        { text = "Knowledge is never wasted. Ask them.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Wise. Leave the Society to its work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Knowledge is never wasted. Ask them.", next = "BACK", reply = "Then you ask them, and do let me know what they say. I'll be here with my basket, growing whatever they'll pay for.", fx = { align = { order = -1 } } },
+        { text = "Wise. Leave the Society to its work.", next = "BACK", reply = "It's the only sensible thing to do, if you ask me, and nobody ever does. The Society has its work and I have my garden, and we leave each other well alone.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -375,7 +425,9 @@ P:NPC {
     },
   },
   topics = {
-    new_plague = { { id = "tp_plague", text = "I sell weeds. Ask Johaan what he does with them." } },
-    _none = { { id = "tp_none", text = "I know plants and not much else. Ask Renee at the inn." } },
+    new_plague = { { id = "tp_plague", text = "I sell weeds. Ask Apothecary Johaan what he does with them." } },
+    forsaken = { { id = "tp_forsaken", text = "We're the dead who kept our minds, and some of us use them to brew poisons and some to grow marigolds. I know which I'd rather be remembered for." } },
+    advice = { { id = "tp_ad", text = "Gloves for doom weed, a knife for earthroot, and patience for everything else. Leave the root, always." } },
+    _none = { { id = "tp_none", text = "I know plants and not much else. Ask Innkeeper Renee at the inn." } },
   },
 }

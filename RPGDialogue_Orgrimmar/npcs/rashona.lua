@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_drag", text = "Mind the bolts on the floor, {class}. Every one of them is a bandage someday." },
+    { id = "g_drag", text = "Mind the bolts of cloth on the floor, {class}. Every one of them will be bandages someday." },
     { id = "g_wool", when = { questActive = TODO_QUEST("A Donation of Wool") }, text = "Wool, is it? Set it on the table and I'll count it in front of you." },
     { id = "g_rune", when = { questDone = TODO_QUEST("A Donation of Runecloth") }, text = "Runecloth from you again, I hope. The healers never stop asking for it." },
     { id = "g_away", when = { away = 21 }, text = "You've been gone {away}, and the pile's gone down twice in that time. Bandages go fast in a city full of soldiers who think a sparring match isn't finished until somebody bleeds." },
@@ -36,7 +36,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Rashona Straglash, cloth quartermaster for the Horde. In the camps we bled through rags, so a simple donation of cloth goes a long way here; it makes garments and bandages, and the Horde never has enough of either." },
         { id = "h_lowlevel", when = { maxLevel = 40 }, text = "Rashona Straglash, cloth quartermaster. You're young for donating, {class}, but keep your scraps when you find them, and come back when your packs are heavy." },
         { id = "h_rune_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Donation of Runecloth"), days = 3 } },
-          text = "The runecloth you brought went to the healers at the Valley of Honor this morning. They said it was the best weave they'd seen this season, and I didn't tell them where it came from, but I thought it." },
+          text = "The runecloth you brought went to the healers at the Valley of Honor this morning. They said it was the best weave they'd seen this season, and I didn't tell them it was yours, but I was proud of it." },
       },
       again = {
         { id = "h_again", text = "What else? I've got counting to do." },
@@ -69,8 +69,8 @@ P:NPC {
       big = true,
       lines = { { id = "ce_default", text = "They will, in time, and plenty already have. But you don't teach a cold orc to sew by leaving him cold, so I give him a shirt first and a needle second." } },
       choices = {
-        { text = "A shirt first. That's the right order.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Charity makes people soft. A needle first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A shirt first. That's the right order.", next = "BACK", reply = "You understand it, then, and that's rarer than good wool in this city. Warm hands learn faster than cold ones, every time.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Charity makes people soft. A needle first.", next = "BACK", reply = "Soft? I've seen what cold does to an orc who came out of the camps, and soft is the least of it. Give me a shirt first, and I'll show you how hard they work after.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -81,8 +81,8 @@ P:NPC {
     donors = {
       lines = { { id = "d_default", text = "Recognition, mostly, and I make sure the city knows whose cloth it was. Orgrimmar remembers the ones who gave, and it remembers the ones who could have and didn't." } },
       choices = {
-        { text = "I'd give without anyone knowing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If I give, I want it known.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd give without anyone knowing.", next = "BACK", reply = "Then you've a better heart than most who come to my door. I'll keep your name to myself, if that's what you want.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If I give, I want it known.", next = "BACK", reply = "Then give, and I'll see that Orgrimmar knows it. Pride's a fine reason to clothe a cold orc.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

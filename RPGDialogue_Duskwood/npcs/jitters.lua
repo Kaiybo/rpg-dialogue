@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_op_red_mercy", when = { opinion = { topic = "defias", stance = "mercy" } }, text = "Oh, it's you! You said I could come back from it. I've been saying it to myself every night since, mostly when the howling starts." },
     { id = "g_flinch", text = "Wh-who's there... oh, it's only a person, thank the Light, because you are a person, aren't you?" },
     { id = "g_food", when = { questActive = TODO_QUEST("Jitters' Growling Gut") }, text = "Is that food? Please tell me that's food you've got there." },
-    { id = "g_after", when = { questDone = TODO_QUEST("Return to Sven") }, text = "Oh, it's you... you told him, didn't you, and it's fine, really, it's fine." },
+    { id = "g_after", when = { questDone = TODO_QUEST("Return to Sven") }, text = "Oh, it's you... you told Sven, didn't you, and it's fine, really, it's fine." },
     { id = "g_ravenhill", when = { questActive = TODO_QUEST("Raven Hill") }, text = "Don't shoot, please don't shoot, it's only me, harmless old Jitters!" },
   },
 
@@ -65,8 +65,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I saw things, terrible things. They're still there, every time I close my eyes. Your spirits might chase them away." } },
       choices = {
-        { text = "I'll help you, Jitters. You're safe now.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Get hold of yourself. Fear won't help.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll help you, Jitters. You're safe now.", next = "BACK", reply = "Safe, you say, and I want to believe it so badly that it hurts. Stay a little while, will you, until the shaking stops?", fx = { align = { light = 1 } } },
+        { text = "Get hold of yourself. Fear won't help.", next = "BACK", reply = "I know it won't, I know, I tell myself that every hour! It doesn't listen, though, and neither do my hands.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Things out past the Yorgen farm that I'll not describe, not even to a warrior, and I ran from them and I've not stopped running since. If you've a sword, you'll want it out before you go that way, and you'll want someone watching your back as well." } },
       choices = {
-        { text = "I'll find whatever you saw and put an end to it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll stay clear of the Yorgen farm. Some things aren't worth it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll find whatever you saw and put an end to it.", next = "BACK", reply = "You'd go there, on purpose, with your eyes open? Then you're braver than me, and I hope you come back to tell me it's gone.", fx = { align = { honor = 1 } } },
+        { text = "I'll stay clear of the Yorgen farm. Some things aren't worth it.", next = "BACK", reply = "That's the wisest thing anyone's said to me since I came to this hill. Nothing out there is worth what it costs.", fx = { align = { honor = -1 } } },
         { text = "Something else, Jitters.", next = "BACK" },
       },
     },
@@ -83,27 +83,27 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Follow me? They wait for me, I swear, behind every tree I pass, and I hear them breathing even when there's nothing there. I know it's nonsense, mostly, but a man who's seen what I've seen gets suspicious of the bushes." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours keeps looking at the trees, {class}, and every time it does, I nearly jump out of my skin. Does it see something?" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Follow me? They wait for me, I swear, behind every tree I pass, and I hear them breathing even when there's nothing there. That {pet} of yours keeps looking at the trees, {class}, and every time it does, I nearly jump out of my skin." },
       },
       choices = {
-        { text = "I'll keep watch tonight, Jitters. You can sleep.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Nothing's there. You've got to stop jumping at shadows.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep watch tonight, Jitters. You can sleep.", next = "BACK", reply = "You'd do that, for me? I don't think anyone's watched over me since I was a boy, and I might actually close my eyes tonight.", fx = { align = { light = 1 } } },
+        { text = "Nothing's there. You've got to stop jumping at shadows.", next = "BACK", reply = "I know, I know there's nothing, but knowing doesn't stop the breathing. Maybe one day it will, if I'm lucky, and I'm never lucky.", fx = { align = { light = -1 } } },
         { text = "Something else, Jitters.", next = "BACK" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Will you? Will you really, all night? Because the last lamp went out in the fog, and that's when I saw them, and I haven't stopped seeing them since." } },
       choices = {
-        { text = "Steady breaths, Jitters. Fear needs discipline.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Run if you must. Fear keeps you alive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Steady breaths, Jitters. Fear needs discipline.", next = "BACK", reply = "Discipline, yes, steady breaths, like the sergeant used to shout. I'll try, but my breaths keep running off without me.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Run if you must. Fear keeps you alive.", next = "BACK", reply = "That's what I've been doing, and look where it got me, hiding on a hill with no supper. Still, I'm alive, so maybe you're right.", fx = { align = { order = -1 } } },
         { text = "What did you see out there?", next = "saw" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "Then you're mad, or worse, and I don't want to know which. Please don't go near the Yorgen farm with that thing following you, because I can't take another shadow on that road." } },
       choices = {
-        { text = "I'll keep it away from you, Jitters.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Shadows follow me. Get used to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep it away from you, Jitters.", next = "BACK", reply = "Thank you, oh thank you, and please keep it far away. I can't look at it without seeing the farm.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Shadows follow me. Get used to it.", next = "BACK", reply = "Get used to it? I can't even get used to the trees. Please, just go the other way round the hill.", fx = { align = { light = -1 } } },
         { text = "Why are you hiding?", next = "hiding" },
       },
     },
@@ -111,8 +111,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Run, probably, though I'm not a good runner anymore, and then I'd let them catch me, because I'm so tired. Sven would say I've earned whatever came, and some nights I think he's right." } },
       choices = {
-        { text = "You've suffered enough. I won't be the one to judge you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You let a family die. Someone must answer for that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You've suffered enough. I won't be the one to judge you.", next = "BACK", reply = "You won't? Nobody's said that to me before, not once, and I don't know what to do with it. Thank you, I think.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You let a family die. Someone must answer for that.", next = "BACK", reply = "I know, I know someone must, and I've been waiting for it to be me. Just make it quick, whoever it is.", fx = { align = { light = -1 } } },
         { text = "Something else, Jitters.", next = "BACK" },
       },
     },
@@ -141,7 +141,7 @@ P:NPC {
         { id = "h_sleep", when = { metBefore = true }, text = "I slept two whole hours last night and nobody came for me, and I-I'm almost disappointed... no, no, I'm not, I'm not at all." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Oh, thank the Light, a big strong warrior, and you'll not let anything grab me, will you, not with that sword?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll see things in the dark, won't you, before they see you, because you're trained for it, and I'm not, and it shows." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Food? Please? I'll tell you everything, but food first. The things in the woods... I keep seeing them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Have you any food, please? I'll tell you everything, but food first, because the things in the woods... I keep seeing them." },
       },
       again = {
         { id = "h_again", text = "W-what else? Ask quickly, because something's moving by the well, though it's probably nothing." },
@@ -172,8 +172,8 @@ P:NPC {
           text = "Riders in black came to the Yorgen farm looking for something, and they killed everyone there. I was in the barn the whole time, and I didn't move, I didn't do anything, I just watched." },
       },
       choices = {
-        { text = "You couldn't have stopped them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
-        { text = "You should have tried.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 }, align = { light = -1 } } },
+        { text = "You couldn't have stopped them.", next = "BACK", reply = "You don't know that, you weren't there, but, but it's kind of you to say it, and maybe if I say it to myself enough times I'll start to believe it.", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "You should have tried.", next = "BACK", reply = "I know, I know I should have, don't you think I tell myself that every single night when the wind gets into the barn and it sounds like those riders coming back?", fx = { affinity = -2, trait = { stern = 1 }, align = { light = -1 } } },
         { text = "Who was at the farm that night?", next = "saw_wife" },
       },
     },
@@ -244,8 +244,8 @@ P:NPC {
       },
       choices = {
         { text = "Do you think a man can take the red off again?", next = "op_red" },
-        { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "The Night Watch should know.", next = "BACK", fx = { affinity = -2, align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Your secret's safe with me.", next = "BACK", reply = "Safe? Oh, thank you, thank you, because if the Watch knew, they'd hang me by morning. I'll not forget it, I swear.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "The Night Watch should know.", next = "BACK", reply = "Please don't, please, they'd never believe I left. I'll tell them myself, I will, as soon as I stop shaking.", fx = { affinity = -2, align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
 
@@ -273,8 +273,8 @@ P:NPC {
       },
       choices = {
         { text = "It isn't a trade. Pray anyway.", next = "pray_together" },
-        { text = "The Light heard you, Jitters.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Prayers won't keep you safe, Jitters, so learn to fight instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light heard you, Jitters.", next = "BACK", reply = "Did it? Then maybe it just answered something else, or answered too late. I'll think about that tonight.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Prayers won't keep you safe, Jitters, so learn to fight instead.", next = "BACK", reply = "Fight? Me? I couldn't even fight off a squirrel for my supper, but maybe you could show me how.", fx = { align = { light = -1 } } },
       },
     },
     pray_together = {
@@ -283,10 +283,10 @@ P:NPC {
         { id = "pt_default", text = "...All right, you say the words, and I'll keep my eyes open, because somebody has to." },
       },
       choices = {
-        { text = "Then keep watch. I'll pray.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } },
+        { text = "Then keep watch. I'll pray.", next = "BACK", reply = "All right, all right, and I'll watch the trees for both of us. Say it slowly, so I can remember the words.", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } },
           journal = { first = "Prayed with Jitters at Raven Hill, for Sven Yorgen's wife. He kept his eyes open the whole time.",
                       third = "{name} prayed with Jitters at Raven Hill, for a woman whose name neither of them knew." } },
-        { text = "The Light wasn't there for her, so I'll keep watch instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light wasn't there for her, so I'll keep watch instead.", next = "BACK", reply = "That's what I thought too, every night since. At least we'll both be watching, then.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -295,15 +295,15 @@ P:NPC {
         { id = "ro_default", text = "I know they don't, I know! I didn't run from the Brotherhood, I ran from the mine, so tell them that... no, wait, don't tell them anything at all." },
       },
       choices = {
-        { text = "I won't tell them.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "That depends on what you're worth.", next = "BACK", fx = { affinity = -3, align = { honor = -1 }, trait = { cruel = 1 } } },
+        { text = "I won't tell them.", next = "BACK", reply = "Thank you, oh, thank you, I owe you more than I can pay, which is nothing. I'll stay right here and be very quiet.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "That depends on what you're worth.", next = "BACK", reply = "Worth? I'm worth nothing, I've told you, nothing at all! Please, just keep walking and forget you ever saw me.", fx = { affinity = -3, align = { honor = -1 }, trait = { cruel = 1 } } },
       },
     },
     druid = {
       lines = { { id = "dr_default", text = "A druid. That means you turn into things, doesn't it, with fur and teeth, out in the woods where nobody can see? Please don't, not here, not while I'm looking, because I've seen a man go down on four legs once and I can't see it again." } },
       choices = {
         { text = "I won't change in front of you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "What man?", next = "saw" },
+        { text = "What did you see out there, Jitters?", next = "saw" },
       },
     },
   },

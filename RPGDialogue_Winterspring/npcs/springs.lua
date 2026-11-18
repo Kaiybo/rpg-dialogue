@@ -30,8 +30,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "The way it turns 'em, for one, because drink makes a body foolish, no' cruel. The Winterfall used tae trade wi' Everlook peaceable enough, an' now they'd as soon tear yer arm off, an' I've seen satyr tracks round their stores that have nae business bein' there." } },
       choices = {
-        { text = "I'll find who's brewing it and stop them for good.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Bring proof to Everlook first. The town should judge it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll find who's brewing it and stop them for good.", next = "BACK", reply = "Aye, an' I'll no' weep for whoever it is, but mind ye don't go cuttin' through half the Winterfall tae reach them. The furbolgs are the ones bein' poisoned here.", fx = { align = { order = -1 } } },
+        { text = "Bring proof to Everlook first. The town should judge it.", next = "BACK", reply = "That's a cautious head on ye, an' I like it, for the goblins hate surprises worse than yetis. Bring them somethin' they can hold in their hands, an' they'll listen.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -39,8 +39,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I cannae say, friend, for it's no' a plague like they've got in the east. It's firewater, brewed strong an' brewed wrong, an' I've a mind somethin' fel is mixed in the barrels, so if yer Light can see that, it'll see it at Winterfall Village." } },
       choices = {
-        { text = "Then I'll try to heal them, not just fight them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Whatever's in them, I'll put down the ones who attack.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll try to heal them, not just fight them.", next = "BACK", reply = "Bless ye for that, friend, for there's few enough out here who'd think o' it. Even a wee bit o' healin' might remind one o' them who he used tae be.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever's in them, I'll put down the ones who attack.", next = "BACK", reply = "I'll no' blame ye for keepin' yer own skin whole, for a mad furbolg's claws are no joke. Only spare the ones who turn an' run, if ye can, for they've still some sense left.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -48,21 +48,21 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They were never gentle, but they fought like folk, wi' sense an' a reason. Now they come on like they cannae feel the blade, an' that's the firewater, which makes me think whoever's brewin' it wants an army, no' a tribe." } },
       choices = {
-        { text = "Then I'll fight them hard but cleanly. They're sick, not wicked.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Sick or not, they're dangerous. I'll cut them down without pity.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Somethin' else, Donova.", next = "BACK" },
+        { text = "Then I'll fight them hard but cleanly. They're sick, not wicked.", next = "BACK", reply = "That's a warrior's heart wi' a healer's sense in it, an' I'm glad o' both. Clean an' quick is the kindest thing ye can give a sick beast.", fx = { align = { light = 1 } } },
+        { text = "Sick or not, they're dangerous. I'll cut them down without pity.", next = "BACK", reply = "I'll no' argue they're dangerous, but pity costs ye nothin' an' it's all they've got left. Mind yer temper doesnae turn ye into what the firewater turned them into.", fx = { align = { light = -1 } } },
+        { text = "Something else, Donova.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They used tae walk straight an' purposeful, from camp tae spring an' back, an' now they stagger an' double back an' fight each other over nothin'. A hunter's eye on 'em would tell me more than I'll ever learn from goo in a jar." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' keep {pet} away from their camps, aye? I found a fox by the springs that had been lappin' at a spilled barrel, an' it was no' a pretty thing tae see." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They used tae walk straight an' purposeful, an' now they stagger an' double back an' fight each other over nothin'. Keep {pet} away from their camps, aye, for I found a fox that had been lappin' at a spilled barrel, an' it was no' a pretty sight." },
       },
       choices = {
-        { text = "I'll track them honestly and tell you what I see.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll follow one home and steal a barrel for you to study.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Somethin' else.", next = "BACK" },
+        { text = "I'll track them honestly and tell you what I see.", next = "BACK", reply = "That's all I'm askin', an' an honest eye is worth more tae me than ten brave ones. Mark where they drink an' where they stagger, an' we'll learn somethin'.", fx = { align = { honor = 1 } } },
+        { text = "I'll follow one home and steal a barrel for you to study.", next = "BACK", reply = "Oh, ye cheeky thing, an' I'll no' say no, mind ye, for I'd dearly love tae see what's in those barrels. Just don't get caught, or they'll have ye for supper.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dwarf_dn = {
@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I cannae prove it yet, but the Deadwood in Felwood went the same way, an' Felwood stinks o' demons from end tae end. If somebody's brewin' that poison wi' fel in it, I'll find out who, an' I'll not be gentle about it." } },
       choices = {
-        { text = "Whoever's poisoning them deserves no mercy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fel's just a tool. Blame the brewer, not the power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Whoever's poisoning them deserves no mercy.", next = "BACK", reply = "I'll no' argue wi' that, for poisonin' a whole people is as low as it gets. Only make sure ye've got the right one before ye pass sentence.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel's just a tool. Blame the brewer, not the power.", next = "BACK", reply = "Ye would say that, warlock, wi' a demon at yer heel. Mebbe ye're right about the brewer, but I've seen what fel does tae a forest, an' I'll no' be callin' it a tool.", fx = { align = { light = -1 } } },
         { text = "I'll keep my nose open for it.", next = "BACK" },
       },
     },
@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Tae find where the firewater's comin' from, an' who's bringin' it. Somebody's sellin' it tae them, I'm sure o' that, an' a quiet pair o' eyes would learn more in one night than I've learned in a month o' sittin' by these springs." } },
       choices = {
-        { text = "I'll find your seller, quietly.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'd rather walk in and ask them straight.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find your seller, quietly.", next = "BACK", reply = "Quiet's the word, an' ye've the feet for it, I can tell. Find me a name or a cart an' I'll see it gets tae Everlook before the barrels move again.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather walk in and ask them straight.", next = "BACK", reply = "Ye're braver than me, then, or more foolish, an' I cannae tell which. Whoever's sellin' that poison willnae answer polite questions wi' polite answers.", fx = { align = { honor = 1 } } },
         { text = "Let me think on it.", next = "BACK" },
       },
     },
@@ -98,8 +98,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "I'd like tae think not, because they were peaceable enough before the firewater came, an' a sober furbolg's no' a bad neighbour. But some o' them have drunk so long they've forgotten what they were, an' I don't know if prayer or medicine reaches that far." } },
       choices = {
-        { text = "Then we try. Whoever was turned can be turned back.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then stop the brewing, and the drinkers with it, quickly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then we try. Whoever was turned can be turned back.", next = "BACK", reply = "That's what I've been tellin' myself every night out here, an' it's good tae hear it from someone wi' the Light about them. Mebbe between us we'll prove it.", fx = { align = { light = 1 } } },
+        { text = "Then stop the brewing, and the drinkers with it, quickly.", next = "BACK", reply = "Quick an' hard, aye, I understand it, but I cannae hear ye say the drinkers too without it stickin' in my throat. They didnae ask tae be poisoned.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -107,8 +107,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Firewater, brewed from somethin' foul an' poured down their throats till they rage. The Winterfall used tae be a peaceable folk, an' I cannae stand watchin' them turned intae beasts by a drink an' whoever's sellin' it." } },
       choices = {
-        { text = "Then let's find the source and stop it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Mad furbolgs are easier to kill than sane ones.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then let's find the source and stop it.", next = "BACK", reply = "Then ye're a friend o' mine, an' o' the Winterfall too, though they'll no' know it. Find where it's brewed, an' we'll make it stop.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mad furbolgs are easier to kill than sane ones.", next = "BACK", reply = "Easier, mebbe, but that's no' the measure o' a good deed, an' ye know it fine. Kill the mad ones if ye must, but I'll no' thank ye for enjoyin' it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -183,7 +183,7 @@ P:NPC {
       },
     },
     winterfall_timbermaw = {
-      lines = { { id = "wt_default", text = "Salfa won't say it plain, but I think the Timbermaw have stopped hopin' for the Deadwood an' cannae bear tae stop hopin' for the Winterfall too. They'd rather the answer came from somebody who isnae kin, which is you." } },
+      lines = { { id = "wt_default", text = "Salfa, the Timbermaw who keeps the tunnel, won't say it plain, but I think the Timbermaw have stopped hopin' for the Deadwood an' cannae bear tae stop hopin' for the Winterfall too. They'd rather the answer came from somebody who isnae kin, which is you." } },
       choices = { { text = "Then I'll give you an answer.", next = "winterfall_word" } },
     },
     winterfall_hope = {
@@ -204,8 +204,8 @@ P:NPC {
     before_back = {
       lines = { { id = "bb_default", text = "If the drink stops, maybe, an' I'd like tae think so. A creature's no' its worst week." } },
       choices = {
-        { text = "No creature should be judged by its worst week.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "A creature's worst week tells you what it's capable of.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "No creature should be judged by its worst week.", next = "BACK", reply = "Aye, an' I'd want the same mercy for myself after some o' my worse weeks. Ye've a kind way o' lookin' at things, friend.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "A creature's worst week tells you what it's capable of.", next = "BACK", reply = "That's a hard view, an' mebbe a true one, but if we all got judged by our worst weeks, there'd be precious few o' us left standin'. I'll hope for better from them.", fx = { align = { light = -1 } } },
       },
     },
     springs = {
@@ -283,10 +283,10 @@ P:NPC {
   nodes = {
     xpt_mauari = {
       big = true,
-      lines = { { id = "xpt_mauari_default", text = "For the juju, mon, because the spirits up here are old and cold and they remember things the jungle forgot. Mau'ari would sooner freeze learning than stay warm and ignorant, and maybe your troll friend understands that too." } },
+      lines = { { id = "xpt_mauari_default", text = "For de juju, mon, because de spirits up here be old and cold, and dey remember things de jungle forgot. Mau'ari would sooner freeze learning than stay warm and ignorant, and maybe your troll friend understands that too." } },
       choices = {
-        { text = "Some old spirits are best left forgotten, Mau'ari.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Old spirits hold power. You're right to seek it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Some old spirits are best left forgotten, Mau'ari.", next = "BACK", reply = "Ha! Maybe dey be, mon, but de forgotten ones be de hungriest, and Mau'ari would rather know dem by name than meet dem in de dark. Ignorance never kept a troll warm.", fx = { align = { light = 1 } } },
+        { text = "Old spirits hold power. You're right to seek it.", next = "BACK", reply = "Ya, you see it, mon, and de loa smile on a curious mind. Old cold spirits teach things de jungle never dreamed of, if you got de patience to listen.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -294,8 +294,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because a beast dat dies afraid gives you only fear, mon, and fear be useless juju. A beast dat dies quick and proud gives its strength, so a rogue who strikes clean makes de best E'ko of all, and Mau'ari pay attention to such things." } },
       choices = {
-        { text = "I'll make it quick and clean, then. They deserve that.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll make it however I like, so long as you pay.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll make it quick and clean, then. They deserve that.", next = "BACK", reply = "Good, mon, dat be de way, and de spirits will remember your blade kindly. A clean kill be a gift to de hunter and de hunted both.", fx = { align = { honor = 1 } } },
+        { text = "I'll make it however I like, so long as you pay.", next = "BACK", reply = "Ha, a hard one you are, mon, and Mau'ari pay all de same. But de E'ko of a frightened beast be thin stuff, so don't be surprised when your charm come out weak.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -303,8 +303,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Some do, some don't, mon, same as people. De E'ko be de spirit stuff of de beasts, and when Mau'ari puts it in de juju, it carry a little of what de beast was, so a frostsaber's E'ko be proud and a yeti's be angry, and none of dem care much for your Light." } },
       choices = {
-        { text = "Then I'll respect the beasts and leave their spirits in peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Spirits torn from beasts? That sounds like dark work to me.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Then I'll respect the beasts and leave their spirits in peace.", next = "BACK", reply = "Dat be your choice, and a respectful one, mon, but de beasts give de E'ko whether you take it or not. Mau'ari only catch what be fallin' anyway.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Spirits torn from beasts? That sounds like dark work to me.", next = "BACK", reply = "Dark? Nah, mon, a troll know dark work when he see it, and dis be gentle by comparison. Mau'ari only take what de beast leave behind, and give it work to do.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -312,9 +312,9 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Dey respect strength, mon, and dey respect a warrior who know when strength be enough and when it not. Every beast you kill up here leave a little E'ko behind, and a warrior who bring dat to Mau'ari learn what juju be good for." } },
       choices = {
-        { text = "I'll take the E'ko with respect for the spirits, Mau'ari.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Spirits or not, I'll take whatever makes me stronger.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Somethin' else, Mau'ari.", next = "BACK" },
+        { text = "I'll take the E'ko with respect for the spirits, Mau'ari.", next = "BACK", reply = "Den you be a warrior de spirits like, mon, and dat be rarer than you think. Respect cost you nothing and it keep de cold ones off your back.", fx = { align = { light = 1 } } },
+        { text = "Spirits or not, I'll take whatever makes me stronger.", next = "BACK", reply = "Ha, honest at least, mon, and strength be a fine thing to want. Just remember de spirits got long memories, and dey know who took without a thank you.", fx = { align = { light = -1 } } },
+        { text = "Something else, Mau'ari.", next = "BACK" },
       },
     },
     hunter_ma = {
@@ -330,8 +330,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Mau'ari ask de spirits nice, and dey give a little and go home, mon. You chain your demon and make it work, and one day it remember every lash, and dat be why Mau'ari only bargain with spirits who can say no." } },
       choices = {
-        { text = "Maybe you're right. Chains breed resentment.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A chained demon is a useful demon.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Maybe you're right. Chains breed resentment.", next = "BACK", reply = "Now you be talkin' like a troll, mon, and maybe you live longer for it. Ask nice and leave a gift, and de spirit come back next time smilin'.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A chained demon is a useful demon.", next = "BACK", reply = "Useful till de chain slip, mon, and chains always slip in de end. When yours do, don't come cryin' to Mau'ari for juju to fix it.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "We all make our bargains.", next = "BACK" },
       },
     },
@@ -339,8 +339,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "De E'ko, mon, de spirit-bits of every beast in Winterspring, and a little patience from Mau'ari. Every charm Mau'ari make, a creature give something for it, and dat be a fair trade, unlike your arcane, which take and take and never say thank you." } },
       choices = {
-        { text = "A fair trade is always the better way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The arcane owes thanks to nobody.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A fair trade is always the better way.", next = "BACK", reply = "Ya, mon, you got sense, and de spirits feel de difference in de charm. Fair trade make strong juju, and greedy trade make it crack.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The arcane owes thanks to nobody.", next = "BACK", reply = "Ha! Mau'ari know plenty mages who think dat, mon, and plenty of dem got frozen solid by somethin' dey never thanked. De cold don't care how clever you be.", fx = { align = { order = -1 } } },
         { text = "I'll bring you some E'ko.", next = "BACK" },
       },
     },
@@ -348,8 +348,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Dey reach wherever a troll carry dem, mon, and Mau'ari carry plenty. De cold spirits here be different, sharp and hungry, so Mau'ari give dem respect and a little E'ko, and dey leave her be, mostly." } },
       choices = {
-        { text = "Then I'll give the cold spirits respect, as you do.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Spirits are tools, Mau'ari, and hungry ones most of all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll give the cold spirits respect, as you do.", next = "BACK", reply = "Den de cold ones gonna treat you right, mon, and Mau'ari be proud of you. A little respect go a long way in a place dis hungry.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Spirits are tools, Mau'ari, and hungry ones most of all.", next = "BACK", reply = "Careful, mon, de hungry ones hear you sayin' dat, and dey don't like bein' called tools any more than you would. Dey bite back, and dey bite cold.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -428,8 +428,8 @@ P:NPC {
         { id = "xek_default", text = "Ha! Your old master teach you right. De E'ko be a little spirit dat want to finish what de beast was doin' when it died, mon, runnin' or huntin' or keepin' warm, so Mau'ari give it a job in de juju and it go quiet and happy. Some witch doctors say dat be a kindness, and some say it be a leash, so which you think?" },
       },
       choices = {
-        { text = "A kindness. A spirit with work is a spirit at rest.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "A leash, and leashes are useful. That's the craft.", next = "BACK", fx = { affinity = 1, align = { light = -1 }, trait = { curious = 1 } } },
+        { text = "A kindness. A spirit with work is a spirit at rest.", next = "BACK", reply = "Ya, you understand de E'ko, mon, and your old master would grin to hear it. A spirit with somethin' to do be a spirit dat don't haunt nobody.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "A leash, and leashes are useful. That's the craft.", next = "BACK", reply = "Hmm, you got a cold way of sayin' it, mon, but maybe you not wrong. Just remember who holdin' de leash, and who might be holdin' yours.", fx = { affinity = 1, align = { light = -1 }, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

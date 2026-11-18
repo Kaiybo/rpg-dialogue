@@ -14,7 +14,7 @@ P:NPC {
   notices = { "arcane", "travel", "race" },
 
   impression = {
-    first = "Collin Mauren makes spells the way a cook makes soup, from whatever odd thing the world gives him. He is courteous and unhurried, and I suspect a great deal cleverer than he lets on.",
+    first = "Collin Mauren makes spells the way a cook makes soup, from whatever odd thing the world gives him. He is courteous and unhurried, and I suspect he's cleverer than he lets on by a good margin.",
     third = "{name} met Collin Mauren, a courteous spellcrafter in Stormwind's Mage Quarter who builds spells from strange reagents.",
   },
 
@@ -26,7 +26,7 @@ P:NPC {
     { id = "g_devil", when = { questActive = TODO_QUEST("Devils in Westfall") }, text = "Have you found the component I need? A dust devil is a peculiar thing to ask for, I know." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I've ground the last of my scales in that time. Welcome back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown in power since we last spoke; I can feel it from here, rather like a warm stove." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard pleasant things about you in the Quarter. That's rarer than you'd think among wizards." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard pleasant things about you in the Quarter. Wizards rarely say pleasant things about anyone, so I took note." },
   },
 
   notice = {
@@ -42,7 +42,7 @@ P:NPC {
   nodes = {
     op_gnomes = {
       lines = {
-        { id = "op_gnomes_a", text = "Half the Mage Quarter thinks Gaxim's people poisoned their own city out of carelessness, and the other half is quietly buying their devices. I've never quite decided myself, so I'll ask you: what do you think of gnomish tinkering?" },
+        { id = "op_gnomes_a", text = "The Mage Quarter loves to say Gaxim's people poisoned their own city out of carelessness, and then it goes and quietly buys their devices. I've never quite decided myself, so I'll ask you: what do you think of gnomish tinkering?" },
       },
       choices = {
         { text = "Brilliant work. Gnomes will build things men can't imagine.", next = "op_gnomes_1", fx = { opinion = { gnomes = "admire" }, align = { order = -1 }, trait = { curious = 1 }, affinity = 1 } },
@@ -127,8 +127,8 @@ P:NPC {
       lines = { { id = "cp_default", text = "Some of them, yes, and to a few who wore Stormwind's colours too. I'd rather make a small, honest spell than a great one I don't understand. Would you?" },
       },
       choices = {
-        { text = "Yes. Understanding first, power after.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "No. Power first; understanding catches up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Yes. Understanding first, power after.", next = "BACK", reply = "I'm glad to hear it, and gladder that you said it without hesitating. Come back when you've a strange reagent, and we'll understand it together.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "No. Power first; understanding catches up.", next = "BACK", reply = "Then I hope it catches up before the spell does, friend. In my experience it usually arrives just in time to help write the apology.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,7 +145,7 @@ P:NPC {
       lines = { { id = "gm_default", text = "He came through Stormwind years ago selling a device that sorted reagents by weight, and it sorted my whole shelf onto the floor in about a second. I bought it anyway, because nobody had ever tried to help me so enthusiastically, and we've written to each other ever since." },
       },
       choices = {
-        { text = "Does the device still work?", next = "BACK" },
+        { text = "I'd have bought it too.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -164,8 +164,8 @@ P:NPC {
       lines = { { id = "gh_default", text = "Clean is generous; I still made the thing that tells the fuse to burn. I've decided a friend's judgement is his own, and that I'd rather he blew things up carefully with my help than carelessly without it." },
       },
       choices = {
-        { text = "A friend's judgement is his own. You did right to trust him.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "You should have refused until he told you the target.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A friend's judgement is his own. You did right to trust him.", next = "BACK", reply = "That's kind of you, and it's what I tell myself most nights. Gaxim has never blown up anything that didn't, on reflection, deserve it.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "You should have refused until he told you the target.", next = "BACK", reply = "You may well be right, and it's a question I put to myself more than I'd like. Gaxim would only grin and say the target was rocks, mostly.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -191,8 +191,8 @@ P:NPC {
       lines = { { id = "vt_default", text = "Everyone says so, and I'm sure they're right, but I get seasick on the boat to Auberdine and lost in Elwynn. I'm a man who reads about mountains, and I've decided to be at peace with it." },
       },
       choices = {
-        { text = "Knowledge you haven't earned with your own feet is only borrowed.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Others can fetch it for you. That's only sensible.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Knowledge you haven't earned with your own feet is only borrowed.", next = "BACK", reply = "That's a hard thing to hear from someone with mud on their boots, because it's true. Still, my feet and the Vale disagree about almost everything.", fx = { align = { honor = 1 } } },
+        { text = "Others can fetch it for you. That's only sensible.", next = "BACK", reply = "Thank you, that's my opinion too, and you're welcome to fetch me a basilisk scale or two while you're out there being sensible.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -217,11 +217,11 @@ P:NPC {
     },
     devil_army = {
       big = true,
-      lines = { { id = "da_default", text = "It could, and that's why I've told nobody at the Keep about it. Gaxim uses it for his charges, and I'd rather it stayed a toy for a gnome than became a tool for a general." },
+      lines = { { id = "da_default", text = "It could, and that's why I've told nobody at the Keep about it. Gaxim uses it for his charges, and I'd sooner it stayed a toy for a gnome than became a tool for a general." },
       },
       choices = {
-        { text = "The Alliance needs every edge. You should tell the Keep.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep it quiet. Generals ruin every good invention.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "The Alliance needs every edge. You should tell the Keep.", next = "BACK", reply = "You're probably right, and it keeps me up at night. But once the Keep has it, I'll never know where it went or who it burned.", fx = { align = { order = 1 } } },
+        { text = "Keep it quiet. Generals ruin every good invention.", next = "BACK", reply = "Ha, you'd get on with Gaxim. He says a general is just a gnome who never learned to enjoy the explosion.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -284,8 +284,8 @@ P:NPC {
       lines = { { id = "ql_default", text = "Warlocks, and the city lets them be, because some of them are useful and all of them are dangerous. They're the very people I mean when I say ask where your power comes from, because they know, and they've decided they don't mind." },
       },
       choices = {
-        { text = "The city should shut that cellar and be done with it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Better they study where the city can watch them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The city should shut that cellar and be done with it.", next = "BACK", reply = "They tried, before my time, and the cellar only moved somewhere else. I'd rather it were where the guard knows the door.", fx = { align = { light = 1 } } },
+        { text = "Better they study where the city can watch them.", next = "BACK", reply = "That's my thinking too, though I do wish they'd watch a little more closely. The smell comes up through the floor of the Lamb.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -314,8 +314,8 @@ P:NPC {
       lines = { { id = "xw_default", text = "Then you're more honest than most, and I'll give you that freely. I only wonder whether the price stays the same, or whether it creeps up a little each time, the way prices do." },
       },
       choices = {
-        { text = "I watch the price closely. That's the whole discipline.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Whatever it costs, the power is worth it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I watch the price closely. That's the whole discipline.", next = "BACK", reply = "Then you're better at it than most who walk down those cellar stairs. I only hope you're still watching it in ten years.", fx = { align = { light = 1 } } },
+        { text = "Whatever it costs, the power is worth it.", next = "BACK", reply = "I was afraid you'd say that. I'll not argue with you, but I'll hope, quietly, that you're wrong about the cost.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -18,7 +18,7 @@ P:Thread {
       third = "{name} heard that the Burning Blade in the Valley of Trials were armed and fed by someone beyond the valley." },
     unfolding = { first = "The cultists at Skull Rock carry orders written in a careful hand, and Orgnil Soulscar thinks the hand belongs to someone sleeping warm inside Orgrimmar. Down in the Cleft of Shadow, Neeru Fireblade smiled and said he was watching too.",
       third = "{name} followed the Burning Blade's orders from Skull Rock toward Orgrimmar, where Neeru Fireblade said he was watching too." },
-    resolved = { first = "Thrall has heard the whole road, from the valley caves to the door of the Cleft. The rot isn't gone, and he says it never is entirely, but it's weaker since the chasm, and it knows the Warchief is watching.",
+    resolved = { first = "Thrall has heard the whole road, from the valley caves to the door of the Cleft. The rot isn't gone, and he says it never is entirely, but it's weaker since Ragefire Chasm, and it knows the Warchief is watching.",
       third = "{name} brought the Burning Blade's long road to Thrall, who said the rot was weaker now, and knew he was watching." },
   },
   npcs = { "zureetha", "galgar", "orgnil", "neeru", "thrall" },
@@ -28,14 +28,14 @@ P:Thread {
   },
   pacing = { minConversations = 2, minSeconds = 600 },
   reflection = {
-    first = "Everyone from the Valley of Trials to Orgrimmar says the Burning Blade hides in caves, and every one of them looks toward the city when they say it.",
+    first = "Everyone from the Valley of Trials to Orgrimmar says the Burning Blade hides in caves, and then they all glance toward the city.",
     third = "{name} noticed that everyone who spoke of the Burning Blade looked toward Orgrimmar while they did it.",
   },
   beats = {
     {
       id = "b1_zureetha", npc = "zureetha",
       when = { thread = { id = "burning_blade", notBeat = "b1_zureetha" } },
-      text = "The cultists in the coven carry new daggers, and nobody in this valley forged them or sold them. Somebody beyond these hills keeps the Blade armed, and I mean to learn who.",
+      text = "The Burning Blade cultists in the valley's caves carry new daggers, and nobody in this valley forged them or sold them. Somebody beyond these hills keeps the Blade armed, and I mean to learn who.",
       fx = { thread = { id = "burning_blade", beat = "b1_zureetha", state = "stirring" }, learn = { "burning_blade" } },
     },
     {
@@ -61,7 +61,7 @@ P:Thread {
       when = { questDone = TODO_QUEST("Hidden Enemies"),
                any = { { thread = { id = "burning_blade", beat = "b3_orgnil" } }, { thread = { id = "burning_blade", beat = "b4_neeru" } } },
                ["not"] = { thread = { id = "burning_blade", beat = "b5_thrall" } } },
-      text = "You've followed the Blade from the caves of the Valley of Trials to the door of the Cleft, which is further than most of my people care to look. The rot is weaker since the chasm, and it knows I'm watching, so let it smile while it can.",
+      text = "You've followed the Blade from the caves of the Valley of Trials to the door of the Cleft, which is further than most of my people care to look. The rot is weaker since you went down into Ragefire Chasm, and it knows I'm watching, so let it smile while it can.",
       fx = { thread = { id = "burning_blade", beat = "b5_thrall", state = "resolved" } },
     },
   },
@@ -93,7 +93,7 @@ P:Thread {
   },
   pacing = { minConversations = 2, minSeconds = 600 },
   reflection = {
-    first = "Everyone in the northern Barrens talks about the Kolkar, and sooner or later every one of them ends up talking about water.",
+    first = "Everyone in the northern Barrens talks about the Kolkar, and sooner or later the talk always turns to water.",
     third = "{name} noticed that every talk of the Kolkar in the Barrens came round, sooner or later, to water.",
   },
   beats = {
@@ -113,7 +113,7 @@ P:Thread {
       id = "b3_regthar", npc = "regthar",
       when = { any = { { thread = { id = "kolkar_war", beat = "b1_thork" } }, { thread = { id = "kolkar_war", beat = "b2_tonga" } } },
                ["not"] = { thread = { id = "kolkar_war", beat = "b3_regthar" } } },
-      text = "Thork sent you, or Tonga did; they both send me their worries. The Kolkar used to fight each other over water, and now Barak, Verog and Hezrul have them fighting us for it instead, which is worse for the caravans and better for me.",
+      text = "Thork sent you, or Tonga did; they both send me their worries. The Kolkar used to fight each other over water, and now their new warlords, Barak, Verog and Hezrul, have them fighting us for it instead, which is worse for the caravans and keeps my axe busy.",
       fx = { thread = { id = "kolkar_war", beat = "b3_regthar", state = "unfolding" } },
     },
     {
@@ -125,7 +125,7 @@ P:Thread {
     {
       id = "b5_regthar", npc = "regthar",
       when = { questDone = TODO_QUEST("Counterattack!"), thread = { id = "kolkar_war", notBeat = "b5_regthar" } },
-      text = "Krom'zar's stragglers are running west for Desolace with their tails between their legs. Lanti'gah says let them run and tell the tale, and I say ride them down before they reach the hills, and you've earned a say in it.",
+      text = "Krom'zar's stragglers are running west for Desolace with their tails between their legs. Lanti'gah here says let them run and tell the tale, and I say ride them down before they reach the hills, and you've earned a say in it.",
       fx = { thread = { id = "kolkar_war", beat = "b5_regthar", state = "unfolding" } },
     },
   },

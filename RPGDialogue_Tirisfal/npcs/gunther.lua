@@ -62,14 +62,14 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_ktblame", tags = { "news" }, when = { opinion = { topic = "kirin_tor", stance = "blame" } }, text = "Bethor writes that you blame Dalaran for Kel'Thuzad. So do I, on my better days, and on my worse ones I blame myself for not seeing it first." },
+        { id = "o_ktblame", tags = { "news" }, when = { opinion = { topic = "kirin_tor", stance = "blame" } }, text = "Bethor Iceshard writes that you blame Dalaran for Kel'Thuzad. So do I, on my better days, and on my worse ones I blame myself for not seeing it first." },
         { id = "h_default", key = true, text = "I am Gunther Arcanus, and this island is mine. If the Lich King sent you, you may tell him I'm not coming back, and I have a great many corpses to prove it." },
         { id = "h_book", tags = { "news" }, when = { questActive = TODO_QUEST("Return the Book") },
           text = "My book! So you're the thief who took it. But there's a new enchantment on the pages, and I know the hand that wove it... Bethor? Bethor is free?" },
         { id = "h_proven", tags = { "news" }, when = { questRecent = { TODO_QUEST("Proving Allegiance"), days = 3 } },
           text = "Lillith Nefara is gone, and you're the one who sent her. I really believed I was the only one of us who had broken free, and you've made a fool of me in the best possible way." },
         { id = "h_gem", when = { questActive = TODO_QUEST("The Prodigal Lich Returns") },
-          text = "Take the gem to Bethor, and tell him to speak into it when he can. I've had no one to talk to but zombies for years, and their conversation is very poor." },
+          text = "Take the gem to Bethor Iceshard in the Undercity, and tell him to speak into it when he can. I've had no one to talk to but zombies for years, and their conversation is very poor." },
         { id = "h_forsaken", when = { race = "Scourge", questBefore = TODO_QUEST("Return the Book") },
           text = "You walk like one of the dead and look at me like one of the living. Either you're a very clever puppet or something I didn't think existed, and I'm not yet sure which." },
         { id = "h_mage", when = { class = "MAGE", questDone = TODO_QUEST("Proving Allegiance") },
@@ -109,8 +109,8 @@ P:NPC {
       big = true,
       lines = { { id = "ac_default", text = "A city of free dead, under a queen who was a ranger. Bethor writes of it as though it were perfectly ordinary, and I'm still trying to decide whether it's the best news I've ever heard or the most frightening." } },
       choices = {
-        { text = "It's both. Come and see it for yourself.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Stay on your island. Queens make poor masters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "It's both. Come and see it for yourself.", next = "BACK", reply = "Perhaps I shall, once I'm certain Bethor's letters aren't the cheerful ravings of a man who's been dead too long. Even so, you make it sound almost like an invitation, and I've not had one of those in years.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stay on your island. Queens make poor masters.", next = "BACK", reply = "That's exactly the sort of thing I tell myself at night, and it sounds wiser coming from you than it does from me. All the same, an island makes a lonely kingdom.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -133,21 +133,21 @@ P:NPC {
       big = true,
       lines = { { id = "tf_default", text = "I'd like to say yes, and I'd like to mean it. But I remember him laughing at Bethor's terrible jokes, and I don't know what I'd do with a memory like that in the middle of a duel." } },
       choices = {
-        { text = "Then let someone else do it. Old friends shouldn't.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "He chose the Scourge. Remember that, not the jokes.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then let someone else do it. Old friends shouldn't.", next = "BACK", reply = "That's kind, and I suspect it's sensible, but I'd never forgive myself for leaving it to a stranger. If anyone puts him down, it ought to be someone who remembers him laughing.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He chose the Scourge. Remember that, not the jokes.", next = "BACK", reply = "I'll try, but you're asking a mage to forget something, and we're dreadful at it. Still, you're right that the man who laughed isn't the one in that tower anymore.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     dalaran = {
-      lines = { { id = "da_default", text = "A student of the Kirin Tor, and a better one than my tutors liked to admit. My field was the boundary between life and death, which Dalaran pretended was not a field at all." } },
+      lines = { { id = "da_default", text = "I was a student of the Kirin Tor, and a better one than my tutors liked to admit. My field was the boundary between life and death, which Dalaran pretended was not a field at all." } },
       choices = {
         { text = "Necromancy is forbidden in Dalaran.", next = "necro" },
         { text = "Something else.", next = "BACK" },
       },
     },
     necro = {
-      lines = { { id = "ne_default", text = "It is, which is why I studied it in a cellar, by candlelight, like every other interesting thing in Dalaran. The irony is not lost on me that it's the forbidden work that's kept me alive, in a manner of speaking." } },
+      lines = { { id = "ne_default", text = "It is, so I studied it in a cellar, by candlelight, like every other interesting thing in Dalaran. The irony is not lost on me that it's the forbidden work that's kept me alive, in a manner of speaking." } },
       choices = {
         { text = "And the servants on the shore?", next = "necro_servants" },
         { text = "Is it wrong, what you do with the dead?", next = "op_necromancy" },
@@ -180,7 +180,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Kirin Tor once, a corpse briefly, and a free man since, if a man is what I am. That's the short version, and the long one is mostly cellars." } },
+    background = { { id = "tp_bg", text = "I was Kirin Tor once, a corpse briefly, and a free man since, if a man is what I am. That's the short version, and the long one is mostly cellars." } },
     advice = { { id = "tp_ad", text = "Never trust a friend who hasn't died. That's a joke, mostly, but it's served me well." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "The last living men who rowed out here wore red and carried torches, and they called me an abomination before they'd even reached the beach. My servants sent them home, those who could still swim." } },
     scourge = { { id = "tp_scourge", text = "For years I thought every corpse that walked past my island belonged to the Lich King, and I hid from all of them. I learned too late that some of them had minds of their own, and a few were even good company." } },

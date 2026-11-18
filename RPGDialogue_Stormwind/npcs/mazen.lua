@@ -26,7 +26,7 @@ P:NPC {
     { id = "g_active", when = { questActive = Q }, text = "Any word of the essays? Please tell me they're not still lying in a bog somewhere with a plant reading them." },
     { id = "g_done", when = { questDone = Q }, text = "My rescuer of Khadgar! Come in, come in; Mahar Ba's letter of thanks arrived, and it ran to six pages, which for him is restraint." },
     { id = "g_away", when = { away = 21, metBefore = true }, text = "You've been gone {away}, and in that time I've received forty-one requests and answered nine. Don't tell anyone that number." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come on a good deal since last we spoke. I can see it in how you stand, which is more than I can say for the shelves in the east alcove." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come on a good deal since last we spoke. I can see it in how you stand, while the shelves in the east alcove are still leaning like drunkards." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the Quarter spoke well of you this week, which in a district full of mages is very nearly a medal." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I've heard you upset someone in the Quarter. I've no time to take sides, so please don't upset me as well." },
   },
@@ -35,7 +35,7 @@ P:NPC {
     { id = "n_mage", cat = "mage", when = { class = "MAGE", minLevel = 40 },
       text = "You've the steadiness of a mage who has stopped setting things on fire by accident. If you ever want a reading list, I have eleven, sorted by how much they'll frighten you." },
     { id = "n_warlock", cat = "warlock", when = { class = "WARLOCK" },
-      text = "I can smell the cellar on you, friend, the Slaughtered Lamb's cellar, and I'll say plainly that half the books I lock away are locked away from people who go down those stairs." },
+      text = "I can smell the cellar on you, friend, the Slaughtered Lamb's cellar, and I'll say plainly that most of the books I lock away are locked away from people who go down those stairs." },
     { id = "n_gnome", cat = "scholar", when = { race = "Gnome" },
       text = "A gnome! Your people's library at Gnomeregan held treatises I'd have given a finger to read, and I suppose it's all under the radiation now, which I try not to think about at night." },
     { id = "n_dalaran", cat = "scholar", when = { origin = "human_dalaran_stray" },
@@ -73,7 +73,7 @@ P:NPC {
         { text = "What's this about Khadgar's essays?", next = "essays" },
         { text = "Who is Dellis?", next = "dellis" },
         { text = "Why guard the books so closely?", next = "danger" },
-        { text = "You said there were strange happenings.", next = "happenings" },
+        { text = "Have there been strange happenings in the city lately?", next = "happenings" },
         { text = "I've studied at Dalaran. What would you ask?", next = "xdalaran", when = { origin = "human_dalaran_stray" } },
         { text = "I trained here in the Quarter, as it happens.", next = "xquarter", when = { origin = "human_mage_quarter" } },
         { text = "I was Gnomeregan's last arcane student.", next = "xgnome", when = { origin = "gnome_last_student" } },
@@ -87,7 +87,7 @@ P:NPC {
     -- The library
     library = {
       lines = {
-        { id = "l_default", text = "The Academy's collection, or what the Second War and three fires left of it, which is more than you'd think and less than I'd like. Histories, treatises, a good many letters from Dalaran, and some volumes I'm not permitted to tell you about, which I've now told you about." },
+        { id = "l_default", text = "The Academy's collection, or what the Second War and three fires left of it, which fills four rooms and ought to fill twelve. Histories, treatises, a good many letters from Dalaran, and some volumes I'm not permitted to tell you about, which I've now told you about." },
       },
       choices = {
         { text = "Who reads here, mostly?", next = "library_readers" },
@@ -101,8 +101,8 @@ P:NPC {
       },
       choices = {
         { text = "Were any of them edible?", next = "library_edible" },
-        { text = "Knowledge should be open to anyone who asks.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A library needs rules, or it's just a pile.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Knowledge should be open to anyone who asks.", next = "BACK", reply = "In principle I agree, but in practice the last person who asked took Lord Ebonlocke's atlas to Duskwood and left it in a puddle. Open, yes, but careful.", fx = { align = { order = -1 } } },
+        { text = "A library needs rules, or it's just a pile.", next = "BACK", reply = "Thank you! I'll embroider that on a cushion and set it on the reading bench, where the apprentices will ignore it as usual.", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
     library_edible = {
@@ -147,8 +147,8 @@ P:NPC {
       },
       choices = {
         { text = "Have you read them yourself?", next = "essays_read" },
-        { text = "Some doors are better left without maps.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If there's a door, we should understand it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Some doors are better left without maps.", next = "BACK", reply = "Khadgar might have agreed with you, in his later years. But a door without a map is only a door you trip through in the dark.", fx = { align = { light = 1 } } },
+        { text = "If there's a door, we should understand it.", next = "BACK", reply = "That's the scholar's answer, and the one I'd have given at your age. I still give it, though I lower my voice now when I do.", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
     essays_read = {
@@ -173,7 +173,7 @@ P:NPC {
     },
     mahar = {
       lines = {
-        { id = "m_default", text = "A mage of the old sort, posted at Nethergarde to watch the Portal, and the most patient correspondent I have. He writes long letters about the soil and the sky out there, and every one of them ends by asking if I've forgotten him." },
+        { id = "m_default", text = "A mage of the old sort, posted at Nethergarde to watch the Portal, and the most patient correspondent I have. He writes long letters about the soil and the sky out there, and each one ends by asking if I've forgotten him." },
       },
       choices = {
         { text = "Had you forgotten him?", next = "mahar_forgot" },
@@ -185,8 +185,8 @@ P:NPC {
         { id = "mf_default", text = "Not forgotten, never that, only buried. Since all these strange happenings began, every lord and captain in Stormwind wants a book, a map or an opinion by Tuesday, and a quiet man at the edge of the world gets pushed to the bottom of the pile." },
       },
       choices = {
-        { text = "The man watching the Portal should come first.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Stormwind's lords keep the city standing. They come first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The man watching the Portal should come first.", next = "BACK", reply = "That's what I keep saying, but the man watching the Portal doesn't have a seat at court. I'll keep looking for those essays, I promise you.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Stormwind's lords keep the city standing. They come first.", next = "BACK", reply = "They keep it standing, I'll grant, and they do love to remind me of it while they wait for their maps. Nethergarde can wait a day, I suppose.", fx = { align = { order = 1 } } },
         { text = "What strange happenings?", next = "happenings" },
       },
     },
@@ -214,7 +214,7 @@ P:NPC {
         { id = "d_default", text = "Acolyte Dellis, my assistant, and inside these walls the most capable young man I've ever had. He can find any book in the place blindfolded and knows the catalogue better than I do, and outside the city gates he's helpless as a kitten in a rainstorm." },
       },
       choices = {
-        { text = "So why send him to the Blasted Lands?", next = "dellis_why" },
+        { text = "So why send him all the way to Nethergarde?", next = "dellis_why" },
         { text = "What happened to him in the swamp?", next = "dellis_swamp" },
         { text = "Something else.", next = "BACK" },
       },
@@ -340,8 +340,8 @@ P:NPC {
         { id = "hk_default", text = "I pray so, and I keep the histories of his father's reign on the front shelf, in case he wants to read them when he's home. It's a small thing, but small things are what I'm good at." },
       },
       choices = {
-        { text = "He'll come back. Stormwind doesn't lose its kings.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The city can't wait on one man forever.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "He'll come back. Stormwind doesn't lose its kings.", next = "BACK", reply = "I'd like to believe that as much as you do. Until then, his father's histories stay on the front shelf, dusted every morning.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The city can't wait on one man forever.", next = "BACK", reply = "Perhaps not, but a city that stops waiting has given up on more than one man. I'll keep my small hope, if you don't mind.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -361,8 +361,8 @@ P:NPC {
         { id = "xdl_default", text = "Then there's hope, and hope will have to do until someone in a violet robe deigns to write back. Dalaran was the reason I took up books in the first place; it's strange to love a city you've never been allowed into." },
       },
       choices = {
-        { text = "Dalaran should share what it knows with Stormwind.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Dalaran keeps its secrets for good reason.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dalaran should share what it knows with Stormwind.", next = "BACK", reply = "They should, and some of their archmages agree with you in private. In public, their letters are very elegant ways of saying no.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Dalaran keeps its secrets for good reason.", next = "BACK", reply = "Good reason or not, it makes for a lonely library. Still, I've read enough of Khadgar to know what careless sharing can open.", fx = { align = { order = 1 } } },
       },
     },
     xquarter = {
@@ -406,8 +406,8 @@ P:NPC {
         { id = "xw_default", text = "Perhaps not, and I'm not a jailer by temperament, believe me. But I've seen what one page can do in the wrong hour, and I'd sooner be called a coward by you than be the man who handed over the third fire." },
       },
       choices = {
-        { text = "Power belongs to those willing to master it.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
-        { text = "That's fair. Some things should stay shut.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power belongs to those willing to master it.", next = "BACK", reply = "I've heard that before, from people who weren't here a year later to repeat it. The shelf stays locked, and I'll sleep easier for it.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "That's fair. Some things should stay shut.", next = "BACK", reply = "Thank you, truly. It's not often someone with your sort of power agrees with me on that, and it makes my keys feel a little lighter.", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
     xdone = {

@@ -37,13 +37,13 @@ P:NPC {
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "The Light shines for all of us, paladin, though some of us feel it more sharply than others. What can I do for you?" },
         { id = "h_fresh", tags = { "news" }, when = { questActive = TODO_QUEST("Continue Your Training") },
-          text = "Aramis sent you from Deathknell, didn't he? Welcome to Brill, paladin. There are many here who need an adventurer's help, so find work, grow stronger in the Light, and come back to me whenever you need training." },
+          text = "Aramis Hammerhand sent you from Deathknell, didn't he? Welcome to Brill, paladin. There are many here who need an adventurer's help, so find work, grow stronger in the Light, and come back to me whenever you need training." },
         { id = "h_ready", when = { questBefore = TODO_QUEST("A Second Home"), class = "PALADIN", minLevel = 8 },
           text = "You've proven yourself to me and to Brill, paladin, and so I have something to tell you. We've begun a new order of our own here in Tirisfal, and there's a place in it for you." },
         { id = "h_home", tags = { "news" }, when = { questActive = TODO_QUEST("A Second Home") },
           text = "Bandarion Keep stands on the bluffs northwest of the Solliden Farmstead, at the edge of the Whispering Woods. Report to Breton Samuels when you get there, and tell him I sent you." },
         { id = "h_homedone", when = { questDone = TODO_QUEST("A Second Home") },
-          text = "You've been to the Keep, then, and seen what Danitha is building there. I hope it felt a little like coming home." },
+          text = "You've been to the Keep, then, and seen what Danitha Morr is building there. I hope it felt a little like coming home." },
         { id = "h_bareth", tags = { "news" }, when = { questActive = TODO_QUEST("Seeking Refuge") },
           text = "You have news of Bareth Dawnstone? Please tell me he's safe, because the Keep has been waiting on his message for days, and I've feared the worst." },
         { id = "h_barethdone", tags = { "news" }, when = { questRecent = { TODO_QUEST("Seeking Refuge"), days = 3 } },
@@ -146,13 +146,13 @@ P:NPC {
     burn = {
       big = true,
       lines = {
-        { id = "b_default", text = "Every time. The Light was never meant to dwell in a body like this one, and it lets me know it, but it still comes when I call, and I've decided that matters more than the pain." },
+        { id = "b_default", text = "It does, every time. The Light was never meant to dwell in a body like this one, and it lets me know it, but it still comes when I call, and I've decided that matters more than the pain." },
         { id = "b_fpal", when = { class = "PALADIN", race = "Scourge" },
           text = "You know it does, because it hurts you too. Aramis calls it a forge, and I've come to think of it more as a fever; it hurts because something in us is fighting to mend." },
       },
       choices = {
-        { text = "Then the pain is worth bearing. Hold to the Light.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Anything that burns you that badly isn't worth keeping.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then the pain is worth bearing. Hold to the Light.", next = "BACK", reply = "Thank you, truly, because I don't hear that often in Brill. The burn fades a little each time, or perhaps I'm only learning to carry it better.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Anything that burns you that badly isn't worth keeping.", next = "BACK", reply = "I've heard that from the apothecaries and from my own doubts on the bad nights. But the Light is the only thing that ever answered me after I died, and I'll not throw it away for a little pain.", fx = { align = { light = -1 } } },
         { text = "Do you ever doubt that it really answers you?", tag = "Persuade", next = "doubt",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "PALADIN" }, { questDone = TODO_QUEST("Seeking Refuge") } } } },
           fail = { next = "doubt_no", fx = { affinity = -1 } } },
@@ -181,8 +181,8 @@ P:NPC {
           text = "Better than they did, thanks in part to you. Word of what you did for Falgan has spread among the Deathguard, and I've had two of them nod at me in the street this week, which is two more than last month." },
       },
       choices = {
-        { text = "Then we'll earn it, slowly and honestly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "We don't need their trust. Let our deeds speak.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then we'll earn it slowly, and without tricks.", next = "BACK", reply = "Slowly and honestly is the only way it's ever done, and I'm glad to hear you'll do it with us. Every wound we close in Brill is another stone in that wall.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "We don't need their trust. Let our deeds speak.", next = "BACK", reply = "Deeds speak loudly, I'll grant you, but people only listen when they already trust the speaker. I'll keep earning it, if it's all the same to you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -201,14 +201,14 @@ P:NPC {
         { id = "sl_default", text = "I don't know, and that frightens me too. The Light doesn't seem to refuse anyone who calls on it with conviction, whether they're dead or hateful or both, so I've come to think it's what we do with it that we'll answer for." },
       },
       choices = {
-        { text = "Then the Scarlets will answer for a great deal.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, learn = { "scarlet_crusade" } } },
-        { text = "Then the Light is only a weapon, like any other.", next = "BACK", fx = { align = { light = -1 }, learn = { "scarlet_crusade" } } },
+        { text = "Then the Scarlets will answer for a great deal.", next = "BACK", reply = "They will, and I've wondered whether I'll stand near them when the reckoning comes. I hope that whatever judges us looks at what we've done with our second chance.", fx = { affinity = 1, align = { light = 1 }, learn = { "scarlet_crusade" } } },
+        { text = "Then the Light is only a weapon, like any other.", next = "BACK", reply = "If that's so, then I mean to be very careful where I point it. A weapon in kind hands can still mend a broken town.", fx = { align = { light = -1 }, learn = { "scarlet_crusade" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
       },
     },
     before = {
       lines = {
-        { id = "bf_default", text = "Someone who held the Light in life, and lost it for a time after. Most of what came between is gone, or it's somewhere I don't care to look, and I'd rather be judged by what I do now." },
+        { id = "bf_default", text = "Someone who held the Light in life, and lost it for a time after. Most of what came between is gone, or it's somewhere I don't care to look, so judge me by what I do now." },
       },
       choices = {
         { text = "That's fair. Something else.", next = "BACK" },
@@ -232,8 +232,8 @@ P:NPC {
         { id = "sh_default", text = "I didn't ask you to have one. The Dark Lady freed us so that we could choose, and you've chosen differently from me, and that's what freedom looks like. I only ask that you don't stand in my way while I help people." },
       },
       choices = {
-        { text = "I won't. We serve the same queen.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll be watching you all the same, paladin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I won't. We serve the same queen.", next = "BACK", reply = "We do, and she gave us all the freedom to walk different roads, mine with the Light and yours without it. Go well, and come to me if you're ever hurt.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll be watching you all the same, paladin.", next = "BACK", reply = "Watch all you like, because you'll only see me bandaging deathguards and praying over the fallen. I'd rather be watched than ignored, if I'm honest.", fx = { align = { honor = -1 } } },
       },
     },
   },
@@ -278,7 +278,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "William Pickman, cook of the Gallows' End. I can teach you how to cook, and I'd be glad to, because there's nothing better for an adventurer to know." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Cooking") },
-          text = "Eleanor sent you, did she? Good, because a good campfire is the foundation of any good camp, and I'll teach you to build one and cook over it." },
+          text = "Eleanor Shackleton sent you, did she? Good, because a good campfire is the foundation of any good camp, and I'll teach you to build one and cook over it." },
         { id = "h_campdone", when = { questDone = TODO_QUEST("Camping 101: Cooking") },
           text = "You can set up camp anywhere in the wild now, though only a small one to start. Raise your cooking and you'll learn to build bigger fires, and the other trainers can show you how to furnish the place." },
         { id = "h_cook", when = { profession = "Cooking" },
@@ -318,7 +318,7 @@ P:NPC {
     },
     taste2 = {
       lines = {
-        { id = "t2_default", text = "Then I've overdone the salt again. It happens more than I'd like to admit, and Renee is kind enough to say nothing about it." },
+        { id = "t2_default", text = "Then I've overdone the salt again. It happens more than I'd like to admit, and Innkeeper Renee is kind enough to say nothing about it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -339,8 +339,8 @@ P:NPC {
         { id = "w_default", text = "For the living, mostly, the orcs and trolls off the zeppelin and the odd tauren, and for the dead who like the smell even if they can't taste it. Some of the Forsaken say a dead cook is a waste of a good kitchen, and I tell them a dead cook is the only kind who never eats the stock." },
       },
       choices = {
-        { text = "Feeding our living allies is good work, William.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Feeding the living just keeps them weak and dependent.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Feeding our living allies is good work, William.", next = "BACK", reply = "Good of you to say so, and they're good folk, even if the orcs eat like a famine's coming. A full belly keeps a grunt on the wall at the Bulwark.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Feeding the living just keeps them weak and dependent.", next = "BACK", reply = "Weak, is it? You'd not say that to the orc who carried three ghouls off the road last week on a bowl of my stew. Allies who eat well fight well, friend.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -371,7 +371,7 @@ P:NPC {
 
   notice = {
     { id = "n_fpal", cat = "class", when = { class = "PALADIN", race = "Scourge" },
-      text = "One of Shari's paladins. Mind the Deathguard; they pretend not to stare, and they're very bad at pretending." },
+      text = "One of Shari Stilwell's paladins. Mind the Deathguard; they pretend not to stare, and they're very bad at pretending." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll" } },
       text = "Off the zeppelin, I'd guess. You'll get used to the smell of Tirisfal, though the smell of Tirisfal will never quite get used to you." },
   },
@@ -416,11 +416,11 @@ P:NPC {
     paladins = {
       big = true,
       lines = {
-        { id = "p_default", text = "Half of Brill thinks they're spies for the Light, and the other half thinks they're the best thing to happen to the town since the apothecaries stopped testing on the neighbours. I haven't decided yet, though I'll admit Shari is very hard to dislike." },
+        { id = "p_default", text = "Some of Brill thinks they're spies for the Light, and the rest thinks they're the best thing to happen to the town since the apothecaries stopped testing on the neighbours. I haven't decided yet, though I'll admit Shari is very hard to dislike." },
       },
       choices = {
-        { text = "They're Forsaken. They deserve the same trust as anyone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Anyone who serves the Light bears watching.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They're Forsaken. They deserve the same trust as anyone.", next = "BACK", reply = "That's the fair answer, and I'd like to think Brill will come round to it eventually. Shari's certainly done more for this town than some of those who grumble about her.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Anyone who serves the Light bears watching.", next = "BACK", reply = "Oh, half the town would agree with you, and they say so loudly in the Gallows' End. I watch everyone, myself, so it's no special insult to the paladins.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -435,7 +435,7 @@ P:NPC {
     },
     trouble = {
       lines = {
-        { id = "t_default", text = "The Scarlets to the west, the Scourge to the east, and the farmhands in the fields who'd happily see us all burned. Take your pick, because Brill has more trouble than it has guards to handle it, and Deathguard Dillinger will tell you so at length." },
+        { id = "t_default", text = "The Scarlets to the west, the Scourge to the east, and the Scarlet converts in the fields who'd happily see us all burned. Take your pick, because Brill has more trouble than it has guards to handle it, and Deathguard Dillinger will tell you so at length." },
       },
       choices = {
         { text = "Then I'll help where I can.", next = "BACK", fx = { affinity = 1, learn = { "scarlet_crusade" } } },

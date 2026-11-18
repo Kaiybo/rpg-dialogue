@@ -4,7 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.duskwood")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
-  key = "eva", id = TODO_NPC("Madame Eva"), name = "Madame Eva",
+  key = "eva", id = TODO_NPC("Madame Eva"), name = "Madame Eva", gender = "female",
   bible = "bibles/eva.md", role = "questgiver", tier = "quest",
   communities = { "darkshire" }, temper = { "steady" }, values = { "curious", "cunning" },
   spiritSensitive = true,
@@ -20,6 +20,12 @@ P:NPC {
     { id = "g_op_necro_eva", when = { opinion = { topic = "necromancy", stance = "tempting" } }, text = "The cards turned up the Needle when you walked in, and the Lovers reversed beside it. Somewhere, you told someone you'd bring back the dead. Be careful who heard you." },
     { id = "g_expected", text = "Ah, there you are, {name}. The stars said you would come; they did not say you would be so late." },
     { id = "g_back", when = { metBefore = true }, text = "Sit, please. The cards have been restless since you left." },
+    { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "eva_flirt_no" } }, cooldown = "2d",
+      text = "The cards turned up the Lovers this morning, and I laughed, because I'm far too old for them. Then you walked in, and I stopped laughing." },
+    { id = "g_flirt_yes", when = { flirt = true, npcFlagBefore = "eva_flirt_yes" }, priority = 8, cooldown = "1d",
+      text = "My charming one returns! The Lovers have turned up three mornings running, and I've had to hide the deck from Alyssa, who asks far too many questions." },
+    { id = "g_flirt_no", when = { npcFlagBefore = "eva_flirt_no" }, priority = 8, once = true,
+      text = "Sit, child, and we'll read only what the cards are paid to read. An old woman may be forgiven a little mischief, I hope." },
     { id = "g_comb", when = { questActive = TODO_QUEST("Return the Comb") }, text = "You have seen Blind Mary; it is written on your face. Give me the comb, child." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}, child, and the cards would not stop turning up the Wanderer. Now sit, and let us see what the road has written on you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "The stars spoke of a small thing grown great, and I see now they meant you. Your fate has thickened since we last met, child." },
@@ -70,8 +76,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A blade raised against a thing with many faces, and a choice about whether to strike or to wait. The cards don't say which is right, only that you'll have to make it, and soon." } },
       choices = {
-        { text = "I'll strike when the time comes. Hesitation kills.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll wait and watch. The cards don't decide for me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll strike when the time comes. Hesitation kills.", next = "BACK", reply = "Then strike true, warrior, and strike only once, for the thing with many faces will show you a kind one first.", fx = { align = { order = 1 } } },
+        { text = "I'll wait and watch. The cards don't decide for me.", next = "BACK", reply = "No, they never do, and I'm glad you know it. Watch closely, though, because waiting too long is a choice as well.", fx = { align = { order = -1 } } },
         { text = "Something else, Madame.", next = "BACK" },
       },
     },
@@ -79,27 +85,27 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Something with a hunger older than the forest, and with a man's face it no longer remembers. I'd tell you more, but the cards turned dark when I tried to look, and I don't press them when they do that." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fate of its own, {class}, tangled with yours, and the cards say it will stand beside you longer than you might think." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Something with a hunger older than the forest, and with a man's face it no longer remembers, though the cards turned dark when I looked further. Your {pet} has a fate of its own, {class}, tangled with yours, and it will stand beside you longer than you might think." },
       },
       choices = {
-        { text = "I'll face whatever the cards foretold. Fate won't scare me.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Cards are cards. I make my own fate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll face whatever the cards foretold. Fate won't scare me.", next = "BACK", reply = "Brave words, and the cards have heard brave words before. Carry them up into the dark with you, hunter, and see whether they still sound brave there.", fx = { align = { order = 1 } } },
+        { text = "Cards are cards. I make my own fate.", next = "BACK", reply = "Many have told me so, and many come back to my table when their own fate runs short. The door will be open when you do.", fx = { align = { order = -1 } } },
         { text = "Something else, Madame.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "They saw a shadow with a purse that wasn't its own, dearie, and then they saw a choice. I don't tell people which choice they make, because that spoils the cards." } },
       choices = {
-        { text = "Then I'll choose the honest road.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Purses don't choose; I do, and gladly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll choose the honest road.", next = "BACK", reply = "The honest road through Duskwood is a long and dark one, dearie, but the cards smiled a little when you said it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Purses don't choose; I do, and gladly.", next = "BACK", reply = "Then the cards were right about you, and I'll keep my own purse close while you're on my stairs.", fx = { align = { honor = -1 } } },
         { text = "Read my cards, then.", next = "cards" },
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "And frost bolts are only cold air with ambition, by that reckoning. You could study in Stormwind for twenty years, child, and still not know what I know about the man walking up my stairs." } },
+      lines = { { id = "xma_default", text = "And frost bolts are only cold air with ambition, by that reckoning. You could study in Stormwind for twenty years, child, and still not know what I know about the next soul to walk up my stairs." } },
       choices = {
-        { text = "Real magic has rules. Yours doesn't.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fair. Some things books can't teach.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Real magic has rules. Yours doesn't.", next = "BACK", reply = "Rules, yes, written by men who never sat with the dead. Go back to your books, child, and tell me how they answer what's coming up the road.", fx = { align = { order = 1 } } },
+        { text = "Fair. Some things books can't teach.", next = "BACK", reply = "Now there is a mage with some sense, and the cards like you better for it. Sit a little longer, if you wish.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "What do the cards mean?", next = "mean" },
       },
     },
@@ -113,8 +119,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "That he walks into the dark carrying his own light, and that the light flickers whenever he is tempted to show mercy. The cards don't say whether he should, child, only that he will have to choose." } },
       choices = {
-        { text = "Then I'll choose mercy, whenever I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Justice comes first. Mercy is for those who earn it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll choose mercy, whenever I can.", next = "BACK", reply = "Mercy will cost you, child, and you'll pay it gladly or you'll pay it bitterly. The cards will be watching which.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Justice comes first. Mercy is for those who earn it.", next = "BACK", reply = "That is the road most paladins take, and it is a straight one. Mind it doesn't run straight past someone who needed you.", fx = { align = { light = -1 } } },
         { text = "Something else, madame.", next = "BACK" },
       },
     },
@@ -141,6 +147,10 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest of the Light, at my table. Your Church calls my work superstition, but sit anyway; the cards don't mind being doubted." },
         { id = "h_cards", when = { metBefore = true }, text = "The cards turned up the Tower again this morning, as they always do in Duskwood, and I've stopped charging extra for it." },
+        { id = "h_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "eva_flirt_no" } }, cooldown = "3d",
+          text = "Come closer to the candle, so I can see your face properly. Ah, yes; the stars did say handsome, but the stars are known to understate." },
+        { id = "h_flirt_yes", when = { flirt = true, npcFlagBefore = "eva_flirt_yes" }, priority = 6, cooldown = "1d",
+          text = "There you are, and the candle leaned toward the door before you opened it. Even the flame has its favourites, child." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The cards showed me a sword drawn against the dark, and I wondered whose hand would be on the hilt, but now I suppose I know." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The cards spoke of a beast at your side and a beast in your path, and I'm glad to see it's the first that walked in with you." },
       },
@@ -164,7 +174,34 @@ P:NPC {
         { text = "What beast is in my path, Madame Eva?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What did your cards say about the Knight, madame?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I dug graves at Raven Hill, Madame. The dead talked back.", next = "xorig_gravedigger", when = { origin = "human_raven_hill_gravedigger" } },
+        { text = "Did your cards say anything else about me, Madame?", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "eva_flirt_no" } } },
         { text = "I'll go.", next = "END" },
+      },
+    },
+    flirt = {
+      lines = {
+        { id = "fl_default", text = "They turned up the Lovers, child, upright and bold as brass, beside a card I'd swear was smiling. Were I forty years younger I'd take it as an invitation, and at my age I'm tempted to take it anyway." },
+        { id = "fl_again", when = { npcFlagBefore = "eva_flirt_yes" }, priority = 5,
+          text = "The Lovers again, and the Fool beside them this time, which I suspect is me. Sit down; an old woman is allowed to enjoy the view while she shuffles." },
+      },
+      choices = {
+        { text = "Age is no matter to me, Madame. Deal another card.", next = "flirt_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "eva_flirt_yes" }, clear = { "eva_flirt_no" } } } },
+        { text = "Careful, Madame. I steal hearts as well as purses.", next = "flirt_yes", when = { class = "ROGUE" },
+          reply = "Then mine is in the drawer with the cards, child, and the lock is older than you are.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "eva_flirt_yes" }, clear = { "eva_flirt_no" } } } },
+        { text = "I think your cards are teasing us both, Madame.", next = "BACK",
+          reply = "Oh, they are, the wicked things, and they'll spend the night in the drawer for it. Ask me something sensible, child.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "eva_flirt_no" }, clear = { "eva_flirt_yes" } } } },
+        { text = "Read my fate, not my face, Madame.", next = "BACK",
+          reply = "As you like, and no offence taken. The face was the pleasanter reading, but fate pays better.",
+          fx = { trait = { stern = 1 }, npcFlag = { set = { "eva_flirt_no" }, clear = { "eva_flirt_yes" } } } },
+      },
+    },
+    flirt_yes = {
+      lines = { { id = "fy_default", text = "Then here is the Sun, which means joy and warm evenings, and I won't say what else. Off you go before Alyssa comes in and sees her grandmother blushing, because I'd never hear the end of it." } },
+      choices = {
+        { text = "Until next time, Madame.", next = "BACK",
+          reply = "Until next time, child. The cards will be watching for you, and so shall I." },
       },
     },
     xorig_gravedigger = {
@@ -285,8 +322,8 @@ P:NPC {
       },
       choices = {
         { text = "I'd guess she doesn't know.", next = "granddaughter_know" },
-        { text = "I'll find him.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "I won't hunt a man down on the word of a card.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll find him.", next = "BACK", reply = "I knew you would, before you came up the stairs. Go carefully, for Stalvan has been waiting far longer than you have been looking.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I won't hunt a man down on the word of a card.", next = "BACK", reply = "Then don't hunt him on my word; hunt him on what you find in the old pages of Darkshire. The cards are patient, and so am I.", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
     granddaughter_know = {
@@ -307,7 +344,7 @@ P:NPC {
     },
     thread_ask = {
       lines = {
-        { id = "ta_default", text = "Perhaps. He pays, he's kind, and the cards turn up the Needle whenever his name is spoken, so I have decided not to think about the Needle." },
+        { id = "ta_default", text = "Perhaps. The hermit pays, he's kind, and the cards turn up the Needle whenever his name is spoken, so I have decided not to think about the Needle." },
         { id = "ta_after", when = { questDone = TODO_QUEST("Translation to Ello") },
           text = "I should have asked. I know what walked down that road and whose thread held it together, because the cards told me, and I didn't want to hear them." },
       },
@@ -334,8 +371,8 @@ P:NPC {
         { id = "wl_default", text = "I would rather not. Your cards come up the same every time: a door left open, and something beyond it that knows your name." },
       },
       choices = {
-        { text = "It does know my name.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
-        { text = "Whatever's beyond that door, I keep it shut.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It does know my name.", next = "BACK", reply = "Then mind you don't answer every time it calls, child. A door like that is easier opened than closed.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Whatever's beyond that door, I keep it shut.", next = "BACK", reply = "For now, perhaps, and I hope for always. The cards are seldom wrong, but I've seen them surprised once or twice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -356,8 +393,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "When the cards and the Night Watch disagree, believe the Watch, because they're wrong less often. I'll deny I ever said so." } },
     stalvan = { { id = "tp_stalvan", text = "His card is the Tutor, patient and gentle, holding an axe where you cannot see it." } },
     worgen = { { id = "tp_worgen", text = "Something was found in Roland's Doom that should have stayed lost, and the wolves came after." } },
-    night_watch = { { id = "tp_watch", text = "They're brave, and Brave is a card too, one that falls a great deal." } },
-    morbent_fel = { { id = "tp_morbent", text = "He is the Spider, in my deck. He sits on his hill pulling threads, and the dead dance, and Sven Yorgen wants to cut every one of them." } },
+    night_watch = { { id = "tp_watch", text = "They're brave, and Brave is a card too, though it comes up face-down in most of my spreads." } },
+    morbent_fel = { { id = "tp_morbent", text = "He is the Spider, in my deck. He sits on his hill pulling threads, and the dead dance, and Sven Yorgen wants to cut each thread with his own axe." } },
     ladimore = { { id = "tp_ladimore", text = "The Knight, reversed: a good man turned upside down by grief. He walks Raven Hill because he cannot forgive himself." } },
     embalmer = { { id = "tp_embalmer", text = "That is the Needle, and I see it more often than I'd like. Don't ask me whose hand holds it." } },
     _none = { { id = "tp_none", text = "The cards are silent on that, and they are rarely silent, so make of it what you will." } },

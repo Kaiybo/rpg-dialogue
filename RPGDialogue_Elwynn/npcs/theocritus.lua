@@ -22,9 +22,9 @@ P:NPC {
 
   notice = {
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
-      text = "A mage, and your robes are dreadful. Never mind; Morley could do something with you, as he does with everyone." },
+      text = "A mage, and your robes are dreadful. Never mind; Morley Eberlein, my clothier downstairs, could do something with you, as he does with everyone." },
     { id = "n_warlock", cat = "fel", place = "before", when = { class = "WARLOCK" },
-      text = "You reek of the Nether. So did Morganth, before he went wrong. I will be watching you closely, and you will not enjoy it." },
+      text = "You reek of the Nether, and so did the renegade Morganth, before he went wrong. I will be watching you closely, and you will not enjoy it." },
     { id = "n_taint", cat = "fel", when = { taint = { min = 25 } },
       text = "Something fel has had its fingers in you. Stand by the window, please; I'd like it to be the first thing I see if you change shape." },
   },
@@ -63,8 +63,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It's worth a footnote. The arcane is the true discipline; your spirits are a curiosity. Do mind the stairs on your way out." } },
       choices = {
-        { text = "Discipline has its place, Theocritus. I respect your study.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Footnotes, is it? My spirits have answered when your arcane failed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Discipline has its place, Theocritus. I respect your study.", next = "BACK", reply = "How gracious, and quite unexpected. I'll amend the footnote to a short paragraph.", fx = { align = { order = 1 } } },
+        { text = "Footnotes, is it? My spirits have answered when your arcane failed.", next = "BACK", reply = "When it failed in someone else's hands, perhaps. Mine are rather more reliable. Do mind the stairs.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -72,8 +72,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Sometimes a problem needs only to be hit, and I am too busy to hit it myself. Morganth's gnolls in Redridge are such a problem, and you are, I suppose, such a solution." } },
       choices = {
-        { text = "I'll solve your problem, and gladly.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Find someone else to hit things for you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll solve your problem, and gladly.", next = "BACK", reply = "Splendid, and do try to be quick about it. Morganth won't wait on your convenience.", fx = { align = { order = 1 } } },
+        { text = "Find someone else to hit things for you.", next = "BACK", reply = "I have, and you're what turned up. Do close the door on your way out.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -81,11 +81,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hunted, no; watched, perhaps. Morganth's Shadowhide gnolls range far beyond Redridge, and a hunter who knows the hills can see things the Eye of Azora can't. Tell me what you find, and nothing more." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}, I see, is sniffing my gnome. Do call it off; they are not hounds, and they are not food." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hunted, no; watched, perhaps, for Morganth's Shadowhide gnolls range far beyond Redridge. And your {pet}, I see, is sniffing my gnome, so do call it off; they are not hounds, and they are not food." },
       },
       choices = {
-        { text = "I'll watch and report what I see.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll take my own counsel on what I find.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll watch and report what I see.", next = "BACK", reply = "Precisely what I need, and nothing more. The Eye will be grateful.", fx = { align = { order = 1 } } },
+        { text = "I'll take my own counsel on what I find.", next = "BACK", reply = "Then take it somewhere else, and do close the door. I've no use for a scout who keeps secrets.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -93,16 +93,16 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I fear nothing, but I'm careful, because Morganth has sent spies into this tower before, and some of them came in as quietly as you did. The gnomes caught the last one and he's still apologizing." } },
       choices = {
-        { text = "I'm no spy for Morganth. You can trust me, Theocritus.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your gnomes won't catch me. I'd be careful, mage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'm no spy for Morganth. You can trust me, Theocritus.", next = "BACK", reply = "Trust is a luxury in this tower, but I'll consider it. The gnomes will be watching.", fx = { align = { order = 1 } } },
+        { text = "Your gnomes won't catch me. I'd be careful, mage.", next = "BACK", reply = "They caught the last one who said that, and he's still apologizing. Do see yourself out.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Because it can't be measured, only felt. A spell should be precise, and I've never yet met a druid who could tell me how a thing works, only that it does." } },
       choices = {
-        { text = "Not everything must be measured to be true.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "You're right. Magic should be understood.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Not everything must be measured to be true.", next = "BACK", reply = "And yet the thing still works, which is infuriating. I'll grant you that much.", fx = { align = { order = -1 } } },
+        { text = "You're right. Magic should be understood.", next = "BACK", reply = "At last, someone sensible! You may stay a moment longer.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -110,8 +110,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Studied it, yes, and given it up, because it refuses to be measured and I refuse to work with anything I can't measure. The priests at the Cathedral find this terribly sad, and I find their certainty terribly convenient, so we're even." } },
       choices = {
-        { text = "Some things aren't meant to be measured, Theocritus.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then you're wise. Faith without proof is a crutch.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some things aren't meant to be measured, Theocritus.", next = "BACK", reply = "Perhaps not, but they're terribly inconvenient for a man of my habits. I'll leave them to the Cathedral.", fx = { align = { light = 1 } } },
+        { text = "Then you're wise. Faith without proof is a crutch.", next = "BACK", reply = "A sensible view, and rarely heard in this kingdom. You may tell the priests I agree.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -119,8 +119,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Not today, but Morganth was a student once, in Stormwind, with a teacher who trusted him, and look what he became. Every tower has one of him somewhere in its past, and every kingdom pays for it eventually." } },
       choices = {
-        { text = "Then he must be stopped before anyone else pays.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let Redridge deal with him. Stormwind's walls will hold.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then he must be stopped before anyone else pays.", next = "BACK", reply = "Precisely, and that is why I watch. Go to Redridge, and do be thorough.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let Redridge deal with him. Stormwind's walls will hold.", next = "BACK", reply = "Walls held against the orcs too, until they didn't. Do try to think beyond the gate.", fx = { align = { light = -1 } } },
         { text = "Something else, Theocritus.", next = "BACK" },
       },
     },
@@ -132,13 +132,13 @@ P:NPC {
         { id = "h_low", when = { maxLevel = 17 },
           text = "You are very young and I am very busy. Come back when you've survived something interesting." },
         { id = "h_before", when = { minLevel = 18, questBefore = TODO_QUEST("Morganth") },
-          text = "A man in Redridge, in the Tower of Ilgalar, once studied with Stormwind's mages until he went wrong. He is my problem." },
+          text = "A man named Morganth, in the Tower of Ilgalar in Redridge, once studied with Stormwind's mages until he went wrong. He is my problem." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Morganth") },
           text = "Morganth commands the Shadowhide gnolls and thinks himself a lord. Remind him otherwise. Permanently, if you'd be so kind." },
         { id = "h_eye", when = { questActive = TODO_QUEST("A Watchful Eye") },
-          text = "The Eye of Azora sees far, but not far enough. That is where you come in, regrettably." },
+          text = "My scrying sphere, the Eye of Azora, sees far, but not far enough. That is where you come in, regrettably." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Morganth"), days = 3 } },
-          text = "Gone, really? Then Stormwind is a little safer, and I am a great deal less bored than I expected to be, which is not a complaint." },
+          text = "Gone, really? Then Stormwind is a little safer, and I am far less bored than I expected to be, which is not a complaint." },
         { id = "h_mage", when = { class = "MAGE", minLevel = 20 },
           text = "The Mage Quarter sends me its brighter students now and then. You might do, possibly." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -150,7 +150,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in my tower. You'll touch nothing, take nothing and leave the gnomes alone, because they count everything, and I count them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my tower. Do not touch the shelves; anything you break, you will learn the price of." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in my tower, with an animal. Keep it away from the gnomes; they bite back, and I'd rather not hear of it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in my tower, with an animal. Keep it away from the gnomes; they bite back, and I have no wish to hear of it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. In my tower. Hmm. My gnomes will be fascinated, I'm sure. I am not." },
       },
       again = {
@@ -193,11 +193,11 @@ P:NPC {
     duty = {
       big = true,
       lines = {
-        { id = "d_default", text = "Because I don't care about tax rolls or harvests or who the Regent is dining with. But I know what Morganth is. If I don't care about that, no one competent will." },
+        { id = "d_default", text = "Because I care nothing for tax rolls or harvests or who the Regent is dining with, but I know what Morganth is, and if I don't stop him, no one competent will." },
       },
       choices = {
-        { text = "Then I'll help.", next = "BACK", fx = { affinity = 2, learn = { "morganth" }, align = { order = 1 } } },
-        { text = "Very noble of you.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { witty = 1 } } },
+        { text = "Then I'll help.", next = "BACK", reply = "Splendid, and do try to be useful rather than merely willing. Redridge is that way.", fx = { affinity = 2, learn = { "morganth" }, align = { order = 1 } } },
+        { text = "Very noble of you.", next = "BACK", reply = "Nobility has nothing to do with it. Somebody must, and I happen to be competent.", fx = { align = { order = -1 }, affinity = -1, trait = { witty = 1 } } },
       },
     },
     morganth_want = {
@@ -225,7 +225,7 @@ P:NPC {
       lines = {
         { id = "st_default", text = "In time. I sent a message through them weeks ago and thought it failed. Next I mean to send something that holds every gnoll wearing one where it stands." },
         { id = "st_heard", when = { questDone = TODO_QUEST("Theocritus' Retrieval") },
-          text = "You heard my message through one. Weeks late, but heard. That is still the most satisfying thing to happen in this tower all year." },
+          text = "You heard my message through one of those pendants, weeks late, but you heard it. That is still the most satisfying thing to happen in this tower all year." },
       },
       choices = {
         { text = "Months of research for a leash.", next = "BACK", fx = { trait = { skeptical = 1 } } },
@@ -235,7 +235,7 @@ P:NPC {
 
     tower = {
       lines = {
-        { id = "tw_default", text = "Mine. The gnomes keep it, Morley dresses it, and the Eye watches Redridge. I go up and down the stairs as little as possible." },
+        { id = "tw_default", text = "It's mine. The gnomes keep it, Morley Eberlein keeps it in robes and the Eye watches Redridge, while I go up and down the stairs as little as possible." },
       },
       choices = {
         { text = "The gnomes?", next = "tower_gnomes" },
@@ -250,7 +250,7 @@ P:NPC {
     },
     eye = {
       lines = {
-        { id = "ey_default", text = "The Eye of Azora, a scrying sphere upstairs. Touch it and you see Ilgalar's walls. My glyphs carry its sight further, wherever someone brave sets them." },
+        { id = "ey_default", text = "The Eye of Azora, a scrying sphere upstairs. Touch it and you see the walls of Morganth's tower in Redridge. My glyphs carry its sight further, wherever someone brave sets them." },
       },
       choices = {
         { text = "I could set one.", next = "BACK", when = { minLevel = 20 }, fx = { affinity = 1, learn = { "morganth" } } },
@@ -272,8 +272,8 @@ P:NPC {
         { id = "ep_default", text = "Then help them, and I'll be up here making sure there's a kingdom left for them to suffer in. We both have our work." },
       },
       choices = {
-        { text = "That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "That's a convenient view from a tower.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { stern = 1 } } },
+        { text = "That's fair.", next = "BACK", reply = "Good, we understand each other. Go and help them, then.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "That's a convenient view from a tower.", next = "BACK", reply = "It is, and the view is the point. I see Morganth coming, and you don't.", fx = { align = { order = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
 
@@ -290,11 +290,11 @@ P:NPC {
 
     mage = {
       lines = {
-        { id = "ma_default", text = "I'm not a trainer. But here is one thing free: Ur's work is sealed for a reason. If anyone offers you a look inside, refuse, loudly." },
+        { id = "ma_default", text = "I'm not a trainer, but here is one thing for free: Ur's work is sealed for a reason, so if anyone offers you a look inside, refuse, loudly." },
       },
       choices = {
-        { text = "I'll refuse.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "I'll decide for myself what I read.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll refuse.", next = "BACK", reply = "Good, and loudly, as I said. You may thank me later.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll decide for myself what I read.", next = "BACK", reply = "Then decide carefully, because some pages read you back. I'll not warn you twice.", fx = { align = { order = -1 } } },
         { text = "Knowledge shouldn't be locked away.", next = "mage_knowledge", fx = { trait = { curious = 1 } } },
       },
     },
@@ -309,8 +309,8 @@ P:NPC {
         { id = "wl_default", text = "Nobody is Morganth until they are. He began as a student with good intentions. Keep yours where I can see them." },
       },
       choices = {
-        { text = "You'll see them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My power is my business.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "You'll see them.", next = "BACK", reply = "Good, and I'll be watching. Do keep them in sight.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My power is my business.", next = "BACK", reply = "It's mine too, the moment it comes near this tower. Remember that.", fx = { affinity = -2, align = { order = -1 } } },
       },
     },
     priest = {
@@ -318,8 +318,8 @@ P:NPC {
         { id = "pr_default", text = "A priest who knows shadow? Then you know it's a road that narrows the further you walk it. Morganth walked it to the end, so don't." },
       },
       choices = {
-        { text = "I walk it carefully.", next = "BACK", fx = { align = { light = -1 }, affinity = 1, trait = { cautious = 1 } } },
-        { text = "The Light walks with me.", next = "BACK", fx = { affinity = 1, align = { light = 2 } } },
+        { text = "I walk it carefully.", next = "BACK", reply = "Good, and keep it that way. The road is very easy to follow too far.", fx = { align = { light = -1 }, affinity = 1, trait = { cautious = 1 } } },
+        { text = "The Light walks with me.", next = "BACK", reply = "Morganth was quite certain of his company too, once. Do mind your step.", fx = { affinity = 1, align = { light = 2 } } },
       },
     },
     gnome = {
@@ -351,9 +351,9 @@ P:NPC {
     },
     defias = { { id = "tp_defias", text = "Thieves, and tiresome ones, but somebody else's problem, I'm delighted to say." } },
     eastvale = { { id = "tp_eastvale", text = "There are loggers below, I'm told. I hear them occasionally, and I try not to." } },
-    blackrock = { { id = "tp_blackrock", text = "The orcs in Stonewatch Keep. Morganth used them and threw them away, and I very nearly feel sorry for them." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock are the orcs in Stonewatch Keep, in Redridge. Morganth used them and threw them away, and I very nearly feel sorry for them." } },
     _none = { { id = "tp_none", text = "If it were worth knowing, I would know it. Draw your own conclusions." } },
-    dalaran = { { id = "tp_dalaran", text = "Dalaran was the jewel of the human kingdoms, and the Scourge broke it in an afternoon. The Kirin Tor rebuild behind their walls now and admit almost nobody, and I confess I don't blame them, nor do I write." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the jewel of the human kingdoms, and the Scourge broke it in an afternoon. The Kirin Tor rebuild behind their walls now and admit almost nobody, and I confess I don't blame them." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor once invited me to join them, and I declined, because I prefer a tower of my own to a chair in somebody else's. That is all the explanation they received, and all you shall." } },
     scourge = { { id = "tp_scourge", text = "The Scourge is necromancy on a scale no sane mage would attempt, and the man behind its plague sat among the Kirin Tor before he chose it. Every mage alive should remember Kel'Thuzad's name and be ashamed of it.", fx = { learn = { "kelthuzad" } } } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad sat on Dalaran's own council before he went hunting forbidden knowledge, and they say he rules the dead now from a citadel that floats above the plaguelands. If he is still a man in any sense, he is a monstrous one." } },

@@ -18,7 +18,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Come closer to the fire, {class}, unless you're afraid of it. Most people are, and they're right to be." },
-    { id = "g_shaman", when = { class = "SHAMAN", questActive = TODO_QUEST("Call of Fire") }, text = "Searn sent you, or Xanis, did he? Then you're ready for the next sapta, the sapta of fire, and I can see the wanting in your eyes already." },
+    { id = "g_shaman", when = { class = "SHAMAN", questActive = TODO_QUEST("Call of Fire") }, text = "Your trainer sent you out to me, did he? Then you're ready for the next sapta, the sapta of fire, and I can see the wanting in your eyes already." },
   },
 
   notice = {
@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Kranal Fiss, and I keep the fire for the young shaman of the Horde, the ones strong enough in the ways of earth to want more. You've tasted power, some of you, and now you're hungry for it, and fire answers hunger better than any other element." },
+        { id = "h_default", key = true, text = "Kranal Fiss, and I keep the fire for the young shaman of the Horde, the ones strong enough in the ways of earth to want more. You've tasted the earth's power already, and now you're hungry for more, and fire answers hunger better than any other element." },
         { id = "h_torch", when = { class = "SHAMAN", questActive = TODO_QUEST("Call of Fire"), minLevel = 13 },
           text = "Your spirit burns brighter than any torch I've ever seen, and you should be proud of it. Go on down this path, and the elements will be yours to command, and the Horde will look to you for guidance." },
       },
@@ -59,20 +59,20 @@ P:NPC {
       big = true,
       lines = { { id = "hu_default", text = "It does, and that's the danger in it. The orcs who called on fel fire wanted power and got it, and look what it cost us, so a shaman must want the flame and still know when to let it go." } },
       choices = {
-        { text = "Wanting power isn't wrong. I'll want it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll learn to let it go, before it takes me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wanting power isn't wrong. I'll want it.", next = "BACK", reply = "Then want it, but know that the Horde once wanted it too, and we nearly drowned in it. Your hunger will be tested, and I hope it serves you better than ours served us.", fx = { align = { light = -1 } } },
+        { text = "I'll learn to let it go, before it takes me.", next = "BACK", reply = "That is the harder lesson, and you've said it before the flame taught you why. Hold to it when the fire roars loudest, because that's when it will ask you for everything.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     telf = {
-      lines = { { id = "te_default", text = "Along the Southfury River in Durotar, before the Great Sea, there's a hidden trail to one of the highest peaks in that land. At the top is the Shrine of the Dormant Flame, and Telf Joolam watches over it, so take him the torch I give you." } },
+      lines = { { id = "te_default", text = "Along the Southfury River in Durotar there's a hidden trail up one of the highest peaks in that land. At the top is the Shrine of the Dormant Flame, and Telf Joolam watches over it, so take him the torch I give you." } },
       choices = {
         { text = "What will Telf ask of me?", next = "telf2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     telf2 = {
-      lines = { { id = "t2_default", text = "Fire tar from the Razormane spellcasters in the east of the Barrens, and a pouch of reagents, so he can make the sapta. Then you'll face the manifestation of fire on that mountaintop, and you'll strike quickly, because it only grows the longer you take." } },
+      lines = { { id = "t2_default", text = "He'll want fire tar from the Razormane spellcasters in the east of the Barrens, and a pouch of reagents, so he can make the sapta. Then you'll face the manifestation of fire on that mountaintop, and you'll strike quickly, because it only grows the longer you take." } },
       choices = { { text = "Something else, Kranal.", next = "BACK" } },
     },
     hills = {
@@ -116,13 +116,17 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Sikwa, and I keep the stables here, which means I keep the beasts that the hunters of the Barrens can't take with them. Every one of them gets fed and watered and walked, and every owner gets told off if they've neglected it." },
+        { id = "h_default", key = true, text = "I am Sikwa, and I keep the stables here, which means I keep the beasts that the hunters of the Barrens can't take with them. Each beast gets fed and watered and walked, and every owner gets told off if they've neglected it." },
       },
       again = { { id = "h_again", text = "Anything else? The beasts need their evening walk soon." } },
       choices = {
         { text = "I'd like to stable my companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What beasts do the Barrens hunters tame?", next = "beasts" },
         { text = "Is the Crossroads safe for the animals?", next = "safe" },
+        { text = "You hunted with a lion of your own once.", next = "lion" },
+        { text = "What do you make of Reggifuz?", next = "reggifuz" },
+        { text = "You watch the road more than the stalls.", next = "road" },
+        { text = "How should I be caring for my companion?", next = "care", when = { class = "HUNTER" } },
         { text = "Farewell, Sikwa.", next = "END" },
       },
     },
@@ -141,14 +145,80 @@ P:NPC {
       big = true,
       lines = { { id = "fi_default", text = "A caged beast dies afraid, and a free one dies fighting, if it dies at all. Some owners would rather I kept their companions locked away and safe, but I'd rather give them a chance." } },
       choices = {
-        { text = "Their owners trusted you to keep them safe.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Better free and fighting than caged and afraid.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Their owners trusted you to keep them safe.", next = "BACK", reply = "They trusted me to keep them alive, and a beast that can't run or bite won't stay alive long. I hear you, though, and I'll not take a risk with a pet that isn't mine to take.", fx = { align = { order = 1 } } },
+        { text = "Better free and fighting than caged and afraid.", next = "BACK", reply = "You understand it as a hunter does, then. The Earth Mother made no creature for a cage, and I sleep better knowing they had their chance.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lion = {
+      lines = {
+        { id = "li_default", text = "For twenty years, from the time she was a cub with oversized paws until she was grey around the muzzle and slept through most of the day. We hunted from Mulgore to the Stonetalon foothills, and she never once brought down more than we needed." },
+        { id = "li_hunter", when = { class = "HUNTER" }, text = "For twenty years, {class}, which is a long time to share every meal and every bedroll with another heart. You'll understand it better than most, so I won't pretend it was simple." },
+      },
+      choices = {
+        { text = "What happened to her?", next = "lion_end" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lion_end = {
+      lines = { { id = "le_default", text = "She grew old and lay down in the grass near the Gold Road one evening, and she did not get up, which is the best death the Earth Mother gives. I sat with her until An'she rose, and then I came here instead of taming another." } },
+      choices = {
+        { text = "Why not take another companion?", next = "old_lion" },
+        { text = "I'm sorry, Sikwa.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    old_lion = {
+      lines = { { id = "ol_default", text = "Because a heart is not a stall to be filled again the next morning. The old lioness in the corner belonged to a hunter who went into the Wailing Caverns and did not come out, so I keep her instead, and that is enough for me." } },
+      choices = {
+        { text = "Grief has its own pace. You're right to honor it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The dead are gone. The living hunters need you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    reggifuz = {
+      lines = { { id = "re_default", text = "He counts the feed and I count the beasts, and we argue over which number matters more. He is greedy, but he is not cruel, and he has never once let a beast go hungry to save a copper, which I did not expect of a goblin." } },
+      choices = {
+        { text = "He says you cost him three fences.", next = "reggifuz_fence" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    reggifuz_fence = {
+      lines = { { id = "rf_default", text = "Four, if he's counting honestly, and he never is. Let him send his little papers to Sergra; the beasts I let loose have bitten more Kolkar than his ledger ever will." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    road = {
+      lines = { { id = "ro_default", text = "The road is where the trouble comes from, and the beasts smell it before the guards see it. When the lions in the stalls go quiet and turn their heads west, I tell the gate, and the gate has learned to listen." } },
+      choices = {
+        { text = "What comes from the west?", next = "road_kolkar" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_kolkar = {
+      lines = { { id = "rk_default", fx = { learn = { "centaur" } }, text = "The Kolkar, from their camps out past the Stonetalon road, and sometimes the Razormane from the hills to the south. The centaur ride beasts half-starved and whipped, and my lions can smell that too, which makes them angrier than any war drum." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    care = {
+      lines = {
+        { id = "ca_default", text = "Feed {pet} before you feed yourself, check the paws every evening, because the Barrens grass hides thorns, and never leave it to guard your camp alone while you sleep. A companion is not a tool, and it knows when you treat it like one." },
+        { id = "ca_tauren", when = { race = "Tauren" }, text = "As your elders taught you, child of Mulgore, if they taught you well: feed {pet} first, check its paws at dusk, and thank it at the end of each hunt. I've seen too many young tauren forget the last part once they leave home." },
+      },
+      choices = {
+        { text = "Which foods does it need out here?", next = "care_feed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    care_feed = {
+      lines = { { id = "cf_default", text = "Fresh meat for the cats and wolves, and the plainstrider meat is lean and good, though Zargh charges too much for it. Never feed a beast centaur rations, whatever the grunts say, because I've no idea what goes into them and neither do the centaur." } },
+      choices = {
+        { text = "I'll remember, Sikwa.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
   topics = {
     background = { { id = "tp_bg", text = "I hunted with a lion of my own for twenty years. When she died, I took this post instead of taming another." } },
+    advice = { { id = "tp_ad", text = "Check your companion's paws every evening. The grass here hides more thorns than it shows." } },
+    centaur = { { id = "tp_centaur", next = "road_kolkar", text = "The centaur whip their beasts until they hate the world, and then they ride them at our walls." }, { id = "tp_centaur2", text = "When the lions go quiet and look west, the Kolkar are coming. That's all I need to know of them." } },
     _none = { { id = "tp_none", text = "I don't know, but the old lion in the corner stall might. She's seen more of the Barrens than I have." } },
   },
 }

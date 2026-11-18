@@ -65,7 +65,7 @@ P:NPC {
 
     child = {
       lines = {
-        { id = "ch_default", text = "Fevers that come and go, and nightmares that leave her shaking in the morning. Pelturas has tried every remedy the priestesses could offer, and none of them reach whatever it is." },
+        { id = "ch_default", text = "She has fevers that come and go, and nightmares that leave her shaking in the morning. Pelturas has tried every remedy the priestesses could offer, and none of them reach whatever it is." },
       },
       choices = {
         { text = "You must have some idea what it is.", next = "child_think" },
@@ -87,15 +87,15 @@ P:NPC {
         { id = "cf_default", text = "Parts of it, yes, where the Horde's axes and the furbolgs' madness have been. I don't say that to frighten you, friend, only so that you know why I go looking for old cures in old ruins." },
       },
       choices = {
-        { text = "Then the Horde must be driven out of the forest.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Then we heal what we can, where we can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then the Horde must be driven out of the forest.", next = "BACK", reply = "Perhaps, and the Sentinels are trying, Elune knows. But the forest can't wait for the war to end before it heals.", fx = { align = { light = -1 } } },
+        { text = "Then we heal what we can, where we can.", next = "BACK", reply = "That's all I ask of anyone, friend, and it's more than most give. Thank you.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     haunt = {
       lines = {
-        { id = "ha_default", text = "Old ruins to the north, near the Darkshore border, named for Bathran, who lived there long ago. The plant grew among the stones and nobody has gathered it in years, because few go there willingly now." },
+        { id = "ha_default", text = "They're old ruins to the north, near the Darkshore border, named for Bathran, who lived there long ago. The plant grew among the stones and nobody has gathered it in years, because few go there willingly now." },
       },
       choices = {
         { text = "Why does no one go there?", next = "haunt_why" },
@@ -127,8 +127,8 @@ P:NPC {
         { id = "fo_default", text = "The Undercity's dead, digging about in our ruins this far north? Whatever they want there, it isn't Bathran's Hair. I'll send word to Astranaar tonight." },
       },
       choices = {
-        { text = "Let me drive them out before they settle in.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Find out what they want before anyone strikes.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let me drive them out before they settle in.", next = "BACK", reply = "Thank you, and be careful, for they don't fight like the living. Astranaar will want to know what you find.", fx = { align = { honor = -1 } } },
+        { text = "Find out what they want before anyone strikes.", next = "BACK", reply = "That's wise, and the Sentinels will be grateful for it. Knowing what they want might save a great deal of blood.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -153,9 +153,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "An herbalist with a healer's habits. I've spent more years kneeling in leaf litter than standing up, and I don't regret it." } },
+    background = { { id = "tp_bg", text = "I'm an herbalist with a healer's habits. I've spent more years kneeling in leaf litter than standing up, and I don't regret it." } },
     advice = { { id = "tp_ad", text = "Never pick a plant you can't name, friend. Ashenvale is generous, but it isn't always kind." } },
-    sentinels = { { id = "tp_sentinels", text = "Brave, all of them, and too few. Bring them your bandages if you've any to spare." } },
+    sentinels = { { id = "tp_sentinels", text = "They're brave, all of them, and too few. Bring them your bandages if you've any to spare." } },
     elune = { { id = "tp_elune", text = "I pray to Elune while I work, mostly for patience with the roots. She seems to answer that prayer more than others." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The druids tell me herbs in the Dream grow without blight. I'd like to see that, though I doubt I'd ever want to come back." } },
     green_dragons = { { id = "tp_green_dragons", text = "There's a grove south of here where a green dragon sleeps, and the herbs there grow strangely. I gather near it carefully, and I don't stay long." } },

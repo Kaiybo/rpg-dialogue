@@ -26,7 +26,7 @@ P:NPC {
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Your armor's in a worse state than our stores, and that's saying something. Bluth might have a strap or two, if you're polite to him." },
+      text = "Your armor's in a worse state than our stores, and that's saying something. Corporal Bluth, who keeps our stores, might have a strap or two, if you're polite to him." },
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
       text = "You stand like you've stood a watch or two. Good, then you'll understand why I write everything down." },
   },
@@ -44,7 +44,7 @@ P:NPC {
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Report to Doren") },
           text = "The Lieutenant has the name now, and it's his to deal with. I've gone back to my ledger, and I find I don't sleep much better for knowing." },
         { id = "h_secrets", when = { questActive = TODO_QUEST("Jungle Secrets") },
-          text = "You're looking into Thorsen? He walked his last patrol with someone from this camp, and that someone talked. I've the roster, if the Lieutenant ever asks for it." },
+          text = "You're looking into what happened to Private Thorsen? He walked his last patrol with someone from this camp, and that someone talked. I've the roster, if the Lieutenant ever asks for it." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a roster to finish before the dusk watch." },
@@ -72,8 +72,8 @@ P:NPC {
       big = true,
       lines = { { id = "kr_default", text = "He kept them in the first months, neat as a quartermaster. Then he burned them in a pot one night and told us the jungle didn't need to know our names, and the men around him cheered, and that's the night I started thinking about leaving." } },
       choices = {
-        { text = "An army without records is a mob. You were right to leave.", next = "BACK", fx = { align = { order = 1 }, learn = { "kurzen" } } },
-        { text = "Maybe he was right. Names are only a leash.", next = "BACK", fx = { align = { order = -1 }, learn = { "kurzen" } } },
+        { text = "An army without records is a mob. You were right to leave.", next = "BACK", reply = "That's what I told myself the night I walked out, and I've kept a roster every day since. A man with a name can be counted, and a man who's counted can be missed.", fx = { align = { order = 1 }, learn = { "kurzen" } } },
+        { text = "Maybe he was right. Names are only a leash.", next = "BACK", reply = "A leash, maybe, but it's also how your mother learns where you're buried. I'll keep writing them down, even if the jungle doesn't care.", fx = { align = { order = -1 }, learn = { "kurzen" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -118,8 +118,8 @@ P:NPC {
       big = true,
       lines = { { id = "ca_default", text = "Quiet. Too quiet, because everyone's watching everyone and nobody says it. Some of the men want the Lieutenant to line us all up and question us one by one, and some say that's just what Kurzen would do." } },
       choices = {
-        { text = "Question everyone. One traitor can kill the whole camp.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Find the traitor without treating every man like one.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Question everyone. One traitor can kill the whole camp.", next = "BACK", reply = "You sound like half the camp, and maybe half the camp is right. But line us up like prisoners and you might lose more good men than one traitor ever could.", fx = { align = { light = -1 } } },
+        { text = "Find the traitor without treating every man like one.", next = "BACK", reply = "That's the hard way and the right one, I think, and the Lieutenant agrees. Keep your eyes open, though, because I can't watch every tent at once.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -171,7 +171,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Private Merle, and glad to know you. I came into this jungle with the Colonel same as the rest, and walked out with the Lieutenant same as the rest, and now I mostly stand watch and wait for something to happen." },
         { id = "h_secrets", tags = { "news" }, when = { questActive = TODO_QUEST("Jungle Secrets") },
-          text = "You're asking around about Thorsen, aren't you? Terrible business, him getting caught like that. Did the Lieutenant say who he thinks did it?" },
+          text = "You're asking around about Private Thorsen, aren't you? Terrible business, him getting caught like that. Did the Lieutenant say who he thinks did it?" },
         { id = "h_herod", when = { questActive = TODO_QUEST("Bookie Herod") },
           text = "Bookie Herod? I've heard the name, everyone has. Some of the lads used to put a few coppers on cards with him, back before, and I couldn't say who still does." },
         { id = "h_patrol", tags = { "news" }, when = { questActive = TODO_QUEST("Patrol Schedules") },
@@ -194,7 +194,7 @@ P:NPC {
     },
 
     leave = {
-      lines = { { id = "le_default", text = "Same as everyone, friend: the Colonel went strange and the Lieutenant didn't, and I'd rather follow a man who isn't hearing voices. That's the right answer, isn't it? It's the one everyone gives." } },
+      lines = { { id = "le_default", text = "Same as everyone, friend: the Colonel went strange and the Lieutenant didn't, and a man who isn't hearing voices is the better one to follow. That's the right answer, isn't it? It's the one everyone gives." } },
       choices = {
         { text = "It's a strange way to put it.", next = "leave_odd" },
         { text = "Something else.", next = "BACK" },
@@ -210,7 +210,7 @@ P:NPC {
 
     thorsen = {
       lines = {
-        { id = "th_default", text = "We walked a few patrols together, same as half the camp. Brave lad, Thorsen, going into the Colonel's camp alone like that, and brave isn't always the same thing as clever, is it?" },
+        { id = "th_default", text = "We walked a few patrols together, same as most of the camp. Brave lad, Thorsen, going into the Colonel's camp alone like that, and brave isn't always the same thing as clever, is it?" },
         { id = "th_spy", when = { questActive = TODO_QUEST("The Spy Revealed!") },
           text = "A note, you say, signed with a letter? Could be anyone, friend. Half the men here can't write their own names, and the other half write them badly." },
       },
@@ -223,8 +223,8 @@ P:NPC {
       big = true,
       lines = { { id = "tm_default", text = "Only that he told too many people where he was going and when, and talk travels in a camp like this. I'm not blaming him, mind, but if I'd been the one going in, I'd have kept my mouth shut." } },
       choices = {
-        { text = "Thorsen trusted his comrades. That's no crime.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "He should have trusted no one. That's how spies live.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Thorsen trusted his comrades. That's no crime.", next = "BACK", reply = "You're right, and I'd never say different over his grave. He was a good man, and good men trust people, more's the pity.", fx = { align = { honor = 1 } } },
+        { text = "He should have trusted no one. That's how spies live.", next = "BACK", reply = "That's how I'd have done it, but then nobody ever called me a hero. Out here the quiet ones live longest, I reckon.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -310,6 +310,10 @@ P:NPC {
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Where do your supplies come from?", next = "supply" },
         { text = "How does the camp eat, out here?", next = "eat" },
+        { text = "Why did you leave Kurzen's command?", next = "why" },
+        { text = "Nobody's been paid? How does the camp hold together?", next = "pay" },
+        { text = "Your powder's damp. Let me show ye how to keep it.", next = "powder", when = { race = "Dwarf" } },
+        { text = "Does Brother Nimetz have help with the wounded?", next = "nimetz", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Nothing for now.", next = "END" },
       },
     },
@@ -318,10 +322,61 @@ P:NPC {
       big = true,
       lines = { { id = "su_default", text = "From the goblins in Booty Bay, mostly, at goblin prices, and from whatever we take off the Colonel's supply runs. The Lieutenant doesn't like that second part, but a man can't eat principles, and Kurzen's crates are full of good Stormwind biscuit." } },
       choices = {
-        { text = "Take what you need from Kurzen. He owes you that much.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Stealing makes you no better than him. Buy what you need.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Take what you need from Kurzen. He owes you that much.", next = "BACK", reply = "My thinking exactly, and I've told the Lieutenant as much. Every crate the Colonel loses is one less he can use to keep his deserters fed.", fx = { align = { honor = -1 } } },
+        { text = "Stealing makes you no better than him. Buy what you need.", next = "BACK", reply = "Tell that to the lads with no boots, friend. I'll buy what I can at goblin prices, but the Colonel's stores are closer and a good deal cheaper.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+
+    why = {
+      lines = { { id = "wh_default", text = "The Colonel brought us down here to fight the trolls, and for a while that's what we did. Then he changed, and men went into his compound and didn't come out the same, and one night the Lieutenant said he was leaving and asked who'd come." } },
+      choices = {
+        { text = "Changed how?", next = "wh_changed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wh_changed = {
+      lines = { { id = "whc_default", text = "Quieter, and colder, and he stopped looking at a man when he gave an order. There was talk of things in the dark of his compound that weren't soldiers, and I was the one counting the rations, so I noticed when the men started eating less and staring more." } },
+      choices = {
+        { text = "Do you think he can be saved?", next = "wh_saved" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "kurzen" } } },
+      },
+    },
+    wh_saved = {
+      lines = { { id = "whs_default", text = "The Lieutenant still hopes so, some nights, and I don't argue with him. Me, I think whatever's in that compound wants us all, and the kindest thing we could do for the Colonel is end it." } },
+      choices = {
+        { text = "He was your commander. Bring him home for trial.", next = "BACK", fx = { align = { order = 1 } },
+          reply = "If we can, aye. Stormwind would want its answers. I just doubt they'd like them." },
+        { text = "Kill him and be done. Orders died with his mind.", next = "BACK", fx = { align = { order = -1 } },
+          reply = "That's what half the camp says when the Lieutenant isn't listening. Light help me, I'm one of them." },
+        { text = "Something else.", next = "BACK", fx = { learn = { "kurzen" } } },
+      },
+    },
+
+    pay = {
+      lines = { { id = "pa_default", text = "Stubbornness, mostly, and the Lieutenant. Doren doesn't promise us anything he can't give, which in this jungle makes him the most trustworthy man south of Westfall, so we stay." } },
+      choices = {
+        { text = "Has anyone tried writing to Stormwind?", next = "pa_write" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pa_write = {
+      lines = { { id = "paw_default", text = "Corporal Sethman writes a report every week and sends it with the Booty Bay boats, and every week nothing comes back. Either the letters sink, or someone in Stormwind reads 'deserters' at the top and stops there." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    powder = {
+      lines = { { id = "po_default", text = "Would you? Light bless you, master dwarf, half my shot misfires and the hunters blame me for it. Show me, and I'll pass it on to the men, and maybe the trolls will stop laughing at us." } },
+      choices = {
+        { text = "Wax-sealed horn, kept close to the body. Simple.", next = "BACK", fx = { affinity = 1 },
+          reply = "Close to the body. Of course. I've been keeping it in the crates, under the tarp, like a fool." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    nimetz = {
+      lines = { { id = "ni_default", text = "None, {class}, and he could use it. He prays over every man who comes back cut, and he does it well, but there's one of him and a jungle full of spears. If you've a spare hour, he'd take it without a word of thanks, and mean the thanks all the same." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
 
     eat = {
@@ -335,5 +390,8 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Couldn't say. Ask Sethman, he writes everything down." } },
+    kurzen = { { id = "tp_kurzen", text = "He changed, and men went into his compound and came out wrong. That's why we left." } },
+    doren = { { id = "tp_doren", text = "He never promises what he can't give. That's why we stay." } },
+    advice = { { id = "tp_ad", text = "Keep your powder dry and your boots on. The river leeches don't sleep." } },
   },
 }

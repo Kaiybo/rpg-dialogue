@@ -30,7 +30,7 @@ P:NPC {
     { id = "n_troll", cat = "race", when = { race = "Troll" }, place = "before",
       text = "Ah, a troll, and one who wears de Horde's colours. Stand straight, young one, for you speak with your eldest kin." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "You carry de smell of prayer about you. Whatever god you kneel to, you know dat gods listen, and dat is more than most in dis port understand." },
+      text = "You carry de smell of prayer about you. Whatever god you kneel to, you know dat gods listen, and few in dis port of coin-counters understand dat." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "De spirits walk close beside you, shaman. They are restless near dis coast, because they can feel what stirs in de jungle." },
   },
@@ -126,9 +126,9 @@ P:NPC {
       big = true,
       lines = { { id = "zr_default", text = "Some do, and dat is dere foolishness to carry. A child may resent his grandfather, but it is still de grandfather who remembers where de family buried its dead, and which gods it must never wake." } },
       choices = {
-        { text = "Then the elders should lead, and the younger tribes should listen.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "No tribe owes another obedience, however old it is.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Do the younger tribes ever listen?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Then the elders should lead, and the younger tribes should listen.", next = "BACK", reply = "You speak with more sense than many trolls I could name. De young tribes will listen, I think, once Hakkar has finished teaching dem why dey should.", fx = { align = { order = 1 } } },
+        { text = "No tribe owes another obedience, however old it is.", next = "BACK", reply = "Dat is a young tribe's answer, and I have heard it from every one of dem. Obedience, no, but a wise child still asks his grandfather where de snakes sleep.", fx = { align = { order = -1 } } },
+        { text = "I doubt the younger tribes ever listen.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
 
@@ -154,8 +154,8 @@ P:NPC {
       lines = { { id = "hr_default", text = "De high priests of Zul'Gurub, de last proud Gurubashi, who thought they could make de Soulflayer serve dem. Now he walks in their city and they are his hands, and if he is not stopped there, he will cross into de rest of de world and drink it dry." } },
       choices = {
         { text = "And what do you think of the Gurubashi now?", next = "op_trolls" },
-        { text = "The Gurubashi called him. Let them burn with him.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Their common folk didn't choose this. Spare who can be spared.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Gurubashi called him. Let them burn with him.", next = "BACK", reply = "Many of dem will burn, outsider, whether we wish it or not. But do not be so eager, for de fire you light in Zul'Gurub will not ask whose hut it is.", fx = { align = { light = -1 } } },
+        { text = "Their common folk didn't choose this. Spare who can be spared.", next = "BACK", reply = "Dat is a kinder road than most would walk, and de loa will see it. Spare who you can, but do not let pity slow your blade when de priests come.", fx = { align = { light = 1 } } },
         { text = "Then he must be stopped. Where do I begin?", next = "molthor" },
       },
     },
@@ -237,8 +237,8 @@ P:NPC {
     k_alliance = {
       lines = { { id = "ka_default", text = "Your kingdoms and de trolls have fought since de days of Arathor, and I have no love for your banners. But Hakkar does not care whose blood he drinks, and a wise people takes allies where de gods send them." } },
       choices = {
-        { text = "Old wars should stay buried when a god is waking.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "We'll help, but the Alliance won't forget the Troll Wars.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Old wars should stay buried when a god is waking.", next = "BACK", reply = "Dis is wisdom, and I did not expect it from one wearing your colours. When de Soulflayer is dead, we may remember de old wars at our leisure.", fx = { align = { honor = 1 } } },
+        { text = "We'll help, but the Alliance won't forget the Troll Wars.", next = "BACK", reply = "Neither will de trolls, outsider, so we are even in dat. Help us all de same, and let de historians argue over it when Hakkar is dust.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -249,7 +249,7 @@ P:NPC {
       },
       choices = {
         { text = "My faith is the Light. Your loa are not gods to me.", next = "BACK", fx = { affinity = -1 }, when = { faction = "Alliance" } },
-        { text = "Then the loa themselves want him gone?", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then the true loa must want him gone as much as you do.", next = "BACK", fx = { affinity = 1 } },
       },
     },
   },
@@ -298,11 +298,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Dudd Fizzlescroll, purveyor of scrolls, maps and documents of every kind, scholar. Agility, Strength, Protection, Spirit, a good map of the Cape for a fair price, and treasure maps for an even fairer one, which you'll understand is a different thing entirely." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "One of Strom's quiet friends, if I'm any judge, and you'll want a Scroll of Agility for those fingers, scholar. Don't try lifting one, though, because I count my stock twice an hour and I count it in ink." },
+          text = "One of Ian Strom's rogues, if I'm any judge, and you'll want a Scroll of Agility for those fingers, scholar. Don't try lifting one, though, because I count my stock twice an hour and I count it in ink." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "Now here's a scholar with arms like ship's cable! A Scroll of Strength on top of all that would be gilding the cannon, but I sell gilt too, so let's talk." },
         { id = "h_cortello", when = { questDone = TODO_QUEST("Cortello's Riddle") },
-          text = "Word is you followed old Cortello's riddle all the way to the end, scholar, and there was a real chest at the bottom. Do you know what that does to my business, having a real one out there making mine look bad?" },
+          text = "Word is you followed old Captain Cortello's riddle all the way to the end, scholar, and there was a real chest at the bottom. Do you know what that does to my business, having a real one out there making mine look bad?" },
       },
       again = {
         { id = "h_again", text = "What else, scholar? Ask away, because questions are free and answers are priced to sell." },
@@ -331,11 +331,11 @@ P:NPC {
       },
     },
     scrolls_who = {
-      lines = { { id = "sw_default", text = "Not the magic ones, no, because the last time I tried, the ink caught fire and so did my desk, my sleeve and a very nice ledger. I've got a cousin who buys his blasting powder from Crazk Sparks, and even he said I should stick to copying." } },
+      lines = { { id = "sw_default", text = "Not the magic ones, no, because the last time I tried, the ink caught fire and so did my desk, my sleeve and a very nice ledger. I've got a cousin who buys his blasting powder from Crazk Sparks, the fireworks man, and even he said I should stick to copying." } },
       choices = { { text = "Something else, Dudd.", next = "BACK" } },
     },
     scrolls_best = {
-      lines = { { id = "sb_default", text = "Protection, scholar, by a long way, because anybody going up the jungle road wants a little extra between them and a raptor. Spirit sells to the priests and Intellect sells to the mages, and Agility sells to Strom's crowd, though they always want to pay in favours." } },
+      lines = { { id = "sb_default", text = "Protection, scholar, by a long way, because anybody going up the jungle road wants a little extra between them and a raptor. Spirit sells to the priests and Intellect sells to the mages, and Agility sells to the rogues, though they always want to pay in favours." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -353,8 +353,8 @@ P:NPC {
       big = true,
       lines = { { id = "mf_default", text = "Forgeries? A forgery pretends to be somethin' it ain't, and mine say treasure map right on the top, in very nice letters. Whether there's treasure at the X is between the customer and the jungle, and it's all in the small print, which I write extra small so it fits." } },
       choices = {
-        { text = "That's cheating desperate people. You should stop.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Anyone fool enough to buy one deserves the walk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That's cheating desperate people. You should stop.", next = "BACK", reply = "Stop? Pal, the walk alone is worth the price, fresh air, scenery, the thrill of discovery! I'm practically sellin' a holiday with a free map thrown in.", fx = { align = { honor = 1 } } },
+        { text = "Anyone fool enough to buy one deserves the walk.", next = "BACK", reply = "Now there's a customer who gets the business! Every map's a lesson, friend, and a lesson's worth payin' for, so tell your gullible friends where I am.", fx = { align = { honor = -1 } } },
         { text = "How small is the small print?", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -397,7 +397,7 @@ P:NPC {
       choices = { { text = "Something else, Dudd.", next = "BACK" } },
     },
     cust_garrett = {
-      lines = { { id = "cg_default", text = "I don't ask, scholar, because a goblin who asks questions about Shady Goods ends up a footnote. My guess is letters of passage, the kind with a seal that looks very much like a Stormwind one if you don't hold it near a lamp." } },
+      lines = { { id = "cg_default", text = "I don't ask, scholar, because a goblin who asks questions about Garrett's business ends up a footnote. My guess is letters of passage, the kind with a seal that looks very much like a Stormwind one if you don't hold it near a lamp." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -491,8 +491,8 @@ P:NPC {
       big = true,
       lines = { { id = "sf_default", text = "Modest for a hero, sport, which is a lot for anybody else. I paid for it, I stored it, I kept the damp off it, and the vendors charge me plenty, so if I ask a bit more than you sold it for, well, that's what regret costs." } },
       choices = {
-        { text = "Charging people for their own rewards is just wrong.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
-        { text = "They sold it. It's yours now, so charge what you like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Charging people for their own rewards is just wrong.", next = "BACK", reply = "Wrong? Pal, storage costs money, damp costs money, and my brother's eyebrows cost a fortune in salve. You want it free, you should've carried it out yourself.", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "They sold it. It's yours now, so charge what you like.", next = "BACK", reply = "Finally, a hero with a head for business! Possession's nine-tenths of the law in this port, sport, and the Baron collects on the other tenth.", fx = { align = { honor = -1 } } },
         { text = "Regret costs a lot in Booty Bay.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -520,7 +520,7 @@ P:NPC {
       },
     },
     family_frix = {
-      lines = { { id = "ff_default", text = "Still sellin' insurance, sport, mostly against my rockets, and he's got half the docks signed up. He says my Lost and Found is bad for his business, because people don't claim on a ring they can just buy back from me." } },
+      lines = { { id = "ff_default", text = "Still sellin' insurance, sport, mostly against my rockets, and he's got every captain on the docks signed up. He says my Lost and Found is bad for his business, because people don't claim on a ring they can just buy back from me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -535,12 +535,12 @@ P:NPC {
       },
     },
     rocket_pix = {
-      lines = { { id = "rp_default", text = "She said gear doesn't explode, sport, which she's been sayin' ever since, and she's got a point. Then Frix tried to sell the ship's captain a policy against roofs, and that's when they put us ashore with our luggage." } },
+      lines = { { id = "rp_default", text = "She said the cabin roof was comin' out of my share, sport, and she's been sayin' it ever since. Then Frix tried to sell the ship's captain a policy against roofs, and that's when they put us ashore with our luggage." } },
       choices = { { text = "Something else, Rix.", next = "BACK" } },
     },
 
     dream = {
-      lines = { { id = "dr_default", text = "Rockets, sport, every day! I've got a corner of the shelf set aside for parts, and one day I'll have enough for a proper shop on the pier, rockets for weddings and battles and the Baron's birthday. Crazk Sparks says the wharf ain't big enough for two of us, which I take as a compliment." } },
+      lines = { { id = "dr_default", text = "Rockets, sport, every day! I've got a corner of the shelf set aside for parts, and one day I'll have enough for a proper shop on the pier, rockets for weddings and battles and the Baron's birthday. Crazk Sparks, who sells fireworks on the wharf, says it ain't big enough for two of us, which I take as a compliment." } },
       choices = {
         { text = "Crazk sounds worried.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -640,7 +640,7 @@ P:NPC {
       },
       choices = {
         { text = "Why don't you cut it yourself?", next = "reed_why" },
-        { text = "You seem to need a great deal of it.", next = "reed_more" },
+        { text = "You seem to need an awful lot of it.", next = "reed_more" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -667,9 +667,9 @@ P:NPC {
       big = true,
       lines = { { id = "mp_default", text = "That's what the Bloodsail call me, and I'll own it on a dark night. But I don't burn villages or sell prisoners, shipmate, and the paper says so, and I keep to every line of it." } },
       choices = {
-        { text = "The paper's what makes it right. Keep to it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Paper or no paper, you're still a pirate.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Who decides what counts as lawful prize?", next = "marque_earn" },
+        { text = "The paper's what makes it right. Keep to it.", next = "BACK", reply = "Aye, and it's the paper that'll keep me off a gibbet when I'm old, shipmate. A pirate with rules lives a good deal longer than one without.", fx = { align = { order = 1 } } },
+        { text = "Paper or no paper, you're still a pirate.", next = "BACK", reply = "Maybe so, shipmate, and I'll not lose sleep over the word. But ask the Bloodsail what kind of pirate sinks their reeds, and you'll get a different answer.", fx = { align = { order = -1 } } },
+        { text = "How did you earn that paper, anyway?", next = "marque_earn" },
       },
     },
     marque_earn = {
@@ -721,7 +721,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the coast from the Cape to the Wild Shore, shipmate, and every Bloodsail sail I've seen on it." } },
     background = { { id = "tp_bg", text = "Westfall farm boy turned sailor, now master of the Saltpenny under the Baron's letter of marque.", next = "marque" } },
     advice = { { id = "tp_ad", text = "Never wade where you can't see your feet, shipmate, not on this coast." } },
-    bloodsail = { { id = "tp_blood", text = "Red sashes, black hearts and leaky brigs, shipmate, and every one of them's lawful prize to me." } },
+    bloodsail = { { id = "tp_blood", text = "Red sashes, black hearts and leaky brigs, shipmate, and all of it's lawful prize to me." } },
     _none = { { id = "tp_none", text = "Never heard of it, shipmate, and I've heard most things said in a port tavern." } },
   },
 }
@@ -742,7 +742,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Make it quick, partner, because I've got wagons to load and every hour they sit here is an hour of feed I'm payin' for." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, partner, and still breathin'! That puts you ahead of half the drivers I've hired this year." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, partner, and still breathin'! That puts you ahead of six drivers I hired this year, rest their ledgers." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, partner, and I'd already written you into the ledger under losses, so you've done my accounts a favour by walkin' in." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde, eh? The Cartel's wagons carry for anybody who pays, partner, and the raptors don't check colours either." },
   },
@@ -815,15 +815,15 @@ P:NPC {
       big = true,
       lines = { { id = "tp_default", text = "Once, partner, a crate of rum to a Skullsplitter chief for a month of clear road, and he drank it and raided us the next morning anyway. Now I pay adventurers to thin 'em out instead, which costs more but at least it stays paid." } },
       choices = {
-        { text = "A bargain broken is no bargain. You were right to stop.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "It's their land. Pay them better and keep paying.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "What did the chief do with the empty crate?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "A bargain broken is no bargain. You were right to stop.", next = "BACK", reply = "Right as rain, partner, and it cost me a whole crate of rum to learn it. A deal's only as good as the fella who keeps it, and that chief kept nothin' but my rum.", fx = { align = { order = 1 } } },
+        { text = "It's their land. Pay them better and keep paying.", next = "BACK", reply = "Pay 'em better? Partner, I paid in rum and got raided in steel, so the exchange rate's terrible. Their land or not, I'll put my coin on adventurers with sharp swords.", fx = { align = { order = -1 } } },
+        { text = "I hope he at least gave you the crate back.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
 
     kurzen = {
       lines = {
-        { id = "kz_default", text = "Kurzen's rebels sit up in the north of the jungle with their stolen rifles, partner, and they'll take a wagon of food without blinkin' because they've gone hungry out there. The bandits are worse, because a bandit doesn't even want the food, he wants the mules and the driver's boots." },
+        { id = "kz_default", text = "Colonel Kurzen's soldiers, you mean, who've gone bad up in the north of the jungle, partner, and they'll take a wagon of food without blinkin' because they've gone hungry out there. The bandits are worse, because a bandit doesn't even want the food, he wants the mules and the driver's boots." },
       },
       choices = {
         { text = "Who are Kurzen's men, exactly?", next = "kurzen_who" },
@@ -874,7 +874,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know every rut in the jungle road, partner, and who's waitin' in the trees beside it." } },
     background = { { id = "tp_bg", text = "Mule boy at nine, caravan boss at thirty, and still on the Steamwheedle's road twenty-two years on.", next = "past" } },
     advice = { { id = "tp_ad", text = "Stay on the road, partner, and if you hear a raptor call, don't call back." } },
-    kurzen = { { id = "tp_kurzen", text = "Rebels with rifles and empty stomachs, partner, and they eat my flour." } },
+    kurzen = { { id = "tp_kurzen", text = "Soldiers gone bad, with rifles and empty stomachs, partner, and they eat my flour." } },
     _none = { { id = "tp_none", text = "Never carried it, partner, so I couldn't tell you what it's worth." } },
   },
 }
@@ -896,7 +896,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to the berth of the Maiden's Fancy, passenger! Have you tried the chowder yet? You should try the chowder." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, passenger! Either you missed the boat or you came back for the chowder, and I hope it's the chowder." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, passenger, and the Fancy's made the crossing four times while you were away. Kelsey's changed the clams twice, too, so you've got some catching up to do." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, passenger, and the Fancy's made the crossing four times while you were away. Kelsey Yance at the inn has changed her clams twice, too, so you've got some catching up to do." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde passengers ride the Fancy same as anybody, at the same fare, and they're sick over the same rail, passenger." },
   },
 
@@ -948,8 +948,8 @@ P:NPC {
       big = true,
       lines = { { id = "co_default", text = "Forty gold, passenger, and a free crossing every month for life, and she laughed me off the kitchen step. I've half a mind to hire somebody to sneak in and watch her at the stove, but she's got a ladle and a long memory." } },
       choices = {
-        { text = "Her recipe is hers. Leave it be.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A good recipe is fair game. Watch her and learn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Her recipe is hers. Leave it be.", next = "BACK", reply = "Leave it be? Passenger, that chowder's the finest thing on this coast, and recipes are a commodity like any other. Still, she'd brain me with a ladle, so maybe you've got a point.", fx = { align = { honor = 1 } } },
+        { text = "A good recipe is fair game. Watch her and learn.", next = "BACK", reply = "My thinking exactly, passenger, and I'll pay a spy in clams if I have to. One day that chowder will be served on the Maiden's Fancy, and she'll never know how.", fx = { align = { honor = -1 } } },
         { text = "A free crossing every month? I'll take that deal.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -987,7 +987,7 @@ P:NPC {
       },
     },
     crossing_pass = {
-      lines = { { id = "cp_default", text = "Cards, mostly, passenger, and every game ends with an orc and a dwarf glaring at each other over a pile of copper. The Cartel's rule is no fighting aboard, and the crew enforce it with buckets of seawater, which works better than you'd think." } },
+      lines = { { id = "cp_default", text = "Cards, mostly, passenger, and every game ends with an orc and a dwarf glaring at each other over a pile of copper. The Cartel's rule is no fighting aboard, and the crew enforce it with buckets of seawater, and a soggy orc sulks instead of swinging." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 

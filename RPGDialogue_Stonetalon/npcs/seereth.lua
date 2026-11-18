@@ -15,9 +15,9 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Listen, do you hear them? No, I suppose you don't, and I envy you, for I have not slept a whole night since I left Orgrimmar." },
-    { id = "g_loggers", when = { questActive = TODO_QUEST("Goblin Invaders") }, text = "The Windshear Crag, beyond the Greatwood Vale. Show the loggers the language they understand, the one the Horde speaks with steel." },
-    { id = "g_shred", when = { questActive = TODO_QUEST("Shredding Machines") }, text = "XT:4 and XT:9, the marks I saw in my vision. Find those machines, and stop them." },
-    { id = "g_crone", when = { questActive = TODO_QUEST("The Elder Crone") }, text = "Magatha, on Elder Rise in Thunder Bluff. Tell her what the spirits suffer here, and ask for her wisdom." },
+    { id = "g_loggers", when = { questActive = TODO_QUEST("Goblin Invaders") }, text = "The loggers are at Windshear Crag, beyond the Greatwood Vale, so show them the language they understand, the one the Horde speaks with steel." },
+    { id = "g_shred", when = { questActive = TODO_QUEST("Shredding Machines") }, text = "Find the machines marked XT:4 and XT:9, the ones I saw in my vision, and stop them." },
+    { id = "g_crone", when = { questActive = TODO_QUEST("The Elder Crone") }, text = "Go to Magatha Grimtotem on Elder Rise in Thunder Bluff, tell her what the spirits suffer here, and ask for her wisdom." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the spirits still rage, though a little less, I think. Perhaps that's your doing." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since we first stood here and listened to the trees. The spirits would know you now, and so would any orc of the Horde." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The braves at the Crossroads say you've been a help to folk. The spirits hear that kind of thing, whatever else they hear." },
@@ -27,7 +27,7 @@ P:NPC {
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman! Then listen with me a moment, and tell me I am not imagining the scream under the wind." },
     { id = "n_lumber", cat = "craft", when = { profession = "Engineering" },
-      text = "You smell of oil and gears, like the goblins' machines. I know you're Horde, but forgive me if I flinch." },
+      text = "You smell of oil and gears, like the goblins' machines. I know you're Horde, but don't be hurt if I flinch." },
   },
 
   start = "hello",
@@ -88,8 +88,8 @@ P:NPC {
         { id = "sa_default", text = "Because the Horde has many fights and few shaman, and someone had to come. I asked for help when I got here, and I'm not ashamed of it; there's no dishonor in knowing your own strength." },
       },
       choices = {
-        { text = "Asking for help is wisdom, not weakness.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Orgrimmar should have sent more. That's their duty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Asking for help is wisdom, not weakness.", next = "BACK", reply = "It is, and I'm glad to hear a young one say it without being taught. The spirits answer the humble more readily than the proud.", fx = { align = { order = -1 } } },
+        { text = "Orgrimmar should have sent more. That's their duty.", next = "BACK", reply = "Perhaps they should, but Orgrimmar has a whole Horde to look after. I'd rather do what I can here than wait for help that may not come.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -100,15 +100,15 @@ P:NPC {
         { id = "ve_default", text = "Wood, and whatever lies under the wood, and they don't care what dies to get at it. They're not Alliance or Horde, only greed with a hard hat on, and they have no more honor than a kobold." },
       },
       choices = {
-        { text = "Then they get no mercy from me.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Drive them out, but the hired hands just want wages.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then they get no mercy from me.", next = "BACK", reply = "Then the spirits of these hills will be glad of you. The Venture Company has cut too deep to be forgiven.", fx = { align = { light = -1 } } },
+        { text = "Drive them out, but the hired hands just want wages.", next = "BACK", reply = "That's a kinder heart than mine, and maybe a wiser one. Spare the ones who run, then, but break the machines.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "venture_company" } } },
       },
     },
 
     elders = {
       lines = {
-        { id = "el_default", text = "The tauren have lived with the spirits of this land longer than any orc, and their elders know rites I've never learned. My own people threw the spirits away for the demons' fire, and we are still learning our way back." },
+        { id = "el_default", text = "The tauren have lived with the spirits of this land longer than any orc, and their elders know rites I've never learned. The name I hear spoken with the most respect is Magatha's, so she is the one I would ask." },
       },
       choices = {
         { text = "What else do you know of her?", next = "elders_magatha" },

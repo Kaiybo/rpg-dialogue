@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Ah, good, someone who looks like they've held a shovel. Come over, come over, {g:lad|lass}." },
-    { id = "g_trouble", when = { questActive = TODO_QUEST("Trouble in Darkshore?") }, text = "Auberdine, {g:lad|lass}, and look for any sign of my crew. Weeks without a letter isn't like Remtravel, even for Remtravel." },
+    { id = "g_trouble", when = { questActive = TODO_QUEST("Trouble in Darkshore?") }, text = "Go to Auberdine, {g:lad|lass}, and look for any sign of my crew. Remtravel forgets most things, but he's never gone weeks without a letter." },
     { id = "g_found", when = { questDone = TODO_QUEST("The Absent Minded Prospector") }, text = "Remtravel's safe and his fossil's on its way to Ironforge, thanks to you. I may even forgive him for not writing." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}! Still no letter from Darkshore, so I'm glad of any face that's been somewhere." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've a bit more weight in your stride than when I sent you off to Auberdine. The League could use a {class} like you, if you ever fancy a dig." },
@@ -26,7 +26,7 @@ P:NPC {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! By my beard, it's good to hear a proper accent; these elves talk as if every sentence costs them a gold piece." },
     { id = "n_arch", cat = "craft", when = { profession = { "Mining", "Engineering" } },
-      text = "You've got grit under your nails, and I mean that kindly. Mind you don't go mining through anything older than you are without telling the League." },
+      text = "You've got grit under your nails, and I mean that kindly. Just don't go mining through anything older than you are without telling the League." },
   },
 
   start = "hello",
@@ -39,7 +39,7 @@ P:NPC {
       choices = {
         { text = "History belongs to everyone, Archaeologist. Dig it up.", next = "op_r1", fx = { affinity = 2, align = { honor = -1 }, opinion = { explorers_league = "admire" } } },
         { text = "Those are their dead. Leave the ruins alone.", next = "op_r2", fx = { affinity = -1, align = { honor = 1 }, opinion = { explorers_league = "wrong" } } },
-        { text = "Magni wants his titans. The rest is courtesy.", next = "op_r3", fx = { trait = { skeptical = 1 }, opinion = { explorers_league = "self_serving", magni = "distrust" } } },
+        { text = "Magni wants to learn about the titans. The rest is courtesy.", next = "op_r3", fx = { trait = { skeptical = 1 }, opinion = { explorers_league = "self_serving", magni = "distrust" } } },
         { text = "Bronzebeards go where the stone calls, and that's all there is.", next = "op_r4", fx = { affinity = 1, opinion = { explorers_league = "proud", magni = "trust" } }, when = { race = "Dwarf" } },
         { text = "Your League digs with care. My people notice that.", next = "op_r5", fx = { affinity = 1, trait = { kind = 1 }, opinion = { explorers_league = "tolerate" } }, when = { race = "NightElf" } },
         { text = "I've no stake in it either way.", next = "BACK" },
@@ -50,7 +50,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
-      lines = { { id = "op_r2_default", text = "Aye, I hear that a great deal, and I've stopped arguing it in the street. We record and we don't loot, and anyone who tells you otherwise has met the wrong dwarves." } },
+      lines = { { id = "op_r2_default", text = "Aye, I hear that often, and I've stopped arguing it in the street. We record and we don't loot, and anyone who tells you otherwise has met the wrong dwarves." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r3 = {
@@ -72,7 +72,7 @@ P:NPC {
         { id = "o_magni_distrust", tags = { "news" }, when = { opinion = { topic = "magni", stance = "distrust" } },
           text = "You've been heard saying the King cares more for old stones than for his people. I'll not argue, but I'll thank you not to say it in front of the League." },
         { id = "h_default", key = true,
-          text = "Chief Archaeologist Greywhisker, of the Explorers' League, at your service. Most folk think our work is a hobby for old dwarves with too much time, but the ruins of this world have a great deal to tell us, if we listen." },
+          text = "Chief Archaeologist Greywhisker, of the Explorers' League, at your service. Most folk think our work is a hobby for old dwarves with too much time, but the ruins of this world have stories carved in their stones, if we've the patience to read them." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Trouble in Darkshore?") },
           text = "I sent a crew to Darkshore under Prospector Remtravel, and I've not heard a word from them in weeks. Would a {class} like you travel to Auberdine and look for any clue to where they've got to?" },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Trouble in Darkshore?"), days = 5 } },
@@ -101,7 +101,7 @@ P:NPC {
 
     crew = {
       lines = {
-        { id = "cr_default", text = "Remtravel thinks there was a great society under those forests long before the elves planted anything there. He's got young Hollee with him to keep his tools in order, and she'll need every one of them." },
+        { id = "cr_default", text = "Remtravel thinks there was a great society under those forests long before the elves planted anything there. He's got young Hollee with him to keep his tools in order, and the way he loses trowels, she'll be busy." },
       },
       choices = {
         { text = "A society older than the night elves?", next = "crew_older" },
@@ -123,8 +123,8 @@ P:NPC {
         { id = "ce_default", text = "Mind it? Some of them would sooner I filled in every hole and went home. The priestesses are polite about it, which is somehow worse than shouting." },
       },
       choices = {
-        { text = "It's their land. Ask before you dig.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "History belongs to everyone. Dig on.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "It's their land. Ask before you dig.", next = "BACK", reply = "Aye, and I do ask, {g:lad|lass}, every single time, though I'll grant a dwarf's asking can sound a wee bit like telling. I'll mind my manners better for hearing you say it.", fx = { align = { order = 1 } } },
+        { text = "History belongs to everyone. Dig on.", next = "BACK", reply = "Ha! That's what I keep telling the priestesses, and they keep smiling at me like I'm a child with a muddy spade. Still, it warms an old digger's heart to hear it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -191,7 +191,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Forty years with a brush and a trowel, and I'm only now being taken half seriously. That's the League for you." } },
     advice = { { id = "tp_ad", text = "Write down where you found a thing before you pick it up. You'll thank me in ten years." } },
-    explorers_league = { { id = "tp_league", text = "The finest minds in Ironforge, and a few of the dustiest. We're not treasure hunters, whatever the Wetlands lot say.", next = "warning" } },
+    explorers_league = { { id = "tp_league", text = "The finest minds in Ironforge, and a few of the dustiest. We're not treasure hunters, whatever the gossips in Menethil say.", next = "warning" } },
     uldaman = { { id = "tp_uldaman", text = "There's a vault in the Badlands that's had the League up all night arguing. I'll say no more in a city of elves." } },
     ahn_qiraj = { { id = "tp_ahn_qiraj", text = "Now there's a name to make an archaeologist's hands shake, {g:lad|lass}. Old walls in Silithus with carvings nobody can read, and the night elves won't talk about them, which is the best sign of all." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran's got the finest library in the human kingdoms and a lock on every door. I've written to the Kirin Tor four times, and they've answered once, to say no." } },

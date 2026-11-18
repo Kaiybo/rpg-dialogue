@@ -18,7 +18,7 @@ P:Pool {
     { id = "n_fel", cat = "fel", when = { class = "WARLOCK" },
       text = "We know what you carry, so keep it leashed while you're under these trees. That's not a request." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "Hiding in Nighthaven? There's no need, and no point, for the wardens see further than you'd think." } },
+  react = { { id = "r_stealth", on = "stealth", text = "Hiding in Nighthaven? There's no need, and no point, for the wardens of this grove see through leaf and shadow alike." } },
   lines = {
     { id = "l_default", text = "We stop fights before they start. Orc, elf, tauren, human: nobody draws a blade in the Keeper's glade." },
   },

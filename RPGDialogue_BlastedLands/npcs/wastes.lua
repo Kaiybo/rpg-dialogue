@@ -63,17 +63,17 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Because I knew the orcs when they were only shamans and hunters, before the fel. The elements of Draenor answered them too, and they could not stop what came after, so do not expect me to be impressed." } },
       choices = {
-        { text = "I'll never take a darker teacher, Kum'isha.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If a darker teacher served me better, I might listen.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll never take a darker teacher, Kum'isha.", next = "BACK", reply = "Then hold to that, shaman, harder than they did. Kum'isha has heard such promises before, and the fel was very patient.", fx = { align = { light = 1 } } },
+        { text = "If a darker teacher served me better, I might listen.", next = "BACK", reply = "Then you are already halfway down their road, and Kum'isha will watch you walk it. Most do not notice the first step.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I have watched orcs come through that gate with axes, and humans meet them with swords, and every one of them was certain he fought for something noble. The fragments you bring me do not care which of you held the blade, and neither, I find, do I." } },
+      lines = { { id = "xwarcl_default", text = "I have watched orcs come through that gate with axes, and humans meet them with swords, and each was certain he fought for something noble. The fragments you bring me do not care which of you held the blade, and neither, I find, do I." } },
       choices = {
-        { text = "I fight for those behind me, not for plunder.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Every war has spoils, and I'd rather they ended up in my pack.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I fight for those behind me, not for plunder.", next = "BACK", reply = "That is a rarer thing than you know, and Kum'isha will remember your face for it. Most who say it are lying, but you may not be.", fx = { align = { honor = 1 } } },
+        { text = "Every war has spoils. Better they end up in my pack.", next = "BACK", reply = "Spoils, yes, always spoils. Kum'isha has seen ten thousand packs filled that way, and the owners are all dust now.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -81,11 +81,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "We did, though not as you do, and I will not speak of the land we hunted. Here I hunt nothing but fragments in the dust, and the beasts of this place keep their distance from me, which is wise of them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} watches me with more honesty than you do, hunter. A beast wants its supper and makes no speeches about it, and I find I prefer that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "We did, though not as you do, and I will not speak of it. {pet} watches me with more honesty than you do, hunter; a beast wants its supper and makes no speeches about it, and I find I prefer that." },
       },
       choices = {
-        { text = "I hunt to eat and nothing more. There's no greed in that.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I hunt for pelts and coin. Call it greed if you like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I hunt to eat and nothing more. There's no greed in that.", next = "BACK", reply = "Hm. No greed in hunger, that is true, and Kum'isha will allow it. Bring fragments, then, and eat well.", fx = { align = { honor = 1 } } },
+        { text = "I hunt for pelts and coin. Call it greed if you like.", next = "BACK", reply = "Kum'isha calls it greed, and you call it coin, and the gate calls it the same thing. Bring fragments anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -99,8 +99,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Draenethyst holds light the way water holds the shape of a cup, and your kind would burn it for a spell and forget it by morning. To me each one is a memory of home, and I would not trade one for all your learning." } },
       choices = {
-        { text = "Then they should stay with you, not in a spellbook.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Memories won't help you. Power might.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then they should stay with you, not in a spellbook.", next = "BACK", reply = "With Kum'isha, yes, where they are kept and not burned. You understand more than most of your kind.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Memories won't help you. Power might.", next = "BACK", reply = "Power. That is what the warlocks said too, before they came through the gate. Kum'isha has heard it before.", fx = { align = { honor = -1 } } },
         { text = "Never mind that for now.", next = "BACK" },
       },
     },
@@ -108,8 +108,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because a thief at least knows what a thing is worth, and does not throw it away. Bring me fragments, rogue, and we will both pretend that neither of us would steal from the other." } },
       choices = {
-        { text = "I'd never steal from you, Kum'isha.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "We'll both pretend. That's an honest deal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd never steal from you, Kum'isha.", next = "BACK", reply = "Hm. You say so, rogue, and Kum'isha will count the fragments twice. But perhaps you mean it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "We'll both pretend. That's an honest deal.", next = "BACK", reply = "An honest deal between liars, that is the only kind left in this place. Bring them, and we will both pretend.", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -117,8 +117,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "I knew the orcs when they were only shamans and hunters, before their warlocks taught them fel and before they turned it on us. You tell me the earth and wind answer you, but I remember when the elements of Draenor answered too, and they could not stop what came after." } },
       choices = {
-        { text = "The Horde has turned from the fel. We remember our path.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "What was done is done, Kum'isha. I owe you nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Horde has turned from the fel. We remember our path.", next = "BACK", reply = "Some remember, and Kum'isha has met one or two. But the fel was in their blood, shaman, and blood remembers longer than minds.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What was done is done, Kum'isha. I owe you nothing.", next = "BACK", reply = "No, you owe nothing, and Kum'isha asks nothing. But the stones of this place remember, and so does Kum'isha.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -239,8 +239,8 @@ P:NPC {
       lines = { { id = "gr_default", text = "Do you doubt it? Look at what runs your life, {race}: the gold you count, the land you fight over, the trinkets you strip from the dead. All of it is runoff from the greed that decides your every step." } },
       choices = {
         { text = "Then nobody is free of it.", next = "greed_others" },
-        { text = "Not everyone. Some fight for others.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "You're right. Coin decides everything.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "Not everyone. Some fight for others.", next = "BACK", reply = "Some, perhaps, and they are rare as fragments. Kum'isha has met few, but you may be one.", fx = { align = { honor = 1 } } },
+        { text = "You're right. Coin decides everything.", next = "BACK", reply = "Then you understand the gate, and you understand your world. Kum'isha does not say it to be cruel.", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -263,8 +263,8 @@ P:NPC {
     priest = {
       lines = { { id = "pr_default", text = "Mend? You think a prayer will make me whole, little priest, when nothing short of home could. Keep your Light for those who still have a shape worth saving." } },
       choices = {
-        { text = "Every shape is worth saving.", next = "BACK", fx = { align = { light = 2 }, affinity = 1 } },
-        { text = "Perhaps you're right. Some things stay broken.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every shape is worth saving.", next = "BACK", reply = "Every shape? Then you have not seen what Kum'isha has seen, little priest. But your kindness is not unwelcome.", fx = { align = { light = 2 }, affinity = 1 } },
+        { text = "Perhaps you're right. Some things stay broken.", next = "BACK", reply = "Yes. Some things stay broken, and Kum'isha is one of them. Thank you for not lying.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -272,8 +272,8 @@ P:NPC {
       lines = { { id = "or_default", text = "They did, and before that they came to my people with axes, and before that they were something else entirely. You have changed, I am told; so have I, and neither of us for the better." } },
       choices = {
         { text = "Do you hate the orcs, Collector?", next = "op_orcs" },
-        { text = "My people are free now. We've changed.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "What's done is done. I won't apologise.", next = "BACK", fx = { align = { honor = -1 }, affinity = -2 } },
+        { text = "My people are free now. We've changed.", next = "BACK", reply = "Perhaps you have, and perhaps it will last. Kum'isha has seen orcs change before, and not for the better.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "What's done is done. I won't apologise.", next = "BACK", reply = "Then we understand each other, orc. Kum'isha does not ask for apologies, only fragments.", fx = { align = { honor = -1 }, affinity = -2 } },
       },
     },
     k_lock = {
@@ -282,8 +282,8 @@ P:NPC {
         { id = "xlk_default", text = "It smells of worse. Kum'isha knows that stink, warlock, from a long time ago, and the ones who carried it then wanted the same thing as you: more. Take your fragments and keep your little servant downwind of me." },
       },
       choices = {
-        { text = "I wanted power. I'm not ashamed of it.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
-        { text = "I carry it so others don't have to.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I wanted power. I'm not ashamed of it.", next = "BACK", reply = "Honest, at least, and Kum'isha respects that more than shame. But the ones who carried that stink were not ashamed either.", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "I carry it so others don't have to.", next = "BACK", reply = "A noble thought, warlock, and Kum'isha has heard it from better liars. Carry it carefully, if you mean it.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Who carried it before?", next = "who_how" },
       },
     },
@@ -301,8 +301,8 @@ P:NPC {
         { id = "xta_default", text = "Hm. You smell less of it than most, tauren, I will grant you that, and more of grass and smoke. But you came to this dust for something, and Kum'isha wonders what." },
       },
       choices = {
-        { text = "For the fragments. I'll not lie to you about that.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Nothing. I was only passing through.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "For the fragments. I'll not lie to you about that.", next = "BACK", reply = "Honest, tauren, and Kum'isha likes honest. Bring them, and we will trade fairly.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Nothing. I was only passing through.", next = "BACK", reply = "Hm. Nobody passes through the Blasted Lands, tauren, they only stay or die. But go, and walk carefully.", fx = { align = { honor = -1 } } },
       },
     },
   },
@@ -318,7 +318,7 @@ P:NPC {
     dark_portal = { { id = "tp_portal", text = "A door, and on the far side of it, everything I have lost. I look at it every day." } },
     burning_legion = { { id = "tp_legion", text = "Older than greed, and hungrier. Even I do not walk into the Scar." } },
     thrall = { { id = "tp_thrall", text = "The young orc chieftain who freed his people is no friend of mine, but he did not raise the axe that broke my people. I will not curse him for what his fathers did." } },
-    khadgar = { { id = "tp_khadgar", text = "Khadgar was a human mage who went through the Portal and never came back. He at least understood what lay on the other side, and that is more than most of your kind." } },
+    khadgar = { { id = "tp_khadgar", text = "Khadgar was a human mage who went through the Portal and never came back. He at least understood what lay on the other side, and few of your kind have bothered to." } },
     nethergarde = { { id = "tp_nethergarde", text = "Your mages at Nethergarde watch the Portal as though it might bite them. It might, but they are watching the wrong side of it." } },
     dreadmaul = { { id = "tp_dreadmaul", text = "The ogres of the Dreadmaul are as greedy as all the others, and less clever. They take the crystals for shiny stones and throw them away." } },
     second_war = { { id = "tp_second_war", text = "Your Second War was fought over a world you never saw. Mine was lost before your war began." } },
@@ -358,8 +358,8 @@ P:NPC {
     prej = {
       lines = { { id = "prej_default", text = "Do I? Well, I speak of everyone as specimens, it's a professional habit. But with your people, I confess, it's also easier than remembering the Amani raids on Quel'Thalas, and the scars my father took fighting them." } },
       choices = {
-        { text = "I'm not Amani, and I'm not your specimen.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Our peoples were enemies. Pretending otherwise helps no one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'm not Amani, and I'm not your specimen.", next = "BACK", reply = "Fair, fair, and I'll grant the distinction, though old habits are hard to break. You're a very interesting not-specimen, then.", fx = { align = { honor = 1 } } },
+        { text = "Our peoples were enemies. Pretending otherwise helps no one.", next = "BACK", reply = "Honest, and refreshing, and quite right, I'm afraid. Our peoples were enemies long before either of us was born.", fx = { align = { honor = -1 } } },
         { text = "Revise your notes. I'll give you plenty of evidence.", next = "prej_ok", fx = { affinity = 1 } },
         { text = "What happened to your father?", next = "prej_why" },
         { text = "Something else, Bloodmage.", next = "BACK" },
@@ -368,8 +368,8 @@ P:NPC {
     prej_why = {
       lines = { { id = "prejwhy_default", text = "A spear in the shoulder from an Amani raiding party on the edge of Eversong, which healed badly and ached every winter. He told me trolls feel no pain, and I believed him until I read the anatomy texts, which say otherwise rather firmly." } },
       choices = {
-        { text = "Then trust the texts over the old stories.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Old wounds teach lessons books can't.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then trust the texts over the old stories.", next = "BACK", reply = "I try to, and mostly I succeed, which is more than my shoulder can say. Texts don't ache in the rain.", fx = { align = { order = 1 } } },
+        { text = "Old wounds teach lessons books can't.", next = "BACK", reply = "They do, and my shoulder teaches them every winter. I'll grant the old wounds their lessons, then.", fx = { align = { order = -1 } } },
         { text = "Something else, Bloodmage.", next = "BACK" },
       },
     },
@@ -381,10 +381,10 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Everything is, if you understand it well enough, though I'll grant your sort have been very poor at explaining it. The boars here heal from wounds that would kill an ogre, and I can't help wondering whether some trace of the Light touched them too." } },
+      lines = { { id = "xapriest_default", text = "Everything is, if you understand it well enough, though your sort have been very poor at explaining it, I must say. The boars here heal from wounds that would kill an ogre, and I can't help wondering whether some trace of the Light touched them too." } },
       choices = {
-        { text = "The Light isn't a reagent. It can't be bottled.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Perhaps it can. Study it, and share what you learn.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Light isn't a reagent. It can't be bottled.", next = "BACK", reply = "No, perhaps not, but everything else can, and I'm patient. I'll leave the Light to your sort, for now.", fx = { align = { light = 1 } } },
+        { text = "Perhaps it can. Study it, and share what you learn.", next = "BACK", reply = "Splendid! A priest with an open mind is rarer than a basilisk with good manners. I'll write to you when I've cracked it.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -392,8 +392,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because the blood is where the secrets are, of course, the strength and speed of these beasts written in it like ink on a page. My sister reads the mind and I read the body, and between us we'll have the whole book before long, if nobody gets eaten." } },
       choices = {
-        { text = "Some secrets should stay in the blood.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Read every page. Knowledge has no forbidden chapters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some secrets should stay in the blood.", next = "BACK", reply = "Perhaps some should, and my sister would agree with you. But I'm not very good at leaving things alone.", fx = { align = { light = 1 } } },
+        { text = "Read every page. Knowledge has no forbidden chapters.", next = "BACK", reply = "Exactly, exactly! You have the makings of a bloodmage, friend, if you ever tire of whatever you're doing now.", fx = { align = { light = -1 } } },
         { text = "On to other things.", next = "BACK" },
       },
     },
@@ -401,8 +401,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I'm nearly certain of it, because the beasts here drink water that's run past the Portal and eat grass that's grown in its shadow. If the fel can do that to a boar, imagine what it might do in a properly measured dose, which is exactly what I intend to find out." } },
       choices = {
-        { text = "Fel in a bottle? That's madness, Drazial.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Measure carefully, and the fel will serve.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fel in a bottle? That's madness, Drazial.", next = "BACK", reply = "Madness, yes, but very carefully measured madness. I'll take the risk, and the notes.", fx = { align = { light = 1 } } },
+        { text = "Measure carefully, and the fel will serve.", next = "BACK", reply = "Precisely, and I'm glad someone else sees it. Careful measures and careful hands, and the fel serves us instead.", fx = { align = { light = -1 } } },
         { text = "Something else, Drazial.", next = "BACK" },
       },
     },
@@ -410,8 +410,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "That something in this land makes them grow larger, faster and angrier than any creature ought to be, and that their blood carries it. A druid would call it corruption, I imagine, but I call it a gift no one has had the courage to unwrap." } },
       choices = {
-        { text = "It is corruption, Drazial, and bottling it will only spread it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If it can be studied, it can be understood. Carry on.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "It is corruption, Drazial, and bottling it will only spread it.", next = "BACK", reply = "Corruption, perhaps, but corruption with rules, and rules can be learned. I'll take the chance.", fx = { align = { light = 1 } } },
+        { text = "If it can be studied, it can be understood. Carry on.", next = "BACK", reply = "Thank you, I will, and I'll share what I find with anyone who asks. Understanding is the first step.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -419,8 +419,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Because my sister thinks the strength of these beasts lives in their spirits and I think it lives in their blood, and you're the first person I've met who might settle it. If the spirits are sick here, then she's wrong, and I would dearly love to tell her so." } },
       choices = {
-        { text = "The spirits here are in pain. That's not for sport.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll help you win the argument, Drazial.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The spirits here are in pain. That's not for sport.", next = "BACK", reply = "In pain, perhaps, but pain teaches as well as anything. Still, I'll try to be gentle about it.", fx = { align = { honor = 1 } } },
+        { text = "I'll help you win the argument, Drazial.", next = "BACK", reply = "Wonderful! My sister will be insufferable when she loses, and I'll enjoy every moment.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -428,7 +428,7 @@ P:NPC {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Snickerfang", "Ashmane", "Scorpok" }, min = 30 } }, text = "You've been busy out there, by the smell of you, which is boar and hyena in roughly equal measure. Do bring me the interesting parts, won't you?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits of the beasts out here still speak to you, or has the fel drowned them out? Either answer would be fascinating, and I'll want notes." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Tell me honestly, do you think the fel in this soil is what makes the boars so strong? I've a theory, and you're the first person I've met who might confirm it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Be frank with me: do you think the fel in this soil is what makes the boars so strong? I've a theory, and you're the first person I've met who might confirm it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A fellow student of the arcane! My sister calls my work alchemy with pretensions, but you'll appreciate the subtler parts, I'm sure." },
         { id = "h_default", key = true,
           text = "Bloodmage Drazial, at your service. The beasts of these lands show preternatural strength, speed and endurance, quite unlike anything in nature, and I mean to bottle every bit of it." },
@@ -479,8 +479,8 @@ P:NPC {
     beasts_danger = {
       lines = { { id = "bd_default", text = "Probably, in time, and in large doses. That's why we distil it from the beasts first, rather than licking the rocks like some of the ogres seem to." } },
       choices = {
-        { text = "Fel is fel. Bottling it doesn't make it clean.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
-        { text = "Power is power. Use it while you can.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Fel is fel. Bottling it doesn't make it clean.", next = "BACK", reply = "No, it doesn't, and I've never claimed otherwise. But bottled fel is a great deal safer than wild fel.", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Power is power. Use it while you can.", next = "BACK", reply = "While I can, yes, because my people need every edge they can get. Use it carefully, though.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -521,8 +521,8 @@ P:NPC {
         { id = "xhu_default", text = "Oh, almost certainly, and what a fascinating trial that would be! I'd want it observed for a week, mind, because the basilisks here grew a second row of plates on the stuff and I'd hate to miss that." },
       },
       choices = {
-        { text = "My beast is not your experiment.", next = "BACK", fx = { align = { light = 1 }, affinity = -1, trait = { kind = 1 } } },
-        { text = "If it makes it stronger, I'll consider it.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "My beast is not your experiment.", next = "BACK", reply = "Of course not, I quite understand, and I'll not ask again. Mostly.", fx = { align = { light = 1 }, affinity = -1, trait = { kind = 1 } } },
+        { text = "If it makes it stronger, I'll consider it.", next = "BACK", reply = "Wonderful! Bring it by, and we'll start with a very small dose. Very small.", fx = { align = { light = -1 }, affinity = 1 } },
       },
     },
     scorpok = {
@@ -542,8 +542,8 @@ P:NPC {
       big = true,
       lines = { { id = "sf_default", text = "Like the world has been dipped in honey and you alone were left out of the jar. I've tried it myself, of course, because a bloodmage who won't drink his own elixirs isn't worth listening to, though I did knock over three flasks in the first minute." } },
       choices = {
-        { text = "Good. You test on yourself first, as you should.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Test on volunteers. Your mind is too valuable to risk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Good. You test on yourself first, as you should.", next = "BACK", reply = "I always do, it's the only honest way to work. And a little honey never hurt anyone.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Test on volunteers. Your mind is too valuable to risk.", next = "BACK", reply = "Volunteers are so unreliable, though, they describe everything as tingly. I'll keep testing on myself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -558,8 +558,8 @@ P:NPC {
       big = true,
       lines = { { id = "sk_default", text = "They know it's boar and hyena and something that used to be a basilisk, and they know I'm smiling, and most of them drink it anyway. I tell them everything I know, which admittedly isn't everything there is to know; that's rather the point of a study." } },
       choices = {
-        { text = "Then every drink is a gamble with someone's life.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
-        { text = "They chose to drink. That's on them, not you.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Then every drink is a gamble with someone's life.", next = "BACK", reply = "It is, and they know it, and they drink anyway. I only offer, and they choose.", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "They chose to drink. That's on them, not you.", next = "BACK", reply = "Exactly, and I'm glad you see it that way. A choice made freely is a choice made, honey or no honey.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -568,7 +568,7 @@ P:NPC {
         { id = "kp_default", fx = { learn = { "nethergarde" } },
           text = "Nethergarde tolerates us, which is more than I expected from a keep full of Kirin Tor mages and dwarves who think elves are made of glass. The soldiers buy my elixirs quietly, and the mages pretend not to have noticed." },
         { id = "kp_horde", when = { faction = "Horde" },
-          text = "Nethergarde puts up with two elves in its wastes, which is a great deal more than it would put up with you. The soldiers buy my elixirs when no officer is watching, and the mages pretend we don't exist." },
+          text = "Nethergarde puts up with two elves in its wastes, and it would never put up with you. The soldiers buy my elixirs when no officer is watching, and the mages pretend we don't exist." },
       },
       choices = {
         { text = "There's another elf at the keep. An ambassador.", next = "keep_ardalan" },
@@ -606,10 +606,10 @@ P:NPC {
     },
     home_people = {
       big = true,
-      lines = { { id = "hp_default", text = "I think my people need strength more than they need comfort just now, and strength is what I can bottle. My sister would say they need their minds kept whole, which is why she studies what she does, and perhaps we're both right, though I'd never tell her so." } },
+      lines = { { id = "hp_default", text = "I think my people need strength more than they need comfort just now, and strength is what I can bottle. My sister would say they need their minds kept whole, and so she studies what she does, and perhaps we're both right, though I'd never tell her so." } },
       choices = {
-        { text = "Comfort heals a people. Strength alone only hardens them.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Strength first. Grief can wait until they're safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Comfort heals a people. Strength alone only hardens them.", next = "BACK", reply = "Perhaps, and Lynnore would agree with you. But my people need strength first, and comfort after.", fx = { align = { order = -1 } } },
+        { text = "Strength first. Grief can wait until they're safe.", next = "BACK", reply = "Exactly, and that's what I keep telling my sister. Grief will keep, and the trolls will not.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -641,7 +641,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_orcs", when = { gossip = { topic = "orcs", stance = "redeemed" } }, text = "The Collector tells me you believe the orcs have changed. He spat after he said it, which for him is a kind of respect for your nerve." },
+    { id = "g_op_orcs", when = { gossip = { topic = "orcs", stance = "redeemed" } }, text = "Kum'isha, the crystal collector, tells me you believe the orcs have changed. He spat after he said it, which for him is a kind of respect for your nerve." },
     { id = "g_default", text = "Quietly, please. I'm observing." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your mind's still in one piece, I trust?" },
   },
@@ -659,8 +659,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The same thing that keeps a wounded basilisk crawling toward its den: a spirit that refuses the body's verdict. You would call it rage, I suspect, or discipline, but I have watched the beasts here endure far worse than you, and they never needed a name for it." } },
       choices = {
-        { text = "Discipline. Rage burns out, but training holds.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Rage. Discipline breaks long before fury does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Discipline. Rage burns out, but training holds.", next = "BACK", reply = "Discipline, then, and I'll write it down. Rage burns out, you say, and I've seen that in the basilisks too.", fx = { align = { order = 1 } } },
+        { text = "Rage. Discipline breaks long before fury does.", next = "BACK", reply = "Rage, then, and I'll note it. Though I've seen many beasts burn themselves out on fury.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -668,11 +668,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I could, and I would learn more from it than from a hundred basilisk brains, though I suspect you would not care for my methods. A beast that trusts its master endures pain that would kill a wild one, and I want to know why." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Look how {pet} watches me, weighing whether I'm prey or threat. Its mind is quicker than you give it credit for, and I'd wager it has already decided I'm neither." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I could, and {pet} would be a fine subject; look how it watches me, weighing whether I'm prey or threat. Its mind is quicker than you give it credit for, and I'd wager it has already decided I'm neither." },
       },
       choices = {
-        { text = "Our bond isn't something for your vials, Bloodmage.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Study away. Whatever makes us stronger is worth knowing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Our bond isn't something for your vials, Bloodmage.", next = "BACK", reply = "No, I suspect it isn't, and I'll respect that. Some bonds should stay unmeasured.", fx = { align = { light = 1 } } },
+        { text = "Study away. Whatever makes us stronger is worth knowing.", next = "BACK", reply = "Splendid! You and your beast would teach me more in a week than a hundred basilisks. I'll be gentle.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -680,8 +680,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Perhaps not, but you can't tell me how it works either, only that it does, and I find that a very poor argument from people who call my work blasphemy. I'll keep my brains in jars and you keep your prayers, and we'll see which of us learns more." } },
       choices = {
-        { text = "The Light asks for faith, not proof. That's its strength.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Keep your jars, then. Results will settle it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Light asks for faith, not proof. That's its strength.", next = "BACK", reply = "Faith, yes, and I'll grant it works, somehow. I'd just like to know how, and so would you, I think.", fx = { align = { light = 1 } } },
+        { text = "Keep your jars, then. Results will settle it.", next = "BACK", reply = "Results, yes, and I'm patient. My jars and your Light, and we'll see which helps more people.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -689,8 +689,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Patience, chiefly, because a basilisk can sit still for days and lose none of its sharpness, and I'd like to know how. If I can bottle that, a mage could study through the night without a single wandering thought." } },
       choices = {
-        { text = "A mind should earn its sharpness, not drink it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Any shortcut to a sharper mind is worth taking.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A mind should earn its sharpness, not drink it.", next = "BACK", reply = "A fair point, and my brother would scoff at it. But I've earned my sharpness the hard way, and I'd like a little help now.", fx = { align = { order = 1 } } },
+        { text = "Any shortcut to a sharper mind is worth taking.", next = "BACK", reply = "Exactly, and that's why I'm here. A sharper mind is worth any number of vultures.", fx = { align = { order = -1 } } },
         { text = "Let's leave that there.", next = "BACK" },
       },
     },
@@ -698,8 +698,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "That is the question, and the answer is in their gizzards, I'm almost certain. They've learned to digest corruption the way a goat digests thorns, and if I can learn the trick, perhaps I can teach it to people who must live beside it, like you." } },
       choices = {
-        { text = "A cure for corruption would save many lives.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Corruption is power. I don't want it cured.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A cure for corruption would save many lives.", next = "BACK", reply = "It would, and that's what I keep telling Drazial. A cure would be worth more than all his bottles.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Corruption is power. I don't want it cured.", next = "BACK", reply = "Then you're a strange sort of warlock, and a dangerous one. I'll keep my cure for those who want it.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -707,8 +707,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Everything worth knowing, because a basilisk lies so still on the rocks that you step on it before you see it, and then you stop moving altogether. My brother bottles their strength, but I would rather understand their patience, which no elixir has ever captured." } },
       choices = {
-        { text = "Patience is a discipline. I'll study it, Lynnore.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'd sooner bottle the strength and be done with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience is a discipline. I'll study it, Lynnore.", next = "BACK", reply = "Then you'll be a fine rogue, and a patient one. Watch the basilisks, and learn.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd sooner bottle the strength and be done with it.", next = "BACK", reply = "My brother would say the same, and he'd be wrong. Patience is worth more than strength, in the end.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -716,8 +716,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Its instinct and its will to live, the thing that makes a basilisk freeze and a vulture wait, and it can be drawn out and studied if one is careful. You would call it sacred and I would call it data, but we both agree it is real, which already puts us ahead of my brother." } },
       choices = {
-        { text = "A spirit isn't data, Lynnore. It deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Study it as you like. Knowledge is knowledge.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A spirit isn't data, Lynnore. It deserves respect.", next = "BACK", reply = "It does, and I try to give it, in my way. But my people need what it knows.", fx = { align = { honor = 1 } } },
+        { text = "Study it as you like. Knowledge is knowledge.", next = "BACK", reply = "Exactly, and I'm glad someone understands. Knowledge is knowledge, whatever its source.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -761,7 +761,7 @@ P:NPC {
         { text = "What do basilisks know about moving quietly, Lynnore?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do you think a beast's spirit is, Lynnore?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why do the vultures thrive on the taint?", next = "vultures" },
-        { text = "You keep saying 'for a price.' What price?", next = "price" },
+        { text = "You mentioned a price. What price?", next = "price" },
         { text = "What do you make of the mages at Nethergarde?", next = "keep" },
         { text = "Do you miss Quel'Thalas?", next = "home" },
         { text = "Have you met the crystal collector by the Rise?", next = "kumisha" },
@@ -808,8 +808,8 @@ P:NPC {
     priest = {
       lines = { { id = "pr_default", text = "Perhaps. If it is, the Light has been very generous to vultures and very stingy with the people out here. I only measure what I find, priest; the theology I leave to you." } },
       choices = {
-        { text = "Then measure carefully. Some things shouldn't be tampered with.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Measure away. The Light can take care of itself.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Then measure carefully. Some things shouldn't be tampered with.", next = "BACK", reply = "I will, and I always do. The Light may be generous to vultures, but it's my job to share it around.", fx = { align = { light = 1 } } },
+        { text = "Measure away. The Light can take care of itself.", next = "BACK", reply = "It can, and I'm glad you think so. I'll measure, and let the Light worry about itself.", fx = { align = { light = -1 }, affinity = 1 } },
       },
     },
     k_druid = {
@@ -838,8 +838,8 @@ P:NPC {
       big = true,
       lines = { { id = "vn_default", text = "My people, who drank of something wonderful for thousands of years and now have nothing, and feel the lack every hour. I won't say more than that, but a creature that turns poison into strength is not an idle curiosity to an elf of Quel'Thalas." } },
       choices = {
-        { text = "Then heal them, whatever the source of the cure.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Be careful. A cure from tainted beasts may carry the taint.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then heal them, whatever the source of the cure.", next = "BACK", reply = "I will, whatever the source, and I'll answer for it later. My people can't wait for a clean cure.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Be careful. A cure from tainted beasts may carry the taint.", next = "BACK", reply = "I've thought of that, and I measure every drop. But my people need something, and soon.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -854,8 +854,8 @@ P:NPC {
       big = true,
       lines = { { id = "pt_default", text = "More than my brother would believe, because I've spent long enough watching them to know they're thinking when they die. I tell myself the knowledge outlives the beast, and most days I believe it." } },
       choices = {
-        { text = "Then take only what you need, and no more.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "They're beasts. Knowledge is worth any number of them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then take only what you need, and no more.", next = "BACK", reply = "I try to, and it's harder than Drazial thinks. They're not just beasts to me anymore.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They're beasts. Knowledge is worth any number of them.", next = "BACK", reply = "My brother would agree with you, and maybe he's right. But I'm not sure I can think that way.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -872,7 +872,7 @@ P:NPC {
     keep_thadius = {
       lines = { { id = "kt_default", text = "Because he wants things he isn't supposed to want and admits it, which makes him honest in a way the others aren't. He asked me once how the basilisks heal, and I think he was asking for himself, though he laughed before I could say so." } },
       choices = {
-        { text = "You think he fears growing old?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Perhaps he fears growing old.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -887,8 +887,8 @@ P:NPC {
       big = true,
       lines = { { id = "hg_default", text = "I didn't run from it; I brought it here and put it to work, which is the only thing I know how to do with anything. You may call that cold if you like, but my brother pours his grief into bottles too, only louder." } },
       choices = {
-        { text = "That's not cold. That's how you endure.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Work can't hold grief forever. It will spill out.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's not cold. That's how you endure.", next = "BACK", reply = "Thank you, that's kinder than I expected. Enduring is what my people do best now.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Work can't hold grief forever. It will spill out.", next = "BACK", reply = "Perhaps it will, and perhaps I'll let it, someday. But not here, and not yet.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -910,7 +910,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "An elf of Quel'Thalas who would rather watch a basilisk think than listen to most people talk. You may take that personally.", next = "basilisks" } },
     advice = { { id = "tp_ad", text = "Don't meet a basilisk's eyes, and don't assume it's stupid because it's scaly." } },
     nethergarde = { { id = "tp_ng", text = "A keep full of watchers, with one honest student in the tower. I'll leave you to guess which.", next = "keep" } },
-    draenethyst = { { id = "tp_dr", text = "Kum'isha's crystals. I'd give a great deal to know what they mean to him, and he'd give nothing to tell me.", next = "kumisha" } },
+    draenethyst = { { id = "tp_dr", text = "Kum'isha's crystals. I'd pay in mana and blood to know what they mean to him, and he'd give nothing to tell me.", next = "kumisha" } },
     dark_portal = { { id = "tp_portal", text = "Whatever came out of it changed everything living here. I'd like to know what it would do to a thinking creature, and I'm afraid I already do." } },
     sylvanas = { { id = "tp_sylvanas", text = "Lady Sylvanas was the Ranger-General of Silvermoon, and now she rules the dead of Lordaeron. I find I do not want to discuss it." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran taught me what it could, and I left before the Scourge came. That was luck, not wisdom." } },
@@ -949,8 +949,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The same as any of us, only paid slower: your knees, your sleep, and the friends who stood beside you and didn't get up. My students pay with their souls, all at once, and I sometimes think yours is the crueller bargain." } },
       choices = {
-        { text = "What I pay is mine to give. No demon takes it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Any price is worth it, if the strength is real.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What I pay is mine to give. No demon takes it.", next = "BACK", reply = "Then you're wiser than I was at your age, child. Keep it that way, and keep your knees.", fx = { align = { light = 1 } } },
+        { text = "Any price is worth it, if the strength is real.", next = "BACK", reply = "Any price? Child, you don't know what any price means yet. You will, and I'll be watching.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -961,8 +961,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} won't come near my altar, and that's wisdom, not cowardice. Animals know the smell of the Twisting Nether long before men do." },
       },
       choices = {
-        { text = "My beast follows me by trust. That's nothing like your chains.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fear or love, obedience is obedience, old man.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "My beast follows me by trust. That's nothing like your chains.", next = "BACK", reply = "Trust, is it? Then may your beast never learn otherwise, child. Mine did, and so will yours.", fx = { align = { light = 1 } } },
+        { text = "Fear or love, obedience is obedience, old man.", next = "BACK", reply = "Exactly, child, and you've learned it faster than most. Obedience is obedience, and it always ends.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -970,8 +970,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "You call a bear out of yourself and command it, and I call a demon out of the Nether and command it, and the price of losing control is about the same. I have paid my price, and you can see it on me, and I wonder sometimes what yours will look like." } },
       choices = {
-        { text = "A druid's bond is with nature, given freely. Yours is theft.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Perhaps you're right, Daio. All power has a price.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A druid's bond is with nature, given freely. Yours is theft.", next = "BACK", reply = "Theft, is it? Perhaps, child, but nature takes its price too, only slower. We all pay in the end.", fx = { align = { light = 1 } } },
+        { text = "Perhaps you're right, Daio. All power has a price.", next = "BACK", reply = "It does, child, and I've paid more than most. Remember that, when your bear asks for its due.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -979,8 +979,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because a demon always knows what it gave you, child, and it comes back for payment at a time of its choosing, usually the worst one. I have lived beside this altar long enough to watch many clever thieves try, and you can see by my face how the cleverest bargain went." } },
       choices = {
-        { text = "A bargain should be honored, even with a demon.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then I'd best not get caught, old man.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A bargain should be honored, even with a demon.", next = "BACK", reply = "Honored, aye, and paid in full. That's the only way to walk away from a demon, child.", fx = { align = { honor = 1 } } },
+        { text = "Then I'd best not get caught, old man.", next = "BACK", reply = "Then be very quick, and very lucky. They always come back.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -988,8 +988,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "I know better than anyone, since I helped in my small way. Every bargain struck at this altar leaves a little rot in the soil, and the Scar has been taking bargains since the first orcs came through the Portal, so weep for it if you like, but don't expect it to weep back." } },
       choices = {
-        { text = "Then I'll stand against those who bargain here, Daio.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Rot or not, power is power. Teach me, Daio.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Then I'll stand against those who bargain here, Daio.", next = "BACK", reply = "Good, child, someone should. I'll not stop you, and I'll not help them.", fx = { align = { honor = 1 } } },
+        { text = "Rot or not, power is power. Teach me, Daio.", next = "BACK", reply = "Power is power, child, and rot is rot. Teach you I will, but you'll pay, as I did.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1041,8 +1041,8 @@ P:NPC {
         { text = "What did you pay?", tag = "Intimidate", next = "daio_price",
           check = { pass = { any = { { class = "WARLOCK" }, { disposition = { min = 65 } }, { questDone = TODO_QUEST("Suppression") } } } },
           fail = { next = "daio_grin", fx = { affinity = -1 } } },
-        { text = "No power is worth that.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
-        { text = "Any price is worth paying for real power.", next = "BACK", fx = { align = { light = -1 }, affinity = 1, taint = 2 } },
+        { text = "No power is worth that.", next = "BACK", reply = "That's what the wise ones say, child, and they're right. But the foolish ones keep coming to me.", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Any price is worth paying for real power.", next = "BACK", reply = "Then you're a fool, child, and the demons love fools. I'll teach you, but I'll not weep for you.", fx = { align = { light = -1 }, affinity = 1, taint = 2 } },
       },
     },
     daio_price = {
@@ -1054,7 +1054,7 @@ P:NPC {
       },
     },
     daio_why = {
-      lines = { { id = "dw_default", text = "Because you'll learn it anyway, from a book or a cultist or a voice in the dark, and I'd rather you learned it from someone who'll tell you the price." } },
+      lines = { { id = "dw_default", text = "Because you'll learn it anyway, from a book or a cultist or a voice in the dark, so learn it from someone who'll tell you the price." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     daio_grin = {
@@ -1101,8 +1101,8 @@ P:NPC {
     priest = {
       lines = { { id = "pr_default", text = "I trade in honesty, which looks like damnation to people who'd rather not know the price of things. Go back to your temple, if you like; the demons won't be any fewer for your disapproval." } },
       choices = {
-        { text = "The Light will see them banished, and you with them.", next = "BACK", fx = { align = { light = 2 }, affinity = -2 } },
-        { text = "Perhaps knowing the enemy is no sin.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "The Light will see them banished, and you with them.", next = "BACK", reply = "Perhaps it will, child, and I'll not argue. But until then, I'll keep teaching the price.", fx = { align = { light = 2 }, affinity = -2 } },
+        { text = "Perhaps knowing the enemy is no sin.", next = "BACK", reply = "No sin at all, child, and wiser than most priests know. Go in peace, and remember what you saw.", fx = { align = { light = -1 }, affinity = 1 } },
       },
     },
     k_mage = {
@@ -1110,8 +1110,8 @@ P:NPC {
         { id = "xmg_default", text = "Bind? You conjure water and call it mastery, child. I bind what would eat you, and I pay for every hold I keep on it, and so would you, if you ever reached for anything that could reach back." },
       },
       choices = {
-        { text = "Some of us know where to stop.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then teach me to reach further.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Some of us know where to stop.", next = "BACK", reply = "Then you're wiser than most, child, and I respect that. Stop where you must, and live.", fx = { align = { light = 1 } } },
+        { text = "Then teach me to reach further.", next = "BACK", reply = "Reach further, and you'll pay further, child. Are you sure you want that?", fx = { align = { light = -1 }, affinity = 1 } },
       },
     },
     students = {
@@ -1128,8 +1128,8 @@ P:NPC {
       big = true,
       lines = { { id = "so_default", text = "There was a clever young man once who decided my rules were for duller students, and he called something without a prison ready to hold it. I buried what was left by that rock, and I tell his story to every student who thinks the rules are for others." } },
       choices = {
-        { text = "Then the rules are everything. Without them, you die.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Rules didn't kill him. Weakness did.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the rules are everything. Without them, you die.", next = "BACK", reply = "Everything, child, and he learned that too late. Keep them, and live.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules didn't kill him. Weakness did.", next = "BACK", reply = "Weakness, aye, and pride, and a very hungry demon. Rules would have kept him alive.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1160,10 +1160,10 @@ P:NPC {
     },
     keep_burn = {
       big = true,
-      lines = { { id = "kb_default", text = "Perhaps someone should, and then the young fools would learn from books and cultists instead of from me, and fewer of them would come back. Tell me honestly, which do you think the world needs: no teacher, or an honest one?" } },
+      lines = { { id = "kb_default", text = "Perhaps someone should, and then the young fools would learn from books and cultists instead of from me, and fewer of them would come back. So tell me, which do you think the world needs: no teacher, or an honest one?" } },
       choices = {
-        { text = "An honest teacher. Better they learn the price from you.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "No teacher. This knowledge should die with you.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "An honest teacher. Better they learn the price from you.", next = "BACK", reply = "An honest teacher, aye, and a tired one. Better they learn from me than from what's out there.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "No teacher. This knowledge should die with you.", next = "BACK", reply = "Perhaps it should, child, and perhaps I'll let it. But the young keep coming, and the cultists keep teaching.", fx = { affinity = -1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1176,7 +1176,7 @@ P:NPC {
       },
     },
     kumisha_home = {
-      lines = { { id = "kh_default", text = "I stopped wanting that a long time ago, which is one of the kinder things the Scar did for me. He hasn't stopped, and I envy him a little, and pity him a great deal more." } },
+      lines = { { id = "kh_default", text = "I stopped wanting that a long time ago, which is one of the kinder things the Scar did for me. He hasn't stopped, and I envy him a little, and pity him far more." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -1188,7 +1188,7 @@ P:NPC {
     nethergarde = { { id = "tp_ng", text = "A keep that watches the Portal and pretends it can't see me. It's a fair arrangement.", next = "keep" } },
     draenethyst = { { id = "tp_dr", text = "The collector's crystals. Everyone out here wants something they can't have, and his happen to glitter.", next = "kumisha" } },
     dreadmaul = { { id = "tp_dm", text = "Ogres who came through the Portal and serve whoever shouts loudest, which these days is Kazzak. They leave my altar alone, because they're stupid but not that stupid." } },
-    tainted_scar = { { id = "tp_scar", text = "My home, my classroom, and very probably my grave. It suits me better than you'd think.", next = "scar" } },
+    tainted_scar = { { id = "tp_scar", text = "My home, my classroom, and very probably my grave. It suits me better than any comfortable study ever did.", next = "scar" } },
     dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran used to call what I do forbidden, and now their city's in ruins. Forbidden knowledge has a way of outliving the people who forbid it." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor and I parted ways a long time ago, and neither of us regrets it. They would call me a cautionary tale, I'm sure." } },
     dark_portal = { { id = "tp_dark_portal", text = "The Portal is a door, and doors open both ways. The mages at Nethergarde forget that, and I hope they never have to remember." } },

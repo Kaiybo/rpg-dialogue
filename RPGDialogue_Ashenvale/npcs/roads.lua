@@ -13,7 +13,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Welcome to Forest Song, {class}, the last kind word you'll hear before Felwood." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back in the east, then, and in one piece. That's more than I can say for the Forsaken's last messenger." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back in the east, then, and in one piece. The Forsaken's last messenger came back in several." },
   },
 
   start = "hello",
@@ -32,7 +32,7 @@ P:NPC {
       },
     },
     op_r1 = {
-      lines = { { id = "op_r1_default", text = "Many of my sisters would agree with you, and quickly. I only wish the Forsaken were the worst thing walking in the east." } },
+      lines = { { id = "op_r1_default", text = "Many of the Sentinels would agree with you, and quickly. I only wish the Forsaken were the worst thing walking in the east." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
@@ -51,8 +51,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "If we have enough arrows and enough hands. Your spirits are welcome on the walls." } },
       choices = {
-        { text = "Then count me among your hands, Kayneth.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Forest Song is lost. Retreat.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then count me among your hands, Kayneth.", next = "BACK", reply = "Then I'll count you gladly, and the walls will hold a little longer. Elune bless your storms.", fx = { align = { order = 1 } } },
+        { text = "Forest Song is lost. Retreat.", next = "BACK", reply = "Not while I can still draw a bow, it isn't. Go if you must, but Forest Song stands.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -60,8 +60,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Less than I feared, so far, though the deer near their camps have begun to waste and the streams there smell wrong. I can count arrows and Forsaken, but I can't count what a sickness does under the soil, and that is why I need your kind." } },
       choices = {
-        { text = "Heal the woods first. Vengeance on the Forsaken can wait.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Burn out the sick ground and their camps before it spreads.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Heal the woods first. Vengeance on the Forsaken can wait.", next = "BACK", reply = "That's the Circle's view, and I'll not fight it. Heal what you can, and I'll watch the Forsaken.", fx = { align = { honor = 1 } } },
+        { text = "Burn out the sick ground and their camps before it spreads.", next = "BACK", reply = "It may come to that, and I'll not stop you. But be very sure of what you're burning.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -69,8 +69,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The satyrs of Satyrnaar would be my answer on most days, but the Forsaken and their diseases worry me more, because I don't know what they want. A blade will answer the satyrs, but against the Forsaken I need eyes before I need blades." } },
       choices = {
-        { text = "Then I'll watch before I strike.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd strike the Forsaken before they strike us.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll watch before I strike.", next = "BACK", reply = "Wise, and rarer than you'd think in a warrior. Watching has kept Forest Song alive.", fx = { align = { order = 1 } } },
+        { text = "I'd strike the Forsaken before they strike us.", next = "BACK", reply = "That may be where this ends, but I'd like to know what we're fighting first. Bring me proof, at least.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
@@ -78,11 +78,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I don't know yet, and that's the trouble, because sick beasts wander and I can't tell what they carry. If you find carcasses near their camps, look closely, and bring back what you can without touching it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from anything dead in those woods, I beg you. Whatever the Forsaken carry, I don't want it in our companions." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I don't know yet, and that's the trouble, because sick beasts wander and I can't tell what they carry. Keep your {pet} away from anything dead in those woods, I beg you, and bring back what you can without touching it." },
       },
       choices = {
-        { text = "I'll investigate carefully and report back.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll burn their camps and be done with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll investigate carefully and report back.", next = "BACK", reply = "Thank you, hunter. Careful eyes are what I need most.", fx = { align = { order = 1 } } },
+        { text = "I'll burn their camps and be done with it.", next = "BACK", reply = "That would be quick, I'll grant, but I'd still want to know what was in them. Bring me something first.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -90,8 +90,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "You could, and you'd learn more in one night than my Sentinels have in a month, because the Forsaken know our footsteps by now. Bring me what they're brewing and who's brewing it, and don't touch anything with your bare hands." } },
       choices = {
-        { text = "I'll bring you proof, and spill no blood doing it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll bring proof, and leave their brewers dead in the mist.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll bring you proof, and spill no blood doing it.", next = "BACK", reply = "Good. A quiet proof is worth more to me than a dozen dead Forsaken.", fx = { align = { honor = 1 } } },
+        { text = "I'll bring proof, and leave their brewers dead in the mist.", next = "BACK", reply = "Then bring me the proof first and the rest after, if you must. I want to know what they're brewing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -99,17 +99,17 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "The druids would rather you didn't try, because the last ones who thought they could master Felwood's sickness were the Shadow Council at Jaedenar, and you can see what it made of them. Help me learn what the Forsaken are brewing, and leave the soil to those who can listen to it." } },
       choices = {
-        { text = "I'll leave it to the druids, as you ask.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If the druids can't cleanse it, someone else should try.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll leave it to the druids, as you ask.", next = "BACK", reply = "Thank you, mage. Felwood is warning enough for any of us.", fx = { align = { order = 1 } } },
+        { text = "If the druids can't cleanse it, someone else should try.", next = "BACK", reply = "Perhaps, but someone else tried once already, and look at Jaedenar. I'd ask you to be careful.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Sickened some beasts, from what I hear, though we haven't yet learned what it does to the people who handle them. If you see the signs, burn what you can and pray, because I don't know what else to tell you." } },
+      lines = { { id = "xapriest_default", text = "It has sickened some beasts, from what I hear, though we haven't yet learned what it does to the people who handle them. If you see the signs, burn what you can and pray, because I don't know what else to tell you." } },
       choices = {
-        { text = "I'll pray, and watch for the signs everywhere.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Burning is surer than prayer. I'll burn it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll pray, and watch for the signs everywhere.", next = "BACK", reply = "Thank you, and I'll do the same. Prayer and watchfulness both.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burning is surer than prayer. I'll burn it.", next = "BACK", reply = "Burn it, then, and pray after. Either way, don't touch it bare-handed.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -117,19 +117,19 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "That's my instinct, though I'd rather learn what they're doing first, because a dead spy tells us nothing. If you find one, bring me something to read before you finish them." } },
       choices = {
-        { text = "I'll learn what I can before I strike.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Every one of them dies the moment I see them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll learn what I can before I strike.", next = "BACK", reply = "Thank you. A dead spy is a closed book, and I want to read it first.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every one of them dies the moment I see them.", next = "BACK", reply = "They'll be just as dead after I've read them, outsider. Bring me something, at least.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. I've watched warlocks go down into that canyon for their own reasons, and I've never asked what they found there, because I'd rather not know." },
+        { id = "xlock_default", text = "It's full of demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. I've watched warlocks go down into that canyon for their own reasons, and I've never asked what they found there, because I'd rather not know." },
       },
       choices = {
-        { text = "Something should be done about them. I'll thin their numbers.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I go down there to learn. That's my own business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something should be done about them. I'll thin their numbers.", next = "BACK", reply = "Then thin them, and gladly, and come back to tell me. The canyon has too many already.", fx = { align = { light = 1 } } },
+        { text = "I go down there to learn. That's my own business.", next = "BACK", reply = "It is, warlock, but my Sentinels will watch you go down, and come up. Mind what you learn.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -186,13 +186,13 @@ P:NPC {
         { id = "forsaken2_default", text = "That depends on the Sentinels, and on the Horde, who claim the Forsaken are their allies now. Some of my people would burn every camp, and others want proof before we start a war nobody can stop." },
       },
       choices = {
-        { text = "Burn the camps. Plague is plague, whoever carries it.", next = "BACK", fx = { align = { order = -1 }, trait = { stern = 1 } } },
-        { text = "Get proof first. A war needs more than suspicion.", next = "BACK", fx = { align = { order = 1 }, trait = { patient = 1 } } },
+        { text = "Burn the camps. Plague is plague, whoever carries it.", next = "BACK", reply = "Some of my people say the same, and I can't blame them. But the Horde would call it war.", fx = { align = { order = -1 }, trait = { stern = 1 } } },
+        { text = "Get proof first. A war needs more than suspicion.", next = "BACK", reply = "That's my leaning, and I'll stand by it. A war started on suspicion has no end.", fx = { align = { order = 1 }, trait = { patient = 1 } } },
       },
     },
     east = {
       lines = {
-        { id = "east_default", text = "Felwood, where the demons' corruption sits in the soil, and Azshara beyond, which is mostly ghosts and naga. We guard the road so the rot stays on that side of the hills." },
+        { id = "east_default", text = "Felwood lies that way, where the demons' corruption sits in the soil, and Azshara beyond, which is mostly ghosts and naga. We guard the road so the rot stays on that side of the hills." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -217,7 +217,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I'm a Sentinel officer, and Forest Song is the post nobody else wanted." } },
+    background = { { id = "tp_bg", text = "I'm a druid who ended up commanding a post, and Forest Song is the post nobody else wanted." } },
     warsong = { { id = "tp_warsong", text = "Forest Song sits closest to the Warsong lumber camps of anything we hold. I hear their saws every morning, and I count the trees I can see from my post." } },
     thrall = { { id = "tp_thrall", text = "Thrall is far away in Orgrimmar, and his Warsong are right here. I deal with what's right here." } },
     burning_legion = { { id = "tp_burning_legion", text = "There's a demon taint at the edge of this forest, near Felwood. If the Legion sends anything through, Forest Song will see it first." } },
@@ -244,10 +244,10 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Every hunter of the forest does. Your spirits might guide you, but a good bow answers truer." } },
+      lines = { { id = "xdsham_default", text = "Every hunter of the forest needs one, shaman or not. Your spirits might guide you, but a good bow answers truer." } },
       choices = {
-        { text = "Then I'll learn the bow properly, Bhaldaran.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "My spirits are enough. Keep your bows.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll learn the bow properly, Bhaldaran.", next = "BACK", reply = "Then you'll be the first shaman I've taught, and I'll make you a good one. Come back in a week.", fx = { align = { honor = 1 } } },
+        { text = "My spirits are enough. Keep your bows.", next = "BACK", reply = "Fair enough, though spirits make poor arrows. Good luck to you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -255,17 +255,17 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Only fallen wood, and only from trees the storms brought down, because I learned long ago that a bow cut from a living tree never sits right in the hand. The orcs cut living wood by the cartload, and it shows in everything they make." } },
       choices = {
-        { text = "A good rule. The forest gives enough without cutting.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A bow's a bow. The wood doesn't care how it fell.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A good rule. The forest gives enough without cutting.", next = "BACK", reply = "It is, and it's served me well. The forest gives enough if you wait for it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A bow's a bow. The wood doesn't care how it fell.", next = "BACK", reply = "The wood cares, friend, whether you do or not. Try a living-cut bow and you'll see.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I'll make you one, but I'll make it heavy, because you'll treat it roughly and a light bow would snap. Learn to draw it smooth instead of yanking it, and it'll serve you longer than you'd think." } },
+      lines = { { id = "xwarcl_default", text = "I'll make you one, but I'll make it heavy, because you'll treat it roughly and a light bow would snap. Learn to draw it smooth instead of yanking it, and it'll outlast a dozen of the bows you'd break." } },
       choices = {
-        { text = "I'll learn to draw it properly.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "As long as it shoots, I don't care how.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll learn to draw it properly.", next = "BACK", reply = "Good. A warrior who learns patience is a dangerous thing, and I'll make your bow accordingly.", fx = { align = { order = 1 } } },
+        { text = "As long as it shoots, I don't care how.", next = "BACK", reply = "Then it'll snap in a season, and you'll be back. I'll be here.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -273,17 +273,17 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Nothing, if you mean to shoot a man across a tavern, which I suppose is what your sort do. A bow wants a long draw and patient wood, and a rogue wants to be gone before the arrow lands, so we've never got on." } },
       choices = {
-        { text = "I'd rather face a man than shoot him from hiding.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Gone before it lands is the whole point.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd rather face a man than shoot him from hiding.", next = "BACK", reply = "Then you're not much of a rogue, and I'll make you a proper bow. Good.", fx = { align = { honor = 1 } } },
+        { text = "Gone before it lands is the whole point.", next = "BACK", reply = "Then buy a crossbow from a dwarf, friend. My bows want patience.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because Astranaar's Sentinels stare at anyone who smells of the arcane, and I don't, since I've no opinion on it worth the breath. Sit by the fire if you like, but don't warm it with a spell, because my staves season badly near magic." } },
+      lines = { { id = "xmage_default", text = "Because Astranaar's Sentinels stare at anyone who smells of the arcane, and I don't stare, since I've no opinion on it worth the breath. Sit by the fire if you like, but don't warm it with a spell, because my staves season badly near magic." } },
       choices = {
-        { text = "I'll mind your staves and sit by the plain fire.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "One small spell won't hurt your precious staves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll mind your staves and sit by the plain fire.", next = "BACK", reply = "Thank you. The staves are drying, and they're fussy about magic.", fx = { align = { order = 1 } } },
+        { text = "One small spell won't hurt your precious staves.", next = "BACK", reply = "It will, friend, and I'll know. Sit by the plain fire, please.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -291,8 +291,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Not often, but the woods have been louder lately, and I'd not mind a prayer for the trees the Warsong cut down by the river. A bow can't put them back, and neither can I." } },
       choices = {
-        { text = "I'll say a prayer for the fallen trees.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Trees don't need prayer. They need guarding.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll say a prayer for the fallen trees.", next = "BACK", reply = "Thank you, priest. I'll say one too, quietly, in my own way.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Trees don't need prayer. They need guarding.", next = "BACK", reply = "They need both, and I'll do the guarding. But a prayer couldn't hurt.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -300,8 +300,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Because the walls are only as good as the people behind them, and the woods have kept me alive longer. I'll not hide behind someone else's hammer, though I'll thank you for swinging it." } },
       choices = {
-        { text = "Then I'll swing it for anyone who needs it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Everyone fights their own battles out here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll swing it for anyone who needs it.", next = "BACK", reply = "Then the woods are lucky to have you, and so am I. Thank you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everyone fights their own battles out here.", next = "BACK", reply = "They do, and I prefer it that way. I'll watch my own back.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -311,8 +311,8 @@ P:NPC {
         { id = "xlock_default", text = "Because the wood takes on whatever's near it while it dries, and I won't have a bow that smells of the Burning Legion. Laugh if you like, but a good bow knows things, and I've broken the ones that learned the wrong things over my knee." },
       },
       choices = {
-        { text = "I'll keep it well away. Your craft deserves that.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Wood is wood. You're superstitious, bowyer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll keep it well away. Your craft deserves that.", next = "BACK", reply = "Thank you. You'll get a better bow for it, I promise you.", fx = { align = { honor = 1 } } },
+        { text = "Wood is wood. You're superstitious, bowyer.", next = "BACK", reply = "Superstitious, yes, and alive. I'll keep my staves away from your servant.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -406,8 +406,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "The kelp is dying and the fish are leaving, and the naga have been working at something in the bay that they don't want seen. An orc can guard a camp, but he can't read the water, so I'd hear what a druid makes of it." } },
       choices = {
-        { text = "I'll study the water first, then strike the naga where it matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Why read the water? Kill the naga and the shore will settle.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll study the water first, then strike the naga where it matters.", next = "BACK", reply = "Good, and the shaman will be glad of you. Know the water, then strike.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Why read the water? Kill the naga and the shore will settle.", next = "BACK", reply = "Maybe it would, and I'd be glad of the heads. But I'd like to know what they're doing first.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -415,8 +415,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Someone to keep the naga off the beach when they crawl up at night, and to remind the elves in the trees that we're still here. Blackfathom Deeps lies out in the bay as well, and one day we'll go in after whatever lives there." } },
       choices = {
-        { text = "I'll hold the beach. Zoram'gar won't fall.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let the naga come. I'll take their heads as trophies.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hold the beach. Zoram'gar won't fall.", next = "BACK", reply = "Good. Lok'tar, and the beach will hold.", fx = { align = { honor = 1 } } },
+        { text = "Let the naga come. I'll take their heads as trophies.", next = "BACK", reply = "Take them, and gladly, but bring me word of what they're doing. Trophies don't tell me much.", fx = { align = { honor = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -424,11 +424,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Crabs and murlocs on the sand and wolves in the trees, but it's the Wrathtail naga who hunt us. Kill their scouts before they reach the camp, and bring me word of anything bigger moving in the water." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} smells the naga already; I can see its hackles up. Good, because a beast that knows its enemy is worth two warriors who don't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Crabs and murlocs on the sand and wolves in the trees, but it's the Wrathtail naga who hunt us. Your {pet} smells them already, I can see its hackles up, and a beast that knows its enemy is worth two warriors who don't." },
       },
       choices = {
-        { text = "I'll hunt the naga scouts and bring you word.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll hunt what I like. The naga can wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll hunt the naga scouts and bring you word.", next = "BACK", reply = "Good. That's what Zoram'gar needs.", fx = { align = { order = 1 } } },
+        { text = "I'll hunt what I like. The naga can wait.", next = "BACK", reply = "Then hunt it, and come back when you've finished. The naga will still be there.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
@@ -439,8 +439,8 @@ P:NPC {
         { id = "xhcast_default", text = "Wards on the beach at night, and someone who can tell me what the naga sorceresses are calling up out of the bay. My grunts can kill what crawls ashore, but they can't kill what they don't understand." },
       },
       choices = {
-        { text = "I'll ward your beach. Your grunts deserve to sleep.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Spells cost. I'll name my price before I cast anything.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ward your beach. Your grunts deserve to sleep.", next = "BACK", reply = "Thank you. My grunts will be glad of it, and so will I.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Spells cost. I'll name my price before I cast anything.", next = "BACK", reply = "Name it, then, and I'll see what I can manage. Zoram'gar isn't rich.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -448,8 +448,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhrogue_default", text = "Sentinels from the elves' posts up the coast, and they're patient about it, the way only elves can afford to be. I'd like to know how many there are and when they change their watch, though I won't ask you to cut throats to learn it." } },
       choices = {
-        { text = "I'll count them and come back without a drop spilled.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "If a throat's in the way, I'll cut it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll count them and come back without a drop spilled.", next = "BACK", reply = "Good. Numbers and silence are worth more than blood out here.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If a throat's in the way, I'll cut it.", next = "BACK", reply = "Do what you must, but bring me the numbers first. Dead Sentinels make for angrier elves.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -457,8 +457,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Dead fish in heaps, storms out of a clear sky, and once a water elemental that walked up the beach and went back without a word. Something in Blackfathom Deeps is poisoning more than the naga, and I'd like to know what it is before it comes ashore as well." } },
       choices = {
-        { text = "Hold the shore, Karang, and I'll find out what stirs below.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let the elves and the naga bleed each other. It's their bay.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Hold the shore, Karang, and I'll find out what stirs below.", next = "BACK", reply = "Good, shaman. I'll hold the shore as long as I'm breathing.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the elves and the naga bleed each other. It's their bay.", next = "BACK", reply = "Maybe it is their bay, but the poison doesn't care whose water it is. I'll hold the shore anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -468,8 +468,8 @@ P:NPC {
         { id = "xcl_bfd_default", text = "Then the Twilight's Hammer have lost whatever beast they were feeding in the dark, and the naga will have to choose between a new master and the open sea. I've sent warriors into that cave who never came back, so I'll remember your face, whatever else the Horde forgets." },
       },
       choices = {
-        { text = "Remember your dead, Karang, not me. They went first.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Remember me well. I'll want that favour back someday.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Remember your dead, Karang, not me. They went first.", next = "BACK", reply = "I do, every night, and I'll remember you with them. Lok'tar.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Remember me well. I'll want that favour back someday.", next = "BACK", reply = "You'll have it, if I'm still standing. Zoram'gar remembers.", fx = { align = { honor = -1 } } },
         { text = "The naga must have wanted something down there.", next = "xcl_bfd2" },
       },
     },
@@ -525,8 +525,8 @@ P:NPC {
         { id = "strand2_default", text = "They would, and perhaps they are not wrong, but my people need timber and they are not going to freeze for an elf's sake. Some say we should parley with the Sentinels, and some say the axe is the only word they hear." },
       },
       choices = {
-        { text = "Talk first. The Horde needs peace more than wood.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "The axe, then. They started this when they hunted us.", next = "BACK", fx = { align = { order = -1 }, trait = { fierce = 1 } } },
+        { text = "Talk first. The Horde needs peace more than wood.", next = "BACK", reply = "Some say so, and I'd not argue. But the Warchief decides, and I hold the shore.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "The axe, then. They started this when they hunted us.", next = "BACK", reply = "Maybe they did, and maybe we did, and nobody remembers which. The axe it is, then.", fx = { align = { order = -1 }, trait = { fierce = 1 } } },
       },
     },
     naga = {
@@ -561,7 +561,7 @@ P:NPC {
       { id = "tp_thrall", text = "Thrall freed my people from the camps and gave us a homeland, and I'd follow him anywhere. He sent me here, so here I am." },
       { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You serve the Alliance and you ask about my warchief? He freed his people, and that's all you need to know of him." },
     },
-    tyrande = { { id = "tp_tyrande", text = "The elves' high priestess, the one who sends her Sentinels against our camps. She's a fierce enemy, and I'll not say otherwise." } },
+    tyrande = { { id = "tp_tyrande", text = "She's the elves' high priestess, the one who sends her Sentinels against our camps. She's a fierce enemy, and I'll not say otherwise." } },
     blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's down the coast from Zoram'gar, and the nagas and cultists there trouble us as much as anything. They don't care whose side we're on." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin's trolls are good allies, and many serve at Zoram'gar. They've a long memory and a sharp spear." } },
     _none = { { id = "tp_none", text = "I don't know. Ask someone who stays indoors more; an orc's work is out here with the blade." } },
@@ -588,8 +588,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Ruul does not know, only that it came with the darkness creeping down from the north, and the Thistlefur breathed it in until their eyes went red. Ruul would have them healed and not killed, but Ruul fears that is too much to ask." } },
       choices = {
-        { text = "Then I'll spare them when I can, for your sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If they're too far gone, kindness means a quick end.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll spare them when I can, for your sake.", next = "BACK", reply = "Ruul thanks you, friend. Every Thistlefur spared is one Ruul might bring home.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If they're too far gone, kindness means a quick end.", next = "BACK", reply = "Ruul knows, and Ruul cries for them. Make it quick, then, and Ruul will sing for them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -597,8 +597,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They will, because the Thistlefur no longer remember that they were friends of the forest. Ruul is sad to ask it, but if they come, you must fight them, and Ruul will try not to watch." } },
       choices = {
-        { text = "I'll spare any I can, for your sake.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "They'll come, and they'll die. That's the way of it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll spare any I can, for your sake.", next = "BACK", reply = "Ruul thanks you, friend. Ruul will tell the forest you were kind.", fx = { align = { honor = 1 } } },
+        { text = "They'll come, and they'll die. That's the way of it.", next = "BACK", reply = "Ruul knows it is the way, and Ruul hates it. Ruul will sing for them anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -606,11 +606,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They hunted only what the forest gave, and they thanked the trees afterward, as furbolgs always did. Now they kill in anger and leave the bodies, and Ruul cannot bear to watch it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is not afraid of Ruul, and that makes Ruul glad. Beasts know a furbolg who is still a friend of the forest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They hunted only what the forest gave, and they thanked the trees afterward, as furbolgs always did. Now they kill in anger and leave the bodies, but your {pet} is not afraid of Ruul, and that makes Ruul glad." },
       },
       choices = {
-        { text = "Then I'll hunt as the furbolgs once did.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Anger's as good a reason to hunt as any.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll hunt as the furbolgs once did.", next = "BACK", reply = "Then the forest will thank you, and Ruul will too. That is the furbolg way.", fx = { align = { light = 1 } } },
+        { text = "Anger's as good a reason to hunt as any.", next = "BACK", reply = "Ruul hopes you learn better, friend. Anger is what made the Thistlefur sick.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -621,8 +621,8 @@ P:NPC {
         { id = "xhcast_default", text = "Ruul has wondered that every night in this cage. The madness is not a wound, it is a voice, and Ruul does not know if a spell can make a voice go quiet, but Ruul would like someone to try before the Sentinels and the Horde kill them all." },
       },
       choices = {
-        { text = "I'll look for a cure before anyone draws a blade.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A quick death is the only mercy left for them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll look for a cure before anyone draws a blade.", next = "BACK", reply = "Ruul thanks you. Ruul knows there might not be one, but Ruul is glad you will look.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A quick death is the only mercy left for them.", next = "BACK", reply = "Ruul knows it, and Ruul cries for it. Make it quick, if you must.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -630,8 +630,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhrogue_default", text = "The chieftain keeps the cage key on a cord, and the stores are piled at the back of the den where the old ones used to sleep. Ruul does not like stealing from his own tribe, but Ruul likes this cage even less." } },
       choices = {
-        { text = "I'll take only the key. Your tribe keeps the rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Whatever they've hoarded is fair game now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take only the key. Your tribe keeps the rest.", next = "BACK", reply = "Ruul thanks you, friend. Ruul's tribe will need those stores, if they wake.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever they've hoarded is fair game now.", next = "BACK", reply = "Ruul does not like it, but Ruul understands. Take what you need, at least.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -639,8 +639,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "The Thistlefur shamans went mad first, because they listened hardest, and something that was not the forest answered them. Ruul thinks something dark crept into their dreams, and the forest spirits have been quiet ever since." } },
       choices = {
-        { text = "Your tribe can still be healed, Ruul. I believe that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The mad ones are lost. Save yourself, Ruul.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your tribe can still be healed, Ruul. I believe that.", next = "BACK", reply = "Ruul wants to believe it, and Ruul does, a little, when you say it. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The mad ones are lost. Save yourself, Ruul.", next = "BACK", reply = "Ruul will not leave them, friend. Ruul would rather be lost with them than safe alone.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -651,7 +651,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "Your hands crackle like the air before a storm. Ruul does not know your kind of magic, but Ruul hopes very much that it can open a cage." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Ruul smells something on you, the same bad smell that came into the forest before the madness. Ruul will not judge you for it yet, but Ruul will watch your hands." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came so quietly that even the Thistlefur guards did not hear you, and they hear everything now. Ruul is glad you are a friend, or Ruul hopes you are." },
-        { id = "h_default", text = "Ruul's tribe, the Thistlefur, have gone mad, and they keep Ruul in this cage because Ruul would not go mad with them. If you set Ruul free, Ruul will walk you to safety, though the way is long." },
+        { id = "h_default", text = "Ruul's tribe, the Thistlefur, have gone mad, and they keep Ruul in this cage because Ruul would not go mad with them. If you set Ruul free, walk with Ruul out of the den, because the way is long and the Thistlefur will follow." },
         { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo, cousin of the forest! Ruul knew your people's drums once, from the old days, before the madness." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "You carry a blade, and you are not Thistlefur. Ruul hopes that blade is not for Ruul." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "You walk the way the forest walks, quiet and watchful. Ruul likes that." },
@@ -688,8 +688,8 @@ P:NPC {
         { id = "madness2_default", text = "Ruul hopes so, every night, but Ruul has seen them kill their own cubs. The Horde wants their land, and the elves want them gone, and nobody asks what the furbolgs want." },
       },
       choices = {
-        { text = "They should be healed, not hunted.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "If they kill cubs, they're beyond saving.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "They should be healed, not hunted.", next = "BACK", reply = "Ruul thinks so too, and Ruul is glad you say it. Nobody else does.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "If they kill cubs, they're beyond saving.", next = "BACK", reply = "Ruul knows, and Ruul cannot argue. But Ruul still hopes.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
       },
     },
     ruul = {
@@ -720,7 +720,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Ruul is a Thistlefur, the last one with clear eyes." } },
-    timbermaw = { { id = "tp_timbermaw", text = "Timbermaw are Ruul's cousins, and they kept their eyes clear when the Thistlefur did not. Ruul wishes he could go to them, but Ruul's own clan still needs someone." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Timbermaw are Ruul's cousins, and they kept their eyes clear when the Thistlefur did not. If Ruul is ever free, Ruul will go to them." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "Ruul's grandmothers spoke of the green dream that the forest dreams. Ruul has not dreamed green since the madness came." } },
     burning_legion = { { id = "tp_burning_legion", text = "The sickness in the Thistlefur smells like old fire from the north. Ruul does not know its name, but Ruul knows it is evil." } },
     _none = { { id = "tp_none", text = "Ruul does not know that, friend. Ruul knows trees and cages, mostly." } },

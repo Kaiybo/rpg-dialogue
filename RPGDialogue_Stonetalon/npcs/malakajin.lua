@@ -68,8 +68,8 @@ P:NPC {
         { id = "cg_default", text = "Sometimes a forest spirit, sometimes a beast, and once somethin' with pointed ears dat cried all night. Jin'Zil say a witch doctor must know a thing from da inside before da loa will let him use it, and I ain't sure yet if I believe him." },
       },
       choices = {
-        { text = "Some things shouldn't be caged, Jeeda. Remember that.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power is learned the hard way. Your master's right.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some things shouldn't be caged, Jeeda. Remember that.", next = "BACK", reply = "I remember it every night, mon, when dat elf was crying. Maybe you be right, and maybe I'll tell Jin'Zil so, one day when I'm braver.", fx = { align = { light = 1 } } },
+        { text = "Power is learned the hard way. Your master's right.", next = "BACK", reply = "Dat be what he say too, mon, and he been doin' this longer than me. I'll keep learnin', and try not to listen to the cages at night.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -119,8 +119,8 @@ P:NPC {
         { id = "pt2_default", text = "Course I do, mon, and one day I'll have my own cave and my own apprentice to stir for me. Jin'Zil think I'll wait ten more years for it, but I been watchin' him, and I think I'll be ready sooner." },
       },
       choices = {
-        { text = "Learn everything first. Rushing gets apprentices killed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Don't wait for his blessing. Take your chance when it comes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Learn everything first. Rushing gets apprentices killed.", next = "BACK", reply = "Ya, mon, I know, and I seen apprentices who rushed. Their pots be still sittin' in the cave, and they ain't.", fx = { align = { order = 1 } } },
+        { text = "Don't wait for his blessing. Take your chance when it comes.", next = "BACK", reply = "Ha! Dat be my kind of talk, mon, but don't you tell Jin'Zil I agreed. When my chance come, I'll be ready for it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -232,8 +232,8 @@ P:NPC {
       big = true,
       lines = { { id = "sf_default", text = "Fire keeps the creepers off, sure, but it burns wood we gotta carry up the mountain, and every night we be feedin' a fire instead of a family. Some say leave the spiders their share and be done with it." } },
       choices = {
-        { text = "Kill them and keep what you hunted. That's fair.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Leave them a share. The mountain was theirs first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Kill them and keep what you hunted. That's fair.", next = "BACK", reply = "Dat be fair, mon, and it be what my brothers say too. We hunted it, we keep it, and the spiders can find their own supper.", fx = { align = { order = 1 } } },
+        { text = "Leave them a share. The mountain was theirs first.", next = "BACK", reply = "The mountain was theirs, ya, I can't argue with that, mon. A share for the spiders and a share for us, and maybe we all sleep better.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -246,7 +246,7 @@ P:NPC {
       },
     },
     why_sunrock = {
-      lines = { { id = "ws_default", text = "The tauren be good neighbors, mon, though they look at our cooking pots like we might be boilin' a kodo. Maggran send word down when the harpies be bad, and we send up meat when the hunt be good." } },
+      lines = { { id = "ws_default", text = "The tauren be good neighbors, mon, though they look at our cooking pots like we might be boilin' a kodo. Maggran Earthbinder up on Sun Rock send word down when the harpies be bad, and we send up meat when the hunt be good." } },
       choices = {
         { text = "Sounds like a fair trade.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -312,7 +312,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Don't touch the pots, mon. Anything else you can touch, but not the pots." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Ken'zigla's Draught") }, text = "Half for Dogran, mon, then a night, then the other half. Don't you forget." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Ken'zigla's Draught") }, text = "Give Dogran half the draught, mon, then wait a night before the other half, and don't you forget." },
     { id = "g_done", when = { questDone = TODO_QUEST("Ken'zigla's Draught") }, text = "Word come back from Taurajo that the grunt be walking. Good brew, if I say so myself." },
   },
 
@@ -332,7 +332,7 @@ P:NPC {
         { id = "h_news", tags = { "news" }, when = { questActive = TODO_QUEST("News of Dogran") },
           text = "You come from Camp Taurajo about the grunt? Then I already know why you be here, mon, because they sent a runner for my draught days ago and the runner never come back." },
         { id = "h_draught", when = { questActive = TODO_QUEST("Ken'zigla's Draught") },
-          text = "Take it to Grunt Logmar at Taurajo, mon, he knows where they keep Dogran. Half the draught first, then wait a night, or he bleeds himself dry tryin' to stand up." },
+          text = "Take it to Grunt Logmar at Taurajo, mon, he knows where they keep Dogran. First half de draught, then wait a night, or he bleeds himself dry tryin' to stand up." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Ken'zigla's Draught"), days = 3 } },
           text = "Dogran be on his feet, they say, and cursing the quilboar already. That be the best sign there is, mon, because the dyin' don't curse." },
       },
@@ -369,8 +369,8 @@ P:NPC {
       big = true,
       lines = { { id = "bw_default", text = "Weaker be too slow for a grunt with the rot in his wound, mon. A weak brew be safe for the brewer, because nobody blames you, but the patient dies polite and slow." } },
       choices = {
-        { text = "Better strong and dangerous than safe and useless.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A healer should follow the safe measure, always.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Better strong and dangerous than safe and useless.", next = "BACK", reply = "Dat be what I say every time, mon, and nobody listen. Strong and careful, and the grunt lives to complain.", fx = { align = { order = -1 } } },
+        { text = "A healer should follow the safe measure, always.", next = "BACK", reply = "Safe for the brewer, mon, and slow for the dying. I'll follow it when I must, but I won't like it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

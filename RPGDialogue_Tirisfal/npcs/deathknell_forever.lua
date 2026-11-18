@@ -23,7 +23,7 @@ P:NPC {
     { id = "n_green", cat = "greenness", when = { maxLevel = 3 },
       text = "You've only just climbed out of the ground, haven't you? Don't worry, because nobody expects you to choose a trade today, and you can always come back to me." },
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
-      text = "I can smell the peacebloom on you from here, or I could if I could still smell. Florence will be pleased; she says nobody picks properly anymore." },
+      text = "I can smell the peacebloom on you from here, or I could if I could still smell. Florence Nightshade, our herbalism trainer, will be pleased; she says nobody picks properly anymore." },
   },
 
   start = "hello",
@@ -33,7 +33,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Hello, {name}! Have you considered taking up a trade? I'm happy to answer any questions, or to point you toward the trainers here in Deathknell." },
         { id = "h_young", when = { maxLevel = 5 },
-          text = "Hello, and welcome to Deathknell! It's a great deal to take in all at once, I know, so if a trade feels like too much today, come back whenever you like, and I'll still be standing here." },
+          text = "Hello, and welcome to Deathknell! It's a lot to take in all at once, I know, so if a trade feels like too much today, come back whenever you like, and I'll still be standing here." },
         { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } },
           text = "A living visitor, and in Deathknell of all places! The trainers here teach the newly risen, but a skinning knife works the same in any hand, so ask me anything you like." },
       },
@@ -52,7 +52,7 @@ P:NPC {
     },
     what = {
       lines = {
-        { id = "w_default", text = "I'm glad you asked! Professions are the skills of crafting and gathering and getting by in the wild, and every one of them has its own uses, whether you're after coin, or supplies for your friends, or the pleasure of wearing something you made with your own hands." },
+        { id = "w_default", text = "I'm glad you asked! Professions are the skills of crafting and gathering and getting by in the wild, and each has its own uses, whether you're after coin, or supplies for your friends, or the pleasure of wearing something you made with your own hands." },
       },
       choices = {
         { text = "And how does one learn them?", next = "learn" },
@@ -70,7 +70,7 @@ P:NPC {
     },
     kinds = {
       lines = {
-        { id = "k_default", text = "There are primary trades and secondary ones. You can only keep two primary trades at a time, and if you drop one you lose everything you learned of it, so choose with some care; the secondary ones like cooking and fishing and first aid have no limit at all, and they'll keep you alive more often than they'll make you rich." },
+        { id = "k_default", text = "There are primary trades and secondary ones. You can only keep two primary trades at a time, and if you drop one you lose everything you learned of it, so choose with some care. The secondary ones, like cooking and fishing and first aid, have no limit at all, and they'll keep you alive more often than they'll make you rich." },
       },
       choices = {
         { text = "Which two would you choose?", next = "choose" },
@@ -83,8 +83,8 @@ P:NPC {
         { id = "c_default", text = "Oh, I'm the wrong one to ask, because I'd choose all of them if they'd let me! Most folk pick a gathering trade to feed a making trade, herbs for alchemy or ore for the forge, but some like the freedom of two gathering trades and selling what they find. What sort are you?" },
       },
       choices = {
-        { text = "A planner. I'll pick two that work together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll take what the road gives me and sell it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A planner. I'll pick two that work together.", next = "BACK", reply = "Oh, splendid, a planner! Herbs and alchemy, or ore and the forge, and you'll never be short of what you need, which is more than I can say for my own scattered workbench.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take what the road gives me and sell it.", next = "BACK", reply = "A wanderer's answer, and a perfectly good one, because the auctioneers in the Undercity are always hungry. Just keep a full pack and a sharp knife, and the road will be generous.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -215,8 +215,8 @@ P:NPC {
         { id = "b_default", text = "The Royal Apothecary Society buys more than anyone, and they don't say what for. Some of what I teach ends up in poultices, and some of it ends up in things I'd rather not think about, so I've learned to teach the picking and leave the rest to the people who use it." },
       },
       choices = {
-        { text = "Then I'll sell where it does the most harm to our enemies.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'd rather my herbs went into poultices, not poisons.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll sell where it does the most harm to our enemies.", next = "BACK", reply = "Then the Society will be glad of you, and I'll try very hard not to ask what you sold them. Pick cleanly, at least, so the roots grow back for next season.", fx = { align = { light = -1 } } },
+        { text = "I'd rather my herbs went into poultices, not poisons.", next = "BACK", reply = "So would I, though once a leaf leaves my hands I've no say in where it goes. Sell to the healers in Brill, then, and you'll sleep a little easier.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -268,6 +268,10 @@ P:NPC {
         { text = "What's the salt for?", next = "salt" },
         { text = "Does skinning ever trouble you?", next = "trouble" },
         { text = "Who uses the hides once they're cured?", next = "hides" },
+        { text = "How do you keep a knife that sharp?", next = "knife" },
+        { text = "You handle that knife like you've done this before.", next = "past" },
+        { text = "My pet brought this down. Can I skin it?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "My people use every part of the kodo too.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Goodbye, Margaret.", next = "END" },
       },
     },
@@ -286,22 +290,73 @@ P:NPC {
         { id = "tr_default", text = "Not the skinning, no. What troubles me is waste, a beast killed for sport and left for the crows with its hide spoiling, and I've seen plenty of that from the newly risen. If you take a life, the least you can do is use all of it." },
       },
       choices = {
-        { text = "Agreed. Using all of it is a kind of respect.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A beast is a resource, Margaret. Nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Agreed. Using all of it is a kind of respect.", next = "BACK", reply = "It is, and I'm glad someone finally said it back to me. Take the hide, the sinew and the fat, and the beast won't have died for nothing.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast is a resource, Margaret. Nothing more.", next = "BACK", reply = "Call it what you like, but a resource spoiled in the sun is still a waste, and waste is what offends me. Skin it properly or don't kill it at all.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hides = {
       lines = {
-        { id = "hd_default", text = "Leatherworkers, mostly, in Brill and the Undercity, for armor and packs and the like. The Deathguard go through boots faster than you'd think, for people who don't feel the blisters." },
+        { id = "hd_default", text = "Leatherworkers, mostly, in Brill and the Undercity, for armor and packs and the like. The Deathguard wear through boots at a ridiculous rate, for people who don't feel the blisters." },
       },
       choices = {
+        { text = "Why do the Deathguard wear out their boots?", next = "hides2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hides2 = {
+      lines = { { id = "h2_default", text = "Because they never sit down, dear, and they march the same road between here and the Bulwark day and night. A living soldier rests his feet when they ache, and the dead ones just keep walking until the sole's gone and they're walking on bone." } },
+      choices = {
+        { text = "Bone wears down too, surely?", next = "hides3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hides3 = {
+      lines = { { id = "h3_default", text = "It does, and the apothecaries can't grow it back, which is why I'd like every skinner I train to bring in two good hides a week. Every pair of boots is a deathguard who'll still be standing on the wall next winter." } },
+      choices = {
+        { text = "Two hides a week. I'll do my share.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    knife = {
+      lines = { { id = "kn_default", text = "A whetstone every evening, twenty strokes a side, and never use it to pry anything open, whatever the temptation. A skinning knife that's been used as a lever never sits true again." } },
+      choices = {
+        { text = "Twenty strokes. What else?", next = "knife2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    knife2 = {
+      lines = { { id = "k2_default", text = "Wipe it dry before you sheathe it, because this valley's damp gets into the steel and rusts it overnight. And keep it away from the apothecaries, who borrow things and give them back smelling of something you'd rather not know about." } },
+      choices = { { text = "I'll keep it close. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    past = {
+      lines = { { id = "pa_default", text = "Have I? Perhaps my hands remember things I'd rather leave where I left them. I'll tell you this much, dear, and no more: they knew needle and thread long before they knew a knife." } },
+      choices = {
+        { text = "A seamstress, then? Is that the Weaver in your name?", next = "past2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    past2 = {
+      lines = { { id = "p2_default", text = "Maybe it is and maybe I chose it, and either way it's mine now. The Scourge took a great deal from me, but it didn't take my hands, so I use them, and I don't look back over my shoulder." } },
+      choices = {
+        { text = "I won't ask again, Margaret.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = { { id = "xh_default", text = "You can, if you know how, and if your beast will let you near its supper. Cut it before it stiffens, which in this cold is sooner than you'd think, and thank the beast that did the hard part." } },
+      choices = { { text = "I'll thank it with the scraps.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xtauren = {
+      lines = { { id = "xt_default", text = "So I'm told, hide for tents and horn for tools and nothing left for the crows. I'd like to see your people work a hide one day, because I think I'd learn more in an hour than in a year of teaching." } },
+      choices = {
+        { text = "Come to Thunder Bluff one day.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     salt = {
       lines = {
-        { id = "s_default", text = "Curing. A raw hide goes bad quickly, even in this damp, and salt draws the water out so the leatherworkers have something to work with. You'd think the dead would have lost the habit of keeping things from rotting, but it turns out we're rather good at it." },
+        { id = "s_default", text = "It's for curing. A raw hide goes bad quickly, even in this damp, and salt draws the water out so the leatherworkers have something to work with. You'd think the dead would have lost the habit of keeping things from rotting, but it turns out we're rather good at it." },
       },
       choices = {
         { text = "That's a grim joke, Margaret.", next = "BACK", fx = { affinity = 1 } },
@@ -312,6 +367,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "That's my own business, dear, and it was a long time ago. I'd rather teach you something useful." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge wasted everything it touched, people and beasts alike, and left them lying. I'll not be like it, not in the smallest thing." } },
     advice = { { id = "tp_ad", text = "Cut along the grain and don't rush the belly. Hurry and you'll have two half-hides that nobody wants." } },
     _none = { { id = "tp_none", text = "I couldn't say, dear. Ask me about hides." } },
   },
@@ -329,7 +385,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "How can I help you? If it's about rocks, I can help a great deal." },
+    { id = "g_default", text = "How can I help you? If it's about rocks, I'm your man." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Found any good veins yet?" },
   },
 
@@ -356,6 +412,10 @@ P:NPC {
         { text = "What do I do with ore?", next = "smelt" },
         { text = "Who buys the copper?", next = "buyers" },
         { text = "Why sell a blacksmith's hammer?", next = "hammer" },
+        { text = "Were you a miner before you died?", next = "life" },
+        { text = "Mason's a stonemason's name, surely?", next = "grand" },
+        { text = "This copper's thin stuff next to Dun Morogh's.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "My people ask the earth before we take from it.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Goodbye, Walter.", next = "END" },
       },
     },
@@ -364,6 +424,7 @@ P:NPC {
         { id = "o_default", text = "Copper, in the hills around Deathknell and on toward Brill, and you'll see the green streaks in the rock once you know what to look for. There's a fair bit in Night Web's Hollow too, but the spiders got there first, and they don't share." },
       },
       choices = {
+        { text = "And once I've outgrown copper?", next = "ore2" },
         { text = "I'll clear the spiders, then.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "I'll stick to the hills.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
@@ -371,11 +432,11 @@ P:NPC {
     buyers = {
       big = true,
       lines = {
-        { id = "by_default", text = "The smiths in Brill and the Undercity, and most of what they make goes to the Deathguard, one way or another. A good share of every vein in Tirisfal ends up on the walls at the Bulwark, so I like to think a miner's doing his part. Others just sell to whoever pays most." },
+        { id = "by_default", text = "The smiths in Brill and the Undercity, and most of what they make goes to the Deathguard, one way or another. A good share of every vein in Tirisfal ends up on the walls at the Bulwark, so I like to think a miner's doing his part, though others just sell to whoever pays most." },
       },
       choices = {
-        { text = "Arming the Forsaken is good work. That's where mine goes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll sell to whoever pays best, Walter.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Arming the Forsaken is good work. That's where mine goes.", next = "BACK", reply = "Good, because the Bulwark eats iron faster than we can dig it. Every bar you bring back is another blade between Brill and the plague.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll sell to whoever pays best, Walter.", next = "BACK", reply = "Plenty do, and I'll not pretend coin doesn't spend. Only remember that the walls at the Bulwark don't hold themselves up when the Scourge comes calling.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -396,11 +457,64 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ore2 = {
+      lines = { { id = "o2_default", text = "Then it's tin, down in Silverpine past the Sepulcher, and silver if you're lucky, and you'll want to ask Johan Focht there about the old workings. He'll grumble, but he knows every vein from the Sepulcher to the coast." } },
+      choices = {
+        { text = "Is there no tin in Tirisfal?", next = "ore3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ore3 = {
+      lines = { { id = "o3_default", text = "A little, up north toward the old forge, but the Scourge overran that end of the valley and it's not been taken back. I'd not send a new miner up there, not for all the tin in Lordaeron." } },
+      choices = { { text = "Silverpine, then. Something else.", next = "BACK" } },
+    },
+    life = {
+      lines = { { id = "li_default", text = "Forty years in the hills of Lordaeron, copper and tin and once, gloriously, a seam of silver that kept my family in shoes for a decade. I came up out of the ground one evening and the plague was waiting at the top of the shaft." } },
+      choices = {
+        { text = "And yet you went back to mining.", next = "life2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    life2 = {
+      big = true,
+      lines = { { id = "l2_default", text = "What else would I do? The rock doesn't care that I'm dead, and it doesn't care whose side I'm on, and there's a great comfort in that. Some of the risen say we should leave our old lives in the grave, and some say they're all we've got. What do you say?" } },
+      choices = {
+        { text = "Hold on to who you were. It's yours.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The grave took that life. Build a new one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grand = {
+      lines = { { id = "gr_default", text = "My grandfather's, and he cut the stone for half the farmhouses between here and the capital. I dig it up and he shaped it, so between us we've handled most of the rock in Tirisfal, one way or another." } },
+      choices = {
+        { text = "Do any of his houses still stand?", next = "grand2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grand2 = {
+      lines = { { id = "g2_default", text = "A few, though the Scarlets have taken one at Solliden and put their banners on it. That galls me more than it should, for a man who's been dead this long, but it was good stone and they don't deserve it." } },
+      choices = {
+        { text = "We'll take it back from them.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = { { id = "xd_default", text = "Ha! It is, and I won't pretend otherwise to a dwarf, but it's our thin stuff and we're glad of it. If you ever want to show an old Lordaeron miner how it's done in Ironforge, I'll buy the ale, though I can't drink it." } },
+      choices = { { text = "You've a deal, Walter.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xtauren = {
+      lines = { { id = "xt_default", text = "Do you, now? I always just said sorry to the mountain when I struck it, which my wife thought was daft. Perhaps your people and I would have got on, after all." } },
+      choices = {
+        { text = "Sorry is a fine start, Walter.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "Everyone asks whether the name means I was a stonemason, and I tell them it means my grandfather was. I just dig up what the masons used." } },
     advice = { { id = "tp_ad", text = "Mine the vein from the edges in. Strike the middle first and half of it crumbles to dust." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron was built on good stone and better copper, and I dug a fair bit of both. The kingdom's gone, but the rock's still there, waiting." } },
     _none = { { id = "tp_none", text = "That's not something you'll find in a rock, friend, so I wouldn't know." } },
   },
 }

@@ -70,23 +70,23 @@ P:NPC {
         { id = "bt_default", text = "Some do, and they tell me so, very politely. They say the Horde should mend what it has before it fights for what it lost, and Borook says a people who forget their old home forget themselves too. Who be right?" },
       },
       choices = {
-        { text = "Your people's old home is worth fighting for.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Mend what the Horde has first. The past can wait.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your people's old home is worth fighting for.", next = "BACK", reply = "Ha, dat be what Borook wants to hear, mon. The Echo Isles still remember Darkspear feet, and one day they gonna feel them again.", fx = { align = { order = -1 } } },
+        { text = "Mend what the Horde has first. The past can wait.", next = "BACK", reply = "You talk like a tauren elder, slow and sensible, and maybe you be right. But Zalazane sits on our islands while we mend, and the loa don't wait forever.", fx = { align = { order = 1 } } },
         { text = "You both are, in your way.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
     islands = {
       lines = {
-        { id = "is_default", text = "Thrall's ships washed up there in a storm, and old Sen'jin welcomed them, and then the murlocs took them both down under the islands for their sea witch. Sen'jin died there, and the mountain blew, and the Darkspear left with the Horde." },
+        { id = "is_default", text = "Thrall's ships washed up there in a storm, and old Sen'jin welcomed them, and then murlocs dragged them both into the caves below as offerings to their sea witch. Sen'jin died down there, the island's volcano blew, and the Darkspear left with the Horde." },
       },
       choices = {
-        { text = "And now Theramore holds them?", next = "islands_now" },
+        { text = "And now Theramore wants them?", next = "islands_now" },
         { text = "Something else.", next = "BACK" },
       },
     },
     islands_now = {
       lines = {
-        { id = "in_default", text = "Theramore wants them, and the Raiders want them, and nobody holds them for long. Some of our people never left, you know, and Borook would like to know they be safe before he goes back to complaining about the wind." },
+        { id = "in_default", text = "Theramore wants them and the Raiders want them, but nobody holds them for long. Some of our people never left the islands, and Borook would like to know they be safe before he goes back to complaining about the wind." },
       },
       choices = {
         { text = "Then we'll go and make sure.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },

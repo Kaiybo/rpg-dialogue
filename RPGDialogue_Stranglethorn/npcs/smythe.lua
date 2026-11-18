@@ -34,7 +34,7 @@ P:NPC {
   },
 
   react = {
-    { id = "r_stealth", on = "stealth", text = "There it goes again, the air going quiet. Strom's students vanish on this landing twice an hour, so you'll forgive me if I keep a hand on my purse." },
+    { id = "r_stealth", on = "stealth", text = "There it goes again, the air going quiet. Strom's students vanish on this landing twice an hour, so I keep a hand on my purse whenever it happens." },
   },
 
   start = "hello",
@@ -48,7 +48,7 @@ P:NPC {
         { id = "h_horde", when = { faction = "Horde" },
           text = "Welcome up, friend. I've witnessed bargains between orcs and goblins, trolls and dwarves, and once a tauren and a parrot, so you'll not find me squeamish about whose colors you wear." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "One of Strom's, or soon to be? His door's just along the landing, and you'll forgive me if I keep one hand on my purse while we talk." },
+          text = "One of Strom's, or soon to be? His door's just along the landing, so don't take it personally if one hand stays on my purse while we talk." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "You've the look of someone who settles arguments on the pier, and in this town that means you'll need a witness sooner or later. Remember the name, friend: Smythe, with a y." },
         { id = "h_lock", when = { class = "WARLOCK" },
@@ -63,7 +63,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Go on, then, I'm listening. Listening is most of what I do for a living." },
         { id = "h_again2", text = "What else? I've nowhere to be until somebody starts a wager." },
-        { id = "h_again3", text = "Ask away. The Bruisers won't need me to read for them until the evening ships come in." },
+        { id = "h_again3", text = "Ask away. Nobody will need a witness until the evening ships come in." },
       },
       choices = {
         { text = "What's a human doing in a goblin port?", next = "salvage" },
@@ -112,8 +112,8 @@ P:NPC {
       big = true,
       lines = { { id = "svf_default", text = "The Blackwater Raiders took the hulk, and the Baron ruled that any crew found aboard a captured ship was salvage, at so much a head. I couldn't pay my own price, so I spent three years tallying crates on the docks for the Cartel until I'd bought myself back, and by then I had a room, a trade and no reason to leave." } },
       choices = {
-        { text = "A debt's a debt, even a strange one. You were right to pay it.", next = "BACK", fx = { align = { order = 1 }, learn = { "steamwheedle" } } },
-        { text = "I'd have slipped aboard the first ship north and owed nobody.", next = "BACK", fx = { align = { order = -1 }, learn = { "steamwheedle" } } },
+        { text = "A debt's a debt, even a strange one. You were right to pay it.", next = "BACK", reply = "That's what I told myself, every coin of the way, and I think it's why the Baron trusted me after. A witness who'd skip on his own debt wouldn't be worth much.", fx = { align = { order = 1 }, learn = { "steamwheedle" } } },
+        { text = "I'd have slipped aboard the first ship north and owed nobody.", next = "BACK", reply = "Plenty tried, and the Bruisers fished most of them out of the harbour. The ones they didn't fish out, well, the sharks hold the receipts for those.", fx = { align = { order = -1 }, learn = { "steamwheedle" } } },
         { text = "Charged for your own rescue? That's very goblin.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
@@ -158,7 +158,7 @@ P:NPC {
     -- The neighbours (sub-hub)
     around = {
       hub = true,
-      lines = { { id = "ar_default", text = "From this landing I can see the Baron's balcony, the Salty Sailor's door and half the pier, and I know everybody's business, which is my trade. Who did you want to hear about?" } },
+      lines = { { id = "ar_default", text = "From this landing I can see the Baron's balcony, the Salty Sailor's door and most of the pier, and I know everybody's business, which is my trade. Who did you want to hear about?" } },
       again = {
         { id = "ar_again", text = "Who else? I know them all, and most of them owe somebody money." },
         { id = "ar_again2", text = "Go on, name another. I've an opinion for every door on this landing." },
@@ -179,15 +179,15 @@ P:NPC {
         { id = "bn_gnome", when = { race = "Gnome" }, text = "He bought me as salvage and sold me back to myself at a profit, and then he hired me. I expect a gnome finds that sort of thing appalling, but it kept me fed for three years, and that's more than Stormwind ever did." },
       },
       choices = {
-        { text = "A hard bargain, but he kept it. That deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Clever. I'd have done the same in his place.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A hard bargain, but he kept it. That deserves respect.", next = "BACK", reply = "It does, and I've come to give it, though it took me a few years to stop grinding my teeth. In this town a kept bargain is rarer than a straight pier.", fx = { align = { honor = 1 } } },
+        { text = "Clever. I'd have done the same in his place.", next = "BACK", reply = "I expect you would, and I expect he'd hire you too. Just remember I'm the one who witnesses your bargains, so be fair with me.", fx = { align = { honor = -1 } } },
         { text = "Does he ever need you as a witness?", next = "baron_ledger" },
       },
     },
     baron_ledger = {
       lines = { { id = "bl_default", text = "Twice a year, when the Cartel's men come over from Undermine to check his books, he has me stand in the corner and swear the counts are honest. They always are, mind, because the Baron's far too clever to cheat where anyone's looking." } },
       choices = {
-        { text = "And where nobody's looking?", next = "BACK", fx = { trait = { skeptical = 1 }, learn = { "steamwheedle" } } },
+        { text = "I'd hate to see what he does where nobody's looking.", next = "BACK", fx = { trait = { skeptical = 1 }, learn = { "steamwheedle" } } },
         { text = "Let's talk about someone else.", next = "BACK", fx = { learn = { "steamwheedle" } } },
       },
     },
@@ -208,12 +208,12 @@ P:NPC {
         { id = "sl_home", when = { homeInn = { "Booty Bay", "The Salty Sailor Tavern" } }, text = "You've a bed there yourself, so you know the place: rum below, the Baron above and the parrots everywhere in between. Skindle's honest, as tavern keepers go, but count your change and sit with your back to the wall." },
       },
       choices = {
-        { text = "Any advice for drinking there?", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "I'll count my change and keep my back to the wall.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "I'll buy you a rum there sometime.", next = "BACK", fx = { affinity = 1, trait = { generous = 1 } } },
       },
     },
     strom = {
-      lines = { { id = "st_default", text = "Ian Strom trains rogues, just along the landing from me, and he's the best neighbor I've ever had in that I've never once heard him come or go. I hung a string of shells over my door the week he moved in, and I sleep a great deal better for it." } },
+      lines = { { id = "st_default", text = "Ian Strom trains rogues, just along the landing from me, and he's the best neighbor I've ever had in that I've never once heard him come or go. I hung a string of shells over my door the week he moved in, and now I hear them rattle every time he goes by." } },
       choices = {
         { text = "Has anyone ever crept in past the shells?", next = "strom_shells" },
         { text = "Shells. That's clever, Markel.", next = "BACK", fx = { affinity = 1 } },
@@ -237,8 +237,8 @@ P:NPC {
       big = true,
       lines = { { id = "prr_default", text = "They want this cove back, and they've never forgiven the Baron for building a town where they meant to build a graveyard. Some of their crews are pressed men, though, taken off merchant ships the same as I was, only nobody paid their fee." } },
       choices = {
-        { text = "Then the pressed men deserve mercy if they surrender.", next = "BACK", fx = { align = { light = 1 }, learn = { "bloodsail" } } },
-        { text = "A red sash is a red sash. Sink them all.", next = "BACK", fx = { align = { light = -1 }, learn = { "bloodsail" } } },
+        { text = "Then the pressed men deserve mercy if they surrender.", next = "BACK", reply = "I'd stand witness to that surrender gladly, and I've seen a few. A pressed man on his knees is still a Stormwind boy who never wanted the sash.", fx = { align = { light = 1 }, learn = { "bloodsail" } } },
+        { text = "A red sash is a red sash. Sink them all.", next = "BACK", reply = "You'll find plenty in this town who'd drink to that. I've seen too many faces under those sashes to raise the cup with them, though.", fx = { align = { light = -1 }, learn = { "bloodsail" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } },
       },
     },
@@ -270,8 +270,8 @@ P:NPC {
       big = true,
       lines = { { id = "hg_default", text = "My mother did, I expect, but she's gone now, and my brother was always better at grieving than writing letters. What would you do, if the whole world had already said its goodbyes to you?" } },
       choices = {
-        { text = "Go home. A man belongs among his own people.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Stay drowned. You're free, and freedom's worth more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Go home. A man belongs among his own people.", next = "BACK", reply = "Among his own people, aye, but they're mostly in the ground now or think I am. I've half a mind to go some day, just to see the look on my brother's face.", fx = { align = { order = 1 } } },
+        { text = "Stay drowned. You're free, and freedom's worth more.", next = "BACK", reply = "Freedom it is, I suppose, though it's a lonely sort of freedom. Still, drowned men don't owe anybody a letter, and that suits me more days than not.", fx = { align = { order = -1 } } },
         { text = "I couldn't say, Markel. That's yours to decide.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },
@@ -322,10 +322,10 @@ P:NPC {
     -- Class
     xrogue = {
       big = true,
-      lines = { { id = "xr_default", text = "Not nervous, exactly, but watchful, because his students practice on whoever happens to be passing, and I happen to pass a great deal. I've witnessed the return of three purses that walked off this landing, and I'd swear one of them came back heavier." } },
+      lines = { { id = "xr_default", text = "Not nervous, exactly, but watchful, because his students practice on whoever happens to be passing, and I happen to pass all day long. I've witnessed the return of three purses that walked off this landing, and I'd swear one of them came back heavier." } },
       choices = {
-        { text = "I take from those who can spare it, never from neighbors.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A purse on a landing is anybody's, neighbor or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I take from those who can spare it, never from neighbors.", next = "BACK", reply = "I'll take your word on it, since my word's my trade. Just know that half the landing counts itself your neighbor, so mind whose pocket you call spare.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A purse on a landing is anybody's, neighbor or not.", next = "BACK", reply = "Then I'll keep my purse in my boot while you're here, friend. And if you ever need a witness, I'd rather it wasn't over a theft from me.", fx = { align = { honor = -1 } } },
         { text = "Something else, Markel.", next = "BACK" },
       },
     },
@@ -333,8 +333,8 @@ P:NPC {
       big = true,
       lines = { { id = "xw_default", text = "Every week, near enough, out at the end of the pier where the Bruisers can watch and nobody bleeds on the cargo. First blood or first one in the water, that's the rule, and I've seen a big man lose to a small one because the big one forgot to agree on which." } },
       choices = {
-        { text = "Rules make a duel worth winning.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Rules are for people who can't win without them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Rules make a duel worth winning.", next = "BACK", reply = "They do, because a win that's witnessed is a win that sticks. Half the men I've watched on that pier wanted the story more than the purse.", fx = { align = { order = 1 } } },
+        { text = "Rules are for people who can't win without them.", next = "BACK", reply = "Then you've never seen the Bruisers enforce them, I'd wager. Rules are for anyone who wants to walk off the pier instead of floating off it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -342,17 +342,17 @@ P:NPC {
       big = true,
       lines = { { id = "xp_default", text = "On the Cartel's book, for the goblins' sake, and on my mother's name for my own. I was raised to swear by the Light like every Stormwind boy, but I've been in this port long enough that I'm not sure the Light still knows my face." } },
       choices = {
-        { text = "The Light remembers you, Markel. Swear by it again.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Your mother's name is enough. Leave the Light out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light remembers you, Markel. Swear by it again.", next = "BACK", reply = "Maybe it does, though I'd have to remember the words first. You're kind to say it, and I'll think on it next time I'm alone with the candle.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your mother's name is enough. Leave the Light out.", next = "BACK", reply = "That's what I've settled on, and it's good to hear someone say it isn't a sin. My mother kept her promises better than most priests I knew anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xpriest = {
       big = true,
-      lines = { { id = "xpr_default", text = "More than you'd think, because people forget a witness is a man and not a piece of furniture. I carry a fair few secrets that ought to have gone to a priest, and some nights they sit heavier than the book under my bed." } },
+      lines = { { id = "xpr_default", text = "Often enough, because people forget a witness is a man and not a piece of furniture. I carry a fair few secrets that ought to have gone to a priest, and some nights they sit heavier than the book under my bed." } },
       choices = {
-        { text = "Then let the Light carry them with you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Secrets are coin here. Keep them close and spend wisely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then let the Light carry them with you.", next = "BACK", reply = "That's a comfort I haven't had in a long while, and I'll take it gladly. Heavy things are lighter when someone else believes they can be carried.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Secrets are coin here. Keep them close and spend wisely.", next = "BACK", reply = "You talk like a goblin, which in this town is a compliment. I'll not spend them, though, because a witness who trades secrets doesn't stay a witness long.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -360,8 +360,8 @@ P:NPC {
       big = true,
       lines = { { id = "xm_default", text = "Once, at a wager over a cargo count, a mage made forty crates look like sixty. He'd done fine work on the crates, but he forgot about their reflections in the water, and I counted those instead." } },
       choices = {
-        { text = "Magic should never be used to cheat an honest bargain.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If he'd been better at it, he'd have earned it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Magic should never be used to cheat an honest bargain.", next = "BACK", reply = "I said much the same to the man he'd fooled, who agreed rather more loudly. A bargain's the one thing in this town everybody has to be able to trust.", fx = { align = { honor = 1 } } },
+        { text = "If he'd been better at it, he'd have earned it.", next = "BACK", reply = "That's the Booty Bay answer, and half the dock would cheer you for it. Still, I'm paid to catch cheats, so I'm glad he wasn't better.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -369,8 +369,8 @@ P:NPC {
       big = true,
       lines = { { id = "xl_default", text = "I was asked to, once, by a man in a hooded coat who wanted me to watch him sign something by candlelight down in the lower docks. The ink smelled of brimstone, so I said no and went straight to the Salty Sailor, and I didn't sleep for a week." } },
       choices = {
-        { text = "No bargain with a demon is ever fair. You were wise.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A demon's bargain is a bargain. You just read closely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "No bargain with a demon is ever fair. You were wise.", next = "BACK", reply = "I thought so too, and I said so, and walked out before the candle burned down. I don't know what became of the man in the hooded coat, and I don't care to.", fx = { align = { light = 1 } } },
+        { text = "A demon's bargain is a bargain. You just read closely.", next = "BACK", reply = "Read closely, aye, and then read it again, and then find a different witness. I'll not put my name under anything that smells of brimstone.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -378,8 +378,8 @@ P:NPC {
       big = true,
       lines = { { id = "xh_default", text = "All season long, because the hunters who go up to Nesingwary's camp love nothing better than a bet on whose tiger was biggest. I measure the pelts myself, nose to tail, and you'd be amazed how many of them seem to stretch on the walk down the coast." } },
       choices = {
-        { text = "An honest count or nothing. Hunting's no place for lies.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A clever hunter stretches the pelt before it reaches you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "An honest count or nothing. Hunting's no place for lies.", next = "BACK", reply = "A man after my own heart, friend. Nose to tail, no stretching, and the hunters grumble but they come back to me every season.", fx = { align = { honor = 1 } } },
+        { text = "A clever hunter stretches the pelt before it reaches you.", next = "BACK", reply = "They try it every week, and I've a measuring rope that doesn't care how clever they are. A stretched pelt shows at the shoulders, if you know where to look.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -387,8 +387,8 @@ P:NPC {
       big = true,
       lines = { { id = "xd_default", text = "I haven't been past the tunnel gate in years, but I hear it every night, the howling and the screaming of birds I can't name. The goblins say the jungle's just a warehouse with teeth, and some nights I think it's the jungle that's doing the counting." } },
       choices = {
-        { text = "A town needs its walls. Keep the jungle on its side.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The jungle's law is older than the Cartel's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A town needs its walls. Keep the jungle on its side.", next = "BACK", reply = "That's the goblin view, and I've no quarrel with it when the howling starts. Walls are the reason I'm still alive to complain about the noise.", fx = { align = { order = 1 } } },
+        { text = "The jungle's law is older than the Cartel's.", next = "BACK", reply = "Older, maybe, and louder by a long way. I'll take the Cartel's law over a tiger's, though, since the Cartel at least lets you appeal.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -396,8 +396,8 @@ P:NPC {
       big = true,
       lines = { { id = "xs_default", text = "I didn't, and I'm not sure I like it, because a witness I can't bribe and can't argue with sounds like very stiff competition. Still, if the sea spirits ever want a seat at a goblin bargain, I'd pay good money to watch the goblins try to haggle with them." } },
       choices = {
-        { text = "The spirits can't be bought. Trust them over any ledger.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Even spirits can be bargained with, if you know how.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The spirits can't be bought. Trust them over any ledger.", next = "BACK", reply = "I'd trust a spirit over half the ledgers in this town, I'll grant you that. It's the other half I'd worry about, and the Baron keeps those.", fx = { align = { honor = 1 } } },
+        { text = "Even spirits can be bargained with, if you know how.", next = "BACK", reply = "Now that's a worrying thought, because it means I'd be outbid. If you ever manage it, friend, I'd like to be the one who witnesses the deal.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -411,7 +411,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Get it in writing, get it witnessed, and never sign anything a goblin hands you after dark." } },
     bloodsail = { { id = "tp_bloodsail", text = "They took my ship and my boots, and they'd take this cove if the Blackwater let them. I watch every red sash that floats in, friend, and I'm still looking for my boots." } },
     steamwheedle = { { id = "tp_steam", text = "The Cartel runs on contracts, and contracts run on witnesses, which is the only reason a human has a trade in this town." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where the Bloodsail spend their money and where I keep track of how much. The Baron would rather I didn't, but the Baron would rather a lot of things." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where every sailor in the South Seas spends his money, and I keep track of how much. The Baron would rather I didn't, but the Baron would rather a lot of things." } },
     theramore = { { id = "tp_theramore", text = "Theramore's navy is the only one in the South Seas that takes the Bloodsail seriously. I've sent them reports, and they've actually read them." } },
     bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is too busy with the court to worry about pirates, which is how the Bloodsail grew so bold. I've written letters, and I'll keep writing them." } },
     second_war = { { id = "tp_second_war", text = "I was a boy in Stormwind during the Second War, and I watched the fleet sail out to meet the orcs. I wanted to be on those ships more than anything, and I got my wish, eventually." } },

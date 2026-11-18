@@ -19,7 +19,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Speak up, and speak fast. I have horns to count." },
-    { id = "g_active", when = { questActive = TODO_QUEST("A Grim Discovery") }, text = "Twenty horns, and don't bring me calves' nubs. I'll know." },
+    { id = "g_active", when = { questActive = TODO_QUEST("A Grim Discovery") }, text = "Bring me twenty Grimtotem horns, and don't bring me calves' nubs. I'll know." },
     { id = "g_done", when = { questDone = TODO_QUEST("A Grim Discovery") }, text = "Belgrom has your horns, and the Grimtotem have fewer heads. A good trade." },
   },
 
@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Krueg Skullsplitter, sent from Orgrimmar by Belgrom Rockmaul. My orders were to watch Feralas and report, until somebody found tauren in the hills who weren't any friend of ours." },
         { id = "h_before", when = { questBefore = TODO_QUEST("A Grim Discovery") },
-          text = "You came across tauren out there? What did they look like? The Grimtotem! Belgrom has an interest in their kind, and a bounty on them. Go back and bring me their horns, piles of them if you can." },
+          text = "You came across tauren out in the hills? From the look of them, they're Grimtotem. Belgrom has an interest in their kind, and a bounty on them, so go back and bring me their horns, piles of them if you can." },
         { id = "h_active", when = { questActive = TODO_QUEST("A Grim Discovery") },
           text = "The Grimtotem are not to be trifled with or underestimated, {class}. Go in hard and come back with twenty horns, and let the rivers of Feralas carry the rest away." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Grim Discovery"), days = 3 } },
@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "bs_default", text = "Maybe, but I'm a grunt, not a counsellor. Belgrom says hunt, so I hunt, and if he's wrong, the Warchief can tell him so." } },
       choices = {
-        { text = "A soldier follows orders. That's how the Horde holds.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A soldier should know why he kills.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A soldier follows orders. That's how the Horde holds.", next = "BACK", reply = "That's right, and that's why the Horde still stands, while the Alliance argues about every order they're given.", fx = { align = { order = 1 } } },
+        { text = "A soldier should know why he kills.", next = "BACK", reply = "I know why, the Grimtotem killed our people, and that's reason enough for any grunt who's buried a friend.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -107,7 +107,7 @@ P:NPC {
     },
 
     camp = {
-      lines = { { id = "ca_default", text = "They don't love it, and Hadoken looks at my sacks like I've filled them with his cousins. But the Grimtotem have raided these braves too, and nobody here is sorry to see them fewer." } },
+      lines = { { id = "ca_default", text = "They don't love it, and Hadoken Swiftstrider looks at my sacks like I've filled them with his cousins. But the Grimtotem have raided these braves too, and nobody here is sorry to see them fewer." } },
       choices = {
         { text = "Be gentle with the tauren here.", next = "BACK", fx = { affinity = -1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -118,7 +118,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "The Grimtotem, the bounty, and my orders. That's all I need." } },
     background = { { id = "tp_bg", text = "Grunt of Orgrimmar, sent west by Belgrom Rockmaul. That's the whole story.", next = "belgrom" } },
-    grimtotem = { { id = "tp_grim", text = "Traitors to their own kind. Bring me their horns." } },
+    grimtotem = { { id = "tp_grim", text = "The Grimtotem are traitors to their own kind, so bring me their horns." } },
     _none = { { id = "tp_none", text = "I don't know and I don't care, so bring me horns or bring me nothing." } },
   },
 }
@@ -162,7 +162,7 @@ P:NPC {
           text = "Bones, and nothing more. Well, I suppose a journey this long was never going to end with tea. Thank you for looking, {name}, and for coming back to tell me." },
       },
       again = {
-        { id = "h_again", text = "What else would you know? I have a great deal of answers and very few listeners." },
+        { id = "h_again", text = "What else would you know? I have more answers than this camp has ears for." },
         { id = "h_again2", text = "Ask on, ask on." },
       },
       choices = {
@@ -216,8 +216,8 @@ P:NPC {
       big = true,
       lines = { { id = "cr_default", text = "That depends on who sends the faster adventurer, I suppose. I would gladly share what we find with Runethorn, but the Horde would rather I didn't, and the Horde feeds me." } },
       choices = {
-        { text = "Knowledge belongs to everyone. Share it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Keep it for the Horde. That's your duty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge belongs to everyone. Share it.", next = "BACK", reply = "That is my own heart speaking, and I am glad to hear it from you, though I must still answer to the Horde.", fx = { align = { order = -1 } } },
+        { text = "Keep it for the Horde. That's your duty.", next = "BACK", reply = "You are right, and I will keep it, though the scholar in me will grieve every page I do not share.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -232,9 +232,9 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Elves, ruins, the old roads of the world, and one particular elf who refuses to be found." } },
+    knows = { { id = "tp_knows", text = "I know elves, ruins, the old roads of the world, and one particular elf who refuses to be found." } },
     background = { { id = "tp_bg", text = "A sage of the tauren, too old to stop walking.", next = "why" } },
-    highborne = { { id = "tp_high", text = "Brilliant, proud and ruinous. I study them the way a sailor studies storms." } },
+    highborne = { { id = "tp_high", text = "The Highborne were brilliant, proud and ruinous. I study them the way a sailor studies storms." } },
     _none = { { id = "tp_none", text = "Hm. I have no notes on that, which is rare enough that I'll write it down." } },
   },
 }
@@ -270,6 +270,11 @@ P:NPC {
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Is flying over Feralas dangerous?", next = "danger" },
         { text = "Do the riders like the rain?", next = "rain" },
+        { text = "Where do your riders fly?", next = "routes" },
+        { text = "How did you become a wind rider master?", next = "how" },
+        { text = "Do you miss Mulgore?", next = "mulgore", when = { race = "Tauren" } },
+        { text = "Your riders don't seem to like me.", next = "fk", when = { race = "Scourge" } },
+        { text = "Could a hunter tame a wind rider?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Farewell, Shyn.", next = "END" },
       },
     },
@@ -284,8 +289,8 @@ P:NPC {
       big = true,
       lines = { { id = "ds_default", text = "Because a rider that fights carries no one home. Some of the braves say I'm too soft, and that the elves should learn to keep their beasts away from ours." } },
       choices = {
-        { text = "You're right. Keep the peace in the sky.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The braves are right. Teach the elves a lesson.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right. Keep the peace in the sky.", next = "BACK", reply = "Thank you, friend, and the sky will be kinder for it, because riders who fight are riders who fall.", fx = { align = { light = 1 } } },
+        { text = "The braves are right. Teach the elves a lesson.", next = "BACK", reply = "Perhaps they are, but it is my wind riders who would bleed for the lesson, and I will not give it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -293,13 +298,59 @@ P:NPC {
       lines = { { id = "ra_default", text = "They love it! Mulgore's riders get dusty and cross, but these ones are always clean and always hungry. I've had to stop them diving into Wildwind Lake after fish." } },
       choices = {
         { text = "That sounds like fun.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Wind riders eat fish?", next = "rain_fish" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rain_fish = {
+      lines = { { id = "rf_default", text = "They eat anything that doesn't fly faster than they do, and in Wildwind Lake that's most things. I've pulled one out of the water by its tail with a whole fish in its mouth, very proud of itself and soaked to the bone." } },
+      choices = {
+        { text = "How do you dry off a wet wind rider?", next = "rain_care" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rain_care = {
+      lines = { { id = "rc_default", text = "You don't, you stand well back while it shakes and then you laugh, because there's nothing else to do. After that you check its wings for rot, because the Feralas damp gets into everything, feathers and saddles alike." } },
+      choices = {
+        { text = "Something else, Shyn.", next = "BACK" },
+        { text = "Farewell, Shyn.", next = "END" },
+      },
+    },
+    routes = {
+      lines = { { id = "ro_default", text = "North to Thunder Bluff, east over the canyons to Freewind, and onward from there to most of the Horde's perches. The flight over the Thousand Needles is the prettiest in Kalimdor, and I'll argue with anyone who says otherwise." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    how = {
+      lines = { { id = "ho_default", text = "I climbed the tower in Thunder Bluff as a calf and wouldn't come down until Tal let me feed one. He let me feed one every day for six years, and then he handed me the reins and told me to go somewhere wetter." } },
+      choices = {
+        { text = "Tal taught you, then?", next = "how_tal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    how_tal = {
+      lines = { { id = "ht_default", text = "Tal taught half the wind rider masters in Kalimdor, though he'd tell you the riders taught us and he only watched. When I came to Feralas he sent the first three riders himself, and they're still the best in the roost." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mulgore = {
+      lines = { { id = "mu_default", text = "Only the open sky, because here the trees grow so tall it's like flying inside a lodge. But Mulgore never smelled like this after the rain, and I wouldn't trade it back." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fk = {
+      lines = { { id = "fk_default", text = "It's the smell, friend, no offence meant, and they'll have forgotten it by the time you land. Hold on tighter than you think you need to, because a nervous rider likes to roll once or twice to see whether you fall off." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Hunters ask me that every week, and the answer is still no! A wind rider carries the whole Horde, not one hunter, and it would pine if it could only fly for one of you." } },
+      choices = {
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "The winds of Feralas and every perch between here and Thunder Bluff." } },
+    knows = { { id = "tp_knows", text = "I know the winds of Feralas and every perch between here and Thunder Bluff." } },
+    sentinels = { { id = "tp_se", text = "Their hippogryphs keep to the coast and we keep inland, and that way everyone stays dry and alive." } },
+    dire_maul = { { id = "tp_dm", text = "The riders won't fly low over those old elven ruins. They know something we don't, and I trust them." } },
     advice = { { id = "tp_ad", text = "Lean into the turns, not away from them. The rider knows what it's doing." } },
     _none = { { id = "tp_none", text = "I don't know. I'm usually in the air when people talk about things like that." } },
   },

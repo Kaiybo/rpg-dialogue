@@ -21,7 +21,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Now where did I put that companion document? Oh, hello!" },
     { id = "g_shelves", text = "So many bookshelves, and so little time. Can I help you, or can you help me?" },
-    { id = "g_chitin", when = { questActive = TODO_QUEST("Uncovering Past Secrets") }, text = "The chitin's coming along, slowly. Go and see the den mother, and come back to me later." },
+    { id = "g_chitin", when = { questActive = TODO_QUEST("Uncovering Past Secrets") }, text = "The chitin's coming along, slowly. Go and see Rabine, and come back to me later." },
     { id = "g_book", when = { questDone = TODO_QUEST("Under the Chitin Was...") }, text = "Still reading it! Still reading it, and it's still marvelous." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, have you? I hadn't noticed, but then I hadn't noticed I'd lost my quill either." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You look much more formidable than you did. Has someone been writing you a better chapter?" },
@@ -30,7 +30,7 @@ P:NPC {
 
   notice = {
     { id = "n_ripe", cat = "weary", when = { durability = { max = 0.3 } },
-      text = "Let me be a little honest with you, friend: you smell rather ripe, as if you've come straight in from the field. No offense meant, only you may want to freshen up before you meet the den mother." },
+      text = "Let me be a little honest with you, friend: you smell rather ripe, as if you've come straight in from the field. No offense meant, only you may want to freshen up before you meet Rabine, our den mother." },
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "Another human! There are so few of us in Moonglade that I sometimes forget what we look like. We look tired, mostly, don't we?" },
   },
@@ -87,7 +87,7 @@ P:NPC {
       choices = {
         { text = "How much news reaches you from the human kingdoms?", next = "op_ask" },
         { text = "How did a human end up here?", next = "human" },
-        { text = "Your archive must hold a great deal.", next = "archive" },
+        { text = "Your archive must go back centuries.", next = "archive" },
         { text = "Something must have been sealed inside that chitin.", next = "journal", when = { questDone = TODO_QUEST("Under the Chitin Was...") } },
         { text = "Why call Rabine the den mother?", next = "rabine" },
         { text = "Could a mage help you read the oldest texts?", next = "xmage", when = { class = "MAGE" } },
@@ -118,8 +118,8 @@ P:NPC {
         { id = "hr_default", text = "All the time, it's the best part of the job! Though I'll admit some of the older writings here are things I'd rather not have read, and I put them back very carefully afterward." },
       },
       choices = {
-        { text = "Knowledge should be read, whatever it holds.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Some books are best left closed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge should be read, whatever it holds.", next = "BACK", reply = "That's what I always say, and the druids look at me as if I'd suggested setting the shelves on fire. Knowledge doesn't bite, mostly, though a few of these books have tried.", fx = { align = { order = -1 } } },
+        { text = "Some books are best left closed.", next = "BACK", reply = "You may be right, and I've a little stack of exactly those under my desk with a paperweight on top. I keep meaning to ask the Archdruid what to do with them.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -168,7 +168,7 @@ P:NPC {
     },
     xmage = {
       lines = {
-        { id = "xm_default", text = "A mage, reading Darnassian older than Darnassus? The druids would be horrified, and I'd love to see their faces. But no, thank you; I'd like to puzzle it out myself, slowly, with a great deal of tea." },
+        { id = "xm_default", text = "A mage, reading Darnassian older than Darnassus? The druids would be horrified, and I'd love to see their faces. But no, thank you; I'd like to puzzle it out myself, slowly, over many pots of tea." },
       },
       choices = {
         { text = "Then enjoy the tea, and the puzzle.", next = "BACK", fx = { affinity = 1 } },
@@ -218,7 +218,7 @@ P:NPC {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "The tauren honor their ancestors every day, not only at festival. You'll find the elders' coins come easily to you, I think." },
     { id = "n_young", cat = "level", when = { maxLevel = 30 },
-      text = "You're young to have made the journey, and the elders will be glad of it. They like being visited by people who still have a great deal to learn." },
+      text = "You're young to have made the journey, and the elders will be glad of it. They like being visited by people who still have most of their learning ahead of them." },
   },
 
   start = "hello",
@@ -289,8 +289,8 @@ P:NPC {
         { id = "om_default", text = "I have asked myself that every year since I was a boy. I've come to believe that each time we quiet him we give him a little peace, but I would not argue long with someone who thought otherwise." },
       },
       choices = {
-        { text = "It's mercy. Every year, a little more peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "It's cruelty. He should be allowed to die.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It's mercy. Every year, a little more peace.", next = "BACK", reply = "I hope you're right, and it's a comfort to hear it from someone who isn't my sister. Each year I'll try to think of it that way.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's cruelty. He should be allowed to die.", next = "BACK", reply = "That is what keeps me awake, friend, and I won't pretend you're wrong. But it isn't ours to decide, I think, only to carry gently.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -334,8 +334,8 @@ P:NPC {
         { id = "fd_default", text = "About Omen, every year. She says Elune's blessing is a kindness and we're helping him rest, and I lie awake wondering whether we only keep him from it. Which of us do you think has the right of it?" },
       },
       choices = {
-        { text = "Fariel does. Elune's blessing is a kindness.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "You do. Some things should be allowed to end.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fariel does. Elune's blessing is a kindness.", next = "BACK", reply = "She'll be pleased to hear it, and I'll try to believe it too. Elune's kindness is the one thing I've never doubted.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You do. Some things should be allowed to end.", next = "BACK", reply = "Then you've sided with my doubts, and they'll be glad of the company. I'll carry them a little more lightly, knowing I'm not alone.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -355,8 +355,8 @@ P:NPC {
         { id = "oea_scourge", when = { race = "Scourge" }, text = "That's for you to say, friend, and I know the question may be harder for you than for most. Is there someone from your first life whose lessons you still carry? The festival welcomes that memory as gladly as any other." },
       },
       choices = {
-        { text = "There is. I'll speak their name tonight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I've no use for the past. I look ahead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "There is. I'll speak their name tonight.", next = "BACK", reply = "Then you've found your elder already, and they'll hear you, I'm sure of it. That's all the festival really asks of us.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I've no use for the past. I look ahead.", next = "BACK", reply = "The past has a way of catching up with those who never look back, friend. But I hope you're right, and that the road ahead is kind to you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -414,7 +414,7 @@ P:NPC {
     op_ask = {
       big = true,
       lines = {
-        { id = "op_ask_default", text = "Faustron and I share a field and a water trough, and we have never come to blows, which not everyone outside the glade would believe. What do you make of the Horde?" },
+        { id = "op_ask_default", text = "Faustron, the Horde's wind rider master, and I share a field and a water trough, and we have never come to blows, which not everyone outside the glade would believe. What do you make of the Horde?" },
       },
       choices = {
         { text = "A threat. Moonglade's truce is the exception.", next = "op_r1", fx = { align = { honor = -1 }, trait = { cautious = 1 }, opinion = { horde = "enemy" } } },
@@ -473,7 +473,7 @@ P:NPC {
     edge_lake = {
       lines = {
         { id = "el_default", text = "Hippogryphs were the Mother Moon's creatures before they were ever ours, or so the priestesses say, and they settle wherever her light lies on still water. When I first came here I kept them by the road, and they screamed all night and plucked their own feathers." },
-        { id = "el_night", when = { timeOfDay = "night" }, text = "Look at them now, with the moon on Elune'ara, and you'll see what I mean. They're quiet as cats, every one of them." },
+        { id = "el_night", when = { timeOfDay = "night" }, text = "Look at them now, with the moon on Elune'ara, and you'll see what I mean. Not a sound from the whole flock; they're quiet as cats." },
       },
       choices = {
         { text = "They're lucky to have someone who listens to them.", next = "BACK", fx = { affinity = 1 } },
@@ -504,8 +504,8 @@ P:NPC {
         { id = "rs_default", text = "Burned, or healed? The druids would say healed, and they'd say it slowly, over a hundred years. I only know that I'd like my birds to cross that forest without their feathers standing on end, and I'm not patient enough to wait a century for it." },
       },
       choices = {
-        { text = "Heal it, however long it takes. Burning only spreads the ruin.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Burn out the worst of it. Some things can't be saved.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Heal it, however long it takes. Burning only spreads the ruin.", next = "BACK", reply = "That's what the Circle says, and my birds would agree, I think. A hundred years is a long time to wait, but not to a forest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn out the worst of it. Some things can't be saved.", next = "BACK", reply = "That's a hard road, and the druids would wince to hear it. Still, I can't say my birds haven't wished for it, crossing that rot.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -524,8 +524,8 @@ P:NPC {
         { id = "xhs_default", text = "Here it's easy, because the Keeper makes it easy. In Ashenvale I'd have put an arrow in him and he'd have put an axe in me, and I don't know which of those two is the truer version of us. Do you?" },
       },
       choices = {
-        { text = "This one is. The war is what's false.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Ashenvale is the truth. This glade is a pause.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "This one is. The war is what's false.", next = "BACK", reply = "I hope so, and on good days I believe it. The birds have never once asked which side the wind riders fly for.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Ashenvale is the truth. This glade is a pause.", next = "BACK", reply = "You may be right, and it saddens me to think so. Still, a pause is better than nothing, and I'll take what I can get.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -535,8 +535,8 @@ P:NPC {
         { id = "xn_default", text = "In the Barrow Dens by the lake, asleep and walking the Emerald Dream, as the druids do. I fly over that hill every day and I still lower my voice when I pass it, which is foolish, but I can't help it. Do you ever wish he'd wake?" },
       },
       choices = {
-        { text = "His work in the Dream matters. Let him sleep.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "We need him awake. Our people are struggling without him.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "His work in the Dream matters. Let him sleep.", next = "BACK", reply = "He sleeps for all of us, and I believe that, even when it's hard. The Dream is in good hands while he walks it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We need him awake. Our people are struggling without him.", next = "BACK", reply = "Many of us feel that way, though few say it aloud. The Circle tells us to be patient, and patience is all we have.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -565,15 +565,15 @@ P:NPC {
         { id = "pf_default", text = "Sometimes, when I think of Ashenvale. But the birds don't care which banner you fly under, and here I try to be more like the birds." },
       },
       choices = {
-        { text = "Peace here is worth guarding, whatever the war.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The Horde doesn't belong here, truce or not.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Peace here is worth guarding, whatever the war.", next = "BACK", reply = "It is, and I'll guard it gladly, for the birds and for myself. Some peace has to be kept on purpose.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Horde doesn't belong here, truce or not.", next = "BACK", reply = "The Keeper says otherwise, and on this ground his word is law, whatever I feel. I keep my bow unstrung here, and so should you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I keep the birds fed, and they keep me up half the night squabbling. There isn't much more to it." } },
+    background = { { id = "tp_bg", text = "I keep the birds fed, and they keep me up till moonset squabbling. There isn't much more to it." } },
     advice = { { id = "tp_ad", text = "Hold on tight over Felwood, and don't look down. The birds don't like what they see there either." } },
     nordrassil = { { id = "tp_nordrassil", text = "My birds hatched on Hyjal, and they squabble less when the wind blows from the north. I think they're homesick." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw throw rocks at my birds when they fly too low. I've stopped arguing with the furbolgs and started flying higher." } },
@@ -622,7 +622,7 @@ P:NPC {
       },
     },
     op_r1 = {
-      lines = { { id = "op_r1_default", text = "Some of them would, I'll grant you. The ones here feed my wyverns when I'm late, though, so I can't hate the lot of them." } },
+      lines = { { id = "op_r1_default", text = "Some of them would, true enough. The ones here feed my wyverns when I'm late, though, so I can't hate the lot of them." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
@@ -682,8 +682,8 @@ P:NPC {
         { id = "os_alliance", when = { faction = "Alliance" }, text = "You're asking an orc that, in a glade full of druids? You have nerve, I'll give you that, so say what you think and I'll judge you by it." },
       },
       choices = {
-        { text = "A people has to live. The Horde needs that timber.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "It's their forest. The Horde should find another way.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A people has to live. The Horde needs that timber.", next = "BACK", reply = "At least you say it plainly, and I respect that. A people does have to live, and Ashenvale is where the timber grows.", fx = { align = { order = 1 } } },
+        { text = "It's their forest. The Horde should find another way.", next = "BACK", reply = "Hah, an orc would say you've gone soft, but I've heard worse from my own grunts. There's no other way that I've seen, but you're free to look for one.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -738,8 +738,8 @@ P:NPC {
         { id = "xa_default", text = "On this ground I will, and civilly, because the Keeper asks it and I keep my word. I won't fly you anywhere, and I won't pretend I'd greet you like this in Ashenvale, but here we're just two travellers far from home." },
       },
       choices = {
-        { text = "That's honest. I'll be civil in return.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Civility's easy when an ancient's watching. It means little.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That's honest. I'll be civil in return.", next = "BACK", reply = "Good, then we understand each other, and that's more than most of your kind manage here. Keep it civil, and so will I.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Civility's easy when an ancient's watching. It means little.", next = "BACK", reply = "It means I keep my word, Alliance, and that's no small thing. If you want to test my temper, do it in Ashenvale.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -758,8 +758,8 @@ P:NPC {
         { id = "th_default", text = "Some days it is. Then I remember the mountain, where orc and elf fought the Legion side by side, and I think that if we could do it then, I can do it here." },
       },
       choices = {
-        { text = "That peace is worth keeping. Good.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The night elves would break it if they dared.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That peace is worth keeping. Good.", next = "BACK", reply = "Good, and I'll keep it, as long as the elves keep theirs. Hyjal taught us both what the Legion does to a divided world.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The night elves would break it if they dared.", next = "BACK", reply = "They might, and so might some of ours, but not today and not here. I'll keep my word until someone else breaks theirs.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -767,7 +767,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A wind rider master, posted in a glade full of elves because the Warchief needs one here. I mind my manners and scrape a lot of droppings." } },
-    advice = { { id = "tp_ad", text = "Don't spit on the grass in Moonglade, because the druids notice, and they remember it longer than you'd think." } },
+    advice = { { id = "tp_ad", text = "Don't spit on the grass in Moonglade, because the druids notice, and they remember it for a century." } },
     thrall = { { id = "tp_thrall", text = "The Warchief needs a wind rider master here, so I'm here. I mind my manners among the elves, because he'd want me to." } },
     cairne = { { id = "tp_cairne", text = "Cairne's people come through often for the Circle, and they're good riders. They're also heavy, and my wind riders complain." } },
     tyrande = { { id = "tp_tyrande", text = "The elves' high priestess, the one whose Sentinels fight our people in Ashenvale. Here in the glade I keep my mouth shut about her, and I'd advise you to do the same." } },

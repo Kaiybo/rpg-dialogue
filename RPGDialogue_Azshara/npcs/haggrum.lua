@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_op_ashenvale", when = { gossip = { topic = "ashenvale", stance = "wrong" } }, text = "My brother says you think the elves have the right of it in Ashenvale. He didn't shout, which means he's been thinking the same thing, so thank you for giving him something to frown about besides me." },
     { id = "g_default", text = "Lok'tar, friend! Sit, if you can find a rock that isn't wet." },
-    { id = "g_betrayed", when = { questActive = TODO_QUEST("Betrayed") }, text = "My brother's sent you after the elf, hasn't he? Good. Bring her down, and I'll smile twice as wide." },
+    { id = "g_betrayed", when = { questActive = TODO_QUEST("Betrayed") }, text = "My brother's sent you after the elf who betrayed us, hasn't he? Good. Bring her down, and I'll smile twice as wide." },
     { id = "g_done", when = { questDone = TODO_QUEST("Betrayed") }, text = "There's the one who settled our debt with the elf! My brother sleeps now, and so do I." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the camp's been dull without a new face. Tell me something that isn't about naga." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The grunts say you've been a help. In Valormok that's high praise, because they don't say much of anything." },
@@ -27,7 +27,7 @@ P:NPC {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior! You stand like my brother does, all shoulders and frown. Smile, it won't kill you." },
     { id = "n_weary", cat = "weary", when = { resSick = true },
-      text = "You look half dead, friend, and I've seen enough of the whole kind out here. Rest by the fire a while." },
+      text = "You look half dead, friend, and this camp has buried enough of the other kind. Rest by the fire a while." },
   },
 
   start = "hello",
@@ -60,7 +60,7 @@ P:NPC {
       },
     },
     smile = {
-      lines = { { id = "s_default", text = "Because if I don't, nobody will, and a camp with no laughter in it is a camp waiting to be buried. I grieve the twelve as much as my brother does, I just do it with my mouth turned the other way." } },
+      lines = { { id = "s_default", text = "Because if I don't, nobody will, and a camp with no laughter in it is a camp waiting to be buried. I grieve the twelve we lost in the ruins as much as my brother does, I just do it with my mouth turned the other way." } },
       choices = {
         { text = "That takes its own kind of strength.", next = "smile_stance" },
         { text = "Doesn't it feel like pretending?", next = "smile_stance" },
@@ -70,28 +70,28 @@ P:NPC {
       big = true,
       lines = { { id = "ss_default", text = "Some days it is pretending, and I pretend until it isn't. The grunts need one orc in this camp who believes we'll all go home, and it isn't going to be Ag'tor." } },
       choices = {
-        { text = "Hope is a weapon too. Keep it sharp.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "False hope gets orcs killed, Haggrum.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Hope is a weapon too. Keep it sharp.", next = "BACK", reply = "Hah! That it is, and I keep it sharper than my axe. The grunts will go home, or I'll carry them myself.", fx = { align = { light = 1 } } },
+        { text = "False hope gets orcs killed, Haggrum.", next = "BACK", reply = "Maybe so, but no hope at all gets them killed faster. I'll keep smiling, and you keep your eyes open.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     betrayal = {
-      lines = { { id = "b_default", text = "We guarded the elf's people into the ruins, on Belgrom's orders, and when she found what she wanted she turned on us. I was at the back with the packs, which is the only reason I'm here to tell you about it." } },
+      lines = { { id = "b_default", text = "We guarded the elf's people into the ruins, on Belgrom Rockmaul's orders, and when she found what she wanted she turned on us. I was at the back with the packs, which is the only reason I'm here to tell you about it." } },
       choices = {
         { text = "I'm sorry, Haggrum.", next = "betrayal_sorry" },
         { text = "Why did Belgrom trust her?", next = "betrayal_belgrom" },
       },
     },
     betrayal_sorry = {
-      lines = { { id = "bs_default", text = "So am I, friend, every day. Ag'tor cut their names into the post, and I sit by it sometimes and tell them the camp news, which is mostly about Kurll's milk." } },
+      lines = { { id = "bs_default", text = "So am I, friend, every day. Ag'tor cut their names into the post, and I sit by it sometimes and tell them the camp news, which is never much." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     betrayal_belgrom = {
       big = true,
       lines = { { id = "bb_default", text = "Belgrom thought the elves' magic could serve the Horde, and the Warchief allowed it, so who am I to say? But I've not trusted a robe since, and I don't think I ever will." } },
       choices = {
-        { text = "Belgrom was wrong. Some allies aren't worth having.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Orders are orders. The Horde must take its chances.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Belgrom was wrong. Some allies aren't worth having.", next = "BACK", reply = "Aye, and I'll not argue it, though I'll not say it near the Warchief's ears either. Some lessons cost more than they're worth.", fx = { align = { order = -1 } } },
+        { text = "Orders are orders. The Horde must take its chances.", next = "BACK", reply = "Orders are orders, and I follow them like any grunt. But I'll keep one eye on every robe in this camp.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -107,7 +107,7 @@ P:NPC {
       },
     },
     before_now = {
-      lines = { { id = "bn_default", text = "Now there are naga in the water, satyrs in the woods and an elf's grave-markers by our fire. Look at it now, I tell my brother, and he never laughs, but I keep saying it." } },
+      lines = { { id = "bn_default", text = "Now there are naga in the water, satyrs in the woods and an elf's grave-markers by our fire. I tell my brother we've finally got neighbours, and he never laughs, but I keep saying it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     warrior = {
@@ -128,6 +128,6 @@ P:NPC {
     queen_azshara = { { id = "tp_queen_azshara", text = "The elves named this land after their queen, and she drowned with her city. I wonder what kind of queen gets a whole land named for her and still ends up at the bottom of the sea." } },
     tyrande = { { id = "tp_tyrande", text = "The night elf priestess sends Sentinels to watch us from Talrendis, and they watch very well. I'd watch us too, if I were them." } },
     booty_bay = { { id = "tp_booty_bay", text = "I went to Booty Bay once, with my brother, before he got serious. We lost all our coin and one of his teeth, and he laughed the whole way home." } },
-    _none = { { id = "tp_none", text = "No idea, friend. Ask Jediga; she knows everything and charges for half of it, which is not the orcish way, but it works for her." } },
+    _none = { { id = "tp_none", text = "No idea, friend. Ask Jediga, our trader; she knows everything and charges for half of it, which is not the orcish way, but it works for her." } },
   },
 }

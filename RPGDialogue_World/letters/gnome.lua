@@ -15,7 +15,7 @@ P:Letter {
   id = "origin_gnome_gnomeregan_refugee_2", from = "Pella Brasswhistle", stranger = true, delay = 2400,
   when = { origin = "gnome_gnomeregan_refugee", cleared = "Gnomeregan" },
   subject = "You went back",
-  body = "{name},\n\nYou went back. Everyone in Tinker Town is saying it, and old Fizzlecog cried into his soup, and I had to go and sit by the tram for a while because I couldn't decide whether I wanted to laugh or be sick.\n\nI keep asking myself whether you passed our street on the way down, the one with the blue lamps by the canal. You don't have to tell me what it looks like now, and honestly I'd rather you didn't, but I'd like to know you walked it.\n\nThermaplugg's had his comeuppance, and the city's still poisoned, and nothing's fixed. But for one evening the whole bunk room sang the old engineering songs, and nobody's done that since the fall.\n\nPella",
+  body = "{name},\n\nYou went back. Everyone in Tinker Town is saying it, and old Fizzlecog cried into his soup, and I had to go and sit by the tram for a while because I couldn't decide whether I wanted to laugh or be sick.\n\nI keep asking myself whether you passed our street on the way down, the one with the blue lamps by the canal. You don't have to tell me what it looks like now, and I'm not sure I could bear it if you did, but I'd like to know you walked it.\n\nThermaplugg's had his comeuppance, and the city's still poisoned, and nothing's fixed. But for one evening the whole bunk room sang the old engineering songs, and nobody's done that since the fall.\n\nPella",
 }
 
 ---------------------------------------------------------------------------
@@ -83,7 +83,7 @@ P:Letter {
   id = "origin_gnome_scavenger_2", from = "Gimble Ratchetwick", stranger = true, delay = 2400,
   when = { origin = "gnome_scavenger", cleared = "Gnomeregan" },
   subject = "All the way down",
-  body = "{name},\n\nWord is you went past the outer workshops, past the clean room and down to Thermaplugg's own chamber, which is further than any scavenger has ever been and lived to brag about.\n\nI'd ask what you brought back, but I've a feeling you weren't shopping this time. Half of Tinker Town calls you brave and the other half calls you mad, and I've been telling both halves they're right, which has done wonders for my reputation by association.\n\nIf you ever saw the old spare-parts depot on level three, I'd love to know whether my uncle's stall is still standing. He kept a copper sign above it shaped like a teakettle. Don't trouble yourself if it's gone, though, because most things are.\n\nGimble",
+  body = "{name},\n\nWord is you went past the outer workshops, past the clean room and down to Thermaplugg's own chamber, which is further than any scavenger has ever been and lived to brag about.\n\nI'd ask what you brought back, but I've a feeling you weren't shopping this time. Tinker Town can't decide whether you're brave or mad, and I've been telling everyone it's both, which has done wonders for my reputation by association.\n\nIf you ever saw the old spare-parts depot on level three, I'd love to know whether my uncle's stall is still standing. He kept a copper sign above it shaped like a teakettle. Don't trouble yourself if it's gone, though, because most things are.\n\nGimble",
 }
 
 ---------------------------------------------------------------------------
@@ -100,7 +100,7 @@ P:Letter {
   id = "origin_gnome_last_student_2", from = "Professor Emeritus Quillon Fennwick", stranger = true, delay = 2400,
   when = { origin = "gnome_last_student", minLevel = 30 },
   subject = "The class of two",
-  body = "My dear {name},\n\nThe class of two is now a class of five, because word got about Tinker Town that the last student of the Gnomeregan faculty has become a {class} of real note, and suddenly everyone wants to learn the old curriculum.\n\nI've had to borrow benches from a dwarven chapel, and the High Priest's acolytes come by to collect them every Sunday, which means my Sunday lectures are given standing. It is very good for the posture.\n\nI'm an old gnome, and I lost a great deal when the city fell, including most of my colleagues and nearly all of my books. I did not expect to find any of that again, but some of it, it seems, walked out the door with you.\n\nProfessor Fennwick",
+  body = "My dear {name},\n\nThe class of two is now a class of five, because word got about Tinker Town that the last student of the Gnomeregan faculty has become a {class} of real note, and suddenly everyone wants to learn the old curriculum.\n\nI've had to borrow benches from a dwarven chapel, and the High Priest's acolytes come by to collect them every Sunday, which means my Sunday lectures are given standing. It is very good for the posture.\n\nI'm an old gnome, and I lost nearly everything when the city fell, including most of my colleagues and nearly all of my books. I did not expect to find any of that again, but some of it, it seems, walked out the door with you.\n\nProfessor Fennwick",
 }
 
 ---------------------------------------------------------------------------
@@ -117,7 +117,7 @@ P:Letter {
   id = "origin_gnome_forbidden_texts_2", from = "Librarian Dorsa Inkwhistle", stranger = true, delay = 2400,
   when = { origin = "gnome_forbidden_texts", minLevel = 40 },
   subject = "Still overdue",
-  body = "{name},\n\nI've heard what people say about you now, and some of it's flattering and some of it isn't. A gnome who commands demons draws stares even in Ironforge, which has seen a great deal stranger.\n\nI've stopped making lists of what's missing from the closed stacks. It turns out a library is less about what's on the shelves than about who's reading, and how they come back. You've come back every time so far, as far as I can tell, and you seem to still be yourself, which is better than I'd feared.\n\nIf you ever want to return those books, the cellar door is unlocked on Thursdays. I won't ask any questions, and I won't charge a fine.\n\nDorsa",
+  body = "{name},\n\nI've heard what people say about you now, and some of it's flattering and some of it isn't. A gnome who commands demons draws stares even in Ironforge, which has seen stranger things come off the Deeprun Tram.\n\nI've stopped making lists of what's missing from the closed stacks. It turns out a library is less about what's on the shelves than about who's reading, and how they come back. You've come back every time so far, as far as I can tell, and you seem to still be yourself, which is better than I'd feared.\n\nIf you ever want to return those books, the cellar door is unlocked on Thursdays. I won't ask any questions, and I won't charge a fine.\n\nDorsa",
 }
 
 ---------------------------------------------------------------------------
@@ -195,7 +195,7 @@ P:Letter {
   id = "origin_gnome_arcane_engineer_1", from = "Doctor Nimsy Voltwhisker", stranger = true, delay = 1200,
   when = { origin = "gnome_arcane_engineer", minLevel = 6 },
   subject = "Faculty news",
-  body = "{name},\n\nFaculty news, such as it is. Professor Holloway's eyebrows have grown back, though only the left one grew back entirely the right shape, and he refuses to tell anyone what happened to the right. You may have a guess.\n\nThe dwarven mages have asked three separate times for the schematics of your arcane-capacitor coil, and I've told them three separate times that you took the only copy. They don't believe me, and they've started searching the workshop at night, which is very rude, though they do tidy up after themselves.\n\nPlease write down how the thing works before you blow yourself up, because I want to finish it. I'm only half joking.\n\nDoctor Nimsy Voltwhisker",
+  body = "{name},\n\nFaculty news, such as it is. Professor Holloway's eyebrows have grown back, though the right one came back a very odd shape, and he refuses to tell anyone why. You may have a guess.\n\nThe dwarven mages have asked three separate times for the schematics of your arcane-capacitor coil, and I've told them three separate times that you took the only copy. They don't believe me, and they've started searching the workshop at night, which is very rude, though they do tidy up after themselves.\n\nPlease write down how the thing works before you blow yourself up, because I want to finish it. I'm only half joking.\n\nDoctor Nimsy Voltwhisker",
 }
 
 P:Letter {

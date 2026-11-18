@@ -33,8 +33,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They have, and I count them now the way I count the boats. If your spirits can tell me why they've come up out of the Everstill, I'd write that down too." } },
       choices = {
-        { text = "Keep counting, Baren. A careful dock is a safe dock.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Forget the counting. Drive the murlocs off and be done with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep counting, Baren. A careful dock is a safe dock.", next = "BACK", reply = "That's what my father told me when he handed me the book, and the lake hasn't proved him wrong yet. Mind the third plank as you go.", fx = { align = { order = 1 } } },
+        { text = "Forget the counting. Drive the murlocs off and be done with it.", next = "BACK", reply = "Easy said from the dry end of the dock. Drive them off by all means, and I'll still count them, because they always come back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -42,8 +42,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though you'd come a close second. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." } },
       choices = {
-        { text = "I'll drive them off, and the fishermen can judge me after.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I don't need their warmth. Only their silence.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll drive them off, and the fishermen can judge me after.", next = "BACK", reply = "Do that and they'll judge you kindly, I promise you, because a full net forgives a great deal. Just keep whatever you summon off my boats.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need the docks to like me, only to keep quiet.", next = "BACK", reply = "Silence you'll have, then, since that's mostly what fishermen give anyway. Just don't be surprised if they cross themselves when you pass.", fx = { align = { honor = -1 } } },
         { text = "Something else, Baren.", next = "BACK" },
       },
     },
@@ -51,32 +51,32 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Right up onto the planks, bold as you like, and they take nets, fish, and once a whole rowboat. If you'd stand the end of the dock at dusk with a blade, I'd count fewer of them and more of my boats." } },
       choices = {
-        { text = "I'll stand the dock at dusk. Your boats will come home.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Murlocs are a fisherman's problem. I've orcs to fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand the dock at dusk. Your boats will come home.", next = "BACK", reply = "Then I'll put a lantern out for you and count my boats with a lighter heart tonight. The murlocs won't know what hit them.", fx = { align = { honor = 1 } } },
+        { text = "Murlocs are a fisherman's problem. I've orcs to fight.", next = "BACK", reply = "Fair enough for a soldier, though the orcs don't eat our fish and the murlocs do. I'll manage with my boathook, then.", fx = { align = { honor = -1 } } },
         { text = "Something else, Baren.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "Ha! If you can creep into a murloc camp and come out with my nets and all your fingers, I'll tell the whole dock it was you. They've taken six nets since the thaw and a rowboat besides, and I'd like the boat back most." } },
       choices = {
-        { text = "I'll get them back, and take a little extra.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Your nets and your boat, nothing more.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll get them back, and take a little extra.", next = "BACK", reply = "I'll not ask what extra means, and I'll not want to know. Just bring the rowboat, and I'll tell the whole dock who did it.", fx = { align = { honor = -1 } } },
+        { text = "Your nets and your boat, nothing more.", next = "BACK", reply = "An honest thief, now there's something I'll write in my book. The lads will hardly believe it.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Why have the murlocs moved inland?", next = "inland" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Freeze Lake Everstill? You'd freeze my boats in with them, and then I'd have to explain to the Magistrate why the mail's sat at the dock till spring. Thin them out on the shore, if you please, and leave my water wet." } },
       choices = {
-        { text = "Careful work, then. Your boats stay safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A frozen lake would end it faster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Careful work, then. Your boats stay safe.", next = "BACK", reply = "Thank you, because the Magistrate has enough to shout about without a frozen lake. Fewer murlocs and wet water, that's all I ask.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A frozen lake would end it faster.", next = "BACK", reply = "Faster, aye, and then I'd be ending with it, out of a job and up before the Magistrate. Leave my water wet, if you please.", fx = { align = { order = -1 } } },
         { text = "What's wrong with the lake?", next = "lake" },
       },
     },
     druid_talk = {
       lines = { { id = "dt_default", text = "Aye, there is. They come up thin, and the murlocs have taken the good spawning grounds along the east shore. My lads blame the orcs upstream, though nobody's walked up there to check." } },
       choices = {
-        { text = "I'll walk up there and see to it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The murlocs have as much right to those waters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll walk up there and see to it.", next = "BACK", reply = "You'd walk all that way for fish? Then you're a better friend to Lakeshire than half the folk who live in it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The murlocs have as much right to those waters.", next = "BACK", reply = "Rights is it? Tell that to my lads with their empty nets and hungry children. The fish don't know whose water it is, but my boys do.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -84,8 +84,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Two fishermen this spring, and a ferryman the year the bridge came down, and I've the dates in my book. We never found the ferryman, so I still put his name in the count every evening, out of habit or hope." } },
       choices = {
-        { text = "Then I'll pray for him every time I cross the lake.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Stop counting him, Baren. The lake isn't giving him back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll pray for him every time I cross the lake.", next = "BACK", reply = "That's kind, and I'll tell his widow you said it. Sometimes a stranger's prayer goes further than ours ever did.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Stop counting him, Baren. The lake isn't giving him back.", next = "BACK", reply = "Maybe not, but my hand writes his name before I can stop it. A dockmaster counts every boat out and back, and his never came back.", fx = { align = { light = -1 } } },
         { text = "Something else, Dockmaster.", next = "BACK" },
       },
     },
@@ -93,8 +93,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Me and a boathook, mostly, since the Marshal needs every guard on the north road. The murlocs know it, too, because they've started coming up the pilings the very hour the watch changes." } },
       choices = {
-        { text = "Then I'll stand the dusk watch with you, Baren.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Murlocs are your trouble, Baren. I've orcs to see to.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll stand the dusk watch with you, Baren.", next = "BACK", reply = "That's more than I'd hoped for, and the lads will be glad of the company. Bring a lantern, and watch the pilings when the bell goes.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Murlocs are your trouble, Baren. I've orcs to see to.", next = "BACK", reply = "Aye, everyone's got orcs to see to, and that's why the murlocs keep coming. Go on, then, and I'll keep my hook sharp.", fx = { align = { honor = -1 } } },
         { text = "Something else, Baren.", next = "BACK" },
       },
     },
@@ -112,7 +112,7 @@ P:NPC {
         { id = "h_sunfish", when = { questActive = TODO_QUEST("Selling Fish") },
           text = "Spotted sunfish, a good batch. Catch them yourself or take them off the murlocs. The fish won't mind which." },
         { id = "h_daniels", when = { heardLine = "daniels.h_default" },
-          text = "Daniels told you his troubles? He's dry and I'm empty; Lakeshire's a lovely place for a holiday." },
+          text = "Has Daniels told you his troubles? His cellar's dry and my nets are empty, so Lakeshire's a lovely place for a holiday." },
         { id = "h_boats", when = { metBefore = true }, text = "Counted the boats this morning, and they're all there; counted the nets, and they're all there too. Something's about to go wrong, I can feel it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time, because the murlocs have started coming up onto the docks at dusk, and I've only got a boathook." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I count the boats back every evening, and when one comes back short, I'd be glad of someone who knows the words." },
@@ -166,7 +166,7 @@ P:NPC {
       },
     },
     chase = {
-      lines = { { id = "ch_default", text = "Ask the deep water east of the bridge, because I won't. Whatever lives out there, Oslow's toolbox is keeping it company." } },
+      lines = { { id = "ch_default", text = "I couldn't tell you, and I won't row out into the deep water east of the bridge to ask. Oslow's toolbox went down out there, and whatever lives there is welcome to it." } },
       choices = {
         { text = "Maybe I'll swim out and see.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -199,7 +199,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     brew = {
-      lines = { { id = "br_default", text = "Ha! You took me at my word. Sit on that crate, then, and ask me anything that isn't about fish. I'll answer about fish anyway." } },
+      lines = { { id = "br_default", text = "Ha! Had a drop, have you? Sit on that crate, then, and ask me anything that isn't about fish. I'll answer about fish anyway." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
     hunter = {

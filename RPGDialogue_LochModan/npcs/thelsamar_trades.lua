@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Brock Stoneseeker, o' Brock's School o' Mining an' Surveying, an' aye, the name on the sign is mine. Come in, an' wipe yer boots, for the students have only just swept." },
+    { id = "g_default", text = "I'm Brock Stoneseeker, o' Brock's School o' Mining an' Surveying, an' aye, the name on the sign is mine. Come in, an' wipe yer boots, for the students have only just swept." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Either ye've found a seam ye cannae make sense of, or ye've come tae tell me about one. Both are welcome." },
     { id = "g_away", when = { away = 14 }, text = "There ye are, after {away} away! I'd half decided ye'd fallen down a shaft somewhere, an' I was writin' ye intae my safety lecture." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at the shoulders on ye now! Ye've been swingin' somethin' heavier than a pick, I'd say, or swingin' a pick at somethin' that swung back." },
@@ -38,7 +38,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "This is my school, an' these hills are my classroom, for there's copper an' tin an' a wee bit o' silver all round the loch if ye know how tae look. I teach the young ones how tae find it without bringin' the hill down on their heads." },
         { id = "h_honor", tags = { "news" }, when = { questActive = TODO_QUEST("Honor Students") },
-          text = "Ye've still got my list, then? Gryth Thurden keeps the gryphons in Ironforge, an' he knows what tae do wi' it, so off ye go, an' mind ye don't drop it over the Algaz." },
+          text = "Ye've still got my list, then? Gryth Thurden keeps the gryphons in Ironforge, an' he knows what tae do wi' it, so off ye go, an' mind ye don't drop it on the road." },
         { id = "h_return", tags = { "news" }, when = { questActive = TODO_QUEST("Return to Brock") },
           text = "Is that the bundle from Gryth? Oh, I can hear them clinkin' from here! Hand them over, friend, for I've three students who've been waitin' all week." },
         { id = "h_after", when = { questDone = TODO_QUEST("Return to Brock") },
@@ -52,14 +52,14 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, friend? The kettle's on, an' the students are out, so I've a minute." },
-        { id = "h_again2", text = "Ask away. A question costs nothin', an' a wrong guess down a shaft costs a great deal." },
+        { id = "h_again2", text = "Ask away. A question costs nothin', an' a wrong guess down a shaft costs ye a leg." },
         { id = "h_again3", text = "Go on, then. I've had worse interruptions, an' most o' them were cave-ins." },
       },
       choices = {
         { text = "Tell me about your school.", next = "school" },
         { text = "What ore is there around the loch?", next = "ore" },
         { text = "Do you have work for me?", next = "picks" },
-        { text = "I've brought your honorary picks.", next = "picks_done", when = { questDone = TODO_QUEST("Return to Brock") } },
+        { text = "Did your students like their honorary picks?", next = "picks_done", when = { questDone = TODO_QUEST("Return to Brock") } },
         { text = "I'm a miner myself. Any advice?", next = "xminer", when = { profession = "Mining" } },
         { text = "I worked the deep galleries under Ironforge.", next = "xdeep", when = { origin = "dwarf_ironforge_miner" } },
         { text = "Could a gnome learn mining from you?", next = "xgnome", when = { race = "Gnome" } },
@@ -83,8 +83,8 @@ P:NPC {
         { id = "ss_default", text = "Lads an' lasses from Thelsamar mostly, an' a few from the farms, an' the odd one sent down from Ironforge because his father thinks the loch air will settle him. The best o' them I call my honor students, an' I like tae see them rewarded." },
       },
       choices = {
-        { text = "Rewards are what make the young ones work hard.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Good work should be its own reward.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Rewards are what make the young ones work hard.", next = "BACK", reply = "Aye, a shiny pick goes a long way wi' the young ones. I'd rather they worked hard for a pick than for nothin'.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Good work should be its own reward.", next = "BACK", reply = "In a perfect world, aye, but this is Loch Modan. A wee reward keeps them comin' back, an' that's what matters.", fx = { align = { order = -1 } } },
         { text = "How do you reward them?", next = "picks" },
       },
     },
@@ -115,8 +115,8 @@ P:NPC {
           text = "Kobolds, though fewer o' late, an' I've a fair idea who's tae thank for that. My students might get a season in the Silver Stream at last." },
       },
       choices = {
-        { text = "Then the mine should be cleared for good.", next = "BACK", fx = { align = { order = 1 }, learn = { "kobolds" } } },
-        { text = "There's ore enough to share with kobolds.", next = "BACK", fx = { align = { order = -1 }, learn = { "kobolds" } } },
+        { text = "Then the mine should be cleared for good.", next = "BACK", reply = "Cleared for good, aye, if the mountaineers could manage it. They've tried twice, an' the kobolds keep comin' back.", fx = { align = { order = 1 }, learn = { "kobolds" } } },
+        { text = "There's ore enough to share with kobolds.", next = "BACK", reply = "Share wi' kobolds? They'd take the lot an' come back for the picks. Ye've a soft heart, I'll give ye that.", fx = { align = { order = -1 }, learn = { "kobolds" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -151,8 +151,8 @@ P:NPC {
         { id = "pw_default", text = "Because a pick from Ironforge means somethin' tae a young dwarf from the loch, an' they'll carry it the rest o' their lives. Morhan could make one just as good, but I'd never tell a student that." },
       },
       choices = {
-        { text = "A little pride never hurt anyone.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "You should tell them the truth about Morhan.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A little pride never hurt anyone.", next = "BACK", reply = "Never did, an' it never will. Every young miner deserves somethin' tae be proud of.", fx = { align = { honor = -1 } } },
+        { text = "You should tell them the truth about Morhan.", next = "BACK", reply = "An' break their hearts? No, the pick's from Ironforge, an' that's the end o' it. Morhan doesnae mind.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -175,7 +175,7 @@ P:NPC {
     },
     picks_done = {
       lines = {
-        { id = "pd_default", text = "Ye did, an' I'll no' forget it. The youngest of them, wee Tamsin, cried when I put hers in her hands, an' then she pretended it was the dust in her eyes." },
+        { id = "pd_default", text = "They did, an' I'll no' forget what ye did for them. The youngest of them, wee Tamsin, cried when I put hers in her hands, an' then she pretended it was the dust in her eyes." },
       },
       choices = {
         { text = "She'll make a fine miner.", next = "BACK", fx = { affinity = 1, standing = { thelsamar = 1 } } },
@@ -190,8 +190,8 @@ P:NPC {
           text = "Advice? Ye've more ore under yer nails than half my students will ever see, so I'll ask you instead. Is the iron any good out past the Wetlands, or is it all bog?" },
       },
       choices = {
-        { text = "A good miner takes every risk the vein demands.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A good miner comes home. The vein can wait.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "A good miner takes every risk the vein demands.", next = "BACK", reply = "Ye'll find the vein demands more than ye've got, someday. Mind my three rules, an' ye might live tae see it.", fx = { align = { order = -1 } } },
+        { text = "A good miner comes home. The vein can wait.", next = "BACK", reply = "Aye, that's the wisest thing ye've said yet. Come home, an' dig another day.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -200,18 +200,18 @@ P:NPC {
         { id = "xd_default", text = "Did ye now! Then ye'll find the loch's seams a holiday, for there's sky above most o' them an' nae foreman countin' yer swings. Do ye miss it?" },
       },
       choices = {
-        { text = "I miss the work. The deep is where dwarves belong.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Not for a moment. I'd rather see the sky.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "I miss the work. The deep is where dwarves belong.", next = "BACK", reply = "The deep's where we came from, aye, an' I miss it too some days. But the sky's no' so bad once ye get used tae it.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Not for a moment. I'd rather see the sky.", next = "BACK", reply = "The sky, aye, an' the fresh air. I'll no' argue wi' ye, for I felt the same when I came up.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xgnome = {
       lines = {
-        { id = "xg_default", text = "Course ye could! Ye're nearer the ground than I am, which is half the battle in a low tunnel. Only promise me ye'll no' bring one o' those drillin' machines in here, for the last one went through my floor." },
+        { id = "xg_default", text = "Course ye could! Ye're nearer the ground than I am, an' that's a blessing in a low tunnel. Only promise me ye'll no' bring one o' those drillin' machines in here, for the last one went through my floor." },
       },
       choices = {
-        { text = "Machines are the future of mining, Brock.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A pick and patience it is, then.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Machines are the future of mining, Brock.", next = "BACK", reply = "The future, is it? I've seen what those machines do tae a seam, an' it isnae pretty. A pick's a pick.", fx = { align = { order = -1 } } },
+        { text = "A pick and patience it is, then.", next = "BACK", reply = "Good, that's the spirit. Patience an' a pick have dug every hall in Ironforge, an' they'll dig yours too.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -219,10 +219,10 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know rock, an' I know the folk who dig it, an' that covers most o' Loch Modan." } },
-    background = { { id = "tp_bg", text = "Thirty years in the mines under Ironforge an' Dun Morogh, an' then my knees retired before I did, so I opened a school." } },
+    background = { { id = "tp_bg", text = "I spent thirty years in the mines under Ironforge an' Dun Morogh, an' then my knees retired before I did, so I opened a school." } },
     advice = { { id = "tp_ad", text = "Listen tae the rock before ye hit it, friend, for it usually tells ye what it's goin' tae do." } },
-    troggs = { { id = "tp_troggs", text = "They come up where we dig deep, an' I've never heard a better reason tae dig carefully." } },
-    kobolds = { { id = "tp_kobolds", text = "Tunnel Rats in the Silver Stream, an' they'd steal the candle off yer helmet if ye stood still." } },
+    troggs = { { id = "tp_troggs", text = "Troggs come up where we dig deep, an' I've never heard a better reason tae dig carefully." } },
+    kobolds = { { id = "tp_kobolds", text = "The Tunnel Rats in the Silver Stream would steal the candle off yer helmet if ye stood still." } },
     _none = { { id = "tp_none", text = "If it's no' in the rock, I'm the wrong dwarf tae ask. Try Jern; he writes everythin' down." } },
   },
 }
@@ -240,9 +240,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Kali Healtouch, an' if ye've come for Ghak, he's next door makin' smoke. If ye've come for herbs, ye've found the right one o' us." },
+    { id = "g_default", text = "I'm Kali Healtouch, an' if ye've come for Ghak, he's next door makin' smoke. If ye've come for herbs, ye've found the right one o' us." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did ye find the briarthorn where I told ye, or did ye find the nettles?" },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' the silverleaf's come up an' gone over in that time. Ye missed the best o' it." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the silverleaf's come up an' gone over in that time. Ye missed the best o' it." },
   },
 
   notice = {
@@ -290,24 +290,24 @@ P:NPC {
         { id = "hd_default", text = "The north end o' the water, where the spray from the dam keeps the ground wet. Mind the engineers, for they think every herbalist is a Dark Iron spy, an' they've no' been wrong often enough tae stop." },
       },
       choices = {
-        { text = "They're right to be watchful.", next = "BACK", fx = { align = { order = 1 }, learn = { "stonewrought_dam" } } },
-        { text = "Suspicion like that does more harm than spies.", next = "BACK", fx = { align = { order = -1 }, learn = { "stonewrought_dam" } } },
+        { text = "They're right to be watchful.", next = "BACK", reply = "They are, I'll grant ye, but they could be politer about it. Mind ye dinnae look too much like a Dark Iron.", fx = { align = { order = 1 }, learn = { "stonewrought_dam" } } },
+        { text = "Suspicion like that does more harm than spies.", next = "BACK", reply = "It does, an' I've lost good herbs tae their shoutin'. Maybe ye could tell them so, for they willnae listen tae me.", fx = { align = { order = -1 }, learn = { "stonewrought_dam" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     picking = {
       lines = {
-        { id = "pk_default", text = "Take the leaves an' leave the root, an' never strip a patch bare, for then there's nothin' next year for you or anyone. Half the herbalists who come through here pull like they're weedin' a field, an' it breaks my heart." },
+        { id = "pk_default", text = "Take the leaves an' leave the root, an' never strip a patch bare, for then there's nothin' next year for you or anyone. Too many herbalists who come through here pull like they're weedin' a field, an' it breaks my heart." },
       },
       choices = {
-        { text = "Leave some for whoever comes after.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "If I don't take it, someone else will.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Leave some for whoever comes after.", next = "BACK", reply = "Aye, that's the way o' it. Ye'll make a fine herbalist if ye remember that.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "If I don't take it, someone else will.", next = "BACK", reply = "An' then there's nothin' for anyone. That's how the hills go bare, friend, one greedy picker at a time.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     ghak = {
       lines = {
-        { id = "gh_default", text = "Like livin' wi' a kettle that's always about tae boil over, an' I wouldnae change a thing. He's singed the curtains four times this year, an' I've stopped buyin' nice ones." },
+        { id = "gh_default", text = "It's like livin' wi' a kettle that's always about tae boil over, an' I wouldnae change a thing. He's singed the curtains four times this year, an' I've stopped buyin' nice ones." },
       },
       choices = {
         { text = "Has he ever blown anything up?", next = "ghak_boom" },
@@ -316,7 +316,7 @@ P:NPC {
     },
     ghak_boom = {
       lines = {
-        { id = "gb_default", text = "Only the privy, an' only the once, an' he swears it was a gnome's still that did it. The whole o' Thelsamar heard it, an' Bluntnose made him rebuild it wi' his own two hands." },
+        { id = "gb_default", text = "Only the privy, an' only the once, an' he swears it was a gnome's still that did it. The whole o' Thelsamar heard it, an' Magistrate Bluntnose made him rebuild it wi' his own two hands." },
       },
       choices = {
         { text = "That's a story I'll remember.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -327,8 +327,8 @@ P:NPC {
         { id = "xd_default", text = "Ye ask the plant first, I'm told, which is more manners than most dwarves show it. I don't ask, but I do say thank ye, an' I've a feelin' it amounts tae the same." },
       },
       choices = {
-        { text = "Thanks is enough. The land understands.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Plants are plants. They don't hear thanks.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Thanks is enough. The land understands.", next = "BACK", reply = "I'd like tae think so, an' it's kind o' ye tae say. Thank ye, then, an' I'll keep sayin' thanks.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Plants are plants. They don't hear thanks.", next = "BACK", reply = "Maybe no', but I hear it, an' it makes me pick gentler. That's enough for me.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

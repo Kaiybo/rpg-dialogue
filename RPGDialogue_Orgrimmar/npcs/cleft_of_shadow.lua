@@ -61,10 +61,10 @@ P:NPC {
     },
     work_honor = {
       big = true,
-      lines = { { id = "wh_default", text = "Is it? One knife in the dark saves a hundred grunts from dying on a pike wall, and I've never met a grunt who'd rather die honorably than live. Grezz Ragefist disagrees with me loudly, but Grezz has never seen what we prevent." } },
+      lines = { { id = "wh_default", text = "Is it? One knife in the dark saves a hundred grunts from dying on a pike wall, and I've never met a grunt who'd rather die honorably than live. Grezz Ragefist, who trains the warriors, disagrees with me loudly, but Grezz has never seen what we prevent." } },
       choices = {
-        { text = "A hundred lives saved is worth any shame.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Some victories aren't worth having. Grezz is right.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A hundred lives saved is worth any shame.", next = "BACK", reply = "There it is, and you'll do well down here. Grezz can shout all he likes, but the grunts live.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Some victories aren't worth having. Grezz is right.", next = "BACK", reply = "Then you're Grezz's kind, and the Horde needs that too. But don't come to me when the pike wall falls.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -86,8 +86,8 @@ P:NPC {
       big = true,
       lines = { { id = "rh_default", text = "The same way anything gets anywhere, by walking through the gate and smiling at the guards. Some of them were grunts in good standing last season, so now I watch the faces in the Drag a little more closely than I used to." } },
       choices = {
-        { text = "Then root them out. Every last one.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Watch, but don't make the city afraid of itself.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Then root them out. Every last one.", next = "BACK", reply = "Every one, aye, but quietly, so they don't know we're watching. Patience catches more rats than shouting.", fx = { align = { order = 1 } } },
+        { text = "Watch, but don't make the city afraid of itself.", next = "BACK", reply = "That's the wiser course, and the harder one. Watch, then, and don't let the city see you watching.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "burning_blade" } } },
       },
     },
@@ -99,8 +99,8 @@ P:NPC {
       big = true,
       lines = { { id = "fo_default", text = "You walk without breathing and nobody hears your heartbeat, because you haven't got one. I'd have you in Lordaeron, listening to the humans who still think they can take it back, and you'd hear more than any of my orcs ever could." } },
       choices = {
-        { text = "I'll go wherever I'm most useful to the Horde.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I serve the Dark Lady first, and you second.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll go wherever I'm most useful to the Horde.", next = "BACK", reply = "Good, and the Horde will be grateful. Lordaeron's full of secrets, and you're the one to hear them.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I serve the Dark Lady first, and you second.", next = "BACK", reply = "Fair enough, and I'll take second. The Dark Lady and I want the same humans dead anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,7 +109,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Where I come from doesn't matter, and nobody who knows is going to tell you. That's rather the point." } },
     advice = { { id = "tp_ad", text = "Never stand in a doorway, never sit with your back to one, and never trust anyone who says they have nothing to hide." } },
-    _none = { { id = "tp_none", text = "If I knew, I'd want to know why you're asking. Since I don't, I'll just wonder about you instead, the way a good orc wonders about anyone who asks." } },
+    _none = { { id = "tp_none", text = "I don't know, and now I'll wonder why you're asking, the way I wonder about anyone who asks." } },
   },
 }
 
@@ -147,7 +147,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Mirket, and I teach warlocks. The rest of the city remembers the blood curse and would rather we didn't exist, but it's glad enough of us when the Alliance comes over the hill." },
-        { id = "h_shaman", when = { class = "SHAMAN" }, text = "Mirket, and you're a shaman, so you'll be wanting to tell me the spirits disapprove of me. Save your breath, because Kardris has already said it twice this season." },
+        { id = "h_shaman", when = { class = "SHAMAN" }, text = "Mirket, and you're a shaman, so you'll be wanting to tell me the spirits disapprove of me. Save your breath, because Kardris, your trainer up in the Valley of Wisdom, has already said it twice this season." },
         { id = "h_lock", when = { class = "WARLOCK" }, text = "Mirket, and you're one of mine, so show me your hands. Chalk under the nails means you've been practicing, and clean nails mean you've been lying to me." },
       },
       again = {
@@ -183,8 +183,8 @@ P:NPC {
       big = true,
       lines = { { id = "le_default", text = "Then the warlock dies, and usually the warlock deserved it for being careless. I've buried three students who thought they were stronger than they were, and I'll bury more, because the Horde needs the power whether or not it likes the price." } },
       choices = {
-        { text = "Power the Horde needs is worth the risk.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "No power is worth bargaining with demons.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Power the Horde needs is worth the risk.", next = "BACK", reply = "Good, you understand it. The Horde needs power, whatever it costs.", fx = { align = { light = -1 } } },
+        { text = "No power is worth bargaining with demons.", next = "BACK", reply = "Then you're in the wrong trade, and the wrong part of the city. Go back up the ramp.", fx = { affinity = -1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -210,14 +210,14 @@ P:NPC {
       big = true,
       lines = { { id = "zm_default", text = "Arithmetic, {class}. I know what a demon wants, what it can take from me and how long my will holds, and I've never needed a cloak to explain any of it." } },
       choices = {
-        { text = "Cold discipline beats mystery. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fear is a weapon too. Zevrost knows it.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Cold discipline beats mystery. You're right.", next = "BACK", reply = "Good, you understand it. Mystery is for those who can't do the sums.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fear is a weapon too. Zevrost knows it.", next = "BACK", reply = "Fear is a weapon, aye, and Zevrost wields it well. But arithmetic never fails you when the demon tests you.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     student = {
       big = true,
-      lines = { { id = "st_default", text = "Honesty, which is rarer down here than talent. So I'll ask you what I ask every one of them: why would anyone want a power that can eat them alive?" } },
+      lines = { { id = "st_default", text = "Honesty, which is rarer down here than talent. So I'll ask you what I ask every pupil who comes down these steps: why would anyone want a power that can eat them alive?" } },
       choices = {
         { text = "To protect the Horde, whatever it costs me.", next = "st_protect", fx = { trait = { brave = 1 }, align = { honor = 1 } } },
         { text = "Because I want it, and I'm not ashamed of that.", next = "st_want", fx = { affinity = 1, trait = { honest = 1 }, align = { honor = -1 } } },
@@ -244,13 +244,13 @@ P:NPC {
       big = true,
       lines = { { id = "sh_default", text = "Then the spirits can take their complaint to Kardris, who'll carry it down the ramp personally, as usual. Your elements bargain with you and my demons obey me, and I'm not convinced yours is the safer arrangement." } },
       choices = {
-        { text = "The elements are partners, not slaves. That's the difference.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Obedience is cleaner than bargaining, I'll admit.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The elements are partners, not slaves. That's the difference.", next = "BACK", reply = "Partners who leave when they're angry. I'll take obedience, shaman, and you can keep your bargains.", fx = { align = { light = 1 } } },
+        { text = "Obedience is cleaner than bargaining, I'll admit.", next = "BACK", reply = "At last, a shaman with sense. Don't tell Kardris you said so.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     orc_blood = {
-      lines = { { id = "ob_default", text = "Then he bowed, as I said, and Grom Hellscream paid with his life in Ashenvale to undo it. I'm sorry for your father, but I won't apologize for the Cleft, because nobody here has bowed to anything." } },
+      lines = { { id = "ob_default", text = "Then he bowed to the demons, and Grom Hellscream paid with his life in Ashenvale to undo it. I'm sorry for your father, but I won't apologize for the Cleft, because nobody here has bowed to anything." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -284,7 +284,7 @@ P:NPC {
   start = "hello",
   nodes = {
     xorig_hex = {
-      lines = { { id = "xhx_default", text = "A troll who wants a demon's tricks to fight a troll's curse, and Vol'jin pretends not to see you coming and going from the Cleft. Zalazane's hexes are loa-craft twisted sideways, so a grimoire will only take you so far. What will you do when your imp starts liking the work?" } },
+      lines = { { id = "xhx_default", text = "A troll learning a demon's tricks to break a troll's curse, and Vol'jin pretends not to see you coming and going from the Cleft. Tell me, what will you do when your imp starts to enjoy the work?" } },
       choices = {
         { text = "Remind it who holds the leash.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "Send it back before it does.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -292,8 +292,8 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Kurgul, and I sell the grimoires that teach your demons new ways to serve. Our grandfathers served the demons and paid in blood; my books make sure it goes the other way now, and an imp shows you every trick it would rather hide." },
-        { id = "h_void", when = { pet = { family = "Voidwalker" } }, text = "Kurgul, and that's a fine sulky voidwalker you've brought me. They never say thank you, but they remember who was kind to them, in their way." },
+        { id = "h_default", key = true, text = "Kurgul, and I sell the grimoires that teach your demons new ways to serve. Our grandfathers served the demons and paid in blood, and my books make sure the demons serve us now." },
+        { id = "h_void", when = { pet = { family = "Voidwalker" } }, text = "Kurgul, and I sell the grimoires that teach demons like your sulky voidwalker new ways to serve. They never say thank you, but they remember who was kind to them, in their way." },
         { id = "h_felhunter", when = { pet = { family = "Felhunter" } }, text = "Kurgul, and your felhunter has been sniffing at my grimoires since you came down the ramp. Keep it on your side of the counter, please, because it eats magic the way a wolf eats mutton." },
       },
       again = {
@@ -324,8 +324,8 @@ P:NPC {
       big = true,
       lines = { { id = "pi_default", text = "Pity a demon? They'd burn this city to the ground and laugh about it, so I find pity comes hard. But I don't torment them more than I need to, because a tormented demon is a dangerous one." } },
       choices = {
-        { text = "They're tools. Use them however works.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Even a demon shouldn't be tormented for sport.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're tools. Use them however works.", next = "BACK", reply = "Spoken like Mirket, and she'd agree. Use them, then, but don't come to me when they bite.", fx = { align = { light = -1 } } },
+        { text = "Even a demon shouldn't be tormented for sport.", next = "BACK", reply = "Then we agree, and that's rarer than you'd think in the Cleft. Torment makes them spiteful.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -334,7 +334,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     names = {
-      lines = { { id = "na_default", text = "Every one of them, and every one gave me a false name first. There was an imp down here last spring who called himself the Duke of Ashes, and he stole my good quill and ate it in front of me, very slowly." } },
+      lines = { { id = "na_default", text = "All of them, and each one gave me a false name first. There was an imp down here last spring who called himself the Duke of Ashes, and he stole my good quill and ate it in front of me, very slowly." } },
       choices = {
         { text = "Why bother remembering their names?", next = "names_why" },
         { text = "Something else.", next = "BACK" },
@@ -355,13 +355,13 @@ P:NPC {
       big = true,
       lines = { { id = "mw_default", text = "Both of us, which neither of us will ever admit. A leash without care makes a demon spiteful, and care without a leash gets you eaten, so I suppose the Cleft needs the pair of us bickering." } },
       choices = {
-        { text = "A firm hand works better than kindness.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Care keeps a demon steadier than fear does.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A firm hand works better than kindness.", next = "BACK", reply = "That's Mirket's way, and it works, mostly. But the demons she leashes hate her for it.", fx = { align = { order = 1 } } },
+        { text = "Care keeps a demon steadier than fear does.", next = "BACK", reply = "It does, and I'm glad to hear someone else say it. Mirket thinks I'm soft, but my demons don't bite.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     peeve = {
-      lines = { { id = "pv_default", text = "Silence, if you ask me. Some warlocks go years without saying a word to their voidwalker, and then they're shocked when it drifts off in the middle of a fight." } },
+      lines = { { id = "pv_default", text = "Ignoring their demon, if you ask me. Some warlocks go years without saying a word to their voidwalker, and then they're shocked when it drifts off in the middle of a fight." } },
       choices = {
         { text = "You expect me to chat with a demon?", next = "peeve_ask" },
         { text = "Something else.", next = "BACK" },
@@ -376,7 +376,7 @@ P:NPC {
       },
     },
     pa_joke = {
-      lines = { { id = "pj_default", text = "Ha! That's more than most of them ever get. Say it every day, and mean the second part." } },
+      lines = { { id = "pj_default", text = "Ha! That's kinder than anything the warlocks say to theirs. Say it every day, and mean the second part." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     pa_listen = {
@@ -456,13 +456,13 @@ P:NPC {
       big = true,
       lines = { { id = "ho_default", text = "So is dying, friend, and the Alliance doesn't send their soldiers home just because ours fight fair. A poisoned blade ends a fight quicker, and quicker means fewer orcs coming home on a stretcher." } },
       choices = {
-        { text = "A quick end is a mercy to both sides.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather win clean or not at all.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A quick end is a mercy to both sides.", next = "BACK", reply = "It is, and you understand it better than most. Fewer stretchers for everybody.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather win clean or not at all.", next = "BACK", reply = "Then you'll win fewer times, and lose more grunts. Your choice, friend.", fx = { align = { honor = 1 } } },
         { text = "Who taught you poisons?", next = "teacher" },
       },
     },
     teacher = {
-      lines = { { id = "te_default", text = "A Darkspear witch doctor taught me which mushrooms kill and which ones only make you wish you were dead. The rest I learned the hard way, which is why I've got a cough that won't go away." } },
+      lines = { { id = "te_default", text = "A Darkspear witch doctor taught me which mushrooms kill and which ones only make you wish you were dead. The rest I learned by breathing the wrong smoke, and I've had this cough ever since." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     labels = {
@@ -578,7 +578,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     worst = {
-      lines = { { id = "wo_default", text = "The warlocks, every one of them, asking for things I don't sell and wouldn't sell if I could. I tell them I sell powders, not souls, and they look at me like I'm the strange one." } },
+      lines = { { id = "wo_default", text = "The warlocks, always the warlocks, asking for things I don't sell and wouldn't sell if I could. I tell them I sell powders, not souls, and they look at me like I'm the strange one." } },
       choices = {
         { text = "I'd guess you'd sell them if you could.", next = "souls" },
         { text = "Something else.", next = "BACK" },
@@ -588,8 +588,8 @@ P:NPC {
       big = true,
       lines = { { id = "so_default", text = "Never, and I don't care how much gold they offer. A trader has to draw the line somewhere, and I draw mine at anything that used to be alive and still might be." } },
       choices = {
-        { text = "Good. Some trades shouldn't be made.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Gold is gold. You're leaving money on the table.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Good. Some trades shouldn't be made.", next = "BACK", reply = "There aren't, and I'm glad you see it. Some lines don't move.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Gold is gold. You're leaving money on the table.", next = "BACK", reply = "Leaving it, aye, and I'll keep leaving it. Some gold costs more than it's worth.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -617,11 +617,11 @@ P:NPC {
       },
     },
     cp_honest = {
-      lines = { { id = "ch_default", text = "Ha! Somebody honest at last, and I'll take that over a compliment any day. My manners stay where they are, mind you, because they keep the warlocks from lingering." } },
+      lines = { { id = "ch_default", text = "Ha! Somebody honest at last, and I'll take that over a compliment any day. My manners stay where they are, though, because they keep the warlocks from lingering." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     cp_blunt = {
-      lines = { { id = "cb_default", text = "It does, because it's a reagent stall and sulfur is a reagent. You'd be more worried if it smelled of flowers, believe me, because then you'd be at Rekkul's." } },
+      lines = { { id = "cb_default", text = "It does, because it's a reagent stall and sulfur is a reagent. You'd be more worried if it smelled of flowers, believe me, because down here a sweet smell usually means poison." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     cp_flatter = {
@@ -633,7 +633,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rogue_promise = {
-      lines = { { id = "rp_default", text = "Everybody promises, and then I find my flash powder in some Shenthul pupil's pocket. Keep your promise, and we'll get along fine, which is more than I can say for most of your lot." } },
+      lines = { { id = "rp_default", text = "Everybody promises, and then I find my flash powder in some Shenthul pupil's pocket. Keep yours, and you'll be the first customer this month who did." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

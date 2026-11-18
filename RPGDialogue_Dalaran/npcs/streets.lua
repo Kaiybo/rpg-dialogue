@@ -40,6 +40,11 @@ P:NPC {
       choices = {
         { text = "These antiques have come from a good many places, I'd wager.", next = "where" },
         { text = "What's a dwarf doing among wizards?", next = "dwarf" },
+        { text = "Do the archivists approve of your trade?", next = "delv" },
+        { text = "What's that brass compass behind the counter?", next = "compass" },
+        { text = "Do families ever come back for what they sold?", next = "heir" },
+        { text = "Which hold do ye hail from, Brammold?", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Lizi says your shelf sets off her tuning forks.", next = "xgnome", when = { race = "Gnome" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Good day.", next = "END" },
       },
@@ -68,11 +73,63 @@ P:NPC {
         { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } },
       },
     },
+    delv = {
+      lines = { { id = "de_default", text = "Archivist Fortuz looks at me like I'm sellin' his grandmother's bones by the pound, and he's nae entirely wrong about the candlesticks. Helm Anvilhand, though, he buys from me when the Kirin Tor's back is turned, an' he says a relic in a dwarf's hands beats one in a cellar." } },
+      choices = {
+        { text = "So the two archivists disagree about you?", next = "delv2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    delv2 = {
+      lines = { { id = "d2_default", text = "They disagree about everythin', every week, over supper, an' I'm only one course of it. Fortuz wants the past behind glass where it's safe, an' Helm wants it in folk's hands where it's remembered, an' I want it on my shelf with a price on, so we're all of us right in our way." } },
+      choices = {
+        { text = "And the price is always the winner.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    compass = {
+      lines = { { id = "co_default", text = "Ah, that's nae for sale, an' I'll thank ye not to look so hungry at it. Came out of a magus's cellar after the fall, an' it doesnae point north, it points at whatever ye've lost." } },
+      choices = {
+        { text = "Whatever you've lost? Does it work?", next = "compass2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    compass2 = {
+      lines = { { id = "c2_default", text = "Found Lizi Silverstone's spectacles on top of her own head, an' found my second-best hammer in a crate I'd sold tae a mason. It also points at the floor sometimes, an' I've decided not tae dig, because whatever's lost under Dalaran can stay lost." } },
+      choices = {
+        { text = "Under Dalaran? You think something's down there?", next = "compass3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    compass3 = {
+      lines = { { id = "c3_default", text = "I know there is, {g:lad|lass}, same as everyone who's stood by the west wall at night an' heard the shufflin' through the sewer grate. The magi say it's in hand, an' I say that's grand, an' I keep the compass in a drawer after dark." } },
+      choices = {
+        { text = "Wise man. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    heir = {
+      big = true,
+      lines = { { id = "he_default", text = "Now and again, aye, a widow wantin' her husband's pipe back once she's had time tae miss it, an' always after I've marked the price up. I've done it both ways in my time, so tell me, what would ye do?" } },
+      choices = {
+        { text = "Sell it back at what you paid. It's her memory.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A sale's a sale. Charge her what it's worth.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = { { id = "xd_default", text = "Ironforge born, Thelsamar raised, an' I swung a pick in Loch Modan till I found I liked what came out the ground more than diggin' it. Ye'll understand, then, why a dwarf might find himself sellin' old things to wizards, since they pay best." } },
+      choices = { { text = "Aye, I understand well enough.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xgnome = {
+      lines = { { id = "xg_default", text = "Every mornin', an' then she comes in here with her forks ringin' like a temple bell an' tells me which crate's tae blame. I've half a mind tae hire her, since she finds the humming ones faster than I do." } },
+      choices = { { text = "You'd make a fine pair.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
     trade = { { id = "tp_trade", text = "Old things, odd things and the occasional heirloom. The stories come free; the candlesticks don't." } },
     explorers_league = { { id = "tp_league", text = "Good folk, if they'd stop diggin' long enough to sell anything. I do the sellin' for them, in a manner of speaking." } },
+    dalaran = { { id = "tp_dalaran", text = "Every stone they move in this city turns up somethin' old, an' half of it finds its way to my table. Best place I ever set up shop, humming shelf an' all." } },
     magni = { { id = "tp_magni", text = "King Magni would love this city, if he could stand the magi. He'd buy every relic in my shop and argue about every price, an' I'd enjoy every minute." } },
     uldaman = { { id = "tp_uldaman", text = "The Explorers' League found titan relics in Uldaman, an' the magi here would pay a fortune fer one. I'd sell, if I could get my hands on any." } },
     wildhammer = { { id = "tp_wildhammer", text = "A Wildhammer came in once, lookin' fer a gryphon saddle from the Second War, an' I found her one. She paid in gold an' a song, an' the song was better." } },
@@ -109,7 +166,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Lizi Silverstone, Kirin Tor, late of Gnomeregan's arcane workshops! And yes, those two are Beepo and Niko, and no, they aren't mine; they belong to the shop, or the shop belongs to them, depending on whom you ask." },
         { id = "h_mage", when = { class = "MAGE" },
-          text = "Another magus! Don't mind the mess; half this street was rubble not long ago, and the other half still thinks it is." },
+          text = "Another magus! Don't mind the mess; this street was rubble not long ago, and some of it still thinks it is." },
       },
       again = {
         { id = "h_again", text = "Anything else? Be quick, Niko's eyeing my notes, and I've only got two copies of each, which is one fewer than I'd like." },
@@ -137,7 +194,7 @@ P:NPC {
     },
     gnome_miss = {
       lines = {
-        { id = "gm_default", text = "Every day, and I'd rather fix this city than cry about that one. Besides, these stones don't glow green at night, which already puts Dalaran ahead." },
+        { id = "gm_default", text = "Every day, but fixing this city beats crying over that one. Besides, these stones don't glow green at night, which already puts Dalaran ahead." },
       },
       choices = { { text = "That's a good way to see it.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -167,7 +224,7 @@ P:NPC {
     },
     fixing_wizards = {
       lines = {
-        { id = "fw_default", text = "They could, if they'd stop writing essays about it first. A magus will spend a week on a beautiful ward that a decent spring and a counterweight could manage by teatime, so tell me honestly, which would you trust with your life, a spell or a gear?" },
+        { id = "fw_default", text = "They could, if they'd stop writing essays about it first. A magus will spend a week on a beautiful ward that a decent spring and a counterweight could manage by teatime, so tell me, which would you trust with your life, a spell or a gear?" },
       },
       choices = {
         { text = "A gear. Gears don't have moods.", next = "fa_gear", fx = { affinity = 1, trait = { practical = 1 } } },
@@ -220,11 +277,11 @@ P:NPC {
     mage_push = {
       big = true,
       lines = {
-        { id = "mp_default", text = "Sound enough to keep the roofs up, I'll grant you, and not one bit sounder. The Kirin Tor build wards the way poets write sonnets, all elegance, and nobody can repair them afterwards." },
+        { id = "mp_default", text = "Sound enough to keep the roofs up, and not one bit sounder. The Kirin Tor build wards the way poets write sonnets, all elegance, and nobody can repair them afterwards." },
       },
       choices = {
-        { text = "Leave the old wards be. Tinkering invites disaster.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then the Kirin Tor should learn from gnomes.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Leave the old wards be. Tinkering invites disaster.", next = "BACK", reply = "Oh, you sound exactly like the council, and they'll love you for it, right up until the roof caves in on someone because nobody dared touch the old runes.", fx = { align = { order = 1 } } },
+        { text = "Then the Kirin Tor should learn from gnomes.", next = "BACK", reply = "Ha, I've said that to their faces at three separate council meetings, and they gave me a commendation each time and then ignored every word of it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -285,7 +342,7 @@ P:NPC {
         { text = "You seem very fond of this street.", next = "stones" },
         { text = "What was here before the fall?", next = "before" },
         { text = "That cat seems very much at home here.", next = "zara" },
-        { text = "Lordaeron's people lost a great deal, too.", next = "human", when = { race = "Human" } },
+        { text = "Lordaeron's people lost everything, too.", next = "human", when = { race = "Human" } },
         { text = "Shall I say a prayer for what you lost?", next = "prayer", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Good day.", next = "END" },
       },
@@ -307,7 +364,7 @@ P:NPC {
     },
     stones = {
       lines = {
-        { id = "st_default", text = "Fond is one word for it, and the masons have another. There are four hundred and twelve stones between the gate and the far corner, and I walk every one of them each morning, so I know when one's been chipped before the masons do." },
+        { id = "st_default", text = "Fond is one word for it, and the masons have another. There are four hundred and twelve stones between the gate and the far corner, and I walk them all each morning, so I know when one's been chipped before the masons do." },
       },
       choices = {
         { text = "Are they all laid properly?", next = "stones_crooked" },
@@ -320,8 +377,8 @@ P:NPC {
         { id = "sc_default", text = "Nine of them are crooked, and I've reported every one to the council, who sent it to the masons, who sent it back to me. I've started to wonder whether a few crooked stones are simply what a city looks like when it's lived in again." },
       },
       choices = {
-        { text = "Leave them crooked. A living street needn't be perfect.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Keep reporting them. Rebuild it properly or not at all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave them crooked. A living street needn't be perfect.", next = "BACK", reply = "That's what I've started to think too, and Zara agrees, though she agrees with anything that lets her sleep on the warm stones.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Keep reporting them. Rebuild it properly or not at all.", next = "BACK", reply = "You'd get along with the masons, then, though I'm not sure they'd get along with you, because properly is a word they've grown tired of hearing.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -346,7 +403,7 @@ P:NPC {
     },
     ba_dome = {
       lines = {
-        { id = "bad_default", text = "Then you saw what most of the world saw, a violet bubble and a great deal of rumour. I'm glad you've come inside it at last, even if the inside is still mostly scaffolding." },
+        { id = "bad_default", text = "Then you saw what most of the world saw, a violet bubble and a cloud of rumour. I'm glad you've come inside it at last, even if the inside is still mostly scaffolding." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -389,9 +446,9 @@ P:NPC {
   },
 
   topics = {
-    dalaran = { { id = "tp_dalaran", text = "Dalaran's Path of Renewal is a garden I tend with my own hands, and it's only just been planted. It'll take years to grow, and I'll be here for every one." } },
-    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are rebuilding, and I'm one of them, though I'd rather tend gardens than cast spells. Zara agrees, though she'd rather I fed her." } },
-    scourge = { { id = "tp_scourge", text = "The Scourge burned the old gardens of Dalaran, and the Legion burned what was left. I'm planting new ones, one seed at a time." } },
+    dalaran = { { id = "tp_dalaran", text = "The Path of Renewal is only just laid, and it'll take years before it feels like a street again. I'll be here for every one of them." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are rebuilding, and I'm one of them, though I'd rather mind a street than cast spells. Zara agrees, though she'd rather I fed her." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge burned the old streets of Dalaran, and the bookbinders' row with them. We're laying them again, one stone at a time." } },
     _none = { { id = "tp_none", text = "That's beyond my street, I'm afraid, and I've four hundred and twelve stones to mind already. Try the Citadel." } },
   },
 }

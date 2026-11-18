@@ -1266,27 +1266,50 @@ function C.TTSClean(text)
   return text
 end
 
-local function speakNow(voice, text, rate, volume)
-  -- TextToSpeech_Speak reads the game's own volume, so when that reads 0 (never set) it
-  -- plays silently without an error; then we call SpeakText ourselves at full volume.
-  local blizz = resolve("TextToSpeech_Speak")
-  local gameVol = C.TTSGameVolume()
-  if blizz and gameVol and gameVol > 0 and pcall(blizz, text, voice) then
-    return true, "TextToSpeech_Speak"
+-- The ways we can ask the client to speak, tried in order. A way whose line then fails to
+-- play (VOICE_CHAT_TTS_PLAYBACK_FAILED) is dropped for the session and the line is read
+-- again the next way, so a client that rejects one shape still talks.
+local WAYS = {
+  { name = "TextToSpeech_Speak", fn = function(voice, text)
+      -- Reads the game's own volume: at 0 (never set) it plays silently, so skip it then.
+      local blizz = resolve("TextToSpeech_Speak")
+      local gameVol = C.TTSGameVolume()
+      if not (blizz and gameVol and gameVol > 0) then return false end
+      return pcall(blizz, text, voice)
+    end },
+  { name = "SpeakText(dest)", fn = function(voice, text, rate, volume)
+      local speak, dests = resolve("C_VoiceChat.SpeakText"), resolve("Enum.VoiceTtsDestination")
+      if not (speak and dests) then return false end
+      return pcall(speak, voice.voiceID, text, dests.LocalPlayback or 1, rate, volume)
+    end },
+  { name = "SpeakText(queued)", fn = function(voice, text, rate, volume)
+      local speak, dests = resolve("C_VoiceChat.SpeakText"), resolve("Enum.VoiceTtsDestination")
+      if not (speak and dests and dests.QueuedLocalPlayback) then return false end
+      return pcall(speak, voice.voiceID, text, dests.QueuedLocalPlayback, rate, volume)
+    end },
+  { name = "SpeakText", fn = function(voice, text, rate, volume)
+      local speak = resolve("C_VoiceChat.SpeakText")
+      if not speak then return false end
+      return pcall(speak, voice.voiceID, text, rate, volume, false)
+    end },
+  { name = "SpeakText(dest=1)", fn = function(voice, text, rate, volume)
+      local speak = resolve("C_VoiceChat.SpeakText")
+      if not speak then return false end
+      return pcall(speak, voice.voiceID, text, 1, rate, volume)
+    end },
+}
+tts.bad = {}
+
+local function speakNow(voice, text, rate, volume, from)
+  local err = "no way to speak"
+  for i = from or 1, #WAYS do
+    if not tts.bad[i] then
+      local ok, e = WAYS[i].fn(voice, text, rate, volume)
+      if ok then return true, WAYS[i].name, i end
+      if e then err = tostring(e) end
+    end
   end
-  local speak = resolve("C_VoiceChat.SpeakText")
-  if not speak then return false, "no C_VoiceChat.SpeakText" end
-  local dests = resolve("Enum.VoiceTtsDestination")
-  if dests and pcall(speak, voice.voiceID, text, dests.LocalPlayback or 1, rate, volume) then
-    return true, "SpeakText(dest)"
-  end
-  local ok, err = pcall(speak, voice.voiceID, text, rate, volume, false)
-  if ok then return true, "SpeakText" end
-  if not dests then
-    ok, err = pcall(speak, voice.voiceID, text, 1, rate, volume)
-    if ok then return true, "SpeakText(dest=1)" end
-  end
-  return false, tostring(err)
+  return false, err
 end
 
 -- Speak text in a voice for gender ("male"/"female"/nil). Anything still being read is
@@ -1301,9 +1324,14 @@ function C.Speak(text, gender)
   local voice, rate, volume = C.TTSVoice(gender), C.TTSRate(), C.TTSVolume()
   local function go()
     if mine ~= tts.pending then return end
-    local ok, how = speakNow(voice, text, rate, volume)
+    local ok, how, way = speakNow(voice, text, rate, volume)
     tts.lastHow, tts.lastVoice = how, voice
-    if ok then tts.speaking = true else tts.lastError = how end
+    if ok then
+      tts.speaking = true
+      tts.current = { mine = mine, way = way, voice = voice, text = text, rate = rate, volume = volume }
+    else
+      tts.lastError = how
+    end
   end
   if tts.speaking then
     call("C_VoiceChat.StopSpeakingText")
@@ -1316,18 +1344,47 @@ end
 
 function C.StopSpeaking()
   tts.pending = tts.pending + 1
+  tts.current = nil
   call("C_VoiceChat.StopSpeakingText")
 end
 
+-- Name a VoiceTtsStatus number where the client has the enum.
+local function statusName(n)
+  local e = resolve("Enum.VoiceTtsStatus")
+  if type(e) == "table" and type(n) == "number" then
+    for k, v in pairs(e) do if v == n then return k end end
+  end
+  return nil
+end
+
 -- Playback events (where the client has them) tell us whether a stop is needed, and why
--- a line failed.
+-- a line failed. A failed line is read again the next way, and the failing way dropped.
 function C.TTSEvents(on)
-  on("VOICE_CHAT_TTS_PLAYBACK_STARTED", function() tts.speaking = true end)
+  on("VOICE_CHAT_TTS_PLAYBACK_STARTED", function() tts.speaking = true; tts.worked = tts.current and tts.current.way end)
   on("VOICE_CHAT_TTS_PLAYBACK_FINISHED", function() tts.speaking = false end)
-  on("VOICE_CHAT_TTS_PLAYBACK_FAILED", function(_, status)
+  on("VOICE_CHAT_TTS_PLAYBACK_FAILED", function(_, a, b, c)
     tts.speaking = false
-    tts.lastError = "playback failed: " .. tostring(status)
-    if tts.verbose then C.Print("RPG Dialogue: text to speech failed (" .. tostring(status) .. ").") end
+    local parts = {}
+    for _, v in ipairs({ a, b, c }) do
+      local n = statusName(v)
+      parts[#parts + 1] = n and (tostring(v) .. "=" .. n) or tostring(v)
+    end
+    tts.lastError = "playback failed (" .. table.concat(parts, ", ") .. ") via " .. tostring(tts.lastHow)
+    if tts.verbose then C.Print("RPG Dialogue: text to speech failed: " .. tts.lastError .. ".") end
+    local cur = tts.current
+    if not (cur and cur.mine == tts.pending) or tts.worked == cur.way then return end
+    tts.bad[cur.way] = true
+    tts.current = nil
+    local ok, how, way = speakNow(cur.voice, cur.text, cur.rate, cur.volume, cur.way + 1)
+    tts.lastHow = how
+    if ok then
+      tts.speaking = true
+      cur.way = way
+      tts.current = cur
+      if tts.verbose then C.Print("RPG Dialogue: trying " .. how .. " instead.") end
+    else
+      tts.lastError = tts.lastError .. "; nothing else worked"
+    end
   end)
 end
 

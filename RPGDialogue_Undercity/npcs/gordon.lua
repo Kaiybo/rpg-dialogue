@@ -26,9 +26,9 @@ P:NPC {
     { id = "g_softened", when = { npcFlagBefore = "gw_softened" }, priority = 10,
       text = "You're the one who made me say Davin's name aloud. I've been sharpening the same knife for three nights since, and I've no idea why." },
     { id = "g_order", when = { questActive = TODO_QUEST("Ride to the Undercity") },
-      text = "That's Podrig's hand on that order, I'd know his tidy little numbers anywhere. Let's see how many blades the Sepulcher has lost to the worgen this month." },
+      text = "That's Podrig's hand on that order from the Sepulcher, I'd know his tidy little numbers anywhere. Let's see how many blades they've lost to the worgen this month." },
     { id = "g_garrett", when = { questActive = TODO_QUEST("Michael Garrett") },
-      text = "Still here? Garrett's at the bat roost by the outer gate, and the crates won't fly themselves to Silverpine, though I've asked them nicely." },
+      text = "Still here? Michael Garrett's at the bat roost by the outer gate, and the crates won't fly themselves to Silverpine, though I've asked them nicely." },
   },
 
   notice = {
@@ -55,7 +55,7 @@ P:NPC {
         { id = "h_softened", when = { npcFlagBefore = "gw_softened", race = { "Orc", "Troll", "Tauren" } },
           text = "I suppose you'll want a decent blade, then, and not the ones I keep for the warm ones who annoy me. Don't tell anyone; I've a reputation to keep." },
         { id = "h_sepulcher", tags = { "news" }, when = { questRecent = { TODO_QUEST("Michael Garrett"), days = 3 } },
-          text = "Podrig's crates went out on Garrett's bats, and one of them came back bitten. The Sepulcher will have its swords, and I'll have the bill sent to Hadrec." },
+          text = "Podrig's crates went out to the Sepulcher on Garrett's bats, and one of them arrived bitten. The Sepulcher will have its swords all the same, and a bill for the bite marks." },
       },
       again = {
         { id = "h_again", text = "Something else? I've a whetstone waiting, and it's better company than most." },
@@ -76,7 +76,7 @@ P:NPC {
 
     living = {
       lines = {
-        { id = "l_default", text = "Against them? Nothing at all, any more than I've anything against a stopped clock. They're loud and frightened and they love you dearly, right up until your heart stops, and then they find a torch." },
+        { id = "l_default", text = "Against them? Nothing at all, beyond knowing what they are. They're loud and frightened and they love you dearly, right up until your heart stops, and then they find a torch." },
         { id = "l_dead", when = { race = "Scourge" }, text = "You know as well as I do. They loved us, and they wept for us, and then we came home and they barred the doors and called for the priests." },
       },
       choices = {
@@ -157,7 +157,7 @@ P:NPC {
     },
     davin_hate = {
       lines = {
-        { id = "dha_default", text = "Every one of them, yes, and I'll keep my bolts loaded for the day. Though I'll own it's tiring, hating that many people at once, and I'm not as young as I was when I died." },
+        { id = "dha_default", text = "All of them, yes, and I'll keep my bolts loaded for the day. Though I'll own it's tiring, hating that many people at once, and I'm not as young as I was when I died." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -165,7 +165,7 @@ P:NPC {
     horde = {
       lines = {
         { id = "ho_default", text = "Big, green and grateful, mostly, and the tauren pray over us as if we were ghosts that need laying. The Dark Lady says they're our allies, so I sell them axes and I don't ask what they say about us at their fires." },
-        { id = "ho_orc", when = { race = "Orc" }, text = "Your Warchief's a decent sort, by all accounts, and he made a home for the dead when nobody else would. I'm grateful, after a fashion, but gratitude isn't trust, orc, and I've buried the difference." },
+        { id = "ho_orc", when = { race = "Orc" }, text = "Your Warchief's a decent sort, by all accounts, and he made a home for the dead when nobody else would. I'm grateful, after a fashion, but gratitude isn't trust, orc, and I learned the difference the hard way." },
       },
       choices = {
         { text = "So the alliance is only convenience?", next = "horde_conv" },
@@ -178,8 +178,8 @@ P:NPC {
         { id = "hc_default", text = "Every alliance is convenience, warm or cold. They need the Undercity's apothecaries and we need their axes between us and the Scourge, and the day either of those stops being true, you'll see how long the speeches last." },
       },
       choices = {
-        { text = "Allies are allies. Treat them as you'd be treated.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then use them before they use us.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Allies are allies. Treat them as you'd be treated.", next = "BACK", reply = "A nice sentiment, friend, and I'll treat them exactly as they treat me. Warmly, until it's convenient not to.", fx = { align = { order = 1 } } },
+        { text = "Then use them before they use us.", next = "BACK", reply = "Now you're talking like a proper Forsaken, friend, but keep it quiet near the orcs. They hear better than you'd think.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -187,7 +187,7 @@ P:NPC {
       lines = {
         { id = "cu_default", text = "Deathguards, mostly, and the Sepulcher out in Silverpine, where Podrig writes me orders in a hand so neat it's nearly rude. The warm ones come in for axes and leave smelling the oil, and I take their coin all the same." },
         { id = "cu_quest", when = { questDone = TODO_QUEST("Ride to the Undercity") },
-          text = "The Sepulcher, for one, and you carried their last order yourself. Podrig loses blades to the worgen faster than I can temper them, and he never once asks what I think of the living, which is why I like him." },
+          text = "The Sepulcher, for one, and you carried their last order yourself. Podrig loses blades to the worgen faster than I can temper them, and he never once asks what I think of the living, so I like him." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -207,7 +207,7 @@ P:NPC {
     },
     past_city = {
       lines = {
-        { id = "pc_default", text = "Loud and bright and full of bells, and I hated the bells. Now I'd give a good deal to hear one, which tells you something about what's been taken from us and who took it." },
+        { id = "pc_default", text = "Loud and bright and full of bells, and I hated the bells. Now I'd give a good deal to hear one, and you may draw your own conclusions about what's been taken from us and who took it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -223,14 +223,14 @@ P:NPC {
         { id = "xd_default", text = "Of course they will, friend, and the Dark Lady knows it better than any of us. Until then we smile at them, as well as these faces smile, and we keep our blades oiled." },
       },
       choices = {
-        { text = "Then let's take what we need from them first.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Then let's take what we need from them first.", next = "BACK", reply = "Patience, friend, patience. Take too soon and they'll notice, and we're not ready for that conversation yet.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Not all of them, Gordon. I've met decent warm ones.", next = "xdead_decent", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xdead_decent = {
       lines = {
-        { id = "xdd_default", text = "So had I, and I taught one of them to fold steel. I'll not argue with you, friend, because you're one of ours, but you'll forgive me if I wait for the bolt." },
+        { id = "xdd_default", text = "So had I, and I taught one of them to fold steel. I'll not argue with you, friend, because you're one of ours, but I'll be waiting for the bolt all the same." },
       },
       choices = {
         { text = "Who taught you to wait for it?", next = "davin" },
@@ -240,7 +240,7 @@ P:NPC {
 
     xliving = {
       lines = {
-        { id = "xl_default", text = "Bled, have you? So did the boy I trained, and the next time he bled it was on my doorstep with a crossbow in his hands. Your blood's your own affair, warm one; it isn't a receipt." },
+        { id = "xl_default", text = "Bled, have you? So did the boy I trained, and the next time I saw him he was on the Brill road with a crossbow aimed at me. Your blood's your own affair, warm one; it isn't a receipt." },
         { id = "xl_agreed", when = { npcFlagBefore = "gw_agreed" },
           text = "Last time you told me the living can't be trusted, and now you want me to trust you. Make up your mind, warm one, and then I'll make up mine." },
       },

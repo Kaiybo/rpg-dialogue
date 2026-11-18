@@ -34,7 +34,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "You'll feel the ley lines tugging at you on the upper stairs. That's what's left of the disruption, and it fades a little every day." },
     { id = "n_warlock", cat = "arcane", when = { class = "WARLOCK" },
-      text = "This city once let Kel'Thuzad study in its own towers, warlock, so forgive me if I watch your hands while we talk." },
+      text = "This city once let Kel'Thuzad study in its own towers, warlock, so I'll be watching your hands while we talk." },
     { id = "n_forsaken", cat = "faction", when = { race = "Scourge" },
       text = "Some of the dead who walk with your queen wore the violet once. I try not to look for their faces, and I don't always manage it." },
   },
@@ -43,7 +43,7 @@ P:NPC {
   nodes = {
     opn_kirintor = {
       lines = {
-        { id = "opn_kirintor_q", text = "That's the argument upstairs every evening, and it ends the same way, which is with nobody agreeing. Half the council says Dalaran is an Alliance city and should act like one, and the other half says a city of scholars should belong to no banner at all. I'd like to hear it from someone who has to live with the answer." },
+        { id = "opn_kirintor_q", text = "That's the argument upstairs every evening, and it ends the same way, which is with nobody agreeing. One faction says Dalaran is an Alliance city and should act like one, while the other says a city of scholars should belong to no banner at all. I'd like to hear it from someone who has to live with the answer." },
       },
       choices = {
         { text = "The Alliance. Dalaran was founded among men, and they need you.", next = "opn_kirintor_r_alliance", fx = { align = { order = 1 }, opinion = { kirin_tor = "alliance" } } },
@@ -92,11 +92,11 @@ P:NPC {
         { id = "h_alt_class", when = { alt = { sameClass = true } },
           text = "Another {altclass}, and with the same patient frown I last saw on {alt}, who helped my magi on the upper stairs. If it's a family trait, Dalaran could use rather more of it." },
         { id = "h_default", key = true,
-          text = "I am Modera of the Kirin Tor. You've caught the Citadel at an untidy hour, I'm afraid, with half our wards held up by tired magi and the other half by stubbornness, all because of what broke at the top of the Citadel, and the council would rather nobody heard of it." },
+          text = "I am Modera of the Kirin Tor. You've caught the Citadel at an untidy hour, I'm afraid, with our wards held up by tired magi and sheer stubbornness, all because of what broke at the top of the Citadel, and the council would rather nobody heard of it." },
         { id = "h_helped", key = true, when = { questDone = TODO_QUEST("Friend of the Kirin Tor") },
           text = "There you are, {name}. You came through our sewers when we were too proud to ask anyone else, and as far as I'm concerned, Dalaran owes you a seat by its fire." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Friend of the Kirin Tor"), days = 3 } },
-          text = "Celindra tells me the mote reached her safely, and that the council has had a great deal to say about how it got there. Let them talk; the city is quiet for the first time since the crash." },
+          text = "Celindra tells me the mote reached her safely, and that the council has had plenty to say about how it got there. Let them talk; the city is quiet for the first time since the crash." },
         { id = "h_heart", tags = { "news" }, when = { questActive = TODO_QUEST("Heart of Disruption") },
           text = "You found your way in, then. Up, {name}, to the top of the Citadel, where all of this began, and don't stop for anything that glows." },
         { id = "h_shade", tags = { "news" }, when = { killed = { name = "Shade of the Archmage", min = 1 } },
@@ -112,7 +112,7 @@ P:NPC {
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "A paladin of the Silver Hand, or what's left of it. Dalaran and your order buried a great many friends together, and I haven't forgotten." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "You walk very quietly for someone in a city full of wards. Every one of them noticed you, {class}, even if I almost didn't." },
+          text = "You walk very quietly for someone in a city full of wards. Each of them noticed you, {class}, even if I almost didn't." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know? I'll answer what I'm permitted to, and perhaps a little more." },
@@ -172,8 +172,8 @@ P:NPC {
         { id = "cw_default", text = "I wish I could tell you. Whatever answered us from that room wore the shape of an archmage, and none of us could say which one, and that frightens me more than all the rest." },
       },
       choices = {
-        { text = "Seal that parlor, Archmage, and never open it again.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Study what's left of it. Dalaran should learn from its wounds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Seal that parlor, Archmage, and never open it again.", next = "BACK", reply = "That was my first thought, and half the council's, but I'm not sure anything that wears an archmage's face can be kept in by a door for very long.", fx = { align = { order = 1 } } },
+        { text = "Study what's left of it. Dalaran should learn from its wounds.", next = "BACK", reply = "That's the harder road and the one I'd choose myself, though I'll want the best wards in the city around whoever goes in first.", fx = { align = { order = -1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -200,8 +200,8 @@ P:NPC {
         { text = "Would you defy them again, Archmage?", tag = "Persuade", next = "secret_true",
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Friend of the Kirin Tor") }, { class = "MAGE" } } } },
           fail = { next = "secret_no", fx = { affinity = -1 } } },
-        { text = "You were right to break their silence.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A council's word should be kept. They had their reasons.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You were right to break their silence.", next = "BACK", reply = "Thank you, though I'd ask you not to say it too loudly in the Citadel, because the council has long memories and I need their votes next season.", fx = { align = { order = -1 } } },
+        { text = "A council's word should be kept. They had their reasons.", next = "BACK", reply = "They did, and I don't doubt they believed them, but reasons are cold comfort to the people of Southshore who'd have died waiting for us to stay quiet.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -237,8 +237,8 @@ P:NPC {
       },
       choices = {
         { text = "Whose side should Dalaran stand on now?", next = "opn_kirintor" },
-        { text = "Better behind a wall and safe than open and overrun.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Opening the city was right. Allies are worth the risk.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Better behind a wall and safe than open and overrun.", next = "BACK", reply = "There's a soldier's sense in that, and I understood it once, but the wall didn't save us when the danger came from inside it.", fx = { align = { light = -1 } } },
+        { text = "Opening the city was right. Allies are worth the risk.", next = "BACK", reply = "I believe so too, and I'll stake my seat on it, though I'd be lying if I said I didn't count the strangers in the streets every evening.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -279,8 +279,8 @@ P:NPC {
           text = "One of ours once, and dead now, by your hand, I'm told. I'm not sorry, though I'll be reading his notes for a month to learn how we missed him." },
       },
       choices = {
-        { text = "Necromancy is an abomination. Destroy every trace of it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Keep their books under guard. Know your enemy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Necromancy is an abomination. Destroy every trace of it.", next = "BACK", reply = "Many on the council would agree with you, and I've half a mind to let them, but burning books is how we failed to understand Kel'Thuzad until it was too late.", fx = { align = { light = 1 } } },
+        { text = "Keep their books under guard. Know your enemy.", next = "BACK", reply = "That's my thinking, though I'll warn you that the last magus who read those books in the name of knowing his enemy ended up becoming one.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -322,8 +322,8 @@ P:NPC {
         { id = "xm2_default", text = "Then here is your first lesson, and it's free: never trust a ward you didn't check yourself. We trusted ours, and you've seen what that cost us." },
       },
       choices = {
-        { text = "I'll earn my place the proper way, through study.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Rules are for quiet times. Put me to work now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll earn my place the proper way, through study.", next = "BACK", reply = "Good, then you're already wiser than half the apprentices who come through these doors, and I'll make sure the right tutors hear your name.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules are for quiet times. Put me to work now.", next = "BACK", reply = "Spoken like someone who's never had to clean up after an eager apprentice, but very well, I'll find you work, and you'll find out how quiet times are earned.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -333,8 +333,8 @@ P:NPC {
         { id = "xl_default", text = "Trouble is the wrong word. This city let Kel'Thuzad work in its towers and paid for it, so I watch anyone who keeps company with the Nether, and I'll ask you not to summon anything inside the Citadel." },
       },
       choices = {
-        { text = "My servants stay on a short leash. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Your caution didn't save you last time, Archmage.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "My servants stay on a short leash. You have my word.", next = "BACK", reply = "I'll hold you to it, and so will every ward in this tower, which are rather less forgiving than I am when it comes to things from the Nether.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your caution didn't save you last time, Archmage.", next = "BACK", reply = "No, it didn't, and I've had to live with that, but I'd rather be wrong for being too careful than right for being too trusting a second time.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -344,8 +344,8 @@ P:NPC {
         { id = "xs_default", text = "We already have, and we will again, but between the two of us: we're holding our own city together with string this season. Elaadrin knew that and came anyway, which tells me how bad things were on Zephras." },
       },
       choices = {
-        { text = "Then we'll stand with Dalaran, as you stood with us.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Zephras comes first. Dalaran must understand that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then we'll stand with Dalaran, as you stood with us.", next = "BACK", reply = "That is more than we've earned, perhaps, and it means a great deal, and I'll see to it that Zephras hears Dalaran said so in return.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Zephras comes first. Dalaran must understand that.", next = "BACK", reply = "I understand it perfectly, and I'd say the same of my own city, which is why I'll never ask more of you than Zephras can spare.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -355,8 +355,8 @@ P:NPC {
         { id = "xh_default", text = "Because if Dalaran falls, it takes everything with it, your Undercity included, and your masters know that as well as I do. I'd rather have you in my sewers under my eye than outside my walls guessing." },
       },
       choices = {
-        { text = "Then we're allies, for now. I'll keep faith.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "We'll take what we came for, Archmage.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Then we're allies, for now. I'll keep faith.", next = "BACK", reply = "Then we understand each other, and that's more than I expected from the Dark Lady's people, so keep to it and you'll find me fair.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "We'll take what we came for, Archmage.", next = "BACK", reply = "I expected nothing less, and so did my guards, so take what you were sent for and leave my sewers in better order than you found them.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -366,14 +366,14 @@ P:NPC {
         { id = "xn_default", text = "Alfina Nightgaze tells me so every week, and I've stopped arguing because she's usually right. Your people learned that lesson at a price we can barely imagine, and we're trying to learn it more cheaply." },
       },
       choices = {
-        { text = "Then let some of it go, before it breaks you.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Careful hands can hold it. Yours seem careful.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then let some of it go, before it breaks you.", next = "BACK", reply = "Alfina would like you, and she'd say the same, but power you set down in Dalaran has a habit of being picked up by someone worse.", fx = { align = { order = -1 } } },
+        { text = "Careful hands can hold it. Yours seem careful.", next = "BACK", reply = "That's kind of you, and I'll take it, though the last people who told me that were archmagi of this very council, and you have seen how careful their hands turned out to be.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xgnome = {
       lines = {
-        { id = "xg_default", text = "More than you'd think, and they argue more than the rest of us together. Lizi Silverstone could tell you, if you can get her to stop working long enough to talk." },
+        { id = "xg_default", text = "A fair few, and they argue more than the rest of us together. Lizi Silverstone could tell you, if you can get her to stop working long enough to talk." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -395,7 +395,7 @@ P:NPC {
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad sat on our council and walked away with our secrets and our shame. He commands the Scourge from Naxxramas now, and we'll answer for him until the day he's stopped." } },
     scourge = { { id = "tp_scourge", text = "The Scourge came within sight of these walls, and Arthas took what he wanted from us and left. We've raised the city again, but every mage in it remembers that day." } },
     arthas = { { id = "tp_arthas", text = "Prince Arthas came to Dalaran for the Book of Medivh and took it from us, and we couldn't stop him. I don't speak of him often, and I'll not start now." } },
-    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore was one of Antonidas's best students, and she leads Theramore now. She writes to the council, and her letters are always sensible, which is more than I can say for most." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore was one of Antonidas's best students, and she leads Theramore now. She writes to the council, and her letters are always sensible, which can't be said of most that reach this council." } },
     thrall = { { id = "tp_thrall", when = { faction = "Horde" }, text = "Your Horde burned a good part of Lordaeron in the Second War, and some here remember it, and some would rather not. I've opened the gates to the Horde because the dead are a greater enemy than old grudges." }, { id = "tp_thrall2", text = "The Warchief of the Horde is an orc of uncommon sense, by every account, and I've let his people through our gates. I'll judge him by them, as I'd judge any king by his envoys." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme was where Arthas turned, and the Scourge hold it now with the Scarlet zealots in the other half. I've sent magi there, and few came back." } },
     _none = { { id = "tp_none", text = "That's outside what I can speak to, I'm afraid. Try the library, once it has a roof." } },
@@ -415,7 +415,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prej", when = { prejudiced = true }, text = "A warlock, inside the Violet Citadel. You'll forgive me if I keep a ward up while we talk, {class}; the last demon to walk these halls was Archimonde, and he left by flattening the city." },
+    { id = "g_prej", when = { prejudiced = true }, text = "A warlock, inside the Violet Citadel. I'll keep a ward up while we talk, {class}; the last demon to walk these halls was Archimonde, and he left by flattening the city." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you. I still keep a ward up when you come in, but I've noticed I no longer weave it with my whole attention." },
     { id = "g_default", text = "Yes? Be quick, please; I'm very busy." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Is it urgent, or merely interesting?" },
@@ -549,18 +549,18 @@ P:NPC {
     mote_who = {
       big = true,
       lines = {
-        { id = "mw_default", text = "The Forsaken, for one, and I'd wager half the magisters left in the world. Power that's been torn loose always finds a buyer, which is why I'd prefer you didn't mention where it's kept." },
+        { id = "mw_default", text = "The Forsaken, for one, and I'd wager half the magisters left in the world. Power that's been torn loose always finds a buyer, so I'd prefer you didn't mention where it's kept." },
       },
       choices = {
-        { text = "Destroy it, then. Some power isn't worth keeping.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Keep it and study it. Power's only dangerous in fools' hands.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Destroy it, then. Some power isn't worth keeping.", next = "BACK", reply = "You'd have the Kirin Tor's support, I think, though destroying a thing like that is far harder than keeping it, and far louder.", fx = { align = { light = 1 } } },
+        { text = "Keep it and study it. Power's only dangerous in fools' hands.", next = "BACK", reply = "Every fool says that about himself, which is rather the problem, so I'll keep it locked away and keep my own hands off it too.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     work = {
       lines = {
-        { id = "wo_default", text = "Wards, mostly, holding up the parts of the city that aren't rebuilt yet. A dome over a city is simple next to a hundred small wards over a hundred broken rooftops, and every one of them complains in a different key." },
+        { id = "wo_default", text = "Wards, mostly, holding up the parts of the city that aren't rebuilt yet. A dome over a city is simple next to a hundred small wards over a hundred broken rooftops, and each one complains in a different key." },
       },
       choices = {
         { text = "Can I help?", next = "work_help" },
@@ -569,7 +569,7 @@ P:NPC {
     },
     work_help = {
       lines = {
-        { id = "wh_default", text = "Not with the wards, unless you've studied in secret for twenty years. But Alvareaux is always short of something, and the crews on the Path of Renewal could use someone who isn't a magus to tell them which way is up." },
+        { id = "wh_default", text = "Not with the wards, unless you've studied in secret for twenty years. But Archmage Alvareaux, our quartermaster, is always short of something, and the crews on the Path of Renewal could use someone who isn't a magus to tell them which way is up." },
       },
       choices = {
         { text = "I'll look in on them.", next = "BACK", fx = { affinity = 1 } },
@@ -583,15 +583,15 @@ P:NPC {
         { id = "sa_default", text = "Safer than it was, which isn't the same thing. The streets are calm and the constructs are quiet, and I still look in on the Purple Parlor every night before I sleep." },
       },
       choices = {
-        { text = "Then rest. Someone else can watch the parlor tonight.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Good. Vigilance is the only real ward.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then rest. Someone else can watch the parlor tonight.", next = "BACK", reply = "A kind thought, but there's nobody else I trust in that room, and Antonidas never once slept while his city needed watching either.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Good. Vigilance is the only real ward.", next = "BACK", reply = "Precisely, and if more of the council understood that, I'd be able to sleep a whole night through without counting the wards in my head.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     antonidas = {
       lines = {
-        { id = "an_default", key = true, text = "He was my friend, and the finest mind this city ever produced, and he died in these streets when the dead came for us. I put a great deal of work aside after that, because some of it was his as much as mine." },
+        { id = "an_default", key = true, text = "He was my friend, and the finest mind this city ever produced, and he died in these streets when the dead came for us. I put much of my work aside after that, because some of it was his as much as mine." },
       },
       choices = {
         { text = "Should the Kirin Tor study necromancy, to fight it?", next = "opn_necro" },
@@ -630,11 +630,11 @@ P:NPC {
     xhorde = {
       big = true,
       lines = {
-        { id = "xh_default", text = "Your master in Tarren Mill wanted a seat at our table, and he bargained with our own property to get one. I'd call that a poor beginning, whatever he meant by it." },
+        { id = "xh_default", text = "Your masters in Tarren Mill wanted a seat at our table, and they bargained with our own property, that mote, to get one. I'd call that a poor beginning, whatever they meant by it." },
       },
       choices = {
-        { text = "Then let's begin better. I'll deal honestly with you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "It worked. He got his seat, and that's what counts.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Then let's begin better. I'll deal straight with you.", next = "BACK", reply = "That's a better beginning than your master gave us, and I'll meet it, though you'll forgive me if I count what's on my shelves when you leave.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It worked. He got his seat, and that's what counts.", next = "BACK", reply = "It worked, and I'll remember exactly how it worked, which is a lesson your master may find more costly than he bargained for.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -680,7 +680,7 @@ P:NPC {
     { id = "g_default", text = "Supply and logistics, at your service, such as it is." },
     { id = "g_back", when = { metBefore = true }, text = "Back to see if the stock has changed? Sometimes it has." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and yes, the stock has changed, though mostly by getting smaller. Cloth and metal go to the scaffolds first, I'm afraid." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping the city, which is more than most wizards manage for my ledgers. Do have a look round; it's the least a quartermaster can offer." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping the city, when most wizards only ever help themselves to my ledgers. Do have a look round; it's the least a quartermaster can offer." },
   },
 
   notice = {
@@ -702,6 +702,11 @@ P:NPC {
       choices = {
         { text = "Your shelves are nearly bare.", next = "thin" },
         { text = "Who buys from the Kirin Tor?", next = "who" },
+        { text = "Tell me about the Kirin Tor tabard.", next = "tabard" },
+        { text = "You said Antonidas trusted you with the stores.", next = "anton" },
+        { text = "Who decides where your stores go?", next = "ledger" },
+        { text = "Have you any robes fit for a magus?", next = "xmage", when = { class = "MAGE" } },
+        { text = "You'll trade with the Horde, then?", next = "xhorde", when = { faction = "Horde" } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Good day, Archmage.", next = "END" },
       },
@@ -725,7 +730,65 @@ P:NPC {
       lines = {
         { id = "wh_default", text = "Friends of the Kirin Tor, which lately means anyone who went into the sewers for us, and a good many Skyborne asking after any pattern with azure in its name." },
       },
+      choices = {
+        { text = "Why do the Skyborne want azure patterns?", next = "who2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who2 = {
+      lines = {
+        { id = "w2_default", text = "Belanaa Windveil tells me azure is the colour of the open sky over their islands, and a Skyborne far from home likes to wear a little of it. I suspect it's also the only colour in this city that isn't violet, and I can hardly blame them." },
+        { id = "w2_skyborne", when = { race = "Skyborne" }, text = "You'd know better than I would. Belanaa says it's the colour of your open sky, and I've noticed your people buy it the way sailors buy rope, as though they'd be lost without it." },
+      },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tabard = {
+      lines = { { id = "ta_default", text = "Violet and silver, the colours of the Kirin Tor, and I give it only to those the council counts as friends. It won't turn a blade, I'm afraid, but it turns heads in this city, and some days that's worth more." } },
+      choices = {
+        { text = "How does one become a friend of the Kirin Tor?", next = "tabard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tabard2 = {
+      lines = {
+        { id = "t2_default", text = "By doing the city a service it can't forget, which these days mostly means going where the magi would rather not be seen going. Archmage Modera keeps that list, not I, and I'd ask her, politely." },
+        { id = "t2_done", when = { questDone = TODO_QUEST("Friend of the Kirin Tor") }, text = "You already have, which is why your name sits in my ledger with a little star beside it. I don't give out many stars, so do try to keep yours polished." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    anton = {
+      lines = { { id = "an_default", text = "He did, years ago, when I was a junior magus who counted inkwells twice and couldn't stop. He said a city of wizards needs one man who knows where every candle is, and he made me that man, and I've never been sure it was a compliment." } },
+      choices = {
+        { text = "What was he like?", next = "anton2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    anton2 = {
+      lines = { { id = "a2_default", text = "Patient with apprentices and impatient with archmagi, which is the right way round. When the Scourge came he sent me down to the vaults with the ledgers and stayed on the walls himself, and I've wondered every day since whether I'd have stayed if he'd let me." } },
+      choices = {
+        { text = "He gave you a duty. You kept it.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ledger = {
+      big = true,
+      lines = { { id = "le_default", text = "The council, in principle, and my ledger, in practice. Every bolt of cloth I hand an adventurer is one that doesn't go to a scaffold, and I'm forever told I should keep it all for the city, or else give it all to those who bleed for it. Where would you send it?" } },
+      choices = {
+        { text = "The city first. Walls before tabards.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "To those who bleed for it. They've earned it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xm_default", text = "Fit for a magus, yes, and fit for wearing, sometime next season, when the weavers come down off the scaffolds. For now I can offer you the patterns, and a sincere apology, in that order." } },
+      choices = { { text = "I'll take the apology for now.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhorde = {
+      lines = { { id = "xh_default", text = "Archmage Modera let you in, and a quartermaster doesn't argue with an archmage, at least not in writing. Your coin balances my ledger the same as anyone's, and frankly my ledger isn't fussy." } },
+      choices = {
+        { text = "Good to know, Archmage.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

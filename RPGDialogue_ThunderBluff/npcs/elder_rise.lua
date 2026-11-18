@@ -18,8 +18,8 @@ P:NPC {
 
   greetings = {
     { id = "o_mag_distrust", when = { gossip = { topic = "magatha", stance = "distrust" } }, text = "I hear you told the sage on the lower rise that the Elder Crone is a viper. She hears these things too, outsider, and she has a long memory." },
-    { id = "o_cairne_admire", when = { gossip = { topic = "cairne", stance = "admire" } }, text = "The Elder Crone tells me you sang Bloodhoof's praises at her own fire. That was bold of you, and not very wise." },
-    { id = "g_hi", text = "The Elder Crone is occupied, but I speak for her in small matters. Is yours a small matter, or merely a Bloodhoof one?" },
+    { id = "o_cairne_admire", when = { gossip = { topic = "cairne", stance = "admire" } }, text = "The Elder Crone tells me you sang Cairne Bloodhoof's praises at her own fire. That was bold of you, and not very wise." },
+    { id = "g_hi", text = "The Elder Crone is occupied, but I speak for her in small matters. Is yours a small matter?" },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Magatha remembers those who are useful, and so do I." },
     { id = "g_troggs", when = { questActive = TODO_QUEST("Testing an Enemy's Strength") }, text = "The troggs are in Ragefire Chasm, beneath Orgrimmar itself. The orcs built their capital on top of a nest and never thought to look down." },
     { id = "g_satchel", when = { questActive = TODO_QUEST("Searching for the Lost Satchel") }, text = "Maur's body lies somewhere in the Chasm. Search it well, and bring anything he carried back to the Elder Crone." },
@@ -37,7 +37,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Rahauro, and I attend the Elder Crone, Magatha Grimtotem. She has a great many burdens on behalf of all tauren, and I take the smaller ones from her shoulders so that she can bear the larger, such as the troggs beneath Orgrimmar who killed her diplomats." },
+        { id = "h_default", key = true, text = "I am Rahauro, and I attend the Elder Crone, Magatha Grimtotem. She has a great many burdens on behalf of all tauren, and I take the smaller ones from her shoulders so that she can bear the larger. The largest just now is the troggs beneath Orgrimmar, who killed her diplomats." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Testing an Enemy's Strength"), minLevel = 9 },
           text = "Troggs have come up from the depths beneath Orgrimmar, into a place called Ragefire Chasm. The Elder Crone sent diplomats to make peace with them, and the troggs killed every one, so now she sees them as a threat to the whole Horde and would like them destroyed before they overwhelm it from below." },
         { id = "h_satchel", when = { questDone = TODO_QUEST("Testing an Enemy's Strength"), questBefore = TODO_QUEST("Searching for the Lost Satchel") },
@@ -91,13 +91,13 @@ P:NPC {
       big = true,
       lines = { { id = "tc_default", text = "They went willingly, as Grimtotem do when she asks. A leader who never risks her people never learns anything, and the Elder Crone grieves each of them, whatever the Bloodhoof whisper about her." } },
       choices = {
-        { text = "A leader should go first into danger.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "A leader who dies first leads no one.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A leader should go first into danger.", next = "BACK", reply = "Then you would understand the Elder Crone better than most Bloodhoof do. She has walked into more danger than any of the young bulls who whisper about her.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "A leader who dies first leads no one.", next = "BACK", reply = "A leader who never risks herself leads no one worth following. Keep your caution, if it comforts you, but don't mistake it for wisdom.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     maur = {
-      lines = { { id = "m_default", text = "Maur Grimtotem mattered most, a Grimtotem of some learning who could speak a little of the tongue of the deep places. He went further into the Chasm than the others, because he believed he could reach the troggs where the others had failed." } },
+      lines = { { id = "m_default", text = "Grimtotem, all of them, and Maur Grimtotem mattered most, for he could speak a little of the tongue of the deep places. He went further into the Chasm than the others, because he believed he could reach the troggs where the others had failed." } },
       choices = {
         { text = "He must have hoped to find something.", next = "maur_find" },
         { text = "Something else.", next = "BACK" },
@@ -121,8 +121,8 @@ P:NPC {
       big = true,
       lines = { { id = "mg_default", text = "Strength for the tauren, and an end to bending our necks to outsiders. The High Chieftain gave our people to the orcs out of gratitude, and gratitude is a debt that grows larger every year you pay it." } },
       choices = {
-        { text = "The Horde saved the tauren. That debt is honorable.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "The tauren should stand on their own.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Horde saved the tauren. That debt is honorable.", next = "BACK", reply = "Honorable to whom? The orcs took our gratitude and gave us a war that was never ours, and the Elder Crone remembers who paid for it.", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "The tauren should stand on their own.", next = "BACK", reply = "Magatha would be pleased to hear it from an outsider. Many think it and few say it, and fewer still say it so near the High Chieftain's lodge.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } },
       },
     },
@@ -160,7 +160,7 @@ P:NPC {
     { id = "o_ne_hate", when = { gossip = { topic = "night_elves", stance = "hate" } }, text = "Father says you've no love for the kaldorei. I'd keep that quiet in Moonglade, if I were you, because they remember everything for ten thousand years." },
     { id = "g_hi", text = "If you're here for my father, he's thinking, which could take until An'she sets. If you're here for seeds, I'm faster." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good. Did anything you planted come up, or did the Earth Mother have other ideas?" },
-    { id = "g_morrow", when = { questActive = TODO_QUEST("Morrowgrain Research") }, text = "The Tharlendris seeds want soil from Un'Goro Crater and a great deal of patience. I can give you the first, and the second is your affair." },
+    { id = "g_morrow", when = { questActive = TODO_QUEST("Morrowgrain Research") }, text = "The Tharlendris seeds want soil from Un'Goro Crater and the patience of a kodo in the dry season. I can give you the first, and the second is your affair." },
   },
 
   notice = {
@@ -174,7 +174,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Bashana Runetotem, the Archdruid's daughter, which most people say before I can. I'm of the Cenarion Circle too, and while my father carries the Circle's burdens on Elder Rise, I carry its seeds, morrowgrain among them, and lately its worries about Blackfathom Deeps." },
+        { id = "h_default", key = true, text = "I'm Bashana Runetotem, the Archdruid's daughter, which most people say before I can. My father carries the Cenarion Circle's burdens on Elder Rise, and I carry its seeds, and lately its worries about Blackfathom Deeps." },
         { id = "h_bfd", when = { questActive = TODO_QUEST("Blackfathom Villainy") },
           text = "You have something from Blackfathom Deeps for me? Good. The Twilight's Hammer have been doing something foul in those flooded halls, and anything that tells us who leads them down there is worth having." },
         { id = "h_bfd_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Blackfathom Villainy"), days = 3 } },
@@ -215,8 +215,8 @@ P:NPC {
       big = true,
       lines = { { id = "mw_default", text = "My father says patience, and he's older than I am by a long way. I say a sick forest doesn't care how patient we are, and sometimes you have to dig." } },
       choices = {
-        { text = "Your father's right. Land heals slowly.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're right. Dig, and dig now.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your father's right. Land heals slowly.", next = "BACK", reply = "You and my father would get along, which doesn't surprise me at all. Patience is easy, though, when it isn't your forest that's dying.", fx = { align = { order = 1 } } },
+        { text = "You're right. Dig, and dig now.", next = "BACK", reply = "Thank you, I needed someone to say it besides me. My father will sigh, and I'll go and dig anyway, and the forest will be the better for it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -288,6 +288,10 @@ P:NPC {
         { text = "I'm ready to learn.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "What's the first thing a druid learns?", next = "first" },
         { text = "The Archdruid must be a good teacher.", next = "hamuul" },
+        { text = "Where do druids go to learn beyond this hall?", next = "moonglade" },
+        { text = "What do you think of the night elves?", next = "kaldorei" },
+        { text = "I find the bear slow and heavy.", next = "bear_slow", when = { class = "DRUID" } },
+        { text = "Shaman speak with spirits too. How is it different?", next = "shaman_diff", when = { class = "SHAMAN" } },
         { text = "Farewell, Sheal.", next = "END" },
       },
     },
@@ -302,17 +306,58 @@ P:NPC {
       big = true,
       lines = { { id = "fs_default", text = "Then you'll learn slower, and the bear will teach you the hard way instead of the easy one. The young bulls on Hunter Rise always think the claws are the lesson, and they always come back here bruised." } },
       choices = {
-        { text = "Stillness first, then. I'll try.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll learn by doing, bruises and all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stillness first, then. I'll try.", next = "BACK", reply = "Good, that's all I ask of a young druid. The bear is patient with those who are patient with it, and much less so with anyone else.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll learn by doing, bruises and all.", next = "BACK", reply = "Then I'll see you back here soon with fur in your teeth and a bruise on your pride. Come in quietly when you do, and I won't say I told you.", fx = { align = { order = -1 } } },
       },
     },
     hamuul = {
       lines = { { id = "hm_default", text = "The best, and the slowest. He once spent a whole afternoon showing me a beetle, and it was years before I understood why." } },
+      choices = {
+        { text = "What did the beetle teach you?", next = "beetle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beetle = {
+      lines = { { id = "be_default", text = "That it carried something many times its own weight, slowly and without complaint, and never once tried to be anything but a beetle. Hamuul said a druid takes a form the same way, by accepting it whole, and not by wearing it like a cloak." } },
+      choices = {
+        { text = "Is that why you teach the bear first?", next = "beetle_form" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beetle_form = {
+      lines = { { id = "bf_default", text = "In part. The bear is the form least like a cloak, heavy and patient and sure of itself, and it punishes a druid who only pretends. If you can be a bear honestly, the other forms come easier after." } },
+      choices = {
+        { text = "I'll remember the beetle.", next = "BACK" },
+        { text = "Farewell, Sheal.", next = "END" },
+      },
+    },
+    moonglade = {
+      lines = { { id = "mg_default", text = "To Moonglade, in the north, where the Cenarion Circle gathers and the kaldorei have kept the old ways longer than our tribes have had names. Nara Wildmane sends our young ones there when they're ready, and they come home very quiet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+      learn = { "cenarion_circle" },
+    },
+    kaldorei = {
+      big = true,
+      lines = { { id = "kd_default", text = "They are an old people, and their druids taught Hamuul much of what he knows, so I owe them something. They can be cold, and they carry their own griefs, but they love the forests as we love the plains." } },
+      choices = {
+        { text = "The land matters more than banners. Work with them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Horde comes first. The elves chose their side.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bear_slow = {
+      lines = { { id = "bs_default", text = "It is, and that is what it's for. The bear stands where it chooses and lets the fight come to it, which is a lesson the young never want and always need." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    shaman_diff = {
+      lines = { { id = "sd_default", text = "A shaman asks the elements for help, and a druid asks the land to let her become part of it for a while. Tigor Skychaser and I have argued over which is harder for many seasons, and neither of us has won." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    cenarion_circle = { { id = "tp_cc", text = "The druids' circle, kaldorei and tauren together. Hamuul sits with them in Moonglade, and they listen when he speaks." } },
+    earth_mother = { { id = "tp_em", text = "She is in the grass and the stone and the stillness between them. Sit long enough and you'll feel her." } },
     background = { { id = "tp_bg", text = "A Runetotem, and a student of Hamuul's before I taught anyone myself. There isn't more to tell." } },
     advice = { { id = "tp_ad", text = "Breathe before you shift. A bear born in a panic is a frightened bear." } },
     _none = { { id = "tp_none", text = "I couldn't say. Sit with the question for a while, as the herd sits out a storm; it may answer itself." } },
@@ -354,6 +399,10 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why do you prefer the plains?", next = "plains" },
         { text = "Do you have kin among the druids here?", next = "nara" },
+        { text = "What's the cat form like?", next = "cat" },
+        { text = "Sheal says you're always in a hurry.", next = "sheal" },
+        { text = "When will I learn the travel form?", next = "travel", when = { class = "DRUID" } },
+        { text = "Could you outrun a hunter's arrow?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Farewell, Kym.", next = "END" },
       },
     },
@@ -368,17 +417,65 @@ P:NPC {
       big = true,
       lines = { { id = "pe_default", text = "They do, and I listen, mostly. I just think a druid ought to earn her wisdom with sore legs and a scratched nose, and the elders seem to think it comes from a good cushion." } },
       choices = {
-        { text = "Listen to the elders. They've earned it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're right. Learn it on the plains.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Listen to the elders. They've earned it.", next = "BACK", reply = "The elders would thank you for that, and so would my aching legs some evenings. Still, I've never learned a thing worth knowing while sitting on a cushion.", fx = { align = { order = 1 } } },
+        { text = "You're right. Learn it on the plains.", next = "BACK", reply = "Then come running with me sometime, and we'll see how far your wisdom carries you. The cat has taught me more on one night's hunt than the Hall has in a season.", fx = { affinity = 1, align = { order = -1 } } },
       },
     },
     nara = {
-      lines = { { id = "n_default", text = "Nara Wildmane, though the Wildmanes are a big family, so I'll let you work out the rest. She's the one who sends young druids off to Moonglade, and I'm the one who teaches them to run fast enough to get there." } },
+      lines = { { id = "n_default", text = "Nara Wildmane is kin, though the Wildmanes are a big family and I couldn't tell you exactly how. She's the one who sends young druids off to Moonglade, and I'm the one who teaches them to run fast enough to get there." } },
+      choices = {
+        { text = "Why send them to Moonglade?", next = "moonglade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moonglade = {
+      lines = { { id = "mg_default", text = "Because that's where the Cenarion Circle meets, kaldorei and tauren both, and a young druid learns there's more to the craft than Mulgore. They come back changed and quieter, and usually wanting to tell me everything at once." } },
+      choices = {
+        { text = "Have you been there yourself?", next = "moon_go" },
+        { text = "Something else.", next = "BACK" },
+      },
+      learn = { "cenarion_circle" },
+    },
+    moon_go = {
+      lines = { { id = "mo_default", text = "Twice, and I ran most of the way, which Sheal says was showing off. The glade is beautiful and terribly still, and after a day there I couldn't wait to get back to grass I could run on." } },
+      choices = {
+        { text = "Something else, Kym.", next = "BACK" },
+        { text = "Farewell, Kym.", next = "END" },
+      },
+    },
+    cat = {
+      lines = { { id = "ct_default", text = "Like the whole world got louder and slower at once. You hear a plainstrider's heartbeat at forty paces and you'd swear the wind had stopped, and the first time it happened I laughed so hard I fell right out of it." } },
+      choices = {
+        { text = "Do you hunt as the cat?", next = "cat_hunt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cat_hunt = {
+      big = true,
+      lines = { { id = "ch_default", text = "Only what I'll eat, and I thank it after, the same as any tauren hunter. Some young druids get drunk on the speed and kill for the joy of it, and I send those ones to Sheal to sit still for a month." } },
+      choices = {
+        { text = "Only what you need. That's the right way.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The thrill is part of it. Let them run.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sheal = {
+      lines = { { id = "sh_default", text = "Sheal says that about everyone except Hamuul and the moss. We're good friends, really, and she's the only one who can make me sit still, which I resent with my whole heart." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    travel = {
+      lines = { { id = "tv_default", text = "When you're ready and Turak says so, which will feel like forever and isn't. Until then, run everywhere on your own hooves, because the legs you build now are the legs the cheetah gets later." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "No, and I tried once, against Kary Thunderhorn on a wager. She put an arrow through the tassel on my horn at a full gallop, and I've been very polite to hunters ever since." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    cenarion_circle = { { id = "tp_cc", text = "Moonglade's lot. Wise, slow and very fond of long meetings, but they mean well, and they love the land." } },
+    earth_mother = { { id = "tp_em", text = "She's out there running with the herds, not sitting in a hall. Go and find her." } },
     background = { { id = "tp_bg", text = "Wildmane, druid, runner. Ask me something interesting." } },
     advice = { { id = "tp_ad", text = "If you can outrun it, outrun it. Fighting is for when you can't." } },
     _none = { { id = "tp_none", text = "No idea! Ask someone slower; the elders have more seasons to think about it." } },

@@ -53,7 +53,7 @@ P:NPC {
     },
 
     finds = {
-      lines = { { id = "fi_default", text = "Buttons, mostly, and coins, and teeth, more teeth than you'd think. Last week it was a wedding ring with two names cut inside it, and I sat with it most of the night wondering whose they were." } },
+      lines = { { id = "fi_default", text = "Buttons, mostly, and coins, and teeth, a surprising number of teeth. Last week it was a wedding ring with two names cut inside it, and I sat with it most of the night wondering whose they were." } },
       choices = {
         { text = "What will you do with the ring?", next = "ring" },
         { text = "Do you sell what you find?", next = "sell" },
@@ -62,7 +62,7 @@ P:NPC {
     },
     ring = {
       big = true,
-      lines = { { id = "ri_default", text = "I could hang it on a post in the Trade Quarter and see who comes for it, or I could keep it, because whoever lost it may not remember they were married. Half the city doesn't, you know." } },
+      lines = { { id = "ri_default", text = "I could hang it on a post in the Trade Quarter and see who comes for it, or I could keep it, because whoever lost it may not remember they were married. A good many in this city don't, you know." } },
       choices = {
         { text = "Hang it up. Somebody might be looking for it.", next = "ring_after", fx = { align = { order = 1 }, trait = { kind = 1 } } },
         { text = "Keep it. The canal gave it to you.", next = "ring_after", fx = { align = { order = -1 } } },
@@ -354,12 +354,22 @@ P:NPC {
         { text = "Are you related to Victor Ward?", next = "victor" },
         { text = "What about Carolyn Ward, in the Rogues' Quarter?", next = "carolyn" },
         { text = "Show me your patterns.", next = "BUSINESS" },
+        { text = "Who did you sew for in the capital?", next = "capital" },
+        { text = "Any advice for a fellow tailor?", next = "tailor", when = { profession = "Tailoring" } },
+        { text = "I keep my reagents loose in my robes.", next = "caster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
         { text = "Good day.", next = "END" },
       },
     },
 
     bags = {
       lines = { { id = "ba_default", text = "Because the mages in this quarter carry their reagents loose in their robes like children with sweets, and then wonder why they can't find a pinch of anything in a fight. A proper bag with proper pockets saves lives, and I'll not hear otherwise." } },
+      choices = {
+        { text = "How many pockets does a mage need?", next = "bags_pockets" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bags_pockets = {
+      lines = { { id = "bp_default", text = "One more than they think, and every one lined, because powders find any gap and then you've a robe that sneezes. The warlocks want an extra pocket for their shards, and I've stopped asking why it has to be so deep." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     victor = {
@@ -374,12 +384,50 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     carolyn = {
-      lines = { { id = "ca_default", text = "Ward was a common enough name in Lordaeron, and I've never asked her and she's never asked me. If she's family, she's the sort that keeps a knife in her sleeve, and I'd rather not find out at supper." } },
+      lines = { { id = "ca_default", text = "Ward was a common enough name in Lordaeron, and I've never asked her and she's never asked me. If she's family, she's the sort that keeps a knife in her sleeve, and supper is a poor place to find that out." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    capital = {
+      lines = { { id = "cp_default", text = "For the palace, in the end, though only for the servants, since the royal tailors wouldn't have let us near the king's own coats. Victor and I sewed liveries for the footmen and the pages, blue and gold, three hundred of them a year." } },
+      choices = {
+        { text = "What was the last thing you sewed there?", next = "capital_last" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    capital_last = {
+      lines = { { id = "cl_default", fx = { learn = { "arthas" } }, text = "New liveries for the prince's homecoming, because the whole court was to line the road and cheer him in from Northrend. We finished the last of them the night before, and the pages wore them at the gate when he came through." } },
+      choices = {
+        { text = "That must be a hard thing to remember.", next = "capital_pride" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    capital_pride = {
+      big = true,
+      lines = { { id = "cr_default", text = "It was the finest work we ever did, and the pages looked splendid, and I've never known what to do with that. Victor says to be proud of the stitches and forget the occasion, and some nights I manage it." } },
+      choices = {
+        { text = "Good work is good work. Be proud of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn the memory. That day deserves nothing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tailor = {
+      lines = { { id = "ta_default", text = "Wash your linen before you cut it, because it shrinks, and nobody believes me until their first shirt fits a gnome. And buy your thread from someone who isn't my brother, because he'll talk your ear off while he's measuring it." } },
+      choices = {
+        { text = "Thank you, Angela. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    caster = {
+      lines = { { id = "cs_default", text = "Of course you do, and I'd wager there's a pinch of something in your boot as well. Buy a pattern, sew a bag, and let your robes be robes again, for pity's sake." } },
+      choices = {
+        { text = "Fine. Show me the pattern.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    arthas = { { id = "tp_arthas", next = "capital_last", text = "I sewed the pages' liveries for his homecoming. I'd rather not say more than that." } },
     background = { { id = "tp_bg", text = "A seamstress in the capital, my brother beside me, and now a pattern-seller under it. The work hasn't changed much." } },
     advice = { { id = "tp_ad", text = "Measure twice and cut once, and never let a mage borrow your scissors." } },
     _none = { { id = "tp_none", text = "Not my thread to pull, I'm afraid. Try someone in the quarter who reads books instead of hems." } },
@@ -450,7 +498,7 @@ P:NPC {
     },
 
     argue = {
-      lines = { { id = "ar_default", text = "Names, and whether the dead should keep them, and demons, and whether a mage who calls one up is clever or just impatient. He studies the warlocks' books in the Rogues' Quarter, and I study the old Dalaran texts, and neither of us will give an inch." } },
+      lines = { { id = "ar_default", text = "Names, and whether the dead should keep them, and demons, and whether a mage who calls one up is clever or just impatient. He studies the warlocks' books in the Magic Quarter, and I study the old Dalaran texts, and neither of us will give an inch." } },
       choices = {
         { text = "Who's winning?", next = "argue_win" },
         { text = "Something else.", next = "BACK" },
@@ -522,7 +570,7 @@ P:NPC {
     },
 
     name = {
-      lines = { { id = "na_default", text = "Because the man who had the old one died screaming in a farmhouse while the grain rotted, and I see no reason to drag his name about with me. Whoever woke up in that ditch was someone new, so I named him something that doesn't flinch." } },
+      lines = { { id = "na_default", text = "Because the man who had the old one died screaming in a farmhouse while the grain rotted, and I see no reason to drag his name about with me. Whoever woke up afterwards was someone new, so I named him something that doesn't flinch." } },
       choices = {
         { text = "Faith thinks you're wrong about that.", next = "faith" },
         { text = "Something else.", next = "BACK" },
@@ -530,7 +578,7 @@ P:NPC {
     },
 
     study = {
-      lines = { { id = "st_default", text = "Binding, mostly, and the circles the warlocks in the Rogues' Quarter use to call their imps and their felhounds. I don't call anything myself, not yet, because I'd like to understand the leash before I hold one." } },
+      lines = { { id = "st_default", text = "Binding, mostly, and the circles the warlocks in the Magic Quarter use to call their imps and their felhounds. I don't call anything myself, not yet, because I'd like to understand the leash before I hold one." } },
       choices = {
         { text = "Is that sort of power worth the risk?", next = "power" },
         { text = "Something else.", next = "BACK" },
@@ -550,7 +598,7 @@ P:NPC {
     },
 
     faith = {
-      lines = { { id = "fa_default", text = "She's fond of the sound of her own voice, and I happen to be standing near it. Still, she's the only one in this quarter who argues honestly, and that's rarer than you'd think among the dead." } },
+      lines = { { id = "fa_default", text = "She's fond of the sound of her own voice, and I happen to be standing near it. Still, she's the only one in this quarter who argues in good faith, and that's a rare habit among the dead." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -608,7 +656,7 @@ P:NPC {
 
     papers = {
       big = true,
-      lines = { { id = "pa_default", text = "Ink, mostly, and wax, and none of my business. The last runner who got curious isn't a runner any more, and I'd rather not find out what he is instead." } },
+      lines = { { id = "pa_default", text = "Ink, mostly, and wax, and none of my business. The last runner who got curious isn't a runner any more, and I've no wish to learn what he is instead." } },
       choices = {
         { text = "Secrets keep this city alive. You're right to keep them.", next = "papers_after", fx = { align = { honor = -1 } } },
         { text = "The people have a right to know what's being done.", next = "papers_after", fx = { align = { honor = 1 } } },
@@ -668,7 +716,7 @@ P:NPC {
   },
 
   notice = {
-    { id = "n_broken", cat = "gear", when = { durability = { max = 30 } },
+    { id = "n_broken", cat = "gear", when = { durability = { max = 0.30 } },
       text = "Forgive me, but your armour is in a shocking condition. I don't mend steel myself, but the smiths across the quarter do, and I'd go to them before you go anywhere else." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "I confess I've never valeted for anyone with hooves, and I find myself wondering how one would black them. Don't let me detain you with it." },
@@ -732,7 +780,7 @@ P:NPC {
 }
 
 ---------------------------------------------------------------------------
--- Zeglo Kruptorr: a warlock's acolyte in the Rogues' Quarter, who feeds the trainers' imps and resents it.
+-- Zeglo Kruptorr: a warlock's acolyte in the Magic Quarter, who feeds the trainers' imps and resents it.
 ---------------------------------------------------------------------------
 P:NPC {
   key = "uc_zeglo", id = TODO_NPC("Zeglo Kruptorr"), name = "Zeglo Kruptorr",
@@ -740,8 +788,8 @@ P:NPC {
   communities = { "undercity" }, temper = { "sour", "ambitious" }, values = { "ambitious", "cunning" },
   notices = { "class", "pet" },
   impression = {
-    first = "Zeglo Kruptorr is a warlock's acolyte in the Rogues' Quarter who spends his nights feeding other people's imps and resenting every minute of it. He is sure he is meant for greater things and keeps a list of the people who disagree.",
-    third = "{name} met Zeglo Kruptorr, an ambitious warlock's acolyte in the Rogues' Quarter.",
+    first = "Zeglo Kruptorr is a warlock's acolyte in the Magic Quarter who spends his nights feeding other people's imps and resenting every minute of it. He is sure he is meant for greater things and keeps a list of the people who disagree.",
+    third = "{name} met Zeglo Kruptorr, an ambitious warlock's acolyte in the Magic Quarter.",
   },
 
   greetings = {
@@ -789,7 +837,7 @@ P:NPC {
     },
     pact_wait = {
       big = true,
-      lines = { { id = "pw_default", text = "Right? The Scourge is a day's walk from here and the Scarlets are closer than that, and the trainers want me sweeping. A demon on a leash is a demon fighting for us, and every night I wait is a night we're weaker." } },
+      lines = { { id = "pw_default", text = "Right to make me wait? The Scourge is a day's walk from here and the Scarlets are closer than that, and the trainers want me sweeping. A demon on a leash is a demon fighting for us, and every night I wait is a night we're weaker." } },
       choices = {
         { text = "Power taken in a hurry will take you back.", next = "pact_after", fx = { align = { order = 1 } } },
         { text = "Then stop waiting and take what you're owed.", next = "pact_after", fx = { align = { order = -1 } } },
@@ -808,7 +856,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I was nobody in life, and I'll be somebody in death. That's all the background you need." } },
-    advice = { { id = "tp_ad", text = "Never let an imp near your sleeves. Or your notes. Or your hair, if you've any left." } },
+    advice = { { id = "tp_ad", text = "Never let an imp near your sleeves, your notes or your hair, if you've any left." } },
     _none = { { id = "tp_none", text = "I don't know, and I've no time to find out. Ask a master; they've time for everything except teaching me." } },
   },
 }

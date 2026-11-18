@@ -77,13 +77,13 @@ P:NPC {
       lines = { { id = "ev_default", text = "I like the sound o' that. Ironband says if it comes tae it, I'm tae save the powder first, an' I've been wonderin' all mornin' whether he meant it." },
       },
       choices = {
-        { text = "You come first, Miran. Powder can be bought again.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "He meant it. The dig matters more than either of us.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You come first, Miran. Powder can be bought again.", next = "BACK", reply = "That's kind o' ye, an' I hope Ironband never hears ye say it. I'll keep my head down an' my hands on the reins, then.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "He meant it. The dig matters more than either of us.", next = "BACK", reply = "Aye, ye might be right, an' it's a cold thing tae hear. I'll do my job, but I'll no' pretend I'm happy about it.", fx = { align = { light = -1 } } },
       },
     },
 
     saean = {
-      lines = { { id = "sa_default", text = "Well enough tae share a fire, or so I thought. He taught me how tae tie a load so it wouldnae shift, an' all that time he was learnin' when we'd leave an' which way we'd go." },
+      lines = { { id = "sa_default", text = "I knew him well enough tae share a fire, or so I thought. He taught me how tae tie a load so it wouldnae shift, an' all that time he was learnin' when we'd leave an' which way we'd go." },
       },
       choices = {
         { text = "Do you hate him?", next = "saean_hate" },
@@ -96,12 +96,12 @@ P:NPC {
       lines = { { id = "sh_default", text = "I want tae, an' then I tie a load the way he showed me an' I cannae quite manage it. Huldar says I'm soft, an' maybe I am, but I keep wonderin' what they promised him." },
       },
       choices = {
-        { text = "Hate him. He'd have watched you die.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Wondering why isn't soft. It's how you stay decent.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hate him. He'd have watched you die.", next = "BACK", reply = "He would have, I know it, an' I've told myself so a hundred times. I'll try, but it doesnae come as easy as Huldar thinks.", fx = { align = { light = -1 } } },
+        { text = "Wondering why isn't soft. It's how you stay decent.", next = "BACK", reply = "Is it? I hope ye're right, for I'd rather be decent than hard. Thank ye for that.", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
     saean_fate = {
-      lines = { { id = "sf_default", text = "If he lived through it, he's run tae his Dark Iron friends in the Wetlands or somewhere worse. Kadrell has his name on a list now, an' Kadrell doesnae forget a name." },
+      lines = { { id = "sf_default", text = "If he lived through it, he's run tae his Dark Iron friends in the Wetlands or somewhere worse. Mountaineer Kadrell has his name on a list now, an' Kadrell doesnae forget a name." },
       },
       choices = { { text = "Something else, then.", next = "BACK" } },
     },
@@ -121,7 +121,7 @@ P:NPC {
     },
 
     ironband = {
-      lines = { { id = "ir_default", text = "Loud, an' happy, an' always certain the next blast will turn up somethin' wonderful. He's kind tae us haulers, mind, though I think he'd be just as kind tae a pony if it carried powder." },
+      lines = { { id = "ir_default", text = "He's cheerful, an' always certain the next blast will turn up somethin' wonderful. He's kind tae us haulers, mind, though I think he'd be just as kind tae a pony if it carried powder." },
       },
       choices = {
         { text = "Has he ever found anything?", next = "ironband_found" },
@@ -129,7 +129,7 @@ P:NPC {
       },
     },
     ironband_found = {
-      lines = { { id = "if_default", text = "Rocks, mostly, an' a lot o' angry troggs, an' once a carved stone he wouldnae let anyone touch. He sent it tae Ironforge under guard, an' that was the day I first saw him go quiet." },
+      lines = { { id = "if_default", text = "He's found rocks, mostly, an' a lot o' angry troggs, an' once a carved stone he wouldnae let anyone touch. He sent it tae Ironforge under guard, an' that was the day I first saw him go quiet." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } } },
     },
@@ -146,7 +146,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know the south road, the weight o' a barrel, an' that I'll never trust a smile again. Ask me anythin'." } },
-    background = { { id = "tp_bg", text = "Kharanos lad, hauler for the League, an' a lot jumpier than I was a month ago.", next = "why" } },
+    background = { { id = "tp_bg", text = "I'm a Kharanos lad an' a hauler for the League, an' a lot jumpier than I was a month ago.", next = "why" } },
     _none = { { id = "tp_none", text = "I couldnae tell ye, friend, I only know the road an' the barrels." } },
   },
 }
@@ -183,7 +183,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Lina Hearthstove, an' this is my stable, an' those are my rams, an' that's my brother's inn, so ye could say Thelsamar's half Hearthstove by now. What can I do for ye an' yer beast?" },
+          text = "I'm Lina Hearthstove, an' this is my stable, an' those are my rams, an' that's my brother's inn, so ye could say Thelsamar's half Hearthstove by now. What can I do for ye an' yer beast?" },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter, good, for I like folk who look after their animals. Bring them in out o' the wind an' tell me what they eat." },
         { id = "h_pet", when = { pet = { named = true } },
@@ -202,7 +202,7 @@ P:NPC {
       },
     },
     family = {
-      lines = { { id = "fa_default", text = "His sister, an' Vidra's aunt, though she treats me like a younger sister an' bosses me accordingly. Brother pours the stout, Vidra makes the sausages, an' I muck out, which is the job nobody fought me for." },
+      lines = { { id = "fa_default", text = "I'm his sister an' Vidra's aunt, though Vidra treats me like a younger sister an' bosses me accordingly. My brother pours the stout, Vidra makes the sausages, an' I muck out, which is the job nobody fought me for." },
       },
       choices = {
         { text = "Do you mind it?", next = "family_mind" },
@@ -214,12 +214,12 @@ P:NPC {
       lines = { { id = "fm_default", text = "Not a bit, for animals don't complain about the beer or try tae pay in IOUs. Though there's a dwarf from the dam owes me three weeks' stablin', an' I've half a mind tae keep his ram." },
       },
       choices = {
-        { text = "Keep the ram. A debt's a debt.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Give him a fair warning first.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Keep the ram. A debt's a debt.", next = "BACK", reply = "A debt's a debt, an' the ram's eatin' my oats. I'll keep it, an' he can come an' argue wi' me if he likes.", fx = { align = { honor = -1 } } },
+        { text = "Give him a fair warning first.", next = "BACK", reply = "Fair warnin', aye, I'll give him that much. He's had three weeks, though, so the warnin' willnae be gentle.", fx = { align = { honor = 1 }, affinity = 1 } },
       },
     },
     rams = {
-      lines = { { id = "ra_default", text = "Stubborn, loyal, an' cleverer than they let on. They'll climb anythin', eat anythin', an' they've worked out the latch on the feed shed twice this month." },
+      lines = { { id = "ra_default", text = "They're stubborn, loyal, an' cleverer than they let on. They'll climb anythin', eat anythin', an' they've worked out the latch on the feed shed twice this month." },
       },
       choices = {
         { text = "Can I ride one?", next = "rams_ride" },
@@ -241,7 +241,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Rams, ponies, hunters' beasts an' my family's business, which is everyone's business in Thelsamar." } },
+    knows = { { id = "tp_knows", text = "I know rams, ponies, hunters' beasts an' my family's business, which is everyone's business in Thelsamar." } },
     _none = { { id = "tp_none", text = "Ask my brother, he's the one who listens tae gossip. I only listen tae the rams." } },
   },
 }

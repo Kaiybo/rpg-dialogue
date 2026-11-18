@@ -28,7 +28,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "You'll have learned your first cantrips from his primers, I expect, as every apprentice in the land did. Stand up a little straighter in here; it's his house, after a fashion." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
-      text = "I'll ask you to keep a pace back from the cases, and I'd rather not explain why. You know well enough what came through this city's gates." },
+      text = "I'll ask you to keep a pace back from the cases, and I don't think I need explain why. You know well enough what came through this city's gates." },
   },
 
   start = "hello",
@@ -86,8 +86,8 @@ P:NPC {
         { id = "lg_default", text = "People say now that he ought to have seen what Kel'Thuzad was, and perhaps that's so. But he stood at the gates when the dead came, while the rest of us ran for the cellars, and I'd have him remembered for the standing and not the seeing." },
       },
       choices = {
-        { text = "He gave his life for this city. Remember him for that.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "A wiser leader would have stopped Kel'Thuzad years before.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "He gave his life for this city. Remember him for that.", next = "BACK", reply = "Thank you, truly, because so few say it now, and I'll write your words on the card beneath his staff where the apprentices can read them.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A wiser leader would have stopped Kel'Thuzad years before.", next = "BACK", reply = "Perhaps a wiser one would have, and I've lain awake on that very thought, but wiser leaders were not standing at the gates when the dead came, and he was.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -160,8 +160,8 @@ P:NPC {
         { id = "br_default", text = "Deepmine, yes, who sells old things to anyone with coin. He's honest, I'll grant him that, but every candlestick he sells to a stranger is a little piece of this city leaving it for good." },
       },
       choices = {
-        { text = "Some things belong to the city. Keep them here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Old things are meant to be used, not kept under glass.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Some things belong to the city. Keep them here.", next = "BACK", reply = "Precisely so, and I've told the council as much, though they seem to think a candlestick is only a candlestick until it's gone for good.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old things are meant to be used, not kept under glass.", next = "BACK", reply = "That is exactly the argument Deepmine makes, almost word for word, and I find it no more persuasive coming from you, though rather more politely put.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -191,8 +191,8 @@ P:NPC {
         { id = "xf_default", text = "No, I don't, and I'd be a poor keeper if I did. You may be no friend of the Scourge now, but the Scourge is what came through those gates, and it wore faces very like yours." },
       },
       choices = {
-        { text = "I'm not what killed him. Judge me by what I do.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Distrust me all you like. It changes nothing.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'm not what killed him. Judge me by what I do.", next = "BACK", reply = "That is a fair request, and I'll try to honour it, but forgive me if I keep an eye on you near the staff cases all the same.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Distrust me all you like. It changes nothing.", next = "BACK", reply = "It changes how carefully I dust while you're in the room, which is not nothing, and I'd thank you to keep your hands well away from the glass.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -283,8 +283,8 @@ P:NPC {
         { id = "le_default", text = "A leash, a shield, a club for keepin' secrets, it's been all three dependin' on the century. I've seen the letters from both sides, and I still can't tell ye whether the city's better for it." },
       },
       choices = {
-        { text = "Magic that strong needs a council watching it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "No council should tell a mage what to study.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Magic that strong needs a council watching it.", next = "BACK", reply = "Aye, that's the Kirin Tor's own answer, and I'd not argue with ye in front of them, though I've read a few letters that'd make ye wonder who watches the watchers.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No council should tell a mage what to study.", next = "BACK", reply = "Ha, ye'd have got on famously with half the magi in my letters, and every one of them came to a bad end, so mind which half ye're joinin', lad.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -303,7 +303,7 @@ P:NPC {
         { id = "ds_default", text = "Enough to light a lamp and read a warded seal without losin' my eyebrows, which is more magic than most dwarves want and less than any magus here respects. It suits me fine, {g:lad|lass}." },
       },
       choices = {
-        { text = "That's more than most can say.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A useful sort of magic, that.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -417,7 +417,7 @@ P:NPC {
         { id = "h_nightelf", when = { race = "NightElf" },
           text = "A kaldorei, in a city of human magi, looking at a Highborne shade as if he owed you money. Ishnu-alah all the same; sit down, and let us be civil." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "You carry yourself like the old court, cousin, though the sky has thinned you. Your scholar from the bookshop has been here three times this month, and I expect she sent you." },
+          text = "You carry yourself like the old court, cousin, though the sky has thinned you. Ysa'bel, your scholar from the bookshop, has been here three times this month, and I expect she sent you." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A magus. You may watch me work, if you like, so long as you do not try to help; your teachers' teachers were not yet born when these words were written." },
       },
@@ -457,7 +457,7 @@ P:NPC {
 
     dead = {
       lines = {
-        { id = "de_default", text = "That is a story I keep for myself, and I have kept it longer than this city has stood. I was Highborne, I am still Highborne, and I have been dead for most of the time I've been either, and that is all you'll have from me." },
+        { id = "de_default", text = "That is a story I keep for myself, and I have kept it longer than this city has stood. I was Highborne, I am still Highborne, and I have been dead far longer than I was ever alive, and that is all you'll have from me." },
       },
       choices = {
         { text = "Does it trouble you, what the Highborne did?", next = "guilt" },
@@ -470,8 +470,8 @@ P:NPC {
         { id = "gu_default", text = "Some days it does, and some days I remember that I was a scholar and not a queen. My people reached for more than the world could hold, and the sea took the rest; whether every one of us deserved it is a question I stopped asking long ago." },
       },
       choices = {
-        { text = "Not every Highborne was Azshara. You needn't carry her guilt.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Your people drowned a world. Some guilt is earned.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Not every Highborne was Azshara. You needn't carry her guilt.", next = "BACK", reply = "You're kind, and the cats would agree with you, though I suspect they'd say anything for a warm lap, so I'll weigh your words a little more carefully than theirs.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Your people drowned a world. Some guilt is earned.", next = "BACK", reply = "It is, and I'll not quarrel with you, because I have had ten thousand years to quarrel with myself on the same point, and the argument never ends in my favour.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -516,7 +516,7 @@ P:NPC {
     },
     xmage = {
       lines = {
-        { id = "xm_default", text = "Nothing you would want to learn, magus, and a great deal you would want to learn anyway. We knew that magic answers anyone who calls it loudly enough, and we did not know when to stop calling." },
+        { id = "xm_default", text = "Nothing you would want to learn, magus, and much you would want to learn anyway. We knew that magic answers anyone who calls it loudly enough, and we did not know when to stop calling." },
       },
       choices = {
         { text = "I'll remember when to stop.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
@@ -569,7 +569,7 @@ P:NPC {
         { id = "h_mage", when = { class = "MAGE" },
           text = "A magus, at last, someone who'll understand that a glamour is the hardest thing in this city to do well and the easiest to do badly. Sit, and tell me what you'd like to look like." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "Something darker, I expect, and quieter, and with fewer buckles that catch the light. Rogues are my easiest customers and my least talkative." },
+          text = "A rogue, so you'll want something darker, I expect, and quieter, with fewer buckles that catch the light. Rogues are my easiest customers and my least talkative." },
       },
       again = {
         { id = "h_again", text = "Something else? Momo is asleep on the silk, so we'll have to talk until she moves." },
@@ -578,6 +578,11 @@ P:NPC {
         { text = "How does a glamour work?", next = "glamour" },
         { text = "Why does a night elf weave spells here?", next = "why" },
         { text = "Whose cat is that on the silk?", next = "momo" },
+        { text = "Your mother writes every season, you said?", next = "mother" },
+        { text = "Who are your strangest customers?", next = "cust" },
+        { text = "Be honest. What would you change about me?", next = "look" },
+        { text = "Could a glamour change a face, too?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What do you make of Skyborne weaving?", next = "xsky", when = { race = "Skyborne" } },
         { text = "Change how my gear looks.", next = "BUSINESS" },
         { text = "I like my look as it is.", next = "END" },
       },
@@ -610,8 +615,8 @@ P:NPC {
           text = "You know why, or you can guess. Our elders remember the Well and what came of it, and they think any kaldorei who touches the arcane is halfway to Azshara's court, and I thought I'd rather prove them wrong somewhere they couldn't watch." },
       },
       choices = {
-        { text = "Your elders are right. That magic drowned a world.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "Good. Old fears shouldn't decide what you become.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your elders are right. That magic drowned a world.", next = "BACK", reply = "They are, and I've heard it at every family gathering since I first lit a cantrip, so you'll forgive me if I don't take the lecture any better from a stranger.", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Good. Old fears shouldn't decide what you become.", next = "BACK", reply = "How refreshing, and how rare, and if I'd heard that from my mother I might still be living in Ashenvale instead of hemming robes for the Kirin Tor.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -625,10 +630,69 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+
+    mother = {
+      lines = { { id = "mt_default", text = "Every season, on bark paper, in a hand so neat it's an accusation. She asks whether I've eaten, whether I've come to my senses, and whether the humans have finally burned their city down again, always in that order." } },
+      choices = {
+        { text = "What do you write back?", next = "mother2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mother2 = {
+      lines = { { id = "m2_default", text = "That I've eaten, that my senses are where I left them, and that the city burned once and the humans are putting it back with a great deal of scaffolding. I enclose a scrap of silk each time, woven to look like oak bark, so she can see I've not forgotten what home looks like." } },
+      choices = {
+        { text = "Has she ever answered the silk?", next = "mother3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mother3 = {
+      lines = { { id = "m3_default", text = "Not in words, but the last letter came wrapped in it, which from my mother is very nearly an embrace. I've told no one that, {class}, and I'll thank you to forget I said it." } },
+      choices = {
+        { text = "Forgotten already. Something else.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+
+    cust = {
+      lines = { { id = "cu_default", text = "An archmage who wanted his robes to look exactly like his old robes, only without the scorch marks, and a dwarf who wanted his armour to look like more armour. And once a paladin asked me to make his plate look humbler, which I'm still thinking about." } },
+      choices = {
+        { text = "Humbler plate? What did you do?", next = "cust2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cust2 = {
+      lines = { { id = "c2_default", text = "I took the gilt off the seeming and left it on the steel, so it looked plain and was still the finest thing he owned. He said it felt right, and I suspect his order would have something to say, but that's between him and his Light." } },
+      choices = { { text = "That's a clever kind of tailoring.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    look = {
+      big = true,
+      lines = {
+        { id = "lk_default", text = "Honestly? The question isn't what I'd change, it's what you want people to see when you walk in. Some heroes want a crest the whole room knows, and some want to be the most forgettable person at the bar. Which are you?" },
+        { id = "lk_warrior", when = { class = "WARRIOR" }, text = "Honestly? I'd start by making those pauldrons agree with each other. But first tell me what you want a room to see when you walk in, a crest everyone knows, or nothing worth remembering?" },
+      },
+      choices = {
+        { text = "Let them see exactly who I am, crest and all.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Forgettable. A face nobody remembers is a useful thing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xrogue = {
+      lines = { { id = "xr_default", text = "It could, and I won't, so put the purse away before you embarrass us both. Cloth and steel will lie for you all day, but I don't weave seemings over faces, because the Kirin Tor take a very dim view of it and so do I." } },
+      choices = {
+        { text = "Fair enough. The cloak will do.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsky = {
+      lines = { { id = "xk_default", text = "That your weavers think about wind the way mine think about roots, and it shows in every hem. Belanaa Windveil let me look at a cloak once, a double turn at the hem against the gusts, and I've been jealous for a month." } },
+      choices = { { text = "I'll tell her you said so.", next = "BACK", fx = { affinity = 2 } } },
+    },
   },
 
   topics = {
     trade = { { id = "tp_trade", text = "I make things look as their owners wish they did. It's honest work, and it's more honest than most of the faces in this city." } },
+    kirin_tor = { { id = "tp_kirin", text = "The Kirin Tor tolerate me because I'm good, and I tolerate them because they're the only people who've never told me the arcane will drown the world again. Not to my face, at least." } },
     background = { { id = "tp_bg", text = "Kaldorei, from Ashenvale's edges, and a disappointment to my mother. The thread was worth it." } },
     advice = { { id = "tp_ad", text = "Pick one colour and keep it, {class}. People remember a hero by the cloak, whatever the bards say about the deeds." } },
     _none = { { id = "tp_none", text = "I couldn't say, I'm afraid. If it can't be worn, it isn't my concern." } },
@@ -670,6 +734,11 @@ P:NPC {
         { text = "What's down under the city?", next = "sewers" },
         { text = "Any advice for someone starting out?", next = "advice" },
         { text = "Why do you keep doing this?", next = "why" },
+        { text = "Who's in this late party of yours?", next = "party" },
+        { text = "That's a fine set of scars.", next = "scars" },
+        { text = "What about the goblin at the end of the bar?", next = "goblin" },
+        { text = "As it happens, I'm a healer.", next = "xheal", when = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } } },
+        { text = "I've seen my share of holes too, friend.", next = "xvet", when = { band = { "Seasoned", "Veteran", "Champion" } } },
         { text = "Good luck with your party.", next = "END" },
       },
     },
@@ -709,15 +778,73 @@ P:NPC {
         { id = "wy_default", text = "Gold, at first, and then habit, and now I'm too old to learn a trade that doesn't involve stabbing things. Why do you do it, then?" },
       },
       choices = {
-        { text = "For the people who can't fight for themselves.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "For the gold, plainly. Same as you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "For the people who can't fight for themselves.", next = "BACK", reply = "That's a good answer, and I had one like it once, so hold on to it tight, because the holes get deeper and it gets harder to remember why you went down.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "For the gold, plainly. Same as you.", next = "BACK", reply = "At least you're honest, which puts you ahead of most I've drunk with, and gold has the virtue of being easy to count when everything else isn't.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+
+    party = {
+      lines = { { id = "pa_default", text = "A dwarf who swears he can open any lock, a young magus who's read about sewers, and a priest who said she'd be along after evening prayers, three days ago. I'm beginning to suspect the prayers are going very well." } },
+      choices = {
+        { text = "Why not go without them?", next = "party2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    party2 = {
+      lines = { { id = "p2_default", text = "Because the last fellow I knew who went into a hole alone is still in it, friend, and I'd like to finish my ale someday. Nobody's brave enough to go down alone, only foolish enough, and I gave up being foolish around the time I gave up my knees." } },
+      choices = {
+        { text = "What happened to that fellow?", next = "party3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    party3 = {
+      lines = { { id = "p3_default", text = "Went into the Deadmines after a Defias paymaster's strongbox and came out three weeks later in a pine box, courtesy of the Westfall militia. He'd found the strongbox, mind you, and it was empty." } },
+      choices = {
+        { text = "That's a grim joke.", next = "BACK" },
+        { text = "I'll take friends with me. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+
+    scars = {
+      lines = { { id = "sc_default", text = "This one's an ogre in the Alterac foothills, and this one's a Defias cutlass, and this one I got falling down the stairs at the Lion's Pride Inn, which I tell people was a gnoll. Which would you like to hear about?" } },
+      choices = {
+        { text = "The ogre.", next = "scars2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scars2 = {
+      lines = { { id = "sc2_default", text = "Crushridge, out past the ruins of Alterac City, swinging a tree trunk with the bark still on. I ducked, which was right, and then I stood up again, which was wrong, and I've been a good deal more careful about standing up ever since." } },
+      choices = { { text = "Sound lesson. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    goblin = {
+      big = true,
+      lines = { { id = "gb_default", text = "Calls herself a fellow Dalaranian, in a robe that fits her like a sail, and she's been watching every purse in the room. She offered to cut me in on a rare tome she's going to rescue from the magi, and I'm still deciding whether to warn them. What would you do?" } },
+      choices = {
+        { text = "Warn the magi. A thief's still a thief.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Take the cut. The magi have books enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xheal = {
+      lines = { { id = "xh_default", text = "Are you, now? Then sit down and let me buy you a drink, because a healer who turns up is worth three who promise. I'll not ask you to come down with us, but I'll not stop you either." } },
+      choices = {
+        { text = "Ask me again when your party arrives.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xvet = {
+      lines = { { id = "xv_default", text = "I can see it in how you sat down, back to the wall and one eye on the door. Then you know the second thing you learn about parties, which is that the late ones are the lucky ones." } },
+      choices = { { text = "Then here's to the late ones.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
     advice = { { id = "tp_ad", text = "Bandages before swords. I'll keep saying it until somebody listens." } },
+    dalaran = { { id = "tp_dalaran", text = "A city full of wizards and loose magic, with dead men under the streets. Best place for an adventurer to drink, because there's always work and there's always a reason to need a drink." } },
+    kirin_tor = { { id = "tp_kirin", text = "They say everything's in hand, and they pay on time, and that's all I ask of anyone who sends me down a hole." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. I know holes in the ground, and that's about all." } },
   },
 }

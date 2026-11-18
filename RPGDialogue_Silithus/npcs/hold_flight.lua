@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_cc_distrust", when = { gossip = { topic = "cenarion_circle", stance = "distrust" } }, text = "Proudhorn says you think the Circle asks everyone else to bleed. The wind riders bleed too, traveller, and they don't complain about it." },
+    { id = "o_cc_distrust", when = { gossip = { topic = "cenarion_circle", stance = "distrust" } }, text = "Windcaller Proudhorn says you think the Circle asks everyone else to bleed. The wind riders bleed too, traveller, and they don't complain about it." },
     { id = "g_default", text = "The riders are rested and the sky is clear, for now, as the Earth Mother wills it. Where are you bound?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. The riders know your smell by now, which is a kind of welcome." },
   },
@@ -30,7 +30,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Runk Windtamer, and these are the Horde's wind riders in Silithus. They fly to Mojache and Gadgetzan and the crater, and they fly in spite of the sand, which is more than I would do; a tauren was made for grass under his hooves." },
+        { id = "h_default", key = true, text = "I am Runk Windtamer, and these are the Horde's wind riders in Silithus. They fly to Mojache and Gadgetzan and Un'Goro Crater, and they fly in spite of the sand, which is more than I would do; a tauren was made for grass under his hooves." },
       },
       again = {
         { id = "h_again", text = "Something else? The riders grow restless, like a herd before a storm." },
@@ -56,7 +56,7 @@ P:NPC {
       choices = { { text = "Wise words.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     cloud = {
-      lines = { { id = "c_default", text = "Skydancer and I keep to our own corners, and our beasts keep to theirs. The Circle says this is neutral ground, so we are neutral, and we nod to each other in the mornings." } },
+      lines = { { id = "c_default", text = "Cloud Skydancer and I keep to our own corners, and our beasts keep to theirs. The Circle says this is neutral ground, so we are neutral, and we nod to each other in the mornings." } },
       choices = {
         { text = "Is that peace, or just politeness?", next = "cloud_stance" },
         { text = "Something else.", next = "BACK" },
@@ -66,8 +66,8 @@ P:NPC {
       big = true,
       lines = { { id = "cs_default", text = "Out here, I am not sure there is a difference. The bugs do not care whose banner we fly, and the sand gets into everyone's eyes the same." } },
       choices = {
-        { text = "Then the nod is worth keeping. Keep it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A nod won't stop an elf's arrow later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the nod is worth keeping. Keep it.", next = "BACK", reply = "I will keep it, then, for as long as she keeps hers, and the winds may sort out the rest when this war is done.", fx = { align = { order = 1 } } },
+        { text = "A nod won't stop an elf's arrow later.", next = "BACK", reply = "Perhaps not, but I have lived long enough to know that a hand raised first is the one that starts the war, so I will nod and watch.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,7 +114,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Cloud Skydancer, and these are my hippogryphs, the finest in Silithus, which isn't saying much, since they're the only ones. They fly to Feathermoon, Gadgetzan and the crater, and they'd fly to Elune's moon itself if I asked." },
+        { id = "h_default", key = true, text = "Cloud Skydancer, and these are my hippogryphs, the finest in Silithus, which isn't saying much, since they're the only ones. They fly to Feathermoon, Gadgetzan and Un'Goro Crater, and they'd fly to Elune's moon itself if I asked." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are getting impatient, and so is the sun." },
@@ -150,8 +150,8 @@ P:NPC {
       big = true,
       lines = { { id = "rs_default", text = "Runk can be trusted with a bucket, and I'll start there. Whatever happens beyond the Hold's walls, here we're both just keepers of tired animals." } },
       choices = {
-        { text = "Start with a bucket, then. Trust grows.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Don't turn your back on him, all the same.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Start with a bucket, then. Trust grows.", next = "BACK", reply = "That is how the old trees grew, one ring at a time, and I am content to let this trust grow slowly under the same sun.", fx = { align = { light = 1 } } },
+        { text = "Don't turn your back on him, all the same.", next = "BACK", reply = "I hear you, and I will keep one eye on him as he keeps one eye on me, which I suppose is its own kind of courtesy.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -163,7 +163,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A keeper of hippogryphs from Ashenvale, sent south with the Circle and the sand. I'd go back tomorrow, but the birds would miss the work." } },
-    advice = { { id = "tp_ad", text = "Lean into the turns, not away. Every new flier leans away, and every one of them regrets it." } },
+    advice = { { id = "tp_ad", text = "Lean into the turns, not away. Every new flier leans away, and regrets it at the first gust." } },
     silithid_hives = { { id = "tp_silithid_hives", text = "The hives look like scabs from the air, ugly and swollen, and the hippogryphs won't go near them. I don't blame them." } },
     teldrassil = { { id = "tp_teldrassil", text = "My birds came from Teldrassil, and I sing them the songs of the high branches when the sand blows. It keeps them calm, and me too." } },
     elune = { { id = "tp_elune", text = "Elune watches over the flyers, my grandmother said, and I've never fallen, so she must. I'd like to keep it that way." } },

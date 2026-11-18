@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hush", text = "Shh, not so loud, please! They'll hear you up at the house." },
-    { id = "g_news", when = { questActive = TODO_QUEST("Young Lovers") }, text = "Did you find him? Oh, tell me he's all right." },
+    { id = "g_news", when = { questActive = TODO_QUEST("Young Lovers") }, text = "Did you find Tommy Joe? Oh, tell me he's all right." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Escape") }, text = "Oh! It's you, hello. I'm not blushing, it's only the sun." },
   },
 
@@ -36,8 +36,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_maybell_default", text = "I think about it every time one rides past, and then I think about Tommy Joe on the other side of the river and I stay put. Running off is only romantic if you're running toward something, and he's right here." } },
       choices = {
-        { text = "Your family needs you. Don't throw that away lightly.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Follow your heart, Maybell. Rules are no reason to stay.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your family needs you. Don't throw that away lightly.", next = "BACK", reply = "I know they do, and I'd not leave them for anything, honestly. But I'll not give up Tommy Joe either.", fx = { align = { order = 1 } } },
+        { text = "Follow your heart, Maybell. Rules are no reason to stay.", next = "BACK", reply = "My heart's right across the river, so it hasn't far to go. I'll stay, but thank you for saying it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -45,8 +45,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Maybe, but don't tell Pa! I've never been very good at rules, and your spirits wouldn't tell, would they?" } },
       choices = {
-        { text = "Tell your father the truth, Maybell. It's the honest way.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Keep it secret. Love is worth a little lying.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Tell your father the truth, Maybell. It's the honest way.", next = "BACK", reply = "Tell Pa? He'd lock me in the cellar till I'm thirty. I'll think on it, but not today.", fx = { align = { honor = 1 } } },
+        { text = "Keep it secret. Love is worth a little lying.", next = "BACK", reply = "Oh, thank you! I knew I could trust you. The spirits will keep quiet, won't they?", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -54,17 +54,17 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Pa says warlocks deal with things that ought to stay in the dark, and he says the same about the Stonefields, so I suppose I'm used to being told who I can't talk to. I've never been very good at rules, though, and you seem nice enough." } },
       choices = {
-        { text = "You should choose your friends yourself, Maybell.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Your Pa only wants you safe. Listen to him.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You should choose your friends yourself, Maybell.", next = "BACK", reply = "I've always thought so, and Pa's never agreed. You'd better go before he sees us talking.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your Pa only wants you safe. Listen to him.", next = "BACK", reply = "He does, I know, and I love him for it. But he's not always right about who's dangerous.", fx = { align = { order = 1 } } },
         { text = "Something else, Maybell.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "No, nobody, not really. It's only that the murlocs sometimes come up the bank at dusk, and I'm meant to be counting grapes, and nobody would think to look for me if they got me." } },
+      lines = { { id = "xwarcl_default", text = "No, nothing, not really. It's only that the murlocs sometimes come up the bank at dusk, and I'm meant to be counting grapes, and nobody would think to look for me if they got me." } },
       choices = {
-        { text = "I'll keep watch by the river while you're there.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You shouldn't be out there at all, Maybell.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep watch by the river while you're there.", next = "BACK", reply = "Would you really? Then I'll go a little later, and I'll not mind the dark half so much.", fx = { align = { order = 1 } } },
+        { text = "You shouldn't be out there at all, Maybell.", next = "BACK", reply = "I know I shouldn't, but I can't help it. Don't tell Pa, please.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -72,11 +72,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "No reason, no reason at all, only that sometimes a girl wants to walk by the river without her whole family knowing. You must know which way the wind blows and where the brambles are thinnest." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, look at {pet}! If it came with me to the river, I'd never be frightened of the murlocs again." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "No reason at all, only that sometimes a girl wants to walk by the river without her whole family knowing. Oh, and look at {pet}! If it came with me to the river, I'd never be frightened of the murlocs again." },
       },
       choices = {
-        { text = "I'll not help you sneak about, Maybell.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep downwind and step on the grass. You'll do fine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll not help you sneak about, Maybell.", next = "BACK", reply = "That's fair, and I'd not want to get you in trouble. I'll manage on my own, I always do.", fx = { align = { order = 1 } } },
+        { text = "Keep downwind and step on the grass. You'll do fine.", next = "BACK", reply = "Thank you, I'll try that tonight. I'll be quiet as a mouse in the grass.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -84,16 +84,16 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because there's someone on the Stonefield side who'd like to hear from me, and Pa reads every letter that leaves the house. I know it isn't proper, but proper hasn't done much for me so far." } },
       choices = {
-        { text = "Tell your Pa the truth, Maybell. Secrets only fester.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Proper be hanged. Love finds its own way across rivers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Tell your Pa the truth, Maybell. Secrets only fester.", next = "BACK", reply = "It would, if Pa weren't Pa. I'll tell him one day, I promise, when he's in a better mood.", fx = { align = { order = 1 } } },
+        { text = "Proper be hanged. Love finds its own way across rivers.", next = "BACK", reply = "That's just what I keep telling myself, and it's lovely to hear somebody else say it. Thank you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "I'd like to know if they're happy, I suppose, though Pa would say it doesn't matter as long as they give milk." } },
       choices = {
-        { text = "It matters. Happy beasts make a good farm.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Your Pa's right. A farm runs on work.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It matters. Happy beasts make a good farm.", next = "BACK", reply = "I've always thought so, and the cows seem to agree. I'll tell Pa you said so, and he'll grumble.", fx = { align = { order = -1 } } },
+        { text = "Your Pa's right. A farm runs on work.", next = "BACK", reply = "He would say that, and he does, every morning. I'll still sing to them when he's not looking.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -101,8 +101,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Not lie, exactly, only not say anything, if anyone asks. I know that's a lot to ask of a paladin, but it's not a crime to love someone, is it, only to get caught?" } },
       choices = {
-        { text = "I won't lie for you, Maybell. I'm sorry.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your secret's safe with me. Love's no crime.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I won't lie for you, Maybell. I'm sorry.", next = "BACK", reply = "I understand, and I'll not hold it against you. I'll just hope nobody asks.", fx = { align = { honor = 1 } } },
+        { text = "Your secret's safe with me. Love's no crime.", next = "BACK", reply = "Oh, thank you, thank you! I'll not forget it, I promise.", fx = { align = { honor = -1 } } },
         { text = "Something else, Maybell.", next = "BACK" },
       },
     },
@@ -111,21 +111,21 @@ P:NPC {
         { id = "h_pt_maybell", tags = { "news" }, when = { party = { race = "Human", gender = "male" } },
           text = "Is that your companion? {companion} is very handsome, if you don't mind me saying, though not as handsome as Tommy Joe, and please don't tell my father I said either of those things." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You won't tell Pa I've been at the river, will you? You've got an honest face, and that's the trouble with honest faces." },
-        { id = "h_default", text = "Maclures and Stonefields don't speak. That's the rule, older than me. I've never been very good at rules." },
+        { id = "h_default", text = "Maclures and Stonefields don't speak; that's the rule, and it's older than me. I've never been very good at rules." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Young Lovers") },
           text = "There's someone across the river I'm not allowed to see. If anyone asks, I'm out here counting grapes." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Young Lovers") },
-          text = "He'll be down by the river near the Stonefield farm. Tell Tommy Joe I'm thinking of him, and please don't let anyone hear you say it." },
+          text = "Tommy Joe will be down by the river near the Stonefield farm. Tell him I'm thinking of him, and please don't let anyone hear you say it." },
         { id = "h_waiting", when = { questDone = TODO_QUEST("Young Lovers"), questBefore = TODO_QUEST("The Escape") },
-          text = "He spoke to his Gramma? Oh, either that's very good news or very, very bad, and I can't tell which." },
+          text = "Tommy Joe spoke to his Gramma? Oh, either that's very good news or very, very bad, and I can't tell which." },
         { id = "h_escape", tags = { "news" }, when = { questActive = TODO_QUEST("The Escape") },
           text = "Is that it, the potion? My hands are shaking, so give it here quickly before I lose my nerve." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Escape"), days = 3 } },
-          text = "I keep waiting for someone to catch me. Then I think of him, and I find I don't much care." },
+          text = "I keep waiting for someone to catch me, and then I think of Tommy Joe, and I find I don't much care." },
         { id = "h_later", when = { questLater = { TODO_QUEST("The Escape"), days = 7 } },
-          text = "I hate lying to my family, I really do. But it's a smaller lie than pretending I don't love him." },
+          text = "I hate lying to my family, I really do, but it's a smaller lie than pretending I don't love him." },
         { id = "h_far", when = { minLevel = 25, questDone = TODO_QUEST("The Escape") },
-          text = "You came all the way back here? From wherever adventurers go? Then you should know: nobody's caught us yet." },
+          text = "You came all the way back here, from wherever adventurers go? Then you should know that nobody's caught Tommy Joe and me yet." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "Oh, a druid! Are you one of those who can talk to the animals? I've always wondered if the cows have opinions." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -163,7 +163,7 @@ P:NPC {
 
     feud = {
       lines = {
-        { id = "f_default", text = "I asked once, when I was twelve, and got sent to bed without supper for it. I've stopped asking since." },
+        { id = "f_default", text = "Nobody will tell me. I asked once, when I was twelve, and got sent to bed without supper for it, so I've stopped asking." },
       },
       choices = {
         { text = "Does anyone remember why it started?", next = "feud_why" },
@@ -194,7 +194,7 @@ P:NPC {
     },
     tommy_meet = {
       lines = {
-        { id = "tm_default", text = "Across a fence. That's all I'll say, or I'll go red, and Billy will see, and ask why, and then the whole vineyard knows." },
+        { id = "tm_default", text = "Across a fence, and that's all I'll say, or I'll go red, and Billy will see, and ask why, and then the whole vineyard knows." },
       },
       choices = {
         { text = "I won't press.", next = "BACK", fx = { affinity = 1 } },
@@ -208,8 +208,8 @@ P:NPC {
         { id = "ts_default", text = "And I'm a Maclure, and neither of us picked it. I'm not giving him up for something somebody's great-grandfather decided." },
       },
       choices = {
-        { text = "Good for you.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "Feud or no feud, your families deserve the truth.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good for you.", next = "BACK", reply = "Thank you, and I'll tell Tommy Joe you said so. He'll grin all day.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Feud or no feud, your families deserve the truth.", next = "BACK", reply = "I know they do, and they'll get it one day. Just not before Pa's had his supper.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -218,7 +218,7 @@ P:NPC {
       lines = {
         { id = "b_default", text = "My little brother, and the worst-kept secret-keeper in Elwynn. If Billy ever finds out about Tommy Joe, the vineyard hears it by supper." },
         { id = "b_necklace", when = { questDone = TODO_QUEST("Lost Necklace") },
-          text = "And now Auntie Bernice thinks he stole her necklace, which he didn't, probably. He's been very nice to me all week, though, and that's a bad sign." },
+          text = "And now Bernice Stonefield thinks Billy stole her necklace, which he didn't, probably. He's been very nice to me all week, though, and that's a bad sign." },
       },
       choices = {
         { text = "Did he take it?", next = "billy_took", when = { questDone = TODO_QUEST("Lost Necklace") } },
@@ -259,12 +259,12 @@ P:NPC {
     },
     escape_guilt = {
       lines = {
-        { id = "eg_default", text = "It sits with me at supper. But I'd rather feel guilty and have him than feel nothing at all." },
+        { id = "eg_default", text = "It sits with me at supper, but I'd rather feel guilty and have him than feel nothing at all." },
       },
       choices = {
         { text = "That's honest.", next = "BACK", fx = { affinity = 1 } },
         { text = "Guilt means you should tell them.", next = "truth", fx = { align = { order = 1 } } },
-        { text = "Some secrets are worth keeping, if they keep you happy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some secrets are worth keeping, if they keep you happy.", next = "BACK", reply = "That's what I tell myself at supper, and it helps, mostly. Thank you for understanding.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -274,7 +274,7 @@ P:NPC {
         { id = "p_default", text = "A blessing, from a priest? Oh, I'd like that, but quietly. If anyone asks, you were blessing the grapes." },
       },
       choices = {
-        { text = "The grapes, then. And whoever's thinking of a Stonefield.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, opinion = { maybell_tommy = "romantic" } },
+        { text = "The grapes, then. And whoever's thinking of a Stonefield.", next = "BACK", reply = "Bless you, and I'll make sure he hears about it. The grapes will be very blessed indeed.", fx = { affinity = 3, align = { light = 1 }, opinion = { maybell_tommy = "romantic" } },
           journal = { first = "Blessed Maybell Maclure and her Stonefield boy, quietly. Officially I was blessing grapes.",
                       third = "{name} gave Maybell Maclure a quiet blessing among the vines." } },
         { text = "The Light would ask you to be honest with them.", next = "truth", fx = { align = { order = 1 } } },
@@ -285,8 +285,8 @@ P:NPC {
         { id = "ro_default", text = "Could you? No, I'd better not. If I learned to vanish I'd never come home, and then they'd blame the Stonefields for stealing me, so it has to be something smaller." },
       },
       choices = {
-        { text = "Smart girl.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Offer stands.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Smart girl.", next = "BACK", reply = "I'll try to be, though it's hard with a brother like Billy. He'd sell me out for a sweet.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Offer stands.", next = "BACK", reply = "I'll remember it, and I'll come find you if I ever need to vanish. Just not yet.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -334,17 +334,17 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I don't get much past the vineyard, but you'd be surprised what people say over the grapes. Ask me about any of this, only quietly, please." },
     },
-    background = { { id = "tp_bg", text = "I'm a Maclure. I grew up in the vines. That's all there is, apart from one boy across the river, and I'm not telling you about him." } },
+    background = { { id = "tp_bg", text = "I'm a Maclure, and I grew up in the vines, and that's all there is, apart from one boy across the river, and I'm not telling you about him." } },
     advice = { { id = "tp_ad", text = "If you love someone, find a friend who can keep a secret. Then find a second one, in case the first is Billy." } },
     maybell_tommy = {
       { id = "tp_us", text = "Is it that obvious? Don't answer that, I know it is." },
       { id = "tp_us2", text = "Him? He's... oh, ask me properly and I'll tell you.", next = "tommy" },
     },
-    lions_pride = { { id = "tp_inn", text = "William Pestle works out of the inn. He's kind to me, and he never asks questions." } },
+    lions_pride = { { id = "tp_inn", text = "William Pestle works out of the inn, and he's kind to me, and he never asks questions." } },
     kobolds = { { id = "tp_kobolds", text = "Billy plays near the mines, though I've told him not to. It's like telling the sun not to come up." } },
     _none = { { id = "tp_none", text = "I'm sorry, I only know about grapes and one boy across the river." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire is the one week Pa doesn't watch the river, because he's too busy selling wine. I'm not saying what I do with that week, only that I like the Faire very much." } },
     holy_light = { { id = "tp_holy_light", text = "I ask the Light every night to soften Pa's heart, and every morning he's just the same. Gramma Stonefield says the Light works slowly on stubborn men." } },
-    heroes_vigil = { { id = "tp_heroes_vigil", text = "Somebody told me there are Maclures and Stonefields both on the old stone at Stone Cairn Lake, side by side, and nobody minded it then. I think about that a great deal." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "Somebody told me there are Maclures and Stonefields both on the old stone at Stone Cairn Lake, side by side, and nobody minded it then. I think about that most nights." } },
   },
 }

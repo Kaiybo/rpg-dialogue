@@ -43,11 +43,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Good day to ye, {class}. I'm Captain Aransas, and that's my ship riding at anchor past the Raiders' sloops, the one with the patched foresail." },
         { id = "h_rogue_before", when = { class = "ROGUE", ["not"] = { any = { { questActive = Q_REWARD }, { questDone = Q_REWARD } } } },
-          text = "Good day to ye, {class}. I'm Captain Aransas, and I'm a man short, which wouldn't trouble me if I knew he was dead, but I don't." },
+          text = "Good day to ye, {class}. I'm Captain Aransas, and I'm a man short, and the not knowing whether he's alive is the worst of it." },
         { id = "h_active", tags = { "news" }, when = { questActive = Q_REWARD },
-          text = "Have ye been north yet? Wendel's still in Kurzen's Compound for all I know, and every night he spends there is a night I don't sleep." },
+          text = "Have ye been north yet? Wendel, my cook, is still a prisoner in Kurzen's Compound for all I know, and every night he spends there is a night I don't sleep." },
         { id = "h_done", tags = { "news" }, when = { questDone = Q_REWARD },
-          text = "Mathers is back in my galley and the whole crew's eating like lords again. Ye saved a crewman o' mine, {class}, and I don't forget a thing like that." },
+          text = "Wendel Mathers is back in my galley and the whole crew's eating like lords again. Ye saved a crewman o' mine, {class}, and I don't forget a thing like that." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Good day to ye, {class}. A Horde face on the pier doesn't trouble me, for this is the Baron's cove and his peace holds here, whatever ye do out at sea." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -64,7 +64,7 @@ P:NPC {
         { text = "You seem to sail with the Blackwater Raiders.", next = "raiders" },
         { text = "What do you make of the Bloodsail Buccaneers?", next = "bloodsail" },
         { text = "You keep looking north, Captain. What's there?", next = "kurzen" },
-        { text = "I hear you're a man short. Someone who works quietly?", tag = "Rogue", next = "q_offer",
+        { text = "I hear you're a man short. Need someone who works quietly?", tag = "Rogue", next = "q_offer",
           when = { class = "ROGUE", ["not"] = { any = { { questActive = Q_REWARD }, { questDone = Q_REWARD } } } } },
         { text = "Where in Kurzen's Compound will Mathers be held?", next = "q_where", when = { questActive = Q_REWARD } },
         { text = "How's Mathers settling back in?", next = "q_after", when = { questDone = Q_REWARD } },
@@ -73,7 +73,7 @@ P:NPC {
         { text = "Does my face frighten your crew, Captain?", next = "k_undead", when = { race = "Undead" } },
         { text = "My people knew these waters long before your Bay.", next = "k_troll", when = { race = "Troll" } },
         { text = "Your ship could use a few gnomish improvements.", next = "k_gnome", when = { race = "Gnome" } },
-        { text = "Sailors can't fare well in a boarding fight.", next = "xwar", when = { class = "WARRIOR" } },
+        { text = "How do sailors fare in a boarding fight?", next = "xwar", when = { class = "WARRIOR" } },
         { text = "Has magic ever saved your ship, Captain?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do your sailors pray before a voyage?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Do you ever hunt for the galley along the coast?", next = "xhunt", when = { class = "HUNTER" } },
@@ -88,7 +88,7 @@ P:NPC {
     -- Who she is -----------------------------------------------------------
     who = {
       lines = {
-        { id = "who_default", text = "Aransas, captain of the Gull's Wager, and ye'll find her the slowest ship in the cove and the last one to sink. I've carried cargo and cannon both, and I'd rather it were cargo, for cargo doesn't shoot back." },
+        { id = "who_default", text = "Aransas, captain of the Gull's Wager, and ye'll find her the slowest ship in the cove and the last one to sink. I've carried cargo and cannon both, and give me cargo every time, for a crate of rum never fired back at anybody." },
         { id = "who_rogue", when = { class = "ROGUE" }, text = "Aransas, captain of the Gull's Wager, and I'll tell ye straight, since ye'd find out anyway. I've been a smuggler, a privateer and a plain thief in my time, and only the Baron's peace made an honest captain of me." },
       },
       choices = {
@@ -100,8 +100,8 @@ P:NPC {
     who_ship = {
       lines = { { id = "ws_default", text = "I won her in a wager with a goblin in Ratchet, who swore a gull could outfly a cannonball, and it couldn't. He's still sore about it, and he still says the gull wasn't trying." } },
       choices = {
-        { text = "Winning a ship on a bet is good seamanship.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Swindling a goblin out of his ship? You should give it back.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Winning a ship on a bet is good seamanship.", next = "BACK", reply = "That's what I told him, though he called it robbery and a few other words besides. A captain who knows her cannon knows her odds, and that's seamanship enough.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Taking a man's ship over a silly bet? You should give it back.", next = "BACK", reply = "Give it back? He bet her fair, and he'd have taken my boots and my sword if the gull had won. Goblins understand a lost wager better than anyone.", fx = { align = { honor = 1 } } },
         { text = "Ha! Did the gull survive?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
@@ -111,8 +111,8 @@ P:NPC {
         { id = "wst_human", when = { race = "Human" }, text = "Same as you, by the look of ye: Stormwind stock, from a fishing village on the Westfall coast. When the Defias came and the farms went bad there wasn't much to stay for, so I followed the coin south, and it led straight to Booty Bay." },
       },
       choices = {
-        { text = "You were right to leave. Stormwind failed Westfall.", next = "BACK", fx = { align = { order = -1 }, learn = { "defias" } } },
-        { text = "Westfall needed people like you to stay and fight.", next = "BACK", fx = { align = { order = 1 }, learn = { "defias" } } },
+        { text = "You were right to leave. Stormwind failed Westfall.", next = "BACK", reply = "Somebody had to say it aloud, and I'm glad it was you and not me. The King's men were busy elsewhere while the farms burned, and the sea at least pays its debts.", fx = { align = { order = -1 }, learn = { "defias" } } },
+        { text = "Westfall needed people like you to stay and fight.", next = "BACK", reply = "Maybe it did, and some nights I wonder if I ought to have stayed. But a fisherman's daughter with a gutting knife wasn't going to stop the Defias alone.", fx = { align = { order = 1 }, learn = { "defias" } } },
         { text = "Do you ever think of going back?", next = "who_home" },
       },
     },
@@ -125,7 +125,7 @@ P:NPC {
     crew = {
       hub = true,
       lines = {
-        { id = "cr_default", text = "Eleven good hands and one bad parrot, and every one of them would follow me into a storm, though they'd complain the whole way. That's how ye know a crew's sound, when they grumble but still haul." },
+        { id = "cr_default", text = "Eleven good hands and one bad parrot, and the whole crew would follow me into a storm, though they'd complain the whole way. That's how ye know a crew's sound, when they grumble but still haul." },
         { id = "cr_missing", when = { ["not"] = { questDone = Q_REWARD } }, text = "Ten hands aboard and one missing, which is one too many for my liking. They're good sailors, but they're quiet these days, and a quiet crew is a worried one." },
       },
       again = {
@@ -156,8 +156,8 @@ P:NPC {
         { id = "mc_default", text = "Wendel? Light, no, he's a poor fighter and always was, and he'd lose a duel to a crab. But he can turn salt pork and weevils into something ye'd thank yer mother for, and a good cook is priceless in this line o' work." },
       },
       choices = {
-        { text = "A good cook keeps a crew loyal. You're right to want him back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Cooks can be replaced. I'd cut my losses, Captain.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "A good cook keeps a crew loyal. You're right to want him back.", next = "BACK", reply = "I knew ye'd understand, {class}. A crew will follow a captain into a storm, but they'll follow a good cook anywhere.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Cooks can be replaced. I'd cut my losses, Captain.", next = "BACK", reply = "Cut my losses? Ye've never tasted his chowder, or ye'd not say such a thing. Besides, I don't leave crew in a cage, cook or not.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "What's his best dish?", next = "mathers_dish" },
       },
     },
@@ -177,7 +177,7 @@ P:NPC {
       },
     },
     crew_parrot = {
-      lines = { { id = "cp_default", text = "On the thumb, and Seahorn laughed so hard he nearly went off the balcony. He's offered me twenty gold for that bird since, and I'll not take it, because a parrot that bites a tauren is worth more than gold to a crew's morale." } },
+      lines = { { id = "cp_default", text = "On the thumb, and Seahorn laughed so hard he nearly went off the balcony. He's offered me twenty gold for that bird since, and I'll not take it, because a parrot that bites the Fleet Master is worth more than gold to a crew's morale." } },
       choices = { { text = "Something else about the crew.", next = "BACK", fx = { affinity = 1 } } },
     },
     crew_hire = {
@@ -210,9 +210,9 @@ P:NPC {
     raiders_seahorn = {
       lines = { { id = "rs_default", text = "Loud, generous and braver than is good for him, and I've never once seen him leave a ship behind. He'd have sent the whole fleet after Wendel if I'd asked, and that's exactly why I didn't ask, because Kurzen's camp is no place for sailors." } },
       choices = {
-        { text = "A captain who won't leave anyone behind is worth following.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A captain who won't leave anyone behind is worth following.", next = "BACK", reply = "He is, and that's why I sail under him and not on my own. A captain who'd turn the fleet around for one ship is a captain worth the risk.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Asking for help isn't weakness, Captain.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Fleets are for show. Better to handle things yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fleets are for show. Better to handle things yourself.", next = "BACK", reply = "That's the way of a lone wolf, and lone wolves don't last long on this coast. I'll take Seahorn's fleet over my own pride any day.", fx = { align = { order = -1 } } },
       },
     },
     raiders_baron = {
@@ -220,8 +220,8 @@ P:NPC {
         { id = "rb_default", text = "The Baron's a goblin, so he'd sell his own balcony if the price were right, but he keeps his bargains and he keeps the peace. In this cove that makes him a better lord than most kings I've heard of." },
       },
       choices = {
-        { text = "A lord who keeps his bargains deserves your loyalty.", next = "BACK", fx = { align = { order = 1 }, learn = { "steamwheedle" } } },
-        { text = "Lords are lords. I'd trust his ledger, not him.", next = "BACK", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
+        { text = "A lord who keeps his bargains deserves your loyalty.", next = "BACK", reply = "Loyalty's a strong word for a goblin's man, but I'll give him my word as long as he keeps his. That's more than most lords get from me.", fx = { align = { order = 1 }, learn = { "steamwheedle" } } },
+        { text = "Lords are lords. I'd trust his ledger, not him.", next = "BACK", reply = "Wise of ye, and I'd say the same in a quieter room. The ledger never lies, even when the goblin who keeps it does.", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
         { text = "What does he charge you for anchorage?", next = "raiders_dues" },
       },
     },
@@ -238,8 +238,8 @@ P:NPC {
         { id = "bs_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Ye've read their letters, so ye know what they've planned for this cove. I've buried two crewmen on their account, and I'll see their red sails at the bottom before I'm done." },
       },
       choices = {
-        { text = "Then sink every one of them. They earned it.", next = "BACK", fx = { align = { light = -1 }, learn = { "bloodsail" } } },
-        { text = "Some of them must be pressed men. Spare those you can.", next = "BACK", fx = { align = { light = 1 }, learn = { "bloodsail" } } },
+        { text = "Then sink them down to the last plank. They earned it.", next = "BACK", reply = "That's the plan, {class}, one red sail at a time. Bring me their colors and I'll hang them over the tavern door.", fx = { align = { light = -1 }, learn = { "bloodsail" } } },
+        { text = "Some of them must be pressed men. Spare those you can.", next = "BACK", reply = "Some are, and I've pulled a few of those out of the water myself. Spare the ones who throw down their cutlasses, and sink the rest.", fx = { align = { light = 1 }, learn = { "bloodsail" } } },
         { text = "Are they all born pirates, or are some pressed men?", next = "bloodsail_fight" },
         { text = "Who were the two you buried?", next = "bloodsail_buried" },
       },
@@ -271,8 +271,8 @@ P:NPC {
     kurzen_who = {
       lines = { { id = "kw_default", text = "A Stormwind officer who was sent here to fight trolls and stayed to fight everyone. Half his soldiers walked out on him and set up a camp of their own to the north, and the half who stayed are the worst of the lot." } },
       choices = {
-        { text = "Then the rebels should be helped. They chose right.", next = "BACK", fx = { align = { order = -1 }, learn = { "kurzen" } } },
-        { text = "Deserters are still deserters, whatever the colonel did.", next = "BACK", fx = { align = { order = 1 }, learn = { "kurzen" } } },
+        { text = "Then the rebels should be helped. They chose right.", next = "BACK", reply = "They did, and they've paid for it in blood and fever. A little help from the Bay wouldn't go amiss, and I've sent them what I can.", fx = { align = { order = -1 }, learn = { "kurzen" } } },
+        { text = "Deserters are still deserters, whatever the colonel did.", next = "BACK", reply = "Aye, deserters, and still better men than the ones who stayed. The law can sort it out when Kurzen's dead and buried.", fx = { align = { order = 1 }, learn = { "kurzen" } } },
         { text = "Something else, Captain.", next = "BACK", fx = { learn = { "kurzen" } } },
       },
     },
@@ -308,10 +308,10 @@ P:NPC {
       big = true,
       lines = { { id = "qo2_default", text = "Because a rogue's the only one who'll come back with him rather than a story about how brave they were. So tell me, {class}, would ye do this for coin, or because a man's in a cage?" } },
       choices = {
-        { text = "A man's in a cage. That's reason enough.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "For coin, Captain, and plenty of it.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "For the challenge. Kurzen's locks sound interesting.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "For the Bay. A favor owed is worth more than gold.", next = "BACK", fx = { align = { order = 1 }, standing = { booty_bay = 1 } } },
+        { text = "A man's in a cage. That's reason enough.", next = "BACK", reply = "That's all I needed to hear, {class}. Get Wendel out and the whole crew will drink to ye for a month.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "For coin, Captain, and plenty of it.", next = "BACK", reply = "Coin I can manage, within reason, and the Raiders pay their debts. Just bring him back with all his fingers, because he needs them for the stew.", fx = { align = { honor = -1 } } },
+        { text = "For the challenge. Kurzen's locks sound interesting.", next = "BACK", reply = "Interesting, he says! Kurzen's locks have killed better rogues than ye, so treat them with respect and Wendel with care.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "For the Bay. A favor owed is worth more than gold.", next = "BACK", reply = "Now ye're talking like a Bay native. Owe the Raiders a favor and you've friends in every port on this coast.", fx = { align = { order = 1 }, standing = { booty_bay = 1 } } },
       },
     },
     q_pay = {
@@ -350,7 +350,7 @@ P:NPC {
       },
     },
     q_after_cook = {
-      lines = { { id = "qac_default", text = "He's a poor fighter, Wendel, and always will be, but he's a good cook, and a good cook is priceless in this line o' work. Come aboard the Gull's Wager on a stew night and ye'll taste what ye saved." } },
+      lines = { { id = "qac_default", text = "Ye've earned a seat at Wendel's table, for a good cook is priceless in this line o' work. Come aboard the Gull's Wager on a stew night and ye'll taste what ye saved." } },
       choices = { { text = "I'll hold you to that. Something else.", next = "BACK" } },
     },
 
@@ -359,8 +359,8 @@ P:NPC {
       big = true,
       lines = { { id = "kho_default", text = "Coin's coin, and the Baron's peace makes us all merchants on this pier. My crew don't love orcs, I'll grant ye, but they love the Bloodsail even less, and that makes us friends often enough." } },
       choices = {
-        { text = "Then let the peace hold. We share one enemy.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Peace lasts only while it pays. We both know it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then let the peace hold. We share one enemy.", next = "BACK", reply = "That's the hope, and the Bloodsail are a good reason to keep it. They'll not care whose colors they're sinking.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Peace lasts only while it pays. We both know it.", next = "BACK", reply = "We do, and the Baron knows it better than any of us. Pay well and keep the peace, that's the whole of Booty Bay.", fx = { align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -376,8 +376,8 @@ P:NPC {
       big = true,
       lines = { { id = "kun_default", text = "Frighten them? Ye'll have every man aboard making the sign against ill luck, for sailors fear the drowned dead above all else. I've seen stranger on this pier, though, so I'll judge ye by what ye do, not by what's left of yer face." } },
       choices = {
-        { text = "That's kinder than most living folk manage.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let them fear me. Fear keeps fools at a distance.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's kinder than most living folk manage.", next = "BACK", reply = "Most living folk aren't sailors, {class}, and sailors have their own rules. Still, I'll take kind words wherever I find them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them fear me. Fear keeps fools at a distance.", next = "BACK", reply = "Then ye'll have plenty of room on deck, and that's no bad thing on a crowded ship. Just don't stand at the bow when we sail past a wreck.", fx = { align = { light = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -401,8 +401,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwar_default", text = "Badly, unless someone holds the rail, for sailors are brawlers and not soldiers. A warrior with a shield at the gangway is worth five of my lads with cutlasses, and I'd pay double to have one aboard when the Bloodsail come." } },
       choices = {
-        { text = "Hold the gangway and keep the line. That wins boardings.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Forget the line. Swing over and take their captain.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Hold the gangway and keep the line. That wins boardings.", next = "BACK", reply = "Spoken like an old sergeant, and ye'd do well on my deck. Hold the gangway and the Bloodsail will break on ye like a wave.", fx = { align = { order = 1 } } },
+        { text = "Forget the line. Swing over and take their captain.", next = "BACK", reply = "Bold, and the last man who tried it went into the water with a cutlass in his belly. Keep the line, {class}, and let the captain come to you.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -410,8 +410,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Once, when a mage from Theramore froze a Bloodsail rudder solid and left them turning in circles off the Cape. I paid her passage home and a barrel o' rum besides, and I'd do it again for any mage who could manage the trick." } },
       choices = {
-        { text = "Magic should defend the ship, not hunt for profit.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "For a barrel of rum, I'd freeze the whole Bloodsail fleet.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Magic should defend the ship, not hunt for profit.", next = "BACK", reply = "Ye sound like that Theramore mage, and she was right, too. Still, a barrel of rum is a fair thanks for a frozen rudder.", fx = { align = { honor = 1 } } },
+        { text = "For a barrel of rum, I'd freeze the whole Bloodsail fleet.", next = "BACK", reply = "Then ye'd have a lot of rum and a lot of grateful sailors. Let me know if ye ever sail past the Cape, and I'll find the barrel.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -419,8 +419,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpriest_default", text = "To anything that'll listen, and most loudly when the clouds turn green. My crew pray to the Light, the tides and a carved fish Tamsin keeps in her pocket, and I've stopped asking which of them does the work." } },
       choices = {
-        { text = "The Light hears every sailor's prayer, Captain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Keep the fish. Prayer won't patch a hull.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light hears every sailor's prayer, Captain.", next = "BACK", reply = "I hope so, {class}, because we've given it plenty to listen to. If ye've a spare prayer, say one for the Gull's Wing.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep the fish. Prayer won't patch a hull.", next = "BACK", reply = "No, but neither will the fish, and my crew love it anyway. Prayer patches their nerves, and the carpenter patches the hull.", fx = { align = { light = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -431,17 +431,17 @@ P:NPC {
         { id = "xhunt_pet", when = { pet = { type = "Beast" } }, text = "When we can, for a crew grows sick of salt pork faster than ye'd think. Keep {pet} away from Bilge, mind, because that parrot has opinions about beasts and isn't shy about them." },
       },
       choices = {
-        { text = "I'd hunt for the pot and waste nothing.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I hunt for the sport, Captain. The pot's an afterthought.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd hunt for the pot and waste nothing.", next = "BACK", reply = "That's the hunter I want aboard. Wendel will turn whatever ye bring into something the crew will fight over.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I hunt for the sport, Captain. The pot's an afterthought.", next = "BACK", reply = "Sport's fine, but the crew still have to eat. Bring the meat aboard after, and Wendel will make something of it.", fx = { align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I think the sea minds everything and forgives nothing, which is why I respect it. If yer kind can talk to it, tell it the Gull's Wager means no harm, and ask it kindly to keep the Bloodsail on the reefs." } },
+      lines = { { id = "xdruid_default", text = "I think the sea minds everything and forgives nothing, and I've buried enough sailors to respect it for that. If yer kind can talk to it, tell it the Gull's Wager means no harm, and ask it kindly to keep the Bloodsail on the reefs." } },
       choices = {
-        { text = "The sea keeps its own balance. I'd not ask favors.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd gladly ask it to drown a few Bloodsail.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The sea keeps its own balance. I'd not ask favors.", next = "BACK", reply = "Wise words, and the sea would agree. It gives what it gives, and it takes what it takes, and asking only makes it angry.", fx = { align = { order = 1 } } },
+        { text = "I'd gladly ask it to drown a few Bloodsail.", next = "BACK", reply = "Ye and every sailor on this coast, {class}. If the sea ever listens to ye, tell it I'll buy it a drink.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -449,17 +449,17 @@ P:NPC {
       big = true,
       lines = { { id = "xpala_default", text = "By keeping my word and choosing my friends, the same as anyone. I've done things I'll not tell a paladin about, but I've never sold a crewman and never broken a bargain with the Baron." } },
       choices = {
-        { text = "Then there's honor in you, Captain, whatever your past.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Kept bargains don't wash a thief clean, Captain.", next = "BACK", fx = { affinity = -1, align = { light = 1, honor = 1 } } },
-        { text = "Everyone has secrets. I'll not pry.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Then there's honor in you, Captain, whatever your past.", next = "BACK", reply = "There's some, I hope, though I'll not ask the Light to vouch for it. Thank ye, paladin, that's kinder than I expected.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Kept bargains don't wash a thief clean, Captain.", next = "BACK", reply = "No, they don't, and I'll not pretend otherwise. But a thief who keeps her word is still better than a lord who doesn't.", fx = { affinity = -1, align = { light = 1, honor = 1 } } },
+        { text = "Everyone has secrets. I'll not pry.", next = "BACK", reply = "Thank ye, that's more courtesy than most paladins show a pirate. Some secrets are better left on the bottom of the sea.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
     xshaman = {
       big = true,
       lines = { { id = "xshaman_default", text = "They listen to the wind and nothing else, and only when it's about to tear the sails off. If the spirits have anything to say about the weather past the Cape, I'd dearly like to hear it before we sail." } },
       choices = {
-        { text = "The spirits deserve respect, not just questions about weather.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The spirits answer whoever asks boldly. Ask them yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The spirits deserve respect, not just questions about weather.", next = "BACK", reply = "Respect, aye, and maybe I've been rude to them. Tell them a sailor's sorry, if they'll listen.", fx = { align = { order = 1 } } },
+        { text = "The spirits answer whoever asks boldly. Ask them yourself.", next = "BACK", reply = "Boldly, is it? Then I'll stand on the bow in the next squall and shout at the clouds, and ye can come and fish me out.", fx = { align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -467,8 +467,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Aboard, aye, but not below decks, and ye'll keep yer little friend away from the powder. I've sailed with worse than warlocks, though few that smelled quite so much of brimstone." } },
       choices = {
-        { text = "My demon obeys me. Your powder is safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon goes where it pleases, Captain.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "My demon obeys me. Your powder is safe.", next = "BACK", reply = "Good, because my powder's worth more than yer demon. Keep it fed and quiet, and we'll get on fine.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon goes where it pleases, Captain.", next = "BACK", reply = "Then it can go overboard, and ye with it if ye argue. My ship, my rules, {class}, and powder's no place for pets.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -479,7 +479,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never sail on an empty stomach, never trust a red sail, and never let the cook go ashore alone." } },
     bloodsail = { { id = "tp_bloodsail", text = "They've cost me two good crewmen, and I'll see their red sails sunk before I'm done." } },
     kurzen = { { id = "tp_kurzen", text = "A mad colonel with a jungle camp and a taste for taking folk off the roads. Keep clear of his patrols." } },
-    booty_bay = { { id = "tp_booty_bay", text = "It's a goblin town that lets a fisherman's daughter tie up her ship and drink in peace, and I'll take that over half the ports up north. Mind your purse and it'll mind you back." } },
+    booty_bay = { { id = "tp_booty_bay", text = "It's a goblin town that lets a fisherman's daughter tie up her ship and drink in peace, and I'll take that over Menethil Harbor any day. Just keep a hand on yer purse past the Salty Sailor after dark." } },
     theramore = { { id = "tp_theramore", text = "I've run cargo to Theramore twice, and the harbor's clean and the soldiers are polite, and they still searched my hold like I was a Bloodsail. Proudmoore runs a tidy island." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Some of my crew bet their wages at the Arena every time the chest comes up, and they come back poorer and full of stories. I've never seen the sense in fighting for a box." } },
     zul_gurub = { { id = "tp_zul_gurub", text = "The trolls up the coast at Zul'Gurub have been lighting fires at night, and the sailors who pass close say they hear drums. I keep my ship well out from that shore." } },

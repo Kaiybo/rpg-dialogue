@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "I know, I know, I'm out here in the middle of nowhere, pal! Come in out of the sun, if you can find any shade, and shake your boots out first; the scorpids like boots, and boots cost money." },
-    { id = "g_orn", when = { questActive = TODO_QUEST("Gahz'ridian") }, text = "Keep the helmet on and keep walking! The ornaments are everywhere, once you know how to look." },
+    { id = "g_orn", when = { questActive = TODO_QUEST("Gahz'ridian") }, text = "Keep the detector helmet on and keep walking! The ornaments are everywhere, once you know how to look." },
     { id = "g_orn_done", when = { questDone = TODO_QUEST("Gahz'ridian") }, text = "My favourite helper! You did give the helmet back, didn't you, buddy? I keep counting and coming up one short, and that helmet's worth more than my zeppelin, these days." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Good, because I've had nobody to talk to but the pillar, and the pillar's a terrible listener and an even worse investor." },
   },
@@ -35,9 +35,9 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Gahz'ridian") },
           text = "Long ago the trolls carved ornaments of Gahz'rilla, a hydra they worshipped, out of a stuff I call Gahz'ridian, and a stuff nobody's named is a stuff nobody's priced. I've found some, but I'd love more, and I've even invented a detector to help!" },
         { id = "h_orn", tags = { "news" }, when = { questActive = TODO_QUEST("Gahz'ridian") },
-          text = "You'll find it just about anywhere in the desert, but the ruins east and south of here are thick with it. Put the helmet on and the search begins all by itself!" },
+          text = "You'll find it just about anywhere in the desert, but the ruins east and south of here are thick with it. Put on the detector helmet I gave you, and the search begins all by itself!" },
         { id = "h_orn_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Gahz'ridian"), days = 3 } },
-          text = "Perfect, every one of them, pal, and they'll keep me busy for weeks and solvent for months. Now, about my helmet." },
+          text = "Perfect, all of 'em, pal, and they'll keep me busy for weeks and solvent for months. Now, about my helmet." },
         { id = "h_circle", tags = { "news" }, when = { questActive = TODO_QUEST("The Stone Circle") },
           text = "The round stone with the serpent on it is crated up in my workshop in Ratchet. Bring it back, and I might remember more of what I saw down in that temple." },
         { id = "h_circle_done", when = { questDone = TODO_QUEST("The Stone Circle") },
@@ -68,7 +68,7 @@ P:NPC {
       },
     },
     crash_salvage = {
-      lines = { { id = "cs_default", text = "Parts of it, and the parts that aren't are now a very fine shade structure, which I'm counting as an asset. I'll fly home when the research is done, or when somebody in Gadgetzan lends me a pilot, whichever is cheaper." } },
+      lines = { { id = "cs_default", text = "Some of it is, and the rest is now a very fine shade structure, which I'm counting as an asset. I'll fly home when the research is done, or when somebody in Gadgetzan lends me a pilot, whichever is cheaper." } },
       choices = { { text = "I'd wager on the research.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     gahz = {
@@ -82,8 +82,8 @@ P:NPC {
       big = true,
       lines = { { id = "gs_default", text = "Study it first, then sell it, naturally! A scientist who can't fund his own expeditions ends up stuck in a desert with a broken zeppelin, pal, and I should know, because I'm the one stuck." } },
       choices = {
-        { text = "Knowledge first. The money will follow.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Sell it now, while it's still a mystery.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Knowledge first. The money will follow.", next = "BACK", reply = "Spoken like somebody who's never had to pay a zeppelin mechanic, friend, but I like the optimism, and I'll put it on my tab.", fx = { align = { order = 1 } } },
+        { text = "Sell it now, while it's still a mystery.", next = "BACK", reply = "Ooh, you've got the instinct, pal, because a mystery fetches more than an answer ever does, right up until somebody else figures it out first.", fx = { align = { order = -1 } } },
         { text = "Something else, Marvon.", next = "BACK" },
       },
     },
@@ -105,8 +105,8 @@ P:NPC {
       big = true,
       lines = { { id = "ts_default", text = "That's the question, isn't it? I found a stone with the same serpent mark on it, and the scientist in me says find out, the businessman in me says it'd fetch a fortune, and every sensible bone in me says run." } },
       choices = {
-        { text = "Leave some doors shut, Marvon.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fortune favors whoever opens the door first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Leave some doors shut, Marvon.", next = "BACK", reply = "You sound like my mother, and she was right about most things, so maybe I'll keep that stone wrapped up in a sock for a while longer.", fx = { align = { light = 1 } } },
+        { text = "Fortune favors whoever opens the door first.", next = "BACK", reply = "That's what worries me, friend, because whoever opens it first might also be the first one eaten, and I've got a lot of plans for this face.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -129,9 +129,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A goblin of Ratchet with a workshop, an assistant, a crashed zeppelin and more questions than gold, pal. I'm working on the gold." } },
     advice = { { id = "tp_ad", text = "Always bring a second helmet, buddy. You never know when somebody's going to walk off with the first, and replacements aren't cheap." } },
     steamwheedle = { { id = "tp_sw", text = "Good people, mostly, so long as you remember they're keeping a tab. I keep one too." } },
-    sunken_temple = { { id = "tp_sunken_temple", text = "I went into the Sunken Temple once, pal, and came out with my life and not much else. There's a dragon down there, and trolls who want to bring back a god, and I'd rather not go back." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "I went into the Sunken Temple once, pal, and came out with my life and not much else. There's a dragon down there, and trolls who want to bring back a god, and they can keep the place." } },
     zul_farrak = { { id = "tp_zul_farrak", text = "Zul'Farrak's got more treasure than any place in Tanaris, pal, and more trolls too. I'd love to go in, if I had a small army." } },
-    ratchet = { { id = "tp_ratchet", text = "Ratchet's where my workshop is, pal, and my assistant's minding it while I'm stuck in this desert. I hope he hasn't blown it up." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's where my workshop is, pal, and my assistant's minding it while I'm stuck in this desert. I hope she hasn't blown it up." } },
     uldaman = { { id = "tp_uldaman", text = "Uldaman's full of old secrets, pal, and the dwarves are digging them out as fast as they can. I'd love to see what they've found." } },
     bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "There's a story about a cave in the dunes where the bronze dragons keep watch over time itself, pal. Scientifically speaking, it's nonsense, but I'd still like to see it." } },
     _none = { { id = "tp_none", text = "Haven't studied that one yet, pal! Give me a few weeks, a working zeppelin and a modest grant." } },

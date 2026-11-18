@@ -59,8 +59,8 @@ P:NPC {
         { id = "xsh_default", text = "Many of my students say the same, and they say it as though it were a victory. The shadow answers, yes, and it never asks what you deserve, which is exactly why you must ask yourself. Do you still call on the Light at all?" },
       },
       choices = {
-        { text = "No. It left us, and I won't beg it to return.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Sometimes, when I'm too tired to be angry with it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "No. It left us, and I won't beg it to return.", next = "BACK", reply = "Then you'll make a hard priest, and perhaps a strong one, but anger runs out sooner than you'd think. Come back when it does.", fx = { align = { light = -1 } } },
+        { text = "Sometimes, when I'm too tired to be angry with it.", next = "BACK", reply = "That's the most honest answer I've heard this year. Keep calling, tired or not, and see what answers.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Why do you teach both, Aelthalyste?", next = "shadow" },
       },
     },
@@ -86,8 +86,8 @@ P:NPC {
         { id = "lt_paladin", when = { class = "PALADIN" }, text = "Tonight it's a fire, and you carry it on your shield, so tell me, does it feel like love to you, or only like heat? I've stopped needing it to love me, and I find I pray better for it." },
       },
       choices = {
-        { text = "The Light is mercy, whatever the Church made of it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "It's a tool, and tools don't care who holds them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light is mercy, whatever the Church made of it.", next = "BACK", reply = "Mercy, yes, and I'm glad someone still believes the Church didn't own it. Keep that belief warm.", fx = { align = { light = 1 } } },
+        { text = "It's a tool, and tools don't care who holds them.", next = "BACK", reply = "Tools don't, but the hands do, and I'd rather mine were careful ones. Hold it as you like.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,8 +103,8 @@ P:NPC {
       big = true,
       lines = { { id = "sp_default", text = "It troubles me every time, and I teach it anyway. It was done to us first, and I see a kind of justice in handing it back to the ones who spread it, though I'd rather not look at that justice too closely." } },
       choices = {
-        { text = "They earned it. Give it back twice over.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "A weapon like that should stay a last resort.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They earned it. Give it back twice over.", next = "BACK", reply = "They did, and that is why I teach it. Only don't learn to like it, or you'll become what they fear.", fx = { align = { honor = -1 } } },
+        { text = "A weapon like that should stay a last resort.", next = "BACK", reply = "It should, and it is, in my teaching at least. Keep it at the bottom of the bag.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -195,8 +195,8 @@ P:NPC {
     believe = {
       lines = { { id = "be_default", text = "I believe in what I can still do, which is mend the hurt and see off the Scourge. Whether that's faith or stubbornness, I've stopped trying to tell the two apart." } },
       choices = {
-        { text = "Faith is the stubbornness that matters.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Stubbornness, Father. Faith had its chance.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Faith is the stubbornness that matters.", next = "BACK", reply = "Then you're a better priest than I am, because I've never managed to tell them apart. Bless you for it.", fx = { align = { light = 1 } } },
+        { text = "Stubbornness, Father. Faith had its chance.", next = "BACK", reply = "Stubbornness has kept me standing longer than faith ever did. I'll take your word, and keep laughing.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -226,11 +226,11 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hold_friends = {
-      lines = { { id = "hr_default", text = "That's the best answer anyone's given me this year, and I hear a great many. A friend will pick up your fingers for you, which is more than most prayers will." } },
+      lines = { { id = "hr_default", text = "That's the best answer anyone's given me this year, and I hear a great many. A friend will pick up your fingers for you, and no prayer I know of has ever done that." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hold_joke = {
-      lines = { { id = "hj_default", text = "Ha! A kindred spirit, and I'd say a lost soul, but that's my line. Lankester would tell us both we're cracking the walls, and he'd be right, and I'd still do it." } },
+      lines = { { id = "hj_default", text = "Ha! A kindred spirit, and I'd say a lost soul, but that's my line. Lankester would tell us both that every joke is a crack in the wall, and he'd be right, and I'd still do it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hold_nothing = {
@@ -241,8 +241,8 @@ P:NPC {
     lankester = {
       lines = { { id = "lk_default", text = "Very well, mostly because he believes enough for the two of us, and I laugh enough for the two of us, so between us we make one tolerable priest. He's been writing the same sermon for years, and I've promised to read it when he's done, which I suspect will be never." } },
       choices = {
-        { text = "He's right. Priests should be serious.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep laughing, Father. This city needs it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "He's right. Priests should be serious.", next = "BACK", reply = "He'd agree with you, and then he'd write you into his sermon. I'll be serious enough on my deathbed, the second one.", fx = { align = { order = 1 } } },
+        { text = "Keep laughing, Father. This city needs it.", next = "BACK", reply = "I shall, and I'll tell Lankester you said so. He'll hate it, which is half the joy.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -307,19 +307,19 @@ P:NPC {
     },
     xorig_squire = {
       lines = {
-        { id = "xsq_default", text = "And you've sworn it since, I suppose, and the Light burns you every time. Good. A test that doesn't hurt teaches nothing, and the Light is testing you more honestly than it ever tested the knights who swore in comfort. Will you keep swearing?" },
+        { id = "xsq_default", text = "And you've sworn it since, I suppose, and the Light burns you every time. Good. A test that doesn't hurt teaches nothing, and the Light is testing you harder than it ever tested the knights who swore in comfort. Will you keep swearing?" },
       },
       choices = {
-        { text = "Every morning, Father, for as long as I last.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Some mornings I wonder why I bother.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Every morning, Father, for as long as I last.", next = "BACK", reply = "Good. A vow kept in pain is worth ten kept in comfort, and the Light knows the difference.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Some mornings I wonder why I bother.", next = "BACK", reply = "So do we all, and the bothering is the whole of the test. Keep bothering.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Tested by the plague, you mean?", next = "tested" },
       },
     },
     tested = {
       lines = { { id = "te_default", text = "By the plague, by the Lich King's chains, and now by the hatred of the living. Every trial strips away something we didn't need, and what remains is purer for it." } },
       choices = {
-        { text = "Suffering has a purpose. I believe that.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Suffering is just suffering, Father.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Suffering has a purpose. I believe that.", next = "BACK", reply = "Then you've already passed the hardest trial, which is believing it. Hold on to that.", fx = { align = { light = 1 } } },
+        { text = "Suffering is just suffering, Father.", next = "BACK", reply = "Then it will strip you bare and leave nothing behind. I pray you find the purpose in it before then.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -336,7 +336,7 @@ P:NPC {
       },
     },
     sermon_long = {
-      lines = { { id = "sl_default", text = "Some four hundred pages, and the subject has not changed, only the examples, which have become a great deal more vivid. Before I go on, tell me something, and answer honestly: do you pray?" } },
+      lines = { { id = "sl_default", text = "Some four hundred pages, and the subject has not changed, only the examples, which have become far more vivid. Before I go on, tell me something, and answer truthfully: do you pray?" } },
       choices = {
         { text = "Every day, Father, without fail.", next = "pray_yes", fx = { trait = { pious = 1 }, affinity = 1, align = { light = 1 } } },
         { text = "No. I trust my own hands, not the Light.", next = "pray_no", fx = { trait = { stern = 1 }, align = { light = -1 } } },
@@ -359,8 +359,8 @@ P:NPC {
     lazarus = {
       lines = { { id = "lz_default", text = "Father Lazarus is a good priest who mistakes levity for humility, and I have told him so, and he laughed, which rather proved my point. Every joke is a little crack in the wall, and this city has cracks enough." } },
       choices = {
-        { text = "Laughter keeps people going, Father. Let him be.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A priest should hold to dignity. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Laughter keeps people going, Father. Let him be.", next = "BACK", reply = "He keeps them laughing, yes, and I keep them standing. Between us, the city muddles through.", fx = { align = { order = -1 } } },
+        { text = "A priest should hold to dignity. You're right.", next = "BACK", reply = "Good. Then perhaps you'll explain it to Lazarus, because he certainly won't hear it from me.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -431,10 +431,10 @@ P:NPC {
       },
     },
     gate_lose = {
-      lines = { { id = "gl_default", text = "I don't count it lost, because I'm back at it, in a manner of speaking, and the same enemy's on the other side. That's more than most watchmen ever get, a second shift." } },
+      lines = { { id = "gl_default", text = "I don't count it lost, because I'm back at it, in a manner of speaking, and the same enemy's on the other side. Few watchmen ever get a second shift." } },
       choices = {
-        { text = "Then hold the line this time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Forget the line. Take the fight to them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then hold the line this time.", next = "BACK", reply = "This time and every time, as long as I've got the legs for it. Come and stand with me.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget the line. Take the fight to them.", next = "BACK", reply = "Then you'll leave the gate open behind you. Fight where you like, but someone has to hold.", fx = { align = { order = -1 } } },
       },
     },
     good = {
@@ -471,10 +471,10 @@ P:NPC {
     },
 
     fowler = {
-      lines = { { id = "fo_default", text = "Baltus takes on his face what belongs on his shield, and then he laughs about it, and the recruits think that's the lesson. I like him well enough, but I'd not put him on a gate." } },
+      lines = { { id = "fo_default", text = "Baltus takes blows on his face that belong on his shield, and then he laughs about it, and the recruits think that's the lesson. I like him well enough, but I'd not put him on a gate." } },
       choices = {
-        { text = "A good soldier blocks the blow. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fighting's not a drill, Angela. Let him brawl.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A good soldier blocks the blow. You're right.", next = "BACK", reply = "Exactly, and you'll live longer than Baltus for knowing it. Keep your shield up.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fighting's not a drill, Angela. Let him brawl.", next = "BACK", reply = "It isn't, but it's how you survive the fight, and Baltus only laughs because he hasn't lost one yet. He will.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -505,12 +505,12 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "You've a question, or you'd not be standing there. Ask it." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Sit down; my legs aren't what they were, and they were never much." },
-    { id = "g_fowler", when = { timeOfDay = { "dusk", "night" } }, text = "Keep your voice down, if you would. Fowler's been bellowing since dusk, and I'd like one quiet corner in this quarter." },
+    { id = "g_fowler", when = { timeOfDay = { "dusk", "night" } }, text = "Keep your voice down, if you would. Baltus Fowler's been bellowing since dusk, and I'd like one quiet corner in this quarter." },
   },
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "I fought your people at Hillsbrad, in the Second War. You'll forgive me if my shoulder twitches." },
+      text = "I fought your people at Hillsbrad, in the Second War. If my shoulder twitches, that's the reason." },
     { id = "n_soldier", cat = "origin", when = { origin = "forsaken_lordaeron_soldier" },
       text = "You stand like one of ours, from the old army. Feet apart, weight back, and waiting for an order that won't come." },
   },
@@ -543,13 +543,13 @@ P:NPC {
         { id = "or_orc", when = { race = "Orc" }, text = "Your people, yes, at Hillsbrad and at Thoradin's Wall, and I hated them with my whole heart. Now you're the only living folk who'll trade with us, and I've learned that hatred keeps less well than salt pork." },
       },
       choices = {
-        { text = "Old enemies can learn to stand together.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Alliances of need last only as long as the need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Old enemies can learn to stand together.", next = "BACK", reply = "Learn, aye, slowly and with a great deal of grumbling. I'm still learning myself.", fx = { align = { honor = 1 } } },
+        { text = "Alliances of need last only as long as the need.", next = "BACK", reply = "That's what I tell myself when I see an orc in the Trade Quarter. Keep your pike close anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     first = {
-      lines = { { id = "fi_default", text = "How to fall, and how to get up again. The dead get up more easily than the living, but they fall just the same, and I'd rather they did it on purpose." } },
+      lines = { { id = "fi_default", text = "How to fall, and how to get up again. The dead get up more easily than the living, but they fall just the same, and they may as well learn to do it on purpose." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -565,7 +565,7 @@ P:NPC {
       choices = {
         { text = "A sergeant who hit me until I stopped showing off.", next = "pike_sergeant", fx = { trait = { stern = 1 }, affinity = 1 } },
         { text = "Nobody. I taught myself, the hard way.", next = "pike_self", fx = { trait = { brave = 1 } } },
-        { text = "I like to show off a little, honestly.", next = "pike_show", fx = { trait = { honest = 1 } } },
+        { text = "I like to show off a little, I admit.", next = "pike_show", fx = { trait = { honest = 1 } } },
       },
     },
     pike_sergeant = {
@@ -573,7 +573,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     pike_self = {
-      lines = { { id = "pk_default", text = "That shows, both the good and the bad of it. You'll have habits I'll need to beat out of you, but you'll also have learned that the ground hurts, and that's half the lesson." } },
+      lines = { { id = "pk_default", text = "That shows, both the good and the bad of it. You'll have habits I'll need to beat out of you, but you'll also have learned that the ground hurts, and that's a fair start on the lesson." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     pike_show = {
@@ -584,8 +584,8 @@ P:NPC {
     fowler = {
       lines = { { id = "fo_default", text = "Baltus is a good fighter and a terrible soldier, and he laughs at both. He takes hits he ought to step out of, and one day he'll take one he can't laugh off, and I'll be the one who has to say I told him so." } },
       choices = {
-        { text = "Let him laugh. The dead need some joy.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "You're right. Discipline keeps soldiers standing.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let him laugh. The dead need some joy.", next = "BACK", reply = "Joy, is it? He'll find it in a ditch one day. Still, I'll admit he cheers the recruits.", fx = { align = { order = -1 } } },
+        { text = "You're right. Discipline keeps soldiers standing.", next = "BACK", reply = "It does, and I'll keep telling him so until one of us drops. Probably him, the fool.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -658,8 +658,8 @@ P:NPC {
     cheer = {
       lines = { { id = "ch_default", text = "Because I was dead, mate, properly dead, and now I'm not, and I can still swing a sword! Everybody down here's so gloomy about it, and I can't see why." } },
       choices = {
-        { text = "You're right. Every day is a gift.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some of us remember what we lost, Baltus.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right. Every day is a gift.", next = "BACK", reply = "It is, mate, and nobody down here sees it! Come and swing a sword with me, and you'll see what I mean.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some of us remember what we lost, Baltus.", next = "BACK", reply = "I do too, mate, I just remember it differently. Grief can sit in the corner while I train.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -675,7 +675,7 @@ P:NPC {
       lines = { { id = "dy_default", text = "Not yet, but it could, if you hit hard enough! Here, I ask everyone this, so don't be shy: what's the hardest you've ever been hit?" } },
       choices = {
         { text = "An ogre once threw me across a river.", next = "dents_brag", fx = { trait = { brave = 1 }, affinity = 1 } },
-        { text = "Honestly? I try very hard not to get hit.", next = "dents_honest", fx = { trait = { cautious = 1 } } },
+        { text = "Truthfully? I try very hard not to get hit.", next = "dents_honest", fx = { trait = { cautious = 1 } } },
         { text = "Nothing's hit me hard enough yet.", next = "dents_proud", fx = { trait = { proud = 1 } } },
       },
     },
@@ -695,8 +695,8 @@ P:NPC {
     walker = {
       lines = { { id = "wa_default", text = "That I'm a terrible soldier, and he's right, and I love the miserable old pikeman for saying it! He hasn't smiled since the Second War, but I'm working on him, and I reckon I'll crack him by midsummer." } },
       choices = {
-        { text = "Leave him be. Some men have earned their silence.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep at him. Everyone needs a laugh.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Leave him be. Some men have earned their silence.", next = "BACK", reply = "He's earned it, aye, but he's got plenty to spare. I'll leave him a little and take the rest.", fx = { align = { order = 1 } } },
+        { text = "Keep at him. Everyone needs a laugh.", next = "BACK", reply = "That's the spirit! Come and help me crack him; two of us might do it by spring.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -67,8 +67,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_ubrs_default", text = "I said so in forty letters, and the forty-first is on my desk now, informing the Keep that the matter was resolved by a private citizen at no cost to the crown. I'd hoped to feel vindicated, but mostly I feel tired, because the Blackrock are still in my hills and no dragon's death will move them." } },
       choices = {
-        { text = "Send the letter anyway, Magistrate. The record matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Stop writing. Stormwind won't listen, so Lakeshire should act alone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Send the letter anyway, Magistrate. The record matters.", next = "BACK", reply = "It does, and I will, because someday a clerk in Stormwind will read it and wonder why nobody listened. I'd like them to know the answer.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stop writing. Stormwind won't listen, so Lakeshire should act alone.", next = "BACK", reply = "I've been tempted, believe me, more than once a week. But a town that stops writing to its king is a town that's forgotten it has one.", fx = { align = { order = -1 } } },
         { text = "Who was Drakkisath, Magistrate?", next = "xcl_ubrs2" },
       },
     },
@@ -80,34 +80,34 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not one of them. I carry Lakeshire's danger carefully, and too long. Your spirits might reach where my letters can't." } },
+      lines = { { id = "xdsham_default", text = "Slow? It hasn't answered one of them, and I've carried Lakeshire's danger on paper for too long. Your spirits might reach where my letters can't." } },
       choices = {
-        { text = "Keep writing, Magistrate. Someone will listen.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Stop writing. Act yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep writing, Magistrate. Someone will listen.", next = "BACK", reply = "I'll keep writing, of course, as long as there's ink and breath. Someone, somewhere, has to read them eventually.", fx = { align = { order = 1 } } },
+        { text = "Stop writing. Act yourself.", next = "BACK", reply = "Act how, with what, against whom? I am acting, as best a magistrate can, and that means letters.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "I've had that same unpleasant thought, and it's why I seal every one with wax and my own ring. If someone in Stormwind is reading Lakeshire's mail and doing nothing about it, I'd sooner know it than suspect it." } },
       choices = {
-        { text = "Then I'll find out quietly who reads them.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Seal them and trust the crown. That's proper.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll find out quietly who reads them.", next = "BACK", reply = "Quietly, yes, and report to me alone, if you would. I'll not have rumours of it in the court.", fx = { align = { honor = -1 } } },
+        { text = "Seal them and trust the crown. That's proper.", next = "BACK", reply = "I do seal them, and I do trust the crown, mostly. It's the crown's clerks I'm less sure of.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "What do the letters say?", next = "letters" },
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "It was Ilgalar's tower, a wizard dead long before my time, and now a necromancer squats in it. I've written to the Mage Quarter about Morganth twice, and they've answered neither letter." } },
+      lines = { { id = "xma_default", text = "It was Ilgalar's tower, a wizard dead long before my time, and now a necromancer called Morganth squats in it. I've written to the Mage Quarter about him twice, and they've answered neither letter." } },
       choices = {
-        { text = "I'll carry word to the Mage Quarter, properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Forget Stormwind. I'll deal with Morganth myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll carry word to the Mage Quarter, properly.", next = "BACK", reply = "Properly, yes, with my seal, and the Mage Quarter will have to answer someone. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget Stormwind. I'll deal with Morganth myself.", next = "BACK", reply = "Then do, and I'll put it in the record myself. Someone ought to deal with him.", fx = { align = { order = -1 } } },
         { text = "Who is Morganth?", next = "morganth" },
       },
     },
     druid_talk = {
       lines = { { id = "dt_default", text = "Lakeshire has noticed, I assure you, though Stormwind has yet to read my letters about it. The Blackrock clan cuts what it needs for its war machines and burns the rest. If you can slow them, I will put it in writing to the Keep." } },
       choices = {
-        { text = "Then I'll drive them off the slopes myself.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Your letters won't save a single tree.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll drive them off the slopes myself.", next = "BACK", reply = "Then I'll write to the Keep about you, and gladly. That will make a nice change from asking.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your letters won't save a single tree.", next = "BACK", reply = "No, but they'll remember the trees were cut, and who was asked to stop it. Records matter, even when they don't.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -115,8 +115,8 @@ P:NPC {
       big = true,
       lines = { { id = "xalt_solomon_default", text = "{alt}, a {altclass}, who read my letters to Stormwind without once telling me they were too long. Lakeshire remembers the few who came when the Regent did not, and that name is written in the court's book in my own hand." } },
       choices = {
-        { text = "The Crown will answer in its time, Magistrate. Keep writing.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Forget Stormwind. Free swords will serve Lakeshire better.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Crown will answer in its time, Magistrate. Keep writing.", next = "BACK", reply = "I'll keep writing, then, and keep the court's book open. The Crown has more patience than Lakeshire.", fx = { align = { order = 1 } } },
+        { text = "Forget Stormwind. Free swords will serve Lakeshire better.", next = "BACK", reply = "They have so far, I'll admit, and I'll not turn any of them away. But a town still needs a king.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else, Magistrate.", next = "BACK" },
       },
     },
@@ -135,7 +135,7 @@ P:NPC {
         { id = "h_new", when = { maxLevel = 17 },
           text = "You've come up from Elwynn? Good, because Lakeshire needs every blade it can borrow, even the short ones." },
         { id = "h_westfall", tags = { "news" }, when = { questActive = TODO_QUEST("Messenger to Westfall") },
-          text = "I hear they've raised a militia in Westfall, farmers with spears holding their own. Take my letter to their leader; if anyone understands our plight, it's him." },
+          text = "I hear they've raised a militia in Westfall, farmers with spears holding their own. Take my letter to their leader, Gryan Stoutmantle; if anyone understands our plight, it's him." },
         { id = "h_westfall_done", tags = { "news" }, when = { questDone = TODO_QUEST("Messenger to Westfall") },
           text = "Stoutmantle can't spare a man. I'd be angrier if I didn't know exactly how he feels." },
         { id = "h_gath", when = { questActive = TODO_QUEST("Wanted: Gath'Ilzogg") },
@@ -160,7 +160,7 @@ P:NPC {
           text = "The court recognises you, which is not the same as welcoming you. State your business." },
         { id = "h_redridge_born", when = { origin = "human_redridge_born" },
           text = "One of our own, back from the wider world. The court remembers your family's name, and it would rather see you on the walls than on a list of the missing." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Be brief. A shaman. I'll write another letter nobody will answer. Do your spirits carry letters?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and I'll ask you to be brief. I've another letter to write that nobody will answer, so tell me, do your spirits carry letters?" },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, if you would; the docket is long and the day is not." },
@@ -198,21 +198,21 @@ P:NPC {
       },
       choices = {
         { text = "What's the worst of it?", next = "need_worst" },
-        { text = "I'll help where I can.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { lakeshire = 1 } } },
-        { text = "That's a lot to ask.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "I'll help where I can.", next = "BACK", reply = "Then you're more help than the Crown has been this season. Report to Marshal Marris, if you would.", fx = { affinity = 2, align = { order = 1 }, standing = { lakeshire = 1 } } },
+        { text = "That's a lot to ask.", next = "BACK", reply = "It is, and I've been asking for a year. I'll keep asking until someone says yes.", fx = { align = { order = -1 }, affinity = -1 } },
       },
     },
     need_worst = {
       big = true,
       lines = {
-        { id = "nw_default", text = "Bandages, of all things. We ran out of them before we ran out of courage, and I put that in a report to the King. It still shames me." },
+        { id = "nw_default", text = "Bandages, of all things. We ran out of them before we ran out of courage, and I put that in a report to the Keep. It still shames me." },
         { id = "nw_priest", when = { class = "PRIEST" },
           text = "Bandages, and someone who knows what to do when the bandages aren't enough. You'll have guessed why I'm telling you." },
       },
       choices = {
         { text = "Who did you send that report to?", next = "letters" },
-        { text = "Stormwind can't ignore that.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
-        { text = "Stormwind won't help, so Lakeshire must look after itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stormwind can't ignore that.", next = "BACK", reply = "You'd think so, wouldn't you? I've thought so for months, and here we are, still out of bandages.", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Stormwind won't help, so Lakeshire must look after itself.", next = "BACK", reply = "Then Lakeshire will, as it has been, and I'll write it in my report. Not that anyone reads them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -240,7 +240,7 @@ P:NPC {
     },
     letters = {
       lines = {
-        { id = "le_default", text = "General Jonathan in Stormwind, who answered kindly. Gryan Stoutmantle in Westfall, who answered honestly. Lord Ebonlocke in Darkshire, who answered as if I'd gone mad." },
+        { id = "le_default", text = "General Jonathan in Stormwind, who answered kindly. Gryan Stoutmantle in Westfall, who answered plainly. Lord Ebonlocke in Darkshire, who answered as if I'd gone mad." },
       },
       choices = {
         { text = "What did the General say?", next = "letters_general" },
@@ -255,8 +255,8 @@ P:NPC {
       },
       choices = {
         { text = "What about the throne?", next = "amiss" },
-        { text = "Then soldiers are coming.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Soldiers won't come, and Lakeshire should stop waiting for them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then soldiers are coming.", next = "BACK", reply = "That's what the letter says, at least. I've learned not to hold my breath for the marching.", fx = { align = { order = 1 } } },
+        { text = "Soldiers won't come, and Lakeshire should stop waiting for them.", next = "BACK", reply = "I'd agree, and then I'd write another letter, because it's what I do. You'll forgive me the habit.", fx = { align = { order = -1 } } },
       },
     },
     letters_gryan = {
@@ -361,8 +361,8 @@ P:NPC {
           text = "Keeshan walked back into this town and reported for duty with his head still bleeding. It's in the court's record, and it's in mine too, privately." },
       },
       choices = {
-        { text = "Then I'll look for him.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll look for him if the reward's worth it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll look for him.", next = "BACK", reply = "Good, then the town owes you, and so do I. He was a good soldier, Keeshan, and I'd like him back.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll look for him if the reward's worth it.", next = "BACK", reply = "The reward is fair, I'm told, and Marris keeps his word. Go and fetch him, and be quick about it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -381,8 +381,8 @@ P:NPC {
       lines = { { id = "cl_default", text = "That aiding an enemy of the kingdom is a hanging matter. Morganth is an enemy, and the Shadowhides aid him. Conacher will walk you through it; he enjoys procedure." } },
       choices = {
         { text = "Hanging gnolls seems excessive.", next = "court_mercy" },
-        { text = "Good. The law should have teeth.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Fighting gnolls is a soldier's job, not a hangman's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good. The law should have teeth.", next = "BACK", reply = "It should, and in Lakeshire it does, though I'd prefer it bite less often. Conacher will see to the details.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Fighting gnolls is a soldier's job, not a hangman's.", next = "BACK", reply = "Fair enough, though once they're dead, the hangman's job is done for him. Hunt them, and let the court follow.", fx = { align = { order = -1 } } },
       },
     },
     court_mercy = {
@@ -408,35 +408,35 @@ P:NPC {
           text = "Northshire trained you? Then you know how to work on an empty stomach and no sleep. You'll need both here." },
       },
       choices = {
-        { text = "Take me to them.", next = "BACK", fx = { affinity = 3, standing = { lakeshire = 2 }, align = { light = 1 } },
+        { text = "Take me to them.", next = "BACK", reply = "Bless you, then, and go quickly, because some of them won't last the night without help. Ask any guard for the wounded, and they'll walk you there themselves.", fx = { affinity = 3, standing = { lakeshire = 2 }, align = { light = 1 } },
           journal = { first = "Magistrate Solomon told me Lakeshire has no priest of its own. I said I'd see to the wounded.",
                       third = "{name} offered to tend Lakeshire's wounded." } },
-        { text = "I'm not here to nurse anyone, Magistrate.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'm not here to nurse anyone, Magistrate.", next = "BACK", reply = "Then I'll not ask you to, and the wounded will lie where they are. The guards will keep you posted, should you change your mind.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'd have thought the Church would send someone.", next = "priest_church" },
       },
     },
     priest_church = {
       lines = { { id = "pc_default", text = "I asked the Cathedral too, but they're stretched like everyone else, and they sent prayers. I'll take prayers gladly, though I'd rather take you." } },
       choices = {
-        { text = "Prayers matter more than you think.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "I'll tell the Archbishop what I saw here.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Prayers matter more than you think.", next = "BACK", reply = "Perhaps they do, and I'll not argue it with a priest. But a bandage would go further than either of us.", fx = { align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "I'll tell the Archbishop what I saw here.", next = "BACK", reply = "Do that, and tell him plainly, because he doesn't read my letters. Thank you, priest.", fx = { affinity = 2, align = { honor = 1 } } },
       },
     },
     paladin = {
       lines = { { id = "pl_default", text = "I asked for a regiment and the Light sends one paladin. I've learned not to argue with the Light; it doesn't answer letters either. Stand where the guards can see you." } },
       choices = {
-        { text = "I'll stand on the walls.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 } } },
-        { text = "I'll go where I'm needed, not where I'm posted.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll stand on the walls.", next = "BACK", reply = "Then you'll have the court's thanks, and Marris will be glad of you. The east wall, if you please.", fx = { affinity = 2, align = { light = 1, order = 1 } } },
+        { text = "I'll go where I'm needed, not where I'm posted.", next = "BACK", reply = "That's what everyone says, and then I can't find them. Tell the Marshal where you are, at least.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     noble = {
       lines = { { id = "nb_default", text = "Then perhaps your family has heard my letters read aloud, just before someone says 'next item'. Ask them what Lakeshire must do to become the item." } },
       choices = {
-        { text = "I'll raise it with them.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } },
+        { text = "I'll raise it with them.", next = "BACK", reply = "Thank you, though I'll believe it when I see the soldiers. Raise it loudly, if you would.", fx = { affinity = 2, align = { honor = 1 } },
           journal = { first = "Promised Magistrate Solomon I'd raise Lakeshire's letters with my family in the House of Nobles.",
                       third = "{name} promised Magistrate Solomon to raise Lakeshire's plight in the House of Nobles." } },
-        { text = "They have bigger concerns than Redridge.", next = "BACK", fx = { align = { honor = -1 }, affinity = -2 } },
+        { text = "They have bigger concerns than Redridge.", next = "BACK", reply = "They always do, and it's always just before Redridge falls. I'll keep writing anyway.", fx = { align = { honor = -1 }, affinity = -2 } },
       },
     },
     lordaeron = {
@@ -447,7 +447,7 @@ P:NPC {
       },
     },
     lordaeron_north = {
-      lines = { { id = "ln_default", text = "Nothing good, I'm afraid. I wrote to the King that something darker than any orc is brewing up there, and nobody answered that part either." } },
+      lines = { { id = "ln_default", text = "Nothing good, I'm afraid. I wrote to the Keep that something darker than any orc is brewing up there, and nobody answered that part either." } },
       choices = {
         { text = "You were right. I've seen it.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -456,8 +456,8 @@ P:NPC {
     dwarf = {
       lines = { { id = "dw_default", text = "That's what I reasoned too, so we sent envoys to King Magni months ago, asking for help against the Blackrock. No dwarves have come over the mountains yet." } },
       choices = {
-        { text = "Ironforge keeps its word. Give it time.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I wouldn't count on Ironforge keeping that promise.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Ironforge keeps its word. Give it time.", next = "BACK", reply = "I'll give it time, then, though time is what Lakeshire has least of. Thank you for the reassurance.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I wouldn't count on Ironforge keeping that promise.", next = "BACK", reply = "That's what I feared, and I'll write that down too. Another letter for the pile.", fx = { align = { honor = -1 } } },
         { text = "They came. Princess Moira was taken on the road.", next = "dwarf_moira", when = { questDone = TODO_QUEST("Kharan's Tale") } },
         { text = "Something else.", next = "BACK" },
       },
@@ -509,8 +509,8 @@ P:NPC {
       },
       choices = {
         { text = "Why the east wall?", next = "warrior_east" },
-        { text = "A town should fight for itself before it begs for soldiers.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
-        { text = "I'll stand where the Marshal puts me.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { lakeshire = 1 } } },
+        { text = "A town should fight for itself before it begs for soldiers.", next = "BACK", reply = "We are fighting, friend, with farmers and fishermen. We're begging because we've run out of both.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll stand where the Marshal puts me.", next = "BACK", reply = "Good, and he'll put you somewhere useful, which is everywhere. Thank you, warrior.", fx = { affinity = 2, align = { order = 1 }, standing = { lakeshire = 1 } } },
         { text = "Something else, Magistrate.", next = "BACK" },
       },
     },
@@ -544,12 +544,12 @@ P:NPC {
       big = true,
       lines = {
         { id = "wl_default", fx = { learn = { "morganth" } },
-          text = "I know he raises the dead and calls things out of the dark in that tower, and I know you've just asked me about it with more interest than I'd like. The court will assume that was professional curiosity." },
+          text = "That would be Morganth, in his tower in the eastern hills. He raises the dead and calls things out of the dark, and you've just asked me about it with more interest than I'd like. The court will assume that was professional curiosity." },
       },
       choices = {
         { text = "It was. Know your enemy, Magistrate.", next = "warlock_enemy" },
-        { text = "Power isn't evil. It's how a man uses it.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
-        { text = "Morganth's arts are a sickness. I mean to end him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power isn't evil. It's how a man uses it.", next = "BACK", reply = "Morganth would agree with you, which ought to trouble you more than it does. I'll be watching how you use yours.", fx = { affinity = -2, align = { light = -1 } } },
+        { text = "Morganth's arts are a sickness. I mean to end him.", next = "BACK", reply = "Then the court will thank you, and I'll write it in the book myself. Go, and finish it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -591,7 +591,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Keep to the roads, and never trust a quiet night in Redridge. The orcs count on both." } },
     stonewatch_keep = { { id = "tp_stonewatch", text = "It was ours until Morganth's sorcery and Gath'Ilzogg's axes took it. The court has not ruled it lost, only taken.", next = "stonewatch" } },
     keeshan = { { id = "tp_keeshan", text = "Of the 12th Sabre Regiment, dragged off the walls at Stonewatch. The notice by the inn carries my seal." } },
-    night_watch = { { id = "tp_watch", text = "Lord Ebonlocke's lantern-bearers, you mean. I asked him for them anyway, which tells you how desperate Lakeshire has become." } },
+    night_watch = { { id = "tp_watch", text = "Lord Ebonlocke's lantern-bearers, you mean. I asked him for them anyway; that's how desperate Lakeshire has become." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "There are two packs: one steals our horses, and the other serves a warlock. I've put a price on the second." } },
     defias = { { id = "tp_defias", text = "That's Westfall's trouble, and Stoutmantle's reply told me enough to stop asking him for men." } },
     blackrock = { { id = "tp_blackrock", text = "They hold Render's Valley and Stonewatch Keep, and there are too many of them, too well organized, and getting bolder by the week." } },

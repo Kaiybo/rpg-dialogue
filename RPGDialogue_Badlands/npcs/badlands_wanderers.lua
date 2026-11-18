@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_default", text = "Oh, a visitor. Please don't touch the cart; it's holding three things that don't like each other, and only one of them is Servo." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and with all your fingers, which is a good sign in this camp. What can I do for you?" },
     { id = "g_away", when = { away = 14 }, text = "It's been {away}, and in that time Lotwil has started four experiments and finished none. I've been counting." },
-    { id = "g_progress", when = { questActive = TODO_QUEST("Liquid Stone") }, text = "He's getting closer to finishing, I'm afraid. How are things going on your end?" },
+    { id = "g_progress", when = { questActive = TODO_QUEST("Liquid Stone") }, text = "Lotwil is getting closer to finishing his binding, I'm afraid. Have you found those potions yet?" },
   },
 
   notice = {
@@ -43,7 +43,7 @@ P:NPC {
         { id = "h_cloth", tags = { "news" }, when = { questActive = TODO_QUEST("Stone Is Better than Cloth") },
           text = "Bronze bracers, patterned ones, if you can find or make them. I've some thoughts about what stone can do for armour, and I'd like to test them on something other than my own wrists." },
         { id = "h_cog", tags = { "news" }, when = { questActive = TODO_QUEST("This Is Going to Be Hard") },
-          text = "He wants cog number five, does he? Yes, I've been expecting that, and no, this isn't going to be good." },
+          text = "Lotwil wants cog number five for his machine, does he? Yes, I've been expecting that, and no, this isn't going to be good." },
         { id = "h_cog_done", when = { questDone = TODO_QUEST("This Is Going to Be Hard") },
           text = "Cog number five is in place, and the machine is doing what it does. I've moved my bedroll another twenty paces downhill." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -80,8 +80,8 @@ P:NPC {
         { id = "pd_default", text = "It is, and I've told him, and he wrote it down in his notes as 'Lucien expresses concern.' There are eleven entries like that now, and he reads them aloud to me as a sort of joke." },
       },
       choices = {
-        { text = "Knowledge always carries risk. He's right to press on.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Some powers shouldn't be bound at all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge always carries risk. He's right to press on.", next = "BACK", reply = "That's exactly what he says, and I'm sure he'll be delighted to have someone agree with him. I'll be the one sweeping up afterward, as usual.", fx = { align = { order = -1 } } },
+        { text = "Some powers shouldn't be bound at all.", next = "BACK", reply = "Thank you! I'll tell him you said so, and he'll write it down as entry number twelve, and then he'll carry on regardless.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -128,11 +128,11 @@ P:NPC {
     },
     work_leave = {
       lines = {
-        { id = "wl_default", text = "No, of course not, I'd make two. One for each of us, and one spare, because he'll drop his." },
+        { id = "wl_default", text = "No, of course not, I'd make three: one for each of us, and a spare, because he'll drop his." },
       },
       choices = {
-        { text = "Loyalty like that is rare.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "I'd save myself first. No shame in it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Loyalty like that is rare.", next = "BACK", reply = "Rare, perhaps, or just stubborn, and I've never been able to tell which. Either way, I'm still here, and so is he.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I'd save myself first. No shame in it.", next = "BACK", reply = "No shame at all, and a great deal of sense. I've thought about it, believe me, but then who would catch him when he trips?", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -151,8 +151,8 @@ P:NPC {
         { id = "an_default", text = "Lotwil chose it, and I suggested something shorter, and he said the length was the point. People remember a long name, he said, and they certainly remember it when it's printed on a crater." },
       },
       choices = {
-        { text = "A grand name gives people something to aim for.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Let your work speak. Names are just noise.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A grand name gives people something to aim for.", next = "BACK", reply = "It does, I suppose, if what they're aiming for is a very long sign. I've given up arguing; Lotwil always wins on length.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Let your work speak. Names are just noise.", next = "BACK", reply = "I couldn't agree more, though you'll never convince Lotwil of it. He thinks a name is half the invention.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -183,8 +183,8 @@ P:NPC {
         { id = "xa_default", text = "Then you'll appreciate the stoneshield draught: it's crushed elemental earth suspended in something that doesn't make you sick. Mostly doesn't, I should say, and I'd value a second opinion on the dosage." },
       },
       choices = {
-        { text = "Test it slowly. Never rush a new brew.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
-        { text = "Double the dose and see what happens.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Test it slowly. Never rush a new brew.", next = "BACK", reply = "Slowly, yes, a drop at a time, and with a bucket nearby. You're a careful alchemist, and I like that very much.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Double the dose and see what happens.", next = "BACK", reply = "Please don't, and if you do, please don't do it here. The last person who doubled a dose is still looking for his eyebrows.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -192,7 +192,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know what's in every jar in this camp and roughly how far each one would throw you. Ask." } },
-    background = { { id = "tp_bg", text = "Gnomeregan, once, mixing tonics for the engineers. Now I mix them for one man and a robot." } },
+    background = { { id = "tp_bg", text = "I lived in Gnomeregan, once, mixing tonics for the engineers. Now I mix them for one man and a robot." } },
     advice = { { id = "tp_ad", text = "Always know where the nearest exit is, especially when someone says 'watch this.'" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I'd rather not, if it's all the same to you. I left a good laboratory there and a few better friends." } },
     _none = { { id = "tp_none", text = "I'm afraid that's beyond the Assembly's present research. Ask Lotwil; he'll guess, and confidently." } },
@@ -215,7 +215,7 @@ P:NPC {
     { id = "g_default", text = "You've found my camp, which means either you're lost or you're looking for something. I'd like to know which before we go further." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. I've had few enough visitors that I'm starting to remember all of them." },
     { id = "g_away", when = { away = 14 }, text = "It's been {away}. The ground has trembled twice since you left, which I mention not to alarm you but because no one else here would care." },
-    { id = "g_sign", when = { questActive = TODO_QUEST("Tremors of the Earth") }, text = "Any word of the Sign? The ogres don't stay in one place long, but Camp Boff is where I'd begin." },
+    { id = "g_sign", when = { questActive = TODO_QUEST("Tremors of the Earth") }, text = "Any word of the Sign of the Earth? The ogres who took it don't stay in one place long, but Camp Boff is where I'd begin." },
   },
 
   notice = {
@@ -232,7 +232,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "My name is Garek, and I'm here on an errand for Krasus of the Kirin Tor, to put an end to a trouble in Lethlor Ravine. More than that I can't tell you, except that it matters a great deal more than this camp suggests." },
+          text = "My name is Garek, and I'm here on an errand for Krasus of the Kirin Tor, to put an end to a trouble in Lethlor Ravine. More than that I can't tell you, except that it matters far more than a few tents in the dust suggest." },
         { id = "h_sign", tags = { "news" }, when = { questActive = TODO_QUEST("Tremors of the Earth") },
           text = "A band of ogres stole the Sign of the Earth, and they drift from camp to camp across the Badlands. They've been seen near Camp Boff; begin there, and bring it back to me intact if you can." },
         { id = "h_sign_done", when = { questDone = TODO_QUEST("Tremors of the Earth") },
@@ -271,8 +271,8 @@ P:NPC {
         { id = "kt_default", text = "It may be. But I've known him a long time, and I've never once seen him ask for something that wasn't needed. I trust the work, if not always the silence around it." },
       },
       choices = {
-        { text = "Good servants don't need every reason.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd want the whole truth before I risked my life.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good servants don't need every reason.", next = "BACK", reply = "No, they don't, though it helps to trust the one giving the orders. I've trusted Krasus with more than my life.", fx = { align = { order = 1 } } },
+        { text = "I'd want the whole truth before I risked my life.", next = "BACK", reply = "You'd be wise to, in most cases, and I'd not fault you for it. But some truths are heavier than the people who'd carry them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -295,8 +295,8 @@ P:NPC {
         { id = "rd_default", text = "Because they serve Deathwing still, or what's left of his will, and the Badlands are close to his old roosts. They're cunning and old and very patient, and I'd advise you never to believe one of them, whatever face it wears." },
       },
       choices = {
-        { text = "Then they should be hunted down, every one.", next = "BACK", fx = { align = { light = -1 }, learn = { "black_dragonflight" } } },
-        { text = "Even dragons may be turned from darkness.", next = "BACK", fx = { align = { light = 1 }, learn = { "black_dragonflight" } } },
+        { text = "Then they should be hunted down, every one.", next = "BACK", reply = "Every one, yes, though that is a task for armies and not for one tired envoy. I'll settle for keeping them chained.", fx = { align = { light = -1 }, learn = { "black_dragonflight" } } },
+        { text = "Even dragons may be turned from darkness.", next = "BACK", reply = "Turned? I have heard it said, and I would like to believe it. But I have not yet met the black dragon who wished to be turned.", fx = { align = { light = 1 }, learn = { "black_dragonflight" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "black_dragonflight" } } },
       },
     },
@@ -329,8 +329,8 @@ P:NPC {
         { id = "sd_default", text = "I'd not call them allies, but even the Dark Irons have feared the black dragons in their time. Whatever else they were, the smiths of Angor knew how to make a thing that holds." },
       },
       choices = {
-        { text = "Use whatever works, whoever made it.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Tools made by evil hands carry their taint.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Use whatever works, whoever made it.", next = "BACK", reply = "Whatever works, yes, and I'll admit the Dark Iron smiths knew their craft. I'd only ask that you keep your eyes open while you use it.", fx = { align = { honor = -1 } } },
+        { text = "Tools made by evil hands carry their taint.", next = "BACK", reply = "They may, and I have wondered the same thing on long nights. Still, a chain does not care who forged it, only whether it holds.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -348,8 +348,8 @@ P:NPC {
         { id = "sc_default", text = "Because I gave my word, and because the less that's known about this, the fewer people go looking for it. I'm sorry; I know how it sounds, and I'd distrust me too." },
       },
       choices = {
-        { text = "A promise kept is worth respecting.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Secrets like that get people killed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A promise kept is worth respecting.", next = "BACK", reply = "Thank you, that means more than you know. My word is one of the few things I have left that's entirely mine.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Secrets like that get people killed.", next = "BACK", reply = "They do, and I've seen it happen. I'm sorry I can't say more, and I'll understand if you think less of me for it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -376,10 +376,10 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know a little about a great many old things, and more than I'd like about the black dragons. Ask, and I'll answer what I can." } },
-    background = { { id = "tp_bg", text = "Of Quel'Thalas, once. Now of wherever Krasus needs a pair of eyes." } },
+    background = { { id = "tp_bg", text = "I was of Quel'Thalas, once. Now I go wherever Krasus needs a pair of eyes." } },
     advice = { { id = "tp_ad", text = "Never trust a voice in a ravine, however reasonable it sounds." } },
-    black_dragonflight = { { id = "tp_bd", text = "Old, patient and cruel, and fond of wearing other faces. Be careful whom you trust in these hills." } },
-    dark_iron = { { id = "tp_di", text = "A troubled people, and gifted. Angor Fortress was theirs before it was anything else." } },
+    black_dragonflight = { { id = "tp_bd", text = "They're old, patient and cruel, and fond of wearing other faces. Be careful whom you trust in these hills." } },
+    dark_iron = { { id = "tp_di", text = "They're a troubled people, and gifted. Angor Fortress was theirs before it was anything else." } },
     _none = { { id = "tp_none", text = "I'm afraid I can't help you there. My errand keeps my thoughts on one thing." } },
   },
 }

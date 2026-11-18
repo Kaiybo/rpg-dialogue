@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: The Hinterlands |cff8a8a8a1.25.0|r
+## Title: RPG Dialogue: The Hinterlands |cff8a8a8a1.26.0|r
 ## Notes: Aerie Peak: the High Thane of the Wildhammer, a gryphon master who'd rather be flying, and a half-blind shaman who listens to the land's spirits. Revantusk Village: the Primal whose mate the Vilebranch took, and her people.
 ## Author: RPG Dialogue
-## Version: 1.25.0
+## Version: 1.26.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.hinterlands

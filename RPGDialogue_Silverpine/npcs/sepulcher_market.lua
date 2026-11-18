@@ -64,10 +64,10 @@ P:NPC {
     },
     saddles_miss = {
       big = true,
-      lines = { { id = "sm_default", text = "I miss the horses, which I didn't expect. The knights I don't miss at all, since half of them rode out to fight the Scourge on my saddles and came back as the Scourge, and the other half never paid." } },
+      lines = { { id = "sm_default", text = "I miss the horses, which I didn't expect. The knights I don't miss at all, since plenty of them rode out against the Scourge on my saddles and came back as the Scourge, and the rest never paid." } },
       choices = {
-        { text = "The knights did their duty. Don't mock them.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Unpaid bills outlive kingdoms. You're owed.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The knights did their duty. Don't mock them.", next = "BACK", reply = "Mock them? I only bill them, which is very different. Some of them still owe me for saddles.", fx = { align = { honor = 1 } } },
+        { text = "Unpaid bills outlive kingdoms. You're owed.", next = "BACK", reply = "I am, and I'll be owed until the end of the world. The dead keep very good accounts.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -82,8 +82,8 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Perhaps you'd make a different choice, and there are tanners in the Undercity who'd agree with you. I was a man once too, though, and I'd like to think somebody would draw a line at me." } },
       choices = {
-        { text = "Some lines are worth keeping, even dead.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Lines are for the living. Use what you have.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some lines are worth keeping, even dead.", next = "BACK", reply = "Even dead, yes, and I'm glad someone else thinks so. A line is what's left when the rest is gone.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Lines are for the living. Use what you have.", next = "BACK", reply = "That's what the Undercity tanners say, and they say it with very full pockets. I'll keep my principles.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "worgen" } } },
       },
     },
@@ -93,7 +93,7 @@ P:NPC {
     },
   },
   topics = {
-    worgen = { { id = "tp_worgen", text = "Ask me anything else about them and I'll answer, but don't ask me to sew them." } },
+    worgen = { { id = "tp_worgen", text = "Ask me what you like about the worgen, but don't ask me to sew their hides." } },
     _none = { { id = "tp_none", text = "I know leather and saddles, and very little else worth repeating. Try Bates at the inn." } },
   },
 }
@@ -154,13 +154,13 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "I make bows, I don't make treaties, so take that up with someone who wears a crown. All I know is that a stave from Ashenvale shoots true, and the Deathguard live longer with true bows." } },
       choices = {
-        { text = "Then the Warchief is right to cut it.", next = "BACK", fx = { learn = { "ashenvale" }, align = { honor = -1 } } },
-        { text = "I'd rather not build our bows on a grudge.", next = "BACK", fx = { learn = { "ashenvale" }, align = { honor = 1 } } },
+        { text = "Then the Warchief is right to cut it.", next = "BACK", reply = "Then you can tell the Deathguard why their arrows fly crooked, because I won't be the one doing it. The Warchief can cut what he likes, but I still have to make bows from what's left.", fx = { learn = { "ashenvale" }, align = { honor = -1 } } },
+        { text = "I'd rather not build our bows on a grudge.", next = "BACK", reply = "Sensible, and rarer than good yew around here. Grudges make poor staves, in my experience, because they crack the first time you put any real weight on them.", fx = { learn = { "ashenvale" }, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     why = {
-      lines = { { id = "wy_default", text = "Because a bow doesn't care if your hands are cold, and a dead archer never shakes. Half the Deathguard on the walls can put an arrow through a worgen's eye at sixty paces, and not one of them could do it alive." } },
+      lines = { { id = "wy_default", text = "Because a bow doesn't care if your hands are cold, and a dead archer never shakes. There are Deathguard on these walls who can put an arrow through a worgen's eye at sixty paces, and not one of them could do it alive." } },
       choices = {
         { text = "That's a grim kind of advantage.", next = "why_grim" },
         { text = "Something else.", next = "BACK" },
@@ -236,7 +236,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     metal = {
-      lines = { { id = "m_default", text = "Bat crates from the Undercity, when Karos's bats feel like flying. Otherwise scrap, from wherever the Deathguard can drag it, and Ambermill's walls have a fair bit of good iron in their gates if anyone ever gets close enough." } },
+      lines = { { id = "m_default", text = "Bat crates from the Undercity, when Karos Razok's bats feel like flying. Otherwise scrap, from wherever the Deathguard can drag it, and Ambermill's walls have a fair bit of good iron in their gates if anyone ever gets close enough." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fallen = {
@@ -250,14 +250,14 @@ P:NPC {
       big = true,
       lines = { { id = "fe_default", text = "Dalaran plate is good steel and I'll take it when I can get it. Scarlet armor I melt down first, since I'll not have our people walking about in the Crusade's colours, and the Deathguard tend to shoot anything red." } },
       choices = {
-        { text = "Waste nothing. The dead don't need it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Robbing the dead sits ill with me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Waste nothing. The dead don't need it.", next = "BACK", reply = "Exactly my thinking, and the Scarlets won't miss it. Good steel deserves a second life.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Robbing the dead sits ill with me.", next = "BACK", reply = "Then you've more living conscience left than I do. It sits fine with me, but I respect the scruple.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
   topics = {
-    worgen = { { id = "tp_worgen", text = "They chew pauldrons. That's what I know, and that's all I need to know." } },
+    worgen = { { id = "tp_worgen", text = "Worgen chew pauldrons. That's what I know, and that's all I need to know." } },
     _none = { { id = "tp_none", text = "Not my trade. Ask someone with less to hammer." } },
   },
 }
@@ -295,11 +295,14 @@ P:NPC {
         { text = "Why do the apothecaries need so many vials?", next = "vials" },
         { text = "Who buys the most from you?", next = "buyers" },
         { text = "You're very cheerful for a dead man.", next = "cheer" },
+        { text = "Your prices are higher than Brill's.", next = "markup" },
+        { text = "I go through vials faster than the apothecaries.", next = "xalch", when = { profession = "Alchemy" } },
+        { text = "I can't afford much today, I'm afraid.", next = "xpoor", when = { money = { max = 200 } } },
         { text = "Good day.", next = "END" },
       },
     },
     vials = {
-      lines = { { id = "v_default", text = "Renferrel says it's samples, from the forest, for the war against the Scourge. Mind you, a sample in my day was a thimbleful, and he takes them by the crate." } },
+      lines = { { id = "v_default", text = "Renferrel says it's samples, from the forest, for the war against the Scourge. A sample in my day was a thimbleful, and he takes them by the crate." } },
       choices = {
         { text = "What do you think he's making?", next = "vials_what" },
         { text = "Something else.", next = "BACK" },
@@ -309,25 +312,68 @@ P:NPC {
       big = true,
       lines = { { id = "vw_default", text = "I think it's not my business, and I think I sell vials, and I think those two thoughts keep me in work. If the Dark Lady wants a weapon against the Scourge, I'll sell her the bottles to put it in." } },
       choices = {
-        { text = "Good. The Scourge deserves whatever we brew.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Someone should ask what's in those bottles.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Good. The Scourge deserves whatever we brew.", next = "BACK", reply = "It does, and it'll get it, by the barrel. I only sell the bottles.", fx = { align = { light = -1 } } },
+        { text = "Someone should ask what's in those bottles.", next = "BACK", reply = "Someone probably should, but it won't be me. I like my work, and I like my head.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     buyers = {
       lines = { { id = "b_default", text = "The apothecaries, then Lefevre for his thread and salt, then the Deathguard for whetstones, which they lose like children lose mittens. Gwyn Farrow buys dye, and I've never asked what for, since her mushrooms are colourful enough." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Guess, then. What does Gwyn want dye for?", next = "gwyn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gwyn = {
+      lines = { { id = "gw_default", text = "My guess is she dyes the dull mushrooms to look like the dangerous ones, so nobody steals her stock. Either that, or the other way about, and I hope very much it's the first." } },
+      choices = { { text = "I'll be careful what I eat, then.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     cheer = {
       lines = { { id = "c_default", text = "I was a gloomy man alive, if you can believe it, always fretting over money and the weather. Then I died, and found the weather can't hurt me and money can't be taken with you, because I've been there and checked, so what's left to fret about?" } },
       choices = {
         { text = "That's a fine way to look at it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Was there nothing you liked about being alive?", next = "cheer2" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    cheer2 = {
+      lines = { { id = "c2_default", text = "Bread, I suppose, and rain on the shop roof when I was safe indoors, and my sister's laugh, which carried three streets. I've lost the bread and I don't know where she is, but it still rains on the roof, so I've kept one of the three." } },
+      choices = {
+        { text = "One of three is something, Andrew.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    markup = {
+      lines = { { id = "mk_default", text = "They are, and I'll tell you why, because I'm an honest man even if I'm a dead one. Every crate comes down the road from Brill past the worgen, and I add what the road eats to the price." } },
+      choices = {
+        { text = "What does the road eat?", next = "markup2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    markup2 = {
+      lines = { { id = "m2_default", text = "One cart in five, last season, and two drivers I'd known since we were both breathing. The worgen don't want the thread, they want the horse and whoever's holding the reins, and the thread just lies in the road getting rained on." } },
+      choices = {
+        { text = "Couldn't the Deathguard escort the carts?", next = "markup3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    markup3 = {
+      lines = { { id = "m3_default", text = "They do, when they can spare a man, which is never when I need one. The High Executor has the wall and the woods and Dalaran's apprentices at Ambermill to worry about, and my thread comes somewhere after all three." } },
+      choices = { { text = "I'll keep an eye on the road. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xalch = {
+      lines = { { id = "xa_default", text = "Do you, now! Then you'll want them washed, and mine are washed twice, which is more than Renferrel's empties get before they come back to me. Never mind what was in them before; you don't want to know, and neither do I." } },
+      choices = { { text = "Twice washed it is.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xpoor = {
+      lines = { { id = "xp_default", text = "Then don't buy much, and come back when you've sold a few hides to Lefevre, who's always short of good leather. Conversation's free, and you're welcome to all of it." } },
+      choices = { { text = "Thanks, Andrew. Something else.", next = "BACK" } },
     },
   },
   topics = {
     trade = { { id = "tp_trade", text = "Vials up, thread steady, whetstones always. That's the Sepulcher's whole economy in a breath." } },
+    worgen = { { id = "tp_worgen", text = "They eat one cart in five and both the drivers, and they've never once paid for the thread. I hold a grudge about that, as a businessman." } },
+    new_plague = { { id = "tp_plague", text = "I sell the vials. What goes in them is the apothecaries' business, and they've made it very clear it isn't mine." } },
     _none = { { id = "tp_none", text = "Oh, I don't know that one. Ask Bates; he hears everything over the counter." } },
   },
 }
@@ -355,7 +401,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Sarah Goode. I keep the stables, for whoever's beasts need keeping, and for the bats when Karos lets them out of his sight. It's quiet work, and that suits me." },
+        { id = "h_default", key = true, text = "Sarah Goode. I keep the stables, for whoever's beasts need keeping, and for the bats when Karos Razok, our bat handler, lets them out of his sight. It's quiet work, and that suits me." },
         { id = "h_scourge", when = { race = "Scourge", class = "HUNTER" }, text = "One of us, with a beast that trusts you anyway. That's a rare thing, and you should be proud of it, because most animals can smell the grave on us." },
       },
       again = {
@@ -396,14 +442,14 @@ P:NPC {
       big = true,
       lines = { { id = "ww_default", text = "A wolf howls to find its pack, and those things howl like they're hunting for something they lost and won't ever find. I've a soft heart for most beasts, but not for those, and I won't apologise for it." } },
       choices = {
-        { text = "They were men once. Pity them a little.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Then they should be hunted down, every one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They were men once. Pity them a little.", next = "BACK", reply = "A little, maybe, and I'll grant you that. The horses don't, though, and I trust the horses.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then they should be hunted down, every one.", next = "BACK", reply = "That's what the Deathguard say, and the horses agree. I'll keep the stables locked till it's done.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "worgen" } } },
       },
     },
   },
   topics = {
-    worgen = { { id = "tp_worgen", text = "My animals hate them, and my animals are better judges than I am." } },
+    worgen = { { id = "tp_worgen", text = "My animals hate the worgen, and my animals are better judges than I am." } },
     _none = { { id = "tp_none", text = "I wouldn't know. Ask the innkeeper, he collects gossip like a magpie." } },
   },
 }

@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_moon", when = { questActive = TODO_QUEST("Moontouched Wildkin") }, text = "Winterspring feathers, friend, the ones that have fallen in the snow. I can hardly sit still waiting for them." },
     { id = "g_answer", when = { questDone = TODO_QUEST("Wildkin of Elune") }, text = "I still think about what you found at that altar. Elune's own guardians, and we never knew!" },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and two of the chicks have flown their first circle of the harbour since. You missed it, I'm sorry to say." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 10 }, text = "You've grown a great deal since we first spoke on this pier. Like the chicks, really, except you complain less about being fed." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 10 }, text = "You've grown since we first spoke on this pier. Like the chicks, really, except you complain less about being fed." },
   },
 
   notice = {
@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_young", when = { maxLevel = 40 },
           text = "You're welcome to look around the nests, friend, though I'd not ask you to go chasing wildkin just yet. They are gentle right up until they decide you're a threat." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Favored of Elune?"), minLevel = 45 },
-          text = "I've heard of wildkin living wild in the Hinterlands, and I'd give a great deal for a bundle of their feathers. Will you gather some for me?" },
+          text = "I've heard of wildkin living wild in the Hinterlands, and their feathers would make the finest fletching Rut'theran has ever seen. Will you gather some for me?" },
         { id = "h_fav_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Favored of Elune?"), days = 3 } },
           text = "These feathers carry something, friend, a trace of power the creatures don't seem to wield at all. It's part of them, like the colour of their eyes." },
         { id = "h_moon_active", tags = { "news" }, when = { questActive = TODO_QUEST("Moontouched Wildkin") },
@@ -80,7 +80,7 @@ P:NPC {
     },
     eggs_curgle = {
       lines = {
-        { id = "ec_default", text = "She has a gift for it, and a great deal of energy, and she ships eggs halfway across the world in crates I'd never trust with a teacup. Not one has broken yet, which I count as a small miracle." },
+        { id = "ec_default", text = "She has a gift for it, and more energy than a hippogryph chick, and she ships eggs across the world in crates I'd never trust with a teacup. Not one has broken yet, which I count as a small miracle." },
       },
       choices = {
         { text = "Is she in Feralas too?", next = "eggs_where" },
@@ -103,8 +103,8 @@ P:NPC {
         { id = "wi_default", text = "Because they're rumoured to have been made by Elune, and nobody seems to have checked. Ferocious monsters or misguided pets, the hunters say, but I'd like to know the truth before we decide." },
       },
       choices = {
-        { text = "Some questions are better left to the priestesses.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Good. Somebody should ask instead of assuming.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some questions are better left to the priestesses.", next = "BACK", reply = "Perhaps, though the priestesses have had ten thousand years to answer it and haven't. I'm not inclined to wait another ten thousand.", fx = { align = { order = 1 } } },
+        { text = "Good. Somebody should ask instead of assuming.", next = "BACK", reply = "Exactly, and you would be astonished how few people say that around here. Go and look, and then tell me what you saw.", fx = { align = { order = -1 } } },
         { text = "What have you learned so far?", next = "wildkin_learned" },
       },
     },
@@ -115,7 +115,7 @@ P:NPC {
           text = "That the feathers you brought hold a power the wildkin never seem to use, as though it were given to them rather than learned. That's what makes me think of Elune." },
       },
       choices = {
-        { text = "A guardian of what?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Then I'd like to know what they're guarding.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,8 +135,8 @@ P:NPC {
         { id = "al_default", text = "That the wildkin in those caves were left to guard something sacred to Elune, and they've kept the watch longer than any of us remember. The Arch Druid will make of it what he likes, but I'll never look at an owlbeast the same way again." },
       },
       choices = {
-        { text = "Then we should stop hunting them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Guardians or not, they attack travellers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then we should stop hunting them.", next = "BACK", reply = "I would like that, and I think Elune might too. Tell the Sentinels, if you can make them listen.", fx = { align = { light = 1 } } },
+        { text = "Guardians or not, they attack travellers.", next = "BACK", reply = "They do, and I can't pretend they don't. Defend yourself, but don't go looking for more of them than you must.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -166,7 +166,7 @@ P:NPC {
     cenarion_circle = { { id = "tp_circle", text = "The Circle sends me eggs and questions, and I send back hippogryphs and more questions. It's a fair trade." } },
     teldrassil = { { id = "tp_tree", text = "Rut'theran sits at the tree's roots, so I get the sea air and the arrivals and none of the stairs. I wouldn't trade it." } },
     nordrassil = { { id = "tp_nordrassil", text = "The hippogryphs came down from Hyjal with us, and the old ones still turn their heads north when the wind's right. I think they miss the first tree as much as we do." } },
-    green_dragons = { { id = "tp_green_dragons", text = "The Circle says Ysera's flight was cool toward this tree, and I believe it. The wildkin here hatch a little restless, and I've wondered if that's why." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The Circle says Ysera's flight was cool toward this tree, and I believe it. The chicks here hatch a little restless, and I've wondered if that's why." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "I've walked the edge of the Dream once, and there were hippogryphs there as well, bigger and calmer than mine. I came back and fed mine extra, out of guilt." } },
     everlook = { { id = "tp_everlook", text = "Everlook's goblins have asked me twice to sell them hatchlings. They didn't like my answer either time." } },
     _none = { { id = "tp_none", text = "I'm afraid I know hippogryphs and wildkin and not much else, friend. Vesprystus might know; he talks to everyone who flies." } },

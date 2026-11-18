@@ -77,10 +77,10 @@ P:NPC {
     },
     pit_care = {
       big = true,
-      lines = { { id = "pc_default", text = "Don't spread that around, it'll ruin my reputation. Somebody's got to toss them in, and I'd rather it was someone who minds than someone who doesn't." } },
+      lines = { { id = "pc_default", text = "Don't spread that around, it'll ruin my reputation. Somebody's got to toss them in, and it ought to be someone who minds." } },
       choices = {
-        { text = "Then the dead are in good hands. Thank you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "They're just bodies, Alen. Stop thinking about it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then the dead are in good hands. Thank you.", next = "BACK", reply = "Shh, I said not to spread it. But thank you, all the same.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "They're just bodies, Alen. Stop thinking about it.", next = "BACK", reply = "I try, believe me, and it never works. Somebody has to mind, and I drew the short straw.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -140,6 +140,6 @@ P:NPC {
     stratholme = { { id = "tp_stratholme", text = "There are souls still wandering Stratholme that never got a proper burial, and it keeps me up some nights. Somebody ought to see to them, and it won't be me, because I'm not that brave." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "That's his necropolis up in the sky to the east, and I've learned not to look at it too long. It gives me a crick in the neck and a chill in the heart." } },
     holy_light = { { id = "tp_holy_light", text = "The chapel ground keeps the dead off it, and I thank the Light for that every morning. It's the only safe place I've slept in years." } },
-    _none = { { id = "tp_none", text = "How should I know? I shovel things. Ask the Duke, he reads." } },
+    _none = { { id = "tp_none", text = "How should I know? I shovel things. Ask Duke Zverenhoff, he reads." } },
   },
 }

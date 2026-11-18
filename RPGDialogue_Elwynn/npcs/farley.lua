@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_forsaken_pity", when = { gossip = { topic = "forsaken", stance = "pity" } }, text = "Wilhelm says you'd show mercy to the walking dead! He said it proudly, mind, and I'll take his word on it, since I'll never be brave enough to try." },
+    { id = "g_op_forsaken_pity", when = { gossip = { topic = "forsaken", stance = "pity" } }, text = "Brother Wilhelm says you'd show mercy to the walking dead! He said it proudly, mind, and I'll take his word on it, since I'll never be brave enough to try." },
     { id = "g_op_warchief", when = { opinion = { topic = "warchief", stance = "trust" } }, text = "Here's the one who trusts the orcs! Sit down, sit down; Dobbins has a bet that you've met one, and I'd like to know who wins." },
     { id = "g_welcome", text = "Welcome to the Lion's Pride! Sit anywhere the dog isn't." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back! Your usual corner's free." },
@@ -27,7 +27,7 @@ P:NPC {
 
   notice = {
     { id = "n_imp", cat = "pet", place = "before", when = { pet = { family = "Imp" } },
-      text = "Your imp doesn't sleep in the beds. I don't care what it promises you." },
+      text = "Your imp doesn't sleep in the beds, and I don't care what it promises you." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "That's enough for tonight, friend. Dobbins, bring water for this one, and some bread!" },
     { id = "n_away", cat = "guest", when = { homeInn = { "Goldshire", "Lion's Pride Inn" }, daysSince = { min = 14 } },
@@ -43,7 +43,7 @@ P:NPC {
   nodes = {
     op_orcs = {
       lines = {
-        { id = "op_orcs_a", text = "The old folk swear it every winter, when the wind's from the south. But the travellers say Thrall's orcs have a land of their own across the sea now, and they claim they only want to be left alone. Would you trust them, friend?" },
+        { id = "op_orcs_a", text = "The old folk swear they will every winter, when the wind's from the south. But the travellers say Thrall's orcs have a land of their own across the sea now, and they claim they only want to be left alone. Would you trust them, friend?" },
       },
       choices = {
         { text = "I would. Thrall freed his people. He's not the old Horde.", next = "op_orcs_1", fx = { opinion = { warchief = "trust", peace = "for" }, align = { light = 1 } } },
@@ -66,24 +66,24 @@ P:NPC {
       choices = { { text = "Pour me something, and let's talk of other things.", next = "BACK" } },
     },
     op_orcs_4 = {
-      lines = { { id = "op_orcs_r4", text = "Then you'll have that drink, and we'll not talk about orcs at all tonight. Frandis went north too, and I know what that question costs." } },
+      lines = { { id = "op_orcs_r4", text = "Then you'll have that drink, and we'll not talk about orcs at all tonight. My brother Frandis went north too, and I know what that question costs." } },
       choices = { { text = "Pour me something, and let's talk of other things.", next = "BACK" } },
     },
     xpt_farley = {
       big = true,
-      lines = { { id = "xpt_farley_default", text = "More than any inn in the kingdom, friend, and I've sent them off to the Fargodeep and Jasperlode and the Deadmines with a good meal in them. Some came back rich and some came back limping, and a few I still keep a candle for." } },
+      lines = { { id = "xpt_farley_default", text = "More than any inn in the kingdom, friend, and I've sent them off to Fargodeep and Jasperlode and the Deadmines with a good meal in them. Some came back rich and some came back limping, and a few I still keep a candle for." } },
       choices = {
-        { text = "Then let's drink to the ones who didn't come back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Those who didn't come back should have planned better.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then let's drink to the ones who didn't come back.", next = "BACK", reply = "Aye, let's, and I'll pour this one myself. To the ones who aren't here to complain about the ale.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Those who didn't come back should have planned better.", next = "BACK", reply = "Some of them planned very well, friend, and the Deadmines didn't care. I'll keep my candles lit.", fx = { align = { honor = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It's older than these walls, friend. My grandfather poured for soldiers in the First War. A dwarf shaman at my bar would have made him choke on his pipe." } },
+      lines = { { id = "xdsham_default", text = "Longer than these walls have stood, friend. My grandfather poured for soldiers in the First War, and a shaman at my bar would have made him choke on his pipe." } },
       choices = {
-        { text = "A family pride kept honest is worth a great deal, Farley.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Old pride won't fill new mugs, Farley.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A family pride kept honest is something to be proud of, Farley.", next = "BACK", reply = "It is, and I'll keep it that way as long as I'm pouring. Grandfather would've come round eventually.", fx = { align = { honor = 1 } } },
+        { text = "Old pride won't fill new mugs, Farley.", next = "BACK", reply = "No, but it keeps the mugs clean and the doors open. Have a drink and stop worrying about my pride.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -91,8 +91,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only the arm-wrestling, and Dobbins handles that with a bucket of water. Most warriors drink, sleep and go, and the good ones pay for what they break before I have to ask." } },
       choices = {
-        { text = "I'll pay for anything I break, Farley.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If it breaks under me, it wasn't built well.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll pay for anything I break, Farley.", next = "BACK", reply = "That's what I like to hear, and Dobbins will be glad of it too. The good ones always pay.", fx = { align = { honor = 1 } } },
+        { text = "If it breaks under me, it wasn't built well.", next = "BACK", reply = "Then you'll pay for that and the rebuilding both, friend. I built those tables myself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -100,25 +100,25 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Not the ones who stay, because Keryn Sylvius keeps his students in line and I keep the ale flowing, and we understand each other. It's the Defias passing through I worry about, though they never seem to stay for a second drink." } },
       choices = {
-        { text = "Your spoons are safe with me, Farley. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If you've spoons worth counting, someone will find a way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your spoons are safe with me, Farley. You have my word.", next = "BACK", reply = "I'll hold you to that, and I'll count them anyway. It's a habit by now.", fx = { align = { honor = 1 } } },
+        { text = "If you've spoons worth counting, someone will find a way.", next = "BACK", reply = "Someone always does, aye, and I've a ledger to prove it. Mind you don't let it be you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "The peace of it, when the woodcutters aren't hacking away. The trees are friendly here, and the deer walk right up to the inn's back door some evenings." } },
       choices = {
-        { text = "The woodcutters ought to leave more trees.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Stormwind needs the timber. That's honest work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The woodcutters ought to leave more trees.", next = "BACK", reply = "They should, and I've told them so, but they've orders from Stormwind. I keep the deer fed when I can.", fx = { align = { honor = -1 } } },
+        { text = "Stormwind needs the timber. That's honest work.", next = "BACK", reply = "It is, and I'll not argue with it, but I'd still like a few trees left for the deer. Have a drink.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More every season, and most of them pretend they're not hurt until they fall off the stool. Josetta does what she can upstairs, Melika keeps the water hot, and I keep the floor mopped, which is the least glamorous part of healing there is." } },
+      lines = { { id = "xapriest_default", text = "More every season, and most of them pretend they're not hurt until they fall off the stool. Priestess Josetta does what she can upstairs, Melika keeps the water hot, and I keep the floor mopped, which is the least glamorous part of healing there is." } },
       choices = {
-        { text = "Every part of healing matters, Farley. Even the mop.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "An inn's no infirmary. Send them up to the Abbey.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every part of healing matters, Farley. Even the mop.", next = "BACK", reply = "Bless you for that, and I'll tell Melika you said so. The mop doesn't get much credit.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "An inn's no infirmary. Send them up to the Abbey.", next = "BACK", reply = "The Abbey's a long walk for a man with a broken leg, friend. They can bleed on my floor for a bit.", fx = { align = { light = -1 } } },
         { text = "Something else, Farley.", next = "BACK" },
       },
     },
@@ -126,8 +126,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "He doesn't need to, most nights, because one look at him and the rowdy ones remember their manners. Mind, there was a night a lad in a red bandana pulled a knife over a card game, and Wilhelm took it off him and sat him down to finish his ale, which was more mercy than I'd have shown." } },
       choices = {
-        { text = "Wilhelm was right. Mercy can turn a man around.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Mercy to a Defias? That lad belonged in the stocks.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Wilhelm was right. Mercy can turn a man around.", next = "BACK", reply = "I'd like to think so, and maybe it did. He comes back now and then for a drink, and he pays.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mercy to a Defias? That lad belonged in the stocks.", next = "BACK", reply = "Maybe he did, but Wilhelm's never once been wrong in my hearing. I'll leave it to him.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -144,28 +144,28 @@ P:NPC {
         { id = "h_falkhaan", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rest and Relaxation"), days = 1 } },
           text = "Falkhaan sent you? Then take the good chair by the fire. Any friend of his is a friend of mine." },
         { id = "h_liked", when = { townStanding = { town = "goldshire", min = 30 } },
-          text = "Half the town's asked after you this week. The other half's jealous." },
+          text = "Half of Goldshire's asked after you this week, and the rest are jealous of the attention." },
         { id = "o_lovers", tags = { "news" }, when = { gossip = { topic = "maybell_tommy", stance = "romantic" } },
-          text = "William says you're all for young love. Good. Somebody in this town should be, besides him." },
+          text = "William Pestle says you're all for young love. Good, because somebody in this town should be, besides him." },
         { id = "h_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") },
-          text = "Stalvan? He did stay here, years back. Paid in coin, kept to himself, wrote letters he never sent." },
+          text = "Stalvan Mistmantle? He did stay here, years back, and he paid in coin, kept to himself and wrote letters he never sent." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Winds be with you! That's what your people say, isn't it? I've been practising, though Melika says I still don't say it right." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "A priest! Josetta's upstairs, if it's her you're after. If it's a drink you're after, I'll not tell her." },
+          text = "A priest! Priestess Josetta's upstairs, if it's her you're after, and if it's a drink you're after, I'll not tell her." },
         { id = "h_veteran", when = { minLevel = 20, metBefore = true },
           text = "Well, look who remembered the way! Sit, sit. You've the look of someone with stories, and I've the look of someone who wants them." },
         { id = "h_north", when = { origin = "human_lordaeron_refugee" },
           text = "From the north, are you? I can always tell. Northerners take the seat nearest the fire and never quite sit back in it." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A druid! Well, Elwynn's a fine forest to visit, though I expect ye've seen far older ones in Ashenvale." },
+          text = "A druid! Well, Elwynn's a fine forest to visit, though I expect you've seen far older ones in Ashenvale." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Welcome, welcome! I don't mind telling you I count the spoons at night, and it's nothing against you, it's only habit." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit yourself down; I'll not ask what you've been hitting, but my chairs are older than you, so go gently on them." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Lion's Pride! Sit, sit. I'll tell you now, I've never watered a drink in my life, and your spirits can check if they like." },
       },
       again = {
-        { id = "h_again", text = "What else, friend? So much to do, and I'd rather talk." },
+        { id = "h_again", text = "What else, friend? So much to do, and here I am talking instead." },
         { id = "h_again2", text = "Go on, go on. Dobbins can mind the bar a minute." },
         { id = "h_again3", text = "Anything else? I've a cheese to cut and a story to finish." },
       },
@@ -194,21 +194,21 @@ P:NPC {
     -- Rumors: local news, word from nearby, reactions to the player's own deeds.
     rumors = {
       lines = {
-        { id = "r_default", text = "Quiet week. In Goldshire that means three fights, a lost cow and one bard we asked to leave." },
+        { id = "r_default", text = "It's been a quiet week, which in Goldshire means three fights, a lost cow and one bard we asked to leave." },
         { id = "r_hogger", key = true, when = { questBefore = TODO_QUEST("WANTED: \"Hogger\"") },
-          text = "Another hunter went after Hogger yesterday. Came back on a cart. They always come back on a cart.",
+          text = "Another hunter went after Hogger, the big gnoll in the woods, and came back on a cart. They always come back on a cart.",
           fx = { hear = "hogger_unbeatable", learn = { "hogger" } } },
         { id = "r_hogger_you", when = { questRecent = { TODO_QUEST("WANTED: \"Hogger\""), days = 3 } },
           text = "They say someone finally put Hogger down. That wasn't you, was it? Sit, sit, and tell me everything.",
           tags = { "news" } },
         { id = "r_murlocs", key = true, when = { questBefore = TODO_QUEST("A Fishy Peril") },
-          text = "Remy's telling everyone there are murlocs in the eastern streams. Telling them twice, naturally.",
+          text = "Remy's telling everyone there are murlocs in the eastern streams, and telling them twice, naturally.",
           fx = { hear = "murlocs_in_elwynn", learn = { "murlocs_east" } } },
         { id = "r_lovers", when = { questActive = TODO_QUEST("Collecting Kelp") },
-          text = "William's been mixing something private upstairs that smells of the sea. I asked no questions, because I'm a good innkeeper.",
+          text = "William Pestle's been mixing something private upstairs that smells of the sea. I asked no questions, because I'm a good innkeeper.",
           fx = { learn = { "maybell_tommy" } } },
         { id = "r_necklace", when = { questActive = TODO_QUEST("Lost Necklace") },
-          text = "Auntie Bernice is telling the bar Billy Maclure stole her necklace. Billy's telling it he's hungry. Make of that what you will." },
+          text = "Bernice Stonefield is telling the bar that Billy Maclure stole her necklace, and Billy's telling it he's hungry. Make of that what you will." },
       },
       choices = {
         { text = "Who'd know more than you?", next = "rumors_who" },
@@ -220,12 +220,12 @@ P:NPC {
           journal = { first = "Told Farley I'd killed Hogger. He believed me. Half of Goldshire will by morning.",
                       third = "{name} told Innkeeper Farley they had killed Hogger." },
           fail = { next = "END", fx = { affinity = -2 } } },
-        { text = "I didn't kill Hogger, and I won't say I did.", next = "BACK", when = { questBefore = TODO_QUEST("WANTED: \"Hogger\""), heardClaim = "hogger_unbeatable" }, fx = { align = { honor = 2 } } },
+        { text = "I didn't kill Hogger, and I won't say I did.", next = "BACK", reply = "Ha, there's an honest one! You'd be the first in a month, and I'll drink to that.", when = { questBefore = TODO_QUEST("WANTED: \"Hogger\""), heardClaim = "hogger_unbeatable" }, fx = { align = { honor = 2 } } },
       },
     },
     rumors_who = {
       lines = {
-        { id = "rw_default", text = "Nobody! Well, Remy hears everything twice, Melika hears it once and remembers it, and the Marshal hears it last and does something about it." },
+        { id = "rw_default", text = "Nobody! Well, Remy hears everything twice, Melika hears it once and remembers it, and Marshal Dughan hears it last and does something about it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -242,7 +242,7 @@ P:NPC {
     },
     family = {
       lines = {
-        { id = "fa_default", text = "Verina, my wife, who keeps the books and keeps me honest. Anna, our girl, who keeps us both running. And me, keeping the fire in." },
+        { id = "fa_default", text = "There's Verina, my wife, who keeps the books and keeps me honest, and Anna, our girl, who keeps us both running. And there's me, keeping the fire in." },
       },
       choices = {
         { text = "Any other family?", next = "brother" },
@@ -268,7 +268,7 @@ P:NPC {
         { text = "Light keep Frandis, wherever he walks.", next = "brother_after", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 }, standing = { goldshire = 2 } },
           journal = { first = "Said a prayer for Farley's brother Frandis, lost on a caravan to Lordaeron in the plague year.",
                       third = "{name} prayed for Innkeeper Farley's brother, lost in Lordaeron." } },
-        { text = "Prayers never brought anyone home, Farley, and I'm sorry for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Prayers never brought anyone home, Farley, and I'm sorry for it.", next = "BACK", reply = "I know, and I'll not press you. Verina will light her candle anyway, same as always.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -298,7 +298,7 @@ P:NPC {
 
     food = {
       lines = {
-        { id = "fo_default", text = "Cheese! Dalaran sharp, Alterac swiss, and a Stormwind brie I'd fight a gnoll for. Tomas's stew, if Melika's left any. Ice-cold milk for the young ones." },
+        { id = "fo_default", text = "Cheese, first of all: Dalaran sharp, Alterac swiss and a Stormwind brie I'd fight a gnoll for. Then there's Tomas's stew, if Melika's left any, and ice-cold milk for the young ones." },
       },
       choices = {
         { text = "The brie, then.", next = "BUSINESS", fx = { affinity = 1 } },
@@ -308,7 +308,7 @@ P:NPC {
 
     trouble = {
       lines = {
-        { id = "tr_default", text = "Brawls, now and then. I've big hands for a reason, and I use them before Dobbins has to. Most nights the worst trouble is a bard." },
+        { id = "tr_default", text = "Brawls, now and then, and I've big hands for a reason, and I use them before Dobbins has to. Most nights the worst trouble is a bard." },
       },
       choices = {
         { text = "Anything stranger?", next = "messenger" },
@@ -317,7 +317,7 @@ P:NPC {
     },
     messenger = {
       lines = {
-        { id = "me_default", text = "Once, on a stormy night years back. A messenger took a room upstairs, and at midnight he came down those stairs screaming in his nightshirt and ran out into the rain." },
+        { id = "me_default", text = "Once, on a stormy night years back, a messenger took a room upstairs, and at midnight he came down those stairs screaming in his nightshirt and ran out into the rain." },
       },
       choices = {
         { text = "What frightened him?", next = "messenger_why" },
@@ -332,9 +332,9 @@ P:NPC {
     },
     messenger_back = {
       lines = {
-        { id = "mb_default", text = "Never. His letters are still in the chest up there. I keep meaning to send them on. I keep not knowing where." },
+        { id = "mb_default", text = "He never did, and his letters are still in the chest up there. I keep meaning to send them on, and I keep not knowing where." },
         { id = "mb_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") },
-          text = "Never. His letters are still in the chest upstairs. One of them's from that Stalvan fellow you're asking after. Go and look. It's past time somebody did.",
+          text = "He never did, and his letters are still in the chest upstairs, one of them from that Stalvan fellow you're asking after. Go and look; it's past time somebody did.",
           fx = { learn = { "stalvan" } } },
       },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -349,7 +349,7 @@ P:NPC {
 
     cellar = {
       lines = {
-        { id = "ce_default", text = "Barrels. And tenants who pay on time and don't break the furniture. I go as far as the barrels. I don't ask past them." },
+        { id = "ce_default", text = "Barrels, and tenants who pay on time and don't break the furniture. I go as far as the barrels, and I don't ask past them." },
       },
       choices = {
         { text = "Wise man.", next = "BACK", fx = { affinity = 1 } },
@@ -383,7 +383,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     mage = {
-      lines = { { id = "mage_l", text = "Wefhellt? Every evening, when the singing starts, and every evening I tell him it's an inn, not a library. He tried a silencing spell on the common room once, and I'll not have that, not in the Lion's Pride." } },
+      lines = { { id = "mage_l", text = "Zaldimar Wefhellt? He complains every evening, when the singing starts, and every evening I tell him it's an inn, not a library. He tried a silencing spell on the common room once, and I'll not have that, not in the Lion's Pride." } },
       choices = {
         { text = "Quite right. An inn should be loud.", next = "BACK", fx = { affinity = 1 } },
         { text = "A little quiet wouldn't hurt anyone.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -398,9 +398,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Fredrik Farley, of the Lion's Pride, like my father and his before him. The inn's the real story; I just pour.", next = "inn" } },
     advice = { { id = "tp_ad", text = "Eat something hot, sleep somewhere dry, and never pick a fight in another man's inn, especially mine." } },
     lions_pride = { { id = "t_inn", text = "Best inn between Stormwind and Lakeshire, and I'll argue with anyone who says otherwise, politely." } },
-    defias = { { id = "t_defias", text = "They rob travelers on the Westfall road. Bad for business, worse for the travelers." } },
-    hogger = { { id = "t_hogger", text = "Can't be killed, they say. Every hunter that tries comes back on a cart.", fx = { hear = "hogger_unbeatable" } } },
-    murlocs_east = { { id = "t_murlocs", text = "Remy swears by it. Remy swears by a lot of things." } },
+    defias = { { id = "t_defias", text = "The Defias rob travelers on the Westfall road, which is bad for business and worse for the travelers." } },
+    hogger = { { id = "t_hogger", text = "Hogger can't be killed, they say, and every hunter that tries comes back on a cart.", fx = { hear = "hogger_unbeatable" } } },
+    murlocs_east = { { id = "t_murlocs", text = "Remy swears there are murlocs in the east, but Remy swears by a lot of things." } },
     the_collector = { { id = "t_collector", text = "Some rider paid me in gold dust once, gold dust of all things, and I never saw him again." } },
     gold_dust = { { id = "t_dust", text = "Remy buys it, Remy sells it, Remy talks about it. Mostly he talks about it." } },
     stalvan = { { id = "tp_stalvan", text = "He stayed a few nights, years back, a quiet man. The messenger who ran off screaming was carrying one of his letters.", next = "messenger_back" } },

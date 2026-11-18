@@ -16,7 +16,7 @@ P:Thread {
   story = {   -- the journal's Stories page, by state
     stirring = { first = "Apothecary Johaan says the Royal Apothecary Society is making a new plague, a Forsaken one, and every bottle he fills in Brill goes on down the road toward the Undercity. It's meant for the Scourge, he says, and he says it quickly.",
       third = "{name} heard Apothecary Johaan in Brill speak of a new plague, made by Forsaken hands and meant for the Scourge." },
-    unfolding = { first = "Johaan's fields, Renferrel's forest and Lydon's colloid all end up on Master Apothecary Faranell's bench, and the Dark Lady calls the result a fitting answer to the plague that made her people. Even Thrall has asked me what they're brewing beneath Lordaeron.",
+    unfolding = { first = "Johaan's crops from Brill, Renferrel's samples from Silverpine and Lydon's colloid from Tarren Mill all end up on Master Apothecary Faranell's bench, and the Dark Lady calls the result a fitting answer to the plague that made her people. Even Thrall has asked me what they're brewing beneath Lordaeron.",
       third = "{name} followed the Royal Apothecary Society's work from Brill to the Apothecarium, and Thrall himself asked {name} what was being brewed beneath Lordaeron." },
     resolved = { first = "I told Thrall the Society's plague is aimed at the Scourge. He said he'd take that as a warrior's word, and hold the Dark Lady to it until she gave him a reason not to.",
       third = "{name} told Thrall the Forsaken plague was aimed at the Scourge, and the Warchief took it as a warrior's word." },
@@ -31,7 +31,7 @@ P:Thread {
   },
   pacing = { minConversations = 3, minSeconds = 1200 },
   reflection = {
-    first = "Brill, the Sepulcher, the Apothecarium: every apothecary I've met says the new plague is for the Scourge, and every one of them says it a little too quickly.",
+    first = "Brill, the Sepulcher, the Apothecarium: every apothecary I've met says the new plague is for the Scourge, and they all say it a little too quickly.",
     third = "{name} had heard from three apothecaries that the new plague was meant for the Scourge, and had noticed how quickly each of them said it.",
   },
   beats = {
@@ -52,7 +52,7 @@ P:Thread {
       id = "b3_faranell", npc = "faranell",
       when = { any = { { thread = { id = "new_plague", beat = "b2_renferrel" } }, { questActive = TODO_QUEST("A Recipe For Death") } },
                ["not"] = { thread = { id = "new_plague", beat = "b3_faranell" } } },
-      text = "Brill sends me its fields, the Sepulcher sends me its forest, and Tarren Mill sends me Lydon's colloid with a note about his frog, and all of it ends up here on my bench! Every drop is a little of the Scourge's own plague turned round to face them, and isn't that marvellous?",
+      text = "Brill sends me its crops, the Sepulcher sends me what grows in Silverpine, and Lydon sends his colloid from Tarren Mill, and all of it ends up here on my bench! Every drop is a little of the Scourge's own plague turned round to face them, and isn't that marvellous?",
       fx = { thread = { id = "new_plague", beat = "b3_faranell", state = "unfolding" }, learn = { "new_plague" } },
     },
     {
@@ -73,7 +73,7 @@ P:Thread {
       when = { faction = "Horde",
                any = { { thread = { id = "new_plague", beat = "b3_faranell" } }, { thread = { id = "new_plague", beat = "b5_sylvanas" } } },
                ["not"] = { thread = { id = "new_plague", beat = "b6_thrall" } } },
-      text = "You've been beneath Lordaeron, and you carry the Apothecarium's smell into my hall. I took the Forsaken into the Horde with my eyes open, but I watched the last plague empty a kingdom, so when you're ready, tell me honestly what they're brewing down there.",
+      text = "You've been beneath Lordaeron, and you carry the Apothecarium's smell into my hall. I took the Forsaken into the Horde with my eyes open, but I watched the last plague empty a kingdom, so when you're ready, tell me plainly what they're brewing down there.",
       fx = { thread = { id = "new_plague", beat = "b6_thrall", state = "unfolding" } },
     },
   },
@@ -137,7 +137,7 @@ P:Thread {
       id = "b5_wallace", npc = "wallace",
       when = { any = { { thread = { id = "arugal_wolves", beat = "b1_hadrec" } }, { thread = { id = "arugal_wolves", beat = "b2_yorick" } } },
                ["not"] = { thread = { id = "arugal_wolves", beat = "b5_wallace" } } },
-      text = "The howling's changed since spring, friend. It used to be one wolf and then another whenever they pleased, and now they call in turn, one after the other, like men answering a roll.",
+      text = "The howling's changed since spring, friend. It used to be one wolf and then another whenever they pleased, and now they call in turn, one after the other, like soldiers answering a roll call.",
       fx = { thread = { id = "arugal_wolves", beat = "b5_wallace" } },
     },
     {

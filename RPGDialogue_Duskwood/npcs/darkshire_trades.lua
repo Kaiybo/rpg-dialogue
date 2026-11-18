@@ -19,10 +19,10 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They do, and so do I, honestly. Your wind spirits might steady them in flight." } },
+      lines = { { id = "xdsham_default", text = "They do, and so do I, most nights. Your wind spirits might steady them in flight." } },
       choices = {
-        { text = "Then keep them steady, Felicia. They need you.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Gryphons should be brave. Train them harder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then keep them steady, Felicia. They need you.", next = "BACK", reply = "I'll do my best, though some nights it's me who needs steadying more than them. Thank you for the kind word.", fx = { align = { order = 1 } } },
+        { text = "Gryphons should be brave. Train them harder.", next = "BACK", reply = "You can't train the fear out of a bird that sees wolves under its roost every night. Kindness works better, though it's slower.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -32,8 +32,8 @@ P:NPC {
         { id = "xlock_default", text = "Because they'd throw it, and you with it, somewhere over Stranglethorn, and I'd have to explain that to the flight master in Booty Bay. They smell things the rest of us can't, and the smell on your sort sets them screaming in the roost all night." },
       },
       choices = {
-        { text = "Then the demon walks. Your birds know best.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your birds will learn to carry what I tell them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the demon walks. Your birds know best.", next = "BACK", reply = "Thank you, truly, and the birds will thank you by not screaming. There's a decent road east, if you keep to it.", fx = { align = { order = 1 } } },
+        { text = "Your birds will learn to carry what I tell them.", next = "BACK", reply = "They'll learn to drop you over Stranglethorn, more like. You're welcome to try, but I won't be cleaning up afterward.", fx = { align = { order = -1 } } },
         { text = "Something else, Felicia.", next = "BACK" },
       },
     },
@@ -43,8 +43,8 @@ P:NPC {
         { id = "xmage_default", text = "They mind the cold that comes off some of you, and they mind it when a rider starts casting halfway to Lakeshire, which one of your lot did last year. Sit still, keep your hands in your lap, and they'll carry you anywhere the Alliance has a roost." },
       },
       choices = {
-        { text = "I'll sit still and keep my hands in my lap.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If the bird balks, I'll make my own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll sit still and keep my hands in my lap.", next = "BACK", reply = "Good, and they'll carry you smooth as a summer breeze. I wish more of your lot listened.", fx = { align = { order = 1 } } },
+        { text = "If the bird balks, I'll make my own way.", next = "BACK", reply = "Suit yourself, though the road through Duskwood is longer and darker than the sky. The roost will be here if you change your mind.", fx = { align = { order = -1 } } },
         { text = "Something else, Felicia.", next = "BACK" },
       },
     },
@@ -54,8 +54,8 @@ P:NPC {
         { id = "xrogue_default", text = "Now and then, and I don't ask, because a flight's paid for in coin and not in answers. But the gryphons know when a rider's nervous, and the nervous ones always seem to be heading somewhere Commander Ebonlocke would want to hear about." },
       },
       choices = {
-        { text = "Then perhaps the Commander should hear about them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Best you keep not asking, Felicia.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then perhaps the Commander should hear about them.", next = "BACK", reply = "Maybe she should, and maybe I'll mention it next time she's by. I just keep the birds; she keeps the town.", fx = { align = { order = 1 } } },
+        { text = "Best you keep not asking, Felicia.", next = "BACK", reply = "I'll keep not asking, then, as long as nobody gives me a reason to. The birds might tell me anyway.", fx = { align = { order = -1 } } },
         { text = "Something else, Felicia.", next = "BACK" },
       },
     },
@@ -63,8 +63,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only as far as the next roost, and that's as close to the fight as I'll send them. A gryphon's a mount, not a war beast, and these birds have seen enough of Duskwood's dark already." } },
       choices = {
-        { text = "Then I'll walk to the fight and spare your birds.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A mount's a mount. It should carry me where I need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll walk to the fight and spare your birds.", next = "BACK", reply = "That's kind of you, and the birds would thank you if they could. Most riders don't think of them at all.", fx = { align = { honor = 1 } } },
+        { text = "A mount's a mount. It should carry me where I need.", next = "BACK", reply = "Carry you, yes, into a fight, no. If you want a war beast, find one somewhere else.", fx = { align = { honor = -1 } } },
         { text = "Something else, Felicia.", next = "BACK" },
       },
     },
@@ -72,20 +72,20 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because they howl from every side at once, and a gryphon can't see where the danger's coming from in this dark. I've lost two birds to bolting this year, and both of them were good, steady flyers before." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has my birds watching it, {class}, and I can't say they look pleased. Keep it on the far side of the roost." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because they howl from every side at once, and a gryphon can't see where the danger's coming from in this dark. Your {pet} has my birds watching it too, {class}, so keep it on the far side of the roost." },
       },
       choices = {
-        { text = "I'll hunt the wolves near the roost so the birds can rest.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your birds will toughen up. Mine did.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt the wolves near the roost so the birds can rest.", next = "BACK", reply = "Would you? Then I'll sleep through a night for once, and so will they. Thank you.", fx = { align = { honor = 1 } } },
+        { text = "Your birds will toughen up. Mine did.", next = "BACK", reply = "Maybe yours did, but mine are hill birds, and this wood isn't natural. Patience, not toughness.", fx = { align = { honor = -1 } } },
         { text = "Something else, Felicia.", next = "BACK" },
       },
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Now and then, wrapped and strapped, to families in Stormwind who'd rather bury their own. The birds go quiet on those flights, every one of them, and I've never had to tell them why." } },
+      lines = { { id = "xapriest_default", text = "Now and then, wrapped and strapped, to families in Stormwind who'd rather bury their own. The birds go quiet on those flights, even the noisy ones, and I've never had to tell them why." } },
       choices = {
-        { text = "That's a kindness, Felicia. The dead deserve to go home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Bury them here. The living need those birds more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's a kindness, Felicia. The dead deserve to go home.", next = "BACK", reply = "It is, and the families write back sometimes, which is more than Stormwind does. Thank you for understanding.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bury them here. The living need those birds more.", next = "BACK", reply = "That's practical, I suppose, and a few families would agree with you. But I'll not refuse a mother her son.", fx = { align = { light = -1 } } },
         { text = "Something else, Felicia.", next = "BACK" },
       },
     },
@@ -93,8 +93,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Faster, yes, but Stormwind reads gryphon post just as slowly as the ordinary sort. Lord Ebonlocke has me fly his petitions north twice a week, and the birds come back with nothing but fewer feathers." } },
       choices = {
-        { text = "Keep sending them. Stormwind must answer in time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Stop asking Stormwind. Darkshire must save itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep sending them. Stormwind must answer in time.", next = "BACK", reply = "I will, as long as Lord Ebonlocke asks. The birds don't mind the flight, only the empty return.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stop asking Stormwind. Darkshire must save itself.", next = "BACK", reply = "Maybe it must, though I don't know what with. I'll keep flying the letters, all the same.", fx = { align = { order = -1 } } },
         { text = "Something else, Felicia.", next = "BACK" },
       },
     },
@@ -102,8 +102,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "They're hill birds, bred under open sky, and this forest keeps the sun out from dawn to dusk, so they never properly wake up. They sleep badly too, because the wolves howl right under the roost." } },
       choices = {
-        { text = "Keep them on their schedule. They'll adjust in time.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fly them out to the open hills each week for the sun.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Keep them on their schedule. They'll adjust in time.", next = "BACK", reply = "Maybe, but they've had three years and they're still sleepy. Patience has its limits, even for a gryphon.", fx = { align = { order = 1 } } },
+        { text = "Fly them out to the open hills each week for the sun.", next = "BACK", reply = "That's a lovely thought, and I'd do it if I had the hours. Maybe in the spring, when the roads are quieter.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -151,8 +151,8 @@ P:NPC {
     a2 = {
       lines = { { id = "a2_default", text = "One, last winter, that came down near Raven Hill and never came back up. The Night Watch wouldn't go and look for it, and I can't say I blame them." } },
       choices = {
-        { text = "Someone should have gone. Every life matters, even a beast's.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "The Watch was right. You don't risk men for a bird.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Someone should have gone. Every life matters, even a beast's.", next = "BACK", reply = "I thought so too, and I went myself, though not far. I found feathers and nothing else.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "The Watch was right. You don't risk men for a bird.", next = "BACK", reply = "I know it, and I told myself the same. It still doesn't sit right with me.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -187,10 +187,10 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Nothing I sell, honestly. But a shaman's lightning might keep the dead at bay a little longer." } },
+      lines = { { id = "xdsham_default", text = "Nothing I sell, I'm sorry to say, though a shaman's lightning might keep the dead at bay a little longer." } },
       choices = {
-        { text = "Then I'll fight with honest steel and lightning both.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If nothing's ever enough, there's no point bothering.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll fight with honest steel and lightning both.", next = "BACK", reply = "Then you'll last longer than most, and I'll sell you the steel to do it with. The lightning's your business.", fx = { align = { honor = 1 } } },
+        { text = "If nothing's ever enough, there's no point bothering.", next = "BACK", reply = "Then don't bother, and see how long you last. I'll keep selling to the ones who do.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -200,8 +200,8 @@ P:NPC {
         { id = "xlock_default", text = "I'll sell to anyone fighting what's in that wood, and I'll not ask who taught you your tricks. But if I hear you've been up at Raven Hill doing what Morbent Fel did, I'll come looking for you myself, and I'll bring the axe." },
       },
       choices = {
-        { text = "Fair. If I ever go that far, come and find me.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Morbent Fel had power, Gavin. Don't pretend otherwise.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fair. If I ever go that far, come and find me.", next = "BACK", reply = "That's an honest answer, and I'll hold you to it. Buy what you need, and keep your hands clean.", fx = { align = { light = 1 } } },
+        { text = "Morbent Fel had power, Gavin. Don't pretend otherwise.", next = "BACK", reply = "Aye, he did, and look where it got him, and Raven Hill. Power's no excuse.", fx = { align = { light = -1 } } },
         { text = "Something else, Gavin.", next = "BACK" },
       },
     },
@@ -211,8 +211,8 @@ P:NPC {
         { id = "xmage_default", text = "A short blade, always, because spells run out and a worgen doesn't wait for you to catch your breath. I sold a dagger to a mage from Stormwind last autumn, and he laughed at me, and he came back a month later and bought a second one without saying a word." },
       },
       choices = {
-        { text = "Then I'll buy the dagger, Gavin, and learn to use it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If my spells run out, a dagger won't save me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll buy the dagger, Gavin, and learn to use it.", next = "BACK", reply = "Then you'll be the first mage who listened the first time. Keep it close, and keep it sharp.", fx = { align = { order = 1 } } },
+        { text = "If my spells run out, a dagger won't save me.", next = "BACK", reply = "It might, if you stop laughing long enough to draw it. The one from Stormwind learned that.", fx = { align = { order = -1 } } },
         { text = "Something else, Gavin.", next = "BACK" },
       },
     },
@@ -222,8 +222,8 @@ P:NPC {
         { id = "xrogue_default", text = "They'll bite, if you put them in the right place, which is under the arm or behind the knee, and not in the back like your lot always want to. A worgen's back is all muscle and fur, and the last man who tried it is buried up by the cemetery road." },
       },
       choices = {
-        { text = "Then I'll face it and go for the knee.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The back has always served me, Gavin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll face it and go for the knee.", next = "BACK", reply = "Then you'll come back, which is more than the last one did. The knee, remember.", fx = { align = { honor = 1 } } },
+        { text = "The back has always served me, Gavin.", next = "BACK", reply = "It has, I'm sure, against men. Worgen are another matter, and I'll say a word at your grave.", fx = { align = { honor = -1 } } },
         { text = "Something else, Gavin.", next = "BACK" },
       },
     },
@@ -231,20 +231,20 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "An axe, every time, because a ghoul doesn't stop for a cut but it stops for a missing limb. Swords are prettier, and most of the Watch carry them, but I'd rather be ugly and alive." } },
       choices = {
-        { text = "An axe, then. Practical over pretty, every time.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll keep my sword. Skill wins more than weight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "An axe, then. Practical over pretty, every time.", next = "BACK", reply = "That's the spirit, and the axe will thank you. Ugly and alive, that's Duskwood's creed.", fx = { align = { order = 1 } } },
+        { text = "I'll keep my sword. Skill wins more than weight.", next = "BACK", reply = "Skill wins, sometimes, until the ghoul keeps coming. Keep it sharp, at least.", fx = { align = { order = -1 } } },
         { text = "Something else, Gavin.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Skinning knives, belt knives and a few good long knives for the close work, because a bow's no use at arm's length. In this wood, you'll be at arm's length more often than you'd think." },
+        { id = "xhuntcl_default", text = "Skinning knives, belt knives and a few good long knives for the close work, because a bow's no use at arm's length. In this wood, you'll be at arm's length more often than you'd like." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} is a good blade in its own right, {class}, and better than half of what I've got in stock." },
       },
       choices = {
-        { text = "One good knife, well kept. That's all a hunter needs.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll take three. You never know which one you'll lose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "One good knife, well kept. That's all a hunter needs.", next = "BACK", reply = "That's a hunter talking, and one who's been at arm's length before. I'll pick you a good one.", fx = { align = { order = 1 } } },
+        { text = "I'll take three. You never know which one you'll lose.", next = "BACK", reply = "Three, and you'll still lose one, I'd wager. Wise choice, all the same.", fx = { align = { order = -1 } } },
         { text = "Something else, Gavin.", next = "BACK" },
       },
     },
@@ -252,8 +252,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "The careful ones do, for sharpening, and the rest I hear about when Commander Ebonlocke reads out the names. I've stopped asking myself which blade each of them carried." } },
       choices = {
-        { text = "I'll pray for the ones who don't come back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Good blades can't save careless fighters, Gavin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll pray for the ones who don't come back.", next = "BACK", reply = "That's kind, priest, and Light knows they need it. I'll keep sharpening for the living.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Good blades can't save careless fighters, Gavin.", next = "BACK", reply = "No, they can't, and that's what keeps me up at night. A good blade is only half of it.", fx = { align = { light = -1 } } },
         { text = "Something else, Gavin.", next = "BACK" },
       },
     },
@@ -261,8 +261,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Something blunt and heavy, because a blade slips between old bones and the dead don't bleed. A good mace caves them in, and I'd put one in every watcher's hand if Stormwind ever paid for the iron." } },
       choices = {
-        { text = "Arm the Watch first. I'll make do with what I carry.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Sell me your best one. My work matters more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Arm the Watch first. I'll make do with what I carry.", next = "BACK", reply = "That's generous, and the Watch will need every mace I can make. I'll remember you said it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sell me your best one. My work matters more.", next = "BACK", reply = "Your work, eh? I'll sell you one, but don't come telling me you're worth more than a watcher.", fx = { align = { honor = -1 } } },
         { text = "Something else, Gavin.", next = "BACK" },
       },
     },
@@ -270,8 +270,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Claws against claws is a fair fight, and a fair fight against a worgen is one you'll lose, because they don't tire. A good axe ends it before it gets fair, and that's the only edge I sell." } },
       choices = {
-        { text = "Then I'll fight fair, with my own claws, and win.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fair is for tourney grounds. I'll take every edge.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Then I'll fight fair, with my own claws, and win.", next = "BACK", reply = "You might, being what you are, and I hope you do. I'll keep the axe ready just in case.", fx = { align = { honor = 1 } } },
+        { text = "Fair is for tourney grounds. I'll take every edge.", next = "BACK", reply = "Now that's Duskwood thinking, and I'll sell you every edge I've got. Fair dies young out here.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -319,8 +319,8 @@ P:NPC {
     a2 = {
       lines = { { id = "a2_default", text = "Something blunt, because bones don't bleed. Some say the Light does better than any mace, but I've never sold a prayer and I won't start now." } },
       choices = {
-        { text = "Faith is the better weapon. Steel only finishes the job.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Steel is what keeps this town alive, not prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Faith is the better weapon. Steel only finishes the job.", next = "BACK", reply = "Maybe it is, and I'll not argue with a priest. But I'll still sell the steel to finish the job.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Steel is what keeps this town alive, not prayers.", next = "BACK", reply = "It is, and it always has been, though the priests won't say so. I'll keep the forge hot.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

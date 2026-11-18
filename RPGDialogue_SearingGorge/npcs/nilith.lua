@@ -14,10 +14,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_hammer", when = { gossip = { topic = "twilights_hammer", stance = "redeemable" } }, text = "The ghost in the cage tells anyone who'll listen that you think the Hammer's idolaters can be saved. I'd sooner save the spiders, but it's your time to waste." },
+    { id = "g_op_hammer", when = { gossip = { topic = "twilights_hammer", stance = "redeemable" } }, text = "Zamael, the caged ghost up on Firewatch Ridge, tells anyone who'll listen that you think the Hammer's idolaters can be saved. I'd sooner save the spiders, but it's your time to waste." },
     { id = "g_default", text = "Mind Raze; he's harmless unless I say otherwise, and I rarely say otherwise to people who are useful." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still in one piece. Good, I prefer my helpers that way." },
-    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the spiders have spun a great deal in that time. Someone always comes to take it, so I'm glad you're back." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the spiders have spun whole sheets of silk in that time. Someone always comes to take it, so I'm glad you're back." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Word is you've annoyed someone in the Gorge. That's fine, so long as it wasn't one of my spiders." },
   },
 
@@ -55,7 +55,7 @@ P:NPC {
         { text = "Tell me about Raze.", next = "raze" },
         { text = "Why live here, so near Blackrock Mountain?", next = "camp" },
         { text = "How do you weave shadow silk?", next = "xtailor", when = { profession = "Tailoring" } },
-        { text = "Binding an infernal takes more than most warlocks have.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Few warlocks have the nerve to bind an infernal.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your silk.", next = "END" },
       },
     },
@@ -83,8 +83,8 @@ P:NPC {
         { id = "sj_default", text = "For the craft, and for the spiders, and yes, for profit, in no particular order. I asked you to end them, not to like it, and you're free to think what you please about me." },
       },
       choices = {
-        { text = "Poachers knew the risk. Their deaths are on them.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Killing men over thread is too much.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Poachers knew the risk. Their deaths are on them.", next = "BACK", reply = "They did, and they knew it, and I'm glad you see it plainly. The spiders will rest easier.", fx = { align = { light = -1 } } },
+        { text = "Killing men over thread is too much.", next = "BACK", reply = "Too much for you, perhaps, and I'll not ask you to like it. They were killing the spiders for less.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -105,8 +105,8 @@ P:NPC {
           text = "They undercut honest merchants, they bought from my poachers, and they armed the Dark Iron. You struck them a decisive blow, and their leaders will think twice before sending more cronies to this gorge." },
       },
       choices = {
-        { text = "An honest trade deserves protecting.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Honest? You're just clearing out rivals.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "An honest trade deserves protecting.", next = "BACK", reply = "It does, and I'm glad someone outside the trade understands it. Vizzklick will drink to you.", fx = { align = { order = 1 } } },
+        { text = "Honest? You're just clearing out rivals.", next = "BACK", reply = "Rivals who sell to the Dark Iron, yes, and I'll not apologise for it. Think what you like.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -149,8 +149,8 @@ P:NPC {
         { id = "xt_default", text = "Slowly, with a cold needle and a colder temper, and you must spin it while it's still a little warm from the rock, or it frays. I'll not tell you more than that for free, since a tailor's secrets are her living." },
       },
       choices = {
-        { text = "Then I'll earn them, a stitch at a time.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Craft should be shared, not hoarded.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll earn them, a stitch at a time.", next = "BACK", reply = "That's the only way it's ever learned, and I'll respect you for trying. Come back when your fingers bleed.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Craft should be shared, not hoarded.", next = "BACK", reply = "Shared with whom, the poachers? My craft keeps me alive, and I'll keep it close.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -160,8 +160,8 @@ P:NPC {
         { id = "xl_default", text = "The same way you bound yours, only with more patience and a much bigger circle. Infernals respect strength and nothing else, so the binding is the easy part, and convincing him he's still bound every morning is the work." },
       },
       choices = {
-        { text = "Power is for using. I'd bind one too.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some powers are best left uncalled.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is for using. I'd bind one too.", next = "BACK", reply = "Then mind the circle, and mind your patience, because he'll test both every morning. I'll not pull you out of the ashes.", fx = { align = { light = -1 } } },
+        { text = "Some powers are best left uncalled.", next = "BACK", reply = "Some are, and I'll not argue with you. But someone has to keep the gorge's beasts in line, and mine is very good at it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -18,7 +18,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Well met, traveller. I wish I came to Southshore bearing better news." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Good; there are fewer of you willing to listen than I'd hoped." },
-    { id = "g_sent", when = { questDone = TODO_QUEST("An Alarming Request") }, text = "Modera tells me you answered. The Kirin Tor won't say thank you aloud, so I'll say it for them." },
+    { id = "g_sent", when = { questDone = TODO_QUEST("An Alarming Request") }, text = "Archmage Modera tells me you answered her call. The Kirin Tor won't say thank you aloud, so I'll say it for them." },
   },
 
   notice = {
@@ -34,8 +34,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Some would, and with the best intentions, because the magi have long thought of the elements as forces to be measured rather than spirits to be asked. Dalaran needs friends just now more than it needs curiosities, so if anyone in a violet robe asks to take notes, remember that I warned you kindly." } },
       choices = {
-        { text = "Knowledge shared helps everyone. Let them take their notes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The elements aren't for measuring. Dalaran can keep its notes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Knowledge shared helps everyone. Let them take their notes.", next = "BACK", reply = "A generous view, and one my masters would applaud. I only hope the elements are as patient with their notes as you are.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements aren't for measuring. Dalaran can keep its notes.", next = "BACK", reply = "I suspect you're right, though I'd not say so in the Violet Citadel. Some things are better left unmeasured.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -43,8 +43,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because the Syndicate and the ogres don't care which of us they hurt, and the forests around Alterac suffer as much as our walls. I know the kaldorei mistrust magic, and I don't blame them, but I'd ask you to judge us by what we do now." } },
       choices = {
-        { text = "Then I'll judge Dalaran by its deeds, and nothing else.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Mages broke the world once. I won't help them again.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll judge Dalaran by its deeds, and nothing else.", next = "BACK", reply = "That's all Dalaran can ask, and more than most will give us. I'll try to see our deeds are worth judging.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Mages broke the world once. I won't help them again.", next = "BACK", reply = "We did, and we've paid for it more than once. I can't argue with you, only ask you to look at who's suffering now.", fx = { align = { honor = -1 } } },
         { text = "Something else, Emissary.", next = "BACK" },
       },
     },
@@ -52,8 +52,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Hold the roads around Dalaran, chiefly, because the Syndicate camp on them and the Kirin Tor will not leave their towers to drive them off. I'm not permitted to say how few guards we have left, which I suppose tells you, so please don't repeat it." } },
       choices = {
-        { text = "Dalaran's walls are worth defending. I'd stand on them.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Dalaran hid behind its dome for years. Let mages guard mages.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Dalaran's walls are worth defending. I'd stand on them.", next = "BACK", reply = "Then you'd have the gratitude of the Kirin Tor, for whatever that's worth these days. More than you'd think, I hope.", fx = { align = { honor = 1 } } },
+        { text = "Dalaran hid behind its dome for years. Let mages guard mages.", next = "BACK", reply = "I can't entirely blame you for that, and I've said as much to the council. Still, the Syndicate don't only rob mages.", fx = { align = { honor = -1 } } },
         { text = "Something else, Emissary.", next = "BACK" },
       },
     },
@@ -61,11 +61,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "If you find him, or what's left of him, I'd be grateful, though I fear the Syndicate found him first. He carried letters for the Magistrate, and if those letters reached Durnholde, someone there knows more about Dalaran's plans than I do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine nose, I imagine, and it might find a trail where an apprentice with a map would not. Please be careful, though, because the Syndicate shoot animals for sport." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If you find him, I'd be grateful, and your {pet} has a fine nose that might find a trail where an apprentice with a map would not. Please be careful, though, because the Syndicate shoot animals for sport." },
       },
       choices = {
-        { text = "If he's alive, I'll bring him home. He comes first.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The letters matter more. I'll find those and leave the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "If he's alive, I'll bring him home. He comes first.", next = "BACK", reply = "Thank you. He's a good man, and the letters can be rewritten, but he can't.", fx = { align = { honor = 1 } } },
+        { text = "The letters matter more. I'll find those and leave the rest.", next = "BACK", reply = "Pragmatic, and I'll not pretend the council wouldn't agree. But if you find him breathing, I beg you, bring him too.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -73,8 +73,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Because whatever threatens Dalaran threatens what's left of the northern kingdoms, and the Alliance can't afford another fallen city. The Kirin Tor weren't always good friends to your order, I know, but I'd ask you to be a better friend to us than we were to you." } },
       choices = {
-        { text = "The Alliance stands together or it falls. I'll help.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Dalaran made its own troubles. Let it mend them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Alliance stands together or it falls. I'll help.", next = "BACK", reply = "Exactly, and I wish the council heard it as plainly as you put it. Thank you, truly.", fx = { align = { order = 1 } } },
+        { text = "Dalaran made its own troubles. Let it mend them.", next = "BACK", reply = "Some of it, yes, and I'll not defend all of it. But the people in those towers are only trying to rebuild, like everyone.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -82,8 +82,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "I'm not permitted to say much, but the city lost a great many of its people when Archimonde came, and not all of them have been laid to rest. The Kirin Tor are proud and won't ask priests for help, so I'm asking quietly on their behalf." } },
       choices = {
-        { text = "Proud or not, they'll have the Light's peace from me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If the Kirin Tor won't ask, the burden is theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Proud or not, they'll have the Light's peace from me.", next = "BACK", reply = "Thank you. Most of them would never ask for it, which is exactly why they need it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If the Kirin Tor won't ask, the burden is theirs.", next = "BACK", reply = "Perhaps it is, and they carry it badly. I hope one day they'll learn to set it down.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -91,14 +91,14 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I'm certain of it, though I can't prove it, which is the trouble with being spied on by experts. They want to know what the Kirin Tor will do about Alterac, and frankly, so do I, because nobody has told me yet." } },
       choices = {
-        { text = "Let me find their spies. Dalaran's business is its own.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Maybe the Syndicate just wants the same answers you do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me find their spies. Dalaran's business is its own.", next = "BACK", reply = "I'd be grateful. The Syndicate have hidden eyes everywhere, and I'm tired of guessing whose they are.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe the Syndicate just wants the same answers you do.", next = "BACK", reply = "Perhaps, though they want them for very different reasons. A thief with Dalaran's secrets is a frightening thing.", fx = { align = { order = -1 } } },
         { text = "Something else, Emissary.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarven shaman, here in Southshore. The Kirin Tor would give a great deal to study you, {class}, though I'd advise you never to let them, for they rarely give anything back." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarven shaman, here in Southshore. The Kirin Tor would pay handsomely to study you, {class}, though I'd advise you never to let them, for they rarely give anything back." },
         { id = "h_default", key = true,
           text = "I am Jacques, emissary of the Kirin Tor. Dalaran needs the aid of the Alliance's kingdoms, and I've been sent to ask for it quietly, which is harder than it sounds in a town this size." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("An Alarming Request") },
@@ -160,8 +160,8 @@ P:NPC {
         { id = "s_default", text = "The high council fears the shame of it. Dalaran was the Alliance's pride once, and to admit we can't keep our own house in order, so soon after the war, would be a blow to the order's name." },
       },
       choices = {
-        { text = "Pride is killing your city. Tell everyone.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
-        { text = "Some secrets protect people. Keep it quiet.", next = "BACK", fx = { align = { honor = -1 }, affinity = 2 } },
+        { text = "Pride is killing your city. Tell everyone.", next = "BACK", reply = "I've said as much to the council, and been told to mind my post. Perhaps they'll listen if the word comes from outside.", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "Some secrets protect people. Keep it quiet.", next = "BACK", reply = "That's the council's reasoning, exactly. I don't like it, but I understand it.", fx = { align = { honor = -1 }, affinity = 2 } },
         { text = "And you? What do you think?", next = "secret_you" },
       },
     },
@@ -210,7 +210,7 @@ P:NPC {
       },
     },
     xskyborne_say = {
-      lines = { { id = "xss_default", text = "That you came looking for what your ancestors lost, and that you've a great deal of catching up to do on the last ten thousand years. Mostly they wonder, which in Dalaran is the highest compliment there is." } },
+      lines = { { id = "xss_default", text = "That you came looking for what your ancestors lost, and that you've ten thousand years of the world to catch up on. Mostly they wonder, which in Dalaran is the highest compliment there is." } },
       choices = {
         { text = "Let them wonder.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -220,8 +220,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwl_default", text = "Dalaran has a long memory where your arts are concerned, and its walls have wards against them for good reason. I'd be grateful for your help, and I'd also be grateful if you never mentioned it to anyone in the Violet Citadel." } },
       choices = {
-        { text = "Dalaran's wards keep out the wrong things.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Discretion it is. Dalaran's rules are Dalaran's rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dalaran's wards keep out the wrong things.", next = "BACK", reply = "Exactly so, and I'm glad you understand. Keep your arts quiet, and nobody will need to test them.", fx = { align = { order = -1 } } },
+        { text = "Discretion it is. Dalaran's rules are Dalaran's rules.", next = "BACK", reply = "Thank you. You'd be surprised how many of your kind take offence at that.", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
   },
@@ -269,17 +269,17 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "That a dwarf came through talking to the wind, and that the town didn't know what to make of it, which is the most honest sentence a historian can write. The last shamans Hillsbrad saw came with the Horde in the Second War, so you'll forgive the old folk if they look twice." } },
       choices = {
-        { text = "Write that I came in peace and kept it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Write what you like. History belongs to the winners anyway.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Write that I came in peace and kept it.", next = "BACK", reply = "I'll write exactly that, and underline it. The town will remember a peaceful stranger longer than an angry one.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Write what you like. History belongs to the winners anyway.", next = "BACK", reply = "Maybe it does, but I write for the ones who come after, and they deserve the whole of it. I'll write it fair.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "That they came out of the forests to fight the Legion on Hyjal, from what the few Lordaeron men who came back from Kalimdor told me, and then went back in and shut the door. A historian hates a shut door, but I suppose your people have reasons for every one of them." } },
+      lines = { { id = "xdruid_default", text = "That they came out of the forests to fight the Legion on Hyjal, from what the few Lordaeron men who came back from Kalimdor told me, and then went back in and shut the door. A historian hates a shut door, but I suppose your people had their reasons." } },
       choices = {
-        { text = "Some doors should stay shut. Not every history wants telling.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Write it all down. Secrets have cost us too much.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some doors should stay shut. Not every history wants telling.", next = "BACK", reply = "Some don't, and I've learned that the hard way. I'll leave out what the druids would rather keep.", fx = { align = { order = 1 } } },
+        { text = "Write it all down. Secrets have cost us too much.", next = "BACK", reply = "They have, and I've watched them do it. I'll write every word I can find.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -287,8 +287,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Fishermen with boat hooks, mostly, and a company of Lordaeron's footmen who came down the coast road when the Horde burned the Hillsbrad farms. I have the captain's name somewhere, though the page got wet in the flood the year after, and now he's either Harlow or Harrow." } },
       choices = {
-        { text = "Write his name as best you can. The fallen deserve remembering.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Names don't matter. Southshore stood, and that's history enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Write his name as best you can. The fallen deserve remembering.", next = "BACK", reply = "I'll do my best, though his name might be lost. I'll write that he stood his ground, at least.", fx = { align = { honor = 1 } } },
+        { text = "Names don't matter. Southshore stood, and that's history enough.", next = "BACK", reply = "Southshore stood, aye, but it stood on men's backs. I'll write the names I can, whether they matter to you or not.", fx = { align = { honor = -1 } } },
         { text = "Something else, Kundric.", next = "BACK" },
       },
     },
@@ -296,11 +296,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the lions came down out of Alterac after the war, when the ogres drove them from the high meadows, and the farmers have hated them ever since. Before that, my grandfather wrote, a wolf was the worst thing in the hills, and now it's barely worth a line." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would you mind if I wrote down {pet}'s name? A hunter's companion in Southshore during the Forsaken troubles is exactly the sort of detail historians a hundred years from now will thank me for." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the lions came down out of Alterac after the war, mostly, but would you mind if I wrote down {pet}'s name? A hunter's companion in Southshore during the Forsaken troubles is exactly the sort of detail historians a hundred years from now will thank me for." },
       },
       choices = {
-        { text = "Record it all. Someone should keep the town's memory straight.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let the past go. Southshore needs hunters, not historians.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Record it all. Someone should keep the town's memory straight.", next = "BACK", reply = "That's the job, and I'm glad someone sees the use in it. Most folk think I'm wasting ink.", fx = { align = { order = 1 } } },
+        { text = "Let the past go. Southshore needs hunters, not historians.", next = "BACK", reply = "Hunters, aye, and historians to remember them. I'll do my part, and you do yours.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -308,8 +308,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Badly, I'd say, for it's hard to write kindly of an order when the man who broke it was a prince it had trained. Uther died at Arthas's hand, and the knights who were left scattered to Hearthglen and Stratholme and worse, and I can't find a gentle way to write any of it." } },
       choices = {
-        { text = "Write it plainly. The truth honours the knights who fell.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Write it kindly. Some truths only wound the living.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Write it plainly. The truth honours the knights who fell.", next = "BACK", reply = "Plainly, then, and I'll put their names first. The ones who stayed true deserve that much.", fx = { align = { honor = 1 } } },
+        { text = "Write it kindly. Some truths only wound the living.", next = "BACK", reply = "Kindly, then, where I can. I'll keep the hard truths in a separate book.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -317,8 +317,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Hillsbrad's own bell rang for burials every day that autumn, and then one morning it didn't ring at all, which is how Southshore knew the plague had taken the town. I wrote down the date because someone had to, and I've never been able to cross it out." } },
       choices = {
-        { text = "Southshore should ring a bell for them every year.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let that date fade, Kundric. The town has to look forward.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Southshore should ring a bell for them every year.", next = "BACK", reply = "I've suggested it, and the Magistrate says he'll think on it. Perhaps you could mention it as well.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let that date fade, Kundric. The town has to look forward.", next = "BACK", reply = "It has to, I suppose, but I'll keep the date in my books. Someone has to.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -326,8 +326,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Oh, plenty, from the smugglers who ran Alterac's wine past the old customs house to the Syndicate scouts who stole the town charter the year after the war. We got the charter back, rather damp, and I wrote down every word of how." } },
       choices = {
-        { text = "A good history should name the thieves. They're part of it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Better to write about the people who stopped them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A good history should name the thieves. They're part of it.", next = "BACK", reply = "Every one of them, and with relish. A town's thieves tell you more about it than its heroes.", fx = { align = { order = -1 } } },
+        { text = "Better to write about the people who stopped them.", next = "BACK", reply = "I'll write both, and the people who stopped them will be easier to like. Thank you for the reminder.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else, Kundric.", next = "BACK" },
       },
     },
@@ -335,17 +335,17 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "One says Archimonde shattered the walls with a single blow, another says it took hours, and the third, from a mage who was there, says he was hiding in a cellar and only heard it. I trust the third, because he's the only one honest enough to admit what he didn't see." } },
       choices = {
-        { text = "History should be honest, even if it's dull.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A grand story inspires people more than a cellar ever could.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "History should be honest, even if it's dull.", next = "BACK", reply = "Honest it'll be, then, and dull as a cellar. The cellar version is probably the true one.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A grand story inspires people more than a cellar ever could.", next = "BACK", reply = "It would, but I'd be lying, and I'd rather inspire people with the truth. The cellar it is.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That the orcs brought them, mostly, and the Horde's warlocks blackened half the hills in the Second War before Durnholde's camps took the orcs in. But there are older pages about Alterac's court magi dabbling where they shouldn't, and those I keep under the floorboards, because nobody in Southshore wants to read that their grandparents' lords were no better." } },
+      lines = { { id = "xlock_default", text = "That the orcs brought them, mostly, and the Horde's warlocks blackened whole hillsides in the Second War before Durnholde's camps took the orcs in. But there are older pages about Alterac's court magi dabbling where they shouldn't, and those I keep under the floorboards, because nobody in Southshore wants to read that their grandparents' lords were no better." } },
       choices = {
-        { text = "Write it all down, Kundric. The truth should be kept.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Some pages are better burned than kept, Kundric.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Write it all down, Kundric. The truth should be kept.", next = "BACK", reply = "I will, every blackened hill and every name. The truth is all a historian has.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some pages are better burned than kept, Kundric.", next = "BACK", reply = "Burned, maybe, but somebody would only write them again, and badly. I'll keep them, and keep them locked.", fx = { align = { honor = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -392,7 +392,7 @@ P:NPC {
 
     history = {
       lines = {
-        { id = "hi_default", text = "A fishing village, until the boats came from Stormwind full of refugees, with Lothar and his young mage on the first one. A seaport in the Second War, and now one of the last human towns standing in Lordaeron." },
+        { id = "hi_default", text = "It was a fishing village until the boats came from Stormwind full of refugees, with Lothar and his young mage on the first one. It became a seaport in the Second War, and now it's one of the last human towns standing in Lordaeron." },
       },
       choices = {
         { text = "Who remembers the boats?", next = "history_boats" },
@@ -408,7 +408,7 @@ P:NPC {
 
     strahnbrad = {
       lines = {
-        { id = "st_default", text = "A town in the Alterac foothills, once, and now a nest of the Syndicate, who are Alterac's old nobility gone to banditry. Whatever's turned up there, I want to know about it, and I'll pay in gratitude." },
+        { id = "st_default", text = "Strahnbrad was a town in the Alterac foothills once, and now it's a nest of the Syndicate, who are Alterac's old nobility gone to banditry. Whatever's turned up there, I want to know about it, and I'll pay in gratitude." },
         { id = "st_done", when = { questDone = TODO_QUEST("Strahnbrad Mystery") },
           text = "You know as much about it now as I do, and you were there, which is more than I'll ever manage. I'm writing it up as we speak." },
       },
@@ -422,8 +422,8 @@ P:NPC {
           text = "Its king, Perenolde, sold the Alliance to the Horde in the Second War, and Lordaeron took his kingdom apart for it. His nobles became the Syndicate, and some folk here still say Alterac's people paid for one man's treachery." },
       },
       choices = {
-        { text = "Treason must be answered. Lordaeron was right.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Punishing a kingdom for its king was wrong.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Treason must be answered. Lordaeron was right.", next = "BACK", reply = "Lordaeron was right to answer it, aye, and Perenolde earned every bit of it. I'll write it so.", fx = { align = { order = 1 } } },
+        { text = "Punishing a kingdom for its king was wrong.", next = "BACK", reply = "I've thought so myself, on the bad days. The farmers of Alterac never sold anyone to the orcs.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -457,26 +457,26 @@ P:NPC {
       lines = {
         { id = "xdw_default", text = "They did, and the Wildhammer gryphon riders are in my notes more than any king, since they came down out of the Hinterlands when nobody had asked them yet. I wrote it all down, of course, for later." },
         { id = "xdw_kin", when = { origin = "dwarf_wildhammer_kin" },
-          text = "You'll have heard the tale from the other side, then, with Aerie Peak kin as you have. I'd give a great deal to compare your family's version with mine." },
+          text = "You'll have heard the tale from the other side, then, with Aerie Peak kin as you have. I'd dearly like to compare your family's version with mine." },
       },
       choices = {
         { text = "Ironforge fought here too. Write that down.", next = "BACK", fx = { trait = { stern = 1 } } },
-        { text = "Tell me the Second War here.", next = "history" },
+        { text = "Tell me Southshore's history, then.", next = "history" },
       },
     },
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know a great deal that nobody's asked about in years. Please, ask about any of it." } },
+    knows = { { id = "tp_knows", text = "I know a shelf's worth that nobody's asked about in years. Please, ask about any of it." } },
     background = { { id = "tp_bg", text = "I write down Southshore; that's the whole of it, and more interesting than it sounds." } },
     advice = { { id = "tp_ad", text = "Keep a journal. Nobody remembers anything properly, least of all heroes." } },
-    alterac = { { id = "tp_alterac", text = "A kingdom undone by its own king. I've three shelves on it and none of them are cheerful.", next = "alterac" } },
-    syndicate = { { id = "tp_syndicate", text = "Nobles in masks. They have long family trees and short tempers." } },
+    alterac = { { id = "tp_alterac", text = "Alterac was a kingdom undone by its own king, and I've three shelves on it and none of them are cheerful.", next = "alterac" } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are nobles in masks, with long family trees and short tempers." } },
     lordaeron = { { id = "tp_lordaeron", text = "I wrote the history of Lordaeron's fall as it happened, from refugee reports and old soldiers' tales. It is the saddest book I've ever written, and I'm not finished yet." } },
     second_war = { { id = "tp_second_war", text = "The Horde came over these hills in the Second War, and Southshore held, barely. I've written that chapter so many times I can recite it, and I'll do so if you're not careful." } },
     internment = { { id = "tp_internment", text = "The internment camp at Durnholde was ten miles from here, and the young orc who broke it out now leads the Horde. History has a sense of humour, and it isn't a kind one." } },
     thrall = { { id = "tp_thrall", text = "Thrall was raised in Durnholde by Lord Blackmoore, of all people, and he escaped and built a nation. I've written three chapters on him, and Southshore's folk don't much like any of them." } },
-    _none = { { id = "tp_none", text = "I've nothing on that, which annoys me more than you'd think." } },
+    _none = { { id = "tp_none", text = "I've nothing on that, and a gap in my notes keeps me up at night." } },
   },
 }
 
@@ -496,7 +496,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again! Same as before, or are you feeling brave?" },
     { id = "g_talk", when = { questActive = TODO_QUEST("Talk of the Town") }, text = "Still on that little matter I asked about? No hurry, but don't let it go cold." },
     { id = "g_away", when = { away = 14 }, text = "Look who's back after {away} away! Sit down, because you've missed a pile of gossip, and I've kept every bit of it warm for you." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Half the bar's been talking about you, friend, and in a good way, since somebody went home grinning after a word with you." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "The whole bar's been talking about you, friend, and in a good way, since somebody went home grinning after a word with you." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Careful who you sit by tonight, because somebody in town's got a real grudge after talking with you. I only mention it because I like my chairs in one piece." },
     { id = "g_word_scared", when = { word = "intimidated" }, text = "I had it from {source} that you leaned hard on somebody in town. Can't say I blame you, but go easy on my regulars." },
   },
@@ -514,8 +514,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Bilger says you're a sign the world's gone strange, the fishermen want to know if you can call up a good wind, and somebody at the back swears you're an orc in a false beard. I've told them all you're a paying customer, which in this inn outranks everything else." } },
       choices = {
-        { text = "Tell them the truth. I've nothing to hide.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let them guess. A good rumour does more work than the truth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Tell them the truth. I've nothing to hide.", next = "BACK", reply = "The truth it is, then, and I'll pass it round with the ale. You'll have no trouble from them after that.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them guess. A good rumour does more work than the truth.", next = "BACK", reply = "You've the makings of a barkeep! I'll let them guess, and keep the best guesses for myself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -523,8 +523,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "That you're tall, quiet and polite, and you tip in silver, which makes you better than most. The fishermen think you can call the fish, and the soldiers think you can't hold a line, and I think both of them are drunk." } },
       choices = {
-        { text = "Let them think what they like. Rumor's harmless enough.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Set them straight, Kelly. Rumors grow into grudges.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them think what they like. Rumor's harmless enough.", next = "BACK", reply = "They're harmless enough now, and you're right that they rarely last past closing. I'll let them run.", fx = { align = { order = -1 } } },
+        { text = "Set them straight, Kelly. Rumors grow into grudges.", next = "BACK", reply = "I'll try, though it's hard work talking sense into fishermen. You might do better yourself.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -532,20 +532,20 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every young fool with a sword and a grudge, and half of them come back with a Deathguard's arrow in the shoulder and a story twice as long as it should be. The Marshal pretends he doesn't know, and I pretend I didn't sell them the courage." } },
       choices = {
-        { text = "Raids without orders get men killed. The Marshal should stop them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Good on them. Somebody has to hit back at the Forsaken.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Raids without orders get men killed. The Marshal should stop them.", next = "BACK", reply = "The Marshal knows it, and he tries, but young men don't listen. I'll tell him you agree with him.", fx = { align = { order = 1 } } },
+        { text = "Good on them. Somebody has to hit back at the Forsaken.", next = "BACK", reply = "Somebody does, I suppose, but it's me who stitches them up afterwards. Mind you don't join them.", fx = { align = { order = -1 } } },
         { text = "Something else, Kelly.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "That the lions are bolder, the Syndicate are hungrier, and something's been dragging sheep from the farms near Durnholde and leaving tracks nobody can name. Malvew swears it's a lion, but Malvew swears everything's a lion." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And what's {pet} drinking? I'm joking, of course, though the last hunter's cat lapped up half a mug of Bilger's stout and slept under the Lieutenant's chair, which is a story I still tell." },
+        { id = "xhuntcl_default", text = "That the lions are bolder, the Syndicate are hungrier, and something's been dragging sheep from the farms near Durnholde and leaving tracks nobody can name. Farmer Malvew swears it's a lion, but Malvew swears everything's a lion." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the lions are bolder and the Syndicate hungrier, mostly. And what's {pet} drinking? I'm joking, of course, though the last hunter's cat lapped up half a mug of Bilger's stout and slept under the Lieutenant's chair, which is a story I still tell." },
       },
       choices = {
-        { text = "I'll tell you only what I've seen, not what I've guessed.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll trade you a good rumour, true or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll tell you only what I've seen, not what I've guessed.", next = "BACK", reply = "That's the best kind of rumour to trade, and the rarest. I'll pour you something for it.", fx = { align = { honor = 1 } } },
+        { text = "I'll trade you a good rumour, true or not.", next = "BACK", reply = "True or not, I'll take it, but I'll know which is which by the end of the night.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -553,8 +553,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "He says he rode with the Silver Hand once, and on a good night he's proud of it, and on a bad night he can't say Uther's name. I just pour, and I don't tell anyone which sort of night it was." } },
       choices = {
-        { text = "He should be proud. The order's honour was real.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Honour didn't save the order. He's right to grieve.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "He should be proud. The order's honour was real.", next = "BACK", reply = "He'd be glad to hear you say it, and on a good night he'll tell you about it for an hour.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honour didn't save the order. He's right to grieve.", next = "BACK", reply = "He'd agree with you, especially after the fourth mug. I'll not tell him you said it, though.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -562,8 +562,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Not one that stays, more's the pity, for the last went north to tend the soldiers in the Plaguelands and the soldiers kept him. So folk bring their troubles to me instead, and I'm a fine listener but a poor confessor." } },
       choices = {
-        { text = "A town needs a priest more than a barkeep. Ask for one.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A good barkeep does more good than most priests.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A town needs a priest more than a barkeep. Ask for one.", next = "BACK", reply = "I've asked, twice, and the Cathedral sends letters instead. I'll try again.", fx = { align = { light = 1 } } },
+        { text = "A good barkeep does more good than most priests.", next = "BACK", reply = "Bless you for that, though I'll not let it go to my head. I'll stick to the ale and leave the praying to others.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -571,8 +571,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "A few each week, and they gossip worse than fishermen, though they think they're being discreet. The latest is that the Kirin Tor are arguing about whether to help the Alliance in Alterac, and half of them want to stay out of it altogether." } },
       choices = {
-        { text = "The Kirin Tor should stand with the Alliance. Simple as that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Dalaran has bled enough. Let them stay out of it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Kirin Tor should stand with the Alliance. Simple as that.", next = "BACK", reply = "That's what I say, and so do the soldiers who drink here. The magi just smile and order another.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dalaran has bled enough. Let them stay out of it.", next = "BACK", reply = "They have, and you'd not hear it from them, but you'd see it in their faces. I'll not argue with you.", fx = { align = { order = -1 } } },
         { text = "Something else, Kelly.", next = "BACK" },
       },
     },
@@ -580,8 +580,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "He did, and the warlock let him, which I thought showed good sense. Bilger hasn't lifted a sword in years, but he still remembers the old oaths, and I'd not want to be the one who tests them." } },
       choices = {
-        { text = "The warlock was wise not to fight. Respect the old man.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I wouldn't have run. A broom doesn't scare me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The warlock was wise not to fight. Respect the old man.", next = "BACK", reply = "He was, and Bilger's never let anyone forget it. The warlock still buys his ale elsewhere, mind.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I wouldn't have run. A broom doesn't scare me.", next = "BACK", reply = "Then you'd have been on the floor with a sore head, because Bilger can still swing a broom.", fx = { align = { honor = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -638,7 +638,7 @@ P:NPC {
     },
     gossip_mill = {
       lines = {
-        { id = "gm_default", text = "Only that the Forsaken are up to something with all those herbs and frogs. Phin Odelic's been asking about strange beasts, and Phin doesn't ask about anything without a reason." },
+        { id = "gm_default", text = "Only that the Forsaken are up to something with all those herbs and frogs. Phin Odelic, the old Kirin Tor mage, has been asking about strange beasts, and Phin doesn't ask about anything without a reason." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "new_plague" } } } },
     },
@@ -663,8 +663,8 @@ P:NPC {
         { id = "gr_default", text = "It's the only way to run an inn. A barkeep who knows what's said can stop a fight before it starts, warn a man his horse is about to go missing, and keep the guards honest, more or less." },
       },
       choices = {
-        { text = "Loose talk ruins people. Keep your counsel.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
-        { text = "Knowledge is armour. Keep listening.", next = "BACK", fx = { align = { honor = -1 }, affinity = 2 } },
+        { text = "Loose talk ruins people. Keep your counsel.", next = "BACK", reply = "Some loose talk, aye, and I keep that behind the bar. The rest I keep in my head, where it does some good.", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "Knowledge is armour. Keep listening.", next = "BACK", reply = "I always do. You'd be surprised what people say to a barkeep they've known for years.", fx = { align = { honor = -1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -681,7 +681,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "You've come to the right man; I hear everything said in this town, eventually. What do you want to know?" } },
     background = { { id = "tp_bg", text = "I've poured drinks in Southshore longer than I'll admit, and I've no plans to stop." } },
     advice = { { id = "tp_ad", text = "Lock up your horse at night. The Syndicate love a good horse more than they love money." } },
-    syndicate = { { id = "tp_syndicate", text = "Nobles in masks, thieving horses and murdering magistrates. They don't drink here, or if they do, they tip badly." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are nobles in masks, thieving horses and murdering magistrates. They don't drink here, or if they do, they tip badly." } },
     forsaken = { { id = "tp_forsaken", text = "The dead up the hill drink nothing, but they do talk, and I hear more from their scouts than I'd like. They want Southshore, and they're patient about it." } },
     ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt's people drink here now and then, and they pay well, and they tip better. I don't ask, and they don't tell, and the beer flows." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's rumors come in with the sailors, and they're all about pirates and gold and goblins who'll cut your throat for a copper. Most of them are true." } },
@@ -703,7 +703,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hail, and well met. Got a moment for a man who sees plots in dead dogs?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Any news of my troublemakers?" },
-    { id = "g_active", when = { questActive = TODO_QUEST("Hints of a New Plague?") }, text = "Quae and Kinelory, Go'Shek Farm, Arathi. Please hurry; it's been days." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Hints of a New Plague?") }, text = "My friends Quae and Kinelory went to Go'Shek Farm in Arathi, and it's been days, so please hurry." },
   },
 
   notice = {
@@ -719,8 +719,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They might, if the earth around Tarren Mill feels as wrong to you as their cauldrons look to me. My band has been chasing rumours of a new plague with nothing but spyglasses and good intentions, so a dwarf who can ask the ground what's buried in it would be worth a dozen of my notes." } },
       choices = {
-        { text = "Then I'll help you stop it. The living must be protected.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let the Forsaken poison their own hill. It's not my fight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll help you stop it. The living must be protected.", next = "BACK", reply = "Then you've my thanks, and the thanks of everyone downstream of that hill. We'll need every hand.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let the Forsaken poison their own hill. It's not my fight.", next = "BACK", reply = "It won't stay on their hill, friend. Plague never does, and I've seen what it does to towns.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -728,8 +728,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Spiders bigger than they've any right to be in the Alterac foothills, and wolves that hunt by day near Dalaran's walls. My thought is the magic is souring something, but I've no proof, and a druid's eye might settle it." } },
       choices = {
-        { text = "Then we kill the sick beasts before they spread it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Find the cause first. The beasts are victims too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then we kill the sick beasts before they spread it.", next = "BACK", reply = "That's the grim answer, and maybe the right one. I'd sooner we did it before it spreads to the farms.", fx = { align = { light = -1 } } },
+        { text = "Find the cause first. The beasts are victims too.", next = "BACK", reply = "Exactly what I've been saying to the Marshal for weeks. The beasts didn't ask for this.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else, Phin.", next = "BACK" },
       },
     },
@@ -737,8 +737,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Desperately, though I'd never put it that way in front of Quae and Kinelory, because they'd be offended. They've gone up to the Highlands to watch a Forsaken farm, and I keep thinking that if anything goes wrong, nobody with a shield will be there." } },
       choices = {
-        { text = "I'll stand in front of your friends. That's what warriors do.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll go if it pays. Shields aren't free, Phin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand in front of your friends. That's what warriors do.", next = "BACK", reply = "Good. Quae and Kinelory will pretend not to be grateful, but they will be.", fx = { align = { honor = 1 } } },
+        { text = "I'll go if it pays. Shields aren't free, Phin.", next = "BACK", reply = "Fair, if mercenary, and I'll find you something for it. A shield that's paid for stays put.", fx = { align = { honor = -1 } } },
         { text = "Something else, Phin.", next = "BACK" },
       },
     },
@@ -746,11 +746,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Dead animals in places where nothing killed them, mainly, and water the deer won't drink. The apothecaries test their brews on whatever wanders past, and the beasts always know before we do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch {pet} closely up there, please, because if a beast won't drink from a stream, I'd take that as a warning, and I'd rather not lose anyone's companion to the Forsaken's experiments." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch {pet} closely up there, please, because if a beast won't drink from a stream, I'd take that as a warning, and I don't want anyone's companion lost to the Forsaken's experiments." },
       },
       choices = {
-        { text = "The Forsaken must be stopped before their plague spreads.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Let them poison their own hills. It's not our fight yet.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Forsaken must be stopped before their plague spreads.", next = "BACK", reply = "They must, and soon, and I'd be glad of you when it happens. Every day we wait, the deer die.", fx = { align = { light = 1 } } },
+        { text = "Let them poison their own hills. It's not our fight yet.", next = "BACK", reply = "It's every living thing's fight, friend, whether we choose it or not. The rivers don't stop at Tarren Mill.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -758,8 +758,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Watch, mostly, and be ready, because I can't prove what the Forsaken are brewing and Southshore can't afford to start a war on a guess. If it turns out I'm right, though, I'd rather a knight of the Light was the first to know." } },
       choices = {
-        { text = "Then I'll watch and wait for proof, Phin.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "They're walking dead. That's proof enough to ride.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll watch and wait for proof, Phin.", next = "BACK", reply = "Good. Proof will win the Marshal over, and the Marshal will win the town.", fx = { align = { order = 1 } } },
+        { text = "They're walking dead. That's proof enough to ride.", next = "BACK", reply = "They are, and that's not proof of anything except that they're dead. The Marshal needs more.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -767,17 +767,17 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "The priests stopped nothing the first time, and I don't say that as a slight, because the grain was in every bread oven before anyone knew. This time we might see it coming, and if we do, I want healers ready before the apothecaries have finished their notes." } },
       choices = {
-        { text = "The Light will hold. We must trust it this time.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Prayers failed once. Burn their brews before they're finished.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Light will hold. We must trust it this time.", next = "BACK", reply = "I hope you're right, and I'll pray with you. But I'll keep my eye on those cauldrons all the same.", fx = { align = { light = 1 } } },
+        { text = "Prayers failed once. Burn their brews before they're finished.", next = "BACK", reply = "That's my thinking too, though I'd like to know what's in them before I burn them.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "What they're brewing, mostly, since the apothecaries at Tarren Mill have been very busy and very secretive lately. I'm worried it's a new plague, and I'd rather find out before it's poured into Southshore's wells." } },
+      lines = { { id = "xrogue_default", text = "What they're brewing, mostly, since the apothecaries at Tarren Mill have been very busy and very secretive lately. I'm worried it's a new plague, and I mean to find out before it's poured into Southshore's wells." } },
       choices = {
-        { text = "I'll slip into Tarren Mill and find out for you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "This is the Alliance's business. Report it to the Marshal.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll slip into Tarren Mill and find out for you.", next = "BACK", reply = "You'd do that? Then come back alive, please, because I'll need to hear what you saw.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "This is the Alliance's business. Report it to the Marshal.", next = "BACK", reply = "I have, and he's busy, and the Magistrate wants proof. That's why I'm asking you.", fx = { align = { order = 1 } } },
         { text = "Something else, Phin.", next = "BACK" },
       },
     },
@@ -785,8 +785,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because after Dalaran fell, they cared more about rebuilding their towers than about the people who'd lost everything in the war. I wanted to do something useful with what I'd learned, and my friends and I seemed a better place to start." } },
       choices = {
-        { text = "People matter more than towers. You chose rightly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The Kirin Tor's power protects everyone. You abandoned them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "People matter more than towers. You chose rightly.", next = "BACK", reply = "Thank you. I've wondered more than once whether I was right.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Kirin Tor's power protects everyone. You abandoned them.", next = "BACK", reply = "Perhaps I did, and perhaps they'd say so too. I'd still rather be here than reading in a tower.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -807,7 +807,7 @@ P:NPC {
           text = "A paladin! Good, because my little band are brave enough, but none of us can stand in front of a Forsaken and simply refuse to fall, which I gather is your speciality." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! My little band is all scholars and nerves, and we could badly use someone who stands in front when the Forsaken start shooting." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll notice things in the hills that my friends would walk straight past, so tell me if anything near Tarren Mill smells wrong, because I'm sure something does." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Good, because half the odd happenings I chase involve something that bites, and I'd value someone who knows what it's thinking." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Good, because most of the odd happenings I chase involve something that bites, and I'd value someone who knows what it's thinking." },
       },
       again = {
         { id = "h_again", text = "What else? I'm sorting Quae's notes, and her handwriting needs a translator." },
@@ -852,7 +852,7 @@ P:NPC {
       lines = {
         { id = "f_default", text = "Two of my best, gone to the Go'Shek Farm in the Arathi Highlands to watch the orcs and anything the Forsaken bring them. They haven't checked in for days, and they always check in, if only to complain." },
         { id = "f_done", when = { questDone = TODO_QUEST("Hints of a New Plague?") },
-          text = "Staying on at the farm a while longer, in case of reprisals, and sending me notes. Kinelory looks worse after a night in the tavern, Quae says, which I'll take as good news." },
+          text = "They're staying on at the farm a while longer, in case of reprisals, and sending me notes. Kinelory looks worse after a night in the tavern, Quae says, which I'll take as good news." },
       },
       choices = {
         { text = "I'll find them.", next = "BACK", when = { questBefore = TODO_QUEST("Hints of a New Plague?") }, fx = { affinity = 2, trait = { brave = 1 } } },
@@ -864,11 +864,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "p_default", fx = { learn = { "new_plague" } },
-          text = "Making a new plague, their own, to finish what the Scourge started. I've no proof yet, only a giant dog and a farm in Arathi where orcs and Forsaken keep strange company, but I'd stake my old robes on it." },
+          text = "I think they're making a new plague of their own, to finish what the Scourge started. I've no proof yet, only a giant dog and a farm in Arathi where orcs and Forsaken keep strange company, but I'd stake my old robes on it." },
       },
       choices = {
-        { text = "Then strike Tarren Mill before it's finished.", next = "BACK", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
-        { text = "Find proof first. We can't act on suspicion.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then strike Tarren Mill before it's finished.", next = "BACK", reply = "My heart says yes, but my head says the Marshal would never forgive me. Bring me something we can show him.", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "Find proof first. We can't act on suspicion.", next = "BACK", reply = "Exactly, and that's why I'm still standing here and not marching up the hill.", fx = { align = { honor = 1 } } },
         { text = "Why would they do it?", next = "plague_why" },
       },
     },
@@ -895,10 +895,10 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "You'll understand better than most, then. The Kirin Tor wanted me reading in a tower while the plague was being brewed a day's ride from Southshore, and I'd rather be wrong out here than right up there." } },
+      lines = { { id = "xma_default", text = "You'll understand, then. The Kirin Tor wanted me reading in a tower while the plague was being brewed a day's ride from Southshore, and I'd rather be wrong out here than right up there." } },
       choices = {
-        { text = "Knowledge matters more than one village.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "You chose right. Theory never stopped a plague.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Knowledge matters more than one village.", next = "BACK", reply = "It does, in a tower, but people live in villages, and the plague went to them first. I'd make the same choice again.", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "You chose right. Theory never stopped a plague.", next = "BACK", reply = "Thank you. You're the first mage who's said that to me since I left.", fx = { affinity = 2, align = { order = -1 } } },
         { text = "What's being brewed?", next = "plague" },
       },
     },
@@ -944,17 +944,17 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I would, and if they don't listen, you can let 'em have one of those lightning bolts, because they've had foals off me this season and I've had nothin' but grief. I swear on my granddaddy's grave they're the worst thieves in Hillsbrad, worse than the Syndicate, and the Syndicate's pretty bad." } },
       choices = {
-        { text = "They're hungry beasts, Darren. I'll drive them off, not slaughter them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A lion that takes foals gets a lightning bolt. Simple.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They're hungry beasts, Darren. I'll drive them off, not slaughter them.", next = "BACK", reply = "That's kind of you, and better than I'd do on a bad night. Just keep 'em away from my foals.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A lion that takes foals gets a lightning bolt. Simple.", next = "BACK", reply = "That's what I like to hear, friend. My foals'll sleep safe tonight.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I've one or two big enough, though I'll not part with 'em lightly, 'cause plate an' a heavy rider wear a horse down quicker than anythin'. Merideth's the one who sells, an' she'll want to know you'll treat the beast right before she even names a price." } },
+      lines = { { id = "xwarcl_default", text = "I've one or two big enough, though I'll not part with 'em lightly, 'cause plate an' a heavy rider wear a horse down quicker than anythin'. Merideth Carlson, who breeds 'em, is the one who sells, an' she'll want to know you'll treat the beast right before she even names a price." } },
       choices = {
-        { text = "A good horse deserves care. I'd tend it like a comrade.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A horse is a tool. I'll ride it as hard as I need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A good horse deserves care. I'd tend it like a comrade.", next = "BACK", reply = "Then I'll let you have the big bay, an' you'll treat him right. He's earned a good rider.", fx = { align = { honor = 1 } } },
+        { text = "A horse is a tool. I'll ride it as hard as I need.", next = "BACK", reply = "Then I'll keep my good horses an' sell you the nag. She won't mind so much.", fx = { align = { honor = -1 } } },
         { text = "Something else, Darren.", next = "BACK" },
       },
     },
@@ -962,8 +962,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Every spring, regular as rain, on their way north an' back again. Ain't seen a column of 'em since the plague, an' half my stalls have stood empty since, though I'd muck out every one o' them twice to hear 'em clatter in again." } },
       choices = {
-        { text = "The Silver Hand will ride again. I'm proof of that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Those days are gone, Darren. Better to let them lie.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Silver Hand will ride again. I'm proof of that.", next = "BACK", reply = "You are, are you? Then maybe I'll see a column ridin' through come spring, like the old days.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Those days are gone, Darren. Better to let them lie.", next = "BACK", reply = "Gone, maybe, but I miss 'em, an' I'll not pretend I don't. Those were good years for horses.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -971,16 +971,16 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "I reckon it would, 'cause my granddaddy always said the Light made every creature that walks, an' a good horse is about the best of 'em. Barley carried refugees down from the north in the bad year, an' he never once threw anybody." } },
       choices = {
-        { text = "Every faithful creature has a place in the Light.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Prayers are for people, Darren. Barley was a horse.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every faithful creature has a place in the Light.", next = "BACK", reply = "That's what granddaddy said, an' I'll believe it 'til the day I die.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers are for people, Darren. Barley was a horse.", next = "BACK", reply = "Maybe so, but Barley was a better horse than most men are people. I'll say my prayer anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "The Forsaken took the high pastures and the Syndicate took the woods, so I suppose the lions got pushed down onto us like everybody else. That don't make me like 'em any better, though, not when it's my horses they're after." } },
       choices = {
-        { text = "They're hungry, not wicked. Spare them where you can.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A lion that takes horses has to be put down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They're hungry, not wicked. Spare them where you can.", next = "BACK", reply = "I'll do my best, friend, though it's hard when they're takin' my foals.", fx = { align = { light = 1 } } },
+        { text = "A lion that takes horses has to be put down.", next = "BACK", reply = "I reckon you're right, though it don't sit easy with me. They're only doin' what lions do.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -988,8 +988,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "All the time, an' the Syndicate's the worst of 'em, comin' down from the hills on moonless nights to take whatever they can lead away. I've started sleepin' in the loft, an' my back ain't happy about it." } },
       choices = {
-        { text = "I'll help you guard the stables. Those horses deserve it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A horse is just a horse. Let the thieves have one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll help you guard the stables. Those horses deserve it.", next = "BACK", reply = "Would you? I'd sleep a sight better knowin' someone was watchin' 'em.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A horse is just a horse. Let the thieves have one.", next = "BACK", reply = "Just a horse? I raised every one of 'em from a foal, friend. You'll not catch me sayin' that.", fx = { align = { order = -1 } } },
         { text = "Something else, Darren.", next = "BACK" },
       },
     },
@@ -997,8 +997,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "'Cause my horses can smell it a mile off, an' they'd kick the stalls to splinters tryin' to get away. A horse knows what's natural an' what ain't, an' I'll trust a horse's nose over anybody's word." } },
       choices = {
-        { text = "Understood. My horse can sleep well clear of your stables.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Your horses will learn to share. Times are changing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Understood. My horse can sleep well clear of your stables.", next = "BACK", reply = "That's kind, an' my horses'll thank you, though they'll never say so.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your horses will learn to share. Times are changing.", next = "BACK", reply = "Maybe they are, but horses don't change for nobody. You'll keep yours clear, all the same.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -1006,8 +1006,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I asked one o' your lot that very thing last spring, an' he put a glowin' ward round the paddock that spooked every horse I own an' didn't bother the lions one bit. Took me a week to calm 'em down, so I'll stick to good timber an' a sharp eye, thank you kindly." } },
       choices = {
-        { text = "Timber and a sharp eye. That's honest work, Darren.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A better mage would have done it right. Try again.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Timber and a sharp eye. That's honest work, Darren.", next = "BACK", reply = "Timber an' an eye, aye, that's how my granddaddy did it, an' it never failed him.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A better mage would have done it right. Try again.", next = "BACK", reply = "Maybe I will, if I can find one that don't scare my horses half to death.", fx = { align = { order = -1 } } },
         { text = "Somethin' else, then.", next = "BACK" },
       },
     },
@@ -1019,7 +1019,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Darren Malvew, stablehand. Ain't nothin' irks me more than losin' these beautiful horses, and we've lost a heap to the undead, the Syndicate and every scoundrel in the hills. But the mountain lions are worse than all of 'em." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Costly Menace"), days = 5 } },
-          text = "Now ain't that fine news! Should've found me a proper war hero from the start, and saved myself a dozen good horses." },
+          text = "Now ain't that fine news about them lions! Should've found me a proper war hero from the start, and saved myself a dozen good horses." },
         { id = "h_later", when = { questDone = TODO_QUEST("Costly Menace") },
           text = "Ain't lost a single foal since you went up them hills. The horses are sleepin' easier, and so am I." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Now don't you go eyein' my horses, friend, 'cause I count 'em every night an' I'd know if one went missin'." },
@@ -1093,8 +1093,8 @@ P:NPC {
         { id = "hu_default", text = "Every last one? I'd say yes on a bad night. On a good one, I reckon they're just hungry, same as anything else up there." },
       },
       choices = {
-        { text = "The town's horses come first. Thin them hard.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Leave the hills wild. Build a better fence.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The town's horses come first. Thin them hard.", next = "BACK", reply = "I'll do it, then, an' I'll not lose any sleep over it. Well, not much.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Leave the hills wild. Build a better fence.", next = "BACK", reply = "A better fence costs coin, but I reckon you're right. I'll ask the Magistrate for timber.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1111,7 +1111,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know horses and the things that take 'em, and that's about it, friend. What you want?" } },
     background = { { id = "tp_bg", text = "I brush horses in Southshore and swear at lions; my granddaddy did the same." } },
     advice = { { id = "tp_ad", text = "Don't leave your horse tied by the road overnight, not round here." } },
-    syndicate = { { id = "tp_syndicate", text = "Horse thieves with fancy names. I'd as soon see 'em eaten by lions." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are horse thieves with fancy names, an' I'd as soon see 'em eaten by lions." } },
     forsaken = { { id = "tp_forsaken", text = "The dead up the hill ride skeletal horses, and it breaks my heart every time I see one. A horse deserves to rest, even when its rider doesn't." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's got horses that do tricks, and I've told Silas Darkmoon himself that his horses are underfed. He didn't listen, but he did buy me a drink." } },
     scourge = { { id = "tp_scourge", text = "I heard the Scourge eat horses, or worse, raise them. I keep my best ones in the stable at night, and I sleep there too, if I'm honest." } },
@@ -1147,8 +1147,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They do, or so I believe, for the murlocs eat everything that crawls up the beach, and the turtles have more sense than to come where they're eaten. If a shaman can't call them back, perhaps you can thin out the murlocs, and then the sea might forgive us for my bisque." } },
       choices = {
-        { text = "I'll clear the shore properly, so it stays safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the sea sort itself out, Jessen. It always does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll clear the shore properly, so it stays safe.", next = "BACK", reply = "Bless you. A safe beach means fresh turtle, and fresh turtle means a happy kitchen.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the sea sort itself out, Jessen. It always does.", next = "BACK", reply = "It does, aye, but rarely in time for supper. I'll keep my eye on the shore all the same.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1156,17 +1156,17 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "The murlocs and the naga have pushed them up the coast, I think, and the ones that are left are snappish and tough. I could hunt the last of them, I suppose, but then there'd be no turtles at all, and no bisque next year either." } },
       choices = {
-        { text = "Leave them be, Chef. Let the turtles recover first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Cook what you can now. Next year may never come.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Leave them be, Chef. Let the turtles recover first.", next = "BACK", reply = "You're right, I suppose, though my customers won't thank you. I'll find something else to put in the pot.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Cook what you can now. Next year may never come.", next = "BACK", reply = "That's the cook's philosophy, aye. Next year's soup can worry about itself.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Meat, and plenty of it, and a good thick stew with bread to wipe the bowl. The soldiers who march to Tarren Mill on my cooking come back, and the ones who march on Anderson's porridge come back grumbling, if they come back at all." } },
+      lines = { { id = "xwarcl_default", text = "Meat, and plenty of it, and a good thick stew with bread to wipe the bowl. The soldiers who march to Tarren Mill on my cooking come back, and the ones who march on Innkeeper Anderson's porridge come back grumbling, if they come back at all." } },
       choices = {
-        { text = "Feed the men who fight before anyone else, Chef.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll pay for the best cut. The rest can have porridge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Feed the men who fight before anyone else, Chef.", next = "BACK", reply = "Always, and I've never yet turned away a soldier with an empty bowl. Sit down, and I'll find you a ladle.", fx = { align = { honor = 1 } } },
+        { text = "I'll pay for the best cut. The rest can have porridge.", next = "BACK", reply = "The best cut, is it? You'll pay for it, and you'll eat it next to a soldier with porridge, so mind your manners.", fx = { align = { honor = -1 } } },
         { text = "Something else, Chef.", next = "BACK" },
       },
     },
@@ -1174,8 +1174,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "A captain of the order ate here once on his way north, and he swore my bisque was the best thing he'd tasted since Stormwind. He rode on to Stratholme after that, and I never heard what became of him, though I've a fair guess." } },
       choices = {
-        { text = "He did his duty. That's the best end a knight can ask.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Duty buried too many good men at Stratholme.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "He did his duty. That's the best end a knight can ask.", next = "BACK", reply = "I like to think so. He went north with my bisque in his belly, and he didn't come back, but he went happy.", fx = { align = { honor = 1 } } },
+        { text = "Duty buried too many good men at Stratholme.", next = "BACK", reply = "Too many, aye. I still cook for their memory now and then.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1183,8 +1183,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Every wake in town, aye, and there's been more of those than weddings these last few years. A good bowl of something hot doesn't mend anything, but it gets folk sitting at the same table, and that's where the mending starts." } },
       choices = {
-        { text = "That's the Light's work as surely as any prayer.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Soup's a kindness, Jessen, but it isn't holy work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's the Light's work as surely as any prayer.", next = "BACK", reply = "I've always thought so, though the priests might not agree. A full belly makes the grief easier to carry.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Soup's a kindness, Jessen, but it isn't holy work.", next = "BACK", reply = "Maybe not, but it fills the belly while the priests fill the soul, and both need doing.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1192,8 +1192,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because the turtles in Lordamere Lake have got scarce, and the ones left are too tough to eat. I suspect the Forsaken have been fouling the water, but nobody listens to a cook, so I just keep my pots warm and hope." } },
       choices = {
-        { text = "Then let me find out what's fouling the water.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Cook something else. Mourning a soup won't change the lake.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then let me find out what's fouling the water.", next = "BACK", reply = "Would you? Then I'd owe you a bowl of the best turtle soup in Hillsbrad, once there's turtle again.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Cook something else. Mourning a soup won't change the lake.", next = "BACK", reply = "No, it won't, but it makes me feel better. I'll try a fish stew instead.", fx = { align = { order = -1 } } },
         { text = "Something else, Jessen.", next = "BACK" },
       },
     },
@@ -1201,8 +1201,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "He swore he was keeping it fresh for the evening, and I swore back at him for a good long while. The fishermen still call it the coldest meal in Southshore, and they don't mean it kindly." } },
       choices = {
-        { text = "Some things should be left to the cook. I'd never interfere.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fresh is fresh. The mage was only being practical.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some things should be left to the cook. I'd never interfere.", next = "BACK", reply = "Thank you! You'd be welcome in my kitchen any day.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fresh is fresh. The mage was only being practical.", next = "BACK", reply = "Practical! He froze my sauce solid, and I'll not forget it. You can eat in the yard.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -1210,8 +1210,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I cook for anyone who pays and doesn't complain, and you'd be surprised how short that list is in Southshore. A good meal doesn't ask where you learned your trade, it only asks you to sit down and eat it hot, and I'd say the same to a Forsaken if one ever sat at my table without frightening the soldiers." } },
       choices = {
-        { text = "Good food for all who pay. That's a fair kitchen.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Forsaken at your table? They'd poison the soup.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Good food for all who pay. That's a fair kitchen.", next = "BACK", reply = "That's the only kind of kitchen I know how to run. Sit down, and I'll find you something hot.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Forsaken at your table? They'd poison the soup.", next = "BACK", reply = "Not in my kitchen, they wouldn't. I'd taste it first.", fx = { align = { honor = -1 } } },
         { text = "Something else, Chef.", next = "BACK" },
       },
     },
@@ -1219,11 +1219,11 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I don't suppose you can ask the sea to send the turtles back, {class}, because my bisque hasn't been the same since the murlocs took the shore." },
         { id = "h_default", key = true,
-          text = "Chef Jessen. If there's one thing you'll learn in Southshore, it's that we cook better here than anywhere north of Stormwind, and my turtle bisque is the proof; folk used to come all the way from Darkshire for it. Or they did, when I could make it." },
+          text = "Chef Jessen. If there's one thing you'll learn in Southshore, it's that we cook better here than anywhere north of Stormwind, and my turtle bisque is the proof, since folk came all the way from Darkshire for it, back when I could still make it." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Soothing Turtle Bisque"), days = 5 } },
           text = "The bisque is back on the menu! Folk were queuing round the inn last night, and one old fisherman wept into his bowl, and I didn't charge him." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue in my kitchen? Fine, but if you're after the turtle bisque recipe, it's in my head, and I don't sleep with my mouth open." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll forgive me if I don't ask you to cook, because the last mage who tried turned my good stew into a bowl of ice." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I won't be asking you to cook, because the last mage who tried turned my good stew into a bowl of ice." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! You'll bless the bisque, I hope, because it's the closest thing Southshore has to a holy relic, and folk certainly pray for it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1267,7 +1267,7 @@ P:NPC {
 
     recipe = {
       lines = {
-        { id = "r_default", text = "Turtle, and the rest is a secret I'll take to my grave. I'll tell you this much: it's soothing, it's in the name, and a bowl of it makes even Farren stop complaining for a quarter hour." },
+        { id = "r_default", text = "Turtle, and the rest is a secret I'll take to my grave. I'll tell you this much: it's soothing, it's in the name, and a bowl of it makes even Lieutenant Farren stop complaining for a quarter hour." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
@@ -1285,8 +1285,8 @@ P:NPC {
         { id = "w_default", text = "Now you sound like my mother. A town that can't eat well forgets why it bothers fighting at all, but no bowl of soup's worth a life, not even mine." },
       },
       choices = {
-        { text = "A good meal is worth fighting for.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Soup's soup. Stay home and stay alive.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A good meal is worth fighting for.", next = "BACK", reply = "It is, aye, and it's a comfort to hear someone say so. Sit, and I'll prove it to you.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Soup's soup. Stay home and stay alive.", next = "BACK", reply = "Maybe so, but stay home and you'll eat my stew every night. There are worse fates.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1303,7 +1303,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know food, and who in Southshore eats what, and who doesn't pay. Ask away." } },
     background = { { id = "tp_bg", text = "I cook in Southshore, and I'm the best at it, and that's my story." } },
     advice = { { id = "tp_ad", text = "Eat before you go up into Alterac; the ogres won't feed you." } },
-    forsaken = { { id = "tp_forsaken", text = "The dead up the hill eat nothing, and I've never understood a soul who doesn't like a good bisque. I pity them, honestly." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead up the hill eat nothing, and I've never understood a soul who doesn't like a good bisque. I pity them, truth be told." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's spices come through Southshore sometimes, and I'll pay any price for them. A good bisque needs a good pinch of something from the south." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's food is a crime against cookery, and I've told Silas Darkmoon so. He laughed and offered me a funnel cake, and I'm ashamed to say it was quite good." } },
     _none = { { id = "tp_none", text = "Can't help you there, friend, unless it's about soup." } },
@@ -1328,7 +1328,7 @@ P:NPC {
 
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "A PALADIN. Of course. Come to call me mad as well, have you?" },
+      text = "A paladin. Of course. Come to call me mad as well, have you?" },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Hm, that beast you're riding could use a good feed and a better rider. Well, the feed I can help with." },
   },
@@ -1339,8 +1339,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "My steeds go to Stormwind's people and to those Stormwind trusts, and you'd be the first of your kind to ask, which I'll admit makes me hesitate. But a rider who can hear the wind will hear a horse well enough, I expect, and that counts for more with me than whatever the paladins would say." } },
       choices = {
-        { text = "Rules are rules, Merideth. I'd not ask you to bend yours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Rules be hanged. A good horse knows a good rider.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Rules are rules, Merideth. I'd not ask you to bend yours.", next = "BACK", reply = "That's kind, and rarer than you'd think. Most people ask me to bend them, and loudly.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules be hanged. A good horse knows a good rider.", next = "BACK", reply = "A good horse does, I'll grant you, but Stormwind's rules aren't mine to hang. I'm sorry.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1348,8 +1348,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Hard enough to make them ready for war, which is what Stormwind pays for. I'll not pretend they love the work, but they're fed better than half of Southshore, and they've the sea air." } },
       choices = {
-        { text = "War horses earn their keep. That's the bargain.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Be gentle with them. They didn't choose this war.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "War horses earn their keep. That's the bargain.", next = "BACK", reply = "It is, and they earn it, and they eat better than most soldiers.", fx = { align = { order = 1 } } },
+        { text = "Be gentle with them. They didn't choose this war.", next = "BACK", reply = "I'm as gentle as I can be, and they know it. War isn't gentle, though, and they'll need to be ready.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1357,8 +1357,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "One that won't bolt when the shouting starts, and that takes years to train, not weeks, whatever the quartermasters think. I'll sell you a steady animal if you swear to bring it home, because I've buried more of my horses than I care to count." } },
       choices = {
-        { text = "I swear it. A warhorse is a comrade, not a tool.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "In battle, the horse goes where I need it. No promises.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I swear it. A warhorse is a comrade, not a tool.", next = "BACK", reply = "Then you'll get the best I have, and you'll bring her back in one piece if you can.", fx = { align = { honor = 1 } } },
+        { text = "In battle, the horse goes where I need it. No promises.", next = "BACK", reply = "Honest, at least. I'll give you a horse that won't let you down, but I'll ask you to remember her name.", fx = { align = { honor = -1 } } },
         { text = "Something else, Merideth.", next = "BACK" },
       },
     },
@@ -1366,11 +1366,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A horse is bred for trust over generations, and your beast is wild trust given once and kept, which I'll admit is rarer. The Silver Hand never understood either kind, and they rode my horses as if a horse were a cart with legs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} hasn't spooked a single horse in the paddock, and that's a beast that's been well loved. I'd sell to you on the strength of that alone, if you were buying." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Different, but no worse, since {pet} hasn't spooked a single horse in the paddock, and that's a beast that's been well loved. I'd sell to you on the strength of that alone, if you were buying." },
       },
       choices = {
-        { text = "Breeding and training make a sound animal. That's the right way.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The wild makes the best companions. No pedigree needed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Breeding and training make a sound animal. That's the right way.", next = "BACK", reply = "It does, and I've always thought so. A bloodline's worth a hundred wild beasts.", fx = { align = { order = 1 } } },
+        { text = "The wild makes the best companions. No pedigree needed.", next = "BACK", reply = "They do, and I've seen it. I'll keep my pedigrees, but I'll not argue with your bond.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1378,8 +1378,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Because I said the Light could touch a beast as surely as a knight, and that a horse fed on blessed grain might carry its rider past death itself. They laughed at me, and the paladins laughed louder, and now they come to my door with gold and long faces." } },
       choices = {
-        { text = "The Light touches every creature. You were right.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Bold claims deserve doubt until they're proven.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light touches every creature. You were right.", next = "BACK", reply = "Thank you. It's good to hear it from someone who knows the Light.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bold claims deserve doubt until they're proven.", next = "BACK", reply = "They do, and I've been doubted plenty. One day I'll prove it, and you can tell them you were wrong.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1387,8 +1387,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I've seen it done, by smooth-talking men with Stormwind papers that turned out to be forged by the Syndicate. I check every buyer now, and if that makes me mad, the Silver Hand were right about me after all." } },
       choices = {
-        { text = "You're right to be careful. Trust is earned.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A horse sold is a horse sold. You can't control the rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right to be careful. Trust is earned.", next = "BACK", reply = "It is, and I've lost a horse or two learning it. Thank you for understanding.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A horse sold is a horse sold. You can't control the rest.", next = "BACK", reply = "Maybe so, but I'll not sell to a man I don't trust. A horse deserves a good master.", fx = { align = { order = -1 } } },
         { text = "Something else, Merideth.", next = "BACK" },
       },
     },
@@ -1396,8 +1396,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They offend every horse I've ever bred, which is worse. A good horse is trained, loved and trusted over years, and a summoned beast is just bound, and I'd rather ride the first to my grave than the second to glory." } },
       choices = {
-        { text = "A beast that chooses you won't bolt. I agree.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A steed is a steed. Mine never tires or dies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A beast that chooses you won't bolt. I agree.", next = "BACK", reply = "Then we agree, and I'm glad of it. A horse that chooses you is a horse that stays.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A steed is a steed. Mine never tires or dies.", next = "BACK", reply = "Never tires or dies, and never loves you either. I'll take my horses, thank you.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -1405,8 +1405,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Not mine, because I train them from foals with every sort of noise and flash I can make, and a crackle of frost is nothing to a Carlson horse. The Silver Hand's grooms called that mad as well, but their chargers bolted at the first Scourge bonfire, and mine never did." } },
       choices = {
-        { text = "Patience in the training shows. You were right, Merideth.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A steady horse is less use than a fast one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience in the training shows. You were right, Merideth.", next = "BACK", reply = "Thank you. It took me years, and I'd not trade a single one of them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A steady horse is less use than a fast one.", next = "BACK", reply = "A fast horse that bolts gets you killed. I'll take steady, and so will you, once you've ridden one.", fx = { align = { order = -1 } } },
         { text = "Something else, Merideth.", next = "BACK" },
       },
     },
@@ -1428,7 +1428,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. You'll not call me mad, I hope, since your Cathedral was as quick as the Silver Hand to think it, though at least it was quieter about it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want a warhorse, I suppose, which is what the Silver Hand always wanted. They rode my stock to war and called me mad for asking where the horses went." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know what it is to trust an animal, then, which is more than I can say for most who come through that gate." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know what it is to trust an animal, then, and most who come through that gate only know how to spur one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid among my horses! They're shy of the cat-folk, I find, so I'd ask you to stay on two legs while you're in the paddock." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll want a horse that won't bolt the first time you set your sleeves on fire, I expect, and I breed them steady, but only for Stormwind's own." },
       },
@@ -1473,7 +1473,7 @@ P:NPC {
     },
     mad_can = {
       lines = {
-        { id = "mc_default", text = "Of course I can! It takes manna biscuits that only the Argent Dawn sell, and a great deal of patience. Some day a paladin will come asking, and then we'll see who's mad." },
+        { id = "mc_default", text = "Of course I can! It takes manna biscuits that only the Argent Dawn sell, and a whole winter of patience. Some day a paladin will come asking, and then we'll see who's mad." },
         { id = "mc_done", when = { questDone = TODO_QUEST("Manna-Enriched Horse Feed") },
           text = "And now I have, and the horse ate it, and I was right all along. You've no idea how good that feels." },
       },
@@ -1482,7 +1482,7 @@ P:NPC {
 
     feed = {
       lines = {
-        { id = "f_default", text = "Oh, so NOW the Silver Hand needs me? Bring me twenty enriched manna biscuits from the Argent Dawn, and gold, a good deal of it, for my ruffled feelings. Show me the sacrifice you all talk about so much." },
+        { id = "f_default", text = "Oh, so now the Silver Hand needs me? Bring me twenty enriched manna biscuits from the Argent Dawn, and gold, a good deal of it, for my ruffled feelings. Show me the sacrifice you all talk about so much." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "silver_hand" } } } },
     },
@@ -1493,8 +1493,8 @@ P:NPC {
         { id = "sh_default", text = "Wrong? They were cruel, which is worse. Proud men, the lot of them, so sure the Light only spoke through them that they couldn't hear a horse breeder from Southshore." },
       },
       choices = {
-        { text = "They were wrong. You deserve an apology.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
-        { text = "Grudges are poison. Let it go.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1 } },
+        { text = "They were wrong. You deserve an apology.", next = "BACK", reply = "Thank you. I'll not get one from them, so I'll take yours.", fx = { align = { honor = 1 }, affinity = 2 } },
+        { text = "Grudges are poison. Let it go.", next = "BACK", reply = "Maybe so, but I've earned the right to keep this one. They called me a heretic, after all.", fx = { align = { honor = -1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1511,9 +1511,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Horses, feed, and the faults of the Silver Hand; I know them all very well. Which?" } },
     background = { { id = "tp_bg", text = "I breed horses, and I was right about the feed, and those are the important things." } },
     advice = { { id = "tp_ad", text = "Never buy a horse that won't look you in the eye." } },
-    silver_hand = { { id = "tp_silverhand", text = "Laughed at me, all of them, and now they'll come to me for feed. I'll remember every name.", next = "silverhand" } },
+    silver_hand = { { id = "tp_silverhand", text = "They laughed at me, all of them, and now they'll come to me for feed. I'll remember every name.", next = "silverhand" } },
     scourge = { { id = "tp_scourge", text = "The Scourge took good horses from the north, and turned them into something I won't describe. I'd breed them all again, if I could, just to spite the plague." } },
-    forsaken = { { id = "tp_forsaken", text = "The Forsaken ride dead horses, and I've seen them up close, and I'd rather not again. A horse deserves better than that." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken ride dead horses, and I've seen them up close, and once was plenty. A horse deserves better than that." } },
     holy_light = { { id = "tp_holy_light", text = "The Light called me mad once, through the mouths of the Silver Hand, and I've not forgiven it. I believe in my horses now, and they've never once let me down." } },
     _none = { { id = "tp_none", text = "If it isn't about horses, then I'm not interested." } },
   },
@@ -1544,10 +1544,10 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not in words, but every fisherman learns to hear it in the tide and the gulls, and I'd guess that's a small cousin of what you do. The difference is that I only ask it for fish, and I suspect a shaman asks it for a great deal more." } },
+      lines = { { id = "xdsham_default", text = "Not in words, but every fisherman learns to hear it in the tide and the gulls, and I'd guess that's a small cousin of what you do. The difference is that I only ask it for fish, and I suspect a shaman asks it for rather more." } },
       choices = {
-        { text = "Ask the sea for what you need, and no more.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The sea's there to be used. Take all it gives.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Ask the sea for what you need, and no more.", next = "BACK", reply = "That's the way of it, and the sea always knows when you've taken too much.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The sea's there to be used. Take all it gives.", next = "BACK", reply = "Take all it gives and you'll find it gives less next year. Lindea will tell you, if I don't.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1555,8 +1555,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Patience, mostly, and knowing when to strike, which I'm told matters on a battlefield as much as on the bay. The best soldier I ever taught fished off this dock every morning before his patrol, and he never once lost his temper with a murloc." } },
       choices = {
-        { text = "Patience and control win fights. Rage only wastes strength.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fury wins fights. Patience is for fishermen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience and control win fights. Rage only wastes strength.", next = "BACK", reply = "That's what I've always said, though I've never fought anything bigger than a pike.", fx = { align = { order = 1 } } },
+        { text = "Fury wins fights. Patience is for fishermen.", next = "BACK", reply = "For you, maybe, but I've seen more fish lost to temper than to the tide.", fx = { align = { order = -1 } } },
         { text = "Something else, Donald.", next = "BACK" },
       },
     },
@@ -1564,11 +1564,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not so different, except the fish can't see you coming and the lions can. Hunters make fine anglers, in my experience, though they keep looking over their shoulders, as if a trout might sneak up on them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps eyeing my bucket, and I'll let it have the small ones, since the bay gives more than I need. Don't tell Lindea, though, because she counts the bait." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not so different, and your {pet} keeps eyeing my bucket, and I'll let it have the small ones, since the bay gives more than I need. Don't tell Lindea, though, because she counts the bait." },
       },
       choices = {
-        { text = "Take only what you need, from the bay or the hills.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Take all you can. The bay won't miss a few fish.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Take only what you need, from the bay or the hills.", next = "BACK", reply = "That's how it's done, in the bay or the hills. The sea respects a modest net.", fx = { align = { honor = 1 } } },
+        { text = "Take all you can. The bay won't miss a few fish.", next = "BACK", reply = "It will, friend, in a year or two, and then you'll know. I'll not argue more than that.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1576,8 +1576,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "That most of the work is waiting, and that you don't get to choose what comes up on the line. The Silver Hand rode out to save every town in Lordaeron at once, and I think they'd have done better to watch the water longer before they cast." } },
       choices = {
-        { text = "Wise words. Better to wait for sure orders than rush in.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Waiting costs lives. A knight must act at once.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Wise words. Better to wait for sure orders than rush in.", next = "BACK", reply = "That's what I'd have said, if I'd ever been a knight. Lindea says I'm patient enough for three of them.", fx = { align = { order = 1 } } },
+        { text = "Waiting costs lives. A knight must act at once.", next = "BACK", reply = "Maybe so, but a fisherman who jerks the line loses the fish. I'll leave the knights to you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1585,34 +1585,34 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Boats and men, and once a whole refugee barge that came down from the north overloaded and turned over in a squall within sight of the docks. We pulled out who we could and the bay kept the rest, so I say a word for them every time I cast." } },
       choices = {
-        { text = "Then the Light's blessing on every boat that sails.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The bay keeps what it keeps. Prayers won't calm a squall.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then the Light's blessing on every boat that sails.", next = "BACK", reply = "Thank you. They need it, every one, and so do the men who sail them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The bay keeps what it keeps. Prayers won't calm a squall.", next = "BACK", reply = "No, they won't, but they make the waiting easier. I've said a few out on the water.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Less than it did, with the murlocs crowding the shallows and half the town's young men off soldiering instead of fishing. The bay's patient, though, and so am I, and between us we'll outlast the lot of them." } },
+      lines = { { id = "dq_default", text = "Less than it did, with the murlocs crowding the shallows and the town's young men off soldiering instead of fishing. The bay's patient, though, and so am I, and between us we'll outlast the lot of them." } },
       choices = {
-        { text = "Clear the murlocs out so honest folk can fish.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Take what you need and let the bay keep the rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Clear the murlocs out so honest folk can fish.", next = "BACK", reply = "That's the hard part, and the Lieutenant hasn't done it yet. You'd have every fisherman's thanks.", fx = { align = { order = 1 } } },
+        { text = "Take what you need and let the bay keep the rest.", next = "BACK", reply = "That's the old way, and the right one. The bay will thank you, in its own time.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "More than you'd think, because both need patience, a good eye and the sense to know when to strike. The difference is that the bay forgives a bad cast, and I don't suppose your marks are so generous." } },
+      lines = { { id = "xrogue_default", text = "Quite a lot, because both need patience, a good eye and the sense to know when to strike. The difference is that the bay forgives a bad cast, and I don't suppose your marks are so generous." } },
       choices = {
-        { text = "Patience serves me best. I strike only when I must.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Patience is for fishermen. I make my own moments.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Patience serves me best. I strike only when I must.", next = "BACK", reply = "Then you'd make a fine fisherman, and I'll lend you a line anytime.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Patience is for fishermen. I make my own moments.", next = "BACK", reply = "Fishermen make their own moments too, only slower. Still, there's room on the bay for both of us.", fx = { align = { honor = -1 } } },
         { text = "Something else, Donald.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because the bay gives what it gives, and taking more than your share leaves nothing for the next tide. The murlocs found that out when the cod ran thin two winters back, and I'd rather not have to teach it to a mage." } },
+      lines = { { id = "xmage_default", text = "Because the bay gives what it gives, and taking more than your share leaves nothing for the next tide. The murlocs found that out when the cod ran thin two winters back, and I'd hate to have to teach it to a mage." } },
       choices = {
-        { text = "The bay deserves respect. I'll fish the honest way.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The bay is endless. Take what you can.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The bay deserves respect. I'll fish the honest way.", next = "BACK", reply = "That's all I ask. Lindea will sell you the line, and I'll show you the best spot.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The bay is endless. Take what you can.", next = "BACK", reply = "Nothing's endless, friend, not even the bay. Ask the murlocs.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -1620,8 +1620,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "That you can't make a fish bite, no matter what you've got whispering at your shoulder, and some of your kind find that a hard lesson. The bay takes its own time, and the ones who learn to sit easy with that tend to come back calmer, which can only be good for a person in your line of work." } },
       choices = {
-        { text = "Patience is a discipline. I'll learn it gladly, Donald.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I don't wait on fish. I'll find another way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience is a discipline. I'll learn it gladly, Donald.", next = "BACK", reply = "Then sit on the pier with me some evening, and we'll learn it together.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I don't wait on fish. I'll find another way.", next = "BACK", reply = "There's no other way with fish, friend, but you're welcome to try. I'll be watching.", fx = { align = { order = -1 } } },
         { text = "Something else, Donald.", next = "BACK" },
       },
     },
@@ -1629,7 +1629,7 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman on my docks! The bay's seen murlocs, naga and refugees come in on the same tide, {class}, so it'll not mind you, and neither will I." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A druid, eh? I hear some of your folk can take the shape of a sea lion and swim like one, and I'd give a great deal for a lesson in that, if it could be taught." },
+          text = "A druid, eh? I hear some of your folk can take the shape of a sea lion and swim like one, and I'd trade my best net for a lesson in that, if it could be taught." },
         { id = "h_default", text = "Donald Rabonne. I teach fishing, and Lindea there sells the gear, and the bay pays both of us if we're patient. It's been a fishing town longer than anything else, Southshore, and it'll be one after." },
         { id = "h_coast", when = { questDone = TODO_QUEST("Down the Coast") },
           text = "Someone cleared the Torn Fin off the Western Strand, and the fishermen got their nets back. I thought it'd be the lieutenant, but he's still sulking at the inn." },
@@ -1667,7 +1667,7 @@ P:NPC {
 
     bay = {
       lines = {
-        { id = "b_default", text = "Good, if you stay close in. Murlocs further down the strand, naga out past the point, and ships that come in looking ragged. The fish don't care about any of it, which I admire." },
+        { id = "b_default", text = "It's good, if you stay close in. There are murlocs further down the strand, naga out past the point and ships that come in looking ragged. The fish don't care about any of it, which I admire." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -1682,11 +1682,11 @@ P:NPC {
     murlocs = {
       big = true,
       lines = {
-        { id = "m_default", text = "They fish the same water we do, and they're better at it, which is half the trouble. The other half is they've started taking nets, and then fishermen, and that I can't forgive." },
+        { id = "m_default", text = "They fish the same water we do, and they're better at it, which I could live with. But they've started taking nets, and then fishermen, and that I can't forgive." },
       },
       choices = {
-        { text = "Drive them off the strand for good.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Leave them the strand. Fish the bay.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Drive them off the strand for good.", next = "BACK", reply = "That's what the town wants, and I'll not argue. Just mind the shallows when you go.", fx = { align = { order = 1 } } },
+        { text = "Leave them the strand. Fish the bay.", next = "BACK", reply = "That's my way too, and it's served me well enough. The murlocs and I have an understanding.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

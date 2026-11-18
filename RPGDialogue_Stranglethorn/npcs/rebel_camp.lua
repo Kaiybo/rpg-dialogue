@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_light", when = { gossip = { topic = "the_light", stance = "doubt" } }, text = "Nimetz says you don't put much stock in prayer. I don't either, some days, but don't tell him I agreed with you; he takes it hard." },
+    { id = "g_op_light", when = { gossip = { topic = "the_light", stance = "doubt" } }, text = "Brother Nimetz says you don't put much stock in prayer. I don't either, some days, but don't tell him I agreed with you; he takes it hard." },
     { id = "g_halt", text = "Stop there and state your business. If you're one of the Colonel's, you won't be walking out of this camp." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. We've few enough friends this far from Stormwind." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'd wondered if Kurzen had you. We've few enough friends out here, so I'm glad to be wrong." },
@@ -66,8 +66,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_doren_default", text = "Kurzen happened, or whatever got into his head out here; one day he was our commander and the next he was something else, and most of the men followed him. A company is only as good as the one leading it, so remember that before you follow anyone into this jungle." } },
       choices = {
-        { text = "A soldier follows orders, Lieutenant. That's what discipline means.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "No one should follow a leader blindly. Your men chose wrong.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A soldier follows orders, Lieutenant. That's what discipline means.", next = "BACK", reply = "That's what I believed too, right up until the orders were to burn a village with the people still in it. Discipline is a fine thing until it marches you somewhere you can't come back from.", fx = { align = { order = 1 } } },
+        { text = "No one should follow a leader blindly. Your men chose wrong.", next = "BACK", reply = "Some did, and some just didn't know which way to run when the Colonel changed. I'll not judge the ones who stayed too harshly, because I nearly stayed myself.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_zg_default", text = "Safer, maybe, but this jungle never forgets anything, and a troll empire doesn't go quiet because one god dies. Kurzen came here to fight trolls, remember, and somewhere along the way the jungle turned him into something I had to walk away from." } },
       choices = {
-        { text = "Then strike the trolls while they're reeling. Stormwind should march now.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Let them bury their dead. We came here for Kurzen, not a slaughter.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then strike the trolls while they're reeling. Stormwind should march now.", next = "BACK", reply = "Spoken like someone who's never had to bury the men who marched. Stormwind can't spare an army for this jungle, and I won't ask it to.", fx = { align = { honor = -1 } } },
+        { text = "Let them bury their dead. We came here for Kurzen, not a slaughter.", next = "BACK", reply = "Thank you, because that's what I've been trying to tell my own men. Kurzen first, and let the trolls mourn in peace.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Do you think the trolls had a hand in Kurzen's madness?", next = "xcl_zg2" },
       },
     },
@@ -88,15 +88,15 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Something did, and I'll not rule anything out. If your spirits can tell the jungle's voice from whatever's whispering to Kurzen, you'd be worth more to us than a squad." } },
+      lines = { { id = "xdsham_default", text = "Something did, and it took his men down with him, so I'll not rule anything out. If your spirits can tell the jungle's voice from whatever's whispering to Kurzen, you'd be worth more to us than a squad." } },
       choices = {
-        { text = "They were good men once. Some of them can still be saved.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Mad or not, Kurzen's men need putting down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They were good men once. Some of them can still be saved.", next = "BACK", reply = "I hope you're right, and I want to believe it, so I'll hold you to that. If your spirits can find the way back for them, I'll follow it.", fx = { align = { light = 1 } } },
+        { text = "Mad or not, Kurzen's men need putting down.", next = "BACK", reply = "You'd not be the first to tell me so, and maybe you're right. I'll still give them the chance to lay down their arms before it comes to that.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_talk = {
-      lines = { { id = "dt_default", text = "Because the trolls are here, and they've raided too many camps for us to leave. I didn't choose this place; it chose me when my captain fell. The jungle keeps the score honest, at least." } },
+      lines = { { id = "dt_default", text = "Because Kurzen is here, and somebody has to stop him before his madness spreads any further. I didn't choose this jungle, but I won't leave it until that's done." } },
       choices = {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
@@ -110,7 +110,7 @@ P:NPC {
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid, here? Then you've seen what the trolls do to the jungle, and maybe what the jungle does to us." },
         { id = "h_default", key = true,
-          text = "Lieutenant Doren. We came into this jungle under Colonel Kurzen, and something took his mind, and his closest men with it. The rest of us left to find out what." },
+          text = "Lieutenant Doren. We came into this jungle under Colonel Kurzen, and something took his mind, and his closest men with it. The rest of us broke away, and we mean to stop him." },
         { id = "h_secrets", tags = { "news" }, when = { questActive = TODO_QUEST("Jungle Secrets") },
           text = "Private Thorsen was our man inside the Colonel's camp, and someone gave him away. I want the name." },
         { id = "h_herod", when = { questActive = TODO_QUEST("Bookie Herod") },
@@ -120,11 +120,11 @@ P:NPC {
         { id = "h_patrol", when = { questActive = TODO_QUEST("Patrol Schedules") },
           text = "If we know when Kurzen's men march, we know when to hit them. Bring me their schedules." },
         { id = "h_kurzen", when = { questActive = TODO_QUEST("Colonel Kurzen") },
-          text = "It's time. He won't come back to himself, and we've waited long enough to be sure, so end it." },
+          text = "It's time to end the Colonel. He won't come back to himself, and we've waited long enough to be sure." },
         { id = "h_roll", when = { metBefore = true }, text = "Called the roll this morning, and we're two short. They'll walk in by dusk or they won't, and I've stopped guessing which." },
         { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Colonel Kurzen"), days = 3 } },
           text = "The men keep asking me what he said at the end. I tell them it doesn't matter, and I'd like to believe that myself." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf with totems. Kurzen's men started hearing things in this jungle too, so you'll forgive me if I ask what you're hearing." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf with totems. Kurzen's men started hearing things in this jungle too, so I'll have to ask what you're hearing." },
       },
       again = {
         { id = "h_again", text = "Go on. I've a few minutes before the next patrol comes in." },
@@ -137,7 +137,7 @@ P:NPC {
         { text = "Why walk away? Why not stop him then and there?", next = "left" },
         { text = "Has anyone betrayed your camp?", next = "informant" },
         { text = "There can't be many of you left.", next = "men" },
-        { text = "I've followed a bad order before.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "I've been given a bad order before.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "My order fell apart too. Nobody told us why.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "It's done. Kurzen's dead.", next = "done", when = { questDone = TODO_QUEST("Colonel Kurzen") } },
         { text = "I could pray over your dead, Lieutenant.", next = "priest_dead", when = { class = "PRIEST" } },
@@ -200,7 +200,7 @@ P:NPC {
     left = {
       big = true,
       lines = {
-        { id = "l_default", text = "With what? Half the expedition went with him. We'd have been killing our own friends in the dark, and losing." },
+        { id = "l_default", text = "With what? Most of the expedition went with him. We'd have been killing our own friends in the dark, and losing." },
       },
       choices = {
         { text = "You did the right thing.", next = "left_stormwind", fx = { affinity = 1, align = { light = 1 } } },
@@ -212,7 +212,7 @@ P:NPC {
       lines = {
         { id = "ls_default", text = "I sent word, twice. If an answer came, it went to the Colonel's tent, so I've no idea what Stormwind thinks of us." },
         { id = "ls_noble", when = { origin = "human_minor_noble" },
-          text = "Your sort might know better than I do. Somebody in the Keep signed for this expedition. I'd like to hear they still remember it." },
+          text = "I sent word twice and heard nothing, but your sort might know better than I do. Somebody in the Keep signed for this expedition, and I'd like to hear they still remember it." },
       },
       choices = {
         { text = "Does Stormwind even care what happens out here?", next = "op_stormwind" },
@@ -225,8 +225,8 @@ P:NPC {
         { id = "lw_default", text = "That's kind of you, but wait until it's over. I'd rather they read one report than two." },
       },
       choices = {
-        { text = "Understood.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Their families shouldn't have to wait for word.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Understood.", next = "BACK", reply = "Thank you, I'll keep the list and the letters close. When it's done, they'll get one report and a proper account of how their sons fought.", fx = { align = { order = 1 } } },
+        { text = "Their families shouldn't have to wait for word.", next = "BACK", reply = "No, they shouldn't, and you're right to say it. Still, I'd rather send them a whole truth than half of one and a promise.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -252,8 +252,8 @@ P:NPC {
         { id = "io_default", text = "I've thought it. I look at every face at roll call and think it, and that's what this has done to us." },
       },
       choices = {
-        { text = "Trust your men until there's proof.", next = "BACK", fx = { align = { honor = 2 }, affinity = 1 } },
-        { text = "Then watch them. All of them.", next = "BACK", fx = { align = { honor = -2 }, trait = { cautious = 1 } } },
+        { text = "Trust your men until there's proof.", next = "BACK", reply = "That's what I'd like to do, and maybe I needed to hear someone say it. I'll hold my tongue until there's proof, but I'll keep my eyes open.", fx = { align = { honor = 2 }, affinity = 1 } },
+        { text = "Then watch them. All of them.", next = "BACK", reply = "I am watching them, and I hate every moment of it. A camp where everyone watches everyone is halfway to the Colonel's camp already.", fx = { align = { honor = -2 }, trait = { cautious = 1 } } },
       },
     },
     informant_after = {
@@ -261,14 +261,14 @@ P:NPC {
         { id = "ia_default", text = "Whatever a lieutenant does in a jungle with no court and no captain. I'd rather not decide that tonight." },
       },
       choices = {
-        { text = "Hand him to Stormwind's justice.", next = "BACK", fx = { align = { order = 2 } } },
-        { text = "Thorsen nearly died. Let him decide.", next = "BACK", fx = { align = { order = -1 }, trait = { stern = 1 } } },
+        { text = "Hand him to Stormwind's justice.", next = "BACK", reply = "That's the right answer, and the one I'll give if I'm still standing when it's over. Stormwind's courts are slow, but they're better than a rope in the jungle.", fx = { align = { order = 2 } } },
+        { text = "Thorsen nearly died. Let him decide.", next = "BACK", reply = "Thorsen's earned that right, and I'll ask him when he's fit to answer. He's a better man than I am, so he may surprise us both.", fx = { align = { order = -1 }, trait = { stern = 1 } } },
       },
     },
 
     men = {
       lines = {
-        { id = "mn2_default", text = "Enough to hold this clearing, not enough to take the compound. Thorsen's back, thank the Light. Nimetz patches us up and prays over the rest." },
+        { id = "mn2_default", text = "Enough to hold this clearing, but not enough to take Kurzen's Compound. Private Thorsen made it back from the Colonel's camp, thank the Light, and Brother Nimetz patches up the rest of us." },
       },
       choices = {
         { text = "Tell me about Thorsen.", next = "men_thorsen" },
@@ -284,24 +284,24 @@ P:NPC {
     },
     men_need = {
       lines = {
-        { id = "mnn_default", text = "Food that isn't roots, dry boots, and a reason. Booty Bay sells the first two, if Krazek remembers we exist." },
+        { id = "mnn_default", text = "Food that isn't roots, dry boots, and a reason. Booty Bay sells the first two, if Krazek, our friend in the Bay, remembers we exist." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     soldier = {
       lines = {
-        { id = "s_default", text = "Then you know there's a moment when you stop telling yourself it's strategy. Mine was a burning village. Whose was yours?" },
+        { id = "s_default", text = "Then you know there's a moment when you stop telling yourself it's strategy. Mine was a burning village. What was yours?" },
       },
       choices = {
         { text = "I'd rather not talk about it.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "I obeyed it. I still think about that.", next = "soldier_obeyed", fx = { trait = { pious = 1 } } },
         { text = "I refused it, and paid for it.", next = "soldier_refused", fx = { align = { honor = 2 } } },
-        { text = "I never had that moment, because orders were orders.", next = "BACK", fx = { align = { order = 2 } } },
+        { text = "I never had that moment, because orders were orders.", next = "BACK", reply = "Then you were luckier than I was, or you looked away at the right moments. Either way, I hope you never meet the village that ends it.", fx = { align = { order = 2 } } },
       },
     },
     soldier_obeyed = {
-      lines = { { id = "so_default", text = "So did half the men out there with Kurzen. I don't hate them for it. I just can't let them past the trees." } },
+      lines = { { id = "so_default", text = "So did most of the men out there with Kurzen, and I don't hate them for it, but I can't let them past the trees." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     soldier_refused = {
@@ -314,8 +314,8 @@ P:NPC {
         { id = "sq_default", text = "The Silver Hand? I heard it broke after Lordaeron. Then you know what it's like to keep a camp going on habit when the people at the top stop answering." },
       },
       choices = {
-        { text = "Habit and the Light. It's enough.", next = "BACK", fx = { align = { light = 2 }, affinity = 1 } },
-        { text = "It isn't. That's why I'm out here.", next = "BACK", fx = { align = { light = -1 }, trait = { brave = 1 }, affinity = 1 } },
+        { text = "Habit and the Light. It's enough.", next = "BACK", reply = "I envy you that, I'll admit it. Habit's all I've got some days, and the Light hasn't spoken to me since we came into this jungle.", fx = { align = { light = 2 }, affinity = 1 } },
+        { text = "It isn't. That's why I'm out here.", next = "BACK", reply = "Then you've walked further than most of us, and I hope it was worth it. We're all out here because something at home stopped making sense.", fx = { align = { light = -1 }, trait = { brave = 1 }, affinity = 1 } },
       },
     },
 
@@ -343,8 +343,8 @@ P:NPC {
     priest_dead = {
       lines = { { id = "pd_default", text = "We buried them without a priest; Nimetz was busy with the living, and I said what words I could remember. Would you? The graves are past the tents, and the men would like to see it done properly." } },
       choices = {
-        { text = "I'll go tonight.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { rebel_camp = 2 }, trait = { pious = 1 } } },
-        { text = "Words over graves won't help anyone now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll go tonight.", next = "BACK", reply = "Thank you, truly. The men won't say it, but they'll sleep better knowing someone did it properly.", fx = { affinity = 3, align = { light = 2 }, standing = { rebel_camp = 2 }, trait = { pious = 1 } } },
+        { text = "Words over graves won't help anyone now.", next = "BACK", reply = "They might help the living who stand over them. I'll not ask again, but I'll say the words myself if no one else will.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -363,7 +363,7 @@ P:NPC {
       lines = {
         { id = "hn_default", text = "If I had a name, I'd not hand it to someone I've only just met. That's how Thorsen nearly died." },
         { id = "hn_rogue", when = { class = "ROGUE" },
-          text = "You'll forgive me if I don't hand names to someone who walks as quietly as you do, because that's how Thorsen nearly died." },
+          text = "I won't hand names to someone who walks as quietly as you do, because that's how Thorsen nearly died." },
       },
       choices = {
         { text = "I'd do the same in your boots.", next = "BACK" },
@@ -371,12 +371,12 @@ P:NPC {
     },
     k_rogue = {
       lines = {
-        { id = "xro_default", text = "Then you know how it ends when someone talks, and you'll forgive me if I watch what I say around you. Thorsen went in quiet and came back out half-dead, and somebody in this camp knew he was going." },
+        { id = "xro_default", text = "Then you know how it ends when someone talks, so I'll be watching what I say around you. Thorsen went in quiet and came back out half-dead, and somebody in this camp knew he was going." },
       },
       choices = {
         { text = "Then let me find your informant.", next = "informant" },
-        { text = "Watch me all you like. I'm on your side.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Trust no one, Lieutenant. Me included.", next = "BACK", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
+        { text = "Watch me all you like. I'm on your side.", next = "BACK", reply = "I appreciate that, and I hope it's true. Forgive me if I'm still careful, because careful is all that's kept us alive.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Trust no one, Lieutenant. Me included.", next = "BACK", reply = "That's the most honest thing anyone's said to me in weeks. I'll take your advice, and I'll be watching you too.", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
       },
     },
     k_hunter = {
@@ -393,7 +393,7 @@ P:NPC {
         { id = "xmg_default", text = "Brother Nimetz says troll magic, and I've no learning to argue with him. Kurzen was a hard man before, but he was never cruel, and then he was, and nobody could tell me why." },
       },
       choices = {
-        { text = "Let me look into it.", next = "mind_cure" },
+        { text = "And if it's a curse that can be lifted?", next = "mind_cure" },
         { text = "Some men only need an excuse to be cruel.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
       },
     },
@@ -424,12 +424,12 @@ P:NPC {
   notices = { "class", "craft", "form" },
 
   impression = {
-    first = "Brother Nimetz has glassware drying on every flat surface of a jungle camp, which says a great deal about him. He tended the sick, and now he studies what drove them mad.",
+    first = "Brother Nimetz has glassware drying on every flat surface of a jungle camp, and he apologized to me for nearly knocking over a flask I hadn't touched. He tended the sick, and now he studies what drove them mad.",
     third = "{name} met Brother Nimetz at the rebel camp, a priest studying the sickness of mind that took Colonel Kurzen and his men.",
   },
 
   greetings = {
-    { id = "g_op_stormwind", when = { gossip = { topic = "stormwind", stance = "distrust" } }, text = "Doren says you think the nobles have forgotten us. He didn't argue with you, which worried me more than if he had." },
+    { id = "g_op_stormwind", when = { gossip = { topic = "stormwind", stance = "distrust" } }, text = "Lieutenant Doren says you think the nobles have forgotten us. He didn't argue with you, which worried me more than if he had." },
     { id = "g_glass", text = "The Light keep you. Mind your step; I've glassware drying on every flat surface in this camp." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again. Any news is welcome here, even bad news." },
   },
@@ -447,7 +447,7 @@ P:NPC {
   nodes = {
     op_light = {
       lines = {
-        { id = "opl_default", text = "I believe it does, though some nights the jungle's louder than any prayer I know. Tell me honestly, since nobody in this camp will: what does the Light mean to you out here?" },
+        { id = "opl_default", text = "I believe it does, though some nights the jungle's louder than any prayer I know. Tell me plainly, since nobody in this camp will: what does the Light mean to you out here?" },
       },
       choices = {
         { text = "It's the only thing that keeps us whole.", next = "op_light_faith", fx = { affinity = 1, align = { light = 1 }, trait = { pious = 1 }, opinion = { the_light = "faith" } } },
@@ -479,8 +479,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_nimetz_default", text = "It might ease it, but I'm a man of glassware as well as faith, and I want to know what causes it before I start praying at it. Faith without study gave Stormwind half its quack cures, and study without faith gave us Kel'Thuzad." } },
       choices = {
-        { text = "Trust the Light, Brother. Some things can't be measured in glass.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Study first. Faith alone has let too many sick men die.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Trust the Light, Brother. Some things can't be measured in glass.", next = "BACK", reply = "Perhaps, but the Light gave me eyes and a mind as well as faith, and I intend to use all three. I'll pray when I'm sure what I'm praying against.", fx = { align = { light = 1 } } },
+        { text = "Study first. Faith alone has let too many sick men die.", next = "BACK", reply = "You've the instincts of a field surgeon, friend, and I'm glad of it. Faith carries the heart, but it's the glassware that finds the poison.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -488,8 +488,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_zg_default", text = "I believe you, because I've treated men who only heard the drums from a distance and woke screaming for weeks. Whatever the Gurubashi priests served, it fed on the blood of the living, and I've spent years at this table trying to understand what such a hunger does to a mind." } },
       choices = {
-        { text = "Places like that should be burned and forgotten, Brother.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Understanding it might cure the madness. Study what's left.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Places like that should be burned and forgotten, Brother.", next = "BACK", reply = "They should, and maybe one day they will be. But burning what we don't understand is how men go mad in the first place.", fx = { align = { light = 1 } } },
+        { text = "Understanding it might cure the madness. Study what's left.", next = "BACK", reply = "My thinking exactly, though I'll admit I'm afraid of what I'll find. Bring me what you can, and I'll study it carefully.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Will the madness fade now that Hakkar is gone?", next = "xcl_zg2" },
       },
     },
@@ -501,10 +501,10 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I've wondered, though I'd sooner blame the trolls' witch doctors. If the land here is sick, you'd feel it before I could find it under a lens, so tell me honestly." } },
+      lines = { { id = "xdsham_default", text = "I've wondered, though I'd sooner blame the trolls' witch doctors. If the land here is sick, you'd feel it before I could find it under a lens, and I'd welcome your help with the men it has touched." } },
       choices = {
-        { text = "I'll help you study it, Brother. Patience will cure them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Some minds can't be saved. Spare your glassware.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll help you study it, Brother. Patience will cure them.", next = "BACK", reply = "That's kind of you, and I'll take the help gladly. Patience may cure them, or at least keep me sane while I try.", fx = { align = { light = 1 } } },
+        { text = "Some minds can't be saved. Spare your glassware.", next = "BACK", reply = "You may be right, but I'll not stop trying until I'm certain. A healer who gives up is no healer at all.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -512,8 +512,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "It took the discipline out of them first, which in a soldier is the most frightening thing to watch, and then it took their loyalty. Good men who had drilled together for years turned on each other almost overnight, and I am still trying to understand why." } },
       choices = {
-        { text = "Discipline is a soldier's armor. Without it, anything gets in.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Discipline only holds so long. Every soldier breaks eventually.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Discipline is a soldier's armor. Without it, anything gets in.", next = "BACK", reply = "It is, and you've put it better than I could. Once the armor cracks, the jungle gets in and the madness follows.", fx = { align = { order = 1 } } },
+        { text = "Discipline only holds so long. Every soldier breaks eventually.", next = "BACK", reply = "They do, and I've seen enough of them break to know you're right. That's why I keep trying to find what breaks them first.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -524,8 +524,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Anything Kurzen's men might have eaten or brewed, because I've begun to wonder whether some of the madness came out of a pot rather than a curse. The trolls know which leaves turn a man's mind, and I'd wager somebody learned it from them. And watch what {pet} eats out there, too, because if I'm right about those leaves, the beasts may know about them before we do." },
       },
       choices = {
-        { text = "If it's poison, it can be cured. I'll help you find it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Mad soldiers are dangerous. Better to put them down than cure them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If it's poison, it can be cured. I'll help you find it.", next = "BACK", reply = "Thank you, friend, I'll take any help I can get. A poison has a cure, but madness has only prayers.", fx = { align = { light = 1 } } },
+        { text = "Mad soldiers are dangerous. Better to put them down than cure them.", next = "BACK", reply = "They are, and I'd not ask you to risk your life for them. But every soldier I can bring back is one less we have to bury.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -533,8 +533,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I suspect everything, and I can prove nothing, which is the worst place a healer can be. The troll ruins are full of old curses, and Kurzen's camp is close to more than one of them, so I'd not rule out a spell." } },
       choices = {
-        { text = "Let me examine the ruins. Magic leaves a trace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Burn the ruins and be done with the curses.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me examine the ruins. Magic leaves a trace.", next = "BACK", reply = "Please do, and bring me back whatever you find. Magic leaves a trace, and so does poison, and I need both to know which is which.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Burn the ruins and be done with the curses.", next = "BACK", reply = "Burning them would be easier, but the curses might simply move into the smoke. I'd rather know what we're fighting first.", fx = { align = { order = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
@@ -542,8 +542,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Men who were good soldiers once, turned into things that kill without thinking, and I could do nothing to save them. If your power could find the cause, I'd take your help gladly, whatever the Light might say about it." } },
       choices = {
-        { text = "The Light and I can work together on this.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The Light failed them. My power won't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light and I can work together on this.", next = "BACK", reply = "Then let's try, and may the Light forgive us both if it goes wrong. I'll take any help that brings even one of them back.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light failed them. My power won't.", next = "BACK", reply = "The Light didn't fail them, friend, Kurzen did, but I'll take your help all the same. Just don't let your power make you a new kind of madman.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -551,8 +551,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Traces of the elixir Kurzen's medicine men hand out to their soldiers, which makes a frightened man brave and a brave man reckless. A rogue might think it a fine thing to carry into a fight, but I watched one of Kurzen's men on it wade out to fight a river crocolisk bare-handed, and we buried what the crocolisk left." } },
       choices = {
-        { text = "I'll leave it alone, Brother. It's your study.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A little courage in a bottle might be useful, Brother.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll leave it alone, Brother. It's your study.", next = "BACK", reply = "Thank you, friend, I'd rather it stayed in the flask than in someone's belly. Courage that comes from a bottle never lasts.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little courage in a bottle might be useful, Brother.", next = "BACK", reply = "That's what Kurzen's medicine men say too, and look what came of it. I'll keep it under lock, if it's all the same to you.", fx = { align = { order = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
@@ -593,13 +593,13 @@ P:NPC {
         { text = "What plants are you looking for, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What's in those flasks that I shouldn't pocket, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could the Light cure Kurzen's madness, Brother?", next = "xpt_nimetz", when = { party = { class = "PRIEST" }, faction = "Alliance" } },
-        { text = "The Light keep you, Brother.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A druid could help with the cure, Brother.", next = "k_druid", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "The Light keep you, Brother.", next = "END", reply = "And you, friend, and may it find you even in the trees. Mind the glassware on your way out.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I know the jungle's plants. I could help with a cure.", next = "k_druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "Do you suspect magic drove Kurzen's men mad, Brother?", next = "xmage", when = { class = "MAGE" } },
         { text = "You must have seen terrible things in the jungle, Brother.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could the jungle itself have poisoned Kurzen's mind, Brother?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "I saw Hakkar's altar, Brother. It was worse than you'd think.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
-        { text = "Keep your prayers, Brother, because they won't help out here.", next = "END", fx = { align = { light = -1 } } },
+        { text = "I saw Hakkar's altar, Brother. It was worse than you imagine.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
+        { text = "Keep your prayers, Brother, because they won't help out here.", next = "END", reply = "Perhaps not, but I'll keep praying anyway, because someone ought to. Walk carefully, friend, and stay away from my flasks.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -630,9 +630,9 @@ P:NPC {
         { id = "ev_default", text = "I've sat with too many men who called for their mothers in a voice that wasn't theirs. Healing has to include stopping the wound." },
       },
       choices = {
-        { text = "The Light would agree.", next = "BACK", fx = { align = { light = 2 }, affinity = 1 } },
+        { text = "The Light would agree.", next = "BACK", reply = "It would, I think, though I'd never presume to speak for it. I'll do what I must, and pray for forgiveness after.", fx = { align = { light = 2 }, affinity = 1 } },
         { text = "Careful. Vows like that change people.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
-        { text = "Good. Some things need killing.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Good. Some things need killing.", next = "BACK", reply = "I hope you're wrong, but I fear you're right. I'll do my work, and let others do theirs.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
       },
     },
     elixir_cure = {
@@ -644,7 +644,7 @@ P:NPC {
 
     craft = {
       lines = {
-        { id = "c_default", text = "More often than you'd think, for prayer and alchemy are both patience, clean hands, and knowing exactly what you put in. My abbot called it a hobby, but out here it's the job." },
+        { id = "c_default", text = "Every evening, for prayer and alchemy are both patience, clean hands, and knowing exactly what you put in. My abbot called it a hobby, but out here it's the job." },
       },
       choices = {
         { text = "Where did you learn?", next = "craft_learn" },
@@ -662,7 +662,7 @@ P:NPC {
 
     men = {
       lines = {
-        { id = "m_default", text = "Their bodies are better than you'd think, and their minds are worse. They argue about whether they're deserters, and I tell them the Light doesn't keep that ledger." },
+        { id = "m_default", text = "Their wounds are mending well enough, but their minds are another matter. They argue about whether they're deserters, and I tell them the Light doesn't keep that ledger." },
       },
       choices = {
         { text = "Doesn't it?", next = "men_ledger", fx = { trait = { skeptical = 1 } } },
@@ -675,10 +675,10 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     men_doren = {
-      lines = { { id = "md_default", text = "He carries every one of them, and won't let me carry any of him. Don't tell him I said so." } },
+      lines = { { id = "md_default", text = "He carries every man in this camp on his back and won't let any of us carry a scrap of him, though you didn't hear that from me." } },
       choices = {
-        { text = "I won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "He ought to hear it, and I'll tell him myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I won't.", next = "BACK", reply = "Thank you, friend, he has enough to carry without my worrying added to it. He'll be all right, I think, if we get him home.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He ought to hear it, and I'll tell him myself.", next = "BACK", reply = "Please don't, he'd only shoulder it with the rest and say nothing. Let him think nobody's noticed, it's kinder.", fx = { align = { honor = -1 } } },
       },
     },
 
@@ -687,7 +687,7 @@ P:NPC {
         { id = "p_default", text = "Gladly. It's been weeks since anyone here knew the words. Kneel, if the mud allows." },
       },
       choices = {
-        { text = "For the men here.", next = "BACK", fx = { align = { light = 2 }, affinity = 2, trait = { pious = 1 } } },
+        { text = "For the men here.", next = "BACK", reply = "Then for the men here, and for those buried behind the camp, and for the ones still lost in the trees. Light keep them all.", fx = { align = { light = 2 }, affinity = 2, trait = { pious = 1 } } },
         { text = "For your Colonel.", next = "pray_kurzen", fx = { align = { light = 3 }, trait = { kind = 1 } } },
       },
     },
@@ -721,8 +721,8 @@ P:NPC {
         { id = "xdr_default", text = "Could you? The jungle grows the poison and, I'm told, the answer to it, and I've only my books and my glassware to tell one from the other. If you know the plants here, walk the riverbank with me tomorrow." },
       },
       choices = {
-        { text = "I'll walk it with you, Brother.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The jungle's cures aren't the Light's, Brother. Don't mix them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll walk it with you, Brother.", next = "BACK", reply = "Then you're welcome, and I'll be glad of the company. The jungle and I are poor friends, but perhaps you can make introductions.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The jungle's cures aren't the Light's, Brother. Don't mix them.", next = "BACK", reply = "You may be right, but a cure is a cure, wherever it grows. I'd take an answer from the jungle before I'd bury another man for want of it.", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -773,8 +773,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "That they're orc witches, and that the jungle trolls' witch doctors are worse. Most of them say a good deal crazier things now, so I wouldn't take it to heart." } },
       choices = {
-        { text = "I'll prove them wrong by fighting beside you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let them fear me. Fear makes men careless.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll prove them wrong by fighting beside you.", next = "BACK", reply = "Then I'll be glad of you, and they'll learn to be glad of you too. Fighting side by side changes minds faster than any sermon.", fx = { align = { honor = 1 } } },
+        { text = "Let them fear me. Fear makes men careless.", next = "BACK", reply = "They'll fear you plenty without trying, I think. Just don't give them a reason to shoot first.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -782,8 +782,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because the Colonel told them magic was the cause of everything that went wrong, and they believed him. I never knew if he was telling the truth or just looking for someone to blame, and I'm still not sure now." } },
       choices = {
-        { text = "Kurzen lied to them. Magic didn't do this.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "He may have been right. Someone should investigate.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Kurzen lied to them. Magic didn't do this.", next = "BACK", reply = "I've thought so myself, but saying it in that camp would have cost me my neck. Thank you for saying it aloud.", fx = { align = { order = -1 } } },
+        { text = "He may have been right. Someone should investigate.", next = "BACK", reply = "Maybe, and I'd be the last to stop anyone looking. Just be careful, because whatever's out there doesn't like being looked at.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else, Thorsen.", next = "BACK" },
       },
     },
@@ -791,8 +791,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Without a second thought, because they saw demons in every shadow, real or not. The madness made them suspicious of everything, and a real demon walking into their camp would have set them screaming." } },
       choices = {
-        { text = "Their madness was their own. I'd have walked in anyway.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd have left my demon behind, out of respect.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Their madness was their own. I'd have walked in anyway.", next = "BACK", reply = "Then you're braver than I was, or madder. Either way, I'd not want to see you walk in there.", fx = { align = { honor = -1 } } },
+        { text = "I'd have left my demon behind, out of respect.", next = "BACK", reply = "That's more respect than they deserve, but it's kind of you. They'd have shot you all the same, mind.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -800,17 +800,17 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Good men taking orders from a mind that wasn't right anymore, and doing things to the trolls and to each other that they'd never have done in Stormwind. I played along to stay alive, and some nights I can't tell whether I was pretending or whether I was one of them for a while." } },
       choices = {
-        { text = "You pretended to survive. The Light forgives that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You did what you had to. Bury it and keep moving.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You pretended to survive. The Light forgives that.", next = "BACK", reply = "I hope so, though I've not felt forgiven yet. Maybe one day I'll stop hearing those men in my sleep.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You did what you had to. Bury it and keep moving.", next = "BACK", reply = "I'm trying, but it doesn't bury easy. Still, moving is better than standing still and remembering.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "To clear firing lines and make the trolls keep their distance, or so they said, but I watched them do it and some of them liked it too much. The jungle's growing back already, faster than I'd believe if I hadn't seen it, though it's growing back thorny." } },
+      lines = { { id = "xdruid_default", text = "They did, to clear firing lines and make the trolls keep their distance, or so they said, but I watched them do it and some of them liked it too much. The jungle's growing back already, faster than I'd believe if I hadn't seen it, though it's growing back thorny." } },
       choices = {
-        { text = "Kurzen must answer for that fire. It was done for cruelty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Burning ground in a war is no worse than burning a farm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Kurzen must answer for that fire. It was done for cruelty.", next = "BACK", reply = "It must, and I'll be there when it does if I can still stand. Some of the men liked it, and that's what I can't forget.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Burning ground in a war is no worse than burning a farm.", next = "BACK", reply = "Maybe, but I watched them laugh while it burned, and nobody laughs at a burning farm. It was more than strategy, whatever the Colonel said.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -840,12 +840,12 @@ P:NPC {
         { text = "How were you found out?", next = "betrayed" },
         { text = "You can talk to me. I'm good at going unseen too.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "What did you see inside Kurzen's camp, Thorsen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "Kurzen's war isn't mine, Private, and I'll stay out of it.", next = "END", fx = { align = { order = -1 } } },
+        { text = "I'll help you.", next = "END", reply = "Thank you, I'll take any help I can get. Keep your voice low and your eyes on the trees, and the Light keep you.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Kurzen's war isn't mine, Private, and I'll stay out of it.", next = "END", reply = "I don't blame you, it's no war anyone should want. Keep your voice down on your way out, and stay clear of the Colonel's men.", fx = { align = { order = -1 } } },
         { text = "I'm a soldier, Private. What did they do to you?", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Why did Kurzen's men fear magic so much, Thorsen?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would Kurzen's officers really have killed me on sight, Thorsen?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Kurzen's men seem to have burned half the jungle, Thorsen.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Kurzen's men have burned a great swath of jungle, Thorsen.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What did Kurzen's men say about shamans, Thorsen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Rest. I'll leave you be.", next = "END", fx = { trait = { kind = 1 } } },
       },

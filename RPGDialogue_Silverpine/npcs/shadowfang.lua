@@ -35,15 +35,15 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Deathstalker Adamant, of the Sepulcher, and lately of this cell. Rethilgore kept the key on his belt and my blade on his wall, and if he's dead, I'll thank you and then I'll go and get my blade." },
+        { id = "h_default", key = true, text = "Deathstalker Adamant, of the Sepulcher, and lately of this cell. Rethilgore, the worgen who jails this place, kept the key on his belt and my blade on his wall, and if he's dead, I'll thank you and then I'll go and get my blade." },
         { id = "h_quest", when = { questActive = TODO_QUEST("Deathstalkers in Shadowfang") },
-          text = "Hadrec sent two of us into this keep, and you've found the one who could still answer. I'm sorry to say the other is out in the courtyard, and he won't be answering anyone." },
+          text = "High Executor Hadrec sent two of us into this keep, and you've found the one who could still answer. I'm sorry to say the other is out in the courtyard, and he won't be answering anyone." },
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "A rogue, good. I can open the courtyard door for you, but there are things past it that a careful blade will handle better than a loud one." },
         { id = "h_cleared", when = { cleared = "Shadowfang Keep" },
           text = "You've been to the top of this keep before, I can tell, because you don't look at the stairs the way the new ones do. Arugal keeps coming back, it seems, so we keep going up." },
         { id = "h_tauren", when = { race = "Tauren" },
-          text = "Mind your horns on the doorway, friend, because these cells were built for the Baron's prisoners and not for tauren. I'm Adamant, and I'm glad of you." },
+          text = "Mind your horns on the doorway, friend, because these cells were built for Baron Silverlaine's prisoners and not for tauren. I'm Adamant, and I'm glad of you." },
       },
       again = {
         { id = "h_again", text = "What else? Ask quickly, because I'd rather be moving than talking." },
@@ -55,7 +55,7 @@ P:NPC {
         { text = "Where is your partner?", next = "vincent" },
         { text = "What waits for us beyond this cell?", next = "keep" },
         { text = "You'll want that blade back, deathstalker.", next = "blade", when = { class = "ROGUE" } },
-        { text = "Why would the living come here for you?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "You look surprised that one of the living came for you.", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "Open the courtyard door, Adamant.", next = "BUSINESS" },
         { text = "Rest a moment. We'll move soon.", next = "END" },
       },
@@ -73,11 +73,11 @@ P:NPC {
     hadrec_report = {
       big = true,
       lines = {
-        { id = "hr_default", text = "That the keep is held, that Arugal is mad, and that Vincent is dead because I told him the courtyard was clear. That last part I'll say first, because Hadrec will find it out anyway, and I'd rather he heard it from me." },
+        { id = "hr_default", text = "That the keep is held, that Arugal is mad, and that Vincent is dead because I told him the courtyard was clear. That last part I'll say first, because Hadrec will find it out anyway, and he should hear it from my mouth." },
       },
       choices = {
-        { text = "Tell him all of it. He deserves the truth.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Leave out the blame. It helps nobody now.", next = "BACK", fx = { align = { honor = -1 }, trait = { kind = 1 } } },
+        { text = "Tell him all of it. He deserves the truth.", next = "BACK", reply = "All of it, then, and I'll stand there while he hears it. Vincent deserves that much.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Leave out the blame. It helps nobody now.", next = "BACK", reply = "It helps me to say it, even if it helps nobody else. But I hear you, and I'll keep it short.", fx = { align = { honor = -1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,12 +103,12 @@ P:NPC {
     captured_children = {
       big = true,
       lines = {
-        { id = "cc_default", text = "Every night, through the floor, as if he were reading them to sleep. He called them out of somewhere to fight the Scourge, and now he loves them more than he ever loved Dalaran, and I'll tell you honestly that it's worse than if he hated them." },
+        { id = "cc_default", text = "Every night, through the floor, as if he were reading them to sleep. He called them out of somewhere to fight the Scourge, and now he loves them more than he ever loved Dalaran, and to my ear that's worse than if he hated them." },
         { id = "cc_scourge", when = { race = "Scourge" }, text = "Every night, through the floor. He called them up to fight the Scourge, and you and I were the Scourge once, so I suppose we're the reason those beasts exist at all, which is a thought I could do without in a cell." },
       },
       choices = {
-        { text = "Whatever they were, they have to be put down.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "He's to blame, not the beasts he made.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Whatever they were, they have to be put down.", next = "BACK", reply = "They do, and I'll do it. Whatever he was reading to them, it wasn't a bedtime story.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "He's to blame, not the beasts he made.", next = "BACK", reply = "He is, but his beasts still bite. I'll blame him and kill them, both.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = "worgen" } },
       },
     },
@@ -137,8 +137,8 @@ P:NPC {
         { id = "vn_default", text = "His name cut into the crypt wall at the Sepulcher, with the others, and the dog that killed him dead before the week's out. I'll see to the wall myself, but I wouldn't say no to help with the dog." },
       },
       choices = {
-        { text = "Then we'll hunt it down together.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
-        { text = "Carve his name first. Vengeance can wait.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Then we'll hunt it down together.", next = "BACK", reply = "Together, then, and I'll be glad of the company. That dog has been owed for a month.", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "Carve his name first. Vengeance can wait.", next = "BACK", reply = "First, yes, and then the dog. Vincent would want it in that order.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -158,7 +158,7 @@ P:NPC {
     },
     keep_arugal = {
       lines = {
-        { id = "ka_default", text = "He paces at the top of the keep and talks to nobody, and sometimes he laughs, and that's worse. He was a Kirin Tor archmage, Dalar Dawnweaver says, and I believe it, because only a wizard could be that clever and that stupid at once." },
+        { id = "ka_default", text = "He paces at the top of the keep and talks to nobody, and sometimes he laughs, and that's worse. He was a Kirin Tor archmage, Dalar Dawnweaver at the Sepulcher says, and I believe it, because only a wizard could be that clever and that stupid at once." },
       },
       choices = {
         { text = "Dalar knew him?", next = "keep_dalar" },
@@ -193,15 +193,15 @@ P:NPC {
         { id = "bl_default", text = "I do, and I know exactly which wall it's on, and I've been thinking about the walk there for a month. You know how it is, deathstalker or not: a blade you've carried a while gets to know your hand." },
       },
       choices = {
-        { text = "Then go and fetch it. I'll guard the door.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Stay with me. Your blade can wait for the plan.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Then go and fetch it. I'll guard the door.", next = "BACK", reply = "Then I'll be quick, and you'll hold the door, and we'll both get out of here alive.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Stay with me. Your blade can wait for the plan.", next = "BACK", reply = "You're right, and I hate that you're right. The plan first, then the blade.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     living = {
       lines = {
-        { id = "li_default", text = "I've wondered the same, so tell me yourself. Did the Sepulcher send you, or did you come into this keep for your own reasons?" },
+        { id = "li_default", text = "I am, I'll admit it, so tell me yourself. Did the Sepulcher send you, or did you come into this keep for your own reasons?" },
       },
       choices = {
         { text = "The Horde stands together, living or dead.", next = "living_answer", fx = { affinity = 1, align = { order = 1 } } },
@@ -255,7 +255,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Sorcerer Ashcrombe, of Dalaran, and you've no idea how pleased I am to say so to somebody. The brute Rethilgore kept me in here, and if he's dead, I can open the courtyard door for you with very little fuss." },
+        { id = "h_default", key = true, text = "Sorcerer Ashcrombe, of Dalaran, and you've no idea how pleased I am to say so to somebody. The worgen brute Rethilgore kept me in here, and if he's dead, I can open the courtyard door for you with very little fuss." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A mage, and come to rescue me, which my old masters would find very funny indeed. I'm Ashcrombe, of Dalaran, and I can open the courtyard door with a word, if you'll give me a moment to remember it." },
         { id = "h_paladin", when = { class = { "PALADIN", "PRIEST" } },
@@ -293,7 +293,7 @@ P:NPC {
     },
     who_sent = {
       lines = {
-        { id = "ws_default", text = "Nobody very important, which is why they sent me rather than going themselves. The Kirin Tor would like to know whether Arugal can be reasoned with, and I can now tell them with some confidence that he cannot." },
+        { id = "ws_default", text = "Nobody very important, so naturally they sent me rather than going themselves. The Kirin Tor would like to know whether Arugal can be reasoned with, and I can now tell them with some confidence that he cannot." },
       },
       choices = {
         { text = "They waited a long time to ask.", next = "who_late" },
@@ -305,8 +305,8 @@ P:NPC {
         { id = "wl_default", text = "They did, and I'll not pretend otherwise, though I'll ask you not to repeat it in Dalaran. You have to understand that the city was half rubble after the demons came, and everyone was afraid of their own spells for a while." },
       },
       choices = {
-        { text = "Fear doesn't excuse leaving a forest to wolves.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
-        { text = "A broken city looks after itself first. That's sense.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Fear doesn't excuse leaving a forest to wolves.", next = "BACK", reply = "It doesn't, and I'll not pretend it does. But you'll find no worse critic of the Kirin Tor than me tonight.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "A broken city looks after itself first. That's sense.", next = "BACK", reply = "That's what the council said, almost word for word. I've never been sure they were right.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -335,8 +335,8 @@ P:NPC {
         { id = "aj_default", text = "I heard him through the floor, talking to his children as he calls them, and it was the voice from that lecture, only gentler. I don't know whether that makes him more of a monster or less of one, and I've had a month to decide." },
       },
       choices = {
-        { text = "He was desperate. Desperate men can still be pitied.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "He made monsters. Pity is wasted on him.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "He was desperate. Desperate men can still be pitied.", next = "BACK", reply = "Pity, yes, and I've tried. It's hard to pity a man whose voice keeps you awake through the floor.", fx = { align = { light = 1 } } },
+        { text = "He made monsters. Pity is wasted on him.", next = "BACK", reply = "You may be right, and I suspect you are. Still, I knew him once, and that's hard to forget.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -366,8 +366,8 @@ P:NPC {
         { id = "md_default", text = "That door was warded by Arugal, and I've spent my month here picking his ward apart in my head, thread by thread, because I'd nothing else to do. I can unmake it in a moment, and I'll admit that I'm rather proud of that." },
       },
       choices = {
-        { text = "You should be. That's patient, careful work.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "A fireball would have been quicker.", next = "BACK", fx = { align = { order = -1 }, trait = { witty = 1 } } },
+        { text = "You should be. That's patient, careful work.", next = "BACK", reply = "Thank you. It's the only thing that kept me sane in that cell.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "A fireball would have been quicker.", next = "BACK", reply = "Quicker, yes, and louder, and Arugal would have heard it from the top of the tower. Patience, friend.", fx = { align = { order = -1 }, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -383,7 +383,7 @@ P:NPC {
     },
     ambermill_forsaken = {
       lines = {
-        { id = "af_default", text = "The Forsaken would say that, and the Forsaken would be right to worry, because a wizard who feels threatened builds things. Tell me honestly, since you've been out there: how bad are they, the dead of this forest?" },
+        { id = "af_default", text = "The Forsaken would say that, and the Forsaken would be right to worry, because a wizard who feels threatened builds things. You've been out there, so tell me straight: how bad are they, the dead of this forest?" },
       },
       choices = {
         { text = "They're dangerous, and Dalaran should stay wary.", next = "ambermill_answer", fx = { align = { order = 1 } } },
@@ -393,7 +393,7 @@ P:NPC {
     },
     ambermill_answer = {
       lines = {
-        { id = "aa_default", text = "Well, I'll write that down, once I have a quill again. It's more than the Kirin Tor have bothered to ask anyone who's actually walked the place, which tells you something about the Kirin Tor." },
+        { id = "aa_default", text = "Well, I'll write that down, once I have a quill again. The Kirin Tor have never once asked anyone who's actually walked the place, and that says something about the Kirin Tor." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -402,6 +402,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A sorcerer of Dalaran, of the sort they send when they'd rather not send anyone important. I'm told that's a compliment." } },
     dalaran = { { id = "tp_dalaran", text = "Still standing behind its shield, last I knew, and still arguing about what to do with itself." } },
-    _none = { { id = "tp_none", text = "I'm afraid that's outside my reading, and I've done a great deal of reading." } },
+    _none = { { id = "tp_none", text = "I'm afraid that's outside my reading, and I've read most of the Violet Citadel's lower library." } },
   },
 }

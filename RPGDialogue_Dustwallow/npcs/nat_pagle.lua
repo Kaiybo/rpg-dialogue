@@ -37,8 +37,8 @@ P:NPC {
       lines = { { id = "pj_nat_default", text = "I think gnomes can do anythin' they set their minds to, which is the trouble. Fishin' is about not settin' your mind to anythin' at all, and I've never met one of your folk who could sit still long enough to let a fish make the first move." } },
       choices = {
         { text = "What happened with the gnome who fished here?", next = "pj_nat2" },
-        { text = "Patience is a choice, and I'll sit as long as it takes.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If a bang gets the fish, I'll use a bang.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience is a choice, and I'll sit as long as it takes.", next = "BACK", reply = "Well, now, that's the first gnome I ever heard say it. Pull up a stump, then, and we'll see which of us the fish like better.", fx = { align = { order = 1 } } },
+        { text = "If a bang gets the fish, I'll use a bang.", next = "BACK", reply = "Ha! Then you'll get one fish, and every other fish from here to Theramore'll be halfway to Stranglethorn. Suit yourself, friend, but don't do it near my line.", fx = { align = { order = -1 } } },
         { text = "Maybe you're right. Show me how to sit still.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -100,7 +100,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Somethin' else on your mind? Take your time, nothin' here is in a hurry." },
-        { id = "h_again2", text = "Go on. I'm listenin', mostly, and the other half of me's listenin' to the bobber." },
+        { id = "h_again2", text = "Go on, I'm listenin', though one ear's always on the bobber." },
       },
       choices = {
         { text = "Why fish, if you don't enjoy it?", next = "why" },
@@ -132,13 +132,13 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Well, everybody's runnin' about savin' the world, and the world keeps needin' it, so I figure somebody ought to sit still and keep an eye on it. That somebody's me." } },
       choices = {
-        { text = "The world needs fighters more than watchers, Nat.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A quiet life is worth defending. Keep it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The world needs fighters more than watchers, Nat.", next = "BACK", reply = "Maybe it does, and there's plenty of fighters about, so the world ain't short. I'll be right here when they come back wantin' a quiet spot.", fx = { align = { order = -1 } } },
+        { text = "A quiet life is worth defending. Keep it.", next = "BACK", reply = "I aim to, friend, and it don't take much defendin', just a good stump and some bait. Thank you kindly for sayin' so.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     visitors = {
-      lines = { { id = "v_default", text = "Anglers, mostly, the ones who got everything they can from the trainers in the cities and the book old Heming sells down in Booty Bay. After that, there's nowhere left to learn but here, which tells you how desperate they are." } },
+      lines = { { id = "v_default", text = "Anglers, mostly, the ones who got everything they can from the trainers in the cities and the book old Heming sells down in Booty Bay. After that, there's nowhere left to learn but here, and if they've come all the way to me, they're desperate." } },
       choices = {
         { text = "What do you teach them?", next = "visitors_teach" },
         { text = "Let me ask something else.", next = "BACK" },
@@ -190,7 +190,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I fish, I drink, and I sit. Been doin' all three a good long while, and I'm still not tired of the last one." } },
     advice = { { id = "tp_ad", text = "Don't yank the line the second it twitches, or you'll spend the afternoon fishin' your hook out of the reeds. Let the fish think it's winnin'." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fishing on the coast and the worst company to go with it, which is how you know it's good water. I'd go back if the pirates would let a man sit still." } },
-    theramore = { { id = "tp_theramore", text = "Theramore's a fine little town with too many boots marching on the docks, and every one of them scares the fish. I come out here where the water's quiet." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's a fine little town with too many boots marching on the docks, and each pair of 'em scares the fish. I come out here where the water's quiet." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's got good docks and goblins who'll sell you bait that's half sawdust. Fished there a season, and I've no complaints about the fish." } },
     onyxia = { { id = "tp_onyxia", text = "There's a dragon down in the south of the marsh, they tell me, and I don't fish down there. A man who wants peace and a full bottle doesn't go poking at dragons." } },
     jaina = { { id = "tp_jaina", text = "The Lady built a town on the best stretch of coast in the marsh, so she knows her water, I'll give her that. Never seen her fish, though, and I think it's a pity." } },

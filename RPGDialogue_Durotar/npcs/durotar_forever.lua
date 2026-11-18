@@ -39,7 +39,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Kagil. I teach the young ones how to take leather off a beast without ruining it, which is harder than killing the beast in the first place. Do you want to learn, or do you need a knife?" },
+        { id = "h_default", key = true, text = "I'm Kagil. I teach the young ones how to take leather off a beast without ruining it, which is harder than killing the beast in the first place. Do you want to learn, or do you need a knife?" },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren at the Den. Your people thank the beast before they skin it, I hear, and I won't stop you, so long as you thank it quickly and keep your knife moving." },
         { id = "h_skin", when = { profession = "Skinning" }, text = "Already skinning, are you? Good. Let me see your knife, then, and we'll talk about what you're doing wrong." },
       },
@@ -69,8 +69,8 @@ P:NPC {
         { id = "sc_default", text = "No leather, but the plates come off whole if you're patient, and leatherworkers pay for them. Mind the tail, though, because it can still sting a careless hand after the beast is dead." },
       },
       choices = {
-        { text = "Waste nothing. Every part of the kill has a use.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Take what sells and leave the rest for the vultures.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Waste nothing. Every part of the kill has a use.", next = "BACK", reply = "That's the skinner's creed, and I'm glad to hear it from a beginner. Take the plates and the meat, and the beast is honored.", fx = { align = { order = 1 } } },
+        { text = "Take what sells and leave the rest for the vultures.", next = "BACK", reply = "The vultures will thank you, but the leatherworkers won't. Take a little more next time, and you'll earn a little more.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -85,7 +85,7 @@ P:NPC {
     },
     sells = {
       lines = {
-        { id = "se_default", text = "It sells well enough, and the goblins at Razor Hill will buy whatever you can't use. Go out with an empty pack and come back with a full one, and you'll have more coin than most recruits ever see in the valley." },
+        { id = "se_default", text = "It sells well enough, and the traders at Razor Hill will buy whatever you can't use. Go out with an empty pack and come back with a full one, and you'll have more coin than most recruits ever see in the valley." },
       },
       choices = {
         { text = "Good. Then I'll learn.", next = "BUSINESS" },
@@ -144,7 +144,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Norzsh. I teach mining, and I sell picks to the ones too green to have their own. You think you've got what it takes to break rock all day?" },
+        { id = "h_default", key = true, text = "I'm Norzsh. I teach mining, and I sell picks to the ones too green to have their own. You think you've got what it takes to break rock all day?" },
         { id = "h_forsaken", when = { race = "Scourge" }, text = "A Forsaken with a pick. Your arms won't tire, I suppose, but I've seen your kind's bones, and I'd swing carefully if I were you." },
       },
       again = {
@@ -182,8 +182,8 @@ P:NPC {
         { id = "g_good", text = "Patience and a strong back, and the sense to stop swinging when the rock above you starts to groan. Plenty of brave orcs have died under stone that they didn't bother to listen to." },
       },
       choices = {
-        { text = "Strength matters most. Swing hard and the rock gives.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Patience matters most. Read the stone before you strike.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Strength matters most. Swing hard and the rock gives.", next = "BACK", reply = "Swing hard, and the rock gives, and sometimes the roof gives too. Listen first, young one, or you'll learn it the hard way.", fx = { align = { order = -1 } } },
+        { text = "Patience matters most. Read the stone before you strike.", next = "BACK", reply = "That's the miner's wisdom, and it'll keep you breathing. The stone tells you everything, if you're quiet enough to hear.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -230,7 +230,7 @@ P:NPC {
   },
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 4 },
-      text = "You're fresh off the cart, aren't you? Don't let the trainers frighten you, because every one of them was as green as you once." },
+      text = "You're fresh off the cart, aren't you? Don't let the trainers frighten you, because they were all as green as you once." },
   },
   start = "hello",
   nodes = {
@@ -255,7 +255,7 @@ P:NPC {
     },
     what = {
       lines = {
-        { id = "w_default", text = "They're the skills of making, gathering and getting by: forging a blade, sewing a bag, cooking a meal for the road. Learn a recipe once and you can make it again whenever you have the materials, which saves a great deal of coin." },
+        { id = "w_default", text = "They're the skills of making, gathering and getting by: forging a blade, sewing a bag, cooking a meal for the road. Learn a recipe once and you can make it again whenever you have the materials, which saves you coin on the road." },
       },
       choices = {
         { text = "And what's the difference between them?", next = "how_many" },
@@ -276,8 +276,8 @@ P:NPC {
         { id = "wt_default", text = "Because a craft takes your whole life if you let it, and nobody has three lives. A gatherer and a crafter make a good pair, like mining with blacksmithing, or herbs with alchemy, because one feeds the other." },
       },
       choices = {
-        { text = "Pick what pays. Coin keeps a warrior alive.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Pick what serves the Horde best, and coin follows.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pick what pays. Coin keeps a warrior alive.", next = "BACK", reply = "Coin's a fair reason, and I won't argue with it. Just make sure it's a craft you can stand to do every day.", fx = { align = { honor = -1 } } },
+        { text = "Pick what serves the Horde best, and coin follows.", next = "BACK", reply = "That's a fine way to choose, and the Horde will be glad of it. Coin has a way of finding those who serve well.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -438,8 +438,8 @@ P:NPC {
     third = "{name} met Pa'zula, the Darkspear enchanter of Sen'jin Village who unpicks Zalazane's binding spells.",
   },
   greetings = {
-    { id = "g_default", text = "What business you have on the Echo Isles, {class}? Ah, don't look at me so, I know we're on the mainland, but my heart hasn't moved yet." },
-    { id = "g_active", when = { questActive = QPZ }, text = "You have the residue, mon? Three of them, and don't you dare put one of those pendants round your neck while you're about it." },
+    { id = "g_default", text = "Welcome to Sen'jin, {class}. Forgive me if I look past you, mon, because my eyes always drift to the Echo Isles across the water." },
+    { id = "g_active", when = { questActive = QPZ }, text = "Do you have the residue yet, mon? I need three, and don't you dare put one of those pendants round your neck while you're about it." },
     { id = "g_ready", when = { questReady = QPZ }, text = "I can see the glow on you from here, mon. Bring it over, quick, before it fades." },
     { id = "g_done", when = { questDone = QPZ }, text = "Ah, the one who freed three spirits for me. Come, sit, the fire is warm." },
     { id = "g_away", when = { away = 14, questDone = QPZ }, text = "Gone {away}, and Zalazane made more pendants while you were gone. He never stops, that one." },
@@ -461,7 +461,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = QPZ, profession = "Enchanting" },
           text = "You're an enchanter, mon, and I need one. Zalazane's slaves wear pendants wrapped in binding spells, and I want them stripped and brought back to me." },
         { id = "h_active", tags = { "news" }, when = { questActive = QPZ },
-          text = "The hexed trolls on the isles wear the pendants, so you'll have to take them from the dead. Strip the magic off with your craft and bring me the residue, mon, three of it." },
+          text = "The hexed trolls on the isles wear the pendants, so you'll have to take them from the dead. Strip the magic off with your craft and bring me the residue, mon, three in all." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { QPZ, days = 3 } },
           text = "It's a shame about the trolls who wore them, mon, and I won't pretty it up. But with the binding gone, their spirits can rest, and that's more than Zalazane ever gave them." },
         { id = "h_done", when = { questDone = QPZ },
@@ -509,8 +509,8 @@ P:NPC {
         { id = "ow_default", text = "Maybe he does, mon, and maybe the day comes. Vol'jin says we wait until we're strong, and the young ones say we're strong enough now. Which do you think is right?" },
       },
       choices = {
-        { text = "Vol'jin is right. Strike once, and strike when you'll win.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The young ones are right. Every day you wait, more are hexed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Vol'jin is right. Strike once, and strike when you'll win.", next = "BACK", reply = "That be Vol'jin's wisdom, mon, and I think he's right. Patience be hard, but a failed strike cost more than waiting.", fx = { align = { order = 1 } } },
+        { text = "The young ones are right. Every day you wait, more are hexed.", next = "BACK", reply = "That be the young ones talkin', and maybe they're right. Every day I see more hexed faces on the isles, and it burn me.", fx = { align = { order = -1 } } },
         { text = "That isn't my choice to make.", next = "BACK" },
       },
     },
@@ -547,8 +547,8 @@ P:NPC {
         { id = "k_default", text = "They're not my people now, mon, not while he holds them. They'll kill you without a thought, and the only mercy left to give them is to cut the binding after, so the spirit goes free instead of serving him in death too." },
       },
       choices = {
-        { text = "Then I'll give them that mercy, and quickly.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A hexed troll is an enemy. Mercy doesn't come into it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll give them that mercy, and quickly.", next = "BACK", reply = "Thank you, mon, from me and from them. Cut the binding quick, and their spirits go home to the loa.", fx = { align = { light = 1 } } },
+        { text = "A hexed troll is an enemy. Mercy doesn't come into it.", next = "BACK", reply = "An enemy now, ya, but they were family once. Do what you must, but I'll grieve them anyway, mon.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -595,8 +595,8 @@ P:NPC {
         { id = "sa_default", text = "It is like it, mon, and I'll not hide it. The difference is what you bind and whether it wants to be bound, and a sword never asked to be free." },
       },
       choices = {
-        { text = "Then power is only as good as who holds it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power is power. Learn his tricks and use them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then power is only as good as who holds it.", next = "BACK", reply = "That be the whole lesson, mon, and you learned it fast. Zalazane hold it wrong, and now we all pay.", fx = { align = { light = 1 } } },
+        { text = "Power is power. Learn his tricks and use them.", next = "BACK", reply = "Careful, mon, because that be how Zalazane started. Learn his tricks if you must, but don't learn his heart.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -622,7 +622,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I lived on the Echo Isles until Zalazane, and I've worked magic since I was small. Now I unpick his." } },
     advice = { { id = "tp_ad", text = "Never wear what you take off the dead, mon. Not on the isles, anyway." } },
-    echo_isles = { { id = "tp_echo", text = "Our home, mon, and Zalazane's now, until we take it back. Every troll on those beaches wears his chain." } },
+    echo_isles = { { id = "tp_echo", text = "The Echo Isles are our home, mon, and Zalazane's now, until we take them back. Every troll on those beaches wears his chain." } },
     _none = { { id = "tp_none", text = "I don't know that one, mon. Ask Master Gadrin, he knows more than me about most things." } },
   },
 }
@@ -640,11 +640,11 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Psst! Down here, mon, and keep your head low before the centaur see you." },
     { id = "g_active", when = { questActive = QPJ }, text = "We best hurry before more of them show up, mon." },
-    { id = "g_done", when = { questDone = QPJ }, text = "Yes, I'm back in the crag, and yes, Vornal shouted. I'm being careful this time, mon, I swear it." },
+    { id = "g_done", when = { questDone = QPJ }, text = "Yes, I'm back in the crag, and yes, Master Vornal shouted. I'm being careful this time, mon, I swear it." },
   },
   notice = {
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST" } },
-      text = "You carry the spirits with you, mon, I can feel it. Mine ran dry in here, which is why I'm hiding behind a rock like a frog." },
+      text = "You carry the spirits with you, mon, I can feel it. Mine ran dry in here, so now I be hidin' behind a rock like a frog." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "A Darkspear! Thank the loa, mon, because an orc would never let me forget this." },
   },
@@ -682,7 +682,7 @@ P:NPC {
     },
     right = {
       lines = {
-        { id = "r_default", text = "Half right, mon. I saw plenty, and then my magic gave out and I couldn't hide myself any more, so now I'm a quiet troll stuck behind a rock with a great deal to report." },
+        { id = "r_default", text = "Half right, mon. I saw plenty, and then my magic gave out and I couldn't hide myself any more, so now I'm a quiet troll stuck behind a rock with a head full of things to report." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -694,8 +694,8 @@ P:NPC {
         { id = "f_default", text = "Maybe it was, mon. But somebody has to go in first, and if everybody waits for a war party, the centaur ride on the valley while we're still counting spears." },
       },
       choices = {
-        { text = "You were brave. The Horde needs that.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Courage without discipline gets scouts killed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You were brave. The Horde needs that.", next = "BACK", reply = "Brave, ya, and stupid too, but the Horde can use both. Thanks for coming after me, mon.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Courage without discipline gets scouts killed.", next = "BACK", reply = "Ya, I know, I know, and my master will say the same. Next time I wait for the war party, mon, maybe.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -741,7 +741,7 @@ P:NPC {
     },
     after = {
       lines = {
-        { id = "af_default", text = "That I got myself in trouble again, mon, and that I should learn my lesson about going alone. Then he thanked you, and then he said the raptor thing again, in front of everybody." },
+        { id = "af_default", text = "That I got myself in trouble again, mon, and that I should learn my lesson about going alone. Then he thanked you, and then he told me again that I act like a raptor and not a tiger, in front of everybody." },
       },
       choices = {
         { text = "And have you learned your lesson?", next = "lesson" },
@@ -750,7 +750,7 @@ P:NPC {
     },
     lesson = {
       lines = {
-        { id = "le_default", text = "Some of it, mon. I came back here, didn't I, but this time I told Vornal first, and I brought three times the magic I need. That's practically a tiger." },
+        { id = "le_default", text = "Some of it, mon. I came back here, didn't I, but this time I told Master Vornal first, and I brought three times the magic I need. That's practically a tiger." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -789,8 +789,8 @@ P:NPC {
         { id = "re_default", text = "Ha! Tell him that, mon, and see what he says. Which would you be, if you had to choose, the raptor or the tiger?" },
       },
       choices = {
-        { text = "The tiger. Patience wins hunts.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "The raptor. Charge in and meet the enemy head on.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The tiger. Patience wins hunts.", next = "BACK", reply = "The tiger, eh? You'd make a fine shadow hunter, mon. Patience be the hardest lesson and the best.", fx = { align = { honor = -1 } } },
+        { text = "The raptor. Charge in and meet the enemy head on.", next = "BACK", reply = "The raptor, eh? Ha! You and me both, mon, and look where it got me.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -805,7 +805,7 @@ P:NPC {
     },
     magic = {
       lines = {
-        { id = "m_default", text = "It's what ran out, mon. A trainee only has so much, and I spent mine on a curse to weaken one big centaur and a shadow word to make another one regret chasing me, and then I had nothing left to hide with." },
+        { id = "m_default", text = "Curses and all the rest ran out, mon. A trainee only has so much, and I spent mine on a curse to weaken one big centaur and a shadow word to make another one regret chasing me, and then I had nothing left to hide with." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -817,14 +817,14 @@ P:NPC {
         { id = "xp_default", text = "A lesson from you, mon? Maybe, when I'm not crouching in a centaur camp. The shadow is a sharp knife, and I'd like to hear how somebody else holds it." },
       },
       choices = {
-        { text = "Use it carefully. Shadow takes as much as it gives.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Use it without fear. Fear is what makes it bite.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Use it carefully. Shadow takes as much as it gives.", next = "BACK", reply = "Dat be the truth, mon, and I'll remember it. The shadow be hungry, and I don't want to feed it too much.", fx = { align = { light = 1 } } },
+        { text = "Use it without fear. Fear is what makes it bite.", next = "BACK", reply = "Without fear? That be a brave way to hold it, mon. I'll think on it, when I'm not hidin' from centaur.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "Darkspear, born on the islands, training under Vornal in Sen'jin. That's all, mon, and I'd like it to stay that way, without the word 'dead' at the end." } },
+    background = { { id = "tp_bg", text = "I'm Darkspear, born on the islands and training under Master Vornal in Sen'jin. That's all, mon, and I'd like it to stay that way, without the word 'dead' at the end." } },
     advice = { { id = "tp_ad", text = "Don't scout alone, mon. I'll learn it eventually, but you should learn it from me first." } },
     _none = { { id = "tp_none", text = "Ask me about that when we're out of the crag, mon, not before." } },
   },
@@ -850,7 +850,7 @@ P:NPC {
   },
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "Keep your {pet} back a pace. Morok'ra doesn't know yet who's a friend, and I'd rather it learned that slowly." },
+      text = "Keep your {pet} back a pace. Morok'ra doesn't know yet who's a friend, and it ought to learn that slowly." },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Get down off that beast before Morok'ra sees it, or it'll try to fight it, and it isn't ready." },
   },
@@ -859,7 +859,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Slizzy Kreeg. This is Morok'ra, and it was left for dead, but it'll start its training soon. Once it's broken and battle-hardened, we'll ride into battle as one, and our enemies will learn to fear us both." },
+        { id = "h_default", key = true, text = "I'm Slizzy Kreeg. This is Morok'ra, and it was left for dead, but it'll start its training soon. Once it's broken and battle-hardened, we'll ride into battle as one, and our enemies will learn to fear us both." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter, so you'll know not to loom over a frightened beast. This is Morok'ra, and once it's strong we'll ride to war together." },
       },
       again = {
@@ -890,8 +890,8 @@ P:NPC {
         { id = "me_default", text = "Ended it? It still had fight in it. That's the only thing that counts, in a beast or in an orc." },
       },
       choices = {
-        { text = "Anything that still fights deserves a chance.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A crippled beast is a burden. Mercy is quicker.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Anything that still fights deserves a chance.", next = "BACK", reply = "That's what I said, and Morok'ra proves it every day. Look at him now, still fighting.", fx = { align = { light = 1 } } },
+        { text = "A crippled beast is a burden. Mercy is quicker.", next = "BACK", reply = "Quicker, sure, and I'd have lost the best beast I ever had. Some burdens are worth the carrying.", fx = { align = { light = -1 } } },
       },
     },
     train = {
@@ -909,14 +909,14 @@ P:NPC {
         { id = "br_default", text = "It's not cruel, it's honest. A war beast that won't take orders gets its rider killed, and then itself, so I break its fear and keep its fury." },
       },
       choices = {
-        { text = "Discipline makes it strong. You're doing right by it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep some of its wildness. That's where its courage lives.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Discipline makes it strong. You're doing right by it.", next = "BACK", reply = "It's slow, but it's right, and the beast knows it. Strength grows from discipline, same as in a grunt.", fx = { align = { order = 1 } } },
+        { text = "Keep some of its wildness. That's where its courage lives.", next = "BACK", reply = "I'll keep it, don't worry, because a beast with no wildness is just a pet. The courage stays.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     farm = {
       lines = {
-        { id = "fa_default", text = "Pigs, mostly, just down the road from Orgrimmar's gates, with the blockade close enough to make the farmers feel safe. It feeds the city and gives me a quiet corner to work, and the swine don't mind Morok'ra so long as it's tied." },
+        { id = "fa_default", text = "It raises boars, mostly, just down the road from Orgrimmar's gates, close enough to the city's guards to make the farmers feel safe. It feeds the city and gives me a quiet corner to work, and the swine don't mind Morok'ra so long as it's tied." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -969,13 +969,13 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Turroc. I keep the barracks and the memory of those who don't come back to them. We lost many brave warriors when we sacked Tiragarde Keep, and the humans are still sitting on their bones." },
+        { id = "h_default", key = true, text = "I'm Turroc. I keep the barracks and the memory of those who don't come back to them. We lost many brave warriors when we sacked Tiragarde Keep, and the humans are still sitting on their bones." },
         { id = "h_before", when = { questBefore = QTU },
           text = "The humans have reinforced the ruins around Tiragarde Keep, and our dead are still lying there where we can't reach them to honor them. Their weapons, at least, I want back, and I want them hung where every grunt can see them." },
         { id = "h_active", tags = { "news" }, when = { questActive = QTU },
           text = "A bow, a battleaxe and a shield, all left in the ruins round the keep. Search the watchtower and the houses, and don't come back with any human's junk instead of ours." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { QTU, days = 3 } },
-          text = "I hung them myself last night, with every grunt in the barracks watching. Nobody said anything for a long while, and then old Gorrak said their names, all of them, and I'll not forget that." },
+          text = "I hung them myself last night, with every grunt in the barracks watching. Nobody said anything for a long while, and then old Gorrak, our oldest grunt, said their names, all of them, and I'll not forget that." },
         { id = "h_done", when = { questDone = QTU },
           text = "Their weapons hang on the barracks wall now. Every recruit who passes through Razor Hill looks at them, and I tell them who carried them, and how they fell." },
       },
@@ -1007,11 +1007,11 @@ P:NPC {
     retake = {
       big = true,
       lines = {
-        { id = "rt_default", text = "Orgnil says not yet, and Orgnil answers to the Warchief. Thrall wants Durotar held and quiet, not a war on every shore, and I understand it even when I don't like it. What would you do?" },
+        { id = "rt_default", text = "Gar'Thok says not yet, and Gar'Thok answers to the Warchief. Thrall wants Durotar held and quiet, not a war on every shore, and I understand it even when I don't like it. What would you do?" },
       },
       choices = {
-        { text = "Obey the Warchief. A quiet Durotar is a strong one.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Burn them out. Leaving them there dishonors our dead.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Obey the Warchief. A quiet Durotar is a strong one.", next = "BACK", reply = "That's what I tell myself, every day, though it chafes. The Warchief knows best, and I'll trust him.", fx = { align = { order = 1 } } },
+        { text = "Burn them out. Leaving them there dishonors our dead.", next = "BACK", reply = "That's what my heart says, and I've had to swallow it. Maybe one day Orgnil will say yes, and I'll be first to the shore.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1029,8 +1029,8 @@ P:NPC {
         { id = "ad_default", text = "Proudmoore came across the sea to finish us, and his own daughter stood with the Warchief against him. He died with his sword in his hand, which is more than he meant to give us." },
       },
       choices = {
-        { text = "He was an enemy, but he died bravely. I respect that.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Brave or not, he got what he came for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "He was an enemy, but he died bravely. I respect that.", next = "BACK", reply = "So do I, though it costs me to say it. He came to destroy us, but he died like a warrior, and that's worth something.", fx = { align = { honor = 1 } } },
+        { text = "Brave or not, he got what he came for.", next = "BACK", reply = "He did, in the end, and the sea took him home. I'll not weep for him, but I won't spit on his grave either.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1066,8 +1066,8 @@ P:NPC {
         { id = "w_default", text = "Because we can't bring the bodies home, and an orc who isn't remembered dies twice. A weapon on the wall says that they fought, and that the Horde hasn't forgotten them." },
       },
       choices = {
-        { text = "Honor the dead, and the living fight harder.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The dead don't care. Weapons belong in living hands.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Honor the dead, and the living fight harder.", next = "BACK", reply = "They do, and that's why I hang every weapon I can find. The dead watch, and the living remember.", fx = { align = { honor = 1 } } },
+        { text = "The dead don't care. Weapons belong in living hands.", next = "BACK", reply = "Maybe the dead don't, but the living do. A weapon on the wall is a promise, and promises keep the Horde together.", fx = { align = { honor = -1 } } },
         { text = "Where will you hang them?", next = "wall" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1083,7 +1083,7 @@ P:NPC {
     },
     orgnil = {
       lines = {
-        { id = "og_default", text = "Orgnil Soulscar holds Razor Hill, and he's a careful commander, more careful than I'd be. These days he watches the Burning Blade in the hills more than he watches the humans on the coast, and he may be right to.",
+        { id = "og_default", text = "Orgnil Soulscar hunts the Burning Blade for Razor Hill, and he's a careful one, more careful than I'd be. These days he watches the cultists in the hills more than the humans on the coast, and he may be right to.",
           fx = { learn = { "burning_blade" } } },
       },
       choices = {
@@ -1092,7 +1092,7 @@ P:NPC {
     },
     barracks = {
       lines = {
-        { id = "b_default", text = "Long nights, and green grunts who think a war is a story. I feed them, I drill them, and I send them to Orgnil, and I try to send them out knowing what they're fighting for." },
+        { id = "b_default", text = "Long nights, and green grunts who think a war is a story. I feed them, I drill them, and I send them to Gar'Thok and Orgnil, and I try to send them out knowing what they're fighting for." },
       },
       choices = {
         { text = "Who is Orgnil?", next = "orgnil" },
@@ -1102,7 +1102,7 @@ P:NPC {
     },
     ["for"] = {
       lines = {
-        { id = "fo_default", text = "Durotar, a home of our own, after the camps and the chains. The Warchief gave us that, and every grunt who dies at Tiragarde dies keeping it." },
+        { id = "fo_default", text = "They fight for Durotar, a home of our own, after the camps and the chains. The Warchief gave us that, and every grunt who dies at Tiragarde dies keeping it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -1130,6 +1130,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fought at Tiragarde. That's the part of my story worth telling." } },
     advice = { { id = "tp_ad", text = "Learn the names of the ones beside you. You'll want them later." } },
-    _none = { { id = "tp_none", text = "I don't know. Ask Orgnil, or somebody who sits in a chair." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask Gar'Thok, or somebody who sits in a chair." } },
   },
 }

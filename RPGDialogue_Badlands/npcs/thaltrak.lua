@@ -126,7 +126,7 @@ P:NPC {
       lines = {
         { id = "mr_default", text = "Nobody know, that be why they sent scouts. Ogres don't do much magic, mon, so when they start, it be because somebody bigger taught them, and I don't like to think who." },
         { id = "mr_done", when = { questDone = TODO_QUEST("Krom'Grul") },
-          text = "Krom'Grul wanted her for it, you told me, chained to an altar up there. I don't want to know no more about that ritual, mon, not ever." },
+          text = "You told me the ogre Krom'Grul had her chained to an altar up there for it. I don't want to know no more about that ritual, mon, not ever." },
       },
       choices = {
         { text = "The Warlord shouldn't have sent so few.", next = "mission_blame" },
@@ -135,11 +135,11 @@ P:NPC {
     },
     mission_blame = {
       lines = {
-        { id = "mb_default", text = "Maybe, mon, but the Warlord got Blackrock on every side and not enough soldiers for any of it. Goretooth tell me to move on and focus on the task at hand, and I can't believe he say that about my wife." },
+        { id = "mb_default", text = "Maybe, mon, but the Warlord got Blackrock on every side and not enough soldiers for any of it. Warlord Goretooth tell me to move on and focus on the task at hand, and I can't believe he say that about my wife." },
       },
       choices = {
-        { text = "A soldier's orders come first. He's right.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Orders be damned. She's your wife.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "A soldier's orders come first. He's right.", next = "BACK", reply = "Maybe he is, mon, and I been telling myself the same thing every night. It don't make the nights any shorter, though.", fx = { align = { order = 1 } } },
+        { text = "Orders be damned. She's your wife.", next = "BACK", reply = "That be what my heart say too, every day, mon. But a soldier who walks off his post don't help her, and she'd tell me so herself.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -178,8 +178,8 @@ P:NPC {
         { id = "ak_default", text = "He paid, and I'm glad, mon, I'm glad you did it. But the ogre being dead don't make her any less gone, and I keep waiting for it to feel like enough." },
       },
       choices = {
-        { text = "It won't ever be enough. You'll carry her instead.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Then go kill more ogres. It helps.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It won't ever be enough. You'll carry her instead.", next = "BACK", reply = "Carry her, ya, I think you be right. Maybe that be what the spirits been trying to say to me all along.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then go kill more ogres. It helps.", next = "BACK", reply = "More ogres? Ha, maybe it help for a day, mon. But I don't think Sha'ni would want me to turn into a killer for her sake.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -189,11 +189,11 @@ P:NPC {
       lines = {
         { id = "xs_default", text = "You think so, mon? I been asking the spirits every night, but they don't answer a soldier the way they answer someone like you. If you hear her, you tell me, even if it be bad." },
         { id = "xs_done", when = { questDone = TODO_QUEST("Dreadmaul Rock") },
-          text = "You already heard her, mon, up on that rock, and I be grateful and I hate it at the same time. Did she seem at peace to you?" },
+          text = "You already found her, mon, up on that rock, and I be grateful and I hate it at the same time. Did she seem at peace to you?" },
       },
       choices = {
-        { text = "I'll tell you the truth, whatever it is.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Some truths are better left unsaid, Thal'trak.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll tell you the truth, whatever it is.", next = "BACK", reply = "The truth, ya, whatever it be. That be all I ask, mon, and more than anyone else been willing to give me.", fx = { align = { honor = 1 } } },
+        { text = "Some truths are better left unsaid, Thal'trak.", next = "BACK", reply = "Better left unsaid? Then you already know something, mon, or you think you do. Don't you keep it from me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

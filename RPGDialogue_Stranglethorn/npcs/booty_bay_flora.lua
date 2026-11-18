@@ -42,7 +42,7 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid in my little shop! I always feel as though I should apologise to you for the dried things on the beams, but they were picked with care, I promise you that." },
         { id = "h_shaman", when = { class = "SHAMAN" },
-          text = "A shaman, is it? I've had your kind up here before, and every one of them stood at the window listening to something I couldn't hear, so you're welcome to do the same." },
+          text = "A shaman, is it? I've had your kind up here before, and not one of them could leave the window, listening to something I couldn't hear, so you're welcome to do the same." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "Mind your horns on the lintel, friend, the goblins built the doorways for goblins. I'm glad to see you, because tauren herbalists always teach me something before they leave." },
         { id = "h_troll", when = { race = "Troll" },
@@ -110,15 +110,15 @@ P:NPC {
       },
     },
     danger_advice = {
-      lines = { { id = "da_default", text = "Look up before you kneel, because the panthers hunt from the trees, and keep your back to open ground when you dig. Wear thick gloves for the Goldthorn, cut the Liferoot above the root so it grows back, and never stop to pick anything you can't explain to the Bruisers if you're carried home." } },
+      lines = { { id = "da_default", text = "Look up before you kneel, because the panthers hunt from the trees, and keep your back to open ground when you dig. Wear thick gloves for the Goldthorn, cut the Liferoot above the root so it grows back, and never kneel anywhere you can't see a way out." } },
       choices = { { text = "Good advice. Something else.", next = "BACK" } },
     },
     danger_greed = {
       big = true,
       lines = { { id = "dgr_default", text = "The Venture Company's crews tear up whole hillsides and leave the dirt bare behind them, and some of the gatherers who sell on the docks are no better. In a few seasons the Steelbloom near their camps won't come back at all, and then they'll move on and do the same to the next valley." } },
       choices = {
-        { text = "Take only what grows back. The jungle's no one's to strip.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "If I don't pick it, someone else will. That's the jungle.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Take only what grows back. The jungle's no one's to strip.", next = "BACK", reply = "That's what my mother taught me in the Mage Quarter gardens, and I'm glad someone still says it. Leave the roots, and the jungle will feed you for years.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "If I don't pick it, someone else will. That's the jungle.", next = "BACK", reply = "That's what everyone tells themselves, love, and that's exactly how hillsides go bare. I'll buy your herbs all the same, but I'd sleep easier if you'd thought twice.", fx = { align = { order = -1 } } },
         { text = "Has anyone tried to stop the Venture Company?", next = "danger_venture" },
       },
     },
@@ -140,10 +140,10 @@ P:NPC {
     },
     why_goblins = {
       big = true,
-      lines = { { id = "wg_default", text = "Better than you'd think, because a goblin will tell you exactly what he wants from you, which is more than I could say for some of my old neighbours in the Trade District. They pay on time and haggle like it's a sport, and when I was ill last winter, three of them climbed all these stairs to ask after me, though I suspect they were checking on their orders." } },
+      lines = { { id = "wg_default", text = "Better than I feared, because a goblin will tell you exactly what he wants from you, and my old neighbours in the Trade District never once managed that. They pay on time and haggle like it's a sport, and when I was ill last winter, three of them climbed all these stairs to ask after me, though I suspect they were checking on their orders." } },
       choices = {
-        { text = "Honest dealing's honest dealing, whoever does it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A goblin's honesty only lasts until the price changes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Honest dealing's honest dealing, whoever does it.", next = "BACK", reply = "My thoughts exactly, and it's a lesson Stormwind could stand to learn. I've had fairer bargains on this dock than I ever had in the Trade District.", fx = { align = { honor = 1 } } },
+        { text = "A goblin's honesty only lasts until the price changes.", next = "BACK", reply = "Oh, it lasts a little longer than that, if you're a steady customer. But you're not wrong, and I keep my receipts the same as anyone in this town.", fx = { align = { honor = -1 } } },
         { text = "Three goblins, worried about you? That's almost touching.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
@@ -245,7 +245,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the jungle's herbs, where they grow and what's sitting beside them, and I know this port from the top of the stairs." } },
     background = { { id = "tp_bg", text = "A Stormwind herbalist who came south with a sailor, and who stayed on at All Things Flora when he didn't come home.", next = "why" } },
     advice = { { id = "tp_ad", text = "Look up before you kneel, friend, because in Stranglethorn the panthers hunt from the branches." } },
-    bloodsail = { { id = "tp_blood", text = "I've asked them, in a manner of speaking, by asking everyone who's fought them, and none of them ever took a ship by his description." } },
+    bloodsail = { { id = "tp_blood", text = "I've asked everyone who's fought the Bloodsail whether they ever took his ship, and nobody has heard of it." } },
     _none = { { id = "tp_none", text = "I'm afraid I only know leaves and roots, friend, and that isn't either of them." } },
   },
 }

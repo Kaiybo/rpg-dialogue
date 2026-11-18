@@ -51,8 +51,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_gnome_default", text = "Always, but what it needs most is clever hands and quiet feet, because the troggs come up out of Uldaman whenever we make too much noise. A gnome or two with sense and a few fighters to keep the troggs off them would set the dig forward a month." } },
       choices = {
-        { text = "Knowledge is worth the risk. The League should dig deeper.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Some vaults were sealed for a reason. Leave them shut.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge is worth the risk. The League should dig deeper.", next = "BACK", reply = "Deeper, aye, an' carefully, wi' clever hands like yer own. The League would be glad o' ye.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some vaults were sealed for a reason. Leave them shut.", next = "BACK", reply = "Sealed, aye, an' the troggs found the seals anyway. If they're open, I'd rather we saw what's inside first.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -60,16 +60,16 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Some o' the scholars would want tae write ye down in a book, an' some would call it orc magic an' spit. Me, I've a partner lost under the digsite, so if the stone's talkin', ask it where Hammertoe is." } },
       choices = {
-        { text = "The stone is our birthright. Ironforge should learn to listen.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "I keep the old ways first. The spirits only lend a hand.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The stone is our birthright. Ironforge should learn to listen.", next = "BACK", reply = "They should, an' maybe someday they will. Till then, I'll take any help that finds my partner.", fx = { align = { order = -1 } } },
+        { text = "I keep the old ways first. The spirits only lend a hand.", next = "BACK", reply = "The old ways first, aye, an' I'll no' argue. Just lend a hand findin' Hammertoe, if the spirits will.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "No' always, if the old ruins are anythin' tae go by, for nobody builds that grand in a desert. Somethin' dried it out long ago, an' the stones are the only ones left who remember what." } },
       choices = {
-        { text = "Then dig it up and learn, Prospector.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let the land keep its own secrets.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then dig it up and learn, Prospector.", next = "BACK", reply = "Learn, aye, that's the League's whole creed. I'll dig, an' the land can keep the secrets it wants.", fx = { align = { order = 1 } } },
+        { text = "Let the land keep its own secrets.", next = "BACK", reply = "Maybe it should, but the troggs are diggin' them up anyway. Better us than them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -77,26 +77,26 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Maybe, if ye're quiet an' patient, for the troggs are stupid but they're no' deaf. Hammertoe went in loud, singin', I shouldnae wonder, an' I'd give a lot for him tae have had yer sense." } },
       choices = {
-        { text = "Anything of Hammertoe's comes back to you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Finders keepers, Prospector. Whatever's down there is mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Anything of Hammertoe's comes back to you.", next = "BACK", reply = "Thank ye, that means more than ye know. A pick, a page, anythin' at all.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Finders keepers, Prospector. Whatever's down there is mine.", next = "BACK", reply = "Yours? No' while I'm breathin'. Hammertoe's notes come back tae me, or ye'll answer tae the League.", fx = { align = { honor = -1 } } },
         { text = "Never mind that for now.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Discs an' keepers an' a vault o' stone older than Ironforge, an' I cannae make sense o' half of it. The Explorers' League would give their beards for a mage who could, an' maybe they'll get one, if ye're willin'." } },
+      lines = { { id = "xmage_default", text = "His notes are full o' discs an' keepers an' a vault o' stone older than Ironforge, an' I cannae make sense o' half of it. The Explorers' League would give their beards for a mage who could, an' maybe they'll get one, if ye're willin'." } },
       choices = {
-        { text = "Some old vaults should stay sealed, Prospector.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Whatever's sealed in Uldaman, I want to see it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some old vaults should stay sealed, Prospector.", next = "BACK", reply = "Maybe, but Hammertoe didnae think so, an' neither do I. Still, I'll no' blame ye for the caution.", fx = { align = { order = 1 } } },
+        { text = "Whatever's sealed in Uldaman, I want to see it.", next = "BACK", reply = "So did Hammertoe, an' look where it got him. Go carefully, an' bring back his notes if ye find them.", fx = { align = { order = -1 } } },
         { text = "Let's leave Uldaman for now.", next = "BACK" },
       },
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Aye, I would, though I think we both know what ye'd be prayin' for. He went intae that dig wi' his pick an' his notes, an' if the troggs got him, I'd like tae think the Light found him before they did." } },
+      lines = { { id = "xapriest_default", text = "Aye, I would, whether it's for his safe return or for his rest. He went intae that dig wi' his pick an' his notes, an' if the troggs got him, I'd like tae think the Light found him before they did." } },
       choices = {
-        { text = "Grief like yours honors him. Don't bury it, Prospector.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Mourn him later. His notes matter more right now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Grief like yours honors him. Don't bury it, Prospector.", next = "BACK", reply = "Thank ye. I'll keep it close, then, an' let it remind me tae keep lookin'.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mourn him later. His notes matter more right now.", next = "BACK", reply = "His notes, aye, they matter, an' I know it. But so did he, an' I'll mourn him whether ye like it or no'.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -104,8 +104,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Troggs out o' the deep places, stone things that shouldnae move, an' Shadowforge dwarves pokin' about after the same relics we were. Ye're welcome tae take yer demon down there an' scare a few o' them, an' if it brings Hammertoe out alive, I'll stop glarin' at it." } },
       choices = {
-        { text = "I'll keep my demon in check down there, Prospector.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll let it loose on the troggs and see what's left.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my demon in check down there, Prospector.", next = "BACK", reply = "Good, for I'll no' have it scarin' off the diggers or breakin' the relics. Mind it close.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll let it loose on the troggs and see what's left.", next = "BACK", reply = "An' what's left o' the relics too? Keep it away from the carvin's, or I'll have yer head for it.", fx = { align = { order = -1 } } },
         { text = "Something else, Prospector.", next = "BACK" },
       },
     },
@@ -113,8 +113,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_ulda_default", text = "Then ye walked the halls Hammertoe was so desperate tae see, an' ye saw the end o' them, which he never did. He'd have wanted every carvin' copied an' every door opened, an' I'd have told him tae slow down, an' he'd have ignored me, same as always." } },
       choices = {
-        { text = "Hammertoe found the way. The League should honour his name.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "He chased old stones to his death, Ryedol. It wasn't worth it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Hammertoe found the way. The League should honour his name.", next = "BACK", reply = "He did, an' he will be, if I've anythin' tae say about it. His name on every page.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He chased old stones to his death, Ryedol. It wasn't worth it.", next = "BACK", reply = "Wasn't it? He'd disagree, if he could, an' so do I. Some things are worth the price.", fx = { align = { honor = -1 } } },
         { text = "What will you do now, Ryedol?", next = "xcl_ulda2" },
       },
     },
@@ -127,7 +127,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_gnome", tags = { "news" }, when = { party = { race = "Gnome" }, faction = "Alliance" },
-          text = "Is that a gnome with you? Grand, because {companion} might be able to tell me what that blasted carved lock wants, and I've been staring at it for three days." },
+          text = "Is that a gnome with you? Grand, because {companion} might be able to tell me what the carved lock on the old vault door wants, and I've been staring at it for three days." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Shadowforge", min = 30 } }, text = "Word from the dig road is ye've been thinnin' out the Shadowforge, an' I'll drink tae that tonight, though no' too much, for Hammertoe's sake." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, is it? I'll no' pretend I like it, but there's worse than demons in Uldaman just now, an' Hammertoe's still down there somewhere." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -207,8 +207,8 @@ P:NPC {
     league = {
       lines = { { id = "l_default", text = "Are ye now! Then ye know we don't leave our own in the dirt. When ye go in, bring back somethin' o' his, anythin' at all, a pick or a page." } },
       choices = {
-        { text = "I will.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } },
-        { text = "If it's that dangerous, I'll leave the dead where they lie.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I will.", next = "BACK", reply = "Thank ye. I'll be waitin', an' I'll be prayin'.", fx = { affinity = 3, align = { honor = 1 } } },
+        { text = "If it's that dangerous, I'll leave the dead where they lie.", next = "BACK", reply = "Ye would, would ye? Then I'll find someone who won't. The League doesnae leave its own.", fx = { align = { honor = -1 } } },
       },
     },
     chased_blame = {
@@ -311,8 +311,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Someone has to stand near the rock elementals while I take readings, and they agitate rather easily. The last time I tried it myself I spent an afternoon flattened under a boulder, and the readings were dreadful." } },
       choices = {
-        { text = "I'll stand guard, but only if you follow safe procedure.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Forget procedure. I'll smash them and you can measure the pieces.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll stand guard, but only if you follow safe procedure.", next = "BACK", reply = "Safe procedure! Yes, of course, absolutely, I'll write it down. Lucien will be thrilled.", fx = { align = { order = 1 } } },
+        { text = "Forget procedure. I'll smash them and you can measure the pieces.", next = "BACK", reply = "Smash them? That would rather ruin the data! Though I suppose the pieces would be measurable. No, no, procedure.", fx = { align = { order = -1 } } },
         { text = "Something else, Lotwil.", next = "BACK" },
       },
     },
@@ -320,19 +320,19 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "My working theory is that the beasts can hear the elementals grinding inside the rock long before we can. My other theory is that the beasts are simply cleverer than my assistants, which would also explain a great deal." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would {pet} let me put a little listening device near its ear? It's quite harmless, and it's only exploded twice, neither time near an ear." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "My working theory is that the beasts can hear the elementals grinding inside the rock long before we can. Would {pet} let me put a little listening device near its ear? It's only exploded twice, neither time near an ear." },
       },
       choices = {
-        { text = "Leave my beast out of your experiments, Lotwil.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If it helps the Assembly, my beast can wear your device.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Leave my beast out of your experiments, Lotwil.", next = "BACK", reply = "Of course, of course, your beast is entirely its own creature. I'll find a goat instead.", fx = { align = { light = 1 } } },
+        { text = "If it helps the Assembly, my beast can wear your device.", next = "BACK", reply = "Marvellous! The device only tingles slightly, and the fur grows back within a week. Mostly.", fx = { align = { light = -1 } } },
         { text = "Something else, Lotwil.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Suffer is a strong word for something made of granite, though I'll admit they do get rather cross. Science needs a few cross elementals, I'm afraid, and the Badlands have plenty to spare." } },
       choices = {
-        { text = "Bind them without cruelty, or not at all.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A few cross elementals are a fair price for knowledge.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Bind them without cruelty, or not at all.", next = "BACK", reply = "Without cruelty, yes, that's the ideal. I'll ask Lucien to design gentler shackles, perhaps with padding.", fx = { align = { light = 1 } } },
+        { text = "A few cross elementals are a fair price for knowledge.", next = "BACK", reply = "Exactly! A small price, really, for the Assembly's progress. They'll calm down eventually, I'm nearly certain.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -340,26 +340,26 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "You'd be amazed, because a bound elemental core sells for a fortune in Gadgetzan, and Lucien caught a goblin sniffing round the sample tray just last week. I've started labelling everything 'explosive', which is only partly true." } },
       choices = {
-        { text = "Guard them well, then. Science deserves protecting.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Sell them yourself, and don't let the goblins take a cut.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Guard them well, then. Science deserves protecting.", next = "BACK", reply = "Yes, yes, guard them, and I'll set Lucien on the night watch. Science must be protected from goblins.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Sell them yourself, and don't let the goblins take a cut.", next = "BACK", reply = "Sell them? Heavens, no, they're for study! Though now that you mention it, the Assembly could use the funding.", fx = { align = { order = -1 } } },
         { text = "Let's talk science instead.", next = "BACK" },
       },
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "That's precisely what I'd like to know! The elementals answer to the elements and nothing else as far as I can tell, so if the Light rattles them at all, it would mean the Light reaches places the Kirin Tor swears it can't, and probably nothing is exactly where the best discoveries start." } },
+      lines = { { id = "xapala_default", text = "That's precisely what I'd like to know! The elementals answer to the elements and nothing else as far as I can tell, so if the Light rattles them at all, it would mean the Light reaches places the Kirin Tor swears it can't, and that's exactly where the best discoveries start." } },
       choices = {
-        { text = "The Light isn't a test subject, Lotwil.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fine. I'll stand by your rock and see what happens.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Light isn't a test subject, Lotwil.", next = "BACK", reply = "Not a subject, no, of course not. Merely an... observer, with a very interesting effect on rocks.", fx = { align = { order = 1 } } },
+        { text = "Fine. I'll stand by your rock and see what happens.", next = "BACK", reply = "Wonderful! Stand right there, and do try not to get crushed, the data's much cleaner that way.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xpriest = {
       big = true,
-      lines = { { id = "xpriest_default", text = "I honestly don't know, and it's driving me to distraction, because I've written down every reaction it has and prayer is the only thing that makes it grind its teeth, if it has teeth. My guess is that anything with a will of its own unsettles it, since it's had nothing but rock and my shackles for company." } },
+      lines = { { id = "xpriest_default", text = "It doesn't, and I can't think why, which is driving me to distraction, because of every reaction I've written down, prayer is the only thing that makes it grind its teeth, if it has teeth. My guess is that anything with a will of its own unsettles it, since it's had nothing but rock and my shackles for company." } },
       choices = {
-        { text = "Keep it bound, Lotwil. Rock that thinks is dangerous.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Perhaps it simply wants to be free, Lotwil.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep it bound, Lotwil. Rock that thinks is dangerous.", next = "BACK", reply = "Dangerous, yes, but fascinating. Bound it stays, though I may double the shackles tonight.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Perhaps it simply wants to be free, Lotwil.", next = "BACK", reply = "Free? It's a rock! Though I'll admit it does seem to want something, and that's what I'd like to measure.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -367,8 +367,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_ulda_default", text = "Then you've seen the old stone servants walk without any elemental I could name inside them, which is maddening! My rock elementals are bound by force and they resent every moment of it, but whatever moves Archaedas was made to serve, and gladly, as far as anyone can tell." } },
       choices = {
-        { text = "Binding a creature against its will is cruelty, Lotwil.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They're rocks, Lotwil. Bind as many as you like.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Binding a creature against its will is cruelty, Lotwil.", next = "BACK", reply = "Cruelty? It's science! Though I'll admit, when you put it that way, Lucien has said something similar. Eleven times.", fx = { align = { light = 1 } } },
+        { text = "They're rocks, Lotwil. Bind as many as you like.", next = "BACK", reply = "Exactly what I've been saying! Lucien worries far too much about their feelings.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Could you build something like Archaedas?", next = "xcl_ulda2" },
       },
     },
@@ -390,13 +390,13 @@ P:NPC {
         { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman" },
           text = "I'm told you've been to the very bottom of Uldaman and survived the stone keepers! I've a dozen questions about how they move, and Lucien says I'm only allowed to ask you three." },
         { id = "h_default", key = true,
-          text = "Lotwil Veriatus, late of Gnomeregan and founding member of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences, and that's the short name. I study the elements, rock mostly, since there's a great deal of it here and none of it is radioactive, which after home is a pleasant change." },
+          text = "Lotwil Veriatus, late of Gnomeregan and founding member of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences, and that's the short name. I study the elements, rock mostly, since there are several million tons of it here and none of it is radioactive, which after home is a pleasant change." },
         { id = "h_rock", tags = { "news" }, when = { questActive = TODO_QUEST("Study of the Elements: Rock") },
           text = "Rock elementals! They wander the Dustbowl like they own it, and perhaps they do. Bring me what's left of a few, would you, for science?" },
         { id = "h_hard", when = { questActive = TODO_QUEST("This Is Going to Be Hard") },
           text = "This is going to be hard, and that's not a warning, that's my working title. Lucien thinks it's funny; Lucien's my assistant." },
         { id = "h_machines", when = { questActive = TODO_QUEST("The Rise of the Machines") },
-          text = "The Hierophant sent you about golems? Oh, I've wanted to see a Dark Iron golem up close for years, though ideally not too close." },
+          text = "The Hierophant at Kargath sent you about golems? Oh, I've wanted to see a Dark Iron golem up close for years, though ideally not too close." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "Ah, a warrior! You'd make a splendid control for my experiments, being so very solid, and the elementals only hit hard when they're agitated." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -444,7 +444,7 @@ P:NPC {
     assembly = {
       big = true,
       lines = {
-        { id = "a_default", text = "A school, or the beginning of one! Arcane, alchemy, engineering: it's all one study, really, if you squint, and one day every thinking people in Azeroth could learn side by side, gnomes, dwarves, orcs and trolls. Why not? The rocks don't care who studies them." },
+        { id = "a_default", text = "A school, or the beginning of one! Arcane, alchemy, engineering: it's all one study, really, if you squint, and one day every thinking race in Azeroth could learn side by side, gnomes, dwarves, orcs and trolls. Why not? The rocks don't care who studies them." },
       },
       choices = {
         { text = "That's a big dream.", next = "BACK", fx = { affinity = 3 } },
@@ -493,24 +493,24 @@ P:NPC {
       lines = {
         { id = "xmg_default", text = "Do you! Then you'll appreciate that my method is to bind an elemental in shackles of my own design and examine it, which the Kirin Tor considers terribly reckless. Would you like to see the shackles? They're mostly rock." },
         { id = "xmg_lock", when = { class = "WARLOCK" },
-          text = "Do you! Well, binding is binding, whether it's a demon or a lump of animate rock, and I suspect we'd have a great deal to argue about. My shackles are sturdier than any circle you'll draw, I'll wager." },
+          text = "Do you! Well, binding is binding, whether it's a demon or a lump of animate rock, and I suspect we'd argue about it for hours. My shackles are sturdier than any circle you'll draw, I'll wager." },
       },
       choices = {
-        { text = "Binding things is how we learn them.", next = "BACK", fx = { align = { order = 1 }, trait = { curious = 1 } } },
-        { text = "Binding things is how they get angry.", next = "BACK", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
+        { text = "Binding things is how we learn them.", next = "BACK", reply = "Precisely, yes, at last a fellow scholar! The Kirin Tor will come round once they see my results.", fx = { align = { order = 1 }, trait = { curious = 1 } } },
+        { text = "Binding things is how they get angry.", next = "BACK", reply = "Angry, yes, but angry is just another reading. I'll add it to the notes.", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     k_shaman = {
       big = true,
       lines = {
-        { id = "xsh_default", text = "Measure them is precisely what I do, and they've never once complained to me. Though you're the third shaman this month to look at my shackles as if I'd chained a puppy, so I'll ask: what does it say?" },
+        { id = "xsh_default", text = "Measure them is precisely what I do, and they've never once complained to me. Though you're the third shaman this month to look at my shackles as if I'd chained a puppy, so I'll ask: what does the elemental say?" },
         { id = "xsh_dwarf", when = { race = "Dwarf" },
-          text = "A dwarf shaman, at my camp! I'd heard of such a thing and assumed it was a misprint. You look at my shackles as if I'd chained a puppy, so do tell me what it says." },
+          text = "A dwarf shaman, at my camp! I'd heard of such a thing and assumed it was a misprint. You look at my shackles as if I'd chained a puppy, so do tell me what the elemental says." },
       },
       choices = {
-        { text = "It says let it go.", next = "BACK", fx = { align = { order = -1 }, affinity = -2 } },
-        { text = "It's angry, but it will learn its place.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "It says let it go.", next = "BACK", reply = "Let it go? After all this work? It's not saying that, surely. Perhaps you misheard, it's very gravelly.", fx = { align = { order = -1 }, affinity = -2 } },
+        { text = "It's angry, but it will learn its place.", next = "BACK", reply = "Its place, yes, exactly! You and I would have made excellent research partners.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "What happens if it breaks free?", next = "k_shaman_free" },
       },
     },

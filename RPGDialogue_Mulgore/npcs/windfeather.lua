@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_road", text = "Walk with me, if you like. I don't stop moving on this road, and the quilboar have learned to respect that." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Break Sharptusk!") }, text = "Brambleblade Ravine, east of here. Sharptusk keeps to the middle of his camp, like a coward." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Break Sharptusk!") }, text = "Sharptusk is in Brambleblade Ravine, east of here, and he keeps to the middle of his camp like a coward." },
     { id = "g_done", when = { questDone = TODO_QUEST("Break Sharptusk!") }, text = "The ravine's quieter since Sharptusk fell. I still walk this road, though, because quiet never lasts." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}! I wondered if you'd gone back to Narache or gone on to Bloodhoof." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "Look at you! You were a newcomer when you went into that ravine for me, and now you walk like a proper brave." },
@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     op_quilboar = {
       lines = {
-        { id = "opq_q", text = "Some of the elders say the quilboar were here first, and that we should treat with them. I say look at Red Cloud Mesa and tell me how. What do you say?" },
+        { id = "opq_q", text = "Some of the elders say the quilboar were here first, and that we should treat with them. I say look at what they've done on Red Cloud Mesa, and then tell me how. What do you say?" },
       },
       choices = {
         { text = "They kill our young. There's nothing to talk about.", next = "op_quilboar_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { quilboar = "war" } } },
@@ -106,23 +106,23 @@ P:NPC {
       big = true,
       lines = { { id = "oe_default", text = "One walks with a limp now, and the other won't go near the ravine. I don't blame him, but I won't be him, and I won't let this road belong to Sharptusk." } },
       choices = {
-        { text = "There's no shame in fear. He did his part.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A brave who won't fight isn't a brave.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "There's no shame in fear. He did his part.", next = "BACK", reply = "He did, and I've told him so, though he doesn't hear it yet. Maybe someday he'll walk the ravine road again, and I'll be glad to walk it with him.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A brave who won't fight isn't a brave.", next = "BACK", reply = "Don't say that where he can hear it, please. He fought, and he bled for it, and the fear he carries now was earned the hard way.", fx = { align = { light = -1 } } },
         { text = "Something else, Windfeather.", next = "BACK" },
       },
     },
     cost = {
-      lines = { { id = "c_default", text = "We wandered for generations, chased by the centaur, until the Warchief helped us drive them from Mulgore. Then we built Thunder Bluff and Bloodhoof and Narache, and every one of them was paid for with someone's life." } },
+      lines = { { id = "c_default", text = "We wandered for generations, chased by the centaur, until the Warchief helped us drive them from Mulgore. Then we built Thunder Bluff and Bloodhoof and Narache, and each was paid for with someone's life." } },
       choices = {
         { text = "What do you think should be done about the quilboar?", next = "op_quilboar" },
-        { text = "Then the land is yours by right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The quilboar have a claim to this land too.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the land is yours by right.", next = "BACK", reply = "By right and by blood both, and I'll hold it the same way. The Earth Mother gave it to us after a long walk, and I won't give it up to Sharptusk.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The quilboar have a claim to this land too.", next = "BACK", reply = "Maybe they did once, but they gave it up when they took up with the dead. Let them claim it peacefully, and maybe the elders would listen.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     road = {
       lines = { { id = "r_default", text = "Because when I walk it, nobody else has to walk it alone. The young ones going to Grull for their first hunt know there's a brave somewhere on the road, and that makes them braver." } },
-      choices = { { text = "That's a good reason. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "That's a good reason.", next = "BACK", fx = { affinity = 1 } } },
     },
     fight = {
       lines = { { id = "f_default", text = "Cut through to him fast, before his warriors close in, and don't let him get his back to the thorns. A quilboar chief fights best when he's got somewhere to hide." } },

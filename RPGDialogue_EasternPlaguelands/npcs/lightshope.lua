@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_rare", text = "I don't often receive visitors. You'll forgive me if I'm out of practice." },
+    { id = "g_rare", text = "I don't often receive visitors here at the chapel, and I'm out of practice at being a host." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good. Few return from the Plaguelands twice, and fewer bother to call on me." },
     { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "A knight of the old Hand, risen. I'm not at ease with it, but the Light answers you, and in this chapel I'll not argue with the Light." },
     { id = "g_away", when = { away = 14 }, text = "I hadn't expected to see you again after {away} away, and I'm glad to be mistaken. The chapel's doors remain open to you." },
@@ -62,8 +62,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then fight it as the Dawn does, with patience, because Stratholme won't fall to a single charge and the Scourge have more dead to spend than we have living. A company that comes back again and again does more good than a hero who dies gloriously on the first day." } },
       choices = {
-        { text = "Patience, then. We'll come back as often as it takes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "One bold strike at the heart beats a hundred patrols.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience, then. We'll come back as often as it takes.", next = "BACK", reply = "Good. That's the Dawn's whole strategy, and it's never failed us yet.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "One bold strike at the heart beats a hundred patrols.", next = "BACK", reply = "I've seen many bold strikes at Stratholme, {class}, and buried most of them. Patience has outlived them all.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "The Dawn welcomes anyone who stands against the Scourge, and you stand with the Light besides, which is more than many of my knights can say on a bad day. Some of them will look at you and see what they lost, and you'll have to forgive them that, because it's grief, not hatred." } },
       choices = {
-        { text = "I'll forgive them. Grief is something I understand.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Their grief is theirs to carry. I'll not bend for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll forgive them. Grief is something I understand.", next = "BACK", reply = "Then you're a better soul than many of my knights, and I'll trust you with the ones who struggle.", fx = { align = { light = 1 } } },
+        { text = "Their grief is theirs to carry. I'll not bend for it.", next = "BACK", reply = "That's your right, and I won't ask you to. Only keep your blade sheathed when they glare.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Dawn asks for a strong arm and a clear conscience, and the Light is welcome but never required. Some of the best I've known were soldiers of Lordaeron's old army who simply refused to stop fighting when their kingdom did." } },
       choices = {
-        { text = "Then I'll fight for the Dawn as Lordaeron's soldiers did.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I fight for myself, my lord, though the Dawn may follow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll fight for the Dawn as Lordaeron's soldiers did.", next = "BACK", reply = "Then you're welcome here, and you'll find good company among the old soldiers.", fx = { align = { order = 1 } } },
+        { text = "I fight for myself, my lord, though the Dawn may follow.", next = "BACK", reply = "The Dawn won't mind, so long as you're pointed at the Scourge. Welcome, {class}.", fx = { align = { order = -1 } } },
         { text = "Something else, my lord.", next = "BACK" },
       },
     },
@@ -89,19 +89,19 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Plaguebats roosting in daylight, wolves running toward Stratholme in packs too large to be natural, and birds that won't fly over Corin's Crossing at all. I'm a soldier, not a woodsman, but I know a sign of the enemy when I see one." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed and clear-eyed, which is more than I can say for most creatures in these lands. The Dawn's stables are open to it, {class}, if it needs a quiet night." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed and clear-eyed, and in these lands I've seen wolves with the plague's grey in their gums. The Dawn's stables are open to it, {class}, if it needs a quiet night." },
       },
       choices = {
-        { text = "I'll scout carefully and bring every report to your officers.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll follow the packs alone and strike when I see fit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll scout carefully and bring every report to your officers.", next = "BACK", reply = "Good. A careful scout brings back more than reports; she brings back herself.", fx = { align = { order = 1 } } },
+        { text = "I'll follow the packs alone and strike when I see fit.", next = "BACK", reply = "Strike when you see fit, but send word before you do. I'd like to know where to send help.", fx = { align = { order = -1 } } },
         { text = "Something else, my lord.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Hold it, first, for there is nothing to heal while the dead still march out of Stratholme and the Plaguewood. When they stop rising, I'll hand you every acre of this ground gladly and pray you know what to do with it." } },
       choices = {
-        { text = "Hold the line first. Healing follows victory.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The land can't wait for your war to end.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Hold the line first. Healing follows victory.", next = "BACK", reply = "It does, and I'm glad you see it. Hold with us, and the healing will have a place to stand.", fx = { align = { order = 1 } } },
+        { text = "The land can't wait for your war to end.", next = "BACK", reply = "It may not, and I'll grieve for every acre we lose. But it can't heal under the dead's feet.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,14 +109,14 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "It is, and there are knights here who still find that hard, and I don't scold them for it, only for letting it slow their hand. The chapel stands on ground that refused the Scourge when everything around it fell, and I've never been sure whether that was the Light's doing, or the land's, or both." } },
       choices = {
-        { text = "Both, I think. The Light and the land stand together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The land did it alone. Your Light just took the credit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Both, I think. The Light and the land stand together.", next = "BACK", reply = "I believe so too, and I'm glad to hear it from you. The chapel welcomes both.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The land did it alone. Your Light just took the credit.", next = "BACK", reply = "Perhaps it did, and the Light won't mind sharing. Neither will I.", fx = { align = { order = -1 } } },
         { text = "Something else, my lord.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "o_schard", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "hardline" } }, text = "The Duke says you'd break the Crusade outright. I may need that resolve before long, but I'd ask you to save it for those who won't yield." },
+        { id = "o_schard", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "hardline" } }, text = "Duke Zverenhoff says you'd break the Crusade outright. I may need that resolve before long, but I'd ask you to save it for those who won't yield." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 } },
           text = "A company of five at the chapel, and I'll not pretend I'm not counting swords, for the Dawn needs every one it can get in the east of Lordaeron." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -124,7 +124,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Maxwell Tyrosus. I served in the Silver Hand once, and now I lead the Argent Dawn, since Lord Raymond George fell, and we fight the Scourge and anything else that would end this world. We ask no one which crown they serve." },
         { id = "h_summoned", tags = { "news" }, when = { questActive = TODO_QUEST("Lord Maxwell Tyrosus") },
-          text = "The Duke sent you, so he trusts you, and Nicholas trusts very few. Sit; we have a great deal to discuss, and Stratholme won't wait." },
+          text = "The Duke sent you, so he trusts you, and Nicholas trusts very few. Sit; there's much to discuss, and Stratholme won't wait." },
         { id = "h_hold", when = { questActive = TODO_QUEST("The Argent Hold") },
           text = "The Argent Hold is open to you now. What's inside was made to be used against the dead, so use it." },
         { id = "h_quiet", when = { metBefore = true },
@@ -166,8 +166,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The Dawn has a use for anyone who fights the Scourge, and you'd be surprised how many of our best scouts once picked locks for a living. I ask no one what they did before, only what they'll do now, and the dead in Stratholme give us plenty to do." } },
       choices = {
-        { text = "The past shouldn't define anyone. I agree.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Some pasts should still be answered for.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The past shouldn't define anyone. I agree.", next = "BACK", reply = "It shouldn't, and here it doesn't. Welcome, {class}.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some pasts should still be answered for.", next = "BACK", reply = "Some should, aye, but not at my door. Answer for them to the Scourge, and we'll call it square.", fx = { align = { order = 1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -175,8 +175,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Some had nothing left in Dalaran to go back to, and some couldn't bear to watch from behind a dome while their families walked the fields as ghouls. The Dawn asks no one to choose a crown, so they came here and kept fighting." } },
       choices = {
-        { text = "They did right. People come before institutions.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Dalaran needed them too. They should have stayed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They did right. People come before institutions.", next = "BACK", reply = "They did, and the Dawn is richer for it. People are what we fight for.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Dalaran needed them too. They should have stayed.", next = "BACK", reply = "Perhaps, and Dalaran would agree. But they came here, and I'll not turn them away.", fx = { align = { order = 1 } } },
         { text = "Something else, Lord Tyrosus.", next = "BACK" },
       },
     },
@@ -186,8 +186,8 @@ P:NPC {
         { id = "l_default", key = true, text = "I didn't leave it; it left. The Hand I knew healed the sick and shielded the weak, and what became the Scarlet Crusade burns villages to save them. When they stopped asking whether someone was dead or only different, I walked away, and others came with me." },
       },
       choices = {
-        { text = "You made the right choice.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The Crusade's methods are harsh, but harsh times need them.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "You made the right choice.", next = "BACK", reply = "I believe so, though it cost me a great many friends. Thank you.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The Crusade's methods are harsh, but harsh times need them.", next = "BACK", reply = "Harsh, yes, and they burn their own to prove it. I'll not follow them into that.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "The Crusade does fight the Scourge.", next = "crusade" },
       },
     },
@@ -229,15 +229,15 @@ P:NPC {
       big = true,
       lines = { { id = "p_default", text = "Wherever the dead walk and someone stands against them. The Hand was a banner, but the Light was never in the banner; stand here long enough and you'll see it doesn't need one." } },
       choices = {
-        { text = "Then I'll stand here.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { light_hope = 2 } } },
-        { text = "I still miss the banner.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, align = { order = 1 } } },
+        { text = "Then I'll stand here.", next = "BACK", reply = "Then stand here, and you'll find the Light where you stand.", fx = { affinity = 3, align = { light = 2 }, standing = { light_hope = 2 } } },
+        { text = "I still miss the banner.", next = "BACK", reply = "So do I, some nights, and there's no shame in it, because it flew over good men. But a banner can burn, and the Light we carried under it never once went out.", fx = { affinity = 1, trait = { kind = 1 }, align = { order = 1 } } },
       },
     },
     squire = {
       lines = { { id = "sq_default", text = "Then you're one of hundreds who were halfway to something when the ground fell away, so finish it here. The Dawn knights people; we just don't make a fuss about it." } },
       choices = {
-        { text = "I'd like that.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
-        { text = "I'll fight beside the Dawn, but I don't need a title.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd like that.", next = "BACK", reply = "Then kneel, when you're ready, and we'll see it done properly.", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "I'll fight beside the Dawn, but I don't need a title.", next = "BACK", reply = "Nor do any of us, truly. Fight beside us, and you'll be one of ours regardless.", fx = { align = { order = -1 } } },
       },
     },
     gregor = {
@@ -247,8 +247,8 @@ P:NPC {
     priest_dawn = {
       lines = { { id = "pd2_default", text = "More than it needs swords. A sword stops the dead; a healer keeps the living from joining them. Stay a while at the chapel, priest, and Leonid and the wounded will both be glad of you." } },
       choices = {
-        { text = "I'll stay a while.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { light_hope = 2 } } },
-        { text = "The wounded will keep, and I'd rather be out burning the dead.", next = "BACK", fx = { align = { light = -2 } } },
+        { text = "I'll stay a while.", next = "BACK", reply = "Thank you. Leonid will be glad, and so will the wounded.", fx = { affinity = 3, align = { light = 2 }, standing = { light_hope = 2 } } },
+        { text = "The wounded will keep, and my place is out on the fields, burning the dead.", next = "BACK", reply = "Burn them, then, and bring back the wounded you find on the way. Both are the Dawn's work.", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -261,7 +261,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll go back in.", next = "BACK", fx = { affinity = 2, standing = { light_hope = 1 }, trait = { brave = 1 } } },
-        { text = "You suspect the Crusade's leaders?", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Then the Crusade's leaders bear watching too.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -276,8 +276,8 @@ P:NPC {
         { id = "xw_default", text = "The Dawn will take help from anyone who stands against the Scourge and keeps their word, which is the very reason I left the Silver Hand when it stopped believing that. I ask only that you keep your demons outside these walls; this chapel has seen enough of things that do not belong here." },
       },
       choices = {
-        { text = "My demons stay outside. You have my word.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, standing = { light_hope = 1 } } },
-        { text = "What I bring with me is my own affair, my lord.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "My demons stay outside. You have my word.", next = "BACK", reply = "Thank you. Your word is enough for me.", fx = { affinity = 2, align = { honor = 1 }, standing = { light_hope = 1 } } },
+        { text = "What I bring with me is my own affair, my lord.", next = "BACK", reply = "Within the chapel walls, it's mine. Keep them outside, or keep yourself outside with them.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -295,7 +295,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "The Dawn hears a great deal, and a fair part of it reaches this chapel. These are the matters I can speak to with some authority." },
+      { id = "tp_knows", text = "The Dawn's riders cover the whole Eastweald, and a fair part of what they hear reaches this chapel. These are the matters I can speak to with some authority." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've earned plain answers from me, and I don't give many. Ask me about any of these and I'll hold nothing back that the Dawn can spare." },
     },
     background = { { id = "tp_ba", text = "A paladin of the Silver Hand, until the Hand forgot what it was for. Now the Argent Dawn, which hasn't forgotten yet.", next = "left" } },
@@ -375,8 +375,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_priest_default", text = "Because so many died here holding it, and died in faith, that the ground itself remembers, and the dead cannot rise where the Light has been paid for so dearly. I tell the young priests that the chapel is a prayer that never ended." } },
       choices = {
-        { text = "Then faith is the strongest weapon we have against them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Faith didn't save those who died here. Better steel might have.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then faith is the strongest weapon we have against them.", next = "BACK", reply = "It is, and the dead fear it more than any blade. Hold to it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith didn't save those who died here. Better steel might have.", next = "BACK", reply = "Perhaps it might have, and I won't dismiss the thought. But faith kept the ground clean after they fell.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -384,8 +384,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They trust my blade, which is more than I expected, but they won't share a fire with me. I understand it, for a soldier who has fought the Scourge for years learns to strike at anything that looks like me, and that instinct has kept them alive." } },
       choices = {
-        { text = "I'll judge you by your deeds, Leonid, not by your face.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'm with your soldiers. The dead get no place at my fire.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll judge you by your deeds, Leonid, not by your face.", next = "BACK", reply = "Thank you, {class}. That's more than I hoped for.", fx = { align = { light = 1 } } },
+        { text = "I'm with your soldiers. The dead get no place at my fire.", next = "BACK", reply = "Then sit with them, and I'll keep my fire on the other side. I understand.", fx = { align = { light = -1 } } },
         { text = "Something else, Revered.", next = "BACK" },
       },
     },
@@ -396,16 +396,16 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is growling at me, {class}, and I'd ask you not to quiet it. A beast that hates the smell of the plague is a sentry worth keeping." },
       },
       choices = {
-        { text = "My beast will learn to tell friend from foe, given time.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My beast's instincts are sound. I'll let it growl.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "My beast will learn to tell friend from foe, given time.", next = "BACK", reply = "I hope so. It would be a kindness to both of us.", fx = { align = { order = 1 } } },
+        { text = "My beast's instincts are sound. I'll let it growl.", next = "BACK", reply = "Wise of you. The horses have the same instinct, and I've the bites to prove it.", fx = { align = { order = -1 } } },
         { text = "Something else, Revered.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "It feels like kinship, which is the cruellest thing the Scourge left me. The plague in the soil and the plague in my bones answer to the same masters, and I mean to see both cut off from them." } },
       choices = {
-        { text = "Then turn what you are against it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "What's made of plague can never cleanse it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then turn what you are against it.", next = "BACK", reply = "That's what I mean to do. If the Scourge made me, then I'll be its undoing.", fx = { align = { light = 1 } } },
+        { text = "What's made of plague can never cleanse it.", next = "BACK", reply = "Perhaps not, but I'll try all the same. The Light has worked stranger things.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -413,8 +413,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because the Banshee Queen gave me back my mind, and I didn't think it right to hand it straight back to her. I owe her my freedom, and I'll never speak against her, but the Dawn fights the Scourge for everyone, and that's a cause I can carry without looking over my shoulder." } },
       choices = {
-        { text = "A free mind should serve the many. You chose well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You owe the Dark Lady more than you've given her.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A free mind should serve the many. You chose well.", next = "BACK", reply = "Thank you. I'll serve them as well as I can.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You owe the Dark Lady more than you've given her.", next = "BACK", reply = "Perhaps I do, and I'll repay her when the Scourge is gone. For now, the Dawn needs me.", fx = { align = { light = -1 } } },
         { text = "Something else, Revered.", next = "BACK" },
       },
     },
@@ -422,8 +422,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "I've asked two shamans that, and one turned away and the other wept, so I've stopped asking. I think the land knows what was done to me, and knows I didn't choose it, and I take some comfort in thinking it holds no grudge, even if I can't be sure." } },
       choices = {
-        { text = "The land holds no grudge. You chose your path well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The dead belong in the earth, Revered. Even you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The land holds no grudge. You chose your path well.", next = "BACK", reply = "Thank you. I'll hold on to that, on the nights it's hardest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead belong in the earth, Revered. Even you.", next = "BACK", reply = "Perhaps I do, and perhaps one day I'll go. But not until the Scourge goes first.", fx = { align = { light = -1 } } },
         { text = "Something else, Revered.", next = "BACK" },
       },
     },
@@ -448,7 +448,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. You needn't grip your sword so tightly, {class}, for I am dead, but I am on your side, and the dead of Light's Hope are the only ones you may safely turn your back on." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter. The beasts of these lands flinch from me as they would from any Scourge, {class}, so forgive me if your companions bare their teeth." },
+          text = "A hunter. The beasts of these lands flinch from me as they would from any Scourge, {class}, so don't be alarmed if your companions bare their teeth." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You walk quietly, {class}, like the Deathstalkers who came looking for me after I joined the Dawn. I sent them away, but gently, for they were only doing what the Banshee Queen asked." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here in the chapel. The spirits must find me a puzzle, {class}, for I'm dead and the Light answers me anyway, and I'm not sure I understand it either." },
       },
@@ -467,16 +467,16 @@ P:NPC {
         { text = "Why didn't you join the Deathstalkers, Revered?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How do the spirits see you, Revered?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why has the Scourge never taken this chapel?", next = "xpt_priest", when = { party = { class = "PRIEST" } } },
-        { text = "I'd like to help the Dawn, if you'll have me.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "I'll work with the dead when I must, but I won't trust them.", next = "END", fx = { align = { light = -1 } } },
+        { text = "I'd like to help the Dawn, if you'll have me.", next = "END", reply = "The Dawn will have you gladly, {class}. Tell the quartermaster I sent you, and walk in the Light.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll work with the dead when I must, but I won't trust them.", next = "END", reply = "That is fair, and I will not ask more of you. Go in the Light, whatever you think of me.", fx = { align = { light = -1 } } },
       },
     },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Fire, mostly, and patience, for the Scourge in Stratholme and the Plaguewood rebuild their ranks faster than we burn them. A mage who keeps burning after the hundredth ghoul is worth ten who burn brightly once and go home." } },
       choices = {
-        { text = "Then I'll keep burning, as long as it takes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "One great blow is worth a hundred small ones.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll keep burning, as long as it takes.", next = "BACK", reply = "Good. The hundredth ghoul is where most mages give up.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "One great blow is worth a hundred small ones.", next = "BACK", reply = "Perhaps, if you can find one. The Scourge never gives us one place to strike.", fx = { align = { order = -1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
@@ -484,8 +484,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. Your demons are a weapon too, and I would only ask what I ask of myself, that you remember who you are when the weapon starts to feel like you." } },
       choices = {
-        { text = "I know who I am. The darkness doesn't change that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Maybe the weapon is who I am now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I know who I am. The darkness doesn't change that.", next = "BACK", reply = "Good. Hold on to that, and the darkness will be only a tool.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Maybe the weapon is who I am now.", next = "BACK", reply = "Then I'll pray it's a weapon pointed the right way. Be careful.", fx = { align = { light = -1 } } },
         { text = "Something else, Leonid.", next = "BACK" },
       },
     },
@@ -507,7 +507,7 @@ P:NPC {
       },
     },
     why_know = {
-      lines = { { id = "wk_default", text = "I imagine the Banshee Queen knows a great deal. She hasn't come for me, and I take that as permission, or indifference. Either serves." } },
+      lines = { { id = "wk_default", text = "I imagine the Banshee Queen knows more than she says. She hasn't come for me, and I take that as permission, or indifference. Either serves." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     ras = {
@@ -517,8 +517,8 @@ P:NPC {
     forsaken = {
       lines = { { id = "f_default", text = "In what we are, yes; in what we choose, we'll see. Choose well, and you'll find the living here are kinder than you expect, some of them." } },
       choices = {
-        { text = "I'll choose well.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "I'll choose what keeps me standing, and kindness rarely does.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll choose well.", next = "BACK", reply = "Good. I'll be glad to see it.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll choose what keeps me standing, and kindness rarely does.", next = "BACK", reply = "It does, sometimes, more than you'd think. I'll hope you find that out.", fx = { align = { light = -1 } } },
       },
     },
     x_paladin = {
@@ -526,8 +526,8 @@ P:NPC {
         { id = "xp_default", text = "Then we are two of a strange kind, you and I, and I am glad of the company. The living will tell you it should not be possible, and some mornings I think they are right, but the warmth comes anyway, and I have stopped asking it why." },
       },
       choices = {
-        { text = "The Light judges what we do, not what we are.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Perhaps it isn't the Light that answers us.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "The Light judges what we do, not what we are.", next = "BACK", reply = "I believe so, and it's the only thing that lets me rise each morning.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Perhaps it isn't the Light that answers us.", next = "BACK", reply = "Perhaps not, but something does, and it hasn't failed me yet.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

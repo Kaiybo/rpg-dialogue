@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Belgrom Rockmaul. I'd travel in the Warchief's name, but Thrall needs me here in the city, and he asks my opinion often. My agents watch half of Kalimdor for him, from the Barrens to the coast of Azshara, though I'd sooner not speak of the elf I trusted there." },
+        { id = "h_default", key = true, text = "Belgrom Rockmaul, adviser to the Warchief, who asks my opinion often. My agents watch half of Kalimdor for him, from the Barrens to the coast of Azshara, though I'd sooner not speak of the elf I trusted there." },
         { id = "h_betrayed_before", when = { questBefore = TODO_QUEST("Betrayed") },
           text = "That thieving elf! I may have made a grave mistake, {name}. She promised riches from the ruins of Azshara if I sent warriors to guard her diggers, and now she's killed them, every one, and I can't afford to send more." },
         { id = "h_betrayed_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Betrayed"), days = 5 } },
@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "ed_default", text = "Once her diggers had what they wanted, she turned her spells on my warriors, and the survivors at Valormok are counting graves. I want her dead, {name}, and I want it before the whole Valley knows how badly she played me." } },
       choices = {
-        { text = "Those warriors deserve justice, not your reputation.", next = "BACK", fx = { affinity = -1, align = { honor = 1 }, learn = { "rimtori" } } },
-        { text = "Vengeance is vengeance. I'll see her dead.", next = "BACK", fx = { affinity = 1, align = { honor = -1 }, learn = { "rimtori" } } },
+        { text = "Those warriors deserve justice, not your reputation.", next = "BACK", reply = "They do, and I'll not pretend my pride isn't in it too. But dead is dead, and justice and my name both end at her throat.", fx = { affinity = -1, align = { honor = 1 }, learn = { "rimtori" } } },
+        { text = "Vengeance is vengeance. I'll see her dead.", next = "BACK", reply = "Good, that's the answer I wanted. Bring me proof she's gone, and Valormok will have its graves avenged.", fx = { affinity = 1, align = { honor = -1 }, learn = { "rimtori" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "rimtori" } } },
       },
     },
@@ -104,8 +104,8 @@ P:NPC {
     tell = {
       lines = { { id = "te_default", text = "And have him think I can't judge a mage from a merchant? No. When the elf's dead, I'll tell him the whole story, and it'll end with her head, which makes it a much better story." } },
       choices = {
-        { text = "Hiding a mistake from your Warchief isn't honest.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Wise. Tell him when it's finished, not before.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Hiding a mistake from your Warchief isn't honest.", next = "BACK", reply = "Honest, no, but a commander learns which truths to carry and when. He'll have the whole of it, I swear, once there's an ending worth telling.", fx = { align = { order = 1 } } },
+        { text = "Wise. Tell him when it's finished, not before.", next = "BACK", reply = "You understand command, then. A story told half-done is a weakness, and a story told finished is a victory.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -121,7 +121,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I've served the Horde since before this city had walls, and now I serve the Warchief at his ear. That's all the story you need." } },
-    advice = { { id = "tp_ad", text = "Have agents everywhere, and make sure they write often. Half my letters already arrive chewed by the wind riders, so I need the other half." } },
+    advice = { { id = "tp_ad", text = "Have agents everywhere, and make sure they write often. The wind riders chew one letter in three before it reaches me, so send two of everything." } },
     rimtori = { { id = "tp_rim", text = "Don't say that name too loudly in this valley. When she's dead, I'll say it myself, and gladly." } },
     silithid = { { id = "tp_sil", text = "Korran's bugs. I thought it was nothing, and I've been told it's something, and I'm not too proud to change my mind about bugs." } },
     thrall = { { id = "tp_thrall", text = "The Warchief relies on me to know what's happening across Kalimdor, and I don't intend to disappoint him again. I won't make the same mistake twice, I'll tell you that." } },

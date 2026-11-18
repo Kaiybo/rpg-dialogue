@@ -5,7 +5,7 @@ P:Pool {
   id = "guard_everlook", role = "guard", community = "everlook",
   barks = {
     { id = "b_cold", text = "Can't feel my ears and can't feel my toes, but I can still feel my paycheck, barely." },
-    { id = "b_yeti", text = "If you hear a yeti in town, pal, it's probably one of Umi's, probably, and I'm not paid enough to find out which." },
+    { id = "b_yeti", text = "If you hear a yeti in town, pal, it's probably one of Umi Rumplesnicker's mechanical ones, and I'm not paid enough to find out which." },
   },
   greetings = {
     { id = "g_everlook", text = "This is Everlook, pal, and it's Cartel ground, so Horde, Alliance or whoever you are, you trade here, you pay your fees here, and you fight somewhere else." },
@@ -111,7 +111,7 @@ P:Pool {
     },
     yeti = {
       lines = {
-        { id = "ye_default", text = "Umi Rumplesnicker builds them for a laugh and sends them out to scare folks, and every time one comes clanking up to the gate I've got about a second to work out whether to swing or wave. So far I'm right about half the time." },
+        { id = "ye_default", text = "Umi Rumplesnicker builds them for a laugh and sends them out to scare folks, and every time one comes clanking up to the gate I've got about a second to work out whether to swing or wave. So far I've waved at two real yetis and swung at one of hers, and she still hasn't forgiven me." },
       },
       choices = {
         { text = "That's the funniest thing I've heard all week.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
@@ -124,8 +124,8 @@ P:Pool {
         { id = "ne_default", text = "Pal, up here the snow kills Horde and Alliance just the same, so picking a side would only mean freezing with fewer friends. Everybody trades, everybody gets warm, and the Cartel takes its cut from all of them." },
       },
       choices = {
-        { text = "Smart. Everyone's coin is good coin.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
-        { text = "I'd pick a side, and I'd freeze for it.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "Smart. Everyone's coin is good coin.", next = "BACK", reply = "Now you're talkin' like a Cartel man, pal, because gold doesn't wear a tabard and neither does the fire in the inn. Stick around long enough and we'll make a businessman of you yet.", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "I'd pick a side, and I'd freeze for it.", next = "BACK", reply = "Then you'll freeze proud and alone, chum, and I'll be the one billing your next of kin for the digging. Ground's hard up here, so it's a premium job.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
         { text = "Do the two sides ever cooperate up here?", next = "neutral_coop" },
       },
     },

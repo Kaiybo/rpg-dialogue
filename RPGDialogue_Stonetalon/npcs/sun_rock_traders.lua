@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Bread, water, bags and thread, all of it carried up the mountain the hard way. Buy something, so the kodo's back ache was worth it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, because the last caravan made it up without losing a crate, and I'd like to sell what's in them." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the prices haven't moved while you were away, which is more than I can say for the road." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the prices haven't moved while you were away, though the road's got twice as dangerous." },
   },
 
   notice = {
@@ -70,11 +70,11 @@ P:NPC {
     road_grim = {
       big = true,
       lines = {
-        { id = "rg_default", text = "Twice since the thaw, and they took the water and left the bread, which tells you something about the Grimtotem. Maggran wants an escort on every caravan, and the tauren want to talk to the Grimtotem first, and while they argue I lose water." },
+        { id = "rg_default", text = "Twice since the thaw, and they took the water and left the bread, so the Grimtotem know exactly what Sun Rock can't live without. Maggran wants an escort on every caravan, and the tauren want to talk to the Grimtotem first, and while they argue I lose water." },
       },
       choices = {
-        { text = "Talk first. They're still tauren.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Escort every caravan and strike back hard.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Talk first. They're still tauren.", next = "BACK", reply = "They are, and the tauren will thank you for saying it. Just remember the Grimtotem took the water, so talk with your hand near your axe.", fx = { align = { light = 1 } } },
+        { text = "Escort every caravan and strike back hard.", next = "BACK", reply = "That's what Maggran wants, and I can't say he's wrong. Strike back hard, and the next caravan might reach me with its water.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -82,7 +82,7 @@ P:NPC {
     sells = {
       lines = {
         { id = "se_default", text = "Water, by a long way, because the springs up here taste of ash since the vale burned. After that it's bags, since everyone who comes through here is carrying something back for somebody." },
-        { id = "se_lock", when = { class = "WARLOCK" }, text = "Water and bags, mostly, though I've had warlocks ask for odder things, and I tell them all the same. Ask Jeeda upstairs in the inn, and don't tell me what it's for." },
+        { id = "se_lock", when = { class = "WARLOCK" }, text = "Water and bags, mostly, though I've had warlocks ask for odder things, and I tell them all the same. Ask Jeeda down at Malaka'jin, and don't tell me what it's for." },
       },
       choices = {
         { text = "The springs taste of ash?", next = "sells_ash" },
@@ -114,8 +114,8 @@ P:NPC {
         { id = "tw_default", text = "The goblins, because harpies and spiders only want to eat you, and the goblins want to sell the mountain out from under all of us. Still, a goblin pays in coin, and I've taken their coin before, when they came up the road honest." },
       },
       choices = {
-        { text = "Coin is coin. Sell to whoever pays.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I wouldn't sell a single loaf to the Venture Company.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coin is coin. Sell to whoever pays.", next = "BACK", reply = "That's how I see it, though I'd never say it near the tauren. Honest coin is honest coin, whoever's purse it falls out of.", fx = { align = { honor = -1 } } },
+        { text = "I wouldn't sell a single loaf to the Venture Company.", next = "BACK", reply = "Neither would I, not since they cut the Charred Vale down. Some coin isn't worth the smell.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -212,8 +212,8 @@ P:NPC {
         { id = "hw_default", text = "He says the wind keeps the enchantments clean, and that anyone who won't climb for his teaching doesn't want it badly enough. I say he dislikes company, but I sell his students their rods, so I keep that to myself." },
       },
       choices = {
-        { text = "A teacher should be easy to find.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The climb is a fair test. Let him keep it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A teacher should be easy to find.", next = "BACK", reply = "Easy to find and easy to ignore, which is why he lives up on that ledge, I think. Still, I'd like him to come down for supper once.", fx = { align = { order = -1 } } },
+        { text = "The climb is a fair test. Let him keep it.", next = "BACK", reply = "Perhaps you're right, and his students do finish what they start. I'll keep selling rods to the ones who make the climb.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -253,8 +253,8 @@ P:NPC {
         { id = "ma_default", text = "We did, for grey dye, and some at Sun Rock said it was wrong to make anything from that burning. I said wasting it was worse, since the trees had already given everything they had." },
       },
       choices = {
-        { text = "Nothing should be wasted, not even ash.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Some things should be left alone to mourn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Nothing should be wasted, not even ash.", next = "BACK", reply = "That's what I said, and I'm glad someone agrees. The trees gave everything, and I won't let it go to waste.", fx = { align = { light = 1 } } },
+        { text = "Some things should be left alone to mourn.", next = "BACK", reply = "Perhaps some things should, and I've wondered. But the ash will go to the wind either way, and I'd rather it went into cloth.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -352,8 +352,8 @@ P:NPC {
         { id = "mt_default", text = "It does, sour and tough, and the tauren say it's the spirit's anger and I say it's the fear in the blood. Either way, kill quick or don't bother bringing it to me." },
       },
       choices = {
-        { text = "Then the spirits are right to be angry.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "It's only meat. Spirits have nothing to do with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the spirits are right to be angry.", next = "BACK", reply = "Then they'll be angry at the ones who killed it badly, not me. I'm only the butcher, but I'll take a clean kill any day.", fx = { align = { order = 1 } } },
+        { text = "It's only meat. Spirits have nothing to do with it.", next = "BACK", reply = "That's what I say to the tauren, and they shake their heads at me. Kill it quick anyway, because meat with fear in it is meat nobody wants.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -451,8 +451,8 @@ P:NPC {
         { id = "wm_default", text = "Some did, until I shot a harpy off the rock above their heads. An orc fights with what wins, and anyone who says an axe is more honourable than an arrow hasn't buried enough friends." },
       },
       choices = {
-        { text = "Honour is in how you fight, not what you carry.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Winning matters. Honour can wait for the songs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Honour is in how you fight, not what you carry.", next = "BACK", reply = "Spoken like a tauren, and I won't argue with you. I'll keep my bow, and you keep your honour, and we'll both stay alive.", fx = { align = { honor = 1 } } },
+        { text = "Winning matters. Honour can wait for the songs.", next = "BACK", reply = "Now you're talking like a soldier, and I'll sell you the best bow I've got. Let the songs say what they like.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

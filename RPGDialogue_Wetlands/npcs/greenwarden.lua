@@ -19,10 +19,10 @@ P:NPC {
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "The dwarf returns, and the moss does not draw back. I spoke hard words of your kind's picks and fires, and you have walked more gently here than many." },
     { id = "g_default", text = "The roots and ferns speak of you, small one. Come, and step softly on the moss." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the grove. The reeds bent toward you as you came, and that is a good sign." },
-    { id = "g_away", when = { away = 14 }, text = "The marsh has turned many times since you were here, small one. It has missed few things, and it did not miss your absence." },
+    { id = "g_away", when = { away = 14 }, text = "The marsh has turned many times since you were here, small one. It noticed that you were gone." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown, as a sapling grows, by enduring weather. The land can feel it in your step." },
     { id = "g_paws", when = { questActive = TODO_QUEST("Tramping Paws") }, text = "The Mosshides still tramp the fen to the south, near the dwarven gate. Your task is still at hand." },
-    { id = "g_flint", when = { questActive = TODO_QUEST("Fire Taboo") }, text = "I smell their fires even now. Bring me the flints, small one." },
+    { id = "g_flint", when = { questActive = TODO_QUEST("Fire Taboo") }, text = "I smell the Mosshide gnolls' fires even now. Bring me their flints, small one." },
   },
 
   notice = {
@@ -38,7 +38,7 @@ P:NPC {
   nodes = {
     prej = {
       big = true,
-      lines = { { id = "prej_default", text = "Your kind love stone so well they forget what lives on top of it. Dun Modr, Thelgen Rock, the Whelgar dig, and every one of them a wound that woke something worse than what slept there before." } },
+      lines = { { id = "prej_default", text = "Your kind love stone so well they forget what lives on top of it. Dun Modr, Thelgen Rock and the Whelgar dig are all wounds that woke something worse than what slept there before." } },
       choices = {
         { text = "You're right. Some places should be left to sleep.", next = "prej_a", fx = { align = { order = 1 } } },
         { text = "Dwarves dig and raptors bite. That's the world, Greenwarden.", next = "prej_b", fx = { align = { order = -1 } } },
@@ -156,7 +156,7 @@ P:NPC {
       lines = {
         { id = "wo2_default", text = "Many, and they fester. The gnolls trample and burn, a sickness rises in the waters, and the creatures of the fen grow fevered and strange, though I do not yet know why." },
         { id = "wo2_highland", when = { questDone = TODO_QUEST("Horrors in the Highland") },
-          text = "It is worse than I feared, for an ancient energy stirs in the high country. Tell your eager excavators to stop digging, for their own safety, though I doubt they will hear it." },
+          text = "It is worse than I feared, for an ancient energy stirs in the high country. Tell the dwarves digging up there to stop, for their own safety, though I doubt they will hear it." },
       },
       choices = {
         { text = "What sickness rises in the waters?", next = "wounds_sick" },
@@ -169,8 +169,8 @@ P:NPC {
         { id = "ws_default", text = "The fen creepers have risen, diseased blisters on the land, and for the fever to break they must be put down and allowed to settle into the mud again. It grieves me, but a wound must be lanced before it can heal." },
       },
       choices = {
-        { text = "Then I'll lance it. The land comes first.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Perhaps the healers could cure them instead.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll lance it. The land comes first.", next = "BACK", reply = "You speak as the marsh would speak, if it had a mouth. Go to the creepers, then, and let the mud take back what it gave.", fx = { align = { order = -1 } } },
+        { text = "Perhaps the healers could cure them instead.", next = "BACK", reply = "Your healers mend flesh, small one, and these are not flesh but the marsh's own sickness risen up. I have waited long seasons for a cure that did not come.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -190,8 +190,8 @@ P:NPC {
         { id = "gk_default", text = "I would have them fewer, and the marsh cannot ask kindly. A forest culls its weak trees with storms, small one, and I have no storms, so I have you." },
       },
       choices = {
-        { text = "Balance is worth the blood. I'll do it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll do it, but I take no joy in it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Balance is worth the blood. I'll do it.", next = "BACK", reply = "Then you understand more than most who pass under my branches. Be the storm, and the marsh will breathe easier when you are done.", fx = { align = { light = -1 } } },
+        { text = "I'll do it, but I take no joy in it.", next = "BACK", reply = "Good, for joy in culling is how a storm becomes a blight. Carry your sorrow with you, small one, and the marsh will know the difference.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

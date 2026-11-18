@@ -16,8 +16,8 @@ P:NPC {
   greetings = {
     { id = "g_smooth", text = "Ah. I wondered when you'd find your way down here." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? Either you've news for me, or you've missed my company, and I'm flattered either way." },
-    { id = "g_astor", when = { questActive = TODO_QUEST("The Deathstalkers") }, text = "Astor Hadren's effects, if you please. How you come by them is entirely your own affair." },
-    { id = "g_fenwick", when = { questActive = TODO_QUEST("Fenwick Thatros") }, text = "The decrepit dock on Lordamere, I'm told. Fenwick Thatros won't be expecting you, which is rather the point." },
+    { id = "g_astor", when = { questActive = TODO_QUEST("The Deathstalkers") }, text = "Have you brought Astor Hadren's effects? How you come by them is entirely your own affair." },
+    { id = "g_fenwick", when = { questActive = TODO_QUEST("Fenwick Thatros") }, text = "Fenwick Thatros is at the decrepit dock on Lordamere Lake, I'm told, and he won't be expecting you, which is rather the point." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. I had people keep an eye on you, naturally, but it's nicer to see you in person." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown dangerous since you first came to my summons. I take a certain professional pride in that." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you told someone a very good lie recently. I'll want to hear how you did it, purely for teaching purposes." },
@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_summons", tags = { "news" }, when = { questActive = TODO_QUEST("Mennet Carkad") },
           text = "No doubt you came here at the first mention of my summons. Of course you did; I'd expect nothing less of a prospective Deathstalker." },
         { id = "h_ledger", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Deathstalkers"), days = 7 }, questBefore = TODO_QUEST("Fenwick Thatros") },
-          text = "The Syndicate, if you'll believe it. The lords of Alterac have fallen a long way since their betrayal, and now they're buying secrets from a drunk in our own city." },
+          text = "Andron Gant's ledger shows he sells to the Syndicate, if you'll believe it. The lords of Alterac have fallen a long way since their betrayal, and now they're buying secrets from a drunk in our own city." },
         { id = "h_fenwick_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Fenwick Thatros"), days = 3 } },
           text = "Fenwick's head, delivered with all the care I'd hoped for. I think it's time we furthered your training, and you've earned it." },
         { id = "h_recruit", when = { origin = "forsaken_deathstalker_recruit" },
@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "dl_default", text = "I serve the Dark Lady, who chose him to command us, and I find it simplest not to have opinions about her choices. You'd be wise to find it simple too." } },
       choices = {
-        { text = "Loyalty to the Dark Lady is enough for me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll keep my own opinions, and my own counsel.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Loyalty to the Dark Lady is enough for me.", next = "BACK", reply = "Then you'll go far among the deathstalkers. Loyalty is the only thing we can't afford to lose.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep my own opinions, and my own counsel.", next = "BACK", reply = "Keep them, then, but keep them very quietly. The Undercity has ears, and some of them are mine.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,7 +109,7 @@ P:NPC {
       },
     },
     andron_still = {
-      lines = { { id = "as_default", text = "He's selling whatever we let him sell, which is a great deal more useful than a dead informant. Don't look so disappointed; a traitor you can read is worth three you've buried." } },
+      lines = { { id = "as_default", text = "He's selling whatever we let him sell, and that is far more useful than a dead informant. Don't look so disappointed; a traitor you can read is worth three you've buried." } },
       choices = {
         { text = "Clever. Let him think he's safe.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
         { text = "Something else.", next = "BACK" },

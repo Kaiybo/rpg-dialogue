@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Walk softly, {class}. The kodo come here to die, and their spirits are listening." },
-    { id = "g_magram", when = { questActive = TODO_QUEST("Magram Alliance") }, text = "You've chosen the Magram, then. Every Gelkis you cut down is a word in their ear, and they are listening." },
+    { id = "g_magram", when = { questActive = TODO_QUEST("Magram Alliance") }, text = "You've chosen the Magram, then. Every Gelkis you cut down is a word in the Magram's ear, and they are listening." },
     { id = "g_gelkis", when = { questActive = TODO_QUEST("Gelkis Alliance") }, text = "You walk with the Gelkis now. The Magram will learn to fear your name, and the Gelkis will learn to trust it." },
     { id = "g_done", when = { any = { { questDone = TODO_QUEST("Magram Alliance") }, { questDone = TODO_QUEST("Gelkis Alliance") } } }, text = "One clan calls you friend and the other calls you butcher, and both of them are talking to us now. That is how the Horde wins in Desolace." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. Three kodo came to the graveyard while you were away, and I sang for each of them." },
@@ -79,11 +79,11 @@ P:NPC {
     plan_honour = {
       big = true,
       lines = {
-        { id = "ph_default", text = "Some of the braves say so, and Takata would rather ride out and fight them all with the Warchief's blessing. But honour won't bring back the families the centaur trampled in the Barrens, and I'm a shaman, not a song." },
+        { id = "ph_default", text = "Some of the braves say so, and Takata Steelblade would rather ride out and fight them all with the Warchief's blessing. But honour won't bring back the families the centaur trampled in the Barrens, and I'm a shaman, not a song." },
       },
       choices = {
-        { text = "Better a clever peace than an honest grave.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather face them openly, blade to blade.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better a clever peace than an honest grave.", next = "BACK", reply = "That is my thinking too, and the Earth Mother would rather see her children alive and clever than proud and buried.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather face them openly, blade to blade.", next = "BACK", reply = "Then you and Takata will get along, and I will not stop either of you, but I will count the graves afterwards.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -124,19 +124,19 @@ P:NPC {
         { id = "cm_default", text = "Then go and earn their respect in Gelkis blood. Warug will judge you, and he judges harshly, so don't come to him with a light bag." },
       },
       choices = {
-        { text = "They're centaur. I'll kill as many as it takes.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll kill warriors, not their young.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're centaur. I'll kill as many as it takes.", next = "BACK", reply = "Then go, but remember that a Magram bag full of foals will shame you before Warug, and before me.", fx = { align = { light = -1 } } },
+        { text = "I'll kill warriors, not their young.", next = "BACK", reply = "Good. That is the line I would draw too, and I think the Earth Mother draws it there as well.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     choose_g = {
       big = true,
       lines = {
-        { id = "cg_default", text = "Then go and earn their trust in Magram blood. Uthek the Wise is old, and he will want to know why a stranger would spill blood for his clan, so have an answer ready." },
+        { id = "cg_default", text = "Then go and earn their trust in Magram blood. Uthek the Wise is old, and she will want to know why a stranger would spill blood for her clan, so have an answer ready." },
       },
       choices = {
-        { text = "For the Horde. That's answer enough.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "For the coin and the glory, if I'm honest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "For the Horde. That's answer enough.", next = "BACK", reply = "It will satisfy me, and it may satisfy Uthek, though he is old and will look at you a long time before he decides.", fx = { align = { order = 1 } } },
+        { text = "For the coin and the glory, if I'm honest.", next = "BACK", reply = "Honest, at least, and Uthek respects honesty, though he may not respect what you were honest about.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -172,7 +172,7 @@ P:NPC {
 
     origin = {
       lines = {
-        { id = "or_default", text = "The Gelkis say they were born of the earth spirit who sleeps beneath Maraudon, and the Magram say that's nonsense and they came from a great khan. The druids of Nijel's Point say something worse, and I won't repeat it, because they'd likely say it better." },
+        { id = "or_default", text = "The Gelkis say they were born of the earth spirit who sleeps beneath Maraudon, and the Magram say that's nonsense and they came from a great khan. The druids of Nijel's Point tell something stranger, and they tell it better than I do." },
       },
       choices = {
         { text = "What do the druids say?", next = "origin_druids" },
@@ -181,7 +181,7 @@ P:NPC {
     },
     origin_druids = {
       lines = {
-        { id = "od_default", text = "That the centaur are the children of a son of Cenarius and a princess of the earth, and that the father was murdered by his own children. If it's true, it explains a great deal about the way they treat everyone else." },
+        { id = "od_default", text = "That the centaur are the children of a son of Cenarius and a princess of the earth, and that the father was murdered by his own children. If it's true, it explains much about the way they treat everyone else." },
       },
       choices = {
         { text = "That's a dark tale.", next = "BACK", fx = { trait = { curious = 1 }, learn = { "cenarion_circle" } } },
@@ -195,15 +195,15 @@ P:NPC {
         { id = "ha_default", text = "I hate what they do. They raided our camps in Mulgore and the Barrens for generations, and they killed my mother's brother at the Red Rocks when I was a calf. But I don't hate the foals, and I won't let a brave touch one, whatever the others say." },
       },
       choices = {
-        { text = "Mercy for their young is right.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Foals grow into raiders. Mercy is a mistake.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Mercy for their young is right.", next = "BACK", reply = "I am glad you see it, because the braves do not always, and I need them to remember it when their blood is up.", fx = { align = { light = 1 } } },
+        { text = "Foals grow into raiders. Mercy is a mistake.", next = "BACK", reply = "Perhaps they do, but I would rather fight a raider tomorrow than be the kind of tauren who kills a foal today.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Wildmane by blood and shaman by calling, sent here by Thunder Bluff to watch the clans and sing for the kodo." } },
+    background = { { id = "tp_bg", text = "I'm Wildmane by blood and shaman by calling, sent here by Thunder Bluff to watch the clans and sing for the kodo." } },
     advice = { { id = "tp_ad", text = "Never let a centaur see that you've chosen a side, unless it's theirs." } },
     _none = { { id = "tp_none", text = "The spirits haven't told me that, and I don't guess about things that matter." } },
   },
@@ -269,8 +269,8 @@ P:NPC {
         { id = "ss_default", text = "It is, and the drovers weep, but it's the kodo's right to choose where it dies. A young drover from the Barrens once whipped an old one past the graveyard to finish a run, and Gurda had him sent home." },
       },
       choices = {
-        { text = "Gurda was right. The kodo chose.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A drover has a duty to finish the run.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Gurda was right. The kodo chose.", next = "BACK", reply = "She was, and the drovers know it now, and none of them have whipped a kodo past the graveyard since.", fx = { align = { order = -1 } } },
+        { text = "A drover has a duty to finish the run.", next = "BACK", reply = "Perhaps, but a kodo has walked a long way for us, and I think it has earned the right to stop where it pleases.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -280,7 +280,7 @@ P:NPC {
         { id = "gr_default", text = "The shaman say the land is sick, that something under it poisons the roots, and the centaur have trampled what little was left. I tried to plant melons by the totems once, and they came up grey and tasted of dust." },
       },
       choices = {
-        { text = "You tried to grow melons here?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Melons, in Desolace? That was brave, Harnor.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -343,7 +343,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Kireena. I keep the crafters at this post supplied, which isn't many, and I buy what the braves carry back from the camps, which is a great deal. Desolace has little that grows, but plenty that can be taken." },
+          text = "Kireena. I keep the crafters at this post supplied, which isn't many, and I buy what the braves carry back from the camps, which is plenty. Desolace has little that grows, but plenty that can be taken." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm counting spools." },
@@ -373,8 +373,8 @@ P:NPC {
         { id = "lt_default", text = "Not trophies, goods, and there's a difference, because I won't buy anything made of a centaur. Cloth and beads are just cloth and beads, whoever wove them, and leaving them in the dirt honours no one." },
       },
       choices = {
-        { text = "Spoils of war belong to the victors.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Their things should be left with their dead.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Spoils of war belong to the victors.", next = "BACK", reply = "They do, and the Horde agrees, though I still won't buy anything made from the centaur themselves.", fx = { align = { light = -1 } } },
+        { text = "Their things should be left with their dead.", next = "BACK", reply = "Perhaps, but the dead won't wear them, and the living need the thread, so I take what I can use.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -392,11 +392,11 @@ P:NPC {
     traders_goblins = {
       big = true,
       lines = {
-        { id = "tg_default", text = "Not much. A goblin who sells to both sides is a goblin who comes back, and I'd rather have thread from a cheat than no thread at all. Gurda would say I'm feeding the Alliance, and she might be right." },
+        { id = "tg_default", text = "Not much. A goblin who sells to both sides is a goblin who comes back, and thread from a cheat still sews. Gurda would say I'm feeding the Alliance, and she might be right." },
       },
       choices = {
-        { text = "Trade is trade. Let the goblins sell to anyone.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Turn them away until they choose a side.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Trade is trade. Let the goblins sell to anyone.", next = "BACK", reply = "That's how I see it too, and Gurda can scold me all she likes, because my shelves need filling.", fx = { align = { honor = -1 } } },
+        { text = "Turn them away until they choose a side.", next = "BACK", reply = "Then my shelves would be empty by next moon, and the braves would be patching their tunics with grass.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -413,8 +413,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Trader's daughter from Bloodhoof. I go where the trade is thin and make it thicker." } },
+    background = { { id = "tp_bg", text = "I'm a trader's daughter from Bloodhoof, and I go where the trade is thin and make it thicker." } },
     advice = { { id = "tp_ad", text = "Never sell to the first buyer. Never buy from the first seller, either." } },
-    _none = { { id = "tp_none", text = "Don't know. It isn't for sale, so I haven't asked." } },
+    _none = { { id = "tp_none", text = "I don't know. It isn't for sale, so I haven't asked." } },
   },
 }

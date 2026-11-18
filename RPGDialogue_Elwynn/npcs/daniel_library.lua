@@ -38,7 +38,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Daniel, Brother Paxton's assistant here in the library. I'm meant to be counting what's on the shelves, and I am, mostly, between other things." },
         { id = "h_inv", tags = { "news" }, when = { questActive = TODO_QUEST("Book Inventory") },
-          text = "He wants to know how many are missing, and the honest answer is more than I'd like and fewer than he fears. I'll have a proper count for him, I promise, only don't tell him I said 'fewer than he fears'." },
+          text = "Brother Paxton wants to know how many books are missing, and the honest answer is more than I'd like and fewer than he fears. I'll have a proper count for him, I promise, only don't tell him I said 'fewer than he fears'." },
         { id = "h_done", when = { questDone = TODO_QUEST("Book Inventory") },
           text = "The count's done, and Brother Paxton says it's the first useful thing I've given him. I'm choosing to take that as praise." },
         { id = "h_paladin", when = { class = "PALADIN" },
@@ -78,8 +78,8 @@ P:NPC {
       lines = { { id = "bj_default", text = "And if it is a novice? A hungry one, say, who sold a book for bread? I'd want them to bring it back, but I wouldn't want them thrown out of the Abbey." },
       },
       choices = {
-        { text = "Forgive them, if they return it. That's the Abbey's way.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "A thief is a thief. Paxton should turn them out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Forgive them, if they return it. That's the Abbey's way.", next = "BACK", reply = "I hoped you'd say that, because I'd say it too, if anyone asked me. I'll leave a note on the shelf that says no questions asked.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A thief is a thief. Paxton should turn them out.", next = "BACK", reply = "I suppose that's the rule, isn't it, but I'd hate to be the one who told him. I think I'll keep counting and hope it's a mouse.", fx = { align = { light = -1 } } },
         { text = "Let's find the books first.", next = "BACK" },
       },
     },
@@ -92,7 +92,7 @@ P:NPC {
       },
     },
     trades = {
-      lines = { { id = "t_default", text = "Knowing who teaches what, and where! There are smiths and tanners and herbalists all over Elwynn, and half the novices leave here not knowing a single one of them." },
+      lines = { { id = "t_default", text = "Knowing who teaches what, and where! There are smiths and tanners and herbalists all over Elwynn, and most novices leave here not knowing a single one of them." },
       },
       choices = {
         { text = "Why does that matter so much to you?", next = "trades_why" },
@@ -103,8 +103,8 @@ P:NPC {
       lines = { { id = "tw_default", text = "Because a trade lasts longer than a sword arm, my father said, and he was a cobbler who never went hungry. A book teaches you what a thing is, and a trade teaches you how to make it." },
       },
       choices = {
-        { text = "A trade is honest work. Your father was right.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "A sword arm earns more, and faster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A trade is honest work. Your father was right.", next = "BACK", reply = "He was, though he'd never admit it about anything else. I think he'd have liked you.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A sword arm earns more, and faster.", next = "BACK", reply = "It does, I suppose, until it doesn't, and then you're very glad of a trade. My father knew a lot of soldiers who ended up mending shoes.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

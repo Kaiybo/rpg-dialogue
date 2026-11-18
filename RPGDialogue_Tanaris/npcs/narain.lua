@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "azf_default", text = "Friend is a strong word for a dragon, but he hasn't eaten me, and that's a firm foundation. Some say you shouldn't deal with dragons at all, because they're older than us and know it, but I say knowledge is knowledge, scaly or not." } },
       choices = {
-        { text = "Dragons have their own schemes. Be careful.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Knowledge is worth the risk, scales and all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Dragons have their own schemes. Be careful.", next = "BACK", reply = "Careful's my middle name, friend, right after Soothfancy, and I've seen enough in the ball to know a dragon never gives anything away without a reason.", fx = { align = { order = 1 } } },
+        { text = "Knowledge is worth the risk, scales and all.", next = "BACK", reply = "Now that's the kind of talk I like to hear, because the folks who play it safe never learn a thing worth sellin'.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,7 +130,7 @@ P:NPC {
       },
     },
     bu_muzz = {
-      lines = { { id = "bum_default", text = "You see? You asked! I told you not to ask, and you asked anyway, and now we've both learned something about you. Go and see Dirge Quikcleave in Gadgetzan about a five-hundred-pound chicken, and stop asking." } },
+      lines = { { id = "bum_default", text = "You see? You asked! I told you not to ask, and you asked anyway, and now we've both learned something about you. Now go and see Dirge Quikcleave, the cook in Gadgetzan, about a five-hundred-pound chicken, and stop asking." } },
       choices = { { text = "A five-hundred-pound chicken?", next = "BACK" } },
     },
 
@@ -149,7 +149,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "The future, mostly, and draconic, and where I left my book. Two of those are reliable." } },
     background = { { id = "tp_bg", text = "Engineer, crash survivor, soothsayer. In that order, and the middle one was the important bit.", next = "sooth" } },
-    advice = { { id = "tp_ad", text = "Never lend your goggles to a best friend forever. Forever is shorter than you'd think." } },
+    advice = { { id = "tp_ad", text = "Never lend your goggles to a best friend forever. Forever lasts about as long as the goggles do." } },
     steamwheedle = { { id = "tp_steam", text = "The goblins rent me this spot and don't ask what I do in it, which is the best arrangement I've ever had." } },
     _none = { { id = "tp_none", text = "<Narain touches his forehead.> Nothing. The spirits are on their lunch break." } },
   },

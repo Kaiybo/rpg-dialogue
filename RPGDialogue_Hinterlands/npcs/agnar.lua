@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again! Come in, come in, an' mind the hatchlings underfoot." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}! Two gryphon chicks hatched while ye were away, an' both o' them bit me." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown, like a chick out o' the nest. Ye'll be ready tae fly on yer own soon enough." },
-    { id = "g_food", when = { questActive = TODO_QUEST("Food for Baby") }, text = "Silvermane stalker flanks, five o' them, raw an' juicy. Yer egg's gettin' close!" },
+    { id = "g_food", when = { questActive = TODO_QUEST("Food for Baby") }, text = "Bring me five Silvermane stalker flanks, raw an' juicy, for yer egg's gettin' close!" },
     { id = "g_word_helped", when = { word = "helped" }, text = "The riders say ye've been helpin' about the Peak. The birds have noticed, too, for they've stopped hissin' at ye." },
   },
 
@@ -87,7 +87,7 @@ P:NPC {
 
     gryphons = {
       lines = {
-        { id = "gr_default", text = "Slowly, an' wi' a great deal o' raw meat an' patience. A Wildhammer gryphon picks its rider as much as the rider picks it, so ye raise a chick tae trust, an' ye let it choose." },
+        { id = "gr_default", text = "Slowly, an' wi' a bucket o' raw meat an' more patience than a dwarf's born wi'. A Wildhammer gryphon picks its rider as much as the rider picks it, so ye raise a chick tae trust, an' ye let it choose." },
       },
       choices = {
         { text = "And if it never chooses anyone?", next = "gryphons_none" },
@@ -100,8 +100,8 @@ P:NPC {
         { id = "gn_default", text = "Then it lives out its days at the Peak, fed an' free, an' I'll no' force it under a saddle. Some o' the riders call that wasteful, but a bird that's forced will drop ye in the first storm." },
       },
       choices = {
-        { text = "Right. A beast's choice should be respected.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "A bird that won't serve is a burden. Train it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Right. A beast's choice should be respected.", next = "BACK", reply = "Aye, that's how I see it, an' it's good tae hear someone else say so. The bird knows its own heart better than I do.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A bird that won't serve is a burden. Train it.", next = "BACK", reply = "Train it, ye say? Ye cannae train a gryphon that's decided against ye, an' I'll no' try. Let it be.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

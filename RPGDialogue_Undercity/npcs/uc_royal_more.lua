@@ -18,13 +18,13 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "You are standing in the Dark Lady's court. Speak quickly, and speak to the point." },
-    { id = "g_crown", when = { questActive = TODO_QUEST("The Crown of Will") }, text = "Melisara waits in Tarren Mill, and Mug'Thol still wears what belongs to the Dark Lady. Why are you still here?" },
+    { id = "g_crown", when = { questActive = TODO_QUEST("The Crown of Will") }, text = "My lieutenant Melisara waits for you in Tarren Mill, and the ogre Mug'Thol still wears the Dark Lady's crown. Why are you still here?" },
     { id = "g_done", when = { questDone = TODO_QUEST("The Crown of Will") }, text = "The Dark Lady has heard of you. Do not let it go to your head, because she hears of a great many people." },
   },
 
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "You carry the shadow well, priest, for one who still has a heartbeat. Or was it someone else's?" },
+      text = "You carry the shadow well, priest, for one who still has a heartbeat." },
   },
 
   start = "hello",
@@ -62,7 +62,7 @@ P:NPC {
       choices = { { text = "Something else, Sharlindra.", next = "BACK" } },
     },
     mugthol = {
-      lines = { { id = "mu_default", text = "The chieftain of the Crushridge ogres, whom we bound to our service and sent to fetch the crown from Alterac. He's an irritant now, and Melisara will deal with him quickly, thoroughly, and without incident." } },
+      lines = { { id = "mu_default", text = "The chieftain of the Crushridge ogres, whom we bound to our service and sent to fetch the crown from Alterac. He's an irritant now, and my lieutenant Melisara will deal with him quickly, thoroughly, and without incident." } },
       choices = {
         { text = "You possessed an ogre warband?", next = "possession" },
         { text = "Something else.", next = "BACK" },
@@ -70,10 +70,10 @@ P:NPC {
     },
     possession = {
       big = true,
-      lines = { { id = "po_default", text = "We possessed their chieftain, which is a great deal more efficient than persuading two hundred ogres one at a time. The living use whips and coin to make others serve them, and we use what we have." } },
+      lines = { { id = "po_default", text = "We possessed their chieftain, which is far more efficient than persuading two hundred ogres one at a time. The living use whips and coin to make others serve them, and we use what we have." } },
       choices = {
-        { text = "Bending the will of brutes serves the Dark Lady well.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Possession is a cruelty, even done to ogres.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Bending the will of brutes serves the Dark Lady well.", next = "BACK", reply = "It does, and the ogres have never been more useful. The Dark Lady rewards results, and that was a very good result.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Possession is a cruelty, even done to ogres.", next = "BACK", reply = "Perhaps it is, but so was the plague, and nobody offered us a choice in it either. I'll not lose sleep over ogres.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -81,8 +81,8 @@ P:NPC {
       big = true,
       lines = { { id = "co_default", text = "I listen, and I watch the faces of those who come before her, and later I tell her which of them lied. She trusts few people, and she is right not to, and I count it an honour that I'm one of them." } },
       choices = {
-        { text = "Loyalty like that is rare. She's lucky to have it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Someone should be watching your face too, Sharlindra.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Loyalty like that is rare. She's lucky to have it.", next = "BACK", reply = "She is, and she knows it, which is why I'm still standing beside her. Mind your own face when you go before her.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Someone should be watching your face too, Sharlindra.", next = "BACK", reply = "Someone does, every day, and she's very good at it. I've nothing to hide from my queen.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -123,7 +123,7 @@ P:NPC {
 
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock, and you've read more than most, I can tell from your eyes. You have the squint." },
+      text = "A warlock, and a well-read one, I can tell from your eyes. You have the squint." },
   },
 
   start = "hello",
@@ -161,8 +161,8 @@ P:NPC {
       big = true,
       lines = { { id = "bo_default", text = "I'd trade every map in this shop for one book on the rise of necromancy, or a true account of the Dark Lady's triumphs. The Society keeps its texts to itself, and the living burned most of the rest." } },
       choices = {
-        { text = "Necromancy's history should be studied, not hidden.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Some books deserved burning, Jorah.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Necromancy's history should be studied, not hidden.", next = "BACK", reply = "At last, a customer with taste. If you ever find such a book, bring it here before the Society hears of it.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Some books deserved burning, Jorah.", next = "BACK", reply = "Some did, and the living burned them anyway, along with a great many that didn't. I'll mourn the rest without you.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -178,7 +178,7 @@ P:NPC {
       choices = { { text = "Something else, Jorah.", next = "BACK" } },
     },
     strahad = {
-      lines = { { id = "st_default", text = "Strahad in Ratchet writes to me now and then, and his letters are the best reading I get. I've hinted that he might send me a copy of the tome when he's finished with it, and I'll keep hinting." } },
+      lines = { { id = "st_default", text = "Strahad Farsan, who trains warlocks down in Ratchet, writes to me now and then, and his letters are the best reading I get. I've hinted that he might send me a copy of the tome when he's finished with it, and I'll keep hinting." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

@@ -30,7 +30,7 @@ P:NPC {
   },
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
-      text = "A warrior, and you hold your weapon right, which is more than most grunts manage. Chol'aruk's cave is narrow, so you'll fit in there nicely." },
+      text = "A warrior, and you hold your weapon like you've been taught, not like a peon with a pick. Chol'aruk's cave is narrow, so you'll fit in there nicely." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Tauren. The Razormane hate your kind more than they hate us, and that's saying something, so they'll come at you screaming." },
     { id = "n_trophy", cat = "trophy", when = { killed = { name = "Razormane", min = 30 } },
@@ -87,7 +87,7 @@ P:NPC {
     },
     eat = {
       lines = {
-        { id = "ea_default", text = "Enemies, friends, their own wounded if they're hungry enough. We lost a peon on the Thorn Hill road last month, and what we found of him wasn't worth burying, so you'll forgive me if I don't want to talk about it." },
+        { id = "ea_default", text = "Enemies, friends, their own wounded if they're hungry enough. We lost a peon on the Thorn Hill road last month, and what we found of him wasn't worth burying, so don't ask me to talk about it." },
       },
       choices = {
         { text = "Then he deserves no mercy.", next = "vengeance" },
@@ -100,8 +100,8 @@ P:NPC {
         { id = "v_default", text = "No mercy, and no clean death either, if I had my way. But a dead pig is a dead pig, and the head will do. What do you say, should I want more than that?" },
       },
       choices = {
-        { text = "Kill him cleanly. We're better than he is.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Make him suffer the way that peon did.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Kill him cleanly. We're better than he is.", next = "BACK", reply = "Cleanly, then, because you're right that I'd shame that peon by becoming the beast that ate him. Bring me the head, and I'll bury the rest of my anger with it.", fx = { align = { light = 1 } } },
+        { text = "Make him suffer the way that peon did.", next = "BACK", reply = "That's the blood talking, and I know it well, because it's been talking to me every night since. Bring me his head, then, and let the Ravener's last hour be a long one.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -148,8 +148,8 @@ P:NPC {
         { id = "pe_default", text = "Peace? With a thing that eats peons? Thrall made peace with the tauren and the trolls, and that was wise, but the quilboar have never asked, and I'd not believe them if they did." },
       },
       choices = {
-        { text = "Some of them might listen, if anyone tried.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Some foes can't be reasoned with. Kill them all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Some of them might listen, if anyone tried.", next = "BACK", reply = "Maybe, and maybe the Ravener will take up farming. I've seen what they leave in their pens, and I'd sooner talk peace with the wind.", fx = { align = { honor = 1 } } },
+        { text = "Some foes can't be reasoned with. Kill them all.", next = "BACK", reply = "Now you speak like a soldier of the Horde. Some beasts only understand the axe, and the quilboar have taught every grunt at the Crossroads that lesson.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -286,8 +286,8 @@ P:NPC {
         { id = "g_default2", text = "Should they? Most of them have good reason to fear the dead, and I'm not going to argue them out of it. I'd rather they learned slowly, and I'm in no hurry." },
       },
       choices = {
-        { text = "Fear is fair. Earn their trust, and they'll give it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "They're allies. They should treat you like one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fear is fair. Earn their trust, and they'll give it.", next = "BACK", reply = "That's the way of it, and it's kinder advice than I usually get from the living. I have time, which is the one thing the grave gave me in plenty, so I'll mend their bones and let them decide.", fx = { align = { order = 1 } } },
+        { text = "They're allies. They should treat you like one.", next = "BACK", reply = "Allies, yes, on parchment signed in Orgrimmar and Undercity. A grunt who's watched the dead rise against him doesn't read parchment, though, and I'd rather he trusted my hands than a treaty.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -312,7 +312,7 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I set bones in life and I set them in death. The work hasn't changed much; the patients have." } },
-    advice = { { id = "tp_ad", text = "Keep your knees bent and your head down. That's what most breaks come from." } },
+    advice = { { id = "tp_ad", text = "Keep your knees bent when you land and your head tucked when you fall. Most of the breaks I see come from forgetting one or the other." } },
     _none = { { id = "tp_none", text = "I don't know, I'm afraid. Bones I understand; most other things baffle me." } },
   },
 }
@@ -405,8 +405,8 @@ P:NPC {
         { id = "fi_default", text = "One, maybe, or two. But there were more than two, and a brave who dies alone in a field doesn't help anyone, so I climbed. Was that cowardly, do you think?" },
       },
       choices = {
-        { text = "No. Living to fight again is wise.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "A tauren should face the beasts, whatever the odds.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "No. Living to fight again is wise.", next = "BACK", reply = "Thank you, because I've been asking myself that every hour I've hung up here. The Earth Mother didn't make me to die in a field for nothing, and I'd like to prove it once I'm down.", fx = { align = { honor = -1 } } },
+        { text = "A tauren should face the beasts, whatever the odds.", next = "BACK", reply = "You're right, and I knew it when I started climbing, which is the worst part. When I'm on the ground again, I'll face them properly, though perhaps not all at once.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -425,8 +425,8 @@ P:NPC {
         { id = "cl_default", text = "For grazing, and so the next tauren who walks through here doesn't end up where I am. I don't like killing beasts that are only defending their ground, but the herds have to eat. Does that sound wrong to you?" },
       },
       choices = {
-        { text = "The land should be shared. Drive them off, don't slaughter them.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The herds come first. The tribe needs that field.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The land should be shared. Drive them off, don't slaughter them.", next = "BACK", reply = "That's what my heart says too, and the Earth Mother would like it better, I think. Drive them east toward Dustwallow, then, and let them keep their lives somewhere the kodo don't graze.", fx = { align = { order = -1 } } },
+        { text = "The herds come first. The tribe needs that field.", next = "BACK", reply = "You speak like an elder, and they'd agree with you, though it sits heavy on me. The tribe must eat, so I'll clear the field, but I'll thank each beast's spirit as I do.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -454,8 +454,8 @@ P:NPC {
         { id = "xt_default", text = "Oh, Earth Mother, please don't. They'll be telling the story at the fire for the rest of my life. What would you tell them, if they asked?" },
       },
       choices = {
-        { text = "The truth. They'll laugh, but they'll stop worrying.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "That you were scouting. Nobody needs to know the rest.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The truth. They'll laugh, but they'll stop worrying.", next = "BACK", reply = "They'll laugh until the moon rises, and then they'll be glad I'm home. I suppose that's the better trade, though I'd still rather you told it gently.", fx = { align = { honor = 1 } } },
+        { text = "That you were scouting. Nobody needs to know the rest.", next = "BACK", reply = "Scouting, yes, from a very good height, with an excellent view of the boars. You're a kind friend, and I'll owe you a story of your own one day.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -504,7 +504,7 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I'm from Taurajo, and I walk the plains looking for good grazing. Usually from the ground." } },
+    background = { { id = "tp_bg", text = "I'm from Taurajo, and I walk the plains looking for good grazing, usually from the ground." } },
     advice = { { id = "tp_ad", text = "Never walk through long grass alone. Trust me on this one." } },
     _none = { { id = "tp_none", text = "I don't know, friend. I've been up a tree; the news hasn't reached me." } },
   },

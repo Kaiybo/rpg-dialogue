@@ -18,7 +18,7 @@ P:Thread {
       third = "{name} came to Felwood and heard, from the outpost that sheltered {name}, that the forest was still being poisoned." },
     unfolding = { first = "The Timbermaw have lost their Deadwood cousins to the corruption, the Jadefire satyrs keep a well of their own in the ruins, and the Shadow Council holds Jaedenar as though it had always been theirs. The Emerald Circle says it is all one sickness with many mouths.",
       third = "{name} traced Felwood's corruption from the Deadwood furbolgs to the Jadefire satyrs and the Shadow Council in Jaedenar." },
-    resolved = { first = "The Shadow Council in Jaedenar has taken a blow it will remember, and Greta Mosshoof held her Mulgore stone a little less tightly when I told her. Felwood is still sick, but for the first time someone at the Sanctuary talked about it getting better.",
+    resolved = { first = "The Shadow Council in Jaedenar has taken a blow it will remember, and Greta Mosshoof held the stone she carries from Mulgore a little less tightly when I told her. Felwood is still sick, but for the first time someone at the Sanctuary talked about it getting better.",
       third = "{name} struck at the Shadow Council in Jaedenar for the Emerald Circle, and Felwood, though still sick, had a little room to breathe." },
   },
   npcs = { "golhine", "trull", "grazle", "eridan", "greta" },
@@ -71,7 +71,7 @@ P:Thread {
       id = "b5_greta", npc = "greta",
       when = { questDone = TODO_QUEST("A Final Blow"), thread = { id = "felwood_rot", beat = "b4_greta" },
                ["not"] = { thread = { id = "felwood_rot", beat = "b5_greta" } } },
-      text = "The Shadow Hold has taken a blow it won't soon forget, and the Council will spend a long while deciding who gives the orders now, which is a long while they aren't spending on this forest. I took my stone out of my pocket this morning and left it on the table, and I can't remember the last time I did that.",
+      text = "The Shadow Hold has taken a blow it won't soon forget, and the Council will spend a long while deciding who gives the orders now, which is a long while they aren't spending on this forest. I took the stone I carry from Mulgore out of my pocket this morning and left it on the table, and I can't remember the last time I let go of it.",
       fx = { thread = { id = "felwood_rot", beat = "b5_greta", state = "resolved" } },
     },
   },
@@ -124,7 +124,7 @@ P:Thread {
       id = "b3_nafien", npc = "nafien",
       when = { any = { { thread = { id = "winterfall_firewater", beat = "b1_donova" } }, { thread = { id = "winterfall_firewater", beat = "b2_salfa" } } },
                ["not"] = { thread = { id = "winterfall_firewater", beat = "b3_nafien" } } },
-      text = "Salfa sends word from the northern door that the Winterfall stagger and fight each other the way the Deadwood did when it began. The Deadwood had Felwood's water to blame, but the Winterfall live in clean snow, so something is being carried to them, and the Timbermaw would very much like to know by whom.",
+      text = "Salfa sends word from the northern door that the Winterfall stagger and fight each other the way the Deadwood did when their sickness began. The Deadwood had Felwood's water to blame, but the Winterfall live in clean snow, so something is being carried to them, and the Timbermaw would very much like to know by whom.",
       fx = { thread = { id = "winterfall_firewater", beat = "b3_nafien", state = "unfolding" } },
     },
     {
@@ -181,14 +181,14 @@ P:Thread {
     {
       id = "b2_athridas", npc = "athridas",
       when = { faction = "Alliance", questDone = TODO_QUEST("Gnarlpine Corruption"), thread = { id = "both_shores", notBeat = "b2_athridas" } },
-      text = "Ursal fed them the Fel Moss, and they ate it because he was their own, and that is how a gentle people becomes a raiding one in a single season. What I cannot answer is where a furbolg found fel anything on a tree we grew ourselves, and I would rather not be the only one asking.",
+      text = "Ursal, their own chieftain, fed them the Fel Moss, and they ate it because they trusted him, and that is how a gentle people becomes a raiding one in a single season. What I cannot answer is where a furbolg found fel anything on a tree we grew ourselves, and I would rather not be the only one asking.",
       fx = { thread = { id = "both_shores", beat = "b2_athridas", state = "unfolding" }, learn = { "fel_moss" } },
     },
     {
       id = "b3_rellian", npc = "rellian",
       when = { faction = "Alliance", any = { { thread = { id = "both_shores", beat = "b1_corithras" } }, { thread = { id = "both_shores", beat = "b2_athridas" } } },
                ["not"] = { thread = { id = "both_shores", beat = "b3_rellian" } } },
-      text = "You've heard about the Gnarlpine, then, and the moss. I cut open a timberling sprout last week and found the same grey threads in it that Athridas pulls out of the furbolgs, so it isn't in the creatures, or not only, but in the soil the creatures stand on.",
+      text = "You've heard about the Gnarlpine, then, and the moss. I cut open a timberling sprout last week and found the same grey threads in it that Athridas pulls out of the furbolgs, so the rot isn't only in the creatures, it's in the soil they stand on.",
       fx = { thread = { id = "both_shores", beat = "b3_rellian", state = "unfolding" }, learn = { "fel_moss" } },
     },
     {

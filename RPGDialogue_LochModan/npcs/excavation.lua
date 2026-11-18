@@ -16,11 +16,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind the rope line, friend, an' mind the cart track besides. Magmar Fellhew, an' if ye're no' carryin' a pick, I'll guess ye've come about the troggs." },
+    { id = "g_default", text = "Mind the rope line, friend, an' mind the cart track besides. I'm Magmar Fellhew, an' if ye're no' carryin' a pick, I'll guess ye've come about the troggs." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back! I've added four troggs tae the tally since ye left, an' I'd rather be addin' crates." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, by my count, an' I do count. The dig's no further along, if ye were wonderin', but the troggs are." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, by my count, an' I do count. The dig's no further along, if ye were wonderin', but the troggs are." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown into a proper fighter since last I saw ye, an' I'll write that down too, under assets." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "Jern's letters say ye've been a help in Thelsamar. Jern doesnae praise anyone in ink, so that's worth somethin'." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Jern Hornhelm's letters say ye've been a help in Thelsamar. Jern doesnae praise anyone in ink, so that's worth somethin'." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Keep yer voice down, if ye would. The troggs come up more at night, an' I'd like tae hear them before I see them." },
   },
 
@@ -36,7 +36,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Magmar Fellhew, an' I mind the details at Ironband's Excavation, which these days means writin' down how many troggs came up the shaft an' how many dwarves went down it. The Prospector does the diggin' an' I do the worryin'." },
+          text = "I'm Magmar Fellhew, an' I mind the details at Ironband's Excavation, which these days means writin' down how many troggs came up the shaft an' how many dwarves went down it. The Prospector does the diggin' an' I do the worryin'." },
         { id = "h_exc_active", tags = { "news" }, when = { questActive = TODO_QUEST("Ironband's Excavation") },
           text = "Jern sent ye? Then ye'll want tae know why the dig's slowed, an' I'll tell ye plain: it's the troggs! They've come up out o' the deep cuts like water through a cracked dam, an' we cannae dig past them." },
         { id = "h_exc_done", when = { questRecent = { TODO_QUEST("Ironband's Excavation"), days = 3 } },
@@ -70,7 +70,7 @@ P:NPC {
 
     troggs = {
       lines = {
-        { id = "tr_default", text = "We cut deeper than the old survey said, chasin' a wall o' fitted stone, an' one mornin' the deep shaft was full o' them. Grey, stinkin', strong as an ox an' near as clever, an' they've been comin' up ever since." },
+        { id = "tr_default", text = "We cut deeper than the old survey said, chasin' a wall o' fitted stone, an' one mornin' the deep shaft was full o' them. They're grey, stinkin', strong as an ox an' near as clever, an' they've been comin' up ever since." },
         { id = "tr_done", when = { questDone = TODO_QUEST("Ironband's Excavation") },
           text = "Ye know the start o' it from my letter. We cut too deep, an' they came boilin' up out o' the dark, an' every week there's more o' them than my tally says there should be." },
       },
@@ -97,14 +97,14 @@ P:NPC {
           text = "Between you an' me, I told the Prospector the fitted wall meant somethin' was sealed behind it, an' he said that's exactly why we should open it. I dinnae blame him, but I wrote down that I'd said it." },
       },
       choices = {
-        { text = "Knowledge is worth the risk. Keep digging.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Some doors should stay shut. Seal the deep shaft.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge is worth the risk. Keep digging.", next = "BACK", reply = "That's what Ironband says every mornin', an' I write it down like a good second. I only wish I could make the troggs read it.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Some doors should stay shut. Seal the deep shaft.", next = "BACK", reply = "I've drafted that order three times an' never sent it. Maybe ye're right, an' maybe I'm just too curious tae sign it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "troggs" } } },
       },
     },
     troggs_lost = {
       lines = {
-        { id = "tl_default", text = "Nobody dead yet, thank the Titans, though Bruk's arm will never sit right an' two o' the lads went home tae Ironforge an' didnae come back. The tally o' dwarves is shorter every month, whatever the troggs do." },
+        { id = "tl_default", text = "Nobody dead yet, thank the Titans, though Bruk the digger's arm will never sit right an' two o' the lads went home tae Ironforge an' didnae come back. The tally o' dwarves is shorter every month, whatever the troggs do." },
       },
       choices = {
         { text = "I'll thin the troggs out for you.", next = "BACK", fx = { trait = { brave = 1 }, affinity = 1 } },
@@ -114,7 +114,7 @@ P:NPC {
 
     dig = {
       lines = {
-        { id = "dg_default", text = "Ruins, old an' fitted without mortar, wi' carvin' on them that nobody in the League can read yet. The Prospector says they're older than Ironforge, an' I'll say only that they're older than anythin' I've seen." },
+        { id = "dg_default", text = "We're diggin' ruins, old an' fitted without mortar, wi' carvin' on them that nobody in the League can read yet. The Prospector says they're older than Ironforge, an' I'll say only that they're older than anythin' I've seen." },
       },
       choices = {
         { text = "Older than Ironforge? Who built them?", next = "dig_who" },
@@ -126,7 +126,7 @@ P:NPC {
       lines = {
         { id = "dw_default", text = "That's what the League's here tae find out, an' I'll no' guess in front o' a stranger. The Prospector has his notions an' Ironforge has its own, an' I keep the crates an' let them argue." },
         { id = "dw_league", when = { origin = "dwarf_explorers_league" },
-          text = "Ye're League, ye know how it goes: every carvin' starts three arguments in Ironforge an' settles none. The Prospector reckons there's a hand in it older than ours, an' Stormpike tells him tae bring proof an' no' poetry." },
+          text = "Ye're League, ye know how it goes: every carvin' starts three arguments in Ironforge an' settles none. The Prospector reckons there's a hand in it older than ours, an' Prospector Stormpike tells him tae bring proof an' no' poetry." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } } },
     },
@@ -136,8 +136,8 @@ P:NPC {
         { id = "dwo_default", text = "Ask me on a quiet day an' I'll say aye, for the past's the only map we've got o' who we are. Ask me after a trogg's had a go at the cookfire an' I'll say I miss my mother's kitchen in the Commons." },
       },
       choices = {
-        { text = "Your people's history is worth bleeding for.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "No ruin is worth a dwarf's life.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your people's history is worth bleeding for.", next = "BACK", reply = "Ye say that like someone who's never had tae write the letter home. Still, I'll take it, for I believe it too, on the quiet days.", fx = { align = { honor = 1 } } },
+        { text = "No ruin is worth a dwarf's life.", next = "BACK", reply = "No, it isnae, an' I'd have said the same last week after the cookfire. The trouble is, nobody asks the ruin.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -162,16 +162,16 @@ P:NPC {
     },
     powder_suspect = {
       lines = {
-        { id = "ps_default", text = "Kobolds, at first, or a broken axle, or Jern's ledgers bein' wrong, which Jern took personally. Nobody thought o' the haulers, for they'd been on the road near a year." },
+        { id = "ps_default", text = "He suspected kobolds at first, or a broken axle, or Jern's ledgers bein' wrong, which Jern took personally. Nobody thought o' the haulers, for they'd been on the road near a year." },
         { id = "ps_done", when = { questDone = TODO_QUEST("Protecting the Shipment") },
-          text = "Kobolds, a broken axle, Jern's ledgers. Never Saean, an' that's the part that sits worst wi' me, for I wrote his name on every pay slip an' never once looked at him twice." },
+          text = "He suspected kobolds, a broken axle an' Jern's ledgers, but never Saean, an' that's the part that sits worst wi' me, for I wrote his name on every pay slip an' never once looked at him twice." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     idols = {
       lines = {
-        { id = "id_default", text = "Wee stone figures, ugly as sin, turnin' up in the deep cuts just before the troggs came. Put one near a trogg an' it goes wild, foamin' an' howlin', so the Prospector wants every last one o' them out o' their hands." },
+        { id = "id_default", text = "They're wee stone figures, ugly as sin, turnin' up in the deep cuts just before the troggs came. Put one near a trogg an' it goes wild, foamin' an' howlin', so the Prospector wants every last one o' them out o' their hands." },
       },
       choices = {
         { text = "Are the idols the troggs' own work?", next = "idols_whose" },
@@ -184,8 +184,8 @@ P:NPC {
         { id = "iw_default", text = "They're no' fine enough for trogg hands, I'd say, but the troggs treat them like they're holy. I keep one locked in a strongbox for the League tae look at, an' I sleep on the far side o' the tent from it." },
       },
       choices = {
-        { text = "Smash them all. Whatever they are, they're dangerous.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Study them. Danger is just knowledge nobody's earned yet.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Smash them all. Whatever they are, they're dangerous.", next = "BACK", reply = "Smash them, an' we'd never know what they were. I'll keep mine locked away an' let the League decide, thank ye.", fx = { align = { light = 1 } } },
+        { text = "Study them. Danger is just knowledge nobody's earned yet.", next = "BACK", reply = "Now that's a line I'll be writin' in my book, wi' yer name beside it. Ironband would like ye.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -219,11 +219,11 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I write down everythin' that happens at this dig, an' a fair bit that happens near it. Ask, an' I'll read ye the relevant page." } },
-    background = { { id = "tp_bg", text = "Ironforge born, Commons raised, an' the League took me on for my handwritin' before it ever let me near a pick." } },
+    background = { { id = "tp_bg", text = "I'm Ironforge born an' Commons raised, an' the League took me on for my handwritin' before it ever let me near a pick." } },
     advice = { { id = "tp_ad", text = "Count everythin' twice, friend. The second count's the one that saves yer life." } },
-    troggs = { { id = "tp_troggs", text = "They came up out o' our deep cut, an' I've the tally tae prove it.", next = "troggs" } },
+    troggs = { { id = "tp_troggs", text = "The troggs came up out o' our deep cut, an' I've the tally tae prove it.", next = "troggs" } },
     explorers_league = { { id = "tp_league", text = "The League pays for the dig an' the Prospector runs it. I keep both o' them honest wi' a quill." } },
-    dark_iron = { { id = "tp_di", text = "They had a man on our powder road for a year. I'll no' trust a quiet hauler again." } },
+    dark_iron = { { id = "tp_di", text = "The Dark Irons had a man on our powder road for a year. I'll no' trust a quiet hauler again." } },
     _none = { { id = "tp_none", text = "That's no' in my ledger, friend. Try Jern in Thelsamar, for his ledgers are bigger." } },
   },
 }
@@ -243,7 +243,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Easy, there! This cart's full o' blastpowder, so if ye're plannin' tae swing anythin', swing it elsewhere." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. Pull up a barrel, but dinnae sit on the one wi' the red mark." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' I've hauled this road six times since. Same road, same carts, one less face." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' I've hauled this road six times since, same road an' same carts, wi' one less face." },
     { id = "g_saean", when = { questDone = TODO_QUEST("Protecting the Shipment") }, text = "There's the one who stood wi' us at the ambush. Whatever ye need, friend, Huldar's yer dwarf." },
   },
 
@@ -259,9 +259,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Huldar, hauler for the Explorers' League, an' this here's a cart o' blastpowder bound for Ironband's dig. The south road round the loch is flat an' easy, which is why we take it, an' why someone was waitin' on it." },
+          text = "I'm Huldar, hauler for the Explorers' League, an' this here's a cart o' blastpowder bound for Ironband's dig. The south road round the loch is flat an' easy, which is why we take it, an' why someone was waitin' on it." },
         { id = "h_resupply", tags = { "news" }, when = { questActive = TODO_QUEST("Resupplying the Excavation") },
-          text = "Jern sent ye after us? Good, for there's been a feelin' on this road all mornin' that I dinnae like, an' Saean's been lookin' at the hills more than his feet." },
+          text = "Jern sent ye after us? Good, for there's been a feelin' on this road all mornin' that I dinnae like, an' Saean, our third hauler, has been lookin' at the hills more than his feet." },
         { id = "h_protect", tags = { "news" }, when = { questActive = TODO_QUEST("Protecting the Shipment") },
           text = "Saean's gone over tae them, the dog! Dark Irons, on our road, an' he knew they'd be here. Stay close an' keep them off the barrels, for one spark an' we're all a crater." },
         { id = "h_protect_done", when = { questRecent = { TODO_QUEST("Protecting the Shipment"), days = 3 } },
@@ -312,8 +312,8 @@ P:NPC {
         { id = "rg_default", text = "Wi' whose coin? The League pays for powder an' picks, an' the Mountaineers are spread thin as butter on a miner's bread. I've asked Jern, an' Jern asked Ironforge, an' Ironforge asked us tae be careful." },
       },
       choices = {
-        { text = "Ironforge has its reasons. Make do with what you have.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then arm yourselves and stop waiting for Ironforge.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Ironforge has its reasons. Make do with what you have.", next = "BACK", reply = "Make do, aye, it's what dwarves do best. But make do is how good haulers end up in shallow graves on the south road.", fx = { align = { order = 1 } } },
+        { text = "Then arm yourselves and stop waiting for Ironforge.", next = "BACK", reply = "Ha! Now there's a hauler's answer. I've an axe under the seat already, an' I'll find the lads some more.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -342,8 +342,8 @@ P:NPC {
         { id = "sj_default", text = "That's for the magistrate, they tell me, if anyone ever lays hands on him. I'm only a hauler, but I've had a long road tae think on it." },
       },
       choices = {
-        { text = "Bring him before Bluntnose. Let the law decide.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A traitor doesn't deserve a trial. End him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Bring him before Bluntnose. Let the law decide.", next = "BACK", reply = "Aye, the law, an' I'll stand at the back o' the hall an' watch. It's more than he gave Miran, but it's the right way.", fx = { align = { honor = 1 } } },
+        { text = "A traitor doesn't deserve a trial. End him.", next = "BACK", reply = "I've thought it, many a night on that road. But I'm a hauler, no' a hangman, an' I'll leave it tae Bluntnose.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -398,8 +398,8 @@ P:NPC {
         { id = "xro_default", text = "Have ye now? Then tell me, how would ye lift a barrel off a movin' cart wi' three dwarves watchin'? I'd like tae know what tae look for." },
       },
       choices = {
-        { text = "You'd use the man already on the cart.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'd rather keep my methods to myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You'd use the man already on the cart.", next = "BACK", reply = "The man already on the cart. Aye, that's what happened, isn't it, an' I never once looked at him twice. Thank ye, though it stings.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather keep my methods to myself.", next = "BACK", reply = "Keep them, then, an' I'll keep my eyes on ye. A hauler learns tae watch quiet folk the hard way.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -407,7 +407,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know the road an' the folk on it better than the Mountaineers do. Ask, an' I'll tell ye what I've seen from the cart." } },
-    background = { { id = "tp_bg", text = "Thirty years haulin', ten o' them in the deeps under Ironforge. I've the back tae prove it." } },
+    background = { { id = "tp_bg", text = "I've thirty years haulin', ten o' them in the deeps under Ironforge, an' the back tae prove it." } },
     advice = { { id = "tp_ad", text = "Know who's beside ye on the road, friend. I thought I did." } },
     dark_iron = { { id = "tp_di", text = "They were waitin' at the bend below the hills, an' they knew our load. That's all I need tae know about Dark Irons." } },
     explorers_league = { { id = "tp_league", text = "The League pays on time, I'll say that for them, an' it's no' their fault who they hire." } },

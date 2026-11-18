@@ -19,7 +19,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "The spirits be quiet today, mon. Come and sit, and let's see if they wake up for you." },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "A Forsaken priest, and you still pray. That be the strangest thing in this whole valley, and I like it." },
-    { id = "g_bowl", text = "Drop something in the bowl if you like, mon, a coin or a button or a bad memory, because the spirits not be fussy." },
+    { id = "g_bowl", text = "Drop something in the offering bowl by my feet if you like, mon, a coin or a button or a bad memory, because the spirits not be fussy." },
   },
   notice = {
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
@@ -56,8 +56,8 @@ P:NPC {
       big = true,
       lines = { { id = "ld_default", text = "The shadow, these days, because it always has something to say and it never runs out of words. But the Light be the one that heals, and a priest who forgets that ends up talking to himself in the dark." } },
       choices = {
-        { text = "Healing matters most. I'll keep to the Light.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The shadow has power. I'll listen to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Healing matters most. I'll keep to the Light.", next = "BACK", reply = "Good, mon, and the Light will be glad of you. Keep it close, and the shadow stay quiet.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The shadow has power. I'll listen to it.", next = "BACK", reply = "Listen, then, but don't answer it too often, mon. The shadow be a good talker and a bad friend.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -191,7 +191,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     danger = {
-      lines = { { id = "dg_default", text = "Very, which is why I don't teach fools. Too much arcane and you start wanting more and more, and then one day you be hungry for nothing else, and that be the end of you." } },
+      lines = { { id = "dg_default", text = "Very, mon, so I don't teach fools. Too much arcane and you start wanting more and more, and then one day you be hungry for nothing else, and that be the end of you." } },
       choices = {
         { text = "You sound like you've seen that happen.", next = "danger_seen" },
         { text = "Then why teach it at all?", next = "teach_why" },
@@ -203,8 +203,8 @@ P:NPC {
       big = true,
       lines = { { id = "ds_default", text = "Once, to a student who wouldn't stop, even when his hands shook and his eyes went pale. He left for the north looking for more power, and I never heard from him again, which be the best thing I can say." } },
       choices = {
-        { text = "Magic needs limits. Discipline keeps you alive.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Power should be pursued, whatever the cost.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Magic needs limits. Discipline keeps you alive.", next = "BACK", reply = "Ya, mon, and you'll live long enough to learn more. That be the first lesson and the last.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Power should be pursued, whatever the cost.", next = "BACK", reply = "Then you'll go north like he did, mon, and I'll never hear from you either. I hope you prove me wrong.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -233,7 +233,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     curtains = {
-      lines = { { id = "cu_default", text = "My students, mon, every season, and always the same spell. One fireball too eager and there go the curtains, and then I walk down to the Drag and buy new ones from Magar, who has stopped asking." } },
+      lines = { { id = "cu_default", text = "My students, mon, every season, and always the same spell. One fireball too eager and there go the curtains, and then I walk down to the Drag and buy new ones from Magar the tailor, who has stopped asking why." } },
       choices = {
         { text = "Why not stop hanging curtains?", next = "curtains_why" },
         { text = "Something else.", next = "BACK" },
@@ -244,7 +244,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     shamans = {
-      lines = { { id = "sh_default", text = "Searn and his kind ask the fire nicely and wait for it to answer, mon, which be very polite and very slow. I tell the fire what to do, and it does it, and we both get on with our day." } },
+      lines = { { id = "sh_default", text = "Searn Firewarder and the other shamans ask the fire nicely and wait for it to answer, mon, which be very polite and very slow. I tell the fire what to do, and it does it, and we both get on with our day." } },
       choices = {
         { text = "I'm a shaman. We don't need to ask twice.", next = "shaman_reply", when = { class = "SHAMAN" } },
         { text = "Searn has a point. Fire bites back.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -287,7 +287,7 @@ P:NPC {
   start = "hello",
   nodes = {
     xorig_lapsed = {
-      lines = { { id = "xlp_default", text = "Fire forgives nothing, but it does forget, if you feed it honestly for long enough. The anger that still reaches for fel is the same anger fire answers to, so give it to the flame before the old craft can take it. Do you feel the itch often?" } },
+      lines = { { id = "xlp_default", text = "Fire forgives nothing, but it does forget, if you feed it honestly for long enough. When your anger reaches for the fel, give it to the flame instead, because fire answers anger too. Do you feel the itch often?" } },
       choices = {
         { text = "Every time I'm angry, Searn.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Less than I used to.", next = "BACK", fx = { affinity = 1 } },
@@ -332,8 +332,8 @@ P:NPC {
       big = true,
       lines = { { id = "wa_default", text = "Every day, and every day the Warchief tells me they're useful, and every day I swallow my words. I don't trust them, but I trust Thrall, so I watch and I wait." } },
       choices = {
-        { text = "The Warchief knows best. Trust his judgement.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Some dangers shouldn't be tolerated, whatever the Warchief says.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Warchief knows best. Trust his judgement.", next = "BACK", reply = "That's what I tell myself every morning. Thrall's judgment has carried us this far, so I'll trust it.", fx = { align = { order = 1 } } },
+        { text = "Some dangers shouldn't be tolerated, whatever the Warchief says.", next = "BACK", reply = "Maybe so, and I've thought it more than once. But I'll not go against the Warchief, so I watch.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -400,7 +400,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "If you're bleeding, sit down, and if you're not, stand over there and wait your turn." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, I see. That's more than I can say for most of the grunts." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, I see. The grunts I patch up are rarely so lucky twice." },
     { id = "g_tally", text = "Don't lean on that wall, because those chalk marks are every grunt I've patched this season and I'm not counting them twice." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior, so you'll be back on my bench before long. I'll keep the linen ready for you." },
   },
@@ -454,8 +454,8 @@ P:NPC {
       big = true,
       lines = { { id = "ev_default", text = "I've asked Overlord Runthak a dozen times, and he says the grunts have enough to learn already. I say they'd learn faster if they weren't bleeding all the time, but nobody listens to the bandage man." } },
       choices = {
-        { text = "Make it law. Every grunt should know first aid.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let each grunt choose. Nobody likes being told.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Make it law. Every grunt should know first aid.", next = "BACK", reply = "At last, someone who agrees with the bandage man. Tell Runthak that, would you, because he won't listen to me.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let each grunt choose. Nobody likes being told.", next = "BACK", reply = "They don't, but they like bleeding even less. I'll keep asking, and you keep your bandages handy.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -476,7 +476,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     peeve = {
-      lines = { { id = "pe_default", text = "A grunt who takes off a perfectly good bandage to show his friends the wound, and then comes back to me surprised when it goes bad. Tell me honestly, have you ever done that?" } },
+      lines = { { id = "pe_default", text = "A grunt who takes off a perfectly good bandage to show his friends the wound, and then comes back to me surprised when it goes bad. Be truthful now, have you ever done that?" } },
       choices = {
         { text = "Never. I leave them on until they're done.", next = "pv_good", fx = { affinity = 1, trait = { patient = 1 } } },
         { text = "Once or twice. Scars impress people.", next = "pv_show", fx = { affinity = -1, trait = { proud = 1 } } },
@@ -516,7 +516,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Watch your feet, mon, there be seedlings everywhere." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you smell of the Barrens. You've been picking peacebloom, I can tell." },
-    { id = "g_seedling", text = "Say hello to Little Karolek by the door, mon, he be the prickly one, and don't step on him." },
+    { id = "g_seedling", text = "Say hello to Little Karolek, the prickly earthroot by the door, mon, and don't step on him." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "A tauren! Come in, come in, mon, and tell me what be growing in Mulgore this season." },
   },
   notice = {
@@ -569,8 +569,8 @@ P:NPC {
       big = true,
       lines = { { id = "he_default", text = "That be what I believe, mon, but the world needs fire potions too, I suppose. I just wish the alchemists would ask the plants first, the way my grandmother taught me." } },
       choices = {
-        { text = "Herbs should heal. That's their purpose.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A weapon is a weapon, even if it grows.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Herbs should heal. That's their purpose.", next = "BACK", reply = "That be the truth, mon, and my grandmother would like you. Heal first, always.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A weapon is a weapon, even if it grows.", next = "BACK", reply = "It be, mon, and I can't argue it. But ask the plant before you make it a weapon, at least.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -614,7 +614,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     ap_no = {
-      lines = { { id = "an_default", text = "Maybe it doesn't, mon, but you hear yourself, and that be half the point. A picker who never says it pulls up everything and then wonders why the hills be bare." } },
+      lines = { { id = "an_default", text = "Maybe it doesn't, mon, but you hear yourself, and dat be the point of it. A picker who never says it pulls up everything and then wonders why the hills be bare." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

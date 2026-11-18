@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_hunt", when = { questActive = TODO_QUEST("Larion and Muigin") }, text = "Lashers, threshers, flayers and trappers, five of each. Cut his supply and the pests'll dry up." },
     { id = "g_zapper", when = { questDone = TODO_QUEST("Bloodpetal Zapper") }, text = "Zapped any pests lately? I zapped three before breakfast, and I felt grand all morning." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and Muigin and I still haven't said a word to each other. Don't look at me like that." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "The Refuge says ye've been a help, which is more than I can say for some people over yonder." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The Refuge says ye've been a help, and some over yonder couldnae be bothered tae lift a finger." },
   },
 
   notice = {
@@ -86,8 +86,8 @@ P:NPC {
       big = true,
       lines = { { id = "ts_default", text = "The pests are his way of saying he's sorry without saying it, and the zapper's my way of saying I'm not ready to hear it. That's how partners talk, when they've been partners long enough." } },
       choices = {
-        { text = "Swallow your pride and go and make it up.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let him come to you. He started it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Swallow your pride and go and make it up.", next = "BACK", reply = "Swallow my pride? Ye've no idea how big it is, it'd choke a kodo! Still, maybe ye're right, and maybe I'll try, once the pests are gone.", fx = { align = { honor = 1 } } },
+        { text = "Let him come to you. He started it.", next = "BACK", reply = "Aye, that's what I've been saying all along! He started it with his shortcut, and he can finish it with an apology.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -96,7 +96,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     home = {
-      lines = { { id = "h2_default", text = "Every day. Some mornings I'd climb down a drainpipe if I thought it led out of this crater, and I'm a dwarf, so I know a great deal about pipes." } },
+      lines = { { id = "h2_default", text = "Every day. Some mornings I'd climb down a drainpipe if I thought it led out of this crater, and I'm a dwarf, so I know a thing or two about pipes." } },
       choices = {
         { text = "Why not just leave with the next escort?", next = "home_leave" },
         { text = "Something else.", next = "BACK" },
@@ -128,8 +128,8 @@ P:NPC {
       big = true,
       lines = { { id = "ps_default", text = "Not me, that's for certain, unless ye think I should. Go on, ye've heard both of us by now, I'd wager, so tell me straight: who ought to bend first?" } },
       choices = {
-        { text = "You should, Larion. The bigger heart bends first.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "He should. He chose the shortcut, so he owns it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You should, Larion. The bigger heart bends first.", next = "BACK", reply = "The bigger heart, eh? Well, I suppose mine is bigger, by a fair bit. Fine, I'll think on it, but don't tell Muigin ye said so.", fx = { align = { light = 1 } } },
+        { text = "He should. He chose the shortcut, so he owns it.", next = "BACK", reply = "Ha! I knew ye'd see it my way, friend. He chose it, he owns it, and he can come knocking with his hat in his hand.", fx = { align = { light = -1 } } },
         { text = "I'm staying out of it.", next = "BACK", fx = { trait = { discreet = 1 } } },
       },
     },

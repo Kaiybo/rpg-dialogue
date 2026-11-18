@@ -33,7 +33,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Jinar'Zillen, mon, and I'll tell you my philosophy: do as little as you can, and pay somebody else to do the rest. Under these docks be my shellfish traps, and every five shellfish you bring me get you a nice fat Bloodbelly fish." },
+          text = "I be Jinar'Zillen, mon, and I'll tell you my philosophy: do as little as you can, and pay somebody else to do the rest. Under these docks be my shellfish traps, and every five shellfish you bring me get you a nice fat Bloodbelly fish." },
         { id = "h_active", when = { questActive = TODO_QUEST("Fish in a Bucket") },
           text = "The traps be right under the docks, mon, down in the water. Bring me five and I'll find you a fish, and if you bring me ten I'll find you two." },
         { id = "h_done", when = { questDone = TODO_QUEST("Fish in a Bucket") },
@@ -62,10 +62,10 @@ P:NPC {
     },
     lazy_stance = {
       big = true,
-      lines = { { id = "ls_default", text = "It be the best way to live, mon! Everybody gets what they want: you get fish, I get shellfish, and nobody gets wet that don't want to. Drulzegar says I be shameful, but Drulzegar don't smile." } },
+      lines = { { id = "ls_default", text = "It be the best way to live, mon! Everybody gets what they want: you get fish, I get shellfish, and nobody gets wet that don't want to. Drulzegar down the dock says I be shameful, but Drulzegar don't smile." } },
       choices = {
-        { text = "A man should earn his own bread.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You've got it figured out, Jinar.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A man should earn his own bread.", next = "BACK", reply = "Earn it? Mon, I do earn it, by bein' smart enough not to work, and dat takes a lot of thinkin'.", fx = { align = { order = 1 } } },
+        { text = "You've got it figured out, Jinar.", next = "BACK", reply = "Ya, mon, finally somebody sees it, and you can tell Drulzegar dat next time he frowns at me.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -104,7 +104,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Traps, fish, hammocks, and how to make other people do the swimming. A lot of wisdom, mon." } },
+    knows = { { id = "tp_knows", text = "I know traps, fish, hammocks, and how to make other people do the swimming. That be a lot of wisdom, mon." } },
     advice = { { id = "tp_ad", text = "Never stand when you can sit, mon, and never sit when you can lie down." } },
     _none = { { id = "tp_none", text = "That sounds like work to know about, mon, so I don't." } },
   },

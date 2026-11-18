@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_default", text = "Greetings from the Gadgetzan Water Company, where every drop counts! Huzzah!" },
     { id = "g_pouch", when = { questActive = TODO_QUEST("Water Pouch Bounty") }, text = "Got the five pouches, pal? If you do, a Care Package, Model 103-XB, is yours, courtesy of the Company and its very generous reclamation program!" },
     { id = "g_pouch_done", when = { questDone = TODO_QUEST("Water Pouch Bounty") }, text = "My best supplier! Keep 'em coming, buddy, and I'll keep the care packages coming right back, by the book, one per five." },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, friend, and the town's drunk a lake's worth of water since, every drop billed. Well, a pond's worth. A puddle, honestly, but a profitable puddle." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, friend, and the town's drunk a lake's worth of water since, every drop billed. Well, a pond's worth, or a puddle if we're bein' precise, but a profitable puddle." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Folks say you've been helping Gadgetzan help itself, which is our motto! Well, one of them." },
   },
 
@@ -91,8 +91,8 @@ P:NPC {
       big = true,
       lines = { { id = "bs_default", text = "Everybody's thirsty in Tanaris, friend, and everybody else pays. If we let the bandits drink for free, the town goes dry, and then nobody drinks at all." } },
       choices = {
-        { text = "Rules keep a town alive. Make them pay.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Water should never be a business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Rules keep a town alive. Make them pay.", next = "BACK", reply = "That's it exactly, friend, and if more folks out here thought like you, I'd spend less time chasin' bandits off the pumps.", fx = { align = { order = 1 } } },
+        { text = "Water should never be a business.", next = "BACK", reply = "Easy to say when you're not the one fixin' the pumps, friend, and those pumps don't run on kind thoughts, they run on coin.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

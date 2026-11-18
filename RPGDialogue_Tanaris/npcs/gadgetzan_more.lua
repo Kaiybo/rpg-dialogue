@@ -22,7 +22,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Greetings, friend! Can I interest you in some ectoplasmic capacitors, or perhaps a nice omni-directional spectral assimilator?" },
     { id = "g_back", when = { metBefore = true }, text = "My favorite investor's back! Well, my favorite errand-runner, but in this town that's practically the same thing, pal." },
-    { id = "g_ecto", when = { questActive = TODO_QUEST("Hunting for Ectoplasm") }, text = "Scorched from Silithus, frozen from Winterspring, stable from the Plaguelands, and don't forget to set the distiller down first, chum!" },
+    { id = "g_ecto", when = { questActive = TODO_QUEST("Hunting for Ectoplasm") }, text = "Scorched ectoplasm from Silithus, frozen from Winterspring and stable from the Plaguelands, and don't forget to set the distiller down first, chum!" },
     { id = "g_away", when = { away = 21 }, text = "Gone {away}, and not a single ghost revealed in all that time. The machine's lonely, friend, and so's my ledger." },
   },
 
@@ -56,7 +56,7 @@ P:NPC {
         { text = "What's a ghost revealer for?", next = "revealer" },
         { text = "What do you need to build it?", next = "parts", when = { minLevel = 55 } },
         { text = "Where do I find the right ghosts?", next = "ghosts", when = { minLevel = 55 } },
-        { text = "Tell me about this imp in Winterspring.", next = "imp", when = { minLevel = 55 } },
+        { text = "Where would I find the rod you need?", next = "imp", when = { minLevel = 55 } },
         { text = "Do you actually believe in ghosts?", next = "believe" },
         { text = "I'll see you around, Mux.", next = "END" },
       },
@@ -164,7 +164,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to the Gizmorium, pal. Touch nothing that's ticking, and if it's not ticking, still don't touch it." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still got all your fingers? Good, keep it that way, it's bad for business when customers lose 'em in my shop." },
-    { id = "g_booster", when = { questActive = TODO_QUEST("Safety First") }, text = "That's Razzeric's booster in your bag, isn't it? Hand it over carefully, pal, like it's an egg made of fire." },
+    { id = "g_booster", when = { questActive = TODO_QUEST("Safety First") }, text = "That's Razzeric the racer's booster in your bag, isn't it? Hand it over carefully, pal, like it's an egg made of fire." },
     { id = "g_away", when = { away = 21 }, text = "Gone {away}, and Razzeric's still alive, against every engineering principle I know." },
   },
 
@@ -206,10 +206,10 @@ P:NPC {
     },
     bo_do = {
       big = true,
-      lines = { { id = "bod_default", text = "He's paying, so I'll do it, and you can tell him to be careful when he sets it off. Who knows if our nineteenth driver would be any good, and I'd hate to train in another one." } },
+      lines = { { id = "bod_default", text = "He's paying, so I'll do it, and you can tell him to be careful when he sets it off. Who knows if our nineteenth driver would be any good, and I'd hate to break in a new one." } },
       choices = {
-        { text = "You should refuse. It'll kill him.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "His neck, his choice, his gold.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You should refuse. It'll kill him.", next = "BACK", reply = "Refuse a payin' customer? Pal, if I turned down every job that might kill the fellow, I'd have closed shop the day I opened it.", fx = { align = { honor = 1 } } },
+        { text = "His neck, his choice, his gold.", next = "BACK", reply = "Now you sound like a proper businessman, friend, and I'll tell him you said so when they're pickin' him out of the dunes.", fx = { align = { honor = -1 } } },
         { text = "Nineteenth driver?", next = "bo_nineteen" },
       },
     },
@@ -226,7 +226,7 @@ P:NPC {
       },
     },
     ra_win = {
-      lines = { { id = "raw_default", text = "Whoever's still on the track at the end, friend, which is a smaller number than you'd think. The gnomes say they've won the most races, and the goblins say we've had the most exciting losses." } },
+      lines = { { id = "raw_default", text = "Whoever's still on the track at the end, friend, which is usually about three racers, and one of them's on fire. The gnomes say they've won the most races, and the goblins say we've had the most exciting losses." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -404,6 +404,10 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "What's this pledge of secrecy?", next = "pledge" },
         { text = "Goblin or gnome engineering, which is better?", next = "versus" },
+        { text = "What can a goblin engineer actually build?", next = "build" },
+        { text = "How'd you end up in Gadgetzan?", next = "gadgetzan" },
+        { text = "I'd never turn my back on Gnomeregan for goblin bombs.", next = "gnome_never", when = { race = "Gnome" } },
+        { text = "Dwarves were blowing things up before goblins were.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "So long, Nixx.", next = "END" },
       },
     },
@@ -419,8 +423,8 @@ P:NPC {
       big = true,
       lines = { { id = "plm_default", text = "Course it is, pal, a secret's only worth somethin' if it's kept. Some folks think knowledge should be free, and those folks are generally broke." } },
       choices = {
-        { text = "An oath is an oath. I'd keep it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Knowledge should be shared, not locked in a ledger.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "An oath is an oath. I'd keep it.", next = "BACK", reply = "You'd do well in the Cartel, pal, because a fellow who keeps his mouth shut is worth twice what a fellow who talks is worth.", fx = { align = { order = 1 } } },
+        { text = "Knowledge should be shared, not locked in a ledger.", next = "BACK", reply = "Shared, eh? Then you can share your coin with me while I share nothin' back, and we'll see how long that idea lasts ya.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -432,10 +436,55 @@ P:NPC {
         { text = "Clever keeps more fingers attached.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
+
+    build = {
+      lines = { { id = "bu_default", text = "Bombs that crater a hillside, rocket helmets that knock a fella's head clean into next week, and the Goblin Jumper Cables XL, which bring a fella back from the dead about half the time. Half the time, pal, and you think about those odds next time you're face down in Blackrock!" } },
+      choices = {
+        { text = "Only half the time?", next = "build_cables" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    build_cables = {
+      lines = { { id = "bc_default", text = "Half the time beats none of the time, which is exactly what a gnome offers ya when you're lyin' in the dirt! The other half gets a little smoky, so stand back, but nobody's ever sued me from the grave, pal." } },
+      choices = {
+        { text = "What else is in the schemata?", next = "build_sapper" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    build_sapper = {
+      lines = { { id = "bs_default", text = "The Goblin Sapper Charge, my pride and joy: ya strap it on, ya light it, and everything around ya has a very bad day, you included, a little. The insurance fellas call that collateral, and I call it a feature." } },
+      choices = {
+        { text = "That's a feature I could use.", next = "BACK" },
+        { text = "Something else, Nixx.", next = "BACK" },
+      },
+    },
+    gadgetzan = {
+      lines = { { id = "gz_default", text = "Steamwheedle needed a guy to teach the trade out here where the Raceway and Booty Bay don't already have one, so I took the job and the sand in my shoes came free. Gadgetzan's neutral, pal, which means I sell to Horde and Alliance alike and they both pay full price." } },
+      choices = {
+        { text = "What do you make of Jhordy Lapforge?", next = "jhordy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jhordy = {
+      lines = { { id = "jh_default", text = "The gnome with the transporter? Nice kid, terrible business sense, he's givin' away safety for free! I'll say this much, his machine turns folks into chickens about as often as mine blows 'em up, so on liability we're square." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gnome_never = {
+      lines = { { id = "gnv_default", text = "Hey, nobody's askin' ya to betray anybody, pal, just to diversify your portfolio! But fine, go see Jhordy over there and learn his transporter, and when it turns ya into a chicken, ya know where my stall is." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "With black powder and a lot of shoutin', sure, and I respect it, I really do. But a dwarf builds a cannon to last a hundred years and a goblin builds one to sell by Tuesday, and that's why we're the rich ones, pal." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "Goblin engineering, pal, the only kind that adds up." } },
+    steamwheedle = { { id = "tp_sw", text = "The Cartel keeps the peace and takes its cut, pal, and that's the best deal in Kalimdor." } },
+    mirage_raceway = { { id = "tp_mr", text = "Rockets on wheels, pal! Goblin engineering's finest showroom, give or take a crash or six." } },
     background = { { id = "tp_bg", text = "Trained in Undermine, perfected in Gadgetzan, and never lost a limb I couldn't afford." } },
     advice = { { id = "tp_ad", text = "Read the manual twice, pal, then ignore half of it, but know which half." } },
     _none = { { id = "tp_none", text = "Don't know it, pal, and it doesn't add up to profit, so I don't care." } },
@@ -474,7 +523,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Jhordy Lapforge, engineer! With some of the technology recovered by bold gnomes venturing back into Gnomeregan, I've built my greatest invention: the Matter Transporter! All I need now is a skilled gnomish engineer to build a beacon attuned to it." },
+          text = "Jhordy Lapforge, engineer! With some of the technology recovered by bold gnomes venturing back into Gnomeregan, I've built my greatest invention: the Ultrasafe Matter Transporter! All I need now is a skilled gnomish engineer to build a beacon attuned to it." },
         { id = "h_goblin_eng", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } },
           text = "Oh! A Horde visitor, in Gadgetzan, of course, everyone's welcome here. The transporter doesn't care what you are, though it might care how much you've eaten." },
       },
@@ -486,6 +535,11 @@ P:NPC {
         { text = "Teach me the transporter.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "Is it really ultrasafe?", next = "safe" },
         { text = "Technology from Gnomeregan?", next = "gnomeregan" },
+        { text = "How does the transporter actually work?", next = "works" },
+        { text = "Why build it in a goblin town?", next = "why_here" },
+        { text = "I left Gnomeregan with nothing.", next = "gnome_nothing", when = { race = "Gnome" } },
+        { text = "Would Ironforge want a transporter like this?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Mages teleport without any machines.", next = "mage", when = { class = "MAGE" } },
         { text = "Goodbye, Jhordy.", next = "END" },
       },
     },
@@ -518,10 +572,52 @@ P:NPC {
       lines = { { id = "gnm_default", text = "Thank you, that's kind of you to say. We'll take it back someday, I'm sure of it, and when we do, I'll transport straight into my old workshop, assuming I don't arrive as a chicken." } },
       choices = { { text = "I hope you do.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
+
+    works = {
+      lines = { { id = "wk_default", text = "It breaks you down into a very orderly cloud of tiny parts, sends the cloud along a beam to the beacon, and puts you back together in the right order. Mostly the right order! I keep a checklist." } },
+      choices = {
+        { text = "Why do you need a beacon?", next = "works_beacon" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    works_beacon = {
+      lines = { { id = "wb_default", text = "Because without one the beam doesn't know where to stop, and you could come out anywhere, in the sea or the sky or the middle of a dune. The beacon here in Gadgetzan is the anchor, and only a gnomish engineer has the training to build one." } },
+      choices = {
+        { text = "Why only gnomish engineers?", next = "works_gnomish" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    works_gnomish = {
+      lines = { { id = "wg_default", text = "Because a goblin would sell it, take it apart to see which bit explodes, and then sell the pieces! Gnomish engineering is about making things that work beautifully, and the transporter needs that sort of patience, and a lot of very small screwdrivers." } },
+      choices = {
+        { text = "Something else, Jhordy.", next = "BACK" },
+        { text = "Goodbye, Jhordy.", next = "END" },
+      },
+    },
+    why_here = {
+      lines = { { id = "wh_default", text = "The desert is perfect for testing, because there's nothing out there to land inside, and the goblins never ask awkward questions as long as I pay my rent to the Cartel. Nixx Sprocketspring keeps trying to poach my customers, but we get along, mostly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gnome_nothing = {
+      lines = { { id = "gno_default", text = "Oh, me too, friend, me too, except my goggles and one sock. We'll rebuild, though, you'll see, because we always do, and the very first thing I'm rebuilding is that left-hand drawer." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "Oh, I do hope so! King Magni's people have been so kind to us since the fall, and a transporter from Ironforge to anywhere would be my way of saying thank you, once I've sorted out the chickens." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mage = {
+      lines = { { id = "mg_default", text = "They do, and it's ever so impressive, but they studied for decades and they can't teach a warrior to do it in an afternoon! My transporter works for anyone with an engineer and a beacon, and that's the difference between magic and progress." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "Matter transportation, beacons, and diagrams, so many diagrams!" } },
+    gadgetzan = { { id = "tp_gz", text = "Hot and sandy and full of goblins, but nobody's tried to irradiate it yet, which is lovely." } },
+    steamwheedle = { { id = "tp_sw", text = "They charge rent on everything, even the shade, but they leave inventors alone, and I appreciate that." } },
     background = { { id = "tp_bg", text = "Gnomeregan born, Gadgetzan by circumstance, and transported in between, metaphorically." } },
     advice = { { id = "tp_ad", text = "Always check the beacon's calibration twice. Then once more, for luck." } },
     gnomeregan = { { id = "tp_gnome", text = "Our home, lost to radiation and troggs. We'll get it back.", next = "gnomeregan" } },

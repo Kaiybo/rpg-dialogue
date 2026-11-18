@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Have you come to free me? Please say that you have, by the Earth Mother, because I've run out of bottles." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned! Is the great Skymane dealt with, or have you simply come to admire my predicament?" },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned! Is that gorilla king dealt with yet, or have you simply come to admire my predicament?" },
     { id = "g_freed", when = { questDone = TODO_QUEST("Message in a Bottle") }, text = "Thank you again for your aid. May the winds always be at your back, and may the eternal sun shine upon your travels." },
   },
 
@@ -23,7 +23,7 @@ P:NPC {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of my own people! Then you'll understand how undignified it is for a tauren to be kept on an island by a monkey." },
     { id = "n_status", cat = "status", when = { reputation = { faction = "Booty Bay", min = "honored" } },
-      text = "You smell of Booty Bay, and quite respectably, which is more than I can say for most of the sailors who've come past this island." },
+      text = "You smell of Booty Bay, and quite respectably, and the sailors who've come past this island smelled of nothing but bilge and rum." },
   },
 
   start = "hello",
@@ -31,7 +31,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Princess Poobah, and a great Skymane holds me captive on this wretched island, which is no way to treat a daughter of the plains. I threw messages in bottles toward the ships for days, and you're the first to answer." },
+          text = "I am Princess Poobah, and a great Skymane, the gorilla king Mukla, holds me captive on this wretched island, which is no way to treat a daughter of the plains. I threw messages in bottles toward the ships for days, and you're the first to answer." },
         { id = "h_bottle", tags = { "news" }, when = { questActive = TODO_QUEST("Message in a Bottle") },
           text = "You found one of my bottles! I knew my throwing arm was good for something. King Mukla is the beast who keeps me here, and as long as he lives, I'll never leave this beach." },
         { id = "h_free", tags = { "news" }, when = { questRecent = { TODO_QUEST("Message in a Bottle"), days = 3 } },
@@ -67,8 +67,8 @@ P:NPC {
         { id = "ph_default", text = "Whatever you believe, I'm the one in the cage with the good manners, and he's the one eating fruit with his feet. That's what royalty comes down to, in the end." },
       },
       choices = {
-        { text = "Titles matter. You should be treated as one.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Titles mean nothing on an island like this.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Titles matter. You should be treated as one.", next = "BACK", reply = "You're kind to say it, and my mother would agree with you. Mukla, sadly, does not, and he has the key and the bigger arms.", fx = { align = { order = 1 } } },
+        { text = "Titles mean nothing on an island like this.", next = "BACK", reply = "Perhaps not, but they're all I have left out here besides a cage and a bottle, so I'll thank you to let me keep mine. The Earth Mother made me a princess and I intend to stay one.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -87,15 +87,15 @@ P:NPC {
         { id = "mw_default", text = "Company, I think, and an audience, and someone to scream at when the bananas are bad. He's never hurt me, I'll give him that, but a kind jailer is still a jailer." },
       },
       choices = {
-        { text = "Then he'll pay for keeping you.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "If he's never hurt you, perhaps I can drive him off instead.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then he'll pay for keeping you.", next = "BACK", reply = "Mind his teeth if you go, because he bites when he's sulking. I won't weep for him, but I'd rather the one who frees me came back in one piece.", fx = { align = { light = -1 } } },
+        { text = "If he's never hurt you, perhaps I can drive him off instead.", next = "BACK", reply = "That's gentler than I'd have asked for, and gentler than he deserves, I think. Still, the Earth Mother would like it better, and so would I if it works.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     captive = {
       lines = {
-        { id = "ca_default", text = "It's a long and very tragic story, and I've been held by worse than gorillas, if you'd believe it. There was a troll called Zanzil before this, with his potions and his zombies, and Mukla is an improvement, which tells you something." },
+        { id = "ca_default", text = "It's a long and very tragic story, and I've been held by worse than gorillas, if you'd believe it. There was a troll called Zanzil before this, with his potions and his zombies, and by comparison Mukla has been a perfect gentleman." },
       },
       choices = {
         { text = "This Zanzil held you?", next = "captive_zanzil" },
@@ -123,7 +123,7 @@ P:NPC {
     },
     bottles_note = {
       lines = {
-        { id = "bn_default", text = "That a great Skymane holds me captive, and that on the clearest days I could see the Wild Shore to the northwest and big sailing ships to the southwest. It isn't poetry, but it worked, didn't it?" },
+        { id = "bn_default", text = "That a great gorilla holds me captive, and that on the clearest days I could see the Wild Shore to the northwest and big sailing ships to the southwest. It isn't poetry, but it worked, didn't it?" },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -134,8 +134,8 @@ P:NPC {
         { id = "xt_default", text = "It is, and I miss the grass and the wind and the good honest smell of kodo. Promise me you won't tell anyone in Thunder Bluff how I ended up here, because I'd never hear the end of it." },
       },
       choices = {
-        { text = "Your secret's safe. The Earth Mother hears all, though.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "It's too good a story not to tell.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your secret's safe. The Earth Mother hears all, though.", next = "BACK", reply = "The Earth Mother may hear it, but she's never been one to gossip, and I'm trusting you'll be the same. Thank you, truly.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "It's too good a story not to tell.", next = "BACK", reply = "Then at least tell it well, and make me braver than I was, and make Mukla much uglier. If I'm to be laughed at in Thunder Bluff I want it to be a good story.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

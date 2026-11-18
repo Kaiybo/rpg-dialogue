@@ -19,7 +19,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Look at that, look at it! There goes another barrel o' powder, an' I'm standin' up here like a statue watchin' it happen!" },
+    { id = "g_default", text = "Look at that, look at it! The troggs are smashin' another barrel o' my powder down in the quarry, an' I'm standin' up here like a statue watchin' it happen!" },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back! Tell me ye've been down there breakin' trogg skulls, for nothin' else will calm me." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' the troggs have dug another tunnel in that time. They've no respect for a survey line." },
   },
@@ -46,7 +46,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, I'm countin' troggs." },
-        { id = "h_again2", text = "Ask away, but if one o' them touches that blue barrel I'm goin' to scream." },
+        { id = "h_again2", text = "Ask away, but if one o' those troggs touches that blue powder barrel I'm goin' to scream." },
       },
       choices = {
         { text = "Where did the troggs come from?", next = "troggs" },
@@ -67,10 +67,10 @@ P:NPC {
     },
     troggs_dead = {
       big = true,
-      lines = { { id = "td_default", text = "Two, an' a third who'll never swing a pick again. The League wants me to reopen the quarry once it's clear, an' half my lads say they'll never go down there again, an' the other half want to go down wi' torches an' bury every trogg in the stone they stole." } },
+      lines = { { id = "td_default", text = "Two, an' a third who'll never swing a pick again. The League wants me to reopen the quarry once it's clear, an' some o' my lads say they'll never go down there again, while the rest want to go down wi' torches an' bury every trogg in the stone they stole." } },
       choices = {
-        { text = "Clear it out and reopen it. The stone's yours.", next = "BACK", fx = { align = { honor = -1 }, learn = { "troggs" } } },
-        { text = "Honor your dead first. The stone can wait.", next = "BACK", fx = { align = { honor = 1 }, learn = { "troggs" } } },
+        { text = "Clear it out and reopen it. The stone's yours.", next = "BACK", reply = "Aye, that's what I say, an' the League will be glad o' it, but I'll be the one tellin' the widows the quarry's open again, an' that's no small thing.", fx = { align = { honor = -1 }, learn = { "troggs" } } },
+        { text = "Honor your dead first. The stone can wait.", next = "BACK", reply = "Ye're right, an' I'm ashamed I needed tellin', so we'll raise a stone for them at the lip o' the quarry before a single pick goes down there again.", fx = { align = { honor = 1 }, learn = { "troggs" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,7 +145,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Felix Whindlebolt, refugee, formerly of the Gnomeregan Institute of Applied Gear-Work, Second Wing. We drove the troggs out, and then it all went so horribly wrong, and now we gnomes are scattered all over Dun Morogh, and I lost all my belongings on the way." },
+          text = "Felix Whindlebolt, refugee, formerly of the Gnomeregan Institute of Applied Gear-Work, Second Wing. We tried to drive the troggs out, and it all went so horribly wrong, and now we gnomes are scattered all over Dun Morogh, and I lost all my belongings on the way." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("A Refugee's Quandary") },
           text = "My box, my chest and my bucket of bolts, the trolls took all three back to their camps southwest of Anvilmar. I'm no adventurer, and I'd only get my head knocked in, so I'd be so grateful if you could fetch them." },
         { id = "h_done", tags = { "news" }, when = { questDone = TODO_QUEST("A Refugee's Quandary") },
@@ -176,8 +176,8 @@ P:NPC {
       big = true,
       lines = { { id = "st_default", text = "The ones who stayed got sick, and the sickness changed them, and now they wander the halls and don't remember us. Some say we should leave them be, and some say we should go back and drag them out, and I don't know, I just don't know." } },
       choices = {
-        { text = "Go back for them. No one should be left behind.", next = "BACK", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
-        { text = "They're lost, Felix. Save the living instead.", next = "BACK", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
+        { text = "Go back for them. No one should be left behind.", next = "BACK", reply = "Do you really think so, because I've wanted to hear someone say it, and I'm frightened, but I think I'd go if somebody went with me.", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
+        { text = "They're lost, Felix. Save the living instead.", next = "BACK", reply = "Maybe you're right, and I know I should listen, but my own cousin is down there somewhere, and I don't know how to stop looking for him.", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -216,7 +216,7 @@ P:NPC {
   },
 
   topics = {
-    gnomeregan = { { id = "tp_gnomeregan", text = "Home, with the lifts and the gears and the lovely hum. I can still hear the hum when it's quiet, which is why I try not to let it be quiet." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Home, with the lifts and the gears and the lovely hum. I can still hear the hum when it's quiet, so I try never to let it be quiet." } },
     _none = { { id = "tp_none", text = "Oh, I'm afraid I don't know about that. I'm sorry, I'm only a refugee." } },
   },
 }

@@ -16,9 +16,9 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Another one fresh up from Deathknell. Stand still a moment and let me see whether you'll do." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Fields of Grief") }, text = "Pumpkins, corpse, not excuses. Solliden's west of here, and they don't walk over on their own." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Fields of Grief") }, text = "You're the pumpkin thief. The apothecary's still smiling about it, and I'd not thought his face could do that." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the Crusade's planted a fresh row at Solliden in the meantime. They never learn, and I'm grateful for it." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Fields of Grief") }, text = "I want pumpkins, corpse, not excuses. Solliden Farmstead is west of here, and the pumpkins won't walk over on their own." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Fields of Grief") }, text = "You're the pumpkin thief. Apothecary Johaan's still smiling about it, and I'd not thought his face could do that." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Crusade's planted a fresh row at Solliden in the meantime. They never learn, and I'm grateful for it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've filled out since you were stealing vegetables for me. Funny how the Glades does that to the ones who don't fall apart." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word in Brill is you've been useful. Useful's the best thing a Deathguard can say about anyone, so don't let it go to your head." },
   },
@@ -70,8 +70,8 @@ P:NPC {
       big = true,
       lines = { { id = "ww_default", text = "Not much worries a man who's already been buried. The Society says it's for the war on the Scourge, and the Scourge killed me, so I'm happy to pass the apothecary whatever he likes and let him get on with it." } },
       choices = {
-        { text = "Whatever hurts the Scourge, I'll carry it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "I'd like to know what he's brewing first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Whatever hurts the Scourge, I'll carry it.", next = "BACK", reply = "That's the spirit, corpse, and the apothecary will be glad of a pair of hands that doesn't ask questions. Take it up the hill and don't drop anything that sloshes.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'd like to know what he's brewing first.", next = "BACK", reply = "You can ask him, but I'd stand well back while you do, because the Society doesn't care for curious couriers. Some of us find it easier not to know.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -93,7 +93,7 @@ P:NPC {
       },
     },
     sol_take = {
-      lines = { { id = "st_default", text = "Because the Executor's got more Crusade than he's got Deathguard, and the farmhouse isn't worth what we'd lose taking it. Better to bleed them slowly, and steal their vegetables, and let them sit in their tower wondering who's next." } },
+      lines = { { id = "st_default", text = "Because Executor Zygand's got more Crusade than he's got Deathguard, and the farmhouse isn't worth what we'd lose taking it. Better to bleed them slowly, and steal their vegetables, and let them sit in their tower wondering who's next." } },
       choices = {
         { text = "Slow bleeding is a coward's war.", next = "sol_stance" },
         { text = "Something else.", next = "BACK" },
@@ -103,8 +103,8 @@ P:NPC {
       big = true,
       lines = { { id = "sst_default", text = "Call it what you like, corpse, it keeps my people walking. You're welcome to march up to the tower and knock, and I'll be sure to tell Zygand you were very brave." } },
       choices = {
-        { text = "A straight fight would end this sooner.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fair point. Let them bleed and wonder.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A straight fight would end this sooner.", next = "BACK", reply = "Sooner, perhaps, and with a great many more corpses on our side of the ledger. I'll let you try it your way once you've seen what's waiting inside that tower.", fx = { align = { honor = 1 } } },
+        { text = "Fair point. Let them bleed and wonder.", next = "BACK", reply = "Glad someone sees it. The Scarlets jump at every shadow up there, and every shadow we send them is one less Deathguard in the ground.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -117,7 +117,7 @@ P:NPC {
       },
     },
     patrols_caught = {
-      lines = { { id = "pc_default", text = "Then you'll come back to Deathknell the long way, and Mordo will say welcome back, and you'll try again. Dying's less of a setback for us than it is for them, and that's the one advantage I'll ever brag about." } },
+      lines = { { id = "pc_default", text = "Then you'll come back to Deathknell the long way, and Undertaker Mordo will say welcome back, and you'll try again. Dying's less of a setback for us than it is for them, and that's the one advantage I'll ever brag about." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -132,29 +132,29 @@ P:NPC {
       big = true,
       lines = { { id = "fm_default", text = "Some nights, when the wind comes off the fields smelling of earth. Mostly I think whoever I was would hate what I am, and I'd rather not meet him, so the forgetting suits us both." } },
       choices = {
-        { text = "You're more than what the plague left you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Forget him. The man who died is gone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're more than what the plague left you.", next = "BACK", reply = "Kind words, and I'll wear them a while, though I doubt they'll fit for long. Whatever I am now, at least I know where I'm standing and who's coming down the road.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Forget him. The man who died is gone.", next = "BACK", reply = "That's the Undercity's answer and I suppose it's the right one. Still, I'd sooner you didn't say it with quite such ease, corpse.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     brill = {
-      lines = { { id = "b_default", text = "Brill's the Dark Lady's first real town outside the Undercity, and it's busier than you'd think for a place full of dead folk. Magistrate Sevren runs it, Executor Zygand guards it, and Renee at the Gallows' End feeds whoever still wants feeding." } },
+      lines = { { id = "b_default", text = "Brill's the Dark Lady's first real town outside the Undercity, and it's busy for a place full of dead folk. Magistrate Sevren runs it, Executor Zygand guards it, and Renee at the Gallows' End feeds whoever still wants feeding." } },
       choices = {
         { text = "Who's worth knowing here?", next = "brill_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
     brill_who = {
-      lines = { { id = "bw_default", text = "Johaan, if you don't mind his questions, and Coleman at the inn, if you don't mind his grudges. Burgess by the hall wants Crusader rings, and Linnea out east wants the Scourge kept off her road, so nobody here is short of things for you to kill." } },
+      lines = { { id = "bw_default", text = "Apothecary Johaan, if you don't mind his questions, and Coleman Farthing at the inn, if you don't mind his grudges. Deathguard Burgess by the hall wants Crusader rings, and Linnea out east wants the Scourge kept off her road, so nobody here is short of things for you to kill." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
     scarlet_crusade = { { id = "tp_scarlet", text = "They plant pumpkins and burn people, and they're better at the pumpkins." } },
-    new_plague = { { id = "tp_plague", text = "Ask Johaan. I only carry his vegetables." } },
-    _none = { { id = "tp_none", text = "Never heard of it, and I watch a road for a living. Ask the magistrate." } },
+    new_plague = { { id = "tp_plague", text = "Ask Apothecary Johaan. I only carry his vegetables." } },
+    _none = { { id = "tp_none", text = "Never heard of it, and I watch a road for a living. Ask Magistrate Sevren." } },
   },
 }
 
@@ -171,10 +171,10 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Keep your voice down; I'm listening to the road. What is it?" },
-    { id = "g_duties", when = { questActive = TODO_QUEST("Forsaken Duties") }, text = "The magistrate sent you for a report, did he? He'll have one, and it's not a cheerful one." },
-    { id = "g_patrol", when = { questActive = TODO_QUEST("Rear Guard Patrol") }, text = "Balnir Farmstead, east of here. Horrors and spirits both, and they don't stop coming because you've killed a few." },
+    { id = "g_duties", when = { questActive = TODO_QUEST("Forsaken Duties") }, text = "Magistrate Sevren sent you for a report, did he? He'll have one, and it's not a cheerful one." },
+    { id = "g_patrol", when = { questActive = TODO_QUEST("Rear Guard Patrol") }, text = "Balnir Farmstead is east of here, full of horrors and spirits both, and they don't stop coming because you've killed a few." },
     { id = "g_done", when = { questDone = TODO_QUEST("Rear Guard Patrol") }, text = "The road's been quieter since your patrol. I sent your name on to Executor Zygand, so don't make me regret it." },
-    { id = "g_away", when = { away = 14 }, text = "{away} away. I've been here the whole time, in case you wondered, and I've counted every one of the dead that came down the road." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I've been here the whole time, in case you wondered, and I've counted every one of the dead that came down the road." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your armor. When you first came out here, I'd have bet a week's pay on the horrors." },
   },
 
@@ -227,10 +227,10 @@ P:NPC {
     },
     past_stance = {
       big = true,
-      lines = { { id = "ps_default", text = "That's kindly meant, and I'll take it. Mind you, the clerks have a point; the Bulwark needs every sword, and if they emptied it to guard my road, I'd have a lot more than horrors coming down it." } },
+      lines = { { id = "ps_default", text = "That's kindly meant, and I'll take it. Still, the clerks have a point; the Bulwark needs every sword, and if they emptied it to guard my road, I'd have a lot more than horrors coming down it." } },
       choices = {
-        { text = "The chain of command knows best. Hold the line.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Orders that leave you alone out here are bad orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The chain of command knows best. Hold the line.", next = "BACK", reply = "Spoken like someone who's never stood out here alone at dusk. I'll hold it, mind, but I'd like the chain of command to come and hold it with me some night.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Orders that leave you alone out here are bad orders.", next = "BACK", reply = "I'll not argue, though I'd never say so to the clerks in Brill. Put in a word for me at the Bulwark if you pass that way, for all the good it'll do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -253,8 +253,8 @@ P:NPC {
       big = true,
       lines = { { id = "bb_default", text = "I've asked, and the answer was that the Crusade burns farms and we don't, which I'll grant is a fine thing to say. It would still save me a great many patrols." } },
       choices = {
-        { text = "Burn it. Saving patrols matters more.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Leave it standing. We're not the Crusade.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn it. Saving patrols matters more.", next = "BACK", reply = "I'd say the same after a long enough night, and I'll admit it tempts me. But somebody has to decide what makes us different from the Crusade, and it may as well be the farm.", fx = { align = { light = -1 } } },
+        { text = "Leave it standing. We're not the Crusade.", next = "BACK", reply = "There's that answer again, and it sounds better from someone who's walked the road. Very well, it stands, and I'll keep patrolling past it until my feet fall off.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -291,7 +291,7 @@ P:NPC {
   },
 
   topics = {
-    andorhal = { { id = "tp_andorhal", text = "East past the Bulwark, and full of Scourge. That's all I know, and more than I'd like." } },
+    andorhal = { { id = "tp_andorhal", text = "Andorhal lies east past the Bulwark, and it's full of Scourge. That's all I know, and more than I'd like." } },
     _none = { { id = "tp_none", text = "Ask in Brill. Out here I only know the road." } },
   },
 }
@@ -335,7 +335,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "w_default", text = "For their potions. The apothecaries bring a new one every few days and watch to see whether I live, and so far I have, which seems to disappoint them." } },
+      lines = { { id = "w_default", text = "They keep me for their potions. The apothecaries bring a new one every few days and watch to see whether I live, and so far I have, which seems to disappoint them." } },
       choices = {
         { text = "Do you know what they're testing?", next = "why_test" },
         { text = "Something else.", next = "BACK" },
@@ -345,8 +345,8 @@ P:NPC {
       big = true,
       lines = { { id = "wt_default", text = "Poison, I think, though they never tell me what it's meant for. I only know it burns going down, and that the one who writes it all down never looks me in the eye." } },
       choices = {
-        { text = "You'd do the same to us, given the chance.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Nobody should be kept for poison tests.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You'd do the same to us, given the chance.", next = "BACK", reply = "Perhaps I would, and the Light would forgive me for it, because you are already dead. But I've never held the vial, and I'll not be the one who tastes it for you.", fx = { align = { light = -1 } } },
+        { text = "Nobody should be kept for poison tests.", next = "BACK", reply = "Then say so to the one with the ledger, if you dare. Nobody else here will, and I've started to wonder whether even the Light can hear me down this far.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

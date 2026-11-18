@@ -22,7 +22,7 @@ P:NPC {
 
   notice = {
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
-      text = "You smell like a cellar after a wet spring, friend, but then so does half this forest. I won't hold it against you if you don't hold my nose against me." },
+      text = "You smell like a cellar after a wet spring, friend, but then so does half this forest, so I won't hold it against you." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "Coal smoke and quench oil on your hands. A smith! Then you'll be judging my stock, and I'll be listening to you do it." },
   },
@@ -63,7 +63,7 @@ P:NPC {
     },
 
     alone = {
-      lines = { { id = "al_default", text = "Alone with the gulls and the murlocs down at the tide line, who gurgle all night and never buy anything. Folk come by often enough, and they're always polite to a blind man, which is more than I can say for the sighted world." } },
+      lines = { { id = "al_default", text = "Alone with the gulls and the murlocs down at the tide line, who gurgle all night and never buy anything. Folk come by often enough, and they're always polite to a blind man; I had to lose my eyes before the world learned its manners." } },
       choices = {
         { text = "I'd be afraid, with what walks these woods.", next = "alone_afraid" },
         { text = "Something else.", next = "BACK" },
@@ -88,8 +88,8 @@ P:NPC {
       big = true,
       lines = { { id = "cd_default", text = "So they keep telling me, and very kindly, as if I might faint. A man buys a sword and says thank you, and I'm not sure what else I'm meant to know about him." } },
       choices = {
-        { text = "That's a fair way to deal with folk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Not knowing could get you killed one day.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
+        { text = "That's a fair way to deal with folk.", next = "BACK", reply = "I think so too, and I've never had cause to change my mind. A thank-you sounds the same from anyone.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Not knowing could get you killed one day.", next = "BACK", reply = "Perhaps it could, but I'm old and blind and still breathing, so I must be doing something right.", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

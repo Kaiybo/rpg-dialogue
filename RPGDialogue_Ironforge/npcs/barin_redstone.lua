@@ -23,11 +23,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. Well, the Senate's patience is long, even if mine isnae." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "Aye, what is it? Speak up; I cannae hear ye from all the way down there, an' I've no time tae bend." },
     { id = "g_gnome_soft", when = { race = "Gnome", heardLine = "barin_redstone.gv_default" },
-      text = "Ah. You. Come up, then, an' mind the step; it's high for yer folk, an' nobody's thought tae fix it." },
+      text = "Ah, it's you. Come up, then, an' mind the step; it's high for yer folk, an' nobody's thought tae fix it." },
     { id = "g_vote", when = { heardLine = "barin_redstone.gv_default", ["not"] = { race = "Gnome" } },
       text = "Ye'll remember what I told ye last time, an' ye'll remember tae keep it tae yerself. Now, what is it?" },
-    { id = "g_reports", when = { questActive = Q }, text = "Is that Senir Whitebeard's report? Hand it over, an' if there's a royal seal on it, I dinnae want tae hear about it." },
-    { id = "g_done", when = { questDone = Q }, text = "Ye brought Whitebeard's report up the proper way. That's more than I can say for his cousin." },
+    { id = "g_reports", when = { questActive = Q }, text = "Is that Senir Whitebeard's report? Hand it over, for it's the Senate that should be readin' it, no' the King's clerks." },
+    { id = "g_done", when = { questDone = Q }, text = "Ye brought Whitebeard's report up the proper way, through the Senate. That's more than I can say for his brother Grelin." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were ye? The Senate's sat eleven times since, an' got nothin' done in any o' them." },
   },
 
@@ -37,7 +37,7 @@ P:NPC {
     { id = "n_wild", cat = "wildhammer", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } },
       text = "Is that paint on yer arm? Wash it off before ye come up these steps again; this is the High Seat, no' an aerie." },
     { id = "n_warlock", cat = "fel", place = "before", when = { class = "WARLOCK" },
-      text = "A warlock. Thaurissan was a sorcerer as well, an' he burned half the Redridge Mountains wi' his tricks, so keep yer hands where I can see them." },
+      text = "A warlock. Thaurissan was a sorcerer as well, an' his summonin' burned the Searing Gorge tae glass, so keep yer hands where I can see them." },
   },
 
   start = "hello",
@@ -47,15 +47,15 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Barin Redstone, Senator o' Ironforge. The King rules, but the Senate keeps the mines diggin' an' the soldiers paid, an' somebody has tae read the reports an' say no now an' then." },
         { id = "h_gnome", when = { race = "Gnome" },
-          text = "A gnome in the High Seat. Yer tinkers have the run o' half the city these days, so I suppose I shouldnae be surprised tae find one on my steps as well." },
+          text = "A gnome in the High Seat. Yer tinkers have the run o' Tinker Town an' a fair stretch o' the Commons these days, so I suppose I shouldnae be surprised tae find one on my steps as well." },
         { id = "h_gnome_soft", when = { race = "Gnome", heardLine = "barin_redstone.gv_default" },
           text = "I've been thinkin' about what I told ye, gnome, an' I've no' enjoyed it. Ask what ye came tae ask." },
         { id = "h_wild", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } },
-          text = "Wildhammer blood, by the look o' ye. Yer kin left this mountain an' the High King's throne behind them, so ye'll forgive me if I dinnae roll out a carpet." },
+          text = "Wildhammer blood, by the look o' ye. Yer kin left this mountain an' the High King's throne behind them, so I'll no' be rollin' out a carpet." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A Bronzebeard, by the cut o' yer beard, an' welcome. There are few enough o' us left in the city who'll stand up an' say what this mountain's owed." },
         { id = "h_reports", tags = { "news" }, when = { questActive = Q },
-          text = "Senir Whitebeard's report, at last. His cousin Grelin went over the Senate's head wi' a letter carryin' the King's name, an' I've been waitin' for somebody tae send me the proper papers." },
+          text = "Senir Whitebeard's report, at last. His brother Grelin went over the Senate's head wi' a letter carryin' the King's name, an' I've been waitin' for somebody tae send me the proper papers." },
         { id = "h_reports_done", when = { questDone = Q },
           text = "Whitebeard's report is wi' the Senate now, an' they're arguin' about trolls instead o' tunnels, for once. I'll take my small mercies." },
       },
@@ -108,7 +108,7 @@ P:NPC {
       },
     },
     senate_stonehallow = {
-      lines = { { id = "ss_default", text = "Mehr does, out at Gol'Bolar wi' a hammer in his fist, an' the Senate laughs at him for it. I dinnae laugh. I think he's the only one o' us who's seen what comes up out o' the deep when ye dig too far." } },
+      lines = { { id = "ss_default", text = "Mehr Stonehallow does, out at Gol'Bolar wi' a hammer in his fist, an' the Senate laughs at him for it. I dinnae laugh, for I think he's the only one o' us who's seen what comes up out o' the deep when ye dig too far." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -118,7 +118,7 @@ P:NPC {
           fx = { learn = { "dark_iron", "thaurissan" } } },
       },
       choices = {
-        { text = "Why does it sit so close with you?", next = "darkiron_why" },
+        { text = "Why is it so personal for you?", next = "darkiron_why" },
         { text = "What about Princess Moira?", next = "darkiron_moira" },
         { text = "Something else.", next = "BACK" },
       },
@@ -147,8 +147,8 @@ P:NPC {
         { id = "dm_default", text = "Taken on the road through the Burning Steppes, wi' twenty o' our best around her. The King willnae say her name in the Senate, an' the Senate willnae say it in front o' him, an' meanwhile she's somewhere under that mountain in the hands o' Thaurissan's heir." },
       },
       choices = {
-        { text = "Ironforge should march on Blackrock.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Better to send someone quiet, not an army.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Ironforge should march on Blackrock.", next = "BACK", reply = "Aye, an' I've said it in the Senate a dozen times, but nobody wants tae be the one who marches the King's army past the King's silence.", fx = { align = { honor = 1 } } },
+        { text = "Better to send someone quiet, not an army.", next = "BACK", reply = "Quiet, aye, there's sense in that, an' fewer graves, but I'd want tae know who ye'd send, because Blackrock eats quiet folk for breakfast.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -189,7 +189,7 @@ P:NPC {
     gnomes_vote = {
       big = true,
       lines = {
-        { id = "gv_default", key = true, text = "No. When the troggs came up in Gnomeregan, Mekkatorque sent tae this Senate for the Reserve, an' we argued three days over the cost o' sendin' it. I argued longest. On the fourth day word came that he'd made his choice an' flooded the halls wi' poison, an' I've been blamin' the gnomes for it ever since, because the other way round is harder tae carry." },
+        { id = "gv_default", key = true, text = "No. When the troggs came up in Gnomeregan, Mekkatorque sent tae this Senate for the Ironforge Reserve, an' we argued three days over the cost o' sendin' it, an' I argued longest. On the fourth day word came that he'd flooded the halls wi' poison tae save what he could, an' I've been blamin' the gnomes for it ever since, because the other way round is harder tae carry." },
       },
       choices = {
         { text = "You couldn't have known what he'd do.", next = "gnomes_vote_after", fx = { affinity = 2 } },
@@ -209,7 +209,7 @@ P:NPC {
       choices = {
         { text = "The troggs came from the deep, same as at Gol'Bolar.", next = "xgnome_troggs" },
         { text = "We lost our home and half our people, Senator.", next = "xgnome_lost", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Then I'll make sure the debt's repaid, every copper.", next = "xgnome_lost", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Half our people are gone. Send your bill to them, Senator.", next = "xgnome_lost", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "There's more to it than that, isn't there?", tag = "Persuade", next = "gnomes_vote",
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = Q }, { origin = "gnome_gnomeregan_refugee" }, { origin = "gnome_ironforge_raised" } } } },
           fail = { next = "gnomes_fail", fx = { affinity = -1 } } },
@@ -220,7 +220,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xgnome_lost = {
-      lines = { { id = "xl_default", text = "Half yer people. Aye, I've seen the lists, an' I've no' forgotten them. That doesnae make the bill smaller, but I'll grant it makes the arguin' over it uglier." } },
+      lines = { { id = "xl_default", text = "Half yer people, aye. I've seen the lists, an' I've no' forgotten them. That doesnae make the bill smaller, but I'll grant it makes the arguin' over it uglier." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -238,8 +238,8 @@ P:NPC {
     wildhammer_war = {
       lines = { { id = "ww_default", text = "Aye, on their birds, overhead, where it's dry an' safe an' the view's very fine. I'll grant they hate orcs as much as I do, but that's no' the same thing as bein' kin." } },
       choices = {
-        { text = "Kin is kin, Senator. Bronzebeard or Wildhammer.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "They chose to leave. That has a cost.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Kin is kin, Senator. Bronzebeard or Wildhammer.", next = "BACK", reply = "Ye sound like Magni at a feast, an' he can afford tae be generous, but I've a long memory, an' the Wildhammer are still on my list.", fx = { align = { order = -1 } } },
+        { text = "They chose to leave. That has a cost.", next = "BACK", reply = "At last, somebody who understands, an' ye'll forgive me if I write that down, because I'll be quotin' ye in the Senate the next time it comes up.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

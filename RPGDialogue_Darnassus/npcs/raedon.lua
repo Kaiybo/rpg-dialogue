@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Raedon Duskstriker, quartermaster for the Alliance's cloth here in Darnassus. My people have endured a great deal since we left the old forests for Teldrassil, and now, on top of everything, we find ourselves in a dire shortage of cloth." },
+          text = "I am Raedon Duskstriker, quartermaster for the Alliance's cloth here in Darnassus. My people have endured the loss of Hyjal and the long years of rebuilding on Teldrassil, and now, on top of everything, we find ourselves in a dire shortage of cloth." },
         { id = "h_young", when = { maxLevel = 25 },
           text = "You're young for this work, friend, and I'd not ask much of you yet. When you've cloth to spare, though, bring it here, because every bundle counts." },
         { id = "h_rune", when = { minLevel = 50 },
@@ -80,8 +80,8 @@ P:NPC {
         { id = "sw_default", text = "The war comes first, the elders say, and I'm not one to argue with elders. But a Sentinel with no bandage is only half a Sentinel, and somebody has to count the bandages." },
       },
       choices = {
-        { text = "The bow matters more than the loom.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your work is as brave as theirs.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The bow matters more than the loom.", next = "BACK", reply = "Perhaps it does, friend, until the archer bleeds and there is nothing to bind the wound with. Then the loom matters very much indeed.", fx = { align = { order = 1 } } },
+        { text = "Your work is as brave as theirs.", next = "BACK", reply = "That is kinder than most say, and I will carry it with me to the next bale of linen. Brave is a big word for counting bandages, but I thank you for it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } },
       },
     },
@@ -111,8 +111,8 @@ P:NPC {
         { id = "wy_default", text = "Because you'll earn the gratitude of night elves everywhere, friend, and gratitude is a currency here, whatever the goblins think. And because someone in Ashenvale is cold tonight." },
       },
       choices = {
-        { text = "That's reason enough for me.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Gratitude won't pay for my repairs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's reason enough for me.", next = "BACK", reply = "Then Elune keep you, and keep whoever ends up wrapped in the cloth you bring. Ashenvale will be a little warmer for it.", fx = { align = { light = 1 } } },
+        { text = "Gratitude won't pay for my repairs.", next = "BACK", reply = "No, it won't, and I would never pretend otherwise to you. But a good name opens doors in Darnassus that gold never could, and those doors lead to better work.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,11 +130,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I count cloth, friend. It isn't glorious, but I've never had a Sentinel complain that her bedroll arrived." } },
     advice = { { id = "tp_ad", text = "Never sell your spare linen to a vendor for copper when someone might need a bandage. That's my whole philosophy, really." } },
-    sentinels = { { id = "tp_sentinels", text = "They ask for so little and get even less, so I do what I can from up here." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels ask for so little and get even less, so I do what I can from up here." } },
     thrall = { { id = "tp_thrall", text = "The Horde's warchief, and he keeps his armies supplied better than I'd like. I count our cloth and I worry about his." } },
     warsong = { { id = "tp_warsong", text = "The Warsong cut Ashenvale and the Sentinels hold the line, and every bale of cloth I send goes to that line. Most of it comes back as bandages." } },
     theramore = { { id = "tp_theramore", text = "Theramore requisitions cloth from us when their ships are late, and Lady Proudmoore always pays her debts. I like a quartermaster on the other end of the ledger who keeps her word." } },
     booty_bay = { { id = "tp_booty_bay", text = "A goblin port that sells to both sides and smiles at each. I've bought cloth there when I had to, and I counted it twice." } },
-    _none = { { id = "tp_none", text = "I only know cloth, friend, and I have had a long life to learn a great deal about it. Ask me about that." } },
+    _none = { { id = "tp_none", text = "I only know cloth, friend, and I have had centuries to learn its every weave. Ask me about that." } },
   },
 }

@@ -20,7 +20,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind the circle on the floor, if you please; it took me a fortnight to chalk, and I'd rather not start again because someone came in with muddy boots." },
+    { id = "g_default", text = "Mind the circle on the floor, if you please; it took me a fortnight to chalk, and I'm not starting again because someone came in with muddy boots." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you've come back. Sit, if you can find a chair under the books, and tell me what brings you up the stairs this time." },
     { id = "g_quest", when = { questActive = Q }, text = "You've not gone north yet? Skuerto is a patient dwarf, which is to say he is not patient at all, and he'll be waiting at Refuge Pointe." },
     { id = "g_tower", when = { questDone = TOWER }, text = "There you are. Kryten wrote to me about the tower, and about you, and I'll admit I read that part of the letter twice." },
@@ -44,7 +44,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Archmage Malin, of the Wizard's Sanctum. I teach a little, write a great deal, and spend more of my evenings than I'd like worrying about the Arathi Highlands." },
+        { id = "h_default", key = true, text = "Archmage Malin, of the Wizard's Sanctum. I teach a little, write far too much, and spend more of my evenings than I'd like worrying about the Arathi Highlands." },
         { id = "h_before", key = true, tags = { "news" }, when = { questBefore = Q, minLevel = 28 },
           text = "You look like someone who has been north and lived to complain of it. I have a matter in the Arathi Highlands, if you'll hear it, and it concerns my old master's tower." },
         { id = "h_active", tags = { "news" }, when = { questActive = Q },
@@ -52,7 +52,7 @@ P:NPC {
         { id = "h_recent", tags = { "news" }, when = { questRecent = { Q, days = 3 } },
           text = "So Skuerto has you running errands already? Good. He'll be rude about it, but he only wastes his rudeness on people he expects to see again." },
         { id = "h_wand", tags = { "news" }, when = { questDone = WAND },
-          text = "I've heard Kor'gresh no longer has my master's wand, and that he had some trouble letting go of it. I won't ask how hard you had to pull." },
+          text = "I've heard the ogre Kor'gresh no longer has my master's wand, and that he had some trouble letting go of it. I won't ask how hard you had to pull." },
         { id = "h_tower", tags = { "news" }, when = { questDone = TOWER },
           text = "The phylactery, the orb and the ember agate are on their way south, Kryten says, and the Boulderfist are short a few shamans. I've waited a long while to hear that, and I thank you for it." },
         { id = "h_dwarf", when = { race = "Dwarf" },
@@ -108,11 +108,11 @@ P:NPC {
     },
     trelane_shaped = {
       lines = {
-        { id = "ts_default", text = "More than I'd admit to anyone but a stranger, which you are, so there it is. Half the rules I give my own apprentices are his, and the other half are ones I made because he never had to deal with Kryten." },
+        { id = "ts_default", text = "More than I'd admit to anyone but a stranger, which you are, so there it is. Most of the rules I give my own apprentices are his, and the rest I made because he never had to deal with Kryten." },
       },
       choices = {
-        { text = "Then honour him by doing what he would have.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Make your own rules. He's gone, and you're not him.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then honour him by doing what he would have.", next = "BACK", reply = "That's what I try to do every day, though Trelane would have found fault with how I do it. He found fault with everything, which is why he was so good.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Make your own rules. He's gone, and you're not him.", next = "BACK", reply = "Bold advice from a stranger, and not entirely wrong. Still, a mage who throws out every rule his master gave him usually finds out why they were given.", fx = { align = { order = -1 } } },
         { text = "What would he think of Kryten?", next = "pair_kryten" },
       },
     },
@@ -172,7 +172,7 @@ P:NPC {
     },
     arathi_ask = {
       lines = {
-        { id = "aa_default", text = "Not since I was a young man, and I'd rather remember the Highlands green than see them as they are now. You've been, though, haven't you? Tell me, does anyone still hold Stromgarde's walls?" },
+        { id = "aa_default", text = "Not since I was a young man, and I prefer to remember the Highlands green rather than see them as they are now. You've been, though, haven't you? Tell me, does anyone still hold Stromgarde's walls?" },
       },
       choices = {
         { text = "The Syndicate and the ogres hold most of it now.", next = "arathi_answer", when = { minLevel = 30 } },
@@ -193,8 +193,8 @@ P:NPC {
         { id = "as_default", text = "Because I'm sixty years old and my knees have opinions, and because an archmage walking into Boulderfist Hall would be a feast for them and a funeral for me. I'm better use here, writing letters and reading what comes back." },
       },
       choices = {
-        { text = "Sending others to bleed for you is a coward's bargain.", next = "BACK", fx = { affinity = -2, align = { honor = 1 } } },
-        { text = "That's sense. Let those who can fight do it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Sending others to bleed for you is a coward's bargain.", next = "BACK", reply = "Coward is a strong word to use in a Sanctum full of people who throw fire for a living. I send them because they'll come back, and I wouldn't.", fx = { affinity = -2, align = { honor = 1 } } },
+        { text = "That's sense. Let those who can fight do it.", next = "BACK", reply = "Thank you. My apprentices think I'm only being lazy, and they're half right, but the other half is arithmetic.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -216,8 +216,8 @@ P:NPC {
       },
       choices = {
         { text = "He's lucky to have a master who worries.", next = "BACK", fx = { affinity = 1 } },
-        { text = "You're testing him. That's fair.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "That's no place for a boy, Malin.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're testing him. That's fair.", next = "BACK", reply = "I am, and he knows it, which is half the test. If he can keep his wits in the Arathi hills, he'll keep them anywhere.", fx = { align = { light = -1 } } },
+        { text = "That's no place for a boy, Malin.", next = "BACK", reply = "It's exactly the place for a boy who wants to be a man someday, and I was younger when Trelane sent me further. I'll worry, but I'll not call him back.", fx = { align = { light = 1 } } },
       },
     },
     pair_skuerto = {
@@ -245,7 +245,7 @@ P:NPC {
     },
     stromgarde_syndicate = {
       lines = {
-        { id = "sy_default", text = "Alterac's nobles and their hired knives, who lost everything when Perenolde betrayed the Alliance and decided the rest of us owed them. They'll sell anything Trelane left to anyone who pays, which is why I'd rather have it first." },
+        { id = "sy_default", text = "Alterac's nobles and their hired knives, who lost everything when Perenolde betrayed the Alliance and decided the rest of us owed them. They'll sell anything Trelane left to anyone who pays, so I mean to have it first." },
       },
       choices = {
         { text = "Then we beat them to it.", next = "BACK", fx = { affinity = 1 } },
@@ -257,8 +257,8 @@ P:NPC {
         { id = "sh_default", text = "Perhaps, if Stormwind hadn't been rebuilding itself from the ash at the time, and if anyone at court had cared to look north. I've said as much to the House of Nobles, and they thanked me politely and moved on to the price of grain." },
       },
       choices = {
-        { text = "Stormwind should look after its own first.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The Alliance left Stromgarde to die. That's shameful.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Stormwind should look after its own first.", next = "BACK", reply = "That's what the court said, and look where it got Stromgarde. I'll not argue with you, but I'll remember you said it.", fx = { align = { order = 1 } } },
+        { text = "The Alliance left Stromgarde to die. That's shameful.", next = "BACK", reply = "It is, and I've said so to faces that didn't want to hear it. Trelane gave his life for that city, and Stormwind sent a letter.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -279,8 +279,8 @@ P:NPC {
         { id = "db_default", text = "For the city falling? No, for Archimonde came on them like a flood, and nobody could have held against that. For keeping the doors shut afterwards, I blame them a little, though I understand it; a man who's been burned once keeps his hands from the fire." },
       },
       choices = {
-        { text = "They should open their doors to every mage.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Caution is right. Their secrets nearly ended the world.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They should open their doors to every mage.", next = "BACK", reply = "Every mage? You've not met some of the ones I've taught, then. Still, a locked library helps nobody, and Dalaran's has been locked too long.", fx = { align = { order = -1 } } },
+        { text = "Caution is right. Their secrets nearly ended the world.", next = "BACK", reply = "They did, and there's a reason I don't sign every petition to open the vaults. Caution I can respect, though I'd like it to answer its letters.", fx = { align = { order = 1 } } },
       },
     },
     dalaran_back = {
@@ -308,8 +308,8 @@ P:NPC {
         { id = "ql_default", text = "Everyone knows, and nobody says, and the city finds the arrangement convenient. I think warlocks are mages who stopped asking questions, and I'd sooner they did their asking somewhere other than three doors from my window." },
       },
       choices = {
-        { text = "Then they should be driven out.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power is power. You use what works.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Then they should be driven out.", next = "BACK", reply = "Easier said than done, and the city has tried it before. Still, I'll not lose sleep if somebody else finally manages it.", fx = { align = { light = 1 } } },
+        { text = "Power is power. You use what works.", next = "BACK", reply = "That's exactly what every warlock I've known told me, a few years before it stopped working. Mind yourself.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -329,8 +329,8 @@ P:NPC {
         { id = "xa_default", text = "Then I've probably shouted at you on the stairs at some point, and I apologise for it now in case I did. Did they teach you the old Dalaran forms, or the quick Stormwind ones?" },
       },
       choices = {
-        { text = "The old forms. Slow, but they hold.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The quick ones. The world won't wait for slow casting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The old forms. Slow, but they hold.", next = "BACK", reply = "Good. They'll save your life when the quick ones fail, and they always fail at the worst possible moment.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The quick ones. The world won't wait for slow casting.", next = "BACK", reply = "The world doesn't wait, no, but it does bury those who rush. Learn the old forms anyway, if only so you know what you're skipping.", fx = { align = { order = -1 } } },
       },
     },
     xstray = {
@@ -338,8 +338,8 @@ P:NPC {
         { id = "xs_default", text = "Then you saw what I only read about, and I'll not ask you to tell it. If the Citadel ever opens its doors again, I hope you're first through them, and if it doesn't, there's a chair here." },
       },
       choices = {
-        { text = "I'll go back. Dalaran was home.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I won't. Dalaran shut me out; I'll build elsewhere.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll go back. Dalaran was home.", next = "BACK", reply = "I hope you do, and I hope they deserve you when you get there. Dalaran was home to a great many of us once.", fx = { align = { honor = 1 } } },
+        { text = "I won't. Dalaran shut me out; I'll build elsewhere.", next = "BACK", reply = "I can't blame you for that, though it grieves me. Build well, then, and build somewhere they'll be glad of you.", fx = { align = { honor = -1 } } },
       },
     },
     xsellsword = {
@@ -374,8 +374,8 @@ P:NPC {
         { id = "xl_default", text = "I don't trust what you bargain with, which isn't quite the same thing. You may be a perfectly decent sort, {class}, but every warlock I've known believed that right up to the end." },
       },
       choices = {
-        { text = "I hold the leash, not the demon.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "You're right to be wary. I watch myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I hold the leash, not the demon.", next = "BACK", reply = "Every warlock says so, and every one of them was right until the day he wasn't. I'll take you at your word, for now.", fx = { align = { light = -1 } } },
+        { text = "You're right to be wary. I watch myself.", next = "BACK", reply = "That's the first sensible thing a warlock has said to me in this Sanctum. Keep watching, {class}, and I'll keep watching you.", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
   },

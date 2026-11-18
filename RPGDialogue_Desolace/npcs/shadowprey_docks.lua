@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "You be lookin' at the sea, mon? Don't. It looks back." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Other Fish to Fry") }, text = "The Slitherblade still be breathin'. Go fry dem, {class}, myrmidons, sorceresses, all of dem." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Other Fish to Fry") }, text = "The Slitherblade still be breathin'. Go fry dem, {class}, de myrmidons and de sorceresses and all de rest." },
     { id = "g_done", when = { questDone = TODO_QUEST("Other Fish to Fry") }, text = "You fried dem good, mon. Me crew be restin' a little easier, I think, though I don't sleep no better." },
     { id = "g_away", when = { away = 14 }, text = "You been gone {away}, and de naga been busy. Dey always be busy." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Night be when dey came, mon, in de grey before mornin'. I don't sleep at night no more, so sit, if you want." },
@@ -36,11 +36,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Drulzegar Skraghook. Maybe you heard, maybe you didn't: me crew and me were out fishin' near Ranazjar Isle, north of de wrecked ship up de coast, where we fished every season. De naga came out of de water one mornin' and killed every one of dem but me." },
+          text = "I be Drulzegar Skraghook. Maybe you heard, maybe you didn't: me crew and me were out fishin' near Ranazjar Isle, north of de wrecked ship up de coast, where we fished every season. De naga came out of de water one mornin' and killed every one of dem but me." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Other Fish to Fry") },
           text = "Me conscience can't carry it, {class}. I need you to go and fry dem naga for me, de myrmidons and de sorceresses and de rest, and I'll make it worth your while." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Other Fish to Fry") },
-          text = "Seven of de naga, seven of de myrmidons, five of de sorceresses, and don't let de sorceresses talk to you, because dey talk sweet before dey bite." },
+          text = "I want seven of de Slitherblade naga, seven of de myrmidons and five of de sorceresses, and don't let de sorceresses talk to you, because dey talk sweet before dey bite." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Other Fish to Fry"), days = 3 } },
           text = "Nineteen of dem gone, mon, and me hands still shake. I thought it would feel like somethin', and it does, but not de thing I wanted." },
       },
@@ -61,7 +61,7 @@ P:NPC {
 
     morning = {
       lines = {
-        { id = "mo_default", text = "Fog on de water, nets out, Zul'tek singin' like always to bring de fish. Den de singin' stopped, and de water came up over de side full of scales and spears, and I was in de sea before I knew it, and I swam." },
+        { id = "mo_default", text = "It was foggy on de water, mon, and de nets were out, and Zul'tek was singin' like always to bring de fish. Den de singin' stopped, and de water came up over de side full of scales and spears, and I was in de sea before I knew it, and I swam." },
       },
       choices = {
         { text = "You swam away?", next = "morning_swam" },
@@ -83,8 +83,8 @@ P:NPC {
         { id = "mj_default", text = "Maybe, but anyone wasn't de one who lived. A Darkspear be supposed to stand by his crew, and I didn't, and now I pay strangers to do de standin' for me." },
       },
       choices = {
-        { text = "Living isn't a crime. You survived to remember them.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Then stand now. Take up a spear yourself.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Living isn't a crime. You survived to remember them.", next = "BACK", reply = "Ya, maybe, mon, and I tell myself dat every mornin', but it don't stop me hearin' dem in de waves.", fx = { align = { honor = -1 } } },
+        { text = "Then stand now. Take up a spear yourself.", next = "BACK", reply = "You think I haven't tried, mon? Every time I pick one up, me hands shake like de boat did dat night.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -133,8 +133,8 @@ P:NPC {
         { id = "he_default", text = "I've paid a lot of strangers to kill a lot of naga, mon, and some of dem never came back, and it never be enough. But I don't know what else to do with me hands, now dat dey don't hold nets no more." },
       },
       choices = {
-        { text = "Vengeance is owed. Every naga pays.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "This won't heal you. Mourn them instead.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Vengeance is owed. Every naga pays.", next = "BACK", reply = "Ya, mon, every one, and I'll keep payin' till de sea runs out of dem or I run out of coin.", fx = { align = { light = -1 } } },
+        { text = "This won't heal you. Mourn them instead.", next = "BACK", reply = "Mourn dem? Mon, I been mournin' for a year, and it don't make de naga any fewer.", fx = { align = { light = 1 } } },
         { text = "The naga I killed. Did it help at all?", next = "after", when = { questDone = TODO_QUEST("Other Fish to Fry") } },
         { text = "Something else.", next = "BACK" },
       },
@@ -172,7 +172,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Fisherman, once. Now I be a troll who pays for naga heads." } },
+    background = { { id = "tp_bg", text = "I was a fisherman, once. Now I be a troll who pays for naga heads." } },
     advice = { { id = "tp_ad", text = "Never turn your back on de water, mon. Never." } },
     _none = { { id = "tp_none", text = "I don't know, mon, and I don't care much, unless it be about naga." } },
   },
@@ -241,8 +241,8 @@ P:NPC {
         { id = "ta_default", text = "Mostly. The trolls think we're slow, and we think they're reckless, and both of us are a little right. But when the naga came up the beach last spring, nobody asked who was tauren and who was troll." },
       },
       choices = {
-        { text = "That's what the Horde should be.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every people should keep to its own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's what the Horde should be.", next = "BACK", reply = "I think so too, and I wish more of the Horde would come to Shadowprey and see it for themselves.", fx = { align = { order = 1 } } },
+        { text = "Every people should keep to its own.", next = "BACK", reply = "Perhaps, but the naga did not keep to their own, and I would rather have a troll beside me than no one.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -253,7 +253,7 @@ P:NPC {
         { id = "ne_cleared", when = { cleared = "Maraudon" }, text = "The talk is all about Maraudon, friend, and someone who went to the bottom and came back. The trolls say the earth's been sleeping easier since, and I've noticed the cups don't rattle on the shelves anymore." },
       },
       choices = {
-        { text = "The cups used to rattle?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I'll keep my ears open on the coast.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -269,7 +269,7 @@ P:NPC {
     },
     people = {
       lines = {
-        { id = "pe_default", text = "Taiga Wisemane if you want to fight demons, Vark upstairs if you want to fight a satyr, and Roon if you want to hear about his hunting friend for the hundredth time. Drulzegar on the dock pays for naga, but be gentle with him, because the sea took his whole crew." },
+        { id = "pe_default", text = "Taiga Wisemane if you want to fight demons, Vark Battlescar upstairs if you want to fight a satyr, and Roon if you want to hear about his hunting friend for the hundredth time. Drulzegar on the dock pays for naga, but be gentle with him, because the sea took his whole crew." },
       },
       choices = {
         { text = "Thank you, Sikewa.", next = "BACK", fx = { affinity = 1 } },
@@ -343,8 +343,8 @@ P:NPC {
         { id = "dn_default", text = "Once a naga came up out of the water under the dock at night, and the riders woke the whole village. Some of the trolls want me to move the riders inland where they're safe, and I say a rider that's afraid of the sea is no use on this coast." },
       },
       choices = {
-        { text = "Move them inland. Safety first.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Keep them on the dock. Fear can't rule you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Move them inland. Safety first.", next = "BACK", reply = "Perhaps you are right, and the trolls would thank you, but the riders would miss the sea wind.", fx = { align = { honor = -1 } } },
+        { text = "Keep them on the dock. Fear can't rule you.", next = "BACK", reply = "That is what I tell myself, and the riders seem to agree, because they sleep soundly on the dock now.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -360,7 +360,7 @@ P:NPC {
     },
     see_names = {
       lines = {
-        { id = "sn_default", text = "Each one, though I don't tell travellers the names, because they'd only shout them in the air and confuse the poor beasts. The oldest is called Grey Wind, and that one I'll tell you, since she won't answer to it anyway." },
+        { id = "sn_default", text = "I name each one, though I don't tell travellers the names, because they'd only shout them in the air and confuse the poor beasts. The oldest is called Grey Wind, and that one I'll tell you, since she won't answer to it anyway." },
       },
       choices = {
         { text = "Grey Wind. I'll remember.", next = "BACK", fx = { affinity = 1 } },

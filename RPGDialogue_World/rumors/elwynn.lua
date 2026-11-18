@@ -13,7 +13,7 @@ P:Rumors {
     { id = "jasperlode", when = { questBefore = TODO_QUEST("The Jasperlode Mine") },
       text = "Miners won't go near Jasperlode anymore. Kobolds, they say, and worse noises further down." },
     { id = "river_body", when = { questDone = TODO_QUEST("Find the Lost Guards") },
-      text = "They found one of Guard Thomas's men by the river, or what was left of him, and Remy's been unbearable since." },
+      text = "They found one of Guard Thomas's men by the river, or what was left of him, and Remy's telling everyone he warned them about the murlocs." },
     { id = "vineyard_cleared", when = { questRecent = { TODO_QUEST("Brotherhood of Thieves"), days = 7 } },
       text = "Word from the Abbey is that some new recruit cleared the vineyard of red bandanas, and Milly's sending wine in thanks. Might be you, by the look of your boots." },
     { id = "collector", when = { questDone = TODO_QUEST("Manhunt") },

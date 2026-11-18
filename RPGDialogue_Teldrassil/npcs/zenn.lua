@@ -27,7 +27,7 @@ P:NPC {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid! Don't sniff at me like that, because I've bathed this very month." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "Well now, there's a smell I know. Your little friend and I would have a great deal to talk about, I think." },
+      text = "Well now, there's a smell I know. Your little friend and I would have plenty to talk about, I think." },
     { id = "n_green", cat = "greenness", when = { maxLevel = 5 },
       text = "So young, and so far from the Sentinels' skirts! Nobody's told you about satyrs yet, have they? Good." },
   },
@@ -80,8 +80,8 @@ P:NPC {
       },
       choices = {
         { text = "Who are these folk who can't ask the priestesses?", next = "business_who" },
-        { text = "Those creatures belong to the forest. I won't kill for your trinkets.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A fang's a fang. If you pay, I'll fetch.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Those creatures belong to the forest. I won't kill for your trinkets.", next = "BACK", reply = "Oh, a principled one, how refreshing, and how very dull. Run along, little one, and let the priestesses pat your head for it.", fx = { align = { light = 1 } } },
+        { text = "A fang's a fang. If you pay, I'll fetch.", next = "BACK", reply = "Now there is a sensible young thing, and a credit to Dolanaar. Bring me the fangs and the feathers, and we shall be the best of friends.", fx = { align = { light = -1 } } },
       },
     },
     business_who = {
@@ -108,14 +108,14 @@ P:NPC {
         { id = "co_default", text = "Let? Nobody lets a satyr do anything, little one. The Council of the Forest finds me tiresome rather than dangerous, and I work very hard to keep it that way." },
       },
       choices = {
-        { text = "Tiresome? You're a satyr. You should be driven out.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If you've done no harm, they've no right to chase you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Tiresome? You're a satyr. You should be driven out.", next = "BACK", reply = "Driven out, by whom, little one, you? I have been driven out by better kaldorei than you, and here I am, still smiling.", fx = { align = { order = 1 } } },
+        { text = "If you've done no harm, they've no right to chase you.", next = "BACK", reply = "At last, someone in this forest with a sense of fairness! I knew I liked you the moment you wandered in.", fx = { align = { order = -1 } } },
         { text = "The Council must wonder what you're up to.", next = "council_think" },
       },
     },
     council_think = {
       lines = {
-        { id = "ct_default", text = "Trading in nonsense, which suits me nicely. Syral Bladeleaf passes their orders round Dolanaar, and if she ever learns what I really do, I suppose I'll find out how patient they are." },
+        { id = "ct_default", text = "Trading in nonsense, which suits me nicely. Syral Bladeleaf passes their orders round Dolanaar, and if he ever learns what I really do, I suppose I'll find out how patient they are." },
       },
       choices = {
         { text = "I could tell Syral myself.", next = "council_tell" },
@@ -124,7 +124,7 @@ P:NPC {
     },
     council_tell = {
       lines = {
-        { id = "cl_default", text = "You could, and she'd thank you, and then she'd ask why you know so much about my business. That's how I keep friends in this forest, little one: I make sure they have something to lose." },
+        { id = "cl_default", text = "You could, and he'd thank you, and then he'd ask why you know so much about my business. That's how I keep friends in this forest, little one: I make sure they have something to lose." },
       },
       choices = {
         { text = "That sounds like a threat.", next = "BACK", fx = { trait = { brave = 1 } } },
@@ -138,8 +138,8 @@ P:NPC {
         { id = "sa_default", text = "Ten thousand years ago the Highborne chose power, and some of us were given horns and hooves for our trouble. Your priestesses call it a curse, though I've always thought it a very honest shape." },
       },
       choices = {
-        { text = "Honest? You traded your people for demons.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power's power. I can't blame you for taking it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Honest? You traded your people for demons.", next = "BACK", reply = "Traded? I was promoted, little one, though I grant the uniform has its drawbacks. Your Highborne grandmothers made the same bargain and simply kept their feet.", fx = { align = { light = 1 } } },
+        { text = "Power's power. I can't blame you for taking it.", next = "BACK", reply = "There, you see, you understand the world better than the priestesses do. Power never asks what shape you are when it comes knocking.", fx = { align = { light = -1 } } },
         { text = "Do you remember who you were?", next = "satyrs_before" },
       },
     },
@@ -159,8 +159,8 @@ P:NPC {
         { id = "ki_default", text = "One of you? I was something far grander than a young kaldorei hunting owls for Dolanaar. But yes, we shared a cradle once, your people and mine, and look how differently we turned out." },
       },
       choices = {
-        { text = "You chose that shape. I choose mine.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Our elders made mistakes too. Everyone knows it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You chose that shape. I choose mine.", next = "BACK", reply = "And a fine shape it is, for now, little one. Come and see me again in a few thousand years and we shall compare.", fx = { align = { order = 1 } } },
+        { text = "Our elders made mistakes too. Everyone knows it.", next = "BACK", reply = "Mistakes, yes, and some of us wear ours on our heads. How kind of you to notice the family resemblance.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -178,8 +178,8 @@ P:NPC {
         { id = "lz_default", text = "Enough to know you'll be lonely in Darnassus, and that the kaldorei will smile at you the way they smile at me. Come and talk to Zenn when it gets too quiet, because I never mind your sort." },
       },
       choices = {
-        { text = "I'm nothing like you, satyr.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Perhaps we do have something in common.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'm nothing like you, satyr.", next = "BACK", reply = "Of course you're not, little one, and the kaldorei will believe that right up until they see what walks behind you. I will be here when they stop smiling.", fx = { align = { light = 1 } } },
+        { text = "Perhaps we do have something in common.", next = "BACK", reply = "More than you'd like to admit, I suspect. Come and visit old Zenn when Darnassus grows cold, and it will.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -190,8 +190,8 @@ P:NPC {
           text = "Oh, they know, and now I know you'd poison a friend for their good opinion. I've learned something about you, and I never forget a lesson." },
       },
       choices = {
-        { text = "You were never my friend, Zenn.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "It wasn't personal. The Council asked.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You were never my friend, Zenn.", next = "BACK", reply = "Perhaps not, little one, but I was useful, which is better than most friends manage. Off you go, then, with my blessing and my best wishes for your conscience.", fx = { align = { honor = 1 } } },
+        { text = "It wasn't personal. The Council asked.", next = "BACK", reply = "Of course it wasn't, nothing ever is with the Council. Go and tell them Zenn bears no grudge, and watch them wonder why.", fx = { align = { honor = -1 } } },
         { text = "I'll be going.", next = "END" },
       },
     },

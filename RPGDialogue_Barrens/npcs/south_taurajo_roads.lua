@@ -62,8 +62,8 @@ P:NPC {
       big = true,
       lines = { { id = "gu_default", text = "I left him there, yes, and I tell myself it was the right call, because moving him would have killed him. Some nights I believe it, and some nights I lie awake and count the steps back to that camp." } },
       choices = {
-        { text = "You did what had to be done. Let it rest.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "A grunt doesn't leave his own behind. Ever.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You did what had to be done. Let it rest.", next = "BACK", reply = "Easy for you to say, and maybe I'll learn to say it myself one day. Until then I'll keep counting those steps, because somebody ought to remember the one I left.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A grunt doesn't leave his own behind. Ever.", next = "BACK", reply = "Don't you think I know that, grunt? I've told myself the same every night since, and it cuts just as deep coming from you.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -132,14 +132,14 @@ P:NPC {
       },
     },
     zankaja = {
-      lines = { { id = "za_default", text = "Zankaja, on her bluff, watching the wind riders, I know she is. She's young and beautiful and she deserves better than what's left of me, and I've been lying here working out how to tell her that." } },
+      lines = { { id = "za_default", text = "I know she is, up on the bluff in Orgrimmar watching the wind riders come in. She's young and beautiful and she deserves better than what's left of me, and I've been lying here working out how to tell her that." } },
       choices = {
         { text = "She gave you a pendant, didn't she?", next = "pendant" },
         { text = "Something else.", next = "BACK" },
       },
     },
     pendant = {
-      lines = { { id = "pe_default", text = "Under my armour, where nobody could see it, and the quilboar never found it, since they only took what shone. It's dirty now, caked in Barrens mud, but it's the only thing I've got left that's hers." } },
+      lines = { { id = "pe_default", text = "She did, and I wore it under my armour where nobody could see it, so the quilboar never found it; they only took what shone. It's dirty now, caked in Barrens mud, but it's the only thing I've got left that's hers." } },
       choices = { { text = "Something else, Dogran.", next = "BACK" } },
     },
     raid = {
@@ -154,15 +154,15 @@ P:NPC {
       big = true,
       lines = { { id = "ch_default", text = "Zankaja won't spend her life feeding a cripple, not if I can help it, so I'll find one last fight and die in it standing. Take the pendant, and don't tell her any of this, because I won't have her carrying the guilt." } },
       choices = {
-        { text = "Live, Dogran. Let her decide what she can bear.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "A warrior's death is your right. I'll honour it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Live, Dogran. Let her decide what she can bear.", next = "BACK", reply = "She'd decide to keep me, that's the trouble, and she'd wear herself down to bone doing it. Still, you speak like someone who's lost people, and I'll think on what you've said.", fx = { align = { honor = -1 } } },
+        { text = "A warrior's death is your right. I'll honour it.", next = "BACK", reply = "Thank you, {class}, because that's more than most would give a broken grunt. Carry that pendant to her, and let her remember me as I was before this camp.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Grunt in Orgrimmar, promoted to the Crossroads, sent on to Taurajo, and now this. It was a short climb and a long fall." } },
+    background = { { id = "tp_bg", text = "I was a grunt in Orgrimmar, then promoted to the Crossroads and sent on to Taurajo, and now this. It was a short climb and a long fall." } },
     advice = { { id = "tp_ad", text = "Count them twice before you charge, brother. I counted once." } },
     _none = { { id = "tp_none", text = "I don't know, and I've other things on my mind just now." } },
   },
@@ -188,7 +188,7 @@ P:NPC {
 
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf. Are you one of Khazgorm's, come to tell me again how much silver lies under my ancestors' bones?" },
+      text = "A dwarf. Are you one of Prospector Khazgorm's diggers, come to tell me again how much silver lies under my ancestors' bones?" },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of the people, walking these roads. Then you'll hear the blasting the way I hear it, in your chest." },
   },
@@ -201,7 +201,7 @@ P:NPC {
         { id = "h_before", when = { faction = "Horde", questBefore = TODO_QUEST("Gann's Reclamation") },
           text = "I tried words, and words failed, so now I mean to act. Drive the dwarves out of the Bael Modan dig by force, and bring me their prospector's journal, so I can learn what they want with my land." },
         { id = "h_revenge", when = { questDone = TODO_QUEST("Gann's Reclamation") },
-          text = "Khazgorm met the fate he earned, and I feel no remorse for the fool. His journal tells me exactly how they blast the ground apart, and I mean to give them a taste of their own medicine." },
+          text = "Prospector Khazgorm met the fate he earned, and I feel no remorse for the fool. His journal tells me exactly how they blast the ground apart, and I mean to give them a taste of their own medicine." },
         { id = "h_done", when = { questDone = TODO_QUEST("Revenge of Gann") },
           text = "The flying machine is burning wreckage, and the dwarves will know this land has defenders. May you be honoured in Thunder Bluff as a champion of a lost tribe." },
       },
@@ -232,8 +232,8 @@ P:NPC {
       big = true,
       lines = { { id = "ta_default", text = "I walked into their camp with my hands open and asked them to leave the burial hills alone, and their prospector laughed and offered to sell me a map of my own land. That was the last time I walked in with my hands open." } },
       choices = {
-        { text = "Then they've earned what comes. Drive them out.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Try once more, with the Horde behind you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then they've earned what comes. Drive them out.", next = "BACK", reply = "They have, and the spirits of my ancestors will not rest until the hills are quiet again. Walk with me in this, and the Venture Company will learn what the Earth Mother's anger looks like.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Try once more, with the Horde behind you.", next = "BACK", reply = "The Horde stands behind me already, and the goblins still laughed. I respect a peaceful heart, young one, but some ground has been walked over too many times to forgive.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -243,10 +243,10 @@ P:NPC {
     },
     blast = {
       big = true,
-      lines = { { id = "bl_default", text = "Nitroglycerin, wood pulp and sodium nitrate, according to their own plans, and their soldiers carry all of it. The flying machine is the heart of that place and an insult to the memory of my tribe, and I want it burning." } },
+      lines = { { id = "bl_default", text = "I would. Their own plans call for nitroglycerin, wood pulp and sodium nitrate, and their soldiers carry all of it. The flying machine is the heart of that place and an insult to the memory of my tribe, and I want it burning." } },
       choices = {
-        { text = "Fire for fire. They started it.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Burn the machine, but spare the diggers if we can.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fire for fire. They started it.", next = "BACK", reply = "They did, with dynamite on sacred ground, and the earth has not forgotten. Bring fire to their machine, and let the smoke carry my tribe's memory to the sky.", fx = { align = { honor = -1 } } },
+        { text = "Burn the machine, but spare the diggers if we can.", next = "BACK", reply = "You have a gentle spirit, and the Earth Mother loves those who spare where they can. Burn the machine, then, and let the diggers run home and tell their masters what they saw.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

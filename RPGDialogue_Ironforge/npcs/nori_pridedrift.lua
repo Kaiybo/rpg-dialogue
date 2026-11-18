@@ -15,11 +15,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_brew", text = "Mind the pot, it's scalding! That's the whole point of it, mind." },
+    { id = "g_brew", text = "Mind the pot, it's scaldin'! That's the whole point o' mornbrew, mind." },
     { id = "g_back", when = { metBefore = true }, text = "There ye are! I don't suppose ye've seen a stray mug lyin' about, have ye?" },
     { id = "g_run", when = { questActive = TODO_QUEST("Scalding Mornbrew Delivery") }, text = "Why are ye still standin' here? It's goin' cold, run!" },
     { id = "g_mug", when = { questActive = TODO_QUEST("Bring Back the Mug") }, text = "Ye've got my mug? Oh, bless ye, I'm down tae three." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' I've lost two mugs in that time. I'm not sayin' it's connected, but I'm not sayin' it isn't." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' I've lost two mugs in that time. I'm no' sayin' it's yer doin', but I'm no' sayin' it isn't." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye ran my brew tae Durnan when ye were green as a sprout, an' now look at ye. I'd let ye carry the whole pot." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Folk over their mornbrew have been sayin' kind things about ye. That's the best place fer news, over a hot cup." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "They tell me ye told somebody a tale that didn't hold. Just don't tell me ye returned a mug when ye didn't." },
@@ -38,7 +38,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Nori Pridedrift, an' this is Scalding Mornbrew, the finest thing tae happen tae a cold mornin' since fire. Everyone in the valley drinks it, an' everyone in the valley wants it now." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Scalding Mornbrew Delivery") },
-          text = "Gah, I was meant tae have this cup tae Durnan Furcutter in Anvilmar ages ago, but Grelin wanted his first. Ye look fast; d'ye think ye could get it there before it cools?" },
+          text = "Gah, I was meant tae have this cup tae Durnan Furcutter in Anvilmar ages ago, but Grelin up by the troll caves wanted his first. Ye look fast; d'ye think ye could get it there before it cools?" },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Scalding Mornbrew Delivery") },
           text = "Anvilmar's northeast, dug intae the mountain, an' Durnan's inside. Don't stop tae fight anythin', for Durnan didn't order it chilly." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bring Back the Mug"), days = 3 } },
@@ -80,8 +80,8 @@ P:NPC {
       lines = { { id = "br_default", text = "A rival? Me? I sell a few cups in a cold valley, an' they've a whole distillery. But I'll admit I'd love tae see a mornbrew stall in Kharanos one day, right next tae their door." },
       },
       choices = {
-        { text = "Go for it. A good brew earns its place anywhere.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Mind your own valley, Nori, because Kharanos is their ground.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Go for it. A good brew earns its place anywhere.", next = "BACK", reply = "Och, ye're kind tae say it, an' maybe one day I will, if I can ever get the mornin' brew tae Coldridge before it's cold, never mind Kharanos.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Mind your own valley, Nori, because Kharanos is their ground.", next = "BACK", reply = "Aye, aye, ye're right, an' the Thunderbrews would have my mugs in the snow by noon, but a dwarf can dream o' a wee stall while he's pourin'.", fx = { align = { order = 1 } } },
         { text = "Something else, Nori.", next = "BACK" },
       },
     },
@@ -99,7 +99,7 @@ P:NPC {
       choices = { { text = "Something else, then.", next = "BACK" } },
     },
     customers = {
-      lines = { { id = "c_default", text = "Durnan in Anvilmar, every mornin' without fail, an' Grelin out by the troll caves, for he says it keeps him awake through the watch. Sten drinks it standin' up at the post, which I take as a compliment." },
+      lines = { { id = "c_default", text = "Durnan in Anvilmar, every mornin' without fail, an' Grelin out by the troll caves, for he says it keeps him awake through the watch. Sten Stoutarm drinks it standin' up at his post, which I take as a compliment." },
       },
       choices = {
         { text = "So Grelin drinks it on watch.", next = "customers_grelin" },

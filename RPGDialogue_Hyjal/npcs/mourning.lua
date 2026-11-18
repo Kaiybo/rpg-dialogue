@@ -47,7 +47,7 @@ P:NPC {
         { id = "h_grave", tags = { "news" }, when = { questActive = TODO_QUEST("Disturbed Grave") },
           text = "You have been digging among the graves. Mind what you turn up; not everything down there wants to be found, and some of it bites." },
         { id = "h_ring", tags = { "news" }, when = { questActive = TODO_QUEST("Belle's Ring") },
-          text = "A ring, carried by one of those flayed things. Someone named on it loved someone else, and that is more than most rings can say." },
+          text = "A ring, carried by one of those flayed things. Someone whose name is cut inside it was loved once, and the ring has outlasted both of them." },
         { id = "h_stolen", tags = { "news" }, when = { questActive = TODO_QUEST("Stolen Life") },
           text = "Gathering what they have stolen? Good. The life those creatures drank belongs to the ground, not to them." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Forgotten Soldier", "Death Wailer", "Ravener" }, min = 20 } },
@@ -97,7 +97,7 @@ P:NPC {
         { id = "w_default", text = "I do not know, and I am a vulture, not a scholar. The Legion's rot soaked into this ground, and the Scourge marched with the demons when they came, and either one might be to blame. I only know that the dead here are hungry, and the dead should not be hungry; that is my job. The flayed ones are the worst of them." },
       },
       choices = {
-        { text = "Those flayed ones are the worst of them.", next = "why_raveners" },
+        { text = "Tell me about the flayed ones.", next = "why_raveners" },
         { text = "Does it matter who raised them?", next = "why_matter" },
         { text = "Something else.", next = "BACK" },
       },
@@ -114,8 +114,8 @@ P:NPC {
         { id = "wm_default", text = "To me? No. Dead is dead, and it should stay so, whoever stirred it. To you, perhaps; you two-legged things always want a name to blame, and you never stop at just one." },
       },
       choices = {
-        { text = "It matters. Whoever did this must answer.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Put them down first. Blame can wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "It matters. Whoever did this must answer.", next = "BACK", reply = "Then go and find your name, little meat, and drag it here by the ankle if you like, but put the bodies down on your way so I can get on with my work.", fx = { align = { order = 1 } } },
+        { text = "Put them down first. Blame can wait.", next = "BACK", reply = "Finally, a two-legged thing with sense, and I may even remember your smell kindly, which is the warmest thing a vulture has to give.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -126,8 +126,8 @@ P:NPC {
         { id = "cy_default", text = "Everything, little meat. The wolf kills, the vulture eats, the bones go into the soil, and the soil feeds the grass that feeds the deer that feeds the wolf. Without me the world would drown in its own leftovers, and nobody thanks me for it." },
       },
       choices = {
-        { text = "Then thank you. I mean that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Death serves life. That's a cold comfort.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then thank you. I mean that.", next = "BACK", reply = "You do, I can hear it, and it is so strange a sound that I do not know where to put it, so I will keep it with the bones I like best.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Death serves life. That's a cold comfort.", next = "BACK", reply = "Cold? Nothing that feeds the grass is cold, little meat, it is only that you prefer to be on the eating end of the circle and not the eaten.", fx = { align = { light = -1 } } },
         { text = "Do the other Wild Gods respect you?", next = "cycle_gods" },
         { text = "Something else.", next = "BACK" },
       },
@@ -141,7 +141,7 @@ P:NPC {
 
     ring = {
       lines = {
-        { id = "r_default", text = "A soldier's ring. There is a name worn half away inside it, a T and then Belle, and I expect it meant a great deal to someone who never knew where it ended up. I find rings sentimental, and inedible." },
+        { id = "r_default", text = "A soldier's ring. There is a name worn half away inside it, a T and then Belle, and somebody wore it thin turning it on a finger before a battle. I find rings sentimental, and inedible." },
         { id = "r_done", when = { questDone = TODO_QUEST("Belle's Ring") }, text = "You saw the ring to wherever it needed to go. Good; one less thing on this field that remembers being loved and cannot do anything about it." },
       },
       choices = {
@@ -157,8 +157,8 @@ P:NPC {
         { id = "xp_shadow", when = { form = "shadow" }, text = "In that shape? You will make them hungrier. Put the darkness away, priest, and bring the bright thing your kind usually carries." },
       },
       choices = {
-        { text = "They deserve rest, and prayers.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "They're corpses. I'll burn them down and move on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They deserve rest, and prayers.", next = "BACK", reply = "Pray if you must, priest, but pray quickly, because the hungry ones do not wait for the end of a hymn before they bite.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're corpses. I'll burn them down and move on.", next = "BACK", reply = "Good, a priest who understands the work, and I will follow along behind you and tidy up what the fire leaves, which is the proper order of things.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -168,8 +168,8 @@ P:NPC {
         { id = "xh_default", text = "Some of them, very likely. They came from Lordaeron, if I understood their shouting, and they fought hard, and many of them did not go home. If you know their names, say them while you work; they seemed to like hearing them, at the end." },
       },
       choices = {
-        { text = "I'll give them the rites they never got.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "No rites. I'll just end it quickly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll give them the rites they never got.", next = "BACK", reply = "They will like that, I think, and so will I, because the ones who are spoken for lie down much more quietly than the ones who are forgotten.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No rites. I'll just end it quickly.", next = "BACK", reply = "Quick is kind enough, I suppose, though they shouted their names very loudly once, and it seems a pity that nobody will answer them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -179,8 +179,8 @@ P:NPC {
         { id = "xf_default", text = "You are an exception I have not decided about. You walk, but you do not drink the life out of things, and you talk instead of moaning. I will say this: when you do finally lie down, I will be very polite about it." },
       },
       choices = {
-        { text = "I chose this. The dead here didn't.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Don't hold your breath, bird.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I chose this. The dead here didn't.", next = "BACK", reply = "Chose it? Hm, that is a strange thing to choose, but I will grant you the difference, and I will keep the polite part of my promise either way.", fx = { align = { honor = 1 } } },
+        { text = "Don't hold your breath, bird.", next = "BACK", reply = "Ha, I do not breathe the way you mean, bird or no bird, and I can wait far longer than you can stand, so we will see which of us is patient.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

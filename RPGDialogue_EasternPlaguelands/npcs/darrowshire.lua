@@ -55,8 +55,8 @@ P:NPC {
       big = true,
       lines = { { id = "hs_default", text = "More knights would have come too late, and Joseph's people would have been ash by then. Still, my disciples died with me, and they had mothers too." } },
       choices = {
-        { text = "You were right to ride. Waiting would have doomed them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Orders exist for a reason. Waiting might have saved more.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You were right to ride. Waiting would have doomed them.", next = "BACK", reply = "I'd like to believe that, and some nights I do. Thank you, {class}.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Orders exist for a reason. Waiting might have saved more.", next = "BACK", reply = "They do, and I broke them, and I'd break them again. I'll answer for it when the Light asks.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -73,8 +73,8 @@ P:NPC {
       big = true,
       lines = { { id = "ha_default", text = "I hear the prince turned on us, and the order's scattered, and some of its best wear Scarlet now and burn villages. I'd rather have died in Darrowshire than lived to burn it." } },
       choices = {
-        { text = "The Crusade has lost its way. The Dawn keeps the true faith.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The Crusade is hard, but hard times need hard men.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Crusade has lost its way. The Dawn keeps the true faith.", next = "BACK", reply = "It has, and I'm glad the Dawn still stands. Tell them a dead knight of Darrowshire blesses them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Crusade is hard, but hard times need hard men.", next = "BACK", reply = "Hard men burned Darrowshire's neighbours on a rumour. I'll not call that faith.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
       },
     },
@@ -83,8 +83,8 @@ P:NPC {
       big = true,
       lines = { { id = "xf_default", text = "The same way I kept it in the square, {class}: one more swing, one more prayer, and never mind how many are still coming. Faith isn't believing you'll win; it's standing there anyway." } },
       choices = {
-        { text = "Standing anyway is all any of us can do.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'd rather win. Standing and dying helps nobody.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Standing anyway is all any of us can do.", next = "BACK", reply = "It is, and it's enough. I'm glad you understand.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather win. Standing and dying helps nobody.", next = "BACK", reply = "So would I, and so would every one of us in the square. We stood anyway, and some got away.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

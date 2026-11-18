@@ -17,7 +17,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Oh, good, a visitor! Don't touch the crate with the red stripe. Or the blue one, actually." },
-    { id = "g_respite", when = { questActive = TODO_QUEST("A Gnome's Respite") }, text = "Loggers and deforesters in the Crag, ten of each! Every one you stop buys me an hour at the workbench." },
+    { id = "g_respite", when = { questActive = TODO_QUEST("A Gnome's Respite") }, text = "Stop ten loggers and ten deforesters in the Crag! Every one you stop buys me an hour at the workbench." },
     { id = "g_lomac", when = { questActive = TODO_QUEST("An Old Colleague") }, text = "Lomac's in Tinker Town, in Ironforge. Be charming! He hates charming, but try anyway." },
     { id = "g_alpha", when = { questActive = TODO_QUEST("Covert Ops - Alpha") }, text = "The plans, the plans, the plans! The explosions are a lovely bonus, but it's the plans we need." },
     { id = "g_done", when = { questDone = TODO_QUEST("Covert Ops - Alpha") }, text = "I've been reading the Venture Company's own engineering plans every night since you brought them. Shoddy welding, all of it! I'm thrilled." },
@@ -29,7 +29,7 @@ P:NPC {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A fellow gnome, out here among all these trees! Are you EAAAES? If not, you should be; we have excellent biscuits at the meetings." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
-      text = "An alchemist! Lomac will like you, or at least he'll dislike you less, which for him is the same thing." },
+      text = "An alchemist! Lomac, my old colleague in Tinker Town, will like you, or at least he'll dislike you less, which for him is the same thing." },
   },
 
   start = "hello",
@@ -90,8 +90,8 @@ P:NPC {
         { id = "ef_default", text = "Of course it can! A shredder cuts a forest down; a better machine could plant one, or put out a fire, or knock a goblin into a lake. It's all in who's holding the wrench." },
       },
       choices = {
-        { text = "The forest should be left to the druids.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If machines can help, use every one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The forest should be left to the druids.", next = "BACK", reply = "The druids are doing their best, but they can't plant faster than a shredder can cut! A little engineering never hurt a forest that wasn't already on fire.", fx = { align = { order = 1 } } },
+        { text = "If machines can help, use every one.", next = "BACK", reply = "Exactly, that's what I keep telling Kaela! Every machine has a good use in it somewhere, you just have to find the right lever.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,8 +102,8 @@ P:NPC {
         { id = "bo_default", text = "With explosives, carefully placed! Along the mountains' edges, I can herd the goblins back with a few key detonations, and the trees don't mind as long as I aim at the cliffs. Don't worry, they're not as dangerous as everyone thinks." },
       },
       choices = {
-        { text = "Blow them all off the mountain.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Scare them off, but don't kill if you can help it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Blow them all off the mountain.", next = "BACK", reply = "Well, I did say carefully placed, and I meant it, mostly. A goblin who flies off a cliff makes his own choices, I suppose.", fx = { align = { light = -1 } } },
+        { text = "Scare them off, but don't kill if you can help it.", next = "BACK", reply = "That's the plan exactly, a big bang and a lot of running goblins. Kaela will be so relieved you said that.", fx = { align = { light = 1 } } },
         { text = "How dangerous are they, exactly?", next = "boom_how" },
       },
     },
@@ -147,7 +147,7 @@ P:NPC {
     },
     eng_gx = {
       lines = {
-        { id = "eg_default", text = "A detonator with a timer, so I can be somewhere else when it goes off. It's revolutionary, honestly; you'd be amazed how few designs bother with that part." },
+        { id = "eg_default", text = "A detonator with a timer, so I can be somewhere else when it goes off. It's revolutionary, pal, trust me; you'd be amazed how few designs bother with that part." },
       },
       choices = {
         { text = "Very sensible, Gaxim.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -158,7 +158,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Mage, alchemist, engineer and Assembly member in good standing! Mostly good standing. There was an incident with a teapot." } },
-    advice = { { id = "tp_ad", text = "Always label your crates, every one of them, and don't ask me why; just do it." } },
+    advice = { { id = "tp_ad", text = "Always label your crates, every last one, and don't ask me why; just do it." } },
     venture_company = { { id = "tp_venture", text = "Greedy, wasteful and terrible engineers, and that last one offends me most of all." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I'd rather not talk about Gnomeregan, if it's all the same to you. That's why I'm out here saving somebody else's home." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran's mages are the finest in the world, and I'd give my left eyebrow to study there. I've already given the right one to an experiment, so it's a fair trade." } },
@@ -181,10 +181,10 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Ishnu-alah, {class}. Watch the valley with me a moment, if you've time, beneath Elune's patient eye." },
-    { id = "g_embers", when = { questActive = TODO_QUEST("Enraged Spirits") }, text = "The fire elementals of the Charred Vale, and their smoldering embers. Bring them to me, and the Vale may breathe again." },
-    { id = "g_ancients", when = { questActive = TODO_QUEST("Wounded Ancients") }, text = "Shrapnel from a wounded treant, {class}. Gaxim thinks the goblins' weapons poisoned them, and I'd like to know if he's right." },
+    { id = "g_embers", when = { questActive = TODO_QUEST("Enraged Spirits") }, text = "Bring me the smoldering embers of the Charred Vale's fire elementals, and the Vale may breathe again." },
+    { id = "g_ancients", when = { questActive = TODO_QUEST("Wounded Ancients") }, text = "Bring me shrapnel from a wounded treant, {class}. Gaxim thinks the goblins' weapons poisoned them, and I'd like to know if he's right." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. Did you pass through Ashenvale? Tell me the trees there are still green." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you first came up this path from Ashenvale. Thenysil would be proud of who she sent me." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you first came up this path from Ashenvale. Thenysil in Astranaar would be proud of who she sent me." },
   },
 
   notice = {
@@ -250,8 +250,8 @@ P:NPC {
         { id = "vs_default", text = "Yes, though they're only doing what fire does, and the goblins are the ones who set it loose. Sometimes I'd rather hunt the men with the torches than the flames." },
       },
       choices = {
-        { text = "Then hunt the goblins too. They earned it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Mend the land first. Vengeance can wait.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then hunt the goblins too. They earned it.", next = "BACK", reply = "They earned it, and I've been tempted more nights than I'd admit. But the Sentinels need me with the trees, not chasing torches.", fx = { align = { light = -1 } } },
+        { text = "Mend the land first. Vengeance can wait.", next = "BACK", reply = "That's what I tell myself every morning, and I'm glad to hear it from someone else. The land first, and the goblins after.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -271,8 +271,8 @@ P:NPC {
         { id = "gk_default", text = "I'm sure he'll blow us both off this mountain one day, and that he means well with every bit of him. I was angry when the Alliance sent a gnome mage with me, but he's cared for these trees as hard as any druid." },
       },
       choices = {
-        { text = "His way works. Let him blast the goblins out.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "You should keep him on a short leash.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "His way works. Let him blast the goblins out.", next = "BACK", reply = "It works, and that's what frightens me about it. Fine, I'll let him blast, but I'll be standing well back.", fx = { align = { order = -1 } } },
+        { text = "You should keep him on a short leash.", next = "BACK", reply = "A short leash on Gaxim? I'd need one made of mithril, and he'd only blow it up. I'll keep an eye on him, at least.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

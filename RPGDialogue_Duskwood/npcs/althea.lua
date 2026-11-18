@@ -41,7 +41,7 @@ P:NPC {
   nodes = {
     prej = {
       big = true,
-      lines = { { id = "prej_default", text = "I trust what I can see, and your trade is built on not being seen. Half the knives in Duskwood belong to bandits who'd sell a Night Watch patrol to the worgen for a pair of boots, and they learned the same tricks you did." } },
+      lines = { { id = "prej_default", text = "I trust what I can see, and your trade is built on not being seen. Most of the knives in Duskwood belong to bandits who'd sell a Night Watch patrol to the worgen for a pair of boots, and they learned the same tricks you did." } },
       choices = {
         { text = "Shadows hide me from worgen too. That makes me useful to you.", next = "prej_a", fx = { align = { honor = -1 } } },
         { text = "Then I'll walk openly while I'm in Darkshire.", next = "prej_b", fx = { align = { honor = 1 } } },
@@ -50,7 +50,7 @@ P:NPC {
       },
     },
     prej_a = {
-      lines = { { id = "prej_a_default", text = "Useful, yes, I suppose you are, and I've never turned down a useful blade. I'll still have Sorigal count the strongbox when you leave." } },
+      lines = { { id = "prej_a_default", text = "Useful, yes, I suppose you are, and I've never turned down a useful blade. I'll still have Watchmaster Sorigal count the strongbox when you leave." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
     },
     prej_b = {
@@ -63,7 +63,7 @@ P:NPC {
     },
     op_dead = {
       lines = {
-        { id = "op_dead_a", text = "Now you've found the argument that splits this town down the middle. Half the council wants every body burned before it's cold, and the other half says we're Darkshire, not the Scourge, and we bury our own with the proper words. You've seen what walks out of Raven Hill, so you tell me which half is right." },
+        { id = "op_dead_a", text = "Now you've found the argument that splits this town down the middle. Some on the council want every body burned before it's cold, while the rest say we're Darkshire, not the Scourge, and we bury our own with the proper words. You've seen what walks out of Raven Hill, so you tell me who's right." },
       },
       choices = {
         { text = "Burn them. A pyre is kinder than waking up in Fel's army.", next = "op_dead_1", fx = { opinion = { duskwood_dead = "burn", necromancy = "fight_hard" }, align = { light = -1 }, trait = { practical = 1 }, affinity = 1 } },
@@ -78,11 +78,11 @@ P:NPC {
       choices = { { text = "Something else, Commander.", next = "BACK" } },
     },
     op_dead_2 = {
-      lines = { { id = "op_dead_r2", text = "That's the other half's answer, and I can't say it's wrong, only that it's harder on my watchers. Go and say it at Raven Hill, then, and see if the graves agree." } },
+      lines = { { id = "op_dead_r2", text = "That's what the burying side says, and I can't say it's wrong, only that it's harder on my watchers. Go and say it at Raven Hill, then, and see if the graves agree." } },
       choices = { { text = "Something else, Commander.", next = "BACK" } },
     },
     op_dead_3 = {
-      lines = { { id = "op_dead_r3", text = "Now that's an answer I can act on. Sven Yorgen's been saying the same for years; go and find him, and then go up Forlorn Rowe with a good blade." } },
+      lines = { { id = "op_dead_r3", text = "Now that's an answer I can act on. Sven Yorgen, out at his camp in the western woods, has been saying the same for years; go and find him, and then go up Forlorn Rowe with a good blade." } },
       choices = { { text = "Something else, Commander.", next = "BACK" } },
     },
     op_dead_4 = {
@@ -93,8 +93,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_scholo_default", text = "Good, though schools outlive their masters, and every necromancer who passed through that place is still out there with what he learned. Men like Morbent Fel don't find their trade in a book lying in a ditch, and I'd wager the road from Raven Hill runs north to Caer Darrow sooner or later." } },
       choices = {
-        { text = "Burn every book they left. Necromancy has no place among the living.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Study their books instead. You can't fight what you don't understand.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Burn every book they left. Necromancy has no place among the living.", next = "BACK", reply = "Burn them, and gladly, though I'd want a watchman standing over the fire to make sure the ash stays ash. I've seen too much come back up out of Raven Hill.", fx = { align = { light = 1 } } },
+        { text = "Study their books instead. You can't fight what you don't understand.", next = "BACK", reply = "Understand them, and then what, become them? I'll leave the reading to someone with a stronger stomach and a smaller conscience.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "How do your watchers fight the dead, Commander?", next = "xcl_scholo2" },
       },
     },
@@ -108,32 +108,32 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Listen. My watchmen hear too late, and the dead don't make much noise until they're on you. If your spirits can give us a moment's warning, that's worth a dozen swords." } },
       choices = {
-        { text = "Put me on the roster, Commander. I'll keep the watch properly.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll listen my own way and report when I choose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Put me on the roster, Commander. I'll keep the watch properly.", next = "BACK", reply = "You're on it, then, from dusk tonight. Keep your eyes on the cemetery road and your ears on whatever you listen to.", fx = { align = { order = 1 } } },
+        { text = "I'll listen my own way and report when I choose.", next = "BACK", reply = "Then you'll report to me all the same, whatever you choose, because this is my town. I don't keep anyone who doesn't.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "My watch is loud because the wolves hear us coming and some of them run, {class}, and that's saved more lives than any blade. But a quiet pair of eyes out past the Darkened Bank? I'd take that, gladly." } },
       choices = {
-        { text = "I'll scout and strike before they see me.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll scout and report, and leave the fighting to your watch.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll scout and strike before they see me.", next = "BACK", reply = "Strike if you must, but make it quick and make it quiet, and come back to tell me. Dead heroes don't help my roster.", fx = { align = { honor = -1 } } },
+        { text = "I'll scout and report, and leave the fighting to your watch.", next = "BACK", reply = "Good, that's exactly what I need. My watchmen will be glad of fewer surprises in the dark.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "What's out in the woods?", next = "woods" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Wards cost silver and mages, and Stormwind sends me neither, so we make do with lamps and loud men. If you can light a lamp that won't go out when the fog rolls in, I'll take that over any ward." } },
       choices = {
-        { text = "Lamps and good order, then. I'll help.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Your watch needs fire, not lamps.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Lamps and good order, then. I'll help.", next = "BACK", reply = "Then you're more useful than half the mages Stormwind's ever promised me. Lamps are cheap, and order is cheaper.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your watch needs fire, not lamps.", next = "BACK", reply = "Fire is what the fog swallows first, mage, and then my men are blind and burnt. Lamps and order, or nothing at all.", fx = { align = { order = -1 } } },
         { text = "What's the worst thing your watch faces?", next = "morladim" },
       },
     },
     druid_talk = {
       lines = { { id = "dt_default", text = "The Scythe of Elune broke something here when the Worgen came, and the undead from Raven Hill have done the rest. I am a soldier; I can only hold the line. If there is a cure, it will come from your Circle, not my Watch." } },
       choices = {
-        { text = "Then I'll find what poisoned it and root it out.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some wounds are better burned clean than healed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll find what poisoned it and root it out.", next = "BACK", reply = "Then the Watch will hold the line while you look. Find it soon, druid, because the line isn't as long as it used to be.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some wounds are better burned clean than healed.", next = "BACK", reply = "Burned clean, you say, and a forest full of farms and graves along with it. I'll keep my line, and you keep your torches out of Duskwood.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -141,8 +141,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Your armour in front of my farmers when the dead come up the cemetery road, and the Light at your back so they've something worth standing behind. I can't give you a title or a wage, only a post at the gate and my thanks." } },
       choices = {
-        { text = "Give me the post. I don't need a title to do my duty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Duty's one thing, Commander. I'll want proper pay for it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Give me the post. I don't need a title to do my duty.", next = "BACK", reply = "Then it's yours, and the gate is the worst one in the town. Thank you, paladin, and I don't say that lightly.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Duty's one thing, Commander. I'll want proper pay for it.", next = "BACK", reply = "Then you'll be waiting a long time, because Stormwind pays me in letters. If you stay anyway, I'll not forget it.", fx = { align = { honor = -1 } } },
         { text = "Let's talk of something else, Commander.", next = "BACK" },
       },
     },
@@ -163,11 +163,11 @@ P:NPC {
         { id = "h_watch_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Night Watch"), days = 3 } },
           text = "My watchers slept a full night, and two of them didn't know what to do with themselves." },
         { id = "h_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") },
-          text = "It's an old murder of some visiting nobles, years ago. Smitts never let it go, and now it seems neither will you, so follow it to the end." },
+          text = "The Stalvan business is an old murder of some visiting nobles, years ago. Smitts never let it go, and now it seems neither will you, so follow it to the end." },
         { id = "h_morgan", when = { questActive = TODO_QUEST("Morgan Ladimore") },
-          text = "Sirra sent you with a name, did he? Ladimore. Most of us stopped using it; we call what's left of him Mor'Ladim, when we call him anything at all." },
+          text = "Sirra Von'Indi sent you with a name, did he? Ladimore. Most of us stopped using it; we call what's left of him Mor'Ladim, when we call him anything at all." },
         { id = "h_ladim", tags = { "news" }, when = { questActive = TODO_QUEST("Mor'Ladim") },
-          text = "He walks the cemetery in a slow, crooked circle and always ends at his own grave. He's killed some of my strongest, so don't go alone." },
+          text = "Mor'Ladim walks the cemetery in a slow, crooked circle and always ends at his own grave. He's killed some of my strongest, so don't go alone." },
         { id = "h_ello", text = "The mayor writes to Stormwind while I train farmers to hold a pike. One of us will save this town, and it won't be the letters." },
         { id = "h_new", when = { maxLevel = 22 },
           text = "You're green for Duskwood. Keep to the road, keep a torch lit, and don't follow lights into the trees." },
@@ -194,7 +194,7 @@ P:NPC {
         { text = "Who's been killing your watchers on patrol?", next = "morladim" },
         { text = "You and the mayor are kin?", next = "ello" },
         { text = "Let me tend your wounded watchers.", next = "priest", when = { class = "PRIEST" } },
-        { text = "Did Stalvan Mistmantle do it?", next = "stalvan", when = { topicKnown = "stalvan" } },
+        { text = "Did Stalvan Mistmantle murder those nobles, Commander?", next = "stalvan", when = { topicKnown = "stalvan" } },
         { text = "That stitched thing on the road...", next = "stitches", when = { questDone = TODO_QUEST("Translation to Ello") } },
         { text = "Put me on the roster, Commander. I'll stand a night watch.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I've been tracking the wolves out past the lamps.", next = "hunter", when = { class = "HUNTER" } },
@@ -210,7 +210,7 @@ P:NPC {
     },
     xorig_nightwatch = {
       lines = {
-        { id = "xonightwatch_default", text = "I remember. You were the one who'd swing a hammer with the torch still lit in your other hand, and Ladimore swore you'd burn the gatehouse down before you ever hit a ghoul. Now you come back wearing the Light, so tell me, will you stand a night with us again?" },
+        { id = "xonightwatch_default", text = "I remember. You were the one who'd swing a hammer with the torch still lit in your other hand, and Watcher Ladimore swore you'd burn the gatehouse down before you ever hit a ghoul. Now you come back wearing the Light, so tell me, will you stand a night with us again?" },
       },
       choices = {
         { text = "Any night you need me, Commander.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 } } },
@@ -231,7 +231,7 @@ P:NPC {
       },
     },
     live = {
-      lines = { { id = "l_default", text = "Badly, and together, and with a great deal of lamp oil." } },
+      lines = { { id = "l_default", text = "Badly, and together, and with more lamp oil than the council ever budgeted for." } },
       choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1 } } },
     },
     woods_dead = {
@@ -250,7 +250,7 @@ P:NPC {
       },
       choices = {
         { text = "Could Darkshire burn its dead, so Fel can't raise them?", next = "op_dead" },
-        { text = "Why hasn't the Watch gone after him?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Then I'll leave Fel to Sven, for now.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -308,7 +308,7 @@ P:NPC {
     },
     morladim_who = {
       lines = {
-        { id = "mw_default", text = "Morgan Ladimore. Sirra knew him before the war and keeps the whole sorry tale on a shelf, so read it, then come back and ask me for the hard part.",
+        { id = "mw_default", text = "Morgan Ladimore. Sirra Von'Indi, our historian, knew him before the war and keeps the whole sorry tale on a shelf, so read it, then come back and ask me for the hard part.",
           fx = { learn = { "ladimore" } } },
       },
       choices = {
@@ -318,7 +318,7 @@ P:NPC {
     },
     morladim_know = {
       lines = {
-        { id = "mk_default", text = "No, it always makes it harder, but know it anyway. The ones who don't end up swinging at shadows, and he isn't one." },
+        { id = "mk_default", text = "No, it always makes it harder, but know it anyway. Watchers who go in ignorant end up swinging at shadows, and he's no shadow." },
       },
       choices = {
         { text = "I understand.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
@@ -340,8 +340,8 @@ P:NPC {
         { id = "ek_default", text = "He's a politician, so he knows exactly what everyone thinks, and he writes the letters anyway. I respect that more than I'd ever tell him." },
       },
       choices = {
-        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll make no promises; he might like to hear it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your secret's safe.", next = "BACK", reply = "Good, because if he ever heard me say it, he'd never let me hear the end of it. Keep it that way.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll make no promises; he might like to hear it.", next = "BACK", reply = "Don't you dare, unless you want to stand the dawn watch for a month. He's insufferable enough as it is.", fx = { align = { honor = -1 } } },
       },
     },
 
@@ -350,10 +350,10 @@ P:NPC {
         { id = "pr_default", text = "Then you're welcome here. The ones back from Raven Hill don't sleep, and some of them ask whether the dead up there feel anything. I've no answer for them, but you might." },
       },
       choices = {
-        { text = "I'll sit with them tonight.", next = "BACK", fx = { affinity = 3, standing = { darkshire = 2 }, align = { light = 1 } },
+        { text = "I'll sit with them tonight.", next = "BACK", reply = "Thank you, truly, because they've had nobody but me, and I've run out of things to say to them. Bring a candle, for the dark seems to sit heavier on them after midnight.", fx = { affinity = 3, standing = { darkshire = 2 }, align = { light = 1 } },
           journal = { first = "Sat a night with the Night Watch's wounded in Darkshire, at Commander Ebonlocke's welcome.",
                       third = "{name} sat a night with the Night Watch's wounded in Darkshire." } },
-        { text = "The dead feel nothing now, and they should hear that plainly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The dead feel nothing now, and they should hear that plainly.", next = "BACK", reply = "Then tell them, priest, and tell them kindly, because it'll be the first plain answer they've had. Some of them might sleep.", fx = { align = { light = -1 } } },
         { text = "What do I tell them?", next = "priest_answer" },
       },
     },
@@ -362,8 +362,8 @@ P:NPC {
         { id = "pa_default", text = "Tell them whatever's true, because they'll know if it isn't. Watchers can smell a lie; Stormwind's been feeding them comfortable ones for years." },
       },
       choices = {
-        { text = "Then they'll get the truth.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "Sometimes a kind lie is what lets a man sleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then they'll get the truth.", next = "BACK", reply = "Good, and they'll thank you for it in their own way, which is mostly silence. Watchers don't say much anymore.", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Sometimes a kind lie is what lets a man sleep.", next = "BACK", reply = "It might, for a night, and then it'd cost him every night after. Tell them the truth, priest, or tell them nothing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -399,14 +399,14 @@ P:NPC {
     },
     stitches_guilt = {
       lines = {
-        { id = "sg_default", text = "Nobody did; he was sweet to half this town. Next time a hermit wants thread, ask him what he's sewing." },
+        { id = "sg_default", text = "Nobody did, because old Abercrombie was sweet to half this town. Next time a hermit wants thread, ask him what he's sewing." },
       },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 }, learn = { "embalmer" } } } },
     },
     watchers_names = {
       big = true,
       lines = {
-        { id = "wn_default", text = "Nine since the thaw, and I can tell you every one of them and where they fell, because I'm the one who knocks on the door afterwards. I don't let the council do it; they make speeches." },
+        { id = "wn_default", text = "Nine since the thaw, and I can name each one and where they fell, because I'm the one who knocks on the door afterwards. I don't let the council do it; they make speeches." },
         { id = "wn_after", text = "I keep the roster with the dead names still on it, crossed through but not scratched out. Ello thinks it's morbid, and maybe it is, but I'll not have anyone in this town forget they stood a watch." },
         { id = "wn_priest", when = { class = "PRIEST" }, text = "If you're staying the night, there are two mothers on the Raven Hill road who'd take a priest at the door better than they took me. I'd count it a kindness." },
       },
@@ -418,7 +418,7 @@ P:NPC {
     watchers_roster = {
       lines = {
         { id = "wr_default", text = "Enough that I don't talk about it with strangers on the road. Ask me how to keep the rest alive instead; that's the question I can use." },
-        { id = "wr_default2", text = "The roster's my business, and the Watch's. You'll forgive me if I keep the count to myself." },
+        { id = "wr_default2", text = "The roster's my business, and the Watch's. The count stays with me." },
       },
       choices = {
         { text = "Fair, Commander.", next = "BACK" },
@@ -434,8 +434,8 @@ P:NPC {
       },
       choices = {
         { text = "I'd have thought dawn was the safest hour.", next = "warrior_dawn" },
-        { text = "Orders are orders. Tell me where to stand.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { darkshire = 1 } } },
-        { text = "I'd rather hunt them in the woods than wait at a wall.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Orders are orders. Tell me where to stand.", next = "BACK", reply = "Good, that's what I like to hear from a warrior. The south gate at dusk, and don't leave it till I send someone.", fx = { affinity = 2, align = { order = 1 }, standing = { darkshire = 1 } } },
+        { text = "I'd rather hunt them in the woods than wait at a wall.", next = "BACK", reply = "Then go and hunt them, but don't come running back to the wall when the woods hunt you. Plenty have.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
       },
     },
     warrior_dawn = {
@@ -450,7 +450,7 @@ P:NPC {
         { id = "hu_default", fx = { learn = { "worgen" } },
           text = "Then you've learned the first lesson faster than my watchers did: the grey wolves are hungry and the worgen are clever, and you can't track one the way you track the other. What did you find?" },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "Keep {pet} on a short leash past the lamps; the worgen have been known to call a beast away from its master. I've seen a mastiff walk into the trees and not come back." },
+          text = "Then you've learned faster than my watchers did: the grey wolves are hungry and the worgen are clever, and you can't track one like the other. Keep {pet} on a short leash past the lamps, though, because the worgen have been known to call a beast away from its master." },
       },
       choices = {
         { text = "Prints that walk on two legs, then four.", next = "hunter_prints" },
@@ -471,8 +471,8 @@ P:NPC {
           text = "You want to know why I'm staring? Morbent Fel walks the hills with the dead at his back, and the last stranger who came to Darkshire with a voice like yours asked a lot of questions about him. So I'm staring, and I'll keep staring until you've given me a reason to stop." },
       },
       choices = {
-        { text = "I'll give you that reason. Point me at Fel.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Stare all you like. I don't answer to the Watch.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "I'll give you that reason. Point me at Fel.", next = "BACK", reply = "Follow his dead, because where they walk thickest, he isn't far behind. Bring me word he's finished, and I'll stop staring.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Stare all you like. I don't answer to the Watch.", next = "BACK", reply = "You don't, and that's exactly why I'm watching you. In my town, strangers who don't answer to the Watch end up answering to me.", fx = { affinity = -2, align = { order = -1 } } },
         { text = "Who was the stranger?", next = "warlock_stranger" },
       },
     },
@@ -503,7 +503,7 @@ P:NPC {
     embalmer = { { id = "tp_embalmer", text = "That was a children's story until it walked down my road, and I've doubled the lamps on the Raven Hill side since." } },
     _none = { { id = "tp_none", text = "That's not a Watch matter, and if it ever becomes one, it'll find me." } },
     raven_hill = { { id = "tp_raven_hill", text = "Raven Hill's cemetery has more walking dead than buried ones now, and I can't spare the Watch to hold it. I send adventurers, and I count them when they come back." } },
-    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders come out of Deadwind Pass and go wherever they like, and my watchers have yet to catch one. Somebody sends them, and I'd give a great deal to know who." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders come out of Deadwind Pass and go wherever they like, and my watchers have yet to catch one. Somebody sends them, and I mean to learn who before the year's out." } },
     scourge = { { id = "tp_scourge", text = "The dead in Duskwood aren't the Scourge's, as far as anyone can tell; they're our own, and somebody is raising them here. I'd almost sooner it were the Scourge, because then Stormwind might send an army." } },
     varian = { { id = "tp_varian", text = "Lord Ello writes to the Crown every week asking for soldiers, and the answer is always that the army is stretched. With the king gone, I doubt anybody in the Keep is reading those letters at all." } },
     bolvar = { { id = "tp_bolvar", text = "The Highlord is a good soldier, and I believe he'd help us if he could. I also believe somebody between him and Darkshire is making sure he can't." } },

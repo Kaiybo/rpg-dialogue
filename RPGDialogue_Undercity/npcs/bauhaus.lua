@@ -19,9 +19,9 @@ P:NPC {
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, my favourite living visitor. You spelled your name the same way twice, which in my office counts as a kind of friendship." },
     { id = "g_census", text = "The census office. Do state your business, preferably in fewer words than I would use." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I trust this isn't another inquiry about whether somebody's dead." },
-    { id = "g_jeremiah", when = { questActive = TODO_QUEST("The Jeremiah Blues") }, text = "Payson, near the bank, under one of the walkways. Follow the smell of cockroaches, which in this city narrows it down very little." },
+    { id = "g_jeremiah", when = { questActive = TODO_QUEST("The Jeremiah Blues") }, text = "If it's Payson you want with that parcel, he's near the bank, under one of the walkways. Follow the smell of cockroaches, which in this city narrows it down very little." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the census has grown by forty-three names in your absence. Not that you asked." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Your reputation has preceded you into my office, which is more than most people's do. I've made a note of it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Your reputation has preceded you into my office, and few people's ever reach it before they do. I've made a note of it." },
   },
 
   notice = {
@@ -37,14 +37,14 @@ P:NPC {
       big = true,
       lines = { { id = "prej_bauhaus_default", text = "I think the living are careless with what matters. You have names and lose them, family trees you can't recite, and you die and leave no record of where you were buried. My work is remembering the dead of Lordaeron by name, and the living make it very hard to do." } },
       choices = {
-        { text = "Records are for the dead. The living have better things to do.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
-        { text = "You're right. Names matter, and I'll keep mine straight.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Records are for the dead. The living have better things to do.", next = "BACK", reply = "Better things, they say, and then they die without anyone writing down where. You'll forgive me if I keep my ledgers.", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "You're right. Names matter, and I'll keep mine straight.", next = "BACK", reply = "Good, and spell it properly when you sign my register. You'd be astonished how many corpses misspell their own names.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Then let me help. Whose names are missing?", next = "prej_bauhaus_calm", fx = { affinity = 1 } },
         { text = "How many names are in the census now?", next = "prej_bauhaus_why" },
       },
     },
     prej_bauhaus_why = {
-      lines = { { id = "prej_bauhaus_why_default", text = "Forty thousand, more or less, and half of them are guesses from tombstones in Brill. Every one of them was somebody, and I won't let them become nobody just because the Scourge was faster than the scribes." } },
+      lines = { { id = "prej_bauhaus_why_default", text = "Forty thousand, more or less, and a good third of them are guesses from tombstones in Brill. Each was somebody, and I won't let them become nobody just because the Scourge was faster than the scribes." } },
       choices = { { text = "I see. Let me answer you, then.", next = "prej_bauhaus" }, { text = "Something else.", next = "BACK" } },
     },
     prej_bauhaus_calm = {
@@ -80,7 +80,7 @@ P:NPC {
         { id = "o_fknew", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "people" } }, text = "Someone in the Royal Quarter mentioned you think we're still Lordaeron's people. I've made a note of it, in the margin, where I keep the kind remarks." },
         { id = "h_default", key = true, text = "Royal Overseer Bauhaus, of the Undercity census. Since our liberation from the Scourge, we have tried to keep an accurate account of the city's populace, and through a certain arcane discipline, I can reach those records." },
         { id = "h_parcel", tags = { "news" }, when = { questActive = TODO_QUEST("Better Late Than Never") },
-          text = "A parcel for one Jeremiah Felstone of Lordaeron, posted more than four years ago? Are you here for the census, or to ask me if someone you knew is dead? I get asked that a great deal." },
+          text = "A parcel for one Jeremiah Felstone of Lordaeron, posted more than four years ago? Are you here for the census, or to ask me if someone you knew is dead? I am asked that several times a day." },
         { id = "h_found", tags = { "news" }, when = { questRecent = { TODO_QUEST("Better Late Than Never"), days = 3 } },
           text = "Felstone, Jeremiah: before the plague, a resident of the city, and now going by Payson, as a number of us have changed our names to be rid of what we were. Wait a moment... isn't he the cockroach vendor?" },
         { id = "h_delivered", when = { questDone = TODO_QUEST("The Jeremiah Blues") },
@@ -107,7 +107,7 @@ P:NPC {
     census = {
       lines = { { id = "ce_default", text = "Because a city that doesn't know who lives in it, in whatever sense, is not a city but a crowd. The Dark Lady wishes to rule a people, and a people must first be counted." } },
       choices = {
-        { text = "Counting people who don't want to be found must be hard.", next = "census_hidden" },
+        { text = "How do you count people who don't want to be found?", next = "census_hidden" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -122,14 +122,14 @@ P:NPC {
       big = true,
       lines = { { id = "cs_default", text = "My records serve the Dark Lady, and she lends them to whomever she pleases. I keep them accurate and I keep them safe, and what is done with them afterward is above my office." } },
       choices = {
-        { text = "Accurate records protect the city. Good work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A list of names is a dangerous thing to keep.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Accurate records protect the city. Good work.", next = "BACK", reply = "They do, and it is gratifying to hear someone outside this office say so. Accuracy is the only kindness a ledger can offer.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A list of names is a dangerous thing to keep.", next = "BACK", reply = "Every list is, in the wrong hands, which is why mine stay in the right ones. I'll thank you not to suggest otherwise.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     names = {
-      lines = { { id = "na_default", text = "Often. Some can't bear to answer to the name their mothers used, and some would rather their old debts not find them. The census records both names and judges neither." } },
+      lines = { { id = "na_default", text = "Oh, they do, and often. Some can't bear to answer to the name their mothers used, and some would rather their old debts not find them. The census records both names and judges neither." } },
       choices = {
         { text = "Did you change yours?", next = "names_own" },
         { text = "Do you count the Forsaken as Lordaeron's people, Overseer?", next = "op_forsaken" },
@@ -184,7 +184,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Write things down. Memory is unreliable in the living and positively treacherous in the dead." } },
     forsaken = { { id = "tp_forsaken", text = "Every Forsaken has a name, and every name goes into my census, whether its owner remembers it or not. It is a very great work, and nobody appreciates it, and I've learned to live with that, so to speak." } },
     lordaeron = { { id = "tp_lordaeron", text = "Lordaeron kept excellent records, and the plague burned half of them. I'm rebuilding the rest from gravestones, tax rolls and the memories of people who'd rather forget." } },
-    scourge = { { id = "tp_scourge", text = "The Scourge never kept a single record of whom it took. I consider that its most unforgivable crime, though I'm told I'm in the minority. Every one of them had a name." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge never kept a single record of whom it took. I consider that its most unforgivable crime, though I'm told I'm in the minority. Each of them had a name." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady commissioned the census herself, and I like to think she reads it, though I suspect she has more pressing concerns. I'll keep it accurate either way." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme's rolls are the hardest to complete, because the prince killed so many in a single day. I'm still adding names, and I expect to be adding them for years." } },
     _none = { { id = "tp_none", text = "That falls outside the census, and therefore outside my interest, though not, I fear, outside your curiosity." } },

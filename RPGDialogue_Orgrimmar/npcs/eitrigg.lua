@@ -40,8 +40,8 @@ P:NPC {
         { id = "xalt_eitrigg_kin", when = { alt = { kin = true } }, text = "{alt}, the {altclass}. They asked me what I regretted from the Second War, and nobody asks an old soldier that, so I told them the truth and they heard me out to the end." },
       },
       choices = {
-        { text = "A warrior should hear the hard truths, not the songs.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Songs keep warriors fighting. The truth can wait.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A warrior should hear the hard truths, not the songs.", next = "BACK", reply = "That's what I believe, and it's why I send the others off disappointed. The truth will keep you alive longer than any song.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Songs keep warriors fighting. The truth can wait.", next = "BACK", reply = "They do, and I've sung them too, in my time. But the truth catches up eventually, and it's better to meet it early.", fx = { align = { honor = -1 } } },
         { text = "Something else, Eitrigg.", next = "BACK" },
       },
     },
@@ -53,7 +53,7 @@ P:NPC {
       },
     },
     xorig_doom2 = {
-      lines = { { id = "xdm2_default", text = "I did both, though I had a human's hut to do it in and you had a fence. We are the last who remember the blood and the cage together, and the young ones need us to speak of both plainly, so do not let pride keep you quiet." } },
+      lines = { { id = "xdm2_default", text = "I did both, alone in the hills, while you did yours behind a camp fence. Those of us who remember the demon blood must speak of it plainly to the young ones, so do not let pride keep you quiet." } },
       choices = {
         { text = "I'll speak of it, Eitrigg.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else, Eitrigg.", next = "BACK" },
@@ -69,7 +69,7 @@ P:NPC {
         { id = "h_rend_q", tags = { "news" }, when = { questActive = TODO_QUEST("Eitrigg's Wisdom") },
           text = "Rend Blackhand alive? We thought him dead for decades, and Goretooth would not write it if he did not believe it. None know the Blackrock better than I do, so sit, and I will tell you what the Warchief must hear." },
         { id = "h_rend_done", tags = { "news" }, when = { killed = { name = "Rend Blackhand" } },
-          text = "Rend called himself Warchief from his stolen mountain and called our people slaves. He died a Blackrock, as his father did, and I hope the clan's young ones are watching which of us they choose to follow." },
+          text = "Rend called himself Warchief from his stolen mountain and called our people slaves. He died a Blackrock, as his father did, and I hope the clan's young ones learn something from how he ended." },
         { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR" },
           text = "A young orc warrior in the Warchief's hall. When I was your age, I would have died for any chieftain who shouted loud enough, so learn from my mistakes and save yourself the trouble." },
         { id = "h_shaman", when = { class = "SHAMAN" },
@@ -107,8 +107,8 @@ P:NPC {
     garona = {
       lines = { { id = "ga_default", text = "She served Gul'dan and the council, and she knew what they were before any of us. Most orcs remember her as a traitor or a tool, and I remember that she told the truth when it could have cost her everything." } },
       choices = {
-        { text = "Truth told at a cost is worth the most.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A spy who switches masters is still a spy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Truth told at a cost is worth the most.", next = "BACK", reply = "It is, and she paid for it, more than most will ever know. I hope you'll remember that when you hear her name.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A spy who switches masters is still a spy.", next = "BACK", reply = "Maybe, but a spy who tells the truth at the end is worth more than a loyal liar. I'll not judge her harshly.", fx = { align = { honor = -1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -133,8 +133,8 @@ P:NPC {
         { id = "t3_default", text = "Exiled, last I heard, living alone somewhere in the plaguelands his kingdom became. I call him my brother, and I mean it as I mean nothing else, and some of my people will never forgive me for that." },
       },
       choices = {
-        { text = "Honor doesn't care what race it's born in.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Humans killed our people. Debts to them are foolish.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Honor doesn't care what race it's born in.", next = "BACK", reply = "It doesn't, and Tirion proved it to me. I'm glad to hear a young orc say so.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Humans killed our people. Debts to them are foolish.", next = "BACK", reply = "Then you'd have me forget the man who saved my life. I won't, and I don't ask you to understand it.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'd guess Thrall shares your view.", tag = "Persuade", next = "thrall_secret",
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Scourge" }, { trait = "kind" }, { class = "PALADIN" } } } },
           fail = { next = "thrall_closed", fx = { affinity = -1 } } },
@@ -169,8 +169,8 @@ P:NPC {
       big = true,
       lines = { { id = "bb_default", text = "Bound by blood, yes, and that is why their shame is mine to answer. If I could pull one young Blackrock out of that mountain and bring him here, I would trade every battle I won for Blackhand to do it." } },
       choices = {
-        { text = "Some of them might still be saved.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "They chose their side. Let them die on it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some of them might still be saved.", next = "BACK", reply = "Some might, and I'll keep hoping it. If you ever find one who wants to leave, bring him to me.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They chose their side. Let them die on it.", next = "BACK", reply = "Many will, and I'll grieve them anyway, because they're still my blood. That's the shame I carry.", fx = { align = { light = -1 } } },
         { text = "Something else, Eitrigg.", next = "BACK" },
       },
     },
@@ -182,10 +182,10 @@ P:NPC {
       },
     },
     soft = {
-      lines = { { id = "so_default", text = "Some said that of me in Hearthglen, and I was the one who carried a man out of a fallen tower. Peace with the Alliance is not softness, it is the hardest thing the Warchief has ever tried, and it may fail, but it is worth the trying." } },
+      lines = { { id = "so_default", text = "They called me soft too, for carrying a human paladin out of a fallen tower. Peace with the Alliance is not softness, it is the hardest thing the Warchief has ever tried, and it may fail, but it is worth the trying." } },
       choices = {
-        { text = "Peace is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, opinion = { peace = "for" } } },
-        { text = "The Alliance only understands strength.", next = "BACK", fx = { align = { order = -1 }, opinion = { peace = "against" } } },
+        { text = "Peace is worth the risk.", next = "BACK", reply = "It is, and I'm glad to hear it from you. The Warchief needs more voices like yours.", fx = { affinity = 1, align = { order = 1 }, opinion = { peace = "for" } } },
+        { text = "The Alliance only understands strength.", next = "BACK", reply = "They understand it, aye, but they also understand honor, as Tirion showed me. Don't judge them all by their worst.", fx = { align = { order = -1 }, opinion = { peace = "against" } } },
         { text = "And Jaina Proudmoore? Does the Warchief trust her too far?", next = "jaina_op" },
         { text = "Something else.", next = "BACK" },
       },
@@ -209,8 +209,8 @@ P:NPC {
     warrior = {
       lines = { { id = "wa_default", text = "In front of you, where your enemy can see it. If you ever have to hide what you did with your axe, then you did the wrong thing with it, and I learned that one far too late." } },
       choices = {
-        { text = "I'll keep it in front, then.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Winning matters more than how it looks.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll keep it in front, then.", next = "BACK", reply = "Good, and you'll never have to wonder whether you did right. Keep it in front, warrior.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Winning matters more than how it looks.", next = "BACK", reply = "It does, until you have to live with how you won. I learned that one far too late, and I hope you don't.", fx = { align = { honor = -1 } } },
       },
     },
     jaina_op = {
@@ -268,7 +268,7 @@ P:NPC {
     lordaeron = { { id = "tp_lordaeron", text = "I lived in the hills of Lordaeron for years, alone, and I watched that kingdom die from the edges in. It was a beautiful land once, and the humans who loved it deserved better." } },
     thrall = { { id = "tp_thrall", text = "Thrall is Durotan's son, and he has Durotan's honour, and something else besides that none of us had. He gave me back my place among my people, and he asked nothing for it." } },
     scourge = { { id = "tp_scourge", text = "The Scourge took Lordaeron, and Tirion is still there, somewhere, watching it rot. If I could, I'd go back and stand beside him, but the Warchief needs me here." } },
-    stratholme = { { id = "tp_stratholme", text = "Stratholme was a city of humans, and their prince killed every one of them rather than let the plague take them. Tirion told me about it once, and he didn't sleep that night." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was a city of humans, and their prince put the whole city to the sword rather than let the plague take it. Tirion told me about it once, and he didn't sleep that night." } },
     _none = { { id = "tp_none", text = "I don't know that one, and I'll not guess at it. Old soldiers who pretend tend to get young ones killed." } },
   },
 }

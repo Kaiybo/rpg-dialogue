@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_light", text = "The Light keeps you." },
     { id = "g_lesson", when = { class = "PALADIN" }, text = "Ready for your next lesson?" },
     { id = "g_other", when = { ["not"] = { class = "PALADIN" } }, text = "Not one of mine, but welcome all the same." },
-    { id = "g_priest", when = { class = "PRIEST" }, text = "One of Anetta's, are you? Welcome to the hall of arms, and mind the practice swords." },
+    { id = "g_priest", when = { class = "PRIEST" }, text = "One of Priestess Anetta's, are you? Welcome to the hall of arms, and mind the practice swords." },
   },
 
   notice = {
@@ -33,10 +33,10 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Something did. The Light chooses some, and others are chosen differently. I pray for all of them." } },
+      lines = { { id = "xdsham_default", text = "Something chose you, I think. The Light chooses some and others are chosen differently, and I pray for all of them." } },
       choices = {
-        { text = "Then pray for me too, Brother. I'll gladly take it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I chose myself, Brother. No one chose me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then pray for me too, Brother. I'll gladly take it.", next = "BACK", reply = "Gladly, and every morning, by name. Whatever chose you, I hope it chose well.", fx = { align = { light = 1 } } },
+        { text = "I chose myself, Brother. No one chose me.", next = "BACK", reply = "Perhaps you did, and that takes its own kind of courage. I'll pray for you all the same, if you'll allow it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -44,8 +44,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "It favours those who protect, and a warrior who holds the line for others is doing the Light's work, whether they pray or not. I've seen the sword do more good in Northshire than a dozen sermons." } },
       choices = {
-        { text = "Then I'll fight for those who can't.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I fight for myself. The Light can watch.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll fight for those who can't.", next = "BACK", reply = "Then you're closer to the Light than you know, and I'll be proud to stand beside you.", fx = { align = { light = 1 } } },
+        { text = "I fight for myself. The Light can watch.", next = "BACK", reply = "It watches, aye, and it hopes. One day you may find you're fighting for more than yourself.", fx = { align = { light = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
@@ -53,11 +53,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I believe the Light cares for all that lives, and a hunter who takes life with care honours it. The ones who take more than they need, though, worry me, and they should worry themselves." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a living thing in your keeping, child. Remember that you answer for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I believe the Light cares for all that lives, and a hunter who takes life with care honours it. Your {pet} is a living thing in your keeping, child, so remember that you answer for it." },
       },
       choices = {
-        { text = "I take only what I need, Brother.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The woods are full. Taking more won't harm them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I take only what I need, Brother.", next = "BACK", reply = "Then you honour it, and I'm glad to hear it. Walk gently in the woods.", fx = { align = { light = 1 } } },
+        { text = "The woods are full. Taking more won't harm them.", next = "BACK", reply = "They're full until they aren't, and then the farms go hungry. Take a little less, for the Light's sake and theirs.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -65,34 +65,34 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "It watches over everyone, though some walk in its sight more easily than others, and your trade doesn't make it easy. I'd ask you to remember that every purse you lift belongs to someone the Light loves just as much as you." } },
       choices = {
-        { text = "I'll remember that, Brother. My knives will serve the innocent.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The Light can love whom it likes. I'll lift what I need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll remember that, Brother. My knives will serve the innocent.", next = "BACK", reply = "That's all I'd ask, and more than I'd expected. May your knives find only the guilty.", fx = { align = { light = 1 } } },
+        { text = "The Light can love whom it likes. I'll lift what I need.", next = "BACK", reply = "It loves you as well, and that's the hard part, isn't it? I'll be praying for you, whether you lift purses or not.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "They share this one, though not always comfortably, and Khelden and I have had words over whose candles burn in the Library Wing. The Light asks for faith, and the arcane asks for will, and I think a person can have both." } },
+      lines = { { id = "xmage_default", text = "They share this one, though not always comfortably, and Khelden Bremen and I have had words over whose candles burn in the Library Wing. The Light asks for faith, and the arcane asks for will, and I think a person can have both." } },
       choices = {
-        { text = "Both serve the Abbey. Faith and will in their proper place.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The arcane needs no faith. My will is enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Both serve the Abbey. Faith and will in their proper place.", next = "BACK", reply = "That's well put, and I'll tell Khelden you said so, though he'll want the candles anyway.", fx = { align = { order = 1 } } },
+        { text = "The arcane needs no faith. My will is enough.", next = "BACK", reply = "It may be, for now, but will tires and faith endures. I hope you find that out gently.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it. La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." } },
+      lines = { { id = "xlock_default", text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it. Drusilla La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." } },
       choices = {
-        { text = "Keep praying, Brother. I may need it one day.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Save your prayers for those who want them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep praying, Brother. I may need it one day.", next = "BACK", reply = "I'll be here when that day comes, and I'll not ask what brought you. The Light keeps its doors open.", fx = { align = { light = 1 } } },
+        { text = "Save your prayers for those who want them.", next = "BACK", reply = "I would, if they asked, but most never do until it's late. I'll keep you in mine quietly.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "I wouldn't go that far, but I've seen the Light heal and I've seen druids heal, and I'm not sure the wounded can tell the difference." } },
       choices = {
-        { text = "All healing comes from the same good place.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Nature needs no Light to be whole.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "All healing comes from the same good place.", next = "BACK", reply = "That's my belief too, though I'd not say it too loud in the chapel. The wounded are grateful either way.", fx = { align = { light = 1 } } },
+        { text = "Nature needs no Light to be whole.", next = "BACK", reply = "Perhaps not, and I'll not argue with you on it. But I think it would welcome the company.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -104,27 +104,27 @@ P:NPC {
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "Every paladin's first lesson is the same. The Light isn't a weapon you own. It's a trust you keep." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Consecrated Letter"), days = 1 } },
-          text = "The Marshal sent you with a letter? Good, then we begin today." },
+          text = "Marshal McBride sent you with a letter? Good, then we begin today." },
         { id = "h_dwarf_paladin", when = { race = "Dwarf", class = "PALADIN" },
           text = "Ironforge sends us more of you each year, and I'm glad of it; stubbornness is half of faith." },
         { id = "h_squire", when = { origin = "human_paladin_squire" },
-          text = "You were a squire of the Silver Hand. Then you know what was lost when it broke. Let's not lose the rest." },
+          text = "You were a squire of the Silver Hand, so you know what was lost when it broke. Let's not lose the rest." },
         { id = "h_light", when = { alignment = { axis = "light", min = 50 } },
           text = "You carry yourself like someone who's been forgiven, or who forgives. Either will serve you well." },
         { id = "h_afraid", when = { metBefore = true, class = "PALADIN" }, text = "How was your first real fight? Don't tell me you won; tell me whether you were afraid, because the afraid ones listen better." },
-        { id = "h_floor", when = { metBefore = true }, text = "I've knelt on this floor every morning for longer than you've been alive. The stone is worn where I kneel. I find that a comfort." },
+        { id = "h_floor", when = { metBefore = true }, text = "I've knelt on this floor every morning for longer than you've been alive. The stone is worn where I kneel, and I find that a comfort." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The Abbey is quiet at this hour. The Light doesn't sleep, but it does seem to rest." },
         { id = "h_returned", when = { minLevel = 25, metBefore = true },
           text = "You've come back to the Abbey, as people do after they've seen what's out there. The floor's the same as it was, but you aren't." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid in Northshire! The Light has many faces, I'm told, and perhaps nature is one of them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "A rogue in the Abbey. Jorik's student, I suppose, and the Light watches over you as well, though it sometimes looks away." },
+          text = "A rogue in the Abbey. Jorik Kerridan's student, I suppose, and the Light watches over you as well, though it sometimes looks away." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "A mage. Khelden's student, I suppose, and you'll want to know whether the Light and the arcane can share a roof." },
+          text = "A mage. Khelden Bremen's student, I suppose, and you'll want to know whether the Light and the arcane can share a roof." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You come from the graveyard, and I can feel the darkness on you. I'll still pray for you, though I suspect you'd rather I didn't." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Abbey. You stand like Llane's yard, child, but you might find the Light stands with you too." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Abbey. You stand like one of Llane Beshere's recruits, child, but you might find the Light stands with you too." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Light walks in the woods as well as the Abbey, child, and I think you know that better than most." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I sense no curse on you, only the spirits you walk with. The Light chose me, and something chose you, I think." },
       },
@@ -156,14 +156,14 @@ P:NPC {
       lines = {
         { id = "l_default", text = "Mercy when it costs you, and courage when it doesn't pay. The rest is detail." },
         { id = "l_healer", once = true, when = { heardLine = "pool:spirithealer.cg_default" },
-          text = "You've been arguing with the healer on the hill; you have the look of it. The Light won't settle that argument for you, but it will ask what you mean to do now that you're back." },
+          text = "You've been arguing with the spirit healer on the hill; you have the look of it. The Light won't settle that argument for you, but it will ask what you mean to do now that you're back." },
         { id = "l_shadow", when = { alignment = { axis = "light", max = -30 } },
           text = "You've walked some way from it already. The road back is shorter than you think." },
       },
       choices = {
-        { text = "That's a great deal to ask of anyone.", next = "light_ask", fx = { trait = { skeptical = 1 } } },
-        { text = "I can do that.", next = "BACK", fx = { align = { light = 2 }, trait = { pious = 1 }, affinity = 1 } },
-        { text = "Mercy that costs me is a price I won't pay.", next = "BACK", fx = { align = { light = -2 } } },
+        { text = "That's a lot to ask of anyone.", next = "light_ask", fx = { trait = { skeptical = 1 } } },
+        { text = "I can do that.", next = "BACK", reply = "Then you're already on the road, and I'll be glad to walk a little of it with you.", fx = { align = { light = 2 }, trait = { pious = 1 }, affinity = 1 } },
+        { text = "Mercy that costs me is a price I won't pay.", next = "BACK", reply = "Then you've a long way to go, and I'll not judge you for it yet. Everyone starts somewhere.", fx = { align = { light = -2 } } },
       },
     },
     light_ask = {
@@ -171,8 +171,8 @@ P:NPC {
         { id = "la_default", text = "It is. The old clerics of this house held that a pain shared among everyone weighs less on each. That's the ask: carry a little of somebody else's." },
       },
       choices = {
-        { text = "A little, I can manage.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "I've enough of my own to carry.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A little, I can manage.", next = "BACK", reply = "That's all it takes, and you'll find it lightens you too. Go in the Light.", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "I've enough of my own to carry.", next = "BACK", reply = "You may, and I'd not ask you to forget it. But you might find it weighs less when you share it.", fx = { align = { light = -1 } } },
         { text = "And who carries mine?", next = "light_mine" },
       },
     },
@@ -185,7 +185,7 @@ P:NPC {
 
     path = {
       lines = {
-        { id = "p_cart", text = "Slowly, on my knees, the way everyone does. My road's a small one. The Abbey's is the one worth telling." },
+        { id = "p_cart", text = "Slowly, on my knees, the way everyone does. My road's a small one, and the Abbey's is the one worth telling." },
       },
       choices = {
         { text = "Tell me the Abbey's, then.", next = "abbey" },
@@ -194,27 +194,27 @@ P:NPC {
     },
     again = {
       lines = {
-        { id = "a_never", text = "Every winter. Then a recruit comes in frightened and asks something I can answer. Doubt goes quiet when there's work to do." },
+        { id = "a_never", text = "Every winter, and then a recruit comes in frightened and asks something I can answer. Doubt goes quiet when there's work to do." },
       },
       choices = {
-        { text = "I'll try to be that for someone.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Some doubts don't go quiet, however busy I keep.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll try to be that for someone.", next = "BACK", reply = "You'll be that, and better than you think. It's the frightened recruits who need it most.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Some doubts don't go quiet, however busy I keep.", next = "BACK", reply = "Some don't, I know, and I've a few of those myself. Bring them to the chapel, and we'll sit with them together.", fx = { align = { light = -1 } } },
       },
     },
 
     abbey = {
       lines = {
-        { id = "ab_default", text = "Northshire's clerics went into the First War to heal soldiers, and the orcs hunted them for it. Faol saw the cost, and founded the Silver Hand to fight back." },
+        { id = "ab_default", text = "Northshire's clerics went into the First War to heal soldiers, and the orcs hunted them for it. Archbishop Faol saw the cost, and founded the Silver Hand to fight back." },
       },
       choices = {
         { text = "And after the war?", next = "abbey_after" },
-        { text = "They died healing. That's hard to hear.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Healers who walk into a war should expect to die.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They died healing. That's hard to hear.", next = "BACK", reply = "It is, and it should be. We remember them every morning, and you're welcome to join us.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Healers who walk into a war should expect to die.", next = "BACK", reply = "They knew it, and they went anyway, and that's what made them brave. I'd not call it foolish.", fx = { align = { light = -1 } } },
       },
     },
     abbey_after = {
       lines = {
-        { id = "aa_default", text = "Faol rebuilt this house and gathered us again: the Brotherhood of Northshire. Priests, paladins, the brothers in the fields. We train whoever the kingdom sends." },
+        { id = "aa_default", text = "Archbishop Faol rebuilt this house and gathered us again as the Brotherhood of Northshire, priests, paladins and the brothers in the fields alike. We train whoever the kingdom sends." },
       },
       choices = {
         { text = "And the Silver Hand now?", next = "abbey_hand" },
@@ -226,8 +226,8 @@ P:NPC {
         { id = "ah_default", text = "It broke in the north, with Lordaeron, but not here. Oaths outlast orders if you keep them, and I keep mine every morning on this floor." },
       },
       choices = {
-        { text = "Then I'll keep my oath the same way.", next = "BACK", fx = { learn = { "northshire_abbey" }, align = { order = 1 } } },
-        { text = "An oath to a broken order seems a waste to me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll keep my oath the same way.", next = "BACK", reply = "Then you'll be in good company on this floor, and I'll be glad of it. Every morning, mind.", fx = { learn = { "northshire_abbey" }, align = { order = 1 } } },
+        { text = "An oath to a broken order seems a waste to me.", next = "BACK", reply = "An oath isn't kept for the order, it's kept for the people the order swore to protect. They're still here, and so am I.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -237,8 +237,8 @@ P:NPC {
         { id = "pr_default", text = "Anetta teaches you to mend, and I teach my lot to stand in front of the ones you're mending. It's the same Light, held at a different end of the sword." },
       },
       choices = {
-        { text = "Then we'd better work together.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "I'd rather keep to my own work than yours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then we'd better work together.", next = "BACK", reply = "Exactly, and I'll tell Anetta you said so. She'll pretend she thought of it first.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'd rather keep to my own work than yours.", next = "BACK", reply = "Then do your own work well, and we'll meet in the middle when it counts. The Light won't mind.", fx = { align = { order = -1 } } },
         { text = "Some of us prefer not to need the sword.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -248,8 +248,8 @@ P:NPC {
       },
       choices = {
         { text = "The floors were very clean.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
-        { text = "I've tried to deserve those years.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "I left the Abbey behind me, and I don't miss it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I've tried to deserve those years.", next = "BACK", reply = "You have, and I've watched you do it. The floors were proud of you too.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I left the Abbey behind me, and I don't miss it.", next = "BACK", reply = "Then I'm sorry to hear it, and I'll not hold you here. The Abbey still remembers you fondly.", fx = { align = { light = -1 } } },
       },
     },
     lordaeron = {
@@ -257,8 +257,8 @@ P:NPC {
         { id = "lo_default", text = "Then you've seen what the Silver Hand couldn't save. I pray for the north every morning. I'll add your name, if you'll let me." },
       },
       choices = {
-        { text = "Please do.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Keep your prayers, because the north is past saving.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Please do.", next = "BACK", reply = "I will, every morning, alongside the rest. The north hasn't been forgotten here.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Keep your prayers, because the north is past saving.", next = "BACK", reply = "Then I'll pray for those who still believe it isn't, and for you as well. Go in the Light.", fx = { align = { light = -1 } } },
         { text = "Pray for the ones who stayed.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
@@ -270,9 +270,9 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "A brother of Northshire and a paladin of the Light. Where I came from matters less than where I kneel." } },
     advice = { { id = "tp_ad", text = "Kneel every morning, even when you don't feel like it, and especially then." } },
-    defias = { { id = "t_defias", text = "They're somebody's sons. That doesn't make them less dangerous." } },
+    defias = { { id = "t_defias", text = "The Defias are somebody's sons, but that doesn't make them less dangerous." } },
     northshire_abbey = {
-      { id = "t_abbey", text = "Where the first paladins learned their oaths. I try to deserve the floor I stand on." },
+      { id = "t_abbey", text = "This is where the first paladins learned their oaths, and I try to deserve the floor I stand on." },
       { id = "t_abbey2", text = "Sit, and I'll tell you what this house cost.", next = "abbey" },
     },
     _none = { { id = "t_none", text = "The Light doesn't tell me everything. Neither does Marshal McBride." } },

@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_default", text = "Well, hello! Ye keep bobbin' up an' down, friend, so either stand still or have a drink an' bob along wi' me." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, hic, an' welcome back! Pardon the hiccups, they've been wi' me since breakfast." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, was it? Felt like an afternoon tae me, but then most things do." },
-    { id = "g_kocktail", when = { questActive = TODO_QUEST("Rhapsody's Kalimdor Kocktail") }, text = "Roc gizzards from Tanaris, an' livers from Feralas, groddoc an' ironfur! Then I'll talk, I promise." },
+    { id = "g_kocktail", when = { questActive = TODO_QUEST("Rhapsody's Kalimdor Kocktail") }, text = "Bring me roc gizzards from Tanaris, an' groddoc an' ironfur livers from Feralas, an' then I'll talk, I promise." },
     { id = "g_drunk", when = { drunk = true }, text = "Ye've had a few! Now we're seein' eye tae eye, or at least eye tae nose." },
   },
 
@@ -78,8 +78,8 @@ P:NPC {
           text = "More than I can say sober, friend, which is why I'm never sober. My bird's still up at the Peak, an' I hear she won't take another rider, an' that's the worst o' it." },
       },
       choices = {
-        { text = "Put down the bottle. The sky will wait.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then brew. Every dwarf needs a calling.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Put down the bottle. The sky will wait.", next = "BACK", reply = "The sky's waited long enough, an' so has the bottle. Maybe one day I'll put it down, but no' today.", fx = { align = { order = 1 } } },
+        { text = "Then brew. Every dwarf needs a calling.", next = "BACK", reply = "Aye, that's what I tell meself every mornin', an' the still agrees. It's no' flyin', but it's somethin'.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,7 +130,7 @@ P:NPC {
 
     gilveradin = {
       lines = {
-        { id = "gi_default", text = "Gilveradin? Honey ripple, he calls it, or rather he sells the bottles an' some orc in Orgrimmar fills them. He talks like a book an' drinks like a dwarf, an' I've never had a better neighbour." },
+        { id = "gi_default", text = "Gilveradin? He sells Honey Ripple bottles, or the empty ones anyway, an' some orc in Orgrimmar fills them wi' cheaper stuff. He talks like a book an' drinks like a dwarf, an' I've never had a better neighbour." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -194,7 +194,7 @@ P:NPC {
         { id = "h_sticky_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Sticky Situation"), days = 3 } },
           text = "Finely executed, and you did not bruise the delicacy of the ripple, for which I commend you. Our little chicanery shall turn these bottles into an alcoholic treasure of the ages." },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Ripple Delivery") },
-          text = "Deliver yon barrel to Dran in his salvage emporium, and pray extend my warmest greetings to Malton. Tell him, should he ever thirst for fine drink and finer company, he would be welcome here." },
+          text = "Deliver yon barrel to Dran in his salvage emporium, and pray extend my warmest greetings to his son Malton. Tell him, should he ever thirst for fine drink and finer company, he would be welcome here." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "An emissary of the Horde! I have orcish friends in Orgrimmar, which shocks my kin no end, and I delight in shocking my kin." },
       },
@@ -243,8 +243,8 @@ P:NPC {
         { id = "ok_default", text = "Vigorously, and at length, and in several dialects. The orcs burned our forests in the Second War, and I have not forgotten it, but neither am I obliged to refuse their gold until the end of time." },
       },
       choices = {
-        { text = "Old wars shouldn't stop new trade.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Some debts can't be paid in gold.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Old wars shouldn't stop new trade.", next = "BACK", reply = "They shouldn't, perhaps, and yet they do. Trade with orcs, and I'll trade with you, but I'll count the trees first.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Some debts can't be paid in gold.", next = "BACK", reply = "No, they cannot, and I'm glad you understand. The forests of Quel'Thalas remember, and so do I.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -255,8 +255,8 @@ P:NPC {
         { id = "sw_default", text = "A swindle is when the customer is disappointed, and no one has ever been disappointed by ripple. I merely provide the packaging, and what the buyer believes about its contents is a matter between him and his palate." },
       },
       choices = {
-        { text = "It's dishonest, and you know it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Clever. The buyer's happy, the seller's rich.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "It's dishonest, and you know it.", next = "BACK", reply = "Dishonest? I prefer to call it presentation, and the customers prefer it too. Shall I wrap something for you?", fx = { align = { honor = 1 } } },
+        { text = "Clever. The buyer's happy, the seller's rich.", next = "BACK", reply = "Precisely, and everyone goes home smiling. You'd do well in commerce, my friend.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -15,10 +15,10 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Can you feel the tension in the air, {class}? The stone itself is holding its breath." },
-    { id = "g_ravine", when = { questActive = TODO_QUEST("Boulderslide Ravine") }, text = "Resonite, and the depth of that cave. Whatever the kobolds are digging toward, I must know it." },
+    { id = "g_ravine", when = { questActive = TODO_QUEST("Boulderslide Ravine") }, text = "Bring me Resonite, and tell me how deep that cave goes; whatever the kobolds are digging toward, I must know it." },
     { id = "g_earthen", when = { questActive = TODO_QUEST("Earthen Arise") }, text = "Goggeroc will wake weak from his long sleep. That moment is the only one you'll get, so strike then." },
     { id = "g_done", when = { questDone = TODO_QUEST("Earthen Arise") }, text = "The mountain sleeps easier since Goggeroc fell, and so do I. All of Stonetalon owes you, whether it knows it or not." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back at Sun Rock. The Earth Mother keeps her children's paths winding, but they come home." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and now you're back at Sun Rock. The Earth Mother keeps her children's paths winding, but they come home." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown much since you went into that ravine for me. The earth knows your step now, I think." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "The braves of Sun Rock speak well of you. That is no small thing, among folk who say so little." },
   },
@@ -89,8 +89,8 @@ P:NPC {
         { id = "et_default", text = "No one does, and I think that is as it should be. Some things in the deep places are better left to the Earth Mother's keeping than dug up and asked questions." },
       },
       choices = {
-        { text = "Then we should seal it away, not study it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Knowledge is power. We should learn all we can.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then we should seal it away, not study it.", next = "BACK", reply = "Then we think alike, and I'm glad of it. The Earth Mother keeps her secrets for good reason, and we should help her keep them.", fx = { align = { order = 1 } } },
+        { text = "Knowledge is power. We should learn all we can.", next = "BACK", reply = "Power, yes, and the hunger for it is what dug the thing up in the first place. Learn what you must, young one, but walk carefully in the deep places.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -149,8 +149,8 @@ P:NPC {
         { id = "re2_default", text = "That is the question that keeps me awake. Some at Sun Rock say we should take all of it ourselves before the goblins hear of it, and I say we should throw it back into the dark and let the mountain close over it." },
       },
       choices = {
-        { text = "Throw it back. Some treasures are better left buried.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep it and study it, before the goblins get it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Throw it back. Some treasures are better left buried.", next = "BACK", reply = "That is my heart's answer too, though the others at Sun Rock will grumble. Let the mountain close over it, and let us sleep.", fx = { align = { order = 1 } } },
+        { text = "Keep it and study it, before the goblins get it.", next = "BACK", reply = "You sound like the younger braves, and they're not wholly wrong. But a thing kept is a thing the goblins will hear of, sooner or later.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -198,8 +198,8 @@ P:NPC {
         { id = "go_default", text = "Not yet, no, and I have weighed that, as the Earth Mother weighs the seasons. But when he wakes he'll be weak, and after that he won't, and I'll not gamble Stonetalon on hoping he wakes kind." },
       },
       choices = {
-        { text = "Better to strike first than mourn later.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "It feels wrong to slay a sleeper.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Better to strike first than mourn later.", next = "BACK", reply = "That's what Maggran would say, and he's buried more braves than I have. I'll hear you, though it sits heavy on me.", fx = { align = { light = -1 } } },
+        { text = "It feels wrong to slay a sleeper.", next = "BACK", reply = "It does, and I'm glad someone else feels it. The Earth Mother does not love a blow struck in the dark, even at a monster.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

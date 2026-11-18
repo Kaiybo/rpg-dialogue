@@ -190,7 +190,7 @@ P:Pool {
     burn = {
       lines = { { id = "b_default", text = "It does not burn, though many have asked, and one tried." } },
       choices = {
-        { text = "Someone must have tried, then.", next = "burn2" },
+        { text = "Who tried to burn it?", next = "burn2" },
         { text = "Return me to life.", next = "BUSINESS" },
       },
     },
@@ -304,7 +304,7 @@ P:Pool {
 
     mystery = {
       lines = {
-        { id = "m_default", text = "I am the one who stands here. That is all I am permitted to know, and more than most ask." },
+        { id = "m_default", text = "I am the one who stands here. That is all I am permitted to know, and few who pass through here think to ask even that much." },
         { id = "m_again", priority = 10, when = { npcFlagBefore = "asked_what" },
           text = "You asked that before, and my answer has not changed, though I have, a little." },
       },
@@ -318,12 +318,12 @@ P:Pool {
     mystery2 = {
       lines = {
         { id = "m2_default", text = "Ask me again when you have died a hundred times. I may know by then, and so may you." },
-        { id = "m2_default2", text = "Whoever set this hill here, and the mist around it. They never visit; they left instructions, and a great deal of silence." },
+        { id = "m2_default2", text = "Whoever set this hill here, and the mist around it. They never visit; they left instructions, and then a silence that has not ended." },
         { id = "m2_hundred", tags = { "news" }, when = { deaths = { min = 100 } },
           text = "A hundred deaths, and I promised you an answer, so here it is: I do not know, and I no longer believe anyone does. That frightens me less than it did." },
       },
       choices = {
-        { text = "I doubt you ever disobey.", next = "disobey" },
+        { text = "Have you ever gone against your instructions?", next = "disobey" },
         { text = "Return me to life.", next = "BUSINESS" },
         { text = "Back to my questions.", next = "ask" },
       },
@@ -447,7 +447,7 @@ P:Pool {
     },
     turn_matter = {
       lines = {
-        { id = "tm_default", text = "To me, no; I send back whoever is standing here. To you, I think it matters a great deal, and I think you know it." },
+        { id = "tm_default", text = "To me, no; I send back whoever is standing here. To you, I think it matters more than you let on, and I think you know it." },
       },
       choices = { { text = "Return me to life.", next = "BUSINESS" }, { text = "Back to my questions.", next = "ask" } },
     },
@@ -455,7 +455,7 @@ P:Pool {
       big = true,
       lines = {
         { id = "tf_default", key = true,
-          text = "Yes, you do. You were dragged back once without being asked, and I always ask; that is the whole difference between me and him, and it is everything." },
+          text = "Yes, you do. You were dragged back once without being asked, and I always ask; that is the whole difference between me and the Lich King, and it is everything." },
       },
       choices = {
         { text = "Then why do I feel so little?", next = "turn_forsaken2" },
@@ -527,14 +527,14 @@ P:Pool {
     },
     song = {
       lines = {
-        { id = "so_default", text = "No, it is not, which is why I keep the record. Someone must remember that every ending was real, even the ones you walked away from." },
+        { id = "so_default", text = "No, it is not, and so I keep the record. Someone must remember that every ending was real, even the ones you walked away from." },
         { id = "so_default2", text = "You are right, and I am glad you are right. If it were only a song, I could stop listening." },
       },
       choices = { { text = "Return me to life.", next = "BUSINESS" }, { text = "Back to my questions.", next = "ask" } },
     },
     nothing = {
       lines = {
-        { id = "no_default", text = "Ask the ones I could not send back. Some arrive with no body left to return to, and some with no will left, and death means a great deal to them." },
+        { id = "no_default", text = "Ask the ones I could not send back. Some arrive with no body left to return to, and some with no will left, and to them death is no small thing." },
       },
       choices = {
         { text = "Who are they?", next = "others" },
@@ -759,7 +759,7 @@ P:Pool {
       lines = {
         { id = "mn_default", text = "Everyone has someone in the gray, and yours are quiet. Either they are at peace, or they are waiting until you are ready." },
         { id = "mn_forsaken", when = { race = "Scourge" },
-          text = "Some of them knew you, before. They do not blame you for what walks in your body. They blame him." },
+          text = "Some of them knew you, before. They do not blame you for what walks in your body. They blame the Lich King." },
         { id = "mn_human", when = { race = "Human" },
           text = "Lordaeron is still crowded here, and they ask after the living. I tell them the living are stubborn." },
         { id = "mn_nightelf", when = { race = "NightElf" },
@@ -869,7 +869,7 @@ P:Pool {
         { id = "tk_kind", when = { trait = "kind" },
           text = "You are kind, and the others in the gray notice it. They drift a little closer when you are here, so do not be alarmed." },
         { id = "tk_cruel", when = { trait = "cruel" },
-          text = "There is a cruel streak in you, and I have seen what cruelty does up here. It is the first thing that thins, and it takes a great deal with it." },
+          text = "There is a cruel streak in you, and I have seen what cruelty does up here. It is the first thing that thins, and it takes the kinder things with it." },
         { id = "tk_pious", when = { trait = "pious" },
           text = "You prayed on the way up; most do not notice they are doing it. I heard every word, and I do not know who else did." },
         { id = "tk_skeptic", when = { trait = "skeptical" },
@@ -963,7 +963,7 @@ P:Pool {
         { id = "qr_killed_no", priority = 10, when = { npcFlag = "r_killed_no" },
           text = "Then you have never stood at the top of the hill when a wolf arrives. It looks for its pack, always, before anything else." },
         { id = "qr_killed_dont", priority = 10, when = { npcFlag = "r_killed_dont" },
-          text = "That is honest, and most people try not to. It works, mostly, down there, but it does not work up here." },
+          text = "That is honest; most people try not to think about it. It works, mostly, down there, but it does not work up here." },
         { id = "qr_mourners_none", priority = 10, when = { npcFlag = "r_mourners_none" },
           text = "I do not believe you. Someone would notice the gap where you were, because people always do, eventually; it is often the wrong people, but they notice." },
         { id = "qr_mourners_someone", priority = 10, when = { npcFlag = "r_mourners_someone" },
@@ -989,13 +989,13 @@ P:Pool {
         { id = "qr_afraid_neither", priority = 10, when = { npcFlag = "r_afraid_neither" },
           text = "Then either you are very brave, or you have not been here enough. I will ask you again after a hundred." },
         { id = "qr_count_yes", priority = 10, when = { npcFlag = "r_count_yes" },
-          text = "Then you understand this place better than most priests. A thing done is done, and forgetting does not undo it; only I can undo things, and only the one." },
+          text = "Then you understand this place better than most priests. A thing done stays done, and forgetting does not undo it; the only thing anyone can undo is a death, and only I do that." },
         { id = "qr_count_no", priority = 10, when = { npcFlag = "r_count_no" },
           text = "Then I will remember for you, and it will count. You are welcome, and do not argue." },
         { id = "qr_count_never", priority = 10, when = { npcFlag = "r_count_never" },
           text = "You do not believe that, because people who believe it do not come back down the hill. And yet here you are, about to." },
         { id = "qr_owed_rest", priority = 10, when = { npcFlag = "r_owed_rest" },
-          text = "And yet you do not stay gone. I do not say that to wound you. I say it so you will be gentle with the ones who could not, either." },
+          text = "And yet you do not stay gone yourself. I do not say that to wound you, only so that you will be gentle with the others who came back." },
         { id = "qr_owed_warning", priority = 10, when = { npcFlag = "r_owed_warning" },
           text = "They try. You walk past their warnings every day, the bones by the road and the empty houses, but you are not a good listener, and none of the living are." },
         { id = "qr_owed_nothing", priority = 10, when = { npcFlag = "r_owed_nothing" },
@@ -1156,11 +1156,11 @@ P:Pool {
         { id = "tx_mage", key = true, priority = 10, when = { npcFlag = "t_mage" },
           text = "It is still here. It asks me, sometimes, what the other part is doing, and I tell it the truth: the other part is happy. That is worse, for the part that stayed." },
         { id = "tx_hunter", key = true, priority = 10, when = { npcFlag = "t_hunter" },
-          text = "They came back an hour later and asked for it again. The fourth time, they asked me to keep it. It is folded at the back of my own file; I take it out sometimes." },
+          text = "They came back an hour later, having lost their name again. The fourth time, they asked me to keep it. It is folded at the back of my own file; I take it out sometimes." },
         { id = "tx_farmer", key = true, priority = 10, when = { npcFlag = "t_farmer" },
           text = "He went back, though not for the harvest; he went for a girl down the road who would have had to do the burying. Sometimes a reason is that small, and small reasons hold." },
         { id = "tx_veteran", key = true, priority = 10, when = { npcFlag = "t_veteran" },
-          text = "I did. Some refusals are not refusals but homecomings, and they walked into the mist together, arguing about whose turn it was to carry the flag." },
+          text = "I did. Some refusals are not refusals but homecomings, and he and his old company walked into the mist together, arguing about whose turn it was to carry the flag." },
         { id = "tx_sentinel", key = true, priority = 10, when = { npcFlag = "t_sentinel" },
           text = "I asked what they had not seen yet. They thought for a very long time, longer than anyone has thought on this hill. Then they went back down to see it." },
         { id = "tx_finished", key = true, priority = 10, when = { npcFlag = "t_finished" },
@@ -1431,7 +1431,7 @@ P:Pool {
           text = "...I held a hand once, I think. I remember warmth in the dark, and it did not stop the dark; it did not need to. You win: go back down, and hold some." },
       },
       choices = {
-        { text = "Whose hand was it?", next = "own_file" },
+        { text = "Is that written in a file of your own?", next = "own_file" },
         { text = "Return me to life.", next = "parting" },
       },
     },
@@ -1578,7 +1578,7 @@ P:Pool {
       { id = "t_scarlet", text = "They send me so many, and they all arrive so certain. Certainty does not survive the hill; I watch it leave them, and it is never pretty." },
     },
     argent_dawn = {
-      { id = "t_argent", text = "They argue about the dead with great care, and I appreciate that, since most people only argue with them." },
+      { id = "t_argent", text = "They speak of the dead with great care, and I appreciate that, since most of the living only fight them." },
     },
   },
 }

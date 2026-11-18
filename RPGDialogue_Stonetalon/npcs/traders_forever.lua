@@ -48,7 +48,7 @@ P:NPC {
     },
     mystic = {
       lines = {
-        { id = "m_default", text = "Magnificently, mon, it says so right on my title. I have a little of the old voodoo from the islands, and a great deal of talent for telling people what they already know, and between the two I do very well." },
+        { id = "m_default", text = "Magnificently, mon, it says so right on my title. I have a little of the old voodoo from the islands, and a big talent for telling people what they already know, and between the two I do very well." },
       },
       choices = {
         { text = "So it's a trick.", next = "trick" },
@@ -61,8 +61,8 @@ P:NPC {
         { id = "tr_default", text = "A trick is something that fools people, mon. Tuu'li tells people hopeful things, and they walk away happier, so who is fooled? Tell me true, do you think that's so wrong?" },
       },
       choices = {
-        { text = "Comfort is worth paying for. No harm done.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "A lie is a lie, however kindly it's told.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Comfort is worth paying for. No harm done.", next = "BACK", reply = "Dat be what Tuu'li always say, mon, and you be the first to agree out loud. Take a vial, and walk away a little happier.", fx = { align = { honor = -1 } } },
+        { text = "A lie is a lie, however kindly it's told.", next = "BACK", reply = "A lie, maybe, but a kind one, and the world got plenty of the other kind already. Tuu'li will think on it, mon, between customers.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,7 +103,7 @@ P:NPC {
     },
     trust = {
       lines = {
-        { id = "t_default", text = "With my life, mon, never with my money. He would say the same about me, and we are both right, which is why the partnership works." },
+        { id = "t_default", text = "With my life, mon, never with my money. He would say the same about me, and we both be right, so de partnership works." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -174,8 +174,8 @@ P:NPC {
         { id = "op_default", text = "Opportunistic! Thanks, pal, I'll put it on the sign. Being in the right place with the right thing is the whole secret of trade, so tell me, is a fella wrong to charge for being smart?" },
       },
       choices = {
-        { text = "Charge what the market bears. That's fair trade.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Charge a fair price, even when you could charge more.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Charge what the market bears. That's fair trade.", next = "BACK", reply = "Now there's a customer who understands economics, pal. I'm puttin' you on my mailing list, and my kitten likes you too.", fx = { align = { honor = -1 } } },
+        { text = "Charge a fair price, even when you could charge more.", next = "BACK", reply = "Ooh, a moralist in Stonetalon, now I've seen everything, pal. I'll think about it, honest, right after I've counted today's take.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

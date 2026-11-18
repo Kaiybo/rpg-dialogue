@@ -22,7 +22,7 @@ P:NPC {
     { id = "g_default", text = "Well met! If ye've a strong arm and a warm cloak, the Stormpike Guard has work for ye in the mountains." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, {g:lad|lass}? Good, because the valley hasn't gotten any warmer while ye were away." },
     { id = "g_marks", when = { carrying = { 20560, min = 3 } }, text = "I can hear those marks clinking from here! Ye've been earning yer keep up at Dun Baldar, and the Guard won't forget it." },
-    { id = "g_mark_one", when = { carrying = 20560 }, text = "That's an Alterac mark in yer pack, or I'm a gnome. Ye've stood in the snow with us, then, and that counts for a great deal." },
+    { id = "g_mark_one", when = { carrying = 20560 }, text = "That's an Alterac mark in yer pack, or I'm a gnome. Ye've stood in the snow with us, then, and that counts for plenty wi' me." },
     { id = "g_honored", when = { reputation = { faction = "Stormpike Guard", min = "honored" } }, text = "There's a face Vanndar's people know well! Come and stand by the fire a while, friend of the Guard." },
     { id = "g_exalted", when = { reputation = { faction = "Stormpike Guard", min = "exalted" } }, text = "Every dwarf in Dun Baldar drinks to yer name, and I'll thank ye to know I started that custom myself." },
   },
@@ -45,7 +45,7 @@ P:NPC {
         { id = "h_ironforge", when = { zone = "Ironforge" },
           text = "Home at last, or near enough, with the forges roaring and a proper ale in every hand. Mind, I'd still send every one of ye up to Alterac if I could, because the Guard can't hold Dun Baldar on good wishes." },
         { id = "h_darnassus", when = { zone = "Darnassus" },
-          text = "Ye'll forgive me if I'm a bit stiff, for there's not a forge in this whole city and the trees keep whispering at me. Still, the Sentinels fight like wildcats, and the Guard wants every one of them it can get up in Alterac." },
+          text = "I'm a wee bit stiff here, for there's not a forge in this whole city and the trees keep whispering at me. Still, the Sentinels fight like wildcats, and the Guard would take every Sentinel it can get up in Alterac." },
         { id = "h_stormwind", when = { zone = "Stormwind City" },
           text = "Stormwind's a fine city for recruiting, with soldiers on every corner and half of them bored. I tell them the snow up in Alterac is cleaner than the canals, and some of them even believe me." },
         { id = "h_dwarf", when = { race = "Dwarf" },
@@ -107,8 +107,8 @@ P:NPC {
       big = true,
       lines = { { id = "vr_default", text = "Bits of old stonework, carvings older than anyone can read, and some say a good deal more under the ice. The Frostwolves call it grave-robbing, but if the past of this world is lying in the ground, I'd rather a dwarf dug it up carefully than a kobold dug it up by accident." } },
       choices = {
-        { text = "Knowledge belongs to whoever has the patience to recover it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If the orcs live there, it's their ground to dig or leave.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Knowledge belongs to whoever has the patience to recover it.", next = "BACK", reply = "Aye, that's the Explorers' League creed near enough, and I'll drink to it, so long as the patient ones remember to write down what they found before they sell it.", fx = { align = { order = 1 } } },
+        { text = "If the orcs live there, it's their ground to dig or leave.", next = "BACK", reply = "Hmph, ye sound like a Frostwolf shaman, and I'll grant there's a grain of truth in it, but stone that old was here long before any orc or dwarf, and it belongs to nae clan.", fx = { align = { order = -1 } } },
         { text = "Has the Explorers' League seen any of it?", next = "BACK", fx = { trait = { curious = 1 }, learn = { "explorers_league" } } },
       },
     },
@@ -129,7 +129,7 @@ P:NPC {
       lines = { { id = "fd_default", text = "An old shaman called Drek'Thar, blind as a stone and sharper than most who can see. Captain Galvangar holds Iceblood for him, and when things go badly for the orcs, the old one calls up Lokholar the Ice Lord out of the snow itself." } },
       choices = {
         { text = "An ice lord sounds like a hard thing to fight.", next = "foe_ivus" },
-        { text = "A blind shaman leading a war. I'd respect that.", next = "foe_claim", fx = { trait = { curious = 1 } } },
+        { text = "Blind or not, does Drek'Thar have a claim to the valley?", next = "foe_claim", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -147,8 +147,8 @@ P:NPC {
         { id = "fc_dwarf", when = { race = "Dwarf" }, text = "They'll tell ye they were exiled there and made it home, and that's true enough. But ye know as well as I do, {g:lad|lass}, that a dwarf doesn't give back a mine he's bled for, and the Guard won't be driven off land we've worked with our own hands." },
       },
       choices = {
-        { text = "Then the Guard holds what it's built. Dun Baldar stands.", next = "BACK", fx = { opinion = { alterac_valley = "stormpike" }, align = { honor = 1 }, affinity = 1 } },
-        { text = "They were there first. Some ground isn't ours to take.", next = "BACK", fx = { opinion = { alterac_valley = "frostwolf" }, align = { honor = -1 } } },
+        { text = "Then the Guard holds what it's built. Dun Baldar stands.", next = "BACK", reply = "That's a soldier's answer, an' the right one, so I'll raise a mug tae ye at the next muster. Dun Baldar was raised by dwarven hands, an' dwarven hands will hold it against the whole Frostwolf clan.", fx = { opinion = { alterac_valley = "stormpike" }, align = { honor = 1 }, affinity = 1 } },
+        { text = "They were there first. Some ground isn't ours to take.", next = "BACK", reply = "Ye'll find a few in Dun Baldar who'd thump ye for sayin' it, an' I'll no' be one of them. But first or no', we've dug our roots deep in that rock now, an' roots dinnae pull up easy.", fx = { opinion = { alterac_valley = "frostwolf" }, align = { honor = -1 } } },
         { text = "I'll judge that for myself once I've seen it.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -221,15 +221,15 @@ P:NPC {
       big = true,
       lines = { { id = "mc_default", text = "Aye, and I'll not dress it up any prettier than that. There are some who go up to Alterac for the glory and some who go for the Guard, and I take the marks from both, but I know which ones I'd drink with." } },
       choices = {
-        { text = "I fight for the Alliance, not for marks.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Glory, coin, the Guard. A win's a win.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I fight for the Alliance, not for marks.", next = "BACK", reply = "Then ye're the sort I'd share a mug with at Dun Baldar, and I'll mark your name down proper, because the Guard remembers who came for the right reasons.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Glory, coin, the Guard. A win's a win.", next = "BACK", reply = "Ha, ye're honest about it, I'll say that, and the marks spend the same whatever's in your heart, but dinnae be surprised if the old soldiers drink at another table.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     -- Race
     k_dwarf = {
-      lines = { { id = "kd_default", text = "Because the Stormpike are Bronzebeards too, cousin, with Ironforge stone in Dun Baldar's walls and Ironforge ale in its cellars. If the orcs push us out of Alterac, the next fight is at the foot of Dun Morogh, and I'd rather it stayed in someone else's mountains." } },
+      lines = { { id = "kd_default", text = "Because the Stormpike are Bronzebeards too, cousin, with Ironforge stone in Dun Baldar's walls and Ironforge ale in its cellars. If the orcs push us out of Alterac, the next fight is at the foot of Dun Morogh, an' I'd sooner it stayed in someone else's mountains." } },
       choices = {
         { text = "Then I'll fight for my clan's cousins.", next = "BACK", fx = { affinity = 2 } },
         { text = "Dun Morogh can defend itself.", next = "BACK", fx = { trait = { stern = 1 } } },
@@ -253,8 +253,8 @@ P:NPC {
       big = true,
       lines = { { id = "ke_default", text = "Ye'll not be the first Sentinel to tell me that, and it's true that dwarves don't always know when to stop digging. But the Frostwolves have no love for any of the Alliance, and if the valley falls to them, ye'll be fighting them a good deal closer to Ashenvale." } },
       choices = {
-        { text = "The Alliance stands together, even in the snow.", next = "BACK", fx = { opinion = { alliance = "united" }, align = { order = 1 }, affinity = 1 } },
-        { text = "I'll fight the orcs. Your digging stays your own affair.", next = "BACK", fx = { opinion = { dwarves = "wary" }, align = { order = -1 } } },
+        { text = "The Alliance stands together, even in the snow.", next = "BACK", reply = "Spoken like a true sister o' the Alliance, an' I'll no' forget it. Come tae Dun Baldar an' ye'll find dwarves who'll stand by Ashenvale in turn, when the time comes.", fx = { opinion = { alliance = "united" }, align = { order = 1 }, affinity = 1 } },
+        { text = "I'll fight the orcs. Your digging stays your own affair.", next = "BACK", reply = "Fair enough, an' I'll take a Sentinel's bow on any terms ye like. Just keep the orcs off my miners, an' I'll keep my miners out o' your forest.", fx = { opinion = { dwarves = "wary" }, align = { order = -1 } } },
         { text = "Ashenvale has orcs enough already.", next = "BACK", fx = { learn = { "warsong" } } },
       },
     },
@@ -270,7 +270,7 @@ P:NPC {
     xdruid = {
       lines = { { id = "xd_default", text = "Ivus the Forest Lord, aye, and the druids among the Guard are the ones who wake him. I'll admit a dwarf feels a bit small standing next to a walking forest, but he's never once turned on us." } },
       choices = {
-        { text = "Does he fight willingly, or is he bound?", next = "foe_ivus" },
+        { text = "Ivus? How do the druids call him?", next = "foe_ivus" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -278,8 +278,8 @@ P:NPC {
       big = true,
       lines = { { id = "xp_default", text = "I'd like to think so, for the Light's a dwarf's friend as much as anyone's, and our priests bless the walls of Dun Baldar every morning. Still, I've seen orc shamans heal their wounded with the same care, and that sits strangely with me on cold nights." } },
       choices = {
-        { text = "The Light is with the Alliance. Doubt helps nobody.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The Light chooses no sides in a quarrel over ore.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light is with the Alliance. Doubt helps nobody.", next = "BACK", reply = "Ye've a point, and doubt never held a wall against the Frostwolves, so I'll keep my cold-night thoughts to myself and leave the praying to the priests.", fx = { align = { light = 1 } } },
+        { text = "The Light chooses no sides in a quarrel over ore.", next = "BACK", reply = "That's a hard thing to hear from one of the faithful, but perhaps ye're right, and maybe that's why the Light keeps its own counsel while dwarves and orcs bleed over the ore.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -356,7 +356,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else do you wish to know? I have time, and the spirits are patient." },
-        { id = "h_again2", text = "Speak. A Frostwolf answers questions honestly or not at all." },
+        { id = "h_again2", text = "Speak. A Frostwolf gives a straight answer or none." },
         { id = "h_again3", text = "Ask what you will. The valley is far, but I carry it with me." },
       },
       choices = {
@@ -384,7 +384,7 @@ P:NPC {
       lines = { { id = "cl_default", text = "We were sent there in chains of a kind, when Gul'dan cast our chieftain Durotan out of the Horde for speaking against him. Alterac was meant to be our grave, but the mountains took us in, and the white wolves taught us to live where no orc had lived before." } },
       choices = {
         { text = "Why did Durotan speak against Gul'dan?", next = "clan_durotan" },
-        { text = "I'd not have thought wolves could teach anyone.", next = "clan_wolves" },
+        { text = "How did your clan win the wolves over?", next = "clan_wolves" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -402,8 +402,8 @@ P:NPC {
         { id = "ct_orgrimmar", when = { zone = "Orgrimmar" }, text = "Raised a slave by humans, and still he found his way back to us through the snow, and Drek'Thar taught him the way of the spirits. You stand in the city he built, and every stone of it was laid by someone who remembers that." },
       },
       choices = {
-        { text = "Then Alterac must be held. It's where the Horde was reborn.", next = "BACK", fx = { opinion = { alterac_valley = "frostwolf", warchief = "trust" }, align = { order = 1 }, affinity = 1 } },
-        { text = "Thrall made his own way. The valley's only rock and snow.", next = "BACK", fx = { opinion = { warchief = "respect" }, align = { order = -1 } } },
+        { text = "Then Alterac must be held. It's where the Horde was reborn.", next = "BACK", reply = "Yes, and every Frostwolf feels it in the blood. If Alterac falls, the place where the Warchief became himself falls with it, and no orc who knows the tale will allow that.", fx = { opinion = { alterac_valley = "frostwolf", warchief = "trust" }, align = { order = 1 }, affinity = 1 } },
+        { text = "Thrall made his own way. The valley's only rock and snow.", next = "BACK", reply = "Rock and snow, you say? Then you have never stood at Drek'Thar's fire and felt the spirits answer, and I pity you for it. Fight for the Horde all the same, but do not speak so before my elders.", fx = { opinion = { warchief = "respect" }, align = { order = -1 } } },
         { text = "I'd like to hear more of the clan's tale someday.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },
@@ -438,8 +438,8 @@ P:NPC {
         { id = "fc_tauren", when = { race = "Tauren" }, text = "Of course they do, for every thief says the dog bit first. You of all people know what it is to watch strangers dig into the land your ancestors sleep in, and to be called the savage for defending it." },
       },
       choices = {
-        { text = "A home is held by strength. Drive them out.", next = "BACK", fx = { opinion = { alterac_valley = "frostwolf" }, align = { honor = 1 }, affinity = 1 } },
-        { text = "If they want ore, let them trade for it. Not every quarrel needs blood.", next = "BACK", fx = { opinion = { peace = "for" }, align = { honor = -1 } } },
+        { text = "A home is held by strength. Drive them out.", next = "BACK", reply = "Lok'tar, now you speak like a Frostwolf! We will drive them back down the mountain, and every dwarf who flees will carry the tale of our strength to Ironforge.", fx = { opinion = { alterac_valley = "frostwolf" }, align = { honor = 1 }, affinity = 1 } },
+        { text = "If they want ore, let them trade for it. Not every quarrel needs blood.", next = "BACK", reply = "Trade, with dwarves who fill our valley with walls and call it theirs? You have a kinder heart than I do, and it may yet be wiser, but the Stormpike did not come to bargain.", fx = { opinion = { peace = "for" }, align = { honor = -1 } } },
         { text = "I'll see the valley before I judge.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -517,8 +517,8 @@ P:NPC {
       big = true,
       lines = { { id = "mh_default", text = "Good, for the marks are only the proof, not the purpose. Still, I have seen warriors come to the valley only to fill their packs, and I wonder sometimes whether they would fight at all if there were nothing to carry home." } },
       choices = {
-        { text = "Honor comes from the fight itself. The marks mean nothing.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "A warrior should be paid. Even the clan knows that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Honor comes from the fight itself. The marks mean nothing.", next = "BACK", reply = "Then you understand the valley as my father did, and I would stand beside you at the Iceblood line without asking what you hoped to carry home.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "A warrior should be paid. Even the clan knows that.", next = "BACK", reply = "The clan knows it, and I will not pretend a warrior's family eats honor, but take care the coin does not become the reason you lift the axe at all.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -542,8 +542,8 @@ P:NPC {
       big = true,
       lines = { { id = "kta_default", text = "No, and neither do the spirits of Alterac, but they did not ask the dwarves to come either. Your people fought the centaur for the land your ancestors walked, so tell me, would you let strangers dig there without raising a spear?" } },
       choices = {
-        { text = "No. Land worth living on is worth defending.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
-        { text = "I'd seek peace first, and fight only when it failed.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "No. Land worth living on is worth defending.", next = "BACK", reply = "You speak as a child of the plains should, and the Frostwolves will be glad of your spear when the Stormpike come digging into our mountain again.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "I'd seek peace first, and fight only when it failed.", next = "BACK", reply = "That is the tauren way, and Thrall would honor you for it, but the dwarves did not come to Alterac to talk, and peace needs two who want it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -574,8 +574,8 @@ P:NPC {
       big = true,
       lines = { { id = "xl_default", text = "Gul'dan's warlocks sold our people to the demons and sent my clan into exile for refusing to follow. I will take your help in the valley, warlock, but the Frostwolves have long memories, and I will be watching what you call up." } },
       choices = {
-        { text = "That was Gul'dan's sin, not mine. I serve the Horde.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power is power. I'll use whatever keeps the valley.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That was Gul'dan's sin, not mine. I serve the Horde.", next = "BACK", reply = "Words are easy, warlock, and Gul'dan had many of them, but if your deeds in the valley match them, the Frostwolves will remember that as long as they remember the rest.", fx = { align = { light = 1 } } },
+        { text = "Power is power. I'll use whatever keeps the valley.", next = "BACK", reply = "That is the answer Gul'dan gave my people before he damned us, so do not be surprised when you find my wolves standing between you and the rest of the clan.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

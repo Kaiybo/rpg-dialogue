@@ -15,17 +15,17 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "What? Can't you see I'm busy being ignored by the Almighty? Go and bother him." },
+    { id = "g_default", text = "What? Can't you see I'm busy being ignored by Niby the Almighty? Go and bother him instead." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Oh, a warlock, a real one, not a puffed-up imp with a fancy title. Come closer, I've got a proposition for you." },
     { id = "g_cloth", when = { questActive = TODO_QUEST("The Wrong Stuff") }, text = "Wood and ooze, wood and ooze! Have you got my wood and ooze yet, or are you just standing there?" },
     { id = "g_feathers", when = { questActive = TODO_QUEST("Trolls of a Feather") }, text = "Feathers! Troll feathers, from the sunken temple, and the right colours, mind. My pet won't stuff itself." },
     { id = "g_pet", when = { questDone = TODO_QUEST("Trolls of a Feather") }, text = "Shh, my pet is resting. It's always resting, because it's stuffed, but that's not the point." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and Niby didn't even notice, which tells you how much attention he pays to anything that isn't his own reflection." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and Niby didn't even notice, because Niby pays no attention to anything that isn't his own reflection." },
   },
 
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "You can summon things, can't you? Real things, with teeth. Niby can too, and it's the only thing he's good at, and it drives me mad." },
+      text = "You can summon things, can't you? Real things, with teeth. So can Niby, my so-called master, and it's the only thing he's good at, which drives me mad." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Is that your {pet}? It follows you about and everything, doesn't it? Some people have all the luck." },
     { id = "n_imp", cat = "pet", when = { pet = { type = "Demon" } },
@@ -74,10 +74,10 @@ P:NPC {
     },
     niby_how = {
       lines = {
-        { id = "nh_default", text = "He says he read it in a book in the ruins. I say he found a warlock's notes after the warlock got eaten, and he didn't understand half of them, and the half he did understand was me." },
+        { id = "nh_default", text = "He says he read it in a book in the ruins. I say he found a warlock's notes after the warlock got eaten, and the only part he understood was how to summon me." },
       },
       choices = {
-        { text = "That's funnier than you think.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "That explains a great deal.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -87,8 +87,8 @@ P:NPC {
         { id = "nl_default", text = "Leave? I'm bound, you dolt, it's what summoned means. If I wander off he just snaps his fingers and back I come, and he laughs, and then he makes me fetch the slippers again." },
       },
       choices = {
-        { text = "A bargain is a bargain. Serve him well.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then find a way to break the binding.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A bargain is a bargain. Serve him well.", next = "BACK", reply = "Serve him well? Serve him well, says the fool who doesn't fetch slippers! I'll serve him as well as he deserves, which is barely.", fx = { align = { order = 1 } } },
+        { text = "Then find a way to break the binding.", next = "BACK", reply = "Ooh, now you're thinking, and I've been thinking it for years. If you find the trick, I'll owe you something nasty.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -113,7 +113,7 @@ P:NPC {
     build = {
       lines = {
         { id = "b_default", text = "A proper demon's pet. Felcloth for the skin, because it burns lovely, rotten Irontree wood for the eyes, ooze essence so it smells right, and feathers to stuff it. It'll be the finest pet in Felwood, and it'll be mine." },
-        { id = "b_done", when = { questDone = TODO_QUEST("Trolls of a Feather") }, text = "It's finished, thanks to you, and it's beautiful. It doesn't do anything, but it sits where I put it, which is more than I can say for anybody else around here." },
+        { id = "b_done", when = { questDone = TODO_QUEST("Trolls of a Feather") }, text = "It's finished, thanks to you, and it's beautiful. It doesn't do anything, but it sits where I put it, and nobody else around here ever does." },
       },
       choices = {
         { text = "Why does a pet need to smell like a demon?", next = "build_smell" },
@@ -126,8 +126,8 @@ P:NPC {
         { id = "bs_default", text = "So everybody knows whose it is! A pet that smells like flowers might as well belong to a druid. Mine's going to smell like brimstone and bad ideas, the way a pet should." },
       },
       choices = {
-        { text = "Be proud of what you are, Impsy.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Maybe try being something better than a demon.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Be proud of what you are, Impsy.", next = "BACK", reply = "I am proud, thank you very much, and it's about time someone noticed. Brimstone is a perfectly respectable perfume.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Maybe try being something better than a demon.", next = "BACK", reply = "Better than a demon? There's no such thing, you twit, and I'd know. Go and preach at a priest.", fx = { affinity = -1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -164,8 +164,8 @@ P:NPC {
         { id = "ps_default", text = "Steal? I'm redistributing, warlock. He took my time and my dignity and my afternoons, and I'm only taking back a few shiny things in return. That's fair dealing where I come from." },
       },
       choices = {
-        { text = "I'll take the reward. His loss is my gain.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll help, but I won't take stolen goods.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take the reward. His loss is my gain.", next = "BACK", reply = "There's a warlock with sense, and I knew I liked you. His loss, your gain, and my revenge, all in one.", fx = { align = { honor = -1 } } },
+        { text = "I'll help, but I won't take stolen goods.", next = "BACK", reply = "Oh, a principled one, how dull. Fine, keep your hands clean, and I'll keep the shiny things.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -175,8 +175,8 @@ P:NPC {
         { id = "xh_default", text = "Banish me? Go on, then, and see what happens; I'll be back in a fortnight when Niby gets bored, and in a worse mood. Or you could leave a little imp alone to make his little pet, and nobody gets hurt." },
       },
       choices = {
-        { text = "A demon is a demon. Begone from this world.", next = "BACK", fx = { affinity = -2, align = { light = 1 } } },
-        { text = "You're harmless enough. Make your pet, imp.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A demon is a demon. Begone from this world.", next = "BACK", reply = "Go on, then, and I'll be back sooner than you'd like, and grumpier for it. Niby always gets bored.", fx = { affinity = -2, align = { light = 1 } } },
+        { text = "You're harmless enough. Make your pet, imp.", next = "BACK", reply = "Harmless? I'm deeply offended, but I'll take it. Off you go, and don't tell anyone I was polite.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -186,7 +186,7 @@ P:NPC {
     burning_legion = { { id = "tp_bl", text = "Big, important demons who've never once noticed me, which suits me fine." } },
     satyrs = { { id = "tp_sat", text = "They laugh at Niby, too. I like the satyrs a little bit for that." } },
     background = { { id = "tp_bg", text = "I was summoned, I was bound, I was handed a slipper. That's the whole tale." } },
-    advice = { { id = "tp_ad", text = "Never let anybody give you a title. It only goes to their head when they give themselves one." } },
+    advice = { { id = "tp_ad", text = "Never trust anybody who gives himself a title. Niby did, and look at him." } },
     _none = { { id = "tp_none", text = "Ask Niby. He'll say he knows, and he won't, and you'll enjoy watching him try." } },
   },
 }

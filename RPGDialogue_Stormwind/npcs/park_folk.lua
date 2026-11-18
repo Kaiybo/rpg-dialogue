@@ -98,8 +98,8 @@ P:NPC {
       big = true,
       lines = { { id = "sw_default", text = "Only if you think mercy is the same as softness. We heal whom we can and stand against what cannot be healed, and Elune has never asked us to choose one and forget the other." } },
       choices = {
-        { text = "Mercy comes first. A priest reaching for a bow has failed.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Some evils only answer to arrows. You're right to fight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Mercy comes first. A priest reaching for a bow has failed.", next = "BACK", reply = "That is the human Light's teaching, I think, more than Elune's, and it is not wrong. Still, I have known priestesses whose bows saved more lives than their prayers.", fx = { align = { light = 1 } } },
+        { text = "Some evils only answer to arrows. You're right to fight.", next = "BACK", reply = "Elune's light falls on the sick and on the corrupted alike, and we answer each as it needs. I am glad you understand that.", fx = { align = { light = -1 } } },
         { text = "I'd ask about something else.", next = "BACK" },
       },
     },
@@ -125,10 +125,10 @@ P:NPC {
     },
     cathedral = {
       big = true,
-      lines = { { id = "ca_default", text = "Not once, if I'm honest, though I've stood at its doors more evenings than I'd care to admit. It is their house, built for their Light, and I've never been sure whether a priestess of the Moon would be a guest there or a curiosity." } },
+      lines = { { id = "ca_default", text = "Not once, though I've stood at its doors more evenings than I'd care to admit. It is their house, built for their Light, and I've never been sure whether a priestess of the Moon would be a guest there or a curiosity." } },
       choices = {
-        { text = "Every faith should keep its own house. You're wise to wait.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Doors are for walking through, Nara. Go in tomorrow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Every faith should keep its own house. You're wise to wait.", next = "BACK", reply = "Perhaps, though I think wisdom and fear wear very similar robes on the Cathedral steps. Thank you for being kind about it.", fx = { align = { order = 1 } } },
+        { text = "Doors are for walking through, Nara. Go in tomorrow.", next = "BACK", reply = "Tomorrow, you say? You humans are so very brave about doors. Perhaps I shall, and perhaps Laurena will pour the tea after.", fx = { align = { order = -1 } } },
         { text = "I'll walk in with you some evening, if you like.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -154,8 +154,8 @@ P:NPC {
       big = true,
       lines = { { id = "elt_default", text = "Laurena and I have argued that over a great many cups of tea, and we agree only that both teach mercy. She thinks the Light is a truth that needs no face, and I think Elune has a face and a name, and neither of us has convinced the other yet." } },
       choices = {
-        { text = "Each faith has its own truth. They should stay distinct.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Two names for one mercy. The difference hardly matters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Each faith has its own truth. They should stay distinct.", next = "BACK", reply = "Laurena would agree, I think, and then we'd argue for another hour about which of us agreed first. Distinct, yes, but neighbours.", fx = { align = { order = 1 } } },
+        { text = "Two names for one mercy. The difference hardly matters.", next = "BACK", reply = "That is a kind thought, and I share it some evenings. On others, I remember that names matter a great deal to those who pray.", fx = { align = { order = -1 } } },
         { text = "Something else, Priestess.", next = "BACK" },
       },
     },
@@ -234,10 +234,10 @@ P:NPC {
     },
     practise_shadow = {
       big = true,
-      lines = { { id = "ps_default", text = "Some do, and I won't pretend I understand it. My people knew a hunger for power that drowned a continent, and I see a little of that hunger in priests who learn to wound with their prayers, though Laurena tells me the Light allows it, and she's no fool." } },
+      lines = { { id = "ps_default", text = "Some do, and it's a path I've never understood. My people knew a hunger for power that drowned a continent, and I see a little of that hunger in priests who learn to wound with their prayers, though Laurena tells me the Light allows it, and she's no fool." } },
       choices = {
-        { text = "Shadow is a tool. A wise priest uses every tool.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "A priest's prayers should mend, never wound.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Shadow is a tool. A wise priest uses every tool.", next = "BACK", reply = "A tool can cut the hand that holds it, and shadow cuts deeper than most. I will not forbid it, but I will pray for you.", fx = { align = { light = -1 } } },
+        { text = "A priest's prayers should mend, never wound.", next = "BACK", reply = "Then we see this alike, and Elune is glad of it. Come and sit with me when the Park is quiet.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -273,8 +273,8 @@ P:NPC {
       big = true,
       lines = { { id = "xl_default", text = "It does, and I won't insult you by pretending otherwise. The thing at your heel was born of the same Legion my people bled to drive from this world, and every bargain your kind makes with it leaves a door open behind you." } },
       choices = {
-        { text = "I hold the leash. The Legion's creatures serve me now.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Then I'll keep my doors shut beneath your trees.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I hold the leash. The Legion's creatures serve me now.", next = "BACK", reply = "So said many of the Highborne, once, before the Legion answered their call. I hope you are wiser than they were, truly.", fx = { align = { light = -1 } } },
+        { text = "Then I'll keep my doors shut beneath your trees.", next = "BACK", reply = "I am sorry for it, and I will not pretend I am not relieved. Elune keep you on whatever road you take.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -288,7 +288,7 @@ P:NPC {
     tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is our high priestess and the leader of our people, and she waits for Malfurion to wake. I have knelt before her twice in my life, and both times she knew my name." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "The priestesses of Elune, healers and warriors both, who keep the Temple of the Moon in Darnassus. I am one of them, though a long way from the Temple." } },
     teldrassil = { { id = "tp_teldrassil", text = "Our new World Tree, rising from the sea off Darkshore. I miss the sound of its leaves more than I miss its shade." } },
-    _none = { { id = "tp_none", text = "I don't know, {name}, and I'd rather say so than guess. Elune keeps some answers to herself, and so, it seems, does the world." } },
+    _none = { { id = "tp_none", text = "I don't know, {name}, and a priestess who guesses aloud does more harm than one who admits it. Elune keeps some answers to herself, and so, it seems, does the world." } },
   },
 }
 
@@ -394,8 +394,8 @@ P:NPC {
       big = true,
       lines = { { id = "sw_default", text = "Some days he said Stormwind was rebuilt on the backs of the men who fought for it, and some days he said the nobles took the credit and left the soldiers the bills. I think both were true, and I think it ate at him that the stonemasons who rebuilt the city were never paid for it either." } },
       choices = {
-        { text = "The crown keeps the kingdom safe. Soldiers know what they sign for.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then the nobles owe them still, and should be made to pay.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The crown keeps the kingdom safe. Soldiers know what they sign for.", next = "BACK", reply = "My husband would have said the same some days, and then cursed the crown at supper. I suppose both were true.", fx = { align = { order = 1 } } },
+        { text = "Then the nobles owe them still, and should be made to pay.", next = "BACK", reply = "He'd have liked you, I think. He'd have bought you a drink and told you about the wall at Grim Batol until closing.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -412,8 +412,8 @@ P:NPC {
       big = true,
       lines = { { id = "fe_default", text = "I like them, truth be told, though half my neighbours think the Park's gone strange since they came. Nara the priestess tends to anyone who falls ill by the well, and I've never once heard her ask what god they pray to." } },
       choices = {
-        { text = "The Alliance is stronger when we share our cities.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "They're guests here. Guests should keep to their own customs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Alliance is stronger when we share our cities.", next = "BACK", reply = "That's how I feel too, most days. The priestess brings me soup when my chest is bad, and I'll not hear a word against her.", fx = { align = { order = -1 } } },
+        { text = "They're guests here. Guests should keep to their own customs.", next = "BACK", reply = "They do keep to their own ways, dearie, mostly in the trees, but I'll not begrudge them a bit of green in this stone city.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -439,7 +439,7 @@ P:NPC {
       },
     },
     elsewhere_ask = {
-      lines = { { id = "ea_default", text = "To the sea, I think, at Westfall or Menethil, just to see it go on forever. You've seen it, haven't you? Tell me honestly whether it's as big as they say." } },
+      lines = { { id = "ea_default", text = "To the sea, I think, at Westfall or Menethil, just to see it go on forever. You've seen it, haven't you? Tell me true, is it as big as they say?" } },
       choices = {
         { text = "Bigger. It makes the city feel very small.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "It's just water, Imelda. Grey and cold.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -449,10 +449,10 @@ P:NPC {
 
     xnoble = {
       big = true,
-      lines = { { id = "xn_default", text = "Their father thinks a merchant's coin should buy a lord's manners, and I can't say he's wrong. Half the old houses in this city are poorer than he is now, and you'd know that better than I would, I expect." } },
+      lines = { { id = "xn_default", text = "Their father thinks a merchant's coin should buy a lord's manners, and I can't say he's wrong. There are old houses on the hill with their silver pawned and their roofs leaking, poorer than he is now, and you'd know that better than I would, I expect." } },
       choices = {
-        { text = "Birth still counts for something. Coin can't buy everything.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Good. The old houses grew fat and lazy anyway.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Birth still counts for something. Coin can't buy everything.", next = "BACK", reply = "It does, and my mother would agree with you. Still, I've seen birth count for very little when the rent is due.", fx = { align = { order = 1 } } },
+        { text = "Good. The old houses grew fat and lazy anyway.", next = "BACK", reply = "Hush now, not so loud by the well, the old houses have long ears! Though I'll admit some of them could stand a hard winter.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -464,7 +464,7 @@ P:NPC {
       },
     },
     xnelf = {
-      lines = { { id = "xne_default", text = "Some do, and some grumble, and most simply haven't decided yet. The children love you, which counts for a great deal, and I've never seen the Park so well kept as it's been since your druids came." } },
+      lines = { { id = "xne_default", text = "Some do, and some grumble, and most simply haven't decided yet. The children love you, and their mothers notice that, and I've never seen the Park so well kept as it's been since your druids came." } },
       choices = {
         { text = "That's kind of you to say.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -483,7 +483,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the Park and everyone who stops at this well, which is nearly everyone. Ask away." } },
     background = { { id = "tp_bg", text = "A footman's daughter from Old Town who minds other people's children. It's honest work, and it leaves me plenty of time to watch the world." } },
     advice = { { id = "tp_ad", text = "Keep your blade oiled even when you don't need it. My father said that, and he said it about more than swords." } },
-    the_park = { { id = "tp_park", text = "The prettiest corner of the city, and the strangest since the elves came. Mind the pond if you've children with you; it's deeper than it looks." } },
+    the_park = { { id = "tp_park", text = "The Park is the prettiest corner of the city, and the strangest since the elves came. Mind the pond if you've children with you; it's deeper than it looks." } },
     _none = { { id = "tp_none", text = "I couldn't tell you, I'm afraid. Ask me who's quarrelled by the well this week, and I'll do better." } },
   },
 }
@@ -500,7 +500,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "If you're selling, I'm not buying, and if you're buying, I've nothing in until Kristy's next parcel." },
+    { id = "g_default", text = "If you're selling, I'm not buying, and if you're buying, I've nothing in until my sister Kristy's next parcel." },
     { id = "g_active", when = { questActive = Q_PELTS }, text = "Is that Kristy's knot on that parcel? Bring it here before Kelly sees it." },
     { id = "g_done", when = { questDone = Q_PELTS }, text = "The pelts sold in a week, every one. Kristy will be insufferable." },
     { id = "g_skinner", when = { profession = "Skinning" }, text = "A skinner. Let me see your hands, and I'll tell you if you cut clean." },
@@ -560,7 +560,7 @@ P:NPC {
       },
     },
     trade_buyers = {
-      lines = { { id = "tb_default", text = "Tailors and leatherworkers in the Trade District, and through them half the nobles in the city, though the nobles think they're wearing something far more exotic. I never correct them; a lord who pays for mystery deserves to keep it." } },
+      lines = { { id = "tb_default", text = "Tailors and leatherworkers in the Trade District, and through them a good many lords up by the Keep, though the nobles think they're wearing something far more exotic. I never correct them; a lord who pays for mystery deserves to keep it." } },
       choices = {
         { text = "So you charge the nobles extra?", next = "trade_price" },
         { text = "Something else.", next = "BACK" },
@@ -570,8 +570,8 @@ P:NPC {
       big = true,
       lines = { { id = "tp_default", text = "I charge what they'll pay, and the tailors charge them double that again. Kristy risks her neck for every hide out there, and if a lord wants to pay for the privilege of a cloak, I don't see why my sister shouldn't eat well from it." } },
       choices = {
-        { text = "A fair price is a fair price, whoever's buying.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Good. Fleece them, if they're foolish enough to pay.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A fair price is a fair price, whoever's buying.", next = "BACK", reply = "That's what I keep telling Kelly. If a lord pays a lord's price, that's his lookout, and the hides are worth it.", fx = { align = { honor = 1 } } },
+        { text = "Good. Fleece them, if they're foolish enough to pay.", next = "BACK", reply = "Fleece them? I'd never say it so plain, but I'll not refuse their coin either. Kristy's boots don't pay for themselves.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -616,8 +616,8 @@ P:NPC {
       big = true,
       lines = { { id = "kc_default", text = "That's the question I ask myself every night, and I never like the answer. Father left the business to the three of us, and somebody has to stay and keep it, and Kristy's already chosen not to." } },
       choices = {
-        { text = "Family comes first. Kelly should stay and do her share.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let her go. Nobody should live out someone else's duty.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Family comes first. Kelly should stay and do her share.", next = "BACK", reply = "That's what I keep telling her, though she never listens, and she gets a look in her eye whenever Shailiea comes by. Thank you, anyway.", fx = { align = { order = 1 } } },
+        { text = "Let her go. Nobody should live out someone else's duty.", next = "BACK", reply = "You sound just like her, and maybe you're both right. But someone has to keep the shop when Kristy's in Feralas and Kelly's dreaming.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -678,8 +678,8 @@ P:NPC {
       big = true,
       lines = { { id = "xh_default", text = "Everyone's price is right until the hyenas find them. I'll not hire a stranger to hunt beside my sister, though if you're in Feralas anyway, I'd sleep better knowing someone with a bow had stopped by Thalanaar." } },
       choices = {
-        { text = "I'll look in on her, and not for pay.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Nothing's free, Kimberly. Not even looking in.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll look in on her, and not for pay.", next = "BACK", reply = "That's kinder than you had to be. Kristy will grumble at you, which means she's glad to see a friendly face.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Nothing's free, Kimberly. Not even looking in.", next = "BACK", reply = "No, nothing ever is in this trade. Forget I asked, then, and I'll keep worrying the old way.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -691,7 +691,7 @@ P:NPC {
       lines = { { id = "fb_default", text = "Have you, now? Then tell me plainly, since Kristy never will: is Thalanaar safe, or is my sister lying to me in every letter?" } },
       choices = {
         { text = "The Sentinels keep it well. She's safer than you think.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Honestly? Nowhere in Feralas is safe.", next = "BACK", fx = { trait = { honest = 1 } } },
+        { text = "Plainly? Nowhere in Feralas is safe.", next = "BACK", fx = { trait = { honest = 1 } } },
         { text = "I didn't stop long enough to say.", next = "BACK" },
       },
     },
@@ -758,7 +758,7 @@ P:NPC {
         { text = "Kimberly thinks Shailiea's filling your head with forests.", next = "forests", when = { heardLine = "kimberly_grant.pe_default" } },
         { text = "Ishnu-alah to you as well, Kelly.", next = "xnelf", when = { race = "NightElf" } },
         { text = "I brought the parcel, yes. What do you want to know?", next = "xpelts", when = { questDone = Q_PELTS } },
-        { text = "I've travelled a great deal. Ask me something.", next = "xtraveller", when = { minLevel = 40 } },
+        { text = "I've seen most of the map. Ask me something.", next = "xtraveller", when = { minLevel = 40 } },
         { text = "Back to your counting, Kelly.", next = "END" },
       },
     },
@@ -791,7 +791,7 @@ P:NPC {
       lines = { { id = "s_default", text = "There's Kimberly, who's the eldest and thinks she's our mother, and Kristy, who's in the middle and went off to Feralas, and me. Father left us the fur trade, and Kristy got the adventure and Kimberly got the ledger, and I got told to wait my turn." } },
       choices = {
         { text = "What's Kristy like?", next = "sisters_kristy" },
-        { text = "Kimberly seems to care a great deal about you.", next = "sisters_kim" },
+        { text = "Kimberly seems to worry about you more than she lets on.", next = "sisters_kim" },
         { text = "What was your father like?", next = "sisters_father" },
         { text = "Something else.", next = "BACK" },
       },
@@ -831,8 +831,8 @@ P:NPC {
       big = true,
       lines = { { id = "rs_default", text = "Kimberly, and the business, and Father's name on the sign. Everyone tells me family comes first, but nobody ever tells Kristy that, so what do you think I ought to do?" } },
       choices = {
-        { text = "Stay and help your sister. Your turn will come.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Go, Kelly. The world won't wait for your turn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stay and help your sister. Your turn will come.", next = "BACK", reply = "You sound like Kimberly, and she'll be thrilled to hear it. I just wish my turn had a date on it, that's all.", fx = { align = { order = 1 } } },
+        { text = "Go, Kelly. The world won't wait for your turn.", next = "BACK", reply = "You really think so? Don't tell Kimberly I asked you, because she'll go pale and start counting hides at me.", fx = { align = { order = -1 } } },
         { text = "That's not my choice to make.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -841,13 +841,13 @@ P:NPC {
       big = true,
       lines = { { id = "fo_default", text = "Kimberly thinks anything she can't count is dangerous. Shailiea only tells me what's true, that there's a whole world past the walls, and I don't see why knowing that should be a bad thing." } },
       choices = {
-        { text = "Your sister's right. Dreams don't put bread on the table.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep listening to Shailiea. Kimberly's afraid of the world.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your sister's right. Dreams don't put bread on the table.", next = "BACK", reply = "Bread, bread, bread! That's all anyone says, and nobody ever asks what the bread is for in the first place.", fx = { align = { order = 1 } } },
+        { text = "Keep listening to Shailiea. Kimberly's afraid of the world.", next = "BACK", reply = "I knew someone would understand! I'll tell Shailiea you said so, and maybe she'll show me the trail out of the Park properly.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     sisters_father = {
-      lines = { { id = "sf_default", text = "He used to take me on his knee and name every pelt in the shop, where it came from and what the land was like there. I think that's where all this started, if I'm honest, so it's really his fault and not Shailiea's at all." } },
+      lines = { { id = "sf_default", text = "He used to take me on his knee and name every pelt in the shop, where it came from and what the land was like there. I think that's where all this started, so it's really his fault and not Shailiea's at all." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     ledgers = {
@@ -925,7 +925,7 @@ P:NPC {
     { id = "n_beast", cat = "beast", when = { pet = { type = "Beast" } },
       text = "Your {pet} puts its feet down where yours have been, which means it trusts you. That tells me more about you than anything you could say." },
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
-      text = "You're quieter than the humans, I'll grant you, but you bent the grass by the pond and you haven't let it spring back. Come out and talk properly." },
+      text = "You're quieter than the humans, which isn't hard, but you bent the grass by the pond and you haven't let it spring back. Come out and talk properly." },
     { id = "n_kaldorei", cat = "kaldorei", when = { race = "NightElf" },
       text = "Your tracks are the only ones in this Park that don't drag their heels. I'd forgotten how much I missed the sight of them." },
   },
@@ -972,7 +972,7 @@ P:NPC {
       },
     },
     circles_walls = {
-      lines = { { id = "cw_default", text = "I came with the envoys after the war, to guide them about the human lands, and when they went home I found I'd nothing to go home to. Ashenvale is full of orc axes now, and I'd rather walk circles here than watch it fall tree by tree." } },
+      lines = { { id = "cw_default", text = "I came with the envoys after the war, to guide them about the human lands, and when they went home I found I'd nothing to go home to. Ashenvale is full of orc axes now, and I can't bear to stand in it and watch it fall tree by tree." } },
       choices = {
         { text = "Running from it won't save Ashenvale.", next = "circles_stance" },
         { text = "Something else.", next = "BACK" },
@@ -980,10 +980,10 @@ P:NPC {
     },
     circles_stance = {
       big = true,
-      lines = { { id = "cs_default", text = "No, it won't, and I know it better than you, so mind your tongue. The Sentinels need every bow they can find, and I tell myself that every morning, and every morning I take another lap instead." } },
+      lines = { { id = "cs_default", text = "No, it won't, and I knew that long before you said it, so keep your counsel. The Sentinels need every bow they can find, and I tell myself that every morning, and every morning I take another lap instead." } },
       choices = {
-        { text = "Then go back. Your people need you more than this Park.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "You've earned your rest. Let the young ones hold the line.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then go back. Your people need you more than this Park.", next = "BACK", reply = "You think I don't know that? I'll go back when my leg lets me draw a bow without shaking, and not a day before.", fx = { align = { honor = 1 } } },
+        { text = "You've earned your rest. Let the young ones hold the line.", next = "BACK", reply = "Rest is a word for the dead, stranger, and I'm not one yet. Still, I'll take the kindness, since it's offered.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1023,8 +1023,8 @@ P:NPC {
       big = true,
       lines = { { id = "ao_default", text = "Cutting it down, mostly. The Warsong orcs have built camps along the eastern edge and they fell the old trees for their war, and every one they take was standing when my mother was a girl." } },
       choices = {
-        { text = "Then they should be driven out, whatever it costs.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "There must be terms short of slaughter.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then they should be driven out, whatever it costs.", next = "BACK", reply = "Spoken like someone who has never seen what it costs, but I'll not argue with the Sentinels' answer. Every tree is worth fighting for.", fx = { align = { light = -1 } } },
+        { text = "There must be terms short of slaughter.", next = "BACK", reply = "Terms, with the Warsong? Go and ask them, if you can find one who'll speak before he swings. I've tried, and I bear the scar.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1074,8 +1074,8 @@ P:NPC {
       big = true,
       lines = { { id = "xh_default", text = "I could tell you to look at the edges of a print, not the middle, and to read a trail backward to see where the beast was afraid. Whether you use that to hunt for food or for sport is your business, though I'll think less of you for one of them." } },
       choices = {
-        { text = "I hunt what I need, and nothing more.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The hunt is the sport. That's what makes it worth doing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I hunt what I need, and nothing more.", next = "BACK", reply = "Then you hunt as my people do, and the forest will remember you kindly. That's more than most humans can say.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The hunt is the sport. That's what makes it worth doing.", next = "BACK", reply = "Sport, is it? Then you'll learn nothing from me, and one day the forest will teach you the rest itself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1100,8 +1100,8 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know tracks, forests, and who walked through this Park and when. Ask, while I'm walking." } },
     background = { { id = "tp_bg", text = "A tracker who came to guide the envoys and stayed when they left. Ashenvale was home; this Park is somewhere to put my feet." } },
     advice = { { id = "tp_ad", text = "Look at the edges of a footprint, not the middle. The middle tells you where they were, the edges tell you how they felt about it." } },
-    ashenvale = { { id = "tp_ashenvale", text = "The oldest forest my people still hold, and the orcs are cutting it down for their war. I tracked there for longer than Stormwind has stood." } },
-    sentinels = { { id = "tp_sentinels", text = "Tyrande's warriors, who guard our forests by moonlight. I tracked for them, though I never swore their oath." } },
+    ashenvale = { { id = "tp_ashenvale", text = "Ashenvale is the oldest forest my people still hold, and the orcs are cutting it down for their war. I tracked there for longer than Stormwind has stood." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels are Tyrande's warriors, who guard our forests by moonlight, and I tracked for them, though I never swore their oath." } },
     _none = { { id = "tp_none", text = "Nothing I've seen in the mud. Ask me something that leaves tracks." } },
   },
 }

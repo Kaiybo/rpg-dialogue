@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     prej = {
       big = true,
-      lines = { { id = "prej_default", text = "Not all of them, only the ones who come up the road with empty hands and hungry looks, which is most of them since the Defias burned out half the farms. I lost two wagons of timber in a month, and the tracks went west." } },
+      lines = { { id = "prej_default", text = "Not all of them, only the ones who come up the road with empty hands and hungry looks, which is most of them since the Defias burned out the Brackwell place and the farms along the west road. I lost two wagons of timber in a month, and the tracks went west." } },
       choices = {
         { text = "Westfall folk were starved off their land. Blame the crown, not us.", next = "prej_a", fx = { align = { order = -1 } } },
         { text = "The Defias are thieves, and Westfall should hang them itself.", next = "prej_b", fx = { align = { order = 1 } } },
@@ -57,8 +57,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I never have enough, and they're never fast enough. Your spirits won't carry timber, so I'll count you as one more pair of hands." } },
       choices = {
-        { text = "Count me as one more pair, Raelen. I'll keep the pace.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Deadlines can wait. Workers need rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Count me as one more pair, Raelen. I'll keep the pace.", next = "BACK", reply = "Good, and I'll hold you to it. The axes are by the shed.", fx = { align = { order = 1 } } },
+        { text = "Deadlines can wait. Workers need rest.", next = "BACK", reply = "Tell that to Stormwind, friend, because they don't wait. My lads rest when the order's in.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -66,8 +66,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I'd hire a gnoll if it stacked wood on time, and I very nearly have. The order's due every week, the lads are frightened of the woods, and I don't care who fetches the bundles, so long as they come back stacked and dry." } },
       choices = {
-        { text = "You should care who does your work, Raelen.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Then we understand each other. Get the timber cut.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You should care who does your work, Raelen.", next = "BACK", reply = "I care that it's done, and done right, and that's all. Everything else is Stormwind's problem.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then we understand each other. Get the timber cut.", next = "BACK", reply = "Good, we'll get on fine, then. The bundles are by the river.", fx = { align = { order = -1 } } },
         { text = "Something else, Raelen.", next = "BACK" },
       },
     },
@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Fewer orders, and Stormwind isn't sending fewer, because the city's still rebuilding everything the orcs burned. Bring me a royal decree and I'll cut half as many, but I'm not holding my breath." } },
       choices = {
-        { text = "Then I'll take it to Stormwind properly, through the right hands.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Decrees take too long. The forest can't wait on kings.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll take it to Stormwind properly, through the right hands.", next = "BACK", reply = "If you can manage that, I'll eat my own hat. Go on, then, and tell me how it goes.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Decrees take too long. The forest can't wait on kings.", next = "BACK", reply = "Then the forest will keep waiting, and so will I. Until then the order stands.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -84,8 +84,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Fight the bears, and then cut the wood, if you've an arm left, because the order's due and my lads are scared. I'd pay you for one and thank you for the other." } },
       choices = {
-        { text = "I'll clear the bears and help with the wood.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll fight the bears. Your lads can cut their own wood.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll clear the bears and help with the wood.", next = "BACK", reply = "Good, and I'll pay you for the first and thank you for the second. The bears are north of the camp.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight the bears. Your lads can cut their own wood.", next = "BACK", reply = "Fair enough, and I'll pay you for that much. My lads will cut once the bears are gone.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -93,11 +93,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Enough that my lads count them before they start work, and stop working when they lose count. The wolves came after the bears, following the scraps, so clear the one and the other will scatter." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} could earn its keep up north. I'd pay it in scraps if it weren't against my principles." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Enough that my lads count them before they start work, and stop working when they lose count. Your {pet} could earn its keep up north, and I'd pay it in scraps if it weren't against my principles." },
       },
       choices = {
-        { text = "I'll thin them so your lads can work safely.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll hunt them, but for the hides, not your order.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll thin them so your lads can work safely.", next = "BACK", reply = "Good, my lads will thank you for it, and so will I. The wolves are thickest by the river.", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt them, but for the hides, not your order.", next = "BACK", reply = "Hides or orders, so long as they're gone. I'll not argue about your reasons.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -105,26 +105,26 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The Defias are, and they're selling it in Westfall for twice what Stormwind pays me, which is the only part of it I admire. If you know anyone who knows anyone, I'd like a word with them." } },
       choices = {
-        { text = "I'll help you catch them and hand them to the Guard.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll find them, but I'll settle it my own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll help you catch them and hand them to the Guard.", next = "BACK", reply = "The Guard would like that, and I'd like it more. Bring them to Dughan and I'll buy you a drink.", fx = { align = { order = 1 } } },
+        { text = "I'll find them, but I'll settle it my own way.", next = "BACK", reply = "I'll not ask what that means, so long as my lumber stops walking. Go on, then.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I'd rather have anything that keeps the orders on time, but I know a spell can't tell good grain from bad, and my lads can. Still, if you've a spell that keeps wolves off the cut wood, I'd pay for it." } },
+      lines = { { id = "xmage_default", text = "I'd rather have anything that keeps the orders on time, but I know a spell can't tell good timber from bad, and my lads can. Still, if you've a spell that keeps wolves off the cut wood, I'd pay for it." } },
       choices = {
-        { text = "I'd trust your lads' saws over any spell, Raelen.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Magic's faster and cheaper. You should try it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd trust your lads' saws over any spell, Raelen.", next = "BACK", reply = "Good, because my lads would be insulted otherwise. Keep the wolves off and we'll call it even.", fx = { align = { order = 1 } } },
+        { text = "Magic's faster and cheaper. You should try it.", next = "BACK", reply = "Faster, aye, but cheaper's a stretch, and my lads need the work. I'll keep my saws.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I sent word to the deputy at Westbrook, and Rainer wrote back that I'd got the wrong end of the forest. Meanwhile my lads are getting chewed on and the order's due, and nobody in Stormwind cares about lumber until the beams don't come." } },
+      lines = { { id = "xapala_default", text = "I sent word to Deputy Rainer at Westbrook, and he wrote back that I'd got the wrong end of the forest. Meanwhile my lads are getting chewed on and the order's due, and nobody in Stormwind cares about lumber until the beams don't come." } },
       choices = {
-        { text = "Stormwind owes you protection. I'll see it given.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Don't wait on Stormwind. Arm your lads and fight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stormwind owes you protection. I'll see it given.", next = "BACK", reply = "That would be a first, and I'd be grateful. Tell them the beams won't come otherwise.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Don't wait on Stormwind. Arm your lads and fight.", next = "BACK", reply = "I've half a mind to, but my lads are loggers, not soldiers. Still, I'll think on it.", fx = { align = { order = -1 } } },
         { text = "Something else, Raelen.", next = "BACK" },
       },
     },
@@ -133,11 +133,11 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Can you carry wood? No, never mind; I'd rather you scared the bears off, and you'd have the lads' thanks, which is all I've got to give." },
         { id = "h_default", text = "Supervisor Raelen. I make sure the wood gets cut, stacked and shipped on time. Everybody else makes sure it doesn't." },
         { id = "h_before", when = { questBefore = TODO_QUEST("A Bundle of Trouble") },
-          text = "The wolves and bears up north ran my lads off the cut wood, and now it's lying there with nobody willing to fetch it. And the order's due." },
+          text = "The wolves and bears up north ran my lads off the cut wood, and now it's lying there with nobody willing to fetch it, and the order's due." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("A Bundle of Trouble") },
-          text = "Eight bundles, from up north where the animals are. Not kindling and not twigs, mind; proper bundles." },
+          text = "I need eight bundles of wood from up north, where the animals are, and not kindling or twigs, mind; proper bundles." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Bundle of Trouble"), days = 2 } },
-          text = "Wagon's loaded. If the buyer complains about bark, that's on him." },
+          text = "The wagon's loaded with your bundles, and if the buyer complains about bark, that's on him." },
         { id = "h_rainer", key = true, text = "I told the deputy about the animals days ago; Rainer, his name is. Has anyone seen him since? Anyone at all?" },
         { id = "h_frontier", when = { questDone = TODO_QUEST("Protect the Frontier") },
           text = "Fewer wolves this week, so somebody's been busy. If that was you, the lads are grateful, and I'm too busy to be." },
@@ -160,7 +160,7 @@ P:NPC {
       choices = {
         { text = "You think Westfall folk are all thieves, Supervisor.", next = "prej", when = { prejudiced = true } },
         { text = "Where's the deputy?", next = "rainer", when = { heardLine = "raelen.h_rainer" } },
-        { text = "That's a great deal of lumber.", next = "order" },
+        { text = "That's a lot of lumber.", next = "order" },
         { text = "Something seems to be chasing your workers off.", next = "animals" },
         { text = "Rainer says someone should tell you where Westbrook is.", next = "rainer_heard", when = { heardLine = "rainer.h_raelen" } },
         { text = "Your lads look done in. Let me tend them.", next = "priest", when = { class = "PRIEST" } },
@@ -179,7 +179,7 @@ P:NPC {
 
     rainer = {
       lines = {
-        { id = "r_default", text = "Westbrook, apparently. The other end of the forest. I asked a deputy for help and got directions to a different deputy." },
+        { id = "r_default", text = "At Westbrook, apparently, at the other end of the forest. I asked a deputy for help and got directions to a different deputy." },
       },
       choices = {
         { text = "Want me to have a word with him?", next = "rainer_word", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -198,13 +198,13 @@ P:NPC {
       },
       choices = {
         { text = "Thomas is closer.", next = "BACK", fx = { affinity = 1 } },
-        { text = "You could just write to Dughan.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "You could just write to Marshal Dughan.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
 
     order = {
       lines = {
-        { id = "o_default", text = "It's all for buyers, more of them than I can count. Orders come in faster than my lads can swing. Miss a deadline and the next order goes to someone else." },
+        { id = "o_default", text = "It's all spoken for, and the orders come in faster than my lads can swing. Miss a deadline and the next order goes to someone else." },
       },
       choices = {
         { text = "Why not hire more lads?", next = "order_hire" },
@@ -214,7 +214,7 @@ P:NPC {
     },
     order_hire = {
       lines = {
-        { id = "oh_default", text = "With whom? The army's taken half the strong backs in Elwynn abroad, and the other half want to be adventurers, no offence meant." },
+        { id = "oh_default", text = "With whom? The army's taken Elwynn's strong backs abroad, and the ones left want to be adventurers, no offence meant." },
       },
       choices = {
         { text = "None taken.", next = "BACK", fx = { affinity = 1 } },
@@ -230,7 +230,7 @@ P:NPC {
 
     animals = {
       lines = {
-        { id = "a_default", text = "Wolves and bears, bolder every week. Thomas says something deeper in the forest has them riled. I say something has them hungry, and my lads look like supper." },
+        { id = "a_default", text = "Wolves and bears, and they get bolder every week. Guard Thomas on the bridge says something deeper in the forest has them riled, but I say something has them hungry, and my lads look like supper." },
       },
       choices = {
         { text = "Something in the forest?", next = "animals_cause" },
@@ -239,7 +239,7 @@ P:NPC {
     },
     animals_cause = {
       lines = {
-        { id = "ac_default", text = "Don't ask me; I count logs, not omens. Ask Thomas on the bridge, or the mage in that tower, who's nearer the omens than I'll ever be." },
+        { id = "ac_default", text = "Don't ask me; I count logs, not omens. Ask Thomas on the bridge, or the mage in the Tower of Azora, who's nearer the omens than I'll ever be." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "eastvale" } } } },
     },
@@ -249,8 +249,8 @@ P:NPC {
         { id = "p_default", text = "Can you do it without stopping them? No? Then be quick about it at the midday break, and bless the axes while you're there, because they need it more." },
       },
       choices = {
-        { text = "Axes and men, both.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { eastvale = 1 } } },
-        { text = "The men first. Then your deadline.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Axes and men, both.", next = "BACK", reply = "Good, and quick about it. The axes are by the shed.", fx = { affinity = 2, align = { light = 1 }, standing = { eastvale = 1 } } },
+        { text = "The men first. Then your deadline.", next = "BACK", reply = "The men first, aye, and I'll not argue with a priest. Be quick about it, though.", fx = { align = { light = 1 }, affinity = -1 } },
       },
     },
     farmhand = {
@@ -266,7 +266,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I run the camp, and that's the whole story. The order ships at sundown, so next question." } },
-    advice = { { id = "tp_ad", text = "Know your deadline. Then pretend it's a day sooner." } },
+    advice = { { id = "tp_ad", text = "Know your deadline, and then pretend it's a day sooner." } },
     eastvale = { { id = "tp_eastvale", text = "Best timber in Elwynn and the worst luck to go with it. You can write that on my stone." } },
     kobolds = { { id = "tp_kobolds", text = "Not my problem until they start eating lumber. Give it time." } },
     _none = { { id = "tp_none", text = "Does it ship? If it doesn't, I don't know about it, and I don't need to." } },

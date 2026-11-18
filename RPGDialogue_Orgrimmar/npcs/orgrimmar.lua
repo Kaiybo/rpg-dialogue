@@ -20,9 +20,9 @@ P:NPC {
     { id = "g_orc", when = { race = "Orc" }, text = "{g:Brother|Sister}, we were slaves once, and now we have a home. Never let anyone make us forget either." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, and the Horde is stronger for every warrior who comes back. Sit with me a while." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the city kept turning without you, but I'm glad to see you walk back through the gate. Sit, and tell me what the world looks like beyond Durotar." },
-    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you last stood in this hall, and you carry yourself like someone who has seen a great deal of fighting since. The Horde grows stronger every time a warrior like you comes home." },
+    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you last stood in this hall, and you carry yourself like someone who has bled for the Horde since. The Horde grows stronger every time a warrior like you comes home." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When we first spoke you were barely blooded, and now I can see the battles on you. You've grown into the kind of warrior I hoped this Horde would make." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "My people tell me you've been doing honest work for Orgrimmar, and I hear of it more often than you'd think. A name like that will open more doors than any title I could give you." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "My people tell me you've been doing honest work for Orgrimmar, and word of it reaches this hall on every runner's tongue. A name like that will open more doors than any title I could give you." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone in this city caught you in a lie not long ago. I was a slave to men who lied to me every day of my youth, so understand that I'll be listening carefully." },
   },
 
@@ -40,11 +40,11 @@ P:NPC {
     xalt_thrall = {
       lines = {
         { id = "xalt_thrall_default", text = "Many have stood here, and I try to remember each of them, because I was once a slave nobody looked at twice. Whoever they are to you, they came in with their head up and left the same way, and that is all I ask of anyone in the Horde." },
-        { id = "xalt_thrall_kin", when = { alt = { kin = true } }, text = "{alt}, you mean. That {altclass} spoke plainly and listened when I answered, which is rarer than you'd think in this hall, and if you share blood with them I'd guess you share a stubborn streak as well." },
+        { id = "xalt_thrall_kin", when = { alt = { kin = true } }, text = "{alt}, you mean. That {altclass} spoke plainly and listened when I answered, which few do in this hall, and if you share blood with them I'd guess you share a stubborn streak as well." },
       },
       choices = {
-        { text = "Kin or not, we both answer to the Warchief.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My family looks after its own first, Warchief.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Kin or not, we both answer to the Warchief.", next = "BACK", reply = "We do, and that's the only kinship the Horde truly needs. Go with honor, and give them my greeting.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My family looks after its own first, Warchief.", next = "BACK", reply = "Then look after them, but remember that the Horde is a family too. I'd ask you not to forget the larger one.", fx = { align = { order = -1 } } },
         { text = "Something else, Warchief.", next = "BACK" },
       },
     },
@@ -52,8 +52,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_thrall_default", text = "Then you already understand what took me years to teach. The Horde I lead is orc and troll and tauren and now the Forsaken, and none of them owe the others anything but the word they gave, so the only thing holding us together is people like you choosing to stand beside each other." } },
       choices = {
-        { text = "A word given is worth more than shared blood, Warchief.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Alliances like ours last only as long as they're useful.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A word given is worth more than shared blood, Warchief.", next = "BACK", reply = "It is, and I'm glad you see it. Words given and kept are what hold this Horde together.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Alliances like ours last only as long as they're useful.", next = "BACK", reply = "Some alliances, perhaps, but not this one. I mean to make it last longer than usefulness.", fx = { align = { honor = -1 } } },
         { text = "You seem to trust the Forsaken, Warchief.", next = "xpt_thrall2" },
         { text = "Something else, Warchief.", next = "BACK" },
       },
@@ -68,8 +68,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_rend_default", text = "Then the last of Blackhand's line to claim my title is gone. Rend gathered the Blackrock who would not follow me and gave them to the black dragons in the Spire, and he called that rabble the true Horde. He thought the Horde was a weapon to be pointed at the world, and I have spent my life proving it can be a people instead." } },
       choices = {
-        { text = "The Horde needs one Warchief, and every clan should answer to him.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the clans choose their own chiefs, Warchief. That's the old way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Horde needs one Warchief, and every clan should answer to him.", next = "BACK", reply = "There must be, or we'll tear ourselves apart again. Rend learned that too late.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the clans choose their own chiefs, Warchief. That's the old way.", next = "BACK", reply = "The old way gave us Blackhand and Doomhammer and the demons. I'll keep the clans close, and listen to them all.", fx = { align = { order = -1 } } },
         { text = "Who still follows the Blackrock in the Spire?", next = "xcl_rend2" },
       },
     },
@@ -81,8 +81,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_rfc_default", text = "Then you've seen how close they came. The Searing Blade crawled into the caves beneath Orgrimmar while we were still raising the walls above them, and they fed a demon down there and called it their master. I built this city as a home, and I won't let anyone turn its roots into a shrine to the Legion." } },
       choices = {
-        { text = "Some of those cultists were orcs who lost their way. Offer them a way back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A traitor to the Horde deserves no second chance, Warchief.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some of those cultists were orcs who lost their way. Offer them a way back.", next = "BACK", reply = "If any can be reached, I'll reach them. Bring them to me, and I'll offer what I can.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A traitor to the Horde deserves no second chance, Warchief.", next = "BACK", reply = "Some, perhaps, but I was given a second chance once, and I'd hate to deny it to those who might take it. Bring them to me first.", fx = { align = { light = -1 } } },
         { text = "They were serving something down there, Warchief.", next = "xcl_rfc2" },
       },
     },
@@ -94,8 +94,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "The same place any healer has, which is beside the wounded when the fighting stops. The shaman speak for the elements, but the elements do not bind a grunt's leg, and I have watched too many orcs die in the camps for want of someone who would kneel beside them." } },
       choices = {
-        { text = "Then I'll kneel beside them, whoever they are.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I serve my own people first, Warchief, and the Horde after.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll kneel beside them, whoever they are.", next = "BACK", reply = "Then you understand the Horde better than many of my chieftains. Kneel beside them, and they'll stand beside you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I serve my own people first, Warchief, and the Horde after.", next = "BACK", reply = "Your people first, then, but don't forget they're Horde too. I'd ask more of you, in time.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,8 +103,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Strength, but strength with a purpose. The demon blood made my people mighty and taught them to love slaughter, and I will not let that hunger take root again, so fight for those behind you, the peons and the young ones, and never for the joy of killing alone." } },
       choices = {
-        { text = "I fight to protect the Horde, Warchief, not for bloodlust.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A warrior fights for glory, Warchief. Let the peons protect themselves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I fight to protect the Horde, Warchief, not for bloodlust.", next = "BACK", reply = "Then you understand what I've tried to teach. Fight for those behind you, and you'll never fight alone.", fx = { align = { honor = 1 } } },
+        { text = "A warrior fights for glory, Warchief. Let the peons protect themselves.", next = "BACK", reply = "That's what the demons taught us, and it nearly killed us all. Think on it, warrior.", fx = { align = { honor = -1 } } },
         { text = "Something else, Warchief.", next = "BACK" },
       },
     },
@@ -112,19 +112,19 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They did, and they taught me that a Frostwolf rider never cages his wolf and never rides one that has not chosen him. A hunter who remembers that will never want for a loyal companion, and the Horde could stand to remember it too." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches me the way a Frostwolf watches a stranger, which is to say wisely. Treat it as kin, {class}, and it will stand by you when others will not." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They did, and they taught me that a Frostwolf rider never cages his wolf and never rides one that has not chosen him. Your {pet} watches me the way a Frostwolf watches a stranger, which is to say wisely, so treat it as kin, {class}." },
       },
       choices = {
-        { text = "My companion is my equal, Warchief, not my servant.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A beast is a tool. I feed it so that it fights.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "My companion is my equal, Warchief, not my servant.", next = "BACK", reply = "Then you've learned what the Frostwolves taught me. Your companion will never fail you.", fx = { align = { honor = 1 } } },
+        { text = "A beast is a tool. I feed it so that it fights.", next = "BACK", reply = "Then it will fight, but it will never love you, and that's a loss. I hope you learn otherwise.", fx = { align = { honor = -1 } } },
         { text = "Something else, Warchief.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Cairne is too generous. We fought the centaur beside his people in the Barrens, yes, but the tauren offered us friendship when the rest of the world wanted us back in the camps, and I have never felt that debt was paid on our side." } },
       choices = {
-        { text = "Then the Horde must repay it with loyalty.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Debts between friends shouldn't be counted at all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then the Horde must repay it with loyalty.", next = "BACK", reply = "It must, and I'll see that it does. Cairne deserves no less.", fx = { align = { honor = 1 } } },
+        { text = "Debts between friends shouldn't be counted at all.", next = "BACK", reply = "Perhaps not, and Cairne would agree with you. But I count it anyway, because I never want to forget it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,8 +134,8 @@ P:NPC {
         { id = "xrogue_default", text = "Then you serve it in a way many forget, and I won't be one of them. When I escaped Durnholde, a quiet friend and an unlocked door freed me as surely as any battle, so I know the worth of work done in the dark, so long as it's done for the Horde and never against it." },
       },
       choices = {
-        { text = "Knives in the dark win battles before they start, Warchief.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd still rather stand in the open for the Horde.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Knives in the dark win battles before they start, Warchief.", next = "BACK", reply = "They do, and I won't forget it. Use them wisely, and for the Horde.", fx = { align = { honor = -1 } } },
+        { text = "I'd still rather stand in the open for the Horde.", next = "BACK", reply = "Then stand in the open, and I'll be proud to have you there. The Horde needs both.", fx = { align = { honor = 1 } } },
         { text = "What does the Horde stand for?", next = "horde" },
       },
     },
@@ -145,8 +145,8 @@ P:NPC {
         { id = "xmage_default", text = "There is, though our people learned stranger powers first, from far worse teachers. The Darkspear and the Forsaken bring the arcane to the Horde with clean hands, and I'd ask you to keep them that way." },
       },
       choices = {
-        { text = "My hands will stay clean, Warchief. For the Horde.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll use the arcane as I see fit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "My hands will stay clean, Warchief. For the Horde.", next = "BACK", reply = "Good, and I'll hold you to it. Keep them clean, and the arcane will serve us well.", fx = { align = { order = 1 } } },
+        { text = "I'll use the arcane as I see fit.", next = "BACK", reply = "As you see fit, then, but remember who sees you. I'd ask you not to grasp too far.", fx = { align = { order = -1 } } },
         { text = "What does the Horde stand for, Warchief?", next = "horde" },
       },
     },
@@ -161,7 +161,7 @@ P:NPC {
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
           text = "A full war band at my door, and every one of you armed. When I was a slave in Durnholde I dreamed of orcs gathering like this by their own choice and not at a warlord's order, so forgive me if I look at you a moment longer than I should." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
-          text = "You travel with one of Sylvanas's people, I see. Some of my warriors still make the sign against the dead when the Forsaken pass, and I would rather they learned from you than from me." },
+          text = "You travel with one of Sylvanas's people, I see. Some of my warriors still make the sign against the dead when the Forsaken pass, and I would rather they learned better by watching the two of you than by hearing it from me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Darkspear brought their healers across the sea with them, and now the Forsaken bring theirs from Lordaeron, and I am still learning what each of them prays to." },
         { id = "h_default", key = true,
           text = "Thrall, Warchief of the Horde. Orgrim Doomhammer gave me his hammer and his people with his last breath. I've spent every day since trying to deserve both." },
@@ -170,7 +170,7 @@ P:NPC {
         { id = "h_op_soft", when = { gossip = { topic = "warchief", stance = "soft" } },
           text = "I'm told you think your Warchief has gone soft. Say it to me, if you believe it, because I'd rather hear it in this hall than have it muttered in the Drag." },
         { id = "h_garthok", when = { heardLine = "garthok.h_default" },
-          text = "You've reported to Gar'Thok at Razor Hill. Nazgrel trained him well, and I sleep easier knowing he holds the crossroads." },
+          text = "You've reported to Gar'Thok at Razor Hill. Nazgrel trained him well, and I sleep easier knowing he holds Razor Hill." },
         { id = "h_cl_rend", tags = { "news" }, when = { killed = { name = "Rend Blackhand" }, faction = "Horde" }, text = "Word has come down from Blackrock that Rend Blackhand is dead. He called himself Warchief and called my Horde a pack of slaves, and I hope he understood at the end who had sent you." },
         { id = "h_cl_rfc", tags = { "news" }, when = { cleared = "Ragefire Chasm", faction = "Horde" }, text = "You've been to the bottom of Ragefire Chasm and come back up the stairs, and the Searing Blade will think twice before they light another fire under my city." },
         { id = "h_hidden", tags = { "news" }, when = { questActive = TODO_QUEST("Hidden Enemies") },
@@ -182,7 +182,7 @@ P:NPC {
         { id = "h_plague_soured", tags = { "news" }, when = { thread = { id = "new_plague", state = "soured" } },
           text = "A plague is a plague, you told me, and I haven't stopped hearing it. Every rider from Lordaeron gets a longer hearing in this hall than they used to." },
         { id = "h_neeru", when = { heardLine = "neeru.h_default" },
-          text = "The Cleft, was it? Neeru Fireblade is very helpful, isn't he? Keep being helpful back, quietly, and tell me what he says." },
+          text = "You've met Neeru Fireblade down in the Cleft, I hear. He's very helpful, isn't he? Keep being helpful back, quietly, and tell me what he says." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "The Windshapers, then. The Earthen Ring vouched for you and the tauren took you in, and that's good enough for me. Welcome to the Horde." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Welcome to my hall, druid. Cairne's people taught mine more about this land than we would ever have learned alone, and I count every tauren in Orgrimmar as kin." },
@@ -216,8 +216,8 @@ P:NPC {
         { text = "Tell me about the peoples of the Horde, Warchief.", next = "peoples" },
         { text = "How does a slave become Warchief?", next = "past" },
         { text = "What would you ask of me, Warchief?", next = "ask_me" },
-        { text = "For the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "I fight for myself first, Warchief.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "For the Horde.", next = "END", reply = "For the Horde, then, and may the spirits guide you. Lok'tar ogar.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I fight for myself first, Warchief.", next = "END", reply = "Then I hope you'll find, in time, that the Horde looks after those who look after it. Go well.", fx = { align = { honor = -1 } } },
       },
       again = {
         { id = "h_again", text = "What else is on your mind? Speak plainly; I hear enough flattery from my advisors." },
@@ -235,8 +235,8 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll use it to atone for what was done.", next = "warlock_atone" },
-        { text = "I'll bind demons to serve the Horde, never the reverse.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The demons made us strong, Warchief. That's simply true.", next = "BACK", fx = { affinity = -3, align = { light = -1 } } },
+        { text = "I'll bind demons to serve the Horde, never the reverse.", next = "BACK", reply = "Then you'll be a warlock I can trust. Bind them well, and never let them bind you.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The demons made us strong, Warchief. That's simply true.", next = "BACK", reply = "It's true, and it's a truth I'd rather forget. They made us strong, and they made us slaves.", fx = { affinity = -3, align = { light = -1 } } },
       },
     },
     warlock_atone = {
@@ -267,8 +267,8 @@ P:NPC {
           text = "A primer stolen from a camp guard, I'm told. I learned my letters from a human too, in Durnholde, so I won't be the one to tell you where knowledge may come from." },
       },
       choices = {
-        { text = "The Horde needs new strength, Warchief, not only the old ways.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "I'll ask what it costs. I'll answer to the Horde.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The Horde needs new strength, Warchief, not only the old ways.", next = "BACK", reply = "It does, and I won't deny it. Seek it, but ask what it costs.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask what it costs. I'll answer to the Horde.", next = "BACK", reply = "Good, that's all I ask. Answer to the Horde, and I'll trust you.", fx = { affinity = 2, align = { order = 1 } } },
       },
     },
     paladin = {
@@ -276,8 +276,8 @@ P:NPC {
       lines = { { id = "pa_default", text = "Then you're a riddle I didn't expect to meet in my own hall. The Light has been a human weapon against my people for as long as I've lived, and if it burns you and you lift it anyway, I'd like to hear why." } },
       choices = {
         { text = "Because it hurts. I deserve to feel what I was.", next = "paladin_why" },
-        { text = "The Light belongs to whoever bears its pain, Warchief.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "It's only a weapon. I use it on the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light belongs to whoever bears its pain, Warchief.", next = "BACK", reply = "Then you're braver than many I've met. I'll remember that answer.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "It's only a weapon. I use it on the living.", next = "BACK", reply = "A weapon, then, and I'd ask you to point it carefully. The Light has a long memory in my people.", fx = { align = { light = -1 } } },
       },
     },
     paladin_why = {
@@ -295,8 +295,8 @@ P:NPC {
         { id = "hd_default", text = "Once it stood for conquest. The demons made us into a weapon and pointed us at the world. Now it stands for survival, and for honour, and for each other. I mean to keep it that way." },
       },
       choices = {
-        { text = "I'll help you keep it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Survival matters more than honour, Warchief.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll help you keep it.", next = "BACK", reply = "Good, then you're part of what I'm building. I'll be glad of your help.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Survival matters more than honour, Warchief.", next = "BACK", reply = "Survival without honor is the camps, and I'll not have the Horde go back there. Think on it.", fx = { align = { honor = -1 } } },
         { text = "Not everyone agrees.", next = "agree" },
       },
     },
@@ -306,7 +306,7 @@ P:NPC {
     },
     neeru_suspect = {
       lines = {
-        { id = "ns_default", text = "Since the day he offered to watch the Burning Blade for me. Nobody knows that much about a fire without standing close to it, and Neeru knows a great deal. I keep him where I can see him, and I let him think I'm grateful." },
+        { id = "ns_default", text = "Since the day he offered to watch the Burning Blade for me. Nobody knows that much about a fire without standing close to it, and Neeru knows that fire very well indeed. I keep him where I can see him, and I let him think I'm grateful." },
         { id = "ns_chasm", when = { questDone = TODO_QUEST("Hidden Enemies") },
           text = "You've been down in the chasm and seen what crawls there, so yes, I suspect him. A snake I can see is safer than one I can't, and so he stays in the Cleft, and I watch him smile." },
       },
@@ -335,7 +335,7 @@ P:NPC {
       hub = true,
       lines = {
         { id = "pp_default", text = "Four peoples stand under one banner now, and each of them looks at the same sunrise a different way. Ask about any of them and I'll tell you what I know and what I'm still learning, because a Warchief who thinks he understands his allies has already stopped listening." },
-        { id = "pp_scourge", when = { race = "Scourge" }, text = "Four peoples stand under one banner now, and yours is the newest and the least understood. Ask about any of them, and forgive me if I speak of the others more easily than I speak of the dead." },
+        { id = "pp_scourge", when = { race = "Scourge" }, text = "Four peoples stand under one banner now, and yours is the newest and the least understood. Ask about any of them, though I'll warn you that I speak of the others more easily than I speak of the dead." },
       },
       again = {
         { id = "pp_again", text = "Who else would you hear about? There's no shortage of opinions in this hall." },
@@ -352,7 +352,7 @@ P:NPC {
     },
     clans = {
       lines = {
-        { id = "cl_default", text = "The Frostwolves, the Warsong, the Blackrock who stayed loyal, and the orcs born in the camps who never had a clan at all, and I've tried to make one Horde out of every one of them. Some days the old banners matter more to my people than the new one, and I can't blame them, because a clan is the one thing the demons never managed to take." },
+        { id = "cl_default", text = "The Frostwolves, the Warsong, the Blackrock who stayed loyal, and the orcs born in the camps who never had a clan at all, and I've tried to make one Horde out of all of them. Some days the old banners matter more to my people than the new one, and I can't blame them, because a clan is the one thing the demons never managed to take." },
         { id = "cl_orc", when = { race = "Orc" }, text = "You know this as well as I do, {g:brother|sister}, because if you ask any orc in the Drag for their clan you'll learn more about them than their name ever told you. I've tried to make one Horde out of all those banners, and some days the old ones still pull harder than the new." },
       },
       choices = {
@@ -402,7 +402,7 @@ P:NPC {
       choices = { { text = "I'll tell them, Warchief.", next = "BACK", fx = { affinity = 2 } } },
     },
     dissent = {
-      lines = { { id = "ds_default", text = "Some still kneel in the Spire with the Blackrock, and some fed the fire under my own city, and every one of them was once an orc I'd have died to free. If one of them came to my gate tomorrow and laid down his axe, I'd have to decide what kind of Warchief I am, so tell me, what would you do?" } },
+      lines = { { id = "ds_default", text = "Some still kneel in the Spire with the Blackrock, and some fed the fire under my own city, and each of them was once an orc I'd have died to free. If one of them came to my gate tomorrow and laid down his axe, I'd have to decide what kind of Warchief I am, so tell me, what would you do?" } },
       choices = {
         { text = "Take him back, Warchief. Every orc freed is a victory.", next = "BACK", fx = { trait = { kind = 1 }, opinion = { orc_traitors = "mercy" } } },
         { text = "He chose the dragons. Let him die among them.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { orc_traitors = "hardline" } } },
@@ -437,11 +437,11 @@ P:NPC {
       },
     },
     trolls_old = {
-      lines = { { id = "to_default", text = "They did, the Amani of the northern forests, because they hated the elves more than they feared us, and when the war turned they left us to the camps without a backward glance. The Darkspear are another tribe with another debt, and I've learned that trolls, like orcs, are a great deal more than their worst chieftains." } },
+      lines = { { id = "to_default", text = "They did, the Amani of the northern forests, because they hated the elves more than they feared us, and when the war turned they left us to the camps without a backward glance. The Darkspear are another tribe with another debt, and I've learned that trolls, like orcs, should not be judged by their worst chieftains." } },
       choices = { { text = "Something else, Warchief.", next = "BACK" } },
     },
     sailed = {
-      lines = { { id = "sa_default", text = "Then you saw the worst day of my first voyage, and I've never asked a Darkspear what it looked like from the shore. Tell me honestly, did your people think we'd come to save them, or to make them slaves?" } },
+      lines = { { id = "sa_default", text = "Then you saw the worst day of my first voyage, and I've never asked a Darkspear what it looked like from the shore. Tell me plainly, did your people think we'd come to save them, or to make them slaves?" } },
       choices = {
         { text = "We thought you'd be just another master, Warchief.", next = "sailed2", fx = { trait = { skeptical = 1 } } },
         { text = "We saw you fight for us, and we knew.", next = "sailed2", fx = { affinity = 1, trait = { generous = 1 } } },
@@ -479,7 +479,7 @@ P:NPC {
       },
     },
     migration2 = {
-      lines = { { id = "mg2_default", text = "I'll take all of it, and I'd rather hear it from you than learn it too late. The tauren gave us friendship before we'd earned it, so if your people ever stop trusting mine, I want to know the day it starts." } },
+      lines = { { id = "mg2_default", text = "I'll take all of it, because I'd sooner hear it from you than learn it too late. The tauren gave us friendship before we'd earned it, so if your people ever stop trusting mine, I want to know the day it starts." } },
       choices = { { text = "I'll tell you, Warchief.", next = "BACK", fx = { affinity = 1 } } },
     },
     grimtotem = {
@@ -489,7 +489,7 @@ P:NPC {
     forsaken_p = {
       lines = {
         { id = "fk_default", text = "The Forsaken were humans and elves once, and the Scourge made them into the very thing they'd fought, until their queen tore them free and gave them a name for what was done to them. I took them into the Horde because I know what it is to be made into a weapon by someone else's hand, and because Cairne asked me to." },
-        { id = "fk_scourge", when = { race = "Scourge" }, text = "You'll know better than I do what it is to be what you are, so forgive me if I speak of your people as a stranger, because that's still what I am to them. I took the Forsaken in because I know what it is to be made into someone else's weapon." },
+        { id = "fk_scourge", when = { race = "Scourge" }, text = "You'll know better than I do what it is to be what you are, so bear with me if I speak of your people as a stranger, because that's still what I am to them. I took the Forsaken in because I know what it is to be made into someone else's weapon." },
       },
       choices = {
         { text = "You can't really trust the Dark Lady.", tag = "Persuade", next = "sylvanas_truth",
@@ -500,7 +500,7 @@ P:NPC {
       },
     },
     sylvanas_truth = {
-      lines = { { id = "st_default", text = "Trust is the wrong word, and I wouldn't say this in front of Vol'jin, who already says it for me. I believe she hates the Lich King more than anything alive or dead, but I don't know what she'll want once that hatred is spent, and her apothecaries brew plague beneath Lordaeron, and a plague is a plague whoever it's aimed at. I watched the last one empty a kingdom." } },
+      lines = { { id = "st_default", text = "Trust is the wrong word, though Vol'jin says so more loudly than I would. I believe she hates the Lich King more than anything alive or dead, but her apothecaries brew plague beneath Lordaeron, and a plague is a plague whoever it's aimed at, because I watched the last one empty a kingdom." } },
       choices = {
         { text = "Then why keep her close?", next = "sylvanas_truth2" },
         { text = "I'll say nothing of this, Warchief.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } },
@@ -561,8 +561,8 @@ P:NPC {
       big = true,
       lines = { { id = "pc_default", text = "It holds because neither of us lets it break, and there are men in Theramore and orcs in Razor Hill who'd break it tomorrow if we turned our backs. Every Kul Tiran soldier at Tiragarde Keep makes my chieftains ask why we don't strike first, so tell me, would you?" } },
       choices = {
-        { text = "Keep the peace, Warchief. Your word to Jaina binds us.", next = "BACK", fx = { affinity = 1, align = { honor = 1 }, opinion = { peace = "for" } } },
-        { text = "Strike first. The humans will never forget the camps.", next = "BACK", fx = { align = { honor = -1 }, opinion = { peace = "against" } } },
+        { text = "Keep the peace, Warchief. Your word to Jaina binds us.", next = "BACK", reply = "It does, and I'll keep it. Thank you for reminding my chieftains of it.", fx = { affinity = 1, align = { honor = 1 }, opinion = { peace = "for" } } },
+        { text = "Strike first. The humans will never forget the camps.", next = "BACK", reply = "They won't forget, and neither will I. But a war now would cost us everything we've built.", fx = { align = { honor = -1 }, opinion = { peace = "against" } } },
         { text = "I'd ask Jaina what she fears before deciding.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -670,8 +670,8 @@ P:NPC {
         { id = "bu_cold", when = { disposition = { max = 34 } }, text = "A Warchief's burdens are his own to carry, though I'll ask you one thing about them, since you asked me. Should a Warchief rule alone, or share the weight?" },
       },
       choices = {
-        { text = "The Horde needs one strong hand, Warchief, not a council.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let the chieftains share the weight, Warchief.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Horde needs one strong hand, Warchief, not a council.", next = "BACK", reply = "Perhaps, but a strong hand can become a cruel one. I'll keep my chieftains close.", fx = { align = { order = 1 } } },
+        { text = "Let the chieftains share the weight, Warchief.", next = "BACK", reply = "They do, more than you know. Perhaps I should let them share more of it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Do the elements give you no counsel?", next = "shaman_harder" },
         { text = "I'm one of your students. We listen for you.", next = "student", when = { origin = "orc_thrall_shaman" } },
         { text = "Something else, Warchief.", next = "BACK" },
@@ -699,11 +699,11 @@ P:NPC {
         { text = "For my people, and for the ones who come after.", next = "ask_me2", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "For glory, and a name the songs remember.", next = "ask_me2", fx = { trait = { brave = 1 } } },
         { text = "Because you freed us, Warchief.", next = "ask_me_grat", fx = { affinity = 1 } },
-        { text = "Honestly? It pays better than anything else.", next = "ask_me2", fx = { affinity = -1, trait = { greedy = 1 } } },
+        { text = "The truth? It pays better than anything else.", next = "ask_me2", fx = { affinity = -1, trait = { greedy = 1 } } },
       },
     },
     ask_me_grat = {
-      lines = { { id = "amg_default", text = "Then I'll ask you for more than gratitude, because gratitude fades, and I'd rather you stood for the Horde because of what it is than because of who I am. If I fell tomorrow, would you still fight for it?" } },
+      lines = { { id = "amg_default", text = "Then I'll ask you for more than gratitude, because gratitude fades, and I want you to stand for the Horde because of what it is than because of who I am. If I fell tomorrow, would you still fight for it?" } },
       choices = {
         { text = "I would, Warchief, for what it's become.", next = "ask_me2", fx = { affinity = 2, opinion = { horde = "loyal" } } },
         { text = "I don't know, Warchief, and that's the truth.", next = "ask_me2", fx = { trait = { honest = 1 } } },
@@ -724,7 +724,7 @@ P:NPC {
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've earned straight answers from me, and I'll give you as many as I have." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, because a Warchief answers his people, even the ones he isn't sure of yet." },
     },
-    cenarion_circle = { { id = "tp_circle", text = "The tauren walk with them, and I'm glad of it; the world needs more who heal than wound." } },
+    cenarion_circle = { { id = "tp_circle", text = "The tauren walk with the Cenarion Circle, and I'm glad of it; the world needs more who heal than wound." } },
     wailing_caverns = { { id = "tp_caverns", text = "The tauren have told me of something sick under the Barrens. When our young warriors are ready, they'll go in." } },
     burning_blade = { { id = "tp_blade", text = "Some of my own people still kneel to the old fire. They hide better than they think, and not as well as they hope." } },
     echo_isles = { { id = "tp_isles", text = "The Darkspear will have their home back. I gave Vol'jin my word, and I don't give it lightly." } },
@@ -791,8 +791,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_voljin_default", text = "Know that we were nearly wiped out, mon, hunted by the sea witch's murlocs and by our own kin, until Thrall's ships came through the storm and took us off the Echo Isles. A Darkspear remembers every debt, good and bad, so be the kind of friend they owe something to and not the other kind." } },
       choices = {
-        { text = "I'll stand by my companion as Thrall stood by you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Debts are for merchants. I fight for what I can take.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand by my companion as Thrall stood by you.", next = "BACK", reply = "Good, mon, then you understand the Darkspear. Stand by them, and they'll stand by you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Debts are for merchants. I fight for what I can take.", next = "BACK", reply = "Then you won't understand us, mon, and we won't trust you. Debts be what keep us alive.", fx = { align = { honor = -1 } } },
         { text = "Something else, Vol'jin.", next = "BACK" },
       },
     },
@@ -800,8 +800,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_zg_default", text = "Quiet for now, mon. The Gurubashi call that Soulflayer into the world because they want their empire back, and they forget that a god who drink blood never stop at the enemy's. My people lose our place in that jungle long ago, and I shed no tears for the ones who drive us out, but no troll should be food for Hakkar." } },
       choices = {
-        { text = "Even the Gurubashi deserved better than to be his food.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Those trolls chose their god, Vol'jin. Let them pay his price.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Even the Gurubashi deserved better than to be his food.", next = "BACK", reply = "They did, mon, and it grieve me even now. Hakkar eat his own, and he'll eat everyone else after.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Those trolls chose their god, Vol'jin. Let them pay his price.", next = "BACK", reply = "They chose, ya, but they chose for all of us. Hakkar won't stop at the Gurubashi, mon.", fx = { align = { light = -1 } } },
         { text = "Who are the Zandalar to the Darkspear?", next = "xcl_zg2" },
       },
     },
@@ -813,8 +813,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Trouble me? No, mon. I seen the loa ride stranger horses than you. But the Light was the humans' spear, and the orcs remember who held it over the camps, so you be watched in this city until you give them a reason to stop." } },
       choices = {
-        { text = "Then they can watch me keep faith with the Horde.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let them watch. I owe the orcs no explanations.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then they can watch me keep faith with the Horde.", next = "BACK", reply = "Good, mon, then they'll stop watching soon enough. Keep faith, and the loa see it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them watch. I owe the orcs no explanations.", next = "BACK", reply = "Then they'll keep watching, mon, and you'll keep being watched. Your choice.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -822,8 +822,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "They listen, mon, though they don't always answer the way you be wantin'. Zalazane think the loa give power to whoever shout the loudest, and look where that take him, cursin' his own people on Echo Isles. A priest who listen more than he shout, that one the spirits remember." } },
       choices = {
-        { text = "Then I'll listen, and heal whoever needs it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Sometimes the spirits must be made to answer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll listen, and heal whoever needs it.", next = "BACK", reply = "Good, mon, and the loa will answer you better for it. Listen first.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sometimes the spirits must be made to answer.", next = "BACK", reply = "That be how Zalazane talk, mon, and look at him now. Careful who you push.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -831,16 +831,16 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Zalazane on the Echo Isles, with his hexed trolls and his madness, and the Kul Tirans at Tiragarde Keep, who never forgave us for walkin' free. Thrall gave us Sen'jin Village, but a gift like that only stay given if somebody be willin' to bleed for it." } },
       choices = {
-        { text = "The Darkspear are Horde, Vol'jin. Their fight is mine.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll fight for pay, chieftain, not for old troll feuds.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Darkspear are Horde, Vol'jin. Their fight is mine.", next = "BACK", reply = "Good, mon, and the Darkspear remember it. Fight beside us, and we'll fight beside you.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight for pay, chieftain, not for old troll feuds.", next = "BACK", reply = "Then I'll pay you, mon, but the Darkspear won't remember you kindly. Feuds be how we stay alive.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "More often than the priests of either would like to admit. Both say the land remember everything you do to it, and both say it don't forgive easy." } },
+      lines = { { id = "dq_default", text = "They agree more often than the priests of either would like to admit. Both say the land remember everything you do to it, and both say it don't forgive easy." } },
       choices = {
-        { text = "The old spirits deserve the old respect.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Spirits or not, the Horde does what it must.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The old spirits deserve the old respect.", next = "BACK", reply = "They do, mon, and you be wiser than many. The land remember everything.", fx = { align = { order = 1 } } },
+        { text = "Spirits or not, the Horde does what it must.", next = "BACK", reply = "It does, mon, but the land remember that too. Careful what the Horde does.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -851,8 +851,8 @@ P:NPC {
         { id = "xrogue_troll", when = { race = "Troll" }, text = "Then you remember the old ways, mon, and a Darkspear who remember them lives long. We survived the Echo Isles by never being where the enemy looked, and I don't ask my people to fight fair, only to fight for each other." },
       },
       choices = {
-        { text = "Fair fights are for fools. I fight to win.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather my enemies see me coming, chief.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair fights are for fools. I fight to win.", next = "BACK", reply = "Good, mon, that be the Darkspear way. Win, and win for each other.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather my enemies see me coming, chief.", next = "BACK", reply = "Then you'll be the only Darkspear they ever see coming, mon, which be brave and a little strange. The loa like strange, though.", fx = { align = { honor = 1 } } },
         { text = "What happened to the Echo Isles?", next = "isles" },
       },
     },
@@ -863,8 +863,8 @@ P:NPC {
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "A dead man who learn the arcane, that be a strange thing to bring to a troll, mon. The loa don't like you much, but they don't like most people, so keep your spells pointed away from my people and we'll get along." },
       },
       choices = {
-        { text = "I'll respect the loa, as they deserve.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The loa can watch. I'll study what I like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll respect the loa, as they deserve.", next = "BACK", reply = "Good, mon, and the loa be glad of it. Remember your offerings.", fx = { align = { light = 1 } } },
+        { text = "The loa can watch. I'll study what I like.", next = "BACK", reply = "Study what you like, mon, but the loa be watching. They don't like being ignored.", fx = { align = { light = -1 } } },
         { text = "Why follow Thrall, chief?", next = "thrall" },
       },
     },
@@ -928,8 +928,8 @@ P:NPC {
           text = "Gadrin tell me about you, the one with the voice. He scared, and Gadrin don't scare easy, so you be careful in my city." },
       },
       choices = {
-        { text = "I'll bring home power for the tribe, nothing more.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "I'll keep the demons on a short leash, for the tribe.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll bring home power for the tribe, nothing more.", next = "BACK", reply = "Good, mon, then the tribe will be glad of it. Bring home only power.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll keep the demons on a short leash, for the tribe.", next = "BACK", reply = "That be all I ask, mon. Keep them short, and the tribe will stop whispering.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "What should I bring, then?", next = "warlock_bring" },
       },
     },
@@ -944,16 +944,16 @@ P:NPC {
     hunter = {
       lines = { { id = "hu_default", text = "The old way, eh? Good, because my father take heads for the tribe, and his father before him. Just you remember that out here among the orcs and the tauren, some think it be savage, so you show them what it means: respect, not cruelty." } },
       choices = {
-        { text = "Let them think it savage. Fear keeps enemies away.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll show them respect, chief.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Let them think it savage. Fear keeps enemies away.", next = "BACK", reply = "Fear works, mon, but respect lasts. Think on it.", fx = { align = { honor = -1 } } },
+        { text = "I'll show them respect, chief.", next = "BACK", reply = "Good, mon, that be the old way. Show them, and they'll learn.", fx = { affinity = 2, align = { honor = 1 } } },
       },
     },
     forsaken = {
       big = true,
       lines = { { id = "fk_default", text = "Trust? No, mon, and I tell the Warchief so to his face. Your Dark Lady got eyes like a hungry crocolisk, and her apothecaries brew things in the Undercity that make my witch doctors shiver. You I judge separate, though." } },
       choices = {
-        { text = "That's fair. Judge me by what I do.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "The Dark Lady doesn't need a troll's trust.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "That's fair. Judge me by what I do.", next = "BACK", reply = "Good, mon, that be all I do. Show me, and we see.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The Dark Lady doesn't need a troll's trust.", next = "BACK", reply = "No, mon, but she has it anyway, a little, because the Warchief ask. Don't push it.", fx = { affinity = -2, align = { order = -1 } } },
       },
     },
     thrall = {
@@ -962,8 +962,8 @@ P:NPC {
         { id = "t_default", text = "When the murlocs come for us, Thrall fight beside us. My father die that day, and Thrall don't leave. A debt like that, you pay with your whole life." },
       },
       choices = {
-        { text = "That's a heavy debt.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "A debt's only as heavy as you let it be.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That's a heavy debt.", next = "BACK", reply = "It be, mon, and I carry it gladly. Thrall be worth every bit of it.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A debt's only as heavy as you let it be.", next = "BACK", reply = "Then you never owed a life, mon. Pray you never do.", fx = { align = { honor = -1 } } },
         { text = "Is there anyone in the Horde you don't trust, chief?", next = "dark_lady_op" },
       },
     },
@@ -998,7 +998,7 @@ P:NPC {
     },
     isles = {
       lines = {
-        { id = "i_default", text = "Zalazane be my friend since we was small, and now he wear our home like a mask. Gadrin work to take it back, and one day we do it, mon. One day." },
+        { id = "i_default", text = "Zalazane be my friend since we was small, and now he hold our home with an army of hexed Darkspear. Master Gadrin in Sen'jin work to take it back, and one day we do it, mon." },
       },
       choices = {
         { text = "I'll help when that day comes.", next = "END", fx = { affinity = 2, learn = { "echo_isles" } } },
@@ -1064,7 +1064,7 @@ P:NPC {
     yenniku = { { id = "tp_yenniku", text = "He be my son. Say his name careful, mon; I say it every night." } },
     echo_isles = { { id = "tp_isles", text = "I see them in my sleep: the sand, the sea, the old huts, and Zalazane's puppets walking where my father walked." } },
     burning_blade = { { id = "tp_blade", text = "Orcs who miss the demons. The Warchief watch them closer than they think, and so do I." } },
-    thrall = { { id = "tp_thrall", text = "Thrall pulled the Darkspear out of the sea when the murlocs and the humans would have finished us, and I swore my people to him on that beach. He never asked for the oath, which is why it holds." } },
+    thrall = { { id = "tp_thrall", text = "Thrall pulled the Darkspear out of the sea when the murlocs and the humans would have finished us, and I swore my people to him on that beach. He never asked for de oath, and dat be why it holds." } },
     darkspear = {
       { id = "tp_darkspear", text = "The Darkspear are a small tribe with a long memory, mon, and we don't forget a friend or an enemy. We came to Kalimdor with nothing, and now we have Sen'jin, and soon we'll have the isles again." },
       { id = "tp_darkspear2", when = { race = "Troll" }, text = "You're one of mine, and I see it in how you stand. Make the Darkspear proud out there, and come home to Sen'jin when you need to remember who you are." },
@@ -1111,8 +1111,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_neeru_default", text = "Then your companion is braver than most, because the warlocks of the old Horde are blamed for every wound our people still carry. I teach the young ones to command what they summon and never to beg it for favours, and if your friend has learned that, they'll outlive their critics." } },
       choices = {
-        { text = "My companion's power keeps us alive, and I welcome it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Fel magic damned the Horde once. I don't like it near me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My companion's power keeps us alive, and I welcome it.", next = "BACK", reply = "Good, then you understand. Welcome to the Cleft, friend.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Fel magic damned the Horde once. I don't like it near me.", next = "BACK", reply = "Then you and your companion will have much to talk about. I hope you find a way.", fx = { align = { light = 1 } } },
         { text = "Surely there's a cost to what warlocks summon.", next = "xpt_neeru2" },
         { text = "Let's speak of something else.", next = "BACK" },
       },
@@ -1127,21 +1127,21 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_rfc_default", text = "Broken is such a strong word, though I suppose it will do. The cultists down there were young and loud and terribly eager, and eagerness is how a cult gets itself noticed by the wrong people. Taragaman was always hungrier than they understood, so perhaps they were fortunate you found them first." } },
       choices = {
-        { text = "They were fools, Neeru, but fools can be useful.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Any orc who kneels to a demon deserves the same end.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They were fools, Neeru, but fools can be useful.", next = "BACK", reply = "Useful, yes, though not quite as they intended. You understand the Cleft very well.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Any orc who kneels to a demon deserves the same end.", next = "BACK", reply = "The same end, yes, and it's coming. You'll find I agree with you more than you'd think.", fx = { align = { honor = 1 } } },
         { text = "You must have gone down into the chasm yourself.", next = "xcl_rfc2" },
       },
     },
     xcl_rfc2 = {
-      lines = { { id = "xcl_rfc2_default", text = "Oh, once or twice, purely to keep an eye on things, as the Warchief asked. The caves run deeper than most of the city realises, and the fire down there is older than Orgrimmar. One learns a great deal about people by watching what they do in the dark." } },
+      lines = { { id = "xcl_rfc2_default", text = "Oh, once or twice, purely to keep an eye on things, as the Warchief asked. The caves run deeper than most of the city realises, and the fire down there is older than Orgrimmar. One learns so much about people by watching what they do in the dark." } },
       choices = { { text = "I'll remember that, Neeru.", next = "BACK" } },
     },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Every power is dangerous in the wrong hands, friend, and the Light has had some very wrong hands in its time. The Silver Hand kept my people in pens with it. I don't say you'd do the same; I only say I will be watching, as I watch everyone." } },
       choices = {
-        { text = "Watch all you like. I've nothing to hide.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Watch your own hands, Neeru. I'll watch mine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Watch all you like. I've nothing to hide.", next = "BACK", reply = "Then you have nothing to fear from me. I'll watch anyway.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Watch your own hands, Neeru. I'll watch mine.", next = "BACK", reply = "Oh, I do, friend, very closely. That's what makes me useful.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1149,8 +1149,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "I watch everyone, friend, because that is what the Warchief needs from someone like me. Priests are seldom any trouble, though the shadow your kind draws on is a cousin to the fire I keep an eye on, and cousins do have a way of visiting each other." } },
       choices = {
-        { text = "The shadow serves my healing, nothing more.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Power is power. I'll draw on whatever answers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The shadow serves my healing, nothing more.", next = "BACK", reply = "Then you'll have no trouble from me. Keep it that way.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. I'll draw on whatever answers.", next = "BACK", reply = "Then we'll be seeing more of each other, I think. I look forward to it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1158,28 +1158,28 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Work? Oh, the Cleft is perfectly peaceful, I assure you, and the Warchief's guards see to that. If it's a fight you want, Orgnil Soulscar hunts the Burning Blade down in Durotar, and I'm told he's never short of cultists, though I can't imagine where they all come from." } },
       choices = {
-        { text = "Then I'll help Orgnil cut the Burning Blade down.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Cultists pay well too, I hear. I'm not particular.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll help Orgnil cut the Burning Blade down.", next = "BACK", reply = "Good, and Orgnil will be glad of you. Give him my regards.", fx = { align = { honor = 1 } } },
+        { text = "Cultists pay well too, I hear. I'm not particular.", next = "BACK", reply = "They do, I'm told, but they don't live long to spend it. Choose carefully.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Beasts have honest noses, and the Cleft smells of things that were summoned rather than born. Pay it no mind, my friend; the warlocks keep their pets on short leashes, which is more than I can say for some hunters I've met in the Drag." },
+        { id = "xhuntcl_default", text = "Beasts have honest noses, and the Cleft smells of things that were summoned rather than born. Pay it no mind, my friend; the warlocks keep their pets on far shorter leashes than the hunters who let their cats nose through the Drag." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking at me, doesn't it? Animals are such poor judges of character, and I've always found that rather charming." },
       },
       choices = {
-        { text = "I trust my beast's nose more than any warlock's word.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Summoned or born, a pet is a pet. I don't judge.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I trust my beast's nose more than any warlock's word.", next = "BACK", reply = "So do I, friend, and I'm a warlock, so take that as a professional opinion. Trust your beast's nose before anyone's word down here.", fx = { align = { light = 1 } } },
+        { text = "Summoned or born, a pet is a pet. I don't judge.", next = "BACK", reply = "A generous view, and rare. You'll find the Cleft very welcoming.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "I make sure they remember whom they serve, which is more than they'd manage on their own. Your people never had to learn what fel magic does to a land, but we orcs left Draenor dry and dying because of it." } },
+      lines = { { id = "dq_default", text = "I watch them, and I make sure they remember whom they serve, which is more than they'd manage on their own. Your people never had to learn what fel magic does to a land, but we orcs left Draenor dry and dying because of it." } },
       choices = {
-        { text = "Fel magic should be forbidden in the Horde.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Power is a tool. Let them use it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fel magic should be forbidden in the Horde.", next = "BACK", reply = "It should be watched, and I'm the one watching. Forbidding it only sends it underground.", fx = { align = { order = 1 } } },
+        { text = "Power is a tool. Let them use it.", next = "BACK", reply = "A tool, yes, and a very sharp one. Mind your fingers.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1189,19 +1189,19 @@ P:NPC {
         { id = "xrogue_default", text = "I watch everyone in the Cleft, friend, because the Warchief asked me to, and because both trades depend on not being watched. The rogues of the Shattered Hand keep their own counsel down here, and we get along best when neither of us asks too many questions." },
       },
       choices = {
-        { text = "Then I'll trust your watch, and keep my counsel.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Watch all you like. I'll go where I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll trust your watch, and keep my counsel.", next = "BACK", reply = "Good, and we'll get along famously. Keep your counsel.", fx = { align = { order = 1 } } },
+        { text = "Watch all you like. I'll go where I please.", next = "BACK", reply = "Then I'll watch you go, friend. I always do.", fx = { align = { order = -1 } } },
         { text = "What do you think of Thrall?", next = "thrall" },
       },
     },
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Arcane fire is a much tidier thing than the kind the Cleft studies, I'll grant you. The trolls in the Valley of Spirits teach it well enough, and they'll tell you what I'd tell any warlock, which is that every flame wants more than you give it." },
+        { id = "xmage_default", text = "Arcane fire is a much tidier thing than the kind the Cleft studies, certainly. The trolls in the Valley of Spirits teach it well enough, and they'll tell you what I'd tell any warlock, which is that every flame wants more than you give it." },
       },
       choices = {
-        { text = "I'll keep my flames under strict control.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let it want. I enjoy feeding it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my flames under strict control.", next = "BACK", reply = "Good, and you'll live longer for it than most of my students. Keep it under strict control, always, because fire remembers every slack moment.", fx = { align = { order = 1 } } },
+        { text = "Let it want. I enjoy feeding it.", next = "BACK", reply = "Then I'll be watching your flames as well. Feeding it is how it grows.", fx = { align = { order = -1 } } },
         { text = "What is the Burning Blade?", next = "blade" },
       },
     },
@@ -1257,16 +1257,16 @@ P:NPC {
     warlock = {
       big = true,
       lines = {
-        { id = "wl_default", text = "Everything the Warchief's shamans won't, and with far less disapproval. The Horde fears our art, and fear is such a waste of good power. Down here, at least, we can speak of it honestly." },
+        { id = "wl_default", text = "Everything the Warchief's shamans won't, and with far less disapproval. The Horde fears our art, and fear is such a waste of good power. Down here, at least, we can speak of it without lowering our voices." },
         { id = "wl_cleft", when = { origin = "orc_cleft_initiate" },
           text = "Ah, one of our own initiates come home. You've learned your lessons well, I'm told. Do remember who taught them to you when the Warchief's people start asking questions." },
         { id = "wl_troll", when = { race = "Troll", class = "WARLOCK" },
           text = "A Darkspear, with the gift! How delightful. Your people never drank the old fire, so you come to it fresh and unafraid, and I find that refreshing." },
       },
       choices = {
-        { text = "I'll learn your spells, and keep my own counsel.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { skeptical = 1 } } },
+        { text = "I'll learn your spells, and keep my own counsel.", next = "BACK", reply = "Good, a quiet student. You'll learn more than the loud ones.", fx = { affinity = -1, align = { light = 1 }, trait = { skeptical = 1 } } },
         { text = "Then let's speak honestly. What do the Horde fear most?", next = "warlock_fear" },
-        { text = "Fear is weakness. I'll take every power offered.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "Fear is weakness. I'll take every power offered.", next = "BACK", reply = "Every power? Then you'll need someone to watch you, and I'm very good at that.", fx = { affinity = 2, align = { light = -1 } } },
       },
     },
     warlock_fear = {
@@ -1280,8 +1280,8 @@ P:NPC {
           text = "Self-taught, from a human primer? Then you already know the best power is the kind you take for yourself. The arcane is a fine start, but do come back when it stops being enough." },
       },
       choices = {
-        { text = "The arcane will be enough for me.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "And when it isn't, I'll know where to come.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "The arcane will be enough for me.", next = "BACK", reply = "I hope it will be, for your sake. The arcane is cleaner than what I teach.", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "And when it isn't, I'll know where to come.", next = "BACK", reply = "And I'll be here in the Cleft, waiting, because most of them come down the ramp eventually. I'll have the kettle on.", fx = { affinity = 2, align = { light = -1 } } },
       },
     },
     shaman = {
@@ -1369,6 +1369,7 @@ P:NPC {
 
 P:NPC {
   key = "gryshka", id = TODO_NPC("Innkeeper Gryshka"), name = "Innkeeper Gryshka",
+  gender = "female",
   bible = "bibles/orgrimmar.md", role = "innkeeper", tier = "service",
   communities = { "orgrimmar" }, temper = { "hearty" }, values = { "generous" },
   notices = { "weary", "hunger" },
@@ -1382,8 +1383,11 @@ P:NPC {
     { id = "g_home", when = { homeInn = { "Orgrimmar", "Valley of Strength" } }, text = "The Tusk missed you! Your bed's warm and there's a haunch on the spit, so your timing's good." },
     { id = "g_away", when = { away = 14 }, text = "There you are! You've been gone {away}, and I was starting to think something out there ate you before I could feed you, so sit down while the spit's turning." },
     { id = "g_away_long", when = { away = 60 }, text = "You've gone {away} without a hot meal from the Tusk, and look at you, you're all gristle. Sit, and you're not getting up until you've eaten and told me every fight." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "Half the Tusk has been talking about the work you've done for the city, so your first plate's on the house tonight. Then you can tell me the stories yourself." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Every table in the Tusk has been talking about the work you've done for the city, so your first plate's on the house tonight. Then you can tell me the stories yourself." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I heard you put somebody's back up in the city not long ago, and they came in here grumbling about it. Whatever it was, you leave it at the door of my inn." },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "gry_fl_no" } }, text = "Sit down and let me look at you, because the Tusk doesn't get many like you through the door. Food first, and then I'll find a reason to keep you here a while." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "gry_fl_yes" }, text = "There's my favourite! I've saved you the corner seat by the fire, and don't you dare tell Zargh I said so." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "gry_fl_no" }, text = "A plate and nothing else, I remember. Sit anyway, because I feed everyone at the Tusk, even the ones who won't let me fuss over them." },
   },
 
   notice = {
@@ -1393,12 +1397,45 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Everyone eats at the Tusk, but not everyone gets the best cut, and you'd do well to notice which one's on your plate. A warrior with shoulders like yours needs feeding properly, and I'll admit I like to watch a strong one eat." } },
+      choices = {
+        { text = "Then keep the best cuts coming, Gryshka.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "gry_fl_yes" }, clear = { "gry_fl_no" } } } },
+        { text = "Any orc would fight a war for a seat at your table.", next = "fl_yes", when = { race = "Orc" }, fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "gry_fl_yes" }, clear = { "gry_fl_no" } } }, reply = "Lok'tar! Now that's how an orc pays a compliment, plain and loud, so the whole inn can hear it." },
+        { text = "Is there enough on that spit for a tauren?", next = "fl_tauren", when = { race = "Tauren" } },
+        { text = "Is that how you treat Zargh, too?", next = "fl_zargh" },
+        { text = "Generous of you, but I'll just take the stew.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "gry_fl_no" }, clear = { "gry_fl_yes" } } }, reply = "Stew it is, and no harm done. You'll still get the best cut, mind, because I can't help myself." },
+        { text = "Keep your eyes on the spit, innkeeper.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "gry_fl_no", "gry_fl_rebuff" }, clear = { "gry_fl_yes" } } }, reply = "Ha! Blunt as an axe, and I respect that. The spit it is, then." },
+      },
+    },
+    fl_zargh = {
+      lines = { { id = "flz_default", text = "Zargh! Who's been talking to you about Zargh? Fine, so he sends me meat from the Barrens and I send him back the bones, and nobody in Orgrimmar can make sense of it, least of all me. A woman can admire the stew in the next pot while she waits on her own, can't she?" } },
+      choices = {
+        { text = "She can admire it all she likes.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "gry_fl_yes" }, clear = { "gry_fl_no" } } } },
+        { text = "I'd not come between you and Zargh, Gryshka.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "gry_fl_no" }, clear = { "gry_fl_yes" } } }, reply = "Hmph. You're kinder than he is, then, because he's never once told me what the bones mean to him." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fl_tauren = {
+      lines = { { id = "flt_default", text = "For a tauren? I'd need a second spit and a wider door, and you'd still want a third plate after that. Lucky for you, I've always had a soft spot for a big appetite on a big frame." } },
+      choices = {
+        { text = "Then I'll make sure to come back hungry.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "gry_fl_yes" }, clear = { "gry_fl_no" } } } },
+        { text = "Just the one plate will do, Gryshka.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "gry_fl_no" }, clear = { "gry_fl_yes" } } }, reply = "One plate for a tauren. I'll believe that when I see the bottom of it." },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Now that's an answer with some blood in it! Come back off the Valley of Honor with a fresh scar and a good story, and I'll sit with you while you eat, which is something I don't do for just anybody." } },
+      choices = {
+        { text = "I'll bring the story, Gryshka.", next = "BACK", reply = "Bring the scar too. The ones with scars always tell it better." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_gryshka = {
       big = true,
       lines = { { id = "xpt_gryshka_default", text = "Pick your companions the way you'd pick a wolf, for loyalty first and teeth second, because I've seen more war bands broken by quarrels over loot than by any Alliance blade. The ones who come back to my inn every season are the ones who share the coin evenly and the night watches fairly." } },
       choices = {
-        { text = "Every share equal. That's how a company holds together.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Whoever does the most work should take the most loot.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Every share equal. That's how a company holds together.", next = "BACK", reply = "That's the way, and you'll be back every season. Equal shares keep a band together.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whoever does the most work should take the most loot.", next = "BACK", reply = "Then you'll argue every night, and one of you will leave. Equal shares, if you want to last.", fx = { align = { honor = -1 } } },
         { text = "Thanks, Gryshka.", next = "BACK" },
       },
     },
@@ -1406,8 +1443,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_rfc_default", text = "Good, because some nights my cellar smells of brimstone, and I've told the guards so twice. The recruits joke that there's a whole city of troggs and cultists under the Cleft, and after a few ales they dare each other to go and look, and most of them come back limping. I patch them up and feed them and tell them to wait until they're grown." } },
       choices = {
-        { text = "The guards should have sealed those caves long ago.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the young ones go down, Gryshka. It's how they'll learn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The guards should have sealed those caves long ago.", next = "BACK", reply = "They should, and I've told them twice. Maybe you can tell them a third time.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the young ones go down, Gryshka. It's how they'll learn.", next = "BACK", reply = "Learn, or die, and I've buried enough recruits already. Let them grow up first.", fx = { align = { order = -1 } } },
         { text = "What do the recruits say is down there?", next = "xcl_rfc2" },
       },
     },
@@ -1419,8 +1456,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Some of them. The old grunts saw that light in the camps, on the guards who kept them there, and they go quiet when it shows. Sit near the door and keep it to yourself after a few drinks, and they'll settle." } },
       choices = {
-        { text = "I'll keep it quiet. They've earned their peace.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "They'll have to learn the Light is mine now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll keep it quiet. They've earned their peace.", next = "BACK", reply = "Good, and they'll thank you for it in their own way. Sit by the door.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They'll have to learn the Light is mine now.", next = "BACK", reply = "They'll learn, slowly, but they'll learn faster if you give them time. Sit by the door anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1428,8 +1465,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "Only after they've lost, and only if nobody's watching, because an orc would sooner bleed than admit he needs mending. If you sit by the door with a bowl of stew, though, you'll find they come to you, and you can tell them the stew did it." } },
       choices = {
-        { text = "I'll mend them and let the stew take the credit.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let them bleed until they learn to ask.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll mend them and let the stew take the credit.", next = "BACK", reply = "Good, and they'll keep coming back for more of my stew, which suits us both. They'll never know it was you who mended them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them bleed until they learn to ask.", next = "BACK", reply = "Then they'll bleed, and they'll blame you for it. Sit by the door anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1437,8 +1474,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every night, and I wouldn't have it otherwise, though I'd like them to break fewer stools. Grezz Ragefist's students come here after a hard day and arm-wrestle over my tables until somebody loses a tooth, so I keep a bucket by the door for the teeth." } },
       choices = {
-        { text = "I'll keep my fights outside, Gryshka. Your inn deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A good brawl is half the fun of an inn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll keep my fights outside, Gryshka. Your inn deserves respect.", next = "BACK", reply = "Good, and I'll be glad to have you. Bring your friends, too.", fx = { align = { honor = 1 } } },
+        { text = "A good brawl is half the fun of an inn.", next = "BACK", reply = "Half the fun and all the broken stools. Brawl outside, and come back for an ale.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1446,27 +1483,27 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "My grandmother said a well-kept hearth is the first thing the spirits look for, and I keep this one burning night and day. The warlocks from the Cleft never sit near it, though, and you can make of that whatever you like." } },
       choices = {
-        { text = "A warm hearth and a full plate honor the spirits best.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Warlock or not, their coin spends the same at an inn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A warm hearth and a full plate honor the spirits best.", next = "BACK", reply = "They do, and my grandmother would agree. Sit, eat, and be welcome.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Warlock or not, their coin spends the same at an inn.", next = "BACK", reply = "It does, and I take it. But they still never sit near the hearth.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Better than you'd think, once the ale's poured. The orcs boast and the tauren listen, and by the end of the night they're singing the same song in two languages." } },
+      lines = { { id = "dq_default", text = "Better than you'd fear, once the ale's poured. The orcs boast and the tauren listen, and by the end of the night they're singing the same song in two languages." } },
       choices = {
-        { text = "I'd take that friendship over any war.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Friendship is fine, but it's the war that binds us.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd take that friendship over any war.", next = "BACK", reply = "So would I, and so would the Warchief. Sit, and sing with them.", fx = { align = { light = 1 } } },
+        { text = "Friendship is fine, but it's the war that binds us.", next = "BACK", reply = "It binds us, aye, but it's the singing afterwards that keeps us together. Sit and listen a while, and you'll hear what I mean.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "They do, and what's said in the Broken Tusk stays in the Broken Tusk, so mind you don't go repeating it in the Drag. I've thrown bigger orcs than you out the door for listening at tables, and I'll do it again." },
+        { id = "xrogue_default", text = "They do, and what's said in the Broken Tusk stays in the Broken Tusk, so don't go repeating it in the Drag. I've thrown bigger orcs than you out the door for listening at tables, and I'll do it again." },
       },
       choices = {
-        { text = "Understood. What's said here stays here.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A loose tongue is a gift. I'll take what I hear.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Understood. What's said here stays here.", next = "BACK", reply = "Good, then you're welcome at any table. Mind your ears.", fx = { align = { honor = 1 } } },
+        { text = "A loose tongue is a gift. I'll take what I hear.", next = "BACK", reply = "Then you'll be out the door, and I'll be the one throwing you. Mind yourself.", fx = { align = { honor = -1 } } },
         { text = "What's the best thing you cook?", next = "best" },
       },
     },
@@ -1476,8 +1513,8 @@ P:NPC {
         { id = "xmage_default", text = "My hearth's burned fine for years without a spell, and it'll burn fine after you've gone. Sit down, eat your meat, and let the fire do its own work for once." },
       },
       choices = {
-        { text = "Understood. I'll keep my hands off your fire.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A spell would burn hotter and longer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Understood. I'll keep my hands off your fire.", next = "BACK", reply = "Good, and the fire thanks you. Sit and eat.", fx = { align = { order = 1 } } },
+        { text = "A spell would burn hotter and longer.", next = "BACK", reply = "Hotter and longer, and the whole inn on fire. Leave it alone.", fx = { align = { order = -1 } } },
         { text = "What's good to eat tonight?", next = "best" },
       },
     },
@@ -1485,11 +1522,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I mind, and so does every grunt in this room who remembers what the demon blood did to us. Leave the little horror outside the door, and if it scorches one of my tables, you'll be scrubbing it yourself." },
-        { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you should know better than to ask. Half the grunts in this room still dream about the demon blood, so leave the little horror outside, and if it scorches one of my tables you'll be scrubbing it yourself." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you should know better than to ask. Plenty of grunts in this room still dream about the demon blood, so leave the little horror outside, and if it scorches one of my tables you'll be scrubbing it yourself." },
       },
       choices = {
-        { text = "Fair. It waits outside, out of respect.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "It's harmless. Your grunts should grow thicker skin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fair. It waits outside, out of respect.", next = "BACK", reply = "Thank you, and the grunts will thank you too. Sit inside.", fx = { align = { light = 1 } } },
+        { text = "It's harmless. Your grunts should grow thicker skin.", next = "BACK", reply = "Thicker skin? They've got scars from the demon blood, warlock. Leave it outside.", fx = { align = { light = -1 } } },
         { text = "What do you cook best, Gryshka?", next = "best" },
       },
     },
@@ -1538,6 +1575,7 @@ P:NPC {
         { text = "Does a Forsaken paladin bother your guests, Gryshka?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went down Ragefire Chasm, Gryshka. It's quiet now.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
         { text = "We're a company now, Gryshka. Any advice for us?", next = "xpt_gryshka", when = { party = { size = { min = 2 } } } },
+        { text = "Do you feed everyone this well, Gryshka?", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "gry_fl_rebuff" } } },
         { text = "Just resting.", next = "END" },
       },
       again = {
@@ -1548,7 +1586,7 @@ P:NPC {
       lines = {
         { id = "hu_default", text = "A hunter! Then you're the only kind of guest who brings meat into my inn instead of just taking it out. Hang it by the spit and tell me where you shot it, because I like to know whose kodo I'm roasting." },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "And {pet} wants the bones, I can see it in those eyes. Go on, then, one bone, and don't tell the grunts I'm soft." },
+          text = "A hunter! Then you're the only kind of guest who brings meat into my inn instead of just taking it out. Hang it by the spit, and yes, {pet} can have one bone, but don't tell the grunts I'm soft." },
       },
       choices = { { text = "Out past the Crossroads, in the Barrens.", next = "BACK", fx = { affinity = 2 } } },
     },
@@ -1626,8 +1664,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Because everyone does, and the only glow I ever saw in Mulgore was the sunrise over the grass. The orcs here tell me what that Light did to them in the camps, though, so I expect you'll hit me harder than most." } },
       choices = {
-        { text = "I'll not be the next to knock you down.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Then stay down this time and save us both trouble.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll not be the next to knock you down.", next = "BACK", reply = "Then you're kinder than most who come in here. Thank you, friend.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then stay down this time and save us both trouble.", next = "BACK", reply = "Maybe I should, and maybe it would be easier. But I don't think I can.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1635,8 +1673,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "Because tomorrow somebody will knock me down again, and then the healing's wasted on me. I was a warrior of Bloodhoof once, you know, and a good one, and I think I'd rather keep the bruises than pretend I'm still that tauren." } },
       choices = {
-        { text = "A warrior who keeps getting up is still a warrior.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Then stop getting up, Gamon, and stop being their sport.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A warrior who keeps getting up is still a warrior.", next = "BACK", reply = "You think so? Then maybe I'm still something, after all. Thank you for that.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then stop getting up, Gamon, and stop being their sport.", next = "BACK", reply = "Maybe I should, but I don't know how. Getting up is the only thing I still do well.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1644,11 +1682,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hunt? I used to run plainstriders through the grass of Mulgore with my brothers, and I could bring one down faster than any of them. Now the only thing I track is the ale barrel, and Tazan says I'm losing the scent of that too." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours is the only one in Orgrimmar who's looked at me kindly all week. Can it stay a while? It's warmer than the floor." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I used to run plainstriders through the grass of Mulgore with my brothers, faster than any of them. Now I only track the ale barrel, and that {pet} of yours is the only one in Orgrimmar who's looked at me kindly all week." },
       },
       choices = {
-        { text = "Get up, Gamon. A hunt would do you good.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Stay down, Gamon. It's safer for everyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Get up, Gamon. A hunt would do you good.", next = "BACK", reply = "Maybe it would, and the Earth Mother knows I miss it. Give me one more ale first.", fx = { align = { honor = 1 } } },
+        { text = "Stay down, Gamon. It's safer for everyone.", next = "BACK", reply = "Maybe you're right, and it would be safer. But I don't think I know how.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1656,8 +1694,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Once, I think, back before the drinking, when I still rode against the centaur for Cairne. The wind told me to duck, and I did, and the spear went over my horns, and I've been trying to hear it again ever since, mostly at the bottom of a mug." } },
       choices = {
-        { text = "The wind still speaks, Gamon. Put the mug down and listen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some warriors only have one good day in them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The wind still speaks, Gamon. Put the mug down and listen.", next = "BACK", reply = "Maybe it does, and maybe I'll try. Not tonight, but maybe tomorrow.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some warriors only have one good day in them.", next = "BACK", reply = "Maybe I had mine, then, and I spent it. It was a good day.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1667,19 +1705,19 @@ P:NPC {
         { id = "xrogue_default", text = "Would you? No, don't, because then they'd only knock me down harder tomorrow. I was a warrior once and I fought fair, and look where it got me, so maybe you've got the right idea after all." },
       },
       choices = {
-        { text = "Some lessons go down better with a knife at the throat.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Next time, I'll stand beside you openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some lessons go down better with a knife at the throat.", next = "BACK", reply = "Ha! Maybe so, and maybe I'll learn it from you. Not tonight, though.", fx = { align = { honor = -1 } } },
+        { text = "Next time, I'll stand beside you openly.", next = "BACK", reply = "You would? Then maybe I'll stand up a little straighter. Thank you, friend.", fx = { align = { honor = 1 } } },
         { text = "Why does everyone attack you?", next = "why" },
       },
     },
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Everything frightens me now, friend, so your demon's just one more thing on a long list. The orcs tell me what the warlocks did to them in the old wars, though, and I'd rather be knocked down by grunts every night than end up like that." },
+        { id = "xwarlock_default", text = "Everything frightens me now, friend, so your demon's just one more thing on a long list. The orcs tell me what the warlocks did to them in the old wars, though, and being knocked down by grunts every night is a kinder fate than that." },
       },
       choices = {
-        { text = "You're right to be wary. I'll stay careful.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power has a cost, and I'll pay it gladly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right to be wary. I'll stay careful.", next = "BACK", reply = "Good, and stay careful, friend. I'd hate to see you end up like me.", fx = { align = { light = 1 } } },
+        { text = "Power has a cost, and I'll pay it gladly.", next = "BACK", reply = "Then pay it, and I'll hope it's not too much. I've paid enough of my own.", fx = { align = { light = -1 } } },
         { text = "Why do they keep knocking you down?", next = "why" },
       },
     },
@@ -1687,8 +1725,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Maybe it would, and the Earth Mother is patient with fools, they say. But out there nobody knocks you down, and I'm not sure I'd know who I was anymore. In here at least I know I'll get back up, and that's the one thing I'm still good at." } },
       choices = {
-        { text = "You keep getting up, Gamon. That takes guts.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Pride's no use to you. Walk away and start over somewhere.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You keep getting up, Gamon. That takes guts.", next = "BACK", reply = "Maybe it does, and maybe that's all I've got left. Thank you for seeing it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Pride's no use to you. Walk away and start over somewhere.", next = "BACK", reply = "Start over where? Mulgore remembers the warrior I was, and I'm not him anymore. Maybe someday.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1698,8 +1736,8 @@ P:NPC {
         { id = "xmage_default", text = "Once, a troll froze me to the floor and everybody stepped over me for an hour, which was almost restful. I was a warrior before, you know, and I'd rather be hit than pitied, so do whichever you like." },
       },
       choices = {
-        { text = "Nobody should be knocked down for sport, Gamon.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Get up and fight back, or stay on the floor.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Nobody should be knocked down for sport, Gamon.", next = "BACK", reply = "They shouldn't, and you're right. But they do, and I let them.", fx = { align = { light = 1 } } },
+        { text = "Get up and fight back, or stay on the floor.", next = "BACK", reply = "Fight back? I was a warrior once, and I fought fair, and look where it got me. I'll stay down a while.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1708,10 +1746,10 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Ha! A dead paladin. I've been knocked down by everything else in this inn, so I suppose you're next, are you?" },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You've come to look at my bruises, I suppose, and I'll tell you now that most of them are old ones." },
         { id = "h_default", key = true,
-          text = "I'm Gamon. I help Tazan with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again. My herd is a long way off in Mulgore, and it's better they don't see me like this." },
+          text = "I'm Gamon. I help Tazan the troll with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again. My herd is a long way off in Mulgore, and it's better they don't see me like this." },
         { id = "h_bruise", when = { metBefore = true }, text = "Oh, you again. You didn't hit me last time, which makes you my favourite person in Orgrimmar. It's a short list." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call lightning down on me, please, because I've been hit by most other things in this inn and I'd like to keep that one off the list." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. If you can turn into a bear, please don't do it near me, because I've been knocked down by orcs and trolls and I'd rather not add a bear to the list." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. If you can turn into a bear, please don't do it near me, because I've been knocked down by orcs and trolls and a bear would round the list off badly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "Oh, a hunter. Mind your beast doesn't lick my face, because the last one did, and I couldn't get up to stop it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Don't set me on fire, that's all I ask, because people usually settle for punching me." },
       },
@@ -1734,7 +1772,7 @@ P:NPC {
       },
     },
     warrior = {
-      lines = { { id = "wa_default", text = "I carried a big totem-hammer once, the kind my grandfather carved, and I wasn't bad with it either. I don't really remember when I put it down, which tells you most of what you need to know about me, I suppose." } },
+      lines = { { id = "wa_default", text = "I carried a big totem-hammer once, the kind my grandfather carved, and I wasn't bad with it either. I don't really remember when I put it down, and I suppose that's most of my story right there." } },
       choices = {
         { text = "You could pick that hammer back up.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then stay away from the ale, Gamon.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
@@ -1746,8 +1784,8 @@ P:NPC {
         { id = "w_default", text = "I'm here, I suppose, and I always get back up, the way the grass does after the kodo walk over it. Maybe that's the trouble; maybe if I stayed down, they'd get bored." },
       },
       choices = {
-        { text = "Never stay down, Gamon.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Then stay down, and let them get bored.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "Never stay down, Gamon.", next = "END", reply = "Never, then, and I'll get up tomorrow too. May the Earth Mother walk with you, friend.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Then stay down, and let them get bored.", next = "END", reply = "Maybe you're right, and maybe they will. Farewell, friend, and mind the door on your way out.", fx = { align = { honor = -1 } } },
         { text = "...", next = "END" },
       },
     },
