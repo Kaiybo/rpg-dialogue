@@ -471,8 +471,12 @@ local function placeParts(game)
     frame.flag:SetSize(14, 14)
     frame.flag:SetPoint("TOPRIGHT", -26, -4)
     frame.textBtn:SetPoint("TOPRIGHT", -44, -3)
-    frame.ask:SetPoint("BOTTOMRIGHT", -6, 4)
-    frame.disp:SetPoint("BOTTOMLEFT", 12, 6)
+    -- Bottom bar (game look): a slimmer Ask button and quieter, smaller labels.
+    frame.ask:SetSize(118, 20)
+    frame.ask:SetPoint("BOTTOMRIGHT", -8, 4)
+    frame.disp:SetPoint("BOTTOMLEFT", 12, 7)
+    frame.disp.label:SetFontObject("GameFontNormalSmall")
+    frame.tone.label:SetFontObject("GameFontNormalSmall")
     frame.flagBox:SetPoint("BOTTOMLEFT", 12, 5)
     -- The metal border reaches past the frame (most at the portrait corner and the top).
     frame:SetClampRectInsets(-13, 4, 16, -3)
@@ -492,8 +496,11 @@ local function placeParts(game)
     frame.flag:SetSize(16, 16)
     frame.flag:SetPoint("TOPRIGHT", -38, -14)
     frame.textBtn:SetPoint("TOPRIGHT", -60, -14)
+    frame.ask:SetSize(140, 22)
     frame.ask:SetPoint("BOTTOMRIGHT", -16, 14)
     frame.disp:SetPoint("BOTTOMLEFT", PAD + 6, 16)
+    frame.disp.label:SetFontObject("GameFontHighlight")
+    frame.tone.label:SetFontObject("GameFontHighlight")
     frame.flagBox:SetPoint("BOTTOMLEFT", PAD + 6, 10)
     frame.flagHint:SetPoint("LEFT", frame.flagBox, "RIGHT", 8, 0)
     frame:SetClampRectInsets(0, 0, 0, 0)
@@ -642,21 +649,23 @@ function D.Layout()
     b:SetShown(persuadeOn)
     if persuadeOn then
       b.label:SetShown(words)
-      b:SetWidth(words and (22 + (b.label:GetStringWidth() or 40)) or 18)
+      b:SetHeight(words and 18 or 20)
+      b.icon:SetSize(words and 16 or 18, words and 16 or 18)
+      b:SetWidth(words and (22 + (b.label:GetStringWidth() or 40)) or 20)
       b:ClearAllPoints()
       if anchor == frame then
         b:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", game and -8 or -16, game and 6 or 16)
       else
-        b:SetPoint("RIGHT", anchor, anchorPoint, gap, 0)
+        b:SetPoint("RIGHT", anchor, anchorPoint, (anchor == frame.ask and not words) and -10 or gap, 0)
       end
-      anchor, anchorPoint, gap = b, "LEFT", words and -8 or -2
+      anchor, anchorPoint, gap = b, "LEFT", words and -8 or -5
     end
   end
   frame.tone:SetShown(frame.tone.value ~= nil and not frame.flagBox:IsShown())
   if frame.tone:IsShown() then
     frame.tone:ClearAllPoints()
     if frame.disp:IsShown() then
-      frame.tone:SetPoint("LEFT", frame.disp, "RIGHT", 14, 0)
+      frame.tone:SetPoint("LEFT", frame.disp, "RIGHT", game and 18 or 14, 0)
     else
       frame.tone:SetPoint("BOTTOMLEFT", game and 12 or (PAD + 6), game and 6 or 16)
     end
@@ -929,7 +938,7 @@ function D.SetPersuade(state)
     local st = state and state[b.action]
     b.usable = st ~= nil and st.usable
     b.icon:SetDesaturated(not b.usable)
-    b.icon:SetAlpha(b.usable and 1 or 0.45)
+    b.icon:SetAlpha(b.usable and 1 or 0.6)
     if b.usable then Theme.TextColor(b.label, "header") else Theme.TextColor(b.label, "dim") end
   end
 end
