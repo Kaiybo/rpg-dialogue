@@ -65,6 +65,26 @@ def changelog():
     return list(reversed(out))
 
 
+def touches_workflows(commit):
+    files = git("diff-tree", "-m", "--no-commit-id", "--name-only", "-r", commit)
+    return ".github/workflows/" in files
+
+
+def tag_target(version, commit):
+    """GITHUB_TOKEN can't tag a commit that edits workflow files (HTTP 403), so step back
+    along first parents to one with the same version that doesn't."""
+    c = commit
+    while touches_workflows(c):
+        try:
+            parent = git("rev-parse", f"{c}^1").strip()
+        except subprocess.CalledProcessError:
+            return commit
+        if toc_version(parent) != version:
+            return commit
+        c = parent
+    return c
+
+
 def build_zip(version, commit):
     os.makedirs(OUT, exist_ok=True)
     path = os.path.join(OUT, f"RPGDialogue-{version}.zip")
@@ -94,7 +114,7 @@ def main():
         existing = {r["tagName"] for r in rows}
     commits = version_commits()
     current = toc_version("HEAD")
-    made = 0
+    made = failed = 0
     for version, date, notes in changelog():
         tag = f"v{version}"
         if tag in existing:
@@ -112,16 +132,22 @@ def main():
         notes_path = path + ".notes.md"
         with open(notes_path, "w", encoding="utf-8") as f:
             f.write(body)
-        gh("release", "create", tag, path, "--target", commit, "--title", f"RPG Dialogue {version}",
-           "--notes-file", notes_path, "--latest=false")
+        target = tag_target(version, commit)
+        try:
+            gh("release", "create", tag, path, "--target", target, "--title",
+               f"RPG Dialogue {version}", "--notes-file", notes_path, "--latest=false")
+        except subprocess.CalledProcessError as e:
+            print(f"{tag}: release failed at {target[:8]}: {e.stderr.strip()}")
+            failed += 1
+            continue
         made += 1
     if not dry and current and (made or f"v{current}" in existing):
         try:
             gh("release", "edit", f"v{current}", "--latest")
         except subprocess.CalledProcessError as e:
             print(f"could not mark v{current} latest: {e.stderr}")
-    print(f"{made} release(s) created")
-    return 0
+    print(f"{made} release(s) created, {failed} failed")
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
