@@ -10,6 +10,7 @@ P:NPC {
   key = "rohan", id = TODO_NPC("High Priest Rohan"), name = "High Priest Rohan", title = "Priest Trainer",
   bible = "bibles/mystic_ward.md", role = "priest", tier = "major",
   communities = { "ironforge" }, temper = { "steady", "warm" }, values = { "pious", "kind", "generous" },
+  likesTone = "polite", race = "Dwarf",
   spiritSensitive = true,
   notices = { "light", "race" },
 
@@ -531,7 +532,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Ach, ye'll make an old priest blush, an' at my age that's a fair piece o' work. Thank ye kindly, for it's good tae hear the Hall's doin' somethin' right." },
+        { id = "s2", text = "That's a generous thing tae say, an' I'll carry it round the Hall wi' me for a lap or two. The Light's fond o' a kind tongue, an' so am I." },
+      },
+      fail = {
+        { id = "f1", text = "That's kindly meant, I'm sure, but I've heard a great many confessions, an' I know when someone's sweetenin' the pot. Tell me what's truly on yer mind." },
+        { id = "f2", text = "Save the praise for the Light, friend, for it's done the work an' I've only done the walkin'. I'd sooner have an honest word from ye than a handsome one." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Aye, I do go round an' round like a mill pony, an' ye're no' the first tae notice. It's good tae be laughed at now an' then, for it keeps a priest from thinkin' himself holy." },
+        { id = "s2", text = "Oh, ye're a sharp one, an' I like ye the better for it. The acolytes are far too polite tae tease me, so I've been starved o' it." },
+      },
+      fail = {
+        { id = "f1", text = "Now, that was unkind, an' I think ye knew it before it left yer mouth. I'll forgive it, because that's my trade, but I'll no' pretend it was clever." },
+        { id = "f2", text = "Mock me all ye please, but ye'll keep a civil tongue about the Light in its own Hall. There's folk prayin' ten paces off who came here wi' heavier hearts than yers." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "He stops walking for the first time and folds his hands.", text = "There's nae need for that, friend, nae need at all. Ye've a hard road behind ye tae talk so, an' I'll no' stand in yer way over a small thing." },
+        { id = "s2", text = "Ye've given me a turn, I'll confess it, for I'm a healer an' no' a fighter. Say what ye want o' me, an' say it gentler if ye can." },
+      },
+      fail = {
+        { id = "f1", text = "I've sat wi' dyin' soldiers through three wars, {g:lad|lass}, so I'm no' easily frightened by the livin'. Whatever's put that anger in ye, it'd do ye more good tae talk about it than tae wave it at me." },
+        { id = "f2", text = "Would ye truly threaten a priest in the Hall o' Mysteries? I'll pray for ye, an' I'll thank ye tae lower yer voice while I do." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's a thing I'd only talk over wi' someone I know well, an' we've no' walked enough laps together yet. Give it time, an' I'll tell ye gladly." },
+      { id = "gt2", text = "I'll keep that one tae myself for now, if ye'll forgive me. Some matters are for friends, an' we're still gettin' acquainted." },
+    },
     knows = {
       { id = "tp_knows", text = "A priest hears all sorts on his laps o' the Hall, an' keeps most of it. Here's what I can share wi' a clear conscience." },
     },

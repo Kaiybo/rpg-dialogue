@@ -7,6 +7,7 @@ P:NPC {
   rivals = { "maleb" },
   bible = "bibles/hillsbrad.md", role = "soldier", tier = "major",
   communities = { "southshore" }, temper = { "steady" }, values = { "dutiful", "protective" },
+  likesTone = "blunt",
   notices = { "soldier", "kit" },
 
   impression = {
@@ -467,7 +468,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, that's decent of you. Southshore doesn't get much thanks for staying put, and I'll pass it on to the militia." },
+        { id = "s2", text = "I'll take that kindly. It's good to know someone from outside sees what this town's worth." },
+      },
+      fail = {
+        { id = "f1", text = "I was a headman before I was a marshal, and I've had every fishmonger in town try to sweeten me. Tell me straight what you're after." },
+        { id = "f2", text = "Fine words don't hold a line. If you think well of Southshore, there's a watch tonight that's short of men." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. You've a mouth on you, and I've known good soldiers who were the same. I can take a ribbing, so long as you'll stand a watch afterwards." },
+        { id = "s2", text = "Fair enough, that one landed. We're a stubborn lot down here, and I suppose we can stand being laughed at now and then." },
+      },
+      fail = {
+        { id = "f1", text = "I've buried too many neighbors this year to find that funny. Keep a civil tongue while you're in my town." },
+        { id = "f2", text = "That's cheap talk from someone who hasn't stood on our line, and I don't care for it. Mind yourself." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Easy, now. You've made your point, and I've no men to spare for a quarrel inside the town, so I'll let you have it." },
+        { id = "s2", text = "You've a hard look, and I've learned to take those seriously. Go on and say what you want." },
+      },
+      fail = {
+        { id = "f1", text = "I've got the Forsaken across the fields and ogres in the hills, so you're a long way down my list of worries. Don't try that in Southshore again." },
+        { id = "f2", text = "I've faced things that were already dead and still coming, friend. You don't frighten me, and you've only made me trust you less." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's the town's business, and I don't know you well enough to share it. Do right by Southshore and ask me again." },
+      { id = "gt2", text = "I know, and I'm not saying, not to someone who only just walked in. We've learned to be careful about who hears what." },
+    },
     knows = {
       { id = "tp_knows", text = "I've stood on this wall long enough to hear about most things in the valley. Ask me, and I'll give it to you straight." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },

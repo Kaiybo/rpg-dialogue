@@ -6,6 +6,7 @@ P:NPC {
   key = "falstad", id = TODO_NPC("Falstad Wildhammer"), name = "Falstad Wildhammer",
   bible = "bibles/hinterlands.md", role = "noble", tier = "major",
   communities = { "aerie_peak" }, temper = { "boisterous" }, values = { "proud", "brave", "loyal" },
+  likesTone = "blunt", race = "Dwarf",
   prejudice = { race = "Dwarf", faction = "Alliance", exceptOrigin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" }, amount = 6, why = "Old Wildhammer grudge against Ironforge since the War of the Three Hammers." },
   notices = { "race", "class" },
 
@@ -361,7 +362,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Ha! Now there's someone wi' taste! Say it again louder, so the gryphons can hear ye, fer they think it's all their doin'." },
+        { id = "s2", text = "That's a fine thing tae say tae a Wildhammer, an' I'll drink tae it tonight. Ye've a good heart an' a good eye fer a keep." },
+      },
+      fail = {
+        { id = "f1", text = "Och, ye sound like an Ironforge senator wi' a petition up his sleeve. We dinnae butter each other up here, we just say what we want an' then have a drink." },
+        { id = "f2", text = "Pretty words are fer folk who live under roofs o' stone. Up here we judge ye by how ye sit a gryphon an' how many trolls ye've dropped." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha ha! Ye cheeky devil, I've no' been ribbed like that since the last clan moot! Come here, fer anyone wi' that much gall belongs at my table." },
+        { id = "s2", text = "Now that's the spirit! A body who can trade insults wi' Falstad Wildhammer an' keep grinnin' is a body I'd fly wi'." },
+      },
+      fail = {
+        { id = "f1", text = "Careful, now. I'll laugh at near anythin', but ye'll no' mock the Wildhammer name in the Wildhammers' own keep an' walk out wi' all yer teeth." },
+        { id = "f2", text = "That wasnae funny, an' I'm a dwarf who finds most things funny. Ye've a sour tongue, an' I'll thank ye tae keep it behind yer teeth." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Ho, now, steady on! Ye've a glare like a stormcrow, an' I'll no' say it didnae land. Have yer way, then, fer I'd sooner fight trolls than guests." },
+        { id = "s2", text = "By the skies, ye mean it, don't ye? All right, all right, I'll give ye that one, an' I'll think twice afore I cross ye." },
+      },
+      fail = {
+        { id = "f1", text = "Ha! I rode a gryphon intae dragonfire in the Second War, so ye'll have tae do better than scowl at me. Try it on the Vilebranch, fer they scare easier." },
+        { id = "f2", narr = "He laughs loud enough to startle the gryphons in the roost.", text = "Are ye threatenin' me, in Aerie Peak? That's the funniest thing I've heard all season, an' I'd stop now, while I'm still laughin'." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's Wildhammer business, an' I dinnae hand it tae folk I've no' shared a fight or a keg wi'. Stick about, an' we'll see." },
+      { id = "gt2", text = "Aye, I know, an' I'm no' tellin' ye yet. Ye'll have tae prove ye're a friend o' the Peak afore I open my mouth on that." },
+    },
     knows = {
       { id = "tp_knows", text = "Every rider in Aerie Peak reports tae me, an' most o' them stretch a story by a troll or two, so I've learned tae hear the truth under the boastin'! Ask away." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },
