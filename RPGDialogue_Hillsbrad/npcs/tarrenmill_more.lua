@@ -690,8 +690,8 @@ P:NPC {
       big = true,
       lines = { { id = "s_default", text = "Because they did it to us first, in the plague years, tossing our bodies on carts and burning them in heaps. A skull on my wall is the most dignity any human ever showed one of us." } },
       choices = {
-        { text = "Fair trade. Every skull is a debt repaid.", next = "BACK", reply = "That's how I see it too, every one of them a debt paid back in bone.", fx = { align = { light = -1 }, affinity = 2 } },
-        { text = "That's no dignity. That's just desecration.", next = "BACK", reply = "Desecration is what they did to us on those carts, so don't lecture me about it. I'll keep my skulls.", fx = { align = { light = 1 }, affinity = -2 } },
+        { text = "Fair trade. Every skull is a debt repaid.", next = "BACK", reply = "That's how I see it. The farmer on the end there owes me an arm, and he's paying it off slowly.", fx = { align = { light = -1 }, affinity = 2 } },
+        { text = "There's no dignity in it. It's plain desecration.", next = "BACK", reply = "Desecration is what they did to us on those carts, so don't lecture me about it. I'll keep my skulls.", fx = { align = { light = 1 }, affinity = -2 } },
         { text = "Were you burned?", next = "skulls_burned" },
       },
     },

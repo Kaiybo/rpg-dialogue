@@ -273,7 +273,7 @@ P:NPC {
       big = true,
       lines = { { id = "fe_default", text = "Strength is a gift from the Earth Mother, and balance is how you thank her for it. Plenty of strong bulls have died face down in the Barrens." } },
       choices = {
-        { text = "Discipline first. Strength follows.", next = "BACK", reply = "You listen better than most, {class}. Plant your feet, find your center, and the strength will come when you need it, not before.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Discipline first, and the strength will follow.", next = "BACK", reply = "You listen better than most, {class}. Plant your feet, find your center, and the strength will come when you need it, not before.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd rather hit first and hard.", next = "BACK", reply = "So did the bulls face down in the Barrens, and they hit very hard indeed. Come back when you've been knocked flat once, and we'll talk again.", fx = { align = { order = -1 } } },
       },
     },
@@ -593,7 +593,7 @@ P:NPC {
       big = true,
       lines = { { id = "te_default", text = "Then you let it go back to the wild, with thanks. Some hunters keep a beast that's unhappy with them, and I think less of them for it." } },
       choices = {
-        { text = "If it's unhappy, I'd set it free.", next = "BACK", reply = "Then the Earth Mother will smile on you, and so will the beast, in its way. A companion who stays because it wants to is worth ten who stay because they must.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If it's unhappy, I'd set it free.", next = "BACK", reply = "Then the Earth Mother will smile on you, and so will the beast, in its way. Bring it to me the first time it refuses you, because they all do once.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A companion learns to obey, in time.", next = "BACK", reply = "Some do, and they're good beasts for it. But obedience isn't the same as trust, and a beast knows the difference better than any hunter.", fx = { align = { light = -1 } } },
       },
     },

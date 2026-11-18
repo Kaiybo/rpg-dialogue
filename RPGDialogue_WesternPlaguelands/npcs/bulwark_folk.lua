@@ -148,7 +148,7 @@ P:NPC {
       big = true,
       lines = { { id = "wy_default", text = "Because a weapon that good shouldn't sit in the hands of men who burn the living for being afraid. I'd rather it were buried, or used against the Scourge, than left for them." } },
       choices = {
-        { text = "Use it against the Scourge. That's what it's for.", next = "BACK", reply = "That is my hope as well, and the Earth Mother would want it so. A good bow should do good work.", fx = { align = { light = -1 } } },
+        { text = "Use it against the Scourge. That's what it's for.", next = "BACK", reply = "That is my hope as well, and the Earth Mother would want it so. Let it take the Scourge until the old blood is washed from it.", fx = { align = { light = -1 } } },
         { text = "Bury it. Weapons made by murderers carry their stain.", next = "BACK", reply = "Perhaps you are right, and it carries their hatred with it. I will think on it on the road to Hearthglen.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
       },

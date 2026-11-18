@@ -36,7 +36,7 @@ P:NPC {
       lines = { { id = "xpt_jorn_default", text = "Because we would choose those who agree with us, and we learn nothing from them. Cairne chose to march beside the orcs when many tauren thought them savages, and now Mulgore is safe from the centaur, so I'd say the Earth Mother knew best." } },
       choices = {
         { text = "Strangers become kin once they've shared the hunt.", next = "BACK", reply = "They do, and the fire burns warmer for every new face around it. Hunt beside us long enough, and Taurajo will call you kin without your asking.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Some strangers stay strangers. I trust my own judgment.", next = "BACK", reply = "Trust it, then, but let it grow as the grass does, with each new season. A judgment that never changes is only a stone in the field.", fx = { align = { honor = -1 } } },
+        { text = "Some strangers stay strangers. I trust my own judgment.", next = "BACK", reply = "Trust it, then, but let it grow with the seasons, as the grass does. I've misjudged a stranger or two myself, and I was glad to be wrong.", fx = { align = { honor = -1 } } },
         { text = "Something else, Jorn.", next = "BACK" },
       },
     },
@@ -44,7 +44,7 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_rfk_default", text = "Then you've seen where the quilboar were born, or where they believe they were. The Kraul grew from the body of Agamaggan, the great boar, and the quilboar guard it like a temple while their crone Charlga whispers to powers that should never have been invited in. I've hunted the Barrens all my life, and I've never once sent a student in there." } },
       choices = {
-        { text = "It's their sacred ground, Jorn. I went in with respect.", next = "BACK", reply = "Then the great boar's spirit may have noticed, and so have I. Respect walks out of dark places more often than pride does.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It's their sacred ground, Jorn. I went in with respect.", next = "BACK", reply = "Then the great boar's spirit may have noticed, and so have I. I've watched proud hunters walk into those thorns and not walk out.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Sacred or not, the quilboar raid our caravans.", next = "BACK", reply = "They do, and I won't pretend otherwise when the caravans come in bleeding. Strike at the raiders if you must, but leave the thorns their sleep.", fx = { align = { honor = -1 } } },
         { text = "Charlga must be hiding something down there.", next = "xcl_rfk2" },
       },
@@ -66,7 +66,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "A patient hunter seldom needs one, but the Barrens punishes the impatient, and I have carried more than one young student back from the Gold Road. My people pray to the Earth Mother and not to your loa or your shadow, but I have never turned a healer away from Taurajo." } },
       choices = {
-        { text = "Then I'll guard your students' lives as you guard their lessons.", next = "BACK", reply = "Then you'll be welcome at my side, and the young ones will be glad of you. A hunter who comes home is worth ten who hunted bravely.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll guard your students' lives as you guard their lessons.", next = "BACK", reply = "Then you'll be welcome at my side, and the young ones will be glad of you. I've sung over too many young ones who hunted bravely and never came home.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Impatient students learn from their wounds. I'd let them.", next = "BACK", reply = "Some lessons cost blood, it's true, but I'd rather they paid in scratches than in graves. Stay near enough to keep it to scratches, if you can.", fx = { align = { light = -1 } } },
         { text = "Something else, Jorn.", next = "BACK" },
       },
@@ -85,7 +85,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "The strongest I know belongs to Lakota'mani, the great kodo. He has walked the plains so long that the herders say the earth spirits walk with him, and when you face him you face something older than the tauren, so face him with respect." } },
       choices = {
         { text = "I'll face him honorably, however old he is.", next = "BACK", reply = "Then the earth spirits will see it, and they'll judge you kindly whatever the outcome. Go well, and walk back to me with your bow and your honor whole.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A spirit's age won't save a beast from a careful hunter.", next = "BACK", reply = "Careful you may be, but Lakota'mani has outlived many careful hunters. Respect is the one arrow you'll be glad you carried.", fx = { align = { honor = -1 } } },
+        { text = "A spirit's age won't save a beast from a careful hunter.", next = "BACK", reply = "Careful you may be, but Lakota'mani has outlived many careful hunters, and I knew some of them. Go with respect, and come back to tell me what you saw.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,7 +106,7 @@ P:NPC {
         { id = "xmage_default", text = "They are uneasy, because the arcane smells strange to them, the way the air does before a storm. Tauren have always been wary of that kind of power, so do your casting away from the herds, and the beasts will learn to forgive you in time." },
       },
       choices = {
-        { text = "I'll keep away from the herds. They have their ways.", next = "BACK", reply = "They do, and they'll remember your kindness long after they've forgotten the smell. The herds have long memories, as do the tauren who keep them.", fx = { align = { order = 1 } } },
+        { text = "I'll keep away from the herds. They have their ways.", next = "BACK", reply = "They do, and the kodo will remember your kindness long after they've forgotten your smell. So will the herders, which counts for more in Taurajo.", fx = { align = { order = 1 } } },
         { text = "The beasts will just have to get used to me.", next = "BACK", reply = "They will, eventually, as the grass gets used to a storm. But the storm never asks the grass, and I'd hoped you'd be a gentler weather.", fx = { align = { order = -1 } } },
         { text = "What's the first thing a hunter learns?", next = "first" },
       },
@@ -421,7 +421,7 @@ P:NPC {
     },
     tauren = {
       lines = { { id = "ta_default", text = "*snort* Because Bristlebacks raid your kodo too, cow-folk, and Mangletooth tells you where they sleep. You hate quilboar, Mangletooth hates Bristlebacks, and today the hates point the same way." } },
-      choices = { { text = "Today. Not tomorrow.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
+      choices = { { text = "We share an enemy today. Tomorrow we'll see.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
     agamaggan = {
       big = true,
@@ -474,7 +474,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Your hammer, for a start, because a paladin's hammer is a human weapon, made by human smiths to break orcs in the old wars. Seeing it swing for the Horde in Forsaken hands tells me more than any book, and I'll write it down for the Warchief, who may never read it." } },
       choices = {
-        { text = "Tell him it swings for the Horde now.", next = "BACK", reply = "I'll tell him exactly that, and I think he'll be glad to hear it. A weapon that has changed sides once can still be trusted, if the hand on it is steady.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Tell him it swings for the Horde now.", next = "BACK", reply = "I'll tell him exactly that, and I think he'll be glad to hear it. Keep a steady hand on it, though, because the grunts will be watching which way it swings.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Tell him it swings for the Light, not the Horde.", next = "BACK", reply = "I'll write that too, though Thrall may scratch his head over it. Just make sure it swings at the quilboar first, whatever you're swinging it for.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -630,7 +630,7 @@ P:NPC {
       lines = { { id = "xpt_byula_default", text = "Dangerous enough that I count the braves who ride out each morning and count them again at dusk, and the numbers don't always match. Companies that travel close come home, and I tell that to everyone who drinks here." } },
       choices = {
         { text = "Then we'll ride close and come home together.", next = "BACK", reply = "That's what I like to hear, and I'll count you back at dusk myself. May the Earth Mother keep your company close and your path short.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Danger is the price of glory. We'll ride as we like.", next = "BACK", reply = "Then ride as you like, and I'll keep counting, though I hope I don't have to subtract you. Glory is a poor bedfellow when the hyenas come.", fx = { align = { order = -1 } } },
+        { text = "Danger is the price of glory. We'll ride as we like.", next = "BACK", reply = "Then ride as you like, and I'll keep counting, though I hope I don't have to subtract you. Glory won't keep you warm when the hyenas come laughing at the palisade.", fx = { align = { order = -1 } } },
         { text = "Thanks, Byula.", next = "BACK" },
       },
     },
@@ -682,7 +682,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll take only what the land can spare.", next = "BACK", reply = "Then the land will spare you in return, I think. Walk gently, and you'll find the southern Barrens kinder than its reputation.", fx = { align = { honor = 1 } } },
-        { text = "The southern Barrens has plenty. I'll take what I like.", next = "BACK", reply = "There's plenty, until there isn't. The land remembers greed, traveller, and the lions are always watching who takes too much.", fx = { align = { honor = -1 } } },
+        { text = "The southern Barrens has plenty. I'll take what I like.", next = "BACK", reply = "There's plenty, until there isn't, and I've seen the herds thin like that once already. The lions notice who takes too much, traveller, and so do the herders.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

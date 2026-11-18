@@ -275,7 +275,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Be welcome at the Harborage, stranger. There is little here, but what there is, we share with those who come in peace." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Good. Few who leave the Harborage come back to it, and fewer still come back unhurt." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back, and I'm glad of it. Few who leave the Harborage ever return, and fewer still return unhurt." },
     { id = "g_crystals", when = { questDone = TODO_QUEST("Draenethyst Crystals") }, text = "{name}. The crystals sit with us again, and my people sleep more easily. Come, sit." },
     { id = "g_noboru", when = { questDone = TODO_QUEST("Noboru the Cudgel") }, text = "Here is the one who ended Noboru. My people speak your name by the fire, though they say it badly." },
   },
@@ -334,7 +334,7 @@ P:NPC {
         { id = "lh_default", text = "I have hoped so, every day since we came, and I have seen nothing that would make me keep hoping. Still, I do not let my people speak of them as beasts, because if we forget they were ours, we are halfway to the Sanctuary ourselves." },
       },
       choices = {
-        { text = "Then keep hoping. Hope is all that holds you together.", next = "BACK", reply = "It is, and I will, for as long as I can. Thank you for understanding.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Then keep hoping. Your people need you whole.", next = "BACK", reply = "I will, for as long as I can. Thank you for understanding.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Mercy for them may cost your people their lives.", next = "BACK", reply = "It may, and I know it, and I carry that every day. But if I stop seeing them as people, I fear what we would become.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

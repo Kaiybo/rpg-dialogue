@@ -251,7 +251,7 @@ P:NPC {
     rogue = {
       lines = { { id = "ro_default", text = "Everyone could. Shaw's people already read what I write, and that's all the admirers I need. Watch the stairs, not the door; amateurs watch the door." } },
       choices = {
-        { text = "Stairs. Noted.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "The stairs, then. I'll remember that.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -273,7 +273,7 @@ P:NPC {
       lines = { { id = "ne_default", text = "No, I'm not, and your lot are better at it than I'll ever be; I didn't hear you cross the room. What does a kaldorei want with Lakeshire's gossip?" } },
       choices = {
         { text = "Anything about the Defias.", next = "defias" },
-        { text = "Just listening. Like you.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Just listening, same as you.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
   },

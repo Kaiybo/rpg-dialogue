@@ -39,7 +39,7 @@ P:NPC {
     prej = {
       lines = { { id = "prej_default", text = "Aye, an' my grandfather had a worse one! Ye know the War o' the Three Hammers as well as I do, how the Bronzebeards took Ironforge an' showed us the door, an' a clan doesnae forget that because a king sends a letter." } },
       choices = {
-        { text = "That's an old grudge. We bled side by side in the Second War.", next = "BACK", reply = "Side by side, aye, an' I'll drink tae that any night ye like. But my grandfather would turn in his cairn if I forgot Grim Batol entirely.", fx = { align = { order = 1 } } },
+        { text = "That's an old grudge, Thane. We bled side by side in the Second War.", next = "BACK", reply = "Side by side, aye, an' I'll drink tae that any night ye like. But my grandfather would turn in his cairn if I forgot Grim Batol entirely.", fx = { align = { order = 1 } } },
         { text = "Grudges keep a clan proud. I'd not drop it either.", next = "BACK", reply = "Ha! A Bronzebeard wi' sense! Keep yer grudge an' I'll keep mine, an' we'll fight the trolls together in between.", fx = { align = { order = -1 } } },
         { text = "Tease away. I'll still out-drink you.", next = "prej_ok", fx = { affinity = 1 } },
         { text = "What do your folk really think of Ironforge?", next = "prej_why" },
@@ -65,8 +65,8 @@ P:NPC {
         { id = "opn_magni_q", text = "Magni? He's a fine dwarf for one who lives in a hole, an' he's never once flown, which tells ye most o' what ye need tae know. Our grandfathers fell out over Grim Batol an' we've been politely annoyed ever since. But ye've stood in his hall, so tell me what ye think o' him." },
       },
       choices = {
-        { text = "A good king. Your clans should stand closer together.", next = "opn_magni_r_respect", fx = { affinity = -1, align = { order = 1 }, opinion = { magni = "respect", wildhammer = "kin" } } },
-        { text = "Stuffy, and too fond of his Senate. Your sky suits me better.", next = "opn_magni_r_stuffy", fx = { affinity = 2, align = { order = -1 }, opinion = { magni = "stuffy", wildhammer = "admire" } } },
+        { text = "Magni's a good king. Your clans should stand closer together.", next = "opn_magni_r_respect", fx = { affinity = -1, align = { order = 1 }, opinion = { magni = "respect", wildhammer = "kin" } } },
+        { text = "Stuffy, and far too fond of his council. Your sky suits me better.", next = "opn_magni_r_stuffy", fx = { affinity = 2, align = { order = -1 }, opinion = { magni = "stuffy", wildhammer = "admire" } } },
         { text = "He keeps his word to the Alliance. Can you say the same?", next = "opn_magni_r_loyal", fx = { affinity = -1, trait = { stern = 1 }, opinion = { magni = "loyal" } } },
         { text = "He's grieving, Thane. Muradin's loss sits heavy on him.", next = "opn_magni_r_respect", when = { heardLine = "magni.bl_default" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { magni = "respect" } } },
         { text = "I'll keep out of dwarf feuds, Thane.", next = "BACK" },
@@ -215,8 +215,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Use? The Vilebranch keep their prisoners caged up at Jintha'Alor, an' a gryphon cannae land quiet on a troll temple, so a pair o' soft feet might do what a dozen hammers cannae. I'll no ask who taught ye, mind, for the Wildhammer like their enemies tae see us comin'." } },
       choices = {
-        { text = "A blade in the dark saves lives. Honor doesn't.", next = "BACK", reply = "Aye, it does, an' I've buried enough honourable riders tae know it. Go quiet, an' bring my people home.", fx = { align = { honor = -1 } } },
-        { text = "When it counts, I'd still face them openly, Thane.", next = "BACK", reply = "Ye've the heart o' a Wildhammer, then, an' I'll no' fault it. Bring yer hammer an' I'll bring mine.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A blade in the dark saves lives. Honour doesn't.", next = "BACK", reply = "Aye, it does, an' I've buried enough honourable riders tae know it. Go quiet, an' bring my people home.", fx = { align = { honor = -1 } } },
+        { text = "When it counts, I'd still rather face them openly, Thane.", next = "BACK", reply = "Ye've the heart o' a Wildhammer, then, an' I'll no' fault it. Bring yer hammer an' I'll bring mine.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let's talk about something else, Thane.", next = "BACK" },
       },
     },
@@ -224,7 +224,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Any fire that lands on the Vilebranch is welcome fire, {class}. But it was Dark Iron sorcery that poisoned Grim Batol for my people long ago, so ye'll forgive a Wildhammer for keepin' one eye on yer hands." } },
       choices = {
-        { text = "You're right to be wary. Power needs a firm hand.", next = "BACK", reply = "Aye, a firm hand an' a clear head. I've seen what happens when either one slips.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right to be wary. Power needs a firm hand.", next = "BACK", reply = "Aye, a firm hand an' a clear head. I've seen a young shaman call lightning down on his own gryphon because he was showin' off for the lasses, an' I've no wish tae see it twice.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fear of magic only holds a people back, Thane.", next = "BACK", reply = "Maybe, {class}, but ye didnae see Grim Batol after the Dark Irons were done wi' it. Mind yer fire.", fx = { align = { order = -1 } } },
         { text = "Let's leave the sorcery there.", next = "BACK" },
       },
@@ -235,7 +235,7 @@ P:NPC {
       choices = {
         { text = "I'll keep my demons leashed. Watch me if you like.", next = "BACK", reply = "Good. Watch ye I will, an' if they stay leashed, ye'll find me a fair host.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fire is fire. I'll burn the trolls however I please.", next = "BACK", reply = "Burn 'em, aye, but if one spark lands on my aerie, ye'll answer tae me an' a very angry gryphon.", fx = { align = { light = -1 } } },
-        { text = "Enough about demons. Something else.", next = "BACK" },
+        { text = "Enough about demons. Let's talk about something else.", next = "BACK" },
       },
     },
     gryphons = {
@@ -270,7 +270,7 @@ P:NPC {
       lines = { { id = "a_default", text = "We fought for it an' bled for it, an' some o' our riders never came home, an' the rest of us decided we'd rather answer tae our own sky. We're friends tae any who prove themselves, so prove yerself." } },
       choices = {
         { text = "What do you make of Magni and his Bronzebeards?", next = "opn_magni" },
-        { text = "That's fair.", next = "BACK", reply = "It's more than fair, it's Wildhammer! I'm glad ye see it.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "That's fair, Thane.", next = "BACK", reply = "It's more than fair, it's Wildhammer! I'm glad ye see it, an' I'll tell Magni's next envoy that even his own folk agree wi' me.", fx = { affinity = 2, align = { order = -1 } } },
         { text = "The Alliance needs every hammer it can get.", next = "BACK", reply = "An' when it asks, it gets ours, as it did in the Second War. But we'll no' be told when tae swing.", fx = { affinity = -1, align = { order = 2 } } },
         { text = "You miss the riders who flew off with the Alliance.", tag = "Persuade", next = "kurdran",
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Dwarf" }, { trait = "brave" } } } },
@@ -328,8 +328,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwa_default", text = "That's the spirit! The Vilebranch are at Jintha'Alor an' the Witherbark at Shadra'Alor, an' the Revantusk sit at the coast wi' the Horde. Hit the first two as hard as ye like; the third I'm still makin' my mind up about." } },
       choices = {
-        { text = "A troll's a troll. They'll all fall.", next = "BACK", reply = "That's the spirit! Off ye go, an' mind the spears.", fx = { affinity = -1, align = { honor = -1 } } },
-        { text = "I'll leave the Revantusk to you, then.", next = "BACK", reply = "Aye, the Revantusk can wait. We'll settle them some other year.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A troll's a troll. They'll all fall in the end.", next = "BACK", reply = "That's the spirit! Off ye go, an' mind the spears; the Vilebranch throw them uphill better than ye'd think.", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll leave the Revantusk to you, then.", next = "BACK", reply = "Aye, the Revantusk can wait. They keep tae their beach an' fight the Vilebranch for us, an' I'll no' complain about free help.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Why not the Revantusk?", next = "trolls" },
       },
     },
@@ -344,7 +344,7 @@ P:NPC {
       lines = { { id = "xgn_default", text = "Could ye! A gryphon could carry three o' ye an' a picnic. The trouble's no' the weight; it's keepin' ye from tryin' to fit the bird wi' an engine, an' I've heard about gnomes an' engines." } },
       choices = {
         { text = "An engine would be an improvement.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
-        { text = "No engines. Just the bird.", next = "BACK", fx = { affinity = 2 } },
+        { text = "No engines, I promise. Just the bird.", next = "BACK", fx = { affinity = 2 } },
       },
     },
   },
@@ -435,8 +435,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They do, an' always have, for a gryphon's half wind an' half stubbornness, an' a Wildhammer rider learns tae hear both. An Ironforge dwarf who can hear what the birds hear is the first I've met, an' I'd let ye near the aeries for that alone." } },
       choices = {
-        { text = "A gryphon must be trained and ruled, or it ruins the rider.", next = "BACK", reply = "Ruled, aye, an' it'll rule ye right back. I've seen it, an' I've buried it.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "No reins, no orders. Bond with the bird and trust it.", next = "BACK", reply = "That's how a Wildhammer flies, an' ye've a rider's soul. Come see my aerie.", fx = { align = { order = -1 } } },
+        { text = "A gryphon has to be trained and ruled, or it ruins the rider.", next = "BACK", reply = "Ruled, aye, an' it'll rule ye right back. I've seen it, an' I've buried it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No reins, no orders. Bond with the bird and trust it.", next = "BACK", reply = "That's how a Wildhammer flies, an' ye've a rider's soul. Come up tae the aerie at dawn, when they're hungry an' honest, an' we'll see which o' them picks ye.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -453,7 +453,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A rider who listens tae the bird before he listens tae his own temper. I've seen warriors try tae steer a gryphon intae a fight like a cart horse, an' the bird threw 'em off at the Vilebranch walls an' flew home wi'out 'em." } },
       choices = {
-        { text = "Then I'll follow your rules, Gryphon Master, to the letter.", next = "BACK", reply = "Good, an' ye'll live longer for it. My birds remember the riders who listen.", fx = { align = { order = 1 } } },
+        { text = "Then I'll follow your rules to the letter, Gryphon Master.", next = "BACK", reply = "Good, an' ye'll live longer for it. My birds remember the riders who listen.", fx = { align = { order = 1 } } },
         { text = "Gryphon or not, I'll fight where I choose.", next = "BACK", reply = "Then ye'll fight on yer own two feet, for none o' my birds will carry ye. Choose wisely.", fx = { align = { order = -1 } } },
         { text = "Something else, Talonaxe.", next = "BACK" },
       },
@@ -471,7 +471,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Aye, it might, for the Vilebranch priests work blood magic on their altars, an' I've heard it said their curses slide off the Light like rain off a slate roof. But I'll no' send ye up there on a bird tae play the hero, for Sharpbeak's the one that matters, an' a dead paladin cannae carry a gryphon chick home." } },
       choices = {
-        { text = "The chick first, then. Glory can wait, Talonaxe.", next = "BACK", reply = "Aye, that's my thinkin', an' the chick will thank ye when she's grown.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The chick comes first. Glory can wait, Talonaxe.", next = "BACK", reply = "Aye, that's my thinkin', an' the chick will thank ye when she's grown.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll smash their altars first. The chick can wait.", next = "BACK", reply = "Then ye'll find the chick dead when ye're done, an' I'll find ye a very long walk home.", fx = { align = { honor = -1 } } },
         { text = "Something else, Talonaxe.", next = "BACK" },
       },
@@ -480,7 +480,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "She'd attack anythin' that smells wrong near her nest, an' ye smell wrong, {g:lad|lass}, no offence meant. The Vilebranch shadow hunters reek o' the same dark stuff, so as far as she's concerned, ye might be one o' them in an Alliance coat, an' I'll no' be arguin' wi' a mother gryphon on yer behalf." } },
       choices = {
-        { text = "I'll give her nest a wide berth, then.", next = "BACK", reply = "Good. She'll thank ye by no' eatin' ye.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll give her nest a wide berth, then.", next = "BACK", reply = "Good. She'll thank ye by no' eatin' ye, which is the best thanks she gives anybody, me included.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Then keep her leashed. I go where I need to.", next = "BACK", reply = "She'll no' be leashed, {g:lad|lass}, she's a gryphon. Go round, or go home.", fx = { align = { order = -1 } } },
         { text = "Something else, Talonaxe.", next = "BACK" },
       },
@@ -516,7 +516,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep that thing o' yours well away from the nests, {class}, for Keenclaw's still twitchy after the trolls took her young one, an' she'll take yer arm off tae protect what's left." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Witherbark", min = 30 } }, text = "The riders say the Witherbark have gone quiet in the south, an' they've stopped throwin' spears at my birds. Somebody's been teachin' 'em manners, an' I've a fair idea who." },
       },
-      again = { { id = "h_again", text = "What? Quick, they're wantin' fed." } },
+      again = { { id = "h_again", text = "What is it? Be quick, they're wantin' fed." } },
       choices = {
         { text = "Who's Sharpbeak?", next = "sharpbeak" },
         { text = "Why do the trolls want the gryphons?", next = "trolls" },
@@ -542,7 +542,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Twice, an' near as quiet as ye. A Witherbark scout got all the way up tae the nests one night before the birds woke an' took him apart, so now I sleep up here wi' them an' I trust nothin' that walks soft." } },
       choices = {
         { text = "Your distrust keeps the birds alive. I'd do the same.", next = "BACK", reply = "Aye, an' I'll keep it, thank ye. My birds are alive because I trust nobody.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Walking soft is no crime, gryphon master.", next = "BACK", reply = "No' a crime, but a warnin'. I'll keep my eye on ye all the same.", fx = { align = { order = -1 } } },
+        { text = "Walking softly is no crime, Gryphon Master.", next = "BACK", reply = "No' a crime, but a warnin'. I'll keep my eye on ye all the same.", fx = { align = { order = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -552,7 +552,7 @@ P:NPC {
       choices = {
         { text = "Earned things matter more than easy ones.", next = "BACK", reply = "They do, aye, an' ye'll feel the difference the first time ye fly. Come up an' see.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Easier is better. I'll take the spell, thank you.", next = "BACK", reply = "Easier it is, then, an' ye'll miss the best view in the world. Yer loss.", fx = { align = { honor = -1 } } },
-        { text = "Fair. Another question, then.", next = "BACK" },
+        { text = "Fair enough. Another question, then.", next = "BACK" },
       },
     },
     sharpbeak = {
@@ -717,7 +717,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I hear the owls an' the wolves, an' lately I hear them go quiet near Jintha'Alor, which troubles me. Keep {pet} close in the forest, for the Vilebranch would take a hunter's beast for their altars as soon as the hunter." },
       },
       choices = {
-        { text = "The land is sick. Jintha'Alor must be cleansed.", next = "BACK", reply = "Aye, it must, an' soon. I'll pray ye're the one tae do it.", fx = { align = { light = 1 } } },
+        { text = "The land is sick, and Jintha'Alor has to be cleansed.", next = "BACK", reply = "Aye, it does, an' soon. I can smell their fires from the Peak on a west wind, an' I'll pray ye're the one tae put them out.", fx = { align = { light = 1 } } },
         { text = "Beasts flee from anything. It means nothing.", next = "BACK", reply = "They flee from what's wrong, an' I've lived long enough tae know the difference. Mind ye listen.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -779,7 +779,7 @@ P:NPC {
         { text = "Can the Light and the spirits stand together, Fraggar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I fought the Soulflayer in Zul'Gurub, Fraggar.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
         { text = "My companion is a shaman. Do the Wildhammer keep the old ways?", next = "xpt_shaman", when = { party = { class = "SHAMAN" }, faction = "Alliance" } },
-        { text = "I'll help the spirits.", next = "END", reply = "Bless ye. They'll be glad o' the help, an' so will I. Walk wi' the wind.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll help the spirits, Fraggar.", next = "END", reply = "Bless ye. They'll be glad o' the help, an' so will I. Walk wi' the wind.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Your spirits flinch when I come near, old man.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "I learned from your elders, Fraggar. Ironforge calls it backsliding.", next = "xorig_windshaman", when = { origin = "dwarf_wildhammer_shaman" } },
         { text = "The spirits can fend for themselves, old man.", next = "END", reply = "Maybe they can, an' maybe they cannae. Go on, then, an' mind the land doesnae remember ye unkindly.", fx = { align = { light = -1 } } },
@@ -808,8 +808,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because it takes an' doesnae ask, the same as the Vilebranch blood rites, though cleaner. A Wildhammer asks the storm before he rides it, an' a mage grabs the lightnin' by the tail an' hopes for the best." } },
       choices = {
-        { text = "Asking first is wiser. I'll keep that in mind.", next = "BACK", reply = "Good. Ask, an' the world often says yes.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Power answers to whoever is strong enough to take it.", next = "BACK", reply = "That's what the Vilebranch think too, an' look where it's led them. Mind yerself.", fx = { align = { order = -1 } } },
+        { text = "Asking first is wiser. I'll keep that in mind.", next = "BACK", reply = "Good. Ask, an' ye'll be surprised how often the world says yes. I asked the wind for my first gryphon, an' she landed on my roof the next mornin'.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Power answers to whoever's strong enough to take it.", next = "BACK", reply = "That's what the Vilebranch think too, an' look where it's led them. Mind yerself.", fx = { align = { order = -1 } } },
         { text = "I'll leave the spirits be. Something else.", next = "BACK" },
       },
     },
@@ -836,7 +836,7 @@ P:NPC {
       lines = { { id = "a_default", text = "Blood, an' bindin', an' callin' on things that should stay asleep. The Vilebranch think the spirits answer them, an' somethin' answers, but it isnae the spirits." } },
       choices = {
         { text = "Are all the trolls here the same, Fraggar?", next = "opn_trolls" },
-        { text = "Then the altars must fall.", next = "BACK", reply = "Aye, they must, an' I'll pray for the hand that brings them down.", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "Then the altars have to fall.", next = "BACK", reply = "Aye, they must, an' I'll pray for the hand that brings them down.", fx = { affinity = 2, align = { light = 2 } } },
         { text = "If something answers them, maybe it's worth hearing out.", next = "BACK", reply = "Hear it out? Ye'd no' like what it says, I promise ye. Leave it asleep.", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -857,7 +857,7 @@ P:NPC {
       lines = { { id = "xwl_default", text = "Aye, they do, an' so would I if my eyes were better. Whatever ye carry, it's no' from this world, an' the land here's sick enough already wi' troll blood on the altars." } },
       choices = {
         { text = "I'll keep it bound while I'm here.", next = "BACK", reply = "Thank ye. The land breathes easier already.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The land will have to bear it.", next = "BACK", reply = "It will, aye, but it'll remember ye for it. Walk carefully.", fx = { affinity = -2, align = { light = -1 } } },
+        { text = "The land will just have to bear it.", next = "BACK", reply = "It will, aye, but it'll remember ye for it. Walk carefully.", fx = { affinity = -2, align = { light = -1 } } },
       },
     },
   },
@@ -912,7 +912,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_table_default", text = "Fewer than I'd like and more than the trolls would like, because the road from Hillsbrad runs through Vilebranch country and they don't let a lone traveller pass easily. Those who come in company tend to arrive, and those who come alone tend to arrive late or not at all." } },
       choices = {
-        { text = "We look out for each other. That's how we made it.", next = "BACK", reply = "Aye, an' that's the only way through Vilebranch country. Good on ye.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "We look out for each other. That's how we made it.", next = "BACK", reply = "Aye, an' that's the only way through Vilebranch country. The ones who come up that road in twos an' threes are the ones I see again.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A clever traveller goes alone and goes unseen.", next = "BACK", reply = "Alone an' unseen, an' I've buried a few who tried. Mind the road.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -931,7 +931,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "In their own way, aye. They don't have the Moon or yer Circle, but they speak tae the winds an' the earth, an' they'd never cut down a tree without a word of thanks. Ironforge thinks it's all superstition, mind." } },
       choices = {
         { text = "Ironforge is wrong. The Wildhammer have the right of it.", next = "BACK", reply = "That's what they'd say, aye, an' they'd buy ye a round for it.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Each people honors the land in their own way.", next = "BACK", reply = "That's a druid's answer if ever I heard one. The Wildhammer would agree, mostly.", fx = { align = { order = 1 } } },
+        { text = "Each people honours the land in their own way.", next = "BACK", reply = "That's a druid's answer if ever I heard one. The Wildhammer would agree, mostly.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -939,7 +939,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every one o' them, an' they tell the fight three times, each bigger than the last. By the third tellin', a single Witherbark scout has become a whole war party, an' I pour the next round anyway, because they've earned the tale." } },
       choices = {
-        { text = "A true warrior tells it straight. No need to boast.", next = "BACK", reply = "Straight it is, then, an' I'll pour ye a quiet one. The riders could learn from ye.", fx = { align = { honor = 1 } } },
+        { text = "A true warrior tells it straight. There's no need to boast.", next = "BACK", reply = "Straight it is, then, an' I'll pour ye a quiet one. The riders could learn from ye.", fx = { align = { honor = 1 } } },
         { text = "A good tale's worth stretching. Pour another.", next = "BACK", reply = "That's the Wildhammer way! Pour another an' tell me yer best one.", fx = { align = { honor = -1 } } },
         { text = "Something else, Thulfram.", next = "BACK" },
       },
@@ -952,7 +952,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll go and settle it. Rumours do nobody any good.", next = "BACK", reply = "Settle it, aye, an' come back wi' the story. I'll want every word o' it for the bar.", fx = { align = { order = 1 } } },
-        { text = "Let the mystery be. Not every beast needs hunting.", next = "BACK", reply = "Aye, maybe so. Some mysteries are better as stories than answers.", fx = { align = { order = -1 } } },
+        { text = "Let the mystery be. Not every beast needs hunting.", next = "BACK", reply = "Aye, maybe so. Half my regulars would be heartbroken if somebody came back an' said it was only a big owl.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -961,7 +961,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "The sky, mostly, an' their birds, an' whoever's listenin' when the wind turns bad. Ye'll hear a fair few call on the Light too once they've had a drink, for there's no' a Wildhammer alive who'd turn down help over Jintha'Alor." } },
       choices = {
         { text = "A prayer said over ale still counts. The Light hears it.", next = "BACK", reply = "It does, aye, an' I've heard the Light answer a rider or two. Pour ye one?", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Prayers that come with the third ale aren't worth much.", next = "BACK", reply = "Maybe no', but they're honest, which is more than most prayers.", fx = { align = { light = -1 } } },
+        { text = "Prayers that come with the third ale aren't worth much.", next = "BACK", reply = "Maybe no', but they're honest. I've heard riders at this bar pray for their dead wi' a mug in their hand, an' I'd no' tell them it didnae count.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1033,7 +1033,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "No many, for the Wildhammer trust storms more than spellbooks. The odd one comes over from Dalaran's side o' the mountains, but they've been fewer since the city shut itself away behind its dome, an' it's only now openin' again, an' they all complain about the stairs." } },
       choices = {
         { text = "The Kirin Tor were right to seal Dalaran away.", next = "BACK", reply = "Maybe they were, an' maybe the riders would argue wi' ye. Drink up an' let 'em.", fx = { align = { order = 1 } } },
-        { text = "Hiding behind a dome while Lordaeron burned was shameful.", next = "BACK", reply = "Aye, the riders say the same, an' loudly. Ye'll find friends at this bar.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Hiding under a dome while Lordaeron burned was shameful.", next = "BACK", reply = "Aye, the riders say the same, an' loudly. Ye'll find friends at this bar.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Let's talk about something warmer.", next = "BACK" },
       },
     },
@@ -1043,7 +1043,7 @@ P:NPC {
       choices = {
         { text = "I'll keep quiet. Their grief deserves respect.", next = "BACK", reply = "Thank ye. They'll no' say it, but they'll notice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Old grief shouldn't stop me using what works.", next = "BACK", reply = "Maybe no', but ye'll keep it out o' my inn all the same.", fx = { align = { light = -1 } } },
-        { text = "Fair. Let's talk of other things.", next = "BACK" },
+        { text = "Fair enough. Let's talk of other things.", next = "BACK" },
       },
     },
     riders = {

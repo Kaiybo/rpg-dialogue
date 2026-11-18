@@ -94,7 +94,7 @@ P:NPC {
       },
       choices = {
         { text = "You did right. Someone had to look.", next = "BACK", reply = "Thank you, though it does not make me feel much better about sending you. I am glad you came back to say so.", fx = { align = { honor = -1 } } },
-        { text = "You should have warned me plainly first.", next = "BACK", reply = "Perhaps I should have, and I am sorry for it. Fear makes poor manners of us all, and mine were very poor.", fx = { align = { honor = 1 } } },
+        { text = "You should have warned me plainly first.", next = "BACK", reply = "Perhaps I should have, and I am sorry for it. I was frightened, and I let you walk in there half blind.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,7 +135,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we drive them out before it spreads.", next = "BACK", reply = "Then let it be done soon, and quietly, before the sickness reaches the deer at the shore. I will brew what I can for whoever goes.", fx = { align = { light = -1 } } },
-        { text = "Let Onu advise us before anyone acts.", next = "BACK", reply = "Onu is wise, and he is old, and he will take his time about it. I pray the water waits for him.", fx = { align = { light = 1 } } },
+        { text = "Let Onu advise us before anyone acts.", next = "BACK", reply = "Onu is wise, and he is old, and he will take his time about it. I'll brew in the meantime, and pray the water waits for him.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

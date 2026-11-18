@@ -471,7 +471,7 @@ P:NPC {
         { id = "h_adventurer", when = { questActive = TODO_QUEST("The Adventurer") },
           text = "You've earned a breath. There's a traveler camped on the road by Brill who claims she's not one of the Crusade, so see what she's about." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because the Crusade's camp burns well, and I'm told you can call fire." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Can you fight? Then Deathknell has a use for you." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? If you can fight, then Deathknell has a use for you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Crusade's camp sits in open ground, and I want eyes on it from the treeline." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I'll want you mending my Deathguard, not preaching to them, so keep that in mind when you speak." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The Scarlets camped to the southeast think they hold the Light by right, and I'd like to see their faces when you walk in carrying it." },
@@ -490,7 +490,7 @@ P:NPC {
         { text = "Understood, Executor.", next = "END", fx = { affinity = 1, standing = { deathknell = 1 } } },
       },
       again = {
-        { id = "h_again", text = "Anything else? Keep it brief." },
+        { id = "h_again", text = "Anything else? Keep it brief, because the Crusade won't wait on us." },
       },
     },
     warrior = {
@@ -512,7 +512,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "On the camp to the southeast, on their tents and their wagons. Their runners carry orders between the camps and I want those orders whole, so keep your fire off the runners." } },
       choices = {
-        { text = "Off the runners, then. Your orders, Executor.", next = "BACK", reply = "Good, and make sure the tents burn bright enough for the next camp to see. Fear travels faster than any runner.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Off the runners, then. Your orders, Executor.", next = "BACK", reply = "Good, and make sure the tents burn bright enough for the next camp to see. I want the next camp watching the sky all night.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fire spreads where it likes. I won't promise anything.", next = "BACK", reply = "Then learn to control it, or keep it away from my orders. I'll not lose a dispatch to a careless spark.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -521,7 +521,7 @@ P:NPC {
       big = true,
       lines = { { id = "dq_default", text = "If it kills Crusaders, it will do. Go at their camp from the trees, where the sentries never watch, and leave nothing they can carry back to Brill." } },
       choices = {
-        { text = "From the trees, then. They won't see me coming.", next = "BACK", reply = "Good. Let them wonder what lurks in their own woods, and leave the sentries for last.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "From the trees, then. They won't see me coming.", next = "BACK", reply = "Good, let them wonder what lurks in their own woods, and leave the sentries for last.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll come at them openly. Let them see what's coming.", next = "BACK", reply = "Brave, and foolish, but I'll take results however they come. If it goes badly, Mordo will see to you.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

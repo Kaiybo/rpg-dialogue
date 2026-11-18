@@ -347,7 +347,7 @@ P:NPC {
           text = "Brigandine's the thing for you, mail that bends when you do, and it'll stop a jaguar's claws if you've any sense in how you stand. Don't let Thralosh talk you into leather." },
       },
       again = {
-        { id = "h_again", text = "Something else? The armor's not going to sell itself." },
+        { id = "h_again", text = "Something else? Ask while I've the shop to myself." },
         { id = "h_again2", text = "Ask away, while I polish." },
       },
       choices = {

@@ -109,7 +109,7 @@ P:NPC {
 
     windsor = {
       lines = { { id = "wi_default", text = "Only that he was a good man who came up here to lead us against the mountain, and the Dark Irons took him and his whole company. Marshal Maxwell talks about him like he's still alive, and I hope he's right, though it's been a long while." } },
-      choices = { { text = "Maybe he is. Something else.", next = "BACK" } },
+      choices = { { text = "Maybe he is. Let's talk about something else.", next = "BACK" } },
     },
   },
 

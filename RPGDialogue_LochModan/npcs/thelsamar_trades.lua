@@ -84,7 +84,7 @@ P:NPC {
       },
       choices = {
         { text = "Rewards are what make the young ones work hard.", next = "BACK", reply = "Aye, a shiny pick goes a long way wi' the young ones. I'd rather they worked hard for a pick than for nothin'.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Good work should be its own reward.", next = "BACK", reply = "In a perfect world, aye, but this is Loch Modan. A wee reward keeps them comin' back, an' that's what matters.", fx = { align = { order = -1 } } },
+        { text = "Good work should be its own reward.", next = "BACK", reply = "In a perfect world, aye, but this is Loch Modan. A wee reward keeps them comin' back tae my stall, an' that's what matters tae me.", fx = { align = { order = -1 } } },
         { text = "How do you reward them?", next = "picks" },
       },
     },
@@ -151,7 +151,7 @@ P:NPC {
         { id = "pw_default", text = "Because a pick from Ironforge means somethin' tae a young dwarf from the loch, an' they'll carry it the rest o' their lives. Morhan could make one just as good, but I'd never tell a student that." },
       },
       choices = {
-        { text = "A little pride never hurt anyone.", next = "BACK", reply = "Never did, an' it never will. Every young miner deserves somethin' tae be proud of.", fx = { align = { honor = -1 } } },
+        { text = "A little pride never hurt anyone.", next = "BACK", reply = "Never did, an' it never will. I still keep my first nugget on a string round my neck.", fx = { align = { honor = -1 } } },
         { text = "You should tell them the truth about Morhan.", next = "BACK", reply = "An' break their hearts? No, the pick's from Ironforge, an' that's the end o' it. Morhan doesnae mind.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -191,7 +191,7 @@ P:NPC {
       },
       choices = {
         { text = "A good miner takes every risk the vein demands.", next = "BACK", reply = "Ye'll find the vein demands more than ye've got, someday. Mind my three rules, an' ye might live tae see it.", fx = { align = { order = -1 } } },
-        { text = "A good miner comes home. The vein can wait.", next = "BACK", reply = "Aye, that's the wisest thing ye've said yet. Come home, an' dig another day.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "A good miner comes home. The vein can wait.", next = "BACK", reply = "Aye, that's the wisest thing ye've said yet. The vein's waited ten thousand years, an' it'll wait till ye've slept.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -210,7 +210,7 @@ P:NPC {
         { id = "xg_default", text = "Course ye could! Ye're nearer the ground than I am, an' that's a blessing in a low tunnel. Only promise me ye'll no' bring one o' those drillin' machines in here, for the last one went through my floor." },
       },
       choices = {
-        { text = "Machines are the future of mining, Brock.", next = "BACK", reply = "The future, is it? I've seen what those machines do tae a seam, an' it isnae pretty. A pick's a pick.", fx = { align = { order = -1 } } },
+        { text = "Machines are the future of mining, Brock.", next = "BACK", reply = "The future, is it? I've seen what those gnome machines do tae a seam, an' it isnae pretty. They chew through good ore like a goat through a hedge.", fx = { align = { order = -1 } } },
         { text = "A pick and patience it is, then.", next = "BACK", reply = "Good, that's the spirit. Patience an' a pick have dug every hall in Ironforge, an' they'll dig yours too.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -301,7 +301,7 @@ P:NPC {
       },
       choices = {
         { text = "Leave some for whoever comes after.", next = "BACK", reply = "Aye, that's the way o' it. Ye'll make a fine herbalist if ye remember that.", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "If I don't take it, someone else will.", next = "BACK", reply = "An' then there's nothin' for anyone. That's how the hills go bare, friend, one greedy picker at a time.", fx = { align = { honor = -1 } } },
+        { text = "If I don't take it, someone else will.", next = "BACK", reply = "An' then there's nothin' for anyone. I've seen hillsides up by the dam stripped bare by folk who said the very same.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -327,7 +327,7 @@ P:NPC {
         { id = "xd_default", text = "Ye ask the plant first, I'm told, which is more manners than most dwarves show it. I don't ask, but I do say thank ye, an' I've a feelin' it amounts tae the same." },
       },
       choices = {
-        { text = "Thanks is enough. The land understands.", next = "BACK", reply = "I'd like tae think so, an' it's kind o' ye tae say. Thank ye, then, an' I'll keep sayin' thanks.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Thanks is enough. The land understands.", next = "BACK", reply = "I'd like tae think so, an' it's kind o' ye tae say. I'll keep sayin' thanks, anyway, in case it's listenin'.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Plants are plants. They don't hear thanks.", next = "BACK", reply = "Maybe no', but I hear it, an' it makes me pick gentler. That's enough for me.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

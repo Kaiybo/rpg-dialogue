@@ -315,7 +315,7 @@ P:NPC {
     a2 = {
       lines = { { id = "a2_default", text = "It should, and the Cathedral tries, but the crown's coffers are spoken for. So I roll linen and I don't wait to be asked." } },
       choices = {
-        { text = "The crown must take care of its people first.", next = "BACK", reply = "It should, and someday it might. Until then, I'll keep rolling linen.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "The crown must take care of its people first.", next = "BACK", reply = "Someday it might. Until then, I'll keep rolling linen, and the Cathedral will keep sending me the ones the crown forgot.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Help yourself and your neighbours. Don't wait on lords.", next = "BACK", reply = "That's the only way I've ever known, and it's served me well enough. Welcome to the work.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -597,7 +597,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Sweethearts and mothers, and sometimes the grave of a friend on the way out of the city. I don't ask, but you can tell by which flowers they choose, and roses mean somebody's waiting." } },
       choices = {
-        { text = "A knight fights for those waiting at home. It's a worthy reason.", next = "BACK", reply = "It is, dear. I've seen many a knight choose daisies, and come home for more.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A knight fights for those waiting at home. It's a worthy reason.", next = "BACK", reply = "Oh, the worthiest, dear. I've sold daisies to many a knight on his way out of the gate, and the ones who bought them came home for more.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A knight should fight for the Light, not for a sweetheart.", next = "BACK", reply = "Oh, dear, the Light won't mind sharing a little with a sweetheart. It's not so jealous as all that.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

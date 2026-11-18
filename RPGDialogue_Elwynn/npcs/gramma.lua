@@ -83,7 +83,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Something worth having at the end of it, which this feud never was. Fight the gnolls and the kobolds and anything that comes for a child, and leave the old grudges to rot, because they will anyway." } },
       choices = {
-        { text = "I'll fight what threatens folk, and leave the grudges alone.", next = "BACK", reply = "Now there's a sensible young person, and I'll tell the boy you said so. Sit, there's pie.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight what threatens folk, and leave the grudges alone.", next = "BACK", reply = "Now there's a sensible young person, and I'll tell the boy you said so, whether he wants to hear it or not.", fx = { align = { honor = 1 } } },
         { text = "Some grudges are worth a fight, Gramma.", next = "BACK", reply = "Name one that was worth what it cost, dear, and I'll listen. I've buried too many people to believe it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -131,7 +131,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Time, and the young ones, and nothing a hammer can do. The old men will keep their grudges into the grave, but Tommy Joe and that Maclure girl don't care two pins for them, and that's the start of the end of it." } },
       choices = {
         { text = "The old ways deserve respect, Gramma. Elders should decide.", next = "BACK", reply = "Respect, aye, but not obedience, dear, and there's a world of difference. The elders here have earned very little.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the young ones break the old rules, then.", next = "BACK", reply = "That's my hope, and I'll do what I can to help them. Have a slice of pie.", fx = { align = { order = -1 } } },
+        { text = "Let the young ones break the old rules, then.", next = "BACK", reply = "That's my hope, and I've a scheme or two in the oven to help them along, besides the pie.", fx = { align = { order = -1 } } },
         { text = "Something else, Gramma.", next = "BACK" },
       },
     },
@@ -207,7 +207,7 @@ P:NPC {
         { id = "ww_default", text = "That's mine to carry, child, and you carry your own. Everybody's got a sack of them; mine's just older than most." },
       },
       choices = {
-        { text = "Fair. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Fair enough. Let's talk of something else.", next = "BACK", fx = { affinity = 1 } },
         { text = "Sacks get lighter if you set them down.", next = "BACK", reply = "They do, dear, and I've set a few down already. The rest I'm keeping for my own reasons.", fx = { trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Some grudges are worth keeping, Gramma.", next = "BACK", reply = "I'd have said so too, once. Come back and tell me that when you're my age.", fx = { align = { light = -1 } } },
         { text = "You can set a little of it down here, Gramma.", tag = "Persuade", next = "why_sack",

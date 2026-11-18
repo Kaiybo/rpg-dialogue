@@ -38,8 +38,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Only by eating them, friend, for study makes a hungry belly. Once you can conjure your own bread, I hope you'll remember the recruits who can't, because the Light asks us to feed the body as well as the mind." } },
       choices = {
-        { text = "I'll share what I conjure with the recruits, Brother.", next = "BACK", reply = "That's a kind heart, and the recruits will be grateful. The Light sees such things.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "What I conjure is mine, Brother. They can buy theirs.", next = "BACK", reply = "It's yours, aye, but the Light asks more than it demands. I'll not press you.", fx = { align = { honor = -1 } } },
+        { text = "I'll share what I conjure with the recruits, Brother.", next = "BACK", reply = "That's a kind heart, and the recruits will be grateful, especially the ones who spent their bread money on a whetstone.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What I conjure is mine, Brother. They can buy theirs.", next = "BACK", reply = "It's yours, true enough, and I'll not press you, though I may mention it to the Light at vespers.", fx = { align = { honor = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
@@ -47,7 +47,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Both, and the farmers sell to us dearer every year, because the Defias take a share of every harvest before it reaches the road. I pray for better weather and fewer bandits, though I'd settle for the roof being fixed." } },
       choices = {
-        { text = "Then the Abbey should pay fairly and keep the farms going.", next = "BACK", reply = "They should, and I keep telling the Brothers so. The farmers deserve to be paid.", fx = { align = { honor = 1 } } },
+        { text = "Then the Abbey should pay fairly and keep the farms going.", next = "BACK", reply = "They should, and I tell the Brothers so every time the grain cart comes in. They nod, and then they ask me about the roof.", fx = { align = { honor = 1 } } },
         { text = "Bargain harder. Farmers will always sell to a buyer with coin.", next = "BACK", reply = "They will sell, aye, but they'll starve doing it, and I'd rather not be the reason. I'll pay what's fair.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -101,11 +101,11 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at my wagon. You'll want bread and water, I expect, because prayer feeds the soul but it's never once fed the stomach." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Brother Sammuel will have you on your knees by dawn, so buy your bread tonight, while you can still stand." },
-        { id = "h_default", text = "Bread, water, a little thread. The Abbey's stores are humble, but honest." },
+        { id = "h_default", text = "Bread, water and a little thread, and that's the lot. The Abbey's stores are humble, but they're honest." },
         { id = "h_rich", when = { money = { min = 100000 } }, text = "Ten gold on you, at least; I can hear it from here. The Abbey roof leaks, you know." },
         { id = "h_roof", when = { metBefore = true }, text = "The roof leaked on the bread again. I told the Brothers, and they told me to pray, so I prayed, and it rained." },
         { id = "h_hunter", when = { class = "HUNTER", maxLevel = 15 },
-          text = "A bow. Then you'll want arrows, and you'll want more than you think. Recruits always think a quiver lasts a week." },
+          text = "A bow, is it? Then you'll want arrows, and you'll want more than you think. Recruits always think a quiver lasts a week." },
         { id = "h_novice", when = { origin = "human_abbey_novice" },
           text = "One of the Abbey's own, buying from my wagon. I used to give your lot the stale loaves. Now you pay for the fresh ones." },
         { id = "h_veteran", when = { minLevel = 20 },

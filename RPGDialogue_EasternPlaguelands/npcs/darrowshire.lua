@@ -83,7 +83,7 @@ P:NPC {
       big = true,
       lines = { { id = "xf_default", text = "The same way I kept it in the square, {class}: one more swing, one more prayer, and never mind how many are still coming. Faith isn't believing you'll win; it's standing there anyway." } },
       choices = {
-        { text = "Standing anyway is all any of us can do.", next = "BACK", reply = "It is, and it's enough. I'm glad you understand.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Standing anyway is all any of us can do.", next = "BACK", reply = "It is, and it was enough for the folk who got out down the south road. I'm glad you understand.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'd rather win. Standing and dying helps nobody.", next = "BACK", reply = "So would I, and so would every one of us in the square. We stood anyway, and some got away.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

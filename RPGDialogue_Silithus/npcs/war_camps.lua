@@ -300,7 +300,7 @@ P:NPC {
           text = "You're Alliance, in my camp. Speak quickly, and then go, before my grunts remember they're bored." },
       },
       again = {
-        { id = "h_again", text = "More questions? Fine. Make them short." },
+        { id = "h_again", text = "More questions? Fine, but make them short." },
         { id = "h_again2", text = "What else? Speak while you walk." },
       },
       choices = {

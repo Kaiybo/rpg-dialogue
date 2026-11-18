@@ -309,7 +309,7 @@ P:NPC {
         { id = "xf_default", text = "I believe every soul deserves its rest, whatever banner it fell under, but I would not presume to tell you that yours is restless. You walk, you speak and you chose to come here, and that is more freedom than the dead of Southwind were ever given." },
       },
       choices = {
-        { text = "I'm free enough as I am. Leave my soul be.", next = "BACK", reply = "Then I will leave it be, and gladly, because a soul that chose its own path is not mine to mend.", fx = { align = { light = -1 } } },
+        { text = "I'm free enough as I am. Leave my soul be.", next = "BACK", reply = "Then I will leave it be, and gladly. I tend those who ask for rest, and you are not asking.", fx = { align = { light = -1 } } },
         { text = "Perhaps one day I'll ask you for that rest.", next = "BACK", reply = "Then I will be here, and I will not refuse you, whatever banner you walked under in your life before.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Something else, Layo.", next = "BACK" },
       },
@@ -945,7 +945,7 @@ P:NPC {
     ahn_qiraj = { { id = "tp_ahn_qiraj", text = "There's a city behind that wall in the south older than anything in Ironforge's histories. The League would give its eyes for one look inside, and I'd give my beard." } },
     silithid_hives = { { id = "tp_silithid_hives", text = "The bugs keep digging up our dig sites, which is rude, since we were digging first. A dwarf could get very cross about it." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "We had a gnome on the team for a while, but he went home to help with Gnomeregan. That city'll come back, if anyone can make it come back." } },
-    _none = { { id = "tp_none", text = "Ask Frankal. He likes talking." } },
+    _none = { { id = "tp_none", text = "Ask Frankal. He likes to talk." } },
   },
 }
 
@@ -1080,7 +1080,7 @@ P:NPC {
         { text = "Why would dragons watch over Silithus now?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the dragons over Silithus trouble the winds?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What became of Natalia?", next = "natalia" },
-        { text = "Dragons? Over Silithus?", next = "skies" },
+        { text = "Dragons, over Silithus?", next = "skies" },
         { text = "How many languages do you lot speak?", next = "languages" },
         { text = "Silithid brains seem an odd thing to want.", next = "brains", when = { any = { { questActive = TODO_QUEST("Breaking the Code") }, { questDone = TODO_QUEST("Breaking the Code") } } } },
         { text = "Those spells she used... I know them.", next = "priest", when = { class = "PRIEST" } },

@@ -254,7 +254,7 @@ P:NPC {
       },
       choices = {
         { text = "The court is slow for everyone.", next = "BACK", fx = { opinion = { stormwind = "patience" } } },
-        { text = "Write a twelfth. Shorter. Angrier.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Write a twelfth, then, shorter and angrier.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
       },
     },
 
@@ -424,7 +424,7 @@ P:NPC {
     hunter = {
       lines = { { id = "hu_default", text = "Have you really? Then you've done more for Darkshire's roads this week than Stormwind has all year, and I'll say so to the council. Tell me, are they worgen or simply wolves? My people can't agree." } },
       choices = {
-        { text = "Both. And the worgen are worse.", next = "BACK", fx = { affinity = 1, learn = { "worgen" } } },
+        { text = "Both, and the worgen are worse.", next = "BACK", fx = { affinity = 1, learn = { "worgen" } } },
         { text = "Mostly wolves. Your people scare easily.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
       },
     },

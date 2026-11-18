@@ -67,7 +67,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Into their huts by the water, I imagine, because murlocs love anything shiny and haven't the faintest idea what's actually in it. Follow the smell of fish and the trail of wet footprints, and you'll find it, I'm certain. And maybe {pet} could sniff it out, since it smells of me, and I haven't washed in a week, which is the one thing working in our favor." },
       },
       choices = {
-        { text = "I'll find your strongbox and return it untouched.", next = "BACK", reply = "Untouched, he says! Friend, you're an honest one, and I'll not forget it. Follow the smell; you can't miss it.", fx = { align = { honor = 1 } } },
+        { text = "I'll find your strongbox and return it untouched.", next = "BACK", reply = "Untouched! Friend, you're an honest one, and I'll not forget it. Follow the smell; you can't miss it.", fx = { align = { honor = 1 } } },
         { text = "Finders keepers, Galen, unless the reward's worth it.", next = "BACK", reply = "Worth it? I'd pay you twice what's in it if I could, but I can't, so let's say generously and leave it there.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

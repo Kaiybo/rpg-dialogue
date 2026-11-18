@@ -534,7 +534,7 @@ P:NPC {
       },
       choices = {
         { text = "Send for me next time. You shouldn't face that alone.", next = "BACK", reply = "I will, I promise. I sat there shaking for an hour, and I'd rather not do it again.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You should have fought it. Sitting doesn't help.", next = "BACK", reply = "With what? A rake? I'd be in pieces in the rows. But maybe you're right.", fx = { align = { light = -1 } } },
+        { text = "You should have fought it. Sitting doesn't help.", next = "BACK", reply = "With what, a rake? I'd be in pieces in the rows before I'd swung it twice. But maybe you're right.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -62,7 +62,7 @@ P:NPC {
         { id = "ld_default", text = "Old houses, they say, an' a road, from before the valley was flooded. I've pulled up a door hinge once, rusted through, an' I hung it over my hearth, for I couldnae bring myself tae throw it back." },
       },
       choices = {
-        { text = "Leave the drowned houses in peace.", next = "BACK", reply = "Aye, that's my thinkin', an' I hung the hinge as a kind o' apology. Whoever lived there deserves tae sleep.", fx = { align = { light = 1 } } },
+        { text = "Leave the drowned houses in peace.", next = "BACK", reply = "Aye, that's my thinkin', an' I hung the hinge on my door as a kind o' apology. Whoever lived down there deserves tae sleep.", fx = { align = { light = 1 } } },
         { text = "Dive down and see what's left.", next = "BACK", reply = "Dive? In that cold? Ye'd come up blue an' wi' nothin' but weed. Go on, though, an' tell me what's down there if ye find it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "stonewrought_dam" } } },
       },
@@ -165,7 +165,7 @@ P:NPC {
       },
       choices = {
         { text = "Then tell the young ones the truth.", next = "BACK", reply = "The truth? An' lose half my shiny sales? I'll tell them when they're old enough tae appreciate it.", fx = { align = { honor = 1 } } },
-        { text = "They'll learn. That's business.", next = "BACK", reply = "Aye, they will, an' they'll come back for plain hooks when they do. That's how a shop lasts.", fx = { align = { honor = -1 } } },
+        { text = "They'll learn. That's business.", next = "BACK", reply = "Aye, they will, an' they'll come back for plain hooks when they do. I've sold the same lad three shiny lures this month an' he's caught nothin' on any of them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -293,7 +293,7 @@ P:NPC {
         { id = "gk_default", text = "Then I'd say the king can come an' tell me himself, an' bring a letter wi' his seal, an' I'd still check the seal twice. Don't push it, friend, or ye'll see how far the drop is from this ledge." },
       },
       choices = {
-        { text = "Fair. I'll stop pushing.", next = "BACK" },
+        { text = "Fair enough. I'll stop pushing.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -364,7 +364,7 @@ P:NPC {
       },
       choices = {
         { text = "Brave is never daft.", next = "BACK", reply = "Is it no'? Ye'd make a fine sergeant, an' I'd follow ye anywhere. Brave an' daft both, that's me.", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Your sergeant was right to rein you in.", next = "BACK", reply = "Aye, he was, though I'll no' admit it tae his face. A gate guard lives longer than a hero.", fx = { align = { order = 1 } } },
+        { text = "Your sergeant was right to rein you in.", next = "BACK", reply = "Aye, he was, though I'll no' admit it tae his face. I wanted tae charge the whole trogg camp alone, an' I'd be in it now, in bits.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

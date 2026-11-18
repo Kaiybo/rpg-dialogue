@@ -21,7 +21,7 @@ P:NPC {
 
   greetings = {
     { id = "g_kitchen", text = "Not now, not now! Unless you're bringing me something fresh, in which case, yes, now." },
-    { id = "g_back", when = { metBefore = true }, text = "You again! Wonderful. Taste this and tell me it needs nothing." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and just in time! Taste this and tell me it needs nothing." },
     { id = "g_haunch", when = { questActive = QH }, text = "Do you have the haunch? I must start the marinade, or the banquet is ruined!" },
     { id = "g_morgan", when = { questActive = QM }, text = "Have you reached Theramore yet? My nephew is a dear boy, but he writes no letters." },
     { id = "g_haunch_done", when = { questDone = QH }, text = "My saviour of the banquet! Come in, come in, and mind the scullion; he's carrying something hot and he's never once looked where he was going." },

@@ -104,7 +104,7 @@ P:Pool {
   greetings = {
     { id = "g_default", text = "This is Rog'mar, and it's Horde ground, so walk like you belong here." },
     { id = "g_hero", when = { townStanding = { town = "rogmar", min = 55 } }, text = "Lok'tar! Krom'rosh says you've bled for us, and that's good enough for me." },
-    { id = "g_distrust", when = { townStanding = { town = "rogmar", max = -20 } }, text = "Keep moving. We're watching you." },
+    { id = "g_distrust", when = { townStanding = { town = "rogmar", max = -20 } }, text = "Keep moving, outsider. Every grunt in Rog'mar knows your face by now." },
   },
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },

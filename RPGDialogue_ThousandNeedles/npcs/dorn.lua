@@ -45,7 +45,7 @@ P:NPC {
           text = "Spirit, body and mind, all tested and all found sound. You don't need me anymore, though I'll still be here, watching the Needles." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask carefully; the questions are a test too." },
+        { id = "h_again", text = "What else? Ask carefully, young one, because the questions you choose are a test too." },
         { id = "h_again2", text = "Go on. The Nook is quiet, and so am I, and the wind in the Needles is in no hurry either." },
       },
       choices = {

@@ -61,7 +61,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Closer every season, and they'll snap at a line hard enough to pull a man in. Your {pet} looks hungry, and I'd swear it knows exactly which basket is the fresh one. Clever beast, cleverer than half my customers." },
       },
       choices = {
-        { text = "I'll leave the threshers be. The sea is theirs.", next = "BACK", reply = "That's wise, and the threshers would agree. The sea has always taken its share first.", fx = { align = { light = 1 } } },
+        { text = "I'll leave the threshers be. The sea is theirs.", next = "BACK", reply = "That's wise. A thresher took my brother's boat, oars and all, and he only just kept his legs.", fx = { align = { light = 1 } } },
         { text = "I'll hunt the threshers down and sell the meat.", next = "BACK", reply = "Bring me a thresher and I'll buy every pound of it, though you'll be the one rowing out. Mind your fingers.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
@@ -71,8 +71,8 @@ P:NPC {
         { id = "xro_default", text = "Quietly or loudly, I'd thank you either way, for they steal from my nets every night. They gather thickest down the coast where the threshers come in close." },
       },
       choices = {
-        { text = "I'll do it cleanly, Laird.", next = "BACK", reply = "Cleanly or not, I'll be grateful. The Greymist have been at my nets every night this month.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "They'll never know what hit them.", next = "BACK", reply = "That's the spirit, and I'll not ask what you did to them. My nets will thank you.", fx = { align = { honor = -1 } } },
+        { text = "I'll do it cleanly, Laird.", next = "BACK", reply = "Cleanly or not, I'll be grateful. I've mended those nets so often they're more knot than net.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They'll never know what hit them.", next = "BACK", reply = "That's the spirit, and I'll not ask what you did to them. Just leave the bodies off my beach.", fx = { align = { honor = -1 } } },
         { text = "What's the coast like?", next = "coast" },
       },
     },
@@ -90,7 +90,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "I'd take a blessing on the nets and another on the boat, if you're offering, because the coast is unkind this season. Nessa would call it superstition, but Nessa doesn't fish past the reefs." } },
       choices = {
-        { text = "I'll bless them gladly. A fisher needs all the help.", next = "BACK", reply = "Bless you, and bless the boat twice if you've breath for it. The coast has been cruel this season.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll bless them gladly. A fisher needs all the help.", next = "BACK", reply = "Bless you, and bless the boat twice if you've breath for it. She leaks on the left side, so aim a little that way.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers are for people, Laird, not for nets.", next = "BACK", reply = "Maybe so, but the nets feed people, and people need all the blessings they can get. I'll take one for the boat, then.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -165,7 +165,7 @@ P:NPC {
         { id = "co2_default", text = "Because the fish are worth it, and because Auberdine has to eat whether the coast is safe or not. We didn't build a town on this shore to be chased off the beach by murlocs." },
       },
       choices = {
-        { text = "That's the right spirit. Hold your ground.", next = "BACK", reply = "That's the only spirit Auberdine has ever known. We'll hold, murlocs or no.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "That's the right spirit. Hold your ground.", next = "BACK", reply = "That's the only spirit Auberdine has ever known. My grandfather fished this shore, murlocs and all, and so will I.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "No catch is worth dying for.", next = "BACK", reply = "No, it isn't, and I've lost friends who learned that too late. But the village still has to eat.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -225,8 +225,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They always do, and it worries me, because carelessness gets people killed out here. I'd guess your elements forgive it no more than Darkshore does." } },
       choices = {
-        { text = "You are right, Dalmond. Preparation saves lives.", next = "BACK", reply = "They do, and I'm glad someone listens. Darkshore punishes the forgetful.", fx = { align = { order = 1 } } },
-        { text = "I travel light and trust the spirits.", next = "BACK", reply = "Then travel light, but take a waterskin at least. The spirits won't carry water for you.", fx = { align = { order = -1 } } },
+        { text = "You are right, Dalmond. Preparation saves lives.", next = "BACK", reply = "They do, and I'm glad someone listens. You wouldn't believe how many come back to me soaked and starving.", fx = { align = { order = 1 } } },
+        { text = "I travel light and trust the spirits.", next = "BACK", reply = "Then travel light, but take a waterskin at least. The streams up the coast taste of that moss.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -234,7 +234,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Thread and bandages, and waterskins above all, because they tell me the streams up the coast aren't safe to drink from any more. That worries me more than I like to say, since nobody knows water better than a druid." } },
       choices = {
-        { text = "Better to be prepared. I'll buy what I need before I go.", next = "BACK", reply = "Wise, and I'll have everything you need. The streams up the coast aren't safe.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Better to be prepared. I'll buy what I need before I go.", next = "BACK", reply = "Wise. Water first, bread second, and a spare bag if you've the coin.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The land provides. I'll trust it over a shop shelf.", next = "BACK", reply = "It does, in a better season, but not this one. Take a waterskin anyway, druid.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -243,8 +243,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Thread, for one, because you'll tear your gear on the brambles before any furbolg touches you, and bags to carry the spoils you take. I can't sell you courage, though, so I'll trust you to bring your own." } },
       choices = {
-        { text = "Thread and bags. You're right, I'll stock up.", next = "BACK", reply = "Good, and you'll thank me when the brambles start tearing. Darkshore is hard on gear.", fx = { align = { order = 1 } } },
-        { text = "I travel light. Spoils can stay where they fall.", next = "BACK", reply = "Then you'll leave a lot of good loot behind you, warrior. Bags are cheap.", fx = { align = { order = -1 } } },
+        { text = "Thread and bags. You're right, I'll stock up.", next = "BACK", reply = "Good, and you'll thank me when the brambles start tearing. I've sold more thread this season than in the last three.", fx = { align = { order = 1 } } },
+        { text = "I travel light. Spoils can stay where they fall.", next = "BACK", reply = "Then you'll leave a lot of good loot lying in the moss, warrior, and the murlocs will thank you.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
@@ -255,7 +255,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Water for themselves and the beast, because the coast is salt and the streams near the Blackwood camps aren't fit to drink. And your {pet} will need feeding too, won't it? Please tell me you've something for it in your pack." },
       },
       choices = {
-        { text = "I'll stock up. Better safe than parched.", next = "BACK", reply = "Good, and your beast will thank you too. The coast is very dry for something so wet.", fx = { align = { order = 1 } } },
+        { text = "I'll stock up. Better safe than parched.", next = "BACK", reply = "Good. It's strange, I know, but the coast is very dry for something so wet.", fx = { align = { order = 1 } } },
         { text = "The land provides. I'll find what we need.", next = "BACK", reply = "It does, mostly, but not near the Blackwood camps. Be careful what you drink.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -265,7 +265,7 @@ P:NPC {
         { id = "xro_default", text = "Most do, and for the ones who don't, I keep their things a season and then sell them fairly. I'd ask you to do the same if you ever find a purse on the dock." },
       },
       choices = {
-        { text = "I'd return it, Dalmond.", next = "BACK", reply = "Thank you, and I knew you would. Not everyone does.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd return it, Dalmond.", next = "BACK", reply = "Thank you, and I knew you would. The last traveller who found my ledger kept it for a week.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Finders keepers, where I'm from.", next = "BACK", reply = "Not where I'm from, and not in Auberdine either. Mind the Sentinels if you try it.", fx = { align = { honor = -1 } } },
         { text = "What do people forget most?", next = "forget" },
       },
@@ -285,7 +285,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Because you spend your supplies on everyone else and forget yourselves, and then you're bleeding on the road with nothing left. I'd feel much better if you bought a few extra, for your own sake." } },
       choices = {
         { text = "I'll carry extra and share it where it's needed.", next = "BACK", reply = "Then you're a kinder priest than most, and wiser too. Take a little extra for yourself as well.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'll keep my supplies for myself this time.", next = "BACK", reply = "That's sensible, and I'll not argue it. A healer who starves heals no one.", fx = { align = { light = -1 } } },
+        { text = "I'll keep my supplies for myself this time.", next = "BACK", reply = "That's sensible, and I'll not argue it. You'll be no use to anyone fainting by the roadside.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -293,8 +293,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Not unprepared, exactly, but everyone forgets something, and paladins forget food most of all. The Darkshore road is long and the inns are few, so please take more water than you think you'll need." } },
       choices = {
-        { text = "I'll take your advice, Dalmond. Thank you.", next = "BACK", reply = "You're welcome, and you'll be glad of the food on the road. The Darkshore road is long.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll pack as I see fit, thank you.", next = "BACK", reply = "As you like, paladin, and I'll be here when you run out. Everyone runs out of something.", fx = { align = { order = -1 } } },
+        { text = "I'll take your advice, Dalmond. Thank you.", next = "BACK", reply = "You're welcome. It's a long walk to the Grove of the Ancients, and there's no inn on the way.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll pack as I see fit, thank you.", next = "BACK", reply = "As you like, paladin. I'll be here when you run out, and I won't say a word about it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -363,7 +363,7 @@ P:NPC {
         { id = "wo2_default", text = "Perhaps, but courage doesn't fill a stomach. Let the brave ones be brave, and let me make sure they have bread when they're done being brave." },
       },
       choices = {
-        { text = "Smart. Someone has to think ahead.", next = "BACK", reply = "Someone does, and it's usually me. Bread for the brave, that's my motto.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Smart. Someone has to think ahead.", next = "BACK", reply = "Someone does, and it's usually me. Nobody ever thanks the one who packed the bread.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Some things you can't prepare for.", next = "BACK", reply = "There are, and I can't prepare for them either. But I can prepare for hunger.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "dark_strand" } } },
       },
@@ -409,7 +409,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I do, because troubles look smaller after a cup and the furbolgs look further away. Perhaps your spirits would agree." } },
       choices = {
-        { text = "Kindness in a cup, Taldan. I accept.", next = "BACK", reply = "Then let me pour you a cup, and the troubles can wait outside. That's what this stall is for.", fx = { align = { light = 1 } } },
+        { text = "Kindness in a cup, Taldan. I accept.", next = "BACK", reply = "Then let me pour you a cup, and the troubles can wait outside the awning.", fx = { align = { light = 1 } } },
         { text = "Drinks do not fix troubles.", next = "BACK", reply = "No, but they make them easier to carry for an evening. That's all I promise.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -418,7 +418,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "A little hollow north of the village, past the old ruins, and the druids keep the sickness out of it as best they can. I don't ask how they do it, because I'm only a man who sells juice, but I'm grateful every time I pour a cup." } },
       choices = {
-        { text = "The grove belongs to the Circle. Pick only what they allow.", next = "BACK", reply = "That's the right way, and the druids will thank you for it. The grove is all we have left.", fx = { align = { order = 1 } } },
+        { text = "The grove belongs to the Circle. Pick only what they allow.", next = "BACK", reply = "That's the right way, and the druids will thank you for it. The grove up the coast is the only clean one left.", fx = { align = { order = 1 } } },
         { text = "Berries grow for everyone. Pick whatever the village needs.", next = "BACK", reply = "They do, but not in this season, with the sickness creeping in. The druids decide, and I respect it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -427,7 +427,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than they'd admit, because a clear head keeps you alive longer than a brave one when the furbolgs come out of the trees. The Sentinels drink my juice before they patrol, and not one of them has complained." } },
       choices = {
-        { text = "Clear head, steady hand. I'll take a cup.", next = "BACK", reply = "Good, and you'll keep both longer for it. Clear heads come home.", fx = { align = { order = 1 } } },
+        { text = "Clear head, steady hand. I'll take a cup.", next = "BACK", reply = "Good. I've watched too many sailors stagger off the Bravery and straight into the sea.", fx = { align = { order = 1 } } },
         { text = "I'd rather have something stronger.", next = "BACK", reply = "Then you'll need to take the boat to Menethil, I'm afraid. I sell juice and water, mostly.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -449,7 +449,7 @@ P:NPC {
         { id = "xma_default", text = "That's kind, but the cellar keeps it cool enough, and the Sentinels would rather not see magic over the counter. My elders remember the Highborne at their worst, and none of them likes a spell anywhere near a drink." },
       },
       choices = {
-        { text = "Of course. Nothing over the counter.", next = "BACK", reply = "Thank you, and the Sentinels will thank you too. Cool is cool enough.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Of course. Nothing over the counter.", next = "BACK", reply = "Thank you. A cold cup is nice, but it's not worth a Sentinel's glare.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little magic never spoiled a drink.", next = "BACK", reply = "It did once, ten thousand years ago, and we've not forgotten. Keep it off my counter, please.", fx = { align = { order = -1 } } },
         { text = "What's best here?", next = "best" },
       },
@@ -459,7 +459,7 @@ P:NPC {
         { id = "xro_default", text = "To the boats, mostly, and back to Menethil, where they say the ale's better. I won't point you to anyone selling it under the dock, if that's what you're asking." },
       },
       choices = {
-        { text = "Just asking. Juice is fine.", next = "BACK", reply = "Juice is lovely, and you'll be glad of it on the road. Moonberry, perhaps?", fx = { align = { honor = 1 } } },
+        { text = "Just asking. Juice is fine.", next = "BACK", reply = "Juice is lovely, and it keeps better on the road than ale ever did. Moonberry, perhaps?", fx = { align = { honor = 1 } } },
         { text = "I'll find it myself, then.", next = "BACK", reply = "Then you'll find it on the boats, and good luck to you. I'll not point the way.", fx = { align = { honor = -1 } } },
         { text = "Why nothing strong?", next = "strong" },
       },
@@ -468,7 +468,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Now and then, on their way to the Temple or off to tend the sick up the coast, and they're always thirsty. It is hard work, praying over the hurt, and it goes easier with a full cup." } },
       choices = {
-        { text = "I'll take that cup. Thank you, Taldan.", next = "BACK", reply = "You're welcome, priest, and I hope it helps. The sick will be glad of you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll take that cup. Thank you, Taldan.", next = "BACK", reply = "You're welcome, priest. Drink it slowly; the berries are tart this season.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I've no time for juice, Taldan.", next = "BACK", reply = "Then take it with you, at least, for the road is long. A healer needs to drink too.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -477,7 +477,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The Sentinels say it does, and I believe them, for the furbolgs come closer every season. I sell drinks rather than swords, but I'd be glad to see you on the road north." } },
       choices = {
-        { text = "I'll guard the road north for Auberdine's sake.", next = "BACK", reply = "Then Auberdine will be grateful, and so will I. The Sentinels need every hand.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll guard the road north for Auberdine's sake.", next = "BACK", reply = "Then Auberdine will be grateful, and so will I. Glynda's Sentinels have been on the north road three nights running.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the Sentinels guard it. I'm passing through.", next = "BACK", reply = "They will, as best they can, and I'll pray they manage. Safe travels, at least.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -488,7 +488,7 @@ P:NPC {
         { id = "xlock_default", text = "I think most troubles look smaller after a cold cup, and I've seen a great many troubled faces come off the boats. Yours is no worse than most, though I'll ask your little friend not to drink straight from the jug." },
       },
       choices = {
-        { text = "Thank you. A little kindness goes a long way.", next = "BACK", reply = "It does, and I'm glad to have offered it. Come back any time.", fx = { align = { light = 1 } } },
+        { text = "Thank you. A little kindness goes a long way.", next = "BACK", reply = "It does, and it costs me nothing but a cup. Come back any time.", fx = { align = { light = 1 } } },
         { text = "Your kindness is wasted on me, Taldan.", next = "BACK", reply = "Perhaps it is, but I'd rather waste it than keep it. Come back anyway.", fx = { align = { light = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -546,7 +546,7 @@ P:NPC {
         { id = "st2_default", text = "The Highborne drank from the Well of Eternity until it drowned them, and we've been wary of anything we can't stop drinking ever since. I'm talking about juice and ale, of course, but the lesson still holds." },
       },
       choices = {
-        { text = "Moderation is wisdom.", next = "BACK", reply = "It is, and I wish more of my customers believed it. Moonberry, then?", fx = { align = { order = 1 }, learn = { "highborne" } } },
+        { text = "Moderation is wisdom.", next = "BACK", reply = "It is, and I wish the sailors off the Bravery believed it. Moonberry, then?", fx = { align = { order = 1 }, learn = { "highborne" } } },
         { text = "A little ale never drowned anyone.", next = "BACK", reply = "Perhaps not, but the Highborne would disagree. Moderation, friend.", fx = { align = { order = -1 }, trait = { witty = 1 }, learn = { "highborne" } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -590,8 +590,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They tell me you have fought and lived, which is all I ask. Your spirits may guard you, but a good blade guards you better." } },
       choices = {
-        { text = "Then I will choose a blade fairly, Naram.", next = "BACK", reply = "Good, and I'll help you find the right one. Honest blades for honest hands.", fx = { align = { honor = 1 } } },
-        { text = "My spirits are blade enough.", next = "BACK", reply = "Then I hope they never fail you. A blade would be a good backup.", fx = { align = { honor = -1 } } },
+        { text = "Then I will choose a blade fairly, Naram.", next = "BACK", reply = "Good, then hold out your hand and let me see your grip. Most shamans come to me wanting something too heavy.", fx = { align = { honor = 1 } } },
+        { text = "My spirits are blade enough.", next = "BACK", reply = "Then I hope they never fail you. I've buried one shaman who thought the same.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -600,7 +600,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Because a bear doesn't need a sword, I suppose, and the Circle teaches that steel should come last. I respect that, though I've seen enough of the Blackwood to keep a blade by my bed all the same." } },
       choices = {
         { text = "The Circle's right. Steel should come after every other way.", next = "BACK", reply = "It should, and I respect the Circle for it. But a bear can't always reach the enemy.", fx = { align = { honor = 1 } } },
-        { text = "Whatever wins the fight is the right weapon.", next = "BACK", reply = "That's a smith's answer, and I agree with it. But the druids will frown.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Whatever wins the fight is the right weapon.", next = "BACK", reply = "That's a smith's answer, and I agree with it. Keep it quiet in Darnassus, though.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -608,7 +608,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "That you've been hit and kept fighting, which is all I ask of a customer. Darkshore will add a few more, so carry a blade you trust, because the furbolgs don't give second chances." } },
       choices = {
-        { text = "Each scar was a lesson. I learned from them.", next = "BACK", reply = "Then you're a warrior worth arming. Darkshore will teach you more.", fx = { align = { order = 1 } } },
+        { text = "Each scar was a lesson. I learned from them.", next = "BACK", reply = "Then you're a warrior worth arming. The furbolgs will happily add a few more lessons.", fx = { align = { order = 1 } } },
         { text = "Each scar was a fight I walked away from.", next = "BACK", reply = "That's a fine way to look at it, and a lucky one. May you walk away from many more.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -620,7 +620,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An axe or a spear, something with reach and weight, because when a thistle bear gets inside your bow it won't care about your aim. Your {pet} has better teeth than anything I sell, I'll give it that. Still, carry something for the times it can't reach you." },
       },
       choices = {
-        { text = "I'll carry a spear for when the bear gets close.", next = "BACK", reply = "Good, and you'll be glad of it when the bear gets close. A spear has reach.", fx = { align = { order = 1 } } },
+        { text = "I'll carry a spear for when the bear gets close.", next = "BACK", reply = "Good. A bear can't maul what it can't reach.", fx = { align = { order = 1 } } },
         { text = "Close quarters is my companion's job.", next = "BACK", reply = "Then I hope your companion is very big, hunter. Bears are bigger.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -631,8 +631,8 @@ P:NPC {
         { id = "xro_nightelf", when = { race = "NightElf" }, text = "Daggers, then, as a kaldorei should carry them, short and close for fighting among the trees. Let me show you how a blade ought to sit in the hand, for the ones from Menethil never do." },
       },
       choices = {
-        { text = "Teach me the kaldorei way.", next = "BACK", reply = "Gladly, and you'll find it lighter in the hand than you expect. The kaldorei know balance.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Balance is balance. I'll judge it myself.", next = "BACK", reply = "Then judge it, and you'll find the kaldorei way is best. Most do.", fx = { align = { order = -1 } } },
+        { text = "Teach me the kaldorei way.", next = "BACK", reply = "Gladly. Pick it up, and you'll find it lighter in the hand than you expect.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Balance is balance. I'll judge it myself.", next = "BACK", reply = "Then judge it, and see if it isn't the kaldorei way you come back to. Most do.", fx = { align = { order = -1 } } },
         { text = "Where do your weapons come from?", next = "where" },
       },
     },
@@ -641,7 +641,7 @@ P:NPC {
         { id = "xma_default", text = "A few, plain wood from Ashenvale, and I keep nothing with old runes on it. If you want an enchanted staff, look in the human cities, and ask them where it came from." },
       },
       choices = {
-        { text = "Plain wood suits me fine.", next = "BACK", reply = "Good, and you'll find it serves you well. Plain wood never betrayed anyone.", fx = { align = { order = 1 } } },
+        { text = "Plain wood suits me fine.", next = "BACK", reply = "Good. Plain wood has never once whispered to the one who carries it.", fx = { align = { order = 1 } } },
         { text = "Runes are only dangerous to fools.", next = "BACK", reply = "They are, and the fools are usually the ones who pick them up. Plain wood, please.", fx = { align = { order = -1 } } },
         { text = "What should I carry, then?", next = "need" },
       },
@@ -650,7 +650,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "If you mean to walk in Darkshore, yes, and I'd not trust anyone who says otherwise. A good staff costs nothing to carry, and it might keep you alive long enough to heal yourself." } },
       choices = {
-        { text = "Healing comes first, but I'll carry something to defend myself.", next = "BACK", reply = "That's sensible, and I'll find you a good staff. Healing and defence together.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Healing comes first, but I'll carry something to defend myself.", next = "BACK", reply = "That's sensible. A good ironwood staff will turn a furbolg's club and still lean nicely by the bedside.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Better a weapon than a prayer in the woods.", next = "BACK", reply = "In these woods, I'd agree with you. A weapon and a prayer are better still.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -720,7 +720,7 @@ P:NPC {
         { id = "ne2_default", text = "Restless ghosts at Ameth'Aran, and robed cultists out in the hills. I don't know what they want, but I know they don't stop to talk, so neither should you." },
       },
       choices = {
-        { text = "Strike first and ask questions later. Agreed.", next = "BACK", reply = "Agreed, and I'll arm you for it. The cultists are dangerous.", fx = { align = { light = -1 }, learn = { "dark_strand" } } },
+        { text = "Strike first and ask questions later. Agreed.", next = "BACK", reply = "Agreed, and I'll arm you for it. The cultists at the Glaive won't give you time for questions anyway.", fx = { align = { light = -1 }, learn = { "dark_strand" } } },
         { text = "The ghosts deserve rest, not more swords.", next = "BACK", reply = "They do, and I'd not argue it. But the cultists deserve swords.", fx = { align = { light = 1 }, learn = { "dark_strand" } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -803,7 +803,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I miss it every day, but I like being the loudest voice on the docks. Some old-timers at home grumble about dwarves talking to spirits, but yours would fit right in here." } },
       choices = {
-        { text = "We dwarves stick together, Elisa.", next = "BACK", reply = "Aye, we do, and it's good tae have another on the docks. Come by any time.", fx = { align = { honor = 1 } } },
+        { text = "We dwarves stick together, Elisa.", next = "BACK", reply = "Aye, we do, and it's good tae hear a proper voice on these docks. Come by any time.", fx = { align = { honor = 1 } } },
         { text = "The old-timers have a point. Spirits aren't dwarvish.", next = "BACK", reply = "They do, and I'll not argue it. But a dwarf's a dwarf, whatever they pray to.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -812,7 +812,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "One or two have had words with me, politely enough, about the smoke and where the fuel comes from. I ship my coal in from Ironforge and don't touch your forests, so I told them to save their worry for the furbolgs." } },
       choices = {
-        { text = "Smoke is still smoke. Keep the forges small near the groves.", next = "BACK", reply = "Aye, and I do, mostly. The druids are polite about it.", fx = { align = { order = 1 } } },
+        { text = "Smoke is still smoke. Keep the forges small near the groves.", next = "BACK", reply = "Aye, and I do, mostly. The druids are polite about it, which is somehow worse than shoutin'.", fx = { align = { order = 1 } } },
         { text = "Your trade is your own business. Burn what you like.", next = "BACK", reply = "That's what I keep tellin' the druids, but they don't listen. Thank ye anyway.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -821,7 +821,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "You can if you buy your stones from me, because the elves don't do much smithing and the damp in Darkshore rusts a blade overnight. Oil it every evening and hone it every morning, and it'll still be a blade when you reach Ashenvale." } },
       choices = {
-        { text = "Every evening, then. A blade's worth the care.", next = "BACK", reply = "Aye, and ye'll thank me when the damp sets in. A blade's worth the care.", fx = { align = { order = 1 } } },
+        { text = "Every evening, then. A blade's worth the care.", next = "BACK", reply = "Aye, and ye'll thank me when the damp sets in. This coast'll rust a blade overnight.", fx = { align = { order = 1 } } },
         { text = "I'll sharpen it when it's dull, and not before.", next = "BACK", reply = "Then ye'll be buyin' a new blade by spring. The damp's merciless.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -834,7 +834,7 @@ P:NPC {
       },
       choices = {
         { text = "Out of respect, I'll keep things quiet here.", next = "BACK", reply = "That's kind of ye, and the elves'll appreciate it. They're very sensitive about noise.", fx = { align = { order = 1 } } },
-        { text = "A rifle's a rifle. Let the elves glare.", next = "BACK", reply = "Aye, let them glare, and I'll keep sellin' rifles. A tool's a tool.", fx = { align = { order = -1 } } },
+        { text = "A rifle's a rifle. Let the elves glare.", next = "BACK", reply = "Aye, let them glare, an' I'll keep sellin' rifles. They glare at my forge too, an' it's still standin'.", fx = { align = { order = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -843,7 +843,7 @@ P:NPC {
         { id = "xro_default", text = "It's something, all right, and it isn't smithing. I'll sell you a file and a hammer like I'd sell anyone, and what you do with them is your business until the Sentinels make it theirs." },
       },
       choices = {
-        { text = "Honest work only, I promise.", next = "BACK", reply = "Good, and I'll sell ye whatever ye need. Honest tools for honest hands.", fx = { align = { honor = 1 } } },
+        { text = "Honest work only, I promise.", next = "BACK", reply = "Good, and I'll sell ye whatever ye need. I'll no' count the lockpicks, either.", fx = { align = { honor = 1 } } },
         { text = "A lock is just a puzzle with a door on it.", next = "BACK", reply = "It is, and I'll not ask which door. Mind the Sentinels.", fx = { align = { honor = -1 } } },
         { text = "Why sell here, of all places?", next = "why" },
       },
@@ -853,7 +853,7 @@ P:NPC {
         { id = "xma_default", text = "Not the forge, no; it's fire and iron, and they understand that well enough. It's your sort they mind, and you'll find they're politer to a sweaty smith than to a mage, for they know what a hammer can't do." },
       },
       choices = {
-        { text = "I'll respect their wariness.", next = "BACK", reply = "Good, and they'll appreciate it. Wariness is earned here.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll respect their wariness.", next = "BACK", reply = "Good, an' they'll appreciate it. Ten thousand years is a long time tae practise bein' wary.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Their fear isn't my concern.", next = "BACK", reply = "It will be when they shoot ye. Mind yerself.", fx = { align = { order = -1 } } },
         { text = "What do the elves think of you?", next = "elves" },
       },
@@ -872,7 +872,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Gladly, though I sell supplies and not repairs, mind. A paladin's plate is the only thing standing between some poor soul and an axe, so I'd keep it in good order if I were you." } },
       choices = {
         { text = "I'll keep it in order, for the sake of others.", next = "BACK", reply = "Good, and the folk ye guard will be grateful. Plate's only as good as its upkeep.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "My armour keeps me alive. I'll keep it.", next = "BACK", reply = "Aye, and that's reason enough tae keep it. Come by when ye need supplies.", fx = { align = { honor = -1 } } },
+        { text = "My armour keeps me alive. I'll keep it.", next = "BACK", reply = "Aye, an' that's reason enough tae keep it. Come by when the rust starts, an' it will.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -948,8 +948,8 @@ P:NPC {
         { id = "el2_default", text = "Aye, it is, and I keep my forge small and my coal dry. But a people that won't learn steel will lose to a people that will, and the orcs in Ashenvale have no such worries." },
       },
       choices = {
-        { text = "The forest has to come first.", next = "BACK", reply = "Aye, it does, and I'd never argue it. But it can't come first forever.", fx = { align = { order = -1 } } },
-        { text = "They'll need forges to win this war.", next = "BACK", reply = "They will, and I'm here when they do. Steel wins wars.", fx = { align = { order = 1 }, affinity = 1, learn = { "warsong" } } },
+        { text = "The forest has to come first.", next = "BACK", reply = "Aye, it does, and I'd never argue it in their hearing. But the orcs in Ashenvale aren't waitin' on the forest.", fx = { align = { order = -1 } } },
+        { text = "They'll need forges to win this war.", next = "BACK", reply = "They will, and I'll be here when they do, with the coal already burnin'.", fx = { align = { order = 1 }, affinity = 1, learn = { "warsong" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

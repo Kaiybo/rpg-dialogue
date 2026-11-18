@@ -132,7 +132,7 @@ P:NPC {
     { id = "n_undead", cat = "undead", when = { race = "Scourge" },
       text = "Forsaken. I've killed a great many of your shape in Lordaeron, and I've not yet decided whether you're different. Keep your hands where I can see them." },
     { id = "n_smith", cat = "smith", when = { profession = "Blacksmithing" },
-      text = "A smith. Good. Then you know a sword when you see one, which puts you ahead of most of this town." },
+      text = "A smith? Good, then you know a sword when you see one, which puts you ahead of most of this town." },
   },
 
   start = "hello",
@@ -148,7 +148,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Make it quick." },
-        { id = "h_again2", text = "Still here. Ask, then." },
+        { id = "h_again2", text = "Still here? Ask, then." },
       },
       choices = {
         { text = "Why do they call you Scourgebane?", next = "name" },
@@ -201,7 +201,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Swords. The Scourge. Little else worth knowing." } },
+    knows = { { id = "tp_knows", text = "Swords and the Scourge. There's little else worth knowing." } },
     scholomance = { { id = "tp_scholo", text = "A nest of necromancers. Burn it." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't care." } },
   },

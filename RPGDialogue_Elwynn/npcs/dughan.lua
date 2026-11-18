@@ -403,7 +403,7 @@ P:NPC {
       choices = {
         { text = "Do you think King Varian's coming back, Marshal?", next = "op_varian" },
         { text = "That sounds like a complaint, Marshal.", next = "army_politics" },
-        { text = "Then I'll walk through it more often.", next = "BACK", reply = "Good, and I'll be glad of it. The door's always open.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Then I'll walk through it more often.", next = "BACK", reply = "Good. Take a number like everyone else, and I'll see you're near the front of the line.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "The nobles' wars aren't my concern, Marshal.", next = "BACK", reply = "Nor mine, friend, but Goldshire is, and I'd thank you to remember that. Off you go.", fx = { align = { order = -1 } } },
       },
     },

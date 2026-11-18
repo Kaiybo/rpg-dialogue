@@ -144,7 +144,7 @@ P:NPC {
         { id = "ce_default", text = "Ha! Maybe he did. The point is ye respect a beast that can kill ye, an' ye take only what ye need from it, or the loch runs empty an' we're all out o' work." },
       },
       choices = {
-        { text = "Take what you need and leave the rest. Agreed.", next = "BACK", reply = "Agreed, an' ye'd be welcome in this lodge any day for sayin' it. The loch feeds them who respect it.", fx = { align = { order = 1 } } },
+        { text = "Take what you need and leave the rest. Agreed.", next = "BACK", reply = "Agreed, an' ye'd be welcome in this lodge any day for sayin' it. The last fellow who took more than he needed came back tae find his boat full o' loch water.", fx = { align = { order = 1 } } },
         { text = "Hunt what you like. The loch will always fill.", next = "BACK", reply = "Will it? Tell that tae the old hunters who emptied the north valleys. Hunt like that in my lodge an' ye'll no' be welcome back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -198,7 +198,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll earn it the honest way.", next = "BACK", reply = "Good, that's the only way that counts. Bring it back clean, an' ye'll have a seat by my fire.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll earn it however gets the beast down.", next = "BACK", reply = "However gets it down, aye, but bring it clean. A hunter who makes a mess o' a kill isnae welcome here.", fx = { align = { honor = -1 } } },
+        { text = "I'll earn it however gets the beast down.", next = "BACK", reply = "However gets it down, aye, but bring it clean. I'll no' hang a ragged hide on my wall, an' I'll no' pay for one either.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -249,7 +249,7 @@ P:NPC {
       lines = { { id = "ds_default", text = "My farmers want to keep swinging till the thief stops moving, so I teach them to stop when he's down and tie him up. Gryan wants prisoners, because prisoners talk." } },
       choices = {
         { text = "And when you catch one who was a farmer's son?", next = "op_prisoners" },
-        { text = "Mercy and sense, both.", next = "BACK", reply = "Both, and Gryan will be glad of every prisoner. Talk to my farmers about it, they'll listen to you more than me.", fx = { affinity = 1, align = { light = 1, order = 1 } } },
+        { text = "Mercy and sense, Captain. Take them alive.", next = "BACK", reply = "Both, and Gryan will be glad of every prisoner. Talk to my farmers about it, they'll listen to you more than me.", fx = { affinity = 1, align = { light = 1, order = 1 } } },
         { text = "Dead thieves don't come back.", next = "BACK", reply = "No, and neither do the answers they might have given. Gryan needs them talking, and dead men talk to nobody.", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },

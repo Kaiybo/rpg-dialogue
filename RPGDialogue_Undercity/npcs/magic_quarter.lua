@@ -172,7 +172,7 @@ P:NPC {
         { id = "h_notlock", when = { ["not"] = { class = "WARLOCK" } }, text = "You're no warlock, so I've nothing to teach you, but I'll answer a civil question. Nobody else in this quarter asks me any." },
       },
       again = {
-        { id = "h_again", text = "Another question? Good. Questions are cheaper than mistakes." },
+        { id = "h_again", text = "Another question? Good, because questions are cheaper than mistakes." },
         { id = "h_again2", text = "Go on, I'm still here. I'm always still here." },
       },
       choices = {
@@ -328,7 +328,7 @@ P:NPC {
       lines = { { id = "ns_default", text = "Buried, with the bread and the wife and the little shop by the gate. Overseer Bauhaus has it in his census, I expect, and he's welcome to keep it there." } },
       choices = {
         { text = "The man you were deserves remembering.", next = "BACK", reply = "Remembering is for Bauhaus and his census. I'll leave that man in his grave with the bread.", fx = { align = { light = 1 } } },
-        { text = "Good. A new name for a new life.", next = "BACK", reply = "A new life, yes, and a new trade, and I'm rather better at this one. Shall we begin?", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Good. A new name suits a new life.", next = "BACK", reply = "A new life, yes, and a new trade, and I'm rather better at this one. Shall we begin?", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -389,7 +389,7 @@ P:NPC {
       lines = { { id = "li_default", text = "Every beat of it, living one, as plainly as you'd hear a drum through a wall. They don't hunger for it the way the Scourge would, but they listen to it the way a cat listens to a mouse behind the plaster." } },
       choices = {
         { text = "Then I'll keep my visits short.", next = "BACK", fx = { trait = { cautious = 1 } } },
-        { text = "Let them listen. I'm not afraid.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Let them listen, then. I'm not afraid of them.", next = "BACK", fx = { trait = { brave = 1 } } },
       },
     },
   },
@@ -485,7 +485,7 @@ P:NPC {
         { id = "sc_mage", when = { class = "MAGE", race = "Scourge" }, text = "Frost, and you'll come to it too, because cold hands don't feel the bite and our patience is longer than any living mage's. Fire is for the young, and we were all young once, briefly." },
       },
       choices = {
-        { text = "And arcane? That's Dalaran's art.", next = "schools_arcane" },
+        { text = "And the arcane? That's Dalaran's art, surely.", next = "schools_arcane" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -648,7 +648,7 @@ P:NPC {
     offhand = {
       lines = { { id = "oh_default", text = "Keep your off hand still and let it guide, not push, as if you're pointing at something across a room. The scorch marks come from wanting the fire too much, and the fire always knows when it's wanted." } },
       choices = {
-        { text = "Thank you, Pierce. That helps.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Thank you, Pierce, that helps a great deal.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -738,7 +738,7 @@ P:NPC {
     dust = {
       lines = { { id = "du_default", text = "Dust is no more just dust than wine is just grapes. Strange dust from a farmhand's boots is thin and sour, but strange dust from a good soldier's blade has body to it, and a little warmth on the finish, and I can tell the two apart blindfolded." } },
       choices = {
-        { text = "Blindfolded? How?", next = "dust_how" },
+        { text = "Blindfolded? How is that even possible?", next = "dust_how" },
         { text = "Something else.", next = "BACK" },
       },
     },

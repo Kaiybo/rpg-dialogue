@@ -368,7 +368,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "More than the Sepulcher likes to count. The worgen take the ones who stray south, the gnolls take the careless ones in the Dead Fields, and the bogs take whoever's left. If you're the praying kind, pray for the ones who set out tomorrow, because the ones who set out last week are past it." } },
       choices = {
-        { text = "Then I'll pray for tomorrow's travellers, and walk with some.", next = "BACK", reply = "Good. They'll be glad of the company, and so will I, knowing they've got some.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll pray for tomorrow's travellers, and walk with some.", next = "BACK", reply = "Good. They'll be glad of the company, and I'll stop counting heads every morning.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fools who wander off the road deserve the bogs.", next = "BACK", reply = "Maybe they do, but they're still my customers, and I'd rather they kept walking, living or not.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -453,7 +453,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "They could try, and I'd charge you the same either way. The Sepulcher's water comes from a well the dead have used for a year, and I've had no complaints, though most of my customers can't taste anything." } },
       choices = {
-        { text = "I'll clean it for nothing. The living need it too.", next = "BACK", reply = "Kind of you, and the living will drink it gladly. I'll still charge them, mind.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll clean it for nothing. The living need it too.", next = "BACK", reply = "Kind of you, and the living will drink it gladly. I'll still charge them, of course; a merchant has to eat, or at least pretend to.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then the living can fetch their own water.", next = "BACK", reply = "They'd have to walk a long way for it. I'll keep selling it to them, clean or not.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

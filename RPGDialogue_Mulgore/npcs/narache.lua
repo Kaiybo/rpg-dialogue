@@ -81,7 +81,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "She would have been curious, and not afraid. She taught that every creature walks the path the Earth Mother gave it, even those whose path was broken. Yours was broken by death, and still you walk it, straighter than some of the living." } },
       choices = {
-        { text = "Then I'll walk it straight, Chief.", next = "BACK", reply = "Then my mother would have been glad to meet you. Walk it straight, and Narache will know you for a friend.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll walk it straight, Chief, for her sake.", next = "BACK", reply = "Then my mother would have been glad to meet you. Walk it straight, and Narache will know you for a friend.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "My path is my own, Chief, not the Earth Mother's.", next = "BACK", reply = "Perhaps it is, and I will not argue with the dead about their roads. Still, she gave every road its grass, even the ones that wander far from her.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -113,7 +113,7 @@ P:NPC {
       },
       choices = {
         { text = "The old ways first. I understand, Chief.", next = "BACK", reply = "Thank you, for that is all I ask. When they're grown, they may learn whatever they like, but they start with the earth beneath them.", fx = { align = { order = 1 } } },
-        { text = "Your young would be safer if they learned new ways.", next = "BACK", reply = "Maybe they would, and maybe they'll learn them in time. But a calf learns to walk before it learns to run, and Narache is where they learn to walk.", fx = { align = { order = -1 } } },
+        { text = "Your young would be safer if they learned new ways.", next = "BACK", reply = "Maybe they would, and maybe they'll learn them in time. But Narache is where they find their feet, and I want their feet to know the grass before anything else.", fx = { align = { order = -1 } } },
         { text = "Will you tell me about the Greatmother?", next = "greatmother" },
       },
     },
@@ -123,8 +123,8 @@ P:NPC {
         { id = "xwarlock_default", text = "I'll trust what you do, not what you carry, because my mother taught me that much before the Bristleback took her. The orcs say their warlocks once nearly destroyed them, so serve the Horde and I'll remember it, and if you serve something else, I'll remember that too." },
       },
       choices = {
-        { text = "I serve the Horde, Chief, and I'll show it.", next = "BACK", reply = "Then show it, and I'll be the first to say so at the fire. Deeds are what the dead remember, and the living too.", fx = { align = { order = 1 } } },
-        { text = "I serve my own path. Judge me by my deeds.", next = "BACK", reply = "That is what I said, and I meant it. Walk carefully, though, because a path of your own is a lonely one out here.", fx = { align = { order = -1 } } },
+        { text = "I serve the Horde, Chief, and I'll show it.", next = "BACK", reply = "Then show it, and I'll be the first to say so at the fire. The Bristleback camps to the south are a fair place to begin.", fx = { align = { order = 1 } } },
+        { text = "I serve my own path. Judge me by my deeds.", next = "BACK", reply = "Then that is how I will judge you, and the camp will too. Walk carefully, though, because a path of your own is a lonely one out here.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

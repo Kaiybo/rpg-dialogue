@@ -213,7 +213,7 @@ P:NPC {
       lines = { { id = "xd_default", text = "They did, in the war when the orcs first came to Kalimdor, and the forest still remembers where he fell. Some in the Circle say he'll return in time, as the Wild Gods do, and some say the orcs must pay for him first. What does your heart tell you, druid?" } },
       choices = {
         { text = "The forest heals. Vengeance won't bring the Lord of the Grove back.", next = "BACK", reply = "Your heart speaks with the Circle's patience, druid, and I envy you it. The forest does heal, given long enough, though I hope I live to see where Cenarius fell grow green again.", fx = { opinion = { warsong = "forgive" }, align = { light = 1 } } },
-        { text = "Blood was spilled first. The Warsong must answer for it.", next = "BACK", reply = "Then you speak for many of my sisters, druid, and the Warsong would be wise to fear it. The forest remembers its debts, and so do the Sentinels.", fx = { opinion = { warsong = "hate" }, align = { light = -1 } } },
+        { text = "Blood was spilled first. The Warsong must answer for it.", next = "BACK", reply = "Then you speak for many of my sisters, druid, and the Warsong would be wise to fear it. We have long memories at Silverwing Hold, and longer bows.", fx = { opinion = { warsong = "hate" }, align = { light = -1 } } },
         { text = "I don't know yet. I need time with the trees.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -423,7 +423,7 @@ P:NPC {
       lines = { { id = "fr_default", text = "Legs, guts and friends who'll die for you on the way home. I've seen runners leave a wounded friend in the tunnel to get the banner back, and I've seen others turn around for them, and I still can't say which one Hellscream would have honored." } },
       choices = {
         { text = "You never leave a comrade. The banner can wait.", next = "BACK", reply = "Then you have Grom's heart, I think, because he did not leave his people behind, even at the very end, and I would run beside you anywhere.", fx = { align = { honor = 1 } } },
-        { text = "The banner wins the fight. The runner keeps running.", next = "BACK", reply = "Many would agree, and the gulch has been won that way before, but do not be surprised if the grunt you left in the tunnel never runs beside you again.", fx = { align = { honor = -1 } } },
+        { text = "The banner wins the fight, so the runner keeps running.", next = "BACK", reply = "Many would agree, and the gulch has been won that way before, but do not be surprised if the grunt you left in the tunnel never runs beside you again.", fx = { align = { honor = -1 } } },
         { text = "I'd like to try carrying it myself.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },

@@ -193,7 +193,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we watch the beasts and prepare. Panic helps nobody.", next = "BACK", reply = "Prepare, then, and watch, but do not tell me panic helps nobody, because the beasts have already panicked, and they are wiser than us.", fx = { align = { order = 1 } } },
-        { text = "If the beasts flee, I'll go with them.", next = "BACK", reply = "Then go with them, and I will not blame you, because they know what the rest of us refuse to see.", fx = { align = { order = -1 } } },
+        { text = "If the beasts flee, I'll go with them.", next = "BACK", reply = "Then go with them, and I will not blame you. The scorpids left the north dunes a week before the last swarm, and nobody listened to them either.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -220,7 +220,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "The end comes on its own, from beneath the sand, but those who bargain with darkness will meet it sooner and with less surprise. Repent, warlock, while there is still time to choose a better master." } },
       choices = {
         { text = "I'll consider your warning.", next = "BACK", reply = "Consider it quickly, then, because the sand moves faster than any warlock's thoughts, and it will not wait for you.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'll choose my own master, preacher.", next = "BACK", reply = "You will choose, and it will choose you back, and I pray your master is kinder than the one waiting beneath us.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll choose my own master, preacher.", next = "BACK", reply = "You will choose, and it will choose you back, and I pray your master is kinder than the one sleeping under these dunes.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Sure, sure.", next = "BACK" },
       },
     },
@@ -228,7 +228,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "An army older than the kaldorei, waiting for the walls to fall. The Circle builds forts and the dwarves dig, but none of them listen, and when the end comes they will wish they had." } },
       choices = {
-        { text = "Maybe you're right. We should prepare.", next = "BACK", reply = "Then help me tell the others, because one voice in the desert is only a voice, but two might be a warning.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe you're right. We should prepare.", next = "BACK", reply = "Then help me tell the others. They laugh at one madman on a crate, but they might listen to two.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "You're a madman, nothing more.", next = "BACK", reply = "They all say that, and they will all say it until the ground opens, and then they will say nothing at all.", fx = { align = { order = -1 } } },
         { text = "Interesting theory.", next = "BACK" },
       },
@@ -355,7 +355,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll scout and report as ordered. That's how wars are won.", next = "BACK", reply = "That's the kind of hunter I need, and I'll give you every scrap of credit when your numbers win us a fight.", fx = { align = { order = 1 } } },
-        { text = "I'll strike when I see the chance, orders or not.", next = "BACK", reply = "Then you'll come back with nothing but scars, like the rest of the fools, and I'll have one less scout to count on.", fx = { align = { order = -1 } } },
+        { text = "I'll strike when I see the chance, orders or not.", next = "BACK", reply = "Then you'll come back with nothing but scars, like the last two fools I sent out, and I'll have one less scout to count on.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -465,7 +465,7 @@ P:NPC {
     },
     s_1 = {
       lines = { { id = "s_1_l", text = "Some of my warriors say we should never fight beside humans. I say the swarm doesn't care what side you're on." } },
-      choices = { { text = "Victory first, grudges later.", next = "BACK", reply = "That's how a warrior thinks, and the grudges will keep, because we orcs never let a good grudge go to waste.", fx = { affinity = 1, align = { honor = 1 } } }, { text = "The Horde fights alone. Always.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Victory first, grudges later.", next = "BACK", reply = "That's how a warrior thinks, and the grudges will keep. No orc ever let a good grudge go to waste.", fx = { affinity = 1, align = { honor = 1 } } }, { text = "The Horde fights alone. Always.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {

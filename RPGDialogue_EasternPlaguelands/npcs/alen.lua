@@ -47,7 +47,7 @@ P:NPC {
           text = "A paladin, eh? Ashbringer this, Ashbringer that, all you lot ever talk about. Never heard of it, myself, and stop asking." },
       },
       again = {
-        { id = "h_again", text = "What else? The pit isn't going to fill itself, well, actually it is." },
+        { id = "h_again", text = "What else? The pit isn't going to fill itself. Well, actually, out here it does, which is the whole trouble." },
         { id = "h_again2", text = "Go on, then. I've got a minute before the next cart comes." },
       },
       choices = {
@@ -80,7 +80,7 @@ P:NPC {
       lines = { { id = "pc_default", text = "Don't spread that around, it'll ruin my reputation. Somebody's got to toss them in, and it ought to be someone who minds." } },
       choices = {
         { text = "Then the dead are in good hands. Thank you.", next = "BACK", reply = "Shh, I said not to spread it. But thank you, all the same.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "They're just bodies, Alen. Stop thinking about it.", next = "BACK", reply = "I try, believe me, and it never works. Somebody has to mind, and I drew the short straw.", fx = { align = { light = -1 } } },
+        { text = "They're just bodies, Alen. Stop thinking about it.", next = "BACK", reply = "I try, believe me, and it never works. I keep a list of the ones I recognise, and it's getting long.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,7 +135,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Never you mind what I was. Now I'm the fellow with the shovel, and that's enough of a story for anybody." } },
     advice = { { id = "tp_ad", text = "Don't stand downwind of the pit, and don't ask for a raise. Trust me on both." } },
-    argent_dawn = { { id = "tp_argent", text = "Good folk, mostly. Terrible pay." } },
+    argent_dawn = { { id = "tp_argent", text = "Good folk, mostly. Terrible pay, though, and the dead don't tip." } },
     scourge = { { id = "tp_scourge", text = "The Scourge sends me more work than any honest man could keep up with, and the Dawn pays me the same whether I toss in ten or a hundred. I don't complain, except to anyone who'll listen." } },
     stratholme = { { id = "tp_stratholme", text = "There are souls still wandering Stratholme that never got a proper burial, and it keeps me up some nights. Somebody ought to see to them, and it won't be me, because I'm not that brave." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "That's his necropolis up in the sky to the east, and I've learned not to look at it too long. It gives me a crick in the neck and a chill in the heart." } },

@@ -46,7 +46,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "In the old war, when the orcs brought their warlocks over the Black Morass and burned the kingdom. I don't hold the trade against a human who learned it after, but I'll ask you to remember that the last ones to use it came here to kill us." } },
       choices = {
         { text = "I'll remember it, Marshal, and use it against our enemies.", next = "BACK", reply = "Good, that's what I'd hoped you'd say. Turn it on the orcs if they ever come back.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Power isn't to blame for who used it.", next = "BACK", reply = "Maybe not, but it's still dangerous in a careless hand. Be careful with yours.", fx = { align = { honor = -1 } } },
+        { text = "Power isn't to blame for who used it.", next = "BACK", reply = "Maybe not, but I watched what it did in careless hands the year Goldshire burned, so be careful with yours.", fx = { align = { honor = -1 } } },
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
@@ -63,7 +63,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Showing up, mostly, every watch and every bad night, without being asked twice. The ones who wanted glory didn't last, and the ones who wanted their mates to come home lasted forever, near enough." } },
       choices = {
-        { text = "I'll fight for the ones beside me, not for glory.", next = "BACK", reply = "That's the right reason, and you'll last longer for it. I'm proud to hear it.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight for the ones beside me, not for glory.", next = "BACK", reply = "That's the right reason, and you'll last longer for it. I had a sergeant who said the same, and he outlived three captains.", fx = { align = { honor = 1 } } },
         { text = "Glory's what a soldier's remembered for, Marshal.", next = "BACK", reply = "Remembered by whom, though? The ones who came home remember the men who stood beside them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

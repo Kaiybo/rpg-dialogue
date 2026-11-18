@@ -22,7 +22,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A frostsaber accepts no one easily, and I judge riders by years of work. If the spirits of the snow favour you, that is a start, but only a start." } },
       choices = {
-        { text = "I'll earn it with years of work, then.", next = "BACK", reply = "Then come back each season, and the sabers will learn your scent long before they learn your name. That is how every rider here began.", fx = { align = { order = 1 } } },
+        { text = "I'll earn it with years of work, then.", next = "BACK", reply = "Then come back each season, and the sabers will learn your scent long before they learn your name. When I first came up the rock, they ignored me for ten winters.", fx = { align = { order = 1 } } },
         { text = "The spirits' favour should count for more than years.", next = "BACK", reply = "The spirits may favour you, shaman, but the sabers keep their own counsel. They have never once asked my opinion of who deserves them, nor anyone else's.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -41,7 +41,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "The same way anyone does: by staying through the hard seasons and helping when the Winterfall raid the pens. The sabers don't care what you pray to, only whether you came back after the first winter, and very few do." } },
       choices = {
         { text = "I'll stay the seasons. Patient work is worth doing.", next = "BACK", reply = "Then you'll be welcome here, and the sabers will know your step before the snow melts. Ishnu-alah, friend.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I've no time for seasons. Give me the hard tasks now.", next = "BACK", reply = "The hard tasks come with the seasons, not before them. A saber that is rushed is a saber that bolts.", fx = { align = { order = -1 } } },
+        { text = "I've no time for seasons. Give me the hard tasks now.", next = "BACK", reply = "The hard tasks come with the seasons, not before them. Rush a saber, and you will spend your evenings chasing it across the snowfields.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -49,8 +49,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A warrior who earns one could, though the saber decides how much it carries and how far it will charge. They are not warhorses, and a rider who drives a frostsaber into a fight it doesn't want will be thrown into the snow." } },
       choices = {
-        { text = "Then I'll earn the saber's trust before I ask it to fight.", next = "BACK", reply = "That is the right order of things, and the sabers will sense it. Trust first, then the charge, and never the other way.", fx = { align = { order = 1 } } },
-        { text = "A mount is a mount. It'll charge when I tell it to.", next = "BACK", reply = "Then you'll find yourself thrown into a snowbank with the Winterfall laughing at you. A frostsaber is not a mount, warrior; it is a partner.", fx = { align = { order = -1 } } },
+        { text = "Then I'll earn the saber's trust before I ask it to fight.", next = "BACK", reply = "That is the right order of things, and the sabers will sense it. Sit with them first, and the charge will come when they are ready.", fx = { align = { order = 1 } } },
+        { text = "A mount is a mount. It'll charge when I tell it to.", next = "BACK", reply = "Then you'll find yourself thrown into a snowbank with the Winterfall laughing at you. A frostsaber is not a mount, warrior; it is a partner, and it chooses you back.", fx = { align = { order = -1 } } },
         { text = "Something else, Rivern.", next = "BACK" },
       },
     },
@@ -62,14 +62,14 @@ P:NPC {
       },
       choices = {
         { text = "A good beast obeys. I train mine as carefully as you train yours.", next = "BACK", reply = "Careful training is a kind of respect, and I won't fault it. But a frostsaber will test that obedience the first day you bring it near.", fx = { align = { order = 1 } } },
-        { text = "My beast follows me by choice. I've never trained it to obey.", next = "BACK", reply = "Then your beast and our sabers may understand each other, in time. Choice is the only bond a frostsaber honours.", fx = { align = { order = -1 } } },
+        { text = "My beast follows me by choice. I've never trained it to obey.", next = "BACK", reply = "Then your beast and our sabers may understand each other, in time. Bring it to the rock one evening and let them look at each other.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "We don't keep them, druid, we earn them, and the bond goes both ways or not at all. The Winterfall would kill them for their pelts, so I'd rather they stand beside us than lie in a furbolg's hut." } },
       choices = {
-        { text = "Then the bond is honest. Keep earning it.", next = "BACK", reply = "I will, and so will the sabers, for as long as there are trainers on Frostsaber Rock. Elune keep the bond honest.", fx = { align = { order = 1 } } },
+        { text = "Then the bond is honest. Keep earning it.", next = "BACK", reply = "I will, and so will the sabers, for as long as there are trainers on Frostsaber Rock.", fx = { align = { order = 1 } } },
         { text = "A saber should run free in the snow.", next = "BACK", reply = "Many do, druid, and the Winterfall hunt those ones for their pelts. I'd rather keep a few close and safe than lose them all to freedom.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -78,7 +78,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "They do already, and better than any rogue I have known, since they have lived by stealth in these mountains since before the Sundering. A rider earns their trust over seasons, though, not by slinking about the pens, so walk openly if you want them to know you." } },
       choices = {
-        { text = "I'll walk openly, then. Trust should be earned.", next = "BACK", reply = "Then you've understood the first lesson already, and the sabers will notice. They respect what does not hide from them.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll walk openly, then. Trust should be earned.", next = "BACK", reply = "Then you've understood the first lesson already, and the sabers will notice. Stand where they can see you, and let them come to you.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Stealth suits me better than patience.", next = "BACK", reply = "Then you'll find the sabers watching you from the snow long before you see them. They've been better at it than you for ten thousand years.", fx = { align = { honor = -1 } } },
         { text = "I'll keep my distance from the pens.", next = "BACK" },
       },
@@ -87,7 +87,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "They were here before the Highborne, and they remember the Sundering in the way beasts remember things, as a fear without a name. The Kaldorei put aside the arcane after that, and I prefer to honour the cats by doing the same around them." } },
       choices = {
-        { text = "Then I'll honour their wishes too.", next = "BACK", reply = "Then you'll find the sabers calmer than you expected. They know who honours the old fears.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll honour their wishes too.", next = "BACK", reply = "Then you'll find the sabers calmer than you expected. Speak low near the den, and never reach for the cubs.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fear won't stop me using my gift.", next = "BACK", reply = "Then keep your gift far from the dens, mage, or the mothers will teach you what fear means. The Sundering taught us all something.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "I'll keep my spells away.", next = "BACK" },
       },
@@ -97,7 +97,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Patience, seasons of it, culling the Winterfall and the Frostmaul giants and hunting meat for the cubs until the sabers know your scent. Some riders tire of it and leave, and I let them go, because a saber that is rushed will throw you into the first snowdrift it finds." } },
       choices = {
         { text = "Earned slowly is earned well. I'll do the work.", next = "BACK", reply = "Then you'll earn more than a saber, and I'll be glad to call you rider. Patience is the first gift Elune gave us.", fx = { align = { honor = 1 } } },
-        { text = "There must be a quicker way to win a saber over.", next = "BACK", reply = "There is not, and those who look for one leave without a saber. The rock has seen a hundred shortcuts, and none of them led anywhere.", fx = { align = { honor = -1 } } },
+        { text = "There must be a quicker way to win a saber over.", next = "BACK", reply = "There is not, and those who look for one leave without a saber. I have had mages try charms and hunters try meat, and the sabers walked away from both.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -156,8 +156,8 @@ P:NPC {
         { id = "sabers2_default", text = "It is meant to be, because a saber that is earned is a saber that's honoured. Some think the trainers are too proud and ought to share with every Sentinel, and some think we give them away too easily as it is." },
       },
       choices = {
-        { text = "You're right to be strict. Earned is honoured.", next = "BACK", reply = "Thank you, and I'll carry that to the other trainers, who doubt themselves more than they say. A gift given to everyone is honoured by no one.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Every Sentinel deserves a good mount, earned or not.", next = "BACK", reply = "Every Sentinel deserves a fine mount, I'll grant you, and the sabers grant nothing. If the trainers gave them away, they would stop being ours to give.", fx = { align = { order = -1 }, trait = { generous = 1 } } },
+        { text = "You're right to be strict. Earned is honoured.", next = "BACK", reply = "Thank you, and I'll carry that to the other trainers, who doubt themselves more than they say. If we gave a saber to every Sentinel who asked, Frostsaber Rock would be empty in a year.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Every Sentinel deserves a good mount, earned or not.", next = "BACK", reply = "Every Sentinel deserves a fine mount, I'll grant you, but the sabers grant nothing. They choose their riders, and no order from Darnassus will change their minds.", fx = { align = { order = -1 }, trait = { generous = 1 } } },
       },
     },
     winterfall = {
@@ -225,7 +225,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Something that does not belong in the snow, sweet and rotten at once, like the ground in Felwood. Salfa does not know magic well, but he knows that the Winterfall were never cruel until somebody began bringing them barrels, and those barrels came from the south." } },
       choices = {
-        { text = "I'll trace those barrels back to whoever sent them.", next = "BACK", reply = "Good, and Salfa will be grateful, and the elders will hear of it. Find the hand that pours the barrel.", fx = { align = { order = 1 } } },
+        { text = "I'll trace those barrels back to whoever sent them.", next = "BACK", reply = "Salfa will be grateful, and the elders will hear of it. Find the hand that pours the barrel, and Salfa will be in your debt.", fx = { align = { order = 1 } } },
         { text = "Whoever sent them, the Winterfall chose to drink.", next = "BACK", reply = "They drank, yes, but they did not know what they drank. Salfa would not blame a cub for eating bad berries.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -234,7 +234,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Salfa would have you remember they were our kin, before the firewater. The Timbermaw cannot save all of them, and some must fall so the rest do not tear the valley apart, but Salfa asks that you strike them as you would a sick friend, and not as you would an enemy." } },
       choices = {
-        { text = "I'll fight them with sorrow, not hatred. You have my word.", next = "BACK", reply = "Salfa thanks you, and Salfa will tell the elders what you said. Sorrow is the right thing to carry into a Winterfall camp.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll fight them with sorrow, not hatred. You have my word.", next = "BACK", reply = "Salfa thanks you, and Salfa will tell the elders what you said. They will not believe an outsider said it, so Salfa will say it twice.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A maddened furbolg is a threat. I'll treat it as one.", next = "BACK", reply = "It is a threat, Salfa knows, and Salfa does not ask you to let it hurt you. Only remember, when it falls, that it was someone's brother.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -255,7 +255,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "To Winterfall Village in the east, and always back to wherever the firewater is kept. Your {pet} smells the tunnels behind Salfa and is not afraid, which is good, because many beasts will not come near the Timbermaw's door." },
       },
       choices = {
-        { text = "The Winterfall were your kin. I'll hunt them only as needed.", next = "BACK", reply = "Salfa is grateful, and the spirits are too, Salfa thinks. Only as needed is the right measure for kin.", fx = { align = { light = 1 } } },
+        { text = "The Winterfall were your kin. I'll hunt them only as needed.", next = "BACK", reply = "Salfa is grateful, and the spirits are too, Salfa thinks. Some of those in the camps once sat by Salfa's fire.", fx = { align = { light = 1 } } },
         { text = "Mad beasts get put down. I'll hunt every one I find.", next = "BACK", reply = "Salfa understands, and Salfa cannot stop you, but Salfa will grieve each one you bring down. Some of them were Salfa's friends.", fx = { align = { light = -1 } } },
         { text = "Something else, Salfa.", next = "BACK" },
       },
@@ -272,8 +272,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Something poisons them, the way the Deadwood were poisoned in Felwood, and Salfa does not know if it is the firewater or something worse. If you are a friend of the Timbermaw, prove it on the Winterfall, and Salfa will judge you by your deeds and not by your stink." } },
       choices = {
-        { text = "Judge me by my deeds. I'll prove myself.", next = "BACK", reply = "Salfa will watch, and Salfa will remember what you do. The Timbermaw judge slowly, but fairly.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I don't need furbolg approval.", next = "BACK", reply = "Then Salfa will not give it, and the tunnels will stay closed to you. The Timbermaw do not beg for friends.", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Judge me by my deeds. I'll prove myself.", next = "BACK", reply = "Salfa will watch, and Salfa will remember what you do. The elders are slow to trust, but they do not forget a friend.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need furbolg approval.", next = "BACK", reply = "Then Salfa will not give it, and the tunnels will stay closed to you. You can walk around the mountains instead, which takes a long time.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'll think about it.", next = "BACK" },
       },
     },
@@ -281,8 +281,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The Winterfall hide their totems deep in their camps, and a quiet walker might reach them before the shamans raise the alarm. Do this, and Salfa will tell the elders you are a friend, but steal from the Timbermaw, and every furbolg on this mountain will know your face." } },
       choices = {
-        { text = "I'll help the Timbermaw and keep faith with them.", next = "BACK", reply = "Good, and Salfa will tell the elders your name before the moon turns. Keeping faith is the Timbermaw way.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll help if there's something in it for me.", next = "BACK", reply = "Salfa hears you, and the elders will remember that you asked. A friend who must be paid is only half a friend.", fx = { align = { honor = -1 } } },
+        { text = "I'll help the Timbermaw and keep faith with them.", next = "BACK", reply = "Good, and Salfa will tell the elders your name before the moon turns. They will want to see your face themselves, so come back to the tunnels.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll help if there's something in it for me.", next = "BACK", reply = "Salfa hears you, and the elders will remember that you asked. Salfa thought you would be different.", fx = { align = { honor = -1 } } },
         { text = "I'll keep that in mind.", next = "BACK" },
       },
     },
@@ -290,7 +290,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Firewater, and whatever poison is brewed into it, and the Winterfall drink it gladly because it makes them strong. Salfa remembers when they sang at the springs in the thaw, and now they only howl, and Salfa does not know which hurts more to hear." } },
       choices = {
-        { text = "Then pray they remember the songs. I'll pray with you.", next = "BACK", reply = "Salfa would like that, very much, and Salfa will sing them softly so they might hear. Perhaps the spirits will carry the song.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then pray they remember the songs. I'll pray with you.", next = "BACK", reply = "Salfa would like that, very much, and Salfa will sing them softly so they might hear. Grandmother taught Salfa the old songs, and some of the mad ones knew them too.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Memories won't stop claws. The mad ones must be put down.", next = "BACK", reply = "They must, Salfa knows, but Salfa will remember the songs anyway. Someone has to, when the claws are done.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -300,7 +300,7 @@ P:NPC {
       lines = { { id = "xhcast_default", text = "Salfa's people need the Winterfall stopped before their madness reaches the tunnels, and they need outsiders who keep their word. A priest who heals Timbermaw and Horde alike would be remembered by the elders, but one who breaks faith would be remembered longer." } },
       choices = {
         { text = "I keep my word. The elders can count on that.", next = "BACK", reply = "Then the elders will count on it, and Salfa will tell them. Your word is a good gift to bring to Timbermaw Hold.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll keep my word while it suits me, Salfa.", next = "BACK", reply = "Salfa hears the honesty in that, at least, and will tell the elders the same. A word kept only while it suits is not a word the Timbermaw trust.", fx = { align = { order = -1 } } },
+        { text = "I'll keep my word while it suits me, Salfa.", next = "BACK", reply = "Salfa hears the honesty in that, at least, and will tell the elders the same. They will not like it, but they will know where you stand.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -363,7 +363,7 @@ P:NPC {
         { id = "winterfall2_default", text = "Find where the brew comes from and break it, and kill the shamans who pour it. Some Timbermaw want to save the young ones who have not drunk deeply yet, and some say the whole tribe is lost." },
       },
       choices = {
-        { text = "Save the young ones. They had no choice.", next = "BACK", reply = "Salfa thinks so too, and the young ones will thank you when they wake. Bring them home, and Salfa will look after them.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Save the young ones. They had no choice.", next = "BACK", reply = "Salfa thinks so too, and the young ones will thank you when they wake. Bring them to the tunnel mouth, and Salfa will look after them.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Lost is lost. Don't risk more lives on them.", next = "BACK", reply = "Salfa understands, and some elders say the same. But Salfa will still try, when no one is looking.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
       },
     },
@@ -423,7 +423,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I think so, though the furbolgs' sickness has made them harder to hear. Walk with me to the altars, and if you hear the earth stir, tell me before the ice does." } },
       choices = {
-        { text = "I'll guard the altars with you, Ranshalla.", next = "BACK", reply = "Thank you, and Elune be with us both on the road. Two pairs of ears are better than one when the ice is listening.", fx = { align = { honor = 1 } } },
+        { text = "I'll guard the altars with you, Ranshalla.", next = "BACK", reply = "Thank you, and Elune be with us both on the road. The ice up here has ears, and I would rather have yours listening too.", fx = { align = { honor = 1 } } },
         { text = "Elune's altars are your concern, not mine.", next = "BACK", reply = "I understand, and I won't press you. But if you hear the earth stir anyway, I hope you'll tell someone.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -498,7 +498,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Because the altars of Elune were dark too long, and someone must relight them, and I am the one standing here. I'd rather go with a friend who watches the trees, but I'll go alone if I must, and I think you know that." } },
       choices = {
         { text = "I'll watch your back. You shouldn't go alone.", next = "BACK", reply = "Oh, thank you, I hoped you would say that! Watch the trees, and I'll watch the altars, and Elune will watch us both.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Your courage will get you killed.", next = "BACK", reply = "It might, and I know it, but I'd rather die lighting a torch than live in the dark. Elune asks courage of her priestesses, not caution.", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Your courage will get you killed.", next = "BACK", reply = "It might, and I know it, but I'd rather die lighting a torch than live in the dark. Elune did not send me up this mountain to hide in a cave.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'll think about it.", next = "BACK" },
       },
     },
@@ -616,7 +616,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The Light is old, mortal, older than your kingdoms, and my flight does not mock what is old. What we distrust is the way your kind seize a power and declare that it chose them, when all they did was reach for it first." } },
       choices = {
-        { text = "The Light chose no one. We choose to serve it.", next = "BACK", reply = "A humbler answer than most of your kind give, mortal, and I will remember it. Serve it well, then, and never mistake service for ownership.", fx = { align = { light = 1 } } },
+        { text = "The Light chose no one. We choose to serve it.", next = "BACK", reply = "A humbler answer than most of your kind give, mortal, and I will remember it. I have heard kings say the opposite, and I have outlived all of them.", fx = { align = { light = 1 } } },
         { text = "Power answers whoever is strong enough to hold it.", next = "BACK", reply = "So said the Highborne, and so said every mortal who ever called the Legion. You will learn otherwise, as they did, though I hope less painfully.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -656,7 +656,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Every flight did, in the War of the Ancients, and some of them paid dearly for it. Your demons are scraps of that same Legion, bound by mortals who think they understand what they hold, and I find that more amusing than you would like." } },
       choices = {
         { text = "The Legion must never return. I'll see to that.", next = "BACK", reply = "Brave words, and I hope you hold to them, for the Legion counts on mortals who forget. My flight remembers, warlock, always.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Scraps or not, they serve me well enough.", next = "BACK", reply = "Well enough, until they don't, and then the world pays for your confidence. The blue flight has cleaned up after many warlocks.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Scraps or not, they serve me well enough.", next = "BACK", reply = "Well enough, until they don't, and then the world pays for your confidence. My flight has swept up the ashes of more warlocks than you have met.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll mind my demons, then.", next = "BACK" },
       },
     },
@@ -664,7 +664,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "A dragon has use for anything that keeps its secrets, and a rogue sometimes does. But if you think to steal from Mazthoril, mortal, know that others have tried, and none of them ever left." } },
       choices = {
-        { text = "I'll keep your secrets, dragon.", next = "BACK", reply = "Good, and see that you keep them well. A rogue who keeps his word is worth more to a dragon than a vault of gold.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep your secrets, dragon.", next = "BACK", reply = "See that you keep them well. I have known a great many rogues, and I can count the honest ones on one claw.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Every vault has a weakness.", next = "BACK", reply = "Every vault but Mazthoril, mortal, and those who sought its weakness are part of its walls now. Do not test me.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "I'll keep my hands to myself.", next = "BACK" },
       },
@@ -673,7 +673,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Little, as a rule, though your healing is less reckless than the arcane, and that counts for something. Shadow is another matter, priest, for the blue flight has watched too many mortals swear they could master a darkness they barely understood." } },
       choices = {
-        { text = "Then I'll keep my craft to healing.", next = "BACK", reply = "Wise, priest, and I'll think the better of you for it. Healing mends what the arcane breaks, and that is no small work.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll keep my craft to healing.", next = "BACK", reply = "Wise, priest, and I'll think the better of you for it. Mend what the arcane breaks, and you will never run short of work.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I understand my shadow well enough, dragon.", next = "BACK", reply = "So did every mortal who fell to it, priest, until the moment they didn't. I will be watching, as my flight always watches.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -683,7 +683,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Things that mortals should not touch, and that is all you need to know. Your Cenarion Circle understands that some power is meant to sleep, which is more wisdom than your mages have ever shown, so do not disappoint me by asking more than you should." } },
       choices = {
         { text = "I won't pry. Some power is meant to sleep.", next = "BACK", reply = "Then you have more sense than most who reach these caves, druid. The Circle taught you well.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Knowledge hoarded by dragons helps no one. Mortals deserve to know.", next = "BACK", reply = "They deserve to know, perhaps, but they rarely deserve to hold. Mortals with knowledge tore this world apart once already.", fx = { align = { order = -1 } } },
+        { text = "Knowledge hoarded by dragons helps no one. Mortals deserve to know.", next = "BACK", reply = "They deserve to know, perhaps, but they rarely deserve to hold. I watched the Highborne hold it, and I watched their city sink beneath the sea.", fx = { align = { order = -1 } } },
         { text = "Something else, Haleh.", next = "BACK" },
       },
     },
@@ -739,7 +739,7 @@ P:NPC {
       },
       choices = {
         { text = "Mortals must learn on their own, mistakes and all.", next = "BACK", reply = "A kindly view, and some of my kin share it. I only hope your mistakes are smaller than the last ones.", fx = { align = { order = -1 }, trait = { independent = 1 } } },
-        { text = "Some power is too dangerous. Guard it closely.", next = "BACK", reply = "You speak as my flight speaks, and I am glad of it. Power left lying about is power waiting for the wrong hand.", fx = { align = { order = 1 }, trait = { careful = 1 } } },
+        { text = "Some power is too dangerous. Guard it closely.", next = "BACK", reply = "You speak as my flight speaks, and I am glad of it. Mazthoril's halls are full of such things, and they will stay full while I breathe.", fx = { align = { order = 1 }, trait = { careful = 1 } } },
       },
     },
     mazthoril = {
@@ -763,7 +763,7 @@ P:NPC {
         { id = "mage_default", text = "A dragon does not teach children, she watches them, and corrects them if they set the house on fire. Prove yourself careful first, and perhaps one day we will speak again." },
       },
       choices = {
-        { text = "Fair. Something else.", next = "BACK" },
+        { text = "Fair enough. Something else.", next = "BACK" },
       },
     },
   },
@@ -806,7 +806,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not his hold, no, for that is written and sealed in fel. But demons are proud, and if you cut down enough of his servants he will come himself to see who dares, and then your steel may do what my bargaining never could." } },
       choices = {
-        { text = "Then I'll call him out openly and face him myself.", next = "BACK", reply = "Then you are braver than any satyr in these hills, and he will respect it, though not enough to spare you. Strike true when he comes.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll call him out openly and face him myself.", next = "BACK", reply = "Then you are braver than any satyr in these hills, and he will respect it, though not enough to spare you. Strike first, and strike true.", fx = { align = { honor = 1 } } },
         { text = "Then I'll let him come to me and strike while he gloats.", next = "BACK", reply = "Clever, and demons are vain enough to fall for it. Only do not gloat back, for they hear every word.", fx = { align = { honor = -1 } } },
         { text = "Something else, Lorax.", next = "BACK" },
       },
@@ -836,7 +836,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Our queen's court showed the way, and many of us followed, thinking the Legion's gifts were a reward for our devotion. The Legion gave power, as it always does, and took everything that made us kaldorei, and I have had ten thousand years to regret it." } },
       choices = {
-        { text = "Then I'll never follow such a path.", next = "BACK", reply = "Then you'll be wiser than I was, and I'd be glad of it. The Legion never asks twice, and never needs to.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll never follow such a path.", next = "BACK", reply = "Then you'll be wiser than I was, and I'd be glad of it. The Legion only had to offer me the power once, and I took it with both hands.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Perhaps you just weren't strong enough to control it.", next = "BACK", reply = "That is exactly what I told myself, mortal, and look what I became. Strength had nothing to do with it.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "That's a grim tale.", next = "BACK" },
       },
@@ -979,7 +979,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Double soup and a loaf, every time, and they eat it standing up because they can't sit down in all that armour! The last one tried to pay me in prayers, and I told him I'd take the prayers and the silver both, thank you very much, because prayers don't keep the stove lit." } },
       choices = {
-        { text = "Here's my silver, and a prayer for the stove besides.", next = "BACK", reply = "Ha! A blessing for the stove, now that's a first, friend, and I'll take both. The stove could use all the help it can get.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Here's my silver, and a prayer for the stove besides.", next = "BACK", reply = "Ha! A blessing for the stove, now that's a first, friend, and I'll take both. It's been coughing smoke since the last blizzard.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Prayers should be worth something, Himmik. You're a cynic.", next = "BACK", reply = "A cynic? Pal, I'm a cook, and prayers don't come with gravy. But I'll take your silver and say one for you anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1063,7 +1063,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Everyone who walks through that door, friend, Horde or Alliance or druid or dwarf. Winterspring doesn't care what you are, it'll freeze you all the same, and a full bowl costs me less than digging a stranger out of the snow the next morning." } },
       choices = {
-        { text = "That's a kindness, Himmik. Everlook's lucky to have you.", next = "BACK", reply = "That's sweet of you, friend, and I'll take it. A full belly does more for peace than any treaty.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's a kindness, Himmik. Everlook's lucky to have you.", next = "BACK", reply = "That's sweet of you, friend, and I'll take it. I've seen an orc and a dwarf share a table over my chowder, and neither of 'em noticed until the bowl was empty.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Kind, but costly. Charge them proper, or you'll go broke.", next = "BACK", reply = "You sound like my cousin, friend, and he's richer than me and twice as cold. I'll keep my rates and my customers.", fx = { align = { light = -1 } } },
         { text = "Never mind the stew.", next = "BACK" },
       },

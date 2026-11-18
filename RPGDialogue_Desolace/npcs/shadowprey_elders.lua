@@ -316,7 +316,7 @@ P:NPC {
         { id = "vi_default", text = "The vial is coated inside with something the Earth Mother's shaman make, and it turns poison back on itself. Fill it at the orange pool, and what was killing the vines becomes the thing that cures them." },
       },
       choices = {
-        { text = "Poison into cure. Clever.", next = "vial_clever" },
+        { text = "Poison into cure? That's clever.", next = "vial_clever" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -16,7 +16,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ah, {name}. Have you thought about taking up a trade? Sit, and let us talk about it." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Good. A trade is not chosen in one morning, and I am glad you are taking your time." },
+    { id = "g_back", when = { metBefore = true }, text = "You have returned, and I am glad, because a trade is not chosen in one morning. Take all the time you need." },
     { id = "g_gather", when = { any = { { profession = "Mining" }, { profession = "Skinning" }, { profession = "Herbalism" } } }, text = "You have begun to gather, I see. Now you must think about what your hands will make of it." },
   },
   notice = {
@@ -58,7 +58,7 @@ P:NPC {
         { id = "c_default", text = "Choose what gives you peace in the doing, because you will do it a great many times. Some are happiest out on the plains, and others at the fire with their hands busy, and only you know which you are." },
       },
       choices = {
-        { text = "Choose what helps the tribe most, not what pleases you.", next = "BACK", reply = "That is an old answer, and a good one, though a tired heart serves the tribe poorly. Find the work the tribe needs that you can also love, and you will do it well for many years.", fx = { align = { order = 1 } } },
+        { text = "Choose whatever the tribe needs. What I want matters less.", next = "BACK", reply = "That is an old answer, and a good one, though a tired heart serves the tribe poorly. Find the work the tribe needs that you can also love, and you will do it well for many years.", fx = { align = { order = 1 } } },
         { text = "Choose what calls to you. The tribe will benefit anyway.", next = "BACK", reply = "I think so too, young one. A tauren who loves her work does it with care, and care is what the tribe needs most.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -380,7 +380,7 @@ P:NPC {
         { id = "m_default", text = "I ask her leave before I swing, and I take only what I need. I think she does not mind a careful hand, though I have never heard her say so. What do you think?" },
       },
       choices = {
-        { text = "Asking is right. Respect the earth and it provides.", next = "BACK", reply = "I think so too, and it is good to hear it from someone so young. The earth gives more to the patient hand.", fx = { align = { light = 1 } } },
+        { text = "Asking is right. Respect the earth and it provides.", next = "BACK", reply = "I think so too, and it is good to hear it from someone so young. The old miners on the bluffs ask before every strike, and their veins have never run dry.", fx = { align = { light = 1 } } },
         { text = "The earth is stone. Strike it and take what's there.", next = "BACK", reply = "It is stone, and stone is her bones, young one. Strike if you must, but you may find the veins run thinner for a careless miner.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

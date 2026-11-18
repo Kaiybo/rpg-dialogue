@@ -38,7 +38,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "It keeps you alive, I'll grant that, but it tastes of nothing at all, like eating a cloud with a crust. Real food takes time and fire and a cook who cares, and that's why the Lion's Pride is full every night and your conjured loaves aren't." } },
       choices = {
-        { text = "You're right. Nothing beats a proper meal.", next = "BACK", reply = "There's a customer who knows his business! Sit, and I'll prove it with the stew.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right. Nothing beats a proper meal.", next = "BACK", reply = "There's a customer who knows good food! Sit, and I'll prove it with the stew.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Conjured food fills me just the same, Tomas.", next = "BACK", reply = "It fills the belly, aye, but it doesn't fill the heart. Come back when you're tired of eating clouds.", fx = { align = { order = -1 } } },
         { text = "Something else, Tomas.", next = "BACK" },
       },
@@ -563,7 +563,7 @@ P:NPC {
     mage = {
       lines = { { id = "ma_default", text = "Yes! No, wait, not near the hay, Argus said there was a fire once. Do a little one, a really little one, over the pond." } },
       choices = {
-        { text = "There. A little one.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "There you go, Bo, a little one.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Magic isn't a game, Bo.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },

@@ -36,7 +36,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_maybell_default", text = "I think about it every time one rides past, and then I think about Tommy Joe on the other side of the river and I stay put. Running off is only romantic if you're running toward something, and he's right here." } },
       choices = {
-        { text = "Your family needs you. Don't throw that away lightly.", next = "BACK", reply = "I know they do, and I'd not leave them for anything, honestly. But I'll not give up Tommy Joe either.", fx = { align = { order = 1 } } },
+        { text = "Your family needs you. Don't throw that away lightly.", next = "BACK", reply = "I know they do, and I'd not leave them for anything in the world. But I'll not give up Tommy Joe either.", fx = { align = { order = 1 } } },
         { text = "Follow your heart, Maybell. Rules are no reason to stay.", next = "BACK", reply = "My heart's right across the river, so it hasn't far to go. I'll stay, but thank you for saying it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -237,7 +237,7 @@ P:NPC {
         { id = "br_default", text = "He said that, to you? Oh, he'll get me caught! No, don't tell me what else he said, or I'll only lie awake worrying." },
       },
       choices = {
-        { text = "He doesn't know why. Not yet.", next = "BACK", fx = { affinity = 1 } },
+        { text = "He doesn't know why, at least not yet.", next = "BACK", fx = { affinity = 1 } },
         { text = "You might want to bribe him.", next = "billy_pie" },
       },
     },
@@ -286,7 +286,7 @@ P:NPC {
       },
       choices = {
         { text = "Smart girl.", next = "BACK", reply = "I'll try to be, though it's hard with a brother like Billy. He'd sell me out for a sweet.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Offer stands.", next = "BACK", reply = "I'll remember it, and I'll come find you if I ever need to vanish. Just not yet.", fx = { align = { order = -1 } } },
+        { text = "The offer stands, whenever you want it.", next = "BACK", reply = "I'll remember it, and I'll come find you if I ever need to vanish. Just not yet.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -304,7 +304,7 @@ P:NPC {
         { id = "te_default", text = "Some nights I believe that. Then morning comes, and I hear them at breakfast, and I lose my nerve again." },
       },
       choices = {
-        { text = "Nerve comes back. Keep trying.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Your nerve will come back, so keep trying.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -349,7 +349,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Light, no, I'd rather have the pig than have that thing loose among my cabbages. Kill the sow with an honest blade, and leave your friend outside the fence." } },
       choices = {
-        { text = "I'll use my own hands, Ma. The demon stays out.", next = "BACK", reply = "Good, and that's the way I'd want it done. Thank you.", fx = { align = { light = 1 } } },
+        { text = "I'll use my own hands, Ma. The demon stays out.", next = "BACK", reply = "Good. An honest blade's the way I'd want it done, and I'll not look while you do it.", fx = { align = { light = 1 } } },
         { text = "My demon would make short work of her. Your loss.", next = "BACK", reply = "My loss I'll live with, so long as I don't have to watch. Keep it outside.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -367,7 +367,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "They should be, but old Brackwell says Princess is a prize sow and a free creature, and Marshal Dughan won't fine a man over a pig. If there's a law that protects my carrots, I've never heard of it, and believe me, I've asked." } },
       choices = {
-        { text = "There should be. A neighbor must answer for his beast.", next = "BACK", reply = "There should, and I've told the Marshal so till I'm blue. He just laughs.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "There should be. A neighbor must answer for his beast.", next = "BACK", reply = "There should, and I've told the Marshal so till I'm blue in the face, and he just laughs and asks after the carrots.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The law can't fix this. Deal with the pig yourself.", next = "BACK", reply = "That's what I'm asking you to do, dear. Off you go.", fx = { align = { order = -1 } } },
         { text = "Something else, Ma.", next = "BACK" },
       },
@@ -489,7 +489,7 @@ P:NPC {
         { id = "fh_default", text = "So I hear, and here's me shouting about a pig. Still, a pig you can kill; bandits, you need the army for, and the army's not coming." },
       },
       choices = {
-        { text = "No. It isn't.", next = "BACK", fx = { affinity = 1, opinion = { westfall = "abandoned" } } },
+        { text = "No, it isn't coming.", next = "BACK", fx = { affinity = 1, opinion = { westfall = "abandoned" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -507,7 +507,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never name a pig. Once you name it, it thinks it owns the place." } },
     maybell_tommy = { { id = "tp_lovers", text = "Tommy Joe? He's mending the east fence, and he's been mending it for months. It must be a very broken fence." } },
     defias = { { id = "tp_defias", text = "The Defias took the Brackwell farm whole, pumpkins, house and all, but they left the pig, which tells you they've got some sense." } },
-    _none = { { id = "tp_none", text = "Don't know, don't care, got a pig to worry about." } },
+    _none = { { id = "tp_none", text = "I don't know and I don't care, because I've got a pig to worry about." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire tried to buy Princess off us once for their menagerie, and I'd have sold her too, if she'd let anybody near enough to put a rope on her. Now she's eating my cabbages instead." } },
     holy_light = { { id = "tp_holy_light", text = "I've no time for long prayers, so I say a short one to the Light every time I pick up a hoe. It hasn't broken yet, so I reckon it's working." } },
     varian = { { id = "tp_varian", text = "A king's not much use to a farm unless he keeps the roads clear, and this one's been gone so long the roads have noticed. Somebody ought to tell him." } },
@@ -684,7 +684,7 @@ P:NPC {
         { id = "mc_default", text = "Saw! I said saw! Don't tell Auntie Bernice, or she'll bake me a pie with nails in." },
       },
       choices = {
-        { text = "Your secret's safe. This time.", next = "BACK", reply = "Thanks! I owe you one, maybe two.", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Your secret's safe, Billy, but only this time.", next = "BACK", reply = "Thanks! I owe you one, maybe two.", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "You should tell her yourself.", next = "BACK", reply = "Me? She'd skin me! Maybe after I'm grown up.", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
@@ -712,7 +712,7 @@ P:NPC {
       },
       choices = {
         { text = "Stay away from the mine, Billy.", next = "BACK", fx = { trait = { kind = 1 }, learn = { "kobolds" } } },
-        { text = "Ha. Do it again.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Ha! Do it again, Billy.", next = "BACK", fx = { affinity = 1 } },
       },
     },
 

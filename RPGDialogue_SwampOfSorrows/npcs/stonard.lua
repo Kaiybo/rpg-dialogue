@@ -490,7 +490,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Wards are the least of it, because the temple was sunk to stop the Atal'ai, and they're still down there chanting. A mage might break a ward, but a ward is only a lock, and I'm more worried about what's behind the door." } },
       choices = {
-        { text = "Then leave the door shut. Some things should sleep.", next = "BACK", reply = "Wise. Some things are sleeping for good reason, and I'd rather they stayed that way.", fx = { align = { order = 1 } } },
+        { text = "Then leave the door shut. Some things should sleep.", next = "BACK", reply = "Wise. I've heard what the green dragons do to anyone who rattles that door, and I'd rather not find out.", fx = { align = { order = 1 } } },
         { text = "Break the lock. Better to know what's there.", next = "BACK", reply = "Better to know, perhaps, until you know. I'll not stop you, but I'll not follow you either.", fx = { align = { order = -1 } } },
         { text = "Something else, Fel'zerul.", next = "BACK" },
       },
@@ -509,7 +509,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "The trolls sank that temple to bury what they worshipped, and I believe something green and ancient sleeps down there with it, and that the sleep is sick. Your elders speak of a dream that holds the world's living things, and if that dream has a wound, I think it is here." } },
       choices = {
         { text = "Then the temple must be cleansed, no matter what it costs us.", next = "BACK", reply = "At any cost? You're braver than I am, and perhaps wiser. I'll help where I can.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some dreams are best left sleeping. Watch it, but don't wake it.", next = "BACK", reply = "Watch it, yes, and I will. Some sleepers are better left undisturbed.", fx = { align = { light = -1 } } },
+        { text = "Some dreams are best left sleeping. Watch it, but don't wake it.", next = "BACK", reply = "Watch it, yes, and I will. My grunts already won't fish near the sunken stones after dark.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

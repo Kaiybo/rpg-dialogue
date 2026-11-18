@@ -41,7 +41,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Oil for the steel, dry socks for the feet and the good sense to stay on the road, though I can only sell you the first two. The rest you'll have to pick up from Captain Vimes, who hands it out free to anyone who'll listen." } },
       choices = {
-        { text = "Stick to the road. Good advice is worth taking.", next = "BACK", reply = "It is, and you'd be surprised how few take it. Come back in one piece and tell Captain Vimes I sent you.", fx = { align = { order = 1 } } },
+        { text = "I'll stick to the road, then. Thanks for the warning.", next = "BACK", reply = "Good, and you'd be surprised how few do. Come back in one piece and tell Captain Vimes I sent you.", fx = { align = { order = 1 } } },
         { text = "Roads are for merchants. I'll take the marsh head on.", next = "BACK", reply = "Then buy extra socks, dear, and a lot of oil, and maybe a spare pair of boots. The marsh has eaten braver folk than you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -447,7 +447,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "I think a good one carries a little of whoever made it. Out in the marsh that counts for more than a sharp edge, and you'd know better than me whether the spirits agree." } },
       choices = {
         { text = "A weapon has a spirit. I'll treat mine with respect.", next = "BACK", reply = "Then it'll serve you well, and I'll be glad to have made it. Treat it kindly, and it'll treat you the same.", fx = { align = { order = -1 } } },
-        { text = "A weapon is a tool, and a soldier keeps it clean.", next = "BACK", reply = "That's the soldier's way, and I've no quarrel with it. Keep it clean, and it'll keep you alive.", fx = { align = { order = 1 } } },
+        { text = "A weapon is a tool, and a soldier keeps it clean.", next = "BACK", reply = "That's the soldier's way, and I've no quarrel with it. Wipe the marsh off it every night, though, or the edge goes brown in a week.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -476,7 +476,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Short swords and daggers, mostly, balanced for a quick hand rather than a heavy arm. The marsh's raptors are fast, so a slow blade gets you killed, so I send folk out with something they can trust in the fog." } },
       choices = {
-        { text = "A good blade, used fairly, is worth any price.", next = "BACK", reply = "It is, and I'll sell you one I'm proud of. Fair or not, a good blade is a good blade.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A good blade, used fairly, is worth any price.", next = "BACK", reply = "It is, and I'll sell you one I'm proud of. Feel the balance on this one, and tell me it isn't worth the silver.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The quick strike is all that matters. Fair has no place in fog.", next = "BACK", reply = "That's a rogue's answer, and I'll not argue with it. Quick it is, then, and balanced.", fx = { align = { honor = -1 } } },
         { text = "Something else, Piter.", next = "BACK" },
       },
@@ -592,7 +592,7 @@ P:NPC {
         { id = "hz_default", text = "Never, friend, though one or two have asked through traders at the docks. Lady Jaina keeps the peace with Brackenwall, and I'm glad of it, but peace doesn't mean I arm the people the guard might have to fight next year." },
       },
       choices = {
-        { text = "That seems sensible.", next = "BACK", reply = "I think so too, and so does Lady Jaina. Peace is peace, but steel is steel.", fx = { align = { order = 1 } } },
+        { text = "That seems sensible.", next = "BACK", reply = "I think so too, and so does Lady Jaina. Theramore steel stays in Theramore hands.", fx = { align = { order = 1 } } },
         { text = "Arms sold for peace might keep it.", next = "BACK", reply = "Maybe they would, but I'll not be the one to find out. Let the traders do it, if anyone must.", fx = { align = { order = -1 }, trait = { curious = 1 } } },
         { text = "Do you think the peace will last?", next = "horde_last" },
       },

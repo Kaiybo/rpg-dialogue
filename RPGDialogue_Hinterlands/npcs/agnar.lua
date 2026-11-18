@@ -100,7 +100,7 @@ P:NPC {
         { id = "gn_default", text = "Then it lives out its days at the Peak, fed an' free, an' I'll no' force it under a saddle. Some o' the riders call that wasteful, but a bird that's forced will drop ye in the first storm." },
       },
       choices = {
-        { text = "Right. A beast's choice should be respected.", next = "BACK", reply = "Aye, that's how I see it, an' it's good tae hear someone else say so. The bird knows its own heart better than I do.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "You're right. A beast's choice should be respected.", next = "BACK", reply = "Aye, that's how I see it, an' it's good tae hear someone else say so. She's sat on that same ledge for a week now, glarin' at the riders, an' I'll no' be the one tae drag her off it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "A bird that won't serve is a burden. Train it.", next = "BACK", reply = "Train it, ye say? Ye cannae train a gryphon that's decided against ye, an' I'll no' try. Let it be.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -137,7 +137,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know beasts, the Peak's an' a few from further off. Ask about any creature ye like." } },
     background = { { id = "tp_bg", text = "Wildhammer born, an' I was raisin' gryphon chicks before I could ride one." } },
-    advice = { { id = "tp_ad", text = "Feed a beast first an' ask it questions after. It works on dwarves, too." } },
+    advice = { { id = "tp_ad", text = "Feed a beast first an' ask it questions after. Works on dwarves too, an' ye can ask my wife." } },
     green_dragons = { { id = "tp_green_dragons", text = "The faerie dragons are cousins tae the great green ones, so the druids say, an' they're the sweetest beasts in the Hinterlands. The big ones are another matter entirely." } },
     wildhammer = { { id = "tp_wildhammer", text = "Every beast in Aerie Peak is a Wildhammer at heart, gryphon or hound or dragonhawk. I raise them like nephews, an' they behave about as well." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the faerie dragons come from the Dream, an' I believe it, fer they've a look in their eyes like they're seein' somethin' else. Lovely creatures, every one." } },

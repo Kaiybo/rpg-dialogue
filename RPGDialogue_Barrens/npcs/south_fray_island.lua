@@ -48,7 +48,7 @@ P:NPC {
         { text = "Who's the last fight on this island?", next = "will" },
         { text = "Who's the goblin shouting by the grate?", next = "twiggy" },
         { text = "So Horde and Alliance both fight here.", next = "factions" },
-        { text = "I'm a warrior. Test me.", next = "test", when = { class = "WARRIOR" } },
+        { text = "I'm a warrior, Klannoc. Put me to the test.", next = "test", when = { class = "WARRIOR" } },
         { text = "I'm ready for the grate.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "I'll leave you to it, Klannoc.", next = "END" },
       },

@@ -136,7 +136,7 @@ P:NPC {
       lines = { { id = "dg_default", text = "With what, my good looks? A guard costs more than I make, and the marshals have their hands full already. I trust the Light and my legs." } },
       choices = {
         { text = "The marshals should patrol the roads properly.", next = "BACK", reply = "They should, and you're welcome to tell them so, because they don't listen to peddlers. Until they do, I'll keep my legs in good working order.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "A man's safety is his own business.", next = "BACK", reply = "That's how I've always lived, and it's kept me breathing this long. Mind you, a little help from a passing hero wouldn't go amiss either.", fx = { align = { order = -1 }, trait = { independent = 1 } } },
+        { text = "A man's safety is his own business.", next = "BACK", reply = "That's how I've always lived, and it's kept me breathing this long. Still, a little help from a passing hero wouldn't go amiss.", fx = { align = { order = -1 }, trait = { independent = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

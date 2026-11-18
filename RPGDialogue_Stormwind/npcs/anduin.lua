@@ -140,7 +140,7 @@ P:NPC {
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "You're a paladin. Bolvar says paladins are the Light's hands. Do your hands feel any different?" },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "The priests at the Cathedral let me sit in on lessons sometimes. Don't tell Lady Prestor. She thinks it's a waste of a king's time." },
+          text = "The priests at the Cathedral let me sit in on lessons sometimes. Don't tell Lady Prestor, though; she thinks it's a waste of a king's time." },
         { id = "h_hero", when = { minLevel = 40 },
           text = "The Highlord reads your name out at council sometimes. I always sit up straighter when he does." },
         { id = "h_warm", when = { disposition = { min = 70 } },
@@ -190,7 +190,7 @@ P:NPC {
     },
     king = {
       lines = {
-        { id = "k_default", text = "Mostly listening. The Highlord talks, Lady Prestor talks, the nobles talk. I listen. Then I ask a question and they all go quiet." },
+        { id = "k_default", text = "Mostly listening. The Highlord talks and Lady Prestor talks and the nobles talk, and I listen, and then I ask one question and they all go quiet." },
       },
       choices = {
         { text = "What do the nobles argue about most, Your Majesty?", next = "op_orcs" },
@@ -204,7 +204,7 @@ P:NPC {
     },
     prayer = {
       big = true,
-      lines = { { id = "pr_default", text = "Would you? A short one. One I can remember at night, when the Keep's quiet and I'm not supposed to be awake." } },
+      lines = { { id = "pr_default", text = "Would you? Only a short one, please, one I can remember at night when the Keep's quiet and I'm not supposed to be awake." } },
       choices = {
         { text = "\"Light, keep him safe, wherever he is, and bring him home.\"", next = "prayer_said",
           fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } },

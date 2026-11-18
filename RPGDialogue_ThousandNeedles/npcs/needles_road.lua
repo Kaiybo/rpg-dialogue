@@ -29,7 +29,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "My uncle says I'm too young to hold an axe properly, and after today I think he's right, because I dropped mine in the canyon running from the centaurs. When I'm older I want to stand with the braves at Freewind, if they'll have someone who gets lost this easily." } },
       choices = {
         { text = "Running was right. A warrior knows when not to fight.", next = "BACK", reply = "Really? Uncle said running was for cowards, but maybe he was only saying that so I'd practise harder.", fx = { align = { order = 1 } } },
-        { text = "Next time, stand your ground. Courage only comes with practice.", next = "BACK", reply = "I'll try, I really will, though my legs had other ideas, and they were very loud about them.", fx = { align = { order = -1 } } },
+        { text = "Next time, stand your ground. Courage comes with practice.", next = "BACK", reply = "I'll try, I really will, though my legs had other ideas, and they were very loud about them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -207,7 +207,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "It would help, because they've grown bold, and my braves are too loud to get close. Find out how many warriors they keep at the pinnacle, and we'll know how many we need to send." } },
       choices = {
-        { text = "I'll scout for Freewind gladly.", next = "BACK", reply = "Thank you, and bring back the count, because numbers are worth more to Freewind than any trophy.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll scout for Freewind, and gladly.", next = "BACK", reply = "Thank you, and bring back the count, because numbers are worth more to Freewind than any trophy.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll strike while I'm there.", next = "BACK", reply = "If you must, but come back alive, because a dead scout tells us nothing, however brave.", fx = { align = { order = -1 } } },
         { text = "Something else, Kanati.", next = "BACK" },
       },
@@ -216,7 +216,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "The winds fear what does not belong to this world, and your power is one of those things. I do not judge you for it, but I will not pretend the land welcomes you as gladly as I do." } },
       choices = {
-        { text = "Then the land must learn to live with me.", next = "BACK", reply = "Perhaps it must, but it will remember what you do, and I hope it remembers something kind.", fx = { align = { light = -1 } } },
+        { text = "Then the land will have to learn to live with me.", next = "BACK", reply = "Perhaps it must, but it will remember what you do, and I hope it remembers something kind.", fx = { align = { light = -1 } } },
         { text = "I'll walk carefully. I mean no harm here.", next = "BACK", reply = "Then walk carefully, and the winds may grow used to you, as I have, little by little.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
@@ -258,7 +258,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Galak", min = 25 } }, text = "The Galak below the mesa are fewer than they were, and I have seen you on the canyon road often enough to know why. Be careful, because they will come looking for you." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, with the Light still in you. Freewind watches everything that climbs these mesas, and you are a new thing to watch." },
       },
-      again = { { id = "h_again", text = "What else, friend? Speak; the mesa has time." }, { id = "h_again2", text = "Speak, friend." } },
+      again = { { id = "h_again", text = "What else, friend? Speak; the mesa has time, even if the Galak do not give us much of it." }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
         { text = "What are the Grimtotem doing to the mesas?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I've heard little of the Grimtotem.", next = "b1_1" },
@@ -323,7 +323,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Welcome, traveler. Come, but watch your step on the mesa edges." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned. Good; the Earth Mother keeps those who walk her paths." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned. Good; the Earth Mother keeps those who walk her paths, though she lets them get very dusty on the way." },
   },
   start = "hello",
   nodes = {
@@ -370,7 +370,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "I would have you strike them however they fall fastest, for they have stopped fighting with honor. I'd rather a clean fight in the open, but I'll not mourn a Grimtotem who never saw the blade." } },
       choices = {
         { text = "Even the Grimtotem deserve an honest fight.", next = "BACK", reply = "They do, perhaps, but they have stopped giving one, and I will not ask you to fight with one hand tied.", fx = { align = { honor = 1 } } },
-        { text = "Honor's wasted on traitors. I'll strike unseen.", next = "BACK", reply = "I cannot argue, though it grieves me to agree, and I hope my father would forgive me for saying so.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Honour's wasted on traitors. I'll strike unseen.", next = "BACK", reply = "I cannot argue, though it grieves me to agree, and I hope my father would forgive me for saying so.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -391,7 +391,7 @@ P:NPC {
           text = "A rogue of the Horde. The Grimtotem are many, and they fight like cornered bulls, but a blade in the dark is something they don't expect." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The Grimtotem would spit at you, so you're already on my side." },
       },
-      again = { { id = "h_again", text = "What else? Speak plainly, as the Bloodhoof do." }, { id = "h_again2", text = "Ask, if you have more." } },
+      again = { { id = "h_again", text = "What else? Speak plainly, the way the Bloodhoof do." }, { id = "h_again2", text = "Ask, if you have more." } },
       choices = {
         { text = "What does Magatha want from the Needles?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The Grimtotem seem to be up to something.", next = "b1_1" },
@@ -522,7 +522,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Afraid? Sure I'm afraid, friend, every single lap, and that's what makes it worth doing. If I go out in a blaze on the Shimmering Flats, at least they'll talk about it in Booty Bay for a month, and most goblins only get talked about at their debt hearings." } },
       choices = {
         { text = "No gossip's worth your neck. Race a little slower.", next = "BACK", reply = "The cliff path's the only fun part, pal, but I'll think about it, maybe, after I win a few more.", fx = { align = { light = 1 } } },
-        { text = "A blaze of glory beats a long and dull life.", next = "BACK", reply = "That's the spirit, buddy, and if I go, I'll make sure they hear it all the way to Booty Bay.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A blaze of glory beats a long, dull life.", next = "BACK", reply = "That's the spirit, buddy, and if I go, I'll make sure they hear it all the way to Booty Bay.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -551,7 +551,7 @@ P:NPC {
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
           text = "The gnomes can't stand you, which means you've got taste. Want to see where I scraped the wall last heat?" },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "Whoa, armor! Hey, you wanna sit in the car? No? Smart, because the last guy in plate who sat in it cracked the axle clean through." },
+          text = "Whoa, armour! Hey, you wanna sit in the car? No? Smart, because the last guy in plate who sat in it cracked the axle clean through." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Hey, can you track a thief? Because somebody keeps moving my spare parts, and I'm pretty sure it's a gnome." },
         { id = "h_default", key = true, text = "Razzeric, the fastest goblin on the Shimmering Flats! I race for the goblin team, pal, and every time I take the car out, the gnomes start sweating, and so does my mechanic, 'cause I still owe him for the last engine and the one before that." },
@@ -673,7 +673,7 @@ P:NPC {
       },
       choices = {
         { text = "Honest times matter. Nobody should ever doubt the clock.", next = "BACK", reply = "That's my motto, hon, and I've got it painted on the back of my stopwatch so nobody forgets it.", fx = { align = { honor = 1 } } },
-        { text = "A close race could go either way, and nobody would notice.", next = "BACK", reply = "Not on my watch, hon, literally, because I'd notice, and the crews would notice, and then there'd be trouble.", fx = { align = { honor = -1 } } },
+        { text = "A close race could go either way, and nobody would notice.", next = "BACK", reply = "Not on my watch, hon, and I mean that, because I'd notice, and the crews would notice, and then there'd be trouble.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -777,7 +777,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Only every other week, and they always think they're the first to try. The gnomes accused a goblin of hexing their engine last season, the goblins accused the gnomes of warding theirs, and I wrote both down as engine trouble." } },
       choices = {
-        { text = "Good. Honest times matter, even here.", next = "BACK", reply = "Glad you think so, hon, because I've had both crews threatening my stopwatch this season.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Good. Honest times matter, even out here.", next = "BACK", reply = "Glad you think so, hon, because I've had both crews threatening my stopwatch this season.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A clever cheat deserves to win once in a while.", next = "BACK", reply = "Once in a while, hon, maybe, but not on my watch, because my stopwatch doesn't care how clever you are.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -828,7 +828,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "In theory, absolutely, though in practice it weighs about as much as a dwarf and heats up in the sun. I did build a breastplate from a rocket car's front panel once, and it stopped a goblin wrench beautifully, right before it melted." } },
       choices = {
         { text = "Tried and tested plate is best. Leave the experiments.", next = "BACK", reply = "Fair enough, though I'd point out that tried and tested plate was somebody's experiment once too.", fx = { align = { order = 1 } } },
-        { text = "Every great armor started as somebody's experiment.", next = "BACK", reply = "Exactly, and I'm so glad you said it, because I've been trying to convince Fizzle of that for weeks.", fx = { align = { order = -1 } } },
+        { text = "Every great armour started as somebody's experiment.", next = "BACK", reply = "Exactly, and I'm so glad you said it, because I've been trying to convince Fizzle of that for weeks.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -931,7 +931,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman! Could you ask the winds to blow the goblin car off the track? No? Not even a little gust?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Could you ask the winds to blow the goblin car off the track? Just a little gust, for the Alliance?" },
       },
-      again = { { id = "h_again", text = "What else? I've seventeen adjustments left before the next heat, so make it quick!" }, { id = "h_again2", text = "Questions? I love questions!" } },
+      again = { { id = "h_again", text = "Questions? Oh, I love questions! Ask away, and if I don't know, I'll make a very educated guess and label it clearly." }, { id = "h_again2", text = "Questions? I love questions!" } },
       choices = {
         { text = "Shapeshifting isn't machinery, Wizzle. Why measure it?", next = "xdruid", when = { class = "DRUID" } },
         { text = "How do you beat the goblins?", next = "b1_1" },

@@ -342,7 +342,7 @@ P:NPC {
       },
       choices = {
         { text = "They should be driven off.", next = "BACK", reply = "The Commander says the same, and maybe he is right. But they have watched this coast longer than any orc has lived, and they will not leave quietly.", fx = { align = { light = -1 } } },
-        { text = "Let them watch. It's their jungle.", next = "BACK", reply = "Spoken like a guest, and maybe that is the wiser way to live here. But they watch with spears in their hands, so I keep watching back.", fx = { align = { light = 1 } } },
+        { text = "Let them watch. It's their jungle, after all.", next = "BACK", reply = "Spoken like a guest, and maybe that is the wiser way to live here. But they watch with spears in their hands, so I keep watching back.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "yenniku" } } },
       },
     },
@@ -455,7 +455,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Because they rot faster than I can sell them, and because the last time I paid a picker, a panther ate him. Druids pick their own and don't get eaten, and everyone else can buy a bandage and stop complaining." } },
       choices = {
         { text = "The jungle is generous to those who respect it. Learn that.", next = "BACK", reply = "You are right, and the jungle has taught me that lesson more than once with teeth. Perhaps I will learn it properly one day.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Bandages don't rot, and nobody gets eaten picking them. Sold.", next = "BACK", reply = "Now that is a sensible druid, and a rare one. Bandages do not rot, and nobody gets eaten selling them.", fx = { align = { light = -1 } } },
+        { text = "Bandages don't rot, and nobody gets eaten picking them. Sold.", next = "BACK", reply = "Now that is a sensible druid, and a rare one. The last one tried to pay me in mushrooms.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

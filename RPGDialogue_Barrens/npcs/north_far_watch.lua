@@ -210,7 +210,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you know?" },
-        { id = "h_again2", text = "Ask quickly. The fires on the peak are lit again tonight." },
+        { id = "h_again2", text = "Ask quickly, because the fires on the peak are lit again tonight." },
       },
       choices = {
         { text = "What gives the cultists their power?", next = "seed" },
@@ -497,7 +497,7 @@ P:NPC {
     line = {
       lines = { { id = "ln_default", text = "Shield up, feet wide, weight low, and don't let your eyes leave the enemy's shoulders, because that's where the swing starts. Do that a thousand times and you'll start to understand." } },
       choices = {
-        { text = "A thousand times. I'll start now.", next = "BACK", fx = { affinity = 2 } },
+        { text = "A thousand times it is, and I'll start right now.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },

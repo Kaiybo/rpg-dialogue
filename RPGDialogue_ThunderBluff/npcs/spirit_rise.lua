@@ -131,7 +131,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Skychaser. Shaman. Old enough that the spirits call me by name." } },
+    background = { { id = "tp_bg", text = "I am Skychaser, a shaman, and old enough that the spirits call me by name." } },
     advice = { { id = "tp_ad", text = "Thank the element that answered you, every time. They notice who forgets." } },
     the_elements = { { id = "tp_el", text = "Earth, fire, water and air, each with its own temper, and none of them yours to own, however long you've spoken with them." } },
     earth_mother = { { id = "tp_em", text = "She is mother to the spirits as much as to the tauren, and they speak of her more kindly than we deserve." } },
@@ -190,7 +190,7 @@ P:NPC {
       big = true,
       lines = { { id = "we_default", text = "It's both, and anyone who tells you otherwise has never been in a real fight. The spirits will answer a reverent shaman, but they can't help one who's already dead." } },
       choices = {
-        { text = "Reverence comes first. Tactics follow.", next = "BACK", reply = "Fine words, and true enough in the lodge. Let's see if they hold up when a quillboar is charging you and your totem's still in your pack.", fx = { align = { order = 1 } } },
+        { text = "Reverence comes first, and tactics follow.", next = "BACK", reply = "Fine words, and true enough in the lodge. Let's see if they hold up when a quillboar is charging you and your totem's still in your pack.", fx = { align = { order = 1 } } },
         { text = "Use what works. The spirits will understand.", next = "BACK", reply = "They'll understand, mostly, if you thank them afterward. Just don't let it become a habit, or one day they'll stop picking up when you call.", fx = { affinity = 1, align = { order = -1 } } },
       },
     },

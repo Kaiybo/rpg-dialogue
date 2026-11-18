@@ -37,7 +37,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "If you could speak of their ancestors in a way they respect, maybe. The Gelkis think the earth belongs to them, and I'd like to see their faces if it answered you instead." } },
       choices = {
         { text = "I won't use the spirits to set the centaur fighting.", next = "BACK", reply = "That's your right, and I'll not force it, but don't be surprised when the clans turn their spears on us instead.", fx = { align = { honor = 1 } } },
-        { text = "If it keeps the outpost alive, I'll stir them up.", next = "BACK", reply = "Good. Every arrow the Gelkis loose at the Magram is one that never flies at my ridge.", fx = { align = { honor = -1 } } },
+        { text = "If it keeps the outpost alive, I'll stir them up.", next = "BACK", reply = "Every arrow the Gelkis loose at the Magram is one that never flies at my ridge, so stir away.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -97,7 +97,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "Plenty, because a single fireball dropped between the Kolkar and the Gelkis at the right moment starts a feud that lasts all season. Better the clans blame each other's shamans than come looking for us, and a little well-placed flame helps them along." } },
       choices = {
         { text = "I'll start no feuds. I fight in the open, Captain.", next = "BACK", reply = "Then fight in the open, and my men will cheer you on from the ridge, but I'll keep my own methods.", fx = { align = { honor = 1 } } },
-        { text = "Point me at the right camp and I'll light it.", next = "BACK", reply = "Good. I'll point, you light, and the clans will spend the season blaming each other for the smoke.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Point me at the right camp and I'll light it.", next = "BACK", reply = "I'll point, you light, and the clans will spend the season blaming each other for the smoke. I could almost enjoy that.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -248,7 +248,7 @@ P:NPC {
     rogue = {
       lines = { { id = "r_default", text = "I don't doubt it, and that's exactly why I'll be watching you while you do it. No offence; it's the job." } },
       choices = {
-        { text = "None taken.", next = "BACK", reply = "Good. Then we'll get along, and you'll understand when I still check the gate after you've passed.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "None taken.", next = "BACK", reply = "We'll get along, then, and you'll understand when I still check the gate after you've passed.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Watch all you like, because I've nothing to hide.", next = "BACK", reply = "Then you'll not mind me watching, and I'll not mind being wrong about you.", fx = { align = { honor = 1 } } },
       },
     },
@@ -335,7 +335,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The Circle welcomes any who keep the balance. Desolace has none left, and the spirits here are as sick as the land, so if you can feel them, you'll understand why my sisters and I came." } },
       choices = {
-        { text = "Then I'll help restore the balance here, Keeper.", next = "BACK", reply = "Then the Circle will welcome you, and the land, I think, will notice, even if it cannot thank you.", fx = { align = { light = 1 } } },
+        { text = "Then I'll help restore the balance here, Keeper.", next = "BACK", reply = "The Circle will welcome you, and the land, I think, will notice, even if it cannot thank you.", fx = { align = { light = 1 } } },
         { text = "Desolace is dead. Balance is a luxury it can't afford.", next = "BACK", reply = "Many say so, and perhaps they are right, but my sisters and I came here believing otherwise.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -344,7 +344,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Circle would tell you that nature defends itself, and in a greener place I would agree. Here the satyrs foul the land faster than we can cleanse it, and I will not tell you that the Circle's patience has kept a single one of my sisters safe." } },
       choices = {
-        { text = "Then I'll guard your sisters while the Circle does its work.", next = "BACK", reply = "Then my sisters will thank you, and the Circle will remember that you stood beside us.", fx = { align = { order = 1 } } },
+        { text = "Then I'll guard your sisters while the Circle does its work.", next = "BACK", reply = "My sisters will be glad of you. The satyrs come at dusk, mostly, and they come from the east.", fx = { align = { order = 1 } } },
         { text = "Patience cleanses nothing. I'll cut the satyrs out myself.", next = "BACK", reply = "Perhaps it does not, and I cannot fault your anger, but the land will remember the blade as well as the satyr.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -380,8 +380,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "The Light mends what lives, and very little lives here, so I would not ask it to mend the ground itself. The Circle believes Desolace is not dead but sleeping badly, and that its healing will be slow, patient work that outlasts us both." } },
       choices = {
-        { text = "The Light can reach even here, Keeper. I'll prove it.", next = "BACK", reply = "Then prove it, and I will be glad, because I have long hoped the Light and the land could work together here.", fx = { align = { light = 1 } } },
-        { text = "Some places are past saving. Spend the effort where it counts.", next = "BACK", reply = "Perhaps they are, but the Circle has never been good at giving up, and Desolace is our proof of it.", fx = { align = { light = -1 } } },
+        { text = "The Light can reach even here, Keeper. I'll prove it.", next = "BACK", reply = "Prove it, then, and I will be glad. I have long hoped the Light and the land could work together here, and so far I have only hoped.", fx = { align = { light = 1 } } },
+        { text = "Some places are past saving. Spend the effort where it counts.", next = "BACK", reply = "Perhaps they are. But I have watched one green shoot come up through the grey dust near Nijel's Point, and I am not ready to stop watering it.", fx = { align = { light = -1 } } },
         { text = "Something else, Keeper.", next = "BACK" },
       },
     },
@@ -755,7 +755,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Obedience, courage and a heart that will not hesitate when the dead wear the faces of people you knew. Brother Crowley says hesitation has cost more lives in Lordaeron than any plague, and I've no reason to doubt him." } },
       choices = {
-        { text = "Obedience and courage, then. I'd stand against the Scourge.", next = "BACK", reply = "Then the Crusade would welcome you, and I would be glad to send word to Brother Crowley of your heart.", fx = { align = { order = 1 } } },
+        { text = "Obedience and courage, then. I'd stand against the Scourge.", next = "BACK", reply = "The Crusade would welcome you, I'm sure of it, and I would be glad to send word to Brother Crowley of your heart.", fx = { align = { order = 1 } } },
         { text = "I don't follow orders blindly, not even the Crusade's.", next = "BACK", reply = "That is your right, and some of the brothers would call it weakness, but I am not sure I agree with them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -787,7 +787,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Eyes in the dark, mostly, because the Scourge hide in ruins and cellars where an honest soldier makes far too much noise. Brother Crowley values those who can find the plague's servants before they find us, and he asks few questions about where they learned it." } },
       choices = {
         { text = "I'd hunt the Scourge for you, but I keep my own counsel.", next = "BACK", reply = "Then keep your counsel, and I will keep mine, and perhaps the Scourge will lose a few servants between us.", fx = { align = { order = -1 } } },
-        { text = "If the cause is just, I'd serve the Crusade gladly.", next = "BACK", reply = "Then the Crusade would welcome you, and I would be proud to send your name to Brother Crowley.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If the cause is just, I'd serve the Crusade gladly.", next = "BACK", reply = "I would be proud to send your name to Brother Crowley. They need good hearts in the north, more than they know.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Perhaps something else, Brother.", next = "BACK" },
       },
     },
@@ -796,7 +796,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "The Crusade trusts any arm that strikes at the undead, and fire purifies better than steel ever could. Some of the brothers say that magic opened the door to the plague, but I say the Lich King would have come no matter what Dalaran did." } },
       choices = {
         { text = "The Crusade's zeal frightens me more than the Scourge.", next = "BACK", reply = "I hear that more often than I would like, and I am beginning to wonder whether you are right.", fx = { align = { light = -1 } } },
-        { text = "Fire against the Scourge is a fine use for my craft.", next = "BACK", reply = "Then you are welcome, and the brothers would be glad of you, whatever some of them say about magic.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fire against the Scourge is a fine use for my craft.", next = "BACK", reply = "You're welcome among us, and the brothers would be glad of you, whatever some of them mutter about magic.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
@@ -998,7 +998,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Some nights I think I hear them in the wind off the bone fields, but I'm no shaman. If they speak to you, I hope they say something kinder than they say to me." } },
       choices = {
         { text = "They grieve, but with care they can heal.", next = "BACK", reply = "I hope you are right, and I will listen more kindly to the wind tonight because of it.", fx = { align = { light = 1 } } },
-        { text = "They're bitter, and they'll stay that way.", next = "BACK", reply = "Perhaps they will, and perhaps I would be too, if I had died out there in the bones.", fx = { align = { light = -1 } } },
+        { text = "They're bitter, and they'll stay that way.", next = "BACK", reply = "Perhaps they will. I think I would be too, if I had died out there among the bones and nobody came to bury me.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1007,7 +1007,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Most who go down into Desolace stop here first, and the warriors sleep soundest, because they've stopped worrying about what they can't fight. It's the ones who come back up that I watch, because the centaur and the Burning Blade leave marks you can't see." } },
       choices = {
         { text = "I'll rest while I can. The fight will wait.", next = "BACK", reply = "That is wise, and I will make sure your bed is the quietest one I have.", fx = { align = { order = 1 } } },
-        { text = "I don't rest before a fight. Sleep comes after.", next = "BACK", reply = "Then I will keep a bowl warm for when you come back, because you will need it more then.", fx = { align = { order = -1 } } },
+        { text = "I don't rest before a fight. Sleep comes after.", next = "BACK", reply = "I will keep a bowl warm for when you come back, then. You will want it more after.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1036,7 +1036,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Everyone passes through eventually, because there is no other roof between Stonetalon and Feralas. I've fed Reclaimers, Crusaders, Sentinels and a few who gave three names in one night, and I've found that a full plate keeps most of them honest while they're under mine." } },
       choices = {
         { text = "Then I'll be honest under your roof, at least.", next = "BACK", reply = "Thank you, and that is all I ask of anyone, whatever names they give at the door.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Three names is careful, not shady. Desolace is a hard road.", next = "BACK", reply = "Perhaps it is, and I will not argue, but I will still remember all three.", fx = { align = { order = -1 } } },
+        { text = "Three names is careful, not shady. Desolace is a hard road.", next = "BACK", reply = "I will not argue with you, but I will still remember all three, and I will know which one is true by spring.", fx = { align = { order = -1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -1063,7 +1063,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Most come back thinner and quieter, and some don't come back at all. The soldiers lose friends to the Kolkar and the Magram, and Brother Anton tells them the Light is with them, though I've noticed he never sits by the fire long enough to hear what they say back." } },
       choices = {
         { text = "I'll sit by the fire with them, then, and listen.", next = "BACK", reply = "Thank you, and they will be glad of it, because the Brother's words do not reach them anymore.", fx = { align = { light = 1 } } },
-        { text = "Soldiers need orders and steel, not someone to talk to.", next = "BACK", reply = "Perhaps they do, but they also need someone to listen when the steel and the orders are not enough.", fx = { align = { light = -1 } } },
+        { text = "Soldiers need orders and steel, not someone to talk to.", next = "BACK", reply = "They need those, yes. But I have had a soldier cry into his stew at this table, and no order on earth was going to help him.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1072,7 +1072,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Vahlarriel, the night elf who hunts the Burning Blade, came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and the same cult took a woman named Dalinda Malem. A warlock walking in here reminds them of all that, however polite you are about it." } },
       choices = {
         { text = "I'll keep my demon out of sight, for their sake.", next = "BACK", reply = "Thank you, and they will sleep easier for it, as will I.", fx = { align = { order = 1 } } },
-        { text = "They'll have to get used to me. I've earned my place.", next = "BACK", reply = "Perhaps you have, and perhaps they will, but it will take more time than you would like.", fx = { align = { order = -1 } } },
+        { text = "They'll have to get used to me. I've earned my place.", next = "BACK", reply = "Perhaps you have. Give them a season, and keep your temper while they stare.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1173,8 +1173,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd take anyone who fights. The cultists in Thunder Axe Fortress call on demons, and if your Light burns them, then I don't care whose corpse it lives in." } },
       choices = {
-        { text = "I'll face them openly and burn them with the Light.", next = "BACK", reply = "Good. Let them see it coming and know it's the end, and I'll watch from the ridge.", fx = { align = { honor = 1 } } },
-        { text = "I'll take them from behind before they summon anything.", next = "BACK", reply = "Good. A cultist who never gets to summon is the best kind of dead cultist.", fx = { align = { honor = -1 } } },
+        { text = "I'll face them openly and burn them with the Light.", next = "BACK", reply = "Let them see it coming and know it's the end. I'll be watching from the ridge with a drink in my hand.", fx = { align = { honor = 1 } } },
+        { text = "I'll take them from behind before they can summon.", next = "BACK", reply = "A cultist who never gets to summon is the best kind of dead cultist. Cut the throat before the chant, not after.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1208,7 +1208,7 @@ P:NPC {
           text = "Razor Hill sends its grunts a long way these days. The Blade was in Durotar too, you'll remember, in the Skull Rock caves; this is the same rot, only older." },
       },
       choices = {
-        { text = "None of them will walk away.", next = "BACK", reply = "Good. Then the next one won't know you're coming, and that is how this war is won.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "None of them will walk away.", next = "BACK", reply = "Then the next one won't know you're coming, and that is how this war is won.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
         { text = "I'll leave one alive, to follow home.", next = "BACK", reply = "Clever. Let it run home, and then you'll know where home is, and so will I.", fx = { align = { honor = -1 }, affinity = 1 } },
       },
     },
@@ -1224,7 +1224,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Quietly, from the inside, until they no longer trust their own brothers. Their cultists in Thunder Axe sleep beside the demons they serve, and a cultist who wakes up next to a dead brother starts wondering which of them sold the other." } },
       choices = {
-        { text = "I'll make them doubt each other. That's how cults fall.", next = "BACK", reply = "Good. A cult that doubts itself is a cult that eats itself, and that is a death they deserve.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll make them doubt each other. That's how cults fall.", next = "BACK", reply = "A cult that doubts itself eats itself, and they deserve that death more than any blade I could give them.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll kill them face to face. Even cultists deserve that.", next = "BACK", reply = "Honourable, and I respect it, but they will not give you the same, so watch your back.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1234,7 +1234,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "They fear what they remember, and orcs once filled the sky with fel fire before Thrall freed us of it. Burn the satyrs of Sargeron with clean flame and let the tauren see the difference with their own eyes, because that will do more than any talking." } },
       choices = {
         { text = "My magic answers to me alone. Let them think what they like.", next = "BACK", reply = "Then they will think what they like, and they will fear you for it, so do not be surprised.", fx = { align = { order = -1 } } },
-        { text = "I'll fight where the tauren can see me. Trust is earned.", next = "BACK", reply = "Good. That is how the tauren will learn the difference, and that is how the Horde stays whole.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight where the tauren can see me. Trust is earned.", next = "BACK", reply = "Let them watch you, then. The tauren of Ghost Walker Post have seen enough orcs with demons at their heels, and they need to see the other kind.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -1341,7 +1341,7 @@ P:NPC {
       },
       choices = {
         { text = "You sound like you've seen it happen.", next = "BACK", fx = { trait = { curious = 1 } } },
-        { text = "Then I'll guard my spirit.", next = "BACK", reply = "Good. Guard it well, because the pain will come, and so will the offer.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then I'll guard my spirit.", next = "BACK", reply = "Guard it well. The pain will come, and the offer right behind it, and they always come together.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Power is power, whoever offers it.", next = "BACK", reply = "That is what the Blade said, and that is how the Blade began, so think on it.", fx = { align = { light = -1 } } },
       },
     },
@@ -1383,7 +1383,7 @@ P:NPC {
         { id = "ch_default", text = "It would serve the Warchief better if I went, and my blade itches for it. But I hold this post, and I would disgrace my clan if I left it to chase glory for my own honor, so I'll trust you to gather a party in my place." },
       },
       choices = {
-        { text = "I'll do it.", next = "BACK", reply = "Good. Bring it back to me, and I will see the Warchief hears your name.", fx = { affinity = 3, align = { honor = 1 } } },
+        { text = "I'll do it.", next = "BACK", reply = "Bring it back to me, and I will see the Warchief hears your name.", fx = { affinity = 3, align = { honor = 1 } } },
         { text = "I'd have taken the glory over a post, and gone myself.", next = "BACK", reply = "Then you have never held a post, and you have never seen what happens when it is left empty.", fx = { align = { honor = -1 } } },
       },
     },
@@ -1408,7 +1408,7 @@ P:NPC {
         { id = "om_default", text = "From across a battlefield, I can't tell your fire from theirs, and neither can the Alliance. Keep your magic clean and your loyalty plain, and we'll have no quarrel." },
       },
       choices = {
-        { text = "Understood.", next = "BACK", reply = "Good. Then we'll have no quarrel.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Understood.", next = "BACK", reply = "Understood is all I need. We'll have no quarrel.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My magic's my own business, and I'll use it how I like.", next = "BACK", reply = "Then you'll find the Horde watches you closely, and I'll be watching closest of all.", fx = { align = { order = -1 } } },
       },
     },
@@ -1471,7 +1471,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Some do, if they stay long enough to stop listening for centaur hooves. I fought the Kolkar when I first came to Desolace, and now I fish, and I'm not sure which of the two takes more patience." } },
       choices = {
-        { text = "Patience is a warrior's strength too. I'll sit awhile.", next = "BACK", reply = "Then sit, and fish with me, and we will see whose patience is greater.", fx = { align = { light = 1 } } },
+        { text = "Patience is a warrior's strength too. I'll sit awhile.", next = "BACK", reply = "Sit, then, and fish with me. We will see whose patience is greater, though I warn you, the fish have been winning.", fx = { align = { light = 1 } } },
         { text = "A warrior who sits too long goes soft.", next = "BACK", reply = "Perhaps, but I have sat a long while, and I can still swing an axe when the centaur come.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1511,7 +1511,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "The water off Shadowprey is clean and cold and full of fish that have learned to be patient, and I've learned to be more patient than they are. You might try your fire on the centaurs if you need to burn something, because the sea has done nothing to deserve it." } },
       choices = {
-        { text = "Patience is its own magic. I'll sit with you a while.", next = "BACK", reply = "Then sit, and I will show you how the fish learn patience, and how I learned it from them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Patience is its own magic. I'll sit with you a while.", next = "BACK", reply = "Sit, and I will show you how the fish learn patience, and how I learned it from them over a great many empty lines.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A frost bolt into the shallows would fill your net faster.", next = "BACK", reply = "It would, but the fish would never trust me again, and then where would I be?", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },

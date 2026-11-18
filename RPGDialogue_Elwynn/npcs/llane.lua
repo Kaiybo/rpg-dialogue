@@ -39,7 +39,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "He could learn everything, if he's paying attention, because a bear never fights with half its weight and never stops until the fight's done. I tell the recruits to fight like that, and then they go out and fight like scarecrows." } },
       choices = {
-        { text = "A bear lets a beaten foe go, too. Teach them that.", next = "BACK", reply = "That's fair, and I'll add it to the lesson, though the recruits won't believe a druid said it. Mercy's a lesson too.", fx = { align = { honor = 1 } } },
+        { text = "A bear lets a beaten foe go, too. Teach them that.", next = "BACK", reply = "That's fair, and I'll add it to the lesson, though the recruits won't believe a druid said it. I'll tell them it was my idea.", fx = { align = { honor = 1 } } },
         { text = "A bear finishes what it starts. Teach them that instead.", next = "BACK", reply = "That's what I've been telling them, and they still fight like scarecrows. Maybe they'll listen to you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -95,7 +95,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in my hall. You've a priest's heart and a warrior's arms, so let's see if you've a warrior's legs." },
-        { id = "h_default", text = "Warriors are made, not born. Mostly by getting knocked down and standing back up." },
+        { id = "h_default", text = "Warriors are made, not born, and mostly they're made by getting knocked down and standing back up." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Simple Letter"), days = 1 } },
           text = "So you read the letter and found your way to me. Good; now let's see if you can stand." },
         { id = "h_warrior_blooded", when = { class = "WARRIOR", band = "Blooded" },
@@ -156,7 +156,7 @@ P:NPC {
       lines = {
         { id = "am_default", text = "Then you were fighting the wrong thing, or fighting it wrong. Walk away, find out which, and come back, because pride makes a poor shield." },
       },
-      choices = { { text = "Walk away. Noted.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } } },
+      choices = { { text = "Walk away and come back smarter. I'll remember that.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } } },
     },
     stance = {
       lines = {
@@ -210,7 +210,7 @@ P:NPC {
     },
     gnome = {
       lines = { { id = "gnome_l", text = "Learn it? I've changed it for you. Lower, wider and angry, because a kobold your size is a fair fight, and you'll get in under anything bigger." } },
-      choices = { { text = "Lower, wider, angry. Got it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
+      choices = { { text = "Lower, wider and angry. I can manage angry.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
     trainers = {
       lines = { { id = "trainers_l", text = "Priestess Anetta mends what I break, Khelden Bremen keeps his mages out of my yard, and Jorik Kerridan behind the stables thinks I can't hear him laughing at my drills. I can, and I'm keeping count." } },

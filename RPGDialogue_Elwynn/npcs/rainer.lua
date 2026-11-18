@@ -33,7 +33,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "There are murlocs and gnolls and too few men to face them, so I'll take any help, spirits included. You're welcome here." } },
       choices = {
         { text = "I'll hold the line with you, Deputy. Westbrook won't fall.", next = "BACK", reply = "That's the spirit, and I'll hold you to it when the gnolls come up out of the river. We could use a few more like you.", fx = { align = { order = 1 } } },
-        { text = "Ask for more men. One shaman won't save you.", next = "BACK", reply = "I've asked, and I've asked again, and the letters come back thanking me for my patience. One shaman's better than none.", fx = { align = { order = -1 } } },
+        { text = "Ask for more men. One shaman won't save you.", next = "BACK", reply = "I've asked, and I've asked again, and the letters come back thanking me for my patience, so I'll take one shaman and be glad of it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -62,7 +62,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "South of the garrison, at the shallows, and their tracks lead toward Hogger's camp every time. That {pet} will have their scent in no time, because gnolls smell worse than they look." },
       },
       choices = {
-        { text = "I'll follow them and bring you a true count.", next = "BACK", reply = "That's just what I need, and I'll write it up and send it to Dughan. A real count, at last.", fx = { align = { order = 1 } } },
+        { text = "I'll follow them and bring you a true count.", next = "BACK", reply = "That's just what I need, and I'll write it up for Dughan, so for once he'll have a real count.", fx = { align = { order = 1 } } },
         { text = "I'll follow them and kill what I find.", next = "BACK", reply = "Kill what you can, but bring me a count all the same. I need numbers more than bodies.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

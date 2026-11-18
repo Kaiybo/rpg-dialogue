@@ -266,7 +266,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Bother me? It's trying to kill me, friend, row by row, and the well's at the far end of the field. If you could call up something that fetches water, I'd not ask what it was, only whether it spills." } },
       choices = {
         { text = "I'd sooner carry the water myself, Gerard.", next = "BACK", reply = "Suit yourself, friend, and I'll be glad of the company on the walk. The pails don't get any lighter.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My imp could fetch it, if you don't mind the smell.", next = "BACK", reply = "I've smelled worse in the bottom rows, if I'm honest. I'll think on it, and I'll not tell Pa.", fx = { align = { light = -1 } } },
+        { text = "My imp could fetch it, if you don't mind the smell.", next = "BACK", reply = "I've smelled worse in the bottom rows after a boar's been through. I'll think on it, and I'll not tell Pa.", fx = { align = { light = -1 } } },
         { text = "Something else, Gerard.", next = "BACK" },
       },
     },

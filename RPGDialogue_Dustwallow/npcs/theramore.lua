@@ -111,7 +111,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Less than people do, to my mind, but the raptors have taken more than one courier on the road to Sentry Point. I'd rather we learned the marsh's ways than burned it back, though not everyone in Theramore agrees with me. And this must be {pet}." },
       },
       choices = {
-        { text = "Learn the marsh's ways. Burning it would only make enemies.", next = "BACK", reply = "I think so too, and I'm glad someone else does. The marsh was here long before Theramore, and it'll be here long after.", fx = { align = { light = 1 } } },
+        { text = "Learn the marsh's ways. Burning it would only make enemies.", next = "BACK", reply = "I think so too. The one patch we burned has given us more trouble than every raptor on the road.", fx = { align = { light = 1 } } },
         { text = "The road needs clearing, my lady. Burn the raptor nests back.", next = "BACK", reply = "Some of my officers say the same, and I understand why. But burning the marsh would make enemies of more than raptors, so let's start with the road.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -221,7 +221,7 @@ P:NPC {
       },
       choices = {
         { text = "I agree.", next = "BACK", reply = "Then you understand why I fight so hard for it. Thank you, truly.", fx = { affinity = 2, align = { honor = 1 }, standing = { theramore = 1 }, opinion = { peace = "for" } } },
-        { text = "I'd break that treaty the day it stopped serving us.", next = "BACK", reply = "Then I hope it never stops serving us, for both our sakes. A treaty broken that easily was never worth much to begin with.", fx = { affinity = -2, align = { honor = -1 } } },
+        { text = "I'd break that treaty the day it stopped serving us.", next = "BACK", reply = "Then I hope it never stops serving us, for both our sakes. I've spent too many nights at that table to see it torn up over one bad season.", fx = { affinity = -2, align = { honor = -1 } } },
         { text = "I'm not sure they'd do the same.", next = "doubt" },
       },
     },
@@ -819,7 +819,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tortoises, if you'll believe it, great mudrock tortoises that climb out of the shallows at night and eat my herbs down to the stems. I've warded half the beds against them, and the creatures simply walk around the wards, which I take personally. {pet} looks a sight more sensible than the tortoises, though I'd still ask you to keep it on the path." },
       },
       choices = {
-        { text = "Leave the tortoises be. The island can share its garden.", next = "BACK", reply = "Share, he says, as though the tortoises have ever shared anything. Still, perhaps you're right, and I'll leave a bed unwarded for them.", fx = { align = { light = 1 } } },
+        { text = "Leave the tortoises be. The island can share its garden.", next = "BACK", reply = "Share, {g:he|she} says, as though the tortoises have ever shared anything. Still, perhaps you're right, and I'll leave a bed unwarded for them.", fx = { align = { light = 1 } } },
         { text = "I'll clear them out for you. Your herbs matter more.", next = "BACK", reply = "Thank you, my herbs and I would be grateful. Gently, though, they're only tortoises, however rude.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -836,7 +836,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I fear for them everywhere, because half of what I carried out of Dalaran's libraries is the only copy left in the world. Some of it would fetch a fortune in Booty Bay, and the rest would burn a careless reader's hand off, so it stays locked away." } },
       choices = {
-        { text = "I'd never steal them. Some things matter more than gold.", next = "BACK", reply = "I'm glad to hear it, and I'll believe you, mostly. Some things truly are worth more than gold.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd never steal them. Some things matter more than gold.", next = "BACK", reply = "I'm glad to hear it, and I'll believe you, mostly. I'll still count them after you've gone.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If they're that valuable, someone will try. Lock them tighter.", next = "BACK", reply = "They are, and I have, and I'll lock them tighter still now you've said it. Thank you, I think.", fx = { align = { honor = -1 } } },
         { text = "Something else, Archmage.", next = "BACK" },
       },
@@ -1047,7 +1047,7 @@ P:NPC {
       choices = {
         { text = "They've kept the peace so far. Judge them by that.", next = "op_horde_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { horde = "tolerate" } } },
         { text = "They're killers, all of them. The peace is a lie.", next = "op_horde_r2", fx = { affinity = -1, align = { order = -1 }, opinion = { horde = "war" } } },
-        { text = "Some of them are honest. Some aren't. Same as us.", next = "op_horde_r3", fx = { trait = { honest = 1 }, opinion = { horde = "mixed" } } },
+        { text = "Some of them are honest and some aren't, same as us.", next = "op_horde_r3", fx = { trait = { honest = 1 }, opinion = { horde = "mixed" } } },
         { text = "I'm Horde, Captain. We didn't burn that inn.", next = "op_horde_r4", fx = { opinion = { horde = "kin" } }, when = { faction = "Horde" } },
         { text = "I'd rather keep my thoughts to myself, Captain.", next = "BACK" },
       },
@@ -1088,7 +1088,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_vimes_default", text = "Companies are useful, and I've borrowed a few in my time for work the garrison couldn't spare men for. The trouble is the ones who answer to nobody, because the deserters out past the Shady Rest started as a company too, before they decided Theramore's peace wasn't theirs to keep." } },
       choices = {
-        { text = "A company working here should answer to Theramore, Captain.", next = "BACK", reply = "That's how I'd want it, and how the Lady would too. A company that answers to Theramore is welcome here.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A company working here should answer to Theramore, Captain.", next = "BACK", reply = "That's how I'd want it, and how the Lady would too. Sign the roll at the gate, and you'll have no trouble from my men.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "We answer to each other, Captain, and to no one else.", next = "BACK", reply = "That's what the deserters said, before they burned bridges. Watch yourselves, then, and don't make me come looking.", fx = { align = { order = -1 } } },
         { text = "What became of those deserters, Captain?", next = "xpt_vimes2" },
         { text = "I'll ask about something else.", next = "BACK" },
@@ -1595,7 +1595,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Every night, because soldiers talk when they're tired and sailors talk when they're drunk, and mages talk to themselves. I keep all of it in the kitchen and none of it in my mouth, so they keep coming back to tell me more." } },
       choices = {
         { text = "A good innkeeper keeps her guests' secrets. I'd do the same.", next = "BACK", reply = "That's the secret to the trade, love. A closed mouth keeps the ale flowing.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Secrets are worth something. You could sell them.", next = "BACK", reply = "I could, and I'd lose every guest I have in a week. Secrets are worth more kept than sold.", fx = { align = { honor = -1 } } },
+        { text = "Secrets are worth something. You could sell them.", next = "BACK", reply = "I could, and I'd lose every guest I have in a week. Besides, most of what I hear is who's sweet on whom, and nobody pays for that.", fx = { align = { honor = -1 } } },
         { text = "Something else, Janene.", next = "BACK" },
       },
     },
@@ -1665,7 +1665,7 @@ P:NPC {
       },
     },
     talk = {
-      lines = { { id = "t_default", text = "The burned inn on the north road, mostly. Half the room says orcs, the other half says it's too easy to say orcs. Captain Vimes drinks in the corner and says nothing." } },
+      lines = { { id = "t_default", text = "The burned inn on the north road, mostly. Some say orcs, and some say that's exactly what somebody wants us to say. Captain Vimes drinks in the corner and says nothing." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     food = {

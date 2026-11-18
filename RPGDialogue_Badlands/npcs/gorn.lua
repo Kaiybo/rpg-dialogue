@@ -74,7 +74,7 @@ P:NPC {
           text = "You know the way, because you walked it. The ravine is still full of drakes, but the two that mattered are gone." },
       },
       choices = {
-        { text = "Waking them seems a great risk.", next = "drakes_risk" },
+        { text = "Wake two black drakes on purpose? That sounds like madness.", next = "drakes_risk" },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -121,11 +121,11 @@ P:NPC {
       lines = {
         { id = "ot_default", text = "I trusted their greed, which is usually safer than trusting their word, and I was wrong about that too. Kill Tho'grun and the rest of them will scatter, because ogres follow strength and nothing else." },
         { id = "ot_done", when = { questDone = TODO_QUEST("Broken Alliances") },
-          text = "Tho'grun is dead and his corpse picked clean by the desert winds, and the ogres at Camp Boff are in disarray. Small victory, but it led to a large one." },
+          text = "Tho'grun is dead and his corpse picked clean by the desert winds, and the ogres at Camp Boff are in disarray. It was a small victory, but it opened the road to a larger one." },
       },
       choices = {
-        { text = "Ogres for hire were a fair gamble. It just went bad.", next = "BACK", reply = "Fitting, yes, and bitter as ash in my mouth. The old Horde would laugh at me, if any of them were still alive to laugh.", fx = { align = { order = -1 } } },
-        { text = "Next time, send orc soldiers. Discipline wins.", next = "BACK", reply = "You speak true, and I was a fool to think otherwise. Next time, orcs only, and orcs who know what the drakes did.", fx = { align = { order = 1 } } },
+        { text = "Ogres for hire were a fair gamble. It just went bad.", next = "BACK", reply = "A gamble, and it cost good soldiers their lives. The old Horde would laugh at me, if any of them were still alive to laugh.", fx = { align = { order = -1 } } },
+        { text = "Next time, send orc soldiers. Discipline wins.", next = "BACK", reply = "You'll get no argument from me. Next time I send orcs, and orcs who remember what those drakes did.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -163,7 +163,7 @@ P:NPC {
         { id = "xc_default", text = "Because I've watched warlocks break better chains than these, and the Blackrock have warlocks. A dead drake stays dead, so I'll risk waking them now over someone else freeing them later." },
       },
       choices = {
-        { text = "Killing is surer than any binding.", next = "BACK", reply = "It is, and every orc who served the dragons knows it. A chain can be broken, but a corpse stays where you leave it.", fx = { align = { light = -1 } } },
+        { text = "Killing is surer than any binding.", next = "BACK", reply = "It is, and every orc who served the dragons knows it. I'll sleep easier once I've seen their carcasses with my own eyes.", fx = { align = { light = -1 } } },
         { text = "A prisoner could be redeemed. A corpse can't.", next = "BACK", reply = "Redeemed? Those beasts burned villages for sport. I'll not wait to see if they've grown a conscience.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

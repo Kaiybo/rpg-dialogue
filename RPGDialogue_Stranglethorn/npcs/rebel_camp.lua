@@ -253,7 +253,7 @@ P:NPC {
       },
       choices = {
         { text = "Trust your men until there's proof.", next = "BACK", reply = "That's what I'd like to do, and maybe I needed to hear someone say it. I'll hold my tongue until there's proof, but I'll keep my eyes open.", fx = { align = { honor = 2 }, affinity = 1 } },
-        { text = "Then watch them. All of them.", next = "BACK", reply = "I am watching them, and I hate every moment of it. A camp where everyone watches everyone is halfway to the Colonel's camp already.", fx = { align = { honor = -2 }, trait = { cautious = 1 } } },
+        { text = "Then watch them, all of them.", next = "BACK", reply = "I am watching them, and I hate every moment of it. A camp where everyone watches everyone is halfway to the Colonel's camp already.", fx = { align = { honor = -2 }, trait = { cautious = 1 } } },
       },
     },
     informant_after = {
@@ -504,7 +504,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "I've wondered, though I'd sooner blame the trolls' witch doctors. If the land here is sick, you'd feel it before I could find it under a lens, and I'd welcome your help with the men it has touched." } },
       choices = {
         { text = "I'll help you study it, Brother. Patience will cure them.", next = "BACK", reply = "That's kind of you, and I'll take the help gladly. Patience may cure them, or at least keep me sane while I try.", fx = { align = { light = 1 } } },
-        { text = "Some minds can't be saved. Spare your glassware.", next = "BACK", reply = "You may be right, but I'll not stop trying until I'm certain. A healer who gives up is no healer at all.", fx = { align = { light = -1 } } },
+        { text = "Some minds can't be saved. Spare your glassware.", next = "BACK", reply = "You may be right, but I'll not stop trying until I'm certain. One of them called me by name this morning, and that's reason enough to keep at it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -865,7 +865,7 @@ P:NPC {
       lines = { { id = "id_default", text = "I poured it down my shirt, mostly, and I do mean mostly. Brother Nimetz checks my eyes every morning and says they're fine, and I check them again after." } },
       choices = {
         { text = "You did well.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Tell Nimetz everything. Even the 'mostly'.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
+        { text = "Tell Nimetz everything, even the 'mostly'.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
       },
     },
     inside_nerve = {

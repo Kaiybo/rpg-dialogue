@@ -91,7 +91,7 @@ P:NPC {
       },
       choices = {
         { text = "Some old things are better left buried.", next = "BACK", reply = "Ye sound like my mother, an' she was wiser than the whole League. Still, we've dug this far, an' I'd no' stop now if the King himself asked.", fx = { align = { order = -1 } } },
-        { text = "A people should know where they came from.", next = "BACK", reply = "Aye, that's the League's whole heart in one breath. A dwarf who doesnae know his roots is just a beard wi' boots on.", fx = { affinity = 1, align = { order = 1 }, learn = { "explorers_league" } } },
+        { text = "A people should know where they came from.", next = "BACK", reply = "Aye, that's the League's whole heart in one breath. I've spent forty years in the dirt for that, an' I'd spend forty more.", fx = { affinity = 1, align = { order = 1 }, learn = { "explorers_league" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -1078,7 +1078,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "Any seeker can learn, if they are willing to listen more than they speak. The elements teach patience and balance, and I have known mages who would have done well to learn both before they learned fire." } },
       choices = {
         { text = "Then I'll learn patience first.", next = "BACK", reply = "Then you have already begun, and most never do. Listen to the wind for a season, and the fire will come when it is ready.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fire comes first. Patience can wait.", next = "BACK", reply = "Fire that comes before patience burns the hand that calls it, and I have seen it happen. The elements are slow to forgive the impatient.", fx = { align = { order = -1 } } },
+        { text = "Fire comes first, and patience can wait.", next = "BACK", reply = "Fire that comes before patience burns the hand that calls it, and I have seen it happen. The elements are slow to forgive the impatient.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },

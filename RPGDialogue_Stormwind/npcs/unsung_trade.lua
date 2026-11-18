@@ -68,7 +68,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I've never looked, and I never will, because a bank that looks inside its boxes is just a cupboard. The boxes are warm to the touch, mind, and one of them hums on rainy days." } },
       choices = {
-        { text = "Good. Some boxes are better left shut.", next = "BACK", reply = "Exactly so. A box opened is a box robbed, in a way.", fx = { align = { honor = 1 } } },
+        { text = "Good. Some boxes are better left shut.", next = "BACK", reply = "Exactly so. In all my years at this counter I've never once opened a box without its owner, and I don't mean to start.", fx = { align = { honor = 1 } } },
         { text = "I'd have peeked by now. Curiosity's half of magic.", next = "BACK", reply = "Then you'd make a very poor banker, I'm afraid. The boxes stay shut.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -107,7 +107,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Tried, yes, and failed every time, though I'll not tell you how. Nothing's ever been stolen from the Bank of Stormwind, and I'd like to keep saying that until I retire." } },
       choices = {
-        { text = "The law protects honest folk's savings. Good.", next = "BACK", reply = "It does, and so do we. Nothing's ever been stolen.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The law protects honest folk's savings. Good.", next = "BACK", reply = "The law and our vault both. Not a single copper has gone missing on my watch.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Any lock can be picked. You're trusting luck, Olivia.", next = "BACK", reply = "Perhaps, but they've tried, and failed. I'll trust the stonemasons.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -208,8 +208,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Everyone's fears, counted out in gold and silver. A shaman's deposit would be interesting, though I'd wager your spirits don't use coin." } },
       choices = {
-        { text = "A careful bank keeps a careful kingdom, Newton.", next = "BACK", reply = "It does, and I keep this one very carefully. Thank you.", fx = { align = { order = 1 } } },
-        { text = "Fear is a poor reason to hoard coin.", next = "BACK", reply = "Perhaps, but fear keeps my vault full. I'll not argue with it.", fx = { align = { order = -1 } } },
+        { text = "A careful bank keeps a careful kingdom, Newton.", next = "BACK", reply = "I keep this one very carefully, I assure you. Thank you.", fx = { align = { order = 1 } } },
+        { text = "Hoarding coin out of fear? That's no way to live, Newton.", next = "BACK", reply = "Perhaps, but fear keeps my vault full. I'll not argue with it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -237,7 +237,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Soldiers keep letters, nobles keep jewels, and the quietest customers keep nothing at all, which tells me most of all. I suspect at least one of the city's quieter offices rents a box here under a very dull name." } },
       choices = {
-        { text = "A banker's silence is a matter of honour.", next = "BACK", reply = "It is, and I've kept mine for forty years. Thank you.", fx = { align = { honor = 1 } } },
+        { text = "A banker's silence is a matter of honour.", next = "BACK", reply = "I've kept mine for forty years, and I don't intend to stop now. Thank you.", fx = { align = { honor = 1 } } },
         { text = "Secrets are worth something. I'd sell that one.", next = "BACK", reply = "Then you'd make a very poor banker. My silence is not for sale.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -255,7 +255,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Things they want to come back for, mostly, and that tells you more about them than any medal. One old soldier kept a child's drawing of a horse in his box for twenty years, and never once let me see it." } },
       choices = {
-        { text = "Everyone needs something to come home to.", next = "BACK", reply = "They do, and the drawing of the horse is still in its box. I hope he comes back.", fx = { align = { light = 1 } } },
+        { text = "Keep it for him. Everyone needs something waiting at home.", next = "BACK", reply = "They do, and the drawing of the horse is still in its box. I hope he comes back.", fx = { align = { light = 1 } } },
         { text = "I keep nothing. Attachments slow you down.", next = "BACK", reply = "Then you'll have nothing to come back for. A sad thought.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -268,7 +268,7 @@ P:NPC {
       },
       choices = {
         { text = "A trophy honours the hunt, not my pride.", next = "BACK", reply = "A fine sentiment. The murloc's owner might disagree.", fx = { align = { honor = 1 } } },
-        { text = "A trophy shows everyone what I can do.", next = "BACK", reply = "It does, and very loudly. The murloc's in the back.", fx = { align = { honor = -1 } } },
+        { text = "A trophy shows everyone what I can do.", next = "BACK", reply = "Very loudly, yes. The murloc's in the back, and it smells like it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -336,7 +336,7 @@ P:NPC {
     boxes2 = {
       lines = { { id = "b2_default", text = "Every day, but a banker who asks questions soon has no customers. What a person keeps is their own business, so long as it doesn't start whispering at night." } },
       choices = {
-        { text = "Quite right, some things should stay private.", next = "BACK", reply = "It does, and it's kept me in business for decades.", fx = { align = { order = 1 }, trait = { discreet = 1 } } },
+        { text = "Quite right, some things should stay private.", next = "BACK", reply = "Quite right, and it's kept me in business for decades.", fx = { align = { order = 1 }, trait = { discreet = 1 } } },
         { text = "If it were dangerous, I'd want somebody to look.", next = "BACK", reply = "Then you'd be the first to look, and the first to regret it. The boxes stay shut.", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -457,7 +457,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Some of them, about the sick they've healed and the dead they've buried, and some just stand there quietly, which tells its own story. I listen either way, because I think everyone should have somebody at the door." } },
       choices = {
-        { text = "Sometimes an ear does more than a bandage, John.", next = "BACK", reply = "It does, sometimes. I'm glad to be the ear.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sometimes an ear does more than a bandage, John.", next = "BACK", reply = "Sometimes. I'm glad to be the ear, when it's needed.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some stories are better left untold, John.", next = "BACK", reply = "Some are, and I'll not ask for them. I'll just listen.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -567,7 +567,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It needs rules, mostly. Everyone bids in good faith, and the deposit keeps them so. Your spirits must have rules too." } },
       choices = {
-        { text = "Rules keep the market fair. I respect that.", next = "BACK", reply = "They do, and they keep the bidding honest. Splendid!", fx = { align = { order = 1 } } },
+        { text = "Rules keep the market fair. I respect that.", next = "BACK", reply = "Splendid! Rules keep the bidding honest, and honest bidding keeps it lively.", fx = { align = { order = 1 } } },
         { text = "Theatre sells better than rules.", next = "BACK", reply = "It does, my friend, and I give them both! Let the bidding begin!", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -644,7 +644,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Now and then, and the deposit helps, because a thief doesn't like to pay first. Fitch keeps the book, and between us we catch most of them." } },
       choices = {
-        { text = "The guard should hear of every theft you catch.", next = "BACK", reply = "They do, my friend. Fitch writes it all down.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The guard should hear of every theft you catch.", next = "BACK", reply = "They hear of every one, my friend. Fitch writes it all down in that little book of his.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If they've paid the deposit, it's their business.", next = "BACK", reply = "It's their business until they're caught. Then it's the guard's.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -695,7 +695,7 @@ P:NPC {
     deposit2 = {
       lines = { { id = "dp2_default", text = "Then the hall keeps the deposit and the goods come back to you by post. It stings, I know, but a sale that doesn't happen still costs us a clerk's afternoon." } },
       choices = {
-        { text = "That's fair. Rules keep the hall honest.", next = "BACK", reply = "It is, and it keeps the hall in business. Splendid.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "That's fair. Rules keep the hall honest.", next = "BACK", reply = "Splendid, and they keep the hall in business besides.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Sounds like the hall wins either way.", next = "BACK", reply = "It does, my friend, but so do you, eventually. Patience.", fx = { align = { order = -1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1063,7 +1063,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "List early, price fair, and don't argue with the market. Your spirits might argue, but the market wins." } },
       choices = {
-        { text = "Fair prices win in the long run. Good advice.", next = "BACK", reply = "It does, love. You'll do well here.", fx = { align = { honor = 1 } } },
+        { text = "Fair prices win in the long run. Good advice.", next = "BACK", reply = "Spoken like a proper trader, love. You'll do well here.", fx = { align = { honor = 1 } } },
         { text = "The market can be bent. I'll find a way.", next = "BACK", reply = "Some try, love, and the market bends them back. Good luck.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1131,7 +1131,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Now and then, dear, and usually to pay for something they can't ask the Cathedral for. I don't pry, but I make sure they get a fair price." } },
       choices = {
-        { text = "That's kind of you, Jaxon. Fairness is its own blessing.", next = "BACK", reply = "It is, love, and they deserve it. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's kind of you, Jaxon. Fairness is its own blessing.", next = "BACK", reply = "They deserve a fair price, love, after what they've been through. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If they're selling, they should haggle like anyone else.", next = "BACK", reply = "They do, love, and they're very bad at it. I'll keep it fair.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1156,7 +1156,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "Hello, dear. A mage at the auction always makes me a little nervous, because I'm never quite sure the gold you bid is really there." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your gear would fetch more than you think, I'd wager, and I'll tell you to the copper what it's worth." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll have a pack full of hides, I expect, and I'll tell you what each is worth before you've unbuckled the pack." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll have a pack full of hides, I expect, and I can price every one of them before you've unbuckled it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my podium! I don't see many of your people bid, dear, so I'll give you the same sensible advice I give everyone, and you'll ignore it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You'll want to sell your bags, I suppose, because your sort always end up with more bags than sense." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You should've listed your goods sooner. Prices are falling, and your spirits can't help that." },
@@ -1257,7 +1257,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I did, with the moon behind the tree and the owl on a branch, and I'm still rather proud of it. They thanked me with a little bow and then asked if the shield had to be square, which I'm afraid it did." } },
       choices = {
-        { text = "Rules are rules, Aldwin. A crest needs a proper shield.", next = "BACK", reply = "They are, and I'll draw it square. The moon will just have to fit.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules are rules, Aldwin. A crest needs a proper shield.", next = "BACK", reply = "Square it is, then. The moon will just have to squeeze in.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Why square? Let them have a round crest, like the moon.", next = "BACK", reply = "I'd love to, but the crown's registry insists. Square it is.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1267,7 +1267,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Twice this year, and they always want crests with no animals, no colours and nothing anyone could recognise. I design them anyway, and I sign them properly, because a charter's a charter whoever holds it." } },
       choices = {
         { text = "A charter should be honest about who signs it.", next = "BACK", reply = "It should, and I sign every one of them myself. That's my honesty.", fx = { align = { order = 1 } } },
-        { text = "A crest nobody recognises is a sensible crest.", next = "BACK", reply = "It is, and I'll design it with pleasure. Nobody will know.", fx = { align = { order = -1 } } },
+        { text = "A crest nobody recognises is a sensible crest.", next = "BACK", reply = "Sensible indeed, and I'll design it with pleasure. Nobody will have the faintest idea.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1306,7 +1306,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Charitable ones, mostly, for the orphans or the sick, and they always sign properly, which I appreciate. A charter is a promise, and priests understand promises." } },
       choices = {
         { text = "A promise made in faith should never be broken.", next = "BACK", reply = "It shouldn't, and I'll draw it with care. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A promise is only paper, Aldwin, until someone keeps it.", next = "BACK", reply = "It is, until someone keeps it. That's why I make them sign.", fx = { align = { light = -1 } } },
+        { text = "A promise is only paper, Aldwin, until someone keeps it.", next = "BACK", reply = "Exactly so. That's why I make them sign, in ink, in front of me.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1365,7 +1365,7 @@ P:NPC {
     found2 = {
       lines = { { id = "f2_default", text = "Because a guild of one is only a person with a fancy name. A charter is a promise that you'll stand by each other, and the crown likes to know that a promise has witnesses." } },
       choices = {
-        { text = "A guild should answer to the crown.", next = "BACK", reply = "It should, and the crown agrees. Sign here.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A guild should answer to the crown.", next = "BACK", reply = "The crown agrees with you entirely. Sign here, please.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "A guild answers to its members, not the crown.", next = "BACK", reply = "To its members first, perhaps, but the crown keeps the registry. Sign anyway.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1435,7 +1435,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because one day you will be seen, and on that day you will need reach as well as surprise. The SI:7 agents who train with me learn the sword first and the dagger last, and the ones who complain the loudest live the longest." } },
       choices = {
-        { text = "Then I'll learn to fight in the open as well.", next = "BACK", reply = "Good. The sword first, then the shadows.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll learn to fight in the open as well.", next = "BACK", reply = "Good. Learn to stand in the open and trade blows, and the shadows will be a choice and not a hiding place.", fx = { align = { honor = 1 } } },
         { text = "Better never to be seen at all, Woo Ping.", next = "BACK", reply = "Better, yes, and impossible. One day you will be seen.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1453,7 +1453,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The one you can hold longest without tiring, because the fight does not end when your arm does. Most young warriors want the greatest sword, but the best warriors I've taught started with the staff and learned to move." } },
       choices = {
-        { text = "I'll start with the basics and learn properly.", next = "BACK", reply = "Good. The basics are the whole of it.", fx = { align = { order = 1 } } },
+        { text = "I'll start with the basics and learn properly.", next = "BACK", reply = "Good. Footwork, grip and breath, in that order; most young warriors who die in the Deadmines skipped one of those.", fx = { align = { order = 1 } } },
         { text = "I want the greatest sword. I'll learn as I go.", next = "BACK", reply = "Then you will learn on the floor. I will help you up.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1475,7 +1475,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "A priest should learn to protect, which is not the same thing as fighting. Stand well and hold your weapon gently, and you will find that most battles end before they begin." } },
       choices = {
         { text = "I'll learn to protect, and fight only when I must.", next = "BACK", reply = "That is the wisest answer. Come back at dawn.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If I must fight, I'll fight to win.", next = "BACK", reply = "Then fight well, but stand well first.", fx = { align = { light = -1 } } },
+        { text = "If I must fight, I'll fight to win.", next = "BACK", reply = "Then fight to win, but plant your feet first. I've seen more priests go down to a slipping boot than to a sword.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1611,7 +1611,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Not twice, because I keep a ledger, a cudgel and a cousin in the Watch, in that order. The ledger is usually enough, because nobody wants their name written down in a weapons shop." } },
       choices = {
-        { text = "A ledger and the Watch are what keep a city honest.", next = "BACK", reply = "They are, and mine keep this shop honest too.", fx = { align = { order = 1 } } },
+        { text = "A ledger and the Watch are what keep a city honest.", next = "BACK", reply = "Mine keep this shop honest, too, to the last copper.", fx = { align = { order = 1 } } },
         { text = "Ledgers only catch the careless ones, Marda.", next = "BACK", reply = "Then the careless ones are my best customers. The rest get the cudgel.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1627,7 +1627,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "He talks about nothing else, and I love him for it, but somebody has to sell the blades or we'd have no roof. Still, he's right, and I've never once sold a sword that came back because it was badly made." } },
+      lines = { { id = "xwarcl_default", text = "He talks about nothing else, and I love him for it, but somebody has to sell the blades or we'd have no roof. Still, he's right: not one sword we've sold has come back because it was badly made." } },
       choices = {
         { text = "A craftsman who cares is worth listening to.", next = "BACK", reply = "He is, and I'll tell him you said so. He'll be insufferable for a week.", fx = { align = { order = 1 } } },
         { text = "Just tell me the price. I don't need a lecture.", next = "BACK", reply = "Fair enough. Twelve silver, and I'll spare you the lecture.", fx = { align = { order = -1 } } },
@@ -1641,7 +1641,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hand axes and short swords, light enough to swing while you're backing away, which is how most hunters fight up close. Your {pet} is very well behaved, thank you. The last one knocked over a rack of daggers, and Gunther hasn't stopped talking about it." },
       },
       choices = {
-        { text = "Quality steel is worth the extra coin.", next = "BACK", reply = "It is, and Gunther will love you for it.", fx = { align = { order = 1 } } },
+        { text = "Quality steel is worth the extra coin.", next = "BACK", reply = "Gunther will love you for saying it. He'll probably want to shake your hand.", fx = { align = { order = 1 } } },
         { text = "The cheapest axe will do. It's for emergencies.", next = "BACK", reply = "Then you'll be buying another in a week. Suit yourself.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1678,7 +1678,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! We've axes and short swords for the close work, and Woo Ping teaches the polearm if you've a mind to learn." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Weller's. You'll want a staff or a mace, and you'll pay at my counter, because Gunther will give you a speech about balance and forget the price." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Dagger or staff, and I'll write it in the ledger, and you can keep your companion out of Gunther's way." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Gunther's busy judging grips. Need anything, or just here to talk to the spirits?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Gunther's busy judging grips, so do you need anything, or are you only here to talk to the spirits?" },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I've a customer waiting at the other counter." },
@@ -1762,7 +1762,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "All of them, but especially the volatile ones. Your spirits might enjoy them too, though I'd keep them away from the fire." } },
       choices = {
-        { text = "Knowledge shared is knowledge doubled, Keldric.", next = "BACK", reply = "It is, and I'll teach you the volatile ones. Carefully.", fx = { align = { order = 1 } } },
+        { text = "Knowledge shared is knowledge doubled, Keldric.", next = "BACK", reply = "Then I'll teach you the volatile ones, carefully, and from behind a screen.", fx = { align = { order = 1 } } },
         { text = "Keep your powders. I don't need them.", next = "BACK", reply = "Suit yourself, but they're very interesting powders.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1822,7 +1822,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll keep a salve for my pet in my pack.", next = "BACK", reply = "Good. Your pet will be grateful.", fx = { align = { light = 1 } } },
-        { text = "My pet heals on its own. It's tough.", next = "BACK", reply = "It is, until it isn't. Keep a salve anyway.", fx = { align = { light = -1 } } },
+        { text = "My pet heals on its own. It's tough.", next = "BACK", reply = "Tough right up until it isn't. Keep a salve in your pack anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1900,7 +1900,7 @@ P:NPC {
     stock2 = {
       lines = { { id = "s2_default", text = "I could, and I'd sell cheaper glass that cracks in an alchemist's hand. Morgan won't have it in the shop, and frankly, neither will I." } },
       choices = {
-        { text = "Quality is worth paying for.", next = "BACK", reply = "It is, and Morgan agrees. Thank you.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I'd rather pay more once than buy the same thing twice.", next = "BACK", reply = "Morgan says the same, and he's never wrong about that. Thank you.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Most buyers would never know the difference.", next = "BACK", reply = "They'd know when it cracked. I'll keep it good.", fx = { align = { honor = -1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1941,7 +1941,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Ankhs, mostly, for when the spirits bring them back, and a few reagents. I've learned what every sort needs by watching what they buy." } },
       choices = {
-        { text = "You know your customers well, Kyra. That's good business.", next = "BACK", reply = "Thank you. Watching is half the business.", fx = { align = { order = 1 } } },
+        { text = "You know your customers well, Kyra. That's good business.", next = "BACK", reply = "Thank you. I can tell a mage from a warlock by how they look at the black lotus jar.", fx = { align = { order = 1 } } },
         { text = "I'll find what I need myself.", next = "BACK", reply = "Suit yourself, but I'll know what you need before you ask.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1989,7 +1989,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Because you only need one when someone's died, and I've sold enough of them to know what that means. I wrap each one carefully, and I try not to think about where it's going." } },
       choices = {
-        { text = "Every one I use brings someone back. That's a blessing.", next = "BACK", reply = "It does, and I'll try to think of it that way. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Every one I use brings someone back. That's a blessing.", next = "BACK", reply = "I'll try to think of it that way, next time I'm stitching one. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Death is part of war, Kyra. You can't wrap it away.", next = "BACK", reply = "I can't, but I can wrap it carefully. That's all I can do.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -2177,7 +2177,7 @@ P:NPC {
       lines = { { id = "xl_default", text = "Then you'll be one of the plain-paper customers, and I'll wrap yours the same as the rest. I don't hold the cellar against anyone, but I'd be lying if I said I never wondered what you all do down there." } },
       choices = {
         { text = "We study what others fear. Someone has to.", next = "BACK", reply = "Someone does, I suppose. I'll keep wrapping in plain paper.", fx = { align = { light = -1 } } },
-        { text = "Some of it frightens me too. I'm careful.", next = "BACK", reply = "Good. That's the right way to be.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Some of it frightens me too. I'm careful.", next = "BACK", reply = "Good. The day it stops frightening you is the day you should put it down.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

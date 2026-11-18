@@ -95,7 +95,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I don't resent anyone who comes to me hurt, but I grieve a little for the road you've chosen, because I've seen where it ends for some. The Abbey keeps its doors open to you, and I'd like you to remember that." } },
       choices = {
-        { text = "I'll remember the Abbey's open door, Priestess.", next = "BACK", reply = "Thank you, and I mean that. The door won't close, whatever road you walk.", fx = { align = { light = 1 } } },
+        { text = "I'll remember the Abbey's open door, Priestess.", next = "BACK", reply = "Thank you, and I mean that. There'll be a cot in the infirmary for you, whatever road you walk.", fx = { align = { light = 1 } } },
         { text = "Keep your grief, Priestess. My road is my own.", next = "BACK", reply = "It is, and I'll not take it from you. But I'll keep grieving all the same, and the door stays open.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -542,7 +542,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Further than you'd like and closer than you'd admit, because we both stand between Stormwind and the people who'd ruin it. You do it in the open with a hammer, and I do it in the dark, with a letter nobody else has read." } },
       choices = {
         { text = "There's no honor in the dark. We're not the same.", next = "BACK", reply = "Not the same, no, and I'll not pretend we are. But you'll be glad of my letters one day, paladin.", fx = { align = { honor = 1 } } },
-        { text = "Then we're alike. The kingdom needs us both.", next = "BACK", reply = "We are, and I'll say so to anyone who'll listen. The kingdom's fortunate to have both.", fx = { align = { honor = -1 } } },
+        { text = "Then we're alike. The kingdom needs us both.", next = "BACK", reply = "We are, though I'll deny it if you say so at the Cathedral. You bring the hammer, and I'll bring the letters.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -752,7 +752,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because it can smell what I've called up and sent back, and it doesn't like the scent any more than the Brothers do. Your {pet} is pressed against your leg, which is wise, so stay near the gate if it makes you both easier." },
       },
       choices = {
-        { text = "If my beast mistrusts this place, so do I.", next = "BACK", reply = "Wise beast, wiser master. Keep it close and we'll get along well enough.", fx = { align = { light = 1 } } },
+        { text = "If my beast mistrusts this place, so do I.", next = "BACK", reply = "A wise beast, and a wiser master. Keep it close and we'll get along well enough.", fx = { align = { light = 1 } } },
         { text = "My beast will get used to it. So will I.", next = "BACK", reply = "It may, in time, and so will you, which is rather the point. The Brothers never did.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1273,7 +1273,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Of course they can, though it's harder, because your trade asks you to keep secrets, and the Light asks you to keep none. I've known rogues who walked closer to the Light than any priest, and I've known priests who walked further from it than any rogue." } },
       choices = {
         { text = "I'll try to walk closer to the Light, Priestess.", next = "BACK", reply = "That's all the Light asks of anyone, and it's more than most manage. Come and talk to me any evening.", fx = { align = { light = 1 } } },
-        { text = "My secrets are my own. The Light can mind its business.", next = "BACK", reply = "It might, if you let it, but I'll not press you. The door's open when you're ready.", fx = { align = { light = -1 } } },
+        { text = "My secrets are my own. The Light can mind its business.", next = "BACK", reply = "It might, if you let it, but I'll not press you. I'm up these stairs most evenings, whenever you're ready.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1382,7 +1382,7 @@ P:NPC {
         { id = "s_booty", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "You've been to Booty Bay, with the pirates? Oh, I'd have fainted. Tell me slowly, from the beginning." },
       },
       choices = {
-        { text = "Grey, mostly. And loud.", next = "BACK", fx = { affinity = 3 } },
+        { text = "Grey, mostly, and loud.", next = "BACK", fx = { affinity = 3 } },
         { text = "Green, near the shore. Like old glass.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },

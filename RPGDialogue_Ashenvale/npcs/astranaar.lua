@@ -1008,7 +1008,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Safe enough on the island, but the scouts come back fewer than they went out, and everyone here knows it. A paladin on the roads gives folk something to hope for, and hope's been thin here since the last patrol came back two short." } },
       choices = {
-        { text = "Then I'll be on the roads, keeping them safe.", next = "BACK", reply = "Then you'll do more good than you know. Hope travels faster than any rider.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll be on the roads, keeping them safe.", next = "BACK", reply = "Then you'll do more good than you know. Every carter who reaches the gate safe tells the whole market about it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Hope won't stop the Warsong. Steel will.", next = "BACK", reply = "It will, and so will hope, in its way. Don't scorn it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1177,7 +1177,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I hope so! I purify what's been corrupted, and your spirits might help with that, since we both want the forest healed." } },
       choices = {
-        { text = "Then let's heal it together, Delgren.", next = "BACK", reply = "Together, then, and the Light and your spirits will share the work. Good.", fx = { align = { light = 1 } } },
+        { text = "Then let's heal it together, Delgren.", next = "BACK", reply = "Together, then, with the Light and your spirits sharing the work. I'd like to see the Dark Strand's faces when we do.", fx = { align = { light = 1 } } },
         { text = "The Light should keep to its own work.", next = "BACK", reply = "The Light's work is healing, friend, wherever healing's needed. But I'll not argue with you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1195,7 +1195,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Someone to hold the tower stairs while my paladins clear the cultists room by room. The Dark Strand fight like cornered rats, and a warrior who holds the stairs is worth more to me than any blessing I could give." } },
       choices = {
-        { text = "I'll hold the stairs. Not one gets past.", next = "BACK", reply = "Bless you, friend, and the Light will hold the stairs with you. Not one gets past.", fx = { align = { honor = 1 } } },
+        { text = "I'll hold the stairs. Not one gets past.", next = "BACK", reply = "Bless you, friend. I'll be right behind you with the Light, so don't look back.", fx = { align = { honor = 1 } } },
         { text = "I'd rather clear the rooms myself. The glory's inside.", next = "BACK", reply = "The glory's for the Light, not for us. But clear them if you must, and mind the traps.", fx = { align = { honor = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
@@ -1207,7 +1207,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks steady, and it will need to be, because the Dark Strand call things up from the Void. Keep it close, and the Light keep you both." },
       },
       choices = {
-        { text = "I'll give them a chance to surrender first.", next = "BACK", reply = "That's more mercy than they'd give you, but it's the Light's way. Good.", fx = { align = { light = 1 } } },
+        { text = "I'll give them a chance to surrender first.", next = "BACK", reply = "That's more mercy than they'd give you, but it's the Light's way, and I'm glad you'll take it.", fx = { align = { light = 1 } } },
         { text = "Cultists get no chances. I'll shoot them all.", next = "BACK", reply = "I'll not argue, though I'd rather they'd had the chance. Mind your aim.", fx = { align = { light = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -1287,7 +1287,7 @@ P:NPC {
         { id = "s_default", text = "They're warlocks, hungry for power that should have stayed lost and willing to deal with demons to get it. I've seen what that bargain costs, but they haven't, yet." },
       },
       choices = {
-        { text = "Then we stop them.", next = "BACK", reply = "We do, and the Light goes with us. Good.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then we stop them.", next = "BACK", reply = "We do, and I'll be glad of the company when we go.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Power is power, and I can't blame them for wanting it.", next = "BACK", reply = "I can, friend, and I do. Power bought from demons is never yours.", fx = { align = { light = -1 } } },
         { text = "Why do people join them?", next = "elves" },
       },
@@ -1318,7 +1318,7 @@ P:NPC {
       lines = { { id = "pd_default", text = "Then pray with me before you go into the satyrs' country, because their blood-soaked temples unsettle even seasoned fighters. After that, swing hard." } },
       choices = {
         { text = "Let's pray, then.", next = "BACK", reply = "Let's, then, and may the Light guide your hammer. Swing hard.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Save the prayers. I'll trust my hammer in satyr country.", next = "BACK", reply = "As you like, but the Light will go with you all the same. Swing hard.", fx = { align = { light = -1 } } },
+        { text = "Save the prayers. I'll trust my hammer in satyr country.", next = "BACK", reply = "As you like, but I'll pray for you anyway, and you can't stop me.", fx = { align = { light = -1 } } },
       },
     },
     priest_d = {

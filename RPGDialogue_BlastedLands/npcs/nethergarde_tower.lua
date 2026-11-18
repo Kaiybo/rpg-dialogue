@@ -99,7 +99,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Blindweed, firebloom, and a twisted thistle that grows only near the Tainted Scar, and each is stronger and stranger than it should be. The mages want to know if it's the fel magic doing it, and I want to know if it's useful, so we're both very busy." } },
       choices = {
         { text = "Twisted plants should be destroyed, Nina, not brewed into potions.", next = "BACK", reply = "Destroyed? They're the only things that grow here, and they make the best fire ward in Azeroth. I'll take the risk.", fx = { align = { light = 1 } } },
-        { text = "If they're useful, use them. Something good should come of this place.", next = "BACK", reply = "That's what I keep telling myself, and it's what keeps me brewing. Something good from a bad place.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "If they're useful, use them. Something good should come of this place.", next = "BACK", reply = "That's what I keep telling myself. Last month a fire ward made from Blasted Lands firebloom kept a whole patrol alive in the Scar, and I'll keep brewing for that.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -132,7 +132,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I've a flask of something cooling on the sill, and it mustn't boil over." },
-        { id = "h_again2", text = "Ask away, I'm not going anywhere. Those stairs are terrible." },
+        { id = "h_again2", text = "Ask away, I'm not going anywhere. Those stairs are terrible, and I've climbed them nine times today already." },
       },
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },
@@ -185,6 +185,6 @@ P:NPC {
     dalaran = { { id = "tp_dalaran", text = "The mages here talk about Dalaran like it was the center of the world, and maybe it was. I learned my trade in Stormwind, and I'm happy with it." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor mages upstairs ask me for potions and never ask what's in them. That's either trust or carelessness, and I haven't decided which." } },
     dreadmaul = { { id = "tp_dreadmaul", text = "The ogres trample the best herbs in the Blasted Lands, and I'd like to see them gone just for that." } },
-    _none = { { id = "tp_none", text = "I don't know about that, I'm afraid. Ask one of the mages downstairs." } },
+    _none = { { id = "tp_none", text = "I don't know about that, I'm afraid. Ask one of the mages downstairs; they love being asked things." } },
   },
 }

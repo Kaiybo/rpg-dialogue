@@ -119,7 +119,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Not courage, and not skill, but what you lean on when both run out. A paladin can call on the Light, and a warrior can only call on the person beside him, and that's how warriors become the most loyal comrades I've ever known." } },
       choices = {
         { text = "Then I'll be the comrade others lean on.", next = "BACK", reply = "That's the answer I'd hope for from a paladin. Hold to it when the line breaks.", fx = { align = { honor = 1 } } },
-        { text = "I lean on no one. My strength is my own.", next = "BACK", reply = "Then you'll stand alone when it runs out. I'd sooner you didn't, but that's your choice to make.", fx = { align = { honor = -1 } } },
+        { text = "I lean on no one. My strength is my own.", next = "BACK", reply = "And when it runs out, you'll stand alone. I'd sooner you didn't, but that's your choice to make.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,7 +130,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Patience, and how to look at a thing before you charge it, which is the hardest lesson for a paladin. Your {pet} has a calm about it that I'd like to see in my students. You must be a patient master to raise a creature so steady." },
       },
       choices = {
-        { text = "Patience is a virtue anyone can learn.", next = "BACK", reply = "It is, and it's the hardest one to teach a young knight. You'd make a fine example for my squires.", fx = { align = { honor = 1 } } },
+        { text = "Anyone can learn patience. Even a hothead like me.", next = "BACK", reply = "They can, though it's the hardest thing to teach a young knight. You'd make a fine example for my squires.", fx = { align = { honor = 1 } } },
         { text = "Paladins should learn from their own mistakes.", next = "BACK", reply = "They do, and some of them don't live to learn from them. I'd spare them that if a hunter could.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -201,7 +201,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I choose them.", next = "BACK", reply = "Choose them again tomorrow, then, and every day after. That is all I ever ask.", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
-        { text = "Patience is for priests. I'll take bravery and leave the rest.", next = "BACK", reply = "Then you'll be brave for a short while. I've buried many who said the same.", fx = { align = { light = -1 } } },
+        { text = "Patience is for priests. I'll take bravery and leave the rest.", next = "BACK", reply = "Brave for a short while, perhaps. I've buried a great many who said the same, and carved some of their names myself.", fx = { align = { light = -1 } } },
         { text = "Bravery should come first.", next = "brave", fx = { trait = { brave = 1 } } },
       },
     },

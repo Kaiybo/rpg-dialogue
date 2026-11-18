@@ -395,7 +395,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Careful where you step! No, the other way; that one's live." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back! Wonderful. I've just about finished something that will either impress you or remove the eyebrows you've got left." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, wonderful! I've just about finished something that will either impress you or remove the eyebrows you've got left." },
     { id = "g_scourge", when = { race = "Scourge" }, text = "Come in, come in! You've no eyebrows to lose, which makes you my favourite sort of visitor." },
   },
 
@@ -782,7 +782,7 @@ P:NPC {
     cloth = {
       lines = { { id = "cl_default", text = "Matter? My dear, cloth is character. Linen is honest and wears its creases openly, wool is loyal and a little dull, and silk is a flatterer that will leave you the moment it rains." } },
       choices = {
-        { text = "And mageweave? Runecloth?", next = "cloth_magic" },
+        { text = "And what about mageweave, or runecloth?", next = "cloth_magic" },
         { text = "Something else.", next = "BACK" },
       },
     },

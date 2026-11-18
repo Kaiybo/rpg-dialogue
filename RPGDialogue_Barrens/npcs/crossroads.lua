@@ -113,7 +113,7 @@ P:NPC {
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "There is, and I've learned to look past what the Forsaken are when they make themselves useful. The Kolkar and the Razormane both scout this road at night, and a blade that watches their scouts without being seen is worth ten that charge them." },
       },
       choices = {
-        { text = "A scout who never sees me never reports back.", next = "BACK", reply = "Exactly what I wanted to hear, and keep it quieter than that on the wall. A dead scout tells his chieftain nothing at all.", fx = { align = { honor = -1 } } },
+        { text = "A scout who never sees me never reports back.", next = "BACK", reply = "Exactly what I wanted to hear, and keep it quieter than that on the wall. The last scout I had who liked being seen came home across a kodo's saddle.", fx = { align = { honor = -1 } } },
         { text = "I'd rather meet them in the open, under your banner.", next = "BACK", reply = "An honest answer, and the banner will be glad of you. Still, if you ever change your mind, I've got scouts who need finding.", fx = { align = { honor = 1 } } },
         { text = "What else threatens the Crossroads?", next = "threats" },
       },
@@ -514,7 +514,7 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The Warchief freed us from the camps, so I'll follow him into the sea if he says so. But I'll grumble about it, because I'm an orc and not a statue." } },
     onyxia = { { id = "tp_onyxia", text = "She's a black dragon down in Dustwallow Marsh, and the grunts at Brackenwall say she has a lair in the hills there. I'd like a look at her, and the grunts say that's why I'm not allowed down there." } },
     ratchet = { { id = "tp_ratchet", text = "It's goblins, salt air, and prices that make me want to hit somebody. Go if you need a boat, but count your coins before you leave and again after." } },
-    _none = { { id = "tp_none", text = "Ask Thork, or better yet, go out there and find out for yourself. Deeds teach more than talk." } },
+    _none = { { id = "tp_none", text = "Ask Thork, or better yet, go out there and find out for yourself. One night on the plains will teach you more than a week at this gate." } },
   },
 }
 
@@ -533,7 +533,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You're back. Did you see the pigs out there? Did you see any sign of her?" },
     { id = "g_after", when = { questDone = TODO_QUEST("Lost in Battle") }, text = "She's found, and I know where she lies now. It isn't enough, but it's something." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I've stood on this wall the whole while, because what else is there for me to do?" },
-    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you made someone down there back off without lifting a weapon. I used to be able to do that, before I stopped caring who backed down." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you made someone down there back off without lifting a weapon. I used to be able to do that, before I stopped caring who backed down." },
   },
 
   notice = {
@@ -713,7 +713,7 @@ P:NPC {
       },
       choices = {
         { text = "Then let me look for you.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
-        { text = "That isn't cowardice. It's love.", next = "END", fx = { affinity = 2 } },
+        { text = "That isn't cowardice, Mankrik, that's love.", next = "END", fx = { affinity = 2 } },
       },
     },
     wall_away = {
@@ -893,7 +893,7 @@ P:NPC {
         { text = "Farewell, Tonga.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Something more, friend? The land isn't in a hurry, even if we must be. A kodo crosses the plains one step at a time." },
+        { id = "h_again", text = "Something more, friend? The land isn't in a hurry, even if we must be, so ask what you like." },
       },
     },
     druid = {
@@ -1148,7 +1148,7 @@ P:NPC {
       lines = {
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
           text = "Another of my own, travelling with you. {companion} must have the patience of a saint or the stubbornness of the dead, because the orcs out here still won't share a campfire with me." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. How quaint. Some of us remember the Silver Hand from before the plague, and we wonder which side of that memory you stand on." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, how quaint. Some of us remember the Silver Hand from before the plague, and we wonder which side of that memory you stand on." },
         { id = "h_default", key = true, text = "The name is Helbrim, of the Royal Apothecary Society. The Dark Lady sent me to see what grows out here that might be useful, and a surprising amount does, though most of it is better dead." },
         { id = "h_cl_rfd", tags = { "news" }, when = { cleared = "Razorfen Downs", faction = "Horde" }, text = "Word reached me that the lich in Razorfen Downs has been dealt with. The Society will be pleased, and I confess so am I, because the Scourge are an embarrassment to all of us who left them behind." },
         { id = "h_spores", tags = { "news" }, when = { questActive = TODO_QUEST("Fungal Spores") },
@@ -1195,7 +1195,7 @@ P:NPC {
     },
     troll = {
       lines = { { id = "tr_default", text = "Do they? Witch doctors' remedies, I suppose, which some of my colleagues sneer at. I don't, because half of what the Society knows about poisons began as someone's grandmother's cure, so do tell me which of these your people boil." } },
-      choices = { { text = "Peacebloom, for fever. Never the fungus.", next = "BACK", fx = { affinity = 2 } } },
+      choices = { { text = "Peacebloom for fever, then, and never the fungus.", next = "BACK", fx = { affinity = 2 } } },
     },
     study = {
       big = true,
@@ -1294,10 +1294,10 @@ P:NPC {
       lines = { { id = "fl_default", text = "Only the ones worth looking at, and I've looked at a great many errand-runners, so take it as the compliment it is. I'm the best blade in the Barrens and the best-looking one besides, and I think we'd make a fine pair up at the harpy roosts." } },
       choices = {
         { text = "The best-looking? I'll be the judge of that.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "dar_fl_yes" }, clear = { "dar_fl_no" } } } },
-        { text = "Takes one blade to know another, Darsok.", next = "fl_yes", when = { class = "ROGUE" }, fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "dar_fl_yes" }, clear = { "dar_fl_no" } } }, reply = "Ha! A blade with a mouth on them. Even better." },
+        { text = "Takes one blade to know another, Darsok.", next = "fl_yes", when = { class = "ROGUE" }, fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "dar_fl_yes" }, clear = { "dar_fl_no" } } }, reply = "Ha! A blade with a mouth on it, even better." },
         { text = "Is there anything you're not the best at?", next = "fl_best" },
         { text = "I'll stick to harpy talons, Darsok.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "dar_fl_no" }, clear = { "dar_fl_yes" } } }, reply = "Talons it is. Darsok can wait, and he's the best at that too." },
-        { text = "You're not half as charming as you think.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "dar_fl_no", "dar_fl_rebuff" }, clear = { "dar_fl_yes" } } }, reply = "Half is still more than anyone else at the Crossroads has, but I hear you. Back to work." },
+        { text = "You're not half as charming as you think.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "dar_fl_no", "dar_fl_rebuff" }, clear = { "dar_fl_yes" } } }, reply = "Half is still more than anyone else at the Crossroads has, but I take your point. Now back to work." },
       },
     },
     fl_best = {
@@ -1408,7 +1408,7 @@ P:NPC {
         { id = "h_jinzil", when = { questActive = TODO_QUEST("Letter to Jin'Zil") },
           text = "This letter goes to my old friend Jin'Zil, a witch doctor out in Stonetalon, and he'll have a use for you. Don't read it; he'll know." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Nice trick with the lightning, but I've killed more harpies with one knife than most shamans have with a whole storm." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, eh? I hear you can turn into a cat and creep up on people, which is cute, but I was doing it before you'd grown your first claw." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, eh? They tell me you can turn into a cat and creep up on people, which is cute, but I was doing it before you'd grown your first claw." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, eh? Loud, slow and very good at getting hit, which is exactly what I need standing in front of me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Nobody sneaks up on Darsok, and that includes your beast, so don't let it try." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Patch up my clients' victims and I'll be out of business, so do us both a favour and only heal the people who pay me." },
@@ -1801,7 +1801,7 @@ P:NPC {
     },
     forsaken = {
       lines = { { id = "fk_default", text = "No, I suppose you don't, and I'm sorry for it. Sit by the fire anyway, because I've seen your people warm their hands like everyone else, and I don't think it's only habit." } },
-      choices = { { text = "Maybe it isn't. Thank you.", next = "BACK", fx = { affinity = 2 } } },
+      choices = { { text = "Maybe it isn't. Thank you for saying so.", next = "BACK", fx = { affinity = 2 } } },
     },
     news = {
       lines = { { id = "n_default", text = "Everyone coming through asks the same question: where's Mankrik's wife? If you find out, tell him first and then tell me, because I'm tired of not knowing either." } },

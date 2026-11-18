@@ -91,7 +91,7 @@ P:NPC {
     },
     angry = {
       lines = { { id = "a_default", text = "Kor'ghan don't get angry, mon, he gets disappointed, and that be much worse. He'll make the antidote first and save the scolding for when I can stand up to hear it." } },
-      choices = { { text = "Small mercies. Something else.", next = "BACK" } },
+      choices = { { text = "Small mercies, then. Something else.", next = "BACK" } },
     },
     farm = {
       lines = { { id = "f_default", text = "Rocktusk Farm raise boars for Orgrimmar's tables, and the scorpids come up out of the rocks to steal the feed. I keep them back, mostly, and today mostly wasn't enough." } },

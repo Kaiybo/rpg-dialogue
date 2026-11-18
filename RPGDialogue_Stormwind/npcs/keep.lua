@@ -246,7 +246,7 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The Church lost half its clergy in Lordaeron, and the court talks of it as if it were a matter of accounts. I've told them it's a matter of souls, and they nod and move on to the grain prices." } },
     the_stockade = { { id = "tp_the_stockade", text = "The Stockade's chaplain hasn't been able to reach the prisoners since the riot, and I've asked the court to let him in. They say it's too dangerous, and I say that's when a chaplain's most needed." } },
     knows = {
-      { id = "tp_knows", text = "Everything that's petitioned at court passes within earshot of this chair, and some of it I'm even allowed to repeat. Ask, and I'll tell you what I can." },
+      { id = "tp_knows", text = "Everything that's petitioned at court passes within earshot of this chair, and some of it I'm even allowed to repeat. Which piece of it interests you?" },
     },
     background = { { id = "tp_bg", text = "A churchman who was better at listening than preaching, and so was sent where the listening is hardest. I don't complain, much." } },
     advice = { { id = "tp_ad", text = "Never say anything in the Keep you'd mind hearing at the Pig and Whistle by evening. It will be there by evening." } },
@@ -446,7 +446,7 @@ P:NPC {
         fx = { learn = { "alterac" } } } },
       choices = {
         { text = "It should stay buried with them.", next = "tiara_shame", fx = { align = { honor = 1 } } },
-        { text = "History is history, so put it on display.", next = "tiara_shame", fx = { align = { honor = -1 } } },
+        { text = "History's no use locked in a crate. Put it on display.", next = "tiara_shame", fx = { align = { honor = -1 } } },
         { text = "What does it look like?", next = "tiara_shame" },
       },
     },

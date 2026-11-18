@@ -35,7 +35,7 @@ P:Views { topic = "dragonmaw", views = {
   } },
   { id = "fear", text = "I'd sooner not be under one of those dragons when it turns.", fx = { opinion = { dragonmaw = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "Nor would I. Dun Algaz has been cut off from the south for months on end because of them." },
-    { id = "b", text = "Wise. The ones who made jokes about it are a lot quieter now, mostly because they're ash." },
+    { id = "b", text = "That's wise. The ones who made jokes about it are a lot quieter now, mostly because they're ash." },
   } },
 } }
 
@@ -308,7 +308,7 @@ P:Views { topic = "camping", views = {
   } },
   { id = "inn", text = "I'll take a bed and a roof, thanks. The inns exist for a reason.", fx = { opinion = { camping = "doubt" }, trait = { practical = 1 } }, replies = {
     { id = "a", text = "Can't argue with that. The trouble is that the inns stop where the interesting roads begin." },
-    { id = "b", text = "Ha! A sensible soul. Innkeepers would like more of you about." },
+    { id = "b", text = "Ha! There's a sensible soul, and innkeepers would like more of you about." },
   } },
   { id = "share", text = "A shared fire makes friends of strangers. It's the best part of the road.", fx = { opinion = { camping = "admire" }, trait = { generous = 1 } }, replies = {
     { id = "a", text = "It does, and you hear better stories there than in any tavern. Bring something for the pot and you're welcome.", fx = { affinity = 1 } },
@@ -612,7 +612,7 @@ P:Views { topic = "raven_hill", views = {
   } },
   { id = "avoid", text = "I'll take the long way round, thanks.", fx = { opinion = { raven_hill = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "Most do, and most live longer for it. There's no long way round Duskwood, though." },
-    { id = "b", text = "Ha! Wise. Even the ravens look nervous on that road." },
+    { id = "b", text = "Ha! That's wise, because even the ravens look nervous on that road." },
   } },
 } }
 

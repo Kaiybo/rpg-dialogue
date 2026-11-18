@@ -275,7 +275,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Vials, mostly, and the occasional rod for some brother who's taken an interest in enchanting. They pay promptly, which is more than the Mage Quarter does." } },
       choices = {
-        { text = "Then the Church keeps faith in small things too.", next = "BACK", reply = "They do, and it's more than I can say for the Mage Quarter. I'll take their coin happily.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then the Church keeps faith in small things too.", next = "BACK", reply = "More than I can say for the Mage Quarter. I'll take the Church's coin happily, and they always pay on time.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Church has more gold than prayers, it seems.", next = "BACK", reply = "More gold than prayers, maybe, but they pay on time. That's a kind of faith.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -302,7 +302,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting something to make the arrows fly truer, I suppose, and I'll tell you now that most of what's sold for that is nonsense." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll not be wanting dust or essences, so I'll ask you to step aside for the paying customers, kindly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell you rods and vials, but I'll ask you not to try out anything near Lucan's formulae, because fel residue ruins a week's work." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Lucan's busy. If you need supplies, I'll help, but don't let your spirits bother the apprentices." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, is it? Lucan's busy, but if you need supplies I'll help, so long as your spirits don't bother the apprentices." },
       },
       again = {
         { id = "h_again", text = "Rods, vials or Lucan's time: which do you need next?" },
@@ -377,7 +377,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They do, the way soldiers come back from campaign, a few fewer every year. Perhaps your spirits could bring more of them." } },
       choices = {
-        { text = "Then fish the canals fairly, Catherine. Leave some for next year.", next = "BACK", reply = "I do, and I always have. Leave some for next year, or there's no next year.", fx = { align = { order = 1 } } },
+        { text = "Then fish the canals fairly, Catherine. Leave some for next year.", next = "BACK", reply = "I do, and I always have. My mother fished the same stones before me, and she'd box my ears from the grave if I emptied them.", fx = { align = { order = 1 } } },
         { text = "Fish while they're biting. Next year's not certain.", next = "BACK", reply = "They're not certain, no, but the fish will be. Fish fair, at least.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -388,7 +388,7 @@ P:NPC {
         { id = "xlock_default", text = "Patient folk make good fishermen, and your sort seem patient enough, sitting up all night with your candles and your circles. Just don't go summoning anything into the canal to chase the fish, because Arnold tried a firework once and the guards still talk about it." },
       },
       choices = {
-        { text = "Just a pole and patience, then, Catherine.", next = "BACK", reply = "That's the way. You'll make a fisherman yet, and with fewer burnt candles.", fx = { align = { order = 1 } } },
+        { text = "Just a pole and patience, then, Catherine.", next = "BACK", reply = "You'll make a fisherman yet, and with fewer burnt candles than my last apprentice.", fx = { align = { order = 1 } } },
         { text = "A summoned thing in the canal would fish faster.", next = "BACK", reply = "Faster, aye, and the Watch would close the canal for a month. Stick to the pole.", fx = { align = { order = -1 } } },
         { text = "Something else, Catherine.", next = "BACK" },
       },
@@ -397,7 +397,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Of course not, it's a fair trade, a worm for a fish, and the fish agreed to it when it bit. Arnold says that's a merchant's view of the world, and he isn't wrong, but he buys his worms from me all the same." } },
       choices = {
-        { text = "Fishing needs limits and seasons, or the canal empties.", next = "BACK", reply = "They do, and Arnold agrees, which annoys me no end. I'll keep it in mind.", fx = { align = { order = 1 } } },
+        { text = "Fishing needs limits and seasons, or the canal empties.", next = "BACK", reply = "Arnold says exactly the same thing, which annoys me no end. I'll keep it in mind.", fx = { align = { order = 1 } } },
         { text = "Let everyone fish as they please. The canal will manage.", next = "BACK", reply = "It manages, for now, but Arnold keeps a count, and he's worried. I'd listen to him.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -424,7 +424,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Plenty of them, because a man who's spent all week being shouted at by a sergeant wants an afternoon of nobody shouting at him. Arnold says the best fishermen he's taught were all soldiers, and the worst were all mages." } },
       choices = {
-        { text = "Everyone needs a quiet afternoon now and then.", next = "BACK", reply = "They do, and the canal's as quiet a place as you'll find in this city. Sit a while.", fx = { align = { order = 1 } } },
+        { text = "I could use a quiet afternoon. Everyone could, now and then.", next = "BACK", reply = "Then you've found the right spot. The canal's as quiet as this city gets, so sit a while.", fx = { align = { order = 1 } } },
         { text = "A warrior should be training, not fishing.", next = "BACK", reply = "Then go and train, and come back when you've earned a quiet afternoon.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -476,7 +476,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman by the canal! My prices are the best in the city. Do your spirits fish?" },
       },
       again = {
-        { id = "h_again", text = "What else, friend?" },
+        { id = "h_again", text = "What else, friend? Mind the bait bucket." },
         { id = "h_again2", text = "Ask away, friend; the bait keeps better than my temper, and that's saying something." },
       },
       choices = {
@@ -506,7 +506,7 @@ P:NPC {
       lines = { { id = "c2_default", text = "Sure enough that I'd still dip my feet, though I won't tell the children that. A bit of fear keeps them away from the edge, and that's no bad thing." } },
       choices = {
         { text = "Better to tell them the truth.", next = "BACK", reply = "Maybe so, but the truth gets children drowned. I'll keep my story.", fx = { align = { honor = 1 } } },
-        { text = "A useful story never hurt anyone.", next = "BACK", reply = "That's my view too. A bit of fear never drowned anyone.", fx = { align = { honor = -1 } } },
+        { text = "A useful story never hurt anyone.", next = "BACK", reply = "That's my view too. Every child who's frightened of the canal ghost is a child who doesn't fall in the canal.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -596,7 +596,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Every one I've met, though most of them won't admit it until the mail has rubbed through their skin. Rema makes the padding, and I sell it, and between us we keep the Barracks from being miserable." } },
       choices = {
         { text = "A well-made shirt is worth its price. I'll take one.", next = "BACK", reply = "There's a sensible soldier. Rema will be pleased.", fx = { align = { order = 1 } } },
-        { text = "A soldier should learn to bear a little chafing.", next = "BACK", reply = "They should, dear, and then they come back with blisters and ask me for padding. Take one.", fx = { align = { order = -1 } } },
+        { text = "A soldier should learn to bear a little chafing.", next = "BACK", reply = "So they all say, dear, and then they come back from the march with blisters and beg me for padding. Take one now.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -607,7 +607,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wool in the cold and linen in the heat, dyed brown or green, and nothing that rustles when you crouch. Your {pet} doesn't need a coat, of course, but it's shedding on my racks, and I'll ask you to keep it a step back." },
       },
       choices = {
-        { text = "Quiet clothes make for a quiet hunt.", next = "BACK", reply = "Exactly so. A hunter in silent cloth catches twice what a noisy one does.", fx = { align = { order = 1 } } },
+        { text = "Quiet clothes make for a quiet hunt.", next = "BACK", reply = "Exactly so. I've lined that cloak with felt so it won't so much as whisper in Elwynn's brush.", fx = { align = { order = 1 } } },
         { text = "I wear what I like. The deer can deal with it.", next = "BACK", reply = "The deer will deal with it by running, dear. Do as you like.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -617,7 +617,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Because the Cathedral cuts robes for the tallest novice and the shortest purse, and expects everyone else to make do. Humility is a fine thing, but nobody ever healed better for tripping over their hem." } },
       choices = {
         { text = "Humility matters more than a good fit, Lisbeth.", next = "BACK", reply = "Humility is fine, dear, but a robe that trips you on the Cathedral steps isn't very holy.", fx = { align = { light = 1 } } },
-        { text = "A healer should look the part. Fit me properly.", next = "BACK", reply = "That's the spirit. Stand still and let me measure you properly.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A healer should look the part. Fit me properly.", next = "BACK", reply = "Good. Now stand still, arms out, and let me measure you properly.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -625,7 +625,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Stout cloth, a long cut and colours that hold, because nobody wants to see a faded Silver Hand on the field. The old knights were very particular about it, and I think they were right." } },
       choices = {
-        { text = "The colours should hold. They stand for something.", next = "BACK", reply = "They do, and I'll make sure yours hold longer than you do.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The colours should hold. They stand for something.", next = "BACK", reply = "Then yours will hold longer than you do, dear, and that's a promise.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "It's only cloth, Lisbeth. Nobody looks at a hem.", next = "BACK", reply = "They look, dear, believe me, they always look. Let me make yours worth looking at.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

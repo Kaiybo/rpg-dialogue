@@ -239,7 +239,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every plate you wear hangs off a leather strap somewhere, and soldiers forget it until one snaps in the middle of a fight. I saw a fellow lose his breastplate on Sorrow Hill, and he only lived because the skeletons were as surprised as he was." } },
       choices = {
-        { text = "I'll check my straps every night. Good advice, Leonard.", next = "BACK", reply = "Good. A strap checked is a life kept, and I'd like to keep yours.", fx = { align = { order = 1 } } },
+        { text = "I'll check my straps every night. Good advice, Leonard.", next = "BACK", reply = "Good. I mended a knight's plate last month after a strap gave way mid-swing, and he was lucky to keep the arm.", fx = { align = { order = 1 } } },
         { text = "If a strap snaps, I'll fight on without the plate.", next = "BACK", reply = "Brave, and you'll be lighter on your feet, but I'd still rather mend the strap. Check it anyway.", fx = { align = { order = -1 } } },
         { text = "Something else, Leonard.", next = "BACK" },
       },

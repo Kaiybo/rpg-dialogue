@@ -612,8 +612,8 @@ P:NPC {
         { id = "xm_default", text = "Your spells don't, but your certainty might. Every mage I've met here believes the power will always do what it's told, and my people believed that too, once." },
       },
       choices = {
-        { text = "You're right. I'll respect the limits.", next = "BACK", reply = "Then you're wiser than most who come through here, mage, and I'll trust you a little further than I'd trust the rest of your order.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fear of power never built anything worth having.", next = "BACK", reply = "My people said much the same, ten thousand years ago, and the ocean still sits where their city used to be, so think on that.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "You're right. I'll respect the limits.", next = "BACK", reply = "Then you're wiser than most who come through here, mage. I'll trust you a little further than the rest of your order, though not by much.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fear of power never built anything worth having.", next = "BACK", reply = "My people said much the same ten thousand years ago. Go and look at the sea where their city used to be, and then tell me again.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

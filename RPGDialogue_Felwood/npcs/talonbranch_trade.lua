@@ -65,7 +65,7 @@ P:NPC {
         { id = "gw_default", text = "Because if we left, the forest would forget it was ever ours, and so would we. Some in Darnassus say Felwood is lost and we should stop spending lives on it, and I understand them, but I don't agree." },
       },
       choices = {
-        { text = "You're right to hold on. This land is worth it.", next = "BACK", reply = "Thank you, and I'll keep holding as long as there's breath in me. Felwood was ours, and it will be again.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "You're right to hold on. This land is worth it.", next = "BACK", reply = "Thank you, and I'll keep holding as long as there's breath in me. My grandmother sold honey in this glade when it was green.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Darnassus has a point. Spend your lives where they count.", next = "BACK", reply = "They do, and I can't fault them, not really. But someone has to stay, or the forest will forget us entirely.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

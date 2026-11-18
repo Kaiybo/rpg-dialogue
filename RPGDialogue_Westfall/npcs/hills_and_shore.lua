@@ -386,7 +386,7 @@ P:NPC {
     stay = {
       lines = { { id = "s_default", text = "Because the fish are still here, even if the farmers aren't. The Defias don't bother a man with nothing but a boat and a bucket, and the Furlbrows and Saldeans are still hanging on, so I'm not the last fool in Westfall." } },
       choices = {
-        { text = "That's not foolish. That's stubborn courage.", next = "BACK", fx = { affinity = 1 } },
+        { text = "That's not foolish, Kriggon. It's stubborn courage.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

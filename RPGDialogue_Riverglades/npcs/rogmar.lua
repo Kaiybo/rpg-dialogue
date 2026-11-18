@@ -495,7 +495,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll prove it on a cultist.", next = "BACK", reply = "Do that, and I'll admit you're right. Bring me the cultist, not the story.", fx = { align = { honor = -1 } } },
-        { text = "Fair. A hunter knows the wild better.", next = "BACK", reply = "Good. Alleys are for rats, and the wild is for hunters.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Fair. A hunter knows the wild better.", next = "BACK", reply = "Good. Come out past the ridge at dusk, and I'll show you a cat track worth following.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -761,7 +761,7 @@ P:NPC {
         { id = "xs_default", text = "Then you know iron doesn't lie. Make it in a hurry and it breaks in a hurry, and that's true of a lot more than iron." },
       },
       choices = {
-        { text = "Good work takes time. No shortcuts.", next = "BACK", reply = "Then you understand iron, and iron understands you. Take your time.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Good work takes time. No shortcuts.", next = "BACK", reply = "Then you'll get a blade that outlives you. Come back in three days, and not one sooner.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "In war, fast and good enough wins.", next = "BACK", reply = "Fast and good enough breaks at the wrong moment, every time. I'll not make it for you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

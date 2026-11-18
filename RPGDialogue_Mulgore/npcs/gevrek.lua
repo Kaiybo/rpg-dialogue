@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "The elements came first for my people, and the Light is a stranger to us. But we came to the Horde with our own odd gifts and were given a place to stand, and I would offer you the same welcome the tauren offered us." } },
       choices = {
-        { text = "Then I'll honour that welcome, and earn it.", next = "BACK", reply = "Then you are already halfway to earning it, and I will tell the camp so. A guest who honours a welcome makes the next welcome easier.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I've earned my place already, Ayessa.", next = "BACK", reply = "Perhaps you have, and I will not count anyone's deeds for them. Still, a place kept with gratitude is kept longer than one held by pride.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll honour that welcome, and earn it.", next = "BACK", reply = "Then you are already halfway to earning it, and I will tell the camp so. They worry the tauren will tire of us, and you give me something better to tell them.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I've earned my place already, Ayessa.", next = "BACK", reply = "Perhaps you have, and I will not count anyone's deeds for them. Still, the tauren were not obliged to take us in, and I like to remind myself of that each morning.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -248,7 +248,7 @@ P:NPC {
       },
       choices = {
         { text = "How do the Windshapers see the Horde, Elder?", next = "op_horde" },
-        { text = "I'd like to learn.", next = "BACK", reply = "Then come to the camp, and walk with us a while, and the rest will follow. The elements are patient with the willing.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'd like to learn.", next = "BACK", reply = "Then come to the camp and walk with us a while, and the rest will follow. The wind on this hill is a gentle first teacher.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "The elements don't need my worship, and I don't need theirs.", next = "BACK", reply = "Perhaps they do not, and the wind will not mind either way. Still, Gev'rek will welcome you, worship or no.", fx = { align = { light = -1 } } },
       },
     },

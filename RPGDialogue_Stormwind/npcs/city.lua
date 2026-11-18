@@ -107,7 +107,7 @@ P:NPC {
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
           text = "Thredd's dead and the riot's over, which leaves one less Defias mouth in the Stockade for me to question. Next time you go down there, come to me first, because a living prisoner is worth ten dead ones to SI:7." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Silver Hand makes poor spies and honest witnesses, and I've a use for honest witnesses now and then." },
-        { id = "h_default", key = true, text = "Shaw. I run SI:7. If you've heard of us, someone's been careless. If you haven't, we're doing our job." },
+        { id = "h_default", key = true, text = "The name's Shaw, and I run SI:7. If you've heard of us, someone's been careless; if you haven't, we're doing our job." },
         { id = "h_si7", tags = { "news" }, when = { questActive = TODO_QUEST("SI:7") },
           text = "So you found the building, which is good, because finding things people would rather you didn't is the whole job. You'll be doing it until your feet ache." },
         { id = "h_defias", when = { topicKnown = "defias", minLevel = 15 },
@@ -119,7 +119,7 @@ P:NPC {
         { id = "h_wiley", tags = { "news" }, when = { questActive = TODO_QUEST("The Defias Brotherhood") },
           text = "This is Stoutmantle's Brotherhood business, and the whispers say Stonemasons. He won't like where that road goes, and neither do I." },
         { id = "h_maelik", tags = { "news" }, when = { questActive = TODO_QUEST("Shadow of the Past") },
-          text = "Alexston's description. Maelik, it says. I know the face, not that name. He answers to Marzon when it suits him, and he works for a lord." },
+          text = "This is Alexston's description, and it says Maelik. I know the face, if not that name: he answers to Marzon when it suits him, and he works for a lord." },
         { id = "h_lescovar_done", tags = { "news" }, when = { questActive = TODO_QUEST("Brotherhood's End") },
           text = "Alexston wants a word with you, so tell him everything except whose hand did the work. As for Trias, he doesn't exist, and he never has." },
         { id = "h_kearnen", when = { questActive = TODO_QUEST("Mathias and the Defias") },
@@ -144,7 +144,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Go on. I've ten minutes, and I've already spent two of them on you." },
-        { id = "h_again2", text = "What else? Quietly. The walls here are thin on purpose." },
+        { id = "h_again2", text = "What else? Keep it quiet; the walls here are thin on purpose." },
         { id = "h_again3", when = { class = "ROGUE" }, text = "Something else? Ask it as if someone's listening. Someone usually is." },
       },
       choices = {
@@ -358,7 +358,7 @@ P:NPC {
       },
       choices = {
         { text = "Then you'll know if I ever lose control.", next = "lamb_control" },
-        { text = "Watching warlocks is wise.", next = "BACK", reply = "It is, and someone has to do it. The trick is that Gakin knows it and does it too.", fx = { align = { order = 1 } } },
+        { text = "Watching warlocks is wise.", next = "BACK", reply = "Someone has to. The trouble is that Gakin knows he's watched, and he watches right back.", fx = { align = { order = 1 } } },
         { text = "What we do in the cellar is our business.", next = "BACK", reply = "Until it walks up the stairs. Then it becomes my business, and I don't enjoy my business.", fx = { affinity = -1, align = { order = -1 } } },
       },
     },
@@ -508,7 +508,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rarely, though they ought to; a mage who can't read a trail is lost the moment she leaves a road. Your {pet} keeps looking at the arcane focus as if it means to eat it. I'd rather it didn't; the last creature that tried glowed for a week." },
       },
       choices = {
-        { text = "Every trade has something to teach the others, Magus.", next = "BACK", reply = "They do, and I'd send every apprentice to Alterac for a season if the Sanctum allowed it.", fx = { align = { order = 1 } } },
+        { text = "Every trade has something to teach the others, Magus.", next = "BACK", reply = "Exactly so. I'd send every apprentice in the Quarter to walk a season with a Hillsbrad hunter, if the Sanctum would let me.", fx = { align = { order = 1 } } },
         { text = "Mages stick to their books. I'll stick to my trails.", next = "BACK", reply = "Then let's hope you never need a ward in the snow. Still, I respect a hunter who knows her trade.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -829,7 +829,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Well? The candles don't last forever, and nor does my patience." },
-        { id = "h_again2", text = "Something else. Quietly." },
+        { id = "h_again2", text = "Something else? Keep your voice down." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },

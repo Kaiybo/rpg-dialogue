@@ -202,8 +202,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I don't know. The Earth Mother heals slowly, and the Venture Company cuts quickly, and I'll take any help that tips the balance. If your Light mends, come and mend beside me for a day, and we'll see what grows." } },
       choices = {
-        { text = "I'll mend beside you, Tsunaman. Gladly.", next = "BACK", reply = "Then come, and we'll plant together while the sun is high. The Earth Mother does not mind what light helps the seedlings grow.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My Light's for the Venture Company, not seedlings.", next = "BACK", reply = "Then point it at the shredders, and I'll thank you all the same. The seedlings will be safer for it.", fx = { align = { light = -1 } } },
+        { text = "I'll mend beside you, Tsunaman. Gladly.", next = "BACK", reply = "Then come, and we'll plant together while the sun is high. The Earth Mother does not mind whose light warms the seedlings.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My Light's for the Venture Company, not seedlings.", next = "BACK", reply = "Then point it at the shredders, and I'll thank you all the same. One fewer saw is worth a row of seedlings.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -211,7 +211,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "It can quicken them a little, but the earth must still do the real work, because a tree hurried into growing is a tree that breaks in the first hard wind. What the vale needs most from you is to keep the shredders away while the roots go deep." } },
       choices = {
-        { text = "The earth sets the pace. I'll guard the vale and let it grow.", next = "BACK", reply = "That is the wisest thing anyone has said to me this season. The earth will remember your patience.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The earth sets the pace. I'll guard the vale and let it grow.", next = "BACK", reply = "That is the wisest thing anyone has said to me this season. Most braves who come through want it green by morning.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Waiting is how the vale was lost. I'll push the growth.", next = "BACK", reply = "The vale was lost to haste, not to waiting, young one. Push the growth if you must, but the first storm will tell you who was right.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -232,7 +232,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Up the slopes, and into each other's hunting grounds, which means they fight where they once lived side by side. Your {pet} walks lightly among my seedlings, {class}, and the earth is glad of it. Feed it well; the land will remember." },
       },
       choices = {
-        { text = "I'll hunt only what I need, and the rest can recover.", next = "BACK", reply = "That is the hunter's way, and the forest will thank you for it. Let the slopes recover, and the beasts will come home.", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt only what I need, and the rest can recover.", next = "BACK", reply = "That is the hunter's way. Give the slopes a few seasons, and the deer will come down from the peaks again.", fx = { align = { honor = 1 } } },
         { text = "The balance is broken. I'll hunt what I can, while I can.", next = "BACK", reply = "I understand the hunger, but taking what you can only breaks it further. Hunt carefully, and leave the mothers.", fx = { align = { honor = -1 } } },
         { text = "Something else, Tsunaman.", next = "BACK" },
       },
@@ -283,7 +283,7 @@ P:NPC {
         { id = "seeds2_default", text = "Perhaps, but then I'll plant more, and the forest is more patient than any goblin's purse. Some of my people would rather drive the Venture Company out first, and some say we should heal before we fight." },
       },
       choices = {
-        { text = "Heal first. Anger only burns more forest.", next = "BACK", reply = "That is my heart's answer too, and I'm glad to hear it from you. Anger burns as hot as any goblin fire.", fx = { align = { light = 1 }, trait = { patient = 1 } } },
+        { text = "Heal first. Anger only burns more forest.", next = "BACK", reply = "That is my heart's answer too, and I'm glad to hear it from you. I've seen braves come back from Windshear so angry they trampled my rows.", fx = { align = { light = 1 }, trait = { patient = 1 } } },
         { text = "Drive them out first, or the planting is wasted.", next = "BACK", reply = "Many of my people agree with you, and perhaps they're right. But I'll keep planting, whatever the braves decide.", fx = { align = { light = -1 }, trait = { fierce = 1 } } },
       },
     },
@@ -333,7 +333,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Slowly, as it always does, with seeds in the ash and rain in its season. The earth spirits are angry and I don't blame them, but anger won't plant a single tree, so I ask them to let me work while they rage." } },
       choices = {
-        { text = "Patience and planting. That's how we answer the machines.", next = "BACK", reply = "That is the answer, and I'm glad to hear it from someone so young. The machines will rust, and the forest will outlive them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Patience and planting. That's how we answer the machines.", next = "BACK", reply = "That is the answer, and I'm glad to hear it from someone so young. Come and plant a row with me before you go.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The machines should burn the way the forest burned.", next = "BACK", reply = "I feel that anger too, but burning machines makes more smoke, and the trees have breathed enough of it. Break them instead.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

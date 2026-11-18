@@ -79,7 +79,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Not the ones who know you, and most of mine have carried druids since they were young. It's when someone shifts into a bear on the landing platform that they get skittish, so please wait until you're down off the mesa." } },
       choices = {
-        { text = "Respect the wind riders. They carry us freely.", next = "BACK", reply = "They do, and they know who respects them, so you will find your flights smoother than most.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Respect the wind riders. They carry us freely.", next = "BACK", reply = "They do, and they know who respects them. Old Greycrest still nuzzles the brave who brought her a fish after a storm, and that was four summers ago.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They're beasts of burden. They'll carry what they're told.", next = "BACK", reply = "Tell them that, and see how far they carry you before they set you down on the salt flats to walk home.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -104,7 +104,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you ask? The wind is changing, and the riders feel it in their wings before I do." },
-        { id = "h_again2", text = "Speak, friend. The riders can wait a little longer." },
+        { id = "h_again2", text = "Speak, friend. The riders can wait a little longer; they're sunning themselves anyway." },
       },
       choices = {
         { text = "Do the wind riders mind carrying a druid?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -169,7 +169,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I've kept wind riders on these mesas for many seasons. That's my life, and I'm content with it." } },
-    advice = { { id = "tp_ad", text = "Stay off the canyon floor at night. That's when the centaur ride." } },
+    advice = { { id = "tp_ad", text = "Stay off the canyon floor at night, friend. That's when the centaur ride, and they ride without torches." } },
     cairne = { { id = "tp_cairne", text = "Cairne flew from here once, and he said the drop made his stomach turn. I've never heard a chieftain admit that before, and I liked him better for it." } },
     centaur = { { id = "tp_centaur", text = "The Galak shoot at my riders when they fly low, but they never hit. A wind rider climbs faster than any centaur can aim." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "The flight to Gadgetzan is long and hot, and my riders hate it. I send them anyway, because the goblins pay well." } },
@@ -220,8 +220,8 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "Most are, though the cats pace at night when the Galak drums start below. I sit with them until it stops, which is not a stable master's work, but what else can I do?" } },
       choices = {
-        { text = "That's kindness, and kindness is never wasted.", next = "BACK", reply = "Thank you, and I will keep sitting with them, because a frightened beast deserves someone beside it.", fx = { align = { light = 1 } } },
-        { text = "Leave them be. They'll grow used to the drums.", next = "BACK", reply = "They may, in time, but I would rather they learned with a friend nearby than alone in the dark.", fx = { align = { light = -1 } } },
+        { text = "That's kindness, and kindness is never wasted.", next = "BACK", reply = "Thank you. The little one in the far stall jumps at every drumbeat, and she has only just started letting me hold her head while they play.", fx = { align = { light = 1 } } },
+        { text = "Leave them be. They'll get used to the drums.", next = "BACK", reply = "They may, in time, but I would rather they learned with a friend nearby than alone in the dark.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -304,7 +304,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Perhaps they hear the spirits around you, the way they hear thunder long before we do. My cats are calmest with shamans and my wolves are calmest with orcs, and I've stopped trying to explain it to the hunters." } },
       choices = {
-        { text = "Animals know who means them no harm, so trust their judgment.", next = "BACK", reply = "I have always thought so, and they have never once been wrong about a visitor, so I listen to them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Animals know who means them no harm. Trust their judgment.", next = "BACK", reply = "I have always thought so, and they have never once been wrong about a visitor, so I listen to them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Animals sense power, and they fear it. That's all it is.", next = "BACK", reply = "Perhaps it is only that, but I think they also know kindness, because they come to some and flee from others.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -389,8 +389,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Often enough that I keep bandages next to the bolts, and I sell more of them on race days. Gnome or goblin, they all come limping back to my stall with a scorched beard and a story, and most of them are back on the track by morning." } },
       choices = {
-        { text = "Someone should set proper safety rules for that track.", next = "BACK", reply = "I've drawn up seventeen, actually, but the crews keep using the drafts as napkins, so I'm on version eighteen.", fx = { align = { order = 1 } } },
-        { text = "Let them race. A little danger is what makes it worth watching.", next = "BACK", reply = "It does make for a lively afternoon, and good sales, though I'd like everyone to still have their beards by sundown.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Somebody should set proper safety rules for that track.", next = "BACK", reply = "I've drawn up seventeen, actually, but the crews keep using the drafts as napkins, so I'm on version eighteen.", fx = { align = { order = 1 } } },
+        { text = "Let them race. A little danger makes it worth watching.", next = "BACK", reply = "It does make for a lively afternoon, and good sales, though I'd like everyone to still have their beards by sundown.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -507,7 +507,7 @@ P:NPC {
     mirage_raceway = { { id = "tp_race", text = "The best place in Kalimdor to watch things explode at speed, and the best place to sell bolts." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost, and I'm not going to talk about it, except to say that we'll get it back one day. Until then, I sell bolts to everyone, because bolts don't care where you're from." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the best engineering town in Kalimdor, and I'll admit that even though it's full of goblins. They buy my bolts and I buy their gears, and nobody gets hurt, mostly." } },
-    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's neutral, and so am I, so I sell to gnomes and goblins both. Business doesn't take sides, and neither does a good wrench." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's neutral, and so am I, so I sell to gnomes and goblins both. A sprocket doesn't care whose car it ends up in, and frankly, after the third crash, neither do I." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a goblin port, but they've got a few gnome engineers working the cranes. I hear they're paid better than the goblins, though nobody will admit it." } },
     _none = { { id = "tp_none", text = "Oh, I don't know about that, but I'd be happy to sell you a sprocket that's eighty percent likely to help!" } },
   },

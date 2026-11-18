@@ -26,7 +26,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "The plants and timberlings here grow twisted and sickly, and I cannot find the cause. Perhaps your spirits know it." } },
       choices = {
         { text = "Then study them carefully, Denalan. Find the cause.", next = "BACK", reply = "I will, and I will not rest until I do, for the forest deserves to know what ails it. Your trust means a great deal, shaman.", fx = { align = { order = 1 } } },
-        { text = "Burn them. Sickness spreads.", next = "BACK", reply = "And if the sickness is in the soil, shall we burn the whole tree? Fire is a poor cure for a sickness we do not yet understand.", fx = { align = { order = -1 } } },
+        { text = "Burn them before the sickness spreads.", next = "BACK", reply = "And if the sickness is in the soil, shall we burn the whole tree? Fire is a poor cure for a sickness we do not yet understand.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

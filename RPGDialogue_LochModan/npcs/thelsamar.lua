@@ -105,7 +105,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "East toward the Valley o' Kings, where the troggs come up out o' the earth in the night, an' north by the Silver Stream where the kobolds dig. The bounty board's got a job for every one o' them, so ye'll never stand idle." } },
       choices = {
-        { text = "I'll work through the bounty board, one job at a time.", next = "BACK", reply = "One at a time, aye, that's how the board gets cleared. Start wi' the troggs; they're the loudest.", fx = { align = { order = 1 } } },
+        { text = "I'll work through the bounty board, one job at a time.", next = "BACK", reply = "One at a time, aye, that's how the board gets cleared. Start wi' the troggs, for they're the loudest an' the nearest.", fx = { align = { order = 1 } } },
         { text = "I'll go where the fighting's thickest and forget the board.", next = "BACK", reply = "Thickest, aye, an' ye'll find it east, toward the valley. Just bring me somethin' tae write on the board when ye're back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -152,7 +152,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Ironforge'll want him alive, tae find out what he knows about the dam an' who sent him. The lads at the Stoutlager would want somethin' else, an' I'll no' say I blame them." } },
       choices = {
-        { text = "Take him alive to Ironforge. Justice should be done properly.", next = "BACK", reply = "Properly, aye, an' I'll be glad tae hand him over. The lads will grumble, but they'll live.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Take him alive to Ironforge. Justice should be done properly.", next = "BACK", reply = "Properly, aye, an' I'll be glad tae hand him over. The lads will grumble, but they'll have their day when the King's judges hear it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the lads have him. He'd do worse to them.", next = "BACK", reply = "They'd thank ye for it, an' I'd look the other way, maybe. But Ironforge wants him, an' Ironforge gets him.", fx = { align = { order = -1 } } },
         { text = "Something else, Kadrell.", next = "BACK" },
       },
@@ -162,7 +162,7 @@ P:NPC {
       lines = { { id = "xcl_ulda_default", text = "Aye, an' ye came back, which is the part folk forget tae do. The Mountaineers have been fightin' troggs on this road since before the dam was finished, so anythin' that thins them at the source is good news for Thelsamar." } },
       choices = {
         { text = "The Mountaineers should march on the trogg dens while they're weak.", next = "BACK", reply = "While they're weak, aye, an' if I had the dwarves I'd march tomorrow. Tell that tae Ironforge for me.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Leave the troggs their holes, Kadrell. Just guard the road.", next = "BACK", reply = "Guard the road, aye, that's what we do, an' it's what we'll keep doin'. But the troggs willnae stay in their holes.", fx = { align = { honor = -1 } } },
+        { text = "Leave the troggs their holes, Kadrell. Just guard the road.", next = "BACK", reply = "Guard the road, aye, that's what we do, an' it's what we'll keep doin'. But the troggs keep diggin' up through the road, so it's no' as simple as that.", fx = { align = { honor = -1 } } },
         { text = "Where do the troggs come from, really?", next = "xcl_ulda2" },
       },
     },
@@ -313,7 +313,7 @@ P:NPC {
       },
       choices = {
         { text = "Something's driving them. I'll find out what.", next = "BACK", fx = { affinity = 2, standing = { thelsamar = 1 } } },
-        { text = "A mean bear's a bear that needs putting down.", next = "BACK", reply = "Aye, an' I'll thank ye for it. A bear that's bitten a mountaineer will bite again.", fx = { align = { order = 1 } } },
+        { text = "A mean bear's a bear that needs putting down.", next = "BACK", reply = "Aye, an' I'll thank ye for it. One o' my lads came back from the north hills wi' his shield bitten through, an' the bear's still out there.", fx = { align = { order = 1 } } },
         { text = "Leave them to the hills, Kadrell. They were here first.", next = "BACK", reply = "They were, I'll grant ye, an' I'd leave them be if they'd leave my patrols be. They willnae.", fx = { align = { order = -1 } } },
       },
     },
@@ -475,7 +475,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep yer {pet} away from the trenches, mind, for the last beast that came through dug faster than my whole crew an' twice as careless." },
       },
       choices = {
-        { text = "I'll mark their tunnels and leave the fighting to others.", next = "BACK", reply = "Mark them, aye, an' I'll steer the diggers round them. That's worth more than a pile o' dead troggs.", fx = { align = { order = 1 } } },
+        { text = "I'll mark their tunnels and leave the fighting to others.", next = "BACK", reply = "Mark them, aye, an' I'll steer the diggers round them. A map o' their tunnels is worth more tae me than a pile o' dead troggs.", fx = { align = { order = 1 } } },
         { text = "I'd rather hunt them in their tunnels than mark them.", next = "BACK", reply = "Hunt them in their tunnels? Ye're braver than me. Mark the way in, at least, so I know where tae look for ye.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -504,7 +504,7 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "That the earth remembers every wound, an' that I'd answer for mine. Well, the earth's had a fair few wounds from troggs before me, an' I'm only after what's honest ore." } },
       choices = {
-        { text = "Honest work is no crime, Prospector.", next = "BACK", reply = "Thank ye, an' I'll tell that tae the next druid who scolds me. Honest work, an' honest dwarves.", fx = { align = { light = 1 } } },
+        { text = "Honest work is no crime, Prospector.", next = "BACK", reply = "Thank ye, an' I'll tell that tae the next druid who scolds me for scarrin' the hill.", fx = { align = { light = 1 } } },
         { text = "The druid was right. Dig with more care.", next = "BACK", reply = "Maybe she was, an' maybe I should. I'll think on it, which is more than I promised her.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -514,7 +514,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Agmond, my best surveyor, went out tae the Badlands sites an' the troggs caught him alone, I fear. If he's gone, he's had no priest tae say the words over him, an' that's sat on me ever since." } },
       choices = {
         { text = "Then I'll say the rites over him properly.", next = "BACK", reply = "Would ye? Then Agmond can rest, an' so can I. Thank ye, from the bottom o' my heart.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "He's gone, Prospector. The dig is his memorial now.", next = "BACK", reply = "His memorial, aye, an' a fine one it'll be when we've finished. But he deserves the rites too.", fx = { align = { light = -1 } } },
+        { text = "He's gone, Prospector. The dig is his memorial now.", next = "BACK", reply = "His memorial, aye, an' a fine one it'll be when we've finished. But he deserves the rites too, an' I'll see he gets them.", fx = { align = { light = -1 } } },
         { text = "Something else, Prospector.", next = "BACK" },
       },
     },
@@ -757,8 +757,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A few o' the miners mutter, but they mutter about everythin', includin' the ale, an' they still drink it. The mountaineers like yer kind fine, for a shaman patched up one o' their lads on the north road an' he's told everyone. I'll serve ye the same as anybody, an' ye can tell the cask tae behave." } },
       choices = {
-        { text = "Then I'll earn the miners' trust too, Hearthstove.", next = "BACK", reply = "Good, an' ye will, given time an' a few rounds. The miners like anyone who buys.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The miners can mutter. I'll drink where I like.", next = "BACK", reply = "Drink where ye like, an' pay what ye owe, an' we'll get along fine. The miners will come round.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll earn the miners' trust too, Hearthstove.", next = "BACK", reply = "Good, an' ye will, given time an' a few rounds. They warm tae anyone who sits through a mining story without yawnin'.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The miners can mutter. I'll drink where I like.", next = "BACK", reply = "Drink where ye like, an' pay what ye owe, an' we'll get along fine. The miners grumble at everybody the first week.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -778,7 +778,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Vidra does, an' she's particular about it, for she'll take fresh boar from the hills an' turn her nose up at anythin' that's been dead too long. An' keep yer {pet} out o' the kitchen, friend, for Vidra's chased off bigger beasts wi' a ladle." },
       },
       choices = {
-        { text = "I'll bring her the freshest boar in the hills.", next = "BACK", reply = "Fresh, aye, an' she'll love ye for it. Vidra's sausages are worth the walk.", fx = { align = { honor = 1 } } },
+        { text = "I'll bring her the freshest boar in the hills.", next = "BACK", reply = "Fresh, aye, an' she'll love ye for it. Ye'll smell her sausages from the bridge.", fx = { align = { honor = 1 } } },
         { text = "I'll bring what's easiest and let her sort it out.", next = "BACK", reply = "Easiest, eh? She'll throw it back at ye, an' I'll no' stop her. Fresh or nothin', for Vidra.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -789,8 +789,8 @@ P:NPC {
         { id = "xma_gnome", when = { race = "Gnome" }, text = "A gnome offerin' tae chill my ale, an' I suppose ye drank it half-frozen down in Gnomeregan wi' all yer fancy coolers. Here it's cellar-cool or nothin', so keep yer frost for the troggs." },
       },
       choices = {
-        { text = "Your inn, your rules, Hearthstove.", next = "BACK", reply = "Thank ye, an' ye'll be welcome in it. A mage wi' manners is a rare thing.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A good ale is whatever the drinker says it is.", next = "BACK", reply = "Whatever the drinker says? No' in my inn, friend. Cellar-cool or out the door.", fx = { align = { order = -1 } } },
+        { text = "Your inn, your rules, Hearthstove.", next = "BACK", reply = "Thank ye, an' ye'll be welcome in it. The last mage in here froze my best cask solid tae show off.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A good ale is whatever the drinker says it is.", next = "BACK", reply = "Whatever the drinker says? No' in my inn, friend. My ale comes up cold from the cellar, an' anyone who wants it warm can drink by the fire.", fx = { align = { order = -1 } } },
         { text = "Who drinks here, usually?", next = "regulars" },
       },
     },
@@ -807,8 +807,8 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "The loch at dawn, when the mist sits on it an' the fish rise. The dam keeps the water deep, though the old folk say the valley looked different before it was built." } },
       choices = {
-        { text = "The dam was worth building. Look at the town.", next = "BACK", reply = "It was, an' the town's grown for it. Thelsamar's no' a bad place, for all the troggs.", fx = { align = { order = 1 } } },
-        { text = "Dams change the land. I'd like to see it old.", next = "BACK", reply = "So would I, some days. The old folk say it was beautiful, though the loch's no' so bad either.", fx = { align = { order = -1 } } },
+        { text = "The dam was worth building. Look at the town.", next = "BACK", reply = "It was, an' the town's grown for it. Thelsamar's no' a bad place, troggs an' all.", fx = { align = { order = 1 } } },
+        { text = "Dams change the land. I'd like to see it old.", next = "BACK", reply = "So would I, some days. My granda swore the valley was all meadow before the water came, though I've only ever known the loch.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -816,7 +816,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Where else would they bring it? They sing about the dam an' the troggs an' the old days, an' when one o' their own doesnae come back, they sing his name an' I pour one for the empty stool." } },
       choices = {
-        { text = "That's an honest kind of grieving. I'll sing with them.", next = "BACK", reply = "Ye'd sing wi' them? Then ye're welcome at my bar any night, an' the first round's on the house... well, the first sip.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's an honest kind of grieving. I'll sing with them.", next = "BACK", reply = "Ye'd sing wi' them? Then ye're welcome at my bar any night, an' I'll pull up a stool for ye by the hearth.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Ale doesn't heal grief, Hearthstove. It only hides it.", next = "BACK", reply = "It doesnae, aye, but it gets them through the night. I'll let the morning take care o' the rest.", fx = { align = { light = -1 } } },
         { text = "Something else, Hearthstove.", next = "BACK" },
       },
@@ -871,7 +871,7 @@ P:NPC {
         { text = "I'd guess brawls break out here often enough, Hearthstove.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do folk in Thelsamar mind a shaman at the Stoutlager?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My family brews. I came to see where the barrels end up.", next = "xorig_brew", when = { origin = "dwarf_brewer" } },
-        { text = "You seem in a cheerful mood tonight, Hearthstove.", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "hearthstove_flirt_no" } } },
+        { text = "You're in a cheerful mood tonight, Hearthstove.", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "hearthstove_flirt_no" } } },
         { text = "Just a pint.", next = "END" },
       },
     },
@@ -884,13 +884,13 @@ P:NPC {
       choices = {
         { text = "Then pour me a pint, and keep the grin.", next = "flirt_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hearthstove_flirt_yes" }, clear = { "hearthstove_flirt_no" } } } },
         { text = "Compare me to a cask again and I'll sit on your bar.", next = "flirt_yes", when = { race = "Dwarf" },
-          reply = "Ha! Now there's a lass who knows how tae talk tae a dwarf.",
+          reply = "Ha! Now there's a lass who knows how tae talk tae a dwarf, an' I'll mind my bar.",
           fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hearthstove_flirt_yes" }, clear = { "hearthstove_flirt_no" } } } },
         { text = "You'd need to stoop a long way to court me, Hearthstove.", next = "flirt_yes", when = { race = "Gnome" },
           reply = "Ach, I've bent lower than that for a dropped copper, lass, an' ye're worth a good deal more.",
           fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hearthstove_flirt_yes" }, clear = { "hearthstove_flirt_no" } } } },
         { text = "You're a dear, Hearthstove, but I only want the ale.", next = "BACK",
-          reply = "An' the ale ye'll have, lass, wi' no more o' my blether on top. A dwarf can try.",
+          reply = "An' the ale ye'll have, lass, wi' no more o' my blether on top. I had tae try, though.",
           fx = { trait = { reserved = 1 }, npcFlag = { set = { "hearthstove_flirt_no" }, clear = { "hearthstove_flirt_yes" } } } },
         { text = "Mind your manners, innkeeper.", next = "BACK",
           reply = "Aye, aye, they're minded, an' put back on the shelf where they belong. No harm meant, lass.",
@@ -952,7 +952,7 @@ P:NPC {
       },
       choices = {
         { text = "Our secret, Hearthstove.", next = "BACK", reply = "Our secret, aye, an' we'll keep it that way. Have a drink on me, for yer silence.", fx = { affinity = 2, align = { honor = -1 } } },
-        { text = "I've gone straight. You should too.", next = "BACK", reply = "Straight, is it? Good for ye, an' maybe someday. But the casks are cheaper this way, an' the Mountaineers dinnae ask.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "I've gone straight. You should too.", next = "BACK", reply = "Straight, is it? Good for ye, an' maybe someday. But the casks come cheaper this way, an' the Mountaineers dinnae ask where they came from.", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
   },
@@ -1057,7 +1057,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Every week, an' they get the good sausages, no' the burnt ones, for grief's hungry work. I dinnae make a fuss of it, an' I'll thank ye no' tae either." } },
       choices = {
-        { text = "I won't say a word. That's real goodness, Vidra.", next = "BACK", reply = "Thank ye, an' that's all I ask. Grief's quiet, an' so's the help.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I won't say a word. That's real goodness, Vidra.", next = "BACK", reply = "Thank ye, an' that's all I ask. The widows dinnae want thanks, only a full plate an' nobody talkin' about it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Charity's well enough, but you can't feed everyone.", next = "BACK", reply = "No, but I can feed these ones, an' that's enough for me. Ye'd do the same if ye saw their faces.", fx = { align = { light = -1 } } },
         { text = "Something else, Vidra.", next = "BACK" },
       },
@@ -1092,7 +1092,7 @@ P:NPC {
         { text = "Those sausages smell like nothing I've eaten before.", next = "what" },
         { text = "Who eats them all?", next = "who" },
         { text = "Can I help?", next = "help" },
-        { text = "I cook too. Trade secrets?", next = "cook", when = { profession = "Cooking" } },
+        { text = "I cook too. Care to trade secrets?", next = "cook", when = { profession = "Cooking" } },
         { text = "I could hunt the boar for your sausages.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "I could lift a few ingredients from the hills for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could I warm the sausages for you? It'd save the coal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -1322,7 +1322,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Poorly, if you want the truth, though they'd never say so. They sleep in shifts beneath the statues, and some of them talk to the old kings at night, which I allow, because the kings don't answer back." } },
       choices = {
-        { text = "Let me sit with them. Weary souls need tending too.", next = "BACK", reply = "They would thank you, though they'd never say it. Go and sit with them tonight, under the statues.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let me sit with them. Weary souls need tending too.", next = "BACK", reply = "They would thank you, though they'd never say it. Go and sit with them tonight, under the statues, and let them talk if they want to.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Soldiers must be hard. Comfort only makes them soft.", next = "BACK", reply = "Hard, yes, but not brittle. You'd know the difference if you'd seen a soldier break.", fx = { align = { light = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
@@ -1331,7 +1331,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "They climb them, scratch at them and nest at their feet, and I don't think they know what they are. Ignorance is no excuse in my book, but I've stopped expecting troggs to read." } },
       choices = {
-        { text = "Then I'll clear every trogg from the kings' feet.", next = "BACK", reply = "Clear them, and I'll have the statues scrubbed in your honour. The old kings deserve no less.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll clear every trogg from the kings' feet.", next = "BACK", reply = "Clear them, and I'll see the statues scrubbed of trogg filth by the end of the week. The kings of Ironforge shouldn't have vermin at their feet.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Statues are only stone, Captain. Spend your soldiers elsewhere.", next = "BACK", reply = "Only stone? Those are the kings of Khaz Modan, and I'll spend what I must to keep them clean.", fx = { align = { honor = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
@@ -1387,7 +1387,7 @@ P:NPC {
         { id = "rs_default", text = "The Ironforge Reserve has been called up to the Alliance front, and my regiment holds the gate here and cannot leave it. So the hills go unwatched." },
       },
       choices = {
-        { text = "Then I'll watch them.", next = "BACK", reply = "Will you? Then you're worth more to me than half a regiment. Go to the eastern hills first.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Then I'll watch them for you.", next = "BACK", reply = "Will you? Then you're worth more to me than half a regiment. Start in the eastern hills, where the fires were last seen.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Ironforge ought to bring its soldiers home.", next = "BACK", reply = "They should, and I've written to say so. Ironforge doesn't answer letters quickly, I'm afraid.", fx = { align = { order = -1 } } },
         { text = "Is the front worth it?", next = "reserve_worth" },
       },
@@ -1445,8 +1445,8 @@ P:NPC {
         { id = "mo_default", text = "Then stand a watch with my regiment some night. You'll find the troggs keep worse hours than the Frostmane." },
       },
       choices = {
-        { text = "Gladly, Captain.", next = "BACK", reply = "Glad to hear it, and glad to have you. Report at dusk, and bring a warm cloak.", fx = { affinity = 2, align = { order = 1 }, standing = { thelsamar = 1 } } },
-        { text = "I'm done standing watches, so I'll hunt troggs my own way.", next = "BACK", reply = "Your own way, is it? Then I hope it's a good way, and that you come back from it. The troggs don't care about anyone's way.", fx = { align = { order = -1 } } },
+        { text = "Gladly, Captain.", next = "BACK", reply = "Glad to hear it, and glad to have you. Report at dusk, and bring a warm cloak, because the wind off the pass bites.", fx = { affinity = 2, align = { order = 1 }, standing = { thelsamar = 1 } } },
+        { text = "I'm done standing watches, so I'll hunt troggs my own way.", next = "BACK", reply = "Your own way, is it? Then I hope it's a good way, and that you come back from it. I've a wall of names here from men who did things their own way.", fx = { align = { order = -1 } } },
       },
     },
     reserve_off = {
@@ -1539,7 +1539,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "I fear it every morning and most nights, for they've been seen in the hills, and one keg of their powder in the wrong place would empty the loch into the Wetlands. My forebears built it to stand for ever, but I've no wish to test that with a battle on top of it." } },
       choices = {
-        { text = "I'll stand watch at the gates and stay there.", next = "BACK", reply = "Thank you, truly. A guard who stays is worth ten who go wandering.", fx = { align = { order = 1 } } },
+        { text = "I'll stand watch at the gates and stay there.", next = "BACK", reply = "Thank you, truly. I've had three guards go wandering after troggs this month, and the dam doesn't guard itself.", fx = { align = { order = 1 } } },
         { text = "Better to hunt them in the hills than wait for them.", next = "BACK", reply = "Hunt them, by all means, but someone must stay at the gates. I'll not leave her unguarded.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1572,14 +1572,14 @@ P:NPC {
       },
       choices = {
         { text = "Fair. I'll stand guard here like anyone else.", next = "BACK", reply = "Good, that's all I ask. I'll sleep easier with you here and your friends somewhere else.", fx = { align = { light = 1 } } },
-        { text = "Fire's fire, Engineer. Use it or lose your dam.", next = "BACK", reply = "Use it? And risk her cracking from the heat? No, Engineer Hinderweir stands by the old ways.", fx = { align = { light = -1 } } },
+        { text = "Fire's fire, Engineer. Use it or lose your dam.", next = "BACK", reply = "Use it? And risk her cracking from the heat? No, I'll stand by the old ways, same as the six Hinderweirs before me.", fx = { align = { light = -1 } } },
         { text = "How could they bring the dam down?", next = "threat_how" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "It holds back a loch's worth o' water an' keeps the valley from floodin'. Some'd call that harm, but I'd call it a gift tae every farm below it." } },
       choices = {
-        { text = "Taming water is wise, not harmful.", next = "BACK", reply = "Thank ye, that's how I see it too. The farms below would agree, an' so would the town.", fx = { align = { order = 1 } } },
+        { text = "Taming water is wise, not harmful.", next = "BACK", reply = "Thank ye, that's how I see it too. Ask the farmers below whether they'd like the loch back on their fields.", fx = { align = { order = 1 } } },
         { text = "Rivers deserve to run free, Chief Engineer.", next = "BACK", reply = "Free? Then free tae drown every farm in the valley. I'll keep my dam, thank ye.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1713,8 +1713,8 @@ P:NPC {
         { id = "xgn_default", text = "A look, by all means, but no tinkering. Seven generations of Hinderweirs have kept her standing by changing nothing at all, and the last gnome who looked at her suggested a steam-powered spillway." },
       },
       choices = {
-        { text = "A spillway might save her, you know.", next = "BACK", reply = "A spillway? You sound like the last gnome, and he nearly had me fooled. Maybe, but not without a hundred years of study.", fx = { align = { order = -1 }, affinity = -1 } },
-        { text = "If she stands, leave her be.", next = "BACK", reply = "Exactly, and that's what my grandfather said, and his father before him. Seven generations can't be wrong.", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "A spillway might save her, you know.", next = "BACK", reply = "A spillway? You sound like the last gnome, and he nearly had me fooled. Maybe, but not without a hundred years of study, and I've only got sixty left in me.", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "If she stands, leave her be.", next = "BACK", reply = "Exactly, and that's what my grandfather said, and his father before him. Seven generations of Hinderweirs, and she's never leaked a drop.", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },

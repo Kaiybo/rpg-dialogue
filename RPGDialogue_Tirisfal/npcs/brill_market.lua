@@ -52,7 +52,7 @@ P:NPC {
       big = true,
       lines = { { id = "bv_default", text = "Their business, and they pay promptly, which is more than the Deathguard do. If the Society wants to bottle the whole Glades, I'll sell them the bottles and keep my opinions in the back room with the spare flux." } },
       choices = {
-        { text = "Wise woman. Coin is coin.", next = "BACK", reply = "Coin is coin, and the Society's coin spends just as well as anyone's in Brill. Whatever they're brewing up there, I'd rather be the one selling the bottles than the one standing downwind.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Wise of you. Coin spends the same, whoever pays it.", next = "BACK", reply = "Coin is coin, and the Society's coin spends just as well as anyone's in Brill. Whatever they're brewing up there, I'd rather be the one selling the bottles than the one standing downwind.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "You ought to know what your goods are used for.", next = "BACK", reply = "I know what my vials are used for, thank you; I simply choose not to dwell on it. Dwelling is a luxury for the living, and I've a shop to keep.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

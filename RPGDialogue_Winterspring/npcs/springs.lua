@@ -30,7 +30,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "The way it turns 'em, for one, because drink makes a body foolish, no' cruel. The Winterfall used tae trade wi' Everlook peaceable enough, an' now they'd as soon tear yer arm off, an' I've seen satyr tracks round their stores that have nae business bein' there." } },
       choices = {
-        { text = "I'll find who's brewing it and stop them for good.", next = "BACK", reply = "Aye, an' I'll no' weep for whoever it is, but mind ye don't go cuttin' through half the Winterfall tae reach them. The furbolgs are the ones bein' poisoned here.", fx = { align = { order = -1 } } },
+        { text = "I'll find who's brewing it and stop them for good.", next = "BACK", reply = "Aye, an' I'll no' weep for whoever it is, but dinnae go cuttin' through half the Winterfall tae reach them. The furbolgs are the ones bein' poisoned here.", fx = { align = { order = -1 } } },
         { text = "Bring proof to Everlook first. The town should judge it.", next = "BACK", reply = "That's a cautious head on ye, an' I like it, for the goblins hate surprises worse than yetis. Bring them somethin' they can hold in their hands, an' they'll listen.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -285,7 +285,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_mauari_default", text = "For de juju, mon, because de spirits up here be old and cold, and dey remember things de jungle forgot. Mau'ari would sooner freeze learning than stay warm and ignorant, and maybe your troll friend understands that too." } },
       choices = {
-        { text = "Some old spirits are best left forgotten, Mau'ari.", next = "BACK", reply = "Ha! Maybe dey be, mon, but de forgotten ones be de hungriest, and Mau'ari would rather know dem by name than meet dem in de dark. Ignorance never kept a troll warm.", fx = { align = { light = 1 } } },
+        { text = "Some old spirits are best left forgotten, Mau'ari.", next = "BACK", reply = "Ha! Maybe dey be, mon, but de forgotten ones be de hungriest, and Mau'ari would rather know dem by name than meet dem in de dark. Not knowin' never kept a troll warm.", fx = { align = { light = 1 } } },
         { text = "Old spirits hold power. You're right to seek it.", next = "BACK", reply = "Ya, you see it, mon, and de loa smile on a curious mind. Old cold spirits teach things de jungle never dreamed of, if you got de patience to listen.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -294,7 +294,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because a beast dat dies afraid gives you only fear, mon, and fear be useless juju. A beast dat dies quick and proud gives its strength, so a rogue who strikes clean makes de best E'ko of all, and Mau'ari pay attention to such things." } },
       choices = {
-        { text = "I'll make it quick and clean, then. They deserve that.", next = "BACK", reply = "Good, mon, dat be de way, and de spirits will remember your blade kindly. A clean kill be a gift to de hunter and de hunted both.", fx = { align = { honor = 1 } } },
+        { text = "I'll make it quick and clean, then. They deserve that.", next = "BACK", reply = "Good, mon, dat be de way, and de spirits will remember your blade kindly. Bring me what be left after, and I make sure de E'ko go somewhere good.", fx = { align = { honor = 1 } } },
         { text = "I'll make it however I like, so long as you pay.", next = "BACK", reply = "Ha, a hard one you are, mon, and Mau'ari pay all de same. But de E'ko of a frightened beast be thin stuff, so don't be surprised when your charm come out weak.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -339,7 +339,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "De E'ko, mon, de spirit-bits of every beast in Winterspring, and a little patience from Mau'ari. Every charm Mau'ari make, a creature give something for it, and dat be a fair trade, unlike your arcane, which take and take and never say thank you." } },
       choices = {
-        { text = "A fair trade is always the better way.", next = "BACK", reply = "Ya, mon, you got sense, and de spirits feel de difference in de charm. Fair trade make strong juju, and greedy trade make it crack.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A fair trade is always the better way.", next = "BACK", reply = "Ya, mon, you got sense, and de spirits feel de difference in de charm. A charm made greedy crack in de cold before de week be out.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The arcane owes thanks to nobody.", next = "BACK", reply = "Ha! Mau'ari know plenty mages who think dat, mon, and plenty of dem got frozen solid by somethin' dey never thanked. De cold don't care how clever you be.", fx = { align = { order = -1 } } },
         { text = "I'll bring you some E'ko.", next = "BACK" },
       },
@@ -348,8 +348,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Dey reach wherever a troll carry dem, mon, and Mau'ari carry plenty. De cold spirits here be different, sharp and hungry, so Mau'ari give dem respect and a little E'ko, and dey leave her be, mostly." } },
       choices = {
-        { text = "Then I'll give the cold spirits respect, as you do.", next = "BACK", reply = "Den de cold ones gonna treat you right, mon, and Mau'ari be proud of you. A little respect go a long way in a place dis hungry.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Spirits are tools, Mau'ari, and hungry ones most of all.", next = "BACK", reply = "Careful, mon, de hungry ones hear you sayin' dat, and dey don't like bein' called tools any more than you would. Dey bite back, and dey bite cold.", fx = { align = { light = -1 } } },
+        { text = "Then I'll give the cold spirits respect, as you do.", next = "BACK", reply = "Den de cold ones gonna treat you right, mon, and Mau'ari be proud of you. Leave a little somethin' at de spring when you pass, a bead, a bone, anything.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Spirits are tools, Mau'ari, and hungry ones most of all.", next = "BACK", reply = "Careful, mon, de hungry ones hear you sayin' dat, and dey don't like bein' called tools any more than you would. I seen one freeze a man's beard to his chest for less.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

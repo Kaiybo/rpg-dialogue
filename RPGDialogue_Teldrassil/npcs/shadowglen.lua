@@ -160,7 +160,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll remember that.", next = "BACK", reply = "Do, and teach it to others when you can. It is the oldest lesson of the kaldorei.", fx = { affinity = 2, align = { light = 1 }, learn = { "cenarion_circle" } } },
-        { text = "The strong take what they can, and that's the forest's way too.", next = "BACK", reply = "It is the forest's way, and it is how forests die. Balance is what keeps them alive.", fx = { align = { light = -1 } } },
+        { text = "The strong take what they can, and that's the forest's way too.", next = "BACK", reply = "It is the forest's way, and it is how forests die. Ask any druid who walked Hyjal after the burning.", fx = { align = { light = -1 } } },
         { text = "Even if it means killing?", next = "balance_kill" },
       },
     },
@@ -285,7 +285,7 @@ P:NPC {
       },
       choices = {
         { text = "Only what the Conservator asks, and no more.", next = "BACK", reply = "Then the Conservator will be glad of you, and so will I. The balance is a delicate thing.", fx = { align = { order = 1 } } },
-        { text = "The forest has plenty. I'll take what I need.", next = "BACK", reply = "There is plenty, for now, but plenty does not last. Take less, and there will be more.", fx = { align = { order = -1 } } },
+        { text = "The forest has plenty. I'll take what I need.", next = "BACK", reply = "There is plenty, for now, but plenty does not last. The boars stripped the eastern slope bare last spring, and it has not grown back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -543,7 +543,7 @@ P:NPC {
           text = "Whatever the glade has too much of, as Ilthalaine will tell you, and I've seen the sabers in the paddock let you close, which is a good start. When you're grown into that bow, Jocaste in the Enclave will teach you to keep a companion of your own." },
       },
       choices = {
-        { text = "I'll take only what's needed.", next = "BACK", reply = "Then the Conservator will be glad of you, and so will the forest. Take only what is needed.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'll take only what's needed.", next = "BACK", reply = "Then the Conservator will be glad of you. Start near the moonwell, where the young sabers have grown too bold.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "The strong eat. That's the forest's way too.", next = "BACK", reply = "It is the forest's way, until the forest runs out. Take less, and the strong will eat for longer.", fx = { align = { order = -1 } } },
       },
     },
@@ -674,7 +674,7 @@ P:NPC {
       lines = { { id = "wt_default", text = "It is. Sit with me a moment, and tell me what the worst of it is, down there." } },
       choices = {
         { text = "The Horde, cutting Ashenvale.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
-        { text = "The corruption. It's everywhere.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "The corruption. I see it everywhere I look.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "Honestly? Being far from home.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -750,7 +750,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Iverron gets into trouble every time he goes near that cave, the fool, and I worry. Perhaps your spirits could watch over him." } },
       choices = {
-        { text = "I will help him, Dirania. Friends are worth it.", next = "BACK", reply = "Thank you, and he will be glad of it, though he will not say so. He never does.", fx = { align = { honor = 1 } } },
+        { text = "I'll help him, Dirania. He's lucky to have a friend like you.", next = "BACK", reply = "Thank you, and he will be glad of it, though he will not say so. He never does.", fx = { align = { honor = 1 } } },
         { text = "Let him learn his lesson.", next = "BACK", reply = "He has learned it a dozen times already, and he never remembers. Please help him anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

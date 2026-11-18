@@ -255,7 +255,7 @@ P:NPC {
           text = "Strange, and you are stranger than most, if you'll forgive me; the children think you're a kind of very polite ursera. Your people have taken in our Windshapers, though, and that earns you a welcome here whatever the elders grumble." },
       },
       choices = {
-        { text = "Doors are meant to be opened. You'll be stronger for it.", next = "BACK", reply = "That's what I hope, and some days I even believe it. Time will tell.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Doors are meant to be opened. You'll be stronger for it.", next = "BACK", reply = "That's what I hope, and some days I even believe it. Ask me again when the next skyship docks.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Be careful who you let through it.", next = "BACK", reply = "I am, guest, and I'm watching you too. Don't take it personally.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -387,7 +387,7 @@ P:NPC {
       },
       choices = {
         { text = "Loyalty to the Skyborne, not to either order.", next = "BACK", reply = "A good answer, and the one I'd hoped to hear. The Council could use more people like you.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Caution. A secret's worth more kept than spent.", next = "BACK", reply = "An honest answer, if a cold one. I'll remember both halves of it.", fx = { align = { honor = -1 } } },
+        { text = "Caution. I'd keep that secret until I knew who wanted it.", next = "BACK", reply = "An honest answer, if a cold one. I'll remember both halves of it.", fx = { align = { honor = -1 } } },
         { text = "Something else, Elder.", next = "BACK" },
       },
     },
@@ -487,7 +487,7 @@ P:NPC {
         { id = "tr_default", text = "Because Zephras needs spirited young people if it's to survive what's coming, and spirit alone gets people killed. Better I learn what you're made of in the grove, with rangers close by, than the cult learns it on the road." },
       },
       choices = {
-        { text = "Test me, then. I'll not shy from it.", next = "BACK", reply = "Good, then we'll begin tomorrow at dawn. Bring your courage and leave your pride behind.", fx = { affinity = 1, align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Test me, then. I'll not shy from it.", next = "BACK", reply = "Good, then we'll begin tomorrow at dawn on the cliff path. Eat lightly, and leave your pride at the bottom.", fx = { affinity = 1, align = { honor = 1 }, trait = { brave = 1 } } },
         { text = "I'll prove myself my own way, not by your tests.", next = "BACK", reply = "Your own way is precisely what gets the young killed. But very well, I'll be watching.", fx = { align = { honor = -1 } } },
         { text = "What sort of test do you have in mind?", next = "matriarch" },
       },
@@ -908,7 +908,7 @@ P:NPC {
         { id = "gw_default", text = "I used to, when I was young and restless. I've come to think that being thankful for what you have is the root of contentment, and that pining for what you might have, or what you've lost, leads only to despair." },
       },
       choices = {
-        { text = "That's wisdom. Gratitude keeps a people steady.", next = "BACK", reply = "Thank you. It took me many years to learn it, and I'm still learning.", fx = { affinity = 2, align = { order = 1 }, trait = { patient = 1 } } },
+        { text = "That's wise. I'd rather count what we kept.", next = "BACK", reply = "Thank you. It took me many years to learn it, and I'm still learning.", fx = { affinity = 2, align = { order = 1 }, trait = { patient = 1 } } },
         { text = "Without yearning, nobody would ever bring the spirits home.", next = "BACK", reply = "Perhaps you're right, and I'd not stop you from yearning. Only don't let it eat you.", fx = { align = { order = -1 }, trait = { ambitious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -940,8 +940,8 @@ P:NPC {
           text = "Perhaps, for Tai'ree trained you well. You'll see the sky below the clouds before I do, I expect, so tell me: do you think it's as wide as ours?" },
       },
       choices = {
-        { text = "Wider. You'd like it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "Smaller, somehow. Full of walls.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Wider than you'd think. You'd like it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Smaller, somehow, and full of walls.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     xranger = {

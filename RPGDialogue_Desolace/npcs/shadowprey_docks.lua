@@ -363,7 +363,7 @@ P:NPC {
         { id = "sn_default", text = "I name each one, though I don't tell travellers the names, because they'd only shout them in the air and confuse the poor beasts. The oldest is called Grey Wind, and that one I'll tell you, since she won't answer to it anyway." },
       },
       choices = {
-        { text = "Grey Wind. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Grey Wind. I'll remember the name.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

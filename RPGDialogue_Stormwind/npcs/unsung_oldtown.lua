@@ -107,7 +107,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Swing a two-hander, do you? Your spirits would love the weight of it." },
       },
       again = {
-        { id = "h_again", text = "What else, friend?" },
+        { id = "h_again", text = "What else, friend? Mind the edges on that rack." },
         { id = "h_again2", text = "Go on, I've nothing to do but polish." },
         { id = "h_again3", text = "Anything else on your mind? Talk while I oil this blade; it's good company for both of us." },
       },
@@ -192,7 +192,7 @@ P:NPC {
 
     -- The shop and Old Town
     shop = {
-      lines = { { id = "sh_default", text = "My father kept a forge on this street before the First War, and when the city came back up out of the ashes, I came back with it. I can't forge to save my life, so I sell what better men make, and I've never once been ashamed of it." } },
+      lines = { { id = "sh_default", text = "My father kept a forge on this street before the First War, and when the city came back up out of the ashes, I came back with it. I can't forge to save my life, so I sell what better men make, and I'm not ashamed of it." } },
       choices = {
         { text = "Who makes your steel, then?", next = "shop_smith" },
         { text = "Something else.", next = "BACK" },
@@ -284,7 +284,7 @@ P:NPC {
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The fighters of the Gurubashi Arena buy greatswords from me now and then, and I've heard a few of them have won. I've also heard a few of them haven't, and I don't sell refunds." } },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make greataxes that would split a shield in one blow, and I'd like to own one. I'd not sell it, mind, because I'd want it on my own wall." } },
     background = { { id = "tp_bg", text = "I've sold heavy steel in Old Town for years, in the one part of the city the Horde never managed to burn." } },
-    _none = { { id = "tp_none", text = "No idea, friend, but ask me about greatswords and I'll talk all day." } },
+    _none = { { id = "tp_none", text = "No idea, friend. Greatswords, now, I could bore you with those until the lamps are lit." } },
   },
 }
 
@@ -361,8 +361,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every warrior who travels should, because a hide's worth coin and a carcass is worth nothing but flies. You'll be killing wolves and bears whether you mean to or not, so you may as well get something for it." } },
       choices = {
-        { text = "Waste nothing. I'll learn the trade.", next = "BACK", reply = "That's the way. A warrior who skins comes home with coin in his pocket.", fx = { align = { honor = 1 } } },
-        { text = "I fight. I don't skin. Leave the hides.", next = "BACK", reply = "Then the flies will thank you, and so will I, for leaving the leather to my students.", fx = { align = { honor = -1 } } },
+        { text = "Waste nothing. I'll learn the trade.", next = "BACK", reply = "That's the way. A warrior who skins comes home from Redridge with coin in his pocket as well as scars.", fx = { align = { honor = 1 } } },
+        { text = "I fight, I don't skin. Leave the hides for someone else.", next = "BACK", reply = "Then the flies will thank you, and so will I, for leaving the leather to my students.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -374,7 +374,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll take my time and do it right.", next = "BACK", reply = "Good. You'll get twice the price for it, and I'll stop scowling.", fx = { align = { honor = 1 } } },
-        { text = "Fast work pays better than careful work.", next = "BACK", reply = "Then you'll get half the price for it. That's the trade, love.", fx = { align = { honor = -1 } } },
+        { text = "Fast work pays better than careful work.", next = "BACK", reply = "A torn hide fetches half, love, and I don't make the rules; the tanners do.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -383,7 +383,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Not the work, no, because the beast's already dead and wasting it would be worse. It's the hunters who kill for sport I can't abide, and I'll tell them so to their faces." } },
       choices = {
         { text = "Every life deserves respect, even a beast's.", next = "BACK", reply = "It does, and I'll say it to anyone who'll listen. Waste nothing, kill nothing for sport.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A beast is meat and hide. There's no sin in sport.", next = "BACK", reply = "Then you'll not hear it from me, but you'll hear it from my face. I'd rather not teach you.", fx = { align = { light = -1 } } },
+        { text = "A beast is meat and hide. There's no sin in sport.", next = "BACK", reply = "I'll not say a word, but you'll read it plain on my face. I'd rather not teach you, all the same.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -409,7 +409,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Finally, someone who might actually be serious about skinning. Don't waste my time and I won't waste yours." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the skinning table. I'll not ask you to watch if you'd rather not, but I won't stop working for you either." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. If you're here to skin something you summoned, the answer is no, because it doesn't leave a hide, it leaves a smell." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. No time for tourists. If you're here to learn, then learn; if not, go talk to your spirits elsewhere." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, is it? I've no time for tourists, so if you're here to learn, then learn; if not, go and talk to your spirits elsewhere." },
       },
       again = {
         { id = "h_again", text = "Still here? Then say what you need while I sharpen this knife." },
@@ -520,7 +520,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than they'd think, in the grips, the straps, the boots and the jerkins under their mail. Simon says a warrior wears more leather than a hunter, and I've never once been able to prove him wrong." } },
+      lines = { { id = "xwarcl_default", text = "More than they'd think, in the grips, the straps, the boots and the jerkins under their mail. Simon says a warrior wears more leather than a hunter, and I've yet to prove him wrong." } },
       choices = {
         { text = "Then I'll take care of my leather as well as my steel.", next = "BACK", reply = "There's a sensible warrior. Leather's the bit that keeps the steel on.", fx = { align = { order = 1 } } },
         { text = "Leather's leather. It wears out, I buy more.", next = "BACK", reply = "Then you'll buy it from me often, and I'll not complain.", fx = { align = { order = -1 } } },
@@ -574,7 +574,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My prices are set; haggling is for goblins. Your spirits won't change them." },
       },
       again = {
-        { id = "h_again", text = "Anything else?" },
+        { id = "h_again", text = "Anything else, love? The hides won't tan themselves." },
         { id = "h_again2", text = "Anything more? Prices still haven't moved, mind." },
         { id = "h_again3", text = "Go on, then. Talking's free, which is the only thing in this shop that is." },
       },
@@ -603,7 +603,7 @@ P:NPC {
       lines = { { id = "h_default2", text = "Because haggling only rewards the loudest customer, and the quiet ones deserve the same price. The price on the tag is the price for everyone, noble or farmhand." } },
       choices = {
         { text = "That's fair, if everyone pays the same.", next = "BACK", reply = "Everyone pays the same, noble or not. That's the only way I'll have it.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "A good bargain is half the fun of buying.", next = "BACK", reply = "Then you'll have to find your fun at another counter. Mine's fixed.", fx = { align = { order = -1 } } },
+        { text = "A good bargain is half the fun of buying.", next = "BACK", reply = "Haggling's for the market stalls, love. My prices are fixed, and they stay fixed.", fx = { align = { order = -1 } } },
         { text = "Where did you learn to price like that?", next = "haggle_mother" },
         { text = "Has anyone ever talked you down?", next = "haggle_goblin" },
         { text = "Something else.", next = "BACK" },
@@ -657,7 +657,7 @@ P:NPC {
       lines = { { id = "ss_default", text = "From the coast past Westfall, by cart, and these days one cart in three arrives, because the Defias have taken a liking to anything that moves on that road. I've had to put my salt up twice this year, and I hated doing it.",
           fx = { learn = { "defias", "westfall" } } } },
       choices = {
-        { text = "The crown should guard the Westfall road properly.", next = "BACK", reply = "It should, and they've promised for a year. One cart in three, still.", fx = { align = { order = 1 } } },
+        { text = "The crown should guard the Westfall road properly.", next = "BACK", reply = "They've promised it for a year now, and still one cart in three never reaches me.", fx = { align = { order = 1 } } },
         { text = "The crown made Westfall what it is. Don't expect help.", next = "BACK", reply = "It did, and it won't be fixing it any time soon. I'll keep buying salt anyway.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -803,7 +803,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "If you could, I'd be out of business and so would the Sanctum's tailors, because they sew the enchanted bags. Until someone conjures a pocket that holds its shape, you'll carry your things like everyone else." } },
       choices = {
-        { text = "Then I'll pack carefully and plan ahead.", next = "BACK", reply = "That's the spirit. Pack light, but pack well.", fx = { align = { order = 1 } } },
+        { text = "Then I'll pack carefully and plan ahead.", next = "BACK", reply = "That's the spirit. A spare waterskin, a spare bowstring and dry socks, and you'll outlast half the heroes in Goldshire.", fx = { align = { order = 1 } } },
         { text = "I travel light and trust my wits on the road.", next = "BACK", reply = "Wits are lovely, love, but they don't carry spare socks.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -813,7 +813,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Bandages, almost always, because they think the priest will have some. Half of what goes wrong on the road goes wrong because somebody had to leave something behind, and for warriors it's usually the bandages." } },
       choices = {
         { text = "I'll carry bandages for myself and anyone else who needs them.", next = "BACK", reply = "Good. Somebody has to, and the priest is usually busy keeping you alive.", fx = { align = { honor = 1 } } },
-        { text = "The priest can carry the bandages. I'll carry the sword.", next = "BACK", reply = "Then you'll be the one bleeding when the priest runs out. Take a few.", fx = { align = { honor = -1 } } },
+        { text = "The priest can carry the bandages. I'll carry the sword.", next = "BACK", reply = "And when the priest runs dry halfway across Westfall, who'll be bleeding? Take a few bandages, love.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -859,7 +859,7 @@ P:NPC {
           text = "A mage, and you'll need room for reagents, scrolls and three days of conjured bread, I expect. Mages always pack like they're leaving forever." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a bag big enough for bandages, rations and whatever you take off the gnolls, and I've got just the one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and carrying nothing, as usual for your people. I'll not let that stand, because even a bear needs a bag for the walk home." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You'll want a soul bag, I expect, and I'll tell you now, the shards rattle if you don't line it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You'll want a soul bag, I expect, and do line it, love, or the shards will rattle all the way to Duskwood." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Totems are heavy, so you'll need a big bag, trust me." },
       },
       again = {
@@ -907,7 +907,7 @@ P:NPC {
     deadmines = { { id = "tp_deadmines", text = "The adventurers headed for the Deadmines always buy the biggest bag I have, and they always say they won't need it. They come back with it full, every time." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire gives away bags as prizes, and they're terrible, and they fall apart in a week. I sell more bags the week after the Faire than any other time." } },
     background = { { id = "tp_bg", text = "I've stitched bags at the Protective Hide for years, alongside Seoman, who sells the leather armour." } },
-    _none = { { id = "tp_none", text = "No idea, love, but ask me about bags and I'll tell you anything." } },
+    _none = { { id = "tp_none", text = "No idea, love, but ask me about bags and I'll talk till closing." } },
   },
 }
 
@@ -982,7 +982,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A good stew, made from whatever you've got and cooked slow, and a hard biscuit that won't go off in a week. I gathered my best camp recipes from soldiers who fought in the Second War, and they knew what kept a man on his feet." } },
       choices = {
-        { text = "A good meal keeps the whole camp together.", next = "BACK", reply = "It does, my friend. A good stew has ended more quarrels than any general.", fx = { align = { order = 1 } } },
+        { text = "A good meal keeps the whole camp together.", next = "BACK", reply = "Right you are. I've watched a pot of stew end more quarrels than any sergeant ever did.", fx = { align = { order = 1 } } },
         { text = "I'll eat whatever's quickest. Cooking wastes time.", next = "BACK", reply = "Then you'll be eating hard biscuit for the rest of your days, my friend. Pity.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1024,7 +1024,7 @@ P:NPC {
         { id = "h_default", text = "Kendor Kabonka. Stephen downstairs teaches the cooking, and I sell the recipes I've gathered from every farm kitchen and soldier's camp in the kingdom." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! I'd trade three of my best recipes for one of your people's ale-and-meat secrets, and nobody from Ironforge will ever take me up on it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "A mage! I've a recipe that wants a very steady flame, and I've never once got it right on a stove, so you might be the one to try it." },
+          text = "A mage! I've a recipe that wants a very steady flame, and I can't get it right on a stove to save my life, so you might be the one to try it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! Does your imp eat, I wonder? I've always wanted to cook for something that's never tasted a proper meal." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want recipes for the camp, I'd think, because the Barracks cooks don't teach anyone anything except how to suffer." },

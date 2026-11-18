@@ -222,7 +222,7 @@ P:NPC {
       choices = {
         { text = "The nobles who lead them must be the worse lot.", next = "perenolde" },
         { text = "Thieves are thieves. You're no different, my lord.", next = "BACK", reply = "Perhaps, but I choose my contracts and they choose their kings, and that's all the difference in the world. Mine has never sold a kingdom.", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "Every trade needs a few rules. I'll respect yours.", next = "BACK", reply = "Then you'll be welcome here, and you'll leave with all the fingers you came in with. Respect is the beginning of every good partnership.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Every trade needs a few rules. I'll respect yours.", next = "BACK", reply = "Then you'll be welcome here, and you'll leave with all the fingers you came in with. Ravenholdt has a long memory for polite guests, and a longer one for the other kind.", fx = { affinity = 2, align = { order = -1 } } },
       },
     },
     perenolde = {
@@ -541,7 +541,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Worse than one, for a beast they would at least feed properly. They keep me because I know where things are buried in these hills, and when I'm free I mean to make each of them regret it." } },
       choices = {
         { text = "Take your revenge. They've earned every bit of it.", next = "BACK", reply = "Every bit, and I will count them out one by one. You understand an orc's heart, stranger.", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Get home safe first. Revenge can wait, or end.", next = "BACK", reply = "You speak like a shaman, and perhaps you're right. But a man who forgets his chains is a man who wears them again.", fx = { align = { light = 1 } } },
+        { text = "Get home safe first. Revenge will keep.", next = "BACK", reply = "You speak like a shaman, and perhaps you're right. But a man who forgets his chains is a man who wears them again.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -705,7 +705,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd brew them for anyone who pays, and I'd think nothing of it, but you might. The Light was never fond of poison, I'm told, though I've noticed the Light was never asked to hold Tarren Mill against Southshore either." } },
       choices = {
-        { text = "No poison on my blade. The Light is enough.", next = "BACK", reply = "Then go with your Light, and may it hold back Southshore's pikes for you. I'll keep a vial on the shelf, in case it doesn't.", fx = { align = { honor = 1 } } },
+        { text = "Keep your poison. The Light is all the edge I need.", next = "BACK", reply = "Then go with your Light, and may it hold back Southshore's pikes for you. I'll keep a vial on the shelf, in case it doesn't.", fx = { align = { honor = 1 } } },
         { text = "Whatever holds Tarren Mill. I'll take the poison.", next = "BACK", reply = "Practical, and I like that in a customer. The Light can keep its opinions; I'll keep the stoppers tight.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -42,7 +42,7 @@ P:NPC {
         { id = "op_ask_default", text = "The blue dragons keep to Mazthoril and watch us with eyes older than Kel'Theril, and my people have fought both beside and against dragons in our time. What do you make of the dragonflights?" },
       },
       choices = {
-        { text = "Dangerous and proud. Best left alone.", next = "op_r1", fx = { align = { order = -1 }, trait = { cautious = 1 }, opinion = { dragons = "dangerous" } } },
+        { text = "Dangerous and proud, so best left alone.", next = "op_r1", fx = { align = { order = -1 }, trait = { cautious = 1 }, opinion = { dragons = "dangerous" } } },
         { text = "Wise guardians. The world would fall without them.", next = "op_r2", fx = { affinity = 1, align = { order = 1 }, opinion = { dragons = "admire" } } },
         { text = "The black flight is the danger. The rest can watch.", next = "op_r3", fx = { trait = { stern = 1 }, opinion = { black_dragonflight = "hate" } } },
         { text = "Malygos's flight guards magic. I respect that.", next = "op_r4", fx = { affinity = 1, opinion = { dragons = "respect" } }, when = { class = "MAGE" } },
@@ -162,8 +162,8 @@ P:NPC {
         { id = "ct_default", text = "I trust the Arch Druid more than I trust anyone who'd be tempted to use it, and that includes me. You could have kept it, you know, and you didn't, and I shall remember that." },
       },
       choices = {
-        { text = "Power like that should be locked away.", next = "BACK", reply = "Then we agree, and Elune knows I sleep easier with it in Rabine's keeping. Some things are only safe when no one can reach them at all.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'd have kept it, if I'd known what it was.", next = "BACK", reply = "Then I am glad you didn't know, and I think you'd be gladder still, given time. The Highborne knew exactly what they held, and look what became of them.", fx = { align = { order = -1 } } },
+        { text = "Power like that should be locked away.", next = "BACK", reply = "Then we agree, and Elune knows I sleep easier with it in Rabine's keeping. I would not want it within a day's ride of Everlook's auction house.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd have kept it, if I'd known what it was.", next = "BACK", reply = "Then I am glad you didn't know, and I think you'd be gladder still, given time. I have seen what the Highborne left of Eldarath, and they knew exactly what they held.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -173,7 +173,7 @@ P:NPC {
         { id = "xm_default", text = "That's exactly what the Highborne said, word for word, I'd imagine. The crystal grants great power only to those worthy of it, and the trouble is that everyone believes they are." },
       },
       choices = {
-        { text = "Then the wise mage leaves it alone.", next = "BACK", reply = "Yes, and that is the hardest wisdom of all, to leave a power in its box when you know you could use it well. Few manage it for long.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then the wise mage leaves it alone.", next = "BACK", reply = "Yes, and that is the hardest wisdom of all, to leave a power in its box when you know you could use it well. I have watched good mages fail at it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Some mages really are worthy of it.", next = "BACK", reply = "Perhaps, and the Highborne were certain they were among them, every last one. Forgive me if ten thousand years have made me slow to believe anyone again.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

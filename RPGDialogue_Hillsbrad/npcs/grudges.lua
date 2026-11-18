@@ -274,7 +274,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Thread, cloth, dye and flux, all of it fairly priced. Look as long as you like; the dead are patient shopkeepers." },
-    { id = "g_orc", when = { race = "Orc" }, text = "An orc. Of course. What is it you need, and how quickly can I find it for you?" },
+    { id = "g_orc", when = { race = "Orc" }, text = "An orc, of course. What is it you need, and how quickly can I find it for you?" },
     { id = "g_dead", when = { race = "Scourge" }, text = "Come in, cousin. It's good to deal with someone who doesn't flinch at my hands." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and I remember what you bought down to the spool. The dead have good memories; it's a good deal of our trouble." },
     { id = "g_agreed", when = { npcFlagBefore = "cj_agreed", race = "Orc" }, priority = 10,

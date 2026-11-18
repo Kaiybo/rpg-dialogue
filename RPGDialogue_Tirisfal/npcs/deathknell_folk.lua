@@ -107,13 +107,13 @@ P:NPC {
     xwarlock = {
       lines = { { id = "xw_default", text = "Of course he won't, because you've been asking. Tell him, flatly, and give him a reason to want what you want, such as the promise of something to set on fire later." } },
       choices = {
-        { text = "Tell, don't ask. I'll try it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Tell him, don't ask him. I'll try that.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xpriest = {
       lines = { { id = "xp_default", text = "Sarvis approves of anything that keeps the Forsaken alive, in our manner of speaking, and so do I. He calls on the shadow and I call on the Nether, and we've agreed not to compare notes at supper." } },
-      choices = { { text = "A wise arrangement. Something else.", next = "BACK" } },
+      choices = { { text = "A wise arrangement. Let me ask something else.", next = "BACK" } },
     },
   },
 
@@ -232,11 +232,11 @@ P:NPC {
     },
     xbig = {
       lines = { { id = "xb_default", text = "Not on the rack, no, since Deathknell doesn't get many of the Warchief's people. Give me a day and two hides and I'll let something out, though I make no promises about the tail, if you've one." } },
-      choices = { { text = "No tail to worry about. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "At least there's no tail to worry about. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     xrogue = {
       lines = { { id = "xr_default", text = "Then oil it every night and never let it dry by a fire, and keep it supple at the knee. The leather won't creak if you treat it well, though I can't say the same for your bones." } },
-      choices = { { text = "Oil, then. Something else.", next = "BACK" } },
+      choices = { { text = "Oil it is, then. Something else.", next = "BACK" } },
     },
   },
 

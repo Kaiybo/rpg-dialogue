@@ -327,7 +327,7 @@ P:NPC {
       lines = { { id = "r_default", text = "Then you know how it was at the start, with everyone afraid of everyone. The Crusade made a faith of that fear, so don't let anyone make one of yours." } },
       choices = {
         { text = "I won't.", next = "BACK", reply = "Good, because you'll be tempted, and so was I. Fear is a terrible teacher and a worse priest.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Fear kept me alive back then, and I'll keep it.", next = "BACK", reply = "Keep it, then, but keep it on a leash. Fear that runs free soon starts choosing who lives.", fx = { align = { light = -1 } } },
+        { text = "Fear kept me alive back then, and I'll keep it.", next = "BACK", reply = "Keep it, then, but keep it on a leash. I let mine off the leash once, in the Crusade, and I still see the faces.", fx = { align = { light = -1 } } },
       },
     },
     after = {

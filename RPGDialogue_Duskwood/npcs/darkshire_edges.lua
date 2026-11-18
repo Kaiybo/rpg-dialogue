@@ -21,7 +21,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Oh please, don't look at me! I tore out these eyes with my own hands, but I can still feel your gaze!" },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. I know your step now, and you're the only one who comes up the hill without screaming." },
-    { id = "g_comb", when = { questActive = TODO_QUEST("Ghost Hair Thread") }, text = "What is this? A comb? Is it for me?" },
+    { id = "g_comb", when = { questActive = TODO_QUEST("Ghost Hair Thread") }, text = "What is this, a comb? Is it truly for me?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The night is no darker to me than the day, but I hear more of them moving out there when the sun is gone." },
   },
 
@@ -208,7 +208,7 @@ P:NPC {
       lines = { { id = "sp_default", text = "Pygmy venom web spiders, a nest of them along the western border, and the eight-legged menaces are too much for my men to handle. Kill fifteen of them and I'll call it a start, though I'd rather call it a finish." } },
       choices = {
         { text = "What happened to your men?", next = "sp_men" },
-        { text = "Fifteen. I'll do it.", next = "BACK", fx = { standing = { darkshire = 1 } } },
+        { text = "Fifteen spiders, then. Consider it done.", next = "BACK", fx = { standing = { darkshire = 1 } } },
       },
     },
     sp_men = {

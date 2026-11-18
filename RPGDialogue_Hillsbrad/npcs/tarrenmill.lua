@@ -159,7 +159,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "One at a time, by night, so the humans wake up to find their neighbors gone and wonder who is next. Fear spreads faster than plague, and it costs the Dark Lady nothing at all." } },
+      lines = { { id = "xrogue_default", text = "One at a time, by night, so the humans wake up to find their neighbors gone and wonder who is next. Fear costs the Dark Lady nothing at all, and it does half my work for me." } },
       choices = {
         { text = "Fear is a weapon. I'll use it well.", next = "BACK", reply = "Then use it on Southshore, and use it well. I want the farmers barring their doors before the sun is down.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "I'll fight soldiers, not frighten farmers.", next = "BACK", reply = "A noble sentiment, and a very living one. The soldiers are farmers here, and you'll learn that soon enough.", fx = { align = { light = 1 } } },

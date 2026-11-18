@@ -147,7 +147,7 @@ P:NPC {
         { id = "cp_default", text = "Then Darnassus has to listen, and the Sentinels have to come north in force, and that means fewer of them in Ashenvale. It's a hard thing to ask of them, but a nest of warlocks in Felwood is worse than any war on the border." },
       },
       choices = {
-        { text = "Darnassus should root them out, whatever it costs.", next = "BACK", reply = "It will cost, and I'll be the one asking for it, but I can't see another way. A nest of warlocks doesn't empty itself.", fx = { align = { order = 1 } } },
+        { text = "Darnassus should root them out, whatever it costs.", next = "BACK", reply = "It will cost, and I'll be the one asking for it, but I can't see another way. Tyrande won't thank me for the letter.", fx = { align = { order = 1 } } },
         { text = "Sentinels won't fix this. A few good blades will.", next = "BACK", reply = "Maybe so, and I'd be glad of yours among them. But a few blades can't hold Jaedenar once they've cleared it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -217,8 +217,8 @@ P:NPC {
         { id = "xp_default", text = "Then you'll understand him better than I ever could, because he never once spoke of the Light as if it were a weapon. He spoke of it as a promise, and he'd want whoever avenges him to remember that." },
       },
       choices = {
-        { text = "I'll avenge him as he lived, with the Light.", next = "BACK", reply = "Thank you, and I think he'd be glad of it. He'd want his Light to finish what it started.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Promises didn't save him. Steel will answer for him.", next = "BACK", reply = "Perhaps, but I hope you'll carry his promise with you anyway. Steel and promises aren't so different, in the right hands.", fx = { align = { light = -1 } } },
+        { text = "I'll avenge him as he lived, with the Light.", next = "BACK", reply = "Thank you, and I think he'd be glad of it. He'd say the Light owes Rakaiah a reckoning anyway.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Promises didn't save him. Steel will answer for him.", next = "BACK", reply = "Perhaps, but I hope you'll carry his promise with you anyway. He'd have hated to be avenged in anger.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

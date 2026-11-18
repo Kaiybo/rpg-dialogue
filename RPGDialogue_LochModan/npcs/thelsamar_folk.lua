@@ -377,7 +377,7 @@ P:NPC {
         { id = "cr_default", text = "Balance first, then the temper o' the steel, an' only then the edge. Most folk buy for the edge an' the shine, an' then wonder why their arm aches after ten swings." },
       },
       choices = {
-        { text = "A plain weapon, well made, beats any fancy one.", next = "BACK", reply = "Aye, an' ye've the sense tae see it. Most folk walk out o' here wi' shiny steel that bends at the first blow.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A plain weapon, well made, beats any fancy one.", next = "BACK", reply = "Aye, an' ye've the sense tae see it. Most folk walk out o' here wi' shiny steel that bends on the first trogg skull.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "A weapon is only as good as the one swinging it.", next = "BACK", reply = "True enough, an' I'll no' argue. But a good arm deserves a good blade, an' a bad blade can ruin a good arm.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

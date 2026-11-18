@@ -92,7 +92,7 @@ P:NPC {
     },
     quest_monastery = {
       lines = { { id = "qm_default", text = "Leave the Monastery for when you're older and harder, because its halls are full of zealots who've done nothing but train and pray for years. The ones at the farmstead will do for now, and there are more than enough of them." } },
-      choices = { { text = "Farmstead first, then. Something else.", next = "BACK" } },
+      choices = { { text = "The farmstead first, then. Let me ask something else.", next = "BACK" } },
     },
 
     -- Varimathras
@@ -146,7 +146,7 @@ P:NPC {
     },
     watch_town = {
       lines = { { id = "wt_default", text = "Magistrate Sevren runs the town, Executor Zygand runs the war, and the apothecaries in the hall run experiments I don't ask about. Renee keeps the Gallows' End, and if you want to know what Brill really thinks, buy a drink there and listen." } },
-      choices = { { text = "I'll listen, then. Something else.", next = "BACK" } },
+      choices = { { text = "I'll listen, then. Let me ask about something else.", next = "BACK" } },
     },
 
     -- Forsaken only
@@ -163,7 +163,7 @@ P:NPC {
     -- The Warchief's people
     xliving = {
       lines = { { id = "xl_default", text = "Only the ones pointing arrows at us, and your people seem to be the exception. I respect the Warchief's bargain with the Dark Lady, and I'll respect you, so long as you bring me rings rather than sermons." } },
-      choices = { { text = "Rings, not sermons. Something else.", next = "BACK" } },
+      choices = { { text = "Rings, not sermons, then. What else should I know?", next = "BACK" } },
     },
   },
 

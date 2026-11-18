@@ -189,7 +189,7 @@ P:NPC {
         { id = "mp_default", text = "There's no grave; the lake has them, or what's left of them. Say the words here at the bridge, then, and I'll stand for it." },
       },
       choices = {
-        { text = "Rolf Hartford. Malakai Stone. Light keep them.", next = "BACK", reply = "Thank you for saying their names aloud. I've not been able to, not since the lake took them.", fx = { affinity = 3, align = { light = 2 }, standing = { eastvale = 2 }, learn = { "lost_footmen" } },
+        { text = "Rolf Hartford and Malakai Stone. May the Light keep them both.", next = "BACK", reply = "Thank you for saying their names aloud. I've not been able to, not since the lake took them.", fx = { affinity = 3, align = { light = 2 }, standing = { eastvale = 2 }, learn = { "lost_footmen" } },
           journal = { first = "Said the names of Rolf Hartford and Malakai Stone at the Eastvale bridge. Guard Thomas stood at attention the whole time.",
                       third = "{name} prayed over Guard Thomas' lost footmen at the Eastvale bridge." } },
         { text = "Words won't bring them back from the lake, Thomas.", next = "BACK", reply = "No, they won't, and I'd not hoped they would. I only wanted somebody to say the words over them, but I'll not beg you for it.", fx = { align = { light = -1 } } },

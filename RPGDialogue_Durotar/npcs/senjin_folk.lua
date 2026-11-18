@@ -159,7 +159,7 @@ P:NPC {
       lines = { { id = "xal_default", text = "Everybody brew potions, mon, and most of them brew them badly. Tell me, when the earthroot go in, do you crush it or slice it?" } },
       choices = {
         { text = "I slice it, so the juice stays in.", next = "xalch2", fx = { trait = { patient = 1 } } },
-        { text = "I crush it. Faster that way.", next = "xalch2", fx = { trait = { practical = 1 } } },
+        { text = "I crush it. It's faster that way.", next = "xalch2", fx = { trait = { practical = 1 } } },
       },
     },
     xalch2 = {
@@ -298,7 +298,7 @@ P:NPC {
     others = {
       lines = { { id = "ot_default", text = "Master Vornal want crawler parts for his bottles, and Ula'elek want satyr hooves for his gauntlets, though he send warriors all the way to Ashenvale for them. Me, I want tigers, which be the most sensible want in the village." } },
       choices = {
-        { text = "Satyr hooves? From Ashenvale?", next = "ot_ula" },
+        { text = "Satyr hooves, all the way from Ashenvale?", next = "ot_ula" },
         { text = "Something else.", next = "BACK" },
       },
     },

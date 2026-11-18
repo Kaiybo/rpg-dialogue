@@ -368,7 +368,7 @@ P:NPC {
         { id = "tc_default", text = "No more than you mind swinging an axe a thousand times, and it enjoys the praise far more than you would. The hunters who skimp on feeding are the ones whose beasts forget everything I taught them, and I can always tell." },
       },
       choices = {
-        { text = "A companion eats before I do. That's only right.", next = "BACK", reply = "Right, and your beast will know it. A companion fed first fights hardest.", fx = { align = { light = 1 } } },
+        { text = "A companion eats before I do. That's only right.", next = "BACK", reply = "Right, and your beast will know it. Bring it by the pens, and I'll find it something better than swamp rat.", fx = { align = { light = 1 } } },
         { text = "A beast is a tool. It eats when it's earned it.", next = "BACK", reply = "Earned it, eh? Then you'll be back here wondering why it ran off. Feed it first.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -601,7 +601,7 @@ P:NPC {
       },
       choices = {
         { text = "Thank them from the heart. Empty words mean nothing to spirits.", next = "BACK", reply = "From the heart, aye, and I mean it every time. I'll keep thanking them properly.", fx = { align = { honor = 1 } } },
-        { text = "The earth gives freely. Thanks are just a habit.", next = "BACK", reply = "A habit, maybe, but a good one. The earth gives freely, and it's worth a thank you.", fx = { align = { honor = -1 } } },
+        { text = "The earth gives freely. Thanks are just a habit.", next = "BACK", reply = "A habit, maybe, but a good one. I've never once pulled a root without saying it, and the roots keep coming.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

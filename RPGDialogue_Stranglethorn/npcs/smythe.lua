@@ -216,7 +216,7 @@ P:NPC {
       lines = { { id = "st_default", text = "Ian Strom trains rogues, just along the landing from me, and he's the best neighbor I've ever had in that I've never once heard him come or go. I hung a string of shells over my door the week he moved in, and now I hear them rattle every time he goes by." } },
       choices = {
         { text = "Has anyone ever crept in past the shells?", next = "strom_shells" },
-        { text = "Shells. That's clever, Markel.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Shells? That's clever, Markel.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     strom_shells = {

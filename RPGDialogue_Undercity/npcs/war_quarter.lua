@@ -272,7 +272,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Stand straight. The Light is watching, and it is not impressed by slouching." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Good. Constancy is the beginning of virtue." },
+    { id = "g_back", when = { metBefore = true }, text = "You return, good. Constancy is the beginning of virtue." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "You come at the hour of evening prayer. Consider that no accident, and lower your voice accordingly." },
   },
 

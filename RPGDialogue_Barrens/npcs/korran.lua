@@ -89,7 +89,7 @@ P:NPC {
     },
     loyal = {
       lines = { { id = "lo_default", text = "He be loud, mon, and proud, and he make his mistakes. But he listen when it count, and he never left one of his own out in the cold, so yes, he get my loyalty." } },
-      choices = { { text = "Loyalty earned, then. Something else.", next = "BACK" } },
+      choices = { { text = "So he earned it, then. Something else.", next = "BACK" } },
     },
     moktar = {
       lines = { { id = "m_default", text = "Moktar Krin always look out for me, mon. He be in Thousand Needles now, at the Rustmaul Dig Site, fighting the dwarves for Belgrom, and he say the same bugs crawl up out of the ground there too." } },
@@ -102,7 +102,7 @@ P:NPC {
       lines = { { id = "s_default", text = "Look close, mon, but don't touch the shell, because it be warm even when it should be cold. Tell me what your eyes see, because mine be tired of seeing it alone." } },
       choices = {
         { text = "They move like one creature with many bodies.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
-        { text = "It's a bug, Korran. A big one.", next = "BACK" },
+        { text = "It's just a bug, Korran, only a very big one.", next = "BACK" },
       },
     },
     findings = {

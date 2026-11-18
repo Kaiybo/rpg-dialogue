@@ -104,7 +104,7 @@ P:NPC {
         { id = "mt_default", text = "Thin the worst of them, and bring me whatever they wear or carry, because a wildkin doesn't carry trinkets without a reason. I hate to ask it, but a dead guardian can still tell me what a living one would not." },
       },
       choices = {
-        { text = "I'll do it, and I'll make it quick for them.", next = "BACK", reply = "Thank you, and Elune bless you for the mercy in it. They were guardians once, and they deserve a clean end.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll do it, and I'll make it quick for them.", next = "BACK", reply = "Thank you, and Elune bless you for the mercy in it. Say her name when you do it, if you can bear to.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Mad beasts are mad beasts. I'll cut through them.", next = "BACK", reply = "I won't stop you, but I wish you'd think of them as they were. They guarded these woods long before any of us came.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -169,7 +169,7 @@ P:NPC {
         { id = "xh_default", text = "I've heard hunters say so, and I've heard druids say the opposite, and I've never been sure which of you to believe. The wildkin aren't ordinary beasts, though, and I'd ask you to remember that before you loose an arrow at one." },
       },
       choices = {
-        { text = "I'll remember. Some creatures deserve more care than others.", next = "BACK", reply = "Thank you, and I'll feel easier knowing you will. The wildkin are Elune's own, whatever they've become.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll remember. Some creatures deserve more care than others.", next = "BACK", reply = "Thank you, and I'll feel easier knowing you will. I've raised two wildkin from the egg, and I'd hate to hear of either at the end of a blade.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast that kills is a beast that dies. That's all.", next = "BACK", reply = "Perhaps it is, out in the wider world, but the wildkin are not wolves. I'd ask you to remember that when you meet one.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

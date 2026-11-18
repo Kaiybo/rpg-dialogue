@@ -38,7 +38,7 @@ P:NPC {
     flirt = {
       lines = { { id = "fl_default", text = "The fire? Sure, sugar, let's say it's the fire, because I'm not about to admit a customer made me go all pink. Only, listen, it gets awful long and cold up here, and a girl with a warm hearth and no bugs is a girl worth knowin', that's all I'm sayin'." } },
       choices = {
-        { text = "Then I'd like to know you better, Vizzie.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "I'd like to know you better, Vizzie.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
         { text = "Do you say that to every frozen traveller?", next = "flirt_every" },
         { text = "You're sweet, but I only came in for the fire.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
           reply = "Oh, sure, sure, the fire's very popular, and it doesn't talk back. No harm done, sugar, and the room rate's the same either way." },
@@ -191,13 +191,13 @@ P:NPC {
         { text = "I could track down your bugs for you.", next = "beetle_hunt", when = { class = "HUNTER" } },
         { text = "Do rogues cause much trouble in Everlook?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "So you came all the way up here to get away from bugs.", next = "xmage", when = { class = "MAGE" } },
-        { text = "My demon's harmless. Mostly.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "My demon's harmless, mostly.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'm afraid the Light doesn't do beetles. What else brings priests here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Everlook see much trouble, with Horde and Alliance under one roof?", next = "xapala", when = { class = "PALADIN" } },
         { text = "The folk at your fire look like they've had a hard road, Vizzie.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you get many warriors through Everlook, Vizzie?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Someone like me stayed at your inn, Vizzie?", next = "xalt_vizzie", when = { alt = true } },
-        { text = "You're blushing, Vizzie. Is it the fire?", next = "flirt", when = { flirt = true } },
+        { text = "You're blushing, Vizzie. Or is that the fire?", next = "flirt", when = { flirt = true } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -311,7 +311,7 @@ P:NPC {
         { id = "gum_default", text = "Finally, someone with taste! The goblins here think a sense of humour is something you sell by the pound. Bring me the fur and the springs, and I'll put your name on the schematic, small, in the corner, but it'll be there." },
       },
       choices = {
-        { text = "Make it big. Goblins deserve big.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Make it big. Goblins deserve a big scare.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
         { text = "Isn't it a little cruel?", next = "prank_cruel" },
       },
     },
@@ -525,7 +525,7 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_scholo_default", text = "Its master, yes, but not its pupils, and the Scourge never has trouble finding more. Caer Darrow was a quiet town once, with the Barov family up in the keep, and they handed it to the Cult of the Damned to save their own skins." } },
       choices = {
-        { text = "Even the Barovs might be redeemed, if they really repent.", next = "BACK", reply = "I pray you're right, and I'd sooner see a soul saved than a keep burned. But the Barovs bargained with the dead knowingly, and that is a long road to walk back.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Even the Barovs might be redeemed, if they really repent.", next = "BACK", reply = "I pray you're right, and I'd sooner see a soul saved than a keep burned. But I've seen what walks the halls of Caer Darrow now, and the Barovs opened the door to it themselves.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Barovs earned their fate. Let them rot with their keep.", next = "BACK", reply = "There are days I'd agree with you, Light forgive me. Still, I'd rather the Dawn judged them than our own anger did.", fx = { align = { light = -1 } } },
         { text = "What does the Dawn want with Scholomance now?", next = "xcl_scholo2" },
       },
@@ -540,7 +540,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "More than the banners would suggest. The Cult of the Damned keeps agents in the towns, and a cultist rarely confesses to a knight in shining plate, so the Dawn needs people who can listen at doors and follow a man home. I only ask that whatever you learn comes back to the Dawn, and not to the highest bidder." } },
       choices = {
-        { text = "What I learn for the Dawn stays with the Dawn.", next = "BACK", reply = "Good, because loose talk has cost us more than any ghoul. The Dawn will remember a quiet friend who knows how to keep a confidence.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What I learn for the Dawn stays with the Dawn.", next = "BACK", reply = "Good, because loose talk has cost us more than any ghoul. I'll remember your face, and so will Lord Maxwell when I tell him.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Everything has a price, Gregor, even secrets about cultists.", next = "BACK", reply = "Then the Dawn will pay what it can, though I'd hoped you'd do it for more than coin. The cultists will certainly pay better, and that's what worries me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -561,8 +561,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It could, because the plague has twisted the beasts of the east, and a hunter knows how a sick animal moves. Keep {pet} close if you go, though, and away from the corpses, because the plague takes beasts as easily as men." },
       },
       choices = {
-        { text = "A sick beast deserves a clean end. I'll give them that much.", next = "BACK", reply = "Then you'll do them more good than most, because those beasts didn't choose the plague. A clean end is a mercy, and the Light honours mercy.", fx = { align = { light = 1 } } },
-        { text = "I'll skin whatever's worth skinning and leave the rest to rot.", next = "BACK", reply = "That's your trade, I suppose, but I'd beg you to burn what you leave rather than let it rot. Plague flesh has a way of spreading.", fx = { align = { light = -1 } } },
+        { text = "A sick beast deserves a clean end. I'll give them that much.", next = "BACK", reply = "Then you'll do them more good than most, because those beasts didn't choose the plague. Burn what's left after, if you can bear the smell.", fx = { align = { light = 1 } } },
+        { text = "I'll skin whatever's worth skinning and leave the rest to rot.", next = "BACK", reply = "That's your trade, I suppose, but I'd beg you to burn what you leave rather than let it rot. I've seen plague carried from one carcass to a whole valley of deer.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -589,7 +589,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Not into the snow itself, thank the Light, though plenty come through Everlook with the plague still behind their eyes. Further south the Scourge poisons the earth wherever it walks, and the Dawn needs those who can hear the land tell of it." } },
       choices = {
-        { text = "Then the spirits and I will go and fight the Scourge.", next = "BACK", reply = "Then go with my blessing, and with whatever the spirits give you. The Scourge fears anything that remembers it was alive.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then the spirits and I will go and fight the Scourge.", next = "BACK", reply = "Then go with my blessing, and with whatever the spirits give you. I've watched a shaman's fire take down a whole pack of ghouls at Light's Hope, and I'll not say a word against it.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Lordaeron's ruin is the Alliance's mess. Let them clean it.", next = "BACK", reply = "It was Lordaeron's ruin, and the plague has already crossed into Kalimdor in places, friend. The dead won't stop at any border the Horde draws.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -598,7 +598,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "We accept anyone who stands against the Scourge, and some of our best scouts in the Plaguelands are not the sort the Church would bless. But the Cult of the Damned began with men who thought they could master dark things, so we watch, and we hope we're wrong to." } },
       choices = {
-        { text = "Watch me, then. I'll fight the Scourge all the same.", next = "BACK", reply = "I will watch you, and gladly, because I'd like nothing better than to be proven wrong about your kind. Fight well, and the Dawn will know it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Watch me, then. I'll fight the Scourge all the same.", next = "BACK", reply = "I will watch you, and gladly, because I'd like nothing better than to be proven wrong about your kind. Fight well, and I'll be the first to say so.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Cult failed because they were weak.", next = "BACK", reply = "They failed because they trusted what they summoned, and it devoured them. Mind that you don't think yourself stronger than they were.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll do my part.", next = "BACK" },
       },
@@ -607,7 +607,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Bad enough that the Dawn sends people like me to every trading post that will have us, looking for help and for reagents. Light's Hope Chapel holds, and Chillwind Camp holds, but Stratholme and Scholomance are still full of the dead, and the dead do not tire." } },
       choices = {
-        { text = "I'll go east and burn them myself.", next = "BACK", reply = "Then the Light go with you, and bring back word of what you see. Fire is one of the few things the dead truly fear.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll go east and burn them myself.", next = "BACK", reply = "Then the Light go with you, and bring back word of what you see. Burn the bodies too, or they'll be back on their feet by the next moon.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let the Dawn handle it. It's their fight.", next = "BACK", reply = "It's everyone's fight, whether they choose it or not, and the plague doesn't stop at a choice. I hope you'll think on that as you travel.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'll think about it.", next = "BACK" },
       },
@@ -665,7 +665,7 @@ P:NPC {
         { text = "I'd guess the Dawn needs warriors more than most, Gregor.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could the Dawn use a hunter in the Plaguelands?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Should a company keep to its own kind, Gregor?", next = "xpt_gregor", when = { party = { kin = true } } },
-        { text = "I'll carry word.", next = "END", reply = "Bless you for it, and may the Light keep the cold from your bones on the road. The Dawn remembers every friend who carries its word.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll carry word for you.", next = "END", reply = "Bless you for it, and may the Light keep the cold from your bones on the road. Ask for Lord Maxwell at Light's Hope, and tell him Gregor sent you.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I carry the Light. Does the Dawn need paladins?", next = "paladin_gr", when = { class = "PALADIN" } },
         { text = "What use does the Argent Dawn have for a rogue, Gregor?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Gandling is dead, Gregor. Scholomance has lost its master.", next = "xcl_scholo", when = { cleared = "Scholomance" } },

@@ -131,7 +131,7 @@ P:NPC {
       lines = {
         { id = "wo_default", text = "Kind of ye, but it's past bandages, friend, for the cut's deep and the heat's in it. Spend yer time on the living and on the lads at the altar, and I'll be well enough content." },
       },
-      choices = { { text = "As you wish.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "All right. I'll leave the bandages be.", next = "BACK", fx = { affinity = 1 } } },
     },
 
     xpray = {
@@ -141,7 +141,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll pray for all of you, bound and dying alike.", next = "BACK", reply = "Thank ye, friend. That's a kindness I'll carry wi' me, wherever I'm goin'.", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Prayers won't free them. Steel will.", next = "BACK", reply = "Aye, maybe, an' I'll no' fault ye for that. Take the steel, then, an' free them.", fx = { align = { light = -1 } } },
+        { text = "Prayers won't free your lads. Steel will.", next = "BACK", reply = "Aye, maybe, an' I'll no' fault ye for that. Take the steel, then, an' free them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -149,7 +149,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "A digger of the Explorers' League, and proud of it, though I'd have been prouder still to dig somewhere that didn't kill us." } },
-    advice = { { id = "tp_ad", text = "Never trust a man who's too eager to show ye the way in, friend." } },
+    advice = { { id = "tp_ad", text = "Lathoric was the first to show us the way in, smilin' all the while, so mind whoever's too eager to lead ye, friend." } },
     magni = { { id = "tp_magni", text = "Tell the king, if ye ever see him, that the League died diggin' for him. I think he'd want to know." } },
     uldaman = { { id = "tp_uldaman", text = "I dug at Uldaman before this, an' I thought that was dangerous. I was wrong about a great many things." } },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons found us before we found anythin' worth findin'. Watch the ridges, friend, they're always watchin' back." } },

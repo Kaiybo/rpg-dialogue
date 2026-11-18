@@ -68,7 +68,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "It wants to forget the dead, the worgen and the missing, and I write them all down so it can't." } },
       choices = {
         { text = "Keep the room warm, Smitts. People need it.", next = "BACK", reply = "I will, as long as there's wood for the fire and ale in the cellar. It's not much of a light in this wood, but it's what we have.", fx = { align = { honor = 1 } } },
-        { text = "Forget it all. Remembering hurts.", next = "BACK", reply = "Maybe it does, but forgetting is how this town lets things happen twice. Someone has to keep the names, and I'm stubborn enough.", fx = { align = { honor = -1 } } },
+        { text = "Forget it all, Smitts. Remembering only hurts you.", next = "BACK", reply = "Maybe it does, but forgetting is how this town lets things happen twice. Someone has to keep the names, and I'm stubborn enough.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -165,7 +165,7 @@ P:NPC {
         { text = "Who drinks here these days?", next = "regulars" },
         { text = "I found your jumpy writer.", next = "jitters", when = { questDone = TODO_QUEST("Finding the Shadowy Figure") } },
         { text = "Your regulars look like they could use a blessing.", next = "priest", when = { class = "PRIEST" } },
-        { text = "Was it Mistmantle? Be honest.", next = "suspect", when = { topicKnown = "stalvan" } },
+        { text = "Was it Mistmantle? Be honest with me.", next = "suspect", when = { topicKnown = "stalvan" } },
         { text = "That juice you sent the hermit...", next = "juice", when = { questDone = TODO_QUEST("Juice Delivery") } },
         { text = "People tell barkeeps things. Tell me what they don't say.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You serve dwarven stout here, I hope.", next = "dwarf", when = { race = "Dwarf" } },

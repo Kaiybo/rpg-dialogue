@@ -322,7 +322,7 @@ P:NPC {
         { id = "xm2_default", text = "Then here is your first lesson, and it's free: never trust a ward you didn't check yourself. We trusted ours, and you've seen what that cost us." },
       },
       choices = {
-        { text = "I'll earn my place the proper way, through study.", next = "BACK", reply = "Good, then you're already wiser than half the apprentices who come through these doors, and I'll make sure the right tutors hear your name.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll earn my place the proper way, through study.", next = "BACK", reply = "Then you're already wiser than half the apprentices who come through these doors. I'll make sure the right tutors hear your name.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Rules are for quiet times. Put me to work now.", next = "BACK", reply = "Spoken like someone who's never had to clean up after an eager apprentice, but very well, I'll find you work, and you'll find out how quiet times are earned.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -584,7 +584,7 @@ P:NPC {
       },
       choices = {
         { text = "Then rest. Someone else can watch the parlor tonight.", next = "BACK", reply = "A kind thought, but there's nobody else I trust in that room, and Antonidas never once slept while his city needed watching either.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Good. Vigilance is the only real ward.", next = "BACK", reply = "Precisely, and if more of the council understood that, I'd be able to sleep a whole night through without counting the wards in my head.", fx = { align = { order = 1 } } },
+        { text = "Good. A ward is only as strong as whoever's watching it.", next = "BACK", reply = "Precisely, and if more of the council understood that, I'd be able to sleep a whole night through without counting the wards in my head.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

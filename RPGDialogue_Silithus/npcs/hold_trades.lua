@@ -208,7 +208,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Against an orc or a man, perhaps, but against the silithid there is little honour to lose, for they do not fight as we do. The Earth Mother gave us venom and medicine from the same roots, and I do not think she meant one only for the rogues." } },
       choices = {
-        { text = "My blade stays clean. Honour isn't something I set aside.", next = "BACK", reply = "Then keep it clean, and may your honour be a good shield to you, because the swarm will test it every day.", fx = { align = { honor = 1 } } },
+        { text = "My blade stays clean. Honour isn't something I set aside.", next = "BACK", reply = "Then keep it clean, and may your honour be a good shield to you. The swarm will test it every single day you are out there.", fx = { align = { honor = 1 } } },
         { text = "Against the swarm, any edge is fair. Coat the blade.", next = "BACK", reply = "Wise words, young one, and I will choose a venom for you that does its work quickly, as a mercy to both of you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -220,7 +220,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That a beast's tracks tell you where the water is, and a scorpid's tracks tell you where not to sleep. Your {pet} has the look of the beasts on that long road, steady and watchful." },
       },
       choices = {
-        { text = "The land teaches those who listen. I listen.", next = "BACK", reply = "Then you will walk this land a long while, and the Earth Mother will not let you go thirsty.", fx = { align = { light = 1 } } },
+        { text = "The land teaches those who listen. I listen.", next = "BACK", reply = "Then you will walk this land a long while. Learn where the water hides beneath the sand, and you will never go thirsty.", fx = { align = { light = 1 } } },
         { text = "The land's an obstacle. I just push through it.", next = "BACK", reply = "Push hard enough and the land pushes back, young one, and out here the land is very patient and very strong.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -238,7 +238,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "A few, and they always want powder for the portal home. I don't blame them, since the desert is a hard place, but I'd ask them to stay a while and help the Circle before they vanish." } },
       choices = {
-        { text = "I'll stay and help. The Hold needs it.", next = "BACK", reply = "Then the Circle will be grateful, and so will I, because every hand that stays is a hand the hives cannot take.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll stay and help. The Hold needs it.", next = "BACK", reply = "The Circle will be grateful, and so will I. We lost four scouts last month, and every one of them was a hand we needed.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll leave when I want to.", next = "BACK", reply = "As you like, friend, and the winds will carry you safely home, though the desert will remember who left early.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'll take some powder.", next = "BACK" },
       },

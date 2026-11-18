@@ -574,7 +574,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They bite whoever they please, but they bite less if you sit straight and do not flinch. A wind rider smells fear the way a wolf does, and a warrior who has stood against the Wastewanderers should have none left to show it." } },
       choices = {
-        { text = "A warrior earns a beast's trust. He doesn't take it.", next = "BACK", reply = "You speak like a true warrior. A wind rider remembers who earned its trust and who only demanded it.", fx = { align = { honor = 1 } } },
+        { text = "A warrior earns a beast's trust. He doesn't take it.", next = "BACK", reply = "You speak like a true warrior. My oldest wind rider took three seasons to let me near her, and now she will fly through a sandstorm on my word.", fx = { align = { honor = 1 } } },
         { text = "A strong hand on the reins is all a beast needs.", next = "BACK", reply = "A strong hand, yes, but not a cruel one, because a wind rider remembers the rider who hurt it, and it has a long memory and longer claws.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -587,7 +587,7 @@ P:NPC {
       },
       choices = {
         { text = "Respect the old beasts' ways, and they'll respect yours.", next = "BACK", reply = "Wise words. The old beasts have been in this land longer than the Horde, and they know more about it than we do.", fx = { align = { honor = 1 } } },
-        { text = "A beast follows the strongest. Manners don't come into it.", next = "BACK", reply = "Then be the strongest, and do not forget it, because the moment you falter the beast will remember who was strong before you.", fx = { align = { honor = -1 } } },
+        { text = "A beast follows the strongest. Manners don't come into it.", next = "BACK", reply = "Then be the strongest, and never forget it, because the first time you falter, the beast will remember who held the reins before you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -621,7 +621,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. The warlocks once bound our people in chains no one could see, and every orc of my years still remembers how it felt to wear them, so I will carry you where you need to go, but I will not like your craft, and I will not say I do." } },
       choices = {
-        { text = "The old Horde's sins aren't mine.", next = "BACK", reply = "Good. Then keep them that way, because the Horde has paid enough for the sins of the old ones.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The old Horde's sins aren't mine.", next = "BACK", reply = "Then keep them that way, young one. The Horde has paid enough for the old ones' sins, and I carry the camp scars to prove it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is what made the Horde strong.", next = "BACK", reply = "That power made us slaves, warlock, and Thrall broke those chains with his own hands, so do not speak of it to me again.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

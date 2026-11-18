@@ -384,7 +384,7 @@ P:NPC {
         { id = "gl_default", text = "I'll be honest, a bit of fortune wouldn't go amiss, and a bit of glory never hurt anyone either. But I've met adventurers who wander for the joy of it and adventurers who wander to bring something home, and I've never decided which kind I am." },
       },
       choices = {
-        { text = "For the joy of it. The road is reason enough.", next = "BACK", reply = "That's what I'd like to say, and most days I mean it. Sit down, the fire's warm.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "For the joy of it, mostly. I like the road.", next = "BACK", reply = "That's what I'd like to say, and most days I mean it. Sit down, the fire's warm.", fx = { affinity = 2, align = { order = -1 } } },
         { text = "To bring something home. The isle needs us.", next = "BACK", reply = "That's the better reason, I'll admit, and the one I'd like to be true. Come back with something.", fx = { affinity = 1, align = { order = 1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

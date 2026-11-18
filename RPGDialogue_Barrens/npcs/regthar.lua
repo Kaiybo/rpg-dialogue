@@ -25,7 +25,7 @@ P:NPC {
 
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
-      text = "A warrior. Good. The Kolkar respect a heavy blade more than any treaty." },
+      text = "A warrior? Good, because the Kolkar respect a heavy blade more than they'll ever respect a treaty." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armor's in pieces. The centaur go for the gaps, so get it mended before you go back out." },
   },
@@ -62,7 +62,7 @@ P:NPC {
         { text = "The centaur seem better organized than they used to be.", next = "why" },
         { text = "This is your headquarters? A burrow and a pig farm?", next = "camp" },
         { text = "How do I fight a centaur?", next = "fighting", when = { class = { "WARRIOR", "HUNTER", "ROGUE" } } },
-        { text = "Krom'zar is dead. What now?", next = "after", when = { questDone = TODO_QUEST("Counterattack!") } },
+        { text = "Krom'zar's dead. So what comes next?", next = "after", when = { questDone = TODO_QUEST("Counterattack!") } },
         { text = "About Krom'zar's stragglers running west.", next = "stragglers",
           when = { thread = { id = "kolkar_war", beat = "b5_regthar", state = { "stirring", "unfolding" } } } },
         { text = "Give me a task.", next = "BUSINESS" },
@@ -80,7 +80,7 @@ P:NPC {
       lines = { { id = "f_default", text = "Kodobane, because he's closest and he's loud, and loud ones bring the others running. Then Verog, and then Hezrul once his lieutenants are gone and he's got nobody left to hide behind." } },
       choices = {
         { text = "And when the leaders are dead, it's over.", next = "first_end" },
-        { text = "Understood. Something else.", next = "BACK" },
+        { text = "Understood, Regthar. Let me ask something else.", next = "BACK" },
       },
     },
     first_end = {
@@ -88,7 +88,7 @@ P:NPC {
       lines = { { id = "fe_default", text = "Then the Kolkar either stop their advance or they lash out at us in a foolish strike, and I hope it's the second. A centaur who charges my bunkers is a centaur I don't have to chase across the Barrens." } },
       choices = {
         { text = "Better they stop. Fewer graves on both sides.", next = "BACK", reply = "Fewer graves for us, maybe, but the Kolkar don't count graves the way we do. Still, if they pull back from the oases, I'll take the quiet and keep my blade sharp for when it ends.", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "Let them charge. We'll break them.", next = "BACK", reply = "That's the answer I wanted from you, {class}. Let them hit my bunkers head-on, and we'll stack their bracers higher than the pig pens.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let them charge, and we'll break them on the bunkers.", next = "BACK", reply = "That's the answer I wanted from you, {class}. Let them hit my bunkers head-on, and we'll stack their bracers higher than the pig pens.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,7 +102,7 @@ P:NPC {
     desolace = {
       lines = { { id = "d_default", text = "Their homeland is Desolace, west past the Stonetalon peaks, and they've kin there in the thousands. The ones here are an arm of something bigger, and if the arm keeps getting cut off, the body will come looking for us." } },
       choices = {
-        { text = "Then we'll be ready. Something else.", next = "BACK" },
+        { text = "We'll be ready for them, then. Something else.", next = "BACK" },
         { text = "Should the Horde carry the fight to Desolace?", next = "kolkar_op" },
       },
     },
@@ -135,7 +135,7 @@ P:NPC {
     camp = {
       lines = { { id = "c_default", text = "A burrow's a fine headquarters, {class}. Centaur can't charge into a hole in the ground, the pigs feed my scouts, and Lanti'gah keeps the place standing when I'm out. I've slept in worse, and so has every orc who fought in the old wars." } },
       choices = {
-        { text = "Fair. A soldier makes do.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Fair enough. A soldier makes do with what he's given.", next = "BACK", fx = { affinity = 1 } },
         { text = "Who is Lanti'gah?", next = "lantigah" },
       },
     },
@@ -146,7 +146,7 @@ P:NPC {
     fighting = {
       lines = { { id = "fi_default", text = "Get close and stay close, because a centaur at range is a centaur with a spear in your gut. They're strong in the charge and clumsy when they have to turn, so make them turn." } },
       choices = {
-        { text = "Close and fast. Got it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Close and fast, then. I'll remember it.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -723,7 +723,7 @@ P:NPC {
       choices = {
         { text = "Then we strike first.", next = "BACK", reply = "First, yes, though I'd like it to be the Marshal's idea, for his pride's sake. I'll put it to him tonight.", fx = { affinity = 2, align = { order = 1 }, standing = { southshore = 1 } } },
         { text = "Southshore should hire its own knives and beat them at their game.", next = "BACK", reply = "Fight thieves with thieves? I hate how much sense that makes. I'll pretend I didn't hear it.", fx = { align = { order = -1 } } },
-        { text = "Double the watch. Check every uniform.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Double the watch and check every uniform at the gate.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },
     predecessor = {
@@ -757,7 +757,7 @@ P:NPC {
         { id = "rg_default", text = "Some evenings. Then a fisherman thanks me for settling a quarrel over a net, and I stay. Small justice is still justice." },
       },
       choices = {
-        { text = "Small justice is the kind that holds a town together.", next = "BACK", reply = "I've always thought so, and it's good to hear someone else say it. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Small justice is the kind that holds a town together.", next = "BACK", reply = "I've always thought so. Most of my cases are nets and fences and a missing goat, and every one of them matters to somebody.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Justice that small isn't worth keeping you here, Magistrate.", next = "BACK", reply = "Perhaps not, but somebody has to settle the nets, and I'm the one with the seal. I'll stay a while longer.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1058,7 +1058,7 @@ P:NPC {
         { id = "fi_default", text = "I could clear a Stormwind tavern of drunks one-handed, but murlocs don't drink, don't argue, and don't respect a uniform. It's a different trade entirely." },
       },
       choices = {
-        { text = "Can't argue that. Murlocs respect nothing.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Can't argue with that. Murlocs respect nothing.", next = "BACK", fx = { affinity = 1 } },
         { text = "That's an excuse, Lieutenant.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
         { text = "Get down to the strand, or Samuelson hears where you sit.", tag = "Intimidate", next = "strand_truth",
           check = { pass = { any = { { power = { "above", "far_above" } }, { class = { "WARRIOR", "PALADIN" } }, { trait = "stern" } } } },
@@ -1147,7 +1147,7 @@ P:NPC {
     xnightelf = {
       lines = { { id = "xne_default", text = "Were they? Light, I'd rather not have known that. I've been telling myself they were some sort of fish with ambitions, and now I'll have to think of them as your cousins every time one comes up the shore." } },
       choices = {
-        { text = "Not cousins. Traitors.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "They're not cousins, they're traitors.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "Think of them as fish. It helps.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
@@ -1225,7 +1225,7 @@ P:NPC {
       },
       choices = {
         { text = "Give thanks for the hunt, Bilger. That's the old way.", next = "BACK", reply = "The old way, aye, an' I still do it, though I say it into the mug. The Light hears me all the same, I hope.", fx = { align = { light = 1 } } },
-        { text = "Thanks? It's meat. Pour the ale and skip the prayer.", next = "BACK", reply = "Ha! Ye sound like me on a bad night. Pour the ale, then, an' I'll say the prayer quietly.", fx = { align = { light = -1 } } },
+        { text = "Thanks for what? It's meat. Pour the ale and skip the prayer.", next = "BACK", reply = "Ha! Ye sound like me on a bad night. Pour the ale, then, an' I'll say the prayer quietly.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1717,7 +1717,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'd buy anything that isn't fish, and your {pet} can sleep by the hearth between hunts, since it's the one dry spot in the house. Just don't let it near the lieutenant's chair, or he'll file a complaint, and he files them very slowly." },
       },
       choices = {
-        { text = "Pay hunters a fair price. They keep this town fed.", next = "BACK", reply = "I always do, and I'll keep doing it. A fed hunter comes back with more.", fx = { align = { honor = 1 } } },
+        { text = "Pay hunters a fair price. They keep this town fed.", next = "BACK", reply = "I always do. A hunter who's paid fair brings me the good cuts and not the gristle.", fx = { align = { honor = 1 } } },
         { text = "Haggle hard. Hunters take what they can get these days.", next = "BACK", reply = "I could, but then they'd sell to Neema's cousin instead. I'll pay fair and keep my bread fishless.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

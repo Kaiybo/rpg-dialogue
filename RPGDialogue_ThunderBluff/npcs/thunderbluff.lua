@@ -107,7 +107,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_cairne_default", text = "I believe so, though I've lost sleep over it. The Earth Mother teaches that all things return to her in time, and the Forsaken were torn out of that circle by the Scourge, so perhaps the kindest thing we can do is give them somewhere to stand until they find their own way back." } },
       choices = {
-        { text = "They deserve a place among us. I'd trust mine with my life.", next = "BACK", reply = "Then they are fortunate in you, and so is the Horde. Trust given freely is the first step on the road back to the Earth Mother.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They deserve a place among us. I'd trust mine with my life.", next = "BACK", reply = "Then they are fortunate in you, and so is the Horde. Bring them to my fire one evening; I would hear their stories myself.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead belong in the earth, Chieftain, not in the Horde.", next = "BACK", reply = "Many of my own elders would agree, and I do not scorn them for it. But the earth did not take them back, and until it does, someone must give them ground to stand on.", fx = { align = { light = -1 } } },
         { text = "Your elders must still oppose them.", next = "xpt_cairne2" },
         { text = "Something else, Chieftain.", next = "BACK" },
@@ -148,7 +148,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Humility, mostly, and gratitude. {pet} walks beside you as an equal, I see, and that is how the Earth Mother meant it to be, {class}." },
       },
       choices = {
-        { text = "Humility and thanks. I'll remember both on every hunt.", next = "BACK", reply = "Then the herds will thank you, and so will I. A hunter who gives thanks never forgets that the life he takes was a gift.", fx = { align = { light = 1 } } },
+        { text = "Humility and thanks. I'll remember both on every hunt.", next = "BACK", reply = "Then the herds will thank you, and so will I. The plainstriders near Bloodhoof Village have grown too many this year, if you are looking for a hunt.", fx = { align = { light = 1 } } },
         { text = "The hunt teaches strength, chieftain, nothing more.", next = "BACK", reply = "Strength is part of it, and the beasts teach that lesson hard. But a strong hunter who forgets gratitude soon finds the plains have nothing left to give him.", fx = { align = { light = -1 } } },
         { text = "Something else, chieftain.", next = "BACK" },
       },
@@ -170,7 +170,7 @@ P:NPC {
         { id = "xmage_default", text = "We don't fear it, but we remember. Our oldest stories say that magic once tore the world in two, and the tauren learned to live with the land instead of above it, so forgive us if we watch the arcane with an old people's caution." },
       },
       choices = {
-        { text = "Caution is wise. I'll study it with care.", next = "BACK", reply = "Then the land will be safer for your learning, and the tauren will learn to trust you. Care is the bridge between an old people and a new power.", fx = { align = { order = 1 } } },
+        { text = "Caution is wise. I'll study it with care.", next = "BACK", reply = "Then the land will be safer for your learning, and the tauren will learn to trust you. Come and tell me what the spirits say to you; I am too old to stop being curious.", fx = { align = { order = 1 } } },
         { text = "Old stories shouldn't bind new learning.", next = "BACK", reply = "Perhaps they shouldn't, but they should be heard, as an old bull is heard by the young. The stories are old because they were true once.", fx = { align = { order = -1 } } },
         { text = "How did the tauren come to Mulgore?", next = "mulgore" },
       },
@@ -343,7 +343,7 @@ P:NPC {
       choices = {
         { text = "I would, Chieftain. A guest should ask first.", next = "BACK", fx = { affinity = 1, trait = { honest = 1 } }, when = { faction = "Alliance" } },
         { text = "I'm no diplomat, Chieftain. I only fight.", next = "BACK", fx = { trait = { blunt = 1 } }, when = { faction = "Alliance" } },
-        { text = "Patience, then. Baine sounds wise.", next = "BACK", fx = { affinity = 1 }, when = { faction = "Horde" } },
+        { text = "Patience, then. Baine sounds wise for his years.", next = "BACK", fx = { affinity = 1 }, when = { faction = "Horde" } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -758,7 +758,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "That a warrior who waits until the moment is right wastes no strength and spills no needless blood. The night elves guarded their forests for ten thousand years that way, and I'd wish the same patience on every warrior of the Horde." } },
       choices = {
-        { text = "I'll be patient, and spill no needless blood.", next = "BACK", reply = "Then you'll be a rare warrior and a welcome one. The land itself rests easier when those who guard it strike only when they must.", fx = { align = { honor = 1 } } },
+        { text = "I'll be patient, and spill no needless blood.", next = "BACK", reply = "Then you'll be a rare warrior and a welcome one. Too many young bulls come back from the Barrens proud of how much they killed.", fx = { align = { honor = 1 } } },
         { text = "Patience is for those with ten thousand years to spare.", next = "BACK", reply = "Ha, perhaps you're right, and the night elves have more time than either of us. Still, a little patience costs a warrior nothing, and it saves a great deal.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -997,7 +997,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "There is in everything, though some people try hard to forget it. I'm told a priest can heal with one hand and wound with the other, and that the shadow costs something every time it's used. Practise the mending more often than the wounding, and I think you'll keep your footing." } },
       choices = {
-        { text = "Then I'll mend more than I wound, Turak.", next = "BACK", reply = "Then I think you'll keep your footing, and your soul too. A healer who mends more than she wounds stays welcome at every fire.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll mend more than I wound, Turak.", next = "BACK", reply = "Then I think you'll keep your footing, and your soul too. Mend more than you wound, and you will be welcome at every fire.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll use whichever hand the fight needs.", next = "BACK", reply = "A fighter's answer, and fair enough in a fight. Only remember which hand you reach for first, because one grows stronger than the other.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1544,7 +1544,7 @@ P:NPC {
     },
     xcl_wc2 = {
       lines = { { id = "xcl_wc2_default", text = "A sleeping night elf, if you'll believe it, dreaming so badly that the whole cave dreams with him. The druids are very solemn when they say it, and I nod and pour the stew, because what else can an innkeeper do with a story like that?" } },
-      choices = { { text = "Keep pouring, Pala. It helps.", next = "BACK" } },
+      choices = { { text = "Keep pouring, Pala. It helps more than you know.", next = "BACK" } },
     },
     xfpala = {
       big = true,
@@ -1581,7 +1581,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll bring you game, Pala. The inn feeds everyone.", next = "BACK", reply = "Oh, bless you, child, and the guests will bless you too. Bring me plainstrider if you can, it makes the best stew on the bluff.", fx = { align = { honor = 1 } } },
-        { text = "I'll sell my game to whoever pays more.", next = "BACK", reply = "That's fair, and I'll pay fair, though maybe not the most. A full belly is worth something, too.", fx = { align = { honor = -1 } } },
+        { text = "I'll sell my game to whoever pays more.", next = "BACK", reply = "That's fair, and I'll pay fair, though maybe not the most. The orcs pay me mostly in grumbling, so you're already ahead.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1612,7 +1612,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Oh, whether the Earth Mother speaks louder through the spirits or through the wild, and whose turn it is to pay. One of Hamuul's own students came down to settle it once and ended up shouting louder than any of them, so now I keep the stew coming until they're too full to talk." } },
       choices = {
         { text = "Someone should settle it properly, once and for all.", next = "BACK", reply = "Someone has tried, and it ended in shouting. I'd rather keep the stew coming and the peace too, thank you.", fx = { align = { order = 1 } } },
-        { text = "Let them argue. Every voice deserves a seat by the fire.", next = "BACK", reply = "That's what I think, and that's why I named the place for both of them. A full belly listens better than an empty one.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let them argue. Every voice deserves a seat by the fire.", next = "BACK", reply = "That's what I think, and that's why I named the place for both of them. The arguing usually stops when the second bowl comes round.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

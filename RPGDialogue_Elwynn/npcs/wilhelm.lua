@@ -86,7 +86,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The Light favours those who protect, and a hunter who keeps the wolves off a farmer's flock is doing just that. Your {pet} is a fine creature, so treat it as a comrade, and the Light will see your heart in it." },
       },
       choices = {
-        { text = "I hunt to protect, not to kill.", next = "BACK", reply = "That's a fine thing to say, and I believe you. The Light sees it too.", fx = { align = { light = 1 } } },
+        { text = "I hunt to protect, not to kill.", next = "BACK", reply = "That's a fine thing to say, and I believe you. Keep the farmers' flocks whole and you'll do more good than half my students.", fx = { align = { light = 1 } } },
         { text = "I hunt for the meat and the coin, Brother.", next = "BACK", reply = "Honest, at least, and there's no shame in feeding yourself. The farmers still benefit.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -95,7 +95,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Not through your stealth, but through your intentions, sometimes, because the Light shows me the shape of a person's heart if I look. Yours seems decent enough, though I'd be lying if I said I couldn't see a few shadows in it." } },
       choices = {
-        { text = "I'll try to keep those shadows from growing, Brother.", next = "BACK", reply = "That's all I'd ask of anyone, and more than most will try. The Light will help you.", fx = { align = { light = 1 } } },
+        { text = "I'll try to keep those shadows from growing, Brother.", next = "BACK", reply = "That's all I'd ask of anyone, and more than most will try. When they trouble you, come and sit by the forge and we'll talk it through.", fx = { align = { light = 1 } } },
         { text = "Shadows keep me alive, Brother. I'll keep them.", next = "BACK", reply = "They might, for a while, but shadows grow when you're not watching. I'll pray you notice.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -113,7 +113,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I think anyone can, because the Light doesn't keep a ledger of who's worth saving, though it does ask you to turn around. I've seen it happen once, and the man wept for a week, and then he never stopped smiling." } },
       choices = {
-        { text = "Perhaps one day I'll turn, Brother. Keep the door open.", next = "BACK", reply = "It's always open, friend, and I'll be glad to see you at it. The Light waits patiently.", fx = { align = { light = 1 } } },
+        { text = "Perhaps one day I'll turn, Brother. Keep the door open.", next = "BACK", reply = "It's always open, friend, and I'll be glad to see you at it. I'm behind the smithy most mornings.", fx = { align = { light = 1 } } },
         { text = "I've no need of redemption. My path is chosen.", next = "BACK", reply = "Then I'll pray for you anyway, quietly. The door won't close.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -180,7 +180,7 @@ P:NPC {
       },
       choices = {
         { text = "But it came back.", next = "tome2" },
-        { text = "Ogres reading. That's a thought.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Ogres reading a holy book? That's a thought.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
     tome2 = {
@@ -246,7 +246,7 @@ P:NPC {
         { id = "pk_default", text = "How to sit still with someone who's dying and not reach for a weapon. I've never managed it, but Josetta has, so ask her how, and then tell me." },
       },
       choices = {
-        { text = "I'm still learning that myself.", next = "BACK", reply = "So am I, and I'll keep at it. Josetta's the one to ask.", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "I'm still learning that myself.", next = "BACK", reply = "So am I, and I'm no better at it than I was ten years ago. Tell me if Josetta's secret rubs off on you.", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
         { text = "Sitting still while someone dies isn't for me.", next = "BACK", reply = "It isn't for most of us, and I'll not judge you. But somebody has to do it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

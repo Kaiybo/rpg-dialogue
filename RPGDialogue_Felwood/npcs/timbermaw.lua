@@ -46,7 +46,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Some come only to look at us, as the Highborne once looked at everything. The Timbermaw remember the old elves, and Grazle tests every outsider before they are let near his people, so if you wish to help, prove it against the Deadwood, not with spells over our tunnels." } },
       choices = {
-        { text = "I'll prove myself against the Deadwood, Grazle.", next = "BACK", reply = "Good, and the Timbermaw will watch how you do it. Deeds are louder than looking.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll prove myself against the Deadwood, Grazle.", next = "BACK", reply = "Good, and the Timbermaw will watch how you do it. Grazle will count the feathers you bring.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll help you, but I'll study what I like.", next = "BACK", reply = "Grazle hears you, and Grazle will remember it. Study what you like, but not the Timbermaw.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -55,7 +55,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "With Deadwood feathers, and with patience, for the Timbermaw count deeds over many seasons, not over one fight. A warrior who kills one Deadwood is a stranger with a sharp axe, but one who keeps coming back is a friend." } },
       choices = {
-        { text = "Then I'll keep coming back until the Timbermaw call me friend.", next = "BACK", reply = "Then you will be called friend in time, and Grazle will be the first to say it. Patience is the furbolg way.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll keep coming back until the Timbermaw call me friend.", next = "BACK", reply = "Then you will be called friend in time, and Grazle will be the first to say it. Grazle has waited longer for less.", fx = { align = { honor = 1 } } },
         { text = "I'll kill enough Deadwood to buy your trust quickly.", next = "BACK", reply = "Quick trust is thin trust, outsider. The Timbermaw do not sell it by the feather.", fx = { align = { honor = -1 } } },
         { text = "Something else, Grazle.", next = "BACK" },
       },
@@ -67,7 +67,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "We hunt to eat, as all furbolgs did before the corruption, and we give thanks to the spirits for each kill. Your {pet} smells the Deadwood on the wind, and it does not like them. Beasts know corruption before we do." },
       },
       choices = {
-        { text = "A hunter gives thanks for each kill. That's how it should be.", next = "BACK", reply = "It is, and Grazle is glad you know it. The spirits remember a thankful hunter.", fx = { align = { light = 1 } } },
+        { text = "A hunter gives thanks for each kill. That's how it should be.", next = "BACK", reply = "It is, and Grazle is glad you know it. Grazle's mother said the words over every fish, even the small ones.", fx = { align = { light = 1 } } },
         { text = "Thanks don't fill a belly. I hunt what I need and move on.", next = "BACK", reply = "They do not, but they fill the heart. Grazle hopes you learn that before the spirits stop listening.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -76,7 +76,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Our shamans hear the earth crying under the Deadwood camps, where the corruption soaked in deepest. The spirits there no longer answer the Deadwood, and Grazle thinks that is how the madness took them: they stopped listening, and something else began to talk. You understand this, shaman, though Grazle's elders still argue over what can be done." } },
       choices = {
-        { text = "Your elders should decide what's done here, not outsiders.", next = "BACK", reply = "Grazle agrees, and the elders will be glad you said so. Outsiders who wait are rare.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your elders should decide what's done here, not outsiders.", next = "BACK", reply = "Grazle agrees, and the elders will be glad you said so. Most outsiders want the answer before they finish asking.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Waiting on elders heals nothing. Someone has to act.", next = "BACK", reply = "Perhaps, but outsiders who act without the elders have made things worse before. Grazle would ask you to be patient.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -85,7 +85,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Something in the forest's poison made the Deadwood and the other tribes forget who they were, and it smells like you do. Grazle will not shut the door on you for a smell, but you must prove yourself twice over before the Timbermaw let you pass." } },
       choices = {
-        { text = "Then I'll prove it. The Deadwood deserve justice.", next = "BACK", reply = "Then Grazle will watch you prove it. The Deadwood deserve that much, and so do you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll prove it. The Deadwood deserve justice.", next = "BACK", reply = "Then Grazle will watch you prove it. The Deadwood camps are south, and they are not hard to find.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I owe the Timbermaw nothing. Let me through.", next = "BACK", reply = "Then you will walk around, outsider, for Grazle does not open the door to those who owe nothing.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'll think about it.", next = "BACK" },
       },
@@ -94,7 +94,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The Deadwood have tried, and one or two outsiders who thought furbolgs were stupid. None of them tried twice, because the Timbermaw remember a face for a very long time, and we remember a broken trust even longer." } },
       choices = {
-        { text = "Trust earned openly is worth more. I'll earn it.", next = "BACK", reply = "Good, and Grazle will remember your face for that reason instead. The Timbermaw prize honesty.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Trust earned openly is worth more. I'll earn it.", next = "BACK", reply = "Good, and Grazle will remember your face for that reason instead. Grazle has a long memory for faces.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Any door can be opened by someone patient enough.", next = "BACK", reply = "Perhaps, but the Timbermaw are very patient too. Grazle would not try it.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'll keep that in mind.", next = "BACK" },
       },
@@ -112,7 +112,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Because most outsiders come to take, wood or furs or a short path through our tunnels, and they say whatever opens the door. Grazle would rather hear a hard truth spoken plainly than a soft lie, so speak plainly, paladin." } },
       choices = {
-        { text = "I'll always speak plainly to the Timbermaw.", next = "BACK", reply = "Then Grazle will listen, and the elders will too. Plain words open Timbermaw doors.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll always speak plainly to the Timbermaw.", next = "BACK", reply = "Then Grazle will listen, and the elders will too. Grazle is tired of sweet talk from strangers.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A soft word opens more doors than a hard truth.", next = "BACK", reply = "Soft words opened them before, and the Deadwood came through. Grazle prefers the hard truth.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -121,7 +121,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "That you prove your prayers by your deeds, because many have come here speaking softly and then cut down our kin. The Deadwood are lost to the corruption, and the Timbermaw will judge you by what you do about them, not by what you say to your gods." } },
       choices = {
-        { text = "Then judge me by my deeds. I'll earn your trust.", next = "BACK", reply = "Grazle will watch, and Grazle will remember. Deeds are the only prayers the Timbermaw trust.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then judge me by my deeds. I'll earn your trust.", next = "BACK", reply = "Grazle will watch, and Grazle will remember. Come back with Deadwood feathers, and we will talk again.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I don't need the Timbermaw's leave to walk these woods.", next = "BACK", reply = "You do, outsider, if you want the tunnels. Grazle does not let strangers walk through our home.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -250,7 +250,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "It troubles Nafien greatly, for the corruption of Felwood began with demons, and the Deadwood are what the corruption made. But Nafien judges by deeds, not smells, and if you hunt the Deadwood beside him, he will know whose side you are on." } },
       choices = {
-        { text = "Judge me by my deeds, Nafien. I'll fight beside you.", next = "BACK", reply = "Then Nafien will fight beside you, and see. Deeds speak louder than smells.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Judge me by my deeds, Nafien. I'll fight beside you.", next = "BACK", reply = "Then Nafien will fight beside you, and see. Nafien's nose has been wrong before, once or twice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The fel is a tool. You shouldn't fear what you don't understand.", next = "BACK", reply = "Nafien understands what the fel did to the forest, outsider. That is enough understanding for Nafien.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -259,7 +259,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The corruption took them, as it took the Winterfall in the north and the forest all around. They were furbolgs once, as Nafien is, and he takes no joy in hunting them, but if they are left alone, they will spread the sickness to every tribe that still lives clean." } },
       choices = {
-        { text = "I'll fight them with sorrow, not hatred.", next = "BACK", reply = "Nafien thanks you, and Nafien fights the same way. Sorrow keeps the axe honest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll fight them with sorrow, not hatred.", next = "BACK", reply = "Nafien thanks you, and Nafien fights the same way. Some of the faces in those camps, Nafien knew as cubs.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If they're lost, they must be destroyed. No pity.", next = "BACK", reply = "They are lost, and they must fall, but Nafien will still pity them. Pity is all Nafien has left to give them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -268,7 +268,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Like a furbolg who has forgotten everything but anger, and that makes them fierce and foolish both. They will charge a warrior who stands firm and break themselves on the shield, and Nafien has seen it happen, though he takes no joy in watching." } },
       choices = {
-        { text = "Then I'll stand firm and end it quickly for them.", next = "BACK", reply = "Good, outsider, and Nafien thanks you for it. Quick is kind, for the Deadwood.", fx = { align = { light = 1 } } },
+        { text = "Then I'll stand firm and end it quickly for them.", next = "BACK", reply = "Good, outsider, and Nafien thanks you for it. They have suffered long enough in those camps.", fx = { align = { light = 1 } } },
         { text = "Then I'll stand and let them break. Pity won't save them.", next = "BACK", reply = "Pity won't save them, Nafien knows, but it costs nothing. Nafien will pity them for both of us.", fx = { align = { light = -1 } } },
         { text = "Something else, Nafien.", next = "BACK" },
       },
@@ -286,7 +286,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Nafien wishes it were so, but the Deadwood will not go, and they will not stop until they reach our tunnels. A quick death from a blade they never see is kinder than what the poison is doing to them, and that is the only mercy left to give." } },
       choices = {
-        { text = "A quick end is a mercy. I'll make it clean.", next = "BACK", reply = "Nafien thanks you, and the Deadwood will not know to thank you, but Nafien will. A clean end is a gift.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A quick end is a mercy. I'll make it clean.", next = "BACK", reply = "The Deadwood will not know to thank you, but Nafien will. Strike for the neck; they feel little that way.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They chose their side. I won't lose sleep over it.", next = "BACK", reply = "Nafien sleeps little, outsider, and thinks of them often. Perhaps that is enough for both of us.", fx = { align = { light = -1 } } },
         { text = "I'll think on that.", next = "BACK" },
       },
@@ -304,7 +304,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Nafien buries what he can when the camps are quiet, because they were Timbermaw once and someone should remember it. The elders say it is foolish, since the corruption stays in the bones, but Nafien does it anyway." } },
       choices = {
-        { text = "It isn't foolish. The dead deserve rest, whoever they were.", next = "BACK", reply = "Nafien thanks you, and Nafien will keep burying. Someone should remember them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It isn't foolish. The dead deserve rest, whoever they were.", next = "BACK", reply = "Nafien thanks you. The elders laugh at him, but Nafien will keep burying them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Burn them instead. Corruption shouldn't go back into the soil.", next = "BACK", reply = "The elders say the same, and maybe they are right. But Nafien cannot burn them, not yet.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -387,7 +387,7 @@ P:NPC {
         { id = "totems2_default", text = "Every night, but the Deadwood would kill our cubs if we let them near. Some outsiders take the work for the reward, and some because it is right, and Nafien cannot always tell the difference." },
       },
       choices = {
-        { text = "I do it because it's right.", next = "BACK", reply = "Then Nafien is glad of you, and the elders will hear of it. The right reason is the best reason.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I do it because it's right.", next = "BACK", reply = "Then Nafien is glad of you, and the elders will hear of it. Nafien will tell them your name himself.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Truth is, I do it for the reputation.", next = "BACK", reply = "Nafien thanks you for the honesty, at least. The Deadwood fall either way, and the cubs are safe.", fx = { align = { order = -1 }, trait = { honest = 1 } } },
       },
     },

@@ -42,7 +42,7 @@ P:NPC {
         { id = "xhcast_default", text = "It sharpens you, if you're careful, and it eats you alive if you're not. I've lived here long enough to learn where the mana pools and where it festers, and the black dragons in the south don't help matters one bit." },
       },
       choices = {
-        { text = "Power without care is a poison. I'll be careful.", next = "BACK", reply = "Good, then you'll last out here, which most don't. The marsh rewards care, and it punishes everything else.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Power without care is a poison. I'll be careful.", next = "BACK", reply = "Good, then you'll last out here, which most don't. I found the last careless one face-down in the pool behind my hut.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Then I'll drink deep. Power is for using.", next = "BACK", reply = "Then drink, and I'll be here to bury what's left. The pools out here aren't kind to the greedy.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -51,7 +51,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "I think the spirits were here long before the mana pooled, and they put up with it the way neighbors put up with a noisy house. The ogres and the dragons disturb them far more than I ever could." } },
       choices = {
-        { text = "Then be a quiet neighbor, Tabetha. The spirits deserve that.", next = "BACK", reply = "I try, and I like to think they've noticed. It's the ogres they ought to complain to, honestly.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then be a quiet neighbor, Tabetha. The spirits deserve that.", next = "BACK", reply = "I try, and I like to think they've noticed. It's the ogres they ought to be complaining about.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The spirits can adapt. Your research matters more.", next = "BACK", reply = "Spoken like a Kirin Tor apprentice, and I'll take it as a compliment. Still, I'll keep my voice down, just in case.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -86,7 +86,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Not as much as living in Theramore did, with everyone wanting a spell for this and a ward for that. The marsh is lonely, true, but the loneliness is quiet, and out here I can finally hear myself think." } },
       choices = {
-        { text = "Theramore needs mages like you. Duty matters more than quiet.", next = "BACK", reply = "Maybe it does, and the Lady would agree with you. But I serve it better from here, I think.", fx = { align = { order = 1 } } },
+        { text = "Theramore needs mages like you, Tabetha, not hermits.", next = "BACK", reply = "Maybe it does, and the Lady would agree with you. But I serve it better from here, I think.", fx = { align = { order = 1 } } },
         { text = "Good for you. The wild suits a free mind.", next = "BACK", reply = "It does, and I'm glad someone understands. Come back if you ever need a quiet place to think.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else, Tabetha.", next = "BACK" },
       },
@@ -596,7 +596,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Harder than it looks in daylight and easier than I'd like at night, because the fog off the marsh rolls right over the road. Whoever took the missing Stormwind diplomat on this road knew that too, and they knew it better than any traveler should." } },
       choices = {
-        { text = "Then I'll report the gaps to Theramore, properly.", next = "BACK", reply = "Good, the proper way is the only way. I'll sign whatever you need me to.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll report the gaps to Theramore, properly.", next = "BACK", reply = "Good. Address it to Captain Vimes, and he might even read it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A tower that can be slipped past is no tower. Fix it yourself.", next = "BACK", reply = "With three men and one brazier? I'd fix it if I could, believe me, but the Lady sends what she sends.", fx = { align = { order = -1 } } },
         { text = "Something else, Private.", next = "BACK" },
       },

@@ -36,7 +36,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Welcome's a strong word for a dwarf tae use, friend, but I've seen what a gnome warlock can do tae a trogg, an' I'll no' pretend it didnae impress me. Clear the vermin out o' the Silver Stream Mine an' I'll call ye welcome, an' mean it." } },
       choices = {
-        { text = "I'll earn it in the mine, Mountaineer.", next = "BACK", reply = "Earn it, aye, an' the lads will remember ye for it. Mind the candles; the vermin wear them on their heads for a reason.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll earn it in the mine, Mountaineer.", next = "BACK", reply = "Earn it, aye, an' the lads will remember ye for it. Mind the candles, for the vermin wear them on their heads an' they'll set yer beard alight.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need your welcome. I'll clear it anyway.", next = "BACK", reply = "Clear it anyway, will ye? Then I'll no' waste my welcome, but I'll still be glad o' the work.", fx = { align = { honor = -1 } } },
         { text = "Something else, Mountaineer.", next = "BACK" },
       },
@@ -87,7 +87,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "No' lives yet, thank the Light, but a few fingers an' a deal o' pride, which in a dwarf is near the same thing. If ye want tae say a word over the lads, they drink at the Stoutlager, an' they'll pretend they dinnae need it." } },
       choices = {
         { text = "I'll find them there and say it anyway.", next = "BACK", reply = "Then they'll get it whether they like it or no', an' I'll no' stop ye. They're in the bunkhouse sulkin'.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Pride heals on its own. They don't need me.", next = "BACK", reply = "Aye, it does, mostly, though a dwarf's pride heals slower than his fingers. Leave them tae it, then.", fx = { align = { light = -1 } } },
+        { text = "Pride heals on its own. They don't need me.", next = "BACK", reply = "Aye, it does, mostly, though a dwarf's pride heals slower than his fingers. Leave them tae their sulk, then, an' they'll come out for supper.", fx = { align = { light = -1 } } },
         { text = "Something else, Mountaineer.", next = "BACK" },
       },
     },
@@ -256,7 +256,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "On the wall facing the Badlands, where the troggs come up the slope in a howling mob every few nights. They're stupid, but there's always more of them, and a warrior who keeps his feet and his shield up is worth five who charge down after them." } },
       choices = {
-        { text = "I'll hold my ground and let them break on me.", next = "BACK", reply = "Good, for that's what I need on my wall. Stand firm, an' they'll break like waves on rock.", fx = { align = { order = 1 } } },
+        { text = "I'll hold my ground and let them break on me.", next = "BACK", reply = "Good, for that's what I need on my wall. Plant yer feet, an' let them see they're runnin' at stone.", fx = { align = { order = 1 } } },
         { text = "I'd rather charge down and break them first.", next = "BACK", reply = "Charge down? Into a mob o' troggs? Ye've the courage o' a dwarf, I'll grant ye, but no' the sense.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -422,7 +422,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Trolls in the hills, Dragonmaw in the marsh an' mud up tae yer knees, an' that's on a good day. If ye meet any o' the orcs' old dark sort up there, ye'll know better than me what tae do about them, an' I'll leave it tae ye." } },
       choices = {
         { text = "I'll fight them, not learn from them, Rockgar.", next = "BACK", reply = "Fight them, aye, an' learn nothin', for there's nothin' worth learnin'. Ye've a good head on ye.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'd learn what I could from them first.", next = "BACK", reply = "Learn first, is it? That's how the orcs came tae their dark sort in the first place. Mind yerself up there.", fx = { align = { light = -1 } } },
+        { text = "I'd learn what I could from them first.", next = "BACK", reply = "Learn first, is it? That's how the orcs came tae their dark sort in the first place. Watch yerself up there, an' come back the same as ye went.", fx = { align = { light = -1 } } },
         { text = "Something else, Mountaineer.", next = "BACK" },
       },
     },
@@ -451,7 +451,7 @@ P:NPC {
         { id = "xma_gnome", when = { race = "Gnome" }, text = "A gnome talkin' wards, and ye'd know better than me what holds and what doesn't, after Gnomeregan. But wards need tendin', and I've no gnomes to spare and no mages at all." },
       },
       choices = {
-        { text = "Then I'll stand watch here like any mountaineer.", next = "BACK", reply = "Good, then ye'll stand where I put ye an' sleep when I say. Welcome tae the station.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll stand watch here like any mountaineer.", next = "BACK", reply = "Then ye'll stand where I put ye an' sleep when I say. Welcome tae the station, an' dinnae touch my stew.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'm no sentry. I'll burn the orcs where I find them.", next = "BACK", reply = "Burn them, then, an' I'll no' stop ye. But the pass needs watchin' too, an' I've no' enough eyes.", fx = { align = { order = -1 } } },
         { text = "How long have you held this station?", next = "station" },
       },
@@ -460,7 +460,7 @@ P:NPC {
       lines = { { id = "dq_default", text = "I don't dislike the land, only what it does tae my boots. Still, the Dark Irons an' the orcs up there are worse than any swamp." } },
       choices = {
         { text = "The swamp deserves protecting like any forest.", next = "BACK", reply = "Protectin'? It's a swamp! Still, I'll no' argue wi' a druid about what deserves protectin'.", fx = { align = { light = 1 } } },
-        { text = "The swamp is only mud and trouble.", next = "BACK", reply = "That's my view entire, though I'll no' say it too loud. Mud an' trouble, an' wet boots for good measure.", fx = { align = { light = -1 } } },
+        { text = "The swamp is only mud and trouble.", next = "BACK", reply = "That's my view entire, though I'll no' say it too loud wi' Wetlands folk about. Mud an' trouble, an' wet boots for good measure.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -477,7 +477,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Hold it, for if this station falls there's nothin' between the orcs an' Thelsamar but sheep. I'd dearly like tae march on Grim Batol, mind, but that's a dream for a bigger army than mine." } },
       choices = {
-        { text = "Then I'll hold the pass with you. Duty first.", next = "BACK", reply = "Duty first, aye, an' ye'll make a fine mountaineer. Take the north watch; it's quieter at night.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll hold the pass with you. Duty first.", next = "BACK", reply = "Duty first, aye, an' ye'll make a fine mountaineer. Take the north watch; it's quieter at night, if ye dinnae count the wind.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll go north alone if the army won't.", next = "BACK", reply = "Alone? Ye'd be one more name on my wall. I'll no' stop ye, but I'll no' bury ye either.", fx = { align = { order = -1 } } },
         { text = "Something else, Rockgar.", next = "BACK" },
       },
@@ -602,7 +602,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Well, some of them went off with the troggs and some of them went into the loch, and one is entirely unaccounted for, which is the worst kind of accounted. A rogue with sharp eyes and quick fingers is exactly what I need, so long as the fingers bring things back rather than take them away." } },
       choices = {
         { text = "I'll bring back every piece, Bingles.", next = "BACK", reply = "Every piece! Oh, that's marvellous, you've no idea how much that hammer means to me. It's sentimental, and also slightly explosive.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Finders keepers, Bingles. Mind your tools.", next = "BACK", reply = "Mind my tools? I was minding them, thank you, right up until a trogg minded them better. I'd like them back, please.", fx = { align = { honor = -1 } } },
+        { text = "Finders keepers, Bingles. Mind your tools.", next = "BACK", reply = "Mind my tools? I was minding them, thank you, right up until a trogg minded them better. I'd like them back, please, ideally without bite marks.", fx = { align = { honor = -1 } } },
         { text = "Something else, Bingles.", next = "BACK" },
       },
     },
@@ -610,7 +610,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Some of them, I'm sure, and I'm fairly certain a bear sat on my hammer. I don't blame the animals, exactly, but I do wish they'd stop collecting gnomish engineering." } },
       choices = {
-        { text = "Then gather every piece. The loch shouldn't keep your scraps.", next = "BACK", reply = "Every piece, yes, and especially the hammer, if the bear's quite done with it. The loch has plenty of scraps already.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Then gather every piece. The loch shouldn't keep your scraps.", next = "BACK", reply = "Every piece, yes, and especially the hammer, if the bear's quite done with it. I've already lost one prototype to the loch, and that was a boat.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Lost tools belong to the loch now. Buy new ones.", next = "BACK", reply = "Buy new ones? With what, my dignity? I'd much rather have the old ones back, if it's all the same to you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -632,7 +632,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll follow the tracks carefully and bring everything back.", next = "BACK", reply = "Carefully, yes, please, the reagent pouch is only mostly stable. Thank you, truly.", fx = { align = { order = 1 } } },
-        { text = "I'll open crocolisks until your hammer turns up.", next = "BACK", reply = "That's, er, a very thorough approach, and I'm not sure the crocolisks would agree. Do try the shallow ones first.", fx = { align = { order = -1 } } },
+        { text = "I'll open crocolisks until your hammer turns up.", next = "BACK", reply = "That's, er, a very thorough approach, and I'm not sure the crocolisks would agree. Do try the shallow ones first, would you?", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -672,7 +672,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Well, if it works, it'll tell us whether the rock here can take a proper tunnel, and then a few of our refugees in Ironforge might have somewhere to dig that's their own. If it doesn't work, it'll make a very loud noise, and that's useful too." } },
       choices = {
         { text = "Then I'll see your work done. Your people deserve a home.", next = "BACK", reply = "Thank you, that means more than I can say. Gnomeregan was home, and we'd very much like another one.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The dwarves gave them a home. They should be grateful.", next = "BACK", reply = "We are grateful, very grateful, and we'd still like a place of our own. Grateful guests make terrible permanent residents.", fx = { align = { honor = -1 } } },
+        { text = "The dwarves gave them a home. They should be grateful.", next = "BACK", reply = "We are grateful, very grateful, and we'd still like a place of our own. You try sleeping in a bed built for someone a foot and a half taller and twice as wide.", fx = { align = { honor = -1 } } },
         { text = "Something else, Bingles.", next = "BACK" },
       },
     },

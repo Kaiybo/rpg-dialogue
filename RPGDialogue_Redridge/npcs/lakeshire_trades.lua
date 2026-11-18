@@ -141,7 +141,7 @@ P:NPC {
     a2 = {
       lines = { { id = "a2_default", text = "Magistrate Solomon writes them down and sends them to Stormwind, and Stormwind sends back nothing at all. I've flown the letters myself, so I know they arrive." } },
       choices = {
-        { text = "The magistrate is right to keep asking. The crown will answer.", next = "BACK", reply = "Maybe, and I'll keep flying the letters as long as he writes them. Someone has to read them eventually.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "The magistrate is right to keep asking. The crown will answer.", next = "BACK", reply = "Maybe, and I'll keep flying the letters as long as he writes them. The gryphons know the way to the Keep better than I do by now.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Lakeshire should stop waiting and fight for itself.", next = "BACK", reply = "We are fighting, with what we have. It's just not enough, and we keep hoping someone notices.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -391,7 +391,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rifle, every time, because a goretusk's skull will turn an arrow but not a ball of good dwarven lead. Your {pet} doesn't flinch at a gunshot, {class}, I can tell, and that's a well-trained beast." },
       },
       choices = {
-        { text = "I'll measure every grain. Care is half of good shooting.", next = "BACK", reply = "That's the spirit, and you'll live long enough to prove it. I'll sell you a good rifle.", fx = { align = { order = 1 } } },
+        { text = "I'll measure every grain. Care is half of good shooting.", next = "BACK", reply = "Spoken like a proper marksman. Come to the counter, and I'll find you a rifle that deserves you.", fx = { align = { order = 1 } } },
         { text = "I'll pack it heavy. More powder, more punch.", next = "BACK", reply = "And then you'll be a one-handed hunter with an unhappy boar. Measure it, friend.", fx = { align = { order = -1 } } },
         { text = "Something else, Henry.", next = "BACK" },
       },

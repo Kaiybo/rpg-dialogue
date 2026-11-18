@@ -217,7 +217,7 @@ P:NPC {
         { id = "xp_default", text = "Properly, is it? Then do it properly, with whatever words your order teaches, and I'll write down that it was done. I'm not much for prayers, but I'm all for things bein' done right." },
       },
       choices = {
-        { text = "The Light will grant them peace. I'll see it done.", next = "BACK", reply = "Good, an' I'll put it in the book in my best hand, because a thane laid tae rest by the Light deserves a proper line, no' a scribble.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light will grant them peace. I'll see it done.", next = "BACK", reply = "I'll put it in the book in my best hand. A thane laid tae rest by the Light deserves a proper line, no' a scribble.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Peace or not, they'll stay down.", next = "BACK", reply = "Well, I'm no' going tae argue with results, priest, so long as ye write down which ones ye put down an' where they ended up.", fx = { align = { light = -1 } } },
       },
     },

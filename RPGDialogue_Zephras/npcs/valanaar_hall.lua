@@ -213,7 +213,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Make it quick; I've recruits to bruise." },
-        { id = "h_again2", text = "Speak up. The hall's loud." },
+        { id = "h_again2", text = "Speak up, friend, because the hall's loud tonight." },
       },
       choices = {
         { text = "What is the Skybreaker Bulwark?", next = "bulwark" },
@@ -428,7 +428,7 @@ P:NPC {
       },
       choices = {
         { text = "Keep them out. Your oath comes first.", next = "BACK", reply = "Thank you, and I'll tell the others you said so. The oath is all we have left of them.", fx = { affinity = 1, align = { honor = 1 }, learn = { "two_orders" } } },
-        { text = "Share them. Pride won't mend a single bolt.", next = "BACK", reply = "Pride, is it? Perhaps, and perhaps not, but I'll think on it. A rusting construct helps nobody.", fx = { affinity = 1, align = { honor = -1 }, learn = { "two_orders" } } },
+        { text = "Share them. Pride won't mend a single bolt.", next = "BACK", reply = "Pride, is it? Perhaps, and perhaps not, but I'll think on it. Winds know the one by the east stair could use the help.", fx = { affinity = 1, align = { honor = -1 }, learn = { "two_orders" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
@@ -744,7 +744,7 @@ P:NPC {
         { id = "h2_default", text = "Because a bandage doesn't depend on anyone answering. We leaned on the spirits for everything once, and look where that left us, so I'd rather every child on the isle knew how to stop a bleed than wait for a miracle." },
       },
       choices = {
-        { text = "You're right. Skill is better than waiting on miracles.", next = "BACK", reply = "Good, then you'll make a fine medic. Sit down and I'll show you a proper knot.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "You're right. I'd rather know a knot than pray for one.", next = "BACK", reply = "Good, then you'll make a fine medic. Sit down and I'll show you a proper knot.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Some wounds need more than linen. Don't dismiss the gifts.", next = "BACK", reply = "I'll not dismiss them, but I'll not wait on them either. Learn the linen first, child.", fx = { affinity = -1, align = { order = -1 }, trait = { pious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

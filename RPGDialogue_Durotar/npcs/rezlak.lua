@@ -86,7 +86,7 @@ P:NPC {
     },
     around = {
       lines = { { id = "ar_default", text = "Around? There is no around, pal, that's the whole problem with canyons. The only other way is through the scorpid country, and the scorpids are worse, because scorpids don't even want the cargo, they just want you." } },
-      choices = { { text = "Fair point. Something else.", next = "BACK" } },
+      choices = { { text = "Fair point, Rezlak. Something else.", next = "BACK" } },
     },
     orcs = {
       lines = { { id = "o_default", text = "Orgrimmar didn't build itself, pal. Gazlowe put his boys to work on it back when the Warchief first landed, and the orcs have been good customers ever since, which in my line of work is the same as being friends, only with invoices." } },

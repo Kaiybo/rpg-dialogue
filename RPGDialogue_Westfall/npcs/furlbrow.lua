@@ -36,7 +36,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "I tell Verna we will, and I mostly believe it. The land's still ours in my heart, whatever the thieves think. Maybe the earth remembers whose it was." } },
       choices = {
         { text = "Hold on to hope, Theodore. The land remembers you.", next = "BACK", reply = "I'll try, friend, I will, though hope's a heavy thing to carry with a broken wagon. Verna carries most of it for me.", fx = { align = { light = 1 } } },
-        { text = "Let it go. Start fresh somewhere safer.", next = "BACK", reply = "Somewhere safer, he says, as if there's anywhere in Westfall that fits. I'll think on it, but I'll not like it.", fx = { align = { light = -1 } } },
+        { text = "Let it go. Start fresh somewhere safer.", next = "BACK", reply = "Somewhere safer, {g:he|she} says, as if there's anywhere in Westfall that fits. I'll think on it, but I'll not like it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

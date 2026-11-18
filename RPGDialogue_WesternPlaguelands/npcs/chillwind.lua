@@ -193,7 +193,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They'll fight beside anyone who walks back out of Andorhal with them, and they'll talk about you behind your back the whole way. MacDonnell will be harder, for she thinks every demon is one more thing the Light ought to burn." } },
       choices = {
-        { text = "I'll earn their trust in battle.", next = "BACK", reply = "Good. Battle's the only place out here where trust gets earned.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll earn their trust in battle.", next = "BACK", reply = "Good. Stand beside them once when the ghouls come over the rise, and the muttering stops.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need their trust, only their silence.", next = "BACK", reply = "Then you'll get their silence, and their muttering besides. I'll take your fire either way.", fx = { align = { honor = -1 } } },
         { text = "Something else, Commander.", next = "BACK" },
       },
@@ -578,10 +578,10 @@ P:NPC {
     light = {
       big = true,
       lines = {
-        { id = "l_default", text = "The Light's way is to protect the living, and if that means stirring a necromancer's soup until it chokes him, then I'll stir. I'll pray first, mind you, and stir after." },
+        { id = "l_default", text = "The Light's way is to protect the living, and if that means stirring a necromancer's soup until it chokes him, then I'll stir. I'll pray first, though, and stir after." },
       },
       choices = {
-        { text = "Pray first, stir after. I'll remember that.", next = "BACK", reply = "Good. Prayer first is the only thing that keeps the stirring honest.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Pray first, stir after. I'll remember that.", next = "BACK", reply = "Good. Say it over the cauldron, not after, or you'll be breathing fumes while you pray.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'd rather it burned clean.", next = "BACK", reply = "So would I, child, so would I. But the cauldrons won't burn clean, and the plague rides the smoke.", fx = { affinity = 1, align = { light = 1, order = 1 } } },
       },
     },
@@ -726,7 +726,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "I'd like to say no, but the counter agent is strong, and I've seen grass die where it's spilled. I tell myself the plague would have killed it anyway, though I'm not certain that's true." } },
       choices = {
         { text = "Weaken the brew, then. Spare what can be spared.", next = "BACK", reply = "I've tried, and it doesn't hold. But I'll try again, for the grass.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Use it at full strength. Half a cure is no cure.", next = "BACK", reply = "Full strength it is, and I'll try not to look at the grass.", fx = { align = { light = -1 } } },
+        { text = "Use it at full strength. A weak cure only wastes the batch.", next = "BACK", reply = "Full strength it is, and I'll try not to look at the grass.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -746,7 +746,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If my books are right, the Scholomance stinks of necromancy to anything with a good nose, so even the plagued wolves give the island a wide berth. I'd trust a wolf's nose over a book, frankly, but the wolves won't sit still to be questioned. Does {pet} bristle when the wind comes off Darrowmere, {class}?" },
       },
       choices = {
-        { text = "Trust the beasts. They know evil better than any book.", next = "BACK", reply = "I'd trust them too, honestly. The books are written by people who never had a nose for anything.", fx = { align = { order = -1 } } },
+        { text = "Trust the beasts. They know evil better than any book.", next = "BACK", reply = "So would I. The books were written by people who never had a nose for anything.", fx = { align = { order = -1 } } },
         { text = "Books first, Arbington. A beast's nose is only guesswork.", next = "BACK", reply = "Books first, but I'll keep a wolf in mind. They're surprisingly good at reading.", fx = { align = { order = 1 } } },
         { text = "Let us speak of something else.", next = "BACK" },
       },
@@ -1314,7 +1314,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "There is, though you have to dig to find it. I've seen seeds sprout by the camp's well, tiny and pale, and I've stood watch over them like they were my own children. Don't laugh; it's the only thing growing here." } },
       choices = {
-        { text = "I won't laugh. Every sprout is a victory.", next = "BACK", reply = "Thank you. They're very small victories, but I'll take every one.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I won't laugh. Anything green out here is worth a smile.", next = "BACK", reply = "Thank you. Three came up this week, and I've named every one of them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Seedlings won't stop the Scourge. Watch the gate instead.", next = "BACK", reply = "I watch both, as it happens. The gate keeps them safe, and they keep me sane.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1323,7 +1323,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because an Alliance blade and a Horde blade look the same to me but not to each other, and one quick hand on a hilt can undo a month of trust. At the door steel is only steel, and at the table we're only people who fight the dead." } },
       choices = {
-        { text = "Then I'll leave it there gladly. Trust is worth that much.", next = "BACK", reply = "It is, and you'll find the table friendlier for it. Thank you.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll leave it there gladly. Your table, your rules.", next = "BACK", reply = "Thank you. You'll find the company friendlier for it, and the stew no worse.", fx = { align = { honor = 1 } } },
         { text = "A soldier who disarms in the Plaguelands is a fool, officer.", next = "BACK", reply = "A fool, perhaps, but a living one, and the table's had no blood on it yet. Leave the steel at the door.", fx = { align = { honor = -1 } } },
         { text = "Tell me something else.", next = "BACK" },
       },
@@ -1652,7 +1652,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "The wheel's sound as far as I know, and the river doesn't care who won the war. It's the land around it that worries me, for the plague's in the soil, and you can't build homes on poisoned ground with any spell I've heard of." } },
       choices = {
-        { text = "The land will heal. It always does, in time.", next = "BACK", reply = "It does, given time and care. Thank you for saying so.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The land will heal. It always does, in time.", next = "BACK", reply = "It does, given time and care. I saw clover by the mill race last week, and I nearly wept.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Better to burn it all and start fresh.", next = "BACK", reply = "Fresh, maybe, but my father's wheel turned on that river for thirty years. I'll heal what's left.", fx = { align = { light = -1 } } },
         { text = "Let's talk of other things.", next = "BACK" },
       },
@@ -1687,7 +1687,7 @@ P:NPC {
       },
       choices = {
         { text = "That's a hard choice.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "Clever. Cruel, but clever.", next = "BACK", reply = "Cruel, perhaps, but the Crusade started the cruelty. I'll sleep well enough.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "That's clever, and cruel, and I like it.", next = "BACK", reply = "Cruel, perhaps, but the Crusade started the cruelty. I'll sleep well enough.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'd rather we took the mill back whole, and properly.", next = "BACK", reply = "So would I, truly, but they won't leave politely. If you find another way, I'm listening.", fx = { align = { order = 1 } } },
       },
     },

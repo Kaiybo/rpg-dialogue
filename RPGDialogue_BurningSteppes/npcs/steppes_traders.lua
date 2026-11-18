@@ -35,7 +35,7 @@ P:NPC {
           text = "Felder Stover. I keep the Vigil's blades sharp and its armor in one piece, which up here is a full day's work every day. The ash gets into everything, joints and rivets and hinges, so if your weapon grinds, that's why, and it's not my fault." },
       },
       again = {
-        { id = "h_again", text = "Something else? The forge is getting cold." },
+        { id = "h_again", text = "Something else? Ask it quick; the forge is getting cold." },
         { id = "h_again2", text = "Ask, then. I'm hammering either way." },
       },
       choices = {
@@ -80,7 +80,7 @@ P:NPC {
       },
       choices = {
         { text = "A soldier's weapon is his life. I'll care for it.", next = "BACK", reply = "Good, because I've buried soldiers who didn't, and their swords were the first thing to fail them. Shade and oil, and you'll have the blade a long while.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "I'll fight it till it breaks, then buy another.", next = "BACK", reply = "That's a quartermaster's dream and a smith's nightmare, friend. Suit yourself, but don't come crying when it snaps halfway through a Blackrock skull.", fx = { align = { order = -1 } } },
+        { text = "I'll fight with it till it breaks, then buy another.", next = "BACK", reply = "That's a quartermaster's dream and a smith's nightmare, friend. Suit yourself, but don't come crying when it snaps halfway through a Blackrock skull.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,7 +135,7 @@ P:NPC {
           text = "Gruna. I bake bread at Flame Crest for whoever comes through, grunts and goblins and riders and lost fools alike. The ground here is so hot I hardly need a fire, which is the only kind thing I'll ever say about these Steppes." },
       },
       again = {
-        { id = "h_again", text = "Something else? The bread won't watch itself." },
+        { id = "h_again", text = "Something else? The bread won't watch itself, and the goblins will if I let them." },
         { id = "h_again2", text = "Speak. My hands are full, not my ears." },
       },
       choices = {

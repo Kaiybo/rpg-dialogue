@@ -131,7 +131,7 @@ P:NPC {
         { id = "wl_default", text = "No, of course not, I'd make three: one for each of us, and a spare, because he'll drop his." },
       },
       choices = {
-        { text = "Loyalty like that is rare.", next = "BACK", reply = "Rare, perhaps, or just stubborn, and I've never been able to tell which. Either way, I'm still here, and so is he.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Loyalty like that is rare.", next = "BACK", reply = "Rare, perhaps, or just stubborn, and I've never been able to tell which. He'd say it was loyalty and then ask me to hold something that sparks.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "I'd save myself first. No shame in it.", next = "BACK", reply = "No shame at all, and a great deal of sense. I've thought about it, believe me, but then who would catch him when he trips?", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -272,7 +272,7 @@ P:NPC {
       },
       choices = {
         { text = "Good servants don't need every reason.", next = "BACK", reply = "No, they don't, though it helps to trust the one giving the orders. I've trusted Krasus with more than my life.", fx = { align = { order = 1 } } },
-        { text = "I'd want the whole truth before I risked my life.", next = "BACK", reply = "You'd be wise to, in most cases, and I'd not fault you for it. But some truths are heavier than the people who'd carry them.", fx = { align = { order = -1 } } },
+        { text = "I'd want the whole truth before I risked my life.", next = "BACK", reply = "You'd be wise to, in most cases, and I'd not fault you for it. But if I told you everything, you'd sleep no better than I do, and I sleep very little.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -330,7 +330,7 @@ P:NPC {
       },
       choices = {
         { text = "Use whatever works, whoever made it.", next = "BACK", reply = "Whatever works, yes, and I'll admit the Dark Iron smiths knew their craft. I'd only ask that you keep your eyes open while you use it.", fx = { align = { honor = -1 } } },
-        { text = "Tools made by evil hands carry their taint.", next = "BACK", reply = "They may, and I have wondered the same thing on long nights. Still, a chain does not care who forged it, only whether it holds.", fx = { align = { honor = 1 } } },
+        { text = "Tools made by evil hands carry their taint.", next = "BACK", reply = "They may, and I have wondered the same thing on long nights. Still, I'd rather see those two bound by a tainted chain than loose in the sky.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

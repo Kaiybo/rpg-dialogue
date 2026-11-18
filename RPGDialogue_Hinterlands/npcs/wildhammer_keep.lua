@@ -51,7 +51,7 @@ P:NPC {
     gossip = {
       lines = { { id = "go_default", text = "The Vilebranch are bold again at Jintha'Alor, the Witherbark are stealin' gryphon eggs, an' Talonaxe is in a mood because he's no' been flyin'. Same as last week, only louder." } },
       choices = {
-        { text = "Stealing gryphon eggs? Why?", next = "gossip_eggs" },
+        { text = "They're stealing gryphon eggs? What for?", next = "gossip_eggs" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -85,7 +85,7 @@ P:NPC {
       lines = { { id = "rh_default", text = "Rhapsody's stuff isnae ale, it's a crime wi' a cork in it. Mind, I've bought a bottle or two for the cellar, for medicinal purposes, an' I'll deny it if ye tell anyone." } },
       choices = {
         { text = "Your secret's safe. A man's entitled to his bottle.", next = "BACK", reply = "Bless ye. A barkeep's entitled tae his medicine, an' a medicine's entitled tae be strong.", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll be telling everyone, Truk.", next = "BACK", reply = "Ye wouldnae dare! I'll water yer ale for a month, an' ye'll never know which mug.", fx = { align = { honor = 1 } } },
+        { text = "Oh, I'll be telling everyone, Truk.", next = "BACK", reply = "Ye wouldnae dare! I'll water yer ale for a month, an' ye'll never know which mug.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -303,7 +303,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Killium Bouldertoe, stable master. I keep the beasts that aren't gryphons, which up here means the ones everybody forgets about, an' I like it that way." },
       },
-      again = { { id = "h_again", text = "Anythin' else? The beasts need feedin'." } },
+      again = { { id = "h_again", text = "Anythin' else? Be quick, the beasts need feedin' an' they're no' patient about it." } },
       choices = {
         { text = "I need the stables.", next = "BUSINESS" },
         { text = "How do beasts cope with the gryphons?", next = "gryphons" },
@@ -324,8 +324,8 @@ P:NPC {
       big = true,
       lines = { { id = "gh_default", text = "Once, a young one, an' Talonaxe had the rider muckin' out the aviary for a month. Some folk say gryphons should be kept apart entirely, an' some say beasts should learn tae live together." } },
       choices = {
-        { text = "Keep them apart. Safer for everyone.", next = "BACK", reply = "Aye, they would, an' I've said so tae Talonaxe. He listened, for once.", fx = { align = { order = 1 } } },
-        { text = "Let them learn. It's the wild's way.", next = "BACK", reply = "Aye, maybe, but the rider who mucked out the aviary for a month would argue wi' ye. So would I.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Keep them apart. It's safer for everyone.", next = "BACK", reply = "Aye, they would, an' I've said so tae Talonaxe. He listened, for once.", fx = { align = { order = 1 } } },
+        { text = "Let them learn. That's the wild's way.", next = "BACK", reply = "Aye, maybe, but the rider who mucked out the aviary for a month would argue wi' ye. So would I.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -333,7 +333,7 @@ P:NPC {
     strange = {
       lines = { { id = "sr_default", text = "A hunter brought in a turtle once, a great slow thing, an' it bit everythin' in reach an' wouldnae let go. The gryphons were terrified of it, an' I've never been prouder of an animal." } },
       choices = {
-        { text = "A champion turtle. Wonderful.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "A champion turtle? Wonderful.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

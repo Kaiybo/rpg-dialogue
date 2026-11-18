@@ -50,7 +50,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "They tolerate me because I keep my promise, and I think they would tolerate you for the same reason, though they'd sooner trust a ghost from these ruins. Bring no trouble, and they'll leave you be, and so will I." } },
       choices = {
-        { text = "I'll keep your promise, Loh'atu, as if it were mine.", next = "BACK", reply = "Thank you, friend. A promise kept by two is twice as strong.", fx = { align = { order = 1 } } },
+        { text = "I'll keep your promise, Loh'atu, as if it were mine.", next = "BACK", reply = "Thank you, friend. The Sentinels will see it, and they will trust us both a little more.", fx = { align = { order = 1 } } },
         { text = "The Sentinels don't own this forest. I'll walk where I please.", next = "BACK", reply = "They do not, but they guard it, and I keep my promise to them. I would ask you to walk carefully.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -86,7 +86,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Then show them by keeping your blade for the Haldarr satyrs and the ghosts that will not rest, and by never drawing it near the camp. I have kept my promise to them for a long while, and I've learned that the elves remember every kept promise and every broken one." } },
       choices = {
-        { text = "Then I'll keep my promises here, as you've kept yours.", next = "BACK", reply = "Then you will find them gentler than you expect, in time. A kept promise speaks loudly here.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll keep my promises here, as you've kept yours.", next = "BACK", reply = "Then you will find them gentler than you expect, in time. They already ask after you when you are gone.", fx = { align = { honor = 1 } } },
         { text = "Promises to the elves? I'll do as I please, so long as nobody sees.", next = "BACK", reply = "Someone always sees, friend, and the Sentinels see more than most. I would not test them.", fx = { align = { honor = -1 } } },
         { text = "Something else, Loh'atu.", next = "BACK" },
       },
@@ -98,7 +98,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I believe so, for the coursers and the hippogryphs will not go near the shrine, and the deer flee from it at dusk without anything chasing them. Your {pet} has been looking toward the shrine since you sat down. You see, friend, it knows something is there." },
       },
       choices = {
-        { text = "Then the spirits deserve to be set free. I'll help.", next = "BACK", reply = "Thank you, and the beasts will thank you too, in their own way. Their eyes are honest.", fx = { align = { light = 1 } } },
+        { text = "Then the spirits deserve to be set free. I'll help.", next = "BACK", reply = "Thank you, and the beasts will thank you too, in their own way. You will see it in how they look at you.", fx = { align = { light = 1 } } },
         { text = "Ghosts don't trouble me. I'll hunt where the game is.", next = "BACK", reply = "The game will not go near it either, friend, and you will find it hungry hunting. But it is your choice.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -125,7 +125,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Coldly, at first, and then with a watchful sort of courtesy that I have come to value. They watch the ruins for Highborne ghosts and I watch with them, and a quiet guest who keeps his word is worth more here than any warrior." } },
       choices = {
-        { text = "Then I'll keep the peace, as you have.", next = "BACK", reply = "Then you will be a welcome guest, friend, and the Sentinels will remember it. Quiet is respected here.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll keep the peace, as you have.", next = "BACK", reply = "Then you will be a welcome guest, friend, and the Sentinels will remember it. Sit by my fire tonight, and see how quiet a camp can be.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Courtesy's a mask. I'd watch them just as closely.", next = "BACK", reply = "It may be, but I have found it honest enough. I would watch kindly, if I were you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -478,7 +478,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because the wild hippogryphs of Azshara are hunted by the satyrs and the naga both, and my birds remember it. Your {pet} hasn't so much as twitched at my birds. Bring it round more often and they'll come to think of it as one of the flock." },
       },
       choices = {
-        { text = "A well-trained beast keeps the peace. That's a hunter's duty.", next = "BACK", reply = "It is, and my birds will thank you for it. A quiet beast makes a quiet roost.", fx = { align = { order = 1 } } },
+        { text = "A well-trained beast keeps the peace. That's a hunter's duty.", next = "BACK", reply = "It is, and my birds will thank you for it. The last hunter's cat had them shrieking for a week.", fx = { align = { order = 1 } } },
         { text = "My beast does as it likes. It's not one of your birds.", next = "BACK", reply = "Then keep it well away from my roost, please. My birds have enough to fear.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

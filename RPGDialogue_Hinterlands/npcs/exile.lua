@@ -111,7 +111,7 @@ P:NPC {
         { id = "ha_default", text = "The Soulflayer, the blood god, whom the Atal'ai worshipped long ago until his hunger nearly devoured them. The other tribes drove them out for it, and when they raised a temple in the swamp to call him back, the green dragons drowned it, and still they pray." },
       },
       choices = {
-        { text = "Some gods should stay drowned.", next = "BACK", reply = "Yes, drowned and forgotten, as the other tribes wished. If only my people had listened.", fx = { align = { order = 1 } } },
+        { text = "Some gods ought to stay drowned.", next = "BACK", reply = "Yes, drowned and forgotten, as the other tribes wished. I said as much at the temple steps, and the scar on my back is what the priests gave me for it.", fx = { align = { order = 1 } } },
         { text = "Power is power. Perhaps they'll master him.", next = "BACK", reply = "Master him? No one masters Hakkar, stranger; he masters you, and then he eats you. Do not wish for it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

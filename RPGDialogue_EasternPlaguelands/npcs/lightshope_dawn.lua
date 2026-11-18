@@ -100,7 +100,7 @@ P:NPC {
       lines = { { id = "tm_default", text = "I hope so, though I can't be certain, and I've wondered whether I'm wrong to wake them at all. Tell me what you think, since you'll be the one standing among them." },
       },
       choices = {
-        { text = "Giving them a second chance is right. Wake them.", next = "BACK", reply = "Then I'll wake them, and I'll trust you to stand among them kindly. A second chance should not be wasted.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Giving them a second chance is right. Wake them.", next = "BACK", reply = "Then I'll wake them, and trust you to stand among them kindly. They waited a long while in the dark for someone to come.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let the dead rest. Find another way to test us.", next = "BACK", reply = "Perhaps you're right, and perhaps I've been selfish in my hope. I'll think on it, though I make no promise.", fx = { align = { light = -1 } } },
         { text = "I can't answer that, Eris.", next = "BACK" },
       },
@@ -148,7 +148,7 @@ P:NPC {
       lines = { { id = "shh_default", text = "Your teachers lived in cities with walls, and I lived here, at the end of things. Whose lesson will you carry out of this crypt, theirs or mine?" } },
       choices = {
         { text = "Yours. The Plaguelands taught you what walls never could.", next = "BACK", reply = "Then carry it carefully, because the Plaguelands teach hard lessons. Walls are not the only things that fall.", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "Theirs. Doctrine keeps priests from losing themselves.", next = "BACK", reply = "It does, and I won't mock it. Only remember that doctrine was written by those who never stood here.", fx = { align = { order = 1 } } },
+        { text = "Theirs. Doctrine keeps priests from losing themselves.", next = "BACK", reply = "It does, and I won't mock it. Only remember that much of it was written in Stormwind, by men who never stood where we are standing.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

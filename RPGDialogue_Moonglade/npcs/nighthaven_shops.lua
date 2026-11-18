@@ -71,7 +71,7 @@ P:NPC {
         { id = "yw_default", text = "Most do, and the ones who don't usually do the second time. I've seen a tauren calf come back from the lake in tears and walk out a week later with Dendrite's nod, and I gave her a cloak for free, which I'd ask you not to repeat." },
       },
       choices = {
-        { text = "That was kind. Every young druid deserves help.", next = "BACK", reply = "I thought so too, and the calf brought me a carved stag the next spring that sits on my counter still. Kindness costs nothing in Moonglade.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That was kind. Every young druid deserves help.", next = "BACK", reply = "I thought so too, and the calf brought me a carved stag the next spring. It's sat on my counter ever since, and I dust it more often than my stock.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Coddling them won't make them stronger.", next = "BACK", reply = "Perhaps not, but a little help never weakened anyone who was already willing to try. The lake does the testing, I only lend a cloak.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -107,7 +107,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every creature can, though warriors find it hardest, because they live in the place where rage and discipline meet. The Sentinels of my people learn to let their fury go silent before they draw their glaives, and they fight the better for it." } },
       choices = {
-        { text = "I'll learn to fight with a calm heart.", next = "BACK", reply = "That is the hardest lesson of all, and the best. The Sentinels would welcome a warrior who learned it.", fx = { align = { order = 1 } } },
+        { text = "I'll learn to fight with a calm heart.", next = "BACK", reply = "Then you will learn in a season what took me a century under Elune's moon. The Sentinels would welcome a warrior who carries it.", fx = { align = { order = 1 } } },
         { text = "My anger is my strength. I won't silence it.", next = "BACK", reply = "Then guard it well, and know it may one day guard you no longer. Rage has no loyalty.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

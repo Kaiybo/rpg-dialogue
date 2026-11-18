@@ -210,7 +210,7 @@ P:NPC {
     },
     headhunter = {
       lines = { { id = "hd_default", text = "The old way, eh? That be good to hear, child, so bring the tribe's enemies down clean and give their spirits to the loa proper, and never take a head for pride, because that be how a hunter turns into something else." } },
-      choices = { { text = "Clean, and never for pride.", next = "BACK", reply = "Then the loa will be pleased with you, child. Go clean, and come home clean.", fx = { affinity = 2, align = { honor = 1 } } },
+      choices = { { text = "Clean, and never for pride.", next = "BACK", reply = "Then the loa will be pleased with you, child. Go out clean, and come home clean to Sen'jin.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "A head taken for pride still scares the enemy.", next = "BACK", reply = "It scares them, ya, but it scares the hunter's spirit too, after a while. Be careful, child, because pride be a hungry loa.", fx = { align = { honor = -1 } } } },
     },
     isles = {
@@ -219,7 +219,7 @@ P:NPC {
         { id = "i_default", text = "Zalazane drink deep of power he shouldn't touch, and it drown him. He curse the isles and make our own people his puppets. We leave our home to save the rest." },
       },
       choices = {
-        { text = "We'll take it back.", next = "END", reply = "Ya, child, one day we take them back, and Gadrin pray he live to see it. Go with the loa.", fx = { affinity = 2, align = { honor = 1 }, learn = { "echo_isles" } } },
+        { text = "We'll take it back.", next = "END", reply = "Ya, child, one day we take them back, and Gadrin pray he live to see the Echo Isles again. Go with the loa.", fx = { affinity = 2, align = { honor = 1 }, learn = { "echo_isles" } } },
         { text = "Your people matter more than the isles, so let Zalazane keep them.", next = "END", reply = "Maybe you be right, child, and maybe not. Gadrin still dream of the isles every night, and he pray you never lose a home.", fx = { align = { honor = -1 }, learn = { "echo_isles" } } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, learn = { "echo_isles" } } },
       },
@@ -287,7 +287,7 @@ P:NPC {
       },
       choices = {
         { text = "I tell what the loa say. Softening it is lying.", next = "BACK", reply = "Truth be truth, child, but it can cut both ways. Speak it, then, and be ready for what it cut.", fx = { affinity = -1, align = { order = -1 }, trait = { stern = 1 } } },
-        { text = "I keep most of it to myself, Master, like you taught.", next = "BACK", reply = "Good, child, you listened. The loa's truth be heavy, and not every shoulder can carry it.", fx = { affinity = 2, align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "I keep most of it to myself, Master, like you taught.", next = "BACK", reply = "Good, child, you listened. The loa tell old Gadrin a great many things, and most of them he takes to his grave unspoken.", fx = { affinity = 2, align = { order = 1 }, trait = { cautious = 1 } } },
         { text = "Who are they laughing at this time?", next = "xloa_who" },
       },
     },

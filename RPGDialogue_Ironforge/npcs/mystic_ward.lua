@@ -106,7 +106,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_rohan_default", text = "The Light does, if ye let it, an' a pint an' a good night's sleep do the rest. I've seen healers pour themselves out for their friends till there was nothin' left, an' the Light never asked that o' them; they asked it o' themselves." } },
       choices = {
-        { text = "I'll rest when I must, and trust the Light for the rest.", next = "BACK", reply = "That's the right answer, an' a rare one, for most healers I know have tae fall over twice before they learn it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll rest when I must, and trust the Light for the rest.", next = "BACK", reply = "That's the right answer, an' a rare one. Most healers I know have tae fall over twice before they learn it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll lean on my own strength. Faith doesn't turn a blade.", next = "BACK", reply = "It doesnae, aye, but it steadies the hand that holds one, an' I'll pray for ye anyway, whether ye lean on it or no'.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -115,7 +115,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Light favours anyone who stands between the weak an' the dark, an' warriors do that more often than most priests. I've healed a great many warriors in this Hall, an' I've never yet met one who wasnae braver than he looked." } },
       choices = {
-        { text = "I stand for others. The Light can count on that.", next = "BACK", reply = "Aye, it can, an' I've no doubt it does, for ye've the look o' someone who's already stood in front o' a few folk.", fx = { align = { light = 1 } } },
+        { text = "I stand for others. The Light can count on that.", next = "BACK", reply = "It can, an' I've no doubt it does. Ye've the look o' someone who's already stood in front o' a few folk.", fx = { align = { light = 1 } } },
         { text = "I stand for myself, High Priest. The Light can watch.", next = "BACK", reply = "Then it'll watch, an' it'll wait, for the Light's patient, an' I've seen many a warrior find it in the middle o' a fight.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -127,7 +127,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Whether the wolves are lean or fat, for that tells ye how hard the winter's bitin', an' whether the Frostmane are comin' down early. An' yer {pet} is well, I hope; the Light's in the beasts too, ye know, though they've less tae say about it." },
       },
       choices = {
-        { text = "I'll pray for an easy winter, High Priest.", next = "BACK", reply = "Bless ye for it, an' I'll do the same, for an easy winter is a prayer every dwarf in Dun Morogh says twice a night.", fx = { align = { light = 1 } } },
+        { text = "I'll pray for an easy winter, High Priest.", next = "BACK", reply = "Bless ye for it. Every dwarf in Dun Morogh says that prayer twice a night, an' the wolves still come down from the hills.", fx = { align = { light = 1 } } },
         { text = "Prayers won't fill a wolf's belly. Hunters will.", next = "BACK", reply = "No, but they'll keep the hunters warm while they fill it, an' I'll keep prayin' for both, if it's all the same tae ye.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -136,7 +136,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "It shines on everyone, though some find it harder tae stand in. I've known rogues who gave more tae the poor than any priest, an' I've known priests who stole more than any rogue, so I judge by deeds an' no' by trade." } },
       choices = {
-        { text = "Then judge me by my deeds, High Priest. They'll be good.", next = "BACK", reply = "Aye, I will, an' gladly, for I've a feelin' they'll surprise the priests who look down their noses at yer trade.", fx = { align = { light = 1 } } },
+        { text = "Then judge me by my deeds, High Priest. They'll be good.", next = "BACK", reply = "Gladly. I've a feelin' they'll surprise the priests who look down their noses at yer trade.", fx = { align = { light = 1 } } },
         { text = "The Light can shine where it likes. I prefer the shade.", next = "BACK", reply = "The shade's a fine place tae rest, but ye'll find the Light's waitin' at the edge o' it, an' it's never in a hurry.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -145,7 +145,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "That the arcane is no enemy o' the Light, only a different road, an' a dangerous one if ye walk it carelessly. They came tae us wi' nothin' after Gnomeregan, an' they've given us more than they took." } },
       choices = {
-        { text = "The Light and the arcane can work together. I believe that.", next = "BACK", reply = "So do I, an' I'm glad tae hear it from a mage, for the gnomes have taught me more about it than any book.", fx = { align = { light = 1 } } },
+        { text = "The Light and the arcane can work together. I believe that.", next = "BACK", reply = "So do I! The gnomes have taught me more about it than any book, though they did set my sleeve alight doin' it.", fx = { align = { light = 1 } } },
         { text = "The arcane needs no blessing from the Light, High Priest.", next = "BACK", reply = "Maybe it doesnae, an' I'll no' insist, but it'll give it anyway, for the Light's never been one for askin' permission.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -153,8 +153,8 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "Different roads, I'd say, though they lead toward the same hearth. The Light asks us tae heal the wounded, an' yer Elune asks ye tae heal the land, an' I can't see much quarrel in that." } },
       choices = {
-        { text = "All healing serves the same good.", next = "BACK", reply = "Aye, it does, an' that's the whole o' my theology in one breath, so I'll leave the arguin' tae the younger priests.", fx = { align = { light = 1 } } },
-        { text = "Nature heals itself. It doesn't need faith.", next = "BACK", reply = "Maybe it does, an' I'll no' argue wi' a druid about the land, but faith's what keeps the healer goin' when the land's slow.", fx = { align = { light = -1 } } },
+        { text = "All healing serves the same good.", next = "BACK", reply = "Aye, an' that's the whole o' my theology in one breath. I'll leave the arguin' tae the younger priests; they've more wind for it.", fx = { align = { light = 1 } } },
+        { text = "Nature heals itself. It doesn't need faith.", next = "BACK", reply = "I'd never argue wi' a druid about the land. But faith's what keeps the healer goin' when the land's slow about it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -267,7 +267,7 @@ P:NPC {
       choices = {
         { text = "Who are the ones who don't come forward?", next = "pacing_shy" },
         { text = "A priest should wait to be asked.", next = "BACK", reply = "Some say so, an' the Cathedral teaches it, but my knees tell me otherwise, an' so do the folk who need me an' dinnae ask.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "A priest should go where the need is.", next = "BACK", reply = "Aye, that's my thinkin', an' it's why I'm forever walkin', though the younger priests say I'll wear a groove in the floor.", fx = { align = { order = -1 }, affinity = 1, trait = { kind = 1 } } },
+        { text = "A priest should go where the need is.", next = "BACK", reply = "That's my thinkin' too. The younger priests say I'll wear a groove in the floor o' this ward, an' they're likely right.", fx = { align = { order = -1 }, affinity = 1, trait = { kind = 1 } } },
       },
     },
     pacing_shy = {
@@ -284,7 +284,7 @@ P:NPC {
         { id = "pt_default", text = "That the Light keeps nae ledger, an' I'm a dwarf, so I'd know a ledger if I saw one. Then I sit wi' them a while, which does more good than anythin' I say." },
       },
       choices = {
-        { text = "Sitting with someone is a prayer too.", next = "BACK", reply = "Aye, it is, an' the best kind, for the Light's no' in the words, it's in the stayin', an' anyone can stay.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Sitting with someone is a prayer too.", next = "BACK", reply = "Aye, the best kind. The Light's no' in the words, {g:lad|lass}, it's in the stayin', an' anyone can stay.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
         { text = "Comfort's fine, but they need work and food more.", next = "BACK", reply = "Aye, they do, an' I'll see they get both, but a soul that's starvin' for comfort cannae eat bread properly either.", fx = { align = { light = -1 }, trait = { practical = 1 } } },
         { text = "I'll keep an eye on the back rows.", next = "BACK", fx = { affinity = 1 } },
       },
@@ -300,8 +300,8 @@ P:NPC {
         { text = "Does the Light answer everyone, or only the faithful?", next = "opn_light" },
         { text = "I'd guess dwarves pray differently from humans.", next = "came_diff" },
         { text = "Who sends the young priests on, after you?", next = "came_send" },
-        { text = "The mountain was fine before the Light came.", next = "BACK", reply = "Maybe it was, an' I'll no' argue, for the mountain's old an' wise, but I think it's glad o' the company all the same.", fx = { align = { light = -1 }, affinity = -1 } },
-        { text = "It's good that it found its way here.", next = "BACK", reply = "Aye, it is, an' I thank the Light for it every mornin', for the mountain was a colder place before the Silver Hand came home.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "The mountain was fine before the Light came.", next = "BACK", reply = "Maybe it was. The mountain's old an' wise, but I'd like tae think it's glad o' the company all the same.", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "It's good that it found its way here.", next = "BACK", reply = "I thank the Light for it every mornin'. The mountain was a colder place before the Silver Hand came home.", fx = { align = { light = 1 }, affinity = 1 } },
       },
     },
     came_diff = {
@@ -309,7 +309,7 @@ P:NPC {
         { id = "cd_default", text = "Louder, an' shorter, an' wi' more hammerin' in the metaphors. The Cathedral prays like a choir an' we pray like a forge crew, but I've never heard the Light complain about either." },
       },
       choices = {
-        { text = "The words matter less than the heart.", next = "BACK", reply = "Aye, they do, an' I'm glad tae hear ye say it, for the Cathedral's choir would never forgive us for our hammerin' metaphors.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "The words matter less than the heart.", next = "BACK", reply = "They do! Just dinnae tell the Cathedral's choir, for they've never forgiven us our hammerin' metaphors.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "The rites should be the same everywhere.", next = "BACK", reply = "Maybe they should, but a dwarf prays like a dwarf, an' I've never heard the Light complain that it couldnae understand us.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
         { text = "Ha. I'd like to hear a forge-crew hymn.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
@@ -330,7 +330,7 @@ P:NPC {
         { id = "cw_default", text = "A ward against fear. A dwarf's no' braver than anyone else, whatever we say in the tavern, but we've learned tae hold a fear in our hands an' look at it, an' the Light honors that." },
       },
       choices = {
-        { text = "Fear has its uses; I'd not ward it all away.", next = "BACK", reply = "Aye, it does, an' I'll no' argue, for the ward doesnae take the fear away, it only steadies the hand that holds it.", fx = { align = { light = -1 }, trait = { cautious = 1 } } },
+        { text = "Fear has its uses; I'd not ward it all away.", next = "BACK", reply = "Fair. The ward doesnae take the fear away anyhow; it only steadies the hand that holds it.", fx = { align = { light = -1 }, trait = { cautious = 1 } } },
         { text = "Then I'd ask the Light for that steadiness.", next = "BACK", reply = "Then ask, an' the Light will answer, for it's always glad tae steady a hand that knows it's shakin'.", fx = { align = { light = 1 }, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -352,7 +352,7 @@ P:NPC {
       },
       choices = {
         { text = "Bread for the hungry is a holier use than any rite.", next = "BACK", reply = "Aye, it is, an' I'll say so tae any priest who frowns at me, for the Light never once asked me tae let a bairn go hungry.", fx = { align = { light = 1, order = -1 }, affinity = 2, trait = { generous = 1 } } },
-        { text = "Holy things shouldn't carry a price.", next = "BACK", reply = "Maybe they shouldnae, an' I'll grant ye the principle, but a holy thing that feeds the hungry has found its holiest use.", fx = { align = { order = 1 }, affinity = -1, trait = { stern = 1 } } },
+        { text = "Holy things shouldn't carry a price.", next = "BACK", reply = "I'll grant ye the principle. But I'd rather sell a candle an' feed a bairn than keep the candle an' bury him.", fx = { align = { order = 1 }, affinity = -1, trait = { stern = 1 } } },
         { text = "The stores seem low for a temple this size.", next = "censer_stores" },
       },
     },
@@ -384,8 +384,8 @@ P:NPC {
       choices = {
         { text = "Tell me about the sick gnomes.", next = "work_gnomes" },
         { text = "Why help druids in Azshara?", next = "work_druids", when = { minLevel = 50 } },
-        { text = "My blade does more good than my prayers.", next = "BACK", reply = "Maybe it does, an' I'll no' argue, but a blade an' a prayer together have done more good than either alone, in my experience.", fx = { align = { light = -1 } } },
-        { text = "I'll take whatever work the Light sets before me.", next = "BACK", reply = "Good, an' ye'll find there's plenty, for the Light's never once run short o' work for willing hands in this city.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "My blade does more good than my prayers.", next = "BACK", reply = "Maybe it does. In my experience, though, a blade an' a prayer together beat either one alone, an' I've buried enough folk tae know.", fx = { align = { light = -1 } } },
+        { text = "I'll take whatever work the Light sets before me.", next = "BACK", reply = "Then ye'll never be idle, for the Light's never once run short o' work in this city.", fx = { align = { light = 1 }, affinity = 1 } },
       },
     },
     work_gnomes = {
@@ -393,7 +393,7 @@ P:NPC {
         { id = "wg_default", text = "Whatever poisoned Gnomeregan sits in the body like coal-damp in a mine. We can ease it, an' sometimes we can chase it out, but the High Tinker takes his readings an' I say my prayers, an' neither of us has a cure yet." },
       },
       choices = {
-        { text = "Then prayer and study must work together.", next = "BACK", reply = "Aye, they must, an' they do, for the High Tinker an' I meet every week, an' we've cured nobody yet, but we're closer.", fx = { align = { light = 1 }, affinity = 1, learn = { "gnomeregan" } } },
+        { text = "Then prayer and study must work together.", next = "BACK", reply = "They do. The High Tinker an' I meet every week, an' we've cured nobody yet, but we're closer than we were.", fx = { align = { light = 1 }, affinity = 1, learn = { "gnomeregan" } } },
         { text = "Then trust the readings, not the prayers.", next = "BACK", reply = "The readings are fine, an' I'll trust them, but I'll keep prayin' too, for a gnome in pain needs more than a number.", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -404,7 +404,7 @@ P:NPC {
       },
       choices = {
         { text = "The druids can look after their own.", next = "BACK", reply = "Maybe they can, but they asked, an' the Light doesnae turn away a friend, so I'll keep sendin' help as long as they need it.", fx = { align = { order = 1 } } },
-        { text = "Help given freely is the best kind.", next = "BACK", reply = "Aye, it is, an' I'm glad tae hear ye say it, so give Ogtinc my best if ye pass that way, an' mind the cliffs.", fx = { align = { order = -1 }, affinity = 1, learn = { "cenarion_circle" } } },
+        { text = "Help given freely is the best kind.", next = "BACK", reply = "It is. Give Ogtinc my best if ye pass that way, an' mind the cliffs on the road up.", fx = { align = { order = -1 }, affinity = 1, learn = { "cenarion_circle" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -454,7 +454,7 @@ P:NPC {
         { id = "gn_default", text = "It listens tae everyone, but I'll grant ye it's had less practice wi' gnomes, for yer people trusted wrenches before they trusted prayers. Ye'll find it's a quick learner." },
       },
       choices = {
-        { text = "I've always felt it, even in Gnomeregan.", next = "BACK", reply = "Then ye'll have taught it a thing or two, an' I'm glad tae hear it, for the Light could use a few gnomish ideas.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I've always felt it, even in Gnomeregan.", next = "BACK", reply = "Even down there? Then ye've likely taught it a thing or two, for the Light could use a few gnomish ideas.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I trust wrenches more than prayers.", next = "BACK", reply = "Fair enough, an' I'll no' argue wi' a gnome about wrenches, but the Light's here when the wrench slips, an' it always does.", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -487,8 +487,8 @@ P:NPC {
           text = "That a dwarf's temper an' a paladin's zeal make a fine fire an' a poor judge. Plenty o' paladins in this Hall have the broken noses tae prove it, an' I'd spare ye yours if I can." },
       },
       choices = {
-        { text = "Judgment is part of the oath, High Priest.", next = "BACK", reply = "Aye, it is, an' I'll no' argue, but judgement wi'out mercy is just a hammer, an' Brandur's got plenty o' those already.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Mercy comes first. The hammer waits.", next = "BACK", reply = "That's the heart o' it, an' I'm glad ye see it, for a paladin who leads wi' mercy is a paladin the Light walks beside.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Judgment is part of the oath, High Priest.", next = "BACK", reply = "It is. But judgement wi'out mercy is just a hammer, an' Brandur's got plenty o' those already.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Mercy comes first. The hammer waits.", next = "BACK", reply = "That's the heart o' it. Tell that tae Brandur sometime, would ye? He might listen tae a paladin sooner than an old priest.", fx = { align = { light = 1 }, affinity = 2 } },
         { text = "When should the hammer stay down?", next = "paladin_when" },
       },
     },
@@ -506,8 +506,8 @@ P:NPC {
           text = "Ye served in this very Hall as a young one, I remember the face, an' now ye've gone an' found a different voice. I'm no' angry, {g:lad|lass}, only curious what it said that we didnae." },
       },
       choices = {
-        { text = "The Light came from outside. The earth was always ours.", next = "BACK", reply = "Aye, it was, an' I'll no' argue, but the Light's made itself at home here, an' I'd like tae think the earth doesnae mind.", fx = { align = { light = -1 }, affinity = -1 } },
-        { text = "There's room in the mountain for both.", next = "BACK", reply = "Aye, there is, an' I'm glad tae hear ye say it, for half my priests needed tae hear it more than I did.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "The Light came from outside. The earth was always ours.", next = "BACK", reply = "Aye, it was. But the Light's made itself at home here, an' I'd like tae think the earth doesnae mind sharin'.", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "There's room in the mountain for both.", next = "BACK", reply = "There is. Say it louder, if ye would, for half my priests need tae hear it more than I do.", fx = { align = { light = 1 }, affinity = 2 } },
         { text = "Why are your priests so angry?", next = "shaman_angry" },
       },
     },
@@ -584,8 +584,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd like tae think so, though I've heard it argued both ways in this very Hall. The Light's no' a jealous thing, whatever some priests say, an' a dwarf who listens tae the stone might hear the Light in it as well. But if ye ever have tae choose, I'll pray ye choose the one that'll save ye." } },
       choices = {
-        { text = "The Light and the earth can share one dwarf, Theodrus.", next = "BACK", reply = "Aye, they can, an' I'm glad tae hear ye say it, for there's room in a dwarf's heart for more than one kind o' listenin'.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The earth was here first. The Light's a guest in it.", next = "BACK", reply = "Maybe it was, an' I'll no' argue, but a guest that's stayed this long has earned its chair by the fire, I'd say.", fx = { align = { light = -1 } } },
+        { text = "The Light and the earth can share one dwarf, Theodrus.", next = "BACK", reply = "Aye, they can. There's room in a dwarf's heart for more than one kind o' listenin', whatever the younger priests say.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The earth was here first. The Light's a guest in it.", next = "BACK", reply = "Maybe it was. But a guest that's stayed this long has earned its chair by the fire, I'd say.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -593,7 +593,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I couldnae tell ye, an' I'd be lyin' if I said I could. But a dwarf an' an elf can both kneel in the dark an' be heard, an' that's enough theology for one mornin'." } },
       choices = {
-        { text = "Each people should keep its own faith and its own temples.", next = "BACK", reply = "Aye, that's sense, an' I'll no' argue, for a dwarf in an elf's temple would only knock his head on the moonbeams.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Each people should keep its own faith and its own temples.", next = "BACK", reply = "That's sense. A dwarf in an elf's temple would only knock his head on the moonbeams.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "There's one truth beneath every faith, whatever we call it.", next = "BACK", reply = "Aye, maybe there is, an' I'd like tae think so, for it makes the world a smaller an' friendlier place.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -602,7 +602,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "In the moment the line's about tae break an' somehow doesnae, for that's the Light, whether ye call it that or no'. I've seen warriors hold against the Dark Irons wi' nothin' left but that, an' I'll no' hear anyone call it luck." } },
       choices = {
-        { text = "Then I'll call it the Light, and be grateful.", next = "BACK", reply = "Good, an' ye'll find it's grateful for the name, for the Light's been called many things, but stubbornness is a new one.", fx = { align = { light = 1 } } },
+        { text = "Then I'll call it the Light, and be grateful.", next = "BACK", reply = "Good. Ye'd be surprised how many folk come in here callin' it somethin' else entirely.", fx = { align = { light = 1 } } },
         { text = "I call it stubbornness, and I'll keep calling it that.", next = "BACK", reply = "Call it what ye like, the Light's no' fussy, an' I'll still give it the credit when I'm prayin' over ye.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -614,7 +614,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than a fire, some nights, for the cold gets intae the soul as well as the bones. Keep yer {pet} close on cold nights, an' all, for there's warmth in a beast that the Light put there on purpose." },
       },
       choices = {
-        { text = "I'll remember to pray, Theodrus.", next = "BACK", reply = "Bless ye, an' ye'll find it does more good than ye'd think, for the snow's a lonely place wi'out somethin' tae hold on tae.", fx = { align = { light = 1 } } },
+        { text = "I'll remember to pray, Theodrus.", next = "BACK", reply = "Bless ye. The snow's a lonely place wi'out somethin' tae hold on tae, an' ye'll be glad o' it some night out past Kharanos.", fx = { align = { light = 1 } } },
         { text = "A good fire and a warm beast will do me.", next = "BACK", reply = "They will, most nights, but there's a night in every winter when they willnae, an' I'd rather ye had a prayer ready for it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -623,8 +623,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "By makin' ye think ye need nothin' but yerself, an' that's the first step down a bad road. I've seen it happen, an' the ones it happened to never noticed till they were too far along tae turn back." } },
       choices = {
-        { text = "I'll keep my feet on the right road, Theodrus.", next = "BACK", reply = "Good, an' I'll be watchin', for the road's long an' the turnin's hard tae see, even for a mage wi' sharp eyes.", fx = { align = { light = 1 } } },
-        { text = "Needing nothing but myself sounds like freedom, Theodrus.", next = "BACK", reply = "That's what it feels like at first, an' I'll no' argue, but I've seen where that freedom ends, an' it's a very cold place.", fx = { align = { light = -1 } } },
+        { text = "I'll keep my feet on the right road, Theodrus.", next = "BACK", reply = "I'll be watchin', mind. The road's long an' the turnin's hard tae see, even for a mage wi' sharp eyes.", fx = { align = { light = 1 } } },
+        { text = "Needing nothing but myself sounds like freedom, Theodrus.", next = "BACK", reply = "That's what it feels like at first. I've seen where that freedom ends, though, an' it's a very cold place.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -641,7 +641,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Pride, every time, for a paladin who wins enough fights starts thinkin' the Light's his own, an' that's the first step away from it. I've seen it happen in Lordaeron, an' I'll no' name names, but ye'll know them if ye read the histories." } },
       choices = {
-        { text = "Then I'll stay humble. The Light is never mine to own.", next = "BACK", reply = "Aye, that's it, an' ye've learned it quicker than most, for I watched the best paladins in Lordaeron forget it.", fx = { align = { light = 1 } } },
+        { text = "Then I'll stay humble. The Light is never mine to own.", next = "BACK", reply = "Ye've learned it quicker than most, then. I watched the best paladins in Lordaeron forget it.", fx = { align = { light = 1 } } },
         { text = "A paladin's victories are earned. Some pride is deserved.", next = "BACK", reply = "Earned, aye, but no' owned, an' that's the difference, so mind ye dinnae let the pride grow bigger than the victory.", fx = { align = { light = -1 } } },
         { text = "Something else, Theodrus.", next = "BACK" },
       },
@@ -691,7 +691,7 @@ P:NPC {
         { id = "wa_default", text = "Because I've seen what's left o' folk who did. Some came back up the tram from Lordaeron wi' nothin' inside them but cold, an' they'd all been told the Light was for other people." },
       },
       choices = {
-        { text = "Every soul is better for the Light.", next = "BACK", reply = "Aye, it is, an' I'll keep tellin' everyone who passes, for I've seen what happens tae the ones who stop listenin'.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Every soul is better for the Light.", next = "BACK", reply = "It is, an' I'll keep tellin' everyone who passes through this ward until my voice gives out.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Some of us do fine on our own strength.", next = "BACK", reply = "Some do, for a while, but I've seen the cold come for the strong ones first, an' they never see it comin'.", fx = { align = { light = -1 }, affinity = -1 } },
         { text = "What did you see in Lordaeron's survivors?", next = "warn_more" },
       },
@@ -710,7 +710,7 @@ P:NPC {
         { id = "fi_default", text = "Tae keep yer own soul in order before ye go tinkerin' wi' anyone else's. A priest who's run dry is no use tae a party in a cave, an' a danger tae himself besides." },
       },
       choices = {
-        { text = "Discipline first, then service.", next = "BACK", reply = "Aye, that's it exactly, an' I'll make a priest o' ye yet, for that's the lesson most o' them learn too late.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Discipline first, then service.", next = "BACK", reply = "That's it exactly! I'll make a priest o' ye yet, for most o' them learn that one far too late.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "I'd rather run dry than leave someone hurt.", next = "BACK", reply = "That's a noble thing tae say, an' a foolish one, for a priest who runs dry leaves everyone hurt, himself included.", fx = { align = { order = -1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -768,7 +768,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Fear, mostly, dressed up as doctrine. They remember the orcs' shamans became warlocks, an' they think the same rot waits for any dwarf who listens tae the wild. I think the Light judges hearts, no' paths, an' ye've a decent heart, by the look o' ye." } },
       choices = {
-        { text = "Then I'll prove my heart to them, one kindness at a time.", next = "BACK", reply = "That's the way, an' it's the only way, for scowls soften slowly, but they do soften, I promise ye.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll prove my heart to them, one kindness at a time.", next = "BACK", reply = "That's the only way it works. Scowls soften slowly, but they do soften, I promise ye.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them scowl. I don't need their approval.", next = "BACK", reply = "Maybe ye dinnae, but they're the ones ye'll have tae heal beside, so a wee bit o' patience wouldnae hurt.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -777,7 +777,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "The same way I'd help anyone, by listenin' first an' fussin' second. Ye kaldorei carry long memories, an' sometimes a long memory needs somewhere tae set itself down." } },
       choices = {
-        { text = "Kindness offered should be accepted with grace. I'll sit.", next = "BACK", reply = "Thank ye, an' sit as long as ye like, for my chair's been empty all mornin', an' it's glad o' the company.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Kindness offered should be accepted with grace. I'll sit.", next = "BACK", reply = "Sit as long as ye like. My chair's been empty all mornin', an' so has my teapot.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "I keep my burdens to myself, as a druid must.", next = "BACK", reply = "Fair enough, an' I'll no' push, but if ye ever need tae set one down, ye know where my chair is.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -786,7 +786,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than they'd admit, for warriors come in sayin' it's only a scratch an' leave wi' twelve stitches. I don't mind, for every one I mend goes back out tae stand in front o' someone else, an' that's worth a bit o' thread." } },
       choices = {
-        { text = "I'll go back out and stand in front, as they did.", next = "BACK", reply = "Bless ye, an' I'll be here when ye come back, for they always come back, an' I'd like ye tae come back walkin'.", fx = { align = { light = 1 } } },
+        { text = "I'll go back out and stand in front, as they did.", next = "BACK", reply = "Bless ye. I'll be here when ye come back, an' I'd like ye tae come back walkin' this time.", fx = { align = { light = 1 } } },
         { text = "I'll go back out for my own reasons, Toldren.", next = "BACK", reply = "Fair enough, an' I'll no' ask what they are, but I'll mend ye just the same, whatever's drivin' ye.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -798,7 +798,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now an' then, wi' claw marks they've tried tae stitch themselves, an' badly, for a hunter will mend his beast before he mends himself. Yer {pet} looks well cared for, which tells me ye're the sort tae forget yer own wounds." },
       },
       choices = {
-        { text = "My beast first, always. That's the hunter's way.", next = "BACK", reply = "Aye, I know it, an' I'll no' argue, but come tae me before ye try stitchin' yerself again, for yer beast deserves a hunter wi' steady hands.", fx = { align = { light = 1 } } },
+        { text = "My beast first, always. That's the hunter's way.", next = "BACK", reply = "I know it. But come tae me before ye try stitchin' yerself again, for yer beast deserves a hunter wi' steady hands.", fx = { align = { light = 1 } } },
         { text = "I mend myself first. A dead hunter feeds no beast.", next = "BACK", reply = "That's sense, an' rarer than ye'd think among hunters, so come by whenever ye need mendin', an' bring the beast too.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -807,7 +807,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Often enough, an' I never ask how they came by their wounds. The Light heals what it heals, an' I'd sooner patch ye up than have ye bleed in an alley because ye were afraid o' my questions." } },
       choices = {
-        { text = "Thank you, Toldren. I'll repay that kindness someday.", next = "BACK", reply = "There's nae need, for the kindness is the Light's an' no' mine, but I'll be glad tae see ye walk out o' here whole.", fx = { align = { honor = 1 } } },
+        { text = "Thank you, Toldren. I'll repay that kindness someday.", next = "BACK", reply = "There's nae need; the kindness is the Light's, no' mine. Just walk out o' here whole, an' that's payment enough.", fx = { align = { honor = 1 } } },
         { text = "No questions is the best kind of healer. I'll be back.", next = "BACK", reply = "I'll be here, an' I'll still no' ask, but I'd be glad if ye came back wi' fewer holes in ye next time.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -816,7 +816,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "A quiet place, maybe, an' a kind word, which yer sort doesnae often get in Ironforge. I've no' much else, but I'll give ye what I have, an' I'll pray for ye whether ye ask or no'." } },
       choices = {
-        { text = "Your prayers are welcome, Toldren. Thank you.", next = "BACK", reply = "Then ye'll have them, every night, an' I'll keep a quiet chair for ye whenever ye need one.", fx = { align = { light = 1 } } },
+        { text = "Your prayers are welcome, Toldren. Thank you.", next = "BACK", reply = "Then ye'll have them every night. There's a quiet chair here whenever ye need one.", fx = { align = { light = 1 } } },
         { text = "Keep your prayers. I don't need them.", next = "BACK", reply = "Fair enough, but I'll say them anyway, quietly, for the Light doesnae need yer permission tae care what becomes o' ye.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -826,7 +826,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "More than ye'd think, though they come at night when nobody's watchin', for a paladin's no' supposed tae need anythin'. I listen, an' I tell them the Light doesnae ask them tae carry everythin' alone, an' some o' them believe me." } },
       choices = {
         { text = "Then I'll remember it. Even a paladin needs help sometimes.", next = "BACK", reply = "That's the wisest thing a paladin's ever said tae me, an' I'll be here whenever ye need tae set somethin' down.", fx = { align = { light = 1 } } },
-        { text = "A paladin carries his own burdens. That's part of the oath.", next = "BACK", reply = "It is, an' I'll no' argue, but even the oath was never meant tae be carried alone, so mind ye remember my door.", fx = { align = { light = -1 } } },
+        { text = "A paladin carries his own burdens. That's part of the oath.", next = "BACK", reply = "It is. But even the oath was never meant tae be carried alone, so mind ye remember my door.", fx = { align = { light = -1 } } },
         { text = "Something else, Toldren.", next = "BACK" },
       },
     },
@@ -836,7 +836,7 @@ P:NPC {
         { id = "xmage_default", text = "Remind ye tae sleep, for a start, an' tae eat somethin' that wasnae conjured, for I've seen mages waste away while their minds run on ahead. The Light doesnae care much for spells, but it cares dearly for the one castin' them." },
       },
       choices = {
-        { text = "You're kind, Toldren. I'll rest.", next = "BACK", reply = "Bless ye, an' I'll hold ye tae it, for I've seen too many bright young mages waste away before they've half finished their work.", fx = { align = { light = 1 } } },
+        { text = "You're kind, Toldren. I'll rest.", next = "BACK", reply = "I'll hold ye tae that. I've seen too many bright young mages waste away before they've half finished their work.", fx = { align = { light = 1 } } },
         { text = "Rest can wait. The work can't.", next = "BACK", reply = "It can, love, for ye'll do it better rested, an' I'd rather no' be carryin' ye in here on a stretcher next week.", fx = { align = { light = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -884,7 +884,7 @@ P:NPC {
         { id = "ni_default", text = "Widows, mostly, an' soldiers back from the front, an' gnomes who dream o' their city. I don't preach at them; I bring a blanket an' let them talk if they want tae." },
       },
       choices = {
-        { text = "That's the best kind of ministry.", next = "BACK", reply = "Thank ye, an' I think so too, for most o' them have had enough preachin' tae last a lifetime, an' a blanket does more good.", fx = { align = { light = 1 }, affinity = 2, trait = { kind = 1 } } },
+        { text = "That's the best kind of ministry.", next = "BACK", reply = "I think so too. Most o' them have had enough preachin' tae last a lifetime, an' a blanket does more good.", fx = { align = { light = 1 }, affinity = 2, trait = { kind = 1 } } },
         { text = "Grief should be faced, not wrapped in blankets.", next = "BACK", reply = "Aye, it should, an' they face it, but it's easier tae face somethin' wi' a warm blanket round yer shoulders.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Which widows?", next = "night_widow" },
       },
@@ -903,7 +903,7 @@ P:NPC {
         { id = "dr_default", text = "I don't always. When I'm empty I sit in the back row an' let someone else lead the prayers, for there's nae shame in bein' the one who's prayed for." },
       },
       choices = {
-        { text = "A healer has to let others heal them too.", next = "BACK", reply = "Aye, they do, an' it's the hardest lesson o' all for a healer, so I'm glad ye see it before ye need tae learn it.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "A healer has to let others heal them too.", next = "BACK", reply = "It's the hardest lesson o' all for a healer. I'm glad ye see it before ye have tae learn it lyin' on one o' my cots.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "A priest's duty is to keep going regardless.", next = "BACK", reply = "Aye, regardless, but no' recklessly, for a priest who falls over cannae keep goin' at all, an' I've seen it happen.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -962,7 +962,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The truth, I suppose, once I know it. Stormwind's Cathedral wants tae know if it's heresy, Darnassus wants tae know if it's druidry, an' the Wildhammers' letter only said it was about time. I'm leanin' towards copyin' the Wildhammers' answer an' sendin' it tae everyone." } },
       choices = {
-        { text = "Tell them it's no heresy. The Light and earth aren't rivals.", next = "BACK", reply = "That's what I hope tae say, an' I'll quote ye if ye dinnae mind, for the Cathedral likes tae hear it from a believer.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Tell them it's no heresy. The Light and earth aren't rivals.", next = "BACK", reply = "That's what I hope tae say. Mind if I quote ye? The Cathedral listens better when it comes from a believer.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Tell them it's none of the temples' business.", next = "BACK", reply = "Ha, I'll no' be writin' that tae the Cathedral, but I'll admit I've thought it once or twice myself.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -971,7 +971,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Now an' again, mostly about wounded soldiers an' who's tae tend them, which is the same thing we write about. Their hand is very elegant, an' I'm a wee bit jealous of it." } },
       choices = {
-        { text = "Our temples should tend the wounded together, not apart.", next = "BACK", reply = "Aye, they should, an' I've written as much tae Alathea, an' she agrees, in her very elegant hand.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Our temples should tend the wounded together, not apart.", next = "BACK", reply = "I've written as much tae Alathea, an' she agrees, in her very elegant hand. Now we only need tae convince everyone else.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Each temple tends its own. Letters are courtesy, no more.", next = "BACK", reply = "Maybe they are, but courtesy's a start, an' I've seen good things come from a polite letter more than once.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -980,7 +980,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Mostly tae Glorin Steelbrow, the priest at Menethil Harbor, for the Dragonmaw cut the road half the time an' he's the worst correspondent in the Alliance. A warrior's a fine courier, for the letters arrive, an' so does the warrior, usually." } },
       choices = {
-        { text = "I'll carry your letters, and gladly.", next = "BACK", reply = "Bless ye, an' Glorin will be glad o' it, though he'll probably no' write back, the stubborn old goat.", fx = { align = { honor = 1 } } },
+        { text = "I'll carry your letters, and gladly.", next = "BACK", reply = "Bless ye! Glorin will be glad o' them, though he'll probably no' write back, the stubborn old goat.", fx = { align = { honor = 1 } } },
         { text = "I'm a soldier, not a courier. Find someone else.", next = "BACK", reply = "Fair enough, an' I'll no' push, but if ye're passin' Menethil anyway, a letter in yer pack weighs very little.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1001,7 +1001,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Their old empire leaned on it too hard, long ago, an' they paid for it dearly, or so the Temple o' the Moon says. I'd no' bring it up wi' them unless ye fancy a lecture that lasts till the stars come out." } },
       choices = {
-        { text = "Then I'll learn from their mistakes and tread carefully.", next = "BACK", reply = "That's wise, an' they'll respect ye for it, though ye'll still get the lecture if ye so much as glow in their direction.", fx = { align = { order = 1 } } },
+        { text = "Then I'll learn from their mistakes and tread carefully.", next = "BACK", reply = "That's wise. Ye'll still get the lecture if ye so much as glow in their direction, but they'll respect ye for it.", fx = { align = { order = 1 } } },
         { text = "The kaldorei's ancient failures are no concern of mine.", next = "BACK", reply = "Then ye'd best no' say so in front o' them, for the Temple o' the Moon has a very long memory an' very sharp tongues.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1010,7 +1010,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They fought them long ago, by their own tellin', an' they've no' forgotten what it cost. If ye want peace in the Hall, leave yer creatures at the door when the kaldorei come callin'." } },
       choices = {
-        { text = "I'll leave my creatures outside when they visit.", next = "BACK", reply = "Thank ye, for the kaldorei visit rarely, an' I'd like them tae leave wi' a good opinion o' the Hall.", fx = { align = { light = 1 } } },
+        { text = "I'll leave my creatures outside when they visit.", next = "BACK", reply = "Thank ye. The kaldorei visit rarely, an' I'd like them tae leave thinkin' well o' the Hall.", fx = { align = { light = 1 } } },
         { text = "Their old wounds aren't my responsibility, Braenna.", next = "BACK", reply = "No, they're no', but ye'll be standin' in their temple soon enough, an' a wee bit o' courtesy goes a long way.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1019,7 +1019,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Old ones, mostly, from families askin' after paladins who went north an' never wrote back, an' I've nowhere tae send them. I keep them in a box under the desk, for I cannae bring myself tae burn them." } },
       choices = {
-        { text = "Keep them, Braenna. Someone might come asking one day.", next = "BACK", reply = "I will, an' gladly, for I've been keepin' them for years, an' I'll keep them for as long as I'm sittin' at this desk.", fx = { align = { light = 1 } } },
+        { text = "Keep them, Braenna. Someone might come asking one day.", next = "BACK", reply = "I will. I've kept them for years already, an' I'll keep them as long as I'm sittin' at this desk.", fx = { align = { light = 1 } } },
         { text = "Burn them. Hope that can't be answered only hurts.", next = "BACK", reply = "Maybe it does, an' I've thought about it, but I couldnae bring myself tae do it, for someone loved every one o' those men.", fx = { align = { light = -1 } } },
         { text = "Something else, Braenna.", next = "BACK" },
       },
@@ -1089,7 +1089,7 @@ P:NPC {
         { id = "lb_default", text = "It does, but somebody has tae, an' the High Priest walks too fast tae hand anythin' tae. I like knowin' where everyone is, besides; it's a comfort, in times like these." },
       },
       choices = {
-        { text = "Every temple should share what it learns.", next = "BACK", reply = "Aye, they should, an' that's why I write so many letters, though my hand aches by the end o' every week.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Every temple should share what it learns.", next = "BACK", reply = "That's why I write so many letters, though my hand aches by the end o' every week. Look at the ink on these fingers!", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Each temple should keep to its own teaching.", next = "BACK", reply = "Maybe they should, but a letter or two between friends never hurt anybody's teaching, an' it's kept a few temples from feudin'.", fx = { align = { order = 1 } } },
       },
     },
@@ -1154,7 +1154,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The Silver Hand trusts deeds. Ye'll have the same chance as any, an' the same judgment if ye fail it. Mind ye, when I see a dwarf callin' fire up out o' the ground, I think o' Thaurissan, an' I have tae remind myself it's no' the same thing." } },
       choices = {
-        { text = "It's not the same. I'll prove it by my deeds, Tiza.", next = "BACK", reply = "Good, for the Silver Hand doesnae trust words, an' I'll be watchin' yer deeds very closely, so make them good ones.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It's not the same. I'll prove it by my deeds, Tiza.", next = "BACK", reply = "The Silver Hand doesnae trust words, so I'll be watchin' yer deeds very closely. Make them good ones.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Judge me by your fears if you like. I'll not plead.", next = "BACK", reply = "Fair enough, an' I'll respect it, but ye'll find my fears are only half o' what ye'll need tae overcome in this Hall.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1163,7 +1163,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "It is if ye serve somethin' bigger than yerself an' ask nothin' back, which is the only test I use. I've known kaldorei who'd give their lives for a grove, an' I'd call that virtue in any tongue." } },
       choices = {
-        { text = "Serving without reward is the truest duty there is.", next = "BACK", reply = "Aye, it is, an' I'm glad tae hear ye say it, for that's the whole o' what I teach, an' it's harder than it sounds.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Serving without reward is the truest duty there is.", next = "BACK", reply = "It is, an' that's the whole o' what I teach. It's harder than it sounds, as my young ones keep findin' out.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "A druid who's never rewarded doesn't last long.", next = "BACK", reply = "No, they dinnae, an' neither do paladins, but the ones who last are the ones who never needed it, an' that's the test.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1175,7 +1175,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "By keepin' the wolves off a farmer's flock an' the bears off a miner's road, an' askin' nothin' for it but a meal. Yer {pet} would be a fine example for my young ones, too, for it serves ye wi'out askin' anythin' back." },
       },
       choices = {
-        { text = "I'll keep doing it, and ask nothing back.", next = "BACK", reply = "That's the way, an' I'll tell my young ones about ye, for a hunter who asks nothin' is worth a dozen paladins who ask too much.", fx = { align = { light = 1 } } },
+        { text = "I'll keep doing it, and ask nothing back.", next = "BACK", reply = "I'll tell my young ones about ye. A hunter who asks nothin' is worth a dozen paladins who ask too much.", fx = { align = { light = 1 } } },
         { text = "A meal's not enough. I hunt for coin.", next = "BACK", reply = "Fair enough, an' I'll no' scold ye, but coin makes a poor companion on a cold night, an' a farmer's thanks lasts longer.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1193,7 +1193,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "On sight, an' I'd no' stop them, for a demon is a demon whoever's holdin' its leash. Keep it close an' keep it quiet, an' we'll have no trouble." } },
       choices = {
-        { text = "I'll keep it close and quiet, Tiza. You have my word.", next = "BACK", reply = "Good, an' I'll hold ye tae it, for my paladins are young an' eager, an' I'd rather no' have tae explain why one o' them got bitten.", fx = { align = { light = 1 } } },
+        { text = "I'll keep it close and quiet, Tiza. You have my word.", next = "BACK", reply = "I'll hold ye tae it. My paladins are young an' eager, an' I'd rather no' explain tae their mothers why one o' them got bitten.", fx = { align = { light = 1 } } },
         { text = "Your paladins would regret it. My demons bite back.", next = "BACK", reply = "Maybe they would, but I'd regret it more, an' I'll no' have that sort o' talk in the Hall, so keep yer threats tae yerself.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1213,7 +1213,7 @@ P:NPC {
         { id = "xmage_default", text = "No' little, only different, for a mage seeks power an' a paladin seeks tae give his away, or that's what I teach them. The best mages I've known gave theirs away too, sooner or later, an' I'd like tae think ye might be one o' them." },
       },
       choices = {
-        { text = "Power should serve others. I agree.", next = "BACK", reply = "Good, an' I'm glad tae hear it from a mage, for there's more o' ye than ye'd think who understand it.", fx = { align = { light = 1 } } },
+        { text = "Power should serve others. I agree.", next = "BACK", reply = "Good. There's more mages than ye'd think who understand it, an' fewer than I'd like.", fx = { align = { light = 1 } } },
         { text = "Power serves whoever holds it, Tiza.", next = "BACK", reply = "Maybe it does, but power held too tight crushes the hand that holds it, an' I've seen it happen tae better mages than you.", fx = { align = { light = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -1285,7 +1285,7 @@ P:NPC {
       },
       choices = {
         { text = "Some should be allowed to rest.", next = "BACK", reply = "Some should, an' that's the hardest lesson o' all, for the Light knows better than we do who's ready tae come back.", fx = { align = { light = -1 }, trait = { cautious = 1 } } },
-        { text = "Bringing back the fallen is the Light's mercy.", next = "BACK", reply = "Aye, it is, an' I'll no' argue, but the Light's mercy is no' always the same as ours, an' ye'll learn that in time.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Bringing back the fallen is the Light's mercy.", next = "BACK", reply = "It is. But the Light's mercy is no' always the same as ours, an' ye'll learn that the first time it says no.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1324,8 +1324,8 @@ P:NPC {
         { id = "cc_default", text = "Every day, an' that's how ye know they're doin' their work. An oath that never pinches is just a nice thing ye said once." },
       },
       choices = {
-        { text = "An oath must be kept whatever it costs.", next = "BACK", reply = "Aye, it must, an' I'm glad tae hear ye say it, for a paladin who keeps an oath only when it's easy is no paladin at all.", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Even oaths should bend for good reason.", next = "BACK", reply = "Maybe they should, an' I'll no' argue, but mind the reason's a good one, for every broken oath feels like a good reason at the time.", fx = { align = { honor = -1 } } },
+        { text = "An oath must be kept whatever it costs.", next = "BACK", reply = "It must. A paladin who keeps an oath only when it's easy is no paladin at all, an' I've had tae tell a few that tae their faces.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Even oaths should bend for good reason.", next = "BACK", reply = "Maybe. But mind the reason's a good one, for every broken oath I've ever seen came wi' a reason attached.", fx = { align = { honor = -1 } } },
       },
     },
     brandur = {
@@ -1344,7 +1344,7 @@ P:NPC {
       },
       choices = {
         { text = "I've helped where I could, and asked nothing.", next = "BACK", reply = "Then ye've earned it this week, an' I'm proud tae hear it, so keep goin', an' I'll ask ye again next week.", fx = { align = { honor = 1 }, affinity = 2 } },
-        { text = "I've been too busy fighting to count.", next = "BACK", reply = "Fightin's a fine thing, an' I'll no' argue, but the oath's about who ye help, no' who ye hit, so start countin'.", fx = { align = { honor = -1 }, affinity = -1 } },
+        { text = "I've been too busy fighting to count.", next = "BACK", reply = "Fightin's a fine thing. But the oath's about who ye help, no' who ye hit, so start countin'.", fx = { align = { honor = -1 }, affinity = -1 } },
       },
     },
     hand = {
@@ -1355,7 +1355,7 @@ P:NPC {
       },
       choices = {
         { text = "The Hand will rise again.", next = "BACK", reply = "Aye, it will, an' I'll see it does, for there's a great many paladins in this city who remember the oath even wi'out the Hand.", fx = { align = { order = 1 }, affinity = 2 } },
-        { text = "The Hand's gone. We're paladins on our own now.", next = "BACK", reply = "Maybe we are, an' I'll no' argue, but the oath still binds us, Hand or no Hand, an' I'll keep teachin' it.", fx = { align = { order = -1 } } },
+        { text = "The Hand's gone. We're paladins on our own now.", next = "BACK", reply = "Maybe we are. The oath still binds us, Hand or no Hand, an' I'll keep teachin' it till I drop.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1417,7 +1417,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Aye, an' no' the sort that comes from a forge. One o' them raised his hands an' the ground went red under my boots. They say Thaurissan's folk still talk tae the fire they called down, an' I'll no' forget the sound o' it. If ye can talk tae the same fire, I'd like tae know whose side it's on." } },
       choices = {
         { text = "Fire serves whoever has the discipline to master it.", next = "BACK", reply = "Discipline, aye, but I've never seen a Dark Iron wi' much o' that, an' they still had the fire answerin' them like a hound.", fx = { align = { order = 1 } } },
-        { text = "Fire belongs to no one. That's why it's dangerous.", next = "BACK", reply = "Aye, it doesnae, an' that's what frightened me, for the Dark Irons think it does, an' that's how ye get a Searing Gorge.", fx = { align = { order = -1 } } },
+        { text = "Fire belongs to no one. That's why it's dangerous.", next = "BACK", reply = "Aye, an' that's what frightened me. The Dark Irons think it does, an' that's how ye get a Searing Gorge.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1434,7 +1434,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "There were more o' them than there were o' me, which is the usual way o' things wi' Dark Irons. If ye go south o' Helm's Bed Lake, keep yer shield up an' yer back tae a rock, for they come from every side at once." } },
       choices = {
-        { text = "Then I'll go south and stand where you stood.", next = "BACK", reply = "Bless ye, an' keep yer back tae a rock like I said, for they come at ye from three sides, an' the fire comes from the fourth.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll go south and stand where you stood.", next = "BACK", reply = "Bless ye. Keep yer back tae a rock, mind, for they come at ye from three sides, an' the fire comes from the fourth.", fx = { align = { honor = 1 } } },
         { text = "I'll wait till they scatter, then strike from behind.", next = "BACK", reply = "Ha, that's a Dark Iron's own trick, an' they'll no' be expectin' it from a dwarf, so it might just work.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1446,7 +1446,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dark Irons, more than there should be, diggin' at somethin' an' guardin' it close. Yer {pet} would smell them before ye saw them, for Dark Irons stink o' forge smoke an' sulphur." },
       },
       choices = {
-        { text = "I'll watch from the ridge and report what I see.", next = "BACK", reply = "Good, an' Narm will thank ye, for a report is what we need before we go back in wi' enough axes tae bring him home.", fx = { align = { order = 1 } } },
+        { text = "I'll watch from the ridge and report what I see.", next = "BACK", reply = "Narm will thank ye. A report is what we need before we go back in wi' enough axes tae bring him home.", fx = { align = { order = 1 } } },
         { text = "From the ridge, I could pick off their guards.", next = "BACK", reply = "Ha, that'd give them somethin' tae think about, an' I'd buy ye a pint for every guard ye drop, but find Narm first.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1465,7 +1465,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "I'd be lyin' if I said I didnae, but Tiza tells me hate's a poor thing tae build a life on. I'll settle for wantin' them gone from Helm's Bed Lake, an' leave the rest tae the Light." } },
       choices = {
         { text = "Tiza's right. Justice is better than vengeance.", next = "BACK", reply = "Aye, she is, an' she's usually right, though I'll admit I'd still like tae see a few Dark Irons fall in the lake.", fx = { align = { light = 1 } } },
-        { text = "Hate's a fine thing to build on when it's earned.", next = "BACK", reply = "Maybe it is, an' I'll no' argue in front o' Tiza, but I'd rather build on Narm comin' home than on hatin' the ones who took him.", fx = { align = { light = -1 } } },
+        { text = "Hate's a fine thing to build on when it's earned.", next = "BACK", reply = "Dinnae say that in front o' Tiza. Besides, I'd rather build on Narm comin' home than on hatin' the ones who took him.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1473,7 +1473,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "That they fight dirty an' they fight hard, an' they'll no' give ya the courtesy o' a fair fight. I went at them the honest way, all hammer an' oath, an' look where it got me, flat on my back wi' a priest sewin' my side." } },
       choices = {
-        { text = "I'll still fight them fairly, because that's what makes us different.", next = "BACK", reply = "Aye, it does, an' I'm glad tae hear ye say it, though I'd ask ye tae bring a few friends, for honest an' alone got me these stitches.", fx = { align = { honor = 1 } } },
+        { text = "I'll still fight them fairly, because that's what makes us different.", next = "BACK", reply = "Aye, it does. Bring a few friends, though, for honest an' alone is what got me these stitches.", fx = { align = { honor = 1 } } },
         { text = "Then I'll fight them their way. Honour can wait.", next = "BACK", reply = "Ha, I'll no' tell Tiza ye said that, but I'll admit I lay here last night wishin' I'd thought o' it before they did.", fx = { align = { honor = -1 } } },
         { text = "Something else, Muiredon.", next = "BACK" },
       },
@@ -1484,7 +1484,7 @@ P:NPC {
         { id = "xlock_default", text = "I'd fight the Dark Irons beside a trogg wi' a frying pan if it meant gettin' Narm back, an' I'd thank it after. Tiza would have words wi' me for sayin' so, but she's no' the one lyin' here wi' stitches." },
       },
       choices = {
-        { text = "Tiza's right. A paladin should choose his allies.", next = "BACK", reply = "She is, usually, an' I'll no' argue wi' her or ye, but I'd still thank the trogg, frying pan an' all.", fx = { align = { order = 1 } } },
+        { text = "Tiza's right. A paladin should choose his allies.", next = "BACK", reply = "She usually is. I'd still thank the trogg, frying pan an' all.", fx = { align = { order = 1 } } },
         { text = "Good. In a fight, an ally is an ally.", next = "BACK", reply = "That's my thinkin' too, an' I'm glad o' it, for Narm's waitin', an' I'll take any help that gets me tae him.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -1547,7 +1547,7 @@ P:NPC {
       },
       choices = {
         { text = "The Senate should act on your word alone.", next = "BACK", reply = "I'd like tae think so, but the Senate's been burned by dwarves wi' good stories before, so I'll get them their proof somehow.", fx = { align = { order = -1 }, affinity = 1, learn = { "dark_iron" } } },
-        { text = "The Senate is right to want proof.", next = "BACK", reply = "Aye, it is, an' I'll no' fault them for it, so I'll find a way tae bring them somethin' they can read wi' their own eyes.", fx = { align = { order = 1 }, learn = { "dark_iron" } } },
+        { text = "The Senate is right to want proof.", next = "BACK", reply = "It is, an' I cannae fault them. I'll find a way tae bring them somethin' they can read wi' their own eyes.", fx = { align = { order = 1 }, learn = { "dark_iron" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1612,7 +1612,7 @@ P:NPC {
       },
       choices = {
         { text = "Hit first, ask questions later. I like it.", next = "BACK", reply = "Ha, I knew I'd like ye, an' ye'll do well against the Dark Irons, so long as ye remember tae hit the chanter first.", fx = { align = { honor = -1 }, affinity = 1 } },
-        { text = "I'll give them a fair fight anyway.", next = "BACK", reply = "Then ye'll be braver than me an' probably more bruised, so bring a priest along, for they'll no' return the favour.", fx = { align = { honor = 1 } } },
+        { text = "I'll give them a fair fight anyway.", next = "BACK", reply = "Then ye're braver than me, an' ye'll be more bruised. Bring a priest, for they'll no' return the favour.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1662,7 +1662,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Nothing alike, which is a relief and a worry. Mine come from the arcane, measured and formulaic and occasionally on fire. Yours apparently come from asking the fire itself, and I've no idea how to put that out if it disagrees, so I've added a third bucket, just in case." } },
       choices = {
-        { text = "I'll never ask fire for more than it would give freely.", next = "BACK", reply = "Oh, that's very wise, and very polite to the fire, which I suspect it appreciates, since mine never seems to.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll never ask fire for more than it would give freely.", next = "BACK", reply = "Oh, that's very wise, and very polite to the fire, which I suspect it appreciates, since mine has never once said thank you.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If it disagrees, I'll make it agree, Bink.", next = "BACK", reply = "Oh dear, that's exactly how my third-year students talk, and they're the ones whose eyebrows I keep sweeping up.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1692,7 +1692,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "We both hate being hit, we both fight from far away, and we both panic slightly when something gets close. Your {pet} is lovely, by the way, and I promise I'll never turn it into a sheep, unless it's very rude." },
       },
       choices = {
-        { text = "Distance is wisdom. We agree on that, Bink.", next = "BACK", reply = "Exactly, and I'm so glad someone understands, because the warriors keep telling me to stand still, which is very bad advice.", fx = { align = { order = 1 } } },
+        { text = "Distance is wisdom. We agree on that, Bink.", next = "BACK", reply = "Exactly! The warriors keep telling me to stand still, which is very bad advice when something is trying to eat you.", fx = { align = { order = 1 } } },
         { text = "I'd sooner fight up close than hide behind anything.", next = "BACK", reply = "Then you're much braver than I am, and I'll be standing behind you, though I promise to throw something helpful.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1808,7 +1808,7 @@ P:NPC {
           text = "Oh, you're the one with the satchel from the old lecture halls! I'd study whatever's in that satchel first, because some of those notes are older than the Kirin Tor's copies, and I'd very much like to borrow them." },
       },
       choices = {
-        { text = "Fire, then. Quick and certain.", next = "BACK", reply = "Fire is a splendid choice, and it'll like you right back, though I'd keep a bucket of water within arm's reach for the first year.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Fire, then. Quick and certain.", next = "BACK", reply = "Fire is a splendid choice! I'd keep a bucket of water within arm's reach for the first year, though, and possibly the second.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "Frost. Control first, then everything else.", next = "BACK", reply = "Frost is very sensible, and very tidy, and you'll never set a library on fire, which is more than I can say for my fire students.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
         { text = "What does the arcane offer?", next = "study_arcane" },
       },
@@ -1827,7 +1827,7 @@ P:NPC {
       },
       choices = {
         { text = "Your Hall's warmer, Bink.", next = "BACK", fx = { affinity = 2 } },
-        { text = "Stormwind's towers teach more discipline.", next = "BACK", reply = "They do, and I'll not argue, though I'd rather have a little less discipline and a lot more tea, which is what we have here.", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Stormwind's towers teach more discipline.", next = "BACK", reply = "They do, I'm sure. I'd still rather have a little less discipline and a lot more tea, which is what we have here.", fx = { align = { order = 1 }, affinity = -1 } },
         { text = "Here, nobody minds the odd explosion.", next = "BACK", reply = "Exactly, and that's what I love about it, because in Stormwind they'd have written you up for the very first one.", fx = { align = { order = -1 }, affinity = 1 } },
       },
     },
@@ -1839,7 +1839,7 @@ P:NPC {
       },
       choices = {
         { text = "A stove is too slow for what's coming.", next = "BACK", reply = "Too slow, perhaps, but a stove doesn't burn the house down, and I'd rather be warm than right, if it comes to that.", fx = { align = { light = -1 } } },
-        { text = "I'll take care not to burn the house.", next = "BACK", reply = "Thank you, that's all I'd ask, and if you ever want to learn a little stove magic, my door's always open.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I'll take care not to burn the house.", next = "BACK", reply = "Thank you! And if you ever want to learn a little stove magic, my door's always open, and so is the biscuit tin.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1886,7 +1886,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I doubt it, and I'd not recommend trying. A portal needs precise arcane geometry, and the elements are many things, but precise is not one of them. Though I'll admit that when I open a portal to Stormwind, I sometimes feel the stone here shudder, and I've never known whether it was disapproving." } },
       choices = {
-        { text = "Keep to your discipline, and I'll keep to mine.", next = "BACK", reply = "A sensible arrangement, and I'll honour it, though I'll admit the stone has given me one or two unexpected readings.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep to your discipline, and I'll keep to mine.", next = "BACK", reply = "Agreed. I'll admit, between us, that the stone has given me one or two readings I can't account for.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Maybe the stone's warning you. Mages meddle too much.", next = "BACK", reply = "Perhaps it is, but the stone has been warning mages for a very long time, and we've yet to see it stop a portal.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1904,7 +1904,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "In principle, yes, though in practice the warrior would arrive dizzy and the mage would arrive exhausted, which is a poor start to a battle. Your sort is better served by a gryphon, which asks far less of my patience." } },
       choices = {
-        { text = "I'll go the long way, as soldiers always have.", next = "BACK", reply = "A sensible choice, and your feet will thank you, though your stomach may find the road a great deal kinder too.", fx = { align = { order = 1 } } },
+        { text = "I'll go the long way, as soldiers always have.", next = "BACK", reply = "Your feet may complain, but your stomach will thank you. Nobody has ever been sick on a road.", fx = { align = { order = 1 } } },
         { text = "A dizzy warrior at the front beats a late one.", next = "BACK", reply = "A fair point, and I'll concede it, though I'd want a healer at the front as well, for the dizziness lasts longer than you think.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1916,7 +1916,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It could, and it would arrive on the other side in a temper that would take a week to settle. Your {pet} looks as though it would bite the first thing it saw over there, which is precisely why I'd rather it walked." },
       },
       choices = {
-        { text = "Then my beast and I will walk, thank you.", next = "BACK", reply = "A sound decision, and the ram I mentioned would agree, though he's never forgiven anyone, so his opinion carries little weight.", fx = { align = { order = 1 } } },
+        { text = "Then my beast and I will walk, thank you.", next = "BACK", reply = "A sound decision. The ram I mentioned would agree, though he's never forgiven anyone for anything, so his opinion carries little weight.", fx = { align = { order = 1 } } },
         { text = "Send us both through. We'll manage the temper.", next = "BACK", reply = "Very well, but I'll expect you to clean up afterwards, because the last ram that came through left a very angry stain.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1925,7 +1925,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Only if a mage opens it for you, and I'd want to know exactly where you're going and why. A portal isn't a back door, though I've had more than one of your kind ask me to make it one." } },
       choices = {
-        { text = "I'll never ask you to make a portal a back door.", next = "BACK", reply = "Thank you, that's more than most of your sort promise, and I'll take it, though I'll still ask where you're going.", fx = { align = { order = 1 } } },
+        { text = "I'll never ask you to make a portal a back door.", next = "BACK", reply = "That's more than most of your sort promise. I'll still ask where you're going, every time.", fx = { align = { order = 1 } } },
         { text = "Every door is a back door if you use it right.", next = "BACK", reply = "Not in my presence, it isn't, and I'll kindly ask you to take your clever phrases somewhere I'm not obliged to listen to them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1934,7 +1934,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Close enough to worry me, for both tear a hole in the world, and only one of them asks permission of what's on the other side. I've studied the geometry of it longer than you've been alive, so please don't argue it." } },
       choices = {
-        { text = "Then I'll respect the difference and keep my circles small.", next = "BACK", reply = "A sensible precaution, and I'll respect it, though I'll still check the geometry of any circle you draw near my tower.", fx = { align = { light = 1 } } },
+        { text = "Then I'll respect the difference and keep my circles small.", next = "BACK", reply = "Thank you. I'll still check the geometry of any circle you draw near my tower, of course.", fx = { align = { light = 1 } } },
         { text = "Permission is for the weak. I take what I need.", next = "BACK", reply = "Then I'll take my leave of the conversation, because a mage who talks like that is usually halfway to a very bad end.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1943,7 +1943,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Both require focus and both punish carelessness, though a careless prayer only fails, while a careless portal can put you halfway into a wall. I'll grant the priests that their work is harder to measure, but mine is harder to survive." } },
       choices = {
-        { text = "Prayer needs humility more than focus. That's the difference.", next = "BACK", reply = "Perhaps it does, and I'll grant you the point, though I'd argue a portal needs a great deal of humility too.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayer needs humility more than focus. That's the difference.", next = "BACK", reply = "You may have a point. Then again, open a portal badly just once and you'll learn humility very quickly.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then prayer and portals are both just disciplines. Neither is holier.", next = "BACK", reply = "I'd agree, though I'll not say so too loudly near the Hall of Mysteries, for the priests have very sharp ears.", fx = { align = { light = -1 } } },
         { text = "Something else, Milstaff.", next = "BACK" },
       },
@@ -1952,8 +1952,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "No, and I've never understood why, because a paladin who could open a portal to the front lines would be worth a company of foot soldiers. They say it's not their way, and I say they've never tried, and we've left it there." } },
       choices = {
-        { text = "A paladin walks to the battle. That's part of the oath.", next = "BACK", reply = "So they tell me, and I'll respect it, though I'd still teach one if they asked, for the front lines would thank them.", fx = { align = { order = 1 } } },
-        { text = "Any tool that saves lives is worth learning, Milstaff.", next = "BACK", reply = "At last, a paladin with sense, and I'll gladly teach you the theory, though I can't promise you'll grasp it.", fx = { align = { order = -1 } } },
+        { text = "A paladin walks to the battle. That's part of the oath.", next = "BACK", reply = "So they tell me. I'd still teach one if they asked; the front lines would thank them for arriving on time.", fx = { align = { order = 1 } } },
+        { text = "Any tool that saves lives is worth learning, Milstaff.", next = "BACK", reply = "At last, a paladin with sense! I'll gladly teach you the theory, though I can't promise you'll grasp it.", fx = { align = { order = -1 } } },
         { text = "Good day, then.", next = "BACK" },
       },
     },
@@ -2027,7 +2027,7 @@ P:NPC {
       },
       choices = {
         { text = "I'm readier than you think, Milstaff.", next = "BACK", reply = "We'll see, and I'll be delighted to be proven wrong, though I'll admit it doesn't happen very often.", fx = { align = { order = -1 } } },
-        { text = "I'll be patient and practice.", next = "BACK", reply = "A sensible choice, and a rare one, so come back when you're ready, and I'll test you properly.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'll be patient and practice.", next = "BACK", reply = "Patience in a young mage? How unusual. Come back when you're ready, and I'll test you properly.", fx = { align = { order = 1 }, affinity = 1 } },
       },
     },
     sky = {

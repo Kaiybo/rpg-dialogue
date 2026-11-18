@@ -63,7 +63,7 @@ P:NPC {
     southwind = {
       lines = { { id = "s_default", text = "It was a fine village, a watch post of our people at the edge of the sands, and the hives overran it. I do not speak of how it ended, and I would ask you not to ask the others either." } },
       choices = {
-        { text = "I understand. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I understand. Something else, then.", next = "BACK", fx = { affinity = 1 } },
         { text = "Does anyone try to free the dead here?", next = "southwind_layo" },
       },
     },

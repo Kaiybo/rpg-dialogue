@@ -95,7 +95,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Healed? I'd settle for held. The apothecaries talk of cleansing the soil with their brews, and your people talk of growing it back, and I'll take whichever works first, so long as the Scourge stays on the other side of the wall." } },
       choices = {
-        { text = "Hold the wall first. Healing can wait.", next = "BACK", reply = "Good. A held wall gives the healers somewhere to stand.", fx = { align = { order = 1 } } },
+        { text = "Hold the wall first. Healing can wait.", next = "BACK", reply = "Good. Get up on the west parapet, then; that's where they come over first.", fx = { align = { order = 1 } } },
         { text = "Healing is how you win. Walls only buy time.", next = "BACK", reply = "Perhaps, but a wall buys the time healing needs, and I'm short of both. Grow it back, druid, and I'll hold until you do.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -464,7 +464,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Fire would scatter the plague on the wind, and the Bulwark would breathe it by morning. No, we need the samples and the apothecaries' patience, and then we turn the brew back on the Scourge and let it choke on what it made." } },
       choices = {
-        { text = "Then fire waits. Patience kills more cleanly.", next = "BACK", reply = "Good. Patience kills more cleanly, and it doesn't poison the Bulwark while it does.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then fire waits. Patience kills more cleanly.", next = "BACK", reply = "Good. Derrington says the agent's three days off, and I'd rather wait three days than breathe that smoke for a month.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Burn them anyway. I won't wait on apothecaries.", next = "BACK", reply = "Then you'll answer to Derrington when the wind turns. Burn far from the wall, at least.", fx = { align = { order = -1 } } },
         { text = "Very well. Something else.", next = "BACK" },
       },
@@ -636,7 +636,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Oh, very much so, for the herbs that survive the cauldrons come up twisted, and some of them glow faintly at night. They're useful, I'll admit, but I wouldn't want to eat them, and I'm already dead." } },
       choices = {
         { text = "Then burn them. Nothing that grows from plague is safe.", next = "BACK", reply = "Burn them? Oh, but they're so interesting, and some of them glow. I'll keep a few in a jar, very carefully.", fx = { align = { light = 1 } } },
-        { text = "Use them. A strange herb is still a useful one.", next = "BACK", reply = "Exactly! Strange is just useful that hasn't been catalogued yet.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Use them. Strange doesn't mean useless.", next = "BACK", reply = "Exactly! Strange is just useful that hasn't been catalogued yet.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -674,7 +674,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "One did, once, and she was very kind about it, but it turns out the Light doesn't care for dead joints, and the shadow just makes them ache in a more interesting way. I've decided the knee is a scholarly matter now, and I take notes on it every morning, which is more than most priests do for their patients." } },
       choices = {
-        { text = "Let me try anyway. Mending is worth the attempt.", next = "BACK", reply = "Very kind of you, and I'll write down whatever happens. Science thanks you, and so does my knee.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let me try anyway. What's the worst that happens to a dead knee?", next = "BACK", reply = "Very kind of you, and I'll write down whatever happens. Science thanks you, and so does my knee.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Keep your notes, Apothecary. Shadow's no friend to bone.", next = "BACK", reply = "Quite right, quite right, and I'll keep my notes. The knee remains a scholarly matter.", fx = { align = { light = -1 } } },
         { text = "Something else, Apothecary.", next = "BACK" },
       },
@@ -1155,7 +1155,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The plague sends the beasts mad, and the mad ones run toward the dead rather than away from them. Follow a sick wolf far enough, and more often than not you'll find a cult camp or a ghoul pit at the end of the trail. {pet} has a keen nose, I can see it." },
       },
       choices = {
-        { text = "Then I'll put the mad ones down before I follow their trails.", next = "BACK", reply = "Good. The mad ones suffer, and a quick end is the honourable thing.", fx = { align = { light = 1 } } },
+        { text = "Then I'll put the mad ones down before I follow their trails.", next = "BACK", reply = "Good. I've watched a mad wolf chew its own leg to the bone, and no beast should be left like that.", fx = { align = { light = 1 } } },
         { text = "I'll let the sick wolves run, and follow them to the nests.", next = "BACK", reply = "Clever. Follow them, but don't let them lead you into a pit.", fx = { align = { light = -1 } } },
         { text = "Tell me something else.", next = "BACK" },
       },
@@ -1173,7 +1173,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpriest_default", text = "The commission stones, mostly, and the soldiers who carry them, because the Scourge's taint creeps in through cuts and doubts alike. The Dawn doesn't ask whose god you pray to, only that you pray where it does some good, and that's on the far side of this wall." } },
       choices = {
-        { text = "I'll pray where it's needed, on the far side.", next = "BACK", reply = "Good. The far side is where it's needed most.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll pray where it's needed, on the far side.", next = "BACK", reply = "Good. Nobody's prayed past the Felstone fields in a year, and it shows.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers won't stop ghouls. I'll trust my own strength.", next = "BACK", reply = "Then trust your strength, and I'll trust mine. Just carry a commission stone.", fx = { align = { light = -1 } } },
         { text = "Something else, Garush.", next = "BACK" },
       },
@@ -1240,7 +1240,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Fire is the answer to the dead who won't stay down, and nothing else I know is as quick. But these fields are still somebody's farms, and the Dawn means to give them back one day, so burn the corpses and spare the barns." } },
       choices = {
-        { text = "Then I'll burn carefully. The land deserves a future.", next = "BACK", reply = "Good. A future is worth more than an easy fire.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll burn carefully. The land deserves a future.", next = "BACK", reply = "Good. Somebody may farm those fields again one day, and I'd like them to find soil and not cinders.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Burn everything. Clean ash is better than tainted barns.", next = "BACK", reply = "Clean ash is clean, I'll grant you. The Dawn will want words with you, though.", fx = { align = { light = -1 } } },
         { text = "Understood. Something else.", next = "BACK" },
       },

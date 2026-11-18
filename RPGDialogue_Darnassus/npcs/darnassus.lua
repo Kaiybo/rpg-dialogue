@@ -237,14 +237,14 @@ P:NPC {
         { id = "o_tyrande_admire", tags = { "news" }, when = { opinion = { topic = "tyrande", stance = "admire" } },
           text = "I am told you would follow me before the Archdruid. I hope you never have to make that choice, but I will remember it." },
         { id = "o_alliance_distrust", tags = { "news" }, when = { gossip = { topic = "alliance", stance = "distrust" } },
-          text = "I hear you agreed with the Archdruid that we should stand alone. Remember that outsiders stood with us at Hyjal, whatever he tells you now." },
+          text = "Word is you agreed with the Archdruid that we should stand alone. Remember that outsiders stood with us at Hyjal, whatever he tells you now." },
         { id = "h_pt_tyrande", tags = { "news" }, when = { party = { race = { "Human", "Dwarf", "Gnome" } } },
           text = "You bring {companion} with you into Darnassus, and the sentinels at the gate tell me they were courteous. Elune smiles on friendships between our peoples, though I know not every one of my kin agrees." },
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "The Sentinels on the Zoram Strand tell me someone went down into Blackfathom and came back up again. That was a temple of Elune once, before the sea took it, and I am grateful to whoever reminded its new tenants of that." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "You have spent your time at the Enclave, and Fandral speaks well of you, which tells me what you said to him. I will still hear you out, but I will listen more carefully." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
-          text = "I hear you left the Enclave with the Arch Druid's temper behind you. Fandral needs more people who will tell him no, and fewer who nod while he lectures." },
+          text = "They say you left the Enclave with the Arch Druid's temper behind you. Fandral needs more people who will tell him no, and fewer who nod while he lectures." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Whatever you pray to, you've come to the house of Elune, and here we heal the wounded first and ask their names after." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kingdoms have suffered much, and I have not forgotten that humans and dwarves stood beside us at Mount Hyjal." },
         { id = "h_default", key = true,
@@ -370,7 +370,7 @@ P:NPC {
       choices = {
         { text = "The Archdruid?", next = "fandral" },
         { text = "Immortality at any price sounds a dangerous wish.", next = "immortal" },
-        { text = "I'll help where I can.", next = "BACK", reply = "Then you are welcome in my city, and in my thoughts. Every hand that helps us is one more than we had.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll help where I can.", next = "BACK", reply = "Then you are welcome in my city, and in my thoughts. Start at Dolanaar, where the Gnarlpine have been bolder this season.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Kaldorei troubles are for the kaldorei to settle.", next = "BACK", reply = "Many would agree with you, and perhaps it ought to be so. Yet our troubles have a way of spilling into the world when we are left alone.", fx = { align = { light = -1 } } },
       },
     },
@@ -595,7 +595,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. Very well, speak, but make it worth the climb." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, I see, though to the kaldorei that is hardly a breath. Speak, then, and make it worth the climb." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown stronger since last you stood before me; even I can see it. Perhaps you are of some use to the Circle after all." },
-    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you have been bending the ears of my people with clever words. The kaldorei are not so easily led as you may think, so do not mistake politeness for agreement." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I am told you have been bending the ears of my people with clever words. The kaldorei are not so easily led as you may think, so do not mistake politeness for agreement." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Word reaches the Enclave that you have given offence in this city. Darnassus tolerates its guests, but it does not suffer them gladly, so be brief." },
   },
 
@@ -812,7 +812,7 @@ P:NPC {
         { id = "o_alliance_distrust", tags = { "news" }, when = { opinion = { topic = "alliance", stance = "distrust" } },
           text = "Ah, one who knows the kaldorei need no foreign banners. Speak, then; I have time for you." },
         { id = "o_fandral_admire", tags = { "news" }, when = { gossip = { topic = "fandral", stance = "admire" } },
-          text = "I hear you've been speaking up for me in this city. Good; few have the spine to do it where the priestesses can hear." },
+          text = "Word is you've been speaking up for me in this city. Good, because few have the spine to do it where the priestesses can hear." },
         { id = "o_fandral_distrust", tags = { "news" }, when = { gossip = { topic = "fandral", stance = "distrust" } },
           text = "Someone tells me you think my pride a danger to our people. Say it to my face next time, outsider, and we'll see whose pride is the larger." },
         { id = "h_pt_fandral", tags = { "news" }, when = { party = { race = { "Human", "Dwarf", "Gnome" } } },
@@ -1047,7 +1047,7 @@ P:NPC {
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "What brings you to the Cenarion Circle, friend? Ask, and I'll answer if I can." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, friend, and the Enclave's doors stayed open the whole while. Ask what you came to ask." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since we last spoke, and I'm glad to see it. The wild teaches faster than any trainer, though it charges more for the lesson." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping folk in the city these past days. That is the Circle's work as much as any druid's, whatever some may say." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I'm told you've been helping folk in the city these past days. That is the Circle's work as much as any druid's, whatever some may say." },
   },
 
   notice = {
@@ -1675,7 +1675,7 @@ P:NPC {
         { id = "xmage_default", text = "Demons, for one, which first came because Queen Azshara's Highborne opened the way for them through the Well. There are also stranger things in the corners of Azshara and Felwood that I can't yet name, and so I'd like you to remember that every door your magic opens may be found by something else." },
       },
       choices = {
-        { text = "I'll close every door behind me, then.", next = "BACK", reply = "Wise, and the Highborne would have done well to say the same. A closed door is worth a thousand spells.", fx = { align = { order = 1 } } },
+        { text = "I'll close every door behind me, then.", next = "BACK", reply = "Wise, and the Highborne would have done well to say the same. Half my notes are about things that came through doors someone left open.", fx = { align = { order = 1 } } },
         { text = "If something comes through, I'll study it too.", next = "BACK", reply = "Then bring me your notes when you do, mage. I would love to compare, provided we both survive it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1806,7 +1806,7 @@ P:NPC {
     silithid_who = {
       lines = { { id = "sw_default", text = "The Archdruid, among others. He is brilliant about trees. About this, his certainty runs well ahead of his reading." } },
       choices = {
-        { text = "Careful. He's the Archdruid.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Careful, Gracina, he's the Archdruid.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "I'll remember who warned me.", next = "BACK", fx = { affinity = 2 } },
       },
     },
@@ -2074,7 +2074,7 @@ P:NPC {
       choices = {
         { text = "I'd like that, Saelienne. We'll watch the moon together.", next = "fl_rest2",
           fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_moon" } } } },
-        { text = "Elune's light has never looked lovelier than on you.", next = "fl_rest2", when = { race = "NightElf" },
+        { text = "We needn't say a word. Sitting beside you under Elune would be enough.", next = "fl_rest2", when = { race = "NightElf" },
           fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_moon" } } } },
         { text = "You're kind, but I'd rather keep to my room.", next = "BACK",
           reply = "Of course. Forgive me, traveller; the moon makes fools of innkeepers too. Sleep well.",

@@ -214,7 +214,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll stand your dock, fair and square.", next = "BACK", reply = "Fair and square, the rarest thing on this coast. You're hired, pal, and you start whenever the next boat docks.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll stand it, and skim a crate or two.", next = "BACK", reply = "A crate or two, he says! I count 'em twice, pal, so skim lightly or skim somewhere else.", fx = { align = { honor = -1 } } },
+        { text = "I'll stand it, and skim a crate or two.", next = "BACK", reply = "A crate or two, {g:he|she} says! I count 'em twice, pal, so skim lightly or skim somewhere else.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -480,7 +480,7 @@ P:NPC {
         { id = "xlk_default", text = "Because the last guest with a little friend like that let it loose in the pantry, and it ate three silver's worth of cheese, and Fimbo the cook didn't speak to me for a week! I'm sure yours is lovely, explorer, but rules are rules." },
       },
       choices = {
-        { text = "Fair. It'll stay outside.", next = "BACK", reply = "Thank you, sweetie. My pantry thanks you, and so does my cheese.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fine, it'll wait outside with the gulls.", next = "BACK", reply = "Thank you, sweetie. My pantry thanks you, and so does my cheese.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Rules made up today don't count.", next = "BACK", reply = "My inn, my rules, honey, and I make 'em up whenever I like. Outside it goes.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -776,7 +776,7 @@ P:NPC {
         { id = "xlk_default", text = "Bother me? Nothing bothers me tonight, friend; that's the whole point of the mug. But if it touches my drink, I'll introduce it to the floor, demon or no." },
       },
       choices = {
-        { text = "Fair. It keeps its claws to itself.", next = "BACK", reply = "Good. Then we'll get along fine, friend, and so will the mug.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It'll keep its claws off your mug, Gray.", next = "BACK", reply = "Good. Then we'll get along fine, friend, and so will the mug.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Try it, Gray. See how that goes.", next = "BACK", reply = "I've had worse nights, friend. Go on, then, if it'll make you feel better.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -946,7 +946,7 @@ P:NPC {
         { id = "xlk_default", text = "Really, really! Under supervision, with a fence, a waiver, and a goblin standing well back with a bucket. The crowd's gonna scream, pal, and screaming is the best sound a ticket booth ever hears." },
       },
       choices = {
-        { text = "Demons aren't entertainment. Forget it.", next = "BACK", reply = "Not entertainment, he says, and then he walks around with one on a leash. Suit yourself, pal.", fx = { align = { light = 1 } } },
+        { text = "Demons aren't entertainment. Forget it.", next = "BACK", reply = "Not entertainment, {g:he|she} says, and then walks around with one on a leash. Suit yourself, pal.", fx = { align = { light = 1 } } },
         { text = "Build the fence high. We'll be there.", next = "BACK", reply = "Higher than high, pal, and I'll be standing behind it with a very long pole. Thursday night, top of the card.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1075,7 +1075,7 @@ P:NPC {
       },
       choices = {
         { text = "Plain food for plain work. That's how it should be.", next = "BACK", reply = "That's what I keep sayin', buddy! Plain food, full bellies, and nobody complains till payday.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Bland food makes bland fighters. Spice it up.", next = "BACK", reply = "Spice it up, he says, like I'm made of pepper! Okay, buddy, I'll throw in a little somethin'.", fx = { align = { order = -1 } } },
+        { text = "Bland food makes bland fighters. Spice it up.", next = "BACK", reply = "Spice it up, {g:he|she} says, like I'm made of pepper! Okay, buddy, I'll throw in a little somethin'.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1108,7 +1108,7 @@ P:NPC {
       },
       choices = {
         { text = "You should tell Argo. It's his rum.", next = "BACK", reply = "Tell Argo? He'd want a cut of the stew, buddy, and he'd drink it before it hit the pot.", fx = { align = { honor = 1 } } },
-        { text = "Clever. I won't say a word.", next = "BACK", reply = "You're a pal, buddy! A cook's secrets are what keeps the customers comin' back.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Clever. I won't say a word.", next = "BACK", reply = "You're a pal, buddy! Argo's rum is half the flavour and none of the bill, so mum's the word.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1141,7 +1141,7 @@ P:NPC {
       },
       choices = {
         { text = "Conjured bread feeds the hungry. That matters more.", next = "BACK", reply = "Feeds 'em, sure, buddy, and leaves 'em sad. I'll take your point, though, and make the soup better.", fx = { align = { order = 1 } } },
-        { text = "You're right. Real cooking is worth protecting.", next = "BACK", reply = "Thank you, buddy! Somebody's got to stand up for flavour around here.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Agreed. Conjured bread tastes like wet parchment.", next = "BACK", reply = "Thank you, buddy! Somebody's got to stand up for flavour around here.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1329,7 +1329,7 @@ P:NPC {
         { id = "xmg_default", text = "So the monster can't get under her, matey! *hic* Freeze a ring round my boat, she sits pretty, the monster bangs its head, and I sell tickets to Jazzle's arena crowd at two silver a head." },
       },
       choices = {
-        { text = "Ice won't hold it. Face the thing properly.", next = "BACK", reply = "Face it properly, he says! *hic* You go face it, matey, and I'll stay right here and face my rum.", fx = { align = { honor = 1 } } },
+        { text = "Ice won't hold it. Face the thing properly.", next = "BACK", reply = "Face it properly, {g:he|she} says! *hic* You go face it, matey, and I'll stay right here and face my rum.", fx = { align = { honor = 1 } } },
         { text = "Freeze it, and charge Jazzle double.", next = "BACK", reply = "Double! Now you're thinkin' like a goblin, matey. *hic* Jazzle won't know what hit him.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1436,7 +1436,7 @@ P:NPC {
         { id = "xwc_default", text = "Because you swing first and look second, kid, same as every fighter I've sold a pole to. A fish teaches you to wait, and waiting's what keeps you alive when the swinging's done." },
       },
       choices = {
-        { text = "Fair. Patience wins more fights than strength.", next = "BACK", reply = "Now you're talkin' sense, kid. Sit down, keep quiet, and maybe a fish'll find you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fair enough. I'll sit still and let the fish come to me.", next = "BACK", reply = "Now you're talkin' sense, kid. Sit down, keep quiet, and maybe a fish'll find you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll keep swinging first. It's worked so far.", next = "BACK", reply = "Then you'll catch nothin' but splinters, kid, but suit yourself. I've seen stranger.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1481,7 +1481,7 @@ P:NPC {
       },
       choices = {
         { text = "That sounds like faith to me, Gritta.", next = "BACK", reply = "Maybe it is, kid. I never had a word for it before.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "That's just quiet. Nothing's listening.", next = "BACK", reply = "Maybe so, kid, but it's my quiet, and I like it. You can keep your nothing.", fx = { align = { light = -1 } } },
+        { text = "That's just quiet, Gritta. Nothing out there is listening.", next = "BACK", reply = "Maybe so, kid, but it's my quiet, and I like it. You can keep your nothing.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1503,7 +1503,7 @@ P:NPC {
       },
       choices = {
         { text = "Good. Show-offs should pay for their fun.", next = "BACK", reply = "That's what I said, kid! I sent him the bill and he sailed off without paying. Next time.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Lighten up, Gritta. It was only a barrel.", next = "BACK", reply = "Only a barrel, he says! That barrel was a week's bait, kid. You can pay for it.", fx = { align = { order = -1 } } },
+        { text = "Lighten up, Gritta. It was only a barrel.", next = "BACK", reply = "Only a barrel, {g:he|she} says! That barrel was a week's bait, kid. You can pay for it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1513,7 +1513,7 @@ P:NPC {
         { id = "xlk_default", text = "Fish sense everything, kid. A demon's a big wrong shadow on the water, and every fish in the cove goes to the bottom and sulks, so stand back, like I said, because sulking fish don't sell." },
       },
       choices = {
-        { text = "Fair. I'll keep it well back.", next = "BACK", reply = "Thanks, kid. The fish'll be grateful, and so will my profits.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "All right, I'll keep it well back from the water.", next = "BACK", reply = "Thanks, kid. The fish'll be grateful, and so will my profits.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your fish can sulk. It stays with me.", next = "BACK", reply = "Then the fish'll sulk, kid, and I'll sulk with 'em. Stand way back, at least.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1525,7 +1525,7 @@ P:NPC {
       },
       choices = {
         { text = "Maybe they're frightened. Give the cove a rest.", next = "BACK", reply = "Maybe they are, kid. I'll give it a week and see.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Use more chum. Hunger beats fear.", next = "BACK", reply = "More chum, more money, kid, and I'm already losin' money. But maybe you're right.", fx = { align = { light = -1 } } },
+        { text = "Use more chum. Hungry fish forget their fear.", next = "BACK", reply = "More chum, more money, kid, and I'm already losin' money. But maybe you're right.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1539,7 +1539,7 @@ P:NPC {
     biggest_go = {
       lines = { { id = "bgb_default", text = "Once, kid. She was old and scarred and fought like she'd done it a hundred times before, so I cut the line and wrote off the lure. Don't tell anybody, because it's bad for business." } },
       choices = {
-        { text = "Good. Some fights are worth letting go.", next = "BACK", reply = "Good, kid. Some fish are worth more in the water than on the wall.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Good. She earned her freedom, Gritta.", next = "BACK", reply = "That's how I figured it, kid. I still dream about her some nights, which is more than a stuffed one on the wall would give me.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A catch is a catch. I'd have kept her.", next = "BACK", reply = "You'd have kept her, huh? Then you'd never know what I know. Some catches you let go, kid.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

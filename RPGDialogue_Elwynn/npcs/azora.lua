@@ -179,7 +179,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Label everything, friend. An unlabelled vial is how apprentices end up with purple hair." } },
     morganth = { { id = "tp_morganth", text = "I've never seen him and I hope I never shall. Master Theocritus speaks of him the way sailors speak of storms.", next = "theo_morganth" } },
     _none = { { id = "tp_none", text = "That isn't in any of my ledgers, I'm afraid, so I couldn't tell you." } },
-    dalaran = { { id = "tp_dalaran", text = "Master Theocritus says Dalaran is rebuilding behind its walls and opens its gates to almost nobody, so I've stopped asking if I may visit. I'd settle for a look at their library's catalogue, to be honest." } },
+    dalaran = { { id = "tp_dalaran", text = "Master Theocritus says Dalaran is rebuilding behind its walls and opens its gates to almost nobody, so I've stopped asking if I may visit. I'd settle for a look at their library's catalogue." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "I kept accounts for a scribe who copied scrolls for the Kirin Tor, and they ordered everything in triplicate, signed in violet ink, and paid late. That tells a clerk most of what she needs to know about them." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Silas Darkmoon's people bought half my glowing vials the last time the Faire came through, and I still don't want to know what for. They paid in full, which is more than some mages manage." } },
     scourge = { { id = "tp_scourge", text = "I've sold vials to mages heading north, and fewer of them come back to buy more. Master Theocritus won't discuss it, which I've learned means it's worse than anyone says." } },
