@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.35.0 (2026-11-18)
+- 23 named NPCs the earlier passes missed now have conversations (`npcs/missed.lua`, `npcs/missed2.lua`). New files: restart the game fully.
+
 ## 1.34.0 (2026-11-18)
 - "Where is...?" directions for Goldshire (`directions.lua`, new file: restart the game fully).
 - Marshal McBride, Marshal Dughan and Innkeeper Farley have polite and blunt versions of your replies, and react to your tone. McBride's lines have narration.

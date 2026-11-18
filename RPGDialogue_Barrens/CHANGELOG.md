@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-18)
+- 17 named NPCs the earlier passes missed now have conversations (`npcs/missed.lua`, `npcs/missed2.lua`). New files: restart the game fully.
+
 ## 1.25.0 (2026-11-18)
 - "Where is...?" directions for the Crossroads (`directions.lua`, new file: restart the game fully).
 

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.28.0 (2026-11-18)
+- 48 named NPCs the earlier passes missed now have conversations (`npcs/missed.lua`, `npcs/missed2.lua`, `npcs/missed3.lua`, `npcs/missed4.lua`, `npcs/missed_saern.lua`). New files: restart the game fully.
+
 ## 1.27.0 (2026-11-18)
 - "Where is...?" directions for Thunder Bluff (`directions.lua`, new file: restart the game fully).
 - Cairne's lines have narration.

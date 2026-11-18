@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.0 (2026-11-18)
+- 70 named NPCs the earlier passes missed now have conversations (`npcs/missed_a.lua`, `npcs/missed_a2.lua`, `npcs/missed_a3.lua`, `npcs/missed_b.lua`, `npcs/missed_b2.lua`, `npcs/missed_b3.lua`, `npcs/missed_estelle.lua`, `npcs/missed_genavie.lua`, `npcs/missed_oran.lua`). New files: restart the game fully.
+
 ## 1.24.0 (2026-11-18)
 - "Where is...?" directions for the Undercity (`directions.lua`, new file: restart the game fully).
 

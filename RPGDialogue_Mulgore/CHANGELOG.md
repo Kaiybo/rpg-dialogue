@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.24.0 (2026-11-18)
+- 27 named NPCs the earlier passes missed now have conversations (`npcs/missed.lua`, `npcs/missed2.lua`, `npcs/missed3.lua`). New files: restart the game fully.
+
 ## 1.23.0 (2026-11-18)
 - New NPCs from the Classic-era roster (`npcs/more_folk.lua`). New files: restart the game fully.
 - NPCs notice what you have done: quests for their neighbours, notable kills, your deaths, rank and reputation.

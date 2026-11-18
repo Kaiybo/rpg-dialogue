@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.0 (2026-11-18)
+- 2 named NPCs the earlier passes missed now have conversations (`npcs/missed.lua`). New files: restart the game fully.
+
 ## 1.22.0 (2026-11-18)
 - NPCs notice what you have done: quests for their neighbours, notable kills, your deaths, rank and reputation.
 - Writing pass: stance replies end on something concrete, fewer echoes and stock phrases.
