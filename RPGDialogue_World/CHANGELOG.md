@@ -4,7 +4,7 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.37.0 (2026-11-18)
 - Speak your mind: views (things you can say back) for every "Ask about" topic, plus the "ask anyone" topics and a fallback set (`views.lua`, `views_1.lua` to `views_5.lua`). New files: restart the game fully (a /reload won't load them).
-Paladin trainers have a lot more to say. No new files; a /reload is enough.
+- Paladin trainers have a lot more to say:
 - Ask what to practise and get a whole lesson: blessings, seals and judgement, auras, the undead, Redemption (level 12+) and the warhorse (level 30+).
 - Ask what's left of the Silver Hand: Uther and his tomb, how Arthas fell, the Scarlet Crusade, the Argent Dawn, and (Forsaken) whether the living knights will have you, pointing to Bandarion Keep.
 - The trainer asks why you took up the hammer: protection, justice, vengeance or bread, each a stance.

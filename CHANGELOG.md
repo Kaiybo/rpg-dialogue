@@ -3,7 +3,7 @@
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
 ## 0.82.0 (2026-11-18)
-**New files: restart the game fully (a /reload won't load them).**
+Seven parallel pieces of work in one release. **New files: restart the game fully (a /reload won't load them).**
 
 ### Speak your mind.
 
@@ -13,16 +13,28 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 - **It counts.** What you say goes into the journal's beliefs in your own words. Strong stances on moral and political subjects move your alignment, once per subject with each person. People warm to you or bristle depending on where they stand, and word of it travels around their town. You get one view per subject with each person.
 - **DialogueUI:** your replies are listed above the topic list, so the next question is still one click away.
 - Turn it off under Settings, In the conversation: "Say what you think after they answer a question".
-Paladin trainers have a lot more to say (World 1.37.0). No new files; a /reload is enough.
+
+### Paladin trainers have a lot more to say (World 1.37.0).
 - Ask what to practise and get a whole lesson: blessings, seals and judgement, auras, the undead, Redemption (level 12+) and the warhorse (level 30+).
 - Ask what's left of the Silver Hand: Uther and his tomb, how Arthas fell, the Scarlet Crusade, the Argent Dawn, and (Forsaken) whether the living knights will have you, pointing to Bandarion Keep.
 - The trainer asks why you took up the hammer: protection, justice, vengeance or bread, each a stance.
 - Replies for each paladin origin (a squire who never took the oath can swear it now), plus branches for priests and for other classes curious about the Light.
 - New greetings and notices (a female squire, late at night, fresh from the spirit healer, many deaths, Scarlet blood on your gauntlets) and answers on the Silver Hand, the Scarlets, the Argent Dawn, Stratholme, the Forsaken and the Tome of Divinity.
+
+### Stormwind: 14 new people and deeper talks (Stormwind 1.28.0).
+- New: Demisette Cloyce, Sandahl, Jalane Ayrole, Katherine the Pure, Brother Cassius, Lord Tony Romano, Lina Stover, Kathrum Axehand, Bryan Cross, Darian Singh, Major Mattingly, Field Marshal Afrasiabi, Lieutenant Karter, Nara Meideros and others (`npcs/stormwind_more.lua`).
+- The park: Imelda, Kimberly and Kelly Grant, Shailiea and their neighbours (`npcs/park_folk.lua`).
+- Deeper conversations for light NPCs: Jarel Moor (his real drink stock, his past, the cellar), Brother Joshua, Angus Stern, Brohann Caskbelly, Collin Mauren, the cathedral folk, the Old Town and Trade District regulars.
+
+### NPCs answer back when you leave a topic.
+- A reply that returns to the topics or ends the talk can now get its own answer before the next page, instead of a stock line. The Lion's Pride cellar (Darkheart, Crowe, Marcot, Elwynn 1.31.0) answers every stance, including you threatening to report them.
+
+### A Large dialogue box.
+- New option, Settings or the quick menu "Box size": Large makes the box and its text bigger and easier to read.
+
 ### Export your character sheet.
 - New **Export sheet** button on the journal's Myself page (or `/rpgd sheet`) opens your whole character as plain text to copy: name, realm, level, race, class, sex, faction, guild, location, hearthstone, money, experience; attributes, armor, resistances, attack power and crit/dodge/parry/block; every equipped item with quality and item level; talents by tree with every point spent; skills and professions; reputations; your alignment, traits, insanity, conversations and deaths as numbers; then every journal page (Myself, Stories, People, Heard of, Diary) and your notes.
 - It's for reading and sharing (a forum post, a roleplay profile). `/rpgd export` is still the string that restores a story.
-- No new files: a /reload is enough.
 
 ## 0.81.0 (2026-11-17)
 Everything from the parallel 0.80 work in one release. **New files: restart the game fully (a /reload won't load them).** Most packs got a minor version bump.

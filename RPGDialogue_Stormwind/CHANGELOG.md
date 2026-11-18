@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.28.0 (2026-11-18)
+- 14 new people in `npcs/stormwind_more.lua` and the park folk in `npcs/park_folk.lua` (new files: restart the game fully), and deeper conversations for Jarel Moor, Brother Joshua, Angus Stern, Brohann Caskbelly, Collin Mauren, the cathedral and the Old Town and Trade District regulars.
+
 ## 1.27.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
 - New: Betty Quin, the enchanting teacher upstairs at Cordell's (see the main changelog for 0.80.0). New file `npcs/betty_quin.lua`: restart the game fully (a /reload won't load it).

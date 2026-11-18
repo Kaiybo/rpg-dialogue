@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.31.0 (2026-11-18)
+- The Lion's Pride cellar (Darkheart, Crowe, Marcot) answers every stance before the talk moves on, including being reported to the law (needs core 0.82.0).
+
 ## 1.30.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
 - Prejudices (0.80.0): Supervisor Raelen (Westfall farmhands). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
