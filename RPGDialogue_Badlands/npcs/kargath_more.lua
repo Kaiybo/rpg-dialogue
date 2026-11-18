@@ -94,6 +94,16 @@ P:NPC {
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
+    dd_nk_fall = {
+      lines = {
+        { id = "dd_nk_fall1", text = "Most do, once. The rock here crumbles under a boot and looks solid until it doesn't, and the drop to the canyon floor is longer than it seems from the top. Next time, walk where the coyotes walk, because they've already learned what you just did." },
+      },
+      choices = {
+        { text = "I'll follow your advice and the coyotes' trails.", next = "BACK", reply = "Good. A scout who listens lives long enough to give advice of her own.", fx = { align = { order = 1 } } },
+        { text = "I'll take the high ground anyway. It's faster.", next = "BACK", reply = "Faster down, certainly. I'll send someone to look for you at the bottom.", fx = { align = { order = -1 } } },
+        { text = "Something else, Neeka.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp's fire would scare the coyotes off the grain sacks, I suppose, if it didn't burn the sacks first." },
@@ -119,6 +129,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. You'll be no use as a scout in all that iron, but the gullies need clearing as well as watching, and I can always use a strong arm." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. You'll not sneak up on anything in that plate, and the glow won't help either, so stay off my ridges." },
+        { id = "dd_fall", when = { deathCause = "falling" },
+          text = "You found one of my gullies the hard way, didn't you? I offered to tell you which ones would kill you, and you went and checked for yourself." }, 
       },
       again = {
         { id = "h_again", text = "Something else? Ask it quickly, because the light's going and I scout at dusk." },
@@ -126,6 +138,7 @@ P:NPC {
         { id = "h_again3", text = "More questions? You'd make a poor scout, but a decent clerk, and the Horde needs both, I suppose." },
       },
       choices = {
+        { text = "I fell off one of your ridges, Neeka.", next = "dd_nk_fall", when = { deathCause = "falling" } },
         { text = "What else stalks these gullies, Neeka?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Could my ghost wolf keep pace with your scouts, Neeka?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Where would a spellcaster be most use to your scouts, Neeka?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
@@ -402,6 +415,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter! Jarkal be needing gizzards and fangs, mon, and you look like you know which end of a buzzard be which." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Eh, a dead mon who be shinin' like the sun! I never think I see the Light walk into Kargath wearing a Forsaken face." },
+        { id = "dd_disharmony", when = { questDone = TODO_QUEST("Disharmony of Fire") },
+          text = "Thunderheart say the fire spirits under the mountain be a little quieter since you went down there for him. Good, mon, because my flasks crack every time they shout." },
       },
       again = {
         { id = "h_again", text = "What else, mon? Jarkal be listening while he stirs." },
@@ -824,6 +839,8 @@ P:NPC {
           text = "A hunter. You'll want arrows, and I've a crate, but the next one won't come over the Gorge road for weeks, so don't waste them on buzzards." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and probably here to tell me the land's suffering. I know it's suffering, I live in it, so either buy something or tell me something I don't know." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one with the Light on you. I don't care what you pray to, as long as you don't waste my water, though I suppose you don't drink much of it." },
+        { id = "dd_reagents", when = { questDone = TODO_QUEST("Badlands Reagent Run") },
+          text = "Jarkal's shelves are full again, and he says you filled them. A full shelf means fewer grunts coming to me begging for something to put on a burn." },
       },
       again = {
         { id = "h_again", text = "What else? I've got stock to count." },

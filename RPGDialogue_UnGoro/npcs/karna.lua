@@ -86,6 +86,7 @@ P:NPC {
           text = "You brought her home! A dent in the shoulder and one in the head, but nothing a dwarf with a hammer can't fix. I could kiss you, but I'll just say thank you." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! Then you've surely heard of my uncle Remtravel, or you will, because he's never stopped digging long enough to be forgotten." },
+        { id = "h_dd_flyer", when = { questDone = TODO_QUEST("Shizzle's Flyer") }, text = "Shizzle's been bragging that you fetched the scales for his flyer, and now he's sure he'll be out of the crater by spring. I've looked at the design, and I'd give it one flight, maybe two, but I hope he proves me wrong." },
       },
       again = {
         { id = "h_again", text = "What else? I love questions almost as much as I love gears, and nearly as much as a good dark ale." },

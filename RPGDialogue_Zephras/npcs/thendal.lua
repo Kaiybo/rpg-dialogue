@@ -814,8 +814,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the player died from a fall.
+    dd_fall = {
+      lines = { { id = "df_default", text = "They seldom do, whatever Myriaal claims. Our gifts thin as the pylons fade, and what our grandparents did without thinking, we must now do with care. I would rather the young learned that from me than from the rocks." } },
+      choices = {
+        { text = "Myriaal's right to teach courage. I'll jump again.", next = "BACK", reply = "Of course you will; every one of her students does. Look down first, at least, and know what you are jumping into.", fx = { align = { order = -1 } } },
+        { text = "You're right. I'll mind the edge from now on.", next = "BACK", reply = "Thank you. Don't tell Myriaal I said so, but she'd be glad of it too; she buries students no more happily than I do.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" },
+          text = "You've fallen from the heights, and the ground did not catch you; I can see it in how you look at the edge. Myriaal's games teach the young to trust the wind, and the wind is not always listening." },
         { id = "h_default", key = true, text = "I am Halaan, of the Rangers of Thendal Grove. I come here most days to look upon the anchor pylon out yonder, for the wind spirits left the pylons to bind and sustain our island, and someone ought to keep an eye on them." },
         { id = "h_anchors", tags = { "news" }, when = { questDone = TODO_QUEST("The Anchors of Zephras") },
           text = "Thank you for looking with me, the other day. Few people take the time, and the pylon deserves to be seen by someone other than an old ranger." },
@@ -826,6 +837,7 @@ P:NPC {
         { id = "h_again", text = "Something more? I have time; the pylon isn't going anywhere, I hope." },
       },
       choices = {
+        { text = "I fell, and the winds didn't catch me.", next = "dd_fall", when = { deathCause = "falling" } },
         { text = "Something seems wrong with the pylons.", next = "pylon" },
         { text = "Tell me about your gift.", next = "gift" },
         { text = "Myriaal calls you a stuffy old wretch.", next = "myriaal", when = { heardLine = "zep_myriaal.ha_default" } },

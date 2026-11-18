@@ -143,6 +143,7 @@ P:NPC {
           text = "A warrior, and ye'll be wanting a proper meal before ye go down into that pit, because I'll not have ye eating what lives down there." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Ye'll be bringing me crater meat, I suppose, and I'll be telling ye no, same as I tell everyone." },
+        { id = "h_dd_salvage", tags = { "news" }, when = { questDone = TODO_QUEST("Expedition Salvation") }, text = "Williden says you hauled our lost crates back up from the crater, and I've been counting them ever since. Half the flour's spoiled and the other half has teeth marks in it, but it's ours again, and that's more than I hoped for." },
       },
       again = {
         { id = "h_again", text = "Anything more ye need from the stores, friend, before I get back to my crates?" },
@@ -162,7 +163,18 @@ P:NPC {
         { text = "What have you got against crater food?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Not even devilsaur steak, fresh from a hunter?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "You won't buy anything from the crater at all?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Were the crates worth the trouble, Nergal?", next = "dd_salvage", when = { questDone = TODO_QUEST("Expedition Salvation") } },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+    dd_salvage = {
+      lines = {
+        { id = "dd_salvage_1", text = "Every one of them, friend. The supply runs from Gadgetzan cost a fortune and lose a third to the pterrordax, so a crate pulled out of the mud below is a crate nobody has to pay for twice. I can feed the Refuge for another fortnight on what you brought, if nobody minds the teeth marks." },
+      },
+      choices = {
+        { text = "The Refuge needs to stop leaving supplies in the mud.", next = "BACK", reply = "It does, and I've told Williden as much, politely. The camps fell fast, though, and nobody stops to pack when a devilsaur's coming through the tents.", fx = { align = { order = 1 } } },
+        { text = "Out here, you take what the crater leaves you.", next = "BACK", reply = "That's the truth of it. Plan all you like, and Un'Goro will still eat half your plans before supper.", fx = { align = { order = -1 } } },
+        { text = "Something else, Nergal.", next = "BACK" },
       },
     },
     crater_food = {
@@ -356,6 +368,7 @@ P:NPC {
           text = "A warrior! You fly with me, chum, you strap that axe down tight, because a loose blade in a headwind over Fire Plume Ridge is a very expensive mistake, and you're paying for it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, and with a beast! Flyers don't mind passengers, chum, but they do mind passengers with claws, so let's have a little talk first about the deposit." },
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You've gone off a cliff somewhere and paid for it, I'd guess, by the way you're looking at the rim path. It's a long way down into the crater, so let my birds take you, because they've never once missed the bottom." },
       },
       again = {
         { id = "h_again", text = "What else, chum? The flyer's gettin' twitchy, and twitchy flyers cost me feathers." },

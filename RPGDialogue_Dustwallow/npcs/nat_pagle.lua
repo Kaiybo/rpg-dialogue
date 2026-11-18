@@ -97,6 +97,7 @@ P:NPC {
           text = "A dwarf! Your lot fish like they mine, all elbows and no waitin', but I've seen a few learn better." },
         { id = "h_troll", when = { race = "Troll" },
           text = "A troll, and I'd wager you grew up with a line in the water. You'll know the sea doesn't hurry for anybody." },
+        { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "You've drowned, haven't you? I can always tell, because a drowned man looks at water the way I look at a bait bucket. Stay on the dock and let the fish come to you; they're in no hurry, and neither should you be." },
       },
       again = {
         { id = "h_again", text = "Somethin' else on your mind? Take your time, nothin' here is in a hurry." },

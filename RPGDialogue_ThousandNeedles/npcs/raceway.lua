@@ -688,6 +688,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_venom", when = { questDone = TODO_QUEST("Salt Flat Venom") },
+          text = "Fizzle's been braggin' that you brought him enough venom to fuel his whole team for a week. Don't tell Pozzik I told ya, mind, because he'd pay good money to know, an' I'd hate to be the one who didn't charge him." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Big, strong an' noticeable, which is a fine thing in a fight an' a terrible thing in my line o' work." },
         { id = "h_huntcl", when = { class = "HUNTER" },

@@ -45,6 +45,7 @@ P:NPC {
           text = "I saw gnolls, Woodpaw gnolls, quarrelling over packs by firelight, and a boat breaking in the surf. Take that to Ginro, and tell him the debt is paid in full." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, and a Moonglade one by the look of you. Then perhaps you can tell me what nobody in Darnassus will: why the Arch Druid needs quite so much morrowgrain." },
+        { id = "h_dd_woodpaw", tags = { "news" }, when = { questDone = TODO_QUEST("The Woodpaw Gnolls") }, text = "Ginro says you went into the Woodpaw camps and came back with Raschal's packs, just as the knife showed me. I don't often get to see a reading proven so plainly, and I can't say I enjoyed it." },
       },
       again = {
         { id = "h_again", text = "What else? The tea's cooling, and I can't decide if that's a problem." },
@@ -189,6 +190,7 @@ P:NPC {
           text = "Quintis saw gnolls, so the Woodpaw camps in the south are where we start. Gnolls keep what they scavenge and fight over it, so if they found Raschal's packs, they'll still have them." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Thalanaar Delivery"), days = 5 } },
           text = "Falfindel has his parcel, and that's Raschal's last errand finished, whatever became of him. Thank you, {name}. I'll write it in the log in his name." },
+        { id = "h_dd_shalzaru", tags = { "news" }, when = { questDone = TODO_QUEST("Against Lord Shalzaru") }, text = "The dispatch about Lord Shalzaru crossed my table this morning, and your name was in it. It's a pleasant change to send good news to Darnassus for once." },
       },
       again = {
         { id = "h_again", text = "What else? I've a dispatch to finish, but it can wait." },

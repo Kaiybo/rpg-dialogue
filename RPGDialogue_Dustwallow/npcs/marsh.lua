@@ -863,6 +863,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Your little demon smell like old Gul'dan stories! Mok'Morokk like strong magic, so maybe you make Mok'Morokk a demon too?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "You druid! Mok'Morokk know druid, turn into bear. Mok'Morokk not scared of bear, because Mok'Morokk eat bear." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Ha! Dead thing that shines! Mok'Morokk never see that before, and Mok'Morokk see lots of things." },
+        { id = "h_dd_firemane", tags = { "news" }, when = { killed = { name = "Firemane", min = 30 } }, text = "You smash the Firemane! The black dragon's little lizard-men, they burn Stonemaul huts, and now they lie in the mud where they belong. Mok'Morokk likes you more now." },
       },
       again = { { id = "h_again", text = "What else you want?" }, { id = "h_again2", text = "Speak! Mok'Morokk hungry." } },
       choices = {
@@ -882,7 +883,18 @@ P:NPC {
         { text = "Onyxia is dead, Overlord. Your chief is avenged.", next = "xcl_ony", when = { cleared = "Onyxia's Lair" } },
         { text = "My friends follow me, Overlord. I'm the boss of this gang.", next = "xpt_mokmorokk", when = { party = { size = 4 } } },
         { text = "You don't like orcs much, do you, Overlord?", next = "pj_mok", when = { prejudiced = true } },
+        { text = "I've smashed plenty of Firemane, Overlord.", next = "dd_firemane", when = { killed = { name = "Firemane", min = 30 } } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    dd_firemane = {
+      lines = {
+        { id = "dd_firemane_1", text = "Good! The black dragon kill our old chief and take our land, and her lizard-men still come with fire. Mok'Morokk is overlord now, so Mok'Morokk says you can smash them any time, and Mok'Morokk will not even ask for a share." },
+      },
+      choices = {
+        { text = "I'll smash them for the Stonemaul, Overlord.", next = "BACK", reply = "Ha, that is good! Mok'Morokk will tell the ogres you are almost an ogre yourself, which is very big praise.", fx = { align = { honor = 1 } } },
+        { text = "I didn't do it for you. I did it for the loot.", next = "BACK", reply = "Hmph, that is rude, but it is honest. Mok'Morokk likes loot too, so maybe you are a little bit ogre after all.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Overlord.", next = "BACK" },
       },
     },
     b1_1 = {

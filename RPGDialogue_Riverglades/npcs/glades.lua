@@ -272,8 +272,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the player's deaths, as a business proposition.
+    dd_deaths = {
+      lines = { { id = "dd_default", text = "Want to? Kid, a fighter who keeps gettin' back up is the best investment in the business! If the spirit healer keeps sendin' you back, that's repeat bookings, and repeat bookings means repeat tickets." } },
+      choices = {
+        { text = "So you'd make money every time I died.", next = "BACK", reply = "Money's a strong word, kid. I'd say I'm diversifyin' around your mortality, and so would anybody with a head for numbers." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_kills", when = { killed = { min = 1500 } },
+          text = "Kid, word in the glades is you've put more bodies in the mud than the whole Twilight's Hammer, and that's a number I can print on a poster. You ever thought about gettin' a manager?" },
+        { id = "h_dd_deaths", when = { deaths = { min = 15 } },
+          text = "Heard you've been dyin' a lot out there, kid. That's fine, that's fine, crowds love a comeback, but you gotta win the rematch or the bettin' goes sour." },
         { id = "h_default", key = true,
           text = "Jezap Jinglesprocket, fight promoter, all the way from Gadgetzan, and I'm out here scouting talent, kid. These glades are full of folks hittin' each other for free, and it's breakin' my heart." },
         { id = "h_tauren", when = { race = "Tauren" },
@@ -288,6 +300,7 @@ P:NPC {
         { id = "h_again2", text = "Keep talkin', kid. I like a contender who talks, because talkers sell tickets." },
       },
       choices = {
+        { text = "I've died a lot. Still want to sign me?", next = "dd_deaths", when = { deaths = { min = 15 } } },
         { text = "What are you doing out here?", next = "why" },
         { text = "Do you know Jazzle Cheapshot at the port?", next = "jazzle", when = { heardLine = "jazzle.h_default" } },
         { text = "What makes a good fighter, to you?", next = "fighter" },

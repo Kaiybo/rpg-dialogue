@@ -101,8 +101,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_sabers = {
+      lines = {
+        { id = "dd_sabers_1",
+          text = "I don't doubt it, for they are proud hunters and they guard their ground. But a hunter who walks into a saber's den has chosen the quarrel, and the saber has only answered it." },
+        { id = "dd_sabers_2",
+          text = "The Trainers won't turn you away for it; we'd have few friends left if we did that to everyone. I only ask you to remember that the cats you kill are the mothers of the ones we hope to raise." },
+      },
+      choices = {
+        { text = "I'll give the sabers a wide berth from now on.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A beast is a beast. I won't apologize for surviving.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Rivern.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_sabers", when = { killed = { name = "Frostsaber", min = 20 } },
+          text = "The trainers have found frostsabers dead in the hills, and the tracks around them lead back to you. I won't pretend it doesn't trouble me, stranger, for every wild saber in Winterspring is kin to the ones we raise." },
+        { id = "h_dd_honored", when = { reputation = { faction = "Wintersaber Trainers", min = "honored" } },
+          text = "The trainers speak well of your work these days, and I've begun to believe them. Keep at it, and one season soon we may have a saber that will answer to your voice." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, here, among the sabers. Keep whatever you've bound far from the pens, because the cubs will not eat for days if they catch its scent, and I've no cubs to spare." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -127,6 +144,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, and quietly." },
       },
       choices = {
+        { text = "The frostsabers attacked me first, you know.", next = "dd_sabers", when = { killed = { name = "Frostsaber", min = 20 } } },
         { text = "Is it right to keep the wintersabers, Rivern?", next = "druid_q", when = { class = "DRUID" } },
         { text = "A wintersaber must be hard to earn.", next = "sabers" },
         { text = "What trouble do the Winterfall make?", next = "winterfall" },
@@ -304,8 +322,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_revered = {
+      lines = {
+        { id = "dd_revered_1",
+          text = "Because you have shed the blood of the Deadwood and the Winterfall, and you have done it without hating the furbolg. The elders can smell the difference, and so can Salfa." },
+        { id = "dd_revered_2",
+          text = "Long ago the furbolgs were one people under the moon. Now most are mad with the darkness in Felwood, and the Timbermaw remember the old ways alone, so a friend from outside is a rare thing to us." },
+      },
+      choices = {
+        { text = "I'm honoured. The Timbermaw will always have my help.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I only did what paid. Don't make it more than that.", next = "BACK", fx = { align = { order = -1, honor = -1 } } },
+        { text = "Something else, Salfa.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_revered", when = { reputation = { faction = "Timbermaw Hold", min = "revered" } },
+          text = "The elders of Timbermaw speak your name at the fire now, outsider, and Salfa has never heard them do that for one not born of the tribe. Walk the tunnels freely; no Timbermaw will raise a weapon to you." },
+        { id = "h_dd_firewater", when = { questDone = TODO_QUEST("Winterfall Firewater") },
+          text = "The dwarf by the springs says you found what poisons the Winterfall, a drink that makes them mad. Salfa thanks you for that, because the Winterfall were our cousins before the madness." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Winterfall", min = 40 } },
           text = "Salfa hears the Winterfall howl less at night, and he knows whose work that is. He thanks you, and he grieves, and both are true." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -333,6 +368,7 @@ P:NPC {
         { id = "h_again2", text = "What else?" },
       },
       choices = {
+        { text = "Why do the elders speak of me at the fire?", next = "dd_revered", when = { reputation = { faction = "Timbermaw Hold", min = "revered" } } },
         { text = "Can the Winterfall be cleansed, Salfa?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Something has gone wrong with the Winterfall.", next = "winterfall" },
         { text = "Where does the tunnel lead?", next = "tunnel" },

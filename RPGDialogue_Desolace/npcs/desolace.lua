@@ -32,6 +32,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_dalinda = {
+      lines = {
+        { id = "dd_dl_default", text = "I did, and I was glad of it. Her family thought her dead, and the Burning Blade would have made her so before long. What do you make of the Blade holding a fortress this close to us, now that you've seen inside it?" },
+      },
+      choices = {
+        { text = "We should storm it and drive them out entirely.", next = "BACK", reply = "With what men? But I agree, and if Stormwind ever sends reinforcements, that's the first place I'll aim them.", fx = { align = { order = -1 } } },
+        { text = "Watch them closely. Don't waste men on a siege.", next = "BACK", reply = "That's my thinking too, sadly. We hold what we can and watch the rest, until Stormwind remembers we're out here.", fx = { align = { order = 1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "If you could speak of their ancestors in a way they respect, maybe. The Gelkis think the earth belongs to them, and I'd like to see their faces if it answered you instead." } },
@@ -129,6 +139,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_dalinda", tags = { "news" }, when = { questDone = TODO_QUEST("Return to Vahlarriel") },
+          text = "Vahlarriel Demonslayer tells me you brought Dalinda Malem out of Thunder Axe Fortress alive. That's the best news this outpost has had in a long while, and I've made sure the men know your name." },
         { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon", faction = "Alliance" }, text = "My scouts tell me someone went into Maraudon and came out with the princess of the place dead behind them. I'll take any good news out here, but I'll take it twice when it means the centaur lose their holy ground." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. Good, because I need eyes on the centaur camps more than I need another sword, and the Kolkar can smell a soldier a mile off." },
@@ -149,6 +161,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? Make it count; the drums are starting." } },
       choices = {
+        { text = "You heard about Dalinda Malem, Captain?", next = "dd_dalinda", when = { questDone = TODO_QUEST("Return to Vahlarriel") } },
         { text = "Must you set the centaur clans against each other, Captain?", next = "druid_q", when = { class = "DRUID" } },
         { text = "So you play the clans against each other.", next = "clans" },
         { text = "Why is Stormwind even out here?", next = "stakes" },
@@ -630,6 +643,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_caravan", when = { questDone = TODO_QUEST("Bodyguard for Hire") },
+          text = "The Gizelton caravan rolled in safe, an' Cork Gizelton says ye were the one keepin' the centaur off it. Reclaimers Inc. ships half its finds on that caravan, so ye've done me a good turn without even knowin' it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior! Ye'll be wantin' tae know if I've any old arms out o' the wreckage, an' the answer's aye, though most o' it's rusted tae its scabbard." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -993,6 +1008,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_karnitol = {
+      lines = {
+        { id = "dd_kn_default", text = "Very unusual, and very loud. He says Reclaimers Inc. will be rich off what was in that hold, and he's already making plans for the next wreck. I worry about the souls who went down with the ship, though; does anyone think of them?" },
+      },
+      choices = {
+        { text = "The dead don't need cargo. The living do.", next = "BACK", reply = "Perhaps you're right, and the sea takes what it takes. I'll leave a candle in the window for them anyway.", fx = { align = { light = -1 } } },
+        { text = "Someone should. I'll say a word for them.", next = "BACK", reply = "Thank you; that's kind of you, and rarer than it should be. Elune keep them, wherever they are now.", fx = { align = { light = 1 } } },
+        { text = "Something else, Lyshaerya.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Some nights I think I hear them in the wind off the bone fields, but I'm no shaman. If they speak to you, I hope they say something kinder than they say to me." } },
@@ -1078,6 +1103,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_karnitol", when = { questDone = TODO_QUEST("The Karnitol Shipwreck") },
+          text = "Kreldig has been telling everyone at my hearth that you found the Karnitol's cargo for him, and he's been buying drinks all week. I've never seen a dwarf so happy about a shipwreck, and I hope I never do again." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior, and dusty to the knees, like everyone who climbs up from below. Leave your boots by the door, and the floor and I will both thank you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -1101,6 +1128,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? I'll keep sweeping; the sand comes back faster than I can push it out." } },
       choices = {
+        { text = "Kreldig's been buying drinks? That's unusual for him.", next = "dd_karnitol", when = { questDone = TODO_QUEST("The Karnitol Shipwreck") } },
         { text = "Can this land ever heal, Lyshaerya?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "Those drums haven't stopped all night.", next = "drums", when = { heardLine = "lyshaerya.h_night" } },
@@ -1169,6 +1197,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_spirits = {
+      lines = {
+        { id = "dd_sp_default", text = "I trust that Keldran sent him, and Keldran sent me too, so we're on the same side. But Maurin knows the Blade's magic a little too well for my comfort, and I watch him the way I'd watch any blade I didn't forge myself. Do you think a weapon that cuts both ways is worth carrying?" },
+      },
+      choices = {
+        { text = "Yes. You use every weapon you have against the Blade.", next = "BACK", reply = "That's what Keldran says, and maybe he's right. I'll keep watching, but I'll keep using him too.", fx = { align = { light = -1 } } },
+        { text = "No. Some weapons cost more than the victory.", next = "BACK", reply = "Then we agree, though I can't send him home without Keldran's leave. Watch him for me when I'm not around.", fx = { align = { light = 1 } } },
+        { text = "Something else, Takata.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd take anyone who fights. The cultists in Thunder Axe Fortress call on demons, and if your Light burns them, then I don't care whose corpse it lives in." } },
@@ -1249,6 +1287,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_spirits", when = { questDone = TODO_QUEST("The Burning of Spirits") },
+          text = "Maurin says you helped him with his spirit-burning business. I don't pretend to understand what he does with those bones and fires, but if it hurts the Burning Blade, then I'm glad of it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Can you track a satyr through broken ground, or only deer through grass? I need the first." },
         { id = "h_default", key = true,
@@ -1278,6 +1318,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. The satyrs won't wait while we talk, so neither will I for long." },
       },
       choices = {
+        { text = "Maurin's magic is strange, Takata. Do you trust him?", next = "dd_spirits", when = { questDone = TODO_QUEST("The Burning of Spirits") } },
         { text = "Do the satyrs poison the land, Takata?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who are the Burning Blade?", next = "blade" },
         { text = "Why kill every satyr?", next = "satyrs" },

@@ -168,8 +168,19 @@ P:NPC {
         { text = "Then I won't ask you to say them, Elder.", next = "BACK" },
       },
     },
+    dd_plague = {
+      lines = {
+        { id = "ddp_default", text = "Unnatural, yes, and like the corruption in the Blackwood camps and the moonkin gone wild. I have begun to think these are not many sicknesses but one, coming up out of the land itself, and I have no proof of it but my old bones." },
+      },
+      choices = {
+        { text = "Then find its source and burn it out.", next = "BACK", reply = "If we find it, perhaps. But fire is how the Highborne solved their problems, and look at the ruins they left along this shore.", fx = { align = { order = 1 } } },
+        { text = "Some things heal on their own, given time.", next = "BACK", reply = "Spoken like a druid, and Tharnariun would agree. I am older and less patient than he is, I fear.", fx = { align = { order = -1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_plague", tags = { "news" }, when = { questDone = TODO_QUEST("Cleansing of the Infected") }, text = "Tharnariun tells me you helped him cleanse the sickened bears to the north, and that some of them now walk the forest whole again. It is the first good news about Darkshore's beasts I have heard in a long season." },
         { id = "o_peace_peace", tags = { "news" }, when = { gossip = { topic = "peace", stance = "peace" } },
           text = "Glynda tells me you still believe in peace with the Horde. I hope you're right, though I'd like to see it before I believe it." },
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "Sentinels came up the shore road with word that someone had been to the bottom of Blackfathom Deeps and come back. Auberdine sleeps a little easier for it, and so, I confess, do I." },
@@ -201,6 +212,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. An elder's work is mostly listening, and my people have had ten thousand years to practise it." },
       },
       choices = {
+        { text = "Tharnariun's bears were sick with something unnatural, Elder.", next = "dd_plague", when = { questDone = TODO_QUEST("Cleansing of the Infected") } },
         { text = "How does Auberdine feel about its new allies?", next = "op_ask" },
         { text = "The land here looks sick.", next = "sick" },
         { text = "Why trust the Silver Hand?", next = "silverhand", when = { class = "PALADIN" } },
@@ -937,6 +949,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_gyromast", when = { questDone = TODO_QUEST("Gyromast's Revenge") }, text = "My Sentinels tell me a gnome's clanking machine went mad on the beach and had to be put down, and that you were standing beside it when it did. I would rather not know the rest, so long as the beach is quiet again." },
+        { id = "h_dd_althalaxx", tags = { "news" }, when = { questDone = TODO_QUEST("The Tower of Althalaxx") }, text = "Balthule says you have been at work against the Dark Strand at the Tower of Althalaxx, and that the cultists there are fewer and frightened. I have long wanted them gone from our shore, so you have my thanks." },
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "They say in Auberdine that you went down into Blackfathom Deeps and cut your way to the very bottom. The murlocs on my beach haven't noticed yet, but the naga have, and they've been keeping to deeper water since." },
         { id = "h_default", key = true, text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and has turned even the moonkin wild, and murlocs under a brute called Murkdeep creep up the beaches. I am only one Sentinel, so I could use another pair of hands." },
         { id = "h_crystal", tags = { "news" }, when = { questActive = TODO_QUEST("The Red Crystal") },
@@ -1341,8 +1355,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_murk = {
+      lines = {
+        { id = "ddm_default", text = "Happier and louder, both. For a season they were afraid to row past the point, and the boats came in half empty, so my kitchen went short too. Now there's grouper on the fire again, and the fishermen sing badly, and I wouldn't change a note." },
+      },
+      choices = {
+        { text = "The murlocs will be back sooner or later.", next = "dd_murk2" },
+        { text = "Something else, Shaussiy.", next = "BACK" },
+      },
+    },
+    dd_murk2 = {
+      lines = {
+        { id = "ddm2_default", text = "Oh, I know it, and so does Sentinel Glynda. The Greymist have lived on that coast longer than Auberdine has stood, and they'll find a new brute to follow. But not this week, and in Darkshore one good week is worth celebrating." },
+      },
+      choices = {
+        { text = "Then the Sentinels should drive them off the coast for good.", next = "BACK", reply = "Glynda would agree with you, though she hasn't the spears for it. I'll pass your words along when she comes in for her supper.", fx = { align = { light = -1 } } },
+        { text = "It's their coast too. Just keep them from the boats.", next = "BACK", reply = "Spoken gently, and you may be right. I'd still not tell the fishermen that while they're drinking.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_murk", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: Murkdeep!") }, text = "The fishermen have been drinking to Murkdeep's death all week, and every one of them tells me it was you who took his head. Sit down, and let them buy you a cup before they run out of stories." },
+        { id = "h_dd_remtravel", when = { questDone = TODO_QUEST("The Absent Minded Prospector") }, text = "That dwarf prospector you walked back from the southern dig still sits in my corner telling anyone who'll listen how you saved him. He forgets the middle of the story each time, but never the part with you in it." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You have the pale look of someone who has come back from the spirit healer more than once, friend. Darkshore is cruel to travellers who walk it alone, so rest here a while before you go out again." },
         { id = "o_peace_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } },
           text = "Glynda says you've no patience for talk of peace with the orcs. I've no patience for brawls in my inn, so let's both keep our tempers." },
         { id = "h_default", text = "I am Shaussiy, and I keep the inn by the docks of Auberdine. My guests come off the boats from Teldrassil and Menethil, mostly, and nearly all arrive green with seasickness, though my people have sailed these waters since before the Sundering." },
@@ -1365,6 +1401,7 @@ P:NPC {
         { id = "h_again", text = "Is there anything else, traveller? There's always tea on, and Elune's light on the water to drink it by." },
       },
       choices = {
+        { text = "The fishermen seem happier since Murkdeep fell.", next = "dd_murk", when = { questDone = TODO_QUEST("WANTED: Murkdeep!") } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who comes through the inn?", next = "guests" },
         { text = "I'd guess you hear the boats' news before anyone.", next = "news" },

@@ -28,8 +28,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_surplus = {
+      lines = {
+        { id = "dd_surplus_1",
+          text = "Of course he did. Let me guess: I sell grog to children, I water the stew, and every grunt who falls off the wall at night was drunk on my barrels. He's been saying it for years, and the grunts still come to me." },
+        { id = "dd_surplus_2",
+          text = "Truth is, the man cooks better than I do, and I'll deny I ever said so. Tell him I said his stew's fit for a kodo, and watch his face." },
+      },
+      choices = {
+        { text = "I'll tell him. This feud is too much fun.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You two should make peace before one of you dies.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Thultash.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_surplus", when = { questDone = TODO_QUEST("Lack of Surplus") },
+          text = "So you're the one who's been running Dar's errands down to Tok'Kar on the beach. Has that old crocolisk said anything about me lately? Don't spare my feelings; I've none left where he's concerned." },
         { id = "h_default", key = true,
           text = "Thultash, and I feed Stonard, near enough. Karakul cooks for the great hall and Tok'Kar for the beach, and I sell everything in between, the bread and the meat and the drink that keeps the grunts on the walls from going mad." },
         { id = "h_troll", when = { race = "Troll" },
@@ -42,6 +57,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm not going anywhere till the stock's sold." },
       },
       choices = {
+        { text = "Tok'Kar did mention you, actually.", next = "dd_surplus", when = { questDone = TODO_QUEST("Lack of Surplus") } },
         { text = "Let me see what you've got.", next = "BUSINESS" },
         { text = "Where does all this food come from?", next = "supply" },
         { text = "Why does Tok'Kar blame you for the drinking?", next = "drink" },
@@ -238,6 +254,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_murlocs", when = { killed = { name = "Marsh", min = 40 } },
+          text = "You've been carving up the marsh murlocs on the coast, I hear. Let me see that blade, because fish slime rusts steel faster than the swamp does, and I'd hate to see good work spoiled." },
         { id = "h_default", key = true,
           text = "Hartash, and I sell weapons to anyone in Stonard who means to keep breathing. Falchions, morning stars, a Zweihander if you've the shoulders, and a Great Axe that would make a Dreadmaul think twice about coming up the road." },
         { id = "h_rogue", when = { class = "ROGUE" },
@@ -339,8 +357,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = {
+        { id = "dd_deaths_1",
+          text = "I think a hide jerkin keeps you dry and a breastplate keeps you breathing, and only one of those matters when an ogre gets a swing in. Speed is fine until the swamp grabs your ankle, and then it's you and whatever you're wearing." },
+        { id = "dd_deaths_2",
+          text = "Thralosh has buried more customers than I have, and you can ask him about that if you like. He won't tell you the number, but I will." },
+      },
+      choices = {
+        { text = "You're right. I'll buy heavier armor.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Thralosh is right. Speed keeps you alive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Grimnal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You've been carried back to the spirit healer more times than I'd like to count, and I can see why: there's not enough metal on you. Thralosh would say you're too slow, and Thralosh would be wrong." },
         { id = "h_default", key = true,
           text = "Grimnal. I sell brigandine for those who want to move and platemail for those who want to live, and a crested heater shield that's turned more ogre clubs than I can count. Thralosh will tell you plate's too heavy for the swamp, and Thralosh is wrong." },
         { id = "h_hunter", when = { class = { "HUNTER", "SHAMAN" } },
@@ -351,6 +384,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, while I polish." },
       },
       choices = {
+        { text = "You think more plate would keep me alive?", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "Show me your armor.", next = "BUSINESS" },
         { text = "Doesn't plate sink in this mud?", next = "sink" },
         { text = "What's the quarrel with Thralosh?", next = "thralosh" },
@@ -495,6 +529,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_drown", when = { deathCause = "drowning" },
+          text = "I hear the swamp swallowed you whole! Did Grimnal sell you plate, by any chance? Iron sinks, friend, and leather floats, and I've been telling him so for years." },
         { id = "h_default", key = true,
           text = "Thralosh, and I sell cloth and leather, which is what anyone with sense wears in a swamp. Grimnal across the way will tell you plate keeps you alive, but plate also keeps you standing still while the crocolisks decide which end to start on." },
         { id = "h_rogue", when = { class = { "ROGUE", "DRUID" } },

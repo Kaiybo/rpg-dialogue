@@ -140,6 +140,7 @@ P:NPC {
           text = "A priest! Big brother says the crazies out west hate your Light worse than they hate the bugs, so you and I are going to get along fine." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Good, the crazies leave tracks all over the western dunes, and I bet you can follow them better than my big brother can." },
+        { id = "h_dd_geolords", tags = { "news" }, when = { questDone = TODO_QUEST("Twilight Geolords") }, text = "Huum says you struck down the geolords in the western camps, and for once my brother sounded almost cheerful about a killing. The crazies will be a while finding new ones to stand on those rocks and chant." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Huum's busy being serious with the Earth Mother, so I've got time." },
@@ -161,7 +162,18 @@ P:NPC {
         { text = "What do you need from a paladin against the cult, Bor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'd like to see the papers you've collected, Bor.", next = "xmage", when = { class = "MAGE" } },
         { text = "Why do the cultists hate druids so much, Bor?", next = "xpt_bor_wildmane", when = { party = { class = "DRUID" } } },
+        { text = "Huum seemed pleased about the geolords?", next = "dd_geolords", when = { questDone = TODO_QUEST("Twilight Geolords") } },
         { text = "I'll bring you whatever I find on them.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
+      },
+    },
+    dd_geolords = {
+      lines = {
+        { id = "dd_geolords_1", text = "Pleased for Huum, which means he lit a second stick of sage and said the spirits were quieter. My brother listens to the land and I listen to the cultists, and between us we usually hear the same thing a day apart, but this time we both heard you." },
+      },
+      choices = {
+        { text = "Killing them was the only way to stop the rituals.", next = "BACK", reply = "I'd say the same, and I'd say it louder than Huum would. The crazies don't stop chanting for anything short of a blade.", fx = { align = { light = -1 } } },
+        { text = "I'd rather have captured them and learned their plans.", next = "BACK", reply = "Now you sound like me on a good day! Bring me one alive someday, and I'll have him talking before the sun goes down.", fx = { align = { light = 1 } } },
+        { text = "Something else, Bor.", next = "BACK" },
       },
     },
 
@@ -366,6 +378,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The spirits of the beasts here are restless, {name}, for the crystals and the cult have driven them from their old paths." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and welcome among your own. The Circle needs every claw and every root it can find in Silithus, for the land here has forgotten what it was." },
+        { id = "h_dd_texts", when = { questDone = TODO_QUEST("Secret Communication") }, text = "My brother tells me you have been bringing him the cult's papers by the armful, and he reads them aloud to me at night in a terrible voice. The spirits grow uneasy at the words, but Bor says every page brings us closer to their masters." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, {name}; the spirits have waited this long, and they can wait a little longer." },

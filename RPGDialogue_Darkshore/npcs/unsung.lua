@@ -115,8 +115,29 @@ P:NPC {
         { text = "I had another question.", next = "BACK" },
       },
     },
+    dd_murk = {
+      lines = {
+        { id = "ddm_default", text = "No, and I wrote to Nessa across the water the same night to tell her so. She'll have the news all over Rut'theran by now, and she'll tell it better than I can, because she always does." },
+      },
+      choices = {
+        { text = "Was Murkdeep really sinking boats?", next = "dd_murk2" },
+        { text = "Something else, Laird.", next = "BACK" },
+      },
+    },
+    dd_murk2 = {
+      lines = {
+        { id = "ddm2_default", text = "Not with his own hands, maybe, but his murlocs cut lines, stole nets and waited in the shallows for anyone fool enough to wade out. Two of my lads came home bitten, and one of them hasn't fished since." },
+      },
+      choices = {
+        { text = "Tell your lad the water's safe again.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_murk", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: Murkdeep!") }, text = "My boats went out past the point this morning without a single spear between them, and that's because of you. Murkdeep cost me two nets and a summer of good catch, so whatever fish you want, you've my thanks to go with it." },
+        { id = "h_dd_pole", when = { questDone = TODO_QUEST("The Family and the Fishing Pole") }, text = "Gubber says he gave you his family's fishing pole, which is more than he's ever given me. If you catch anything worth selling with it, bring it here before he sees it." },
+        { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "You've drowned before, I can tell; you stand back from the edge of the pier like the water owes you money. Darkshore's tides pull hard, so swim with the shore in sight." },
         { id = "h_default", text = "I'm Laird, and I sell fish here in the inn. The Darkshore coast is a rougher place to cast a line than Teldrassil, with the murlocs and the threshers and worse, but the catch is better for it, whatever my old friend Nessa Shadowsong says over in Rut'theran." },
         { id = "h_flight", tags = { "news" }, when = { questActive = TODO_QUEST("Flight to Auberdine") },
           text = "That parcel smells like Rut'theran, so Nessa's sent you. Let me see what she thinks passes for a good catch over there." },
@@ -135,6 +156,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. Shaussiy won't mind as long as you buy something." },
       },
       choices = {
+        { text = "Murkdeep won't sink any more of your boats.", next = "dd_murk", when = { questDone = TODO_QUEST("WANTED: Murkdeep!") } },
         { text = "Let me see your fish.", next = "BUSINESS" },
         { text = "This coast seems a dangerous one.", next = "coast" },
         { text = "You must know Nessa Shadowsong.", next = "nessa" },

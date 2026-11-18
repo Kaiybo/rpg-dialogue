@@ -118,6 +118,8 @@ P:NPC {
         { id = "h_mountaineer", when = { origin = "dwarf_mountaineer" },
           text = "Ye walk like ye've kept a pass in the snow, so ye'll be one o' the Dun Morogh lads. Good, for ye'll know there's no glory in this work, only cold feet an' a long watch, an' the vermin never tire before ye do." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here in the loch? The kobolds in the Silver Stream are the only ones I know who talk tae the earth, an' they mostly ask it for candles." },
+        { id = "dd_rats", when = { questDone = TODO_QUEST("Rat Catching") },
+          text = "Kadrell says ye've been clearin' tunnel rats in the foothills for him. They're the same filthy lot as my Silver Stream vermin, so ye'll know which end o' them bites." },
       },
       again = {
         { id = "h_again", text = "What else? Speak up, for a kobold caught me by the ear wi' a pick last week an' it's still ringin'." },

@@ -750,9 +750,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_jarel_m = {
+      lines = {
+        { id = "dd_jarel_m_a", text = "That he was a fool who reached too far, and that's from people who reach a long way themselves. They didn't sound sorry, but they didn't sound pleased either; they sounded like people taking notes." },
+      },
+      choices = {
+        { text = "Then maybe someone should take notes on them.", next = "dd_jarel_m2", fx = { align = { order = 1 } } },
+        { text = "Their business is their own. I'll leave them be.", next = "dd_jarel_m2", fx = { align = { order = -1 } } },
+      },
+    },
+    dd_jarel_m2 = {
+      lines = {
+        { id = "dd_jarel_m2a", text = "Keep your voice down, friend, because the floor's thinner than you'd think. Stay away from the shadows, that's my advice, and I've given it to better people than you." },
+      },
+      choices = { { text = "Noted. Something else, Jarel.", next = "BACK" } },
+    },
+
     hello = {
       hub = true,
       lines = {
+        { id = "dd_morganth_jarel", when = { killed = { name = "Morganth" } },
+          text = "The ones downstairs were talking about Morganth, the old sorcerer in the Tower of Ilgalar out in Redridge, and how somebody finally ended him. They said a name, and then they looked at the door, and then you walked in." },
+
         { id = "h_default", key = true, text = "Jarel Moor, and this is the Slaughtered Lamb, and the drinks are honest even if the clientele aren't. I'll pour you something if you like, but stay away from the shadows; that's free advice and the best thing I sell." },
         { id = "h_lock", when = { class = "WARLOCK" }, text = "Another one for downstairs, is it? I don't ask and I don't tell, and I'd take it kindly if you didn't bring anything back up with you that wasn't there when you went down." },
         { id = "h_refugee", when = { origin = "human_lordaeron_refugee" }, text = "You've a northern way of holding a cup, friend, as if somebody might take it off you. I keep a little Lordaeron Lambic behind the bar for folk like you, and I don't charge what it's worth." },
@@ -765,6 +784,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. I'm only polishing cups." },
       },
       choices = {
+        { text = "What do the ones downstairs say about Morganth?", next = "dd_jarel_m", when = { killed = { name = "Morganth" } } },
+
         { text = "What's good to drink here?", next = "drink" },
         { text = "Why should I stay away from the shadows?", next = "shadows" },
         { text = "You know what's in your cellar, don't you?", next = "cellar" },
@@ -2308,6 +2329,9 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
+        { id = "dd_rank_cross", when = { pvpRank = 3 },
+          text = "That's a rank on your collar from the Champions' Hall, and I've sold shields to soldiers who never earned one. Let me knock on what you're carrying and see whether it's kept you alive by luck or by craft." },
+
         { id = "h_default", text = "Bryan Cross, shield merchant, and Old Town's been my corner since the city was rebuilt. A sword wins the fight, but a shield gets you home to eat supper, and I sleep better selling the second." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, and you've been using that shield hard, by the look of the rim. I'll sell you a new one, but come and tell me what's been hitting the old one first." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "One of the Cathedral's knights, are you? Your lot always want them blessed, and I always tell you the Light doesn't care what the shield's made of, only who's behind it." },
@@ -2751,9 +2775,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_mattingly_hk = {
+      lines = {
+        { id = "dd_mattingly_hk_a", text = "So have I, longer ago than I like, in the Second War when the orcs came over the hills with their wolves. It's different now, with this Thrall and his Horde across the sea, but an orc's axe is still an orc's axe." },
+      },
+      choices = {
+        { text = "The Horde is still the enemy. Nothing has changed.", next = "dd_mattingly_hk2", fx = { align = { light = -1 } } },
+        { text = "Some of them want peace. I've seen it.", next = "dd_mattingly_hk2", fx = { align = { light = 1 } } },
+      },
+    },
+    dd_mattingly_hk2 = {
+      lines = {
+        { id = "dd_mattingly_hk2a", text = "Perhaps you have, and perhaps you haven't, and I'm too old to change my mind about it. Keep your shield up and your eyes on the gate, and we'll both see who was right." },
+      },
+      choices = { { text = "Something else, Major.", next = "BACK" } },
+    },
+
     hello = {
       hub = true,
       lines = {
+        { id = "dd_hk_mattingly", when = { honorKills = { min = 100 } },
+          text = "You've the look of someone who has stood on a real battlefield against the Horde, and not just once. I can see it in how you watch the gate, the same way I do." },
+
         { id = "h_default", text = "Major Mattingly, Stormwind Army. I've stood guard on this valley since the city was rebuilt, and I'll stand here until they carry me out of it, which won't be soon if I've any say in it." },
         { id = "h_low", when = { maxLevel = 20 }, text = "Major Mattingly, and you're young to be wandering the Valley of Heroes. Read the statues, recruit, and remember that every one of those men and women started out just as green as you." },
         { id = "h_onyxia", tags = { "news" }, when = { questDone = ONY_VICTORY }, text = "Citizens and allies of Stormwind, I told them, on this day history has been made. I said it from the gate with your trophy over my head, and I've never been prouder to wear this uniform." },
@@ -2765,6 +2808,8 @@ P:NPC {
         { id = "h_again3", text = "Speak up. I've had a lot of cannon fire in my ears." },
       },
       choices = {
+        { text = "I've fought the Horde many times, Major.", next = "dd_mattingly_hk", when = { honorKills = { min = 100 } } },
+
         { text = "What exactly do you guard here?", next = "post" },
         { text = "Who are the heroes in the statues?", next = "valley" },
         { text = "What news of King Varian?", next = "king" },

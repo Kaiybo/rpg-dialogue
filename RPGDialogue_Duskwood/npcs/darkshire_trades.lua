@@ -109,6 +109,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_fall_felicia", when = { deathCause = "falling" },
+          text = "You fell from somewhere high, didn't you? I can always tell the ones who look down from my platform a moment too long, so take a gryphon next time and let the bird do the worrying." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Say something soothing near the roosts, would you? The gryphons have heard nothing but wolves for weeks." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The gryphons don't mind armour, but they do mind a rider who shouts, so keep your battle cries for the ground." },
         { id = "h_default", text = "Felicia Maline. I keep the gryphons of Darkshire, which mostly means keeping them calm when the wolves howl at night." },
@@ -277,6 +280,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_stalvan_gavin", when = { killed = { name = "Stalvan" } },
+          text = "They say Stalvan Mistmantle's finally dead, and that the blade that did it wasn't one I sold, which wounds my pride a little. Next time you go after a legend, friend, come and see me first." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've nothing for you but a knife to cut bread, though out here a knife's never the worst idea." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want a mace, then, for the dead, and I've a few with weight enough to break a skeleton's spine." },
         { id = "h_default", text = "Gavin Gnarltree. I make weapons for Darkshire, and in Darkshire nobody buys a blade for show." },

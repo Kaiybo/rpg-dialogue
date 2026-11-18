@@ -34,8 +34,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_backus_s = {
+      lines = {
+        { id = "dd_backus_s_a", text = "No, and I'll walk it a little slower for that. Mind, the Watch is stretched so thin that the Commander had to beg for help to stop one dead thing, and that ought to worry anyone who's thinking about what comes next." },
+      },
+      choices = {
+        { text = "Then Stormwind should send more soldiers.", next = "dd_backus_s2", fx = { align = { order = 1 } } },
+        { text = "Darkshire should stop waiting for the king and arm itself.", next = "dd_backus_s2", fx = { align = { order = -1 } } },
+      },
+    },
+    dd_backus_s2 = {
+      lines = {
+        { id = "dd_backus_s2a", text = "I won't say which I think is right, because I'd lose my post for it. But I'll say this: the people who help us out here aren't the ones in fine coats, and I've noticed." },
+      },
+      choices = { { text = "Something else, Backus.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
+        { id = "dd_stitches_backus", when = { killed = { name = "Stitches" } },
+          text = "My stretch of road has been quieter since that abomination was cut down, and I hear it was you who did the cutting. I've walked this road at night with Stitches somewhere behind me in the fog, so you've spared me a good many grey hairs." },
+
         { id = "h_default", key = true, text = "Watcher Backus, Night Watch. I walk this road from Darkshire out toward the old manor and back, and I see more than I get credit for." },
         { id = "h_defias", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "Defias activity? There's always some, but a couple of weeks ago a few of their agents gathered at Addle's Stead, south of the road as you come in from Westfall. I'd start there." },
@@ -49,6 +68,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, but watch the trees while you talk." },
       },
       choices = {
+        { text = "Stitches won't walk your road again, Backus.", next = "dd_backus_s", when = { killed = { name = "Stitches" } } },
+
         { text = "You're awfully secretive for a watchman.", next = "secret" },
         { text = "Who hears what you see, besides the Watch?", next = "trias" },
         { text = "This road seems lonely for one watchman.", next = "road" },

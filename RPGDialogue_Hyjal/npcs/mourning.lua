@@ -38,8 +38,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_xarkul = {
+      lines = {
+        { id = "dd_xarkul_1",
+          text = "Because a demon is not part of the cycle, mortal. It does not die the way a deer dies, or a soldier, or a tree; it only goes back to wherever the Legion keeps its rubbish, and what it leaves behind is poison to the ground." },
+        { id = "dd_xarkul_2",
+          text = "I eat what the mountain can grow back from. The fel things I leave to burn, and I am glad, very glad, when someone like you makes more of them to burn." },
+      },
+      choices = {
+        { text = "Then I'll keep giving you demons to ignore.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Seems wasteful. A carcass is a carcass, vulture.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Marrosis.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_xarkul", when = { questDone = TODO_QUEST("Yashiro's Windwalk") },
+          text = "The orc in Dae'gun tells everyone I would refuse to eat the demon you and he cut down. He's right, and I'm insulted he had to say it aloud, but you have my thanks for the killing all the same." },
         { id = "h_default", key = true,
           text = "I am Marrosis, and I clean up after death. That is the cycle: the dead fall, I eat, the ground grows green again. These undead are a blight on all of it, and I would be very glad to see them put to rest so the healing can begin." },
         { id = "h_food", when = { metBefore = true },
@@ -62,6 +77,7 @@ P:NPC {
         { id = "h_again2", text = "Another question. Very well, I have nothing else to eat at present." },
       },
       choices = {
+        { text = "Why wouldn't you eat the demon?", next = "dd_xarkul", when = { questDone = TODO_QUEST("Yashiro's Windwalk") } },
         { text = "These dead were soldiers once, by the look of them.", next = "dead" },
         { text = "The dead here should not be walking.", next = "why" },
         { text = "What does a Wild God want with carrion?", next = "cycle" },

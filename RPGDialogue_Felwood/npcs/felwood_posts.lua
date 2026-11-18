@@ -115,6 +115,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You flinch when the hippogryphs spread their wings, {class}, like someone who has fallen from a height and not forgotten it. Hold on and they will not drop you; it is the cliffs of Felwood you should be wary of." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage of the Alliance, at Talonbranch Glade. My hippogryphs drink only moonwell water, and they're wary of anything that smells of magic not drawn from Elune, so please be patient with them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -296,6 +297,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You've fallen off something high and died of it, {class}. I can tell by how you eye my wind riders. They don't drop riders who hold on, so hold on, and leave the cliffs to the goats." },
         { id = "o_demons_useful", tags = { "news" }, when = { gossip = { topic = "demons", stance = "useful" } },
           text = "Dreka's been grumbling that you'd use demons and break them after. Don't do it near my wind riders, because they spook." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },

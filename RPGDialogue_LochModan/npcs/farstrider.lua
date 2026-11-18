@@ -85,6 +85,16 @@ P:NPC {
         { text = "Something else, Marek.", next = "BACK" },
       },
     },
+    dd_mk_chal = {
+      lines = {
+        { id = "dd_mk_chal1", text = "Nothin', is it? I've watched dwarves twice yer size come back from those boars wi' their breeches torn an' the clock run out. Talk like that'll get ye a harder test from me, an' I've a few in mind." },
+      },
+      choices = {
+        { text = "Then set me the harder test. I'll meet it.", next = "BACK", reply = "Bold. Hunt the loch's big crocolisks first, then come back an' tell me it was nothin'.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Boasting's half the fun of the hunt, Marek.", next = "BACK", reply = "Half the fun an' all the trouble. Daryl's the same, an' she's been bitten twice this year.", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -103,12 +113,15 @@ P:NPC {
           text = "A druid at a huntin' lodge. Don't look at the trophies too long, friend; every one o' them was taken fair." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "A night elf! We get more high elves than your kind at this lodge, for the place was named for their rangers, but a good eye's a good eye." },
+        { id = "dd_challenge", when = { questDone = TODO_QUEST("A Hunter's Challenge") },
+          text = "Daryl's been boastin' that ye beat her elder boar challenge inside the time. If ye did, ye've earned a wee bit o' my approval, an' I dinnae hand that out for free." },
       },
       again = {
         { id = "h_again", text = "What else? The fire's warm an' I've nowhere tae be." },
         { id = "h_again2", text = "Ask on, friend. I'll answer, an' I might throw in a story." },
       },
       choices = {
+        { text = "Daryl's challenge was nothing, Marek.", next = "dd_mk_chal", when = { questDone = TODO_QUEST("A Hunter's Challenge") } },
         { text = "Tell me about the crocolisks.", next = "crocs" },
         { text = "What is this lodge, exactly?", next = "lodge" },
         { text = "Daryl seems a lively sort.", next = "daryl" },

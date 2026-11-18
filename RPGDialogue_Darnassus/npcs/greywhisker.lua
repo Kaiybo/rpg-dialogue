@@ -65,8 +65,19 @@ P:NPC {
       lines = { { id = "op_r5_default", text = "That's kindly said, and I'll put it in my letters home, because Ironforge is half convinced your people want us all shot." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    dd_ameth = {
+      lines = {
+        { id = "dda_default", text = "Grim, yes, but history usually is, once you dig past the pretty bits! A Highborne city cursed and fallen, and the elves on this tree can scarcely bring themselves to speak of it, which is exactly why somebody ought to write it down." },
+      },
+      choices = {
+        { text = "Some ruins should be left alone.", next = "BACK", reply = "Oh, you sound like half the priestesses in this city! I take your point, though, and I'll tell Hollee to watch where she puts her trowel.", fx = { align = { order = 1 } } },
+        { text = "Dig it all up. The truth belongs to everyone.", next = "BACK", reply = "Ha! Now that's the Explorers' League spirit. Don't say it too loudly near the Temple, mind.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_amethaaran", tags = { "news" }, when = { questDone = TODO_QUEST("The Fall of Ameth'Aran") }, text = "Hollee wrote from Auberdine that you read the tablets at Ameth'Aran for the elves, every last one of them! Do you know how many League scholars would give their beards for a look at those ruins?" },
         { id = "o_explorers_league_wrong", tags = { "news" }, when = { opinion = { topic = "explorers_league", stance = "wrong" } },
           text = "You think the League should leave the ruins alone, I'm told. You're welcome to the opinion, so long as you don't preach it to my crew." },
         { id = "o_magni_distrust", tags = { "news" }, when = { opinion = { topic = "magni", stance = "distrust" } },
@@ -89,6 +100,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, go on. Questions are what the League runs on." },
       },
       choices = {
+        { text = "I read the tablets at Ameth'Aran. It's a grim story.", next = "dd_ameth", when = { questDone = TODO_QUEST("The Fall of Ameth'Aran") } },
         { text = "What were your crew digging for in Darkshore?", next = "crew" },
         { text = "Why does the League care so much about ruins?", next = "warning" },
         { text = "I didn't expect to find a dwarf in Darnassus.", next = "city" },

@@ -37,6 +37,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_feathers", when = { questDone = TODO_QUEST("Feathers in Flight") },
+          text = "Zet'gan tells me you brought him his feathers and never plucked a living owl. I checked the nests myself, mind, and I'm glad to say he was telling the truth." },
         { id = "h_default", key = true,
           text = "The mountain is overrun with wild growth, swollen by the fel that rained down on it when Archimonde climbed toward the World Tree. The weeds and the brambles are angry now, poisoned through, and they strangle everything else, so they must be cleared, or Nordrassil's mountain will never regrow." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Celastrus the Bitter") },
@@ -167,6 +169,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_xarkul", when = { questDone = TODO_QUEST("Yashiro's Windwalk") },
+          text = "Yashiro say you walked da wind wit' him an' cut down dat big demon in Dae'gun, mon. Fewer demons be meanin' fewer arrows, an' I be likin' dat arithmetic very much." },
         { id = "h_default", key = true,
           text = "We been tryin' ta leave dis mountain many a time, but we keep gettin' pulled back ta defend our brothas an' sistas. Our defenses be dwindlin', an' it be time we get ta restockin', startin' wit' arrows. Lots an' lots o' dem." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Feathers in Flight") },

@@ -59,8 +59,19 @@ P:NPC {
       lines = { { id = "op_r3_default", text = "Yes. That's the only answer that's ever brought anyone out of Shadow Hold." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    dd_kills = {
+      lines = {
+        { id = "ddk_default", text = "Fewer, but the Shadow Council still holds the deeper halls, and whatever they serve down there is far worse than hounds and cultists. Trey went in thinking the Light would carry him through, and I can't stop thinking about how wrong he was." },
+      },
+      choices = {
+        { text = "Then we go in and burn the Council out.", next = "BACK", reply = "One day, with more than two friends and a paladin's courage. Not yet, and not alone, please.", fx = { align = { order = -1 } } },
+        { text = "The Sentinels should take it, properly, with a plan.", next = "BACK", reply = "Talonbranch hasn't the numbers, and Darnassus sends no more. But I'll say it to them again, and say that you agreed.", fx = { align = { order = 1 } } },
+        { text = "Something else, Jessir.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_kills", tags = { "news" }, when = { killed = { name = "Jaedenar", min = 30 } }, text = "You have killed a great many of Jaedenar's cultists and beasts, and every one of them stood between me and my friends once. I'm not proud of how glad that makes me, but I am glad." },
         { id = "h_default", key = true, text = "I am Jessir Moonbow, and I came from Darnassus to meet two friends here, Arko'narin and a paladin named Trey Lightforge. They went into Jaedenar to see whether the Shadow Council has really returned, and they should have been back days ago." },
         { id = "h_rescue", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rescue From Jaedenar"), days = 3 } },
           text = "You were the one who got Arko out of Shadow Hold? She ran through here with Trey's sword and wouldn't even stop for the druids to see to her wounds. She told me what you both found in there, and she didn't cry, which frightens me more than if she had." },
@@ -80,6 +91,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. Della and I aren't going anywhere." },
       },
       choices = {
+        { text = "Jaedenar has lost a good many cultists now.", next = "dd_kills", when = { killed = { name = "Jaedenar", min = 30 } } },
         { text = "Does Darnassus care what happens to its soldiers out here?", next = "op_ask" },
         { text = "Tell me about your friends.", next = "friends" },
         { text = "What is the Shadow Council?", next = "council" },

@@ -29,6 +29,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Patrice Dwyer, poison supplies, and everything on my shelf is perfectly legal in the Undercity before you say a word. Rogues buy from me, apothecaries sneer at me, and the worgen have never once complained." },
+        { id = "h_dd_ichor", when = { questDone = TODO_QUEST("Rot Hide Ichor") },
+          text = "So you're the one who brought Renferrel his gnoll ichor. He sneers at my shelf, but he brews with worse than anything I sell, and now I know who to thank for the smell." },
       },
       again = {
         { id = "h_again", text = "Something else, dear? Mind the green jars." },

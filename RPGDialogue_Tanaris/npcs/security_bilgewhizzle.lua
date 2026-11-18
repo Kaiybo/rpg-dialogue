@@ -108,6 +108,7 @@ P:NPC {
           text = "So Andre Firebeard makes his hearing after all, or his head does. Sign here, and don't worry about the small print, it's perfectly harmless." },
         { id = "h_goblin", when = { race = "Goblin" },
           text = "Ah, one of ours. Then you know a contract's only as good as the fellow holding the cudgel, and on this dock that's me." },
+        { id = "h_dd_justice", tags = { "news" }, when = { questDone = TODO_QUEST("More Wastewander Justice") }, text = "The Chief Engineer up in Gadgetzan, no relation, says you cleared the Wastewander bosses away from his pumps, pal. That's two Bilgewhizzles you've done favours for, and we both keep very good books." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, pal; I'm being paid by the hour and you aren't." },
@@ -122,7 +123,18 @@ P:NPC {
         { text = "Some of those pirates were just dock workers.", next = "dockers", when = { questDone = TODO_QUEST("Southsea Shakedown") } },
         { text = "What do you need, Chief?", next = "BUSINESS" },
         { text = "You watch me like I'm about to rob the dock, Chief.", next = "pj_bilge", when = { prejudiced = true } },
+        { text = "Your cousin's pumps are safe now, Chief.", next = "dd_justice", when = { questDone = TODO_QUEST("More Wastewander Justice") } },
         { text = "I'll let you get back to it.", next = "END" },
+      },
+    },
+    dd_justice = {
+      lines = {
+        { id = "dd_justice_1", text = "Safe is a big word, friend, and in my line of work we don't use it without a lawyer present. But the Wastewanders are off his back, so his water pressure is up, and when the water's flowing the Cartel stops sending me nasty little notes about the port's overheads too." },
+      },
+      choices = {
+        { text = "Bandits stealing water deserve no mercy, Chief.", next = "BACK", reply = "My kind of customer, pal! I'll put that on a sign by the dock, under the one about loitering.", fx = { align = { light = -1 } } },
+        { text = "Thirsty folk steal water. Sell it cheaper.", next = "BACK", reply = "Cheaper? Sparks and sprockets, pal, you'll give the trade princes a heart attack, so I'll pretend I didn't hear that, for both our sakes.", fx = { align = { light = 1 } } },
+        { text = "Something else, Chief.", next = "BACK" },
       },
     },
     protection = {

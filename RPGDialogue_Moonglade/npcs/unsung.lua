@@ -124,6 +124,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_grown", when = { metBefore = true, levelsSince = 10 }, text = "You've grown since you last came through Nighthaven, and not only in your gear; you stand like someone the world has tested. The grove is glad to see you back." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman, welcome to Nighthaven! The grove's quieter than anywhere on the Barrens, and I've seen shamans sit by the lake for hours, just listening." },
         { id = "h_apaladin", when = { class = "PALADIN" },

@@ -267,6 +267,7 @@ P:Pool {
     { id = "g_anvil", text = "Repairs, or something new?" },
     { id = "g_broken", when = { durability = { max = 0.25 } }, text = "Put it all on the bench, all of it." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and by the look of your gear you spent most of it getting hit. Put it on the bench." },
+    { id = "g_dd_deaths", when = { deaths = { min = 25 } }, text = "Gear that's been through a death has a look to it, and yours has been through more than a few. Put it on the bench and tell me nothing; I'd rather not know." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you've been leaning on folk in town. I'll mend your steel, but I'll not be leaned on, so we understand each other." },
   },
   notice = {
@@ -1899,6 +1900,15 @@ P:Pool {
         { id = "h_o_bolvar", once = true, when = { gossip = { topic = "bolvar", stance = { "trust", "respect" } } },
           text = "Someone told me you spoke up for Lord Bolvar. Good; he's earned it, and it's nice to hear a stranger say so for once." },
       },
+        -- Deeds pass: what the watch has heard about your deaths, your standing and the front.
+        { id = "h_dd_deaths", when = { deaths = { min = 15 } },
+          text = "The graveyard keeper says you're on first-name terms with the spirit healer by now. I'd not make a habit of it, friend, because one day the road back won't be there." },
+        { id = "h_dd_drowned", when = { deathCause = "drowning" },
+          text = "You drowned out there, didn't you? You've the look of someone who still reaches for the surface. My brother went into the lake and never came up, so forgive me for staring." },
+        { id = "h_dd_rep", tags = { "news" }, when = { any = { { reputation = { faction = "Stormwind", min = "honored" } }, { reputation = { faction = "Ironforge", min = "honored" } }, { reputation = { faction = "Darnassus", min = "honored" } }, { reputation = { faction = "Gnomeregan", min = "honored" } } } },
+          text = "Your name came down from the barracks with this week's orders, {g:sir|ma'am}, with a note to treat you well. I don't get many notes like that, so I read it twice." },
+        { id = "h_dd_hk", when = { honorKills = { min = 100 } },
+          text = "The talk at muster is that you've put a good many of the Horde in the ground out on the front. You carry it well, though I can see you carry it." },
       again = {
         { id = "a_road", text = "Anything else, or can I get back to watching the road?" },
         { id = "a_go", text = "Go on, then; I'm not going anywhere until the bell." },
@@ -1915,7 +1925,40 @@ P:Pool {
         { text = "I wore the Stormwind City Guard's tabard myself, once.", next = "oldguard", when = { origin = "human_city_guard" } },
         { text = "I held the rearguard at Gnomeregan, so I know a little about watches.", next = "rearguard", when = { origin = "gnome_rearguard" } },
         { text = "You might want to tie that purse a little tighter.", next = "purse", when = { class = "ROGUE" } },
+        { text = "I've died more often than I'd like to admit.", next = "dd_deaths", when = { deaths = { min = 15 } } },
+        { text = "I've been fighting the Horde on the front.", next = "dd_front", when = { honorKills = { min = 100 } } },
         { text = "Carry on, guard.", next = "END" },
+      },
+    },
+    -- Deeds pass: deaths and the front.
+    dd_deaths = {
+      lines = {
+        { id = "dd_de_default", text = "Then you're either very brave or very careless, and from my post the two look much the same. Every time they carry you to the graveyard, somebody on the watch writes it in the book, and I've seen your name there more than once." },
+        { id = "dd_de_many", when = { deaths = { min = 50 } }, text = "More than you'd like? The book has a page of its own for you now, friend, and the clerk complains about it. I don't know how you keep coming back, and I'm not sure I want to." },
+      },
+      choices = {
+        { text = "Does it unsettle the watch, folk coming back like that?", next = "dd_deaths2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dd_deaths2 = {
+      lines = {
+        { id = "dd_d2_default", text = "A little, if I'm honest. The spirit healers send you back and I'm glad of it, but the lads I lost to the Scourge up north never got sent back, and some nights that sits wrong with me." },
+      },
+      choices = {
+        { text = "Then I'll spend every second chance well.", next = "BACK", reply = "See that you do. That's all any of us could ask, and it's more than most manage.", fx = { align = { light = 1 } } },
+        { text = "Dying's a toll on the road. I'll keep paying it.", next = "BACK", reply = "Spoken like a sellsword. I hope the road never sends you a bill you can't pay, friend.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dd_front = {
+      lines = {
+        { id = "dd_fr_default", text = "I can see it on you; folk who've been at Warsong Gulch or up the Alterac pass come back standing differently. The wounded we get through here say it's no war like the old ones. How do you fight it?" },
+      },
+      choices = {
+        { text = "Fairly. I'd have them do the same to us.", next = "BACK", reply = "Then you're a better soldier than some I've served with, and the Horde will know it, in time.", fx = { align = { honor = 1 } } },
+        { text = "To win. However it has to be done.", next = "BACK", reply = "Hard words, but I've heard them from sergeants who came home when better men didn't. Just mind they don't follow you inside the walls.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     around = {
@@ -2388,6 +2431,15 @@ P:Pool {
         { id = "h_o_forsaken", once = true, when = { gossip = { topic = "forsaken", stance = { "distrust", "hate", "dangerous" } } },
           text = "Somebody heard you say the Forsaken can't be trusted. Plenty here agree, but the Warchief took them in, so we keep our muttering quiet." },
       },
+        -- Deeds pass: what the watch has heard about your deaths, your standing and the front.
+        { id = "h_dd_deaths", when = { deaths = { min = 15 } },
+          text = "The spirit healer sends you back so often the grunts have started laying wagers on it. Die less, and you'll cost me less coin." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "I hear you went off a cliff and the ground won. Next time, look before you jump; the ground has never lost a fight yet." },
+        { id = "h_dd_rep", tags = { "news" }, when = { any = { { reputation = { faction = "Orgrimmar", min = "honored" } }, { reputation = { faction = "Thunder Bluff", min = "honored" } }, { reputation = { faction = "Undercity", min = "honored" } }, { reputation = { faction = "Darkspear Trolls", min = "honored" } } } },
+          text = "The runners carry your name between the cities now, and they carry it with respect. The Horde doesn't hand that out for nothing, so stand tall." },
+        { id = "h_dd_hk", when = { honorKills = { min = 100 } },
+          text = "The war-callers say you've spilled a great deal of Alliance blood on the front. Good; you have the eyes for it, and the scars to go with them." },
       again = {
         { id = "a_road", text = "What else? The road won't watch itself." },
         { id = "a_speak", text = "Speak, then; I'm listening, and I'm still watching." },
@@ -2404,7 +2456,40 @@ P:Pool {
         { text = "I grew up behind human walls, in the internment camps.", next = "camp", when = { origin = "orc_camp_born" } },
         { text = "Do the Deathguard keep watches like yours?", next = "deathguard", when = { race = "Scourge", ["not"] = { capital = true } } },
         { text = "You'd never see me coming, you know.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I've died more times than I can count.", next = "dd_deaths", when = { deaths = { min = 15 } } },
+        { text = "I've been fighting the Alliance on the front.", next = "dd_front", when = { honorKills = { min = 100 } } },
         { text = "Strength and honor.", next = "END" },
+      },
+    },
+    -- Deeds pass: deaths and the front.
+    dd_deaths = {
+      lines = {
+        { id = "dd_de_default", text = "Then the spirits want you for something, or they'd have kept you by now. The old orcs say a warrior who keeps coming back has unfinished business, and that it's bad luck to stand between them and it." },
+        { id = "dd_de_forsaken", when = { race = "Scourge" }, text = "You were dead before you ever came to my post, so I don't know what dying means to your kind any more. The Forsaken I know just shrug and go back to the fight, and I'd call that brave if it weren't so strange." },
+      },
+      choices = {
+        { text = "Does it trouble the grunts, folk coming back like that?", next = "dd_deaths2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dd_deaths2 = {
+      lines = {
+        { id = "dd_d2_default", text = "It troubles the old ones. They saw what Gul'dan made of dead men in the Second War and they've never forgotten the smell of it, though the shamans swear the spirit healers are nothing like that." },
+      },
+      choices = {
+        { text = "Every time I come back, I owe the Horde more.", next = "BACK", reply = "That's how a warrior should carry it. Pay the debt in deeds, and the ancestors will be satisfied.", fx = { align = { honor = 1 } } },
+        { text = "The spirits can keep their debts. I fight for myself.", next = "BACK", reply = "Then fight well, at least, because a warrior who fights for nobody has nobody to carry them home.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dd_front = {
+      lines = {
+        { id = "dd_fr_default", text = "Warsong Gulch, the Alterac pass, the roads in between; I hear the Alliance send more soldiers every season. Tell me plainly, how do they fight?" },
+      },
+      choices = {
+        { text = "Hard, and fairly. I give them the same.", next = "BACK", reply = "Good. Thrall says honour is what separates us from what we were, and a warrior who fights fairly keeps that true.", fx = { align = { honor = 1 } } },
+        { text = "However they like. I fight to win.", next = "BACK", reply = "Winning matters, and I'll not pretend otherwise. Only remember the Warchief is watching what kind of Horde we become.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     around = {

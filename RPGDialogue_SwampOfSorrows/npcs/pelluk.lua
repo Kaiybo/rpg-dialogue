@@ -32,9 +32,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_noboru = {
+      lines = {
+        { id = "dd_noboru_1",
+          text = "We came through the swamp together, after our city fell, and we fished the same water. One season he began to forget the words for things, and then the names of friends, and then he forgot that he was one of us at all." },
+        { id = "dd_noboru_2",
+          text = "That is what waits for many of my people, and I watch for it in myself each morning. So I am glad he is at rest, and I am sad, and I do not know which one to feel first." },
+      },
+      choices = {
+        { text = "He was lost long before I found him. It was mercy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "He was dangerous. I'd do it again without regret.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Pelluk.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
+        { id = "h_dd_noboru", when = { questDone = TODO_QUEST("Noboru the Cudgel") },
+          text = "You are the one who ended Noboru. Magtoor says it is a day of joy, and perhaps it is, but I knew Noboru when he still knew himself, so forgive me if I do not smile." },
         { id = "h_default", key = true, text = "I am Pelluk. I fish for the Harborage, and I mend the nets, and when the bait runs short I go hungry before the others do." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Taking the Bait Back") },
           text = "Our bait was taken, the good bait we gathered and kept, and without it the nets catch nothing worth eating. I am not a fighter, but perhaps you would help me take it back." },
@@ -53,6 +68,7 @@ P:NPC {
         { id = "h_again3", text = "Something more, friend?" },
       },
       choices = {
+        { text = "You knew Noboru before he went mad?", next = "dd_noboru", when = { questDone = TODO_QUEST("Noboru the Cudgel") } },
         { text = "What is the Harborage?", next = "harborage" },
         { text = "Who took your bait?", next = "bait" },
         { text = "Where do your people come from?", next = "origin" },

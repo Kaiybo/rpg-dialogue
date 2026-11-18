@@ -209,8 +209,19 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    dd_felwood = {
+      lines = {
+        { id = "ddf_default", text = "Not yet, and perhaps not for a thousand years. The demons poured their filth into that forest during the war, and the satyrs and the Shadow Council keep it festering, so every patch of soil the Circle cleanses must also be guarded." },
+      },
+      choices = {
+        { text = "Then the satyrs and the Council must be driven out first.", next = "BACK", reply = "My father's children have done that before, and will again. But a forest cleared of enemies and left sick is only an emptier sickness.", fx = { align = { order = 1 } } },
+        { text = "Heal what you can and let the forest fight for itself.", next = "BACK", reply = "Spoken like one who has listened to the druids. The forest is stronger than it looks, and it remembers what it was.", fx = { align = { order = -1 } } },
+        { text = "Something else, Keeper.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_felwood", tags = { "news" }, when = { any = { { questDone = TODO_QUEST("Purified!") }, { questDone = TODO_QUEST("Cleansed Water Returns to Felwood") } } }, text = "The Emerald Circle sends word from Felwood that you have helped them heal a little of that poisoned ground, little one. It is slow work, slower even than the growing of a tree, and I am glad you lent your hands to it." },
         { id = "h_alt_other", when = { alt = { faction = "other" } },
           text = "You remind me of {alt}, little one, a {altrace} who came to my glade under the other banner and sat a long while by the moonwell. The glade does not keep your wars, and I confess I like to see the same quiet look on faces from both sides of them." },
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
@@ -261,6 +272,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, little one. The trees are listening too, so ask kindly." },
       },
       choices = {
+        { text = "Felwood is still so sick, Keeper. Is the Circle's work enough?", next = "dd_felwood", when = { any = { { questDone = TODO_QUEST("Purified!") }, { questDone = TODO_QUEST("Cleansed Water Returns to Felwood") } } } },
         { text = "Could the peace of this glade ever spread beyond it?", next = "op_ask" },
         { text = "What is the Cenarion Circle?", next = "circle" },
         { text = "Something seems to trouble you, Keeper.", next = "troubles" },
@@ -697,6 +709,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_cleansing", when = { questDone = TODO_QUEST("Cleansing Felwood") }, text = "The Emerald Circle tells me you helped them cleanse some of Felwood's corruption. Good, because what grows there drifts north on the wind, and I would rather Moonglade's groves never learn the taste of it." },
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "Your name isn't in my ledger yet, but I've a {altrace} written down called {alt}, from the other side of the war, and the likeness nearly had me writing you beside it. I don't believe in chance, so I'll assume the resemblance means something." },
         { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" }, metBefore = false },
@@ -1277,8 +1290,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_aquatic = {
+      lines = {
+        { id = "dda_default", text = "It should, for a while. Each shape asks you to forget a little of yourself and remember a little of the beast, and the water asks more than most because it does not hold you up the way the ground does. Swim in Lake Elune'ara until it feels like breathing." },
+      },
+      choices = {
+        { text = "I'll practise in the lake.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Loganaar.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_aquatic", tags = { "news" }, when = { questDone = TODO_QUEST("Aquatic Form") }, text = "Dendrite tells me you passed the trials of the lake and the sea lion, and that you take the seal's shape now. I remember the first time I swam as one, and I came up laughing like a cub." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. You know balance better than most, I think, because the elements are never still, and a shaman who tries to make them so soon learns how foolish that is." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1301,6 +1324,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I've packed a great many druids' questions, and there's always room for another." },
       },
       choices = {
+        { text = "The sea lion's shape still feels strange to me.", next = "dd_aquatic", when = { questDone = TODO_QUEST("Aquatic Form") } },
         { text = "What brought you to Nighthaven?", next = "why" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Balance seems hard to find these days.", next = "balance" },

@@ -481,6 +481,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The bats don't need praying over, so if that's why you came, you can go back down the hill." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could teleport, I suppose, but a bat doesn't need a reagent, so here we are." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The bats don't care what you pray to, so neither do I, though I'd thank you not to glow in the roost." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You fell to your death, didn't you? Everyone who does it has the same crumpled look afterwards, and my bats would have set you down gently for far less trouble." },
       },
       choices = {
         { text = "Do the bats sense what you are, Karos?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

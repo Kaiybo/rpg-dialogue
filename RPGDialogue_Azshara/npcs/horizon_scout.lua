@@ -33,8 +33,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_drown = {
+      lines = {
+        { id = "dd_drown_1",
+          text = "Every sailor has, but never so many in one night as when the Horizon Scout went down. The naga came up under the hull and we didn't see them until the water was in the hold, and half the watch went over the side before I could call them back." },
+        { id = "dd_drown_2",
+          text = "So mind the deep water here, friend, and mind it at night above all. The sea doesn't hate anyone, but the things living in this bay certainly do." },
+      },
+      choices = {
+        { text = "I'll respect the water from now on.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll swim where I please. The sea won't scare me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Shandril.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_drown", when = { deathCause = "drowning" },
+          text = "I heard the water took you somewhere along this coast, and you came back gasping. I've seen too many go under who didn't, so forgive me if I look at you like a ghost." },
         { id = "h_default", key = true,
           text = "Second Mate Shandril, of the Horizon Scout, or what's left of her. She's down there, under the water just off this point, and some of our crew are still inside, alive, because a gnome named Roland is keeping them breathing with some sort of spell. I'm waiting for them to come up, and I won't go anywhere until they do." },
         { id = "h_mage", when = { class = "MAGE" },
@@ -45,6 +60,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I talk better when I'm not just watching." },
       },
       choices = {
+        { text = "You've lost sailors to the sea before?", next = "dd_drown", when = { deathCause = "drowning" } },
         { text = "What happened to the Horizon Scout?", next = "wreck" },
         { text = "Who's trapped down there?", next = "trapped" },
         { text = "Why not swim down and get them?", next = "swim" },

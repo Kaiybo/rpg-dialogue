@@ -43,6 +43,7 @@ P:NPC {
           text = "Do'gol maybe used too much acid on the black shield, but the name on the rim came up, and the smell is almost gone from Do'gol's hands. Mosarn, it said, and Do'gol never heard of him." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "A warrior! Then you know a shield is not for hiding behind, it is for hitting people with when the axe is busy." },
+        { id = "h_dd_justice", tags = { "news" }, when = { questDone = TODO_QUEST("Justice Dispensed") }, text = "Krog says the ones who burned the human inn are dealt with, and that the black shield helped find them. Do'gol is proud of the acid now, even if it took off half the name." },
       },
       again = {
         { id = "h_again", text = "What else? The fire is hot and Do'gol should be hitting things." },

@@ -172,6 +172,7 @@ P:NPC {
           text = "A mage at the Refuge! J.D. will want to show you his crystals, and I'd be glad of a learned eye on them myself, because they hum in a way that I can't explain and don't entirely trust." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You move like someone who's been paid to go unnoticed, friend. Down in the crater that's a fine skill, and I won't ask who taught it to you." },
+        { id = "h_dd_ringo", tags = { "news" }, when = { questDone = TODO_QUEST("A Little Help From My Friends") }, text = "Spraggle came running in to tell me Ringo was home, and that you'd half carried him up the path. I've lost too many people in this crater, so one coming back alive is worth more to me than any journal." },
       },
       again = { { id = "h_again", text = "What else? Ask away, I've nothing but time and dinosaurs." } },
       choices = {
@@ -421,6 +422,7 @@ P:NPC {
           text = "A paladin, with a shield like mine! I can't remember who taught me to use it, but my arm knows how, and I'm told that's a good sign." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! I think I used to know one, or maybe I was one, before the raft. No, I'm fairly sure it was a sword I carried, though I'm also fairly sure about a boomerang." },
+        { id = "h_dd_ame", tags = { "news" }, when = { questDone = TODO_QUEST("Chasing A-Me 01") }, text = "Karna says you brought her mechanical ape home from Fungal Rock, and I'd swear I've seen something like it before. I can't remember where, of course, but I have a feeling it was trying to steal my sandwich." },
       },
       again = { { id = "h_again", text = "Ask! Quickly, before I forget you asked." } },
       choices = {
@@ -617,6 +619,7 @@ P:NPC {
           text = "A warrior! Perfect timing, because I need someone who can carry a crystal without dropping it, and who won't mind too much if it gives them a little jolt." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Have you noticed how the beasts down there go quiet around the big crystal clusters? I swear they know something we don't." },
+        { id = "h_dd_flyer", when = { questDone = TODO_QUEST("Shizzle's Flyer") }, text = "Shizzle tells me you brought him a heap of pterrordax scales for his flyer, and I've been begging him for a few to test against the crystals. He wants three gold apiece, which is robbery, but I may pay it anyway in the name of science." },
       },
       again = { { id = "h_again", text = "Another question? Lovely, because questions are my favourite thing after crystals." } },
       choices = {

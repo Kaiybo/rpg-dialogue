@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_drowned = {
+      lines = { { id = "dd_drowned_default", text = "We don't stand it, we just stop thinkin' about it, because the sea doesn't care whether ye're ready. I lost good hands on that reef out there, an' the ones who lived still dream about it." } },
+      choices = {
+        { text = "Then I'll respect the water from now on.", next = "BACK", reply = "Good, that's the first lesson, an' the only one that matters. Keep yer boots light an' yer breath long.", fx = { align = { order = 1 } } },
+        { text = "The sea had its turn. Next time I'll swim harder.", next = "BACK", reply = "Ha! That's what every drowned sailor said the first time. I like ye, but I'll not lend ye a boat.", fx = { align = { order = -1 } } },
+        { text = "Something else, Shakes.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -49,6 +58,8 @@ P:NPC {
           text = "A rogue! You'd fit right in with the Raiders, matey, and nobody here asks where your last purse came from." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Horde, eh? The Blackwater Raiders sail for Booty Bay and gold, not for kings or warchiefs, so you're as welcome here as anyone who pulls an oar." },
+        { id = "h_dd_drowned", when = { deathCause = "drowning" },
+          text = "Ye drowned, didn't ye? I can see it in yer eyes, that look of someone who's swallowed the sea and lost the argument. Every sailor does it once, an' the clever ones only once." },
       },
       again = {
         { id = "h_again", text = "What else, matey? Make it quick; the naga come up with the tide, and the tide's turning." },
@@ -62,6 +73,7 @@ P:NPC {
         { text = "Tell me about the Blackwater Raiders.", next = "ob_raiders" },
         { text = "Any work for a rogue on your crew?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Fair winds, Captain.", next = "END" },
+        { text = "I drowned out there, Shakes. How do sailors stand it?", next = "dd_drowned", when = { deathCause = "drowning" } },
       },
     },
 

@@ -339,6 +339,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Another green recruit, an' a sneaky one at that. Well, the troggs in the valley don't care how quiet ye are, so ye'd best learn tae hit hard as well." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Rockjaw", min = 30 } },
           text = "The troggs have stopped comin' up the valley in threes an' fours since ye started clearin' them, an' the recruits have noticed. I'll no' call ye green any more, though dinnae let it go tae yer head." },
+        { id = "dd_boars", when = { questDone = TODO_QUEST("The Boar Hunter") },
+          text = "Talin Keeneye's been tellin' everybody who passes his lake that ye thinned his boars. That's fewer brutes chasin' my letter carriers up the road, so I'm grateful too." },
       },
       again = {
         { id = "h_again", text = "What else? There's mail waitin'." },
@@ -550,6 +552,8 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Frostmane", min = 30 } },
           text = "The Frostmane up in the caves have been a good deal quieter since ye started thinnin' them out, an' my beard's stopped itchin' for the first time in a month. Keep at it, an' I'll see the King hears who tae thank." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here. The Frostmane have shamans o' their own, an' I've watched them dance round their fires from up the slope, so I'll trust ye're no' takin' lessons from them." },
+        { id = "dd_frostmane", when = { questDone = TODO_QUEST("Frostmane Hold") },
+          text = "Senir says ye walked right intae Frostmane Hold an' came back wi' yer beard intact. I'll be puttin' that in my report tae the Senate, an' they'll pretend tae read it." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? Quickly, before the cold gets into my ink." },
@@ -1047,6 +1051,16 @@ P:NPC {
         { text = "I had another question.", next = "BACK" },
       },
     },
+    dd_rg_cellar = {
+      lines = {
+        { id = "dd_rg_cellar1", text = "Aye? Go on, then. The Barleybrews have been after our recipes since my grandfather's day, an' they've never once got a drop worth drinkin' out o' the stealin'. I'm more cross wi' Jarven than wi' whoever it was, if I'm honest." },
+      },
+      choices = {
+        { text = "It was me. Marleth paid well, and I'm sorry.", next = "BACK", reply = "Ha! Honest, at least, which is more than Marleth's ever been. Buy a round an' we'll call it square.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I never went near your cellar, Ragnar.", next = "BACK", reply = "No, o' course ye didnae. Nobody ever does. Mind yer boots, though, for there's Thunderbrew mash on them.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll bless the vats, will ye? No? Well, a dwarf can ask, an' the Barleybrews have a priest come round every spring, or so they claim." },
@@ -1069,12 +1083,15 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll no' be one o' those that frowns at a dwarf for sellin' boar ribs, I hope, for they're the best in Dun Morogh." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I'll thank ye no' tae chill my ale wi' a spell, for Thunderbrew's served at cellar cold an' no colder, an' I'll fight anyone who says otherwise." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Ye'll know about fire, then, an' if ye can tell my stills tae burn steadier, I'll pour ye the first cask." },
+        { id = "dd_jarven", when = { questDone = TODO_QUEST("Distracting Jarven") },
+          text = "Jarven swears some stranger bought him a Thunder Ale, an' while he was drinkin' it, somebody went down intae my cellar for the Barleybrews. Ye wouldnae know anythin' about that, would ye?" },
       },
       again = {
         { id = "h_again", text = "What else? Kegs don't tap themselves, though one did once, an' we don't talk about it." },
         { id = "h_again2", text = "Go on, then; I've a minute an' a mug." },
       },
       choices = {
+        { text = "About your cellar, Ragnar...", next = "dd_rg_cellar", when = { questDone = TODO_QUEST("Distracting Jarven") } },
         { text = "You don't much like gnomes, do you, Ragnar?", next = "prej", when = { prejudiced = true } },
         { text = "What's in the famous ribs?", next = "ribs" },
         { text = "Your supplier seems to have let you down.", next = "supplier" },
@@ -1330,6 +1347,16 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    dd_bm_frost = {
+      lines = {
+        { id = "dd_bm_frost1", text = "Everyone, twice, an' once more for the barmaid. Those trolls have been in that cave since before Kharanos had a roof, an' the young ones grow up hearin' that the Frostmane eat dwarves that wander off, so it's no small thing tae hear somebody walked in an' walked out." },
+      },
+      choices = {
+        { text = "They're just trolls, Belm. Nothing to fear.", next = "BACK", reply = "Just trolls, says you! Tell that tae the herders who lost their rams. Still, I like the confidence.", fx = { align = { order = -1 } } },
+        { text = "Keep the young ones fearing it. That cave is dangerous.", next = "BACK", reply = "Aye, that's my thinkin' too. A wee bit o' fear keeps a bairn on the road.", fx = { align = { order = 1 } } },
+        { text = "Something else, Belm.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
@@ -1356,12 +1383,17 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Thunderbrew! Sit by the fire, friend, for ye kaldorei look as if ye've never seen snow, an' snow's all we've got." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Here, take a mug, ye've earned it, whatever it was ye did that ye'll no' be tellin' me about." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, in Kharanos! Sit by the fire, then, an' tell me if it's happy, for it's been smokin' somethin' awful all week." },
+        { id = "dd_frostmane", tags = { "news" }, when = { questDone = TODO_QUEST("Frostmane Hold") },
+          text = "Senir's been tellin' my whole common room that ye walked intae Frostmane Hold an' came back out again. Folk round Kharanos sleep a wee bit sounder knowin' somebody's been in there for a look." },
+        { id = "dd_stash", when = { questDone = TODO_QUEST("Tundra MacGrann's Stolen Stash") },
+          text = "Tundra MacGrann came in last week, grinnin' like a bear wi' a beehive, an' said ye'd fetched his stash back off the troggs. I didnae ask what was in it, an' he didnae tell me." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a tap runnin'." },
         { id = "h_again2", text = "Go on; the fire's listenin' too." },
       },
       choices = {
+        { text = "Senir told everyone about Frostmane Hold?", next = "dd_bm_frost", when = { questDone = TODO_QUEST("Frostmane Hold") } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who's the gnome you toast?", next = "lazlo", when = { heardLine = "eric.sm_default" } },
         { text = "What's Rhapsody Malt?", next = "malt" },

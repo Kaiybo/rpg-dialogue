@@ -34,6 +34,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_winterfall", tags = { "news" }, when = { killed = { name = "Winterfall", min = 30 } }, text = "The Winterfall beyond the northern door are fewer, and Gorn has smelled their blood on you each time you come through the tunnels. They were our cousins, and Gorn grieves, but he does not ask you to stop." },
         { id = "h_default", key = true, text = "Gorn One Eye has watched these tunnels for more winters than he can count, and he has seen what came up out of Felwood's poison. The Timbermaw are the last of the furbolg tribes who still know their own names, and we mean to stay that way." },
         { id = "h_alliance", when = { faction = "Alliance" }, text = "The elves come to us more often than they once did, and the dwarves and the humans with them. Gorn does not mind, so long as they remember the tunnels are ours." },
         { id = "h_horde", when = { faction = "Horde" }, text = "The orcs and the tauren come to us more often than they once did, and the dead walk with them now, which Gorn does not like. Still, the Timbermaw judge deeds and not banners." },

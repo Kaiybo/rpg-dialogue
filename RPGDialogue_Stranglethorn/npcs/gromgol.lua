@@ -1347,6 +1347,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_deaths_thulbek", when = { deaths = { min = 15 } },
+          text = "You come back from the spirit healer more often than most warriors I've known, and you still walk in on your own feet. That's strength of a kind, though a wiser orc would learn to die less." },
+
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Sit by the fire and tell me whether the elements have anything to say about the rain, because it hasn't stopped since I got here." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit close to the fire; whether you pray to the loa or the shadows, you'll do it better on a full stomach." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Sit and eat; your demon can have the scraps, and the grunts can stop staring, because I've told them to." },

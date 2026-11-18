@@ -27,6 +27,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_heming_n = {
+      lines = {
+        { id = "dd_heming_n_a", text = "Did you now, and did you see the wreck of the old Smotts ship while you were out there? I sailed with men who went down on that coast, and I still put a fish back in the water for them every evening." },
+      },
+      choices = {
+        { text = "I'll put one back for them too, old man.", next = "dd_heming_n2", fx = { align = { light = 1 } } },
+        { text = "The dead are dead. I'd rather keep the fish.", next = "dd_heming_n2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_heming_n2 = {
+      lines = {
+        { id = "dd_heming_n2a", text = "Ha, you'll learn the sea doesn't care either way, but sailors do. Now hush, because I've got a bite, and he's a big one." },
+      },
+      choices = { { text = "Good luck with him. Something else.", next = "BACK" } },
+    },
+
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That the fish decides when the fight starts, not you, and if you yank too early you lose him. I've watched young soldiers lose a hundred fights by swinging too soon, and I've never seen one lose by waiting a breath longer." } },
@@ -113,6 +129,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_negolash_heming", tags = { "news" }, when = { killed = { name = "Negolash" } },
+          text = "Negolash is dead, they tell me, and you're the one who sent him back under the waves. I've fished these waters for forty years, and I've seen that ogre's sails on the horizon more nights than I care to count, so you've my thanks." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, by the tides! Sit down a spell if your armor lets you, though I'll warn you that anyone in plate who falls off this dock goes straight to the bottom and stays there." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, by the tides! Sit down and hold this rod a moment, because I've always thought the Light must favor fishermen, seeing how much patience we need and how little we're paid for it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Your folk know water better than most, so I'd wager you can tell a good fishing day before the fish can." },
@@ -133,6 +152,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. An old man likes to be asked." },
       },
       choices = {
+        { text = "I sent Negolash to the bottom, old man.", next = "dd_heming_n", when = { killed = { name = "Negolash" } } },
+
         { text = "Do you ever thank the sea for what it gives you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Strange things must come up out of the water near Booty Bay.", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Tell me about the fishing tournament.", next = "tourney" },
@@ -319,6 +340,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_hk_mazk", when = { honorKills = { min = 100 } },
+          text = "Ooh, you've got that look, the look of somebody who's been shooting at the other side up north, and shooting a lot. I don't ask which side, pal, because I sell to both, and both of you buy plenty of shot." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Hammers are fine, friend, but have you ever thought about what you could do with a hammer that fires? Don't answer yet, just let it sink in." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Lightning's grand, chum, but it never lands quite where you point it, and that's why I sell guns." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll be needing protection, pal, because prayers are slow and a blunderbuss isn't." },

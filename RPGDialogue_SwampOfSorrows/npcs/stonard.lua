@@ -1158,8 +1158,25 @@ P:NPC {
         { text = "On to other things.", next = "BACK" },
       },
     },
+    dd_talker = {
+      lines = {
+        { id = "dd_talker_1",
+          text = "It is. Since the murlocs left him like that, I've watched him sit at the end of the bench with his food going cold, too proud to ask for help and too broken to manage without it." },
+        { id = "dd_talker_2",
+          text = "Last night his hand shook the whole time, and he spilled half of it, and he didn't care. A warrior who's had his revenge eats like a warrior again, even if it's a mess, so I'll not be the one to tell him otherwise." },
+      },
+      choices = {
+        { text = "Revenge was the least he was owed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I hope he finds peace, not just revenge.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Karakul.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_talker", tags = { "news" }, when = { questDone = TODO_QUEST("The Swamp Talker") },
+          text = "Bengor came in for supper last night and finished the bowl himself, without a scout to hold the spoon. He told me the murloc that broke him is dead, and that you killed it, so sit down and eat." },
+        { id = "h_dd_drown", when = { deathCause = "drowning" },
+          text = "I hear the swamp pulled you under and kept you a while. Boots off at the door, and dry yourself by the fire before you drip on my floor." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Boots off at the door, and the imp's too, if it has any, and keep it off the hearth while the stew's on." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, at my table? You could conjure your own supper, I know, so either you're being polite or you've tasted the stew." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Sit down and eat, and if you've any pull with the water spirits, ask them to keep the swamp out of my cellar." },
@@ -1176,6 +1193,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? The stew won't keep forever, and neither will I, though I'm too stubborn an orc to go quietly." } },
       choices = {
+        { text = "Bengor fed himself? That's good to hear.", next = "dd_talker", when = { questDone = TODO_QUEST("The Swamp Talker") } },
         { text = "Did the old Horde ever keep shamans here in Stonard?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do spellcasters eat at your tables often, Karakul?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What do the scouts say over their grog that they won't tell their commander?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },

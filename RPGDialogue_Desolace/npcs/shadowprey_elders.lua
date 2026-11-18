@@ -221,8 +221,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = {
+        { id = "dd_de_default", text = "Enough to stop counting, and enough to know each one takes something from you. The spirit healers send you back, but they don't send all of you, and what they keep you never get back. Fight carefully, young one, because the Earth Mother doesn't give endless chances." },
+      },
+      choices = {
+        { text = "Then I'll fight harder and die less.", next = "BACK", reply = "That's the spirit of a brave, though it's easier said than done. May you keep more of yourself than I did.", fx = { align = { order = -1 } } },
+        { text = "I'll fight smarter, and pick my battles.", next = "BACK", reply = "Wise, and rarer than it should be. An old warrior's best weapon is knowing which fights to walk away from.", fx = { align = { order = 1 } } },
+        { text = "Something else, Vark.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You have died more than a few times, I think. Twenty years of fighting centaur taught me to see it in a warrior's eyes, the look of someone who knows the spirit healer's face better than their mother's." },
         { id = "h_default", key = true,
           text = "I'm Vark Battlescar. I fought centaur for twenty years and now I fight a satyr I've never seen, because a satyr called Vyletongue has corrupted the caverns of Maraudon and stunted everything that grows inside." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Vyletongue Corruption") },
@@ -239,6 +251,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. I've a vial to guard and nothing else to do." },
       },
       choices = {
+        { text = "How many times have you died, Vark?", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "What is Maraudon?", next = "maraudon" },
         { text = "Who is Vyletongue?", next = "vyletongue" },
         { text = "How does the vial work?", next = "vial" },
@@ -402,8 +415,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_kodo = {
+      lines = {
+        { id = "dd_kd_default", text = "I don't know if I approve or not, and that troubles me. The old kodo walk to that place to lay their bones with their ancestors, and Smeed leads them away to work. But perhaps a kodo would rather work than die, and who am I to say what a kodo wants?" },
+      },
+      choices = {
+        { text = "Let the kodo die where their ancestors lie.", next = "BACK", reply = "That's what my heart says too, though my head isn't so sure. I'll pray to the Earth Mother on it tonight.", fx = { align = { order = 1 } } },
+        { text = "Better a working life than a lonely death.", next = "BACK", reply = "Perhaps, and Smeed would say the same, though he'd say it with a price attached. You may be right; I'll think on it.", fx = { align = { order = -1 } } },
+        { text = "Something else, Roon.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_kodo", tags = { "news" }, when = { questDone = TODO_QUEST("Kodo Roundup") },
+          text = "I'm told you've been leading old kodo out of the graveyard for the goblin Smeed. The kodo go there to die, as they have since before my grandfather's grandfather, and now a goblin has found a way to make coin from it." },
         { id = "h_default", key = true,
           text = "I am Roon Wildmane. Long ago a hunter named Hemet came to this land to hunt great beasts, and his skill with the rifle was uncanny; we spent many days hunting together, and even the enmity between our peoples was forgotten." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Hunting in Stranglethorn") },
@@ -418,6 +443,7 @@ P:NPC {
         { id = "h_again2", text = "Ask on, friend. My spear's resting, and so's my tongue, nearly." },
       },
       choices = {
+        { text = "You don't approve of Smeed's kodo roundup, Roon?", next = "dd_kodo", when = { questDone = TODO_QUEST("Kodo Roundup") } },
         { text = "Tell me about Hemet.", next = "hemet" },
         { text = "What was the white kodo?", next = "white_kodo" },
         { text = "Wasn't it strange, hunting with the Alliance?", next = "enmity" },

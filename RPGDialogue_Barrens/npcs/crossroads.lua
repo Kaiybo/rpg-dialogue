@@ -34,6 +34,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_counterattack = {
+      lines = {
+        { id = "dd_ca_default", text = "So I hear, and I'll drink to it tonight. But a beaten enemy is an angry enemy, and the Kolkar will look for something softer to hit, and the caravans on the south road are soft. Do I pull riders from my walls to guard them, or keep the Crossroads tight?" },
+      },
+      choices = {
+        { text = "Keep the walls tight. The Crossroads matters most.", next = "BACK", reply = "That's what my gut says, and you've just agreed with my gut. The caravans will have to travel in bigger groups.", fx = { align = { order = 1 } } },
+        { text = "Send riders. Strike the Kolkar before they regroup.", next = "BACK", reply = "Bold, and maybe right. I'll think on it, though I don't like leaving my gate thin with the Razormane still watching.", fx = { align = { order = -1 } } },
+        { text = "Something else, Thork.", next = "BACK" },
+      },
+    },
     xalt_thork = {
       lines = {
         { id = "xalt_thork_default", text = "Plenty report to me, and I'd forget most of them by sundown if I could. The one you mean held the wall during a centaur raid and never asked for thanks, so they stayed in my head." },
@@ -152,6 +162,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_counterattack", tags = { "news" }, when = { questDone = TODO_QUEST("Counterattack!") },
+          text = "Regthar Deathgate's runner came through this morning, and he says the Kolkar threw everything they had at his stockade and broke on it, with your help. If the centaur are bleeding in the south, they'll think twice about my walls." },
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
           text = "Another {altrace} with your look reported to me, a {altclass} named {alt}, and went out after the Kolkar the same day. If you're blood of theirs, I'll put you to the same work." },
         { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
@@ -180,6 +192,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kolkar", min = 30 } }, text = "The caravans have been getting through, and my scouts say the Kolkar have pulled back from the road. I hear your name in that, so keep it up, and the Crossroads will owe you." },
       },
       choices = {
+        { text = "The Kolkar broke at Regthar's stockade, Thork.", next = "dd_counterattack", when = { questDone = TODO_QUEST("Counterattack!") } },
         { text = "Someone close to me reported to you, Thork.", next = "xalt_thork", when = { alt = true } },
         { text = "The spirits could help you hold the Crossroads, Thork.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why are the Barrens drying out, Thork?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -761,6 +774,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deviate = {
+      lines = {
+        { id = "dd_dv_default", text = "Fewer, yes, but killing the beasts is like pulling weeds while the root is still in the ground. The sickness comes from the caverns, from whatever Naralex dreamed when he lay down in them, and it will keep making new beasts until he wakes. Still, the herds near the oases drink easier for what you did." },
+      },
+      choices = {
+        { text = "Then someone has to go down and wake him.", next = "BACK", reply = "Someone does, and his disciples wait at the cavern mouth for brave ones. Speak to them, if your heart is ready for it.", fx = { align = { order = -1 } } },
+        { text = "I'll keep thinning them until the druids find a cure.", next = "BACK", reply = "Patient work, and good work. The Earth Mother sees what is done for her, even the small things.", fx = { align = { order = 1 } } },
+        { text = "Something else, Tonga.", next = "BACK" },
+      },
+    },
     xpt_tonga = {
       big = true,
       lines = { { id = "xpt_tonga_default", text = "The Druids of the Fang went into the Wailing Caverns to heal the land and came out wrong, and the water rose with them, poisoned with their dreams. A druid in your company should feel it near the Lushwater and the Stagnant Oasis, and should be careful not to sleep there." } },
@@ -858,6 +881,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_deviate", when = { killed = { name = "Deviate", min = 20 } },
+          text = "You have walked among the deviate beasts near the caverns, and you carry their smell with you, like rot on a summer wind. I'm grateful, because every one of them that falls is one less sign of the Nightmare spreading into the grass." },
         { id = "h_pt_druid", tags = { "news" }, when = { party = { class = "DRUID" } },
           text = "Your friend {companion} walks like a druid, careful where the grass is thin. The Barrens are hard on everything that grows, so tell them to keep an eye on the oases, because something has gone wrong in the water." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. Thunder Bluff sent me to find a strange power in the Barrens, and I did not expect to meet another one at the Crossroads." },
@@ -878,6 +903,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You walk quietly, I notice. Good, because the Wailing Caverns do not forgive heavy feet." },
       },
       choices = {
+        { text = "The deviate beasts near the caverns are fewer now.", next = "dd_deviate", when = { killed = { name = "Deviate", min = 20 } } },
         { text = "What did you find?", next = "found" },
         { text = "I'm a druid too, Tonga. Can I help heal the oases?", next = "druid", when = { class = "DRUID" } },
         { text = "The water spirits here are crying out.", next = "shaman", when = { class = "SHAMAN" } },
@@ -1146,6 +1172,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_hides", when = { questDone = TODO_QUEST("Deviate Hides") },
+          text = "Nalpak tells me you brought him a stack of deviate hides from the caverns, and I confess I'm jealous. I'd have paid handsomely for a single strip of that skin, purely in the name of research, of course." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
           text = "Another of my own, travelling with you. {companion} must have the patience of a saint or the stubbornness of the dead, because the orcs out here still won't share a campfire with me." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, how quaint. Some of us remember the Silver Hand from before the plague, and we wonder which side of that memory you stand on." },
@@ -1565,6 +1593,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_zhevra", when = { questDone = TODO_QUEST("The Zhevra") },
+          text = "Sergra's been bragging about the zhevra you brought down for her, and she's sending the leftover meat my way, so I'm not complaining either. Zhevra's tough, but it stews well with enough salt." },
+        { id = "h_dd_plainstriders", when = { killed = { name = "Plainstrider", min = 30 } },
+          text = "You've killed half the plainstriders between here and Far Watch, by the feathers on your boots. Bring me the drumsticks next time instead of leaving them for the hyenas, will you?" },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. I sell meat to everyone who passes the Crossroads, and that's everyone, even you, I suppose." },
         { id = "h_default", key = true, text = "Name's Zargh, and I'm the butcher. I sell meat to everyone who passes through the Crossroads, which is everyone, so business is good, whatever else the Barrens throws at us." },
         { id = "h_meats", tags = { "news" }, when = { questActive = TODO_QUEST("Meats to Orgrimmar") },
@@ -1650,6 +1682,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_olgra = {
+      lines = {
+        { id = "dd_ol_default", text = "Quieter than I've ever known him, and that's saying something, because grief made him loud before. He knows where she lies now, and that's a stone lifted off him, though another one sits in its place. My people say the spirits can't rest until someone who loves them knows where they fell, so perhaps Olgra rests now." },
+      },
+      choices = {
+        { text = "He should take his revenge on the Kolkar now.", next = "BACK", reply = "He will, I expect, and nobody here will stop him. But revenge is a long road, and I've seen it lead orcs further from home than they meant to go.", fx = { align = { light = -1 } } },
+        { text = "I hope he can grieve her properly now, and heal.", next = "BACK", reply = "So do I, and I've told him my door is open whenever he needs it. You have a gentle heart, and the Barrens can use more of those.", fx = { align = { light = 1 } } },
+        { text = "Something else, Boorand.", next = "BACK" },
+      },
+    },
     xpt_boorand = {
       big = true,
       lines = { { id = "xpt_boorand_default", text = "Every day, and I can tell which ones will last by how they order their supper. The ones who share a pot come back in a month, and the ones where each grunt eats alone with his back to the others usually don't come back at all." } },
@@ -1752,6 +1794,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_olgra", tags = { "news" }, when = { questDone = TODO_QUEST("Lost in Battle") },
+          text = "Mankrik came in last night and sat by the fire without a word, and then he paid for everyone's supper. The whole inn knows you found what was left of Olgra out on the southern road, and the whole inn is grateful you did." },
+        { id = "h_dd_razormane", when = { questDone = TODO_QUEST("Disrupt the Attacks") },
+          text = "The Razormane haven't come near the Crossroads since you went out after them for Thork, and my guests sleep through the night again. A quiet night is the best thing an innkeeper can sell, and you've given me a good many." },
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
           text = "You've the same face as {alt}, who slept here two nights and snored straight through a Kolkar raid. If it runs in the family, you'll want the room furthest from the gate." },
         { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
@@ -1780,6 +1826,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, under my leaky roof. Keep your demon away from the other guests, friend, and it can sleep by the door like anyone's dog." },
       },
       choices = {
+        { text = "How is Mankrik, Boorand?", next = "dd_olgra", when = { questDone = TODO_QUEST("Lost in Battle") } },
         { text = "Do the spirits of the Barrens speak to you, Boorand?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The drought must worry the folk who stay here, Boorand.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Make this my home.", next = "BUSINESS" },

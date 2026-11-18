@@ -44,6 +44,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_rolf = {
+      lines = {
+        { id = "dd_rolf_a", text = "So am I. Rolf was a stubborn man and a good sergeant, and he'd have charged that camp himself before he'd have sent a recruit ahead of him. That's what killed him, I'd wager, and it's what I'd want written on his stone." },
+      },
+      choices = {
+        { text = "He died leading from the front. There's honor in that.", next = "dd_rolf_2", fx = { align = { honor = 1 } } },
+        { text = "He should have waited for more men. Pride got him killed.", next = "dd_rolf_2", fx = { align = { honor = -1 } } },
+      },
+    },
+    dd_rolf_2 = {
+      lines = {
+        { id = "dd_rolf_2a", text = "Maybe so, and I've said both of those things myself on different nights. Keep him in mind the next time you're tempted to rush something, recruit, because I'd rather not write to Dughan about you." },
+      },
+      choices = { { text = "I'll remember, Marshal. Something else.", next = "BACK" } },
+    },
+
     xpt_mcbride = {
       big = true,
       lines = { { id = "xpt_mcbride_default", text = "They do, and they'll tell you so at length, though they'll also want you to stay for vespers. My own concern is simpler: so long as there are kobolds in Echo Ridge and Defias in the vineyards, I'll welcome anyone who can hold a blade." } },
@@ -99,6 +115,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_rolf", when = { questDone = TODO_QUEST("Discover Rolf's Fate") },
+          text = "Dughan wrote to me about Rolf and his men at the murloc camp by the lake, and that you were the one who found them. I trained two of those footmen myself, recruit, so I thank you for bringing them home in word, if not in body." },
+        { id = "dd_hogger_mcb", when = { killed = { name = "Hogger" } },
+          text = "They tell me Hogger's dead and that you were there when it happened. I remember when you couldn't keep a kobold off your back, recruit, so don't let it go to your head." },
+
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "Another recruit with the look of {alt}, I see. That {altclass} came through Northshire before you and did good work, so I'll expect the same from you." },
         { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = true }, cooldown = "5d",
@@ -163,6 +184,8 @@ P:NPC {
         { id = "h_again3", when = { minLevel = 20 }, text = "Something else? You've earned a few more minutes than most." },
       },
       choices = {
+        { text = "I found Rolf's men by the lake, Marshal. I'm sorry.", next = "dd_rolf", when = { questDone = TODO_QUEST("Discover Rolf's Fate") } },
+
         { text = "You seem to hunt the wolves for sport, Marshal.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Reporting for duty, Marshal.", next = "orders",
           fx = { align = { order = 2 }, trait = { stern = 1 }, affinity = 1 },

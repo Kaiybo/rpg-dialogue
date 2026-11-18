@@ -42,6 +42,8 @@ P:NPC {
           text = "A tauren. Your people never bargained with the black dragons, so this isn't your shame to clean up, but I'll take your help gladly all the same." },
         { id = "h_scourge", when = { race = "Scourge" },
           text = "One of the Forsaken. You know something about being used by masters who don't care whether you live, so you'll understand why I want these drakes dead." },
+        { id = "dd_whelps", when = { killed = { name = { "Scalding Whelp", "Scorched Guardian" }, min = 20 } },
+          text = "You have been in Lethlor Ravine killing the black dragons' brood. Good. Every whelp you kill is one less mouth that will grow up to lie to the Horde the way its elders did." },
       },
       again = {
         { id = "h_again", text = "What else? Speak, then, the way a warrior should." },

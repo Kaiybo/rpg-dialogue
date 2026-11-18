@@ -492,8 +492,23 @@ P:NPC {
         { text = "Something else, Priestess.", next = "BACK" },
       },
     },
+    dd_termites = {
+      lines = {
+        { id = "dd_termites_1",
+          text = "I approve of the result, which is a Scarlet lumber yard that won't be building any more gallows. The method was plague, child, carried in a jar, and I spend my days burning plague out of cauldrons, so you'll forgive me if it sits a little crooked." },
+        { id = "dd_termites_2",
+          text = "Still, the Crusade hung two of our scouts last spring, and Nathaniel's father's mill was the last thing that family had. The Light keeps its own accounts, and I suspect this one balances." },
+      },
+      choices = {
+        { text = "A weapon's a weapon. I'd use it again.", next = "BACK", fx = { align = { light = -1, order = -1 } } },
+        { text = "You're right. It felt wrong even as I did it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_termites", when = { questDone = TODO_QUEST("A Plague Upon Thee") },
+          text = "Nathaniel tells me you set his termites loose on the Scarlet mill at Northridge. I can't say I approve of the method, but I watched the smoke from the hill and I didn't pray for it to stop." },
         { id = "o_swdistrust", tags = { "news" }, when = { gossip = { topic = "prestor", stance = "distrust" } }, text = "The Commander says you've doubts about Lady Prestor. Pray on them, by all means, but keep them out of his letters home." },
         { id = "h_pt_pala", tags = { "news" }, when = { party = { class = "PALADIN" }, faction = "Alliance" },
           text = "You've brought {companion} to Chillwind, and I'd know a paladin's bearing anywhere, for I've buried enough of them. It does me good to see the Light still carried in armour after everything Lordaeron has seen." },
@@ -531,6 +546,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, so long as you don't mind me working." },
       },
       choices = {
+        { text = "You don't approve of the termites, High Priestess?", next = "dd_termites", when = { questDone = TODO_QUEST("A Plague Upon Thee") } },
         { text = "What happens when you dose a cauldron?", next = "dose" },
         { text = "Where are the cauldrons?", next = "cauldrons" },
         { text = "The commander seems a hard man to serve under.", next = "commander" },
@@ -1340,8 +1356,25 @@ P:NPC {
         { text = "Something else, officer.", next = "BACK" },
       },
     },
+    dd_honor = {
+      lines = {
+        { id = "dd_honor_1",
+          text = "It doesn't bother me so much as it tires me. Officer Garush at the Bulwark is an orc, and I write to him every week, and somewhere out there someone is counting his kin, or mine, as a number on a list." },
+        { id = "dd_honor_2",
+          text = "I'm not asking you to stop, mind. I'm asking you to remember, when you come up here, that the Scourge doesn't care which banner you were killed under." },
+      },
+      choices = {
+        { text = "They started this war. I'll finish it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right. Up here we have one enemy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Officer.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_honor", when = { honorKills = { min = 100 } },
+          text = "You've the look of someone who's been fighting the other banner in the fields and valleys, {class}. That's your business out there, but at this table we keep our blades for the Scourge, so leave the tally at the gate." },
+        { id = "h_dd_rank", when = { pvpRank = 6 },
+          text = "I see you wear a rank your own side's war council gave you, and a good deal of blood went into earning it. You'll find no one at Chillwind who'll salute it, I'm afraid, but you'll find a seat." },
         { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" }, faction = "Alliance" },
           text = "You keep a priest by your side in {companion}, and that's the wisest thing I've seen a party do this week. The Plaguelands kill through sickness as often as through the sword, and the ones who come back are the ones who brought someone to cleanse it." },
         { id = "h_default", key = true,
@@ -1373,6 +1406,7 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like, friend; the Dawn's work keeps till you're done." },
       },
       choices = {
+        { text = "Does it bother you, how many of the enemy I've killed?", next = "dd_honor", when = { honorKills = { min = 100 } } },
         { text = "Where did the Argent Dawn come from?", next = "left" },
         { text = "What does the Dawn ask of me?", next = "commission" },
         { text = "Does the Dawn keep people beyond the Plaguelands?", next = "gregor" },
@@ -1822,8 +1856,23 @@ P:NPC {
         { text = "Something else, Bibilfaz.", next = "BACK" },
       },
     },
+    dd_towers = {
+      lines = {
+        { id = "dd_towers_1",
+          text = "Trouble them? The skeletons on those towers throw anything that isn't nailed down, and a gryphon's wing is a big, slow target on the way into Andorhal. Since you marked them for Commander Valorfist, I've been routing the birds well wide, and I haven't lost a feather this week." },
+      },
+      choices = {
+        { text = "Glad to help your birds fly safe.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I did it for the camp. The gryphons were a bonus.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Bibilfaz.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_towers", tags = { "news" }, when = { questDone = TODO_QUEST("All Along the Watchtowers") },
+          text = "The scouts tell me you marked every one of those Scourge towers for the commander! My gryphons fly a good deal happier now that we know where the bone-throwers sit, and so do I." },
+        { id = "h_dd_fall", when = { deathCause = "falling" },
+          text = "Now, I heard you came down from somewhere high without a gryphon under you. Next time you want to see the ground that fast, come and see me first, and I'll at least make it a nice view." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Oh, wonderful, {class}, the birds have been fussing about the air up here for weeks, and I'd love for someone to tell me what the wind's been saying to them!" },
         { id = "h_default", key = true,
           text = "Bibilfaz Featherwhistle, gryphon master! I can take you to Ironforge, or Aerie Peak, or Light's Hope if you're feeling brave, and the birds hate the smell up here as much as you do, so they fly fast." },
@@ -1846,6 +1895,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time; I've measured their patience at about eleven minutes, give or take a feather." } },
       choices = {
+        { text = "Do the towers really trouble your gryphons?", next = "dd_towers", when = { questDone = TODO_QUEST("All Along the Watchtowers") } },
         { text = "Where's safest to fly?", next = "routes" },
         { text = "The gryphons can't like it up here.", next = "gryphons" },
         { text = "Let's fly.", next = "BUSINESS" },

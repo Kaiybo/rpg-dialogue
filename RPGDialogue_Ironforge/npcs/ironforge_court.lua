@@ -1985,6 +1985,16 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    dd_fb_balloo = {
+      lines = {
+        { id = "dd_fb_balloo1", text = "Aye, for every family in the Military Ward has somebody who never came home, an' none o' them can get a letter past the clerks. When the King heard her out, it was as if he'd heard all o' them, an' I sold more ale that night than on the first night o' Winter Veil." },
+      },
+      choices = {
+        { text = "The King should hear every family that asks.", next = "BACK", reply = "He should, aye, an' maybe now he will. Ye've set a fine example for the clerks.", fx = { align = { order = -1 } } },
+        { text = "The clerks are there for a reason. This was special.", next = "BACK", reply = "Spoken like a clerk! But ye're no' wrong, for the King cannae hear everyone at once.", fx = { align = { order = 1 } } },
+        { text = "Something else, Firebrew.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_any", when = { alt = true, metBefore = false },
@@ -2017,12 +2027,17 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grab a stool, then, for every warrior in the Stonefire has a tale, an' I'm sure ye've a taller one." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? The Stonefire's full o' fish stories, but a good bear story beats them all, if ye've got one." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at the Stonefire! Pull up a stool, an' tell yer servant there's no' a keg in this tavern it's allowed tae set alight, however much it begs." },
+        { id = "dd_balloo", tags = { "news" }, when = { questDone = TODO_QUEST("A King's Tribute") },
+          text = "The whole tavern's heard ye carried Sara Balloo's plea all the way tae the King's own ear. That lass has been tryin' tae get word tae the throne since her brother fell, an' half o' Ironforge cheered when they heard." },
+        { id = "dd_exalted", when = { reputation = { faction = "Ironforge", min = "exalted" } },
+          text = "There's no' a dwarf in this city who doesnae know yer name now, an' I've heard it toasted at my own bar more nights than I can count." },
       },
       again = {
         { id = "h_again", text = "Another? Story or ale, ye're welcome either way." },
         { id = "h_again2", text = "What else? The kegs aren't goin' anywhere, which is the trouble." },
       },
       choices = {
+        { text = "Half of Ironforge cheered for Sara Balloo?", next = "dd_fb_balloo", when = { questDone = TODO_QUEST("A King's Tribute") } },
         { text = "Have you had druids here before?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Tell me a story.", next = "story" },

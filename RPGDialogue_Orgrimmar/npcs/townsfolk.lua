@@ -402,6 +402,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_falling = {
+      lines = {
+        { id = "dd_fa_default", text = "I didn't think so, because my beasts would sooner die than let a rider slip. Grunts are always jumping off the cliffs around the city to save a few minutes, and the spirit healer at the Durotar gate sees half of them. Was it pride or hurry that put you over the edge?" },
+      },
+      choices = {
+        { text = "Hurry. I'd do it again to save the time.", next = "BACK", reply = "Then you'll be back at that spirit healer soon enough. My wind riders are faster than falling, and they don't hurt as much.", fx = { align = { order = -1 } } },
+        { text = "Pride. I'll take the long way next time.", next = "BACK", reply = "Good, because the long way is how old riders get old. Or you could just fly, which is what I'm here for.", fx = { align = { order = 1 } } },
+        { text = "Something else, Doras.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "They'll carry anyone who sits still and doesn't kick, and the beasts don't care what you pray to. The riders are another matter; a few of them flew against human knights in the Second War and still flinch at that glow." } },
@@ -494,6 +504,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You've the look of someone who found the ground faster than they meant to. My wind riders never drop anyone, {class}, so the next time you want to get down from somewhere high, pay me for the ride instead." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin wants a wind rider? They don't like the smell of the dead, and I can't say how they'll take the Light, so we'll learn together." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Then you'll be calm in the saddle, I hope, because the wind riders can smell a nervous passenger and they don't like it." },
         { id = "h_default", key = true, text = "Doras. I keep the wind riders, and they'll carry you to the Crossroads, to Thunder Bluff, or anywhere else the Horde has a roost. Have you flown before, or will you be holding on with your eyes shut like a fresh grunt?" },
@@ -506,6 +518,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Is that all, or do I saddle one? They get restless when people stand about talking." } },
       choices = {
+        { text = "I fell, Doras. It wasn't from one of yours.", next = "dd_falling", when = { deathCause = "falling" } },
         { text = "Do the wind riders ever carry the wounded home?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The wind riders must hear the air spirits.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the wind riders mind a druid's beast shapes, Doras?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -801,6 +814,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_honor = {
+      lines = {
+        { id = "dd_hn_default", text = "So I hear, and I'm glad of it, because every grunt who fights at Warsong or the Alterac front is one less grunt brawling in my valley. Just remember that the battlemasters count kills, but the Warchief counts the soldiers who come home." },
+      },
+      choices = {
+        { text = "I fight to win. Coming home is a bonus.", next = "BACK", reply = "That's how the young ones talk, until they bury a friend. I hope you never have to learn it the way I did.", fx = { align = { order = -1 } } },
+        { text = "I bring my companions home first, then count kills.", next = "BACK", reply = "Then you're worth more than any list says. Keep that, and you'll make an officer one day.", fx = { align = { order = 1 } } },
+        { text = "Something else, Overlord.", next = "BACK" },
+      },
+    },
     prej_runthak = {
       big = true,
       lines = { { id = "prej_runthak_default", text = "I do, and I'll tell you why to your face. I've fought the dead, and the dead don't tire, don't bleed and don't stop when their master falls. You say you've broken free, and maybe you have, but I've seen nothing yet that proves it." } },
@@ -921,6 +944,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_honor", when = { honorKills = { min = 100 } },
+          text = "The battlemasters' lists have your name on them more often than I'd expect for someone who still bothers to talk to me. A hundred Alliance and more, I'm told, so at least you're saving your blood for the right enemies." },
+        { id = "h_dd_exalted", when = { reputation = { faction = "Orgrimmar", min = "exalted" } },
+          text = "The whole Valley of Strength knows you, and half the recruits I break up outside the inn are fighting over who gets to be you in their stories. Don't let it go to your head, because I'd hate to have to break you up too." },
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
           text = "A full war band, and eager by the look of you. When I marched under Doomhammer, a band your size held a ridge for three days against Lordaeron's knights, so make sure you're worth the comparison before you go boasting in the Drag." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin in the Valley of Strength. I fought the humans' knights in the Second War, recruit, and I know that glow. Mind yourself here." },
@@ -938,6 +965,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? Make it quick; I'm on my rounds." } },
       choices = {
+        { text = "I've been fighting the Alliance on the front, Overlord.", next = "dd_honor", when = { honorKills = { min = 100 } } },
         { text = "You watch me closer than anyone else in the valley, Overlord.", next = "prej_runthak", when = { prejudiced = true } },
         { text = "Do you trust priests in Orgrimmar, Overlord?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The Warchief still walks the shaman's path, I hear.", next = "xhsham", when = { class = "SHAMAN" } },

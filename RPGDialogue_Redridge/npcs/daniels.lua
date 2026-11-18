@@ -32,6 +32,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_keeshan_d = {
+      lines = {
+        { id = "dd_keeshan_d_a", text = "I know, and so does everyone in Lakeshire, because Keeshan won't stop telling it. He's not the same lad who rode out with the 12th Sabres, mind; he jumps when the door bangs and he won't sit with his back to the window." },
+      },
+      choices = {
+        { text = "Give him time. The men who come back need patience.", next = "dd_keeshan_d2", fx = { align = { light = 1 } } },
+        { text = "He's a soldier. He'll need to toughen up and get back out there.", next = "dd_keeshan_d2", fx = { align = { light = -1 } } },
+        { text = "What happened to the rest of his squad?", next = "dd_keeshan_d2" },
+      },
+    },
+    dd_keeshan_d2 = {
+      lines = {
+        { id = "dd_keeshan_d2a", text = "Most of his regiment didn't come home, and he knows their names and says them over his water when he thinks nobody's listening. I keep his stool free, and I'll keep yours free too, for what that's worth in an empty bar." },
+      },
+      choices = { { text = "It's worth plenty. Something else, Daniels.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Bad enough that I'm cheerful on purpose, and folk are jumpy besides. The Blackrock have their own shamans up in those hills, so mind how you say the word in here." } },
@@ -115,6 +132,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_keeshan_d", tags = { "news" }, when = { questDone = TODO_QUEST("Missing In Action") },
+          text = "Corporal Keeshan sat at that very stool last night, thin as a rake and drinking water, and he told the whole room who brought him out of that Blackrock cave. I'd pour you something for it if I had anything worth pouring." },
+        { id = "dd_gath_d", when = { killed = { name = "Gath'Ilzogg" } },
+          text = "They're saying Gath'Ilzogg's dead in Stonewatch Keep, and the soldiers have been singing about it badly all week. If you had a hand in that, friend, every one of those terrible songs is for you." },
+
         { id = "h_default", key = true,
           text = "Daniels. I keep the bar, or I did when there was something to keep, but the orcs hit the road and my shipment never came." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Dry Times") },
@@ -140,6 +162,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening; a barkeep's half ears anyway." },
       },
       choices = {
+        { text = "I brought Keeshan home, Daniels.", next = "dd_keeshan_d", when = { questDone = TODO_QUEST("Missing In Action") } },
+
         { text = "Pour me whatever you've got.", next = "BUSINESS" },
         { text = "Heard anything?", next = "news" },
         { text = "This bar looks drier than a Westfall field.", next = "dry" },
@@ -339,6 +363,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_bridge_b", when = { questDone = TODO_QUEST("The Everstill Bridge") },
+          text = "Foreman Oslow was in for supper grinning like a boy, which I've not seen in a year, and he says you helped get his bridge going again. If the wagons cross that lake again before winter, I'll have guests in these rooms instead of soldiers." },
+        { id = "dd_deaths_b", when = { deaths = { min = 10 } },
+          text = "You've the look of someone who's been laid out on a cot more than once, love. Take the room by the stairs tonight, where it's warm, and let the gnolls wait a day." },
+
         { id = "h_default", text = "I'm Brianna. I keep the rooms and Daniels keeps the bar, when he has anything to keep, and between us we keep Lakeshire from losing its mind." },
         { id = "h_dry", when = { questDone = TODO_QUEST("Dry Times") },
           text = "You found Daniels his drink! He's been whistling ever since, and it's terrible, and I've never been happier to hear it." },

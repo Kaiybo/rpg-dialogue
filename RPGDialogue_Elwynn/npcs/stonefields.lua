@@ -309,6 +309,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_escape_ma = {
+      lines = {
+        { id = "dd_escape_ma_a", text = "I know, and I know who helped, and I know Gramma's been grinning about it since breakfast. A Stonefield and a Maclure, after all these years of feuding over a fence line, and it's my boy that does it." },
+      },
+      choices = {
+        { text = "Love doesn't care about fences, Ma. Let them be happy.", next = "dd_escape_ma2", fx = { align = { light = 1 } } },
+        { text = "A feud is a feud. They should have asked first.", next = "dd_escape_ma2", fx = { align = { order = 1 } } },
+        { text = "Will you ever speak to the Maclures again?", next = "dd_escape_ma2" },
+      },
+    },
+    dd_escape_ma2 = {
+      lines = {
+        { id = "dd_escape_ma2a", text = "I'll speak to them when they bring my son home for supper, and not a day before. I'm not a crier, mind, so don't look at me like that, and the cabbages won't weed themselves." },
+      },
+      choices = { { text = "I'll leave you to them. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "She's eaten every last cabbage, and that pig's an insult. If your spirits have a word for her, I'd be glad of it." } },
@@ -374,6 +391,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_escape_ma", tags = { "news" }, when = { questDone = TODO_QUEST("The Escape") },
+          text = "My Tommy Joe's gone off with that Maclure girl, and Gramma tells me you had a hand in it. I'll not say I'm happy, but I'll not say I'm surprised, either." },
+        { id = "dd_hogger_ma", when = { killed = { name = "Hogger" } },
+          text = "With Hogger dead, the gnolls in the woods have gone quiet, and I can work the south field without one eye on the treeline. You've my thanks for that, and I don't give it often." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Unless you've a prayer that keeps pigs out of carrots, I've no work for you, but sit, the kettle's on." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Can you do anything about a pig? I know it's not your usual work, but she's the size of a cart." },
         { id = "h_default", text = "I'm Ma Stonefield, and this is my field, or it was, until the Brackwells' prize pig found it." },
@@ -397,6 +419,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Quick, before she smells the carrots." },
       },
       choices = {
+        { text = "Tommy Joe and Maybell are together now, Ma.", next = "dd_escape_ma", when = { questDone = TODO_QUEST("The Escape") } },
+
         { text = "You might talk to the Brackwells about their pig.", next = "brackwells" },
         { text = "Tell me about this pig.", next = "princess" },
         { text = "The rest of the farm seems busy enough.", next = "farm" },
@@ -617,6 +641,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_escape_billy", tags = { "news" }, when = { questDone = TODO_QUEST("The Escape") },
+          text = "Maybell's gone! Pa's shouting and Ma's crying and I've got her room now, and everybody says you helped her, so I think you're the best person in all of Elwynn." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Are you a priest? Can you tell when someone's lying? Because I'm not, but Auntie Bernice thinks I am." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "Are you a paladin? Are you here to arrest me? I didn't do it, honest, I just know who did!" },
         { id = "h_default", text = "I'm Billy Maclure, and everybody at the Stonefields thinks I'm a thief, but I'm not. I just know things." },

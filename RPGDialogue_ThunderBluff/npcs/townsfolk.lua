@@ -298,6 +298,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the top of the tower. The wind up here hears a great many prayers from nervous riders, so you'll be in good company." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. The wind riders always settle when one of Hamuul's students is near, and I stopped asking why long ago, because I'm grateful for the quiet." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, up the tower. The wind riders don't mind magic, but they mind sudden noises, so cast quietly." },
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You have died from a fall, I think, because you stand well back from the edge of my platform. The bluffs are high and the wind is fickle, so let the wind riders do the flying." },
       },
       again = { { id = "h_again", text = "Anything more? The wind won't wait forever, and neither will that wyvern, who bit a goblin last week for dawdling." } },
       choices = {
@@ -314,7 +315,18 @@ P:NPC {
         { text = "Why do the wind riders settle around druids, Tal?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Will the wind riders carry a mage, Tal?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the tauren trust the Light, Tal?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I fell from a cliff once. I don't love heights now.", next = "dd_fall", when = { deathCause = "falling" } },
         { text = "Farewell, Tal.", next = "END" },
+      },
+    },
+    dd_fall = {
+      lines = {
+        { id = "dd_fall_1", text = "You aren't the first, and every spring some calf on the lifts leans out too far to wave at a friend. The wind riders know when a rider is afraid, though, and the good ones fly lower and steadier for it, so you are safer on their backs than on your own feet." },
+      },
+      choices = {
+        { text = "Then I'll trust the wind rider and keep my eyes shut.", next = "BACK", reply = "Many do, and they all land in one piece. Open them over the Barrens, at least, because the view is worth a little fear.", fx = { align = { order = 1 } } },
+        { text = "Fear passes. I'll be jumping off the bluffs again by spring.", next = "BACK", reply = "Then I'll see you at the spirit healer's, I expect. Jump if you must, but jump into the lake, not onto the rocks.", fx = { align = { order = -1 } } },
+        { text = "Something else, Tal.", next = "BACK" },
       },
     },
     fly = {

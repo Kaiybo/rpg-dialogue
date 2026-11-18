@@ -30,8 +30,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_scarlet = {
+      lines = {
+        { id = "dd_scarlet_1",
+          text = "I do, every evening, in the garden where Uther lies. Some of them served beside him once, before grief and fear made them into what they are now, and I think he would want someone to remember who they were." },
+        { id = "dd_scarlet_2",
+          text = "That doesn't mean you were wrong to stop them, friend. It only means that somebody should mourn them, and I am the only one on this hill with time to do it." },
+      },
+      choices = {
+        { text = "Mourn them if you like. I won't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then pray for them from me as well.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, High Priest.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_scarlet", when = { killed = { name = "Scarlet", min = 50 } },
+          text = "The Crusade's patrols pass my hill a good deal less often than they did. I've heard why, and I pray for the men who fell, as I'd pray for anyone who once knelt to the Light." },
         { id = "h_default", key = true, text = "I am Thel'danis, and I keep this tomb. Uther the Lightbringer lies here, and while I live, nothing that serves the Scourge will set foot inside it." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "A paladin, at the Lightbringer's tomb. Kneel, if you wish to; he trained the order you serve, and he'd have had a stern word for you about your stance." },
@@ -47,6 +62,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, then. I've nowhere else to be but here." },
       },
       choices = {
+        { text = "You pray for the Scarlets I killed?", next = "dd_scarlet", when = { killed = { name = "Scarlet", min = 50 } } },
         { text = "Tell me about Uther.", next = "uther" },
         { text = "Why do you stay here, alone?", next = "stay" },
         { text = "I'm surprised a garden lives up here at all.", next = "garden" },

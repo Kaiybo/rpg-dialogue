@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_rothide = {
+      lines = { { id = "dd_rothide_default", text = "Taking them off the Deathguard who fell, mostly, and dragging them back to their dens. I've found two of our swords in a gnoll camp already, and I'd like the rest back, though I suppose the Deathguard who carried them are beyond caring." } },
+      choices = {
+        { text = "I'll bring back any I find. Every blade counts.", next = "BACK", reply = "That's the sort of thing a quartermaster likes to hear, and I don't hear it often. I'll leave a space in the ledger.", fx = { align = { order = 1 } } },
+        { text = "Whatever I find on a gnoll, I'm keeping.", next = "BACK", reply = "Then I'll mark it as lost to the field, which is what it was anyway. I'd rather not know more than that.", fx = { align = { order = -1 } } },
+        { text = "Something else, Podrig.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Deathguard Podrig. High Executor Hadrec asked me to take stock of the Sepulcher's equipment, and I've taken it, twice, and I'd take it a third time if anyone let me." },
@@ -43,6 +52,8 @@ P:NPC {
           text = "The High Executor read my report from start to finish, which almost nobody does. I've decided to take that as praise." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "A warrior. Then you'll understand that a soldier without a blade is just a very determined corpse, and I won't have any of those on my watch." },
+        { id = "h_dd_rothide", tags = { "news" }, when = { killed = { name = "Rot Hide", min = 25 } },
+          text = "The Rot Hide gnolls are fewer in the woods since you started hunting them, and my count of lost weapons has gone down by three this week. I've written that in the ledger, with your name next to it." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a column to finish." },
@@ -55,6 +66,7 @@ P:NPC {
         { text = "Do you have a list of your losses?", next = "list", when = { class = { "ROGUE", "WARRIOR", "HUNTER" } } },
         { text = "Any work for me?", next = "BUSINESS" },
         { text = "I'll let you count.", next = "END" },
+        { text = "Were the gnolls taking your Deathguard's weapons, Podrig?", next = "dd_rothide", when = { killed = { name = "Rot Hide", min = 25 } } },
       },
     },
 

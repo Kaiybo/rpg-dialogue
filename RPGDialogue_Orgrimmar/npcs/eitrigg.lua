@@ -34,6 +34,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = {
+        { id = "dd_de_default", text = "That I'd been fighting for the wrong master. I lay in the dirt with my blood running out and saw that Blackhand's Horde would never have mourned me, and it was a human, Tirion Fordring, who dragged me out of it. A warrior who dies often should ask whether the war he's dying in is worth it, young one." },
+      },
+      choices = {
+        { text = "The Horde is worth it. I'd die for it again.", next = "BACK", reply = "Then I hope it stays worthy of you, because the Horde I left once wasn't. Thrall's Horde is better, and you keep it that way.", fx = { align = { honor = 1 } } },
+        { text = "I die for my own reasons, not the Horde's.", next = "BACK", reply = "An honest answer, and an orc of my age respects honesty more than speeches. Just know your reasons well, so you can live with them.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Eitrigg.", next = "BACK" },
+      },
+    },
     xalt_eitrigg = {
       lines = {
         { id = "xalt_eitrigg_default", text = "I've talked with plenty of young ones who wanted me to swear the old Horde was glorious, and I send them off disappointed. The one you mean asked something better than that, so I remember them." },
@@ -61,6 +71,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 20 } },
+          text = "You've the look of someone who's been to the spirit healers more often than to the barber. I came near to dying once, alone in the hills of Lordaeron, and that once was enough to teach me patience, so I wonder what so many deaths are teaching you." },
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
           text = "I had a talk not long ago with {alt}, a {altclass} with your look about the eyes. Blood or chance, I can't say, but at my age you notice when the same fire shows up twice." },
         { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
@@ -83,6 +95,7 @@ P:NPC {
         { id = "h_again3", when = { disposition = { min = 65 } }, text = "Ask what you will. I find I don't mind your questions." },
       },
       choices = {
+        { text = "I've died often enough. What did dying teach you?", next = "dd_deaths", when = { deaths = { min = 20 } } },
         { text = "You've spoken with someone close to me, Eitrigg.", next = "xalt_eitrigg", when = { alt = true } },
         { text = "You left the Horde? Why?", next = "leaving" },
         { text = "Who saved your life?", next = "tirion" },

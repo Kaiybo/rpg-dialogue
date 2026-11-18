@@ -38,6 +38,7 @@ P:NPC {
           text = "Greetings, {class}. I am Orm, and Thun'grim tells me you wish a helm made, so let us see whether you are worth the iron." },
         { id = "h_done", when = { questDone = TODO_QUEST("Brutal Helm") },
           text = "You wear the helm well, and you have shown me your worth and your resolve. Keep it oiled, and it will keep your head." },
+        { id = "h_dd_shield", tags = { "news" }, when = { questDone = TODO_QUEST("The Black Shield") }, text = "Mosarn tells me you carried one of his own shields back from Dustwallow, and that the black dragonflight's servants had it. He's been grumbling about it at the forge ever since, so if you hear a hammer ringing late, that's him working off his temper." },
       },
       again = {
         { id = "h_again", text = "What else would you know, {class}?" },

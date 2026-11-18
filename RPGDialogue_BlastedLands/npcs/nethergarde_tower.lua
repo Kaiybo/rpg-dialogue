@@ -112,8 +112,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_bloodmages = {
+      lines = {
+        { id = "dd_bloodmages_1",
+          text = "I disapprove of anyone who brews with blood when a decent root would do the job. Lynnore and Drazial take what's left of the beasts out there and draw something out of it that makes a soldier hard to kill for an hour, and nobody asks what it costs the soldier." },
+        { id = "dd_bloodmages_2",
+          text = "Still, I'm honest enough to say the results are real, and there's a part of me that wants to see the recipe. That part of me doesn't get to make the decisions, mind." },
+      },
+      choices = {
+        { text = "If it keeps soldiers alive, who cares how?", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right to be wary. Blood magic has a price.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Nina.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_bloodmages", when = { questDone = TODO_QUEST("The Basilisk's Bite") },
+          text = "I hear you've been fetching beast parts for the bloodmages out in the wastes. I don't approve of their methods, but I'd love to know what they're doing with those basilisk scales, purely professionally." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll be wanting something to settle you, I expect, because everyone who calls up demons this close to the Portal comes up these stairs sooner or later looking pale." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior, all the way up the tower stairs! Healing potions are on the left shelf, and yes, I know you'll want the large ones." },
@@ -135,6 +150,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, I'm not going anywhere. Those stairs are terrible, and I've climbed them nine times today already." },
       },
       choices = {
+        { text = "You disapprove of the bloodmages?", next = "dd_bloodmages", when = { questDone = TODO_QUEST("The Basilisk's Bite") } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why sell potions at the top of a tower?", next = "tower" },
         { text = "I can't see much growing out in the Blasted Lands.", next = "plants" },

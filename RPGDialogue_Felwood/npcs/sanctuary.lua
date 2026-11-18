@@ -160,6 +160,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_water", when = { questDone = TODO_QUEST("Cleansed Water Returns to Felwood") }, text = "Greta tells me you carried cleansed water back to the forest for her, and that the soil drank it gladly. The Circle works best when we work together, and you have helped both of us now." },
         { id = "h_pt_eridan", tags = { "news" }, when = { party = { class = "DRUID" } },
           text = "You've brought a druid with you! Ask {companion} to put a hand on the soil here, because I'd like a second opinion on whether I'm only imagining the green coming back." },
         { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" }, text = "The Dream feels a little less troubled tonight, and they say you went all the way to the bottom of the Sunken Temple. If the green dragons there are less tormented for it, you've done Felwood a kindness without setting foot in it." },
@@ -410,6 +411,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_flute", tags = { "news" }, when = { questDone = TODO_QUEST("Flute of Xavaric") }, text = "Eridan says you took the Flute of Xavaric out of the satyrs' hands in Jadefire Run. The Earth Mother does not delight in killing, little one, but she will not mourn the satyrs who fell for it." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Jaedenar", min = 40 } },
           text = "Jaedenar is quieter than it was, and I know who's been walking into it. Mind what you saw down there, because the Shadow Council's tricks don't always show until later." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -617,6 +619,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_jaedenar", when = { questDone = TODO_QUEST("Forces of Jaedenar") }, text = "Greta says you went into Jaedenar for her and came back with the Shadow Council's blood on your blade. I ask the Horde to mend more than to fight, but some things must be cut out before anything can grow." },
         { id = "o_felwood_hope_lost", tags = { "news" }, when = { gossip = { topic = "felwood_hope", stance = "lost" } },
           text = "Eridan says you'd burn Felwood to the ground. I'd ask you not to say it while I'm in the middle of mending it." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -907,6 +910,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_rescue", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Jessir Moonbow came through the Sanctuary yesterday with her friend Arko'narin beside her, and she told me who had brought her out of Jaedenar. Ten thousand years, and I still find myself surprised by kindness." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. I spent a morning watching one clean flower by the road, and I'd wager you've spent mornings watching stranger things, so perhaps we're more alike than we look." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },

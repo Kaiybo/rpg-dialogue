@@ -1135,8 +1135,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    -- Deeds pass: the player's deaths.
+    dd_deaths = {
+      lines = { { id = "dd_default", text = "I thought so. I've never seen the healers in their grey place and I hope I never shall, but I've seen what it leaves behind: men who stop being afraid of the right things. Are you still afraid of dying, friend?" } },
+      choices = {
+        { text = "Yes, and I hope I stay that way.", next = "BACK", reply = "Good. Fear keeps you careful, and careful keeps you out of my chapel, which is the best thing I can wish anyone.", fx = { align = { light = 1 } } },
+        { text = "No. Death's only a door now, and I know the way back.", next = "BACK", reply = "Then I'll pray for you, because that frightens me more than any fever in this room.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_cages", tags = { "news" }, when = { questDone = TODO_QUEST("No Soldier Left Behind") },
+          text = "Two of the scouts you brought out of the Shroud are in my beds now, and I'm told it was you who carried the keys. They wake at night thinking they're still in the cages, but they wake here, and that's your doing." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You've died more than once out there, I think; the ones the spirit healer sends back carry a chill on them that takes days to fade. Sit by the brazier a while before you go." },
         { id = "h_default", key = true,
           text = "I'm Sister Rowland, and these are the Brotherhood's sick. They're ill, and I don't yet know with what, so I keep them clean and fed and prayed over, and the rest is the Light's business." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Nights are worst. Fevers climb after dark, and I run out of clean linen by the second bell." },
@@ -1152,6 +1165,7 @@ P:NPC {
         { id = "h_again2", text = "Yes? I'm listening, though I'm also changing this bandage." },
       },
       choices = {
+        { text = "I've died and come back more than once, Sister.", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "What's wrong with them?", next = "illness" },
         { text = "I don't know how you keep going in here.", next = "going" },
         { text = "Can I help?", next = "help" },
@@ -1577,8 +1591,19 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    -- Deeds pass: Marshal Ryan's death.
+    dd_ryan = {
+      lines = { { id = "dr_default", text = "She'll go to a rider who needs her, I suppose, when the Commander says so. I keep putting it off, because the day she leaves that stall is the day Ryan's really gone, and I'm not ready to tell a horse that." } },
+      choices = {
+        { text = "Give her to a rider. Ryan would want her working.", next = "BACK", reply = "You're right, and I know you're right. I'll ask the Commander tomorrow, or maybe the day after.", fx = { align = { order = 1 } } },
+        { text = "Keep her a while longer. Nobody will blame you.", next = "BACK", reply = "The Commander might, but he'll not say so. Thank you; I think she'd miss me as much as I'd miss her.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ryan", tags = { "news" }, when = { questDone = TODO_QUEST("Dying Wish") },
+          text = "I heard about Marshal Ryan. His bay mare's still in the third stall; I've fed and walked her every day since he rode west, because nobody ever told me to stop." },
         { id = "h_default", key = true, text = "Wheatley, stable master. Every horse in the Brotherhood comes through these stalls, and most of them are better company than their riders." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You'll ride hard and stable late, I'd wager, so let me say it now: the horse eats before you do." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! If you've a charger, I want to see it, because the Brotherhood's had a few and I've loved them all." },
@@ -1591,6 +1616,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? Hold this bucket while you ask." } },
       choices = {
+        { text = "What will become of Ryan's mare now?", next = "dd_ryan", when = { questDone = TODO_QUEST("Dying Wish") } },
         { text = "Let me see the stables.", next = "BUSINESS" },
         { text = "Who kept the stables before you?", next = "brienne" },
         { text = "Best horse you've ever had?", next = "best" },
@@ -1763,8 +1789,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    -- Deeds pass: the player died from a fall.
+    dd_fall = {
+      lines = { { id = "df_default", text = "Never, not once in all the years I've kept this roost. The birds know they've a passenger and fly as if they're carrying eggs; it's the people who jump off early to save a few minutes who end up in the river." } },
+      choices = {
+        { text = "That's a comfort. I'll keep my seat.", next = "BACK", reply = "Do. And if you're ever in a hurry, tell me, and I'll pick you the fastest bird, not the shortest drop." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" },
+          text = "You've fallen from a height and not got up, haven't you? I can always tell, because folk who've done it grip the saddle straps like they mean to strangle them. My birds have never dropped anyone, I'll have you know." },
+        { id = "h_dd_twilight", when = { killed = { name = "Twilight", min = 40 } },
+          text = "My birds fly over the ridge every evening, and there are fewer cookfires in the Twilight camps each time. The riders say that's your work, so you'll get my best bird, at the usual rate." },
         { id = "h_default", key = true, text = "Gretchen Mayberry, Gryphon Master. If you're headed anywhere the Brotherhood holds, I'll have you there before the fog lifts." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! The birds like a heavy rider, believe it or not; it keeps them steady in the wind off the river." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Don't polish that armour too bright before a flight, because the glare off the river spooks the birds." },
@@ -1778,6 +1816,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? My gryphons like to be off before the river mist closes in again." } },
       choices = {
+        { text = "I fell to my death once. Do your birds ever drop riders?", next = "dd_fall", when = { deathCause = "falling" } },
         { text = "I need a ride.", next = "BUSINESS" },
         { text = "Gryphons, this far from Ironforge?", next = "gryphons" },
         { text = "The flying can't be easy out here.", next = "flying" },
@@ -1962,6 +2001,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_cages", when = { questDone = TODO_QUEST("No Soldier Left Behind") },
+          text = "Riftan tells me you took the cage keys off the Twilight champions and let his scouts out. I had a look at one of those keys afterwards, and it was cut fine. Somebody in that fortress knows their way round a forge, and I don't like that at all." },
         { id = "h_default", key = true, text = "Alphonse Dumas. I keep the Brotherhood shod and armed, though iron's short and coal's shorter. Patience I have plenty of." },
         { id = "h_mould", tags = { "news" }, when = { questActive = TODO_QUEST("Krol'dok Moulding") },
           text = "That's a key mould you've got, ogre work and crude as a boot. Let me look at it." },

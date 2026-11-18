@@ -97,6 +97,8 @@ P:NPC {
           text = "A paladin. Say a word for the lads we lost on the Span, if ye would; they died wi' their faces tae the enemy." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Horde, this far south? Ye've no business wi' us, an' we've none wi' ye, so pass by quiet an' I'll do the same." },
+        { id = "dd_nekrosh", tags = { "news" }, when = { questDone = TODO_QUEST("Defeat Nek'rosh") },
+          text = "Word reached us up here that Nek'rosh is dead. Longbraid didnae smile, for he never does, but he sharpened his axe a long while after, an' that's near enough." },
       },
       again = {
         { id = "h_again", text = "What else? The archers are quiet for now." },

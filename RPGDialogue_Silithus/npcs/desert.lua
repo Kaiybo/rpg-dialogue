@@ -167,6 +167,7 @@ P:NPC {
           text = "A warrior. Many who rest here carried a blade as you do, {class}, and came to these wastes to stand against what lies beyond them." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Walk softly here, {class}, for the beasts of this place feed near the graves, and I ask only that you do not hunt among the stones." },
+        { id = "h_dd_rep", when = { reputation = { faction = "Cenarion Circle", min = "revered" } }, text = "The Circle speaks your name with respect now, {name}, from the Hold to Moonglade, and I've heard Rabine Saturna say it himself. The dead of Southwind would be glad to know someone still fights for this land." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The graves are patient, and Elune watches them with me." },

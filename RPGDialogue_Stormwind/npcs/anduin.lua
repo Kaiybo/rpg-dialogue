@@ -39,6 +39,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_anduin_e = {
+      lines = {
+        { id = "dd_anduin_e_a", text = "He does, and so does Lady Prestor, though she says it differently, and I can never tell if she means it kindly. I try to listen to what people do rather than what they say, which my father told me once, before he went away." },
+      },
+      choices = {
+        { text = "Your father was right. Deeds matter more than words.", next = "dd_anduin_e2", fx = { align = { honor = 1 } } },
+        { text = "Words matter too, Your Majesty. They move nobles.", next = "dd_anduin_e2", fx = { align = { honor = -1 } } },
+      },
+    },
+    dd_anduin_e2 = {
+      lines = {
+        { id = "dd_anduin_e2a", text = "I'll remember that, and I'll write it in the book where I keep things I want to remember. I'm still learning how to be king, but I think I'm learning who to trust, and you're on that page." },
+      },
+      choices = { { text = "I'm honored, Your Majesty. Something else.", next = "BACK" } },
+    },
+
     op_orcs = {
       lines = {
         { id = "op_orcs_a", text = "The orcs, mostly. Lady Prestor says they're beasts and always will be, and Bolvar says some of them only ever wanted to go home, and I can't tell which of them is right. What do you think?" },
@@ -128,6 +144,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_exalted_anduin", when = { reputation = { faction = "Stormwind", min = "exalted" } },
+          text = "Lord Bolvar says your name in council, and he doesn't say many names there unless he's cross with them, and he isn't cross with you. I've been hoping you'd come so I could thank you myself, because the city's been safer for what you've done." },
+
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "You look ever so much like {alt}! That one came to see me too, and told me a story about a gryphon that I'm fairly sure wasn't true, but I liked it anyway, so are you related?" },
         { id = "h_alt_other", when = { alt = { notKin = true }, metBefore = false },
@@ -155,6 +174,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Do you have another question? I like questions, and hardly anybody asks me any." } },
       choices = {
+        { text = "Bolvar mentions me in council, Your Majesty?", next = "dd_anduin_e", when = { reputation = { faction = "Stormwind", min = "exalted" } } },
+
         { text = "You must miss your father terribly.", next = "father" },
         { text = "Being king must leave you little time for yourself.", next = "fun" },
         { text = "Would you like a prayer for your father?", next = "prayer", when = { class = "PRIEST" } },

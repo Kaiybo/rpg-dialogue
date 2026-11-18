@@ -1551,6 +1551,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_stitches_t = {
+      lines = {
+        { id = "dd_stitches_t_a", text = "Then you saw it closer than I ever want to, and I'm glad it was you and not me. I heard it once from the window, walking past in the fog and dragging that great hook, and I didn't sleep for three nights afterwards." },
+      },
+      choices = {
+        { text = "Whoever stitched it together is still out there somewhere.", next = "dd_stitches_t2" },
+        { text = "It's dead now. Darkshire can stop being afraid.", next = "dd_stitches_t2", fx = { align = { light = 1 } } },
+        { text = "Fear keeps people careful. Let them stay afraid a while.", next = "dd_stitches_t2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_stitches_t2 = {
+      lines = {
+        { id = "dd_stitches_t2a", text = "Darkshire never stops being afraid, friend; it only changes what it's afraid of. They say the thing was built in the Embalmer's house on the hill, and I'd ask the Night Watch about that before I slept too soundly." },
+      },
+      choices = { { text = "I'll keep that in mind. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Because things outside can see you framed in it, and they come. Your spirits might see them coming, but I'd still rather you stepped inside." } },
@@ -1625,6 +1642,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_stitches_t", tags = { "news" }, when = { killed = { name = "Stitches" } },
+          text = "My guests have stopped sleeping with chairs against their doors, and it's because that stitched-up horror won't be shambling up the road from Raven Hill any more. They say you were there when it fell, so you'll have the quiet room tonight, with my thanks." },
+        { id = "dd_morbent_t", when = { questDone = TODO_QUEST("Morbent Fel") },
+          text = "Sven Yorgen came down from his camp for the first time in a year and bought a hot meal, and he told me Morbent Fel is finished. He didn't say who did it, but he kept looking at the door the way people do when they're expecting a friend." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your room's the one by the door, if you'll take it, because my guests sleep better knowing who's nearest the night." },
         { id = "h_default", text = "I'm Trelayne. Smitts keeps the bar and I keep the beds, and between us we keep people indoors after dark, which is the whole job here." },
         { id = "h_smitts", when = { heardLine = "smitts.m_default" },
@@ -1638,6 +1660,8 @@ P:NPC {
         { id = "h_again", text = "Anything else? I've beds to turn down." },
       },
       choices = {
+        { text = "I was there when Stitches fell, Trelayne.", next = "dd_stitches_t", when = { killed = { name = "Stitches" } } },
+
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "I doubt anyone sleeps well this close to the woods.", next = "sleep" },
         { text = "Who stays here, these days?", next = "guests" },

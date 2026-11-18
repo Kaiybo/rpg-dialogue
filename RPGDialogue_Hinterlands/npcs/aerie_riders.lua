@@ -28,10 +28,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_falling = {
+      lines = { { id = "dd_falling_default", text = "Every rider falls once, an' most of us twice, an' a gryphon will dive after ye if it's a good one. The ones who fall a third time are usually showin' off, an' they don't get a fourth." } },
+      choices = {
+        { text = "Then I'll learn to respect the heights.", next = "BACK", reply = "Good, that's the first lesson, an' the cheapest one ye'll ever get. Off ye go, an' watch yer feet.", fx = { align = { order = 1 } } },
+        { text = "Falling's quick. I'll take the risk for the view.", next = "BACK", reply = "Ha! Spoken like a rider who's no' been one long. Ye'd fit right in here, an' that's no' entirely praise.", fx = { align = { order = -1 } } },
+        { text = "Something else, Doran.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Doran Steelwing. I fly for the Peak, an' I've spent more o' my life starin' down at Witherbark an' Vilebranch than I'd like tae count, an' not one o' them got any prettier for it." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "Ye fell, didn't ye? I can always tell, for folk who've fallen look at a gryphon the way a drowned man looks at a boat." },
       },
       again = { { id = "h_again", text = "What else? Make it quick, I've a patrol." } },
       choices = {
@@ -40,6 +51,7 @@ P:NPC {
         { text = "Which tribe is worst?", next = "worst" },
         { text = "Where do you patrol?", next = "patrol" },
         { text = "Good hunting, Doran.", next = "END" },
+        { text = "I fell off a cliff, Doran. Do riders ever fall?", next = "dd_falling", when = { deathCause = "falling" } },
       },
     },
 
@@ -121,6 +133,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Kerr Ironsight. I watch the passes an' I count what comes up them, trolls an' travellers an' the odd lost Bronzebeard. Most days, nothin' gets past me." },
+        { id = "h_dd_witherbark", when = { killed = { name = "Witherbark", min = 30 } },
+          text = "I've watched ye from the air, workin' through the Witherbark villages, an' I counted for a while before I lost track. Ye fight like ye've a grudge, an' I'd no' want tae be the one ye're holdin' it against." },
       },
       again = { { id = "h_again", text = "Anythin' else? I'm still watchin', mind." } },
       choices = {
@@ -299,6 +313,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Howin Kindfeather, an' I walk the keep every day, round an' round, sayin' hello tae everyone. Claira says I'm a nuisance, but she's smilin' when she says it." },
+        { id = "h_dd_sharpbeak", tags = { "news" }, when = { questDone = TODO_QUEST("Saving Sharpbeak") },
+          text = "Ye're the one who brought Sharpbeak home! Claira's no' stopped smilin' since, an' I've been round the keep twice tellin' everyone about it, which is two more times than usual." },
       },
       again = { { id = "h_again", text = "What else? I've a few more laps in me." } },
       choices = {

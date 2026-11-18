@@ -32,6 +32,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_haggard_def = {
+      lines = {
+        { id = "dd_haggard_def_a", text = "I'd guessed. Thirty years I wore the badge, and I've seen how it starts: a man isn't paid, so he takes, and then he's taking from the farmer next door. It's the nobles who should be answering for it, not just the men with bandanas." },
+      },
+      choices = {
+        { text = "They chose to rob honest farmers. They answer for that.", next = "dd_haggard_def2", fx = { align = { order = 1 } } },
+        { text = "The nobles cheated them. I'd have done the same, maybe.", next = "dd_haggard_def2", fx = { align = { order = -1 } } },
+      },
+    },
+    dd_haggard_def2 = {
+      lines = {
+        { id = "dd_haggard_def2a", text = "Maybe so, and maybe not, and it's all the same to the farmer who's lost his barn. Keep your blade sharp and your head clear, and you'll do better than most who've come through Eastvale." },
+      },
+      choices = { { text = "I'll keep that in mind. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Their lightning took good men, and I've not forgotten it. But you walk steady and honest, and I'll judge you on that." } },
@@ -118,6 +134,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_defias_haggard", when = { killed = { name = "Defias", min = 40 } },
+          text = "You've put a fair few Defias in the ground, by the talk on the road. I've no love for them, but mind they were stonemasons once, and their wives still live in Stormwind." },
+        { id = "dd_hogger_haggard", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
+          text = "Dughan's finally got Hogger's claw on his wall, and they say it was you who brought it in. I chased that gnoll for two summers when I was younger and never got near him, so you've my respect for it." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest? My eyes aren't what they were, but I know the smell of incense, so sit down; you're the first one up here in a month who isn't swearing." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I served beside a few of your sort in the Second War, and they were the only ones who didn't sing on the march." },
         { id = "h_default", text = "I'm Haggard, and I ran the Stormwind Guard once, back when I could read a duty roster. Now I sit here and listen to the loggers swear, and lately I can't even keep hold of my own badge." },
@@ -151,6 +172,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. My ears work, even if nothing else does." },
       },
       choices = {
+        { text = "I've fought a good many Defias, Marshal.", next = "dd_haggard_def", when = { killed = { name = "Defias", min = 40 } } },
+
         { text = "What happened to your badge?", next = "jack" },
         { text = "Whose house was this before you, Marshal?", next = "manor" },
         { text = "Tell me about the Guard.", next = "guard" },

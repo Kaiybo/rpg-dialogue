@@ -206,8 +206,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_scourge = {
+      lines = {
+        { id = "dd_scourge_1",
+          text = "Not every one, but they count the stones, an' I count what comes through my door, an' that's the same thing in the end. The Dawn's never had coin to spare, so it pays in trust, an' trust gets ye into my stores." },
+        { id = "dd_scourge_2",
+          text = "I'll tell ye what I tell every young soldier who brags: the dead don't stay down because ye're proud of yerself. They stay down because ye were careful." },
+      },
+      choices = {
+        { text = "I'm proud of it all the same. I've earned it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fair enough. I'll be careful and keep at it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Quartermaster.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_scourge", when = { killed = { name = { "Skeletal", "Ghoul", "Rotting", "Zombie", "Gargoyle", "Abomination" }, min = 100 } },
+          text = "The scouts've been bringin' in stories about you an' a great heap o' broken Scourge, an' I believe every word. Bring the stones to the Dawn an' the officers'll be speakin' yer name before long." },
         { id = "h_default", key = true,
           text = "Miranda Breechlock, quartermaster tae the Argent Dawn. Every bandage, every potion an' every bolt o' cloth in this chapel goes through my hands an' into my ledger, an' none of it goes out tae strangers." },
         { id = "h_mantle", when = { reputation = { faction = "Argent Dawn", min = "revered" } },
@@ -222,6 +237,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, but quick. There's a cart o' bandages tae count before dark." },
       },
       choices = {
+        { text = "Do the officers really count every Scourge I kill?", next = "dd_scourge", when = { killed = { name = { "Skeletal", "Ghoul", "Rotting", "Zombie", "Gargoyle", "Abomination" }, min = 100 } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Why won't you sell to strangers?", next = "strangers" },
         { text = "What are the mantles of the Dawn?", next = "mantles", when = { reputation = { faction = "Argent Dawn", min = "honored" } } },

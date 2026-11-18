@@ -34,8 +34,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_berton_f = {
+      lines = {
+        { id = "dd_berton_f_a", text = "No trial, and no waiting for letters from Stormwind, and no clever talk about who's paying whom. That's the kind of justice I understand, and I'll not pretend I'm sorry about it." },
+      },
+      choices = {
+        { text = "A beast like that deserved no better.", next = "dd_berton_f2", fx = { align = { order = -1 } } },
+        { text = "I'd still rather the law had done it.", next = "dd_berton_f2", fx = { align = { order = 1 } } },
+      },
+    },
+    dd_berton_f2 = {
+      lines = {
+        { id = "dd_berton_f2a", text = "Aye, well, the law in Lakeshire is one tired magistrate and a stack of paper, and the gnolls can't read. I'll take results, and you've brought me one." },
+      },
+      choices = { { text = "Something else, Berton.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
+        { id = "dd_fangore_b", when = { killed = { name = "Fangore" } },
+          text = "Lieutenant Fangore's dead, they tell me, and that mangy gnoll had it coming three times over. Justice doesn't always come from a magistrate's bench, and this time I'm glad it came from your blade." },
+
         { id = "h_default", key = true, text = "Guard Berton, Lakeshire watch. There's an orc in the Stormwind Stockade named Targorr the Dread, sentenced to die for what he did, and somebody keeps putting his execution off." },
         { id = "h_before", when = { questBefore = TODO_QUEST("What Comes Around...") },
           text = "Put an end to Targorr the Dread, {name}. Go to the Stockade and take his head before whatever trickery keeps him alive sets him loose." },
@@ -51,6 +70,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'm on watch, not deaf." },
       },
       choices = {
+        { text = "I killed Fangore myself. No trial needed.", next = "dd_berton_f", when = { killed = { name = "Fangore" } } },
+
         { text = "What did Targorr do?", next = "targorr" },
         { text = "I'm surprised he hasn't been executed already.", next = "delay" },
         { text = "Isn't killing him a matter for the courts?", next = "courts" },

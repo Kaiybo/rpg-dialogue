@@ -175,6 +175,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_drowned = {
+      lines = {
+        { id = "dd_dr_default", text = "It never is, from what the sailors tell me, and they'd know, since half of 'em have done it at least once. The currents off the coast pull out toward the Great Sea, and the Southsea boys like to cut lines and watch folks drift. Were you chasin' pirates, or just bein' careless?" },
+      },
+      choices = {
+        { text = "Chasing pirates. They owed me, and they paid.", next = "BACK", reply = "Ha! Then the swim was worth it, I suppose. Have a seat, and the next round costs you full price as usual.", fx = { align = { light = -1 } } },
+        { text = "Careless. I'll respect the water next time.", next = "BACK", reply = "Smart talk, and rare in this town. The sea doesn't care how tough you are, so be smart and live to pay your tab.", fx = { align = { light = 1 } } },
+        { text = "Something else, Wiley.", next = "BACK" },
+      },
+    },
     xalt_wiley = {
       lines = {
         { id = "xalt_wiley_default", text = "{alt}, sure, upstairs room on the left, the one with the window that sticks, paid for two nights and slept for one. Never started a fight with the Theramore sailors downstairs either, pal, which is all the peace I ask for in Ratchet." },
@@ -188,6 +198,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_keg", tags = { "news" }, when = { questDone = TODO_QUEST("Chen's Empty Keg") },
+          text = "Drohn's been boastin' all week about the brew you helped him with, and now every pirate-hater on the dock wants a taste. I'm not sellin' it, I'm just tellin' ya, because it's cuttin' into my ale trade." },
+        { id = "h_dd_drowned", when = { deathCause = "drowning" },
+          text = "You look like you went for a swim and forgot to come up again, sweetheart. The water off Ratchet takes a sailor or two every month, so next time, take the boat like a payin' customer." },
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "Hey, pal, you've got a twin, did you know? A {altrace} called {alt} took a bed upstairs not long ago, other side of the war and all, and paid up front with the very same scowl you're wearing." },
         { id = "h_alt_same", when = { alt = { faction = "same" }, metBefore = false },
@@ -206,6 +220,7 @@ P:NPC {
         { id = "h_again", text = "What else, pal? Talk's free and the stew's two silver, so pick wisely." },
       },
       choices = {
+        { text = "I drowned out there, Wiley. It wasn't pleasant.", next = "dd_drowned", when = { deathCause = "drowning" } },
         { text = "Who stays at your inn?", next = "guests" },
         { text = "The boat to Booty Bay doesn't look safe.", next = "boat" },
         { text = "I'd like to make this inn my home.", next = "BUSINESS" },

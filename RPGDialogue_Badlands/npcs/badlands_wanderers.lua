@@ -48,6 +48,8 @@ P:NPC {
           text = "Cog number five is in place, and the machine is doing what it does. I've moved my bedroll another twenty paces downhill." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Horde, are you? The Assembly doesn't take sides, mainly because it hasn't enough members to stand on more than one." },
+        { id = "dd_rock", when = { questDone = TODO_QUEST("Study of the Elements: Rock") },
+          text = "Lotwil hasn't stopped talking about the rock elemental samples you brought him, and I'm the one who has to label them. Thank you, I suppose, in the way one thanks a person for more homework." },
       },
       again = {
         { id = "h_again", text = "What else? I've a mortar going, and Lotwil's humming, which is never a good sign." },

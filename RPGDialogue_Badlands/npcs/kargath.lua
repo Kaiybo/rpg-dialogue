@@ -216,6 +216,16 @@ P:NPC {
         { text = "I don't know, Warlord. I hope I never find out.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
+    dd_gt_rank = {
+      lines = {
+        { id = "dd_gt_rank1", text = "I know where it was earned. Against the Alliance, in valleys far from here, while the Dark Iron sits in his mountain and laughs at us both. I do not say the fighting there is wasted, but remember who our oldest enemy is when the horns stop." },
+      },
+      choices = {
+        { text = "The Alliance is the enemy that matters, Warlord.", next = "BACK", reply = "For now, perhaps. Thrall says otherwise, and so do I on most days.", fx = { align = { honor = -1 } } },
+        { text = "You're right. Blackrock is the real war.", next = "BACK", reply = "Then come back when you are ready to fight it. Kargath will have work for a Blood Guard.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else, Warlord.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Kargath's walls have seen plenty of wounded since the Dark Irons started pushing, and too few hands to mend them, so you're welcome on my tower." },
@@ -241,12 +251,17 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. The worgs up at the Spire are bred for war, {class}, and I'd give a month's plunder to see one of ours run them down." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one in plate, with the Light sitting on you like a war banner! I've seen strange things from this tower, but never a Forsaken who glows." },
+        { id = "dd_disharmony", when = { questDone = TODO_QUEST("Disharmony of Fire") },
+          text = "Thunderheart tells me you went into the fire below the mountain for him. He doesn't speak well of anyone who isn't a spirit, so I listened." },
+        { id = "dd_rank", when = { pvpRank = 6, faction = "Horde" },
+          text = "You carry a Blood Guard's rank, I see. Good. I would rather have one warrior who has earned that than ten who only wear the tabard." },
       },
       again = {
         { id = "h_again", text = "More? Good, talking keeps me from counting vultures." },
         { id = "h_again2", text = "Speak up, {class}; the wind on this tower steals every second word, and I won't miss a good boast for the wind's sake." },
       },
       choices = {
+        { text = "I earned my rank on the battlefields, Warlord.", next = "dd_gt_rank", when = { pvpRank = 6, faction = "Horde" } },
         { text = "The land here is sick, Warlord. Can it heal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You sound like you'd rather be fighting.", next = "dream" },
         { text = "Why does the Horde hold Kargath at all?", next = "why" },
@@ -578,6 +593,16 @@ P:NPC {
         { text = "Something else, Hierophant.", next = "BACK" },
       },
     },
+    dd_th_deaths = {
+      lines = {
+        { id = "dd_th_deaths1", text = "And yet you keep coming back warm, which is more than the Lich King allowed me. I don't envy you, if that's what you're wondering. Every return costs something, and the living never notice what until it's gone." },
+      },
+      choices = {
+        { text = "Whatever it costs, I'll pay it to keep fighting.", next = "BACK", reply = "Spoken like a fool or a hero, and out here I can rarely tell them apart.", fx = { align = { light = -1 } } },
+        { text = "Then I'll try to spend my lives more carefully.", next = "BACK", reply = "How very sensible of you. The Dark Lady values the ones who last.", fx = { align = { light = 1 } } },
+        { text = "Something else, Hierophant.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! The Undercity's magi would adore you, darling, provided you didn't mind their hours, which are endless, or their company, which is worse." },
@@ -602,12 +627,15 @@ P:NPC {
           text = "Did the Warlord tell you about his dreams, the glorious death and the hundred foes? He tells everyone, and we nod, because it's kinder." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter, darling! Do tell me what you've shot, because the Warlord's grunts only ever bring me stories, and I'd love something with a little more meat on it." },
+        { id = "dd_deaths", when = { deaths = { min = 10 } },
+          text = "You die a great deal, don't you? I can smell the spirit healer on you from here. Take it from someone who did it properly once: the second time is never as interesting." },
       },
       again = {
         { id = "h_again", text = "More? Oh, you are a treat. Go on, darling." },
         { id = "h_again2", text = "Don't stop now, I was just starting to enjoy myself." },
       },
       choices = {
+        { text = "I've died more often than I care to count.", next = "dd_th_deaths", when = { deaths = { min = 10 } } },
         { text = "Who's winning the wager, Hierophant?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Can a warrior's steel do anything against the Dark Iron?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "The fire spirits rage under Blackrock Mountain. Do you know why?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1404,6 +1432,16 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_sk_ogre = {
+      lines = {
+        { id = "dd_sk_ogre1", text = "No, and I won't miss them. Back in the camps, the guards used to say we ate like ogres, and I swore I'd cook proper food for orcs if I ever got the chance. Now I do, and you've kept the ogres off my supply road, so sit down and eat something." },
+      },
+      choices = {
+        { text = "Your cooking honors the camps you came out of.", next = "BACK", reply = "Honors them? No, it spites them, and that tastes better. But I take your meaning, and thank you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Ogres or orcs, the weak get eaten. That's the Badlands.", next = "BACK", reply = "Hard words for an inn. True enough out there, though, so eat while you're one of the strong.", fx = { align = { light = -1 } } },
+        { text = "Something else, Shul'kar.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, and an imp with you. Keep it off the hearth, because the last one decided my stew needed more fire, and the grunts haven't forgiven either of us." },
@@ -1420,9 +1458,14 @@ P:NPC {
           text = "A hunter at my fire. If you've anything fresh, I'll take it for the pot, because the grunts are sick of salted coyote, and so am I." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at my inn. The bunks are hard and the stew is mostly lizard, but nobody's died of either, and that's a better record than the Badlands have." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Sit down, sit down. I've fed the dead before and I've fed paladins, but never both on the same stool, so forgive the grunts if they stare at you over their stew." },
+        { id = "dd_coyote", when = { questDone = TODO_QUEST("Coyote Thieves") },
+          text = "Neeka says you cleared the coyotes off her grain sacks. Good, because her grain is my bread, and the grunts were starting to look at me like I was the one stealing it." },
+        { id = "dd_dustbelcher", when = { killed = { name = "Dustbelcher", min = 40 } },
+          text = "The scouts say you've been breaking Dustbelcher heads out in the canyons. Ogres eat whatever wanders past, so every one you kill leaves a little more meat out there for my pot." },
       },
       again = { { id = "h_again", text = "Anything else, while the pot's still on?" } },
       choices = {
+        { text = "The Dustbelcher ogres won't be eating anything now.", next = "dd_sk_ogre", when = { killed = { name = "Dustbelcher", min = 40 } } },
         { text = "Nothing out here looks worth putting in a pot.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do the grunts tell many stories about shamans, Shul'kar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the grunts' stories say about spellcasters, Shul'kar?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },

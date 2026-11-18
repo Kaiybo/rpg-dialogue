@@ -36,6 +36,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = {
+        { id = "dd_de_default", text = "It changes everybody, mon, but slowly, like the tide on a rock. The spirit healers send you back, and the loa watch you come, and Bwonsamdi counts you every time you pass him by. He be patient, dat one, and he never forget a name." },
+      },
+      choices = {
+        { text = "Let him count. I'll keep walking past him.", next = "BACK", reply = "Brave words, and I like dem, but say dem quieter. The loa of death hear better than he let on.", fx = { align = { order = -1 } } },
+        { text = "I'll be more careful. I don't want him counting me.", next = "BACK", reply = "Good, because careful be how a troll gets old, and I be very old. Learn it from me now and save yourself the lesson later.", fx = { align = { order = 1 } } },
+        { text = "Something else, Master.", next = "BACK" },
+      },
+    },
     prej_gadrin = {
       big = true,
       lines = { { id = "prej_gadrin_default", text = "Gadrin do, and it shame him a little. Zalazane take our dead from the burning grounds, put his hex on them and send them walking against their own kin, and they don't know their own names no more. Gadrin know you not the same, but his eyes, they don't listen to his head so good." } },
@@ -122,6 +132,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_drowned", when = { deathCause = "drowning" },
+          text = "You come back to me smellin' of brine, and I know dat look on a face, mon. The water between here and the Echo Isles takes more Darkspear than Zalazane ever did, so don't you try to swim it again without your breath." },
+        { id = "h_dd_deaths", when = { deaths = { min = 8 } },
+          text = "The spirit healers know your face by now, I think, and so do I. Every death leaves a little cold in a body, and you be carryin' plenty of it, so sit by my fire a while." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one wieldin' the Light. I teach witch doctors, and I tell them always to watch the dead careful. You be the strangest dead I ever see." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, and one I didn't teach. That be good, because the last few I taught don't make me proud." },
         { id = "h_default", key = true,
@@ -146,6 +160,7 @@ P:NPC {
         { id = "h_echo", when = { origin = "troll_echo_isles" }, text = "You born on the isles, child, I remember, and you cry the whole way across the water when we leave. Now you come back with a weapon on your back, and Gadrin think maybe the isles be crying for you instead." },
       },
       choices = {
+        { text = "I've died more than once, Master. Does it change me?", next = "dd_deaths", when = { deaths = { min = 8 } } },
         { text = "You look at me the way you'd look at Zalazane's puppets.", next = "prej_gadrin", when = { prejudiced = true } },
         { text = "What did Zalazane do with the loa's gifts, Master Gadrin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can Zalazane's corruption be undone, Master Gadrin?", next = "druid_q", when = { class = "DRUID" } },

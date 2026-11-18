@@ -420,6 +420,7 @@ P:NPC {
           text = "A hunter of the Horde. Your arrows will not stop a swarm, but your eyes might see one coming, and that is worth more." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, standing with the Horde in this wasteland. The Earth Mother must weep to see what the bugs have done to her desert." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Can you hold an axe? No, a hammer, then, and I hear the Light burns bugs as well as anything." },
+        { id = "h_dd_honor", when = { faction = "Horde", honorKills = { min = 250 } }, text = "Your name has reached the Legion's camp before you, {rank}, along with a long count of Alliance dead. The Warchief wants peace here against the silithid, so keep your axe for the bugs while you stand in the Hold." },
       },
       again = { { id = "h_again", text = "Anything else? Speak it plainly, warrior." }, { id = "h_again2", text = "Speak, and quickly." } },
       choices = {
@@ -436,7 +437,19 @@ P:NPC {
         { text = "What does the Horde need from its hunters here, Krug?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you need from a mage, Krug?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will the Light burn the silithid, Krug?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've fought the Alliance for years. Now I stand beside them?", next = "dd_honor", when = { faction = "Horde", honorKills = { min = 250 } } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    dd_honor = {
+      big = true,
+      lines = {
+        { id = "dd_honor_1", text = "Here, you do, and you do it with your teeth shut. The silithid would eat the Horde and the Alliance both and never know the difference, and the Circle feeds and shelters us whatever banner we wear. Out in Warsong Gulch you may settle any score you like, but not in this Hold." },
+      },
+      choices = {
+        { text = "The bugs first, then. The Alliance can wait.", next = "BACK", reply = "Good, that is the Warchief's order and a soldier's sense. The Alliance will still be there when the hives are ash.", fx = { align = { order = 1 } } },
+        { text = "If a dwarf crosses me, truce or not, I'll answer.", next = "BACK", reply = "Then answer outside the walls, and don't come to me when the Circle throws you out of the Hold. I won't speak for you.", fx = { align = { order = -1 } } },
+        { text = "Something else, Krug.", next = "BACK" },
       },
     },
     b1_1 = {
@@ -594,6 +607,7 @@ P:NPC {
           text = "A hunter of the Alliance! The Circle's scouts are good, but I'd trust one of our own to tell me plainly what's moving out by the hives." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of Darnassus at the Hold. Good; Tyrande's people know this foe better than Stormwind's generals do, and I could use the counsel." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of the Alliance! The Horde shamans here hear the swarm under the sand, I'm told, and I'd very much like an Alliance ear on that too." },
+        { id = "h_dd_rank", when = { faction = "Alliance", pvpRank = 6 }, text = "You wear a rank the Alliance doesn't hand out to just anyone, {rank}, and I've seen the dispatches that put it on you. The Hold needs blooded soldiers, so long as you remember the orcs across the courtyard are on our side, for now." },
       },
       again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Ask, friend." } },
       choices = {

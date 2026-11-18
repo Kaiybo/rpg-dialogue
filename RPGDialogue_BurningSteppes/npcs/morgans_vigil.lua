@@ -129,6 +129,16 @@ P:NPC {
         { text = "I'll tell you before I go anywhere near it.", next = "BACK" },
       },
     },
+    dd_mx_rank = {
+      lines = {
+        { id = "dd_mx_rank1", text = "I don't doubt it, and I won't pretend the Horde isn't a danger. But every soldier Stormwind sends to fight orcs in some valley is one who isn't here, watching a mountain full of Blackrock orcs and Dark Irons who would burn Lakeshire to the ground given a week's quiet." },
+      },
+      choices = {
+        { text = "The Horde is the greater threat. Stormwind is right.", next = "BACK", reply = "Perhaps. I'll keep writing my reports either way, and someone may read one.", fx = { align = { honor = -1 } } },
+        { text = "You're right. This mountain is the real danger.", next = "BACK", reply = "Then you're welcome at the Vigil any time, Knight, and I mean that.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
@@ -157,6 +167,10 @@ P:NPC {
           text = "There's a face I'm glad to see, which isn't something I say about most people who walk up this ridge. Sit by the fire, deputy, and we'll pretend for a minute that the mountain isn't there." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. You'll find nothing growing on this ridge but stubbornness, I'm afraid, and we've plenty of that." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at the Vigil. Stormwind won't send me soldiers, so I'll take whatever help Ironforge sends, and I won't ask how it works." },
+        { id = "dd_dragonkin", when = { questDone = TODO_QUEST("Dragonkin Menace") },
+          text = "Helendis put your name in her report on the dragonkin, and she doesn't name anyone lightly. Whatever is gathering those beasts in the Steppes, you've thinned its ranks." },
+        { id = "dd_rank", when = { pvpRank = 6, faction = "Alliance" },
+          text = "A Knight's rank, I see. Stormwind's been handing those out to the ones who hold the line in the valleys, and I'd sooner have a few of them up here than all the paperwork the capital sends." },
       },
       again = {
         { id = "h_again", text = "What else, deputy? I've got a report to write, but it'll keep; they always do." },
@@ -164,6 +178,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask away. The orcs won't move before dawn, and neither will I." },
       },
       choices = {
+        { text = "I earned my rank against the Horde, Marshal.", next = "dd_mx_rank", when = { pvpRank = 6, faction = "Alliance" } },
         { text = "Who commanded here before you, Marshal?", next = "windsor" },
         { text = "You look badly outnumbered out here, Marshal.", next = "enemy" },
         { text = "Why won't Stormwind send more soldiers?", next = "stormwind" },
@@ -569,6 +584,16 @@ P:NPC {
         { text = "Something else, Helendis.", next = "BACK" },
       },
     },
+    dd_hd_dk = {
+      lines = {
+        { id = "dd_hd_dk1", text = "Their masters sit high in Blackrock Spire, and the black dragonflight has always worked through others. The orcs think they are allies of the brood, as their fathers once did, and I suspect they will learn the same lesson their fathers learned." },
+      },
+      choices = {
+        { text = "Then we strike at the masters, not the beasts.", next = "BACK", reply = "Yes, in time. For now, keep reading the signs as you kill, and bring me what you learn.", fx = { align = { order = 1 } } },
+        { text = "I'll keep killing beasts. Let others chase shadows.", next = "BACK", reply = "Someone must hold the hills while the rest of us chase shadows. I do not scorn it.", fx = { align = { order = -1 } } },
+        { text = "Something else, Helendis.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_kaldorei", tags = { "news" }, when = { party = { race = "NightElf" }, faction = "Alliance" },
@@ -590,12 +615,15 @@ P:NPC {
           text = "A paladin of the Light. The Blackrock orcs below would like nothing better than to test your faith, and I would ask you not to let them choose the place." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. The Blackrock orcs have known nothing but war for a generation, and I've wondered whether a soldier of the Alliance sees them as I do, or only as the next foe." },
+        { id = "dd_dragonkin", when = { killed = { name = { "Black Dragonspawn", "Black Wyrmkin", "Black Broodling", "Black Drake" }, min = 30 } },
+          text = "You have killed many of the black dragonkin in these hills. They are not wild beasts, whatever the soldiers think; someone feeds them and sends them out, and every one you slay is a message that someone will read." },
       },
       again = {
         { id = "h_again", text = "What else would you know? I have time, and the mountain isn't going anywhere." },
         { id = "h_again2", text = "Ask, then. Questions are how I found everything I know here." },
       },
       choices = {
+        { text = "Who sends the dragonkin out, Helendis?", next = "dd_hd_dk", when = { killed = { name = { "Black Dragonspawn", "Black Wyrmkin", "Black Broodling", "Black Drake" }, min = 30 } } },
         { text = "This land looks as if it burned long ago.", next = "ruins" },
         { text = "Why are the dragonkin here?", next = "dragons" },
         { text = "Where do the Blackrock get their worgs?", next = "worgs" },
@@ -899,6 +927,16 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_or_br = {
+      lines = {
+        { id = "dd_or_br1", text = "Enough? There are thousands of them up in the Spire, soldier, under Rend Blackhand, and they breed faster than we can bury them. Seventy-five is a fine start, and if you keep the pace, I'll have your name painted on the wall beside mine." },
+      },
+      choices = {
+        { text = "Then I'll keep the pace. Paint the wall.", next = "BACK", reply = "That's the spirit! I'll mix the paint myself, and Winky can watch.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Killing them alone won't end this, Oralius.", next = "BACK", reply = "Maybe not, but it stops them killing us, and I'll take that over any clever plan.", fx = { align = { light = 1 } } },
+        { text = "Something else, Oralius.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Firegut", min = 30 } }, text = "There's Firegut blood on you at last, soldier, and plenty of it by the reports. Dreadmaul Rock is feeling it, so don't stop now." },
@@ -922,12 +960,17 @@ P:NPC {
           text = "A hunter, reporting! Excellent, soldier; Captain Winky says we need scouts, and Winky is right about twice a year, so this must be one of the times." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Excellent, soldier, a bear is worth three footmen, Captain Winky says five, but Captain Winky exaggerates, as I've told him repeatedly." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! Captain Winky says the elements are fickle allies, but Captain Winky says that about everyone, so you'll do nicely." },
+        { id = "dd_pyron", when = { questDone = TODO_QUEST("Overmaster Pyron") },
+          text = "Jalinda says you put out Overmaster Pyron for her. Good work, soldier, though I'd have hit it harder and sooner, and so should you next time." },
+        { id = "dd_blackrock", when = { killed = { name = "Blackrock", min = 75 } },
+          text = "Seventy-five Blackrock orcs and more, by my count, and I keep a careful count. That's striking the enemy before the enemy strikes us, and it's exactly what I've been telling Captain Winky for a year." },
       },
       again = {
         { id = "h_again", text = "Anything else, soldier? Speak up, because Winky's listening and he's a terrible gossip." },
         { id = "h_again2", text = "Next item on the agenda! Quickly now, {g:lad|lass}, the war won't wait." },
       },
       choices = {
+        { text = "Seventy-five Blackrock orcs. Is that enough for you?", next = "dd_or_br", when = { killed = { name = "Blackrock", min = 75 } } },
         { text = "Who's Captain Winky?", next = "winky" },
         { text = "What are my orders, sir?", next = "orders" },
         { text = "What's that thing you keep holding to your ear?", next = "ear" },
@@ -1149,6 +1192,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! Oh, do keep your beasts away from the ridge, because everything up there is on fire, and I've already lost the expedition's pack mule to it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, please tell me you can talk to fire, because everything between here and Blackrock Depths is burning and none of it listens to my mages." },
+        { id = "dd_gortesh", when = { questDone = TODO_QUEST("Gor'tesh the Brute Lord") },
+          text = "Oralius tells everyone that you killed Gor'tesh, and then he tells them again, louder. I'm glad the ogres are leaderless, but I'd be gladder if he let me work in peace." },
       },
       again = {
         { id = "h_again", text = "What else? Sorry, I'm a little scattered today; something exploded earlier, and it wasn't even ours." },
@@ -1631,6 +1676,8 @@ P:NPC {
           text = "A hunter, is it? Keep yer beasts clear o' the roost an' all will be well, for my birds are cross enough wi' the smoke as it is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Now there's a sight, and me birds have been sneezin' ash all mornin', so if ye know a trick for that I'd hear it gladly." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Then ask the wind tae stop blowin' ash in my birds' eyes, an' I'll fly ye anywhere for nothin', which I've never offered anyone." },
+        { id = "dd_fall", when = { deathCause = "falling" },
+          text = "Ye came off a ridge in this ash, didn't ye? Ye can't see the edge for the smoke half the time, an' that's why I keep birds, so folk can see it from above instead." },
       },
       again = { { id = "h_again", text = "Need somethin' more? The gryphons cannae abide the smoke off the mountain, so be quick." } },
       choices = {

@@ -33,6 +33,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_pacify", when = { questDone = TODO_QUEST("Pacify the Centaur") },
+          text = "Longhorn says you pushed the Galak back from the canyon floor for him. Fewer centaur below means fewer arrows coming up the lift, and I've been glad of every quiet day since." },
         { id = "h_default", key = true, text = "Brave Moonhorn. I watch the top of the Great Lift for Freewind Post, and lately I've had more to watch than I'd like." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Message to Freewind Post") },
           text = "Traveler, wait! The centaur have stepped up their attacks around here, and Freewind Post needs to know at once. Take this message to Cliffwatcher Longhorn to the southeast, and stay clear of the Grimtotem on the way; they've been acting strangely toward us." },

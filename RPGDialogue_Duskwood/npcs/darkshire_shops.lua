@@ -111,6 +111,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_stitches_mabel", when = { killed = { name = "Stitches" } },
+          text = "Oh, you're the one who stopped that awful stitched thing, aren't you? Sit down a minute, dear, because you look half dead yourself, and I'll not have a hero fall over in my corner." },
+        { id = "dd_deaths_mabel", when = { deaths = { min = 10 } },
+          text = "You've a pale look about you, dear, the look of someone who's been to the graveyard and walked back again more than once. Take some candles with you, and keep one lit, because the dark in these woods is hungry." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your sort burn through lamp oil like nobody else, out on patrol all night, so I keep the jars filled for you." },
         { id = "h_default", text = "Mabel Solaj, and I keep Darkshire in candles, lamp oil and flour, which is to say I keep it in light and bread. Neither one is easy to come by in this wood, so I don't apologise for my prices." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest! Bless you for coming so far into the dark. I sell more candles to the Night Watch than I ever sold to a chapel, and they need the light just as badly." },
@@ -381,6 +386,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dd_morg_w = {
+      lines = {
+        { id = "dd_morg_w_a", text = "So I see, and so I'll tell you what I tell every Watchman: go for the legs, because they leap, and a worgen that can't leap is only a big dog. Most folk aim for the throat and get their own torn out instead." },
+      },
+      choices = {
+        { text = "Where do these worgen come from?", next = "dd_morg_w2" },
+        { text = "I'll keep that in mind. Thanks, Morg.", next = "dd_morg_w2" },
+      },
+    },
+    dd_morg_w2 = {
+      lines = {
+        { id = "dd_morg_w2a", text = "Nobody knows, or nobody who'll tell me, though Ebonlocke's people whisper about Brightwood Grove and then go quiet when I ask more. I just make the armour, and I'd like to keep making it for people who come back." },
+      },
+      choices = { { text = "Something else, Morg.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They grow worse every month, and I outfit fighters because I want them back. Your spirits won't stop claws, but my armour might." } },
@@ -451,6 +472,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_worgen_morg", when = { killed = { name = "Nightbane", min = 60 } },
+          text = "There are claw marks on your gear that I'd know anywhere, and plenty of them, so you've been fighting the Nightbane worgen and winning. Bring it to me before you go back out, because a clean seam is the difference between a scratch and a funeral." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, in my forge? I've no armour for cloth folk, but come in out of the dark all the same." },
         { id = "h_default", text = "Morg Gnarltree, armorer. Gavin sells you the blade to fight with and I sell you the steel to survive it, and in this wood the second matters more." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin. Your plate's good, but it was made for Stormwind's streets, not Duskwood's claws, and the joints at the elbow will fail you first." },
@@ -466,6 +490,8 @@ P:NPC {
         { id = "h_again2", text = "Speak up. I've been at the anvil all day and my ears are ringing." },
       },
       choices = {
+        { text = "I've fought a lot of Nightbane, Morg.", next = "dd_morg_w", when = { killed = { name = "Nightbane", min = 60 } } },
+
         { text = "Show me your armour.", next = "BUSINESS" },
         { text = "What armour works against worgen?", next = "worgen" },
         { text = "Are you kin to Gavin?", next = "kin" },
@@ -722,6 +748,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dd_danielle_c = {
+      lines = {
+        { id = "dd_danielle_c_a", text = "You went right up to that farmhouse? Sheri won't even walk past the road to it, and I don't blame her, because the folk say Mary still begs anyone she sees not to look at her face. Was she frightening, or was she sad?" },
+      },
+      choices = {
+        { text = "Sad. Whatever she became, she was a person once.", next = "dd_danielle_c2", fx = { align = { light = 1 } } },
+        { text = "Frightening. Some things are best left in the dark.", next = "dd_danielle_c2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_danielle_c2 = {
+      lines = {
+        { id = "dd_danielle_c2a", text = "Well, that's the strangest thread that's ever come through this shop, and I've stitched with spider silk. If Eva ever tells me what it's for, I'll tell you first, I promise." },
+      },
+      choices = { { text = "I'll hold you to that. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Oh, all sorts: fears and hopes and secrets. I sew while I listen. Your spirits must hear secrets too." } },
@@ -803,6 +845,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_comb_danielle", when = { questDone = TODO_QUEST("Ghost Hair Thread") },
+          text = "I heard Madame Eva talking on the stairs about the thread you brought back from Blind Mary's farm. Eva won't tell me what she wants with it, and I've been dying to ask, so if you know, don't you dare keep it to yourself." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Do tiptoe past Madame Eva's door on your way down, because she does so love an argument with the Church." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a good surcoat over that armour, and I've a lovely deep blue that would suit you." },
         { id = "h_default", text = "Danielle Zipstitch, and Sheri and I keep Darkshire in thread, cloth and dye from up here, above Madame Eva's parlour. You'd be amazed what you hear through the floorboards when you sell thread in a fortune teller's house." },
@@ -820,6 +865,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. Sheri says I talk too much, but Sheri isn't here." },
       },
       choices = {
+        { text = "I took the comb to Blind Mary for Madame Eva.", next = "dd_danielle_c", when = { questDone = TODO_QUEST("Ghost Hair Thread") } },
+
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "What do you hear through the floor?", next = "floor" },
         { text = "What's Madame Eva like?", next = "eva" },
@@ -1067,6 +1114,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dd_hogan_d = {
+      lines = {
+        { id = "dd_hogan_d_a", text = "And that's the answer I've been waiting for in this hall, though it came from you and not from them. My wife's mother is buried at Raven Hill, and I've wondered every night whether she's still lying where we left her." },
+      },
+      choices = {
+        { text = "The council should have done this long ago.", next = "dd_hogan_d2", fx = { align = { order = -1 } } },
+        { text = "The council's doing what it can with too few men.", next = "dd_hogan_d2", fx = { align = { order = 1 } } },
+      },
+    },
+    dd_hogan_d2 = {
+      lines = {
+        { id = "dd_hogan_d2a", text = "Maybe so, and maybe I'll keep waiting here anyway, because it's what I know how to do. But I'll stand a little straighter tomorrow, knowing someone's out there doing the work." },
+      },
+      choices = { { text = "Something else, Hogan.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Never once. I keep coming back. Your spirits might give me an answer the council won't." } },
@@ -1153,6 +1216,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_dead_hogan", when = { killed = { name = "Skeletal", min = 50 } },
+          text = "The council still hasn't answered me, but somebody's been doing something about the dead, and I hear it's you. You've done more in a month than the Town Hall has done in a year of my standing here." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The council says pray, and I've prayed, and the dead still walk past my fence, so tell me what I'm doing wrong." },
         { id = "h_default", text = "Hogan Ference, and I've been coming to this hall every morning for a month to ask the council one question, which is what they mean to do about the undead. I'll keep coming until somebody gives me an answer." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin, at last! Are you here for the dead at Raven Hill? Say you are, because this town has prayed for one of you for years." },
@@ -1168,6 +1234,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The council certainly won't." },
       },
       choices = {
+        { text = "I've been putting the dead back in their graves.", next = "dd_hogan_d", when = { killed = { name = "Skeletal", min = 50 } } },
+
         { text = "What do you want the council to do?", next = "council" },
         { text = "Why haven't Stormwind's guards come?", next = "stormwind" },
         { text = "Where are the undead coming from?", next = "raven" },

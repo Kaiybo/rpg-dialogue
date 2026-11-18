@@ -41,6 +41,8 @@ P:NPC {
           text = "It is glorious! Is it not glorious? Even the Dark Iron's own fire can't touch that flame, and they're running about the ridges like ants." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "A paladin. My master warned me your kind would come asking questions, so ask, and I'll answer as much as a squire is permitted." },
+        { id = "dd_torch", when = { questDone = TODO_QUEST("The Torch of Retribution") },
+          text = "My master holds the Torch of Retribution now, and you put it in his hands. I have not seen him so near to peace since the day he first came to this gorge." },
       },
       again = {
         { id = "h_again", text = "What else? My master is watching, so make it worth his while." },

@@ -165,6 +165,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_stew_sald", when = { questDone = TODO_QUEST("Westfall Stew") },
+          text = "Salma tells me you went out after the meat for her stew, and she's not one to praise strangers lightly. You've eaten at our table in all but name, friend, and that counts for a lot in this house." },
+
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Harvest", min = 30 } }, text = "You've been knocking down those harvest watchers, haven't you? I can see clear to the fence line for the first time in a month, and I'll not pretend I'm sorry about it." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "You've a strange way of looking at my rows, friend, like you're listening to them. My wife does that too, now and then." },

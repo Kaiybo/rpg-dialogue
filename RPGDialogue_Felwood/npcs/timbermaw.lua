@@ -126,8 +126,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_friend = {
+      lines = {
+        { id = "ddf_default", text = "They do, because you have carried the Deadwood's beads and feathers to us and shown that you know which furbolgs are sick and which are not. Few outsiders learn the difference, and fewer still bother to." },
+      },
+      choices = {
+        { text = "The Deadwood were your kin. I'm sorry for it.", next = "BACK", reply = "Grazle thanks you. We grieve them as we fight them, and it is good to hear an outsider say so.", fx = { affinity = 1 } },
+        { text = "Something else, Grazle.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_friend", when = { reputation = { faction = "Timbermaw Hold", min = "friendly" } }, text = "The hold speaks of you as a friend now, and Grazle does not say that of outsiders lightly. You may pass our door with your head up." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Grazle smells the arcane on you, and he wonders whether you have come to help the Timbermaw or only to study us." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -152,6 +162,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. Grazle listens." },
       },
       choices = {
+        { text = "The Timbermaw call me friend now, Grazle.", next = "dd_friend", when = { reputation = { faction = "Timbermaw Hold", min = "friendly" } } },
         { text = "What do your shamans hear from the Deadwood's land?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Something terrible happened to the Deadwood.", next = "deadwood" },
         { text = "What is Timbermaw Hold?", next = "hold" },
@@ -519,6 +530,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_impsy", when = { questDone = TODO_QUEST("Trolls of a Feather") }, text = "Impsy tells me you went among the trolls for his little errand and came back with everything he asked for. Niby is impressed, which happens almost never, so enjoy it while it lasts." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin? Niby supposes even the Almighty must suffer visitors who glow, so glow quietly, and don't point any of that holy light at my imp." },
         { id = "h_warcl", when = { class = "WARRIOR" },

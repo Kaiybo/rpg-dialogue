@@ -622,8 +622,19 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_hunt = {
+      lines = {
+        { id = "ddh_default", text = "Good, because a hunt that cannot kill you teaches nothing. Shadumbra, Ursangous and Sharptalon have killed better-armed hunters than you, and the orcs of Splintertree send their young hunters after them to prove themselves. Wear what you took with some pride." },
+      },
+      choices = {
+        { text = "They were magnificent beasts. I'm almost sorry.", next = "BACK", reply = "Almost sorry is the right measure. A hunter who feels nothing has stopped hunting and started butchering.", fx = { align = { light = 1 } } },
+        { text = "Beasts like that exist to be bested.", next = "BACK", reply = "Spoken with a young hunter's pride, and I won't scold it out of you. The forest will do that soon enough.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_hunt", tags = { "news" }, when = { killed = { name = { "Ursangous", "Shadumbra", "Sharptalon" } } }, text = "Word came up from Ashenvale that you brought down one of its great beasts, the old bear, the black saber or the hippogryph of the high cliffs. There is no finer proof of a hunter in Kalimdor, and I will say so to anyone who asks." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Respect the balance, as I tell my hunters, and you'll find the beasts of Teldrassil kinder to a healer than to a hunter." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order judges good and evil, I'm told, but in the wild there is only the balance, and the balance does not take sides." },
         { id = "h_default", text = "I am Jocaste, and I train the hunters of Darnassus. Always respect the balance and live in awe of the nature around you, because that's the first lesson, and the last." },
@@ -645,6 +656,7 @@ P:NPC {
         { id = "h_again2", text = "Another question? Good. Ask whatever you like, and I will tell you if it is a foolish one." },
       },
       choices = {
+        { text = "That beast in Ashenvale nearly killed me.", next = "dd_hunt", when = { killed = { name = { "Ursangous", "Shadumbra", "Sharptalon" } } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What do you mean by balance?", next = "balance" },
         { text = "Choosing a companion must take care.", next = "companion" },

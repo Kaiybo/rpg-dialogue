@@ -43,6 +43,7 @@ P:NPC {
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rite of Strength"), days = 3 } },
           text = "You have fought well, {name}. We may yet be saved, and the Earth Mother will remember the blood you spilled for her." },
         { id = "h_druid", when = { class = "DRUID" }, text = "A young druid. The Earth Mother gives us her shapes so we can protect her, so remember that the claws are a gift and not a toy." },
+        { id = "h_dd_burial", tags = { "news" }, when = { questDone = TODO_QUEST("A Sacred Burial") }, text = "Lorekeeper Raintotem sent word that you stood over the honored dead at Red Rocks while the quilboar came to dig. The ancestors saw it, young one, and so did the Earth Mother, and so did I." },
       },
       again = {
         { id = "h_again", text = "What else would you know, young one?" },

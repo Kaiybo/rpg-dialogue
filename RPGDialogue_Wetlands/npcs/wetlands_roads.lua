@@ -693,6 +693,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Yer folk are old, I'm told, older than ours by a good few thousand years, an' I'd like tae know if ye recognise anythin' we've dug up." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my dig! Mind where ye step, for if ye summon anythin' on top o' my trenches, I'll have ye fillin' them back in." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, at my excavation! I've bones in the ground here older than Ironforge, an' I'd dearly like tae know what the earth makes o' my diggin' them up." },
+        { id = "dd_ormer", when = { questDone = TODO_QUEST("Ormer's Revenge") },
+          text = "Ormer tells me you've been thinning the raptors around my dig with him. I can hear myself think now, which is a mixed blessing, since mostly I think about raptors." },
       },
       again = {
         { id = "h_again", text = "What else? I've a trench to check." },

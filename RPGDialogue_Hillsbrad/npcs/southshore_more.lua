@@ -600,6 +600,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want the strong stuff, I'd guess, and the latest on who's been picking fights with Tarren Mill. I've both behind the bar, and the second one's free." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at my bar! Tell me what's moving in the hills, and I'll tell you what's moving in the town, and we'll both come out ahead." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid at my bar. Word is you lot can talk to animals, so I'll warn you, the cat in the cellar knows everything and tells nothing." },
+        { id = "h_dd_coast", when = { questDone = TODO_QUEST("Down the Coast") },
+          text = "The fishermen say the Torn Fin murlocs have stopped raiding the nets down the coast, and they say it was you, and for once they're right. Lieutenant Farren's taking the credit, naturally, but nobody believes him." },
       },
       again = {
         { id = "h_again", text = "What else? I've been wiping this same mug since noon and it's no cleaner, so I'm free." },

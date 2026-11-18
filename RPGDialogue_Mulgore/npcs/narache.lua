@@ -361,6 +361,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. My father would want me to send you away, but I'd rather see what you can do." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Battleboar", min = 20 } }, text = "You've been thinning out the battleboars, and the hunters say the plains around the camp are safer for it. I'll make a hunter of you yet, whatever you call yourself." },
         { id = "h_narache", when = { origin = "tauren_narache_hunter" }, text = "Ha, the mesa hunter's calf! Your mother let me carry her spears once when I was small, and I dropped them all in the creek, so I've been trying to outhunt her ever since." },
+        { id = "h_dd_sharptusk", tags = { "news" }, when = { questDone = TODO_QUEST("Break Sharptusk!") }, text = "My father told the whole camp you broke Chief Sharptusk and sent the Bristleback running, and he told it twice so the young ones would remember. I'd have liked to be there, but I'm told I'm more use here with the plainstriders." },
       },
       choices = {
         { text = "Leading will be a heavy burden.", next = "lead" },
@@ -373,10 +374,21 @@ P:NPC {
         { text = "Would a mage be welcome on your hunts, Grull?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Your father doesn't seem to trust warlocks, Grull.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you hunt beside a Forsaken paladin, Grull?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Your father talks about Sharptusk a great deal, Grull.", next = "dd_sharptusk", when = { questDone = TODO_QUEST("Break Sharptusk!") } },
         { text = "Good hunting, Grull.", next = "END" },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, the plainstriders won't stand still for long, and An'she won't either." },
+      },
+    },
+    dd_sharptusk = {
+      lines = {
+        { id = "dd_sharptusk_1", text = "He does, because Sharptusk burned part of this camp before you ever came, and my father carried the wounded himself. Now he tells the story at every fire, and every time he tells it the chief gets bigger and you get braver." },
+      },
+      choices = {
+        { text = "Let him tell it his way. Stories keep a camp strong.", next = "BACK", reply = "Ha, that's what my mother says too. A camp needs its stories more than its spears, some nights.", fx = { align = { order = 1 } } },
+        { text = "Tell him the truth. It was a short, ugly fight.", next = "BACK", reply = "Most fights are, I think, and I'll tell him you said so. He'll laugh and tell it bigger anyway.", fx = { align = { order = -1 } } },
+        { text = "Something else, Grull.", next = "BACK" },
       },
     },
     hunter = {

@@ -32,8 +32,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = {
+        { id = "dd_deaths_1",
+          text = "Course I have, and don't look so offended. The spirit healer's been sending you back so often she's started to look tired, and I'd rather know ahead of time whether to dig a bit deeper." },
+        { id = "dd_deaths_2",
+          text = "Nobody pays me extra for the heavy ones, mind you. So if you're going to die out there, try to do it close to the chapel, and do it light." },
+      },
+      choices = {
+        { text = "I'll keep dying until the job's done. Dig deep.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Cross me off your list. I'll be more careful.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Alen.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You again, and still upright! I keep a list of folk I reckon I'll be tossing in the pit before the month's out, and your name's been on it more than once." },
         { id = "h_default", key = true, text = "Alen, caretaker, which is a fancy word for the fellow with the shovel. I keep the pit, I sell the bandages, and I don't get paid near enough for either." },
         { id = "h_zaeldarr_before", when = { questBefore = TODO_QUEST("Zaeldarr the Outcast") },
           text = "As if the Plaguelands weren't trouble enough, now I've got grave robbers, and they're dead trolls, of all things, who sneak in at night and cart the bodies off out of my pit. Their chief is a big rotten brute called Zaeldarr, and he hides out in the Undercroft to the west." },
@@ -51,6 +66,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. I've got a minute before the next cart comes." },
       },
       choices = {
+        { text = "You've got a list with my name on it?", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "Tell me about the pit.", next = "pit" },
         { text = "Who's Egan?", next = "egan", when = { any = { { questActive = TODO_QUEST("The Restless Souls") }, { questDone = TODO_QUEST("The Restless Souls") } } } },
         { text = "Why do you stay at a job you hate?", next = "job" },

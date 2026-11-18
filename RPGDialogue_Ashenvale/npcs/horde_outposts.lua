@@ -36,8 +36,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_naga = {
+      lines = {
+        { id = "ddn_default", text = "Because somet'ing in Blackfathom Deeps be callin' dem, and de water spirits be cryin' about it. De naga be old, older dan de Horde, and dey come from under de sea where no shaman go, so we watch, and we kill dem when dey come too close." },
+      },
+      choices = {
+        { text = "Then we should go into Blackfathom and end it.", next = "BACK", reply = "Brave talk, and maybe one day you do it. Go wit' friends, and listen to de water before you go too deep." },
+        { text = "Something else, Je'neu.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_naga", tags = { "news" }, when = { questDone = TODO_QUEST("Naga at the Zoram Strand") }, text = "Marukai say you cut down many naga on de strand for him. De water spirits be quieter tonight, and I be thinkin' dat not a coincidence." },
         { id = "h_default", key = true,
           text = "I be Je'neu Sancrea, of da Earthen Ring. Something stir in Blackfathom Deeps, north along da strand, and da water spirits be crying out about it, so I come here to listen and to answer." },
         { id = "h_ruins", tags = { "news" }, when = { questActive = TODO_QUEST("Amongst the Ruins") },
@@ -52,6 +62,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, mon. I got time between da waves." },
       },
       choices = {
+        { text = "Why do the naga keep coming up the Zoram Strand?", next = "dd_naga", when = { questDone = TODO_QUEST("Naga at the Zoram Strand") } },
         { text = "What is the Earthen Ring?", next = "ring" },
         { text = "What's wrong in Blackfathom Deeps?", next = "deeps" },
         { text = "Who are the Twilight's Hammer?", next = "twilight" },
@@ -142,6 +153,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_vorsha", tags = { "news" }, when = { questDone = TODO_QUEST("Vorsha the Lasher") }, text = "Muglash be tellin' everybody you stood beside him when Vorsha come up out of de water, and dat de hydra be dead now. De naga still crawl up de strand, but at least de sea not be eatin' our boats no more." },
         { id = "h_default", key = true,
           text = "I be Marukai, and I keep watch on da strand, and da strand keep coughing up naga, and I be tired of it. Every night dey crawl up a little closer, like dey testing us." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Naga at the Zoram Strand") },
@@ -509,8 +521,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_torek = {
+      lines = {
+        { id = "ddt_default", text = "Loudly, and with more Sentinels in them every time. The way they tell it, you killed Duriel Moonfire with one hand and carried Torek home with the other. I don't believe half of it, but the half I believe is enough." },
+      },
+      choices = {
+        { text = "We hit the elves where it hurt. Good.", next = "BACK", reply = "Good for the Horde, maybe, but every raid brings a reprisal, and they'll come for these walls next. I'd rather you were here when they do.", fx = { align = { light = -1 } } },
+        { text = "I take no joy in killing elves for lumber.", next = "BACK", reply = "Then keep that to yourself in front of the Warsong. They'd not take it kindly, though I don't think you're wrong.", fx = { align = { light = 1 } } },
+        { text = "Something else, Kaylisk.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_torek", tags = { "news" }, when = { questDone = TODO_QUEST("Torek's Assault") }, text = "Torek's raiders came back from the Silverwing Outpost drunk on blood and boasting, and every one of them told me you fought beside them. Sit down, before they start the story again from the beginning." },
+        { id = "h_dd_outrunners", when = { questDone = TODO_QUEST("Ashenvale Outrunners") }, text = "Kuray'bin says the elf runners don't slip past Splintertree like they used to, and he says it's your doing. Good, because one of them set my storehouse alight last spring." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You've the look of someone the spirit healer knows by name, {class}. This forest kills the careless, so eat something and sleep before you go back out." },
         { id = "h_default", key = true,
           text = "Kaylisk, and this is my inn, for as long as the walls stand. Food, drink and a bed, and I'll keep your hearthstone tied here if you want somewhere to come back to." },
         { id = "h_orc", when = { race = "Orc" },
@@ -527,6 +552,7 @@ P:NPC {
         { id = "h_again2", text = "What else can I do for you?" },
       },
       choices = {
+        { text = "Torek's raiders are telling stories about me?", next = "dd_torek", when = { questDone = TODO_QUEST("Torek's Assault") } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "How do you keep an inn in a war?", next = "war" },
         { text = "What's in the stew?", next = "stew" },
@@ -667,6 +693,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You've fallen off something high and died for it, I can tell by the way you look at my wind riders. They don't drop riders who hold on, so hold on, and stop jumping off cliffs to save time." },
         { id = "h_default", key = true,
           text = "Vhulgra. I keep the wind riders at Splintertree, and they'll carry you anywhere the Horde has a roost. Mind the beak, though, because they bite strangers." },
         { id = "h_alliance", when = { faction = "Alliance" },

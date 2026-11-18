@@ -290,6 +290,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Josie, and I tell the stories at bedtime, because Brock's are boring and they're all about Brock. Tonight's is about the island in the sky, and the ship that sails there, and a girl who stows away on it, who is me." },
         { id = "h_skyborne", when = { race = "Skyborne" }, text = "You're from the island in the sky, aren't you? Is it true there are no stairs, and you just float? Please say it's true, because I've already told everyone it is." },
+        { id = "h_dd_gilded", when = { questDone = TODO_QUEST("Opportunistic Education") },
+          text = "Brock says Rexxie the goblin has a golden book, and that you're the one who gave it to her! I put it in tonight's story, except in my story it's magic, and it flies." },
       },
       again = { { id = "h_again", text = "What else? The fire's warm and I'm not sleepy at all." } },
       choices = {

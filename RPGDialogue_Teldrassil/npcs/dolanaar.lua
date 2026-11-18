@@ -124,8 +124,19 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    dd_melenas = {
+      lines = {
+        { id = "ddm_default", text = "I wondered the same, so I knelt and tasted the third well the morning after his head came to Tallonkai. It is no sweeter, which tells me the trouble runs deeper than one satyr in a cave." },
+      },
+      choices = {
+        { text = "Then whatever fouls it is still out there.", next = "BACK", reply = "Or under us, in the roots. Keep listening as you travel, and tell me if any other well tastes of what the third one does.", fx = { affinity = 1 } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_relics", tags = { "news" }, when = { questDone = TODO_QUEST("The Relics of Wakening") }, text = "Gaerolas sent word that the Relics of Wakening are back in Athridas' keeping, and the sleeping druids may yet be roused. If the Druids of the Talon wake, perhaps they will hear in the wells what I hear." },
+        { id = "h_dd_melenas", tags = { "news" }, when = { questDone = TODO_QUEST("Twisted Hatred") }, text = "Lord Melenas is dead, they tell me, and his grells are scattering out of Fel Rock. A satyr so near the moonwells troubled me more than I let the Sentinels see, so you have my thanks." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Light, so far from your kingdoms? The moonwells are Elune's, but I will not turn away anyone who comes to guard them." },
         { id = "h_default", key = true,
           text = "I am Corithras Moonrage, and I have kept the moonwells of Teldrassil since the first of them was blessed. Something is wrong with them, and by Elune, I mean to learn what." },
@@ -144,6 +155,7 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like. The water is patient, and so am I, though my knees are less so after a night kneeling on wet stone." },
       },
       choices = {
+        { text = "Was Lord Melenas the one fouling the third well?", next = "dd_melenas", when = { questDone = TODO_QUEST("Twisted Hatred") } },
         { text = "You'd rather outsiders stayed off Teldrassil, wouldn't you?", next = "prej", when = { prejudiced = true } },
         { text = "What's wrong with the wells?", next = "wells" },
         { text = "Tell me the story Tenaron began.", next = "story", when = { any = { { questActive = TODO_QUEST("Crown of the Earth") }, { questDone = TODO_QUEST("Crown of the Earth") } } } },
@@ -346,9 +358,9 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Gnarlpine are not your enemies by choice, so remember that when you draw on them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My people learned the cost of the arcane long ago, but I'll judge you by what you do, not by what the Highborne did." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Gnarlpine", min = 40 } },
+          text = "You have killed a great many Gnarlpine, and I'll not pretend it doesn't grieve me, though I know it had to be done. They were our friends once, so when you think of them, remember that too." },
         { id = "h_shores_resolved", tags = { "news" }, when = { thread = { id = "both_shores", state = "resolved" } },
           text = "Thundris Windweaver wrote to me from Auberdine about a satyr who poisoned the food of the Blackwood furbolgs, and I have read his letter more times than I should. If the Gnarlpine were given their sickness by a hand, then I was right to grieve for them and wrong to think it was only the moss." },
-          text = "You have killed a great many Gnarlpine, and I'll not pretend it doesn't grieve me, though I know it had to be done. They were our friends once, so when you think of them, remember that too." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Speak plainly, then, as I do. The Gnarlpine were never our enemies, and I would know whether your spirits can tell me what poisoned them." },
       },
       again = {
@@ -569,8 +581,20 @@ P:NPC {
         { text = "I had another question.", next = "BACK" },
       },
     },
+    dd_ursal = {
+      lines = {
+        { id = "ddu_default", text = "Relieved and grieved at once, for Athridas knew Ursal before the fel moss ever touched him. He spoke of him at the well this morning as one speaks of an old friend lost at sea." },
+      },
+      choices = {
+        { text = "Ursal was too far gone to save. It had to be done.", next = "BACK", reply = "Perhaps, and I think Athridas knows it. Knowing a thing and making peace with it are seldom the same day's work.", fx = { align = { light = -1 } } },
+        { text = "I wish there had been a way to bring him back.", next = "BACK", reply = "So do I, young one, and it speaks well of you that you say it. Tell Athridas, if you can bear his silence afterward.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ursal", tags = { "news" }, when = { questDone = TODO_QUEST("Ursal the Mauler") }, text = "Athridas tells me Ursal the Mauler is dead at last, and that you were the one who ended him. I am glad of it, young one, though I wish the Gnarlpine had been left a chieftain worth sparing." },
+        { id = "h_dd_road", when = { questDone = TODO_QUEST("The Road to Darnassus") }, text = "Amara says the ambushers' den on the northern path is quiet and the carts reach Darnassus whole. That is your doing too, I hear, and Dolanaar notices such things." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for Dolanaar has had wounded enough since the Gnarlpine grew bold, and the Sentinels bring me more of them every week." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in Dolanaar, in armor that rings like a temple bell! The Gnarlpine will hear you coming, but perhaps that's no bad thing." },
         { id = "h_default", key = true,
@@ -593,6 +617,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, as patiently as the groves themselves." },
       },
       choices = {
+        { text = "Athridas must be relieved that Ursal is gone.", next = "dd_ursal", when = { questDone = TODO_QUEST("Ursal the Mauler") } },
         { text = "Who do you blame for Starbreeze?", next = "op_ask" },
         { text = "They took something that mattered to you.", next = "dreamcatcher" },
         { text = "Where are the Gnarlpine causing trouble?", next = "starbreeze" },
@@ -993,8 +1018,30 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    dd_ursal = {
+      lines = {
+        { id = "ddu_default", text = "Everyone hears everything at an inn, sooner or later. Athridas didn't celebrate, mind you; he only sat and stared into his cup, and then he said the Gnarlpine might be a gentle people again one day, with Ursal gone." },
+      },
+      choices = {
+        { text = "Do you think the Gnarlpine can be gentle again?", next = "dd_ursal2" },
+        { text = "Something else, Keldamyr.", next = "BACK" },
+      },
+    },
+    dd_ursal2 = {
+      lines = {
+        { id = "ddu2_default", text = "I remember them trading honey at the edge of the village, so I would like to believe it. The Sentinels don't, and they're the ones who carry the wounded in here, so I keep my hopes to myself and pour the tea." },
+      },
+      choices = {
+        { text = "Then we heal them, not hunt them.", next = "BACK", reply = "That's a kind thought, and Athridas would bless you for it. Say it where the Sentinels can hear you, though, and mind their faces.", fx = { align = { light = 1 } } },
+        { text = "Hope won't stop an ambusher's club. They need putting down.", next = "BACK", reply = "Perhaps it won't, and I've bandaged enough heads to know it. Still, I'd rather you didn't say it so cheerfully under my roof.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ursal", tags = { "news" }, when = { questDone = TODO_QUEST("Ursal the Mauler") }, text = "Athridas sat by my fire last night longer than he has in a year, and he told me Ursal the Mauler is dead. He said a traveler did it, and from the way he described you, I think that traveler is standing at my counter." },
+        { id = "h_dd_melenas", tags = { "news" }, when = { questDone = TODO_QUEST("Twisted Hatred") }, text = "Tallonkai carried that satyr's head through half of Dolanaar before anyone could talk him out of it, which is not like him at all. The Sentinels drank to whoever brought down Lord Melenas, and I gather it was you." },
+        { id = "h_dd_deaths", when = { deaths = { min = 8 } }, text = "You have the look of someone who has woken at the spirit healer's feet more than once, friend. Sit by the fire, and don't tell me how many times, because I would only worry." },
         { id = "h_alt_any", when = { alt = true, metBefore = false },
           text = "Welcome to Dolanaar. You walk in the way {alt} did, a {altrace} {altclass} who rested here on the road to Darnassus, and I've a fondness for travelers who stop long enough to be remembered." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
@@ -1020,6 +1067,7 @@ P:NPC {
         { id = "h_again", text = "Anything else I can do for you? There's tea, if you'd like some, though I'd skip the moonberry; it's gone a bit fizzy." },
       },
       choices = {
+        { text = "I take it you heard about Ursal.", next = "dd_ursal", when = { questDone = TODO_QUEST("Ursal the Mauler") } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who stops at your inn?", next = "inn" },
         { text = "I'd guess you hear all the road's news in here.", next = "road" },

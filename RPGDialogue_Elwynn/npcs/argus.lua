@@ -31,6 +31,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_argus_k = {
+      lines = {
+        { id = "dd_argus_k_a", text = "I can tell, because there's candle wax in the joints of your gear and the stink of the mine on you. Those kobolds dig with stolen picks, mostly ours, so every one you put down is a tool I don't have to make again." },
+      },
+      choices = {
+        { text = "Then I'm saving you work. I'll take that as thanks.", next = "dd_argus_k2" },
+        { text = "Can you tell me anything about kobold weapons?", next = "dd_argus_k2" },
+      },
+    },
+    dd_argus_k2 = {
+      lines = {
+        { id = "dd_argus_k2a", text = "Rusty, short and badly kept, and the bigger ones in the deep tunnels carry better steel than they should. Mind the ones with the candles on their heads, because they'll set your cloak alight while you're watching the blade." },
+      },
+      choices = { { text = "Good advice, Argus. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I mend what's bent and make what's needed, and I don't hold with miracles. If your fire burns hot and steady, it can stand by my anvil, but it won't touch the work." } },
@@ -108,6 +124,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_kobolds_argus", when = { killed = { name = "Kobold", min = 50 } },
+          text = "You've dented that blade on a good many kobold skulls, by the look of the edge. Bring it here before you go back into Fargodeep, because a nicked sword in a mine is a quick way to an early grave." },
+        { id = "dd_goldtooth", when = { questDone = TODO_QUEST("Goldtooth") },
+          text = "Bernice Stonefield came by gloating that you'd taken her necklace back off that kobold with the gold tooth. She asked me to polish it, too, and I told her I'm a smith, not a jeweller, but I did it anyway." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your plate will want to look like it means what it promises, so let me see the dents before you say a word." },
         { id = "h_default", text = "Argus. I mend what's bent and make what's needed, but I don't do miracles." },
         { id = "q_elmore", when = { questActive = TODO_QUEST("Elmore's Task") },
@@ -137,6 +158,8 @@ P:NPC {
         { id = "h_again2", text = "Eh? Something else, was it? Go on and say it louder." },
       },
       choices = {
+        { text = "I've fought my way through a lot of kobolds lately.", next = "dd_argus_k", when = { killed = { name = "Kobold", min = 50 } } },
+
         { text = "Let's see what you have.", next = "BUSINESS" },
         { text = "What makes good steel?", next = "steel" },
         { text = "That's a great many horseshoes for one smithy.", next = "shoes" },

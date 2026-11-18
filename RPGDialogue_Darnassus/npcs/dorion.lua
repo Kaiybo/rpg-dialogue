@@ -32,6 +32,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
+        { id = "h_dd_ursangous", when = { killed = { name = "Ursangous" } }, text = "So you brought down Ursangous, the great bear of Ashenvale. Good, for that bear had grown far too used to the taste of hunters, and the Sentinels of Astranaar will walk easier for it." },
         { id = "h_default", key = true,
           text = "I am Dorion, and I teach hunters here at the Enclave, as I taught them in Ashenvale before the tree was planted. This is Shadow, who teaches them more than I do, so mind your manners around her and she'll mind hers around you." },
         { id = "h_hunter", when = { class = "HUNTER" },

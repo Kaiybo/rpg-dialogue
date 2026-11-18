@@ -126,6 +126,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! At last, someone in this town who fights with a blade and still breathes air. Sit, and tell me you've come to help me pay back the Syndicate." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter of the Horde. The Syndicate hid in the Durnholde ruins like rats, and I'd have given much for someone who could track rats." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You are one of the dead, and you call on the Light like the human knights who guarded the camps. I do not know what to make of that, but I have seen stranger things since I came to these hills." },
+        { id = "h_dd_battle", tags = { "news" }, when = { questDone = TODO_QUEST("Battle of Hillsbrad") },
+          text = "The Forsaken tell me you broke the Hillsbrad farms for Darthalia. They fight cold, these dead ones, but I hear you fought with fire in your blood, and that is how it should be done." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I sharpen; an orc's blade should never be duller than his tongue." },
@@ -665,6 +667,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Do you take trophies? I've a dozen skulls by the gate, and I'd love to hear how a proper hunter keeps them clean." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! Do your people collect skulls? Bones, perhaps, or antlers, or anything else that holds a man's interest on a quiet post?" },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Now I've always wondered whether a human skull taken by a holy hammer looks any different from the rest, so bring me one and we'll compare it to the collection." },
+        { id = "h_dd_guards", tags = { "news" }, when = { killed = { name = "Southshore Guard", min = 10 } },
+          text = "You've been putting Southshore's guards in the dirt, I hear, and doing it close enough to their walls that they can hear the bells. If any of their skulls are still attached, you know where my wall is." },
       },
       again = {
         { id = "h_again", text = "Anything else? I have nowhere to be." },
@@ -1015,6 +1019,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The bats will be curious about your beast, so keep it calm, because a curious bat is a nibbling bat." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. The bats like you already, I can tell, and that's rare, because they don't like anyone." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The bats don't mind you, though the living will, when you come down out of the sky glowing over their fields." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You fell off something tall, didn't you? I can see it in the way you're standing, and my bats would have done the descending for you, more gracefully, for a few coins." },
       },
       again = {
         { id = "h_again", text = "Anything else? They're restless, and when they're restless they drop things on the roof I'd rather not name." },

@@ -44,6 +44,7 @@ P:NPC {
           text = "That's a heavy sack. I'll send it to Orgrimmar with your name on it, and Belgrom can count them himself." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "I'll say this once, tauren: I've nothing against your people, only against the ones who'd see the Horde fall. If that sticks in your throat, take it up with the Grimtotem." },
+        { id = "h_dd_ogres", tags = { "news" }, when = { questDone = TODO_QUEST("The Ogres of Feralas") }, text = "Rok Orhan says you broke the Gordunni outpost for him. Ogres are fine work, but don't forget there are tauren in those hills who need killing more." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it." },
@@ -55,7 +56,18 @@ P:NPC {
         { text = "Why horns?", next = "horns" },
         { text = "How do the tauren here feel about this?", next = "camp" },
         { text = "Give me the bounty.", next = "BUSINESS" },
+        { text = "Rok Orhan has me fighting ogres. Is that a problem?", next = "dd_ogres", when = { questDone = TODO_QUEST("The Ogres of Feralas") } },
         { text = "I'll go.", next = "END" },
+      },
+    },
+    dd_ogres = {
+      lines = {
+        { id = "dd_ogres_1", text = "No, and Rok Orhan is right to want them gone, because Belgrom sent us both. But an ogre is a beast who wants your food, and a Grimtotem is a traitor who smiles at you in Thunder Bluff and stabs you in Stonetalon, and I know which one I'd rather see dead." },
+      },
+      choices = {
+        { text = "A traitor is worse than a beast. You're right.", next = "BACK", reply = "Good, then bring me horns as well as ogre ears, and we'll both be pleased.", fx = { align = { honor = 1 } } },
+        { text = "Dead is dead. I'll kill whoever pays best.", next = "BACK", reply = "Hah! A mercenary's answer, but an honest one, and Belgrom's coin spends the same either way.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Krueg.", next = "BACK" },
       },
     },
 
@@ -264,6 +276,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Shyn, and these are the riders of Camp Mojache. They'll carry you to Thunder Bluff, Freewind, or wherever else the Horde has a perch." },
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You fell to your death somewhere, I can see it in how tightly you grip the saddle straps. My riders don't drop anyone who holds on, so hold on, and you'll never have that trouble from the sky." },
       },
       again = { { id = "h_again", text = "Anything else before you fly?" } },
       choices = {

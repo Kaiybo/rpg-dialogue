@@ -113,6 +113,16 @@ P:NPC {
         { text = "Something else, Thorgrum.", next = "BACK" },
       },
     },
+    dd_tg_fall = {
+      lines = {
+        { id = "dd_tg_fall1", text = "It's the way ye looked at my birds, like ye were jealous o' their wings. Half the folk who fly wi' me do it after a fall, an' the other half fly so they'll never have one, an' either way the birds dinnae judge." },
+      },
+      choices = {
+        { text = "Next time I'll pay for the gryphon.", next = "BACK", reply = "Wise, an' my birds thank ye for the custom. Ironforge or Menethil, whenever ye like.", fx = { align = { order = 1 } } },
+        { text = "I'll keep climbing. It's quicker, when it works.", next = "BACK", reply = "When it works, aye. I'll have a bird circle round tae look for ye, just in case.", fx = { align = { order = -1 }, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -124,12 +134,15 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. My gryphons have been starin' at ye since ye came up the path, an' I'd say that means they like ye, though wi' gryphons it's hard tae tell." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My gryphons dinnae care for demons, so ye'll leave yer friend on the ground an' climb on alone." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My gryphons like ye already. They're Ironforge-bred, mind, but they've a bit o' Aerie Peak in them, an' that bit knows a shaman." },
+        { id = "dd_fall", when = { deathCause = "falling" },
+          text = "Ye've the look o' someone who took the short way down a tall cliff. If ye want tae come down from a height, friend, my gryphons'll do it gentler, an' for a few coppers." },
       },
       again = {
         { id = "h_again", text = "What else? The birds are restless, so I'll keep one eye on the roost." },
         { id = "h_again2", text = "Ask away, friend, but stand clear o' the roost, for the big grey's been eatin' trout all week." },
       },
       choices = {
+        { text = "I fell off a cliff, yes. How did you know?", next = "dd_tg_fall", when = { deathCause = "falling" } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Flying over the loch must be a fine sight.", next = "loch" },
         { text = "Are the gryphons ever in danger?", next = "danger" },
@@ -313,6 +326,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Now, I know ye kaldorei like yer leather, but hear me out, for a wee bit o' mail never hurt anyone." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Ye'll no' be wantin' my mail, I'd say, for yer sort fight in cloth an' trust tae other things." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The mountaineers wear my mail tae fight troggs, an' if ye can tell me when the troggs are comin', they'll have time tae put it on." },
+        { id = "dd_mogrosh", when = { killed = { name = "Mo'grosh", min = 30 } },
+          text = "The Mountaineers say ye've been at the Mo'grosh ogres up the northeast shore. Ogre clubs are hard on mail, so bring me what's left o' yer armour an' I'll see what's worth savin'." },
+        { id = "dd_mercs", when = { questDone = TODO_QUEST("Mercenaries") },
+          text = "Bluntnose finally paid out on those ogre mercenaries, an' it was you that earned it, I hear. Half the town's mail was dented by them, so ye've done my trade a kindness an' a disservice both." },
       },
       again = {
         { id = "h_again", text = "What else can I talk ye intae, friend?" },

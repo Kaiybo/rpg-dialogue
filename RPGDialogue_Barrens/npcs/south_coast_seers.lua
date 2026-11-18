@@ -33,6 +33,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_drowned", when = { deathCause = "drowning" },
+          text = "The sea took your breath not long ago, I think. I can see it in the way you stand, like someone listening for a wave behind them, so be gentle with yourself; water does not hate you, it simply does not know you yet." },
         { id = "h_default", key = true, text = "I am Islen Waterseer, and I listen to the spirits of water, which is a slower conversation than most people have patience for. I live out here because the sea is the oldest voice in Kalimdor, and the Barrens are very dry." },
         { id = "h_call", when = { class = "SHAMAN", questActive = TODO_QUEST("Call of Water") },
           text = "Searn Firewarder sent you, or Xanis Flameweaver, and either way it is time you learned about water. Water means rebirth, little one, but only when it is pure, and polluted water can devastate everything it touches." },

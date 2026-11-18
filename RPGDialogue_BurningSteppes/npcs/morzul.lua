@@ -66,6 +66,8 @@ P:NPC {
           text = "Read my instructions closely, and perform every step exactly as written. A circle half-made is a door half-open, and things come through half-open doors." },
         { id = "h_steed_done", tags = { "news" }, when = { questDone = TODO_QUEST("Dreadsteed of Xoroth") },
           text = "You've bound a dreadsteed, and lived, and I'll admit some of my students have managed only one of those. Ride it well, and let it remind everyone who sees you what you are." },
+        { id = "dd_imp", when = { questDone = TODO_QUEST("Imp Delivery") },
+          text = "Gorzeeki tells me you carried that imp to him without letting it loose or burning yourself. Most fools manage one or the other, so I will count it as a small mark in your favour." },
       },
       again = {
         { id = "h_again", text = "Something more? Ask, while my patience lasts." },

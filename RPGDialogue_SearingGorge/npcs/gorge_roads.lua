@@ -120,6 +120,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, thank the stones! The Dark Iron took my team somewhere along this road, an' I'd sleep sounder tonight wi' a shield beside me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll see tracks I'd miss, an' maybe ye'll find where my team went, for I've seen nothin' but spiders an' basilisks since I came down here." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf wi' a shaman's totems! I've been talkin' tae the stones o' this Gorge for weeks, an' it would be a fine thing tae meet someone they answer." },
+        { id = "dd_darkiron", when = { killed = { name = "Dark Iron", min = 30 } },
+          text = "Ye've been killin' Dark Irons all over this Gorge, I hear. It'll no' bring my team back, but I'll sleep a wee bit better knowin' the ones who took them are fewer." },
       },
       again = {
         { id = "h_again", text = "What else? We cannae linger here long." },

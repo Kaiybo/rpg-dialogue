@@ -1321,6 +1321,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_joshua_d = {
+      lines = {
+        { id = "dd_joshua_d_a", text = "Then admit it here, where it's safe to. Each time the spirit returns, it brings something back from the other side, and some find they grow braver for it while others grow careless. Which are you becoming?" },
+      },
+      choices = {
+        { text = "Braver. Each death teaches me what's worth fighting for.", next = "dd_joshua_d2", fx = { align = { light = 1 } } },
+        { text = "Careless, maybe. Death doesn't frighten me any more.", next = "dd_joshua_d2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_joshua_d2 = {
+      lines = {
+        { id = "dd_joshua_d2a", text = "Then I'll pray for you either way, because both kinds need it. Come and sit in the Cathedral some evening when you're not bleeding, and let the quiet do what the healers can't." },
+      },
+      choices = { { text = "I'll try, Brother. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "In the first light through the east window, yes, as if the stone were holding its breath. Perhaps your spirits would call that something else." } },
@@ -1401,6 +1417,9 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
+        { id = "dd_deaths_joshua", when = { deaths = { min = 20 } },
+          text = "You carry the weight of many returns, friend, and I can see it even if you can't. The Light has brought you back more than twenty times, I'd guess, and I wonder whether you've stopped to ask it why." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at first light. Your order has sworn its oaths at altars like this one, so you'll know how the morning lies across the stone." },
         { id = "h_default", key = true, text = "Brother Joshua. I teach by the altar, because people pay attention near it. They don't always notice they're doing it." },
         { id = "h_dawn", when = { timeOfDay = "dawn" }, text = "Look, the first light through the east window. I've watched it every morning for years, and it's never once been the same." },
@@ -1420,6 +1439,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, friend. I'll listen, which you'll remember is the part I said people skip." },
       },
       choices = {
+        { text = "I've died more times than I like to admit, Brother.", next = "dd_joshua_d", when = { deaths = { min = 20 } } },
+
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why teach by the altar?", next = "altar" },
         { text = "I've seen you at prayer often, Brother.", next = "pray" },

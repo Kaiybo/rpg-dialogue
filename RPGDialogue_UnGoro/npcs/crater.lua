@@ -292,6 +292,7 @@ P:NPC {
           text = "A warrior. Your strength is plain to see, but in this crater strength alone feeds the devilsaur, and patience feeds the hunter." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Then you will understand why I have spent so long in the ferns watching one raptor, and why I am not ashamed of it." },
+        { id = "h_dd_devilsaur", tags = { "news" }, when = { killed = { name = "Devilsaur", min = 20 } }, text = "The devilsaurs walk more carefully through the jungle now, and I have seen why: their tracks end where yours begin. You have hunted the greatest beasts of this crater, and I would hear how." },
       },
       again = { { id = "h_again", text = "Ask, and I'll answer while I watch the treeline for raptors." }, { id = "h_again2", text = "Speak, hunter." } },
       choices = {
@@ -309,7 +310,18 @@ P:NPC {
         { text = "What has Lar'korwi taught you?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why would beasts fear patience?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why do you hunt Lar'korwi, Torwa?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I've hunted the devilsaurs, Torwa. Many of them.", next = "dd_devilsaur", when = { killed = { name = "Devilsaur", min = 20 } } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    dd_devilsaur = {
+      lines = {
+        { id = "dd_devilsaur_1", text = "I came here to learn from these beasts, and the devilsaur has taught me most of all, because it fears nothing and wastes nothing. A hunter who takes one should take its lesson too, and thank the Earth Mother for the meat and the hide, or the hunt is only a killing." },
+      },
+      choices = {
+        { text = "I thank the Earth Mother for each one I take.", next = "BACK", reply = "Then you hunt as the tauren hunt, whatever your blood. The crater will remember you kindly, and so will I.", fx = { align = { light = 1 } } },
+        { text = "A kill is a kill. The beast doesn't care.", next = "BACK", reply = "The beast doesn't, perhaps, but the land does. Walk lightly in Un'Goro, friend, because it is older than either of us and it keeps count.", fx = { align = { light = -1 } } },
+        { text = "Something else, Torwa.", next = "BACK" },
       },
     },
     b1_1 = {

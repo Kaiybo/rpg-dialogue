@@ -499,6 +499,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've heard you can turn into a bear, and I'm deeply curious whether a bear would fit in my cockpit." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You can ride the flier if you like, but your servant goes in the cargo hold, and please tell it not to touch the fuel lines, they're very sensitive!" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, splendid. Can you tell the wind to blow eastward on Thursday? My flight plan depends entirely on it." },
+        { id = "dd_stonegear", when = { questDone = TODO_QUEST("Stonegear's Search") },
+          text = "Stonegear tells me you helped him find what he was after! He's a siege man, not a flier like me, but we pilots look after each other, and I'm obliged to you on his behalf." },
       },
       again = {
         { id = "h_again", text = "Something else? Quickly, quickly, the engine's warm, and every minute idle costs me two percent of my steam!" },
@@ -653,6 +655,16 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_hr_vagash = {
+      lines = {
+        { id = "dd_hr_vagash1", text = "They always are. I sold Rudra's lads two o' my best blunderbusses for that beast, an' they came back wi' empty barrels an' a story about a yeti that shrugged off shot. So tell me true, did ye use a gun, or did ye go at it wi' somethin' sharp?" },
+      },
+      choices = {
+        { text = "A gun, Hegnar. A good one never fails.", next = "BACK", reply = "That's what I like tae hear! I'll tell the next customer that, an' charge a wee bit more.", fx = { align = { order = 1 } } },
+        { text = "Something sharp. Guns are for those who fear getting close.", next = "BACK", reply = "Fear, is it? It's called sense, an' I've kept all ten fingers wi' it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest buyin' a gun? Well, why no', for I've sold tae stranger, an' a gun's a fine friend when yer prayers are runnin' low." },
@@ -669,11 +681,14 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've heard yer kind don't care for guns, an' I'll no' take it personal if ye don't buy one." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Ye'll no' want a gun, I know, but have ye ever heard a Rumbleshot fire in the snow? It's prettier than any spell." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in my shop! Ye'd no' be the first dwarf tae say powder an' fire are cousins, but ye'd be the first tae ask the fire's permission before ye light the fuse." },
+        { id = "dd_vagash", when = { questDone = TODO_QUEST("Protecting the Herd") },
+          text = "Rudra Amberstill says ye put down that great yeti, Vagash, that'd been eatin' her rams. I heard it roarin' from my camp at night, an' I'll admit I slept wi' a loaded gun." },
       },
       again = {
         { id = "h_again", text = "What else? I've a rifle to oil." },
       },
       choices = {
+        { text = "Vagash was bigger than I expected, Hegnar.", next = "dd_hr_vagash", when = { questDone = TODO_QUEST("Protecting the Herd") } },
         { text = "Why camp out here instead of the city?", next = "camp" },
         { text = "What makes a good gun?", next = "guns" },
         { text = "I'm a hunter. What would you recommend?", next = "hunter", when = { class = "HUNTER" } },

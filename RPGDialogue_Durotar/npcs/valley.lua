@@ -27,6 +27,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_sarkoth = {
+      lines = {
+        { id = "dd_sk_default", text = "Wouldn't you, if a scorpid had laid you out and a recruit had to finish what you started? He'll never say he was beaten, mind you, only that he softened it up for you. Let him have that, because it costs you nothing." },
+      },
+      choices = {
+        { text = "He can tell it however he likes. The scorpid's dead.", next = "BACK", reply = "Spoken like someone who'll get along well in the Horde. Pride's cheap to give and dear to lose.", fx = { align = { honor = 1 } } },
+        { text = "I'll tell it my way when people ask me.", next = "BACK", reply = "That's your right, and I'd likely do the same. Just don't do it within earshot of Hana'zua.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kaltunk.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Every recruit belongs here until they prove otherwise. When I came out of the camps the humans kept, I had nothing, and someone took me in anyway. You come with the Light that guarded those camps, and I'm taking you in anyway. Remember that." } },
@@ -119,6 +129,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_sarkoth", tags = { "news" }, when = { killed = { name = "Sarkoth" } },
+          text = "Hana'zua is still telling anyone who'll listen how you went into his cave and finished Sarkoth. He's a proud orc, so if he's praising you to strangers, you must have done it properly." },
+        { id = "h_dd_peons", when = { questDone = TODO_QUEST("Lazy Peons") },
+          text = "Foreman Thazz'ril's peons are working again, and he says it was you who woke them up. I'll admit I've wanted to do that myself more than once." },
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
           text = "I'd swear I already sent you down to Gornek once, but that was {alt}, wasn't it? You two could be littermates, so go on down and give him his turn with you." },
         { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
@@ -139,6 +153,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, fresh in the valley. Gornek won't like it, and neither do I, but the Warchief says you can serve, so you'll serve." },
       },
       choices = {
+        { text = "Hana'zua talks about Sarkoth a lot, does he?", next = "dd_sarkoth", when = { killed = { name = "Sarkoth" } } },
         { text = "Are there many priests among the recruits, Kaltunk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "It must have been hard when the orcs had no shamans.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Will a druid find a place in the Den, Kaltunk?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -229,6 +244,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_tiragarde = {
+      lines = {
+        { id = "dd_tir_default", text = "I heard, and I told the new recruits about it too, so they'd know what the Den turns out when it does its job. You came in here swinging at boars, and now the humans on our coast fear you. How did it feel to fight real soldiers?" },
+      },
+      choices = {
+        { text = "It felt right. That's what the Den trained me for.", next = "BACK", reply = "Then the Den did its work, and so did you. Go on, and keep making me look good in front of Gar'Thok.", fx = { align = { order = 1 } } },
+        { text = "Harder than boars, and not as clean as the Den taught.", next = "BACK", reply = "It's never clean, recruit, and anyone who tells you otherwise has never stood in a shield wall. You'll learn the rest the way we all did.", fx = { align = { order = -1 } } },
+        { text = "Something else, Gornek.", next = "BACK" },
+      },
+    },
     xalt_gornek = {
       lines = {
         { id = "xalt_gornek_default", text = "Hundreds come through the Den, and I forget most of them by the next moon. The one you mean did the work without complaining, so I remember them, and few recruits earn that." },
@@ -289,6 +314,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_tiragarde", tags = { "news" }, when = { questDone = TODO_QUEST("Vanquish the Betrayers") },
+          text = "Gar'Thok's runner says one of my recruits helped clear the Kul Tirans out of Tiragarde Keep, and I'd wager my axe it was you. The Den made you, so don't shame it now that you've got a name." },
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
           text = "Another {altrace} with your face came through the Den, a {altclass} named {alt}, and I made them clear a whole nest of scorpids before I let them leave. If that's your kin, they'll have warned you I don't go easy." },
         { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
@@ -308,6 +335,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Every season I get a few who think the Den's for warriors only, and every season they prove me wrong somewhere in the scrub." },
       },
       choices = {
+        { text = "I helped Gar'Thok at Tiragarde Keep, Gornek.", next = "dd_tiragarde", when = { questDone = TODO_QUEST("Vanquish the Betrayers") } },
         { text = "Someone close to me came through the Den, Gornek.", next = "xalt_gornek", when = { alt = true } },
         { text = "What does the Den expect from a priest, Gornek?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What should a young shaman prove to you, Gornek?", next = "xhsham", when = { class = "SHAMAN" } },

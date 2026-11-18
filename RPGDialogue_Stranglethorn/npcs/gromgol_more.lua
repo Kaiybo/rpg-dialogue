@@ -290,6 +290,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_fall_thysta", when = { deathCause = "falling" },
+          text = "You fell from a height and died of it, I can see it in how you step near the edge of my tower. My wind riders don't drop anyone, so ride with them and leave the cliffs to the trolls." },
+
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders feel the air before we do, and they've been restless all morning, so perhaps you can tell me why." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The riders are uneasy around the dead and the loa alike, but they'll carry you, because I ask them to." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Some of you can teleport, I know, but the riders go where your spells don't reach, which is most places." },

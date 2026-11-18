@@ -625,6 +625,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_gann = {
+      lines = {
+        { id = "dd_gn_default", text = "Neither did I, and I've known him for many summers. The Bael'dun dwarves dug into sacred ground and killed his kin when they protested, and he's carried that weight ever since. Now it's lighter, but you must know that killing them won't bring back what was lost." },
+      },
+      choices = {
+        { text = "No, but it stops them taking more.", next = "BACK", reply = "That's true, and it's why I don't blame him or you. The Earth Mother's ground should not be dug for gold, and someone had to stand against it.", fx = { align = { light = -1 } } },
+        { text = "I know. I hope he finds peace now.", next = "BACK", reply = "So do I, and I think he might, with time. Kind words like yours help more than you'd think.", fx = { align = { light = 1 } } },
+        { text = "Something else, Byula.", next = "BACK" },
+      },
+    },
     xpt_byula = {
       big = true,
       lines = { { id = "xpt_byula_default", text = "Dangerous enough that I count the braves who ride out each morning and count them again at dusk, and the numbers don't always match. Companies that travel close come home, and I tell that to everyone who drinks here." } },
@@ -739,6 +749,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_gann", tags = { "news" }, when = { questDone = TODO_QUEST("Revenge of Gann") },
+          text = "Gann Stonespire passed through on his way home, and for the first time since the dwarves came to Bael Modan, he smiled. He told me you had a hand in it, and that he owes you more than words." },
         { id = "h_pt_kin", tags = { "news" }, when = { party = { kin = true } },
           text = "You've come with your own people, and that's good to see down here, where the dwarves at Bael Modan and the quilboar both like to pick off stragglers. Stay together on the road to the Razorfen, and stay inside the palisade at night." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The kodo herders eat first, because they've earned it, but there's stew enough for a curious stranger." },
@@ -759,6 +771,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away. The kodo herders won't be in for supper for a while yet." },
       },
       choices = {
+        { text = "Gann Stonespire smiled? I didn't know he could.", next = "dd_gann", when = { questDone = TODO_QUEST("Revenge of Gann") } },
         { text = "Do the hyenas' spirits trouble the camp at night?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Have the hyenas always plagued Camp Taurajo, Byula?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Taurajo looks like a hard place to live.", next = "camp" },

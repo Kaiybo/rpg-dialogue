@@ -32,8 +32,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_ursal = {
+      lines = {
+        { id = "ddu_default", text = "They do, and Nhemai saw it first. Without Ursal feeding them his fel moss they are frightened more than fierce, and frightened things are easier to turn back than to kill." },
+      },
+      choices = {
+        { text = "Then turn them back. They were the Sentinels' friends once.", next = "BACK", reply = "Spoken like one who listens to Athridas. I will try, though the road comes first, and so do the carts upon it.", fx = { align = { light = 1 } } },
+        { text = "Frightened or not, they attack travellers. They should die.", next = "BACK", reply = "You speak like a Sentinel on her third night without sleep. I do not say you are wrong, only that I hope you are.", fx = { align = { light = -1 } } },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ursal", tags = { "news" }, when = { questDone = TODO_QUEST("Ursal the Mauler") }, text = "The ambushers on this road fight with less fury since Ursal fell, and Athridas tells me you are the one who felled him. The Sentinels of Teldrassil will remember that, {class}." },
+        { id = "h_dd_honored", when = { reputation = { faction = "Darnassus", min = "honored" } }, text = "Your name is spoken with respect in Darnassus now, and not idly, for the Sentinels do not praise lightly. Ride this road whenever you wish, {class}; you have earned it." },
         { id = "h_default", key = true,
           text = "I am Amara, a priestess of the moon, and I keep this road with Nhemai and Yaeliura. News and trade travel to and from Darnassus along it every day, and I will not have it terrorised by a band of maddened furbolgs." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Road to Darnassus") },
@@ -54,6 +66,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, and then let me return to watching the trees. The Gnarlpine are patient, and they wait for us to look away." },
       },
       choices = {
+        { text = "The Gnarlpine fight differently since Ursal died.", next = "dd_ursal", when = { questDone = TODO_QUEST("Ursal the Mauler") } },
         { text = "Why do you guard this road yourself?", next = "road" },
         { text = "You salute like a Sentinel, but you bless like a priestess.", next = "both" },
         { text = "Your two companions look sharp-eyed.", next = "huntresses" },

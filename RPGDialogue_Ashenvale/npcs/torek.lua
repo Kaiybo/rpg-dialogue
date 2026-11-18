@@ -79,8 +79,19 @@ P:NPC {
       lines = { { id = "op_r4_default", text = "It's enough for me most days. On the other days I remember that Durotan never had to feed a city." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    dd_hunt = {
+      lines = {
+        { id = "ddh_default", text = "It wasn't meant to be. The tauren hunt to honour the beasts, and I respect it, but in this forest every kill is also a message to the elves that we're not leaving. Ursangous and Shadumbra were their forest's pride, and now they're our trophies." },
+      },
+      choices = {
+        { text = "I hunted to honour the beasts, as Senani does.", next = "BACK", reply = "Then do it her way, and I'll do it mine. The elves won't know the difference either way.", fx = { align = { honor = 1 } } },
+        { text = "Then let the elves read the message in their blood.", next = "BACK", reply = "Lok'tar! That's a warrior's answer. Come back when you're ready to hit the outpost again.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Torek.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_hunt", when = { questDone = TODO_QUEST("The Hunt Completed") }, text = "Senani says you finished her great hunt, the bear, the black saber and the hippogryph. Good. A warrior who can kill Ashenvale's beasts can kill the elves who hide behind them." },
         { id = "h_default", key = true,
           text = "I'm Torek, and my raiders and I are about to hit the Silverwing Outpost to the west. Our target is its leader, Duriel Moonfire, and the scouts say it's thick with Sentinels, so the battle will be glorious, and we'll all come home with fresh scars." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Torek's Assault") },
@@ -99,6 +110,7 @@ P:NPC {
         { id = "h_again2", text = "Speak up, {class}. Talking's fine, but an orc proves himself with deeds, not words." },
       },
       choices = {
+        { text = "Senani's hunt was no easy thing, Torek.", next = "dd_hunt", when = { questDone = TODO_QUEST("The Hunt Completed") } },
         { text = "Why attack Silverwing Outpost?", next = "why" },
         { text = "Who is Duriel Moonfire?", next = "duriel" },
         { text = "You seem eager for scars.", next = "scars" },

@@ -211,6 +211,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I once built a mechanical hound, you know, but it chased the wrong things, as all my best inventions eventually do." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in Tinker Town! Oh, forgive the dramatics, but I must ask you to keep your fingers off the schematics, because the Pledge of Secrecy covers every last one of them." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Our situation is dire, but even in dire times one can marvel. You hear the earth? Does the earth say anything about Gnomeregan?" },
+        { id = "dd_artificials", when = { questDone = TODO_QUEST("Essential Artificials") },
+          text = "Klockmort tells me you brought him the artificial extrapolators from Gnomeregan itself. Into that radioactive mess and out again, which is a better result than our last three expeditions combined." },
       },
       again = {
         { id = "h_again", text = "More questions? Splendid, it's that or stare at my blueprints of Gnomeregan again." },
@@ -1013,6 +1015,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, for the troggs keep coming up out of the tunnels, and somebody needs to count them before I lose my temper again." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Gnomeregan needs every pair of hands it can get, paws included, and I mean that as a compliment." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The dwarves gave Gnomeregan's people a home, and now one of them talks to the very earth that swallowed our city. I've a plan for that, though it's only half a plan." },
+        { id = "dd_recomb", when = { questDone = TODO_QUEST("Operation Recombobulation") },
+          text = "Razzle Sprysprocket sent word that you brought him the parts for his Recombobulator! Every step toward a cure is a step toward going home, and I've added your name to the plans, in the margin, where the important notes go." },
       },
       again = {
         { id = "h_again", text = "What else, recruit? The troggs aren't resting, and neither am I." },

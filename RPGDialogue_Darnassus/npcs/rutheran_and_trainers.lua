@@ -107,8 +107,18 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    dd_fall = {
+      lines = {
+        { id = "ddf_default", text = "As safe as anything that flies. A hippogryph has never lost a rider who held on, and they know the way to Auberdine better than I know the steps of this dock. Falls happen on the ground, from cliffs and branches, where nobody is holding you up." },
+      },
+      choices = {
+        { text = "Then I'll trust the bird.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll keep both hands on the saddle, all the same.", next = "BACK", reply = "Wise. Every hippogryph prefers a rider who holds on tight." },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You have fallen from a height at least once, I can tell, for you look at my hippogryphs as though they might drop you. They will not, I promise, so long as you keep your seat and don't try to leap off over Auberdine." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My hippogryphs carry the wounded home more often than I'd like, and they're always calmer when a healer rides with them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My hippogryphs have never carried so much armor, {class}, but they're stronger than they look, and they won't let you fall." },
         { id = "h_default", text = "I am Vesprystus, keeper of the hippogryphs. They carry our people from the roots of Teldrassil to Auberdine across the water, and from there to the rest of a world that has grown very large since the Sundering." },
@@ -126,6 +136,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. The birds can wait a moment." },
       },
       choices = {
+        { text = "I've had a bad fall before. How safe is the flight?", next = "dd_fall", when = { deathCause = "falling" } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Why live at the roots, not in the city?", next = "a" },
         { text = "Are the hippogryphs hard to train?", next = "b" },

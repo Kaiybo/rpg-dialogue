@@ -587,6 +587,16 @@ P:NPC {
         { text = "Good day, Bilban.", next = "BACK" },
       },
     },
+    dd_bb_hk = {
+      lines = {
+        { id = "dd_bb_hk1", text = "I always want to check technique! A hundred victories against the Horde means a hundred chances to learn, and most warriors learn nothing at all, because they think winning is the lesson. Winning is only the result, and the lesson is in the footwork." },
+      },
+      choices = {
+        { text = "Then I'll keep training. Show me the footwork.", next = "BACK", reply = "Excellent! Come back between battles, and we'll correct the left foot first. It's always the left foot.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Winning is the lesson. The footwork takes care of itself.", next = "BACK", reply = "Spoken like a warrior who's been lucky. I'll be here when the luck runs out.", fx = { align = { order = -1 } } },
+        { text = "Something else, Bilban.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Your class specification is incompatible with my curriculum, but your healing output has saved several of my students, so I'm statistically grateful." },
@@ -601,12 +611,15 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! A ranged unit with an organic support module, if I'm not mistaken. Fascinating." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You present a fascinating combat problem, since your stance changes with your shape, and I have several theories about it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Unusual. Your stance is adequate, but I suspect you rely on the elements to cover deficiencies in your footwork." },
+        { id = "dd_hk", when = { honorKills = { min = 100 }, faction = "Alliance" },
+          text = "The battlefield reports put you at over a hundred honorable kills. A fine figure, though I'd want to see the technique behind it before I called it efficient." },
       },
       again = {
         { id = "h_again", text = "Further inquiries? Please proceed." },
         { id = "h_again2", text = "Next item on the agenda?" },
       },
       choices = {
+        { text = "A hundred kills, Bilban. Want to check my technique?", next = "dd_bb_hk", when = { honorKills = { min = 100 }, faction = "Alliance" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Why does a gnome take up arms?", next = "why" },
         { text = "Combat sounds a lot like engineering, the way you put it.", next = "engineering" },

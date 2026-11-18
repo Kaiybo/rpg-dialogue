@@ -477,6 +477,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. You walk like the forest owe you somethin', and the forest don't owe nobody nothin', so step lighter or the Vilebranch hear you comin'." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, mon! Then you know how to hunt with respect, which be the only way I teach it." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, mon. You hunt the dead, the stories say, and you be dead yourself, so I wonder if you ever feel like the prey." },
+        { id = "h_dd_hexx", tags = { "news" }, when = { questDone = TODO_QUEST("Wanted: Vile Priestess Hexx and Her Minions") },
+          text = "Primal Torntusk tells me Hexx is dead and her altar at Jintha'Alor stands empty. I've hunted the Hinterlands for years, and I'll say plainly I never got that close to her." },
       },
       again = {
         { id = "h_again", text = "What else you need, hunter?" },
@@ -766,6 +768,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Zul'jin was a warrior too, and he fought the elves with an axe in each hand, so you be standin' in good company here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You want feathers, fangs, or the little bones that tell you where a beast be sleepin'? Yayo'jin sell all three, mon." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, mon, and a dead one, buyin' candles from a troll mystic. Zul'jin would spit if he saw this, so mind my goods and be quick." },
+        { id = "h_dd_lunch", when = { questDone = TODO_QUEST("Lard Lost His Lunch") },
+          text = "You found Lard's lunch for him, an' now he tell de story to anybody who stand still long enough. De spirits be laughin' about it too, I think, though dey hide it well." },
       },
       again = {
         { id = "h_again", text = "Somethin' more? Ask, mon; de spirits be listenin', and so be Yayo'jin." },
@@ -909,6 +913,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_drowned = {
+      lines = { { id = "dd_drowned_default", text = "You don't stop de sea, mon, you just learn her moods. Watch de swell before you dive, an' come up before your chest burn, an' never swim where de Saltwater Snapjaws be nestin', because dey hold you under for fun." } },
+      choices = {
+        { text = "I'll listen to her moods from now on.", next = "BACK", reply = "Good, mon, she reward de ones who listen. An' if you catch somethin' big while you be down dere, Katoom want to see it.", fx = { align = { order = 1 } } },
+        { text = "She caught me once. Next time I'll swim harder.", next = "BACK", reply = "Ha! Dat what every drowned fool say, mon, an' de sea be laughin' already. Swim hard, den, an' good luck.", fx = { align = { order = -1 } } },
+        { text = "Something else, Katoom.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Nothin' trouble this peace but the turtles, mon. If your Light could teach them some manners, Katoom would pray to it every mornin', but I think even the Light give up on turtles." } },
@@ -992,6 +1005,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You and Katoom be the same, mon, only you hunt on land and Katoom hunt in the water, and the water be much more relaxin'." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! You know about the fish, I be thinkin', so maybe you know why they don't bite on cloudy days." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin come to fish wit' Katoom? Sit, mon, because the fish don't care what you pray to, and neither does Katoom, so long as you keep the turtles off my bait." },
+        { id = "h_dd_drowned", when = { deathCause = "drowning" },
+          text = "You drown, mon, I can see it on you. De sea take everybody once, but she give you back, so maybe she don't like de taste of you." },
       },
       again = {
         { id = "h_again", text = "What else you need, mon? The fish be patient with us." },
@@ -1012,6 +1027,7 @@ P:NPC {
         { text = "Do you fish with respect for the waters, Katoom?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Does the Light ever trouble a fisherman's peace, Katoom?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not now, Katoom.", next = "END" },
+        { text = "The sea took me under, Katoom. How do I stop it?", next = "dd_drowned", when = { deathCause = "drowning" } },
       },
     },
     xrogue = {
@@ -1108,6 +1124,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_elder = {
+      lines = { { id = "dd_elder_default", text = "The Elder tell everybody! He say he call the Vilebranch grandmothers rude names until they forget to sharpen the knife, and Lard laugh so hard Lard spill the soup. Lard think the Elder is very brave, and maybe a little bit crazy." } },
+      choices = {
+        { text = "Brave and crazy together is how the Revantusk survive.", next = "BACK", reply = "Yes! Lard think you are a little bit crazy too, and that is good. Come back for soup.", fx = { align = { order = -1 } } },
+        { text = "He was lucky. Next time he should keep his mouth shut.", next = "BACK", reply = "Lard does not think the Elder can keep his mouth shut. Lard cannot either, so Lard does not blame him.", fx = { align = { order = 1 } } },
+        { text = "Something else, Lard.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Lard not bothered, because Lard keep the peace, and you not breakin' nothin'. Only the shiny make the trolls squint, so maybe you sit in the corner, and everybody be happy." } },
@@ -1174,6 +1199,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "You are a warrior! Lard can tell, because you are all metal and clanking. Please do not clank on the tables, because Lard just fixed them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "Lard see a tauren druid. Lard like tauren, because tauren big like Lard, and tauren not cause trouble in Lard's inn." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You dead, and you shiny. Lard never see dead and shiny at the same time, and Lard think it look very uncomfortable, but you be welcome at the inn." },
+        { id = "h_dd_elder", tags = { "news" }, when = { questDone = TODO_QUEST("Return to Primal Torntusk") },
+          text = "You bring the old Elder home from the Vilebranch! Lard was so happy Lard ate two dinners, and then a third one for the Elder, because the Elder was too busy tellin' stories." },
       },
       again = {
         { id = "h_again", text = "What else little one want? Lard listenin'." },
@@ -1195,6 +1222,7 @@ P:NPC {
         { text = "Does Lard ever let the wild animals in?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Does it bother you that I'm dead and shiny, Lard?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye, Lard.", next = "END" },
+        { text = "Did the Elder tell you about the Vilebranch, Lard?", next = "dd_elder", when = { questDone = TODO_QUEST("Return to Primal Torntusk") } },
       },
     },
     xrogue = {
@@ -1377,6 +1405,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Bring that bow here and I'll restring it, because I can see it's been fighting the damp, and the damp in the Hinterlands always wins." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You don't need a shield, I'd wager, for a bear's hide is better than any I could forge." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. Bring me your plate if it's dented; I've mended worse for stranger folk, though I'll admit I've never hammered on armour that glows." },
+        { id = "h_dd_savages", when = { questDone = TODO_QUEST("Hunt the Savages") },
+          text = "Markhor says you brought him the savages he was after, and he's been in a good enough mood to bring me his spears to sharpen instead of sharpening them on his own. That's practically a gift, from him." },
       },
       again = {
         { id = "h_again", text = "Speak, then, but these borrowed tools make me short of temper, so keep it plain." },
@@ -1813,6 +1843,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Maybe you know something about grouper, because I've been hunting one for three seasons and it's still laughing at me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Can you speak with the fish, by chance? I want to ask the grouper where it's been hiding." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The wind riders won't care what you are, though I'd thank you not to glow on my pier, because the grouper are skittish enough as it is." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You fell off a cliff, didn't you? There's a lot of them in the Hinterlands, and my wind riders would have carried you past every one for a few coins." },
       },
       again = {
         { id = "h_again", text = "Anything else? Be quick; the line's twitching." },

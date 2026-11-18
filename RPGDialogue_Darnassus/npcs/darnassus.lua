@@ -226,8 +226,20 @@ P:NPC {
         { text = "Something else, High Priestess.", next = "BACK" },
       },
     },
+    dd_ashenvale = {
+      lines = {
+        { id = "dda_default", text = "They are, and I know it better than any council in this city. The orcs cut our trees at Warsong, the satyrs foul the groves, and Raene holds Astranaar with fewer Sentinels than she asks for, because I have fewer to send than I would wish." },
+      },
+      choices = {
+        { text = "Then strike the orcs hard and drive them out.", next = "BACK", reply = "If it comes to war, we will not flinch from it. But I will not spend my daughters' lives where patience may yet serve, and Raene knows that.", fx = { align = { light = -1 } } },
+        { text = "Perhaps there's still a way to make peace with the Horde.", next = "BACK", reply = "Perhaps, though their axes have answered that question every season so far. I will hear it from you, champion, and I will remember that you said it.", fx = { align = { light = 1 } } },
+        { text = "Something else, High Priestess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_silverwing", when = { reputation = { faction = "Silverwing Sentinels", min = "honored" } }, text = "The Silverwing Sentinels speak of you in their reports from Warsong Gulch, and they do not praise lightly. Elune has given you a steady arm, and you have spent it well in her daughters' service." },
+        { id = "h_dd_raene", tags = { "news" }, when = { questDone = TODO_QUEST("Raene's Cleansing") }, text = "Raene Wolfrunner's reports from Astranaar mention you more than once, and always with gratitude. Ashenvale is the frontier of our people now, and those who stand with the Sentinels there stand with me." },
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "Elune's light falls on you as it fell on {alt}, a {altrace} who came to this temple not long ago, and I would have sworn you shared a mother. Come closer, child, and tell me whether my eyes deceive me." },
         { id = "h_alt_other", when = { alt = { notKin = true }, metBefore = false },
@@ -277,6 +289,7 @@ P:NPC {
         { id = "h_again2", text = "Speak on. I have little time, but I have not run out of it." },
       },
       choices = {
+        { text = "The Sentinels in Ashenvale are hard pressed, High Priestess.", next = "dd_ashenvale", when = { questDone = TODO_QUEST("Raene's Cleansing") } },
         { text = "Where is Malfurion?", next = "malfurion" },
         { text = "Darnassus seems troubled, for all its beauty.", next = "troubles" },
         { text = "The Horde is in Ashenvale. What will you do?", next = "ashenvale" },
@@ -799,8 +812,19 @@ P:NPC {
         { text = "Something else, Arch Druid.", next = "BACK" },
       },
     },
+    dd_tumors = {
+      lines = {
+        { id = "ddt_default", text = "A young forest has growing pains, as every young thing does, and Teldrassil is very young as the forest measures time. I planted this tree for our people, and I will tend it as I see fit, not as every nervous druid with a jar of tumours would have me." },
+      },
+      choices = {
+        { text = "The Arch Druid knows his tree. I'll trust that.", next = "BACK", reply = "Good. There is too little trust on these terraces and too much whispering in the lower boughs.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "With respect, sick timberlings aren't growing pains.", next = "BACK", reply = "With respect, you have been on this tree a season, and I grew it. Carry your jars where you like, but do not lecture me in my own enclave.", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Something else, Arch Druid.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_tumors", tags = { "news" }, when = { questDone = TODO_QUEST("Tumors") }, text = "Greenspyre tells me you carried diseased timberlings' growths up to him from Wellspring Lake. He frets over every blemish on the tree, that one, and I suppose you have given him a fresh reason to fret." },
         { id = "h_alt_out", when = { alt = { kin = true, race = { "Human", "Dwarf", "Gnome" } }, metBefore = false },
           text = "You have the bearing of {alt}, who came to the Enclave and listened, which few outsiders trouble themselves to do. I assume you are of the same family, since your kind seem to arrive in sets." },
         { id = "h_alt_elf", when = { alt = { kin = true, race = "NightElf" }, metBefore = false },
@@ -851,6 +875,7 @@ P:NPC {
         { id = "h_again2", text = "Quickly. The tree does not tend itself, whatever the Temple imagines." },
       },
       choices = {
+        { text = "The timberlings were sick, Arch Druid. Rellian is right to worry.", next = "dd_tumors", when = { questDone = TODO_QUEST("Tumors") } },
         { text = "You think my magic is dangerous, Arch Druid.", next = "prej", when = { prejudiced = true } },
         { text = "Why did you grow Teldrassil?", next = "tree" },
         { text = "Moonglade seems to go its own way.", next = "moonglade" },
@@ -1195,8 +1220,28 @@ P:NPC {
         { text = "I'll remember that, if Moonglade ever calls me.", next = "BACK" },
       },
     },
+    dd_oben = {
+      lines = {
+        { id = "ddo_default", text = "No, it would not have been, and I would think less of you if it had been easy. The bear's form is a gift to us, but a druid who sleeps too long in it can be stolen from himself, and that is the lesson every Druid of the Claw learns by Oben's name." },
+      },
+      choices = {
+        { text = "Then why do druids still take the bear's form?", next = "dd_oben2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dd_oben2 = {
+      lines = {
+        { id = "ddo2_default", text = "Because the gift is worth the danger, and because Cenarius gave it to us to guard the forest, not to hide from it. We teach our students to come back to themselves each time, and we tell them of Oben so they do." },
+        { id = "ddo2_druid", when = { class = "DRUID" }, text = "You know the answer already, for you have felt the bear in your own blood. Come back to yourself each time, and remember Oben when it is hard to." },
+      },
+      choices = {
+        { text = "I'll remember him.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_oben", tags = { "news" }, when = { questDone = TODO_QUEST("Druid of the Claw") }, text = "Word came from Starbreeze that Oben Rageclaw's spirit is at rest, and that his stolen body no longer walks among the Gnarlpine. You did a hard and merciful thing there, and the Druids of the Claw will not forget it." },
         { id = "h_pt_mathrengyl", tags = { "news" }, when = { party = { class = "DRUID" } },
           text = "{companion} is a druid, I think; I felt the bear in them before I saw them. Druids travel well with others, though they'll go quiet for days and then speak to a tree, so be patient." },
         { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon", faction = "Alliance" }, text = "Word came up from Desolace that someone reached the heart of Maraudon and put an end to Princess Theradras. Zaetar was Cenarius's own son, and every druid in this Enclave has grieved for him at some point, so I find I am grateful to you in a very old way." },
@@ -1228,6 +1273,7 @@ P:NPC {
         { id = "h_again2", text = "What else? Take your time, as the Enclave does." },
       },
       choices = {
+        { text = "Oben asked me to destroy his own body. It wasn't easy.", next = "dd_oben", when = { questDone = TODO_QUEST("Druid of the Claw") } },
         { text = "What would you do about the logging in Ashenvale?", next = "op_ask" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "What is a Druid of the Claw?", next = "claw" },
@@ -1482,6 +1528,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_crown", when = { questDone = TODO_QUEST("Crown of the Earth") }, text = "Corithras of Dolanaar wrote to the Temple that you carried water from the moonwells of Teldrassil for him, one well after another. He does not trust easily, so take it as an honour that he trusted you." },
         { id = "o_arcane_magic_hate", tags = { "news" }, when = { gossip = { topic = "arcane_magic", stance = "hate" } },
           text = "Sister Alathea says you would burn Dalaran's books. Elune asks us to fear the arcane, child, not to hate those who were born to it." },
         { id = "h_pt_amoora", tags = { "news" }, when = { party = true },
@@ -2014,8 +2061,30 @@ P:NPC {
         { text = "I had another question.", next = "BACK" },
       },
     },
+    dd_talk = {
+      lines = {
+        { id = "ddt_default", text = "Kind things, mostly, which is rare enough in Darnassus that I notice. The Sentinels are slow to praise outsiders and slower still to praise the young, so when they do, the whole Terrace hears of it by moonrise." },
+        { id = "ddt_ne", when = { race = "NightElf" }, text = "Kind things, mostly. The elders say you carry yourself like one of the old Sentinels, and the young ones say you never sit still long enough to be praised properly." },
+      },
+      choices = {
+        { text = "I don't care much what the Terrace thinks.", next = "BACK", reply = "Then you'll be the only one in Darnassus who doesn't, and they'll talk about that too, I promise you." },
+        { text = "Do they ever say unkind things?", next = "dd_talk2" },
+      },
+    },
+    dd_talk2 = {
+      lines = {
+        { id = "ddt2_default", text = "Of course, because it's a city. Someone always says a newcomer is too loud or too quick with a blade, but I pour their juice and let it pass, and I'd advise you to do the same." },
+      },
+      choices = {
+        { text = "Let them talk. Deeds outlast gossip.", next = "BACK", reply = "Spoken like a guest I'd be glad to keep. Go on, then, and give them more deeds than they can keep up with.", fx = { affinity = 1 } },
+        { text = "Something else, Saelienne.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_remtravel", tags = { "news" }, when = { questDone = TODO_QUEST("The Absent Minded Prospector") }, text = "The little archaeologist on the Terrace has been telling everyone that you found his lost prospector in Darkshore. He bought a round of moonberry juice for my whole common room, which no gnome has ever done before." },
+        { id = "h_dd_branch", when = { questDone = TODO_QUEST("The Branch of Cenarius") }, text = "A Sentinel back from Astranaar told my tables that you took the Branch of Cenarius back from a satyr in Ashenvale and gave it to the dryad who mourned for it. She told it three times, and it grew a little bigger each time." },
+        { id = "h_dd_deaths", when = { deaths = { min = 15 } }, text = "You come up the stairs like someone who has been carried back from the spirit healer more often than is good for anyone. Sit, and let the branches hold you for a night." },
         { id = "h_alt_any", when = { alt = true, metBefore = false },
           text = "Welcome to the Terrace! The last guest I had with your look was a {altclass} called {alt}, who came up from the boats just as lost as you and left a good deal better rested." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
@@ -2043,6 +2112,7 @@ P:NPC {
         { id = "h_again", text = "Anything else? There's moonberry juice, if you're staying." },
       },
       choices = {
+        { text = "What are they saying about me on the Terrace?", next = "dd_talk", when = { any = { { questDone = TODO_QUEST("The Absent Minded Prospector") }, { questDone = TODO_QUEST("The Branch of Cenarius") } } } },
         { text = "Who are your strangest guests?", next = "op_ask" },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "How do outsiders find Darnassus?", next = "outsiders" },

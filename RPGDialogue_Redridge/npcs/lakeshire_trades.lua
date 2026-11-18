@@ -101,6 +101,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_fall_ariena", when = { deathCause = "falling" },
+          text = "You've had a bad fall somewhere, I can see it in the way you look down from my perch. The Redridge cliffs are steep and they don't forgive, so leave the high places to the gryphons." },
+        { id = "dd_blackrock_ariena", when = { killed = { name = "Blackrock", min = 30 } },
+          text = "From the air I can count the Blackrock campfires on the ridge, and there are fewer of them every week. Someone's been busy down there, and the guards keep saying your name." },
+
         { id = "h_default", text = "Ariena Stormfeather. I fly the mail and the wounded out of Lakeshire, and my birds carry anyone else who can pay the fare." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf! Your kin taught mine to fly these beasts, so you'll find no complaints from me about Wildhammer manners." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds will carry you, and I'll tell you now, from the air I've seen the Blackrock gathering near Stonewatch, and there's a lot of them." },
@@ -263,6 +268,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_gnolls_hiett", when = { killed = { name = "Redridge", min = 60 } },
+          text = "My arrows go out to the watch by the bundle, and lately fewer of them come back broken in gnoll hides. You've been thinning the packs in the hills, and I'll admit I'm grateful for the rest." },
+
         { id = "h_default", text = "Kimberly Hiett, fletcher. The watch shoots arrows into the gnolls faster than I can feather them, so if you've come to buy, you've come at a busy time." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter! You'll know good fletching when you see it, so I'll not bother telling you mine's the best in Redridge. It is, though." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll not want arrows, I suppose, but if you'd tell the gnolls to stop being shot so often, I'd be grateful for the rest." },

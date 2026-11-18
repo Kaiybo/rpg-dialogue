@@ -148,8 +148,25 @@ P:NPC {
         { text = "Something else, Vizzie.", next = "BACK" },
       },
     },
+    dd_pamela = {
+      lines = {
+        { id = "dd_pamela_1",
+          text = "Not once, and she's worked my bar since before the last bug infestation, which is a long time in inn years. She came up here from Lordaeron with nothing but an apron and a bad feeling about her family, and the bad feeling turned out to be right." },
+        { id = "dd_pamela_2",
+          text = "Whatever you found down there, it wasn't all good news, I can tell that much. But knowing beats wondering, and she's been sleeping through the night since, which is more than I can say for me with that beetle loose." },
+      },
+      choices = {
+        { text = "Knowing is better. She deserved the truth.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some truths are better left buried, Vizzie.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Vizzie.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_pamela", tags = { "news" }, when = { questDone = TODO_QUEST("Sister Pamela") },
+          text = "Jessica's been humming behind the bar all week, sugar, and she never hums. She says you found word of her little niece down in the Plaguelands, and if that's true, your next bowl of stew comes with my very best wishes." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You look like someone who's been dying a lot lately, and I say that as a friend. Sit by the fire for a bit; the cold doesn't care how tough you are." },
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "Oh, sugar, you gave me a turn, because a {altrace} called {alt} sat right there by the fire a while back, from the other side of things, with exactly your way of eyeing the rafters for beetles. Is everybody in the world related except me?" },
         { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" }, metBefore = false },
@@ -182,6 +199,7 @@ P:NPC {
         { id = "h_again2", text = "What else, sugar? I've got gossip and soup, both of 'em hot, and only one of 'em costs you." },
       },
       choices = {
+        { text = "Jessica really hasn't hummed before?", next = "dd_pamela", when = { questDone = TODO_QUEST("Sister Pamela") } },
         { text = "Does the wind up here ever let up, Vizzie?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The Winterfall seem to have turned nasty, Vizzie.", next = "druid_q", when = { class = "DRUID" } },
         { text = "A room, please.", next = "BUSINESS", fx = { affinity = 1 } },

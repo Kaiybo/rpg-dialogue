@@ -1282,6 +1282,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_bangalash_nix", when = { killed = { name = "Bangalash" } },
+          text = "Hey, aren't you the one who took down King Bangalash up at Nesingwary's camp? Old Hemet's been telling everybody about it all season, and I'd bet my last copper that the story sells more drinks than my ale does." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit down, sit down, because you've been marching about in all that plate in this heat, and you look like someone who's forgotten the last meal that wasn't a ration." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down, sit down, because every priest I've ever fed was far too thin, and I can't stand the sight of someone who blesses other people's meals and never eats one of their own." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Come and eat, sweetheart, because I hear calling all those elements works up an appetite like nothing else, and appetite's my business." },

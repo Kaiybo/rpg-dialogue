@@ -187,6 +187,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_agitators", when = { questDone = TODO_QUEST("Agitators") },
+          text = "Yala told me what you found among the standing stones: cultists stirring the sprites up on purpose. It's one thing to fight cirrusflies and another to fight our own people, and I'm glad it was you who had to, and not her." },
         { id = "h_default", key = true, text = "Elatrell Featherlight, Rangers of Thendal Grove. One of our rangers reported cirrusflies in the grove, and if a swarm like that grows too large it stops being a nuisance and starts being dangerous." },
         { id = "h_infest", tags = { "news" }, when = { questRecent = { TODO_QUEST("Infestation Investigation"), days = 2 } },
           text = "Judging by the state of you, it's quite the infestation. Killing the workers won't be enough, I'm afraid; we'll have to go after the one making them." },

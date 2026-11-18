@@ -93,6 +93,8 @@ P:NPC {
           text = "A Darkspear! It be a long way from de islands to dese cold mountains, and I be glad of de company." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Alliance, Horde, it be all de same to de wind, mon. What I care about be whether you got de strength." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You fall from de rocks, young one, I can see it in how you stand. De wind up here be wild, an' it push you off de edge for a joke if you don't listen to it." },
       },
       again = {
         { id = "h_again", text = "What else, young one? De wind be in no hurry." },

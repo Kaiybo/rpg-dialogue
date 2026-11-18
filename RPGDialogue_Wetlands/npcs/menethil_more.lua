@@ -154,6 +154,16 @@ P:NPC {
         { text = "Something else, Ironjaw.", next = "BACK" },
       },
     },
+    dd_vs_dm = {
+      lines = {
+        { id = "dd_vs_dm1", text = "They say the orcs are pullin' back toward Grim Batol, which is the first time I've written that in a report. They're no' beaten, mind, for they've red dragons chained in that mountain, an' a cornered orc wi' a dragon is the worst kind there is." },
+      },
+      choices = {
+        { text = "Then we push now, while they're pulling back.", next = "BACK", reply = "Bold. I'll put it in front o' the captain, though he'll want more swords than we've got.", fx = { align = { order = -1 } } },
+        { text = "Hold the line and let them break on Menethil's walls.", next = "BACK", reply = "That's the captain's view as well. Patience is cheaper than coffins.", fx = { align = { order = 1 } } },
+        { text = "Something else, Valstag.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The reports from Algaz come wi' casualty lists, an' I'd be glad o' someone tae read the names over properly." },
@@ -171,12 +181,15 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Good; I need eyes on the Algaz road, an' a hunter's eyes are better than most." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Captain'll want ye on the wall, an' I'll want ye dryin' my reports, for half o' them are soaked through by the time they get here." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'll take any report I can get, an' if the earth wants tae tell ye what the Dragonmaw are about at Grim Batol, I'll write it in my book." },
+        { id = "dd_dragonmaw", when = { killed = { name = "Dragonmaw", min = 50 } },
+          text = "I've been readin' the patrol reports, an' yer name keeps turnin' up beside a great many dead Dragonmaw. Fifty at least, by the scouts' count, an' scouts never round up." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, I've three reports an' a cold supper waitin'." },
         { id = "h_again2", text = "Go on. Better ye tell me than the orcs do." },
       },
       choices = {
+        { text = "What do the reports say about the Dragonmaw now?", next = "dd_vs_dm", when = { killed = { name = "Dragonmaw", min = 50 } } },
         { text = "Have you fought beside druids before?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's happening in Dun Algaz?", next = "algaz" },
         { text = "Why does the road matter so much?", next = "road" },
@@ -1398,6 +1411,16 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_cm_song = {
+      lines = {
+        { id = "dd_cm_song1", text = "You are, or you will be once I finish it. Captain Halyndor went down with the Third Fleet off this coast and wouldn't stay down, and you're the one who laid him to rest, so the song needs you, though I may make you a little taller." },
+      },
+      choices = {
+        { text = "Make me taller, and give me a better sword.", next = "BACK", reply = "Taller, a better sword and a cloak that billows. A song is no place for honesty, friend.", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "Sing about the drowned crew. They earned it more.", next = "BACK", reply = "That's a kinder song, and probably a better one. I'll start it over, curse you.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Camerick.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Every good ballad has one, and I've never had a real one sit still long enough to tell me how they talk." },
@@ -1413,12 +1436,15 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You've the look of a song I haven't written yet, and I've had little else to write about lately but rain." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've a song about a warlock and his imp, though nothing rhymes with imp but limp and shrimp, so it's mostly about seafood." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I've a song about Wildhammer shamans calling storms over the Hinterlands, but none about a Bronzebeard. Give me a week and I'll write one." },
+        { id = "dd_halyndor", when = { questDone = TODO_QUEST("Lifting the Curse") },
+          text = "I'm writing a song about the Wave Mistress and her drowned captain, and you're in the third verse, if Fitzsimmons tells it true. I've still not found a rhyme for Halyndor." },
       },
       again = {
         { id = "h_again", text = "Another question? I've a song for most things, and a joke for the rest." },
         { id = "h_again2", text = "Go on, I'm tuning; it takes a while in this damp." },
       },
       choices = {
+        { text = "I'm in a song? About Halyndor?", next = "dd_cm_song", when = { questDone = TODO_QUEST("Lifting the Curse") } },
         { text = "Play me something.", next = "song" },
         { text = "You seem stuck here in Menethil.", next = "stuck" },
         { text = "What do you sing about here?", next = "subjects" },

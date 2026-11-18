@@ -321,6 +321,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_hogger_emma", when = { killed = { name = "Hogger" } },
+          text = "My nephew drives a cart to Goldshire, and he came home saying Hogger's dead and a hero killed him. I told them I'd seen that very hero walk past my door with a sword on their back, and nobody believed me." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Well, don't go looking at me like I need saving, dearie, because I've only got sore arms and a long memory." },
         { id = "h_default", key = true,
           text = "They call me Ol' Emma, as if I'd never been young, and I carry the water for this whole street. Of course I talk to myself, dearie; it's the only decent conversation in this city." },
@@ -972,6 +975,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_drown_morris", when = { deathCause = "drowning" },
+          text = "You've drowned somewhere, haven't you? I can always tell, because folk who've done it look at the canal water like it owes them an apology, and mind you don't fall in on my watch." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless me, then, {class}, bless me twice, for I've been a terrible sinner and a terrible farmer both, or so the story goes." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "Oh, a paladin. Now I never took a thing that wasn't given me, whatever the guards might say." },
         { id = "h_default", text = "Morris Lawry, at yer service, guv, an' blind as a mole, near enough. I'll polish yer armor for a copper, carry yer bags for two, and pay ye back on Tuesday for a meal today, I swear it." },

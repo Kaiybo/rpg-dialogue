@@ -30,8 +30,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deadwood = {
+      lines = {
+        { id = "ddd_default", text = "I know, and I know why. The Deadwood ate and drank what Felwood gave them, and the fel took them from the inside, and now they attack the Timbermaw and us alike. The owlbeasts I study are going the same way, and I fear the furbolgs are only the first." },
+      },
+      choices = {
+        { text = "Then the corrupted should be put down before it spreads.", next = "BACK", reply = "That is the Sentinels' view, and I cannot argue with it today. I only hope we are still able to tell the sick from the lost.", fx = { align = { light = -1 } } },
+        { text = "If they were poisoned, maybe they can be cured.", next = "BACK", reply = "The Emerald Circle believes so, and I hope they are right. Speak to them at the Sanctuary, and tell them Taronn sent you.", fx = { align = { light = 1 } } },
+        { text = "Something else, Taronn.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_deadwood", tags = { "news" }, when = { killed = { name = "Deadwood", min = 30 } }, text = "The Deadwood camps south of the glade are thinner than they were, and the Sentinels say it was your work. I take no pleasure in it, for the furbolgs were wise once, but the glade sleeps easier." },
+        { id = "h_dd_rescue", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Jessir tells me you brought her friend Arko'narin out of Jaedenar alive. That is the kind of news Talonbranch hears too rarely, and I was glad to carry it to the Sentinels myself." },
         { id = "h_default", key = true, text = "I am Taronn Redfeather, and I study the wildkin, the great owlbeasts who roost in Winterspring and the old places of our people. Something has gone wrong with them, and I mean to learn what before the Sentinels decide the only answer is arrows." },
         { id = "h_active", when = { questActive = TODO_QUEST("Wild Guardians") }, text = "The moontouched ones are north of the Timbermaw tunnels, and the berserk ones keep near the small caves further south. Look at their eyes before you fight them, if you can manage it, and tell me what you see there." },
       },
@@ -40,6 +52,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, friend. I've had no one to talk to but the hippogryphs." },
       },
       choices = {
+        { text = "I've had to kill a lot of Deadwood furbolgs.", next = "dd_deadwood", when = { killed = { name = "Deadwood", min = 30 } } },
         { text = "What are the wildkin?", next = "wildkin" },
         { text = "What's gone wrong with them?", next = "mad" },
         { text = "How do I reach Winterspring from here?", next = "road" },

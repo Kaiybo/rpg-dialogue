@@ -437,6 +437,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You've fallen from a height before, I think; you look at my hippogryphs as though they might tip you off over the lake. They will not, so long as you hold on and let them choose the way down." },
         { id = "o_night_elves_distrust", tags = { "news" }, when = { gossip = { topic = "night_elves", stance = "distrust" } },
           text = "Faustron tells me you've no love for my people. My birds will carry you all the same, because they have no politics." },
         { id = "h_default", key = true, text = "I fly the Alliance out of Moonglade, to the north and south and back to Rut'theran beneath the great tree. The druids have their own birds, but mine will carry anyone who asks politely, as my people always have." },
@@ -635,6 +636,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You walk like someone who has fallen off something high and died of it. My wind riders don't drop anyone who holds on, so hold on, and don't go leaping off the cliffs of Moonglade to save a few steps." },
         { id = "o_horde_enemy", tags = { "news" }, when = { gossip = { topic = "horde", stance = "enemy" } },
           text = "Sindrayl says you call us a threat. I'll fly you anyway, friend, since gold is the same colour on both sides of a war." },
         { id = "h_default", key = true, text = "I fly the Horde out of Moonglade, and I keep my wind riders on this side of the glade where they won't bother the night elves. It's a strange post for an orc who has known the blood of war, but the Keeper's peace holds, and there's honor in keeping it." },

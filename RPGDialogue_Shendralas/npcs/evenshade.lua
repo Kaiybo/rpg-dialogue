@@ -79,8 +79,21 @@ P:NPC {
         { text = "Something else, archmage.", next = "BACK" },
       },
     },
+    -- Deeds pass: the player killed Immol'thar in Eldre'Thalas.
+    dd_immolthar = {
+      lines = { { id = "di_default", text = "Then the Shen'dralar who remain will feel their years come back to them, all of them at once, and some will not survive it. We drank from a chained demon to keep from fading, as we once drank from the Well, and I suppose we never truly learned the lesson the first time." } },
+      choices = {
+        { text = "Feeding on a demon was a sin. Better it ended.", next = "BACK", reply = "Spoken plainly, and I cannot argue with it, though you will forgive me if I do not thank you for it today.", fx = { align = { light = 1 } } },
+        { text = "Your people did what they must to survive.", next = "BACK", reply = "That is what we told ourselves for ten thousand years. It is a comfort to hear it from someone else, and a dangerous one.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_immolthar", tags = { "news" }, when = { killed = { name = "Immol'thar" } },
+          text = "The demon Immol'thar is dead, then; I felt the old pylons go cold all the way up here. The Prince fed our order on that creature's power for longer than I care to admit, and I have never decided whether I was ashamed of it or grateful." },
+        { id = "h_dd_gordok", when = { killed = { name = "King Gordok" } },
+          text = "The ogres squatting in the old gardens of Eldre'Thalas have lost their king, I hear, and are already brawling over his crown. Ogres in the gardens of the Highborne, and now the outsiders choose their kings; my grandfather would have wept." },
         { id = "h_default", key = true,
           text = "I am Mordent Evenshade, an archmage of the Shen'dralar, and this is what remains of Shen'dralas. I hope you can see some of its old majesty in it, even if it is only a haunted shell of what it was." },
         { id = "h_back", when = { metBefore = true },
@@ -120,6 +133,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Go on. The moon is high, and I am in no hurry to go back to the halls." },
       },
       choices = {
+        { text = "I killed the demon your Prince kept chained.", next = "dd_immolthar", when = { killed = { name = "Immol'thar" } } },
         { text = "This place was grand once, by the look of it.", next = "place" },
         { text = "Why do you stand watch out here alone?", next = "alone" },
         { text = "I know nothing of the Shen'dralar.", next = "order" },

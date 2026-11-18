@@ -1275,8 +1275,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_murk = {
+      lines = {
+        { id = "ddm_default", text = "Oh, I could hug you, and I might yet! Laird's boys lost two nets and nearly a boat to that murloc and his lot, and half of what I send across the water was going to feed them instead of Auberdine." },
+      },
+      choices = {
+        { text = "Do you know Laird well?", next = "dd_murk2" },
+        { text = "Glad to help. Something else, Nessa?", next = "BACK" },
+      },
+    },
+    dd_murk2 = {
+      lines = {
+        { id = "ddm2_default", text = "Well enough to argue with him by letter twice a week! He sells my catch in Auberdine and grumbles about the price, and I grumble back, and neither of us would trade the other for any fishmonger in Darnassus." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_murk", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: Murkdeep!") }, text = "Laird wrote from Auberdine that someone finally dealt with Murkdeep, and the boats go out along the coast without spears now. Was it you? Oh, it was you, wasn't it!" },
+        { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "You have the look of someone who has swallowed half the sea at least once, friend. Mind your breath out past the docks, because the water off Rut'theran is deeper than it looks." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest! My friends in Auberdine could use a few of you, because things across the water have been sad and strange lately, and I'm always telling them so." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at Rut'theran! Did you come over on the boat from Auberdine? Tell me the crossing didn't turn your stomach in all that armor." },
         { id = "h_default", text = "I'm Nessa Shadowsong, and I sell fishing supplies here at the foot of Teldrassil. Most of what I catch goes up to Darnassus, and the best of it goes across the water to my friends in Auberdine." },
@@ -1295,6 +1314,7 @@ P:NPC {
         { id = "h_again2", text = "Ask on, I've nothing but time and fish." },
       },
       choices = {
+        { text = "Murkdeep won't trouble Auberdine's fishermen again.", next = "dd_murk", when = { questDone = TODO_QUEST("WANTED: Murkdeep!") } },
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "What do you send to Auberdine?", next = "bounty" },
         { text = "There must be good fishing off these docks.", next = "fishing" },
@@ -1482,8 +1502,18 @@ P:NPC {
         { text = "I had another question.", next = "BACK" },
       },
     },
+    dd_drown = {
+      lines = {
+        { id = "ddd_default", text = "Nobody is, after the first time. Sit here on the dock with a line in the water for an afternoon, and the sea becomes something you watch rather than something that wants you, and that is half the art of fishing anyway." },
+      },
+      choices = {
+        { text = "That sounds peaceful, actually.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'd rather just stay out of it.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "Drowned once, have you? I can see it in the way you eye the water now. Fishing is the cure for that, because you learn to sit beside the sea instead of falling into it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Sit down if you like, because fishing's the nearest thing to prayer I know, and nobody has to say a word." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You've the look of someone who doesn't sit still often, so I'll warn you now that my lessons go slowly." },
         { id = "h_default", text = "I'm Androl Oakhand, and I teach fishing here at the foot of Teldrassil. It's the most patient trade there is, and I've had a few centuries to practice it." },
@@ -1498,6 +1528,7 @@ P:NPC {
         { id = "h_again2", text = "Ask on. The line's still slack." },
       },
       choices = {
+        { text = "I drowned once. I'm not fond of water now.", next = "dd_drown", when = { deathCause = "drowning" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "What's the secret of fishing?", next = "secret" },
         { text = "Why fish, when you could hunt?", next = "why" },

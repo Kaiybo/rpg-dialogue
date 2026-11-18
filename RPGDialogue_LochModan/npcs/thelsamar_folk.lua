@@ -35,6 +35,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_gh_deaths = {
+      lines = {
+        { id = "dd_gh_deaths1", text = "Tire o' it? It's my trade, an' ye're steady custom. But I've a book o' Mountaineers' names that stopped comin' back, so I'd rather ye kept wanderin' in here grumblin' than no' at all." },
+      },
+      choices = {
+        { text = "I'll try to be more careful out there.", next = "BACK", reply = "Try harder than ye have been, then, an' take a friend. Two can drag one home.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Careful never killed a trogg, Ghak.", next = "BACK", reply = "No, but it's kept a fair few dwarves alive tae kill the next one. Off wi' ye, then.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -53,12 +63,17 @@ P:NPC {
           text = "A gnome! Ye'll no' need tae mind yer head on my shelves, at least, though ye might need a stool tae reach the cot, ha!" },
         { id = "h_human", when = { race = "Human" },
           text = "A human, is it? Ye bleed easier than a dwarf, so I'll go gentler wi' the needle." },
+        { id = "dd_deaths", when = { deaths = { min = 5 } },
+          text = "I've heard yer name from the spirit healer's side o' things more than once, an' that's no' a list ye want tae top. Sit down an' let me look at ye, for the second-hand stories are never good." },
+        { id = "dd_drown", when = { deathCause = "drowning" },
+          text = "Somebody told me ye went under in the loch an' didnae come up. The loch's deeper than it looks, an' the cold takes yer breath long before the water does." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, for there's a miner in the back wi' a pick through his boot." },
         { id = "h_again2", text = "Anythin' more? Hold still while ye think, I'm lookin' at that cut on yer arm." },
       },
       choices = {
+        { text = "Do you ever tire of patching me up, Ghak?", next = "dd_gh_deaths", when = { deaths = { min = 5 } } },
         { text = "What do you need from the Badlands?", next = "reagents" },
         { text = "Who do you treat most often?", next = "patients" },
         { text = "How did you learn healing?", next = "learn" },
