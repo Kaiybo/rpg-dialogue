@@ -2,6 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## Unreleased: clarity pass
+Text only, no new files (a /reload is enough).
+
+- **Conversations make more sense.** Every pack was read through, and about 6,000 lines were rewritten. Answers now answer the question you picked, and your replies follow what was just said. Choices no longer assume things nobody told you.
+- **People say who they mean.** Names dropped with no introduction ("ask Renee", "the Captain", "La Salle") now come with a few words: "Innkeeper Renee at the tavern", "Captain Stoutfist", "Drusilla La Salle".
+- **Quest lines stand on their own.** Lines shown during or after a quest are whole sentences that say what they're about, not "Tough meat, not tender."
+- **Hunters get their answer.** With a pet out, many questions got only a remark about the pet. They now answer first and mention the pet after.
+- **Fewer contradictions.** Neighbours agree on who is where, who is male or female, and what happened (Gar'Thok holds Razor Hill, Nesingwary is a dwarf, the Undercity warlocks are in the Magic Quarter, and more).
+- **Fixes.** Some "your gear is battered" remarks fired on every visit; they now wait until your gear is actually worn. Three conversations that only let you lean one way now have a reply on the other side.
+
 ## 0.82.0 (2026-11-18)
 Seven parallel pieces of work in one release. **New files: restart the game fully (a /reload won't load them).**
 
