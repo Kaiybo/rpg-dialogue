@@ -2,6 +2,9 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## Unreleased
+- **Every quest you finish in a town raises your standing there.** Before, only the quests listed for each town counted. Now any other quest you turn in inside a town gives a smaller boost (+3), the town hears you helped, and its people's disposition toward you rises with it.
+
 ## 0.83.0 (2026-11-18)
 Six pieces of work in one release. No new files: a /reload is enough. Every content pack got a minor version bump.
 

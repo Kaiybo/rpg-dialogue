@@ -19,15 +19,30 @@ local function questMatches(ref, questID)
   return false
 end
 
+-- Any other quest turned in inside a town counts for that town too (0.84.0), just less
+-- than the ones its file lists.
+Towns.QUEST_DEFAULT = 3
+
+local here
+
 function Towns.OnQuestTurnedIn(questID)
+  local listed = false
   for id, town in pairs(ns.Data.towns) do
     for _, entry in ipairs(town.quests or {}) do
       if questMatches(entry[1], questID) then
+        listed = true
         ns.Effects.Standing(id, entry[2] or 5)
         ns.Debug("standing", id, "+", entry[2] or 5, "for quest", questID)
         Towns.Word(id, "helped", nil, C.Now())
       end
     end
+  end
+  if listed then return end
+  local id = here and here()
+  if id then
+    ns.Effects.Standing(id, Towns.QUEST_DEFAULT)
+    ns.Debug("standing", id, "+", Towns.QUEST_DEFAULT, "for unlisted quest", questID)
+    Towns.Word(id, "helped", nil, C.Now())
   end
 end
 
@@ -74,7 +89,7 @@ local function rec(id)
   return r
 end
 
-local function here()
+function here()
   local zone, sub = C.Zone()
   if not ns.Data or zone == "" then return nil end
   return ns.Data.CommunityForPlace(zone, sub)
