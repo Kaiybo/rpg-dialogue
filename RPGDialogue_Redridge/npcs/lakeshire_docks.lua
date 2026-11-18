@@ -296,6 +296,10 @@ P:NPC {
       choices = {
         { text = "Have you ever caught anything?", next = "caught" },
         { text = "Why fish here, of all places?", next = "why" },
+        { text = "What bait are you using?", next = "bait" },
+        { text = "Does all that hammering on the bridge bother the fish?", next = "bridge" },
+        { text = "Try a lure from Vernon Hale. It works for me.", next = "lure", when = { profession = "Fishing" } },
+        { text = "In Darnassus we fish by moonlight. Have you tried?", next = "moon", when = { race = "NightElf" } },
         { text = "Good luck, Zem.", next = "END" },
       },
     },
@@ -319,6 +323,60 @@ P:NPC {
     },
     wh_more = {
       lines = { { id = "whm_default", text = "The murlocs take more fish than I do, which isn't hard, and they glare at me from the reeds. I glare back, and so far we've agreed to leave each other alone." } },
+      choices = {
+        { text = "You've got a truce with murlocs?", next = "wh_truce" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wh_truce = {
+      lines = { { id = "wht_default", text = "Well, I don't go in the reeds and they don't come up the dock, and that's as good a treaty as anything the Magistrate's ever signed. One of them left a fish head on my crate once, and I've chosen to take it as a friendly gesture." } },
+      choices = {
+        { text = "Or a warning.", next = "wh_warning" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wh_warning = {
+      lines = { { id = "whw_default", text = "Don't say that, friend, I've got to sit here all afternoon! The guards say the murlocs up the shore have been raiding the fishing camps, but these ones by the dock are the polite sort, I'm almost certain." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "murlocs" } } } },
+    },
+
+    bait = {
+      lines = { { id = "ba_default", text = "Worms from Alma Jainrose's garden, bread from the inn, and once a bit of Chef Breanna's goulash, which the fish wouldn't touch, and I can't say I blame them. I've tried everything but luck, and Lakeshire's short on that this year." } },
+      choices = {
+        { text = "Have you tried fishing somewhere else?", next = "ba_else" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ba_else = {
+      lines = { { id = "bae_default", text = "Out on the lake, once, in Dockmaster Baren's rowboat, until an orc arrow went past my ear from the far shore. Now I keep to this dock, where the worst that can happen is nothing at all, which is what usually happens." } },
+      choices = {
+        { text = "Someone should drive the orcs off that shore.", next = "ba_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ba_orcs = {
+      lines = { { id = "bao_default", text = "Somebody should, and the Marshal keeps saying somebody will, and I keep fishing till they do. It's not that I'm afraid, you understand, it's only that a man has to have priorities." } },
+      choices = {
+        { text = "Your neighbors are fighting. Pick up a spear, Zem.", next = "BACK", fx = { align = { honor = 1 } },
+          reply = "Oh, don't you start too. My mother says the same, and she's eighty." },
+        { text = "Leave war to soldiers. Someone has to catch supper.", next = "BACK", fx = { align = { honor = -1 } },
+          reply = "Exactly! You're the first sensible person I've met all week." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    bridge = {
+      lines = { { id = "br_default", text = "It does, and I've told Foreman Oslow so, and he told me where I could put my rod. They've been fixing that bridge since before I can remember, and the fish have learned to swim upstream whenever a hammer drops." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "lakeshire_bridge" } } } },
+    },
+
+    lure = {
+      lines = { { id = "lu_default", text = "A lure! From Vernon Hale? I've walked past his stall a hundred times thinking a lure is cheating, but if it's good enough for a proper angler like you, perhaps it's good enough for old Zem." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    moon = {
+      lines = { { id = "mo_default", text = "By moonlight? I tried fishing after dark once and Guard Parker sent me home for my own good. Besides, if they won't bite in daylight, I can't think why they'd do me any favours at night." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -327,6 +385,8 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Fish, mostly, and where they aren't." } },
     background = { { id = "tp_bg", text = "Born in Lakeshire and fished the lake ever since, and there's not much else to tell." } },
     advice = { { id = "tp_ad", text = "Patience, then more patience, and then go home and try again tomorrow." } },
+    murlocs = { { id = "tp_murlocs", text = "These ones by the dock are the polite sort. I'm almost certain of it." } },
+    lakeshire_bridge = { { id = "tp_bridge", text = "Always being mended, always scaring the fish. Ask Foreman Oslow, if you want shouting." } },
     _none = { { id = "tp_none", text = "If it doesn't swim, I wouldn't know it." } },
   },
 }

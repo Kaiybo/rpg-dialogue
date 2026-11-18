@@ -30,6 +30,7 @@ P:NPC {
   start = "hello",
   nodes = {
     hello = {
+      hub = true,
       lines = {
         { id = "h_default", key = true,
           text = "I am Dorion, and I teach hunters here at the Enclave, as I taught them in Ashenvale before the tree was planted. This is Shadow, who teaches them more than I do, so mind your manners around her and she'll mind hers around you." },
@@ -41,12 +42,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "Something else? Shadow's in no hurry, and neither am I." },
         { id = "h_again2", text = "Ask. I'm listening, and so is she." },
+        { id = "h_again3", text = "Shadow's put her head back down, so I suppose you're staying. Go on." },
       },
       choices = {
         { text = "Tell me about Shadow.", next = "shadow" },
         { text = "What makes a good hunter?", next = "hunting" },
         { text = "I'd like to learn how to bond with a beast.", next = "bond", when = { class = "HUNTER" } },
         { text = "I'd like to train.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Why did you leave Ashenvale?", next = "leave" },
+        { text = "What beast should I tame next?", next = "tame", when = { class = "HUNTER", minLevel = 10 } },
+        { text = "My people hunt with a gun. You disapprove?", next = "gun", when = { race = "Dwarf" } },
         { text = "Goodbye, Dorion.", next = "END" },
       },
     },
@@ -56,6 +61,7 @@ P:NPC {
       },
       choices = {
         { text = "May I stroke her?", next = "shadow_stroke" },
+        { text = "How did a pup end up in the lake?", next = "shadow_lake" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -66,6 +72,15 @@ P:NPC {
       choices = {
         { text = "She's leaning in.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Goodbye, Dorion.", next = "END" },
+      },
+    },
+    shadow_lake = {
+      lines = {
+        { id = "sl_default", text = "Her mother's den was flooded in a spring storm, and I heard one small voice still crying out of the reeds. I meant only to carry her to the shore, but she followed me home, and I've never once regretted letting her." },
+      },
+      choices = {
+        { text = "She chose you, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hunting = {
@@ -85,8 +100,68 @@ P:NPC {
       },
       choices = {
         { text = "I'll remember that.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "And if my companion dies?", next = "bond_loss" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    bond_loss = {
+      lines = {
+        { id = "bl_default", text = "Then you grieve it, properly, and you don't tame another until you've finished. I've seen hunters replace a companion the same day, and every beast they've had since has known it." },
+      },
+      choices = {
+        { text = "Shadow's growing old. What will you do?", next = "bond_shadow" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bond_shadow = {
+      lines = {
+        { id = "bs_default", text = "Sit with her, when it comes, and then sit alone for a long while. I won't tame another, I think; I'm too old to start again, and she'd be cross with me if I tried." },
+      },
+      choices = {
+        { text = "She'll have had a good life with you.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    leave = {
+      lines = {
+        { id = "le_default", text = "The Sentinels asked for teachers in the new city, and my knees asked for an easier life. But I left Ashenvale with the orcs already cutting at its edges, and I've never quite forgiven myself the timing." },
+      },
+      choices = {
+        { text = "What did the orcs do?", next = "leave_warsong" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    leave_warsong = {
+      lines = {
+        { id = "lw_default", text = "The Warsong came with axes and fire and made lumber of trees older than their whole race. The hunters I trained are out there now, in the shadow of every camp, making them pay for each trunk." },
+        { id = "lw_horde", when = { faction = "Horde" }, text = "Your Warsong came with axes and fire and made lumber of trees older than your whole race. I'll not be rude to a guest, but you should know what my students are doing out there." },
+      },
+      choices = {
+        { text = "Then hunt them as they hunt the forest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "There must be a way that doesn't end in blood.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "warsong", "ashenvale" } } },
+      },
+    },
+    tame = {
+      lines = {
+        { id = "ta_default", text = "That depends on where you're hunting and what you need beside you. Owls in Darkshore if you want eyes, bears in Ashenvale if you want something to stand in front of you, and a cat if you want a friend who'll judge you." },
+      },
+      choices = {
+        { text = "Which did Shadow teach you to prefer?", next = "tame_wolf" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tame_wolf = {
+      lines = {
+        { id = "tw_default", text = "Wolves, naturally, though I'm not fair on the question. A wolf will hunt with you as a pack of two, and once you've had that, a cat seems a little too pleased with itself." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    gun = {
+      lines = {
+        { id = "gu_default", text = "Not the gun, only the noise. A dwarf once fired one in this Enclave and every bird in the city left at once, and Shadow hid under my cot for an afternoon, so be a little gentle with it here." },
+      },
+      choices = { { text = "I'll keep it quiet. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -97,6 +172,7 @@ P:NPC {
     timbermaw = { { id = "tp_timbermaw", text = "Furbolgs who still have their wits, up in Felwood's passes. Shadow likes them, and she doesn't like anyone." } },
     green_dragons = { { id = "tp_green_dragons", text = "There's something wrong with the green dragons' places, the hunters say, in Ashenvale and in the human woods too. The beasts won't go near them anymore, and beasts know." } },
     blackfathom = { { id = "tp_blackfathom", text = "The old temple drowned off Ashenvale's coast, and nothing good comes out of it now. Hunters who go down there come back smelling of brine and fear." } },
+    warsong = { { id = "tp_warsong", text = "Orcs who cut Ashenvale for lumber. My old students hunt them in the shadow of every camp." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Shadow might know, but she isn't saying, and wolves keep their secrets longer than elves do." } },
   },
 }

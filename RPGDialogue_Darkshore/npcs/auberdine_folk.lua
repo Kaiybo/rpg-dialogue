@@ -519,6 +519,7 @@ P:NPC {
   start = "hello",
   nodes = {
     hello = {
+      hub = true,
       lines = {
         { id = "h_default", key = true,
           text = "Kurdram Stonehammer, and I teach mining, for those who can stand the work. There's copper and tin in these hills if ye know where to look, and I'll teach ye where, for a price." },
@@ -528,12 +529,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Make it quick, the damp gets in my knees if I stand still." },
         { id = "h_again2", text = "Go on, then. I've opinions on everything from ore to elves." },
+        { id = "h_again3", text = "More? Fine, fine, but I'm sitting down for it." },
       },
       choices = {
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "What's worth digging in Darkshore?", next = "ore" },
         { text = "How do you get on with the elves?", next = "elves" },
         { text = "Any relation to Thelgrum Stonehammer?", next = "thelgrum" },
+        { text = "What's dangerous in those hills?", next = "hills" },
+        { text = "You sound homesick for the mountain.", next = "home", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Does it trouble you, digging in our land?", next = "kaldorei", when = { race = "NightElf" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -541,6 +546,7 @@ P:NPC {
       lines = { { id = "or_default", text = "Copper and tin in the hills along the road, and the odd seam of silver if ye're lucky and nobody's looking. The trouble is getting to it, because every other vein here has a tree growing out of it, and the elves get funny when ye take a pick near a tree." } },
       choices = {
         { text = "Then I'll mine around the trees.", next = "ore_trees" },
+        { text = "Silver, you said?", next = "ore_silver" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -552,17 +558,80 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ore_silver = {
+      lines = { { id = "os_default", text = "Silver, aye, threaded through the copper like a vein through a hand, and gone before ye've got a proper look at it. Ye'll find it by accident or not at all, so keep swinging at copper and let the silver find you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     elves = {
       lines = { { id = "el_default", text = "Well enough, once ye learn they say yes by saying nothing and no by saying it very slowly. They buy my copper and they feed me fish, and I'll not complain about either." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Fish every day? Truly?", next = "elves_fish" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves_fish = {
+      lines = { { id = "ef_default", text = "Every blessed day, baked and boiled and once, Light help me, raw. I'd trade a month's wages for a slab of Dun Morogh boar and a pint of something brown, but there's none of either this side of the sea." } },
+      choices = {
+        { text = "The inn must stock something stronger.", next = "elves_ale" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves_ale = {
+      lines = { { id = "ea_default", text = "Moonberry wine, which tastes like a flower fell in a cup and drowned. I keep a wee cask of Thunder Ale under my bench that came over with Hollee's crates, and I'll thank ye not to tell the Sentinels." } },
+      choices = { { text = "Not a word. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     thelgrum = {
       lines = { { id = "th_default", text = "My cousin, and he sells the picks I teach folk to use, which is a better business than mine and he knows it. Buy from him, but don't let him tell ye he taught me anything." } },
       choices = {
         { text = "I'll keep the family peace.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Did he teach you anything?", next = "thel_teach" },
         { text = "Something else.", next = "BACK" },
       },
     },
+    thel_teach = {
+      lines = { { id = "tt_default", text = "He taught me to hold a pick when we were bairns, and I've been teaching him to hold his tongue ever since, with less success. Don't ye dare tell him I said the first part." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hills = {
+      lines = { { id = "hi_default", text = "The Blackwood furbolgs up north, who've gone mad as a hatter and twice as mean, and the moonkin, who look soft and aren't. Down on the shore the murlocs will take your boots off your feet if ye stop to dig near the water." } },
+      choices = {
+        { text = "Any miners gone missing?", next = "hills_missing" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hills_missing = {
+      lines = {
+        { id = "hm_default", text = "Remtravel, the Explorers' League prospector, who wanders off with his head in a ruin and leaves his gear all over the coast. He's not lost so much as misplaced, and somebody always has to go and fetch him." },
+        { id = "hm_found", when = { questDone = TODO_QUEST("The Absent Minded Prospector") }, text = "Remtravel, but ye found him, didn't ye? Good. The man would lose his own beard if it weren't attached, and even then I've wondered." },
+      },
+      choices = {
+        { text = "Someone should keep him on a lead.", next = "hills_lead" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } },
+      },
+    },
+    hills_lead = {
+      lines = { { id = "hl_default", text = "I've suggested it, and Hollee laughed, and Remtravel thought I was serious and asked how long the lead would be. A dwarf with no sense of direction is a sad thing, but he does find good ruins." } },
+      choices = {
+        { text = "Digging up elf ruins is wrong. Leave them be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The past should be dug up. Someone should learn from it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = { { id = "ho_default", text = "Homesick for stone that stays dry, aye, and a hall where ye can't hear rain on the roof every blessed night. But the copper's good and the work's honest, and there's worse places for an old miner to grumble." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    kaldorei = {
+      lines = { { id = "ka_default", text = "It troubles me that ye would think so, {g:lad|lass}, because I take nothing your Sentinels haven't seen me take. I dig small and I fill in my holes, and that's more than most dwarves would do for anyone." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    advice = { { id = "tp_ad", text = "Dig around the trees, not through them, and keep yer pick sharp. A dull pick works ye twice as hard for half the ore." } },
+    explorers_league = { { id = "tp_explorers_league", text = "Hollee and Remtravel and their lot, digging up elf ruins up and down the coast. Good folk, if ye can keep them from wandering." } },
+    furbolgs = { { id = "tp_furbolgs", text = "The Blackwood up north have gone mad, and nobody can tell me why. I keep well clear of their camps." } },
+    _none = { { id = "tp_none", text = "Never heard of it. If it's not rock or rain, I've no opinion on it, and that's rare." } },
   },
 }
 
@@ -596,6 +665,7 @@ P:NPC {
   start = "hello",
   nodes = {
     hello = {
+      hub = true,
       lines = {
         { id = "h_default", key = true,
           text = "Jenna Lemkenilli, journeyman engineer, and the only person in Auberdine who knows what a sprocket is for. I'll teach you the basics, and maybe a bit past the basics if you promise not to blow up the inn." },
@@ -607,12 +677,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? I've a spring to rewind, but I can talk while I do it." },
         { id = "h_again2", text = "Ask! Questions are how inventions start." },
+        { id = "h_again3", text = "More? Wonderful, I was running out of things to say to this sprocket." },
       },
       choices = {
         { text = "Teach me engineering.", next = "BUSINESS" },
         { text = "Why does a gnome live in Auberdine?", next = "why" },
         { text = "What do the elves think of your work?", next = "elves" },
         { text = "Do you know Gelkak Gyromast?", next = "gelkak" },
+        { text = "What's engineering actually good for?", next = "what" },
+        { text = "Dwarves are engineers too, you know.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "I got out of Gnomeregan too.", next = "survivor", when = { race = "Gnome" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -628,16 +702,78 @@ P:NPC {
       choices = {
         { text = "It will be taken back. Hold on to that.", next = "BACK", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
         { text = "Build a new home. That city is gone.", next = "BACK", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
+        { text = "Who let the troggs in?", next = "gnomeregan_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
+    gnomeregan_who = {
+      lines = { { id = "gw_default", text = "Nobody let them in, they came up from underneath, and then Thermaplugg had the clever idea of flooding the city with radiation to kill them, which killed rather more gnomes than troggs. I'd call him a fool, but fools don't usually come out on top, and he's still down there." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "troggs" } } } },
+    },
     elves = {
       lines = { { id = "el_default", text = "They're very polite about it, which is worse than shouting. Thundris asked me to keep my smoke on the far side of town, away from the moonwell, and I do, because I'd rather not find out what a moonwell does to a misfiring flare." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Has anything ever misfired here?", next = "elves_misfire" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves_misfire = {
+      lines = { { id = "em_default", text = "One small firework, over the water, and it was a perfectly lovely green until it set a fishing net alight. The Sentinels were very understanding, and I've not been allowed to test anything on the pier since." } },
+      choices = {
+        { text = "Do you think they'll ever trust gnomish work?", next = "elves_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves_trust = {
+      lines = { { id = "et_default", text = "They trust my cogs more than my rockets, and they're not wrong to. They remember a lot of things going very badly when people played with power they didn't understand, so I try to show them I understand mine." } },
+      choices = {
+        { text = "They're right to be careful with new things.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They'll fall behind if they won't change.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     gelkak = {
       lines = { { id = "ge_default", text = "The one who calls himself a pirate and talks about his machine like it's a sweetheart? He came through asking for gears a while ago, and he paid in sea-shells, which I've decided to count as payment out of politeness." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = {
+        { text = "What sort of machine is it?", next = "gelkak_machine" },
+        { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
     },
+    gelkak_machine = {
+      lines = { { id = "gm_default", text = "The Threshwackonator 4100, he calls it, which is a magnificent name for something held together with tar and hope. He swears it's his first mate, and from the bits he described, I'd stand well clear when he turns it on." } },
+      choices = { { text = "I'll keep my distance. Something else.", next = "BACK" } },
+    },
+    what = {
+      lines = { { id = "wa_default", text = "Explosives, mostly, at first, and then goggles so you can see what you blew up, and then all sorts of lovely gadgets for the adventurer who wants to be a little bit less dead. Everything starts with a rough blasting powder and a copper bolt." } },
+      choices = {
+        { text = "That sounds dangerous.", next = "what_danger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    what_danger = {
+      lines = { { id = "wd_default", text = "Oh, it's terribly dangerous, that's what makes it engineering! The trick is to be dangerous in the direction you mean to be, and I've a burn on my left thumb that reminds me of that every morning." } },
+      choices = {
+        { text = "How do you know which direction you mean?", next = "what_direction" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    what_direction = {
+      lines = { { id = "wdi_default", text = "Measure twice, light once, and always stand behind the elf who's laughing at you. Well, no, don't do that last part, they've very long ears and they hear everything." } },
+      choices = { { text = "Sound advice. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "I do know, and I've learned a great deal from Ironforge's engineers, mostly what not to do with a boiler. Your people make sturdier guns than we do; ours just have more buttons." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    survivor = {
+      lines = { { id = "su_default", text = "Then you know, and I needn't say any of it. If you ever want to sit here and not talk about it over a cup of something, my workbench has two stools, and one of them hardly wobbles." } },
+      choices = { { text = "I'd like that. Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+  },
+
+  topics = {
+    gnomeregan = { { id = "tp_gnomeregan", text = "Home, until Thermaplugg ruined it. I tell myself we'll go back next year, every year." } },
+    advice = { { id = "tp_ad", text = "Wear goggles. I know they look silly, but eyebrows grow back and eyes don't." } },
+    _none = { { id = "tp_none", text = "No idea! But give me an afternoon and a spanner, and I could probably build something that knows." } },
   },
 }

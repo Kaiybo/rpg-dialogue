@@ -288,6 +288,10 @@ P:NPC {
         { text = "I'm ready to learn.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "What's the first thing a druid learns?", next = "first" },
         { text = "The Archdruid must be a good teacher.", next = "hamuul" },
+        { text = "Where do druids go to learn beyond this hall?", next = "moonglade" },
+        { text = "What do you think of the night elves?", next = "kaldorei" },
+        { text = "I find the bear slow and heavy.", next = "bear_slow", when = { class = "DRUID" } },
+        { text = "Shaman speak with spirits too. How is it different?", next = "shaman_diff", when = { class = "SHAMAN" } },
         { text = "Farewell, Sheal.", next = "END" },
       },
     },
@@ -308,11 +312,52 @@ P:NPC {
     },
     hamuul = {
       lines = { { id = "hm_default", text = "The best, and the slowest. He once spent a whole afternoon showing me a beetle, and it was years before I understood why." } },
+      choices = {
+        { text = "What did the beetle teach you?", next = "beetle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beetle = {
+      lines = { { id = "be_default", text = "That it carried something many times its own weight, slowly and without complaint, and never once tried to be anything but a beetle. Hamuul said a druid takes a form the same way, by accepting it whole, and not by wearing it like a cloak." } },
+      choices = {
+        { text = "Is that why you teach the bear first?", next = "beetle_form" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beetle_form = {
+      lines = { { id = "bf_default", text = "In part. The bear is the form least like a cloak, heavy and patient and sure of itself, and it punishes a druid who only pretends. If you can be a bear honestly, the other forms come easier after." } },
+      choices = {
+        { text = "I'll remember the beetle.", next = "BACK" },
+        { text = "Farewell, Sheal.", next = "END" },
+      },
+    },
+    moonglade = {
+      lines = { { id = "mg_default", text = "To Moonglade, in the north, where the Cenarion Circle gathers and the kaldorei have kept the old ways longer than our tribes have had names. Nara Wildmane sends our young ones there when they're ready, and they come home very quiet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+      learn = { "cenarion_circle" },
+    },
+    kaldorei = {
+      big = true,
+      lines = { { id = "kd_default", text = "They are an old people, and their druids taught Hamuul much of what he knows, so I owe them something. They can be cold, and they carry their own griefs, but they love the forests as we love the plains." } },
+      choices = {
+        { text = "The land matters more than banners. Work with them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Horde comes first. The elves chose their side.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bear_slow = {
+      lines = { { id = "bs_default", text = "It is, and that is what it's for. The bear stands where it chooses and lets the fight come to it, which is a lesson the young never want and always need." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    shaman_diff = {
+      lines = { { id = "sd_default", text = "A shaman asks the elements for help, and a druid asks the land to let her become part of it for a while. Tigor Skychaser and I have argued over which is harder for many seasons, and neither of us has won." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    cenarion_circle = { { id = "tp_cc", text = "The druids' circle, kaldorei and tauren together. Hamuul sits with them in Moonglade, and they listen when he speaks." } },
+    earth_mother = { { id = "tp_em", text = "She is in the grass and the stone and the stillness between them. Sit long enough and you'll feel her." } },
     background = { { id = "tp_bg", text = "A Runetotem, and a student of Hamuul's before I taught anyone myself. There isn't more to tell." } },
     advice = { { id = "tp_ad", text = "Breathe before you shift. A bear born in a panic is a frightened bear." } },
     _none = { { id = "tp_none", text = "I couldn't say. Sit with the question for a while, as the herd sits out a storm; it may answer itself." } },
@@ -354,6 +399,10 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why do you prefer the plains?", next = "plains" },
         { text = "Do you have kin among the druids here?", next = "nara" },
+        { text = "What's the cat form like?", next = "cat" },
+        { text = "Sheal says you're always in a hurry.", next = "sheal" },
+        { text = "When will I learn the travel form?", next = "travel", when = { class = "DRUID" } },
+        { text = "Could you outrun a hunter's arrow?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Farewell, Kym.", next = "END" },
       },
     },
@@ -374,11 +423,59 @@ P:NPC {
     },
     nara = {
       lines = { { id = "n_default", text = "Nara Wildmane is kin, though the Wildmanes are a big family and I couldn't tell you exactly how. She's the one who sends young druids off to Moonglade, and I'm the one who teaches them to run fast enough to get there." } },
+      choices = {
+        { text = "Why send them to Moonglade?", next = "moonglade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moonglade = {
+      lines = { { id = "mg_default", text = "Because that's where the Cenarion Circle meets, kaldorei and tauren both, and a young druid learns there's more to the craft than Mulgore. They come back changed and quieter, and usually wanting to tell me everything at once." } },
+      choices = {
+        { text = "Have you been there yourself?", next = "moon_go" },
+        { text = "Something else.", next = "BACK" },
+      },
+      learn = { "cenarion_circle" },
+    },
+    moon_go = {
+      lines = { { id = "mo_default", text = "Twice, and I ran most of the way, which Sheal says was showing off. The glade is beautiful and terribly still, and after a day there I couldn't wait to get back to grass I could run on." } },
+      choices = {
+        { text = "Something else, Kym.", next = "BACK" },
+        { text = "Farewell, Kym.", next = "END" },
+      },
+    },
+    cat = {
+      lines = { { id = "ct_default", text = "Like the whole world got louder and slower at once. You hear a plainstrider's heartbeat at forty paces and you'd swear the wind had stopped, and the first time it happened I laughed so hard I fell right out of it." } },
+      choices = {
+        { text = "Do you hunt as the cat?", next = "cat_hunt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cat_hunt = {
+      big = true,
+      lines = { { id = "ch_default", text = "Only what I'll eat, and I thank it after, the same as any tauren hunter. Some young druids get drunk on the speed and kill for the joy of it, and I send those ones to Sheal to sit still for a month." } },
+      choices = {
+        { text = "Only what you need. That's the right way.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The thrill is part of it. Let them run.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sheal = {
+      lines = { { id = "sh_default", text = "Sheal says that about everyone except Hamuul and the moss. We're good friends, really, and she's the only one who can make me sit still, which I resent with my whole heart." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    travel = {
+      lines = { { id = "tv_default", text = "When you're ready and Turak says so, which will feel like forever and isn't. Until then, run everywhere on your own hooves, because the legs you build now are the legs the cheetah gets later." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "No, and I tried once, against Kary Thunderhorn on a wager. She put an arrow through the tassel on my horn at a full gallop, and I've been very polite to hunters ever since." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    cenarion_circle = { { id = "tp_cc", text = "Moonglade's lot. Wise, slow and very fond of long meetings, but they mean well, and they love the land." } },
+    earth_mother = { { id = "tp_em", text = "She's out there running with the herds, not sitting in a hall. Go and find her." } },
     background = { { id = "tp_bg", text = "Wildmane, druid, runner. Ask me something interesting." } },
     advice = { { id = "tp_ad", text = "If you can outrun it, outrun it. Fighting is for when you can't." } },
     _none = { { id = "tp_none", text = "No idea! Ask someone slower; the elders have more seasons to think about it." } },

@@ -188,16 +188,37 @@ P:NPC {
         { text = "What do you teach first?", next = "first" },
         { text = "Do the dead make good rogues?", next = "dead" },
         { text = "Where should I go after Deathknell?", next = "after", when = { class = "ROGUE" } },
+        { text = "Who were you, before all this?", next = "before" },
+        { text = "Can one of the living learn your arts?", next = "xliving", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "I'd rather meet my enemies head on.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "Farewell.", next = "END" },
       },
     },
     first = {
       lines = { { id = "f_default", text = "How to stand still, which is hard for the newly risen, because your body twitches and you don't notice. After that, how to strike first, and how to be gone before anyone remembers your face." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "How do you teach someone to stand still?", next = "first2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first2 = {
+      lines = { { id = "f2_default", text = "I stand them in the chapel yard at dusk and set a bat loose, and they don't move until it lands on them. Some take an hour and some take a week, and one fellow is still out there, I think, though he may simply have liked it." } },
+      choices = {
+        { text = "And striking first?", next = "first3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first3 = {
+      lines = { { id = "f3_default", text = "Is simply deciding sooner than the other fellow, {class}, nothing more mysterious than that. Most people spend the first moment of a fight working out whether it's a fight, and you'll spend it ending one." } },
+      choices = {
+        { text = "Decide sooner. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     dead = {
       lines = { { id = "d_default", text = "The best, if they're careful. We don't breathe loudly, we don't sweat, and we don't flinch when we're hurt, but we creak, and we smell, and the Crusade's dogs can find us a mile away." } },
       choices = {
+        { text = "How do I get past their dogs?", next = "dogs" },
         { text = "Is stealth honourable, though?", next = "dead_stance" },
         { text = "Something else.", next = "BACK" },
       },
@@ -215,8 +236,36 @@ P:NPC {
       lines = { { id = "a_default", text = "Brill, where Marion Call at the tavern will teach you more than I can, and then the Undercity, where the deathstalkers will decide whether you're worth their time. Keep your hands clean of the Deathguard's purses, because they're the ones who decide whether you hang." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    dogs = {
+      lines = { { id = "dg_default", text = "Downwind, always, and through water where you can, since it carries the smell off. Failing that, a little of Faruza's crushed mint rubbed on your coat, which confuses them, and confuses the Scarlets even more when they catch a whiff of a dead man smelling like a kitchen garden." } },
+      choices = { { text = "Mint and water. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    before = {
+      lines = { { id = "be_default", text = "A man who could open any lock in the capital and was paid by the lords who owned them to prove it. Whether I ever opened one I wasn't paid for is a thing the plague has very conveniently made me forget." } },
+      choices = {
+        { text = "That's very convenient indeed.", next = "before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before2 = {
+      lines = { { id = "b2_default", text = "Isn't it? The grave's the finest pardon there is, friend, and the Dark Lady doesn't ask what you stole in your first life, only what you'll take for her in this one. I find that a very fair arrangement." } },
+      choices = {
+        { text = "A clean slate. I'll take it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xliving = {
+      lines = { { id = "xl_default", text = "Better than the dead, in some ways, because you don't creak and the dogs don't know you. Worse in others, because you breathe like a bellows when you're frightened, and you will be frightened." } },
+      choices = { { text = "I'll learn to breathe quietly, then.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xwarrior = {
+      lines = { { id = "xw_default", text = "Then you'll make a fine distraction while my students go round the back. Every good rogue needs a loud friend, and I mean that more kindly than it sounds." } },
+      choices = { { text = "Happy to be the loud friend.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
   },
   topics = {
+    scarlet_crusade = { { id = "tp_scarlet", text = "Loud, righteous and fond of dogs. They're the easiest people in Lordaeron to rob and the hardest to hide from." } },
+    advice = { { id = "tp_ad", text = "Stand still, decide sooner, and stay downwind. That's most of what I teach, and the rest is practice." } },
     _none = { { id = "tp_none", text = "Not my business, and I make a point of knowing whose business things are. Ask Executor Arren." } },
   },
 }
@@ -255,6 +304,8 @@ P:NPC {
         { text = "Did you study in Dalaran?", next = "dalaran" },
         { text = "What's the first spell you teach?", next = "first" },
         { text = "Does death change magic?", next = "death" },
+        { text = "I remember a little of my old training.", next = "xmemory", when = { class = "MAGE", race = "Scourge" } },
+        { text = "Fire's my art too, after a fashion.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -262,8 +313,20 @@ P:NPC {
       lines = { { id = "d_default", text = "I studied near it, which is a polite way of saying they turned me away from the city itself, twice. I learned anyway, from books they thought were safely locked up, and I've never quite forgiven them for being right that I'd misuse them." } },
       choices = {
         { text = "Misuse them how?", next = "dalaran_misuse" },
+        { text = "Turned away twice? What for?", next = "twice" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    twice = {
+      lines = { { id = "tw_default", text = "The first time for being a farmer's daughter with no letters of introduction, and the second for having read a book I wasn't meant to have, which I'd foolishly mentioned to the examiner. He asked me where I'd found it, and I told him, and that was the end of the interview." } },
+      choices = {
+        { text = "Where had you found it?", next = "twice2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    twice2 = {
+      lines = { { id = "t2_default", text = "In a pedlar's cart outside Andorhal, wrapped in sacking, and I still don't know whose it was. I suspect the Kirin Tor knew exactly whose, which is why they were so very cross about it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     dalaran_misuse = {
       big = true,
@@ -271,12 +334,41 @@ P:NPC {
       choices = {
         { text = "Knowledge should be free. You're right.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Some knowledge should be guarded closely.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Did you ever meet Kel'Thuzad?", next = "kt" },
+      },
+    },
+    kt = {
+      lines = { { id = "kt_default", text = "Once, at a distance, when he came through Andorhal talking to the farmers about a better life, before anyone understood what he meant by it. He was brilliant and he was charming, and I envied every one of them for being spoken to by a real magus of the Kirin Tor." } },
+      choices = {
+        { text = "And now?", next = "kt2" },
         { text = "Something else.", next = "BACK" },
       },
     },
+    kt2 = {
+      lines = { { id = "k2_default", text = "Now I teach the dead, which he'd find very amusing, I'm sure, wherever he's got to. I keep my lectures to fire and frost, and if a student asks about the other thing, I send them to Executor Arren." } },
+      choices = { { text = "Wise of you. Something else.", next = "BACK" } },
+    },
     first = {
       lines = { { id = "f_default", text = "Fire, because it's honest and it shows you your mistakes right away, usually on your sleeve. Frost comes after, once you've learned patience, and the newly risen have little else, having nowhere to be." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Why does frost need patience?", next = "frost" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    frost = {
+      lines = { { id = "fr_default", text = "Because fire wants to happen and frost has to be coaxed, a slow drawing-down of warmth until the air gives up. The dead have an advantage there, I've noticed, since we haven't much warmth left to argue with." } },
+      choices = { { text = "That's a cold sort of comfort.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
+    xmemory = {
+      lines = { { id = "xm_default", text = "Do you? Then hold onto it, and don't force the rest, because it comes back in pieces and in the wrong order. One of my students remembered a ward against fire before she remembered her own mother's face, and she still isn't sure which upset her more." } },
+      choices = {
+        { text = "I'll let it come as it will.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      lines = { { id = "xw_default", text = "After a fashion, yes, and a fashion I don't teach and won't, though I'll admit your shadowbolts are tidier than my students' fireballs. Venya can tell you about your fire, and I'll stick to mine." } },
+      choices = { { text = "Fair enough, Isabella.", next = "BACK" } },
     },
     death = {
       lines = { { id = "de_default", text = "Less than you'd fear. The mind keeps what it used most, and magic is a deep habit, so the risen mages usually find it sooner than they find their own names. That's either comforting or terrible, and I change my mind about which every week." } },
@@ -287,6 +379,8 @@ P:NPC {
     },
   },
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "A city that turned me away twice and then let a necromancer teach in its schools. I've no wish to see it again, and I think of it every day." } },
+    kelthuzad = { { id = "tp_kt", text = "The worthiest of the worthy, by the Kirin Tor's own measure, and look where their measure got us all. I've never trusted a locked library since." } },
     _none = { { id = "tp_none", text = "That's outside my books, I'm afraid. Ask Executor Arren, if you can get more than a word from him." } },
   },
 }

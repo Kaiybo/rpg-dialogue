@@ -123,6 +123,10 @@ P:NPC {
         { text = "I'd like to stable my companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What beasts do the Barrens hunters tame?", next = "beasts" },
         { text = "Is the Crossroads safe for the animals?", next = "safe" },
+        { text = "You hunted with a lion of your own once.", next = "lion" },
+        { text = "What do you make of Reggifuz?", next = "reggifuz" },
+        { text = "You watch the road more than the stalls.", next = "road" },
+        { text = "How should I be caring for my companion?", next = "care", when = { class = "HUNTER" } },
         { text = "Farewell, Sikwa.", next = "END" },
       },
     },
@@ -146,9 +150,75 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    lion = {
+      lines = {
+        { id = "li_default", text = "For twenty years, from the time she was a cub with oversized paws until she was grey around the muzzle and slept through most of the day. We hunted from Mulgore to the Stonetalon foothills, and she never once brought down more than we needed." },
+        { id = "li_hunter", when = { class = "HUNTER" }, text = "For twenty years, {class}, which is a long time to share every meal and every bedroll with another heart. You'll understand it better than most, so I won't pretend it was simple." },
+      },
+      choices = {
+        { text = "What happened to her?", next = "lion_end" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lion_end = {
+      lines = { { id = "le_default", text = "She grew old and lay down in the grass near the Gold Road one evening, and she did not get up, which is the best death the Earth Mother gives. I sat with her until An'she rose, and then I came here instead of taming another." } },
+      choices = {
+        { text = "Why not take another companion?", next = "old_lion" },
+        { text = "I'm sorry, Sikwa.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    old_lion = {
+      lines = { { id = "ol_default", text = "Because a heart is not a stall to be filled again the next morning. The old lioness in the corner belonged to a hunter who went into the Wailing Caverns and did not come out, so I keep her instead, and that is enough for me." } },
+      choices = {
+        { text = "Grief has its own pace. You're right to honor it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The dead are gone. The living hunters need you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    reggifuz = {
+      lines = { { id = "re_default", text = "He counts the feed and I count the beasts, and we argue over which number matters more. He is greedy, but he is not cruel, and he has never once let a beast go hungry to save a copper, which I did not expect of a goblin." } },
+      choices = {
+        { text = "He says you cost him three fences.", next = "reggifuz_fence" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    reggifuz_fence = {
+      lines = { { id = "rf_default", text = "Four, if he's counting honestly, and he never is. Let him send his little papers to Sergra; the beasts I let loose have bitten more Kolkar than his ledger ever will." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    road = {
+      lines = { { id = "ro_default", text = "The road is where the trouble comes from, and the beasts smell it before the guards see it. When the lions in the stalls go quiet and turn their heads west, I tell the gate, and the gate has learned to listen." } },
+      choices = {
+        { text = "What comes from the west?", next = "road_kolkar" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_kolkar = {
+      lines = { { id = "rk_default", fx = { learn = { "centaur" } }, text = "The Kolkar, from their camps out past the Stonetalon road, and sometimes the Razormane from the hills to the south. The centaur ride beasts half-starved and whipped, and my lions can smell that too, which makes them angrier than any war drum." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    care = {
+      lines = {
+        { id = "ca_default", text = "Feed {pet} before you feed yourself, check the paws every evening, because the Barrens grass hides thorns, and never leave it to guard your camp alone while you sleep. A companion is not a tool, and it knows when you treat it like one." },
+        { id = "ca_tauren", when = { race = "Tauren" }, text = "As your elders taught you, child of Mulgore, if they taught you well: feed {pet} first, check its paws at dusk, and thank it at the end of each hunt. I've seen too many young tauren forget the last part once they leave home." },
+      },
+      choices = {
+        { text = "Which foods does it need out here?", next = "care_feed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    care_feed = {
+      lines = { { id = "cf_default", text = "Fresh meat for the cats and wolves, and the plainstrider meat is lean and good, though Zargh charges too much for it. Never feed a beast centaur rations, whatever the grunts say, because I've no idea what goes into them and neither do the centaur." } },
+      choices = {
+        { text = "I'll remember, Sikwa.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I hunted with a lion of my own for twenty years. When she died, I took this post instead of taming another." } },
+    advice = { { id = "tp_ad", text = "Check your companion's paws every evening. The grass here hides more thorns than it shows." } },
+    centaur = { { id = "tp_centaur", next = "road_kolkar", text = "The centaur whip their beasts until they hate the world, and then they ride them at our walls." }, { id = "tp_centaur2", text = "When the lions go quiet and look west, the Kolkar are coming. That's all I need to know of them." } },
     _none = { { id = "tp_none", text = "I don't know, but the old lion in the corner stall might. She's seen more of the Barrens than I have." } },
   },
 }

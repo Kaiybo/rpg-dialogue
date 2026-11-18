@@ -453,6 +453,8 @@ P:NPC {
           text = "I am Maluressian, and I keep the stables here on the island. I'll look after any companion you leave with me as if it were my own, and better than some keep their own." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter. Your companions are safe with me, though I'll ask you to come and visit them, because they notice when you don't." },
+        { id = "h_druid", when = { class = "DRUID" },
+          text = "A druid, and the sabers lifted their heads when you came up the path, which they only do for kin. I am Maluressian, and I keep the stables here; you'll forgive me if I talk to them more than to you." },
       },
       again = {
         { id = "h_again", text = "Anything else? Speak softly." },
@@ -462,6 +464,9 @@ P:NPC {
         { text = "I'd like to see the stables.", next = "BUSINESS" },
         { text = "What sort of beasts do you keep?", next = "beasts" },
         { text = "How do the animals take the war?", next = "war" },
+        { text = "Astranaar seems a strange place for stables.", next = "island" },
+        { text = "How would I find a companion of my own?", next = "find", when = { class = "HUNTER" } },
+        { text = "The Horde ride wolves here too. Do you hate them?", next = "wolves", when = { faction = "Horde" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -469,8 +474,20 @@ P:NPC {
       lines = { { id = "be_default", text = "Sabers mostly, and wolves, and once a bear who stayed a month and ate most of Astranaar's honey. Every beast among them was easier to care for than the hunters who left them here." } },
       choices = {
         { text = "What makes a good hunter, then?", next = "good" },
+        { text = "Tell me about this bear.", next = "bear" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    bear = {
+      lines = { { id = "br_default", text = "His hunter left him with me for a week and came back after a month, smelling of Darkshore and full of apologies. In the meantime the bear found the beekeepers' stores, and the beekeepers found me, and I paid for that honey for a season." } },
+      choices = {
+        { text = "Did the hunter ever pay you back?", next = "bear_paid" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bear_paid = {
+      lines = { { id = "bp_default", text = "In apologies, at great length, and in coin, eventually. The bear paid me back better: he slept against the stable door every night and nothing came near it. I still miss him, if I'm honest, and I don't miss the hunter at all." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     good = {
       lines = { { id = "go_default", text = "One who thinks of the beast as a companion and not a weapon. You can tell the difference in the way they call them back; one sort calls, the other sort commands." } },
@@ -482,7 +499,51 @@ P:NPC {
     },
     war = {
       lines = { { id = "wa_default", text = "Badly. They hear the Warsong axes long before we do, and on bad nights the sabers pace all night long. I sing to them, which helps them more than it helps me." } },
+      choices = {
+        { text = "What do you sing to them?", next = "song" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    song = {
+      lines = { { id = "so_default", text = "An old lullaby from Darnassus about the moon walking the forest to check that every creature is asleep. My mother sang it to me, and I sing it badly, but the sabers have never once complained about my voice, which is more than Kimlya can say." } },
+      choices = {
+        { text = "The Warsong's axes are the real trouble, though.", next = "axes" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "elune" } } },
+      },
+    },
+    axes = {
+      big = true,
+      lines = { { id = "ax_default", text = "They are. Every tree they fell is a den gone, or a nest, and the beasts that lose their homes wander toward the lake and into the hunters' traps. Some at the Sentinels' table want to burn the lumber camps, and some want to wait for the Horde to tire of it." } },
+      choices = {
+        { text = "Burn the camps. The forest can't wait for them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fire only kills more beasts. Find another way.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "warsong" } } },
+      },
+    },
+    island = {
+      lines = { { id = "is_default", text = "Strange, but safe. The lake keeps the wolves of the Horde at a distance, and the only way in is over the bridges, which the Sentinels watch. A frightened beast sleeps better with water all around it, and so, I find, do I." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "ashenvale" } } } },
+    },
+    find = {
+      lines = { { id = "fi_default", text = "Not by chasing the strongest thing in the forest, which is what young hunters always do. Watch a beast for a day before you call it, and see how it treats its own; the gentle ones make the best companions, and they're braver than they look." } },
+      choices = {
+        { text = "Any beast near Astranaar you'd recommend?", next = "find_where" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    find_where = {
+      lines = { { id = "fw_default", text = "The ghostpaw wolves in the west are clever and loyal, and the sabers on the ridges are proud but true. Leave the bears near the furbolg camps alone, though; the sickness that took the Foulweald gets into everything that drinks near them." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } } },
+    },
+    wolves = {
+      lines = { { id = "wo_default", text = "Hate them? No. A wolf doesn't choose its rider, any more than my sabers choose theirs, and I've seen Horde wolves loose in the forest that were as frightened as anything of ours. It's the riders I have opinions about, and I keep them to myself." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "The beasts of the forest, and the hunters who are kind to them, and the ones who aren't." } },
+    warsong = { { id = "tp_warsong", text = "Every tree they fell sends something frightened toward my stables. I count the cost in sleepless sabers." } },
+    _none = { { id = "tp_none", text = "I wouldn't know. Ask me about a beast instead; I know beasts." } },
   },
 }

@@ -273,8 +273,60 @@ P:NPC {
         { text = "Show me your guns.", next = "BUSINESS" },
         { text = "You fought in the Third War?", next = "war" },
         { text = "Any advice for the marsh?", next = "marsh" },
+        { text = "I saw you listening to that barrel like it could talk.", next = "ear" },
+        { text = "What do you make of Caz Twosprocket?", next = "caz" },
+        { text = "Which hold did ye learn yer trade in?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "So you'll fight any gnome? Here I am.", next = "gnome", when = { race = "Gnome" } },
+        { text = "What should a hunter carry in this swamp?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Farewell, Torq.", next = "END" },
       },
+    },
+    ear = {
+      lines = { { id = "ea_default", text = "It can talk, if ye know how tae listen! Tap a good barrel an' it rings clean, like a bell at the Great Forge, but a cracked one goes dull an' sour, an' I'll not sell a gun that's lyin' tae me." } },
+      choices = {
+        { text = "Who taught you that trick?", next = "ea_teacher" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ea_teacher = {
+      lines = { { id = "eat_default", text = "An old gunsmith in the Military Ward back in Ironforge, deaf in one ear from his own work an' still the best listener I ever met. He used tae say a dwarf who cannae hear his barrel deserves what it does tae him." } },
+      choices = {
+        { text = "Do you miss Ironforge?", next = "ea_home" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ea_home = {
+      lines = { { id = "eah_default", text = "Every time it rains, which here is every day. But I came over wi' the Alliance in the war an' stayed when the Lady built her walls, an' a dwarf finishes what he starts, even if it's a swamp." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "theramore" } } } },
+    },
+    caz = {
+      lines = { { id = "cz_default", text = "Ha! A clever wee gnome who builds siege engines that never see a siege, an' calls my rifles 'charmingly primitive'. I call his engines kindling, so we're even, an' we drink together on a Friday." } },
+      choices = {
+        { text = "Guns or engines, which wins a war?", next = "cz_war" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cz_war = {
+      lines = { { id = "czw_default", text = "Engines knock down walls, I'll grant him that, but walls don't win wars, lads wi' rifles do. Ye'll want both, if the peace ever breaks, an' I pray tae the stone it doesnae." } },
+      choices = {
+        { text = "A strong army keeps the peace. Build the engines.", next = "BACK", fx = { align = { order = 1 } },
+          reply = "Aye, that's Caz's argument too. Dinnae tell him ye agree." },
+        { text = "Engines are a threat. They invite the war they're built for.", next = "BACK", fx = { align = { order = -1 } },
+          reply = "Tervosh says the same. Maybe the both o' ye are right." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "Ironforge, Military Ward, under a master who'd box yer ears for a crooked sight. Ye'll know the type, {g:lad|lass}, every one o' us had one. Mind ye bring yer rifle tae me before ye go intae the marsh, an' I'll listen tae it for free." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "Ha! Ye've more nerve than height, I'll give ye that. It's a figure o' speech, wee one, mostly aimed at Caz, so put yer wrench away an' I'll show ye what a proper rifle looks like." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Twice the shot ye think ye'll need, oilcloth for the powder, an' a spare bowstring if ye shoot a bow, which I'll forgive. The crocolisks out past the Den have hides like a tavern door, so aim for the eye." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     war = {
       lines = { { id = "wa_default", text = "Aye, in the Stonetalon Mountains, holdin' a post when the Warsong came through. Grom Hellscream's lot hit us like a landslide, an' I'll not forget the sound o' them drums as long as I live." } },
@@ -304,6 +356,8 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "Guns, powder, an' how tae keep 'em dry in a swamp." } },
     advice = { { id = "tp_ad", text = "Oilcloth, lad. Oilcloth for everythin'." } },
+    caz = { { id = "tp_caz", text = "Builds kindlin' an' calls it engines. Good company on a Friday, though." } },
+    warsong = { { id = "tp_warsong", text = "I still hear them drums some nights. I'll say no more about it." } },
     _none = { { id = "tp_none", text = "Never heard o' it, an' I'd sooner say so than make somethin' up." } },
   },
 }

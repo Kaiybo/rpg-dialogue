@@ -37,6 +37,10 @@ P:NPC {
         { text = "Show me your stock.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "Do the apothecaries mind your trade?", next = "apoth" },
         { text = "Do poisons even work on the dead?", next = "dead" },
+        { text = "Where do your ingredients come from?", next = "ingred" },
+        { text = "Who buys the most from you?", next = "buyers" },
+        { text = "Show me a trick for mixing on the road.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "My people have brewed poisons since before Lordaeron.", next = "xtroll", when = { race = "Troll" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -58,11 +62,63 @@ P:NPC {
     },
     dead2 = {
       lines = { { id = "d2_default", text = "A deathstalker brought me a worgen pelt with a dart still in it, and I studied that pelt for a week. I've been working on something stronger ever since, though whatever lives in Shadowfang Keep seems to shrug most of it off." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Why would the keep's worgen be any different?", next = "dead3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dead3 = {
+      lines = { { id = "d3_default", text = "Because Arugal's magic runs in them, or so the deathstalkers say, and magic is a very poor patient. It heals what I do to it before the poison's halfway round the heart, which is terribly rude of it." } },
+      choices = {
+        { text = "Then you'll need something nastier.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ingred = {
+      lines = { { id = "in_default", text = "The forest, mostly, which is very generous if you know where to look. Spider glands from the webs along the road, a few of Gwyn Farrow's mushrooms that she swears are only for soup, and a root from the lake shore that I'm not telling you the name of." } },
+      choices = {
+        { text = "Gwyn's mushrooms are only for soup?", next = "ingred2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ingred2 = {
+      lines = { { id = "i2_default", text = "That's what she tells the Deathguard, and it's even true, if you're making the soup for someone you dislike. We have an understanding, Gwyn and I, which is that she doesn't ask and I pay in full." } },
+      choices = {
+        { text = "And the root you won't name?", next = "ingred3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ingred3 = {
+      lines = { { id = "i3_default", text = "Still not telling you, dear, but I'll say it grows where the lake meets Pyrewood's fields, and the worgen don't touch it. Make of that what you like, and wear gloves while you do." } },
+      choices = { { text = "Gloves. Noted.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    buyers = {
+      lines = { { id = "bu_default", text = "The Deathstalkers, by a long way, and a few deathguards who've decided an arrow ought to have opinions. The apothecaries buy nothing, of course, and then I find my empty jars in Renferrel's rubbish, scraped clean." } },
+      choices = {
+        { text = "Renferrel's studying your work?", next = "buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers2 = {
+      lines = { { id = "b2_default", text = "Studying it, sneering at it and copying it, in that order, and denying all three. I take it as the highest compliment the Royal Apothecary Society knows how to pay." } },
+      choices = { { text = "A compliment indeed.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
+    xrogue = {
+      lines = { { id = "xr_default", text = "Never mix in the wind, never mix by firelight, and never, ever lick your thumb to turn the page of a recipe. I learned the third one from a man who isn't with us anymore, even by our standards." } },
+      choices = { { text = "Thumbs stay dry. Thank you.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xtroll = {
+      lines = { { id = "xt_default", text = "So I hear, and I'd give a good deal to see what a Darkspear puts on a spear tip. Trade me a recipe one day, and I'll trade you one back, and we'll neither of us tell the apothecaries." } },
+      choices = {
+        { text = "Maybe, if your recipe's worth it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    worgen = { { id = "tp_worgen", text = "Big, hairy and wonderfully susceptible to the right toxin, so long as Arugal hasn't had his hands on them. I've a soft spot for worgen, in a professional way." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Whatever's in that keep shrugs off my best work, and I take that very personally. One day I'll find the mix that doesn't wash off." } },
     _none = { { id = "tp_none", text = "Not a clue, dear. If it isn't in a jar, it isn't my business." } },
   },
 }
@@ -103,6 +159,10 @@ P:NPC {
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "Where's the good ore around here?", next = "ore" },
         { text = "Did you mine in life?", next = "past" },
+        { text = "What's in the hills that ought to stay asleep?", next = "hills" },
+        { text = "Any advice for a new miner?", next = "tip" },
+        { text = "Silverpine rock? We'd call this gravel in Ironforge.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "I've been working the hills east of the road.", next = "xminer", when = { profession = "Mining" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -115,6 +175,13 @@ P:NPC {
     },
     ore2 = {
       lines = { { id = "o2_default", text = "For whatever lies under Ambermill, I expect, which is none of my business and all of my curiosity. I've watched them carry crates in and nothing out, and that's all I'll say about it." } },
+      choices = {
+        { text = "Have you told anyone about the crates?", next = "ore3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ore3 = {
+      lines = { { id = "o3_default", text = "Shadow Priest Allister, who listened very carefully and wrote nothing down, which is how you know he cared. Since then his people go up that road a good deal more than miners do, and I go down it a good deal less." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     past = {
@@ -123,12 +190,54 @@ P:NPC {
       choices = {
         { text = "Honest work is what keeps us whole.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Twenty years underground? I'd want something new.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The plague found you underground?", next = "past2" },
+      },
+    },
+    past2 = {
+      lines = { { id = "p2_default", text = "It came down the shaft in the water, we reckoned after, because the men at the bottom took sick first. I remember the lamp going out, and then nothing at all until I woke in the dark with the Dark Lady's deathguards standing over me." } },
+      choices = {
+        { text = "What became of the other miners?", next = "past3" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    past3 = {
+      lines = { { id = "p3_default", text = "Some woke with me, and some woke wrong, mindless and wandering, and the Deathguard put those down. I'd like to think I'd have done the same for them, and I'd like to think they'd have done it for me." } },
+      choices = {
+        { text = "That's a hard thing to carry.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hills = {
+      lines = { { id = "hi_default", text = "Gnolls, first, the Moss-hides, who dig too, and badly, and don't like company in their holes. Past them there are worgen dens in the deep woods, and a pick makes a poor weapon against a thing that size." } },
+      choices = {
+        { text = "Gnolls dig for ore too?", next = "hills2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hills2 = {
+      lines = { { id = "h2_default", text = "They dig for whatever's shiny, and they collapse half of what they dig, so I'd not follow one of their tunnels if you paid me. Find your own vein, cut your own shaft, and prop it properly, even if it costs you a day." } },
+      choices = { { text = "Prop it properly. Understood.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    tip = {
+      lines = { { id = "ti_default", text = "Listen to the rock before you hit it, because good stone rings and rotten stone thuds. And mine in daylight, since the worgen hunt at night and they can hear a pick from a mile off." } },
+      choices = { { text = "Daylight and listening. Thanks, Johan.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xdwarf = {
+      lines = { { id = "xd_default", text = "Aye, and Ironforge sits on the best stone in the world, so you've earned your boasting. But this gravel kept my family fed for twenty years, so I'll thank you to swing at it before you sneer at it." } },
+      choices = {
+        { text = "Fair. I'll swing first.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xminer = {
+      lines = { { id = "xm_default", text = "Good, and you came back, which is the half of mining nobody teaches. Try the split rock south of the Sepulcher next, where the silver shows, but don't go near Ambermill with that pick on your back." } },
+      choices = { { text = "South, and not Ambermill. Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's people dig at Ambermill and tell nobody why. A miner always wants to know why, and a sensible one doesn't ask." } },
+    lordaeron = { { id = "tp_lordaeron", text = "The hills north of the capital had the best silver in the kingdom, and I dug it for twenty years. The kingdom's gone, but the silver's still down there." } },
     _none = { { id = "tp_none", text = "I know rock, and that isn't rock, so ask somebody at the inn." } },
   },
 }

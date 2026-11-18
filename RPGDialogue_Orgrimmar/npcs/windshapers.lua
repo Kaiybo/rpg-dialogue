@@ -363,6 +363,10 @@ P:NPC {
         { text = "Why the Cleft, really?", next = "why" },
         { text = "What do you make of the people down here?", next = "people" },
         { text = "Do you miss the sky?", next = "sky" },
+        { text = "What cult grew back home?", next = "cult" },
+        { text = "Who in the Cleft worries you most?", next = "who" },
+        { text = "Do you ever visit Camp Gev'rek?", next = "camp" },
+        { text = "Will the wind spirits ever speak to us again?", next = "silence", when = { race = "Skyborne" } },
         { text = "Winds be with you, Yiyo.", next = "END" },
       },
     },
@@ -405,12 +409,67 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    cult = {
+      lines = { { id = "cu_default", fx = { learn = { "al_aketh" } }, text = "The Al'Aketh, who shaved their heads and wore grey and prayed to Al'Akir when our own wind spirits went quiet. They offered answers when the elders had none, and frightened people will follow anyone who sounds certain." } },
+      choices = {
+        { text = "What did they do?", next = "cult_beacon" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult_beacon = {
+      lines = { { id = "cb_default", text = "When the old wards failed, their high priestess Lorthuna lit a beacon for Al'Akir's servants, and it took the Kirin Tor and the Earthen Ring together to put her down. I had walked past their meetings for a year and never thought them more than sad folk with shaved heads." } },
+      choices = {
+        { text = "And then your people left Skywall.", next = "cult_leave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult_leave = {
+      lines = { { id = "cl_default", text = "Rohash of the Conclave said he would tell the Windlord what we were, so we left before anyone could find out what that meant. The High Elder thought we might have years, but I would rather not test an elemental lord's patience from his own doorstep." } },
+      choices = { { text = "Something else, Yiyo.", next = "BACK" } },
+    },
+    who = {
+      lines = {
+        { id = "wo_default", text = "No one I could name to a guard, which is the trouble. There is a chasm below the Cleft that breathes heat on cold nights, and I've seen robed figures go toward it who never seem to come back the same way." },
+        { id = "wo_rogue", when = { class = "ROGUE" }, text = "No one I could name, {class}, and you'd know better than me how easy it is to vanish in a place like this. There is a chasm below the Cleft that breathes heat, and robed figures go toward it who never come back the same way." },
+      },
+      choices = {
+        { text = "The chasm under the Cleft?", next = "who_chasm" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who_chasm = {
+      lines = { { id = "wc_default", fx = { learn = { "burning_blade" } }, text = "Ragefire Chasm, the guards call it, and they say troggs and worse live down in the heat, and that the Warchief's people go down to clear it now and then. I hear the name Burning Blade whispered near its mouth, and I don't know what it means, so I keep listening." } },
+      choices = {
+        { text = "Tell the guards what you've seen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Find out yourself. Guards only make noise.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = { { id = "ca_default", text = "Now and then, when Ayessa Dawnsinger asks for all of us, and I go and sit at the back of the council fire in Mulgore. Half the camp wants to build there for good, and half wants to keep searching for the spirits, and they argue it out every time I visit." } },
+      choices = {
+        { text = "Which half are you?", next = "camp_side" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp_side = {
+      lines = { { id = "cs_default", text = "Neither, which pleases no one. I think we should learn this land first, its spirits and its shadows both, before we decide what to build on it or what to go looking for." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    silence = {
+      lines = { { id = "si_default", text = "I don't know, and I distrust anyone who says they do. My skysight grows dimmer each season, and the Earthen Ring's shamans hear spirits I cannot, so perhaps the world is still speaking and we have simply forgotten how to listen." } },
+      choices = {
+        { text = "Then we'll learn to listen again.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Or they abandoned us, and we move on.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
   },
 
   topics = {
     burning_blade = { { id = "tp_bb", text = "I've heard the Burning Blade whispered of in the Cleft, and seen people go quiet when it was said aloud. That tells me more than any answer would." } },
     background = { { id = "tp_bg", text = "I'm a Windshaper who came down with the rest, and I've chosen to keep my own company since. That's as much as I share in the Cleft." } },
     advice = { { id = "tp_ad", text = "Anyone who tells you a secret for free has already sold it to someone else. Remember that down here." } },
+    al_aketh = { { id = "tp_alaketh", next = "cult", text = "Grey robes and shaved heads, and prayers to the Windlord. I walked past them for a year before I understood what they were." }, { id = "tp_alaketh2", text = "Lorthuna's beacon is out, and I check the Cleft's shadows anyway. Old habits." } },
     _none = { { id = "tp_none", text = "I don't know, and in the Cleft it's wiser not to guess." } },
   },
 }

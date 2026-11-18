@@ -1106,6 +1106,10 @@ P:NPC {
         { text = "What's the gossip tonight?", next = "gossip" },
         { text = "Some things must sell better than others in Booty Bay.", next = "sells" },
         { text = "Why do you work the night shift?", next = "night" },
+        { text = "So the Horde bids in the same house as me?", next = "factions" },
+        { text = "You look like you're scared of half of what you know.", next = "scared" },
+        { text = "Any hot goods come through that nobody asks about?", next = "hot", when = { class = "ROGUE" } },
+        { text = "What's the weirdest gear a gnome ever bought here?", next = "gnome", when = { race = "Gnome" } },
         { text = "I'm not here to chat. Goodbye, Kresky.", next = "END" },
       },
     },
@@ -1114,7 +1118,52 @@ P:NPC {
       choices = {
         { text = "Red cloth? Someone's making Bloodsail sashes?", next = "gossip_red" },
         { text = "You shouldn't spread other people's business.", next = "gossip_red" },
+        { text = "Tell me about this spyglass.", next = "spyglass" },
       },
+    },
+    spyglass = {
+      lines = { { id = "sp_default", text = "Okay, okay, so it's brass, Stormwind make, with a little anchor scratched by the eyepiece, chief, which is a navy thing. So some Stormwind officer lost it to the Bloodsail, and the Bloodsail lost it to the Blackwater, and now it's sittin' in my house with a reserve price of four gold." } },
+      choices = {
+        { text = "Shouldn't it go back to the Stormwind navy?", next = "spyglass_back" },
+        { text = "Something else, Kresky.", next = "BACK" },
+      },
+    },
+    spyglass_back = {
+      lines = { { id = "spb_default", text = "Back? Chief, chief, this is Booty Bay, nothin' goes back, it goes forward, to the highest bidder, minus the Cartel's cut. If the navy wants it, the navy can bid like everybody else, and between you and me, they'd probably win, 'cause nobody else wants a spyglass that's been stolen twice." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
+    },
+
+    factions = {
+      lines = { { id = "fa_default", text = "Same house, same counter, same Cartel cut, chief, just a steeper deposit, 'cause the Cartel don't care whose gold it is so long as it's gold. Orc posts an axe, human buys it, nobody has to look anybody in the eye, and that's the beauty of the trade." } },
+      choices = {
+        { text = "Trading with the enemy? That's a disgrace.", next = "BACK", fx = { align = { order = 1 } },
+          reply = "Disgrace, sure, chief, but a profitable one, and you're still standin' at my counter." },
+        { text = "Gold doesn't care about banners. Good for the Cartel.", next = "BACK", fx = { align = { order = -1 } },
+          reply = "Now you're talkin' like a goblin, chief! I'd hug ya but I'm busy." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    scared = {
+      lines = { { id = "sc_default", text = "Half? Chief, I'm scared of all of it, listen, listen, you know what happens to a goblin who knows too much in this town? He gets a real nice offer of a long sea voyage, and nobody ever sees him come back from it." } },
+      choices = {
+        { text = "Then why keep listening?", next = "sc_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sc_why = {
+      lines = { { id = "scw_default", text = "'Cause knowin' stuff is the only thing I'm good at, chief, and it pays, a little. Baron Revilgaz knows I listen, and as long as I tell his Bruisers the important bits first, he lets me keep my ears, and I'm real attached to my ears." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "revilgaz" } } } },
+    },
+
+    hot = {
+      lines = { { id = "ho_default", text = "Hot? Chief, nothin' in my house is hot, it's all very properly owned by whoever's sellin' it, as of about ten minutes before they post it. Just don't buy anything with a Bloodsail mark, 'cause they come lookin' for their stuff and they ain't polite." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    gnome = {
+      lines = { { id = "gn_default", text = "Oh, oh, a fella bought forty pounds of copper tubing and a stuffed parrot, chief, same bid, and when I asked him why he just said 'calibration'. I still think about it, honest, I think about it every night." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     gossip_red = {
       big = true,
@@ -1143,6 +1192,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "Been runnin' the night bids for six years, chief, and I've slept maybe a week of it." } },
     advice = { { id = "tp_ad", text = "Post your stuff at night, chief, when the pirates are drunk and generous." } },
     bloodsail = { { id = "tp_blood", text = "Somebody's buyin' red cloth by the bolt, chief, and I'm just sayin', that's somethin'." } },
+    revilgaz = { { id = "tp_revilgaz", text = "The Baron lets me keep my ears, chief, so long as his Bruisers hear the important bits first." } },
+    graves = { { id = "tp_graves", text = "He does the afternoons, chief, and scares the customers, but he's a real nice guy if you like quiet." } },
     _none = { { id = "tp_none", text = "Don't know, chief, which is real embarrassing, so don't tell anybody." } },
   },
 }
@@ -1188,6 +1239,10 @@ P:NPC {
         { text = "Tell me about your grandfather.", next = "granddad" },
         { text = "What's the strangest thing you've sold?", next = "strange" },
         { text = "You must have a secret to a good auction.", next = "secret" },
+        { text = "What's up for bid this morning?", next = "lots" },
+        { text = "You and Graves can't be much alike.", next = "graves" },
+        { text = "Tell me about this famous ogre's axe.", next = "axe", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Got anything from the old dwarven holds?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I've heard enough stories. Goodbye, O'reely.", next = "END" },
       },
     },
@@ -1195,8 +1250,53 @@ P:NPC {
       lines = { { id = "gd_default", text = "The great O'reely, champ, who sold a ship with the crew aboard, though in some tellings it was two ships, and in my favourite telling the crew bid on themselves and won. He's the reason I'm in this trade, and also the reason my family still owes the Cartel for a ship." } },
       choices = {
         { text = "Is any of that true?", next = "granddad_true" },
+        { text = "Your family still owes the Cartel for a ship?", next = "debt" },
         { text = "The crew bought themselves? I love it.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
       },
+    },
+    debt = {
+      lines = { { id = "de_default", text = "Every copper of it, champ, plus interest, plus the interest on the interest, which the Cartel's accountants call 'heritage'. My dad paid on it, I pay on it, and some day my kid'll pay on it, and that's what I call a family business." } },
+      choices = {
+        { text = "Why did the Cartel make you pay for it?", next = "debt_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    debt_why = {
+      lines = { { id = "dw_default", text = "'Cause it turned out the ship wasn't granddad's to sell, champ, it belonged to a trade prince's cousin, and the crew he sold were the cousin's crew. Granddad said it was a misunderstandin', and the Cartel said it was a ship, and the Cartel won." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
+    },
+
+    lots = {
+      lines = { { id = "lo_default", text = "Ah, champ, what a mornin'! A cutlass pulled out of a shark off the Wild Shore, a crate of Gadgetzan water nobody can explain, and a troll mask from the jungle that I'm told stares back at ya. I'm givin' the mask a story about a cursed king, just a small one." } },
+      choices = {
+        { text = "Was the cutlass really in a shark?", next = "lo_shark" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lo_shark = {
+      lines = { { id = "los_default", text = "It was in a fisherman's net next to a shark, champ, which is near enough a shark that I can say it with a straight face. Who's to say the shark didn't swallow it and cough it up? Not me, and not the next owner, if I've done my job." } },
+      choices = {
+        { text = "That's lying, O'reely. Tell bidders the truth.", next = "BACK", fx = { align = { light = 1 } },
+          reply = "The truth, champ? The truth is a fisherman's net. Nobody bids on a net." },
+        { text = "Every merchant dresses up his wares. No harm done.", next = "BACK", fx = { align = { light = -1 } },
+          reply = "My kinda customer! Granddad would've loved ya." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    graves = {
+      lines = { { id = "gr_default", text = "Ha! Graves is the best auctioneer in this town and the worst company, champ, and I mean that with love. He reads every lot like it's a eulogy, and the thing is, the bidders trust him more than me, which hurts." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    axe = {
+      lines = { { id = "ax_default", text = "It's big and double-bladed, champ, and chipped on one side from the night an ogre mage up at the Mosh'Ogg mound fought three heroes at once with it. Or it fell off a cart in Grom'gol, I forget which story I'm usin' this week." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+
+    dwarf = {
+      lines = { { id = "dw2_default", text = "Do I, champ! Bits of carved stone, an old rune-plate, and a helm the seller swore came from Uldaman, which means it came from somebody who heard of Uldaman. Your folk always outbid everybody on the old stuff, and I love ya for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     granddad_true = {
       big = true,
@@ -1224,6 +1324,8 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Auctions, champ, and stories, and the stories behind the auctions, which are the best kind." } },
     background = { { id = "tp_bg", text = "Third O'reely to work a counter, champ, and the first one without a ship debt of his own.", next = "granddad" } },
     advice = { { id = "tp_ad", text = "Give your lot a good story, champ, and keep the price just high enough to be believed." } },
+    graves = { { id = "tp_graves", text = "Best auctioneer in town and the worst company, champ, and I mean that with love." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "My family's been payin' them for granddad's ship for three generations, champ." } },
     _none = { { id = "tp_none", text = "Never heard of it, champ, but give me a minute and I'll have a story about it." } },
   },
 }

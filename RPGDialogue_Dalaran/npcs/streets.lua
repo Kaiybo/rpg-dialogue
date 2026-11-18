@@ -40,6 +40,11 @@ P:NPC {
       choices = {
         { text = "These antiques have come from a good many places, I'd wager.", next = "where" },
         { text = "What's a dwarf doing among wizards?", next = "dwarf" },
+        { text = "Do the archivists approve of your trade?", next = "delv" },
+        { text = "What's that brass compass behind the counter?", next = "compass" },
+        { text = "Do families ever come back for what they sold?", next = "heir" },
+        { text = "Which hold do ye hail from, Brammold?", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Lizi says your shelf sets off her tuning forks.", next = "xgnome", when = { race = "Gnome" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Good day.", next = "END" },
       },
@@ -68,11 +73,63 @@ P:NPC {
         { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } },
       },
     },
+    delv = {
+      lines = { { id = "de_default", text = "Archivist Fortuz looks at me like I'm sellin' his grandmother's bones by the pound, and he's nae entirely wrong about the candlesticks. Helm Anvilhand, though, he buys from me when the Kirin Tor's back is turned, an' he says a relic in a dwarf's hands beats one in a cellar." } },
+      choices = {
+        { text = "So the two archivists disagree about you?", next = "delv2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    delv2 = {
+      lines = { { id = "d2_default", text = "They disagree about everythin', every week, over supper, an' I'm only one course of it. Fortuz wants the past behind glass where it's safe, an' Helm wants it in folk's hands where it's remembered, an' I want it on my shelf with a price on, so we're all of us right in our way." } },
+      choices = {
+        { text = "And the price is always the winner.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    compass = {
+      lines = { { id = "co_default", text = "Ah, that's nae for sale, an' I'll thank ye not to look so hungry at it. Came out of a magus's cellar after the fall, an' it doesnae point north, it points at whatever ye've lost." } },
+      choices = {
+        { text = "Whatever you've lost? Does it work?", next = "compass2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    compass2 = {
+      lines = { { id = "c2_default", text = "Found Lizi Silverstone's spectacles on top of her own head, an' found my second-best hammer in a crate I'd sold tae a mason. It also points at the floor sometimes, an' I've decided not tae dig, because whatever's lost under Dalaran can stay lost." } },
+      choices = {
+        { text = "Under Dalaran? You think something's down there?", next = "compass3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    compass3 = {
+      lines = { { id = "c3_default", text = "I know there is, {g:lad|lass}, same as everyone who's stood by the west wall at night an' heard the shufflin' through the sewer grate. The magi say it's in hand, an' I say that's grand, an' I keep the compass in a drawer after dark." } },
+      choices = {
+        { text = "Wise man. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    heir = {
+      big = true,
+      lines = { { id = "he_default", text = "Now and again, aye, a widow wantin' her husband's pipe back once she's had time tae miss it, an' always after I've marked the price up. I've done it both ways in my time, so tell me, what would ye do?" } },
+      choices = {
+        { text = "Sell it back at what you paid. It's her memory.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A sale's a sale. Charge her what it's worth.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = { { id = "xd_default", text = "Ironforge born, Thelsamar raised, an' I swung a pick in Loch Modan till I found I liked what came out the ground more than diggin' it. Ye'll understand, then, why a dwarf might find himself sellin' old things to wizards, since they pay best." } },
+      choices = { { text = "Aye, I understand well enough.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xgnome = {
+      lines = { { id = "xg_default", text = "Every mornin', an' then she comes in here with her forks ringin' like a temple bell an' tells me which crate's tae blame. I've half a mind tae hire her, since she finds the humming ones faster than I do." } },
+      choices = { { text = "You'd make a fine pair.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
     trade = { { id = "tp_trade", text = "Old things, odd things and the occasional heirloom. The stories come free; the candlesticks don't." } },
     explorers_league = { { id = "tp_league", text = "Good folk, if they'd stop diggin' long enough to sell anything. I do the sellin' for them, in a manner of speaking." } },
+    dalaran = { { id = "tp_dalaran", text = "Every stone they move in this city turns up somethin' old, an' half of it finds its way to my table. Best place I ever set up shop, humming shelf an' all." } },
     magni = { { id = "tp_magni", text = "King Magni would love this city, if he could stand the magi. He'd buy every relic in my shop and argue about every price, an' I'd enjoy every minute." } },
     uldaman = { { id = "tp_uldaman", text = "The Explorers' League found titan relics in Uldaman, an' the magi here would pay a fortune fer one. I'd sell, if I could get my hands on any." } },
     wildhammer = { { id = "tp_wildhammer", text = "A Wildhammer came in once, lookin' fer a gryphon saddle from the Second War, an' I found her one. She paid in gold an' a song, an' the song was better." } },
