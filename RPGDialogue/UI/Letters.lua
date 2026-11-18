@@ -22,10 +22,30 @@ local mailOpen = false
 -- always fire on this client when you stray).
 local atMail
 
+-- World position in yards. UnitPosition can be missing or return nil on this client,
+-- so fall back to the map position converted to world coordinates.
 local function playerPos()
-  if not UnitPosition then return end
-  local ok, y, x = pcall(UnitPosition, "player")
-  if ok and y and x then return x, y end
+  if UnitPosition then
+    local ok, y, x = pcall(UnitPosition, "player")
+    if ok and y and x then return x, y end
+  end
+  local M = C_Map
+  if M and M.GetBestMapForUnit and M.GetPlayerMapPosition and M.GetWorldPosFromMapPos then
+    local ok, x, y = pcall(function()
+      local map = M.GetBestMapForUnit("player")
+      local pos = map and M.GetPlayerMapPosition(map, "player")
+      if not pos then return end
+      local _, world = M.GetWorldPosFromMapPos(map, pos)
+      if world then return world.x, world.y end
+    end)
+    if ok and x and y then return x, y end
+  end
+end
+
+local function rememberSpot()
+  local mail = _G.MailFrame
+  local x, y = playerPos()
+  atMail = { frame = mail and mail:IsShown() or false, x = x, y = y }
 end
 
 local function closeAtMail()
@@ -263,9 +283,7 @@ function P.Refresh()
   if reading then showLetter(reading) else showList() end
   if not frame:IsShown() then
     anchor()
-    local mail = _G.MailFrame
-    local x, y = playerPos()
-    atMail = { frame = mail and mail:IsShown() or false, x = x, y = y }
+    rememberSpot()
     frame:Show()
   end
 end
@@ -279,6 +297,7 @@ function P.Toggle()
   reading = nil
   showList()
   anchor()
+  rememberSpot()
   frame:Show()
 end
 
@@ -289,6 +308,8 @@ ns.On("MAIL_SHOW", function()
   ns.Guard("letters panel", P.Refresh)
 end)
 ns.On("MAIL_CLOSED", closeAtMail)
+-- When the game closes its own mail window (walking away), close ours with it.
+if _G.MailFrame then _G.MailFrame:HookScript("OnHide", closeAtMail) end
 ns.Listen("LETTERS_CHANGED", function()
   if mailOpen then ns.Guard("letters panel", P.Refresh) end
 end)
