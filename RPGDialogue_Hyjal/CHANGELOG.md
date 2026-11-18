@@ -2,7 +2,7 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.6.1 (2026-11-18)
+## 1.7.0 (2026-11-18)
 - Journal: the note about each person is one short sentence (12 words or fewer) and shows on the People page only, not in the diary.
 
 ## 1.6.0 (2026-11-18)

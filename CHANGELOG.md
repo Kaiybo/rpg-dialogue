@@ -2,19 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
-## 0.87.0 (2026-11-18)
-- New action: **Joke**. Tell someone a joke, once a day each. Merry, easy-going people laugh and think better of you; grim and stern ones don't, though a joke that falls flat costs little. Witty and charming characters do better. People answer in their own voice, by race, home and trade (needs RPGDialogue_World 1.41.0).
-- The actions (Admire, Joke, Taunt, Intimidate) now sit on their own row above the bottom bar in both looks, each with its icon and name, so nothing overlaps Disposition or "Ask about...".
-
-## 0.86.1 (2026-11-18)
-- Game look: Admire, Taunt and Intimidate get their own row above the bottom bar, so they no longer cover Disposition.
-
 ## 0.86.0 (2026-11-18)
-- Removed the Tone feature (Polite / Normal / Blunt): no selector on the bar or in DialogueUI, no settings, no `/rpgd tone`. Everyone speaks Normal.
-- Admire, Taunt and Intimidate now always show their names on the bottom bar, in both looks.
-
-## 0.85.1 (2026-11-18)
-- Tidier bottom bar in the game look: a slimmer "Ask about..." button, smaller Disposition and Tone labels, and larger, better-spaced Admire/Taunt/Intimidate icons.
+Seven pieces of work in one release. **New file (`RPGDialogue_World/persuade_say.lua`): restart the game fully (a /reload won't load it).**
+- **You say something when you Admire, Taunt or Intimidate**: a real line picked from a large set (race, class and role-specific), instead of "[Admire]".
+- **New action: Joke.** Once a day per person. The merry laugh; the grim and formal don't, and a flat joke costs little. About 190 jokes, including ones meant for a single named NPC who answers it in their own way.
+- **Tone removed** (Polite / Normal / Blunt): everyone speaks Normal.
+- **Tidier bottom bar**: the four actions sit on their own row above it, with icons and names, so nothing overlaps Disposition or "Ask about...". The "Ask about..." topic list fills the panel to the bottom in the game look.
+- **Journal**: a new Transcript page with each whole conversation word for word. The Diary keeps events only; each person's note on People is one short sentence; old per-person diary paragraphs are tidied once on login.
+- **Letters** show the sender's name even when their zone pack isn't loaded.
+- **Deeper NPCs**: thin NPCs across most zone packs have more to say, and missed NPCs were added.
+- Not seen in game yet.
 
 ## 0.85.0 (2026-11-18)
 Six pieces of work in one release. **New files: restart the game fully (a /reload won't load them).**

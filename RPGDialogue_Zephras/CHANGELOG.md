@@ -2,7 +2,8 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.14.1 (2026-11-18)
+## 1.15.0 (2026-11-18)
+- Thin NPCs deepened with more to say, and NPCs that were missed added.
 - Journal: the note about each person is one short sentence (12 words or fewer) and shows on the People page only, not in the diary.
 
 ## 1.14.0 (2026-11-18)

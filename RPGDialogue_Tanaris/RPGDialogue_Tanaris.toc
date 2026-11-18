@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Tanaris |cff8a8a8a1.28.1|r
+## Title: RPG Dialogue: Tanaris |cff8a8a8a1.29.0|r
 ## Notes: Gadgetzan and Steamwheedle Port: an elixir that might make someone rich, a water company short of water, insects where there shouldn't be insects, Krazek's cousin, and the man MacKinley wants paid.
 ## Author: RPG Dialogue
-## Version: 1.28.1
+## Version: 1.29.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.tanaris
