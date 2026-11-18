@@ -24,3 +24,4 @@ npcs\oben.lua
 npcs\amara.lua
 npcs\erelas.lua
 npcs\aldrassil_forever.lua
+npcs\more_folk.lua

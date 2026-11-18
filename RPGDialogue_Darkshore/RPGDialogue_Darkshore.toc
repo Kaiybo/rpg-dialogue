@@ -22,3 +22,4 @@ npcs\alanndarian.lua
 npcs\barithras.lua
 npcs\gelkak.lua
 npcs\gubber.lua
+npcs\more_folk.lua
