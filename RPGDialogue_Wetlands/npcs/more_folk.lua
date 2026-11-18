@@ -1045,6 +1045,7 @@ P:NPC {
         { text = "Two bowyers in a town this size?", next = "edwina" },
         { text = "What do hunters shoot at out there?", next = "marsh" },
         { text = "Who buys the most from you?", next = "guard" },
+        { text = "How do I keep a bow alive in the marsh?", next = "keep" },
         { text = "Farewell, Naela.", next = "END" },
       },
     },
@@ -1082,6 +1083,10 @@ P:NPC {
     guard = {
       lines = { { id = "gu_default", text = "The harbor guard, by the sheaf. They stand on that wall all night shooting at shapes in the fog, and half the shapes are driftwood. I don't mind, because driftwood pays the same as murlocs." } },
       choices = { { text = "Honest work, either way.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    keep = {
+      lines = { { id = "y1_default", text = "Unstring it every night, wax the string every third day, and never lay it on the ground. Hang it from a branch if you've nothing else. A bow that's slept in the mud is firewood by the end of the week." } },
+      choices = { { text = "I'll hang it high.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -1133,6 +1138,7 @@ P:NPC {
         { text = "You fletch every arrow yourself?", next = "fletch" },
         { text = "Has the town ever needed your arrows on the wall?", next = "wall" },
         { text = "Naela says a wading hunter wants something light.", next = "naela" },
+        { text = "What arrowhead should I carry out there?", next = "heads" },
         { text = "Farewell, Edwina.", next = "END" },
       },
     },
@@ -1170,6 +1176,10 @@ P:NPC {
     naela = {
       lines = { { id = "na_default", text = "She would say that. Her bows are very pretty and very quick, and they're fine for marsh birds. When you meet something with teeth as long as your hand, come and see me." } },
       choices = { { text = "I'll keep both of you in mind.", next = "BACK", reply = "A diplomat. You'll go far, or at least you'll get tea in both shops.", fx = { trait = { witty = 1 } } } },
+    },
+    heads = {
+      lines = { { id = "y1_default", text = "Broadheads for anything with a hide, and take twice what you think. A plain point will do for marsh birds. Don't bother with barbs against murlocs, because they pull them out and throw them back at you." } },
+      choices = { { text = "I'd not have guessed that about murlocs.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -1220,6 +1230,7 @@ P:NPC {
         { text = "How do you keep powder dry in a swamp?", next = "dry" },
         { text = "You must see a lot of travellers.", next = "travellers" },
         { text = "Does the town trust a man who sells to mages?", next = "trust" },
+        { text = "What do casters forget to buy?", next = "forget" },
         { text = "Farewell, Falkan.", next = "END" },
       },
     },
@@ -1253,6 +1264,17 @@ P:NPC {
         { text = "Sell to them. They're on our side.", next = "BACK", reply = "That's the view I've settled on. I don't have to like the smell of what they buy.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    forget = {
+      lines = { { id = "y1_default", text = "Light feathers, for the mages. They remember their runes and forget the one thing that stops a fall. I ask every mage at the door whether they've a feather, and I've had three come back to thank me." } },
+      choices = {
+        { text = "Only three?", next = "forget_three" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forget_three = {
+      lines = { { id = "y2_default", text = "The others didn't fall, I hope. I prefer to think so. One of the three was a gnome who'd stepped off the Thandol Span to see whether it worked, and it did, and he bought forty more." } },
+      choices = { { text = "A satisfied customer, at least.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -1303,6 +1325,7 @@ P:NPC {
         { text = "What will I find in Theramore?", next = "theramore" },
         { text = "You've a fine ship, Captain.", next = "ship" },
         { text = "Any trouble on these waters?", next = "trouble" },
+        { text = "What do you make of your passengers?", next = "passengers" },
         { text = "Fair winds, Captain.", next = "END" },
       },
     },
@@ -1340,6 +1363,10 @@ P:NPC {
     trouble = {
       lines = { { id = "tb_default", text = "Pirates out of the south, now and then, and murlocs wherever there's a shore. In the harbor itself my worry is the Dark Iron dwarves, for a ship at the dock is a fine thing to set fire to. Captain Stoutfist keeps a watch on the pier for us." } },
       choices = { { text = "Then the harbor's in good hands.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    passengers = {
+      lines = { { id = "y1_default", text = "They're adventurers, most of them, with new boots and old swords, bound for a continent they've only read about. I've carried a good many west. I make a point of remembering faces, so that I can be glad when I carry one back." } },
+      choices = { { text = "I'll try to be one you carry back.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -1389,6 +1416,7 @@ P:NPC {
         { text = "Do many people take the wrong ship?", next = "wrong" },
         { text = "You must know everyone who comes through.", next = "faces" },
         { text = "It's a damp place to stand all day.", next = "damp" },
+        { text = "What's the strangest thing you've seen board?", next = "strange" },
         { text = "Thanks, Adam.", next = "END" },
       },
     },
@@ -1426,6 +1454,10 @@ P:NPC {
     damp = {
       lines = { { id = "da_default", text = "It is, and my boots have never once been dry. Innkeeper Helbrek keeps a pot of something hot for the dock hands, and Andrea Halloran's husband sold me a coat that's nearly waterproof. You get by." } },
       choices = { { text = "Good neighbours make a hard post easier.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    strange = {
+      lines = { { id = "y1_default", text = "A gnome with a mechanical chicken on a lead, taking it to Theramore to be mended. It clucked at Captain Tidewater the whole way up the plank. He let it aboard, and he told me after that it had better manners than most of his crew." } },
+      choices = { { text = "I hope the chicken was mended.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -1475,6 +1507,7 @@ P:NPC {
         { text = "What comes in on the elven ships?", next = "cargo" },
         { text = "Adam says you'd charge for directions.", next = "charge" },
         { text = "How do you find working alongside night elves?", next = "elves" },
+        { text = "What's the heaviest thing you've loaded?", next = "heavy" },
         { text = "Thanks, Don.", next = "END" },
       },
     },
@@ -1512,6 +1545,10 @@ P:NPC {
     elves_beside = {
       lines = { { id = "eb_default", text = "It was, until I saw her slip on the same wet plank as everybody else. Ten thousand years and the pier still gets you. I've felt better about them ever since." } },
       choices = { { text = "The pier treats everyone alike.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    heavy = {
+      lines = { { id = "y1_default", text = "An Ironforge anvil, for a smith in Darnassus, of all places. Four of us and a ramp. The elves watched as if we were carrying a dead thing aboard. I've wondered ever since what one of them wanted with it." } },
+      choices = { { text = "A night elf smith. That is a puzzle.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -1562,6 +1599,7 @@ P:NPC {
         { text = "You came to look at the sea wall, you said.", next = "wall" },
         { text = "Who else keeps this bench warm?", next = "bench" },
         { text = "You don't seem troubled by any of it.", next = "content" },
+        { text = "What's the ale like here?", next = "ale" },
         { text = "Enjoy your ale, Hargin.", next = "END" },
       },
     },
@@ -1599,6 +1637,10 @@ P:NPC {
     content = {
       lines = { { id = "co_default", text = "Why would I be? I've a roof, a fire, an' a tavern that takes my drawings in place o' coin when Helbrek's feelin' kind. Half o' Khaz Modan is fightin' somethin', an' I'm warm. I call that winnin'." } },
       choices = { { text = "There are worse ways to spend a war.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    ale = {
+      lines = { { id = "y1_default", text = "Thin, by Ironforge measure, but there's plenty of it, an' Mikhail pours an honest mug. I've a design for a better tap, mind, wi' a float valve. Helbrek says I'm no' tae touch his kegs after what I did tae the last one." } },
+      choices = { { text = "I'd leave the kegs alone, too.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -1648,6 +1690,7 @@ P:NPC {
         { text = "How is the harbor wall holding?", next = "wall" },
         { text = "What's the road from Loch Modan like these days?", next = "road" },
         { text = "You keep one eye on the door.", next = "door" },
+        { text = "What's the worst part of the marsh road?", next = "worst" },
         { text = "Good evening, Junder.", next = "END" },
       },
     },
@@ -1685,6 +1728,10 @@ P:NPC {
     door = {
       lines = { { id = "do_default", text = "Habit. There was a Dark Iron walked intae a tavern in Thelsamar once wi' a keg under his arm that wasnae ale. I sit where I can see who comes in, an' I count their hands." } },
       choices = { { text = "A sound habit, in these parts.", next = "BACK", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    worst = {
+      lines = { { id = "y1_default", text = "The bridges. They're slick, an' the crocolisks lie under them waitin' for a hoof or a wheel. I lost a cart mule at the second bridge two springs back. Walk the middle o' the planks an' dinnae look down." } },
+      choices = { { text = "The middle of the planks. Understood.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -1734,6 +1781,7 @@ P:NPC {
         { text = "How well supplied is the keep?", next = "stores" },
         { text = "What do the soldiers upstairs think of you?", next = "soldiers" },
         { text = "Does anything ever happen down here?", next = "happen" },
+        { text = "What's the oldest thing down here?", next = "oldest" },
         { text = "I'll leave you to it, Murphy.", next = "END" },
       },
     },
@@ -1771,6 +1819,10 @@ P:NPC {
     happen = {
       lines = { { id = "hp_default", text = "A rat, in the autumn. I named him Sergeant and he left after a week, which is more than the real one's ever done. Apart from that, I hear the tide through the wall, and I've come to like it." } },
       choices = { { text = "It sounds almost peaceful.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    oldest = {
+      lines = { { id = "y1_default", text = "A cask of Lordaeron wine, sealed before the kingdom fell. It's on the manifest as vinegar, in my own hand. I'm keeping it for the day the captain tells us the marsh is safe, so I expect it'll outlive me." } },
+      choices = { { text = "It'll be worth the wait.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -1820,6 +1872,7 @@ P:NPC {
         { text = "What's stopping you from joining?", next = "stop" },
         { text = "Guard duty here looks cold and wet.", next = "wet" },
         { text = "Who's the best soldier in the harbor?", next = "best" },
+        { text = "What would you do first, as a guard?", next = "firstday" },
         { text = "Good luck, Timothy.", next = "END" },
       },
     },
@@ -1857,6 +1910,10 @@ P:NPC {
     best_line = {
       lines = { { id = "bl_default", text = "I dropped the shield once and stood on my neighbour's foot. Karl said that was better than most do on their first day, and I've decided to believe him." } },
       choices = { { text = "Believe him. Everyone drops the shield.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    firstday = {
+      lines = { { id = "y1_default", text = "Walk the whole wall at night, by myself, all the way round. The guards say it's the worst duty there is. I've wanted to do it since I was small, and see the harbor lamps from up there with everyone asleep and safe underneath." } },
+      choices = { { text = "I hope you get your night on the wall.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {

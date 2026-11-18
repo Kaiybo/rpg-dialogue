@@ -47,6 +47,7 @@ P:NPC {
         { text = "What does the Depot need most?", next = "depot" },
         { text = "Wendigo are no small thing to send someone into.", next = "wendigo" },
         { text = "Tell me about Hegnar Rumbleshot.", next = "hegnar" },
+        { text = "What goes into a crate for Hegnar?", next = "crate" },
         { text = "Good day, Loslor.", next = "END" },
       },
     },
@@ -77,6 +78,17 @@ P:NPC {
     hegnar = {
       lines = { { id = "he_default", text = "A good gunsmith an' a bad waiter. He's set up a stall on the hill past Kharanos, sellin' tae hunters, an' a gun stall wi' nae shot is a stall sellin' clubs. He's written me four times, an' the last one was mostly underlinin'." } },
       choices = { { text = "I'll see he gets his ammunition.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    crate = {
+      lines = { { id = "y1_default", text = "Two hundred rounds o' light shot, packed in sawdust, an' a keg o' fine powder sealed wi' wax. It's the wax I worry for. If the wendigo have clawed it open, the powder's ruined an' I'm out a month's profit." } },
+      choices = {
+        { text = "Would wendigo touch powder?", next = "crate_powder" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crate_powder = {
+      lines = { { id = "y2_default", text = "They'll touch anythin' that smells o' dwarf, an' my courier cooked his supper on the lid. If the seal's whole, take it as it is. If it isnae, bring it anyway, an' I'll weep over it in private." } },
+      choices = { { text = "I'll bring it, sealed or not.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -127,6 +139,7 @@ P:NPC {
         { text = "Why only dwarves and their friends?", next = "dwarves" },
         { text = "What makes an Amberstill ram the best?", next = "best" },
         { text = "How is the ranch faring?", next = "ranch" },
+        { text = "Which ram would you pick for me?", next = "pick" },
         { text = "Good day, Veron.", next = "END" },
       },
     },
@@ -160,6 +173,17 @@ P:NPC {
     ranch = {
       lines = { { id = "ra_default", text = "We hold on. The Frostmane trolls raid the low pasture, an' there's a wendigo, Vagash, that's been takin' rams from the high pasture. Rudra's been askin' anybody wi' a weapon tae deal wi' the beast." } },
       choices = { { text = "I'll speak to Rudra about it.", next = "BACK", fx = { trait = { brave = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    pick = {
+      lines = { { id = "y1_default", text = "I dinnae pick. Ye stand at the fence an' keep still, an' one o' them comes over or none does. The grey's steady, the brown's a worker, the white's for high snow, an' the black thinks he's the king." } },
+      choices = {
+        { text = "And if none comes over?", next = "pick_none" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pick_none = {
+      lines = { { id = "y2_default", text = "Then ye come back tomorrow, an' the day after. A beast that'll carry ye up a cliff in a blizzard is allowed tae take its time decidin'. I waited nine days for mine." } },
+      choices = { { text = "Nine days at a fence. I can wait.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -587,6 +611,7 @@ P:NPC {
         { text = "What do paladins do for Kharanos?", next = "kharanos" },
         { text = "Does teaching in a tavern tempt your students?", next = "tempt" },
         { text = "What's the first thing you ask a new paladin?", next = "ask" },
+        { text = "What do you do when a student doubts?", next = "doubt" },
         { text = "Light be with you, Azar.", next = "END" },
       },
     },
@@ -624,6 +649,10 @@ P:NPC {
     ask_named = {
       lines = { { id = "x2_default", text = "The lad on the next cot, the night I was healed. He'd the same wound as me, an' there was only the one paladin. I've tried tae be the second one ever since." } },
       choices = { { text = "That's a reason that lasts.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    doubt = {
+      lines = { { id = "y1_default", text = "I tell them I doubt as well. Every week, near enough. The Light's never once answered me in words, only in what my hands could do after. If ye wait tae be certain before ye act, ye'll be waitin' at the graveside." } },
+      choices = { { text = "That's an honest thing to teach.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {

@@ -2043,6 +2043,7 @@ P:NPC {
         { text = "You're well placed, beside the Hall of Mysteries.", next = "place" },
         { text = "Is Bimble Longberry a relation of yours?", next = "bimble" },
         { text = "What sells out fastest?", next = "fast" },
+        { text = "Do the priests and mages get along?", next = "along" },
         { text = "Goodbye, Ginny.", next = "END" },
       },
     },
@@ -2080,6 +2081,10 @@ P:NPC {
         { text = "It's their coin and their spell.", next = "BACK", reply = "That's my feeling too. A walk never taught anyone arcane theory.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    along = {
+      lines = { { id = "y1_default", text = "Like neighbours with a shared wall. The priests think the mages are reckless and the mages think the priests are slow, and they both come to me to complain, which is good for trade. Bink and Braenna Flintcrag take tea together, so it can't be serious." } },
+      choices = { { text = "Complaints are custom, I suppose.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -2131,6 +2136,7 @@ P:NPC {
         { text = "That basket is nearly as big as you are.", next = "basket" },
         { text = "Who buys the most from you?", next = "buyers" },
         { text = "Why walk, when you could have a stall?", next = "walk" },
+        { text = "What's the best fruit you've ever sold?", next = "best" },
         { text = "Goodbye, Bimble.", next = "END" },
       },
     },
@@ -2163,6 +2169,10 @@ P:NPC {
     walk = {
       lines = { { id = "wa_default", text = "Because nobody goes looking for fruit, they only buy it when it walks up to them. Ginny has her shop and her labels, and I have my feet. Between us we see everybody in the ward twice a day." } },
       choices = { { text = "The ward is lucky to have you both.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    best = {
+      lines = { { id = "y1_default", text = "A crate of Stranglethorn mangoes that came up by mistake! Nobody in Ironforge had seen one. I sold them by the slice, and Tinkmaster Overspark sent an apprentice all the way from Tinker Town for the last. I've asked for more every week since, and nobody knows where the first crate came from." } },
+      choices = { { text = "I hope another crate goes astray.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -2214,6 +2224,7 @@ P:NPC {
         { text = "Who makes these rifles?", next = "makers" },
         { text = "You two share a shop and disagree on everything.", next = "skolmin" },
         { text = "What should a hunter carry in Dun Morogh?", next = "carry", when = { class = "HUNTER" } },
+        { text = "What goes wrong with a gun most often?", next = "wrong" },
         { text = "Good day, Bretta.", next = "END" },
       },
     },
@@ -2251,6 +2262,10 @@ P:NPC {
     carry = {
       lines = { { id = "ca_default", text = "A short rifle wi' a heavy ball, for the boars are thick in the hide an' the bears are thicker. Leave the long fowlin' pieces for Loch Modan, where ye've room tae see what ye're aimin' at." } },
       choices = { { text = "Show me the short rifles.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
+    },
+    wrong = {
+      lines = { { id = "y1_default", text = "Damp powder, an' after that, a dirty barrel. Folk blame the gun, an' the gun's never at fault. I've had rifles come back tae me packed solid wi' six shots' worth o' soot, an' the owner swearin' it misfired by itself." } },
+      choices = { { text = "I'll keep mine clean.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -2302,6 +2317,7 @@ P:NPC {
         { text = "What wood do you use, in a land of pine?", next = "wood" },
         { text = "Bretta says the gun has won the argument.", next = "bretta" },
         { text = "What makes a good arrow?", next = "arrow" },
+        { text = "How long does a bow take to make?", next = "long" },
         { text = "Good day, Skolmin.", next = "END" },
       },
     },
@@ -2337,6 +2353,10 @@ P:NPC {
     arrow = {
       lines = { { id = "ar_default", text = "Straightness first, an' then weight that matches the bow. Folk fuss over the head, but it's the fletchin' that decides where it goes. I use gryphon feathers when Gryth Thurden's birds are moultin', an' there's nothin' finer." } },
       choices = { { text = "Gryphon-fletched arrows. I'll remember that.", next = "BACK", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    long = {
+      lines = { { id = "y1_default", text = "A season, if ye count the dryin'. The stave sits a winter before I'll touch it, an' the horn an' glue want a month tae set. Bretta can fit a rifle in a day, an' she reminds me of it. I tell her nothin' good was ever rushed, an' she tells me that's what slow folk say." } },
+      choices = { { text = "A season's work deserves respect.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -2388,6 +2408,7 @@ P:NPC {
         { text = "Four merchants in one shop sounds crowded.", next = "four" },
         { text = "How do you tell a good edge?", next = "edge" },
         { text = "What blade suits a quiet sort of work?", next = "quiet", when = { class = "ROGUE" } },
+        { text = "Who buys swords, in Ironforge?", next = "buyers" },
         { text = "Good day, Brenwyn.", next = "END" },
       },
     },
@@ -2425,6 +2446,10 @@ P:NPC {
     quiet = {
       lines = { { id = "qu_default", text = "Somethin' short, dark in the steel an' thin enough tae find a gap. I keep a few I had blued so they'll no' catch the lamplight, an' Ormyr Flinteye's students buy them as fast as I can get them." } },
       choices = { { text = "Show me those.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
+    },
+    buyers = {
+      lines = { { id = "y1_default", text = "Humans, mostly, up on the tram, an' the gnome warriors, who cannae lift a great axe an' are tired o' bein' told so. An' more young dwarves than their fathers ken. I wrap those in plain cloth, an' they carry them home like contraband." } },
+      choices = { { text = "A quiet rebellion, one sword at a time.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -2476,6 +2501,7 @@ P:NPC {
         { text = "You're kin to Granis Swiftaxe in Kharanos, I'd guess.", next = "granis" },
         { text = "One hand or two?", next = "hands" },
         { text = "Brenwyn says a sword has a dozen answers.", next = "brenwyn" },
+        { text = "What's the finest axe you've ever sold?", next = "finest" },
         { text = "Good day, Hegnar.", next = "END" },
       },
     },
@@ -2513,6 +2539,10 @@ P:NPC {
     brenwyn = {
       lines = { { id = "bw_default", text = "Aye, an' eleven o' them are ways tae avoid hittin' somebody. She's the finest judge of an edge in Ironforge, I'll give her that, an' she sharpens my display pieces when she thinks I'm no' lookin'." } },
       choices = { { text = "So you do like her swords a little.", next = "BACK", reply = "I like her edges. The swords I put up wi'.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    finest = {
+      lines = { { id = "y1_default", text = "A great axe from the Great Forge, wi' a haft o' black ash an' a head ye could shave by. A mountaineer captain bought it, an' she's carried it at the South Gate for twelve years. She brings it in every Winter Veil so I can look at it, an' I'm no' ashamed tae say I've wept." } },
+      choices = { { text = "That's a craftsman's reward.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -2564,6 +2594,7 @@ P:NPC {
         { text = "A staff is a strange thing to sell beside hammers.", next = "staff" },
         { text = "How do you get on with the other three?", next = "others" },
         { text = "What makes a paladin's hammer different?", next = "hammer", when = { class = "PALADIN" } },
+        { text = "What's the oldest piece in your stock?", next = "oldest" },
         { text = "Light keep you, Kelomir.", next = "END" },
       },
     },
@@ -2601,6 +2632,10 @@ P:NPC {
     hammer = {
       lines = { { id = "hm_default", text = "The balance sits further forward, for ye strike once an' mean it, an' the haft is long enough tae lean on while ye pray. Valgar Highforge had me alter the grip on his three times before he was satisfied." } },
       choices = { { text = "Show me the hammers.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
+    },
+    oldest = {
+      lines = { { id = "y1_default", text = "A plain oak staff that's leaned in that corner since my grandfather's day. Naebody's ever bought it, an' I've never marked it down. I've a feelin' it's waitin' for somebody, an' I'd no' like tae sell it tae the wrong hand." } },
+      choices = { { text = "I hope the right hand finds it.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -2652,6 +2687,7 @@ P:NPC {
         { text = "You keep the accounts for all four counters.", next = "ledger" },
         { text = "How much shot does a hunter go through?", next = "shot" },
         { text = "I hear you do the sweeping.", next = "sweep" },
+        { text = "What's the strangest thing in your drawers?", next = "strangest" },
         { text = "Good day, Thalgus.", next = "END" },
       },
     },
@@ -2689,6 +2725,10 @@ P:NPC {
     sweep = {
       lines = { { id = "sw_default", text = "Brenwyn told ye, did she? Four thousand an' sixteen times as o' this mornin', against none at all for the other three. I'm no' bitter, mind, I only like the record kept." } },
       choices = { { text = "Four thousand and sixteen is a lot of not being bitter.", next = "BACK", reply = "Hmph. Ye may have a point, but I'll no' be writin' that one down.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    strangest = {
+      lines = { { id = "y1_default", text = "A left-handed knuckle guard, made tae order for a customer who never came back for it. That was nine years ago. It's in drawer forty, paid in full, wi' his name on a tag. I'll no' sell what's been paid for, an' I check it at every count." } },
+      choices = { { text = "He may come back for it yet.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -2740,6 +2780,7 @@ P:NPC {
         { text = "Pithwick wants arrows painted on your floor.", next = "arrows" },
         { text = "Who else sells trade goods in the city?", next = "others" },
         { text = "What do crafters forget most often?", next = "forget" },
+        { text = "What's the hardest thing to keep in stock?", next = "stock" },
         { text = "Good day, Fillius.", next = "END" },
       },
     },
@@ -2777,6 +2818,10 @@ P:NPC {
     forget_vials = {
       lines = { { id = "fv_default", text = "Never. They're labelled in two places and I ask at the counter besides. Tally Berryfizz once came back three times in a day, and on the third visit she laughed so hard she had to sit on my step." } },
       choices = { { text = "A patient shopkeeper is a rare thing.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    stock = {
+      lines = { { id = "y1_default", text = "Spices, since the roads grew dangerous. Every cook in Ironforge wants them and the caravans come when they come. I keep a waiting list, in order, and Daryl Riknussun has been at the top of it for six years by the simple method of asking every morning." } },
+      choices = { { text = "Persistence earns its place.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -2828,6 +2873,7 @@ P:NPC {
         { text = "What sort of crowd drinks here?", next = "crowd" },
         { text = "You must hear everything in a soldiers' bar.", next = "hear" },
         { text = "How does this place compare to the Stonefire?", next = "stonefire" },
+        { text = "What does the ward drink most?", next = "drink" },
         { text = "Good night, Edris.", next = "END" },
       },
     },
@@ -2865,6 +2911,10 @@ P:NPC {
     stonefire = {
       lines = { { id = "sf_default", text = "Firebrew's place is for travellers an' merchants, wi' beds an' a proper kitchen. Here ye get ale, a stool an' the truth about yer singin'. Gwenna over there is a friend o' mine, an' we swap stories about the worst o' them." } },
       choices = { { text = "I'd pay to hear those stories.", next = "BACK", reply = "Ye couldnae afford them, an' half the folk in them are armed.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    drink = {
+      lines = { { id = "y1_default", text = "Dark ale, an' plenty of it. The officers ask for Thunderbrew lager an' the recruits for whatever's cheapest. Every so often a gnome orders somethin' wi' fruit in it, an' I bring it wi' a straight face, for a customer's a customer." } },
+      choices = { { text = "A professional through and through.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -2916,6 +2966,7 @@ P:NPC {
         { text = "This is an odd corner for a shop.", next = "cavern" },
         { text = "Where do you get your ingredients?", next = "source" },
         { text = "What's the first rule of handling your goods?", next = "rule", when = { class = "ROGUE" } },
+        { text = "Do you ever turn a customer away?", next = "refuse" },
         { text = "Goodbye, Tynnus.", next = "END" },
       },
     },
@@ -2953,6 +3004,10 @@ P:NPC {
     rule = {
       lines = { { id = "ru_default", text = "Gloves, and then a second pair of gloves. After that, never coat a blade you mean to sheathe against your own leg, which sounds obvious until you meet the number of rogues who limp." } },
       choices = { { text = "Two pairs. I'll remember.", next = "BACK", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    refuse = {
+      lines = { { id = "y1_default", text = "Often. Anyone who tells me who it's for, to begin with, because a professional never would. And anyone who is angry. My goods are for work, and anger is personal. I send those to the tavern, and most of them thank me a week later." } },
+      choices = { { text = "A dealer with rules.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -3004,6 +3059,7 @@ P:NPC {
         { text = "You and Myra seem to be rivals.", next = "myra" },
         { text = "How do you smoke it, inside a mountain?", next = "smoke" },
         { text = "What do soldiers ask for most?", next = "soldiers" },
+        { text = "What's the best thing on your tray?", next = "bestcut" },
         { text = "Good day, Sognar.", next = "END" },
       },
     },
@@ -3041,6 +3097,10 @@ P:NPC {
     soldiers = {
       lines = { { id = "sl_default", text = "Sausage, for ye can eat it wi' one hand an' hold a shield wi' the other. The officers want ribs, an' then they want somewhere tae wipe their fingers, an' that's how ye tell an officer." } },
       choices = { { text = "I'll take the sausage, then.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
+    },
+    bestcut = {
+      lines = { { id = "y1_default", text = "The smoked ribs, if ye've two hands free an' nae pride. Three days over applewood, an' the meat comes off the bone if ye look at it sternly. Muren Stormpike has a standin' order, an' he eats them behind his desk where the recruits cannae see." } },
+      choices = { { text = "Even a commander has his weakness.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -3091,6 +3151,7 @@ P:NPC {
         { text = "Geofram says you call his teaching out of date.", next = "geofram" },
         { text = "What makes a good pick?", next = "pick" },
         { text = "Where does the Great Forge get its ore?", next = "ore" },
+        { text = "What do miners buy that surprises people?", next = "surprise" },
         { text = "Good day, Golnir.", next = "END" },
       },
     },
@@ -3124,6 +3185,17 @@ P:NPC {
     ore = {
       lines = { { id = "or_default", text = "Copper an' tin from Dun Morogh, iron from Loch Modan an' the Wetlands, an' the rare stuff from wherever adventurers like yerself drag it. Gol'Bolar quarry sent us the most, till the troggs came up through the floor." } },
       choices = { { text = "The troggs have cost Ironforge dearly.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    surprise = {
+      lines = { { id = "y1_default", text = "Candles. A miner will spend more on candles in a year than on picks. Ye can dig wi' a blunt pick, but ye cannae dig in the dark, an' the lamp oil the city sells smokes somethin' terrible." } },
+      choices = {
+        { text = "Why not gnomish lamps?", next = "surprise_lamps" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    surprise_lamps = {
+      lines = { { id = "y2_default", text = "I stock them, an' the young ones buy them. The old hands willnae, for a candle flame tells ye when the air's gone bad an' a gnomish lamp just keeps shinin' while ye fall over. Geofram taught me that, an' he was right, curse him." } },
+      choices = { { text = "So Geofram's ways have their uses.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -4300,6 +4372,7 @@ P:NPC {
         { text = "Why armour, and not weapons?", next = "why" },
         { text = "What makes a breastplate good?", next = "plate" },
         { text = "You and Ironus stand at the same anvil.", next = "ironus" },
+        { text = "What do you ask of an apprentice?", next = "apprentice" },
         { text = "Good day, Master Steelshaper.", next = "END" },
       },
     },
@@ -4333,6 +4406,17 @@ P:NPC {
         { text = "The sword. Nothing ends until someone ends it.", next = "BACK", reply = "Then ye want Ironus. He'll be glad of ye, an' I'll no' hold it against ye.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    apprentice = {
+      lines = { { id = "y1_default", text = "That he wears what he makes. First helm he finishes goes on his own head, an' I hit it wi' a hammer. No' hard. Hard enough that he checks his rivets ever after." } },
+      choices = {
+        { text = "Has a helm ever failed?", next = "apprentice_failed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    apprentice_failed = {
+      lines = { { id = "y2_default", text = "One, an' the lad had a lump for a week an' a lesson for life. He's the best helm-maker I've trained. Sends me a cask every year on the day, wi' a note that says only: still holdin'." } },
+      choices = { { text = "A lump well earned, then.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -4383,6 +4467,7 @@ P:NPC {
         { text = "You don't speak like the other smiths.", next = "speech" },
         { text = "What makes a blade great?", next = "blade" },
         { text = "Grumnus says the world needs shields more.", next = "grumnus" },
+        { text = "Which weapon is hardest to make well?", next = "hardest" },
         { text = "Farewell, Master Coldsteel.", next = "END" },
       },
     },
@@ -4416,6 +4501,17 @@ P:NPC {
         { text = "No. The hand that swings it answers, not yours.", next = "BACK", reply = "That is the comfortable view, and it may even be the true one. Thank you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    hardest = {
+      lines = { { id = "y1_default", text = "The dagger. A greatsword forgives a small error, for there is so much steel to hide it in. A dagger is all edge and point, and every flaw is the whole of it." } },
+      choices = {
+        { text = "And the easiest?", next = "hardest_easy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hardest_easy = {
+      lines = { { id = "y2_default", text = "A mace, which is why young smiths despise it. I make them forge twenty before they touch a blade. By the twentieth they have learned to strike true, and they no longer despise anything." } },
+      choices = { { text = "Twenty maces is a patient lesson.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
