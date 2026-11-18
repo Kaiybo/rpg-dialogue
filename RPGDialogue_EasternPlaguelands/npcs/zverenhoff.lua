@@ -87,11 +87,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Duke Nicholas Zverenhoff of the Argent Dawn. I help Lord Tyrosus keep this chapel standing, and I'm the one who pays out valor tokens when people bring us scourgestones as proof of what they've slain." },
         { id = "h_book", tags = { "news" }, when = { questRecent = { TODO_QUEST("Duke Nicholas Zverenhoff"), days = 3 } },
-          text = "Studies in Spirit Speaking, by Umbranse. I'd like to tell you that \"special\" means illuminating, but so far it means a great many pages that say \"Ooooooo\", and I'm not yet sure who thinks that up." },
+          text = "Studies in Spirit Speaking, by Umbranse. I'd hoped it would be illuminating, but so far it's a great many pages that say \"Ooooooo\", and I'm not yet sure who thinks that up." },
         { id = "h_stones", when = { questDone = TODO_QUEST("Minion's Scourgestones") },
           text = "Another handful of scourgestones? Splendid. Each one is a soldier of the Scourge who won't walk again, and the Dawn is glad to trade a token for that." },
         { id = "h_truth", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Truth Comes Crashing Down"), days = 7 } },
-          text = "The Grand Crusader, a dreadlord? And brother to the one who stands beside the Banshee Queen? I've read a great many strange things in my life, but none stranger than this head." },
+          text = "The Grand Crusader, a dreadlord? And brother to the one who stands beside the Banshee Queen? I've read a great many strange things in my life, but nothing stranger than the head you've brought me." },
         { id = "h_tyrosus", when = { questActive = TODO_QUEST("Lord Maxwell Tyrosus") },
           text = "Lord Maxwell is inside the chapel and expecting you. It's been years since he granted an outsider an audience, so do try to look suitably honored." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -167,7 +167,7 @@ P:NPC {
     linguist_book = {
       lines = { { id = "lb_default", text = "Umbranse's masterpiece, so called. It may be nonsense, or it may be the only honest account of how the dead speak, and the trouble is that both would look much the same on the page." } },
       choices = {
-        { text = "Which do you think it is?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Tell me which, when you decide.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

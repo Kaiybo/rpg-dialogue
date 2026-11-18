@@ -51,7 +51,7 @@ P:NPC {
     },
     young = {
       lines = {
-        { id = "y_default", text = "Because they're who climbs the path from Darnassus and Thunder Bluff, wide-eyed and badly dressed for the weather. The old druids come here too, but they've worn the same robes for three hundred years and won't hear of new ones." },
+        { id = "y_default", text = "Because they're the ones who climb the path from Darnassus and Thunder Bluff, wide-eyed and badly dressed for the weather. The old druids come here too, but they've worn the same robes for three hundred years and won't hear of new ones." },
       },
       choices = {
         { text = "Do the young ones do well here?", next = "young_well" },
@@ -338,7 +338,7 @@ P:NPC {
     },
     honey = {
       lines = {
-        { id = "h2_default", text = "Rabine's bears, and Rabine's habit of rewarding them, and Rabine's apprentices who stand too close while he does it. I've stopped selling white thread to anyone who works for him." },
+        { id = "h2_default", text = "Rabine rewards the young druids in bear shape with honey, and his apprentices always stand too close while he does it. I've stopped selling white thread to anyone who works for him." },
       },
       choices = {
         { text = "A sensible policy.", next = "BACK", fx = { trait = { witty = 1 } } },

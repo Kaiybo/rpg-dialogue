@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_track", text = "Stay off the track when the flags are up, friend. The racers don't brake for anything, tauren included." },
-    { id = "g_active", when = { questActive = TODO_QUEST("A Bump in the Road") }, text = "Basilisks, the big ones and the crystal-hided ones, out on the flats. Not on the track, please." },
+    { id = "g_active", when = { questActive = TODO_QUEST("A Bump in the Road") }, text = "Thin out the basilisks on the flats, the big ones and the crystal-hided ones, but please don't kill them on the track." },
     { id = "g_done", when = { questDone = TODO_QUEST("A Bump in the Road") }, text = "Not a single basilisk on the course last race. The goblins thanked me, which I didn't enjoy as much as I expected." },
     { id = "g_away", when = { away = 14 }, text = "{away} away from the flats, and you missed three crashes. Two were basilisks, and one was pure goblin." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You track better than when you first came out here. I can see it in how you walk the salt." },

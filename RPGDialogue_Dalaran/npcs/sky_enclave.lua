@@ -62,7 +62,7 @@ P:NPC {
         { text = "This city doesn't look all that safe to me.", next = "safe" },
         { text = "How long have you kept this post?", next = "post" },
         { text = "Can I ride that ship home to Valanaar?", next = "xhome", when = { race = "Skyborne" } },
-        { text = "You laughed just now. Is it really that bad?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Mostly harmless? Is it really that bad?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does a Horde visitor frighten you, Arcanist?", next = "xhorde", when = { faction = "Horde" } },
         { text = "Thank you, Arcanist.", next = "END" },
       },
@@ -295,7 +295,7 @@ P:NPC {
     xmiss = {
       big = true,
       lines = {
-        { id = "xm_default", text = "Every hour, and I'd not go back if the ship were free and the winds were kind. There's nothing there that isn't drifting away from everything else, and here, at least, the ground stays where you left it." },
+        { id = "xm_default", text = "Every hour, and yet I'd not go back even if the ship were free and the winds were kind. Everything there is drifting away from everything else, and here, at least, the ground stays where you left it." },
       },
       choices = {
         { text = "Zephras can still be saved. I believe that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },

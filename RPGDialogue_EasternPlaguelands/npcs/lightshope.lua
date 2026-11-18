@@ -89,7 +89,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Plaguebats roosting in daylight, wolves running toward Stratholme in packs too large to be natural, and birds that won't fly over Corin's Crossing at all. I'm a soldier, not a woodsman, but I know a sign of the enemy when I see one." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed and clear-eyed, which is more than I can say for most creatures in these lands. The Dawn's stables are open to it, {class}, if it needs a quiet night." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Plaguebats roosting in daylight and wolves running in packs too large to be natural, yet your {pet} looks clear-eyed, which is more than I can say for most creatures here. The Dawn's stables are open to it, {class}, if it needs a quiet night." },
       },
       choices = {
         { text = "I'll scout carefully and bring every report to your officers.", next = "BACK", fx = { align = { order = 1 } } },
@@ -116,7 +116,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_schard", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "hardline" } }, text = "The Duke says you'd break the Crusade outright. I may need that resolve before long, but I'd ask you to save it for those who won't yield." },
+        { id = "o_schard", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "hardline" } }, text = "Duke Zverenhoff says you'd break the Crusade outright. I may need that resolve before long, but I'd ask you to save it for those who won't yield." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 } },
           text = "A company of five at the chapel, and I'll not pretend I'm not counting swords, for the Dawn needs every one it can get in the east of Lordaeron." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -124,7 +124,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Maxwell Tyrosus. I served in the Silver Hand once, and now I lead the Argent Dawn, since Lord Raymond George fell, and we fight the Scourge and anything else that would end this world. We ask no one which crown they serve." },
         { id = "h_summoned", tags = { "news" }, when = { questActive = TODO_QUEST("Lord Maxwell Tyrosus") },
-          text = "The Duke sent you, so he trusts you, and Nicholas trusts very few. Sit; we have a great deal to discuss, and Stratholme won't wait." },
+          text = "Duke Zverenhoff sent you, so he trusts you, and Nicholas trusts very few. Sit; we have a great deal to discuss, and Stratholme won't wait." },
         { id = "h_hold", when = { questActive = TODO_QUEST("The Argent Hold") },
           text = "The Argent Hold is open to you now. What's inside was made to be used against the dead, so use it." },
         { id = "h_quiet", when = { metBefore = true },
@@ -261,7 +261,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll go back in.", next = "BACK", fx = { affinity = 2, standing = { light_hope = 1 }, trait = { brave = 1 } } },
-        { text = "You suspect the Crusade's leaders?", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Then the Crusade's leaders bear watching too.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

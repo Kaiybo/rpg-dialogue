@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_hammer", when = { gossip = { topic = "twilights_hammer", stance = "redeemable" } }, text = "The ghost in the cage tells anyone who'll listen that you think the Hammer's idolaters can be saved. I'd sooner save the spiders, but it's your time to waste." },
+    { id = "g_op_hammer", when = { gossip = { topic = "twilights_hammer", stance = "redeemable" } }, text = "Zamael, the caged ghost up on Firewatch Ridge, tells anyone who'll listen that you think the Hammer's idolaters can be saved. I'd sooner save the spiders, but it's your time to waste." },
     { id = "g_default", text = "Mind Raze; he's harmless unless I say otherwise, and I rarely say otherwise to people who are useful." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still in one piece. Good, I prefer my helpers that way." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the spiders have spun a great deal in that time. Someone always comes to take it, so I'm glad you're back." },

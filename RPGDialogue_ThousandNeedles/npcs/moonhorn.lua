@@ -26,7 +26,7 @@ P:NPC {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of the shu'halo, far from Mulgore. Mind the Grimtotem if you meet them; they don't greet kin the way they used to." },
     { id = "n_travel", cat = "travel", when = { mounted = true },
-      text = "Get down before the lift, or that beast will have a long fall. Nobody built that platform with kodos in mind." },
+      text = "Get down off that beast before you ride the lift, or it will have a long fall. Nobody built that platform with kodos in mind." },
   },
 
   start = "hello",

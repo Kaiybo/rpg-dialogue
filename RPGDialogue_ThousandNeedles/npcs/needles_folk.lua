@@ -49,7 +49,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Many have, and most came away with bites to show for it, because a wind rider chooses its rider or chooses no one. The young ones from Highperch are the wildest, and I wouldn't let anyone near them without me standing beside them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} keeps looking up at the roost. Keep it on the ground, friend, because my riders have very sharp tails and very short tempers." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Many have tried, and {pet} looks as if it would like to try too, the way it eyes the roost. Keep it on the ground, friend, because my riders have sharp tails and short tempers." },
       },
       choices = {
         { text = "A wild creature should choose its rider freely.", next = "BACK", fx = { align = { light = 1 } } },
@@ -333,7 +333,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_gn_admire", when = { gossip = { topic = "gnomes", stance = "admire" } }, text = "Pozzik's sulking because somebody called gnomes brilliant engineers, and I hear it was you! That's three bolts on the gnome tally, my treat." },
+    { id = "o_gn_admire", when = { gossip = { topic = "gnomes", stance = "admire" } }, text = "Pozzik, the goblin team's boss, is sulking because somebody called gnomes brilliant engineers, and I hear it was you! I haven't enjoyed a goblin's face that much all season." },
     { id = "g_default", text = "Bolts, tubes, blasting powder and gears! Both teams buy from me, and both teams think the other one's cheating." },
   },
 
@@ -359,7 +359,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Tortoises with shells that shine like brass, vultures that circle every crash, and scorpids that like the shade under the parked cars. The vultures are the ones that bother me, because they always seem to know which car's going to blow up before the drivers do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the fuel barrels, please. It's not your beast I'm worried about, it's the barrels, because they don't need much encouragement." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tortoises, vultures and scorpids, mostly, and they all know to keep clear of the fuel barrels, so please keep {pet} clear of them too. Those barrels don't need much encouragement." },
       },
       choices = {
         { text = "The flats were here first. The racers should mind the beasts.", next = "BACK", fx = { align = { honor = 1 } } },

@@ -50,7 +50,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, and the animals have learned which ones, which is more than I can say for the soldiers. Firebloom grows out in the wastes, and I've watched the boars eat round it as neatly as a cook trims a roast." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the red flowers by the road, though. I don't think firebloom would kill a beast, but I'd wager it would make it very sorry for a day." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and the animals have learned which ones. Keep {pet} away from the red flowers by the road, though; I don't think firebloom would kill a beast, but it would make it very sorry for a day." },
       },
       choices = {
         { text = "The land still grows things. That's worth something.", next = "BACK", fx = { align = { light = 1 } } },

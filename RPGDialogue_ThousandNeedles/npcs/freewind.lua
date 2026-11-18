@@ -88,8 +88,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Back to their camps on the canyon floor, by paths that change with every raid, because they know we watch from the mesas. Follow the hoofprints west toward their hold and you'll find them, though I'd go in daylight, because the Galak scouts see well at night." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close on the canyon floor. The Galak shoot at anything that moves down there, and they won't stop to ask whether it's wild." },
+        { id = "xhuntcl_default", text = "Back to their camps at Splithoof Crag, north of us, by paths that change with every raid because they know we watch from the mesas. Follow the hoofprints and you'll find them, though I'd go in daylight, because the Galak scouts see well at night." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Back to their camps at Splithoof Crag, north of us, by paths that change with every raid. Keep {pet} close down there, because the Galak shoot at anything that moves and won't stop to ask whether it's wild." },
       },
       choices = {
         { text = "I'll find their camps, and Freewind can strike them openly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -203,11 +203,11 @@ P:NPC {
     },
     high = {
       lines = {
-        { id = "hi_default", text = "Centaur don't climb. Harpies do, but harpies are a nuisance; the Galak are a war." },
+        { id = "hi_default", text = "High enough that the centaur can't climb to us. Harpies can, but harpies are a nuisance, and the Galak are a war." },
       },
       choices = {
         { text = "Getting up and down must be a long trip.", next = "lifts" },
-        { text = "I'll help you fight it.", next = "BACK", fx = { affinity = 2, standing = { freewind = 1 } } },
+        { text = "I'll help you fight the Galak.", next = "BACK", fx = { affinity = 2, standing = { freewind = 1 } } },
       },
     },
     lifts = {
@@ -520,7 +520,7 @@ P:NPC {
     hoof = {
       big = true,
       lines = {
-        { id = "ho_default", text = "Something strange; I can feel it from here, the way you feel weather turning. Centaur history, perhaps, or centaur trouble." },
+        { id = "ho_default", text = "It's something strange, and I can feel it from here, the way you feel weather turning. It may be centaur history, or it may be centaur trouble." },
       },
       choices = {
         { text = "It must be very old.", next = "ancestry" },
@@ -556,7 +556,7 @@ P:NPC {
     },
     listen = {
       lines = {
-        { id = "l_rise", text = "On Elder Rise, sitting still until my legs went numb. The Arch Druid says the land talks all the time. Most of us just never shut up long enough to hear it." },
+        { id = "l_rise", text = "I learned on Elder Rise, sitting still until my legs went numb. Arch Druid Hamuul says the land talks all the time, and most of us never keep quiet long enough to hear it." },
       },
       choices = {
         { text = "I'll try being quiet.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
@@ -651,7 +651,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Something with wings, I'm nearly sure, because no beast that walks would choose to nest this high. I've heard old tales of great fliers over the Needles, and I'd give a great deal to know whether one is waiting to be born." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} sniff at the canyon nests when you pass? I'd trust its nose over any map I bought in Thunder Bluff." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Something big, and {pet} seems to agree, the way it sniffs at the canyon nests. I'd trust its nose over any map I bought in Thunder Bluff." },
       },
       choices = {
         { text = "Some eggs should stay in their nests, Hagar.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -731,7 +731,7 @@ P:NPC {
     },
     egg = {
       lines = {
-        { id = "e_default", text = "Too large, too warm, and the wrong color entirely. The serpents won't leave it alone. Either they think it's theirs, or they're afraid of it." },
+        { id = "e_default", text = "It's too large, too warm, and entirely the wrong color, and the serpents won't leave it alone. Either they think it's theirs, or they're afraid of it." },
       },
       choices = {
         { text = "Where do the serpents keep it?", next = "dens" },
@@ -780,7 +780,7 @@ P:NPC {
         { id = "p_default", text = "Born, then, and none the worse for it. I only ask because the moment a shell gives way and something looks out at a world it has never seen stays with you. Mine looked at me and flew off, which I'm trying not to take personally." },
       },
       choices = {
-        { text = "It'll come back to haunt you.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Maybe yours will come back one day.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1136,7 +1136,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Only their lunches, because the hawks have learned that anyone eating on the ledge isn't watching the sky. Nyse says her wind riders chase them off the roost, but the hawks were here before Freewind, and I think they consider us the guests." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And there's {pet}, sniffing at the stew pot already. It can have the bones once the guests are fed, because nothing goes to waste up here." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only their lunches, and {pet} had better guard its own, because the hawks have learned that anyone eating on the ledge isn't watching the sky." },
       },
       choices = {
         { text = "The hawks were here first. Let them have their share.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1178,7 +1178,7 @@ P:NPC {
           text = "A hunter! If you bring a beast up here, keep it back from the edge, please, because the last hunter's cat tried to follow a hawk and gave us all a fright." },
         { id = "h_default", key = true,
           text = "The inn at Freewind: beds, stew, and a view that will turn your knees to water if you look down. So don't look down." },
-        { id = "h_bridges", when = { metBefore = true }, text = "A young brave fell asleep on the rope bridge last night, on it, and we found him at dawn, snoring, swinging in the wind. Tauren sleep anywhere." },
+        { id = "h_bridges", when = { metBefore = true }, text = "A young brave fell asleep on the rope bridge last night, and we found him at dawn, snoring and swinging in the wind. Tauren can sleep anywhere." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Look out there. The needles throw long shadows under the moon, like the canyon is full of sleeping giants." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! You'll want the room by the edge, then; the wind sings through it at night, and the druids who stay here say it's the canyon talking." },
@@ -1249,7 +1249,7 @@ P:NPC {
         { id = "g_default", text = "Braves off watch, travellers bound for the Great Lift, and the young ones who go to study the wyverns at Highperch and come back with bitten hands. Everyone's welcome here, the same as the wind is." },
       },
       choices = {
-        { text = "Bitten hands?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Bitten hands? I'll keep mine away from the wyverns.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

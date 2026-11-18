@@ -389,9 +389,9 @@ P:NPC {
   },
 
   topics = {
-    dalaran = { { id = "tp_dalaran", text = "Dalaran's Path of Renewal is a garden I tend with my own hands, and it's only just been planted. It'll take years to grow, and I'll be here for every one." } },
-    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are rebuilding, and I'm one of them, though I'd rather tend gardens than cast spells. Zara agrees, though she'd rather I fed her." } },
-    scourge = { { id = "tp_scourge", text = "The Scourge burned the old gardens of Dalaran, and the Legion burned what was left. I'm planting new ones, one seed at a time." } },
+    dalaran = { { id = "tp_dalaran", text = "The Path of Renewal is only just laid, and it'll take years before it feels like a street again. I'll be here for every one of them." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are rebuilding, and I'm one of them, though I'd rather mind a street than cast spells. Zara agrees, though she'd rather I fed her." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge burned the old streets of Dalaran, and the bookbinders' row with them. We're laying them again, one stone at a time." } },
     _none = { { id = "tp_none", text = "That's beyond my street, I'm afraid, and I've four hundred and twelve stones to mind already. Try the Citadel." } },
   },
 }

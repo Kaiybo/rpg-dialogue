@@ -290,7 +290,7 @@ P:NPC {
       choices = {
         { text = "Where did you find Luna?", next = "luna" },
         { text = "She won't eat the rabbits?", next = "rabbits" },
-        { text = "How do I make a beast my friend?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Want to know how to befriend a beast?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Look after her, Liam.", next = "END" },
       },
     },
@@ -306,7 +306,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xhunter = {
-      lines = { { id = "xh_default", text = "That's what I'm asking you! Do you just feed them, or do you have to be very brave and look them in the eye for a long time? I've been looking Luna in the eye all week." } },
+      lines = { { id = "xh_default", text = "Yes, please! Do you just feed them, or do you have to be very brave and look them in the eye for a long time? I've been looking Luna in the eye all week." } },
       choices = {
         { text = "Patience and kindness. You're already doing it.", next = "BACK", fx = { affinity = 2 } },
       },

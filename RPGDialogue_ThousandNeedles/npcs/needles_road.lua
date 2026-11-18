@@ -37,7 +37,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I was following a hawk because I thought it would lead me to water, and then I was following another hawk, and then I wasn't sure which one I'd started with. I know now that hawks don't care where tauren need to go." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} friendly? It is, isn't it? Could it walk on my side, between me and the centaurs, just for a little while?" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I followed one hawk, then another, and lost track of which was which. Is {pet} friendly? Could it walk on my side, between me and the centaurs, just for a little while?" },
       },
       choices = {
         { text = "Learn the trails before you wander off again.", next = "BACK", fx = { align = { order = 1 } } },
@@ -47,7 +47,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I did, I think, only later, after I'd seen something besides Mulgore. I thought the Earth Mother would still be there when I got back, and she will be, but I wasn't counting on the centaurs being here too." } },
+      lines = { { id = "xdruid_default", text = "I did want to, only later, after I'd seen something besides Mulgore. I thought the Earth Mother would wait for me, and she will, but I wasn't counting on the centaurs being out here too." } },
       choices = {
         { text = "See the world first. The Circle will wait for you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Go home and study. Wandering nearly killed you.", next = "BACK", fx = { align = { order = 1 } } },
@@ -256,7 +256,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, on the road beneath Freewind. I'd be glad of your company, because the Galak strike at travellers in the canyons, and they do not spare the wounded." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. The Galak fear fire more than spears, so I'd be glad to have you close if they come down from the cliffs." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Galak", min = 25 } }, text = "The Galak below the mesa are fewer than they were, and I have seen you on the canyon road often enough to know why. Be careful, because they will come looking for you." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, with the Light still in him. Freewind watches everything that climbs these mesas, and you are a new thing to watch." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, with the Light still in you. Freewind watches everything that climbs these mesas, and you are a new thing to watch." },
       },
       again = { { id = "h_again", text = "What else, friend? Speak; the mesa has time." }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -278,14 +278,14 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "They are tauren, like us, but they follow Magatha Grimtotem and reject Cairne's way. They want the land to themselves and they don't care who they hurt to take it." } },
-      choices = { { text = "Kin you once shared fires with?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "What are they doing here in the Needles?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Here in the Needles they've built camps on the high mesas, and they harass anyone who crosses their path. Some are kin we once shared fires with." } },
       choices = { { text = "Can they be reconciled?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "That is the hardest part, friend. It is one thing to fight a stranger, and another to fight a cousin." } },
+      lines = { { id = "b1_3_l", text = "I don't know, friend, and that is the hardest part. It is one thing to fight a stranger, and another to fight a cousin." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -340,7 +340,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Without thanks and without limit, because Magatha teaches them that the land is theirs by right and owes them nothing back. I have found kills left to rot on the canyon floor with only the hides taken, and that is not hunting, that is spite." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} walks beside you as an equal, I can see it. The Grimtotem would put a chain on such a beast and call that mastery." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Without thanks and without limit, and they would put a chain on a beast like {pet} and call it mastery. You let it walk beside you as an equal, and that is the difference." },
       },
       choices = {
         { text = "I take only what I need, and thank the land for it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -378,7 +378,7 @@ P:NPC {
       lines = {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. The Grimtotem hunt these mesas too, and they hunt like thieves, taking more than the land can give, which shames every tauren who sees it." },
-        { id = "h_default", key = true, text = "I am Motega Firemane, and I keep watch over Freewind Post. The Grimtotem grow bolder each season, and someone has to stand against them before they take the whole of the Needles." },
+        { id = "h_default", key = true, text = "I am Motega Firemane, and I keep watch at Whitereach Post for Freewind. The Grimtotem grow bolder each season, and someone has to stand against them before they take the whole of the Needles." },
         { id = "h_c0", when = { race = "Tauren" }, text = "A fellow tauren who walks the Earth Mother's path, not Magatha's. You are welcome at my fire." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "You walk the Earth Mother's path as a druid should, but Magatha's people bend the spirits to their will, and I would hear what you make of that." },
@@ -413,7 +413,7 @@ P:NPC {
       choices = { { text = "Why not fight them?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "We will not leave, of course, because Freewind is ours as much as anyone's. But we cannot fight them on every mesa at once." } },
+      lines = { { id = "b1_2_l", text = "We do, when they come at us, and we will not leave, because Freewind is ours as much as anyone's. But we cannot fight them on every mesa at once." } },
       choices = { { text = "I'll strike at them.", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
@@ -490,8 +490,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "All the time, pal! Last week a tortoise sat right on the finish line, and I swerved so hard I took out the timing post, and Daisy still hasn't let me forget it or stopped billing me for the post." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the track, all right, buddy? I like animals fine, I just don't wanna hit one at full throttle, because that's a mess nobody wants to clean up and the repairs come outta my wages." },
+        { id = "xhuntcl_default", text = "All the time, pal! Last week a tortoise sat right on the finish line, and I swerved so hard I took out the timing post, and Daisy, our timekeeper, is still billing me for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "All the time, pal, so keep {pet} off the track, all right? I like animals fine, I just don't wanna hit one at full throttle, because the repairs come outta my wages." },
       },
       choices = {
         { text = "The beasts were here first. Slow down for them.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -521,7 +521,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Afraid? Sure I'm afraid, friend, every single lap, and that's what makes it worth doing. If I go out in a blaze on the Shimmering Flats, at least they'll talk about it in Booty Bay for a month, and that's more than most goblins get." } },
       choices = {
-        { text = "No gossip's worth your neck. Stay off the cliff path.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "No gossip's worth your neck. Race a little slower.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A blaze of glory beats a long and dull life.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -596,7 +596,7 @@ P:NPC {
       choices = { { text = "You'd cheat too?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "Of course we would, actually, but we're better at it. Don't tell Kravel I said that." } },
+      lines = { { id = "b1_3_l", text = "Of course we would, actually, but we're better at it. Don't tell Kravel I said that, because that dwarf tells the gnomes everything." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -669,7 +669,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A good stopwatch and better eyes, though the dust off the flats doesn't help, and the heat makes the far end of the track shimmer like water. Some days I swear I've timed a mirage, and then the car turns up a minute later and makes a liar of me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} by you while the heats run. The last hunter's wolf chased a car to the finish line and set a better time than the gnomes did." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A good stopwatch and better eyes, hon. Keep {pet} by you while the heats run, though, because the last hunter's wolf chased a car to the finish and set a better time than the gnomes." },
       },
       choices = {
         { text = "Honest times matter. Nobody should ever doubt the clock.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -762,7 +762,7 @@ P:NPC {
       choices = { { text = "You don't take sides?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "I don't take sides, though. My stopwatch is the only fair one on the Flats." } },
+      lines = { { id = "b1_2_l", text = "Not me, hon. My stopwatch is the only fair one on the Flats." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -836,7 +836,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Replace? No, no, improve upon, perhaps, with better gears and no need for dinner. Though I admit my last mechanical hound followed a smell of oil straight back to our own workshop and bit Fizzle on the ankle." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, may I look at {pet}'s legs? Just a quick look? The knee joint alone would solve three problems I've had with the rear suspension." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Improve upon one, perhaps, but first, may I look at {pet}'s legs? The knee joint alone would solve three problems I've had with the rear suspension." },
       },
       choices = {
         { text = "No machine can match a living bond with a beast.", next = "BACK", fx = { align = { light = 1 } } },
@@ -951,7 +951,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Engineering, friend! The goblins strap a rocket to a crate and call it a car, while we actually calculate things like aerodynamics and fuel ratios." } },
-      choices = { { text = "Do the goblins cheat?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Do the goblins ever win?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Of course, the goblins win sometimes, but that's only because their rockets are bigger and they don't care if they explode." } },

@@ -21,7 +21,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Now where did I put that companion document? Oh, hello!" },
     { id = "g_shelves", text = "So many bookshelves, and so little time. Can I help you, or can you help me?" },
-    { id = "g_chitin", when = { questActive = TODO_QUEST("Uncovering Past Secrets") }, text = "The chitin's coming along, slowly. Go and see the den mother, and come back to me later." },
+    { id = "g_chitin", when = { questActive = TODO_QUEST("Uncovering Past Secrets") }, text = "The chitin's coming along, slowly. Go and see Rabine, and come back to me later." },
     { id = "g_book", when = { questDone = TODO_QUEST("Under the Chitin Was...") }, text = "Still reading it! Still reading it, and it's still marvelous." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, have you? I hadn't noticed, but then I hadn't noticed I'd lost my quill either." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You look much more formidable than you did. Has someone been writing you a better chapter?" },
@@ -30,7 +30,7 @@ P:NPC {
 
   notice = {
     { id = "n_ripe", cat = "weary", when = { durability = { max = 0.3 } },
-      text = "Let me be a little honest with you, friend: you smell rather ripe, as if you've come straight in from the field. No offense meant, only you may want to freshen up before you meet the den mother." },
+      text = "Let me be a little honest with you, friend: you smell rather ripe, as if you've come straight in from the field. No offense meant, only you may want to freshen up before you meet Rabine, our den mother." },
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "Another human! There are so few of us in Moonglade that I sometimes forget what we look like. We look tired, mostly, don't we?" },
   },
@@ -414,7 +414,7 @@ P:NPC {
     op_ask = {
       big = true,
       lines = {
-        { id = "op_ask_default", text = "Faustron and I share a field and a water trough, and we have never come to blows, which not everyone outside the glade would believe. What do you make of the Horde?" },
+        { id = "op_ask_default", text = "Faustron, the Horde's wind rider master, and I share a field and a water trough, and we have never come to blows, which not everyone outside the glade would believe. What do you make of the Horde?" },
       },
       choices = {
         { text = "A threat. Moonglade's truce is the exception.", next = "op_r1", fx = { align = { honor = -1 }, trait = { cautious = 1 }, opinion = { horde = "enemy" } } },

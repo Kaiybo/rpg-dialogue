@@ -156,7 +156,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll ruin a few dozen bars.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Which three places?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "I'll trust your word over the book.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
 
@@ -317,7 +317,7 @@ P:NPC {
 
     slaves = {
       lines = {
-        { id = "s_default", text = "There's hundreds still workin' the Cauldron, our own kin among them, an' worse besides. Maltorius keeps the whips goin' down there, an' Lolo's had a price on his head this long while." },
+        { id = "s_default", text = "There's hundreds still workin' the Cauldron, our own kin among them, an' worse besides. Maltorius keeps the whips goin' down there, an' Captain Lolo's had a price on that overseer's head this long while." },
       },
       choices = {
         { text = "Could the Brotherhood free them?", next = "slaves_free" },

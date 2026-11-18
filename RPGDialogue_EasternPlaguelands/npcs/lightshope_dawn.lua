@@ -274,7 +274,7 @@ P:NPC {
     },
 
     short = {
-      lines = { { id = "sh_default", text = "Everythin', always, but holy water an' linen most of all. The Scourge never runs out o' bodies, an' we never run out o' wounds tae wrap, so if ye see Jase Farlane, tell him I want my linen." } },
+      lines = { { id = "sh_default", text = "Everythin', always, but holy water an' linen most of all. The Scourge never runs out o' bodies, an' we never run out o' wounds tae wrap, so if ye see Jase Farlane at the trade goods table, tell him I want my linen." } },
       choices = {
         { text = "I'll pass the message on.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },

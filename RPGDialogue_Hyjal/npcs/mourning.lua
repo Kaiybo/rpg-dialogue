@@ -97,7 +97,7 @@ P:NPC {
         { id = "w_default", text = "I do not know, and I am a vulture, not a scholar. The Legion's rot soaked into this ground, and the Scourge marched with the demons when they came, and either one might be to blame. I only know that the dead here are hungry, and the dead should not be hungry; that is my job. The flayed ones are the worst of them." },
       },
       choices = {
-        { text = "Those flayed ones are the worst of them.", next = "why_raveners" },
+        { text = "Tell me about the flayed ones.", next = "why_raveners" },
         { text = "Does it matter who raised them?", next = "why_matter" },
         { text = "Something else.", next = "BACK" },
       },

@@ -82,7 +82,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Thisalee Crow, of the Druids of the Talon. If you came up through Darkwhisper, you've already met the worst welcome this mountain has, and Nordrassil's shadow has seen worse than you, so you may as well tell me what you're after." },
+          text = "I am Thisalee Crow, of the Druids of the Talon. If you came up through Darkwhisper Gorge, you've already had the worst welcome this mountain offers, so you may as well tell me what you're after." },
         { id = "h_young", when = { maxLevel = 55 },
           text = "You're young to have climbed this high. The mountain doesn't grade its dangers by who's asking, so stay close to the paths until you know the slopes." },
         { id = "h_feathers", tags = { "news" }, when = { questActive = TODO_QUEST("Feathers in Flight") },
@@ -300,7 +300,7 @@ P:NPC {
 
     supply = {
       lines = {
-        { id = "su_default", text = "Everlook, mostly, through the snow. A goblin called Azzleby runs his beasts through the passes for me, and Evie Whirlbrew trades for what the Talon can spare. It works well enough when the Winterfall furbolgs aren't robbing the caravans." },
+        { id = "su_default", text = "A goblin there does, for fletching, and he'll get none from me. Everlook's where our supplies come from, though: a goblin called Azzleby runs his beasts through the passes for me, and it works well enough when the Winterfall furbolgs aren't robbing the caravans." },
       },
       choices = {
         { text = "I'd not have thought you'd trust a goblin.", next = "supply_goblins" },

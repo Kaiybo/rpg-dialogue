@@ -126,7 +126,7 @@ P:NPC {
       },
     },
     carlin_message = {
-      lines = { { id = "cm_default", text = "Tell him I'm with Pamela, and that she's not afraid anymore, and that he's to stop sitting in a chapel feeling sorry and go see Marlene on Sorrow Hill. He'll know it's me, because I always did tell him what to do." } },
+      lines = { { id = "cm_default", text = "Tell him I'm with Pamela, and that she's not afraid anymore, and that he's to stop sitting in a chapel feeling sorry and go and see our sister Marlene on Sorrow Hill. He'll know it's me, because I always did tell him what to do." } },
       choices = {
         { text = "I'll tell him, word for word.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -199,7 +199,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A farmer's son who became a farmer, and a captain for a day. That's the whole of it, and I'd not trade the farming years for anything." } },
     advice = { { id = "tp_ad", text = "Put the little ones somewhere safe before you do anything brave. I did that much right, and it's the only part I'd do the same." } },
-    scarlet_crusade = { { id = "tp_scarlet", text = "I don't know them; they came after my time. If they'd have burned Pamela for being a ghost, I don't care to." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "I don't know them; they came after my time. If they'd burn Pamela for being a ghost, I don't care to know them." } },
     _none = { { id = "tp_none", text = "I've been gone a long while, friend, and I'm the last to ask about anything past Darrowshire's fences. Carlin would know, I expect." } },
   },
 }
