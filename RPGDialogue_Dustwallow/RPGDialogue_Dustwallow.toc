@@ -24,3 +24,4 @@ npcs\dogol.lua
 npcs\mudcrush.lua
 npcs\nat_pagle.lua
 npcs\doraan.lua
+npcs\more_folk.lua

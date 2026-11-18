@@ -22,3 +22,4 @@ npcs\everlook_gossips.lua
 npcs\everlook_smiths.lua
 npcs\everlook_shops.lua
 npcs\winterspring_strangers.lua
+npcs\more_folk.lua
