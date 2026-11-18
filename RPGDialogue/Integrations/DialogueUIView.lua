@@ -273,9 +273,11 @@ function V.ShowViews(choices)
 end
 
 -- An answer keeps the topic list open (and its page), so the next question is one click.
-function V.ShowAnswer(text)
+function V.ShowAnswer(text, _, _, said)
   if not page then return end
   page.text = text or ""
+  -- What you said to get it (Admire, Joke, Taunt, Intimidate; 0.86.0), ahead of their words.
+  if said and said ~= "" then page.text = "|cff8c7b67" .. L.YOU_SAID:format(said) .. "|r\n\n" .. page.text end
   if lastView then lastView.text = page.text; lastView.narr = nil end
   V.Refresh()
 end

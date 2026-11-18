@@ -258,12 +258,19 @@ end
 -- Persuade (0.85.0): how people answer Admire, Taunt and Intimidate.
 --   P:Persuade { id, role = "guard" | {..}, subtitle = "..", faction = "Horde", zone = "..",
 --     admire = { success = { lines }, fail = { lines } }, taunt = {..}, intimidate = {..} }
+-- `say` (0.86.0) is what the player says: admire = { say = { lines }, success = .., fail = .. }.
+-- A say line may carry its own answers: success = "text", fail = "text". `npc = "Name" | {..}`
+-- narrows a set to those people. Actions: admire, joke, taunt, intimidate.
 -- Lines are indexed "persuade:<id>.<action>.<result>.<line id>".
 function kinds.Persuade(pack, def)
   if not def.id then return warn(pack, "Persuade without id") end
   def._pack = pack.id
   for _, action in ipairs({ "admire", "joke", "taunt", "intimidate" }) do
+<<<<<<< ours
     for _, result in ipairs({ "success", "fail" }) do
+=======
+    for _, result in ipairs({ "say", "success", "fail" }) do
+>>>>>>> theirs
       local list = def[action] and def[action][result]
       indexList(list, "persuade:" .. def.id .. "." .. action .. "." .. result, "persuade:" .. def.id, "persuade")
     end

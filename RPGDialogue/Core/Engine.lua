@@ -590,7 +590,57 @@ local function persuadeSetBase(set, info, ctx)
     base = base + 50
   end
   if set.faction then base = base + 30 end
+  if set.npc then
+    if not U.Contains(U.AsList(set.npc), info.name) then return nil end
+    base = base + 300
+  end
   return base
+end
+
+-- What the player says (0.86.0): a `say` line for the action, picked at random so it rarely
+-- repeats. Lines written for this very person (their own, or a set naming them) come up
+-- more often than not; the last 60 said are left out while anything else is left.
+function Engine.PickSay(info, action, ctx, env)
+  local cands = {}
+  local def = info.def
+  local own = def and def.persuade and def.persuade[action]
+  if own then add(cands, own.say, 1000, "own") end
+  for _, set in ipairs(ns.Data and ns.Data.persuade or {}) do
+    local base = persuadeSetBase(set, info, ctx)
+    local lists = base and set[action]
+    if lists then add(cands, lists.say, base, "persuade:" .. set.id) end
+  end
+  local recent = ns.char and ns.char.saidPersuade or {}
+  local was = {}
+  for _, g in ipairs(recent) do was[g] = true end
+  local special, rest, stale = {}, {}, {}
+  for i, cand in ipairs(cands) do
+    local pass, score = Cond.Eval(cand.line.when, ctx, env)
+    if pass then
+      cand.gid = cand.line._gid or (cand.src .. "#" .. i)
+      cand.weight = 1 + ((score or 0) > 0 and 2 or 0) + (cand.base >= 150 and 3 or cand.base > 0 and 1 or 0)
+      if was[cand.gid] then stale[#stale + 1] = cand
+      elseif cand.base >= 300 then special[#special + 1] = cand
+      else rest[#rest + 1] = cand end
+    end
+  end
+  local from = rest
+  if #special > 0 and (#rest == 0 or math.random() < 0.6) then from = special end
+  if #from == 0 then from = stale end
+  if #from == 0 then return nil end
+  local total = 0
+  for _, c in ipairs(from) do total = total + c.weight end
+  local roll, pick = math.random() * total, from[#from]
+  for _, c in ipairs(from) do
+    roll = roll - c.weight
+    if roll <= 0 then pick = c; break end
+  end
+  if ns.char then
+    recent[#recent + 1] = pick.gid
+    while #recent > 60 do table.remove(recent, 1) end
+    ns.char.saidPersuade = recent
+  end
+  return pick
 end
 
 function Engine.PickPersuade(info, action, result, ctx, env)

@@ -40,6 +40,7 @@ origins\troll.lua
 origins\tauren.lua
 origins\forsaken.lua
 persuade.lua
+persuade_say.lua
 rumors\elwynn.lua
 rumors\westfall.lua
 rumors\redridge.lua
