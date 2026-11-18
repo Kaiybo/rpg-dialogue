@@ -67,7 +67,7 @@ P:Letter {
   id = "origin_skyborne_thendal_ranger_2", from = "Elaaria Whisperwind", stranger = true, delay = 2400,
   when = { origin = "skyborne_thendal_ranger", minLevel = 20 },
   subject = "You were right",
-  body = "{name},\n\nYour letters made me jealous enough that I took the skydock down for a week to see a mainland forest for myself. You were right, and I am annoyed about it. The trees went on until I could not see the end of them, and the birds sang songs I did not know, and I got completely lost twice in a single afternoon.\n\nI came back to Thendal with burrs in my cloak and a new respect for you. The grove felt very small when I returned, and very dear.\n\nThe offended rabbit has been seen again near the stream. He seems to have forgiven nobody, which I respect.\n\nElaaria",
+  body = "{name},\n\nYour letters made me jealous enough that I took passage down from the skydock for a week to see a mainland forest for myself. You were right, and I am annoyed about it. The trees went on until I could not see the end of them, and the birds sang songs I did not know, and I got completely lost twice in a single afternoon.\n\nI came back to Thendal with burrs in my cloak and a new respect for you. The grove felt very small when I returned, and very dear.\n\nThe offended rabbit has been seen again near the stream. He seems to have forgiven nobody, which I respect.\n\nElaaria",
 }
 
 ---------------------------------------------------------------------------
@@ -298,7 +298,7 @@ P:Letter {
   id = "origin_skyborne_former_alaketh_1", from = "Naavira", stranger = true, delay = 1200,
   when = { origin = "skyborne_former_alaketh", minLevel = 6 },
   subject = "Your hair",
-  body = "{name},\n\nI saw you leave Gev'rek with your hair grown out and the grey robes gone, and I wanted to tell you that I noticed, and that I was glad. I left the Al'Aketh too, a little after you did, though I did not have the courage to go as far.\n\nSome of the Windshapers still look at me as if I might light another beacon. I do not blame them. I would watch me too, if I were them.\n\nWe were told that the Windlord would lift us up. Instead we nearly brought him down upon everyone we loved. Do good work out there, {name}, and do enough of it that one day people forget the robes.\n\nNaavira",
+  body = "{name},\n\nI saw you leave Gev'rek with your hair grown out and the grey robes gone, and I wanted to tell you that I noticed, and that I was glad. I left the Al'Aketh too, a little after you did, though I did not have the courage to go as far.\n\nSome of the Windshapers still look at me as if I might light another beacon for the Windlord. I do not blame them. I would watch me too, if I were them.\n\nWe were told that the Windlord would lift us up. Instead we nearly brought him down upon everyone we loved. Do good work out there, {name}, and do enough of it that one day people forget the robes.\n\nNaavira",
 }
 
 P:Letter {

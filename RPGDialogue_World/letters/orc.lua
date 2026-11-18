@@ -117,7 +117,7 @@ P:Letter {
   id = "origin_orc_camp_primer_2", from = "Nogra", stranger = true, delay = 2400,
   when = { origin = "orc_camp_primer", cleared = "Shadowfang Keep" },
   subject = "The human wizard",
-  body = "{name},\n\nThe Forsaken courier who carries the mail to Razor Hill says you killed a human wizard in a castle full of wolves, and that he was the kind of wizard who reads too many books and goes mad from them. I laughed, and then I thought about it for a long time.\n\nYou read the same books he did, or ones like them. I worried, after you left, that the fire would get into you the way the green fire got into our grandfathers. Now I think the difference is that you remember the fence, and he never had one.\n\nI have finished the primer and started on a book of Horde laws. It is very dull, and I am very proud of myself.\n\nNogra, in Razor Hill",
+  body = "{name},\n\nThe Forsaken courier who carries the mail to Razor Hill says you killed a human wizard in a castle full of wolves, and that he was the kind of wizard who reads too many books and goes mad from them. I laughed, and then I thought about it for a long time.\n\nYou read the same books he did, or ones like them. I worried, after you left, that the fire would get into you the way the green fire got into our grandfathers. Now I think the difference is that you remember the camp fence and what it taught us, and he never had one to remember.\n\nI have finished the primer and started on a book of Horde laws. It is very dull, and I am very proud of myself.\n\nNogra, in Razor Hill",
 }
 
 ---------------------------------------------------------------------------

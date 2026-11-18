@@ -117,7 +117,7 @@ P:Letter {
   id = "origin_nightelf_watcher_trained_2", from = "V.", stranger = true, delay = 2400,
   when = { origin = "nightelf_watcher_trained", minLevel = 30 },
   subject = "Observed",
-  body = "{name},\n\nYou have been watched these past months, as you no doubt suspected, and I am obliged to report that you have been careless only twice. Once in a tavern in Menethil, and once on a road in the Wetlands when you stopped to help a drunk dwarf out of a ditch. The first was foolish, and the second I will not hold against you.\n\nThe Watchers have long memories and very little patience for those who boast of their training, so I am glad to say you have not. Most who leave us cannot resist telling the first pretty stranger what they once were.\n\nYou may yet be useful. Do not mistake that for praise.\n\nV.",
+  body = "{name},\n\nYou have been watched these past months, as you no doubt suspected, and I am obliged to report that you have been careless only twice, once in a tavern in Menethil and once on a road in the Wetlands when you stopped to help a drunk dwarf out of a ditch. The first was foolish, and the second I will not hold against you.\n\nThe Watchers have long memories and very little patience for those who boast of their training, so I am glad to say you have not. Most who leave us cannot resist telling the first pretty stranger what they once were.\n\nYou may yet be useful. Do not mistake that for praise.\n\nV.",
 }
 
 ---------------------------------------------------------------------------

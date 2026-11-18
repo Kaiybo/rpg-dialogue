@@ -43,7 +43,7 @@ P:Thread {
     {
       id = "b2_fizzledowser", npc = "fizzledowser",
       when = { questDone = TODO_QUEST("Gadgetzan Water Survey"), thread = { id = "gadgetzan_water", notBeat = "b2_fizzledowser" } },
-      text = "You took my widget out to Sandsorrow Watch and brought it back in one piece, pal, which puts you ahead of most of my crews. Every circle on this map is a spring we found and the Wastewanders found next, and lately I draw the new ones in pencil, because pencil is cheaper to rub out.",
+      text = "You took my widget out to Sandsorrow Watch and brought it back in one piece, pal, which puts you ahead of most of my crews. Every circle on this map is a spring we found and the Wastewanders found next, and lately I draw the new ones in pencil, because I'm tired of scratching out ink every time the bandits move in.",
       fx = { thread = { id = "gadgetzan_water", beat = "b2_fizzledowser", state = "stirring" } },
     },
     {
@@ -179,13 +179,13 @@ P:Thread {
     {
       id = "b2_latronicus", npc = "latronicus",
       when = { faction = "Alliance", questDone = TODO_QUEST("Lethtendris's Web"), thread = { id = "eldre_thalas", notBeat = "b2_latronicus" } },
-      text = "So the web is in hand, and its magic can go back into the wild where it belongs. The General will want to hear that the satyrs aren't the only things in that city still feeding on the old power, and I'd rather she heard it from you, because she only listens to me when I'm complaining.",
+      text = "So the web is in hand, and its magic can go back into the wild where it belongs. General Shandris will want to hear that the satyrs aren't the only things in that city still feeding on the old power, and I'd rather she heard it from you, because she only listens to me when I'm complaining.",
       fx = { thread = { id = "eldre_thalas", beat = "b2_latronicus", state = "unfolding" } },
     },
     {
       id = "b2_talo", npc = "talo",
       when = { faction = "Horde", questDone = TODO_QUEST("Lethtendris's Web"), thread = { id = "eldre_thalas", notBeat = "b2_talo" } },
-      text = "The magic in that web was stolen from the land, and now it is loose again, and I felt the hills breathe easier tonight. The orcs at the camp say the ruins belong to the ogres, but no ogre ever raised stones like those, and whoever did is not as gone as Rok Orhan would like.",
+      text = "The magic in that web was stolen from the land, and now it is loose again, and I felt the hills breathe easier tonight. The orcs at the camp say the ruins belong to the ogres, but no ogre ever raised stones like those, and whoever did is not as gone as Rok Orhan, who commands the camp, would like.",
       fx = { thread = { id = "eldre_thalas", beat = "b2_talo", state = "unfolding" } },
     },
     {

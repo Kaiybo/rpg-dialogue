@@ -16,7 +16,7 @@ P:Thread {
       third = "{name} heard Magatha Grimtotem speak for her kin in the high places, and heard that she was not sorry for them." },
     unfolding = { first = "The Grimtotem fell on Camp Aparaje and carried off Tammra's niece, and strangers come and go from Darkcloud Pinnacle while Longhorn reads their notes by lamplight. Cairne says the trouble is that the Grimtotem answer to no one, and Magatha says that's no fault at all.",
       third = "{name} followed the Grimtotem's shadow from Camp Aparaje to Darkcloud Pinnacle, and heard Cairne and Magatha disagree about what it meant." },
-    resolved = { first = "Lakota Windsong is home at Freewind, and Thalia has untied the knot she kept for her. The Grimtotem still hold their pinnacle and still keep their silence, and that silence is the thing Thalia says she can't forgive.",
+    resolved = { first = "Lakota Windsong is home at Freewind, and Thalia has untied the knotted cord she kept counting the days on. The Grimtotem still hold their pinnacle and still keep their silence, and that silence is the thing Thalia says she can't forgive.",
       third = "{name} brought Lakota Windsong home to Freewind, though the Grimtotem kept their pinnacle and their silence." },
   },
   npcs = { "magatha", "tammra", "longhorn", "cairne", "thalia" },
@@ -45,7 +45,7 @@ P:Thread {
     {
       id = "b3_longhorn", npc = "longhorn",
       when = { questDone = TODO_QUEST("Grimtotem Spying"), thread = { id = "grimtotem", notBeat = "b3_longhorn" } },
-      text = "I read those notes from the pinnacle more nights than I should. Strangers come and go from Darkcloud, and the Grimtotem still nod to my braves on the canyon roads as though we were kin, which troubles me more than an open fight would.",
+      text = "I read the notes you brought back from Darkcloud Pinnacle more nights than I should. Strangers come and go from there, and the Grimtotem still nod to my braves on the canyon roads as though we were kin, which troubles me more than an open fight would.",
       fx = { thread = { id = "grimtotem", beat = "b3_longhorn", state = "unfolding" } },
     },
     {
@@ -64,7 +64,7 @@ P:Thread {
     {
       id = "b6_thalia", npc = "thalia",
       when = { questDone = TODO_QUEST("Free at Last"), thread = { id = "grimtotem", notBeat = "b6_thalia" } },
-      text = "Lakota is home, and I've untied the knot at last. The Grimtotem on that pinnacle let Arnak do what he did and never said one word against him, and I find it's the silence I can't forgive, more than the spears.",
+      text = "Lakota is home, and I've untied the knotted cord I counted the days on. The Grimtotem on that pinnacle let Arnak hold her captive and never said one word against him, and I find it's the silence I can't forgive, more than the spears.",
       fx = { thread = { id = "grimtotem", beat = "b6_thalia", state = "resolved" }, standing = { freewind = 3 } },
     },
   },
@@ -102,7 +102,7 @@ P:Thread {
     {
       id = "b1_mull", npc = "mull",
       when = { thread = { id = "venture_mulgore", notBeat = "b1_mull" } },
-      text = "Braves come home from Stonetalon telling of goblin saws at Windshear Crag, and I think of our wells. We told the Venture Company no in Mulgore, {class}, and all it seems to have done is send them looking for land that can't say it back.",
+      text = "Braves come home from Stonetalon telling of goblin saws at Windshear Crag, and I think of our wells. We told the Venture Company no in Mulgore, {class}, and all it seems to have done is send them looking for land that can't refuse them.",
       fx = { thread = { id = "venture_mulgore", beat = "b1_mull", state = "stirring" }, learn = { "venture_company" } },
     },
     {
