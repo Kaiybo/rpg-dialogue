@@ -529,7 +529,7 @@ P:NPC {
   key = "mf_roetten", id = TODO_NPC("Roetten Stonehammer"), name = "Roetten Stonehammer", title = "Reclaimers Inc.",
   bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
   communities = { "ironforge" }, temper = { "restless", "salesman" }, values = { "profit", "practical" },
-  notices = { "greenness" },
+  notices = { "greenness", "craft" },
   impression = {
     first = "He talks about Desolace as though it were a gold mine.",
     third = "{name} met Roetten Stonehammer, a Reclaimers Inc. agent in the Ironforge Library who recruits for salvage work in Desolace.",
@@ -644,12 +644,13 @@ P:NPC {
   key = "mf_longbeard", id = TODO_NPC("Pilot Longbeard"), name = "Pilot Longbeard",
   bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
   communities = { "ironforge" }, temper = { "jovial", "nostalgic" }, values = { "friendship", "adventure" },
-  notices = { "race" },
+  notices = { "race", "craft" },
   impression = {
     first = "He has a story ready for anyone who stands still.",
     third = "{name} met Pilot Longbeard, a jovial dwarf pilot in the Hall of Arms with friends among the racers of the Shimmering Flats.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Up late, are ye? So am I, for an old pilot never sleeps sound wi'out an engine hummin' under him." },
     { id = "g_hi", text = "Ho there! Pilot Longbeard, at your service, though my flyin' days are fewer than they were." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have ye been tae the Shimmering Flats yet? Tell me everythin'." },
   },
@@ -756,12 +757,13 @@ P:NPC {
   key = "mf_sheldonore", id = TODO_NPC("Artilleryman Sheldonore"), name = "Artilleryman Sheldonore",
   bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
   communities = { "ironforge" }, temper = { "loud", "boastful" }, values = { "proud", "craft" },
-  notices = { "class" },
+  notices = { "class", "craft" },
   impression = {
     first = "He seems to think archery is a hobby for elves.",
     third = "{name} met Artilleryman Sheldonore, a gun-loving dwarf in the Commons who thinks arrows are for sissies.",
   },
   greetings = {
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Good. Tell me ye carry a rifle an' no' one o' those bent sticks, an' we'll be friends." },
     { id = "g_hi", text = "Bang! Ha, made ye jump, didn't I? Artilleryman Sheldonore, an' I love the sound o' a good rifle." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ye've no' taken up the bow, I hope?" },
     { id = "g_active", when = { questActive = TODO_QUEST("Arrows Are For Sissies") }, text = "Got what I asked for yet? I'm itchin' tae get to work." },
@@ -854,6 +856,7 @@ P:NPC {
     },
   },
   topics = {
+    second_war = { { id = "tp_war", text = "The Horde came at Khaz Modan wi' everythin' it had, an' the gates o' Ironforge never opened for them. I like tae think my battery had a say in that." } },
     stormpike = { { id = "tp_storm", text = "Good dwarves in a hard valley. Rotimer'll tell ye the rest, whether ye ask him or no'." } },
     rifles = { { id = "tp_rifles", text = "Buy dwarven, keep it oiled, an' never lend it tae a gnome who says he can improve it. That's forty years o' wisdom, free." } },
     background = { { id = "tp_bg", text = "I'm an artilleryman, an' proud o' it. Twenty years on the guns." } },
@@ -868,12 +871,14 @@ P:NPC {
   key = "mf_calder", id = TODO_NPC("Alexander Calder"), name = "Alexander Calder", title = "Warlock Trainer",
   bible = "bibles/more_folk.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "cold", "precise" }, values = { "power", "knowledge" },
-  notices = { "class" },
+  notices = { "class", "race" },
   impression = {
     first = "He speaks as if each word costs him, and rarely blinks.",
     third = "{name} met Alexander Calder, a human warlock trainer in the Forlorn Cavern.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The cavern is quieter at this hour, and I prefer it. Speak softly, if you must speak." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back down the stairs. Most do not, once they have seen the shelves." },
     { id = "g_hi", text = "Yes? If you've come to learn, I'll teach you. If not, I'd prefer you didn't linger." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Welcome back. Your servants are well, I trust?" },
   },
@@ -950,6 +955,8 @@ P:NPC {
     },
   },
   topics = {
+    stormwind = { { id = "tp_sw", text = "A handsome city with a cathedral at its heart and my colleagues in its cellar. I did not care to live under a floor." } },
+    demons = { { id = "tp_demons", text = "They are servants, and a servant you do not watch becomes a master. That is the first lesson, and for some students it is also the last." } },
     forlorn_cavern = { { id = "tp_cavern", text = "It is damp, ill lit, and avoided by everyone with a reputation to keep. I could not have designed a better classroom." } },
     gerrig = { { id = "tp_gerrig", text = "My landlord. He pays for books that others would burn, and I find it more restful not to ask why." } },
     background = { { id = "tp_bg", text = "I'm a teacher. What I teach is my own affair." } },
@@ -970,6 +977,8 @@ P:NPC {
     third = "{name} met Valgar Highforge, the senior paladin of the Silver Hand in Ironforge.",
   },
   greetings = {
+    { id = "g_back", when = { metBefore = true }, text = "Ye've returned. Good. A body that comes back tae this hall o' its own accord is half taught already." },
+    { id = "g_human", when = { race = "Human" }, text = "The Light be wi' ye, {g:son|daughter} o' Lordaeron or Stormwind, whichever it is. Yer people brought the Hand tae us, an' ye're welcome here." },
     { id = "g_hi", text = "The Light be with ye. Are ye here tae learn, or tae listen?" },
     { id = "g_pal", when = { class = "PALADIN" }, text = "Welcome back, brother or sister o' the Hand. What would ye learn today?" },
   },
@@ -1050,6 +1059,8 @@ P:NPC {
     },
   },
   topics = {
+    scourge = { { id = "tp_scourge", text = "The dead o' Lordaeron, raised an' driven. Every paladin I train will face them sooner or later, an' I train them wi' that in mind." } },
+    rohan = { { id = "tp_rohan", text = "High Priest Rohan tends the Light's flock in this hall. He's a wiser dwarf than me, an' he's kinder about it." } },
     uther = { { id = "tp_uther", text = "The best of us, an' betrayed by the prince he'd trained. I'll say nae more than that, for it still sticks in my throat." } },
     hall_of_mysteries = { { id = "tp_hall", text = "Priests, mages an' paladins under one roof in the Mystic Ward. It's the quietest corner o' Ironforge, which isnae sayin' a great deal." } },
     background = { { id = "tp_bg", text = "I'm a paladin o' the Silver Hand, an' that's all that matters." } },
@@ -1064,12 +1075,14 @@ P:NPC {
   key = "mf_belia", id = TODO_NPC("Belia Thundergranite"), name = "Belia Thundergranite", title = "Pet Trainer",
   bible = "bibles/more_folk.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "warm", "brisk" }, values = { "animals", "family" },
-  notices = { "class" },
+  notices = { "class", "pet" },
   impression = {
     first = "She greets the animals before she greets their owners.",
     third = "{name} met Belia Thundergranite, a dwarf pet trainer in the Hall of Arms.",
   },
   greetings = {
+    { id = "g_back", when = { metBefore = true }, text = "Ye're back! The bear remembers ye, or remembers yer boots, I'm no' sure which." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Whisht, keep yer voice down, I've only just got the cubs tae settle." },
     { id = "g_hi", text = "Hello there, an' where's yer beast? Oh, ye've none at all, which is a terrible shame, but ye can still come in." },
     { id = "g_hunter", when = { class = "HUNTER", pet = { type = "Beast" } }, text = "Hello, hunter, an' hello tae you too, {pet}! Come here an' let me have a look at ye." },
     { id = "g_train", when = { questActive = TODO_QUEST("Training the Beast") }, text = "Ah, ye've tamed yer first beast, have ye? Come here an' let me teach ye how tae look after it." },
@@ -1097,6 +1110,7 @@ P:NPC {
         { text = "You seem fond of animals.", next = "fond" },
         { text = "The Hall of Arms is full of beasts as well as blades.", next = "hall" },
         { text = "What do you make of my companion?", next = "mypet", when = { pet = { type = "Beast" } } },
+        { text = "What's the hardest beast you ever trained?", next = "hardest" },
         { text = "Farewell, Belia.", next = "END" },
       },
     },
@@ -1144,8 +1158,14 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hardest = {
+      lines = { { id = "hd_default", text = "A crag boar that'd been kept on a chain by a fool o' a trapper, an' wouldnae let anybody within ten paces. I sat outside his pen wi' a bucket o' turnips for a fortnight an' never once reached for him, an' on the fifteenth day he came tae me." } },
+      choices = { { text = "A fortnight of turnips. That's patience.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    ulbrek = { { id = "tp_ulbrek", text = "Ulbrek Firehand keeps the stable next tae me. He's a soft hand wi' a frightened beast, an' I trust him wi' any o' mine." } },
+    dun_morogh = { { id = "tp_dm", text = "Snow, pine an' the best bears in Khaz Modan. If ye want a companion that'll stand a winter, look there first." } },
     regnus = { { id = "tp_regnus", text = "My cousin, an' the better shot o' the two of us, though I'll thank ye no' tae tell him I said so." } },
     beasts = { { id = "tp_beasts", text = "Feed them before ye feed yerself, an' never raise yer hand tae one. Everythin' else is practice." } },
     background = { { id = "tp_bg", text = "I'm a Thundergranite an' a pet trainer, an' I love my work." } },
@@ -1166,6 +1186,7 @@ P:NPC {
     third = "{name} met Lieutenant Rotimer, a Stormpike Guard recruitment officer calling for volunteers in the Commons.",
   },
   greetings = {
+    { id = "g_war", when = { class = { "WARRIOR", "PALADIN" }, minLevel = 51 }, text = "Now there's an arm the Guard could use! Step up, an' let me tell ye where it's needed." },
     { id = "g_hi", text = "The Stormpike Guard needs ye! Have ye heard about Alterac Valley?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ready tae sign up yet?" },
     { id = "g_rep", when = { reputation = { faction = "Stormpike Guard", min = "honored" } }, text = "There's one o' ours! The Guard's proud o' ye, an' so am I." },
@@ -1241,6 +1262,7 @@ P:NPC {
     },
   },
   topics = {
+    dun_baldar = { { id = "tp_baldar", text = "The Stormpike stronghold at the north end o' the valley. It's cold, it's crowded, an' it's ours." } },
     vanndar = { { id = "tp_vanndar", text = "Vanndar Stormpike commands at Dun Baldar, an' ye'll no' meet a harder dwarf nor a fairer one." } },
     frostwolf = { { id = "tp_frost", text = "Orcs who've lived in that valley for years an' mean tae keep it. I'll give them this much, they fight for it." } },
     alterac_valley = { { id = "tp_av", text = "Stormpike land, an' we'll hold it." } },

@@ -27,3 +27,6 @@
 
 ## Never
 Forest Song, Silverwind Refuge, Cataclysm-era Ashenvale (Raynewood Tower quests, the War of the Thorns).
+
+## Added later (deepening)
+Shael'dryn: the clean moonwell and what she would do if it soured; meets outlanders with delight. Talen: the camp too near the naga, Raene's scout, the statuette's lock keyed to the Ring of Zoram (authored detail), begs dwarves not to tell the League yet.

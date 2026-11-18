@@ -1,6 +1,6 @@
--- The conversation box: portrait, name, typewriter text, up to 4 replies, then the game's
+-- The conversation box: portrait, name, text, up to 4 replies, then the game's
 -- own options for this NPC (quests, vendor, training...), "Get on with it" (always), and a
--- flag button for wrong lines. Keys: 1-9 and 0 pick, Up/Down/Tab move a selection, Enter takes it, Space finishes the text,
+-- flag button for wrong lines. Keys: 1-9 and 0 pick, Up/Down/Tab move a selection, Enter takes it,
 -- Escape = Get on with it. Gamepad (client gamepad mode): D-pad moves, A confirms,
 -- B = Get on with it, X = Ask about. Nothing relies on color alone: the selection also
 -- shows a ">" marker, and locked options say so in words.
@@ -32,16 +32,15 @@ local PORTRAIT_FALLBACK = "Interface\\Icons\\INV_Misc_QuestionMark"
 
 local frame
 local view
--- full: plain text typed out letter by letter; linked: the same text with topic words as
--- links (Topics.Hear), shown once typing finishes so a half-typed link never shows.
+-- full: plain text; linked: the same text with topic words as links (Topics.Hear).
 local reveal = { full = "", linked = nil, shown = 0, active = false, total = 0 }
 local autoTimer
 local selected, navMode = nil, false
 
 ---------------------------------------------------------------------------
--- Typewriter (substring reveal, UTF-8 safe)
+-- Text helpers (UTF-8 safe)
 ---------------------------------------------------------------------------
--- Where the typewriter may cut: the byte end of each visible character. Escape codes
+-- Where text may be cut: the byte end of each visible character. Escape codes
 -- (|T icons|t, |A atlases|a, |c colours, |r, |H links|h) are never cut in half, so the raw
 -- code never flashes on screen; an icon counts as one character, colour codes as none.
 local function cutPoints(s)
@@ -102,25 +101,11 @@ local function gameExtra() return large() and LARGE_GAME_EXTRA_W or 0 end
 local function gameHeight() return GAME_HEIGHT + (large() and LARGE_EXTRA_H or 0) end
 local function width() return isGame() and (GAME_WIDTH + gameExtra()) or woodWidth() end
 
-local function instant()
-  local s = settings()
-  return s.instantText or s.reduceMotion
-end
-
+-- Text always shows in full at once (the typewriter was removed in 0.87.0).
 local function finishReveal()
   reveal.active = false
   frame.text:SetText(reveal.linked or reveal.full)
-  frame:SetScript("OnUpdate", nil)
-  -- The click-to-finish cover is only needed while typing; off, so links can be clicked.
-  if frame.textClick then frame.textClick:Hide() end
   D.StartAutoAdvance()
-end
-
-local function startReveal()
-  if frame.textClick then frame.textClick:Show() end
-  reveal.active = true
-  frame.text:SetText("")
-  frame:SetScript("OnUpdate", D.OnUpdate)
 end
 
 -- A topic word in the text was clicked: ask about it. Hovering shows what a click does.
@@ -140,17 +125,8 @@ local function onLinkEnter(_, link)
 end
 local function onLinkLeave() C.HideTooltip() end
 
-function D.OnUpdate(_, elapsed)
-  if not reveal.active then return end
-  reveal.shown = reveal.shown + elapsed * (settings().textSpeed or 70)
-  local n = math.floor(reveal.shown)
-  if n >= reveal.total then finishReveal(); return end
-  reveal.cuts = reveal.cuts or cutPoints(reveal.full)
-  frame.text:SetText(reveal.full:sub(1, reveal.cuts[n] or 0))
-end
-
-function D.IsRevealing() return reveal.active end
-function D.FinishText() if reveal.active then finishReveal() end end
+function D.IsRevealing() return false end
+function D.FinishText() end
 
 ---------------------------------------------------------------------------
 -- Construction
@@ -263,12 +239,6 @@ local function create()
   frame.reaction:SetPoint("TOPLEFT", frame.text, "BOTTOMLEFT", 0, -8)
   frame.reaction:SetJustifyH("LEFT")
   frame.reaction:SetWordWrap(true)
-
-  -- Clicking the text finishes the typewriter.
-  frame.textClick = CreateFrame("Button", nil, frame)
-  frame.textClick:SetPoint("TOPLEFT", frame.text, "TOPLEFT")
-  frame.textClick:SetPoint("BOTTOMRIGHT", frame.text, "BOTTOMRIGHT")
-  frame.textClick:SetScript("OnClick", D.FinishText)
 
   -- Topic words in the text are links (Topics.Hear): click to ask about them.
   C.EnableHyperlinks(frame, onLink, onLinkEnter, onLinkLeave)
@@ -428,8 +398,6 @@ local function create()
   frame.keys:SetScript("OnKeyDown", function(self, key) D.OnKey(self, key) end)
   C.SetGamePadHandler(frame.keys, function(self, button) D.OnPad(self, button) end)
   frame:SetScript("OnHide", function()
-    reveal.active = false
-    frame:SetScript("OnUpdate", nil)
     if autoTimer then autoTimer.cancelled = true end
     C.GamePadButtons(frame.keys, false)
   end)
@@ -750,7 +718,7 @@ function D.Show(v)
   D.Style()   -- also builds the current look's parts, the round portrait among them
   local portrait = Theme.GamePart(frame, "portrait")
   if portrait and not C.SetPortrait(portrait, v.unit) then portrait:SetTexture(PORTRAIT_FALLBACK) end
-  -- Narration (0.85.0): its own paragraph in dim ink, typed before their words.
+  -- Narration (0.85.0): its own paragraph in dim ink, before their words.
   local narr = (v.narr and v.narr ~= "") and (Theme.Hex("dim") .. v.narr .. "|r\n\n") or ""
   reveal.full = narr .. (v.text or "")
   reveal.linked = v.linkedText and (narr .. v.linkedText) or nil
@@ -762,11 +730,7 @@ function D.Show(v)
   if opening then place(ns.Conversation.session and ns.Conversation.session.blizz) end
   frame:Show()
   if opening and frame.fadeIn and not settings().reduceMotion then frame.fadeIn:Play() end
-  if instant() then
-    finishReveal()
-  else
-    startReveal()
-  end
+  finishReveal()
   if settings().sounds then C.PlaySound("IG_QUEST_LIST_OPEN") end
 end
 
@@ -854,9 +818,8 @@ function D.Move(delta)
   D.Select(list[pos])
 end
 
--- Enter / A: finish the text if it's still typing, else take the selected reply.
+-- Enter / A: take the selected reply.
 function D.Confirm()
-  if reveal.active then finishReveal(); return true end
   if selected then D.Click(selected); return true end
   return false
 end
@@ -895,15 +858,10 @@ function D.ShowAnswer(text, topicName, linked, said)
   reveal.shown = 0
   if topicName then frame.subtitle:SetText("<" .. topicName .. ">") end
   D.Layout()
-  if instant() then
-    finishReveal()
-  else
-    startReveal()
-  end
+  finishReveal()
 end
 
--- New text for the same page (an item's name arrived): typing carries on where it was, and
--- finished text is simply replaced.
+-- New text for the same page (an item's name arrived): replaced in place.
 function D.UpdateText(text, linked)
   if not frame or not frame:IsShown() then return end
   reveal.full = text or ""
@@ -911,11 +869,7 @@ function D.UpdateText(text, linked)
   reveal.total = utf8Len(reveal.full)
   reveal.cuts = nil
   D.Layout()
-  if reveal.active then
-    reveal.shown = math.min(reveal.shown, reveal.total)
-  else
-    frame.text:SetText(reveal.linked or reveal.full)
-  end
+  frame.text:SetText(reveal.linked or reveal.full)
 end
 
 -- d: { value, name, why } or nil (setting off, or a game page).
@@ -1085,7 +1039,6 @@ function D.Click(i)
   if b.isGetOn then
     ns.Conversation.Business()
   elseif not b.locked then
-    D.FinishText()
     ns.Conversation.Choose(i)
   end
 end
@@ -1134,8 +1087,6 @@ function D.OnKey(self, key)
     if UI.TextOptions.IsShown() then UI.TextOptions.Hide()
     elseif ask.IsShown() then ask.Hide()
     else ns.Conversation.Close() end
-  elseif key == "SPACE" then
-    if reveal.active then handled = true; finishReveal() end
   elseif key == "UP" or (key == "TAB" and C.ShiftDown()) then
     handled = true
     D.Move(-1)

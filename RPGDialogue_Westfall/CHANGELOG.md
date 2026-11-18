@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-18)
+- More named NPCs the earlier passes missed now have conversations, and thin ones have more to say.
+- Major NPCs answer Admire, Taunt and Intimidate in their own voice, and turn you down in their own words when they won't talk.
+
 ## 1.25.0 (2026-11-18)
 - Journal: the note about each person is one short sentence (12 words or fewer) and shows on the People page only, not in the diary.
 

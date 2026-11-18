@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Felwood |cff8a8a8a1.23.0|r
+## Title: RPG Dialogue: Felwood |cff8a8a8a1.24.0|r
 ## Notes: A poisoned forest and the druids trying to heal it: the Emerald Circle's sanctuary, a laughing Forsaken alchemist at Bloodvenom Post, and a hooded druid trainer at Talonbranch Glade.
 ## Author: RPG Dialogue
-## Version: 1.23.0
+## Version: 1.24.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.felwood
@@ -28,3 +28,5 @@ npcs\jaedenar.lua
 npcs\impsy.lua
 npcs\talonbranch_trade.lua
 npcs\irontree_ancients.lua
+npcs\missed_folk.lua
+npcs\missed.lua

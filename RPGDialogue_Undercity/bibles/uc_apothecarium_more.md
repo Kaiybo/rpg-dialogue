@@ -15,3 +15,6 @@
 
 ## Never
 The New Plague is hinted, never explained. Nothing after Year 1.
+
+## Depth pass (authored, not canon)
+- Fuely: he and Cuely ground willow bark for a lord as boys; the jar that ate Doctor Halsey's notes; his testing wells and lens.

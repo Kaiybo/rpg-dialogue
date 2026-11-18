@@ -840,7 +840,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's kindly said, and I'll carry it down to the men on the wall, because they've had precious little thanks from anyone east of the river. It does a man good to hear that somebody sees what we're about." },
+        { id = "s2", text = "You honour the Militia, and I'll not turn that away. We've stood on this hill with borrowed swords and no pay, and a good word is most of what we're paid in." },
+      },
+      fail = {
+        { id = "f1", text = "I've had fine words from Stormwind for years, friend, and not one soldier came with them. Westfall can't eat praise, and I've lost my taste for it." },
+        { id = "f2", text = "Save that for the House of Nobles, who trade in it. On Sentinel Hill we judge folk by whether they come back from the Jangolode with their sword still wet." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Aye, a knight commanding farmers from a half-built tower, and I know how it looks. You've the nerve to say it to my face, and I've need of folk with nerve." },
+        { id = "s2", text = "That's a sharp tongue, and I'd sooner have it on my side of the wall than on the Defias side. Laugh at the Militia all you like, friend, so long as you fight beside it." },
+      },
+      fail = {
+        { id = "f1", text = "My people have buried sons in these fields while the Keep looked the other way, and I'll not hear them mocked on their own hill. Mind yourself." },
+        { id = "f2", text = "It's easy to jeer from behind someone else's wall. Go and walk the road to Moonbrook alone, and then tell me what's laughable about Westfall." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Peace, friend. I've no wish to cross blades with you while VanCleef's men are laughing in the fields, so I'll hear your demand and weigh it fairly." },
+        { id = "s2", text = "You've a fearsome way about you, and I'll own that it gave me pause. I've few enough fighters that I'll bend on this, though I'd rather you turned that look on the Defias." },
+      },
+      fail = {
+        { id = "f1", text = "I've faced the Horde's charge and the Brotherhood's knives, and neither made me give up this hill. You'll not do it with a hard word." },
+        { id = "f2", text = "Threats are what the Defias deal in, and I'd thought better of you. Stand down, or you'll learn how well farmers with pitchforks hold together when their captain's leaned on." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not something I'll speak of to one I've not yet seen stand with us. Do a turn for Westfall, and you'll find me more open." },
+      { id = "gt2", text = "I'll hold my tongue on that for now, friend. Too many ears on this hill have turned out to be the Brotherhood's, and I've learned to know a body first." },
+    },
     deadmines = {
       { id = "tp_deadmines", text = "The Defias are dug into the old Moonbrook mines, and somewhere in the dark below that town VanCleef gives his orders. When we have the proof, I'll ask the bravest people in Westfall to go down after him, and I'll ask you first." },
       { id = "tp_deadmines2", when = { class = "PALADIN" }, text = "The Deadmines will need a paladin's light in the dark, and I can't leave this hill to carry it myself. If you go down after VanCleef, go with the Light held high and come back to me." },

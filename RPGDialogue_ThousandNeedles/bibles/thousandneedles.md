@@ -25,7 +25,7 @@
 ## Never
 - Anything Cataclysm or later: the flood, the Speedbarge, the Grimtotem taking Freewind, **Longhorn's betrayal** (he is written straight: no hints, no dramatic irony; Year 1 doesn't know), Abeqwa's death, the Bilgewater Cartel.
 - Magistrix Elosai and anything about Silvermoon or blood elf addiction (Burning Crusade).
-- Magus Tirth (the page is unclear about his Classic role).
+- Magus Tirth's later fate (madness, Tirth's Haunt, blaming "Plucky" for the flood). His Classic role (chicken vendor at the raceway, author of Rituals of Power) is written in bibles/more_folk.md.
 - Quest details beyond the quest's own premise: who Thalia's missing people are, what Martek did, what the Hoof does.
 - Gossip verbatim (Pozzik's "great day for racing", Kravel's "important matters", Abeqwa's "wind on the plains").
 

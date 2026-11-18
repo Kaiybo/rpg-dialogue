@@ -6,6 +6,7 @@ P:NPC {
   key = "garthok", id = TODO_NPC("Gar'Thok"), name = "Gar'Thok",
   bible = "bibles/durotar.md", role = "soldier", tier = "major",
   communities = { "razor_hill" }, temper = { "terse" }, values = { "dutiful", "loyal" },
+  race = "Orc", likesTone = "blunt",
   notices = { "kit", "greenness" },
   impression = {
     first = "He holds Razor Hill as if all of Durotar depended on it.",
@@ -221,7 +222,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hm. That's well said, and I don't hear it often out here. I'll take it, and then we'll both get back to work." },
+        { id = "s2", text = "Razor Hill gets little thanks from Orgrimmar and less from those passing through, so I'll remember that you gave some." },
+      },
+      fail = {
+        { id = "f1", text = "I've reports to write and Kolkar on the border, and no time to be flattered. Say what you came to say." },
+        { id = "f2", text = "Words like that belong in throne rooms and not in barracks. If you want my good opinion, bring me a quilboar's head." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. You've nerve to talk that way in my barracks, and nerve is what I'm short of in this garrison. Keep it, because you'll need it past the gate." },
+        { id = "s2", text = "That's the first thing anyone's said all day that wasn't a complaint or a report. You've a quick tongue, {class}, and I don't mind it." },
+      },
+      fail = {
+        { id = "f1", text = "I don't have the patience for jesters. Take your wit out to the road and try it on the Razormane." },
+        { id = "f2", text = "Insult me again and you'll be mucking out the wolf pens until dark. I command this post, and you'll speak like you know it." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You've made your point, and I'm not fool enough to argue with it. I'd sooner have that temper pointed at the Kolkar than at me." },
+        { id = "s2", text = "I've led grunts into worse than you, but not much worse, I'll grant. Very well, I'm listening." },
+      },
+      fail = {
+        { id = "f1", text = "I've held this hill against quilboar, centaur and Kul Tiras marines, so one loud {class} doesn't trouble me." },
+        { id = "f2", text = "Threaten an officer of the Horde again and you'll do it from the stockade. Now stand down." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not for your ears, not until you've done more for this post than talk." },
+      { id = "gt2", text = "I don't discuss that with those I can't yet vouch for. Earn it, and ask me again." },
+    },
     knows = {
       { id = "tp_knows", text = "Every report from Durotar crosses my table, so I know what's happening and where. Ask, and be quick about it." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've done good work for Razor Hill, so you'll get more than a short answer from me, this once." },
@@ -657,7 +694,7 @@ P:NPC {
         { id = "h_op_jaina", tags = { "news" }, when = { gossip = { topic = "jaina", stance = "distrust" } },
           text = "I hear you don't trust the Proudmoore woman. Neither does anyone who drinks here, but say it outside, because Gar'Thok's under orders and he hates being reminded." },
         { id = "h_burden", when = { questActive = TODO_QUEST("A Peon's Burden") },
-          text = "That bundle I gave you goes to Ukor out in the Barrens and nobody else. Get it there, and don't let a peon sit on it." },
+          text = "That bundle on your back is the one Ukor sends from the valley, and it is meant for me. Hand it over, because I have been waiting on it for days." },
         { id = "h_scorpid", when = { metBefore = true }, text = "I shook a scorpid out of the blankets this morning. They weren't yours, probably, but check anyway." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the grunts on the wall, singing the old songs? They sing them badly, and I wouldn't change it for anything." },
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid! Mind your horns on the beam, and if you're looking for anything green out there, I'm sorry to say it's all rocks and scorpids." },

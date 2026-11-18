@@ -7,6 +7,7 @@ P:NPC {
   key = "shd_orgrul", id = TODO_NPC("Orgrul"), name = "Orgrul",
   bible = "bibles/shendralas.md", role = "questgiver", tier = "major",
   communities = { "magram", "valley_of_bones" }, temper = { "sharp", "proud" }, values = { "strong", "cunning" },
+  likesTone = "blunt",
   notices = { "class", "race", "deeds" },
 
   impression = {
@@ -400,7 +401,44 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You see the worth of my work, outsider, where the other clans see only something to spit at. That is a clearer eye than I expected, and I will remember whose it was." },
+        { id = "s2", text = "Few praise the one who tends the bones, even among the Magram. Your words are noted, and the valley has heard them as well as I have." },
+      },
+      fail = {
+        { id = "f1", text = "Soft words are what the weak use when they have no strength to offer. Bring me deeds, outsider, and leave the sweet talk for the Gelkis." },
+        { id = "f2", text = "You praise me, and I ask myself what you want from my valley. The dead never flatter, and that is one reason I prefer them." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You mock a necromancer among his dead, and you do not look over your shoulder. That is strength, outsider, and the Magram honour strength wherever it stands." },
+        { id = "s2", text = "Good. I have no use for those who creep and bow, and you do neither. A khan would kill you or feast you for such words, and I think he would feast you." },
+      },
+      fail = {
+        { id = "f1", text = "The bones have heard what you said, outsider, and they are less patient than I am. Do not speak so to me again in this valley." },
+        { id = "f2", text = "You bark like a Gelkis, loudly and from a safe distance. I have raised better warriors than you out of the dirt." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I see it. You are stronger than I judged, and among the Magram the stronger one speaks first, so speak, outsider, and I will listen." },
+        { id = "s2", text = "The dead at my back are many, and still you stand there as if they were grass. I respect only strength, and you have shown me enough of it to make me careful." },
+      },
+      fail = {
+        { id = "f1", text = "You threaten me in a valley where everything that ever died still answers when I call. Look around you, outsider, and count again." },
+        { id = "f2", text = "Fear is for the living, and I have spent too long among the dead to have much of it left. If you are strong, show it on the Gelkis and not with your voice." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is Magram business, and you have not shown me enough strength to hear it. Earn your place in this valley first." },
+      { id = "gt2", text = "I do not open my work to every outsider who comes down among the bones. When I think better of you, ask again." },
+    },
     scarlet_crusade = { { id = "tp_crusade", text = "Red-robed humans with hammers who come to smash my servants. The dead are not frightened of them, and neither am I." } },
     highborne = { { id = "tp_highborne", text = "Elves who lived in the ruins to the south and threw their strength away. The old one on the hill is all that walks there now, apart from the ghosts." } },
     background = { { id = "tp_bg", text = "I am Magram, and I serve my clan with the dead of this valley. That is all you need to know about me, outsider." } },

@@ -6,6 +6,7 @@ P:NPC {
   key = "doren", id = TODO_NPC("Lieutenant Doren"), name = "Lieutenant Doren",
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "major",
   communities = { "rebel_camp" }, temper = { "wary" }, values = { "dutiful", "loyal" },
+  likesTone = "blunt",
   notices = { "kit", "soldier" },
 
   impression = {
@@ -399,6 +400,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "It's been a long while since anyone had a good word for the men in this clearing, and I'll see that they hear it. Thank you, because praise is scarcer than rations this far from Stormwind." },
+        { id = "s2", text = "We've been called deserters by people who never set foot in this jungle, so I'll admit that sits well with me. You've an honest way about you, {class}." },
+      },
+      fail = {
+        { id = "f1", text = "Kurzen had a fine way with words too, and good men followed them straight into madness. I'd rather you kept the compliments and showed me what you can do." },
+        { id = "f2", text = "I don't need to be told I'm a good officer by someone who wants something from my camp. Say what you're after, and leave the rest." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hah. I haven't been spoken to like that since my drill sergeant in Stormwind, and I'd forgotten that I missed it. You've got some fight in you, and we can use that here." },
+        { id = "s2", text = "You've a sharp tongue, and you didn't flinch when you used it on a man holding a sword. That's more backbone than half the recruits Stormwind ever sent me." },
+      },
+      fail = {
+        { id = "f1", text = "My men have buried friends in this mud while the rest of the kingdom forgot us, so you'll watch how you speak in this camp. I won't warn you a second time." },
+        { id = "f2", text = "If you came all this way to mock the only soldiers still fighting the Colonel, you've wasted the walk. Mind your tongue, or take it back up the road." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, stand easy. I've seen enough killing in this jungle to know when someone means it, and I've too few men left to spend any proving a point. Tell me what you want." },
+        { id = "s2", text = "You've the look of the Colonel's worst when you do that, and I don't say it lightly. I'll hear you out, but lower your voice, because my sentries are nervous enough." },
+      },
+      fail = {
+        { id = "f1", text = "I broke with a colonel who had a whole expedition at his back and the jungle whispering in his ear, so you'll understand why one hard stare doesn't move me. Stand down." },
+        { id = "f2", text = "Every man in this camp has been threatened by better than you, and by people we used to call brothers. Try that again and you'll leave under guard." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "I keep my ears open and my mouth shut, mostly, but I'll answer what I can for someone on our side. Ask." },
@@ -413,6 +446,10 @@ P:NPC {
     second_war = { { id = "tp_second_war", text = "I fought in the Second War as a young man, and I learned that the jungle is worse than any orc. I didn't think I'd ever come back here." } },
     holy_light = { { id = "tp_holy_light", text = "Brother Nimetz prays to the Light for every man we lose, and I've stopped asking whether it helps. It helps him, and that's enough." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Some of my men go to the Arena on leave, and they come back with stories and wounds. I don't stop them, because it's better than going mad in camp." } },
+    _gated = {
+      { id = "gt1", text = "That's a matter for this camp and the people who've bled for it, and I don't know you well enough to count you among them. Ask me again when I do." },
+      { id = "gt2", text = "I'll not speak of that to someone I've only just stopped pointing a sword at. Earn some trust here first." },
+    },
     _none = { { id = "tp_none", text = "Ask the Brother. He does the thinking around here." } },
   },
 }

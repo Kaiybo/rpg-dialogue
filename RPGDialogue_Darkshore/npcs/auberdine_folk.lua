@@ -535,6 +535,8 @@ P:NPC {
     },
   },
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "Sentinel Glynda's people check every hull that ties up here. They are polite about it, and they miss nothing." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The dwarves of the League land with more crates than passengers. I have learned to stand well clear when they unload." } },
     background = { { id = "tp_bg", text = "I mind Auberdine's docks and tell travelers which pier is theirs. I've not missed a sailing in years." } },
     advice = { { id = "tp_advice", text = "Be on the pier before the bell, friend. Neither captain waits, and it's a long evening in Auberdine if you miss the last boat." } },
     _none = { { id = "tp_none", text = "That's beyond my dock, I'm afraid. Ask Shaussiy at the inn, or Thundris Windweaver if it's a grave matter." } },

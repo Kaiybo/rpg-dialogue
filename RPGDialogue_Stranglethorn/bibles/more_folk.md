@@ -25,3 +25,29 @@
 
 ## What they notice
 - Angrun: herbalists, alchemists. Hragran: battered kit. Nargatt: hunger, drink. Zudd: pets, cats. Kragg: troll hunters, pets.
+
+## Deepening pass and added NPCs  (new keys: krakk, brawn, jaxin_chong, mcgavan, riggle_bassbait, cowardly_crosby, knaz_blunderflame, corporal_kaleb)
+
+### Sources
+- warcraft.wiki.gg: Krakk (Superior Armorer, Grom'gol), Brawn_(NPC) (Leatherworking Trainer, Grom'gol; gossip about the humans enslaving the orcs), Jaxin_Chong (Alchemy Trainer, Boucher's Cauldron; gossip about Glyx's prices), McGavan (The Mithril Order; quests In Search of Galvan, The Mithril Order), Riggle_Bassbait (Fishmaster; Stranglethorn Fishing Extravaganza, Jang, Fishbot 5000), Cowardly_Crosby (Tailoring Supplies, Bloodsail camp on the Wild Shore), Knaz_Blunderflame (Engineering Supplies, hidden hill south of the Mosh'Ogg mound), Corporal_Kaleb (Rebel Camp cook; Krazek's Cookery, Return to Corporal Kaleb).
+- Existing pack: galvan.md, booty_bay files (Gnaz Blunderflame, Glyx Brewright, Riggle mentioned), rebel_camp.
+
+### Their quests
+- McGavan: The Mithril Order (gives): judges armorsmiths and sends them to Galvan the Ancient.
+- Riggle Bassbait: Master Angler (the Sunday tournament; forty Speckled Tastyfish).
+- Corporal Kaleb: Krazek's Cookery (gives), Return to Corporal Kaleb (ends): his mechanical pot, built by Krazek, is broken.
+- Others: none (vendors, trainers).
+
+### Identity / voice
+- Krakk · orc · gruff; iron over leather; a friendly feud with Hragran.
+- Brawn · orc · bitter, exacting; the internment camps; "a foothold".
+- Jaxin Chong · goblin · harried; herb prices; three benches.
+- McGavan · human · stern; looks at a smith's hands.
+- Riggle Bassbait · goblin · showman; "champ", "pal".
+- Cowardly Crosby · human · nervous captive tailor; "neutral trader".
+- Knaz Blunderflame · gnome · cheerful; numbers and percentages; tests above ogres.
+- Corporal Kaleb · human · weary cook; morale by the bowl.
+- Existing six (Angrun, Hragran, Kragg, Nargatt, Squibby, Zudd): two more branches each and replies for hunters, shamans, tauren, trolls, crafters.
+
+### Authored, not canon
+- Krakk's knee; Brawn making shoes in the camps; Jaxin's roof; McGavan's first breastplate in a river; Crosby taken off a merchantman; Knaz and Gnaz are "family" (relation unstated); who broke Kaleb's pot; Angrun taught by a Sen'jin troll; Nargatt carried flour for Thrall's army; Zudd's wolves.

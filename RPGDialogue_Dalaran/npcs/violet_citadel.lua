@@ -6,6 +6,7 @@ P:NPC {
   key = "dal_modera", id = TODO_NPC("Archmage Modera"), name = "Archmage Modera",
   bible = "bibles/dalaran.md", role = "scholar", tier = "major",
   communities = { "dalaran", "kirin_tor" }, temper = { "proud", "steady" }, values = { "loyal", "learned", "dutiful" },
+  likesTone = "polite", private = { "kelthuzad" },
   notices = { "class", "arcane", "faction" },
 
   impression = {
@@ -379,7 +380,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's graciously said, and I'll accept it on the Kirin Tor's behalf as well as my own. We've had few enough kind words since the city fell." },
+        { id = "s2", text = "You have good manners and better judgment, which I see less often than I'd like. Thank you, and I'll remember it." },
+      },
+      fail = {
+        { id = "f1", text = "I've sat on the council through three wars, and I've been flattered by ambassadors who did it for a living. You'll forgive me if I'm not swept away." },
+        { id = "f2", text = "That's very smooth, and I'm certain it works somewhere. In the Violet Citadel we're trained to look for what's behind an illusion." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. You'd do well in a council session, where that passes for a polite greeting. I'll concede the hit, and I'll warn you that I keep score." },
+        { id = "s2", text = "Oh, that's good, and Ansirem would be scandalized, which makes it better. It's refreshing to meet someone who isn't afraid of the robes." },
+      },
+      fail = {
+        { id = "f1", text = "I helped raise this city out of its own rubble, so I won't be sneered at inside it. Mind your tongue, or take it back down the stairs with you." },
+        { id = "f2", text = "That was clumsier than I expected from you. If you mean to provoke an archmage, do bring something sharper next time." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You've made your position very plain, and I'd rather not have a scene in the Citadel. Very well, I'll grant you this one." },
+        { id = "s2", text = "I'll admit you gave me pause, and that doesn't happen often. Say what you want, and I'll consider it more seriously than I'd intended." },
+      },
+      fail = {
+        { id = "f1", text = "I watched Archimonde tear this city down with a gesture. Whatever you're attempting, I assure you I've been threatened by better." },
+        { id = "f2", narr = "A ward shimmers faintly in the air between you.", text = "You're threatening a member of the council inside her own wards, which is either brave or foolish, and I know which I'd wager on. I suggest you step back." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's council business, and I don't discuss it with people I've only just met. Give me cause to trust you, and we'll see." },
+      { id = "gt2", text = "I could tell you, but I won't, not yet. The Kirin Tor have learned at great cost to be careful with what we share." },
+    },
     knows = {
       { id = "tp_knows", text = "Most of what happens in this city crosses my desk sooner or later, usually later. Ask, and I'll tell you what I can." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } },
@@ -649,7 +686,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Oh. Well, that's kind of you, and more than I usually hear between interruptions. I suppose I can spare you another moment." },
+        { id = "s2", text = "You've noticed the ward-work, which almost nobody does unless it fails. Thank you, for that was worth being interrupted for." },
+      },
+      fail = {
+        { id = "f1", text = "I'm very busy, and compliments take exactly as long to listen to as complaints. Please come to the point." },
+        { id = "f2", text = "Flattery is only a charm spell cast without talent. I teach apprentices to resist far better than that." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! That's the first interesting thing anyone has said to me all day. You're rude, but you're quick, and I can forgive a good deal for quick." },
+        { id = "s2", text = "My apprentices wouldn't dare say that, which is probably why they bore me. Fine, you've earned a moment of my attention." },
+      },
+      fail = {
+        { id = "f1", text = "I haven't the time to be insulted properly, so consider yourself dismissed instead. The stairs are behind you." },
+        { id = "f2", text = "How tiresome. I held wards while this city burned, and I won't be lectured in it by someone who wasn't there." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Yes, all right, there's no need to loom. I've work to finish and no wish to spend the afternoon arguing, so have it your way." },
+        { id = "s2", text = "You're more formidable than you looked when you came in, and I'll adjust my estimate accordingly. What is it you want?" },
+      },
+      fail = {
+        { id = "f1", narr = "She does not look up from her work.", text = "I have three wards up at this moment, and one of them is for you. Do lower your voice, because it disturbs the calibration." },
+        { id = "f2", text = "I was in this city when Archimonde came, so you'll understand why I'm not impressed. Try that again and you can explain yourself to the Citadel guard." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "I'm not in the habit of discussing that with people I hardly know. Ask me again when you've given me a reason to." },
+      { id = "gt2", text = "That's not something I'll go into with you, at least not yet. I'm careful about whom I tell things, and I've had cause to be." },
+    },
     knows = {
       { id = "tp_knows", text = "I know wards, portals and the state of this Citadel's foundations, which is to say, poor. Choose one." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Ask quickly, and I'll answer if it's short." },

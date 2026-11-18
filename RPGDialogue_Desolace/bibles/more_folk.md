@@ -23,3 +23,41 @@ Willow's falling-out with the apothecaries; Aboda's songs; Lui'Mala's daily chan
 
 ## Never
 Willow's true allegiance stated plainly; anything after Year 1 (no Cataclysm Desolace, no Khan Leh'Prah).
+
+## Added later (keys: azore, hornizz, bibbly, narv, lahmawhani, mailahii, wulan)
+
+### Sources
+- warcraft.wiki.gg (Classic parts only): Azore Aldamort <The Argent Dawn> (human mage, tower at Ethel Rethor; Sceptre of Light, Book of the Ancients). Hornizz Brimbuzzle (goblin, south-west of the Kodo Graveyard; Ghost-o-plasm Round Up; sister Melizza held by the Maraudine). Bibbly F'utzbuckle (goblin at Kormek's Hut; Bone Collector; he dances). Narv Hidecrafter <Leatherworking Trainer> (Ghost Walker Post). Lah'Mawhani <Trade Supplies>, Mai'Lahii <Fishing Supplies>, Wulan <Cooking Supplies> (Shadowprey Village).
+
+### Their quests
+- Azore: Sceptre of Light (from the Burning Blade seer at Thunder Axe Fortress), Book of the Ancients (Lord Kragaru, Ranazjar Isle). His Forever quests are not written here.
+- Hornizz: Ghost-o-plasm Round Up (ghost magnets, Valley of Bones, Magram spectres); ends Get Me Out of Here!.
+- Bibbly: Bone Collector (kodo bones from the graveyard; apparitions).
+- Narv, Lah'Mawhani, Mai'Lahii, Wulan: none.
+
+### Voices
+- **Azore Aldamort.** Learned, guarded, dry; studies the hand as well as the knife.
+- **Hornizz Brimbuzzle.** Goblin patter until his sister comes up, then only frightened.
+- **Bibbly F'utzbuckle.** Jittery, gleeful, dances to drown out the kodo ghosts.
+- **Narv Hidecrafter.** Deliberate, reverent; speaks to each hide; kodo only from Gurda's hand.
+- **Lah'Mawhani.** Sharp, teasing Darkspear trader; bargaining is the fun of it.
+- **Mai'Lahii.** Easy, superstitious; a charm on every line against the naga.
+- **Wulan.** Motherly, firm tauren cook among trolls; rations the pepper.
+
+### Authored, not canon
+Azore's doubts about the Dawn's priorities; Hornizz's skinless kodo; the skull on Bibbly's doorstep; Narv's words over a hide; Mai'Lahii's charms; Wulan's hidden store under the inn and her friendship with Sikewa.
+
+## Added later (keys: tukk, haewilani)
+
+### Sources
+- warcraft.wiki.gg (Classic parts only): Tukk <General Goods> (jungle troll, male, Shadowprey Village; the page has a Classic section; there is no wiki page for "Tukaw", so the Classic name Tukk is used). Hae'Wilani <Axecrafter> (jungle troll, female, axe vendor at Shadowprey Village).
+
+### Their quests
+- none: vendors, built from role, place and neighbours.
+
+### Voices
+- **Tukk.** Easy, sly Darkspear; reads a traveller by what has run out; homesick for Sen'jin's smoked fish.
+- **Hae'Wilani.** Exacting, fierce; axes and nothing else; complains about the forge and would not move it. Consistent with Lah'Mawhani's line that she buys flux and says it is not hot enough.
+
+### Authored, not canon
+Tukk's lost season against Lah'Mawhani, his torches cut open on the road, the waterskin he leaves for Drulzegar; Hae'Wilani's mother on the Echo Isles, the driftwood charcoal, and the axe she made for Drulzegar.

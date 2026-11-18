@@ -29,3 +29,48 @@
 
 ## Never
 Later fates (the Burning of Teldrassil), Cataclysm-era Teldrassil changes, anything after Classic.
+
+## Added later: missed folk (same file, npcs/more_folk.lua)
+
+### Sources
+- warcraft.wiki.gg: Tarindrella, Dazalar, Huntress Nhemai, Janna Brightmoon, Byancie, Aldia, Narret Shadowgrove, Nyoma, Khardan Proudblade, Dellylah, Alanna Raveneye. Placement: Shadowglen/Aldrassil (Tarindrella, Janna, Khardan, Dellylah), Dolanaar (Dazalar, Byancie, Aldia, Narret, Nyoma), the Darnassus road (Nhemai, with Moon Priestess Amara), Oracle Glade (Alanna).
+
+### Their quests (TODO_QUEST by title)
+- Tarindrella: The Woodland Protector (fel moss from the grells).
+- Dazalar: Taming the Beast (stalker, screecher, lurker), then on to Jocaste (Training the Beast).
+- Nhemai: none of her own; reacts to Amara's The Road to Darnassus.
+- Nyoma: Reminders of Home / Return to Nyoma (Sister Aquinne's recipe book).
+- Others: none. The wiki's Forever sections list Camping 101 and other quests for Byancie, Aldia and Alanna; not used until captured.
+
+### Voices
+**Tarindrella.** Gentle, grave dryad; "young one"; frank that the tree is unblessed.
+**Dazalar.** Few words; taming as befriending; makes students release what they tame.
+**Nhemai.** Terse escort; eyes on the trees.
+**Janna.** Fussy, warm clothier; keeps a sleeve from each year's young.
+**Byancie.** Calm bandager; "a wound is also a message".
+**Aldia.** Practical; rope and torches.
+**Narret.** Dry, exact; reads the village from what it buys.
+**Nyoma.** Generous, teasing; her standing quarrel with Zarrin.
+**Khardan.** Proud, kindly; tests the hand before the sale.
+**Dellylah.** Motherly; remembers what each young elf liked.
+**Alanna.** Absorbed; hears made things hum.
+
+### Authored, not canon
+Janna's shelf of sleeves; Khardan's three refused sales; Dellylah's hidden moonberry; Narret and Aldia's shared cart; the Nyoma/Zarrin soup quarrel; Alanna hearing the harpies' charms; Nhemai's tale of Amara tending a furbolg. Deepened entries (Danlyia, Keldas, Meri, Porthannius, Shalomon): neighbours and work; Shalomon at Hyjal is one line, never a tale.
+
+## Second sweep (vendors and Orenthil)
+
+### Sources
+- warcraft.wiki.gg: Sinda, Brannol Eaglemoon (Dolanaar); Andiss, Keina, Lyrai, Freja Nightwing (Aldrassil); Orenthil Whisperwind (Collector's Edition greeter, first placed in Shadowglen; his "Welcome!" quest is not used). All service; no quests.
+
+### Voices
+**Sinda.** Quiet, exacting leatherworker; reads people by their seams; shares a fire with Shalomon, Jeena and Meri.
+**Brannol Eaglemoon.** Gentle, wry clothier; bleaches by the lake; keeps what he hears at a fitting.
+**Andiss.** Steady, plain; straps first; sends the outgrown on to Cylania in Darnassus.
+**Keina.** Bright, teasing bowyer; watches the feet before she sells.
+**Lyrai.** Brisk, kindly; "twice around the trunk"; her candle treaty with Aldia.
+**Freja Nightwing.** Dry hunter turned seller; counts the webwood after dusk; distant kin of Fylerian.
+**Orenthil Whisperwind.** Courteous, bookish; self-appointed welcomer; no proven tie to Tyrande.
+
+### Authored, not canon
+Sinda refusing hides from near the Gnarlpine; Brannol's moon-bleaching and his quiet word to Kyra Starsong; Andiss's dwarven pauldron; the grell with Keina's arrows; Lyrai's flint inspection by Melithar; Freja's evening argument with Andiss and her kinship with Fylerian (left unconfirmed by both); Orenthil at the planting of Teldrassil.

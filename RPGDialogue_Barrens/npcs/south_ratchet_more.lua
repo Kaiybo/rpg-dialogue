@@ -111,6 +111,8 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Whoa, whoa, mind the crates, pal, they're stacked very carefully, I say, very carefully indeed, now. What can I do ya for?" },
     { id = "g_port", when = { questActive = TODO_QUEST("Trouble at the Docks") }, text = "Did ya get the port back from Mad Magglish? Tell me ya got it, because Gazlowe's been askin' about his shipment twice this morning." },
+    { id = "g_back", when = { metBefore = true }, text = "Hey, it's you again, I say, it's you! Nothin's fallen since ya left, which is a personal record, so don't jinx it." },
+    { id = "g_away", when = { away = 14 }, text = "Well, well, look who's back on my dock! I've moved four hundred crates since ya left, pal, and dropped hardly any, I say, hardly any." },
   },
 
   notice = {
@@ -118,6 +120,8 @@ P:NPC {
       text = "An engineer! Listen, listen, the boom arm's got a wobble in the third gear, and if you could just look at it I'd put it on my account, which is to say Gazlowe's account." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You look like a crate fell on you, pal, and believe me, I know the look. Was it one of mine?" },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "Whoa, a tauren! Listen, pal, don't stand on the loading platform, it's rated for cargo, and you're, well, I say, you're rated for more than cargo." },
   },
 
   start = "hello",
@@ -133,12 +137,18 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? Make it quick, the next ship's due and the boom's still wobbly." },
         { id = "h_again2", text = "Talk to me, pal, time's money and I'm runnin' a deficit." },
+        { id = "h_again3", text = "Still here, pal? Good, good, I say, stand right there, you're blockin' the foreman's view of the pile." },
       },
       choices = {
         { text = "Who is Mad Magglish?", next = "magglish" },
         { text = "Why does one bottle of port matter so much?", next = "port" },
         { text = "How does this crane work?", next = "crane" },
         { text = "Does Gazlowe know what happened?", next = "gazlowe" },
+        { text = "That's a great deal of broken crate for one morning.", next = "crates" },
+        { text = "The whole dock seems to run through your crane.", next = "docks" },
+        { text = "I could steady that boom arm for you.", next = "engineer", when = { profession = "Engineering" } },
+        { text = "I've the shoulders for it. Want those crates restacked?", next = "strong", when = { race = { "Tauren", "Orc" } } },
+        { text = "Quick fingers could have lifted that port unseen.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },
@@ -165,14 +175,69 @@ P:NPC {
       big = true,
       lines = { { id = "ga_default", text = "Not yet, and if you're a friend of mine, he won't. I'm not askin' ya to lie, exactly, I'm just askin' ya to not mention it, which is a completely different line on the ledger." } },
       choices = {
+        { text = "What sort of boss is Gazlowe?", next = "gazlowe2" },
         { text = "Tell him yourself. He'll respect the honesty.", next = "BACK", reply = "Respect? Pal, Gazlowe respects a balanced ledger and nothin' else, and mine's got a whole cargo hold missin' from it. I'll tell him, sure, right after I've fixed it, which is a very honest kind of later.", fx = { align = { honor = 1 } } },
         { text = "Your secret's safe. Get the port back first.", next = "BACK", reply = "Now that's what I call a valued customer, friend, and I'll remember it when the next crate falls. Give me a week and that port'll run so smooth he'll never think to ask.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
+    gazlowe2 = {
+      lines = { { id = "ga2_default", text = "He's a fair boss, pal, fairest in the Cartel, and that's the trouble! A mean boss, you can hate. Gazlowe just looks at ya, real disappointed, and then he does the arithmetic out loud on what ya cost him. I'd rather be yelled at, I say, I'd pay to be yelled at." } },
+      choices = {
+        { text = "Then why not simply tell him?", next = "gazlowe3" },
+        { text = "Something else, Bigglefuzz.", next = "BACK" },
+      },
+    },
+    gazlowe3 = {
+      big = true,
+      lines = { { id = "ga3_default", text = "Because I got three cousins back home livin' on what this crane pays, and if I lose the lever, they lose the roof. I ain't proud of hidin' it, pal. But ya show me the line on the ledger where honesty pays their rent, and I'll walk up to his office this minute." } },
+      choices = {
+        { text = "Own it. A boss that fair will respect the truth.", next = "BACK", reply = "Ya think? Maybe after the port's back, I say, maybe then. A fella can confess a lot easier with the goods in his hand.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep quiet. What he never learns can't cost you.", next = "BACK", reply = "Now that's sound business thinkin', pal. Remind me to never play cards with ya.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crates = {
+      lines = { { id = "ct_default", text = "It's not as bad as it looks, I say, not nearly! That one was pickled fish, so, fine, that's a loss. That one's lamp oil, and it only leaked a little, and those three are rum from Booty Bay, which I've been salvagin' by the cupful so as not to waste it." } },
+      choices = {
+        { text = "You've been drinking the cargo?", next = "crates2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crates2 = {
+      lines = { { id = "ct2_default", text = "Salvagin', pal, salvagin', it's a recognised maritime practice! A spilled barrel's a write-off either way, and a write-off in my stomach is still a write-off. I got the paperwork half filled in already. Wharfmaster Dizzywig signs anything if ya catch him before his tea." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    docks = {
+      lines = { { id = "do_default", text = "It does, I say, every crate! Booty Bay ships in on the tide, Dizzywig counts it, I lift it, and it's on a cart to Orgrimmar or the Crossroads by noon. The Horde's whole supply of nails comes through this hook, pal. Ya like bein' indoors? Thank a crane operator." } },
+      choices = {
+        { text = "And when the crane is down?", next = "docks2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    docks2 = {
+      lines = { { id = "do2_default", text = "Then it's forty dockhands with ropes and a lot of swearin', and a ship sits in harbour costin' somebody money by the hour. And with the Southsea pirates anchored down the coast, pal, a ship sittin' still is a ship gettin' looked at. So I keep her runnin', wobble and all." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    engineer = {
+      lines = { { id = "en_default", text = "Would ya? Oh, pal, you're a prince, I say, a prince! Third gear from the top, it's got a tooth that's worn round, and every eleventh turn she skips. Don't touch the red lever while you're up there. I mean it. The last fella's still bein' collected." } },
+      choices = { { text = "I'll leave the red lever alone. Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    strong = {
+      lines = { { id = "st_default", text = "Ya would? Friend, that's the best offer I've had all week! Stack 'em label side out, heaviest on the bottom, and if ya find one that's drippin', put it behind the others where the foreman don't look. I'd pay ya, but I'm savin' up to not get fired." } },
+      choices = { { text = "Label side out. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Lifted it back, ya mean, I hope that's what ya mean! Listen, pal, if you're the type, Wrenix up the hill pays for exactly that kind of talent. Me, I just want one bottle returned to one crate before one boss counts 'em." } },
+      choices = { { text = "Back, of course. Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    booty_bay = { { id = "tp_bb", text = "Biggest port the Cartel's got, pal, and their cranes got brass fittings, I say, brass. I try not to think about it." } },
+    steamwheedle = { { id = "tp_cartel", text = "Best employer on two continents, and I say that as a fella who's one crate from findin' out about the others." } },
+    bloodsail = { { id = "tp_pirates", text = "Pirates is pirates, pal. The Southsea bunch park down the coast and eyeball every ship I unload, so I unload fast." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Desert town, no docks, no cranes. Can't see the appeal, I say, can't see it at all." } },
     background = { { id = "tp_bg", text = "I worked the cranes in Undermine as a kid, and these Ratchet ones are toys by comparison. Leaky, temperamental toys, I say." } },
     advice = { { id = "tp_ad", text = "Never stand under anything that's hangin' from a rope, pal. That's the whole of crane safety, right there." } },
     _none = { { id = "tp_none", text = "No idea, pal, and if I did I'd charge ya for it." } },
@@ -195,6 +260,9 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Step right up, step right up, but not too close to the apparatus, pal, it bites the unpaid." },
     { id = "g_zando", when = { questActive = TODO_QUEST("Wrenix of Ratchet") }, text = "Zando'zan sent another one down from Orgrimmar, huh? His last five went to feed the sharks, pal, so let's see if you can buck the trend." },
+    { id = "g_back", when = { metBefore = true }, text = "Hey, hey, look who's still breathin'! That puts ya ahead of most folks I do business with, pal." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "Now there's a walk I like, quiet on the heel. You're in the trade, friend, don't deny it, and I just might have an opening." },
+    { id = "g_away", when = { away = 14 }, text = "Well, well! I had ya written off, pal, and I mean in ink, there's a line in the book. Lemme just cross that out." },
   },
 
   notice = {
@@ -202,6 +270,8 @@ P:NPC {
       text = "Nice, nice, I almost didn't see ya, and I see everything that walks past my apparatus. That's the kind of skill I pay for." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "You clank, pal. You'd make a lousy thief and a great distraction, and I've got openings for both." },
+    { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
+      text = "Whoa, that purse has a healthy sound to it! Listen, listen, I got investment opportunities, real exclusive, ground floor." },
   },
 
   start = "hello",
@@ -217,12 +287,18 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, pal? Time's money, and you're spendin' mine." },
         { id = "h_again2", text = "Go on, ask, the first question's free and the rest go on account." },
+        { id = "h_again3", text = "Still askin'? Pal, you're curious, and curious is the second-best thing a thief can be, right after fast." },
       },
       choices = {
         { text = "What is that machine?", next = "apparatus" },
         { text = "Who sent the last five thieves?", next = "zando" },
         { text = "What's aboard the Tide Razor?", next = "ship" },
         { text = "Why do they call you Wretched?", next = "name" },
+        { text = "Robbing pirates sounds like a short career.", next = "career" },
+        { text = "You fence, you invent, you recruit. Who's the customer?", next = "customer" },
+        { text = "I'm a rogue. What do you take off the top?", next = "cut", when = { class = "ROGUE" } },
+        { text = "An engineer built that thing, and not a careful one.", next = "engineer", when = { profession = "Engineering" } },
+        { text = "A troll's vision sent me. Do you credit such things?", next = "troll", when = { race = "Troll" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -248,6 +324,7 @@ P:NPC {
       big = true,
       lines = { { id = "sh_default", text = "They knew the risks, pal, and they'd have been very rich if they'd come back, which is the whole point of risk. I don't push anybody aboard, I just make it worth their while to climb." } },
       choices = {
+        { text = "Do you even remember their names?", next = "sharks2" },
         { text = "Risk is the price of profit. That's fair.", next = "BACK", reply = "Finally, somebody who reads the small print before they sign. You'd do fine aboard that ship, pal, and I'd put you on the best terms I've got.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "You're spending lives to fill your pockets.", next = "BACK", reply = "Lives, pockets, they both go down with the tide eventually, sweetheart. Nobody climbs that rope at knifepoint, and every one of 'em went up grinning about the gold.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -261,9 +338,61 @@ P:NPC {
       lines = { { id = "na_default", text = "My grandpa was Wrenix the Wretched, and his dad, and it's good for business, because nobody ever suspects a fella called Wretched of havin' money. Besides, Wrenix the Wonderful was already taken by a cousin in Gadgetzan." } },
       choices = { { text = "Something else, Wrenix.", next = "BACK" } },
     },
+    sharks2 = {
+      lines = { { id = "sh2_default", text = "Sure I do, pal, I ain't made of clockwork. There was one kid, an orc, big ears, real polite, called me sir. He asked if the pirates kept dogs, and I said probably not. They got a parrot the size of a wolf on that boat. I think about the parrot." } },
+      choices = {
+        { text = "And you still told the next one it was safe.", next = "sharks3" },
+        { text = "Something else, Wrenix.", next = "BACK" },
+      },
+    },
+    sharks3 = {
+      big = true,
+      lines = { { id = "sh3_default", text = "No, see, that's where I improved! Next one, I told about the parrot. That's why there's an E.C.A.C. in the apparatus now, that's research and development, pal, paid for outta my end. I can't make the job safe. I can make it so nobody goes up that rope not knowin'." } },
+      choices = {
+        { text = "Fair warning is the least you owe them. Keep giving it.", next = "BACK", reply = "Yeah, yeah, that's about where I landed. It's bad for recruitment and good for sleepin', and I need the sleep.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Warnings scare off talent. Tell them less.", next = "BACK", reply = "Ha! That's cold, pal, and comin' from me that's a real observation. Nah. I tried that way, and the parrot won.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    career = {
+      lines = { { id = "cr_default", text = "For the thief, sure, sometimes real short! For me it's steady. See, the Southsea boys rob the ships comin' into Ratchet, I send somebody to rob the Southsea boys, and the goods end up back on the market at a small markup. It's practically a service to the port." } },
+      choices = {
+        { text = "Does Gazlowe see it as a service?", next = "career2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    career2 = {
+      lines = { { id = "cr2_default", text = "Gazlowe sees that his cargo comes back, and he don't look too hard at the invoice, which is my favourite quality in a civic leader. The bruisers leave me alone, I keep it off the docks, and everybody's ledger balances. That's Ratchet, pal. It ain't pretty, but it clears." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "ratchet" } } } },
+    },
+    customer = {
+      lines = { { id = "cu_default", text = "Anybody who lost somethin' and don't want to say how. Captains, mostly, and the odd merchant from Booty Bay. And the Shattered Hand in Orgrimmar sends me their green ones for seasonin', which I do at cost, on account of ya don't overcharge people who kill for a livin'." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cut = {
+      lines = { { id = "ct_default", text = "Standard arrangement, friend. You keep what's in your pockets when ya come down the rope, I keep the big chest, and the Hand gets a report on how ya did. Read it as generous. The last outfit I worked for, the thief kept the rope burns and that was it." } },
+      choices = {
+        { text = "The one who takes the risk should take the chest.", next = "BACK", reply = "And the one who built the apparatus, found the ship and bribed the lookout gets what, a handshake? Nice try, pal.", fx = { align = { order = -1 } } },
+        { text = "Terms are terms. I'll work to them.", next = "BACK", reply = "See, that's a professional. You and me are gonna get along, right up until one of us don't.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    engineer = {
+      lines = { { id = "en_default", text = "Hey, hey, careful is expensive! She's got a dispenser, a lock that knows a face, and a boiler I got off a Venture Company shredder that wasn't usin' it no more. Sputtervalve up the road says she's a hazard. Sputtervalve says that about everything that works." } },
+      choices = { { text = "She does look like a hazard. Something else.", next = "BACK" } },
+    },
+    troll = {
+      lines = { { id = "tr_default", text = "Pal, I credit anything that sends me customers. Zando'zan says the spirits show him who's got the gift, and so far the spirits been right about half the time, which honestly beats my own hirin' record. So sure. Welcome aboard, and thank the spirits for me." } },
+      choices = { { text = "I'll pass it along. Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    bloodsail = { { id = "tp_pirates", text = "Wrong pirates, pal, those are the Booty Bay problem. Mine are Southsea Freebooters. Different hats, same manners." } },
+    steamwheedle = { { id = "tp_cartel", text = "I ain't on the payroll, strictly, but I pay my dues and the bruisers know my face. It's what ya call an understandin'." } },
+    ratchet = { { id = "tp_ratchet", text = "Best town on the coast for a fella with initiative. Nobody asks where it came from, only what ya want for it." } },
+    venture_company = { { id = "tp_venture", text = "Bad outfit, pal, no ethics. I only buy their scrap after somebody else has liberated it." } },
+    booty_bay = { { id = "tp_bb", text = "Where the real money is, and the real competition. I like bein' a big fish up here where the pond's got fewer teeth." } },
     background = { { id = "tp_bg", text = "I came over from Undermine with a cart of spare parts and a talent for finding things other people lost on purpose." } },
     advice = { { id = "tp_ad", text = "Never rob a pirate on a full moon, pal. They can see ya, and they're all awake drinkin'." } },
     _none = { { id = "tp_none", text = "Don't know, and I don't sell what I don't know. Try Gazlowe, he sells everything." } },

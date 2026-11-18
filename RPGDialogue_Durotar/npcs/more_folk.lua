@@ -2,7 +2,10 @@
 -- Zjolnir (raptors), Xar'Ti (riding), Bom'bay (Gadrin's apprentice) and Hai'zan (butcher), Razor Hill's
 -- Grimtak (butcher), Cutac (cloth and leather) and Dhugru Gorelust (warlocks), the Valley of Trials'
 -- Shikrik (shaman) and Zlagk (butcher), and Raider Jhash on the road. Added later: Ukor, Ruzan, Nartok,
--- Jen'shan, Mai'ah, Rwag, Jark, Krunn, Lau'Tiki and Mishiki. Voices: bibles/more_folk.md
+-- Jen'shan, Mai'ah, Rwag, Jark, Krunn, Lau'Tiki and Mishiki. Second pass: Huklah, Rarc, Hraug (valley),
+-- Wuark, Ghrawt, Flakk, Dwukk, Harruk, Kitha, Mukdrak, Rawrk, Ophek, Furl Scornbrow (Razor Hill), K'waii,
+-- Trayexir, Tai'tasi, Miao'zan, Zansoa, Kali Remik (Sen'jin), and the zeppelin masters Frezza and
+-- Snurk Bucksquick at the tower outside Orgrimmar. Voices: bibles/more_folk.md
 local P = RPGDialogueAPI:Pack("rpgd.durotar")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
@@ -700,7 +703,7 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage, and still wearing that thin robe from the valley. You'll want something warmer before the Barrens wind gets you." },
-    { id = "n_worn", cat = "kit", when = { durability = { max = 30 } },
+    { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
       text = "That gear is hanging off you in strips. Uhgar can mend the metal, and whatever is past mending I can replace." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "Soft soles and dark leather. Kaplak's lot always buy the same things, and they always ask if I've got it in black." },
@@ -2025,7 +2028,7 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith. Dwukk will want to talk to you, and he'll want my ore to do it with, so we'll both be seeing more of you." },
-    { id = "n_worn", cat = "kit", when = { durability = { max = 30 } },
+    { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Your gear's in a worse state than my cart. See Uhgar or Wuark before you go anywhere there are quilboar." },
   },
   start = "hello",
@@ -2308,5 +2311,2086 @@ P:NPC {
     darkspear = { { id = "tp_darkspear", text = "A tribe keeps its knowledge in its old ones, and we lost many gettin' here. I teach so dat what I know don't die with me." } },
     thrall = { { id = "tp_thrall", text = "De Warchief gave us dry land and an honest welcome. I have had wetter land and worse neighbours." } },
     _none = { { id = "tp_none", text = "Dat grows outside my garden, so I leave it be." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Huklah: cloth and leather armor in the Valley of Trials.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "huklah", id = TODO_NPC("Huklah"), name = "Huklah", title = "Cloth & Leather Armor Merchant",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "valley_of_trials" }, temper = { "patient", "plain" }, values = { "practical", "craft" },
+  notices = { "class", "kit" },
+  impression = {
+    first = "Huklah sells cloth and leather in the Valley of Trials, most of it cut from the valley's own boars. He sizes up every recruit by eye and is seldom wrong about what will fit or how long it will last.",
+    third = "{name} met Huklah, who sells cloth and leather armor to the recruits of the Valley of Trials.",
+  },
+  greetings = {
+    { id = "g_default", text = "Stand still a moment and let me look at you. Yes, I have something that will fit, and it will be better than what you came in wearing." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, and the stitching held, I see. What has worn through this time?" },
+    { id = "g_low", when = { maxLevel = 3 }, text = "A new one, straight from Kaltunk. You'll want something between you and the boars, young one, and I am the orc who sells it." },
+    { id = "g_away", when = { away = 14 }, text = "It has been a while, and you've grown out of everything I ever sold you. That is how it should be." },
+  },
+  notice = {
+    { id = "n_caster", cat = "class", when = { class = { "MAGE", "WARLOCK", "PRIEST" } },
+      text = "You'll be wanting cloth, then. I keep it on the left, and I'll tell you now that none of it stops a scorpid's tail, so learn to stand further back." },
+    { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Those seams are one hard day from opening. I can't mend them for you, but I can sell you something that isn't already half undone." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Huklah. I sell robes, jerkins, boots and belts to the recruits, and every piece of leather on this table was a mottled boar not long ago. The valley doesn't give us much, so we use all of what it does." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you know? I can sew and listen at once." },
+        { id = "h_again2", text = "Ask, then. The needle doesn't mind." },
+        { id = "h_again3", text = "Go on. The next recruit isn't due until Kaltunk finishes his speech." },
+      },
+      choices = {
+        { text = "Let me see your armor.", next = "BUSINESS" },
+        { text = "Where does your leather come from?", next = "leather" },
+        { text = "The recruits must go through a lot of gear.", next = "recruits" },
+        { text = "Cloth seems a poor shield against a scorpid.", next = "cloth" },
+        { text = "I skin my own kills. Would you buy boar hide?", next = "skinner", when = { profession = "Skinning" } },
+        { text = "That's all, Huklah.", next = "END" },
+      },
+    },
+    leather = {
+      lines = { { id = "le_default", text = "From the mottled boars, nearly all of it. Zlagk takes the meat and I take the hide, and between us there is very little boar left over for the vultures." } },
+      choices = {
+        { text = "Who does the tanning?", next = "leather2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    leather2 = {
+      lines = { { id = "le2_default", text = "I do, downwind of the Den, because Gornek said he would move me to the far cliff himself if he smelled the pits again. It is slow work in this heat, but a hide cured in Durotar's sun comes out hard as a shield rim." } },
+      choices = {
+        { text = "And the scorpid shells?", next = "leather3" },
+        { text = "Something else, Huklah.", next = "BACK" },
+      },
+    },
+    leather3 = {
+      big = true,
+      lines = { { id = "le3_default", text = "Too brittle to wear, though the young ones keep bringing me carapaces and asking. I tell them a recruit should earn better armor, not beg for it, and some of them think I'm being hard on them." } },
+      choices = {
+        { text = "They should earn it. Hardship makes the warrior.", next = "BACK", reply = "That is what the camps taught us, though it was a bitter school. I'll keep saying it.", fx = { align = { honor = 1 } } },
+        { text = "A recruit who dies for want of armor learns nothing.", next = "BACK", reply = "Hm. Gornek says the same, and he has buried more of them than I have. Perhaps I'll set a few old pieces aside.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    recruits = {
+      lines = { { id = "re_default", text = "More than you'd believe. A recruit goes out to the scorpids in the morning and comes back at dusk with one sleeve and a story. Rarc sells them the mail and shields, I sell them everything softer, and neither of us is ever idle." } },
+      choices = {
+        { text = "Do you remember the ones you outfit?", next = "recruits2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    recruits2 = {
+      lines = { { id = "re2_default", text = "I remember their sizes better than their names. Now and then one comes back through the valley years on, in armor I could never make, and stops to tell me so. Those are the good days." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cloth = {
+      lines = {
+        { id = "cl_default", text = "It is, and I tell every young caster so. A robe keeps the sun off and leaves your arms free, and that is all it does. Mai'ah's students learn quickly that the best armor a mage has is the distance between them and the stinger." },
+        { id = "cl_caster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } }, text = "It is, and you'll know that better than I do before the week is out. A robe keeps the sun off and leaves your arms free, and the rest is up to how far back you stand." },
+      },
+      choices = { { text = "I'll remember to stand back. Something else.", next = "BACK" } },
+    },
+    skinner = {
+      lines = { { id = "sk_default", text = "I would, if the cut is clean and you haven't dragged it through the dust. Bring them flat, not rolled. And when you reach Razor Hill, show your work to Cutac, who pays more for good hides than a valley tailor can." } },
+      choices = { { text = "Flat, not rolled. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Buy boots before you buy anything else. An orc who can't walk can't fight, and this valley is all stones." } },
+    burning_blade = { { id = "tp_blade", text = "They wear robes I didn't sell them, up in that cave. That is all I care to know of them, and it is already too much." } },
+    thrall = { { id = "tp_thrall", text = "When the Warchief freed the camps we wore rags. Now every recruit leaves this valley properly dressed, and I count that among his victories." } },
+    internment = { { id = "tp_internment", text = "We patched what we had with what we could steal. I learned to sew there, with a bone needle, and I've not stopped since." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you. If it can't be cut and stitched, it's outside my trade." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Rarc: armorer and shieldcrafter in the Valley of Trials.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "rarc", id = TODO_NPC("Rarc"), name = "Rarc", title = "Armorer & Shieldcrafter",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "valley_of_trials" }, temper = { "gruff", "proud" }, values = { "craft", "strength" },
+  notices = { "class", "kit" },
+  impression = {
+    first = "Rarc sells mail and shields in the Valley of Trials and raps each shield with his knuckles before he lets it go. He thinks a recruit's first shield matters more than a recruit's first axe.",
+    third = "{name} met Rarc, the armorer and shieldcrafter of the Valley of Trials.",
+  },
+  greetings = {
+    { id = "g_default", text = "Mail and shields, {class}. Pick one up and feel the weight before you ask me the price." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Show me the dents, I like to see where they landed." },
+    { id = "g_low", when = { maxLevel = 3 }, text = "Fresh from Kaltunk, are you? Then you've nothing on your arm, and that will get you stung before sundown." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone long enough to wear out three shields. I hope you did." },
+  },
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior. Frang will teach you to swing, and I'll tell you what he won't: the arm that holds the shield wins as many fights as the arm that holds the axe." },
+    { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "That gear has taken a beating and given up. There is no shame in the dents, only in walking out again without mending them." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Rarc. The iron comes down from Orgrimmar in bars and I turn it into something that stands between a recruit and a scorpid's tail. It is plain work, and plain work is what keeps the young ones alive." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Speak up over the hammer." },
+        { id = "h_again2", text = "Go on, then. The rivets will wait a moment." },
+        { id = "h_again3", text = "Ask it. I've a shield cooling, and nothing to do until it has." },
+      },
+      choices = {
+        { text = "Show me your armor.", next = "BUSINESS" },
+        { text = "What makes a good first shield?", next = "shield" },
+        { text = "You work a long way from a proper forge.", next = "forge" },
+        { text = "Who else arms the recruits here?", next = "others" },
+        { text = "A shaman carries a shield too, armorer.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Strength and honor, Rarc.", next = "END" },
+      },
+    },
+    shield = {
+      lines = { { id = "sh_default", text = "One you can lift all day. The young ones want the biggest slab of iron on the rack, and by noon it is hanging at their knee and the scorpid is past it. A small shield held high is worth two great ones held low." } },
+      choices = {
+        { text = "And when they won't listen?", next = "shield2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shield2 = {
+      lines = { { id = "sh2_default", text = "Then I sell them the big one, and they come back at dusk with a sore shoulder and a new respect for me. Some lessons an orc has to carry up a hill before he believes them." } },
+      choices = {
+        { text = "That seems a hard way to teach.", next = "shield3" },
+        { text = "Something else, Rarc.", next = "BACK" },
+      },
+    },
+    shield3 = {
+      big = true,
+      lines = { { id = "sh3_default", text = "It is the way I was taught, and the way I know. Frang says I should refuse the sale outright, and I say an orc who is forbidden a mistake only makes it later, somewhere worse than this valley." } },
+      choices = {
+        { text = "Let them choose. A warrior owns his mistakes.", next = "BACK", reply = "Lok'tar. You'd have done well in my old warband, and you'll do well enough here.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Frang is right. An elder should simply refuse.", next = "BACK", reply = "You sound like him. Perhaps you are both right, and I am only a stubborn old smith, but I'll think on it.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forge = {
+      lines = { { id = "fo_default", text = "I do. There is no true forge in the valley, only my brazier and a small anvil, so I rivet and fit here and leave the heavy work to the smiths of Orgrimmar. When you reach Razor Hill, look for Wuark, who has a real fire and knows what to do with it." } },
+      choices = {
+        { text = "Do you miss the heavy work?", next = "forge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forge2 = {
+      lines = { { id = "fo2_default", text = "Some days. But a hundred recruits pass through here in a season, and every one of them walks out behind something I fitted to their arm. No smith in Orgrimmar can say that." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    others = {
+      lines = { { id = "ot_default", text = "Kzan Thornslash sells the blades and axes, and he will talk your ear off about edges. Huklah has the leather and cloth, and Duokna has everything else. Between the four of us a recruit can walk out of here looking almost like a soldier." } },
+      choices = { { text = "Almost is a start. Something else.", next = "BACK" } },
+    },
+    shaman = {
+      lines = { { id = "sm_default", text = "So Shikrik keeps telling me, and I have nothing against it. The spirits may turn a blade for you, {name}, but I have never seen one turn a scorpid's tail, so take the shield as well." } },
+      choices = { { text = "I'll take both. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Keep the shield up when you're tired. That is when you'll want to drop it, and that is when you'll need it." } },
+    burning_blade = { { id = "tp_blade", text = "Orcs who went crawling back to the demons, after all it cost us to be free of them. I'd not sell them a bent rivet." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief wears Doomhammer's own plate. I saw it once, close, and I have been trying to match the riveting ever since." } },
+    quilboar = { { id = "tp_quilboar", text = "They make shields out of hide and thorn. It is poor work, but I'll say they hold them properly, which is more than some recruits do." } },
+    _none = { { id = "tp_none", text = "That is not something I know. Ask me about iron and I'll answer all day." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Hraug: demon trainer in the Den, Valley of Trials.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "hraug", id = TODO_NPC("Hraug"), name = "Hraug", title = "Demon Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "valley_of_trials" }, temper = { "gruff", "short" }, values = { "discipline", "practical" },
+  notices = { "class", "pet" },
+  impression = {
+    first = "Hraug teaches young warlocks to command their demons in the back of the Den, with burn scars to his elbows and no patience for carelessness. He speaks of an imp the way a kennel master speaks of a dog that bites.",
+    third = "{name} met Hraug, the scarred orc who trains warlocks' demons in the Valley of Trials.",
+  },
+  greetings = {
+    { id = "g_default", text = "Keep your voice down in here. The imps listen, and they repeat what they hear to things you would rather not meet." },
+    { id = "g_warlock", when = { class = "WARLOCK" }, text = "Another one of Nartok's. Let me see how your demon stands when you speak to it, and then I'll know what you need from me." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Has it obeyed you since we last spoke, or has it only let you think so?" },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone a long while, and you still have your eyebrows. Either you've learned, or you've been lucky." },
+  },
+  notice = {
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman. Shikrik has already told me what the spirits think of my work, so you may spare us both the trouble of saying it again." },
+    { id = "n_hunter", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "Your {pet} doesn't like the smell in here, and it has more sense than most of my students. A beast serves because it trusts you. Mine serve because they must." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Hraug. Nartok teaches the young ones how to call a demon, and I teach them how to keep it on its leash once it has come. I sell the grimoires for that, and I don't sell them to anyone who laughs while I'm talking." },
+        { id = "h_other", when = { class = { "WARRIOR", "HUNTER", "ROGUE", "MAGE", "PRIEST", "SHAMAN", "DRUID" } }, text = "Hraug. I train the demons that warlocks call, and since you are no warlock, I have nothing to sell you. You may ask your questions, if you ask them quietly." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Be quick, the circle wants redrawing." },
+        { id = "h_again2", text = "Ask, then, and keep your hands away from that shelf." },
+        { id = "h_again3", text = "Go on. I'm listening, and so is the imp, so choose your words." },
+      },
+      choices = {
+        { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "How do you make a demon obey?", next = "obey" },
+        { text = "Those burns on your arms look old.", next = "scars" },
+        { text = "The other trainers keep their distance from you.", next = "den" },
+        { text = "My imp talks back more than I'd like.", next = "imp", when = { class = "WARLOCK" } },
+        { text = "I'll leave you to your circles.", next = "END" },
+      },
+    },
+    obey = {
+      lines = { { id = "ob_default", text = "You never ask it for anything. You tell it, once, in words it cannot twist, and you watch what it does with its eyes while it obeys. A demon looks for the gap in every order the way water looks for the crack in a jar." } },
+      choices = {
+        { text = "And if it finds the gap?", next = "obey2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    obey2 = {
+      lines = { { id = "ob2_default", text = "Then you banish it and begin again, and you don't call that one back until you know what you said wrong. A student of Nartok's once told his imp to light the brazier and didn't say which one, and it chose the one nearest his robe." } },
+      choices = {
+        { text = "Is such a servant worth the trouble?", next = "obey3" },
+        { text = "Something else, Hraug.", next = "BACK" },
+      },
+    },
+    obey3 = {
+      big = true,
+      lines = { { id = "ob3_default", text = "The demons made slaves of our whole people once. Every imp I put on a leash is a small part of that debt paid back, and the Horde gets a weapon in the bargain. That is how I see it, though I know others in this valley do not." } },
+      choices = {
+        { text = "Turning their own kind against them is fitting.", next = "BACK", reply = "It is. Hold to that, and hold the leash tighter than you hold the thought.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A debt paid in demons only grows.", next = "BACK", reply = "Shikrik says that, in nearly those words. I've not found an answer that satisfies him, and I've stopped looking for one.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scars = {
+      lines = { { id = "sc_default", text = "They are, and I earned every one by being careless when I was younger than you. I leave my sleeves rolled so the students can see them. It saves me a great deal of talking." } },
+      choices = {
+        { text = "Does it work on them?", next = "scars2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scars2 = {
+      lines = { { id = "sc2_default", text = "On most. The rest get a scar or two of their own before they believe me, and after that they are the most careful of the lot. I've not lost a student yet, and I mean to keep it so." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    den = {
+      lines = { { id = "de_default", text = "They do, and I'd think less of them if they didn't. Gornek asked that we keep to the back of the Den where the recruits don't wander, and Ruzan sees that nobody comes to us who isn't fit to. It is a fair arrangement, and I've no quarrel with it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    imp = {
+      lines = { { id = "im_default", text = "They all do, because talk is the only weapon a leashed imp has left. Let it chatter, and never answer a question it asks you. The day you start explaining yourself to it is the day it starts giving the orders." } },
+      choices = { { text = "No answers for the imp. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Say what you mean, and nothing more. That serves with demons, and it serves nearly as well with orcs." } },
+    burning_blade = { { id = "tp_blade", text = "They've forgotten which end of the leash they hold. I could walk into that coven and tell you which of them is owned already, by the way their demons look at them." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief lets us practise where he can see us. It is more trust than we've earned, and I'll not be the one who spoils it." } },
+    elements = { { id = "tp_elements", text = "The spirits want nothing to do with me, and I return the courtesy. Ask Shikrik." } },
+    _none = { { id = "tp_none", text = "I don't know, and I'd not say it in front of the imp if I did." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Wuark: armorer and shieldcrafter at the Razor Hill forge.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "wuark", id = TODO_NPC("Wuark"), name = "Wuark", title = "Armorer & Shieldcrafter",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "razor_hill" }, temper = { "steady", "blunt" }, values = { "craft", "duty" },
+  notices = { "kit", "class" },
+  impression = {
+    first = "Wuark hammers out mail and shields at the Razor Hill forge and can tell from a dent what struck it. He arms the garrison first and the travellers after, and makes no apology for the order.",
+    third = "{name} met Wuark, the armorer and shieldcrafter at the forge in Razor Hill.",
+  },
+  greetings = {
+    { id = "g_default", text = "If you want mail or a shield, you've found the right fire. If you want a blade, Uhgar is two paces to your left." },
+    { id = "g_back", when = { metBefore = true }, text = "Back at my anvil. Let me see what Durotar has done to you since." },
+    { id = "g_low", when = { maxLevel = 7 }, text = "You've come up from the valley in Rarc's work, by the look of it. It's honest gear, and you've outgrown it." },
+    { id = "g_away", when = { away = 14 }, text = "Long time, {class}. The forge has not gone cold once while you were away." },
+  },
+  notice = {
+    { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "That's a quilboar's work on your shoulder, or a marine's cutlass. Either way it will not turn the next blow, and I can sell you something that will." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "Tarshaw sends his warriors to me before he sends them to the Barrens. He's a wise orc, and you'd do well to follow his habit." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Wuark. I make the mail and the shields for Gar'Thok's garrison, and what the garrison doesn't need, I sell. Razor Hill stands at the crossing of every road in Durotar, so there is always someone at my anvil with a dent to show me." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Talk while the iron heats." },
+        { id = "h_again2", text = "Go on. Krunn's smelter is slow today, so I've time." },
+        { id = "h_again3", text = "Ask. I can hammer and listen." },
+      },
+      choices = {
+        { text = "Show me your armor.", next = "BUSINESS" },
+        { text = "What does the garrison wear out fastest?", next = "garrison" },
+        { text = "You can read a fight from a dent, they say.", next = "dents" },
+        { text = "Four of you share one forge.", next = "forge" },
+        { text = "I work iron myself. Any word for a smith?", next = "smith", when = { profession = "Blacksmithing" } },
+        { text = "Keep the fire hot, Wuark.", next = "END" },
+      },
+    },
+    garrison = {
+      lines = { { id = "ga_default", text = "Shields, always shields. The Razormane throw themselves at a shield wall with those thorned clubs, and the wood splits before the iron bends. I rim them twice now, and the grunts still bring me kindling." } },
+      choices = {
+        { text = "And the Kul Tiras men?", next = "garrison2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    garrison2 = {
+      lines = { { id = "ga2_default", text = "They are a different trouble. A marine's rifle ball goes through mail as if it were cloth, and I've no answer to that at this forge. Plate would stop it, but there is not enough iron in all Durotar to put the garrison in plate." } },
+      choices = {
+        { text = "So what do you tell the grunts?", next = "garrison3" },
+        { text = "Something else, Wuark.", next = "BACK" },
+      },
+    },
+    garrison3 = {
+      big = true,
+      lines = { { id = "ga3_default", text = "I tell them to close the distance quickly, which is no comfort to the one who goes first. Mukdrak says he could make us rifles of our own if Gar'Thok would allow it, and Gar'Thok says an orc fights with an axe." } },
+      choices = {
+        { text = "Gar'Thok is right. An axe is the orc's way.", next = "BACK", reply = "It is the old way, and I love it as he does. I only wish the old way stopped rifle balls.", fx = { align = { honor = 1 } } },
+        { text = "Use what wins. Give the garrison rifles.", next = "BACK", reply = "You and Mukdrak should drink together. Say it to the commander if you dare, for I've said it twice already.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dents = {
+      lines = { { id = "de_default", text = "I can, well enough. A club leaves a bowl, a spear leaves a pit, and a scorpid's tail leaves a small neat hole that I don't like to see near the neck. Most of what I see is on the left side, where a tired arm lets the shield drop." } },
+      choices = {
+        { text = "What do you make of mine?", next = "dents2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dents2 = {
+      lines = {
+        { id = "de2_default", text = "That you have been in a fight or two and walked away, which is all a set of armor is asked to tell anyone. Keep it mended, and it will go on telling the same story." },
+        { id = "de2_cloth", when = { class = { "MAGE", "WARLOCK", "PRIEST" } }, text = "That you wear cloth, and that whatever hit you didn't need to try very hard. I've nothing on this rack you could carry, so stay behind someone I've armored." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    forge = {
+      lines = { { id = "fg_default", text = "We do, and we've learned each other's elbows. Uhgar has the grindstone, Dwukk has the big anvil for his students, Krunn feeds the smelter, and I take whatever corner is left. It is crowded, but a garrison town can't keep four fires where one will serve." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    smith = {
+      lines = { { id = "sm_default", text = "Only this: rivet from the centre outward, or the plate will buckle on you. Dwukk will teach you the rest properly, and if you can bring him copper from Krunn he'll think the better of you for it." } },
+      choices = { { text = "From the centre outward. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Mend your gear before you leave town, not after you wish you had. The road to the Crossroads has no forge on it." } },
+    quilboar = { { id = "tp_quilboar", text = "They hit hard and they hit low. I've started making the greaves heavier on their account." } },
+    burning_blade = { { id = "tp_blade", text = "Orgnil has asked me whether anyone has ordered armor they didn't want marked with the Horde's sign. Nobody has, yet." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief asks that every grunt have a shield before any officer has a second one. I work to that rule gladly." } },
+    centaur = { { id = "tp_centaur", text = "A centaur spear has a long reach. The caravan guards ask for taller shields because of it." } },
+    _none = { { id = "tp_none", text = "I couldn't say. It's not a thing that comes to an anvil." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Ghrawt: bowyer in Razor Hill.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ghrawt", id = TODO_NPC("Ghrawt"), name = "Ghrawt", title = "Bowyer",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "razor_hill" }, temper = { "quiet", "exacting" }, values = { "craft", "patient" },
+  notices = { "class", "pet" },
+  impression = {
+    first = "Ghrawt makes and sells bows in Razor Hill, and complains that Durotar grows no tree worth bending. He strings each bow himself and listens to it before he will sell it.",
+    third = "{name} met Ghrawt, the bowyer of Razor Hill.",
+  },
+  greetings = {
+    { id = "g_default", text = "Bows, arrows and quivers. Draw one if you like, but don't loose it dry, or you'll buy it whether you want it or not." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Good, then you'll know what you're holding. Thotar sends me his best and his worst, and I can't yet tell which you are." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back. Did the string hold, or did you leave it out in the sun as I told you not to?" },
+    { id = "g_away", when = { away = 14 }, text = "It has been some time. A bow left unstrung that long wants oil, and so, I think, do you." },
+  },
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "That {pet} of yours stands on your left, so it has been taught to keep clear of your bow arm. Someone trained it properly." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear. Your people throw axes and spears farther than most orcs can shoot, and I still don't understand how it is done." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Ghrawt, and I make bows in a land with no trees, which tells you how stubborn I am. The staves come by cart from the Barrens and beyond, and I shape them here for the garrison's scouts and for any hunter with the coin." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I'm only waiting for glue to set." },
+        { id = "h_again2", text = "Ask it. A bowyer has more patience than most." },
+        { id = "h_again3", text = "Go on, then, and mind the staves behind you." },
+      },
+      choices = {
+        { text = "Let me see your bows.", next = "BUSINESS" },
+        { text = "Where do you find wood in Durotar?", next = "wood" },
+        { text = "Orcs aren't known as archers.", next = "archers" },
+        { text = "The scouts must keep you busy.", next = "scouts" },
+        { text = "What draw would you give a hunter my size?", next = "draw", when = { class = "HUNTER" } },
+        { text = "Good hunting, Ghrawt.", next = "END" },
+      },
+    },
+    wood = {
+      lines = { { id = "wo_default", text = "I don't, and that's the whole of my trouble. The trees here are thorn and scrub, fit for burning. My staves come from the Barrens oases and now and then from Ashenvale, when the Warsong send a cart south with something better than firewood on it." } },
+      choices = {
+        { text = "Ashenvale wood must be fine to work.", next = "wood2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wood2 = {
+      lines = { { id = "wo2_default", text = "It is the best I have ever had in my hands. It is straight, and old, and it bends as if it wanted to. The carters tell me the night elves kill for every tree that falls there, and when I've a stave of it on the bench I half understand them." } },
+      choices = {
+        { text = "Yet you still buy it.", next = "wood3" },
+        { text = "Something else, Ghrawt.", next = "BACK" },
+      },
+    },
+    wood3 = {
+      big = true,
+      lines = { { id = "wo3_default", text = "I do. A scout with a good bow comes home, and a scout with a thorn-wood bow may not. I've thought about what that wood costs someone else, and I've not stopped buying it, so make of that what you will." } },
+      choices = {
+        { text = "Our scouts come first. The elves have forest to spare.", next = "BACK", reply = "That is what I tell myself when the cart arrives. It is true enough to work by.", fx = { align = { light = -1 } } },
+        { text = "A bow isn't worth a war with the elves.", next = "BACK", reply = "Perhaps not. I'd make do with oasis wood if the Warchief asked it, and I'd not be sorry to be asked.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    archers = {
+      lines = { { id = "ar_default", text = "We weren't, for a long time. The old clans thought an arrow was a coward's weapon, and then we spent years in the camps with nothing in our hands at all. Now the young ones will take any weapon that works, and I think that is the better way." } },
+      choices = {
+        { text = "Who taught you, then?", next = "archers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    archers2 = {
+      lines = { { id = "ar2_default", text = "A Darkspear, on the voyage west, with a ship's rail for a bench. He laughed at everything I made for a month. I've not seen him since we landed, but every bow on this wall has something of his in it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    scouts = {
+      lines = { { id = "sc_default", text = "They do. Gar'Thok keeps watchers on Tiragarde Keep and on the Razormane dens, and a watcher wants to strike from far off and be gone. Takrin Pathseeker's people go through arrows faster than I can fletch them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    draw = {
+      lines = { { id = "dr_default", text = "Lighter than you'd ask for. Every young hunter wants the heaviest bow on the wall, and then can't hold it at full draw long enough to aim. Take one you can hold steady while you count to ten, and Harruk will tell you the same about your beast." } },
+      choices = { { text = "Steady to the count of ten. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Unstring your bow at night. It needs rest the same as you do, and it complains less about getting it." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong cut timber in Ashenvale for Orgrimmar's walls. What they can spare comes to me, and it is never enough." } },
+    quilboar = { { id = "tp_quilboar", text = "Their hides are thick, so aim for the throat. I make a narrow-headed arrow for the purpose." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries a hammer, but I'm told he asks after the scouts by name. That is good enough for a bowyer." } },
+    _none = { { id = "tp_none", text = "I don't know. I spend my days looking at wood grain, not at the world." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Flakk: trade supplies in Razor Hill.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "flakk", id = TODO_NPC("Flakk"), name = "Flakk", title = "Trade Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "razor_hill" }, temper = { "cheerful", "talkative" }, values = { "craft", "practical" },
+  notices = { "craft", "purse" },
+  impression = {
+    first = "Flakk sells thread, flux, vials and dyes to the craftsmen of Razor Hill and asks every customer what they are making. He remembers the answers and asks how it turned out.",
+    third = "{name} met Flakk, who keeps the trade supplies in Razor Hill.",
+  },
+  greetings = {
+    { id = "g_default", text = "Thread, flux, vials, dyes and a good hammer, if you've lost yours. What are you making, friend?" },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, you again! Did it turn out the way you meant it to?" },
+    { id = "g_craft", when = { profession = { "Tailoring", "Blacksmithing", "Leatherworking", "Engineering", "Alchemy", "Cooking" } }, text = "Now there's a pair of working hands. Tell me what's on your bench and I'll tell you what you've forgotten to buy for it." },
+    { id = "g_away", when = { away = 14 }, text = "It's been an age! I kept your sort of thread in stock the whole time, just in case." },
+  },
+  notice = {
+    { id = "n_nocraft", cat = "craft", when = { maxLevel = 9 },
+      text = "You've not taken up a trade yet, have you? Do it soon, young one. An orc with a craft always has a place by somebody's fire." },
+    { id = "n_broke", cat = "purse", when = { money = { max = 50 } },
+      text = "Your purse is light, I can hear it. Buy the thread and leave the dye, then, because nobody ever died of a plain shirt." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Flakk. Jark sells what you carry and I sell what you make things with, and between us we've divided Razor Hill quite peacefully. Every smith, tailor and tinker in the garrison comes to me sooner or later, usually in a hurry." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I tell you? I like a customer who talks." },
+        { id = "h_again2", text = "Go on, ask! The shop's quiet until the forge shift ends." },
+        { id = "h_again3", text = "Something more? Good, I was getting bored of counting vials." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "Who buys the most from you?", next = "buyers" },
+        { text = "You seem to enjoy other people's work.", next = "enjoy" },
+        { text = "Does Razor Hill have a teacher for every trade?", next = "teachers" },
+        { text = "I need dyes that will hold on linen.", next = "dye", when = { profession = "Tailoring" } },
+        { text = "I'll be back when I've made something.", next = "END" },
+      },
+    },
+    buyers = {
+      lines = { { id = "bu_default", text = "The forge, by a long way. Dwukk's students burn through flux as if it grew on thorn bushes, and Mukdrak buys every blasting powder ingredient I can get and then asks me not to tell Gar'Thok how much." } },
+      choices = {
+        { text = "And do you tell him?", next = "buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers2 = {
+      lines = { { id = "bu2_default", text = "The commander has never asked, so I have never had to decide. Mukdrak is no fool, and nothing has blown up that wasn't meant to. Still, I count what he buys and I keep the count somewhere safe." } },
+      choices = {
+        { text = "Why keep a count at all?", next = "buyers3" },
+        { text = "Something else, Flakk.", next = "BACK" },
+      },
+    },
+    buyers3 = {
+      big = true,
+      lines = { { id = "bu3_default", text = "Because Orgnil Soulscar came by asking who in town buys more than their trade needs, on account of the Burning Blade. I told him nobody, which was nearly true. I've wondered since whether I should have given him the list and let him sort it." } },
+      choices = {
+        { text = "Give Orgnil the list. That is his duty to judge.", next = "BACK", reply = "You may be right, and it would let me sleep better. I'll think about walking it over to him.", fx = { align = { order = 1 } } },
+        { text = "A shopkeeper who informs on customers has none.", next = "BACK", reply = "Ha! That's what my heart says too. Mukdrak's a friend, and I'd sooner ask him straight than hand him over.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    enjoy = {
+      lines = { { id = "en_default", text = "I do, more than my own, since I can't make anything myself that doesn't come out crooked. So I sell the makings and ask after the results. A tailor showed me a shirt last week dyed with my red, and I was as proud as if I'd sewn it." } },
+      choices = {
+        { text = "What's the strangest thing anyone made?", next = "enjoy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    enjoy2 = {
+      lines = { { id = "en2_default", text = "A troll from Sen'jin bought six vials and a spool of black thread and wouldn't say what for. He came back a week later looking very pleased with himself. I've decided I don't want to know, and I think about it every day." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    teachers = {
+      lines = { { id = "te_default", text = "Not every one. Dwukk teaches smithing, Krunn mining and Mukdrak engineering, all at the forge, and Rawrk in the barracks will show you how to bind a wound. For herbs and potions you want Sen'jin, and for the rest you want Orgrimmar." } },
+      choices = { { text = "That's a useful list. Something else.", next = "BACK" } },
+    },
+    dye = {
+      lines = { { id = "dy_default", text = "Then take the red and the blue, and soak the cloth in salt water first, which costs you nothing with the sea so close. Cutac taught me that, and he has never yet had a shirt of his run in the rain, on the few days it rains." } },
+      choices = { { text = "Salt water first. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Buy twice the thread you think you need. You'll use it, and it's a long walk back from the Barrens for a spool." } },
+    burning_blade = { { id = "tp_blade", text = "Orgnil asks me about them more than I'd like. A cult needs candles and vials like anyone else, I suppose, but they don't buy them from me." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins there sell the fancier supplies, the ones I can't get. Bring a full purse and count your change." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief wants a Horde that builds as well as it fights. I sell the thread for that, one spool at a time." } },
+    _none = { { id = "tp_none", text = "Now that I don't know, and it pains me to admit it. Ask me again when I've had a chance to listen at the inn." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Dwukk: blacksmithing trainer at the Razor Hill forge.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dwukk", id = TODO_NPC("Dwukk"), name = "Dwukk", title = "Blacksmithing Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "razor_hill" }, temper = { "stern", "fair" }, values = { "craft", "honest" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Dwukk teaches blacksmithing at the big anvil in Razor Hill and makes every student forge a nail before anything else. He is stern about the craft and fair about everything besides.",
+    third = "{name} met Dwukk, the blacksmithing trainer at the forge in Razor Hill.",
+  },
+  greetings = {
+    { id = "g_default", text = "If you've come to learn, pick up the tongs. If you've come to watch, stand where the sparks don't reach." },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "You've held a hammer before, I can see it in your wrist. Show me something you've made, and don't choose your best piece." },
+    { id = "g_back", when = { metBefore = true }, text = "Back at the anvil. Good, the iron has missed you more than I have." },
+    { id = "g_camp", when = { questActive = TODO_QUEST("Camping 101: Blacksmithing") }, text = "The camp sent you to me for a smith's lesson, did it? Then roll up your sleeves, because I don't teach it by talking." },
+  },
+  notice = {
+    { id = "n_miner", cat = "craft", when = { profession = "Mining" },
+      text = "A miner. Then you know where the metal comes from, which is half of knowing what it wants to be. Krunn has taught you well, if it was Krunn." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior who can mend what he breaks is worth two who cannot. Think on that the next time your axe comes back notched." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Dwukk, and I teach the working of copper and bronze to any of the Horde who will sweat for it. My steel goes to the garrison and my students go on to Orgrimmar, and I am prouder of the second than the first." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Ask before the iron goes cold." },
+        { id = "h_again2", text = "Speak, then. I'll not stop hammering for it." },
+        { id = "h_again3", text = "Go on. A question is better than a guess at this anvil." },
+      },
+      choices = {
+        { text = "Teach me blacksmithing.", next = "BUSINESS" },
+        { text = "Why does every student start with a nail?", next = "nail" },
+        { text = "Your steel goes to the garrison, I hear.", next = "steel" },
+        { text = "Where do your students go from here?", next = "students" },
+        { text = "I've copper and tin both. Show me bronze.", next = "bronze", when = { profession = { name = "Blacksmithing", min = 50 } } },
+        { text = "I'll let you work, Dwukk.", next = "END" },
+      },
+    },
+    nail = {
+      lines = { { id = "na_default", text = "Because a nail is small, and it shows every fault. Anyone can beat a slab into something like an axe head. To draw a nail straight and square, you must control the heat, the hammer and your own temper, and those are the three things the craft is made of." } },
+      choices = {
+        { text = "How many do they make before you're satisfied?", next = "nail2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nail2 = {
+      lines = { { id = "na2_default", text = "As many as it takes, and for some that is a bucketful. One young grunt made two hundred and called me a tyrant in front of the whole forge. His two hundred and first was perfect, and the barracks door is hung on his nails today." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    steel = {
+      lines = { { id = "st_default", text = "It does. Uhgar and Wuark finish most of it, but the stock is mine, and I know every bar. I make it for the defence of this town and the people in it, and I've told Gar'Thok to his face that I would not make it for anything less." } },
+      choices = {
+        { text = "What did he say to that?", next = "steel2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    steel2 = {
+      lines = { { id = "st2_default", text = "He said the Warchief would agree with me, and that was the end of it. I forged blades for the old Horde when I was young, and I saw where they went. A smith cannot unmake what his steel has done, so he had best mind whose hand he puts it in." } },
+      choices = {
+        { text = "Where did those old blades go?", next = "steel3" },
+        { text = "Something else, Dwukk.", next = "BACK" },
+      },
+    },
+    steel3 = {
+      big = true,
+      lines = { { id = "st3_default", text = "Into villages, some of them, where nobody had a weapon to answer with. I did not swing them, and for years I told myself that made a difference. It is a question I put to every student before they leave me, and now I'll put it to you." } },
+      choices = {
+        { text = "The smith shares the blame. Choose who you arm.", next = "BACK", reply = "That is the answer I came to, and it took me twenty years. You've got there faster than I did.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A smith makes steel. The wielder alone answers for it.", next = "BACK", reply = "Many good smiths believe so, and sleep soundly. I could not, but I'll not call you wrong.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    students = {
+      lines = { { id = "su_default", text = "The good ones go to Saru Steelfury in Orgrimmar's Valley of Honor, who will teach them more than I can. The rest stay here and make nails, which the Horde also needs. There is no shame in either road." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bronze = {
+      lines = { { id = "br_default", text = "Then you are past nails, and I am glad of it. Bronze wants more heat than copper and less hammering, and it will crack if you chase it. Smelt the two together at Krunn's fire, bring me the bars, and we'll begin with something that has an edge." } },
+      choices = { { text = "I'll bring the bars. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Never strike cold iron in anger. You'll ruin the piece and learn nothing about what angered you." } },
+    internment = { { id = "tp_internment", text = "They let no orc near a forge in the camps. I shaped a spoon handle against a stone for two years, only to keep my hands from forgetting." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief was taught by humans and still chose his own people's hammer. I'd make steel for that orc until my arm gave out." } },
+    burning_blade = { { id = "tp_blade", text = "Their daggers are well made, and that troubles me. Somebody who knows the craft is forging for them." } },
+    quilboar = { { id = "tp_quilboar", text = "They work no metal I'd call metal. What iron they carry, they took from our dead." } },
+    _none = { { id = "tp_none", text = "I don't know it. I'll not guess, either, since guessing is how bad steel gets made." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Harruk: pet trainer in Razor Hill.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "harruk", id = TODO_NPC("Harruk"), name = "Harruk", title = "Pet Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "razor_hill" }, temper = { "calm", "watchful" }, values = { "patient", "loyal" },
+  notices = { "pet", "class" },
+  impression = {
+    first = "Harruk trains hunters' beasts in Razor Hill and watches the animal before he looks at its owner. He keeps scraps of boar in his belt pouch and seems to like wolves better than most orcs.",
+    third = "{name} met Harruk, who trains hunters' beasts in Razor Hill.",
+  },
+  greetings = {
+    { id = "g_default", text = "Come up slowly, and don't stare at the wolf. She's deciding about you, and so am I." },
+    { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Bring {pet} here and let me see how it moves. A beast tells me more about its hunter in ten paces than the hunter does in an hour." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back. Has your beast been fed today, and I mean before you were?" },
+    { id = "g_away", when = { away = 14 }, text = "It's been a long while. The wolf remembers your smell, so you're welcome." },
+  },
+  notice = {
+    { id = "n_nopet", cat = "class", when = { class = "HUNTER", maxLevel = 9 },
+      text = "You are a hunter with no beast at your side yet. Thotar will send you out to tame one when you're ready, and then you and I will have something to talk about." },
+    { id = "n_raptor", cat = "pet", when = { pet = { family = "Raptor" } },
+      text = "A raptor. The trolls of Sen'jin swear by them, and I'll grant they're clever. Keep that one fed, because a hungry raptor starts doing sums about its master." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Harruk. Thotar teaches the hunters, and I teach what walks beside them. A beast can learn to bite harder, to bear more, and to hold its ground when its blood says run, but only from a hunter who has earned it." },
+        { id = "h_other", when = { class = { "WARRIOR", "ROGUE", "MAGE", "PRIEST", "SHAMAN", "WARLOCK", "DRUID" } }, text = "Harruk. I train the beasts that hunters keep, so I've no lessons for you, but I'll talk about animals with anyone who'll stand still." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Speak low, the wolf is settling." },
+        { id = "h_again2", text = "Ask. I've nowhere to be until feeding time." },
+        { id = "h_again3", text = "Go on. Beasts are patient, and they've taught me to be." },
+      },
+      choices = {
+        { text = "Train my beast.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "How does a beast come to trust a hunter?", next = "trust" },
+        { text = "Which of Durotar's beasts makes the best companion?", next = "beasts" },
+        { text = "You like wolves better than people, I think.", next = "wolves" },
+        { text = "My beast won't hold when the fight turns.", next = "hold", when = { pet = { type = "Beast" } } },
+        { text = "I'll leave you to the feeding, Harruk.", next = "END" },
+      },
+    },
+    trust = {
+      lines = { { id = "tr_default", text = "Slowly, and through its belly first. You feed it before you eat, you never strike it for being afraid, and you never ask it to face a thing you would run from yourself. After a season of that, it will follow you into a fire." } },
+      choices = {
+        { text = "Some hunters must use the whip.", next = "trust2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trust2 = {
+      lines = { { id = "tr2_default", text = "Some do, and their beasts obey well enough until the day it matters. A whipped animal fights for as long as it fears you more than the enemy, and one day the enemy is worse. I'll not train for a hunter who beats what he keeps." } },
+      choices = {
+        { text = "You've turned hunters away?", next = "trust3" },
+        { text = "Something else, Harruk.", next = "BACK" },
+      },
+    },
+    trust3 = {
+      big = true,
+      lines = { { id = "tr3_default", text = "Two, and one of them was a sergeant who went to Gar'Thok about it. The commander told me a garrison trainer serves the garrison and doesn't pick and choose. I told him I'd serve it better with beasts that don't bolt, and we left it there." } },
+      choices = {
+        { text = "You were right. Some things outrank a commander.", next = "BACK", reply = "I think so, on this one matter. I'd obey him in anything else, and he knows it.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A soldier doesn't choose which orders suit him.", next = "BACK", reply = "That is fairly said, and Gar'Thok said it less kindly. I still won't do it, so I suppose I'm a poor soldier.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts = {
+      lines = { { id = "be_default", text = "The boars, if you want something that will take a beating and ask for more. The scorpids are steady and their sting keeps working after the fight has moved on. The young hunters all want one of the coast crocolisks, and those do nothing they don't feel like doing." } },
+      choices = {
+        { text = "And beyond Durotar?", next = "beasts2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts2 = {
+      lines = { { id = "be2_default", text = "The Barrens has the great cats, lions and their kin, and a hunter who tames a savannah huntress has a companion for life. There are raptors there too. Go and look, and don't choose in a hurry, because the beast is choosing as well." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    wolves = {
+      lines = { { id = "wv_default", text = "I do, and I'll not pretend otherwise. A wolf has never lied to me. Orcs and wolves have run together since Draenor, and when the clans lost nearly everything else, the wolves were still there, which is more than I can say for our honor." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hold = {
+      lines = { { id = "ho_default", text = "Then it has seen you step back at the wrong moment, and it has learned from you. A beast holds as long as its hunter does. Stand your ground the next three fights, whatever it costs you, and watch what {pet} does on the fourth." } },
+      choices = { { text = "I'll stand, then. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Feed your beast before you feed yourself. It notices, and it remembers." } },
+    quilboar = { { id = "tp_quilboar", text = "They keep boars as we keep wolves, and they treat them better than they treat each other. I can respect that much in them." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rides a frost wolf of the old blood. I've seen her once, and I've not seen her equal." } },
+    centaur = { { id = "tp_centaur", text = "They hunt with hyenas in the Barrens. A hyena is a fine beast in bad company." } },
+    _none = { { id = "tp_none", text = "I don't know. If it had four legs I might, but it sounds as though it doesn't." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Kitha: demon trainer in Razor Hill.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "kitha", id = TODO_NPC("Kitha"), name = "Kitha", title = "Demon Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "razor_hill" }, temper = { "cool", "sardonic" }, values = { "discipline", "cunning" },
+  notices = { "class", "fel" },
+  impression = {
+    first = "Kitha trains warlocks' demons in Razor Hill, a cool-eyed orc woman who keeps her grimoires locked and her voice low. She finds the garrison's unease about her amusing and useful in equal parts.",
+    third = "{name} met Kitha, who trains warlocks' demons in Razor Hill.",
+  },
+  greetings = {
+    { id = "g_default", text = "You walked straight to me without looking over your shoulder. Either you're a warlock, or you've no idea what I teach." },
+    { id = "g_warlock", when = { class = "WARLOCK" }, text = "Dhugru said he'd be sending someone. Let me see the demon first and you second, since that's the order that matters." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back, and nothing is following you that shouldn't be. That is a good beginning." },
+    { id = "g_away", when = { away = 14 }, text = "It has been a while. A demon grows bold when its master grows lazy, so I hope you've kept in practice." },
+  },
+  notice = {
+    { id = "n_void", cat = "fel", when = { pet = { family = "Voidwalker" } },
+      text = "A voidwalker, and it stands behind you without being told. You've been to Gan'rul, then, and you listened to him. Not all of them do." },
+    { id = "n_priest", cat = "class", when = { class = "PRIEST" },
+      text = "A priest. Tai'jin's kind and mine share a wall in this town and very little else, though she is always civil about it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Kitha. Dhugru Gorelust teaches the warlocks of Razor Hill their spells, and I teach their demons manners. The grimoires are mine to sell, and I sell them to those who can show me they'll be read carefully." },
+        { id = "h_other", when = { class = { "WARRIOR", "HUNTER", "ROGUE", "MAGE", "PRIEST", "SHAMAN", "DRUID" } }, text = "I am Kitha, and I train demons for the warlocks of this garrison. I've nothing to teach you, but you may ask what the grunts are too nervous to ask." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I've time, and so few people use it." },
+        { id = "h_again2", text = "Ask. I don't bite, and I don't keep anything here that does without leave." },
+        { id = "h_again3", text = "Go on. You've not flinched yet, which is more than the quartermaster manages." },
+      },
+      choices = {
+        { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "How does a garrison town take to a demon trainer?", next = "town" },
+        { text = "A voidwalker must be harder to rule than an imp.", next = "void" },
+        { text = "You and Dhugru divide the teaching between you.", next = "dhugru" },
+        { text = "My voidwalker sulks when I dismiss it.", next = "sulk", when = { class = "WARLOCK", minLevel = 10 } },
+        { text = "I'll take my leave, Kitha.", next = "END" },
+      },
+    },
+    town = {
+      lines = { { id = "to_default", text = "Warily, and I don't blame it. The grunts salute Dhugru because he wears a rank, and they walk around me in a wide half-circle. Then one of them sees a voidwalker take a Razormane charge that would have killed three soldiers, and the half-circle gets a little smaller." } },
+      choices = {
+        { text = "Does the wariness trouble you?", next = "town2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    town2 = {
+      lines = { { id = "to2_default", text = "No. I would be troubled if they stopped being wary, because then they would have forgotten what demons did to us. I want them uneasy and I want them alive, and I can give them both." } },
+      choices = {
+        { text = "And Orgnil Soulscar? He hunts cultists here.", next = "town3" },
+        { text = "Something else, Kitha.", next = "BACK" },
+      },
+    },
+    town3 = {
+      big = true,
+      lines = { { id = "to3_default", text = "Orgnil visits me every few days and looks at my shelves. He has never accused me of anything, and he never quite stops looking. I let him, since I've nothing to hide, though Dhugru says I should be insulted on behalf of every loyal warlock in the Horde." } },
+      choices = {
+        { text = "Let him look. Trust is earned under watch.", next = "BACK", reply = "That is my thinking exactly. A warlock who resents being watched has usually given cause.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dhugru is right. Loyalty shouldn't be searched weekly.", next = "BACK", reply = "Perhaps. But the Burning Blade recruits from people who feel just that way, so I'll keep my temper.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    void = {
+      lines = { { id = "vo_default", text = "It is harder and simpler both. An imp argues with every word you say. A voidwalker says almost nothing, and so you never learn what it thinks of you until the moment your hold slips." } },
+      choices = {
+        { text = "What happens when the hold slips?", next = "void2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    void2 = {
+      lines = { { id = "vo2_default", text = "It stands still for a moment and looks at you, and that moment is all the warning you will get. I teach my students to end the summoning at once and ask their questions afterward. Pride has killed more warlocks than demons have." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dhugru = {
+      lines = { { id = "dh_default", text = "We do. He was a warlock of the old Horde and came through it with his mind his own, which few did, and the garrison respects him for that. I am younger and learned the craft after the camps, so he takes the spells and the speeches, and I take the leash work." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    sulk = {
+      lines = { { id = "su_default", text = "It isn't sulking. It is measuring how long you kept it and what you made it do, and it will remember the sum. Dismiss it cleanly, the same way every time, and never thank it. A demon hears thanks as weakness." } },
+      choices = { { text = "Cleanly, and no thanks. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Be more careful on the day you feel most sure of yourself. That is the day they wait for." } },
+    burning_blade = { { id = "tp_blade", text = "They tell young warlocks the Horde will never trust them, and then offer a place that will. It is a good lie, because half of it is true." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief permits us, and watches us. I think the better of him for doing both." } },
+    neeru = { { id = "tp_neeru", text = "Neeru Fireblade speaks for the warlocks in the Cleft of Shadow. He is very smooth, and I've never heard him say a thing he couldn't deny later." } },
+    _none = { { id = "tp_none", text = "I don't know that, and I'm careful about pretending to knowledge I haven't got." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Mukdrak: engineering trainer at the Razor Hill forge.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mukdrak", id = TODO_NPC("Mukdrak"), name = "Mukdrak", title = "Engineering Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "razor_hill" }, temper = { "eager", "stubborn" }, values = { "craft", "curious" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "Mukdrak teaches engineering beside the Razor Hill forge with a bench full of half-built things and powder burns on his apron. He is an orc who fell in love with goblin machines and has been arguing with other orcs about it ever since.",
+    third = "{name} met Mukdrak, the orc engineering trainer in Razor Hill.",
+  },
+  greetings = {
+    { id = "g_default", text = "Don't lean on the bench, some of it is loaded. Have you come to learn, or to tell me orcs shouldn't tinker?" },
+    { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer! Come and look at this and tell me why it jams, because I've been staring at it since dawn." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back. Good, hold this spring while I find the other half of it." },
+    { id = "g_camp", when = { questActive = TODO_QUEST("Camping 101: Engineering") }, text = "The camp wants you taught a tinker's lesson, does it? Then you've come to the only orc in Razor Hill who'll give you one gladly." },
+  },
+  notice = {
+    { id = "n_goblin", cat = "race", when = { race = "Goblin" },
+      text = "A goblin, in Razor Hill! Sit down, please, and tell me what I'm doing wrong, and tell me slowly so I can write it down." },
+    { id = "n_miner", cat = "craft", when = { profession = "Mining" },
+      text = "You mine. Then save me your copper, every bar, because Krunn sends all of his to the smiths and I'm left with the sweepings." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Mukdrak. I teach engineering, which the goblins invented and which the Horde had better learn before the next war, whatever the old warriors say. Copper tubes, blasting powder, a little patience, and you can do with one hand what used to take a warband." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Talk, I only need my hands for this part." },
+        { id = "h_again2", text = "Go on. If something hisses, step back, but otherwise go on." },
+        { id = "h_again3", text = "Ask away. I'd sooner talk about this than nearly anything." },
+      },
+      choices = {
+        { text = "Teach me engineering.", next = "BUSINESS" },
+        { text = "How does an orc come to love machines?", next = "love" },
+        { text = "The garrison doesn't share your enthusiasm.", next = "garrison" },
+        { text = "What are you building on that bench?", next = "bench" },
+        { text = "I've made rough bombs. What comes after?", next = "after", when = { profession = { name = "Engineering", min = 50 } } },
+        { text = "Mind your fingers, Mukdrak.", next = "END" },
+      },
+    },
+    love = {
+      lines = { { id = "lo_default", text = "I watched goblin shredders clear a hillside in Ashenvale in a morning, when I was hauling timber for the Warsong. A hundred peons couldn't have done it in a week. I walked up to the nearest goblin and asked him how, and he charged me for the answer." } },
+      choices = {
+        { text = "Was the answer worth the price?", next = "love2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    love2 = {
+      lines = { { id = "lo2_default", text = "Every copper. I spent two seasons in Ratchet sweeping floors for a tinker, and he taught me between explosions. Then I came home to teach it, and found that most orcs think a thing made of springs is beneath a warrior's notice." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "ratchet" } } } },
+    },
+    garrison = {
+      lines = { { id = "ga_default", text = "No, and Gar'Thok least of all. I showed him a blunderbuss I'd built and offered to make twenty for the watch on Tiragarde Keep, where the marines shoot our scouts from the walls. He handed it back and said an orc looks his enemy in the eye." } },
+      choices = {
+        { text = "The marines don't trouble to look.", next = "garrison2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    garrison2 = {
+      lines = { { id = "ga2_default", text = "That is exactly what I said, and it did me no good. Wuark sees it, because he mends the mail the rifle balls go through. But Wuark doesn't command Razor Hill, and so I make dynamite for clearing rock and keep my opinions for the forge." } },
+      choices = {
+        { text = "Would you arm the watch without leave?", next = "garrison3" },
+        { text = "Something else, Mukdrak.", next = "BACK" },
+      },
+    },
+    garrison3 = {
+      big = true,
+      lines = { { id = "ga3_default", text = "I've thought about it, on the nights a scout doesn't come back. I could put six rifles in a cart and nobody would ask. I haven't done it, and I can't tell you whether that's discipline or only nerves." } },
+      choices = {
+        { text = "Don't. An army can't have every smith deciding alone.", next = "BACK", reply = "No, it can't. I know it, and I'd know it better if the scouts stopped dying.", fx = { align = { order = 1 } } },
+        { text = "Send the cart. Lives outweigh a commander's pride.", next = "BACK", reply = "Spirits, don't tempt me. But I'm glad someone else thinks it, and I'll sleep on it again.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bench = {
+      lines = { { id = "be_default", text = "That one's a spyglass, or will be when the lenses come from Ratchet. The square thing is a target dummy that keeps falling over, and the thing under the cloth I'd rather not discuss until I know whether it works. Flakk sells me the powder for all of it and worries." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    after = {
+      lines = { { id = "af_default", text = "Then you've still got both hands, and you're ready for bronze. Tubes, gears, a proper flash bomb. Get tin from the Barrens, and when you've outgrown me, the goblins in Ratchet or Roxxik in Orgrimmar will take you further than I can." } },
+      choices = { { text = "Tin, then bronze. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Measure the powder twice. I measured once, the first year, and I had no eyebrows until the spring." } },
+    ratchet = { { id = "tp_ratchet", text = "The best tinkers on this coast are there, and they'll teach anyone who pays. I swept floors in that town and I'd do it again." } },
+    venture_company = { { id = "tp_venture", text = "Goblins of another sort. They use the same machines I admire to strip land bare, and I don't like what that says about the machines." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief hired goblins to help build Orgrimmar. He sees what a machine is worth, even if his commanders don't." } },
+    warsong = { { id = "tp_warsong", text = "I hauled timber for them in Ashenvale. They're hard orcs doing hard work, and they'd have welcomed a shredder or two." } },
+    _none = { { id = "tp_none", text = "I don't know. Unless it has moving parts, I likely never looked closely." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Rawrk: first aid trainer in the Razor Hill barracks.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "rawrk", id = TODO_NPC("Rawrk"), name = "Rawrk", title = "First Aid Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "razor_hill" }, temper = { "brusque", "kind" }, values = { "duty", "practical" },
+  notices = { "wounds", "class" },
+  impression = {
+    first = "Rawrk teaches bandaging in the Razor Hill barracks and has little time for anyone who thinks a wound is a mark of honor. He is rough in speech and very gentle with his hands.",
+    third = "{name} met Rawrk, who teaches first aid in the barracks at Razor Hill.",
+  },
+  greetings = {
+    { id = "g_default", text = "Are you bleeding? No? Then sit down and learn how to stop someone else's." },
+    { id = "g_sick", when = { resSick = true }, text = "You look like something the spirit healer sent back unfinished. Sit, drink water, and don't argue with me." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, and walking on both legs. I'll count that as a lesson remembered." },
+    { id = "g_camp", when = { questActive = TODO_QUEST("Camping 101: First Aid") }, text = "The camp sent you for a bandaging lesson? Good. It's the only craft there that'll save your life rather than fill your belly." },
+  },
+  notice = {
+    { id = "n_hurt", cat = "wounds", when = { durability = { max = 0.3 } },
+      text = "Your armor's in ribbons, so I can guess what's under it. Let me look before you tell me it's nothing, because it's always nothing until it festers." },
+    { id = "n_healer", cat = "class", when = { class = { "PRIEST", "SHAMAN", "DRUID" } },
+      text = "You heal with magic, I know. Learn the linen anyway, because there comes a day you've nothing left to cast and a friend still bleeding." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Rawrk. I bind what the Razormane and the marines open up, and I teach the grunts to do it for each other, since I can't be on every patrol. Clean linen, a tight wrap and a steady hand, and most of them live to complain about it." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Be quick, I've dressings to boil." },
+        { id = "h_again2", text = "Ask. Nobody's bleeding on my floor just now." },
+        { id = "h_again3", text = "Go on, then. I talk while I roll bandages, I always have." },
+      },
+      choices = {
+        { text = "Teach me first aid.", next = "BUSINESS" },
+        { text = "What wounds does the garrison bring you most?", next = "wounds" },
+        { text = "Some orcs think a bandage is a weakness.", next = "weakness" },
+        { text = "Where does your linen come from?", next = "linen" },
+        { text = "I've only linen. What do I use for worse wounds?", next = "worse", when = { minLevel = 15 } },
+        { text = "I'll try not to need you, Rawrk.", next = "END" },
+      },
+    },
+    wounds = {
+      lines = { { id = "wo_default", text = "Quilboar thorns, more than anything. They break off under the skin and go bad in a day if you don't cut them out. After that it's scorpid stings from the green recruits, and rifle wounds from Tiragarde, which are the ones I hate." } },
+      choices = {
+        { text = "Why those above the rest?", next = "wounds2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wounds2 = {
+      lines = { { id = "wo2_default", text = "Because the ball stays inside, and I've no tools fine enough to go after it. Tai'jin does what she can with her prayers, and some of them walk again. The others I make comfortable, and I sit with them, because someone ought to." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    weakness = {
+      lines = { { id = "we_default", text = "Some do, the young and the loud. I had a grunt in here refuse a wrap on a split thigh because scars are for showing. I told him a scar is what you get when you live, and what he was after was a grave." } },
+      choices = {
+        { text = "Did he take the bandage?", next = "weakness2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    weakness2 = {
+      lines = { { id = "we2_default", text = "He did, once Tarshaw had a word with him. But it is the old thinking and it dies hard. In the old Horde you fought until you dropped and nobody carried you, and plenty still believe that was strength." } },
+      choices = {
+        { text = "Wasn't it strength, of a kind?", next = "weakness3" },
+        { text = "Something else, Rawrk.", next = "BACK" },
+      },
+    },
+    weakness3 = {
+      big = true,
+      lines = { { id = "we3_default", text = "It was waste. I saw good warriors left in the mud who'd have fought again in a month with one clean dressing. The Horde we have now carries its wounded home, and I'd say that makes us harder to beat, though you'll find orcs who call it softness." } },
+      choices = {
+        { text = "A Horde that carries its wounded is the stronger one.", next = "BACK", reply = "Good. Say that in the barracks, and say it loudly, because they've stopped hearing it from me.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The weak slow the strong. The old way was harder.", next = "BACK", reply = "Then pray you're never the one on the ground. I'd bandage you all the same, and I'd not be gentle.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    linen = {
+      lines = { { id = "li_default", text = "Off the Kul Tiras men and the Burning Blade, for the most part. The recruits bring me scraps by the armful, and Cutac sends over his offcuts. I boil all of it before it goes near a wound, whatever anyone tells you about spit and dust." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    worse = {
+      lines = { { id = "wr_default", text = "Wool, when you can get it, and after wool, silk. The humanoids out in the Barrens and beyond carry both. When you've outgrown what I know, find Arnok in Orgrimmar's Valley of Spirits, who has forgotten more than I ever learned." } },
+      choices = { { text = "Wool, then silk. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Carry bandages even when you feel strong. Nobody ever bled less for being confident." } },
+    quilboar = { { id = "tp_quilboar", text = "Their thorns go bad faster than any wound I know. If one breaks off in you, cut it out the same day." } },
+    internment = { { id = "tp_internment", text = "There were no healers for us in the camps. I learned on my own kin, with rags, and I lost more than I saved." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief asked that every garrison keep someone like me. Before him, nobody had thought an orc's life worth a roll of cloth." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you. If it isn't bleeding, it isn't my business." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Ophek: sends young orc warlocks on to Gan'rul Bloodeye (Gan'rul's Summons).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ophek", id = TODO_NPC("Ophek"), name = "Ophek",
+  bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
+  communities = { "razor_hill" }, temper = { "grave", "watchful" }, values = { "discipline", "loyal" },
+  notices = { "class", "fel" },
+  impression = {
+    first = "Ophek waits in Razor Hill for the young warlocks coming up from the valley and decides which of them Gan'rul Bloodeye should see. He is a grave, quiet orc who seems to weigh every word before he lets it go.",
+    third = "{name} met Ophek, who carries Gan'rul Bloodeye's summons to the young warlocks of Durotar.",
+  },
+  greetings = {
+    { id = "g_default", text = "You have the look of someone searching for a trainer. If your craft is the one I think it is, we should speak, and if it isn't, I'll not keep you." },
+    { id = "g_warlock", when = { class = "WARLOCK" }, text = "I have been watching the road for you, warlock. Word of each of Nartok's students comes up from the valley before the student does." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Gan'rul's Summons") }, text = "You are still in Razor Hill. Gan'rul Bloodeye is not an orc who enjoys waiting, and the Cleft of Shadow is no farther than it was yesterday." },
+    { id = "g_back", when = { metBefore = true }, text = "We meet again. I'm still at my post, as you see." },
+  },
+  notice = {
+    { id = "n_imp", cat = "fel", when = { pet = { family = "Imp" } },
+      text = "Your imp has gone quiet since you walked up. It knows whom I serve, and it would rather I didn't remember its name." },
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman. Swart and I nod to one another across the square, and that is as far as it goes. We each think the other is playing with fire, and we are each right." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Ophek. I serve Gan'rul Bloodeye, who leads the warlocks of Orgrimmar from the Cleft of Shadow, and I stand here so that no young summoner leaves Durotar without his eyes having been on them." },
+        { id = "h_before", when = { all = { { class = "WARLOCK" }, { questBefore = TODO_QUEST("Gan'rul's Summons") } } },
+          text = "I am Ophek, and I serve Gan'rul Bloodeye. You have commanded an imp long enough, and when you are ready for something greater, he will want to see you in the Cleft of Shadow. I am the one who decides when that is." },
+        { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Gan'rul's Summons") },
+          text = "You have your summons. Go north to Orgrimmar and down into the Cleft of Shadow, where the light doesn't reach, and ask for Gan'rul Bloodeye by name. Be respectful, and be brief." },
+        { id = "h_done", when = { questDone = TODO_QUEST("Gan'rul's Summons") },
+          text = "So you have stood before Gan'rul, and he found you worth his time. Few things I do here please me more than sending him one who comes back stronger." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you ask? I am in no hurry." },
+        { id = "h_again2", text = "Speak. I watch the road, but I can listen while I do." },
+        { id = "h_again3", text = "Go on. There are no foolish questions in this craft, only fatal ones." },
+      },
+      choices = {
+        { text = "Who is Gan'rul Bloodeye?", next = "ganrul" },
+        { text = "You watch every warlock who leaves the valley.", next = "watch" },
+        { text = "What waits for me after the imp?", next = "void", when = { class = "WARLOCK" } },
+        { text = "Why does Razor Hill suffer warlocks at all?", next = "suffer" },
+        { text = "I have stood before Gan'rul. He was not gentle.", next = "after", when = { questDone = TODO_QUEST("Gan'rul's Summons") } },
+        { text = "I'll go, Ophek.", next = "END" },
+      },
+    },
+    ganrul = {
+      lines = { { id = "ga_default", text = "He is the eldest of us in Orgrimmar, and the one the Warchief holds answerable for all the rest. He was a warlock in the old Horde and saw what the craft did to our people from the inside. He teaches it now so that it will not happen again." } },
+      choices = {
+        { text = "What is he like to face?", next = "ganrul2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ganrul2 = {
+      lines = { { id = "ga2_default", text = "He is hard, and he sees quickly. He will ask you one question and know from the answer whether you rule your demon or flatter it. Do not try to impress him, because every student tries, and it bores him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    watch = {
+      lines = { { id = "wa_default", text = "I do, and I make no secret of it. Ruzan tests them in the valley, Nartok and Hraug teach them, and by the time they reach me I have heard how each one holds a leash. Most I send on to Gan'rul, and a few I send back to learn patience." } },
+      choices = {
+        { text = "And the ones who fit neither?", next = "watch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch2 = {
+      lines = { { id = "wa2_default", text = "There have been two, since I took this post. They were clever and impatient, and they asked me what the demons could offer them, when they should have asked what they could take from the demons. I gave their names to Orgnil Soulscar." } },
+      choices = {
+        { text = "What became of them?", next = "watch3" },
+        { text = "Something else, Ophek.", next = "BACK" },
+      },
+    },
+    watch3 = {
+      big = true,
+      lines = { { id = "wa3_default", narr = "He looks toward the hills to the north for a moment before he answers.", text = "One came to his senses, and teaches now. The other was found among the Burning Blade at Skull Rock, and did not come home. I have asked myself whether naming him drove him there, and I have no answer I trust." } },
+      choices = {
+        { text = "You did your duty. He chose his own road.", next = "BACK", reply = "So Gan'rul told me, and in the same words. I hold to it, most days.", fx = { align = { order = 1 } } },
+        { text = "A young one watched as a traitor may become one.", next = "BACK", reply = "That is the thought that keeps me company at night. I'll not dismiss it only because it is uncomfortable.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    void = {
+      lines = {
+        { id = "vo_default", text = "A servant from the Void itself, silent and strong, that will stand between you and a blow meant to kill you. It is not given, and Gan'rul will make you take it. I'll say no more than that, because the telling is his." },
+        { id = "vo_low", when = { maxLevel = 9 }, text = "More than you are ready for today. Go on with your imp until it obeys you without your raising your voice, and then come back to me, and I will have a summons for you." },
+      },
+      choices = { { text = "Then I'll be ready. Something else.", next = "BACK" } },
+    },
+    suffer = {
+      lines = { { id = "sf_default", text = "Because the Warchief is wise enough to know that the craft will be practised whether he allows it or not. Better it is done here, in the open, under Dhugru's eye and mine, than in a cave with the Burning Blade doing the teaching." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "burning_blade" } } } },
+    },
+    after = {
+      lines = { { id = "af_default", text = "He is gentle with nobody, and least of all with those he thinks have promise. Take it as the praise it is. Kitha here will train your voidwalker now, and you would do well to listen to her, since she misses nothing." } },
+      choices = { { text = "I'll go to Kitha. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Ask what a thing will cost before you ask what it can do. That one habit has kept me alive." } },
+    burning_blade = { { id = "tp_blade", text = "They are warlocks who decided the leash was a nuisance. The demons agreed with them, and now hold the other end." } },
+    neeru = { { id = "tp_neeru", text = "Neeru Fireblade keeps a tent in the Cleft of Shadow, near Gan'rul. He is well spoken of, and I am told he is helpful to the young." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief gave us a place in Orgrimmar and a condition with it, that we police our own. I am part of how that condition is kept." } },
+    _none = { { id = "tp_none", text = "I don't know of it. My watch is narrow, and I keep to it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Furl Scornbrow: the watchtower above Razor Hill (Carry Your Weight).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "furl", id = TODO_NPC("Furl Scornbrow"), name = "Furl Scornbrow",
+  bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
+  communities = { "razor_hill" }, temper = { "wry", "idle" }, values = { "duty", "craft" },
+  notices = { "kit", "greenness" },
+  impression = {
+    first = "Furl Scornbrow keeps the watchtower on the hill above Razor Hill, with a signal horn he seldom has cause to blow. He has taken to sewing bags for young adventurers to fill the quiet hours, and is a little embarrassed by how much he enjoys it.",
+    third = "{name} met Furl Scornbrow, the watchman above Razor Hill who sews bags for young adventurers.",
+  },
+  greetings = {
+    { id = "g_default", text = "You climbed the hill, so either you've news of an invasion or you've heard about the bags. I'm hoping for the bags." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Carry Your Weight") }, text = "Have you my canvas yet? Eight good scraps off the Kul Tiras men at Tiragarde Keep, and mind they're not too badly cut about." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Carry Your Weight") }, text = "There's the one with my bag on their shoulder! Has the stitching held? Tell me the truth, I can take it." },
+    { id = "g_back", when = { metBefore = true }, text = "Back up the hill, are you? Nothing has invaded since you left, I'm sorry to say." },
+  },
+  notice = {
+    { id = "n_green", cat = "greenness", when = { maxLevel = 7 },
+      text = "You're carrying everything you own in your arms, near enough. That won't do on the road to the Crossroads, young one, and I may be able to help." },
+    { id = "n_tailor", cat = "kit", when = { profession = { "Tailoring", "Leatherworking" } },
+      text = "You work with a needle yourself, by your fingers. Don't look too closely at my seams, then. I'm a watchman who sews, not the other way about." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Furl Scornbrow, of the Razor Hill watch. From this tower I can see the road to Orgrimmar, the road to Sen'jin and half the coast, and if anything comes at the town, I blow this horn. It has been a quiet posting lately." },
+        { id = "h_before", when = { questBefore = TODO_QUEST("Carry Your Weight") },
+          text = "Furl Scornbrow, of the Razor Hill watch. I keep the horn, and when there's nothing to blow it at, I sew. If you could fetch me eight canvas scraps from the sailors at Tiragarde Keep, I'd stitch you a bag fit for the Barrens road." },
+        { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Carry Your Weight") },
+          text = "The Kul Tiras men carry canvas for their sails and tents, and it's the best cloth in Durotar. Tiragarde Keep is on the coast, south and east of here. Bring me eight scraps and leave the sewing to me." },
+        { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Carry Your Weight"), days = 3 } },
+          text = "That bag will hold more than you think, and it'll outlast your boots. Fill it with something worth carrying, {name}." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I've nothing but time and thread up here." },
+        { id = "h_again2", text = "Go on. The horizon's empty, I just looked." },
+        { id = "h_again3", text = "Ask away. You're the best company I've had since the last supply cart." },
+      },
+      choices = {
+        { text = "How often do you blow that horn?", next = "horn" },
+        { text = "A watchman who sews bags is a strange thing.", next = "bags" },
+        { text = "What can you see from up here?", next = "view" },
+        { text = "Why canvas from the Kul Tiras men?", next = "canvas", when = { questActive = TODO_QUEST("Carry Your Weight") } },
+        { text = "I sew as well. Sailcloth is hard on a needle.", next = "needle", when = { profession = "Tailoring" } },
+        { text = "Keep watching, Furl.", next = "END" },
+      },
+    },
+    horn = {
+      lines = { { id = "ho_default", text = "Less every season. When Razor Hill was a row of tents I blew it twice a week, for quilboar, for centaur, once for a ship's landing party. Now Durotar is settled and patrolled, and the horn mostly gathers dust and the odd wasp." } },
+      choices = {
+        { text = "You sound as if you miss the danger.", next = "horn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    horn2 = {
+      lines = { { id = "ho2_default", text = "I miss being needed, which isn't quite the same. A watchman on a quiet hill starts to wonder what he's for. That's how the sewing began, if you want the truth of it." } },
+      choices = {
+        { text = "Has Gar'Thok thought of moving you?", next = "horn3" },
+        { text = "Something else, Furl.", next = "BACK" },
+      },
+    },
+    horn3 = {
+      big = true,
+      lines = { { id = "ho3_default", text = "He offered me a place on the Tiragarde watch, where there is fighting to be had. I told him I'd think about it, and I've been thinking for a month. Someone has to hold this horn, but I'm not sure it has to be an orc who can still swing an axe." } },
+      choices = {
+        { text = "Take the posting. A warrior belongs where the fight is.", next = "BACK", reply = "My blood says the same. I'll speak to the commander when the next watch changes.", fx = { align = { honor = 1 } } },
+        { text = "A quiet watch is a duty kept. Stay with the horn.", next = "BACK", reply = "Hm. It's the day the horn is needed that pays for all the quiet ones. I'd forgotten that.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bags = {
+      lines = { { id = "ba_default", text = "It is, and the garrison has let me know it. But I watched recruit after recruit pass under this tower with their goods tied up in a cloak, and it offended me. An orc going out into the world for the Horde ought to have something to put the world in." } },
+      choices = {
+        { text = "Who taught you to sew?", next = "bags2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bags2 = {
+      lines = { { id = "ba2_default", text = "Nobody, which is why the first dozen leaked. Cutac in town looked at one and laughed until he had to sit down, and then he showed me how to double a seam. Jark says I'm ruining his trade, and he says it smiling, so I carry on." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    view = {
+      lines = { { id = "vi_default", text = "North, the road runs up to Orgrimmar's gate. South, you can follow it to Sen'jin and see the Echo Isles past it on a clear day. East is the sea, and Tiragarde Keep squatting on the shore with its human flag, which I look at more than I'd like." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "echo_isles" } } } },
+    },
+    canvas = {
+      lines = { { id = "ca_default", text = "Because it's sailcloth, woven tight to hold wind, and nothing we make comes near it. The sailors and marines carry scraps for patching. I'll admit it pleases me that the Admiral's fleet is supplying the Horde's packs, though they'd not see the joke." } },
+      choices = { { text = "I'll bring your eight scraps. Something else.", next = "BACK" } },
+    },
+    needle = {
+      lines = { { id = "ne_default", text = "It is murder on a needle. I've broken more of them than I've finished bags. I use a sailmaker's awl now, taken off one of the marines along with his cloth, and I'd wager he misses it more than his canvas." } },
+      choices = { { text = "A sailmaker's awl. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Carry less than you can and more than you think you'll need. A good bag makes that possible." } },
+    echo_isles = { { id = "tp_isles", text = "I can see them from here on a clear morning. Nothing moves on them that I'd call friendly, and the trolls in Sen'jin won't look that way at all." } },
+    quilboar = { { id = "tp_quilboar", text = "They used to test the town every few weeks. Now they keep to Razormane Grounds and the horn stays on its hook." } },
+    thrall = { { id = "tp_thrall", text = "I watched the Warchief ride past below me once, on his way to Sen'jin. He looked up and raised a hand, and I've stood a bit straighter ever since." } },
+    centaur = { { id = "tp_centaur", text = "They came as far as the river once, in the early days. That was the loudest I ever blew this horn." } },
+    _none = { { id = "tp_none", text = "I've not seen that from my tower, and if I haven't seen it from here, I can't help you." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- K'waii: general goods in Sen'jin Village.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "kwaii", id = TODO_NPC("K'waii"), name = "K'waii", title = "General Goods",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "senjin" }, temper = { "easy", "sharp" }, values = { "practical", "loyal" },
+  notices = { "race", "purse" },
+  impression = {
+    first = "K'waii keeps the general goods in Sen'jin Village, in baskets hung out of reach of the crabs. She came off the Echo Isles with one sack and has made a point of owning more than one of everything since.",
+    third = "{name} met K'waii, who sells general goods in Sen'jin Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Come in under de shade, mon. I got food, water, bags and rope, and I got dem all at a fair price, because I know everybody in dis village." },
+    { id = "g_troll", when = { race = "Troll" }, text = "Darkspear! Come, come, you look thin. Buy something to eat before your mother hears I let you walk by hungry." },
+    { id = "g_back", when = { metBefore = true }, text = "You be back. De road ate what I sold you already, did it?" },
+    { id = "g_away", when = { away = 14 }, text = "Now dere's a face I thought de sea had taken. Sit, tell me where you been, and den buy something." },
+  },
+  notice = {
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc, all de way down in Sen'jin. You be welcome here, mon. Your Warchief pulled us out of de water, and dis village doesn't forget it." },
+    { id = "n_broke", cat = "purse", when = { money = { max = 50 } },
+      text = "Your purse be flat as a ray, I see it. Go sell de crab claws to Hai'zan first, and come back to me after." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be K'waii. Everything a body needs for de road, I keep it, and I keep it up high where de makrura can't reach. Sen'jin is small, but everyone bound for de isles or de Barrens comes through my door first." },
+      },
+      again = {
+        { id = "h_again", text = "What else you want to know? I like to talk, ask anyone." },
+        { id = "h_again2", text = "Go on, mon. De tide's out and so are my customers." },
+        { id = "h_again3", text = "Ask it. I been sitting wit' dese baskets all morning." },
+      },
+      choices = {
+        { text = "Show me what you sell.", next = "BUSINESS" },
+        { text = "Where do your goods come from?", next = "goods" },
+        { text = "You keep everything hung very high.", next = "crabs" },
+        { text = "How has the village fared since the isles?", next = "village" },
+        { text = "I left the isles on the same boats as you.", next = "isles", when = { race = "Troll" } },
+        { text = "Stay well, K'waii.", next = "END" },
+      },
+    },
+    goods = {
+      lines = { { id = "go_default", text = "De orcs send grain and cloth down from Razor Hill, and Jark up dere deals fair wit' me, for an orc. Fish and fruit we get ourselves. De rest comes off whatever washes up from de ships dat break on de reef, and you'd be surprised how much dat is." } },
+      choices = {
+        { text = "You sell goods from wrecks?", next = "goods2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    goods2 = {
+      lines = { { id = "go2_default", text = "De sea took our home, mon, so I take what de sea gives back and I call it even. A barrel dat floats to my beach is my barrel. I don't ask whose flag was on de ship." } },
+      choices = {
+        { text = "And if sailors washed up with it?", next = "goods3" },
+        { text = "Something else, K'waii.", next = "BACK" },
+      },
+    },
+    goods3 = {
+      big = true,
+      lines = { { id = "go3_default", text = "Dat happened once. Two humans half drowned, from de Admiral's fleet, same ones dat shoot at our fishers. Master Gadrin had dem bound and sent to Razor Hill alive, and I be honest, half de village wanted to leave dem for de crabs." } },
+      choices = {
+        { text = "Gadrin did right. Mercy costs nothing on a beach.", next = "BACK", reply = "Dat's what he said, near enough. De old ones see far, even when it galls de rest of us.", fx = { align = { light = 1 } } },
+        { text = "They shoot your fishers. The crabs were the fair answer.", next = "BACK", reply = "Heh. You'd have had friends on dat beach, mon. I was one of dem, and I'm not sorry.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crabs = {
+      lines = { { id = "cr_default", text = "You would too! De makrura and de pygmy surf crawlers come up in de night and carry off anything dey can lift. I lost a whole sack of dried fish my first week. Now everything hangs, and I sleep wit' a stick." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    village = {
+      lines = { { id = "vi_default", text = "Better dan we had any right to hope. We came ashore wit' nothing, and now dere's huts, raptors in de pens and young ones training. It's not home, but it be ours, and we named it for Sen'jin so we'd remember what it cost." } },
+      choices = {
+        { text = "Do you think of going back?", next = "village2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village2 = {
+      lines = { { id = "vi2_default", text = "Every time I look south. But Zalazane sits on de isles wit' our own kin hexed to guard him, and going home means fighting dem first. Master Gadrin sends de young ones to do it, and I sell dem de water for de swim." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "echo_isles" } } } },
+    },
+    isles = {
+      lines = { { id = "is_default", text = "Den you know, and I don't have to say it. I remember de boats low in de water and nobody speaking. We be here now, and we got each other, and dat's de whole of what I carried off dat I still have." } },
+      choices = { { text = "We carried enough. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Hang your food high and keep your friends close. Dat's served me on two shores now." } },
+    echo_isles = { { id = "tp_isles", text = "Home, and not home. Zalazane has it, and he has some of our people wit' it, which be de worse theft." } },
+    thrall = { { id = "tp_thrall", text = "He gave his word to Sen'jin and kept it to Vol'jin. Dere's not many chiefs of any people I'd say dat about." } },
+    quilboar = { { id = "tp_quilboar", text = "Dey don't come down to de shore. Too much water for dem, I think, and I'm glad of it." } },
+    _none = { { id = "tp_none", text = "Dat I don't know, mon, and I know most things dat pass through here." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Trayexir: weapon merchant in Sen'jin Village.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "trayexir", id = TODO_NPC("Trayexir"), name = "Trayexir", title = "Weapon Merchant",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "senjin" }, temper = { "proud", "teasing" }, values = { "craft", "strength" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Trayexir sells weapons in Sen'jin Village and balances every throwing axe on one finger before he hands it over. He is proud of Darkspear work and likes to tease orcs about the weight of theirs.",
+    third = "{name} met Trayexir, the weapon merchant of Sen'jin Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "You got de look of somebody who needs something sharp. Come, let Trayexir show you what a Darkspear means by a weapon." },
+    { id = "g_back", when = { metBefore = true }, text = "Back so soon, mon? Did you lose it, break it, or leave it in somebody?" },
+    { id = "g_troll", when = { race = "Troll" }, text = "Ah, one of our own. Den you know how to throw, and I don't have to explain which end goes first." },
+    { id = "g_away", when = { away = 14 }, text = "Long time, long time. I hope whatever I sold you last has got some blood on it by now." },
+  },
+  notice = {
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc, and wit' an orc's shoulders. You'll want de heaviest thing I got and you'll swing it like you be chopping wood, I know your people." },
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "You walk quiet, mon. I got daggers for dat kind of work, thin ones, and I don't ask what dey be for." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be Trayexir. Axes for throwing, spears, knives, staves, I got dem all, and every one balanced by my own hand. De orcs make a weapon to last a hundred years. We make one to land where you be looking, and dat's de better thing." },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? I'm not going anywhere." },
+        { id = "h_again2", text = "Ask. Talking's free, only de axes cost." },
+        { id = "h_again3", text = "Go on. I can sharpen and listen." },
+      },
+      choices = {
+        { text = "Show me your weapons.", next = "BUSINESS" },
+        { text = "What makes a Darkspear weapon different?", next = "darkspear" },
+        { text = "The village sends its young to fight on the isles.", next = "young" },
+        { text = "You don't think much of orc smithing.", next = "orcs" },
+        { text = "What blade would you put in a rogue's hand?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Keep them sharp, Trayexir.", next = "END" },
+      },
+    },
+    darkspear = {
+      lines = { { id = "da_default", text = "Balance, mon. We be a small tribe and always were, so we never won by standing in a line and pushing. We won by putting a spear through de chief from behind a tree. A weapon dat flies true is worth ten dat only hit hard." } },
+      choices = {
+        { text = "Where did you learn the making?", next = "darkspear2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darkspear2 = {
+      lines = { { id = "da2_default", text = "From my mother's brother, on de isles, when we still had dem. He made spears for Sen'jin himself. He didn't get on de boats, and so now dere's only me who knows his way of binding a head to a shaft." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "echo_isles" } } } },
+    },
+    young = {
+      lines = { { id = "yo_default", text = "Dey do, and I arm dem for it. Master Gadrin sends dem across to de Echo Isles after Zalazane, and I see each one before dey go. I give dem de best I have and I tell dem a joke, because it's bad luck to send someone off solemn." } },
+      choices = {
+        { text = "The hexed trolls there are your own kin.", next = "young2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young2 = {
+      lines = { { id = "yo2_default", text = "Dey are. I know some of de faces. Zalazane took deir minds, and what's left wears deir skin and throws axes I may have made myself. De young ones ask me if it be wrong to strike dem down." } },
+      choices = {
+        { text = "What do you tell them?", next = "young3" },
+        { text = "Something else, Trayexir.", next = "BACK" },
+      },
+    },
+    young3 = {
+      big = true,
+      lines = { { id = "yo3_default", narr = "He stops turning the axe in his hand.", text = "I tell dem a Darkspear would choose a clean death over being Zalazane's puppet, and dat de spirits will know de difference. I believe it, most of de time. But Vornal thinks de hex might be broken someday, and den what have we done?" } },
+      choices = {
+        { text = "A clean death frees them. You tell them true.", next = "BACK", reply = "Dat's my thinking, mon. I'd want it done for me, quick and by a friend.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If a cure may come, every kill is a kinsman lost.", next = "BACK", reply = "Aye, and dat's de thought I don't let de young ones see on my face. Maybe I should.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orcs = {
+      lines = { { id = "or_default", text = "Ha! I think plenty of it, I only don't say so in front of dem. Uhgar in Razor Hill makes a blade dat'll cut a boar in two. It weighs as much as de boar, too. We trade, him and me, and each of us thinks he got de better of it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Something short, wit' no shine on it. I black my daggers over a fish-oil lamp so dey don't catch de moon. Take two, and keep de second where nobody thinks to look, which I won't tell you because den I'd know." } },
+      choices = { { text = "Two, and no shine. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Throw before you close, mon. If de first one lands, de rest of de fight be easy." } },
+    echo_isles = { { id = "tp_isles", text = "I left my forge dere, and my uncle. Zalazane can keep de forge." } },
+    thrall = { { id = "tp_thrall", text = "He carries a hammer big as a hut door. Not how I'd do it, but I hear it works for him." } },
+    quilboar = { { id = "tp_quilboar", text = "Thick hide, thick skull. Don't waste a throwing axe, use a spear and lean on it." } },
+    _none = { { id = "tp_none", text = "Don't know it, mon. If it can't be sharpened, I wasn't paying attention." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Tai'tasi: trade supplies in Sen'jin Village.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "taitasi", id = TODO_NPC("Tai'tasi"), name = "Tai'tasi", title = "Trade Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "senjin" }, temper = { "warm", "wry" }, values = { "craft", "loyal" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Tai'tasi sells thread, vials and dyes in Sen'jin Village and knows what every crafter in the tribe is working on. She speaks of Lar Prowltusk with a fond impatience, and watches the road to the Kolkar crags when he is out on it.",
+    third = "{name} met Tai'tasi, who keeps the trade supplies in Sen'jin Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome, friend. Thread, vials, dyes, salt, whatever your hands be needing, Tai'tasi has it or knows who does." },
+    { id = "g_craft", when = { profession = { "Tailoring", "Leatherworking", "Alchemy", "Cooking", "Blacksmithing", "Engineering" } }, text = "Ah, a maker. Good, de village can never have too many. What be on your bench today?" },
+    { id = "g_back", when = { metBefore = true }, text = "You be back. Run out already, or did it come out wrong?" },
+    { id = "g_lar", when = { questActive = TODO_QUEST("Thwarting Kolkar Aggression") }, text = "Lar's sent you after de Kolkar, I hear. Come back whole, and tell him I said he could go himself next time." },
+  },
+  notice = {
+    { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
+      text = "You brew, I can tell by de stains. Miao'zan buys half my vials and breaks a third of dose dancing, so I keep plenty." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter. Lar comes home from de crags smelling just like you do. I mean dat kindly, mostly." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be Tai'tasi. A village dat lost everything has to make everything again, and I sell what de making takes. De tailors, de brewers, de ones who tan hides, dey all come by, and so I hear all de news before Master Gadrin does." },
+      },
+      again = {
+        { id = "h_again", text = "What else, friend? I've a little time." },
+        { id = "h_again2", text = "Ask. I be counting spools, and it's dull." },
+        { id = "h_again3", text = "Go on. De news is free wit' de thread." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "What is the village making these days?", next = "making" },
+        { text = "You keep looking toward the western road.", next = "lar" },
+        { text = "What news have you heard before Gadrin?", next = "news" },
+        { text = "I need vials that won't crack over a fire.", next = "vials", when = { profession = "Alchemy" } },
+        { text = "Spirits keep you, Tai'tasi.", next = "END" },
+      },
+    },
+    making = {
+      lines = { { id = "ma_default", text = "Everything at once. Nets and sails for de fishers, raptor harness for Zjolnir, and more bandages dan I like to count for de ones Gadrin sends to de isles. On de isles we had our grandmothers' looms. Here we started wit' driftwood." } },
+      choices = {
+        { text = "Does the old craft survive?", next = "making2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    making2 = {
+      lines = { { id = "ma2_default", text = "What de old ones carried in deir heads, yes. What was written or carved stayed behind. So I sit de young ones down wit' de old ones every chance I get, and I give dem thread for nothing if dey'll promise to listen." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    lar = {
+      lines = { { id = "la_default", text = "Do I? Hm. Lar Prowltusk shares my fire, when he remembers he has one, and he's been watching de Kolkar in de crags west of here. He says dey be massing. He also says he'll be home by dark, and one of dose is usually true." } },
+      choices = {
+        { text = "The Kolkar worry him that much?", next = "lar2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lar2 = {
+      lines = { { id = "la2_default", text = "Dey worry him enough dat he doesn't sleep. De centaur pushed de tauren across half a continent, and Lar thinks Sen'jin is small enough to be next. He sends young ones to burn deir battle plans, and he'd go himself every time if I let him." } },
+      choices = {
+        { text = "You keep him from going?", next = "lar3" },
+        { text = "Something else, Tai'tasi.", next = "BACK" },
+      },
+    },
+    lar3 = {
+      big = true,
+      lines = { { id = "la3_default", text = "I asked him to stay at his post and send others, and he did, and now he sits dere chewing on it. I don't know if I kept a good hunter alive or took a spear from de village when it needs every one." } },
+      choices = {
+        { text = "The village needs him alive more than it needs him brave.", next = "BACK", reply = "Dat's what I tell myself. It be good to hear it from someone who isn't me.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A hunter kept from the hunt is half a hunter.", next = "BACK", reply = "Aye, I see dat in his face every night. Maybe next time I say nothing, and just wait up.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    news = {
+      lines = { { id = "nw_default", text = "Dat de fishers saw lights on de Echo Isles three nights running, green ones. Dat an orc in Razor Hill is asking questions about de Burning Blade and getting short answers. And dat Bom'bay swears he saw a crab as big as a hut, which I don't count as news." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "echo_isles" } } } },
+    },
+    vials = {
+      lines = { { id = "vl_default", text = "Den take de thick ones, de leaded glass from Ratchet, and warm dem slow. Miao'zan cracks de thin ones every week because he won't stand still at de fire. Don't dance while you brew, and you'll do better dan our own trainer." } },
+      choices = { { text = "Thick glass, slow heat. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Learn a craft from someone old while dey still be here to teach it. We learned dat one late." } },
+    centaur = { { id = "tp_centaur", text = "De Kolkar sit in de crags to de west and Lar watches dem. Ask him, he'll talk till de fire's out." } },
+    echo_isles = { { id = "tp_isles", text = "My grandmother's loom is still dere, if Zalazane hasn't burned it. I think about dat loom more dan I should." } },
+    thrall = { { id = "tp_thrall", text = "De Warchief gave us dis shore and asked nothing for it but our friendship. He has it." } },
+    _none = { { id = "tp_none", text = "I've not heard about dat, friend, and I hear most things." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Miao'zan: alchemy trainer in Sen'jin Village (he dances).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "miaozan", id = TODO_NPC("Miao'zan"), name = "Miao'zan", title = "Alchemy Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "senjin" }, temper = { "merry", "restless" }, values = { "craft", "devout" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Miao'zan teaches alchemy in Sen'jin Village and dances while his potions brew, saying the rhythm is part of the recipe. Half the village thinks he is joking and the other half has tasted the results.",
+    third = "{name} met Miao'zan, the dancing alchemy trainer of Sen'jin Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hey, mon, don't just stand dere, move your feet a little! De pot likes company, and so do I." },
+    { id = "g_alch", when = { profession = "Alchemy" }, text = "A brewer! Come, smell dis one and tell me what I put in it. If you get all three, I teach you something good." },
+    { id = "g_back", when = { metBefore = true }, text = "You be back! Good, good, de potion from last time, it didn't turn you any strange colour?" },
+    { id = "g_away", when = { away = 14 }, text = "Long time, mon! I made up four new steps and one new potion since you left, and de steps be better." },
+  },
+  notice = {
+    { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
+      text = "You pick your own, I see de green on your fingers. Mishiki will like you, and she'll tell you never to take de last one, so now you been told twice." },
+    { id = "n_priest", cat = "class", when = { class = { "PRIEST", "SHAMAN" } },
+      text = "You talk to de spirits, yes? Den you know dey like a bit of music. Don't let anybody tell you a potion be only leaves and water." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Miao'zan, dat's me. I teach de brewing: healing draughts, swiftness, a little troll's blood to close a wound. Peacebloom and silverleaf from Mishiki, clean water, a steady fire, and you keep moving while it cooks, because a potion brewed standing still comes out sour." },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? Ask while I stir." },
+        { id = "h_again2", text = "Go on, I can dance and listen. I can do three things, even." },
+        { id = "h_again3", text = "Ask it! De pot's got a while yet." },
+      },
+      choices = {
+        { text = "Teach me alchemy.", next = "BUSINESS" },
+        { text = "Why do you dance while you brew?", next = "dance" },
+        { text = "What grows around Sen'jin worth brewing?", next = "herbs" },
+        { text = "The witch doctors brew too, I gather.", next = "doctors" },
+        { text = "My healing potions come out weak.", next = "weak", when = { profession = "Alchemy" } },
+        { text = "Keep dancing, Miao'zan.", next = "END" },
+      },
+    },
+    dance = {
+      lines = { { id = "da_default", text = "Because my grandmother did, and her potions never failed. She said de loa come closer when dey hear feet on de ground, and a potion made wit' de loa watching holds its strength. Also, mon, it be a long time to stand by a pot." } },
+      choices = {
+        { text = "Do you believe the loa part?", next = "dance2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dance2 = {
+      lines = { { id = "da2_default", text = "I tried it both ways, to be sure. One batch dancing, one batch standing like a post. De dancing batch was stronger, every time. Master Vornal says I only stir better when I be moving, and maybe so, but it works, and I don't argue wit' what works." } },
+      choices = {
+        { text = "Vornal doubts the old ways, then?", next = "dance3" },
+        { text = "Something else, Miao'zan.", next = "BACK" },
+      },
+    },
+    dance3 = {
+      big = true,
+      lines = { { id = "da3_default", text = "Not doubts, no. He wants to know de why of everything, so it can be taught plain to de young ones and never lost again. Me, I think some things you keep by doing dem, not by explaining dem. We go round on it, him and me, over many pots." } },
+      choices = {
+        { text = "Keep the dance. Not everything needs a reason.", next = "BACK", reply = "Ha! Dat's de spirit, mon. Come, I show you de first step, it's easy.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Vornal is right. What can't be explained gets lost.", next = "BACK", reply = "Mm. We did lose much, dat's true. Maybe I let him write de steps down, if he can keep up.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    herbs = {
+      lines = { { id = "he_default", text = "Peacebloom and silverleaf on de hills, earthroot under de cliffs. Dat's enough for a beginner. Mishiki picks for me and for de masters, and she knows every patch between here and Razor Hill. When you want more, de Barrens has briarthorn and mageroyal by de oases." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    doctors = {
+      lines = { { id = "do_default", text = "Dey do, but it be a different thing. Master Gadrin and Master Vornal brew for hexes and for speaking wit' de dead, and I wouldn't drink from deir pots for all de gold in Ratchet. I brew for de living. It's smaller work, and I like it better." } },
+      choices = {
+        { text = "What do they brew against Zalazane?", next = "doctors2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    doctors2 = {
+      lines = { { id = "do2_default", text = "Dat's Vornal's study, and he keeps it close. He wants something to break de hex on our kin over on de isles. He's asked me for vials and for quiet, and I've given him de vials." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "echo_isles" } } } },
+    },
+    weak = {
+      lines = { { id = "we_default", text = "Den your fire be too hot, mon, I'd bet my best pot on it. Everybody rushes. Let it only just tremble, never boil, and take it off when de colour turns like a sunset. And move about a little, it can't hurt." } },
+      choices = { { text = "A trembling pot. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Don't boil it, and don't stand still. Dat be all my grandmother's wisdom, and it's enough." } },
+    echo_isles = { { id = "tp_isles", text = "De best herbs I ever knew grew dere, in de wet shade. I'd give a lot to pick dem again." } },
+    thrall = { { id = "tp_thrall", text = "A good chief, mon. Serious, though. I'd like to see him dance once before I die." } },
+    elements = { { id = "tp_elements", text = "De orcs talk to de elements, we talk to de loa. I think maybe dey all live on de same street." } },
+    _none = { { id = "tp_none", text = "Don't know dat one, mon. Ask me about something dat goes in a pot." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Zansoa: fishing supplies on the shore at Sen'jin Village.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zansoa", id = TODO_NPC("Zansoa"), name = "Zansoa", title = "Fishing Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "senjin" }, temper = { "dry", "unhurried" }, values = { "practical", "patient" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "Zansoa sells poles, line and bait on the shore by Sen'jin Village and mends nets between customers. He talks about the water the way other people talk about a moody relative.",
+    third = "{name} met Zansoa, who sells fishing supplies on the shore at Sen'jin Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Poles, line, hooks and bait. Mind where you step, mon, dat net's only half mended." },
+    { id = "g_fish", when = { profession = "Fishing" }, text = "You fish. I can tell, you looked at de water before you looked at me. What be biting where you came from?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Lost de hook, or lost de pole?" },
+    { id = "g_away", when = { away = 14 }, text = "You been gone a few tides. De fish didn't miss you, but I'll admit I wondered." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A tauren at de seaside. First time you seen so much water in one place, I think. It doesn't bite, mon, only de things in it do." },
+    { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
+      text = "A cook, good. Den what you catch won't go to waste. Half de orcs I sell to throw back anything dey can't name." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be Zansoa. Lau'Tiki teaches de fishing and I sell what you fish wit', so between us nobody in Sen'jin goes hungry who can hold a pole. De sea's de one thing we brought wit' us from de isles, since it be de same sea." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I'm only knotting." },
+        { id = "h_again2", text = "Ask, mon. De net's patient." },
+        { id = "h_again3", text = "Go on. Tide won't turn for a while yet." },
+      },
+      choices = {
+        { text = "Show me your fishing gear.", next = "BUSINESS" },
+        { text = "What runs off this shore?", next = "catch" },
+        { text = "You mend nets as well as sell them.", next = "nets" },
+        { text = "The fishers keep clear of the isles.", next = "isles" },
+        { text = "What bait would you use for the deep water?", next = "bait", when = { profession = "Fishing" } },
+        { text = "Good tides, Zansoa.", next = "END" },
+      },
+    },
+    catch = {
+      lines = { { id = "ca_default", text = "Slitherskin mackerel close in, and longjaw mud snapper where de bottom drops. Dey be small fish and honest ones. Further out dere's bigger things, but further out dere's also de Admiral's ships, so we stay where de water's thin." } },
+      choices = {
+        { text = "The humans trouble your boats?", next = "catch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    catch2 = {
+      lines = { { id = "ca2_default", text = "Dey've fired on two, from Tiragarde. Nobody killed yet, but a boat wit' a hole in it be a hungry month for a family. De orcs at Razor Hill say dey're dealing wit' it. Dey been saying so a while." } },
+      choices = {
+        { text = "You don't think the orcs do enough.", next = "catch3" },
+        { text = "Something else, Zansoa.", next = "BACK" },
+      },
+    },
+    catch3 = {
+      big = true,
+      lines = { { id = "ca3_default", text = "I think Gar'Thok has quilboar on one side and cultists on de other, and troll fishing boats come third. I understand it. But some of de young fishers talk about rowing over at night and cutting a few throats demselves, and I've not told dem no." } },
+      choices = {
+        { text = "Tell them no. That is Gar'Thok's fight to order.", next = "BACK", reply = "Aye, and it'd bring de marines down on de village besides. I'll have a word before dey do something foolish.", fx = { align = { order = 1 } } },
+        { text = "It's your sea. Defend it your own way.", next = "BACK", reply = "Heh. Dat be how Darkspear always did it, quiet and at night. I'll not stop dem, den.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nets = {
+      lines = { { id = "ne_default", text = "I do, because de makrura tear dem faster dan anyone can buy new. A crab-man sees a net full of fish and thinks it be a gift. Tai'tasi sells me de cord, and I think I've knotted enough of it now to reach Orgrimmar." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    isles = {
+      lines = { { id = "is_default", text = "We do. De best water we ever fished be right dere, between de isles, and nobody will put a line in it. De fish from dere taste wrong since Zalazane came, and de sea witch before him did no better by it." } },
+      choices = {
+        { text = "A sea witch?", next = "isles2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    isles2 = {
+      lines = { { id = "is2_default", text = "On de old islands, before dese ones, where de murlocs took us for deir sacrifice. Sen'jin died dere, getting us out. I was a boy holding a net, and dat's all I'll say of it, mon." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "echo_isles" } } } },
+    },
+    bait = {
+      lines = { { id = "ba_default", text = "Shiny baubles close to shore, and a nightcrawler when you want something wit' teeth. But save your coin until you can cast far, mon. Bait don't help a line dat lands at your own feet." } },
+      choices = { { text = "I'll practise the cast. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Watch de birds. Where dey dive, de fish are, and dey don't charge for telling you." } },
+    echo_isles = { { id = "tp_isles", text = "Good water gone bad. I don't look dat way when I cast." } },
+    thrall = { { id = "tp_thrall", text = "He got us off a sinking island. Whatever else he does, he did dat." } },
+    ratchet = { { id = "tp_ratchet", text = "De goblins dere fish wit' dynamite, I hear. Dat's not fishing, mon, dat's just being loud near water." } },
+    _none = { { id = "tp_none", text = "Couldn't say. If it don't swim, I haven't given it much thought." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Kali Remik: sends young troll hunters to Thotar (The Hunter's Path).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "kali_remik", id = TODO_NPC("Kali Remik"), name = "Kali Remik",
+  bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
+  communities = { "senjin" }, temper = { "keen", "teasing" }, values = { "patient", "loyal" },
+  notices = { "class", "pet" },
+  impression = {
+    first = "Kali Remik watches the young hunters of Sen'jin Village and tells them when they are ready to tame a beast of their own. She is quick to tease and slow to praise, and the young ones listen for both.",
+    third = "{name} met Kali Remik, who sets the young hunters of Sen'jin Village on the hunter's path.",
+  },
+  greetings = {
+    { id = "g_default", text = "You walk loud, mon. Dat's fine in a village, but de things out dere got better ears dan I do." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "Ah, a hunter. Let me look at how you hold dat bow. Mm, it's not bad, and somebody taught you not to grip it like a club." },
+    { id = "g_active", when = { questActive = TODO_QUEST("The Hunter's Path") }, text = "Still here? Thotar's waiting in Razor Hill, and de beasts aren't getting any tamer while you stand about." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Quieter dis time, I didn't hear you till de second hut." },
+  },
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "So you got one already. {pet} looks fed and it looks at you before it looks at me, and dat's what I want to see." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid. You don't tame de beast, you become it, yes? I'd like to know what a raptor thinks of dat." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be Kali Remik. I watch de young hunters of de tribe, and when one's ready to walk wit' a beast, I'm de one who says so. A Darkspear hunter alone is good, but a Darkspear hunter wit' a raptor at her heel be a thing de Kolkar tell stories about." },
+        { id = "h_before", when = { all = { { class = "HUNTER" }, { questBefore = TODO_QUEST("The Hunter's Path") } } },
+          text = "I be Kali Remik, and I been watching you, hunter. You shoot well enough alone, and it's time you stopped being alone. When you be ready, I'll send you to Thotar in Razor Hill, and he'll set you to taming." },
+        { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Hunter's Path") },
+          text = "Go north to Razor Hill and find Thotar, de orc who trains de hunters dere. Tell him Kali Remik sent you, and do what he says even when it sounds foolish. It always sounds foolish de first time." },
+        { id = "h_done", when = { questDone = TODO_QUEST("The Hunter's Path") },
+          text = "So Thotar took you on. Good. He be an orc and he teaches like one, all patience and no jokes, but he knows beasts, and I trust him wit' ours." },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? I've one eye on de pens, but ask." },
+        { id = "h_again2", text = "Go on. I'm listening, and I hear more dan you'd like." },
+        { id = "h_again3", text = "Ask it. De young ones are all out hunting anyway." },
+      },
+      choices = {
+        { text = "How do you know when a hunter is ready?", next = "ready" },
+        { text = "Why send your hunters to an orc?", next = "thotar" },
+        { text = "The tribe favours raptors above other beasts.", next = "raptors" },
+        { text = "Which beast should I tame first?", next = "first", when = { class = "HUNTER" } },
+        { text = "I've tamed my first. It was harder than I thought.", next = "tamed", when = { pet = { type = "Beast" } } },
+        { text = "I'll walk quieter, Kali.", next = "END" },
+      },
+    },
+    ready = {
+      lines = { { id = "re_default", text = "When dey stop wanting it so bad. A young one who begs me for a beast wants a weapon dat walks. A young one who's ready wants a companion, and she asks me different questions, about feeding and about fear." } },
+      choices = {
+        { text = "Have you ever judged wrong?", next = "ready2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ready2 = {
+      lines = { { id = "re2_default", text = "Once. A boy, quick and proud, de best shot I had. I sent him on, and his first raptor turned on him in de pens before a week was out. He lived. De raptor we had to put down, and dat was my fault, not de beast's." } },
+      choices = {
+        { text = "What became of the boy?", next = "ready3" },
+        { text = "Something else, Kali.", next = "BACK" },
+      },
+    },
+    ready3 = {
+      big = true,
+      lines = { { id = "re3_default", text = "He asks me every season to try again. He's older, and he's sorry, and I still see dat raptor when I look at him. I haven't said yes. Zjolnir tells me I be punishing de boy for my own mistake." } },
+      choices = {
+        { text = "Give him the chance. He has paid for it.", next = "BACK", reply = "Mm. Dat be what Zjolnir says, and he loved dat raptor more dan I did. Maybe I listen dis time.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast died for his pride. Let him wait longer.", next = "BACK", reply = "Dat's what my gut says. A beast can't choose its hunter twice, so de hunter better be sure.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thotar = {
+      lines = { { id = "th_default", text = "Because we be one Horde, mon, and because Thotar has more beasts around Razor Hill to test a hunter on dan I have on dis beach. Boars, scorpids, de crocolisks on de river. He teaches de taming, and Harruk beside him trains what you bring back." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    raptors = {
+      lines = { { id = "ra_default", text = "We do. A raptor be clever, and it hunts in a pack, and it never forgets a face, which is how a Darkspear likes to think of herself. Zjolnir breeds de ones we ride. De ones we hunt wit', each hunter goes and earns alone." } },
+      choices = {
+        { text = "Where do the wild ones run?", next = "raptors2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    raptors2 = {
+      lines = { { id = "ra2_default", text = "On de Echo Isles, de bloodtalons, but Zalazane's people be thick dere. Most of ours go west to de Barrens now, where de sunscale packs run by de oases. It's a long walk for a first beast, and I think it should be." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    first = {
+      lines = {
+        { id = "fi_default", text = "Whichever one Thotar tells you, and no arguing. He'll have you tame three, to learn how each one thinks, before you keep any. After dat, mon, choose de one you'd want beside you on de worst day you can imagine." },
+        { id = "fi_low", when = { maxLevel = 9 }, text = "None yet, little one. Shoot straight a while longer, and come see me when de scorpids stop being a worry. I'll know, I always do." },
+      },
+      choices = { { text = "The worst day I can imagine. Something else.", next = "BACK" } },
+    },
+    tamed = {
+      lines = { { id = "ta_default", text = "It always is. You stand dere while it bites you and you don't strike back, and every part of you says dat be madness. Dat's de whole lesson. {pet} knows now dat you'll take pain for it, and it won't forget." } },
+      choices = { { text = "Neither will I. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Stand downwind and keep your mouth shut. Dat be most of hunting, and a good deal of everything else." } },
+    echo_isles = { { id = "tp_isles", text = "De best raptors I ever knew ran dere. Now dey run for Zalazane, or dey run wild, and I can't say which be worse." } },
+    centaur = { { id = "tp_centaur", text = "Lar Prowltusk watches de Kolkar for us. A centaur's a big target, mon, and I've never understood how anyone misses." } },
+    thrall = { { id = "tp_thrall", text = "De Warchief asked for Darkspear scouts by name when he raised his city. We be small, but we be seen." } },
+    _none = { { id = "tp_none", text = "I don't know dat. If it left tracks I could tell you more." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Frezza: zeppelin master (Tirisfal Glades) at the tower outside Orgrimmar.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "frezza", id = TODO_NPC("Frezza"), name = "Frezza", title = "Zeppelin Master",
+  bible = "bibles/more_folk.md", role = "citizen", tier = "service",
+  temper = { "brisk", "officious" }, values = { "greedy", "practical" },
+  notices = { "race", "class" },
+  impression = {
+    first = "Frezza runs the zeppelin to Tirisfal Glades from the tower outside Orgrimmar and recites the safety rules faster than anyone can follow them. He insists the service has never lost a passenger who obeyed every one.",
+    third = "{name} met Frezza, the goblin zeppelin master for the Tirisfal route outside Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Tirisfal Glades and the Undercity, boarding from this platform, no pushing, no smoking and no fire magic, pal. Frezza's the name, what can I do for ya?" },
+    { id = "g_forsaken", when = { race = "Scourge" }, text = "Headed home, huh? Platform's right here, friend. Mind the gap, and by that I mean mind all your parts, I ain't sendin' anybody back down for a finger again." },
+    { id = "g_back", when = { metBefore = true }, text = "Hey, a repeat customer! See, I told ya it was safe. Mostly I told ya, anyway." },
+    { id = "g_away", when = { away = 14 }, text = "Well, look who's still in one piece! The old girl's been askin' after ya, pal, in her way." },
+  },
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = { "MAGE", "WARLOCK" } },
+      text = "Whoa, whoa, hands where I can see 'em, spellcaster. Not one spark on my ship. That bag overhead is full of somethin' that really, really don't like fire." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A tauren, huh. No offence, big fella, but stand in the middle of the deck. It's a weight distribution thing, I got a chart." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Frezza, zeppelin master, Tirisfal route. My zeppelin runs from this tower clear across the Great Sea to the Undercity's front door and back again, regular as a paid debt. It's the safest way to cross an ocean ever invented, and I oughta know, I read the brochure." },
+      },
+      again = {
+        { id = "h_again", text = "What else, pal? She ain't due for a few minutes." },
+        { id = "h_again2", text = "Sure, ask. I got a schedule to keep, but it's a loose one." },
+        { id = "h_again3", text = "Go on, shoot. With words, I mean, and nowhere near the gasbag." },
+      },
+      choices = {
+        { text = "Where does this zeppelin go?", next = "route" },
+        { text = "How safe is this thing, really?", next = "safe" },
+        { text = "Goblins flying the Horde's airships. How did that happen?", next = "deal" },
+        { text = "The other zeppelin master has your nose.", next = "sister" },
+        { text = "Do the living make the crossing easily?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I'll wait for the ship.", next = "END" },
+      },
+    },
+    route = {
+      lines = { { id = "ro_default", text = "East, over the whole Great Sea, and she ties up at a tower outside the ruins of Lordaeron's capital in Tirisfal Glades. The Undercity's under that, hence the name. Chilly place, pal, bring a cloak, and don't eat anything a Forsaken offers ya." } },
+      choices = {
+        { text = "And the other platform?", next = "route2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    route2 = {
+      lines = { { id = "ro2_default", text = "That's my sister's ship, south to Grom'gol Base Camp in Stranglethorn Vale, which is all jungle and things with teeth. Different climate entirely. Ya want Snurk for that one, and don't let her sell ya anything on the way." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    safe = {
+      lines = { { id = "sa_default", text = "Completely, friend, entirely, a hundred percent, provided ya don't smoke, don't cast fire, don't lean over the rail and don't jump off before she's tied up. People jump off, I dunno why. That ain't the zeppelin's fault." } },
+      choices = {
+        { text = "Has one ever gone down?", next = "safe2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    safe2 = {
+      lines = { { id = "sa2_default", text = "Not on my route, and I'd thank ya not to say it so loud on the platform. There was a small fire once. Small! A warlock's imp sneezed. We put it out with the passengers' drinkin' water and everybody got there, a little thirsty." } },
+      choices = {
+        { text = "What did you do about the warlock?", next = "safe3" },
+        { text = "Something else, Frezza.", next = "BACK" },
+      },
+    },
+    safe3 = {
+      big = true,
+      lines = { { id = "sa3_default", text = "Billed him, obviously, and banned the imp. Then the Horde's people said I can't ban a soldier's demon on a Horde route, on account of who pays for the route. So now I let 'em on and I sweat the whole trip, and I ask ya, is that any way to run an airline?" } },
+      choices = {
+        { text = "Your ship, your rules. Ban what endangers it.", next = "BACK", reply = "That's what I said! Captain's discretion! You oughta come to the next contract meeting, pal.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Horde pays. You fly whom the Horde sends.", next = "BACK", reply = "Yeah, yeah, that's the small print, I read it. Don't mean I gotta like it.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    deal = {
+      lines = { { id = "de_default", text = "Simple, pal. The Warchief's got an ally on the far side of an ocean and no fleet to speak of, and we got airships and a real flexible attitude. Steamwheedle signed the contract. The Horde gets a bridge in the sky, we get paid by the trip, and everybody's happy." } },
+      choices = {
+        { text = "Would you fly the Alliance for the same fee?", next = "deal2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    deal2 = {
+      lines = { { id = "de2_default", text = "Me personally? I got an exclusive clause, so no. The Cartel generally? Friend, the Cartel would fly a murloc to the moon if the murloc had the deposit. That ain't disloyalty, that's just business with good manners." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
+    },
+    sister = {
+      lines = { { id = "si_default", text = "Snurk? Yeah, she's my sister, and she got the warm route, which tells ya who Ma liked best. She's good at the job, I'll say that. She's also sweet-talkin' every fella who walks up her ramp, so watch your purse and your heart, in that order." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    forsaken = {
+      lines = { { id = "fo_default", text = "Easier than your folks do, honestly. The orcs get airsick and the tauren stare at the deck the whole way. Your people just stand at the rail lookin' at the water for three hours and never say a word. Best passengers I got, and I mean that." } },
+      choices = { { text = "We have had practice at stillness. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Wait till she's tied up before ya step off. I can't stress that enough, and I've tried." } },
+    steamwheedle = { { id = "tp_steam", text = "The Cartel signs my pay chit. We're neutral, pal, which means everybody's money's the same colour to us." } },
+    thrall = { { id = "tp_thrall", text = "Good customer. Pays on time, don't haggle much, reads the whole contract, which honestly made us a little nervous." } },
+    ratchet = { { id = "tp_ratchet", text = "That's where the parts come from, and the mechanics. If she ever needs a new engine, she goes to Ratchet and I go on holiday." } },
+    _none = { { id = "tp_none", text = "Ain't on my route, pal, so I couldn't tell ya." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Snurk Bucksquick: zeppelin master (Grom'gol) at the tower outside Orgrimmar.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "snurk", id = TODO_NPC("Snurk Bucksquick"), name = "Snurk Bucksquick", title = "Zeppelin Master",
+  bible = "bibles/more_folk.md", role = "citizen", tier = "service",
+  temper = { "flirtatious", "shrewd" }, values = { "greedy", "cunning" },
+  notices = { "gender", "class" },
+  impression = {
+    first = "Snurk Bucksquick runs the zeppelin to Grom'gol from the tower outside Orgrimmar and has a wink ready for anyone who looks as if they might tip. Behind the sweet talk she knows her schedule to the minute.",
+    third = "{name} met Snurk Bucksquick, the goblin zeppelin master for the Grom'gol route outside Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hey there! The zeppelin to Grom'gol Base Camp, Stranglethorn Vale, boards right here. I'm Snurk, and I'll be takin' real good care of ya." },
+    { id = "g_male", when = { gender = "male" }, text = "Well, hello, handsome. Goin' my way? This one's for Grom'gol, and if ya stand close I'll tell ya when she's comin' in." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again, sweetheart! Couldn't stay away, huh? Don't worry, nobody can." },
+    { id = "g_away", when = { away = 14 }, text = "Look who it is! I was startin' to think the jungle kept ya. It keeps a few, ya know." },
+  },
+  notice = {
+    { id = "n_female", cat = "gender", when = { gender = "female" },
+      text = "Love the gear, hon, very practical. Listen, between us girls, the jungle's murder on leather, so oil everything before ya land." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "Ooh, a hunter. You're gonna love Stranglethorn, sweetheart. Everything down there's got stripes or teeth, and most of it's got both." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Snurk Bucksquick, zeppelin master. I run the southern zeppelin from this tower down to Grom'gol Base Camp, which is the Horde's little foothold in Stranglethorn Vale. Warm weather, big cats, pirates down the coast, and I get ya there with your hair barely mussed." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else, sweetheart? I got a minute before she docks." },
+        { id = "h_again2", text = "Go on, ask. I like a talker." },
+        { id = "h_again3", text = "Sure, hon, what else? Schedule's fine, I checked." },
+      },
+      choices = {
+        { text = "Tell me about Grom'gol.", next = "gromgol" },
+        { text = "You run a tight schedule under all that charm.", next = "schedule" },
+        { text = "Frezza says to watch my purse around you.", next = "brother" },
+        { text = "What sells in the jungle that I should carry?", next = "trade" },
+        { text = "Do you say that to every man on this platform?", next = "flirt", when = { gender = "male" } },
+        { text = "I'll wait for the zeppelin.", next = "END" },
+      },
+    },
+    gromgol = {
+      lines = { { id = "gr_default", text = "It's a stockade on the west coast of the vale, orcs and trolls mostly, with a wall all round because of what's outside it. Ya step off the tower and you're in the camp. Step out the gate and you're in the food chain, hon, so pick your direction careful." } },
+      choices = {
+        { text = "Who else is in the vale?", next = "gromgol2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gromgol2 = {
+      lines = { { id = "gr2_default", text = "Everybody with an angle. Jungle trolls who ain't the friendly kind, the Venture Company strippin' timber, some dwarf with a hunting camp, and Booty Bay way down south, which is Steamwheedle and the only place worth an evening. I got cousins there." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "booty_bay" } } } },
+    },
+    schedule = {
+      lines = { { id = "sc_default", text = "Aw, ya noticed. Listen, the smile's free, but the schedule's what the Horde pays for. I know where that ship is every minute of the day, and if she's late I know whose pay I'm dockin' before she's even tied up." } },
+      choices = {
+        { text = "So the sweet talk is only business?", next = "schedule2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    schedule2 = {
+      lines = { { id = "sc2_default", text = "It's good business, sweetheart, and those ain't the same. A happy passenger tips, and a happy passenger don't file a complaint when the ride gets bumpy. Frezza reads folks the rules and they hate him for it. I tell 'em they look nice and they'd follow me off the rail." } },
+      choices = {
+        { text = "That's a little dishonest, isn't it?", next = "schedule3" },
+        { text = "Something else, Snurk.", next = "BACK" },
+      },
+    },
+    schedule3 = {
+      big = true,
+      lines = { { id = "sc3_default", text = "Is it? I never said a thing that wasn't true to somebody, somewhere. Everybody walks off feelin' a little better and I walk off a little richer, and I can't find the victim in that. But go on, hon, tell me what you think, I can take it." } },
+      choices = {
+        { text = "A kind word that costs nothing harms nobody.", next = "BACK", reply = "See, that's what I always say! You and me are gonna get along just fine.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Flattery for coin is still a lie. Speak plainly.", next = "BACK", reply = "Plainly? All right. You're a hard one to sell to, and I respect that. There, that one was free.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brother = {
+      lines = { { id = "br_default", text = "Frezza says that? Frezza's got the cold route and the dead passengers, hon, he's bitter. He's my brother and I love him, and he ain't had a tip since the tower opened. Ask yourself which of us ya wanna take advice from." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    trade = {
+      lines = { { id = "tr_default", text = "Goin' down, take bandages and spare boots, 'cause the damp eats both. Comin' back, bring hides. Tiger, panther, raptor, the tanners up here pay silly money. I'd tell ya to cut me in, but I'm bein' nice today." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    flirt = {
+      lines = { { id = "fl_default", text = "Only the ones worth sayin' it to, sweetheart, and that's not near as many as you'd think. There's a wharf clerk down in Ratchet who's been tryin' to buy me dinner all year, and he ain't got one wink out of me. So feel special." } },
+      choices = { { text = "I'll try to deserve it. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    advice = { { id = "tp_ad", text = "Be nice to the folks who run the transport, hon. We decide whether your luggage arrives." } },
+    booty_bay = { { id = "tp_booty", text = "Best town on any coast for a goblin with ideas. Rum, fish and no questions, and Baron Revilgaz keeps it that way." } },
+    venture_company = { { id = "tp_venture", text = "They're clear-cuttin' the vale and they don't share. Bad neighbours, worse bosses. I wouldn't work for 'em at double." } },
+    steamwheedle = { { id = "tp_steam", text = "The Cartel's who I answer to. They don't care how I smile as long as the ship's on time." } },
+    thrall = { { id = "tp_thrall", text = "Never met him. I hear he's tall, serious and pays his bills, which is two more good qualities than most." } },
+    _none = { { id = "tp_none", text = "No idea, sweetheart, and I'd make somethin' up but I like ya." } },
   },
 }

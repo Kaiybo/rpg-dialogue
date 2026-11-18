@@ -14,3 +14,6 @@
 
 ## Never
 No later Sharlindra (novels' events, Varimathras's offer, her death).
+
+## Depth pass (authored, not canon)
+- Jorah: forty-one books in the city; a tax assessor's book of Lordaeron inn signs (the Gallows' End page); Faith Duggins's half novel; writes down travellers' accounts "in sentences".

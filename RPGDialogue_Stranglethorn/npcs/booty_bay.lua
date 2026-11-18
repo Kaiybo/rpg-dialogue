@@ -453,6 +453,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Flattery's the one commodity I'll take delivery of without checking the weight, friend, and yours came in at a decent grade. I've marked you up a line in the ledger, which is more than most visitors to this balcony ever manage." },
+        { id = "s2", text = "Now that's a fair appraisal of the finest port south of anywhere, and I ought to know, because I did the building and the billing both. Keep talkin' like that and you'll find the Bay a friendlier place to do business." },
+      },
+      fail = {
+        { id = "f1", text = "I get buttered up by ship captains with unpaid dock fees three times before breakfast, pal, so I know the going rate for a compliment, and yours is priced too high. Try again when there's some coin behind it." },
+        { id = "f2", text = "Sweet talk is overhead, friend, and I never pay overhead that doesn't show up as profit somewhere. You can save it for the tavern, where they have to listen." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! It's been a long season since anyone on this balcony had the nerve to haggle with my pride, and I'd nearly forgotten what it costs. You've got cheek, friend, and cheek is an asset I know how to value." },
+        { id = "s2", text = "You push like a goblin on a deadline, and I mean that as the highest rating I give. All right, pal, you've got my attention, and you got it cheaper than most." },
+      },
+      fail = {
+        { id = "f1", text = "Careful, friend, because insulting the management carries a surcharge in this town, and my Bruisers collect it by hand. I'll write that one off as a clerical error, once." },
+        { id = "f2", text = "I've been mocked by Bloodsail captains with a whole fleet behind them, and they're still out there wanting my town while I'm up here owning it. You'll have to do a great deal better than that to move my prices, pal." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Hm. I've just run the figures on what it'd cost me to have you thrown in the cove against what it'd cost me if you didn't go quietly, and I don't care for the second column. Let's call this a negotiation, friend, and keep our voices down.", narr = "The Baron glances once at the nearest Bruiser, then back at you, and closes his ledger." },
+        { id = "s2", text = "A good businessman knows when the risk outweighs the margin, and you, friend, are a larger liability than you looked comin' up the stairs. Say your piece, and I'll listen with both ears." },
+      },
+      fail = {
+        { id = "f1", text = "You're leaning on the wrong goblin, pal, since every Bruiser in Booty Bay draws wages from my purse and they do love earning them. Take a breath, look over the railing at how far down the water is, and start again politely." },
+        { id = "f2", text = "Threats are just bad offers with no coin attached, and I turn down bad offers all day long. The Bloodsail have been at it for years, friend, and all they've got to show for it is the bill." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Everything that happens in this cove ends up in my ledger sooner or later. Ask, and I'll tell you what it says, within reason and within budget." },
@@ -482,6 +514,10 @@ P:NPC {
       { id = "tp_zul_gurub2", when = { disposition = { min = 70 } }, text = "Between us, I've had three ships report strange lights over Zul'Gurub this month, and I've quietly raised the price of passage north. Fear is a commodity, friend, and you sell it fresh, before it spoils in the warehouse." },
     },
     onyxia = { { id = "tp_onyxia", text = "I'm told there's a black dragon in a cave in Dustwallow Marsh, and that she has the decency to stay there. Long may she stay there, I say, because fire insurance is murder." } },
+    _gated = {
+      { id = "gt1", text = "That entry's in the private ledger, friend, and I only open the private ledger for accounts in good standing. Bring me some business first, and then we'll see what it says." },
+      { id = "gt2", text = "I don't discuss that with walk-in trade, pal, because what I know is stock, and I don't hand out stock on credit to strangers." },
+    },
     _none = { { id = "tp_none", text = "If it doesn't touch my port or my purse, I don't keep track of it. Krazek does, for a fee, so go and ask him." } },
   },
 }
@@ -490,6 +526,7 @@ P:NPC {
   key = "seahorn", id = TODO_NPC("Fleet Master Seahorn"), name = "Fleet Master Seahorn",
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "major",
   communities = { "booty_bay", "blackwater" }, temper = { "boisterous" }, values = { "brave", "loyal" },
+  likesTone = "blunt",
   notices = { "race", "kit" },
 
   impression = {
@@ -1092,6 +1129,39 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Ha! You've a tongue as smooth as a calm sea, and this old bull's vain enough to enjoy the sailing! Say it again louder, so the crew below can hear what their Fleet Master is worth." },
+        { id = "s2", text = "Now that's kindly said, and I'll take it, for the Blackwater get cursed a good deal more often than they get praised. You've a fair eye for a fleet, sailor." },
+      },
+      fail = {
+        { id = "f1", text = "I've heard sweeter words from sharks circling a longboat, and they wanted the same thing you do! Speak plain with me, for I trust plain talk and I count my rum after the other kind." },
+        { id = "f2", text = "Ha, you're laying it on thicker than barnacles on an old hulk, and it'll come off just as hard. I've been flattered by Bloodsail spies before, so you'll forgive me if I keep one hand on my purse." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha ha! There's salt in you after all, and I like a sailor who'll spit into the wind just to see what comes back! Most folk climb those stairs too frightened of my horns to say a thing worth hearing." },
+        { id = "s2", text = "By the tides, you've got nerve, and nerve is the one cargo I can never find enough of! Keep that tongue sharp, for the Bloodsail deserve it far more than I do." },
+        { id = "s3", when = { race = "Tauren" }, text = "Ha! It takes one of the herd to lock horns with me so cheerfully, and I've missed it more than I knew! The plains bred you well, even if they couldn't keep me." },
+      },
+      fail = {
+        { id = "f1", text = "You'd mock a Fleet Master on his own deck, with his crew listening below? I've put loud mouths over the rail for less, so mind your footing, because the cove is cold this time of year." },
+        { id = "f2", text = "That's a poor jest, and I've laughed at storms that were funnier. Come back when you've learned the difference between cheek and bilge water." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Easy now, easy! I've stared down storms and red sails both, and I know weather when I see it coming, and you're weather. There's no need for horns and steel between us, so say what you want and I'll hear it." },
+        { id = "s2", text = "Hm. I laughed at a squall once and it took my mainmast for it, so I learned to tell which ones to laugh at. I'll not laugh at you, sailor, so speak your mind." },
+      },
+      fail = {
+        { id = "f1", text = "Ha! I'm a bull who went to sea in a leaking hull and came back with a fleet, and you think to frighten me on my own top floor? Sit down before I have the lads teach you how the stairs work." },
+        { id = "f2", text = "The Bloodsail's fleet master wants my horns for his wall, and he has cannon, and still I sleep like a calf. You'll need a good deal more than a hard look." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Every ship that sails these waters sends word back to me, one way or another! Ask, and I'll tell you what the sea's been saying." },
@@ -1109,6 +1179,10 @@ P:NPC {
     ratchet = { { id = "tp_ratchet", text = "Ratchet's a friendly port and Gazlowe keeps a clean dock, and the Barrens wind blows straight off the plains I grew up on. I'll take a cargo to Ratchet any day of the week." } },
     theramore = { { id = "tp_theramore", text = "Theramore is Proudmoore's island, and she keeps a good harbor and an honest customs house. Her navy remembers what happened to her father's fleet, though, so give them room on the water." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I've watched a few rounds at the Arena, and I'll say this, the Bloodsail never send anyone. That alone tells you the fights are too fair for them." } },
+    _gated = {
+      { id = "gt1", text = "That's a tale for shipmates, and you've not yet hauled a single line beside me. Sail with the Blackwater a while, and then ask me again." },
+      { id = "gt2", text = "Ha, not so fast! I don't open that locker for every stranger who climbs my stairs, however friendly they look." },
+    },
     _none = { { id = "tp_none", text = "That's a landlubber's question, so ask somebody with dry boots and dry hooves." } },
   },
 }

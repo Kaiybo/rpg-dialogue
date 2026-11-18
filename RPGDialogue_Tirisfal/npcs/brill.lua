@@ -7,6 +7,7 @@ P:NPC {
   prejudice = { origin = "forsaken_scarlet_turned", amount = 12, why = "He fights the Crusade daily; a Forsaken who once wore Scarlet is, to him, a spy until proven otherwise." },
   bible = "bibles/tirisfal.md", role = "soldier", tier = "major",
   communities = { "brill" }, temper = { "cold" }, values = { "loyal", "dutiful" },
+  likesTone = "blunt",
   notices = { "kit", "race" },
   impression = {
     first = "I would not want to face the wrong end of his blade.",
@@ -264,6 +265,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "The Deathguard isn't accustomed to thanks, least of all from those passing through. I'll accept it on behalf of my soldiers, since they earned it in the fields." },
+        { id = "s2", text = "You notice the work, which is more than the magistrate does. That's well said, and I'll remember who said it." },
+      },
+      fail = {
+        { id = "f1", text = "I've no use for compliments, and less for those who think I can be bought with them. If you've a report, give it, and if you haven't, the road is behind you." },
+        { id = "f2", text = "Flattery is how spies begin, and I've hanged enough Scarlet spies to know the tune. Speak plainly in Brill, or don't speak to me." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You've a bold mouth for someone standing in a town full of my soldiers. I'd rather have that than the cringing sort, so I'll let it stand this once." },
+        { id = "s2", text = "The last one who spoke to me that way was a sergeant I served under in life, and he was usually right. You've nerve, and Tirisfal needs nerve." },
+      },
+      fail = {
+        { id = "f1", text = "I've put down Crusaders who showed me more respect while they were dying. Watch your tongue, or I'll find you a post at the Scarlet lines where you can exercise it." },
+        { id = "f2", text = "Mock the Deathguard again and you'll discover how little humour the dead have left. Mine went into the grave with me, and it stayed there." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You carry yourself like someone who has killed and expects to again. I respect that more than I respect manners, so you have my attention." },
+        { id = "s2", text = "There are few who'd try to stare down an Executor at his own post, and you didn't flinch doing it. Very well; I'll be straight with you, and quick." },
+      },
+      fail = {
+        { id = "f1", text = "The Lich King himself had his hand around my mind, and you believe a scowl will move me. Stand down, before I have you put in the cellar with the Scarlet prisoners." },
+        { id = "f2", text = "You threaten a commander of the Deathguard in front of his own garrison, which is a poor grasp of tactics. Do it again and I'll treat it as an attack." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Reports reach me from every field and road in Tirisfal. Ask what you need, and keep it brief." },
@@ -290,6 +323,10 @@ P:NPC {
     argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn fights the Scourge in the east and asks fewer questions about our flesh than I expected. I don't trust them, but I don't need to, as long as they keep killing the same enemy." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme is where the prince put his own people to the sword, and the Scourge holds the city still. The Crusade squabbles with the dead for its streets, which suits me, since each zealot who dies there is one I won't meet in Tirisfal." } },
     _none = { { id = "tp_none", text = "Ask the magistrate; administration is his burden, not mine." } },
+    _gated = {
+      { id = "gt1", text = "That stays within the Deathguard, and you haven't earned a place in its confidence. Serve Brill a while longer before you ask me again." },
+      { id = "gt2", text = "I don't discuss that with those I haven't measured yet. You'll have to do more than walk into town before I tell you." },
+    },
   },
 }
 

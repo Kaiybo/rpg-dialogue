@@ -1535,7 +1535,7 @@ P:NPC {
     },
   },
   topics = {
-    mulgore = { { id = "tp_mul", text = "The plains feed us well, in a good year. I try to cook as though every year might not be one." } },
+    quilboar = { { id = "tp_quil", text = "The Bristleback raid our stores when their own run thin. I do not forgive it, but I have been hungry, and I understand it." } },
     background = { { id = "tp_bg", text = "I learned at my mother's fire and I teach at my own. There is not much more to me than that." } },
     advice = { { id = "tp_ad", text = "Salt at the end, not the beginning. You can always add, and you can never take away." } },
     _none = { { id = "tp_none", text = "I could not say. I watch a pot all day, and news goes past me." } },
@@ -1675,9 +1675,1475 @@ P:NPC {
     },
   },
   topics = {
-    venture = { { id = "tp_ven", text = "The Venture Company sends buyers down the Barrens road now and then, and I send them back up it." } },
+    venture_company = { { id = "tp_ven", text = "The Venture Company sends buyers down the Barrens road now and then, and I send them back up it." } },
     background = { { id = "tp_bg", text = "The Darkmanes have always carried goods between the tribes. I am the first of us to do it from a tent that stays put." } },
     advice = { { id = "tp_ad", text = "Buy your salt before you need it. In Mulgore, by the time you need it, somebody else has bought it." } },
     _none = { { id = "tp_none", text = "I could not tell you, and I do not sell guesses. Try Innkeeper Kauth." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Kawnie Softbreeze: general goods vendor at Camp Narache.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "kawnie", id = TODO_NPC("Kawnie Softbreeze"), name = "Kawnie Softbreeze", title = "General Goods",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "narache" }, temper = { "gentle", "fussing" }, values = { "community", "care" },
+  notices = { "race", "class", "greenness" },
+  impression = {
+    first = "Kawnie Softbreeze sells general goods at Camp Narache and packs the bags of every young brave who leaves the mesa. She checked my waterskin twice while we talked, and I do not think she knew she was doing it.",
+    third = "{name} met Kawnie Softbreeze, who sells general goods at Camp Narache.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Come in out of the wind, young one. Tell me where you are bound, and I will tell you what you have forgotten to pack." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and with a lighter pack than I sent you off with. Let us see what needs filling." },
+    { id = "g_away", when = { away = 14 }, text = "{away} away from the mesa! You have grown, and your waterskin has not, so sit a moment." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "You have the look of one about to walk down off Red Cloud Mesa for the first time. I have seen it on a great many faces, and I am fond of it every time." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter, and Lanka Farshot's student, I should think. You will be wanting shot or arrows, and more of them than you believe." },
+    { id = "n_outsider", cat = "race", when = { race = { "Orc", "Troll", "Scourge" } },
+      text = "A guest on the mesa. You are welcome here, and you will find our goods plain, but they do what they are meant to do." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Kawnie Softbreeze. Waterskins, torches, bags and blankets, and whatever else a brave needs between this fire and the next one, I keep here." },
+        { id = "h_tauren", when = { race = "Tauren" }, text = "I am Kawnie Softbreeze, child. Chief Hawkwind sends the young ones to prove themselves, and I see to it that they do so with a full waterskin." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "I am Kawnie Softbreeze, and I keep the camp's arrows and shot as well as its blankets. Count what you carry before you go into Brambleblade Ravine, and then buy half as many again." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I find for you, young one?" },
+        { id = "h_again2", text = "Ask, and mind the baskets behind you." },
+        { id = "h_again3", text = "Yes, child?" },
+      },
+      choices = {
+        { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "What does a young brave forget to pack?", next = "pack" },
+        { text = "You must have seen many braves leave this camp.", next = "leave" },
+        { text = "Tell me about the others in Camp Narache.", next = "camp" },
+        { text = "What lies down the road to Bloodhoof Village?", next = "road" },
+        { text = "My rites are nearly done, Kawnie.", next = "rites", when = { race = "Tauren" } },
+        { text = "How much shot does the ravine take?", next = "shot", when = { class = "HUNTER" } },
+        { text = "Walk with the Earth Mother, Kawnie.", next = "END" },
+      },
+    },
+    pack = {
+      lines = {
+        { id = "pack_d", text = "Water, always, and after that a second bag. They go out with one small pouch and come back with their arms full of plainstrider feathers and nowhere to put them." },
+      },
+      choices = {
+        { text = "And what do they pack that they shouldn't?", next = "pack_too" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pack_too = {
+      lines = {
+        { id = "pack_too_d", text = "Pride, mostly, which weighs a great deal and cannot be eaten. The second thing is their grandfather's axe, which is too heavy for them, and Marjak Keenblade has to talk them into something they can lift." },
+      },
+      choices = {
+        { text = "I'll leave the pride here, then.", next = "BACK", reply = "Leave a little of it. You will want some on the day you meet a Bristleback.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    leave = {
+      narr = "She folds a blanket over her arm and smooths it flat without looking down.",
+      lines = {
+        { id = "leave_d", text = "More than I have counted, and I remember what each of them bought. Most come back up the mesa one day to show me they are still whole, and that is the best trade I make." },
+      },
+      choices = {
+        { text = "And the ones who do not come back?", next = "leave_gone" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    leave_gone = {
+      big = true,
+      lines = {
+        { id = "leave_gone_d", text = "Some are only far away, in the Barrens or beyond the sea, and I choose to think that of all of them. A few I know better about, and I keep their names with Seer Graytongue, who speaks them at the fire." },
+      },
+      choices = {
+        { text = "Then no brave should be sent before they are ready.", next = "BACK", reply = "I have said so to the chief more than once. He hears me, and he sends them anyway, a little later than he would have.", fx = { align = { light = 1 } } },
+        { text = "The plains test us. Sheltered calves make weak braves.", next = "BACK", reply = "That is what Harutt Thunderhorn says, and he is not wrong. I only wish the plains tested them more gently.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = {
+        { id = "camp_d", text = "Chief Hawkwind you will know, and his son Grull, who watches the quilboar. Moodan Sungrain bakes for us, and the three in the armory tent, Marjak, Varia and Bronk, argue all day over whose craft keeps a brave alive." },
+      },
+      choices = {
+        { text = "Whose craft does keep a brave alive?", next = "camp_craft" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp_craft = {
+      lines = {
+        { id = "camp_craft_d", text = "Mine, of course, though I do not say so in their hearing. Nobody has ever come home because of a sharp axe who did not also have water to drink on the way." },
+      },
+      choices = {
+        { text = "I won't tell them you said so.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road = {
+      lines = {
+        { id = "road_d", text = "The path winds down off the mesa and north across open grass, with Stonebull Lake shining on your left hand before you see the village. It is half a morning's walk, and there is no shade on it." },
+      },
+      choices = {
+        { text = "Is the road safe?", next = "road_safe" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_safe = {
+      lines = {
+        { id = "road_safe_d", text = "Safe enough if you stay on it. The cougars keep to the rocks and the wolves to the long grass, and both are more curious than hungry at this time of year." },
+      },
+      choices = {
+        { text = "I'll keep to the road.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rites = {
+      lines = {
+        { id = "rites_d", text = "Then you will be going down to Bloodhoof soon, and I will not see you for a long while. Moorat Longstride keeps the goods there, and he is honest, so buy from him and tell him I sent you." },
+      },
+      choices = {
+        { text = "I will come back and show you I am whole.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shot = {
+      lines = {
+        { id = "shot_d", text = "A full pouch going in, because the Bristleback do not stand still and you will miss more than you expect. Lanka will tell you the same, with less patience than I have." },
+      },
+      choices = {
+        { text = "Then I'll buy a full pouch.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    quilboar = { { id = "tp_quil", text = "The Bristleback are in Brambleblade Ravine, and they have been taking what the hunters leave. Grull Hawkwind can tell you more, for he watches them." } },
+    background = { { id = "tp_bg", text = "I have kept the camp's stores since before Chief Hawkwind's mane went grey. Somebody has to know where the blankets are." } },
+    advice = { { id = "tp_ad", text = "Drink before you are thirsty, and buy the second bag before you need it." } },
+    _none = { { id = "tp_none", text = "I could not tell you, child. Ask Seer Graytongue, who knows the things I do not." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Marjak Keenblade: weaponsmith in the armory tent at Camp Narache.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "marjak", id = TODO_NPC("Marjak Keenblade"), name = "Marjak Keenblade", title = "Weaponsmith",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "narache" }, temper = { "exact", "proud" }, values = { "craft", "tradition" },
+  notices = { "kit", "class", "craft" },
+  impression = {
+    first = "Marjak Keenblade sells weapons from the armory tent at Camp Narache and judges a brave by how they pick one up. He took my weapon from me, looked along the edge, and handed it back without a word.",
+    third = "{name} met Marjak Keenblade, the weaponsmith at Camp Narache.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Step in, and let me see your hands before you look at my blades. The hand chooses the weapon, whatever the eye may want." },
+    { id = "g_back", when = { metBefore = true }, text = "You have returned. Show me the edge, and I will know how you have been treating it." },
+    { id = "g_away", when = { away = 14 }, text = "{away} since I saw that weapon. It has been used, which is more than I can say for some I have sold." },
+  },
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "Harutt Thunderhorn's student, by the way you stand. He teaches the swing well, and he leaves it to me to teach the care." },
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "Your forearms say you have stood at a forge. Then you will see at once which of these I made in a hurry, and I will thank you not to say." },
+    { id = "n_caster", cat = "class", when = { class = { "SHAMAN", "DRUID" } },
+      text = "You walk the spirits' path, I think. Even so, a staff or a mace in the hand is a comfort when the spirits are slow to answer." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Marjak Keenblade. Axes, maces and staves for a brave's first hunts, each one plain and each one true, and none of them will fail you before you fail them." },
+        { id = "h_warrior", when = { class = "WARRIOR" }, text = "I am Marjak Keenblade. You are a warrior, so you will want the heaviest thing on the rack, and I will tell you now that it is the wrong choice until your shoulders grow into it." },
+        { id = "h_smith", when = { profession = "Blacksmithing" }, text = "I am Marjak Keenblade, and you are of the craft. Look as closely as you like, for I would rather be judged by a smith than praised by a calf." },
+      },
+      again = {
+        { id = "h_again", text = "What more would you know?" },
+        { id = "h_again2", text = "Speak, I am only oiling a haft." },
+        { id = "h_again3", text = "Go on." },
+      },
+      choices = {
+        { text = "Let me see your weapons.", next = "BUSINESS" },
+        { text = "How should I choose a first weapon?", next = "choose" },
+        { text = "These are plain weapons, Marjak.", next = "plain" },
+        { text = "You share this tent with two others.", next = "tent" },
+        { text = "Where does Narache get its iron?", next = "iron" },
+        { text = "Judge my grip, then.", next = "grip", when = { class = { "WARRIOR", "HUNTER" } } },
+        { text = "Which of these did you make in a hurry?", next = "hurry", when = { profession = "Blacksmithing" } },
+        { text = "May your edges hold, Marjak.", next = "END" },
+      },
+    },
+    choose = {
+      lines = {
+        { id = "choose_d", text = "Lift it, hold it out level, and count slowly to twenty. If the head has not dipped, it is yours, and if it has, you have learned something that cost you nothing." },
+      },
+      choices = {
+        { text = "And if every weapon dips?", next = "choose_dip" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    choose_dip = {
+      lines = {
+        { id = "choose_dip_d", text = "Then you take the staff, and you go and carry water for Kawnie Softbreeze for a season. There is no shame in it, for I carried a great deal of water myself before I carried an axe." },
+      },
+      choices = {
+        { text = "I'll count to twenty.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plain = {
+      lines = {
+        { id = "plain_d", text = "They are, and I mean them to be. A young brave with a carved and feathered axe thinks about the axe, and a young brave with a plain one thinks about the boar." },
+      },
+      choices = {
+        { text = "Then where do the fine weapons come from?", next = "plain_fine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plain_fine = {
+      big = true,
+      lines = {
+        { id = "plain_fine_d", text = "From Mahnott Roughwound in Bloodhoof, and from the smiths on Thunder Bluff after him. A brave earns the right to carry their work by outliving mine, and I think that is the proper order of things." },
+      },
+      choices = {
+        { text = "That is right. A weapon should be earned.", next = "BACK", reply = "So my father taught me, and his before him. I am glad the young still hear it.", fx = { align = { honor = 1 } } },
+        { text = "A better weapon would keep more young braves alive.", next = "BACK", reply = "A better arm keeps them alive. I have seen fine steel dropped in the grass by braves who ran, and I have picked it up.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tent = {
+      lines = {
+        { id = "tent_d", text = "Varia Hardhide sells the leathers and Bronk Steelrage the shields, and between us a brave leaves this tent fully dressed for the ravine. Bronk will tell you the shield matters most, and he will tell you loudly." },
+      },
+      choices = {
+        { text = "And what do you tell him?", next = "tent_bronk" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tent_bronk = {
+      lines = {
+        { id = "tent_bronk_d", text = "That no quilboar was ever driven from Mulgore by being blocked. He has had no answer to it in all these seasons, and he keeps looking for one, which I respect." },
+      },
+      choices = {
+        { text = "I think he may find one yet.", next = "BACK", reply = "He may, and I will listen when he does. Until then the axe has it.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    iron = {
+      lines = {
+        { id = "iron_d", text = "A little comes down from the hills by the hands of our own miners, and the rest comes up the road from Bloodhoof. There is copper enough in Mulgore, though I would be happier if the goblins had not found it as well." },
+      },
+      choices = {
+        { text = "The Venture Company, you mean.", next = "iron_venture" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    iron_venture = {
+      lines = {
+        { id = "iron_venture_d", text = "The same. They cut into the hills north of Bloodhoof as though the land were a carcass, and they leave the bones lying. We take what the earth offers at the surface, and we thank her for it." },
+      },
+      choices = {
+        { text = "The earth should not be gutted for metal.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grip = {
+      narr = "He turns your wrist over in one great hand and presses his thumb against the heel of your palm.",
+      lines = {
+        { id = "grip_d", text = "Too tight, as it always is with the young. Hold the haft as you would hold a small bird, firm enough that it cannot fly and gentle enough that it lives." },
+      },
+      choices = {
+        { text = "I'll remember the bird.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hurry = {
+      lines = {
+        { id = "hurry_d", text = "The third mace from the left, the week the Bristleback burned the drying racks and every brave in camp wanted arming by nightfall. It is sound, but the head sits a hair off true, and I see it each time I pass." },
+      },
+      choices = {
+        { text = "Nobody but a smith would ever know.", next = "BACK", reply = "A smith knows, and that is one too many.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    quilboar = { { id = "tp_quil", text = "The Bristleback carry stolen iron and treat it badly. I have reforged a few of their blades, and the metal was grateful." } },
+    background = { { id = "tp_bg", text = "The Keenblades have armed Narache's young since the camp was raised. I learned the forge from my father, and the patience from spoiling good iron." } },
+    advice = { { id = "tp_ad", text = "Oil the haft as often as the edge. A blade that leaves the handle is of no use to anyone but the boar." } },
+    _none = { { id = "tp_none", text = "That is not a matter of iron, so I have nothing useful to say. Ask Chief Hawkwind." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Varia Hardhide: leather armor merchant in the armory tent at Camp Narache.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "varia", id = TODO_NPC("Varia Hardhide"), name = "Varia Hardhide", title = "Leather Armor Merchant",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "narache" }, temper = { "frank", "wry" }, values = { "thrift", "craft" },
+  notices = { "kit", "craft", "class" },
+  impression = {
+    first = "Varia Hardhide sells leather armor in the armory tent at Camp Narache and says plainly that it is rough work meant to be outgrown. She tugged at my shoulder strap and told me who had stitched it badly.",
+    third = "{name} met Varia Hardhide, who sells leather armor at Camp Narache.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Come and be measured, young one. I will tell you honestly what fits, which is more than the two smiths beside me will do." },
+    { id = "g_back", when = { metBefore = true }, text = "There you are again, and that jerkin has stretched across the shoulders. You are growing, or you have been caught in the rain." },
+    { id = "g_away", when = { away = 14 }, text = "{away}, and you are still wearing leather. Good, it means you came home in it." },
+  },
+  notice = {
+    { id = "n_lw", cat = "craft", when = { profession = { "Leatherworking", "Skinning" } },
+      text = "You have a skinner's knife on your belt, and it has been used. Bring me what you take, for I am always short of good boar hide." },
+    { id = "n_druid", cat = "class", when = { class = { "DRUID", "HUNTER", "SHAMAN" } },
+      text = "Here is one who will wear leather and be glad of it. You will find the others in this tent have very little to sell you." },
+    { id = "n_plate", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior, who will be wanting Bronk's mail as soon as you can bear the weight. Wear my leather under it, or it will rub you raw." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Varia Hardhide. Jerkins, leggings, gloves and boots in good boar and plainstrider hide, cut large so that you may grow into them, and not pretty, because pretty does not turn a tusk." },
+        { id = "h_leather", when = { class = { "DRUID", "HUNTER", "SHAMAN" } }, text = "I am Varia Hardhide, and you are my kind of customer. Everything on this side of the tent is yours to try, and I will tell you when it does not suit you." },
+        { id = "h_skinner", when = { profession = { "Leatherworking", "Skinning" } }, text = "I am Varia Hardhide. You work hides yourself, so I will not pretend these are fine pieces, for they are honest ones and that is all I claim." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I have a seam to finish, but it will wait." },
+        { id = "h_again2", text = "Ask away, I can stitch and talk." },
+        { id = "h_again3", text = "Yes, young one?" },
+      },
+      choices = {
+        { text = "Show me your leathers.", next = "BUSINESS" },
+        { text = "Where do your hides come from?", next = "hides" },
+        { text = "Your work looks rough, if I may say so.", next = "rough" },
+        { text = "How do you bear sharing a tent with two smiths?", next = "smiths" },
+        { text = "How do I keep leather from rotting?", next = "care" },
+        { text = "What hide do you want most?", next = "want", when = { profession = { "Leatherworking", "Skinning" } } },
+        { text = "A druid shifts shape. Does armor matter?", next = "shift", when = { class = "DRUID" } },
+        { text = "Good stitching to you, Varia.", next = "END" },
+      },
+    },
+    hides = {
+      lines = {
+        { id = "hides_d", text = "From the camp's own hunts, every one. The young braves bring down plainstriders and battleboars for their rites, the meat goes to the fires, and the skins come to me before the sun has dried them." },
+      },
+      choices = {
+        { text = "So a brave may wear the boar they killed.", next = "hides_own" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hides_own = {
+      lines = {
+        { id = "hides_own_d", text = "Now and then, and they are always proud of it. I do not tell them that one hide looks much like another once it is scraped, because the beast would want to be remembered, and so would I." },
+      },
+      choices = {
+        { text = "That is a kind silence to keep.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rough = {
+      lines = {
+        { id = "rough_d", text = "You may say so, because it is. I make what a brave wears for one season of being knocked down by boars, and I will not spend a month's fine tooling on something that ends up in a bramble." },
+      },
+      choices = {
+        { text = "Do you ever make something fine?", next = "rough_fine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rough_fine = {
+      big = true,
+      lines = {
+        { id = "rough_fine_d", text = "Once a year, for whichever young one Chief Hawkwind names as having done best in their rites. It is a belt, tooled with the mesa and the eagle, and I have never yet sold one." },
+      },
+      choices = {
+        { text = "Some things should be given and never sold.", next = "BACK", reply = "So I think. The day I put a price on that belt, I will have become a goblin.", fx = { align = { honor = 1 } } },
+        { text = "You'd do well to sell them. Good work deserves coin.", next = "BACK", reply = "It deserves a good wearer, and I get one. Coin I have enough of, from the rough work.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    smiths = {
+      lines = {
+        { id = "smiths_d", text = "With cotton in my ears on forging days. Marjak Keenblade says the weapon keeps a brave alive and Bronk Steelrage says the shield does, and they have been at it since before I came to this tent." },
+      },
+      choices = {
+        { text = "And what does the leatherworker say?", next = "smiths_say" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    smiths_say = {
+      lines = {
+        { id = "smiths_say_d", text = "That a brave may drop an axe and may drop a shield, but nobody ever dropped their leggings in a fight. I let the two of them argue, and I sell to everyone who passes." },
+      },
+      choices = {
+        { text = "I think you have won that argument.", next = "BACK", reply = "I won it years ago. I simply have not told them.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    care = {
+      lines = {
+        { id = "care_d", text = "Dry it slowly, away from the fire, and rub fat into it while it is still a little damp. Leather that is baked dry cracks, and leather that is left wet stinks, and either way I will know when you come back." },
+      },
+      choices = {
+        { text = "Slowly, and away from the fire.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    want = {
+      lines = {
+        { id = "want_d", text = "Mountain cougar, which is supple and takes a stitch beautifully, and which I almost never see. The young ones are told to leave the cougars alone, and for once they do as they are told." },
+      },
+      choices = {
+        { text = "I may bring you one.", next = "BACK", reply = "Take it clean, then, and thank the cat. Nawka Wildsong can show you the cut if you are unsure.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shift = {
+      lines = {
+        { id = "shift_d", text = "Gart Mistrunner tells me the leather goes with you into the bear, though he cannot say where. I do not understand it, but I have stopped arguing, and I cut druids' jerkins a little looser across the back to be safe." },
+      },
+      choices = {
+        { text = "The bear thanks you for it.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    quilboar = { { id = "tp_quil", text = "The Bristleback wear hide as well, cured so badly you can smell them before you see them. It is the one useful thing about their craft." } },
+    background = { { id = "tp_bg", text = "I have dressed Narache's young for as long as I have had hands steady enough to hold an awl. There is little else to tell." } },
+    advice = { { id = "tp_ad", text = "Buy it a little large. You will grow, and leather will not." } },
+    _none = { { id = "tp_none", text = "I know hides and seams, young one, and that is not either. Try Kawnie Softbreeze, who hears everything." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Bronk Steelrage: armorer and shieldcrafter in the armory tent at Camp Narache.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "bronk", id = TODO_NPC("Bronk Steelrage"), name = "Bronk Steelrage", title = "Armorer & Shieldcrafter",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "narache" }, temper = { "booming", "earnest" }, values = { "protection", "craft" },
+  notices = { "kit", "class", "craft" },
+  impression = {
+    first = "Bronk Steelrage sells mail and shields in the armory tent at Camp Narache, and he believes with his whole chest that a shield is the first thing a brave should own. He rapped his knuckles on one to prove it, and the whole tent rang.",
+    third = "{name} met Bronk Steelrage, the armorer and shieldcrafter at Camp Narache.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Ho, young one! Come here and put your arm through this strap, and tell me you do not feel safer already." },
+    { id = "g_back", when = { metBefore = true }, text = "Ho, you are back, and in one piece! I will take the credit for that, whatever Marjak says." },
+    { id = "g_away", when = { away = 14 }, text = "{away}! Let me see the shield, for the dents will tell me the whole story faster than you can." },
+  },
+  notice = {
+    { id = "n_shield", cat = "class", when = { class = { "WARRIOR", "SHAMAN" } },
+      text = "Ha, here is one with the arm to carry a shield and the sense to want one. We are going to get along well, you and I." },
+    { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
+      text = "You know metal, I can tell by how you look at the rivets and not the shine. Good, look at the rivets, for that is where a shield lives or dies." },
+    { id = "n_soft", cat = "class", when = { class = { "DRUID", "HUNTER" } },
+      text = "You will be wanting Varia's leathers and not my mail, and I do not hold it against you. Come back if the boars ever change your mind." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Bronk Steelrage, of the Steelrage, and I make the mail and the shields that stand between Narache's young and the Bristleback's tusks. It is the best work in the camp, and I will hear no argument." },
+        { id = "h_shield", when = { class = { "WARRIOR", "SHAMAN" } }, text = "I am Bronk Steelrage, and you have a shield arm if ever I saw one! Marjak will sell you something to swing, and that is well enough, but come to me first." },
+        { id = "h_smith", when = { profession = { "Blacksmithing", "Mining" } }, text = "I am Bronk Steelrage. You work metal, so you will know that anyone can put an edge on iron, and that making it take a blow a hundred times is the true craft." },
+      },
+      again = {
+        { id = "h_again", text = "What else, young one? Speak up!" },
+        { id = "h_again2", text = "Ask, ask, I have all day and a loud voice." },
+        { id = "h_again3", text = "Ho, yes?" },
+      },
+      choices = {
+        { text = "Show me your armor.", next = "BUSINESS" },
+        { text = "Why a shield before a weapon?", next = "shield" },
+        { text = "The Steelrage is a tribe I do not know.", next = "tribe" },
+        { text = "Marjak says nothing was ever won by blocking.", next = "marjak" },
+        { text = "What makes a shield fail?", next = "fail" },
+        { text = "Teach me to take a blow on it.", next = "blow", when = { class = { "WARRIOR", "SHAMAN" } } },
+        { text = "Your rivets are set very close together.", next = "rivets", when = { profession = { "Blacksmithing", "Mining" } } },
+        { text = "Stand strong, Bronk.", next = "END" },
+      },
+    },
+    shield = {
+      lines = {
+        { id = "shield_d", text = "Because a brave who strikes first and is struck back has had one good moment, and a brave who is struck first and still stands has the whole fight ahead. I would have every young one learn to stand before they learn to swing." },
+      },
+      choices = {
+        { text = "Did someone teach you that the hard way?", next = "shield_hard" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shield_hard = {
+      big = true,
+      narr = "He lifts a battered old shield down from the tent pole and turns its split face toward you.",
+      lines = {
+        { id = "shield_hard_d", text = "A quilboar did, in the ravine, when I was no older than the calves I sell to now. This took the tusk that was meant for my ribs, and I have made shields ever since, out of plain gratitude." },
+      },
+      choices = {
+        { text = "Then every shield you sell is a debt repaid.", next = "BACK", reply = "Ha, that is well said, and I will say it myself from now on.", fx = { align = { light = 1 } } },
+        { text = "You were lucky. Luck is not a craft.", next = "BACK", reply = "It was luck that day, I grant you. I make shields so that the next calf need not rely on it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tribe = {
+      lines = {
+        { id = "tribe_d", text = "We are few, and we have always been smiths, following the larger tribes and mending what they broke. When Cairne Bloodhoof gathered the tribes into Mulgore, we came gladly, for a forge that stays in one place burns a great deal hotter." },
+      },
+      choices = {
+        { text = "Do the Steelrage have a forge on Thunder Bluff?", next = "tribe_bluff" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tribe_bluff = {
+      lines = {
+        { id = "tribe_bluff_d", text = "My kin work up there, and I visit when I can bear the lifts. I chose the mesa myself, because the bluff arms warriors who already know their trade, and here I arm the ones who do not yet." },
+      },
+      choices = {
+        { text = "The young need you more.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    marjak = {
+      lines = {
+        { id = "marjak_d", text = "He says that every day, and every day I say that nothing was ever won by a brave lying in the grass with a tusk in him. Then Varia tells us both to be quiet, and we are, for a little while." },
+      },
+      choices = {
+        { text = "You sound fond of him, all the same.", next = "marjak_fond" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    marjak_fond = {
+      lines = {
+        { id = "marjak_fond_d", text = "He is the finest edge-maker south of the bluff, and I would trust no other axe beside my shield. Do not tell him I said so, for he would be unbearable until the rains." },
+      },
+      choices = {
+        { text = "He'll not hear it from me.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fail = {
+      lines = {
+        { id = "fail_d", text = "The strap, nine times in ten, and hardly ever the face. A brave will oil the boss until it shines and never once look at the leather that holds the thing to their arm." },
+      },
+      choices = {
+        { text = "I'll check my straps tonight.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blow = {
+      lines = {
+        { id = "blow_d", text = "Do not hold it flat to the boar like a door, for he will knock you down behind it. Turn the face a little, so that the tusk slides off toward your shield side, and step into him as he passes." },
+      },
+      choices = {
+        { text = "Turn it, and step in.", next = "BACK", reply = "That is it! Harutt Thunderhorn will make you do it a thousand times, and you will thank him at the thousand and first.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rivets = {
+      lines = {
+        { id = "rivets_d", text = "Closer than they need to be, and I know it. My father set his a hand apart and his shields held, but I sleep better with a thumb's width, and it is my sleep." },
+      },
+      choices = {
+        { text = "A careful smith is no bad thing.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    quilboar = { { id = "tp_quil", text = "A Bristleback charges with his head down and his tusks up. Meet him with the shield's edge low, and he will do half your work for you." } },
+    background = { { id = "tp_bg", text = "I am a Steelrage, and we have been smiths as long as the tribes have had iron. I make shields because one saved me." } },
+    advice = { { id = "tp_ad", text = "Look to your straps! The face of a shield takes care of itself." } },
+    _none = { { id = "tp_none", text = "Ho, that is beyond me, young one. I know mail and shields, and I know them loudly." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Reban Freerunner: pet trainer in Bloodhoof Village.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "reban", id = TODO_NPC("Reban Freerunner"), name = "Reban Freerunner", title = "Pet Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "bloodhoof" }, temper = { "patient", "watchful" }, values = { "the hunt", "kinship" },
+  notices = { "pet", "class", "race" },
+  impression = {
+    first = "Reban Freerunner teaches hunters' beasts in Bloodhoof Village, and he watches the animal long before he looks at whoever brought it. He speaks of a pet as a hunting partner who has agreed to stay.",
+    third = "{name} met Reban Freerunner, the pet trainer in Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Be welcome, and stand easy. If a beast walks with you, let it come forward first, for I learn more from it than from you." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Tell me how your companion has fared, and I will know how you have fared." },
+    { id = "g_away", when = { away = 14 }, text = "{away} on the trail. A beast changes in that time, and so does the one it follows." },
+  },
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "{pet} holds its ground beside you and watches my hands. That is a beast that trusts you and nobody else, which is how it should be." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "You carry yourself as Yaw Sharpmane teaches, with your weight ready to move. She shapes the hunter, and I am left the easier task of the beast." },
+    { id = "n_other", cat = "class", when = { class = { "WARRIOR", "SHAMAN", "DRUID" } },
+      text = "You are no hunter, so I have nothing to teach you. Even so, you are welcome to sit and watch the swoops with me." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Reban Freerunner. When a hunter's beast has learned all it can from the wild, they bring it to me, and I teach it what it needs to hunt beside one of us." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "I am Reban Freerunner, young hunter. Your companion has its own strengths, and my work is to find them and draw them out, so tell me what you have seen it do best." },
+        { id = "h_druid", when = { class = "DRUID" }, text = "I am Reban Freerunner. You wear the beast yourself, druid, and I have often wondered whether that makes you my student or my teacher." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you ask?" },
+        { id = "h_again2", text = "Speak softly, and go on." },
+        { id = "h_again3", text = "I am listening." },
+      },
+      choices = {
+        { text = "Train my companion.", next = "BUSINESS" },
+        { text = "How do you teach a wild beast anything?", next = "teach" },
+        { text = "A tamed beast is still a captive, Reban.", next = "captive" },
+        { text = "Which of Mulgore's beasts make good companions?", next = "beasts" },
+        { text = "Who else in the village works with animals?", next = "others" },
+        { text = "My companion will not obey in a fight.", next = "obey", when = { class = "HUNTER" } },
+        { text = "What do you see when you watch a druid?", next = "druid", when = { class = "DRUID" } },
+        { text = "Good hunting, Reban.", next = "END" },
+      },
+    },
+    teach = {
+      lines = {
+        { id = "teach_d", text = "I do not teach it, in truth, for I remind it of things. A wolf already knows how to bite and a swoop already knows how to dive, and I show them when their hunter needs it of them." },
+      },
+      choices = {
+        { text = "And how do you show them?", next = "teach_how" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teach_how = {
+      lines = {
+        { id = "teach_how_d", text = "With food, with patience, and by doing the thing myself until the beast is embarrassed for me. You have not known humility until you have crouched and growled at a strip of meat while a prairie wolf looked on." },
+      },
+      choices = {
+        { text = "I would pay to see that.", next = "BACK", reply = "Many have offered. I do it for the beasts and for nobody else.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    captive = {
+      big = true,
+      lines = {
+        { id = "captive_d", text = "I have turned that over many nights. A beast that wishes to leave will leave, for no hunter can watch it always, and yet they stay, through hunger and wounds. I call that a choice, though I know it is one we have leaned upon." },
+      },
+      choices = {
+        { text = "They stay because they are kin to us.", next = "BACK", reply = "That is what I believe. The Earth Mother made us hunters both, and it is no strange thing that we should hunt together.", fx = { align = { light = 1 } } },
+        { text = "A beast is a weapon. It need not agree.", next = "BACK", reply = "Then you will have a weapon, and it will fail you as weapons do. I would rather you had a partner.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts = {
+      lines = {
+        { id = "beasts_d", text = "The prairie wolf is loyal and tireless, and it suits most young hunters. The swoop is clever but proud, and the plainstrider is fast and has no more sense than a thrown stone." },
+      },
+      choices = {
+        { text = "What of the cougars?", next = "beasts_cat" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts_cat = {
+      lines = {
+        { id = "beasts_cat_d", text = "The flatland cougar hunts alone and does not see why that should change. One will follow you if you earn it, but it will never fetch for you, and you must not ask." },
+      },
+      choices = {
+        { text = "I would not dare ask a cougar to fetch.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others = {
+      lines = {
+        { id = "others_d", text = "Seikwa keeps the stable, and she will feed and shelter a beast you cannot take with you. Harb Clawhoof has the kodo, and Yaw Sharpmane teaches the hunters themselves, down by the lake." },
+      },
+      choices = {
+        { text = "Do the four of you agree on how it is done?", next = "others_agree" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others_agree = {
+      lines = {
+        { id = "others_agree_d", text = "Seikwa thinks I am too soft with them, and Harb thinks nothing smaller than a kodo is worth the effort. Yaw and I agree on everything except which of us the beasts like better." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    obey = {
+      lines = {
+        { id = "obey_d", text = "Then it is frightened, or it is hungry, or it does not yet believe you will stand when it stands. Feed it from your own hand after every hunt, and do not once leave it to fight alone." },
+      },
+      choices = {
+        { text = "I have run and left it, once.", next = "obey_ran" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    obey_ran = {
+      lines = {
+        { id = "obey_ran_d", text = "It remembers, and it has forgiven you, or it would not be here. Beasts forgive more readily than we do, but they forgive each thing only the once." },
+      },
+      choices = {
+        { text = "It will not happen again.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid = {
+      lines = {
+        { id = "druid_d", text = "I see someone who has stopped asking the beast to come to them and has gone to it. Gennia Runetotem let me watch her take the bear's shape once, and I learned more in that moment than in a season with the wolves." },
+      },
+      choices = {
+        { text = "The bear has taught me patience, too.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    harpies = { { id = "tp_harp", text = "The Windfury harpies take beasts as well as travellers, and they waste what they kill. No beast I have trained will go near their nests willingly." } },
+    background = { { id = "tp_bg", text = "I ran with the hunters when I was young, and I found I watched the wolves more than the prey. The tribe was wise enough to put that to use." } },
+    advice = { { id = "tp_ad", text = "Feed your companion before you feed yourself. It notices, and it does not forget." } },
+    _none = { { id = "tp_none", text = "That is no matter of tooth or claw, and so I am the wrong one to ask." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Moorat Longstride: general goods vendor in Bloodhoof Village.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "moorat", id = TODO_NPC("Moorat Longstride"), name = "Moorat Longstride", title = "General Goods",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "bloodhoof" }, temper = { "easygoing", "talkative" }, values = { "community", "travel" },
+  notices = { "travel", "race", "class" },
+  impression = {
+    first = "Moorat Longstride sells general goods in Bloodhoof Village and asks every traveller which road they came by. He has not left Mulgore in years, and he knows the Gold Road better than most who walk it.",
+    third = "{name} met Moorat Longstride, who sells general goods in Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Welcome, traveller! Set your pack down and tell me which road you came in by, and I will tell you what it has worn out." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and glad I am to see it. Where have your hooves or boots taken you since?" },
+    { id = "g_away", when = { away = 14 }, text = "{away}! You will have been past Camp Taurajo at least, in that time. Come, tell me how the road stands." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "Down from Narache, are you? Then Kawnie Softbreeze packed that bag, for nobody else ties a waterskin with that knot." },
+    { id = "n_orc", cat = "race", when = { race = { "Orc", "Troll" } },
+      text = "You have come the long way, from Durotar and across the Barrens. I would give a good deal to hear what the Crossroads looks like this season." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter, and nearly out of shot by the weight of that pouch. I keep both shot and arrows, since Kennah Hawkseye sells the guns and cannot be troubled with what goes in them." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Moorat Longstride. Whatever the road asks of you, I likely have it, from waterskins and torches to bags and bedrolls, with shot and arrows for those who need them." },
+        { id = "h_tauren", when = { race = "Tauren" }, text = "I am Moorat Longstride, and you are one of ours setting out. Sit a moment, for I outfit every young brave who leaves by the north bridge, and I like to know their names." },
+        { id = "h_far", when = { race = { "Orc", "Troll", "Scourge" } }, text = "I am Moorat Longstride. You have come a long way to stand in my tent, so buy what you need and pay me the rest in news, for I am hungry for it." },
+      },
+      again = {
+        { id = "h_again", text = "What else, friend? I am in no hurry." },
+        { id = "h_again2", text = "Go on, I like the company." },
+        { id = "h_again3", text = "Yes, traveller?" },
+      },
+      choices = {
+        { text = "Let me see your goods.", next = "BUSINESS" },
+        { text = "What should I carry beyond Mulgore?", next = "carry" },
+        { text = "You ask about the road a great deal.", next = "road" },
+        { text = "Who are the Longstrides?", next = "kin" },
+        { text = "How fares the village?", next = "village" },
+        { text = "The Crossroads is busy, and the road is watched.", next = "news", when = { race = { "Orc", "Troll" } } },
+        { text = "Kawnie Softbreeze sends her regards.", next = "kawnie", when = { race = "Tauren" } },
+        { text = "May your road be kind, Moorat.", next = "END" },
+      },
+    },
+    carry = {
+      lines = {
+        { id = "carry_d", text = "Twice the water you carried here, for a start. Mulgore spoils us with her wells and her lake, and the Barrens begins the moment you pass the gate and does not give a drop away." },
+      },
+      choices = {
+        { text = "And besides water?", next = "carry_more" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    carry_more = {
+      lines = {
+        { id = "carry_more_d", text = "A torch, though you think you will not travel by night, because you will. A spare bag as well, and the name of the innkeeper at Camp Taurajo, who will know your face faster if you greet her by hers." },
+      },
+      choices = {
+        { text = "I'll take the torch.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road = {
+      lines = {
+        { id = "road_d", text = "I do, and I will tell you why. My name is Longstride, and I have stood behind these baskets so many seasons that my legs have forgotten what it meant." },
+      },
+      choices = {
+        { text = "Then why not walk it yourself?", next = "road_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_why = {
+      big = true,
+      lines = {
+        { id = "road_why_d", text = "Because the braves must set out from somewhere, and somebody must be standing there with a full waterskin when they do. I told myself I would go when the village could spare me, and it has not managed to yet." },
+      },
+      choices = {
+        { text = "The village needs you here. That is worth more.", next = "BACK", reply = "So I tell myself each spring, when the grass comes up green and the road looks its best. It is kind of you to say it too.", fx = { align = { light = 1 } } },
+        { text = "Go while you have the legs. The village will manage.", next = "BACK", reply = "It would, which is the hard part to admit. I will think on it, and I thank you for not being gentle.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin = {
+      lines = {
+        { id = "kin_d", text = "A wandering family, as the name says, in the days when every tribe wandered. We were the ones sent ahead to find where the grass was good, and some of us have never lost the habit." },
+      },
+      choices = {
+        { text = "Are your kin still on the roads?", next = "kin_roads" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin_roads = {
+      lines = {
+        { id = "kin_roads_d", text = "There are Longstrides up on Thunder Bluff and others gone farther than that. They send word when they remember to, and I keep a place by my fire for whichever of them turns up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village = {
+      lines = {
+        { id = "village_d", text = "Well enough, though I hear more complaints than I used to. The Palemane gnolls take from the hunters' kills, the goblins are at the hills to the north, and Wunna Darkmane tells me salt has gone up again." },
+      },
+      choices = {
+        { text = "Do you and Wunna share the trade?", next = "village_wunna" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village_wunna = {
+      lines = {
+        { id = "village_wunna_d", text = "We split it long ago, and it has kept the peace. She sells what a crafter uses and I sell what a traveller carries, and when someone asks for thread I point across the village and she does the same with bedrolls." },
+      },
+      choices = {
+        { text = "A fair arrangement.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    news = {
+      lines = {
+        { id = "news_d", text = "Watched by whom, though? By the Horde's grunts or by something worse? No, do not tell me, I will only lie awake. Busy is good, for busy means the caravans still run." },
+      },
+      choices = {
+        { text = "The grunts hold it well enough.", next = "BACK", reply = "Then I will sleep, and so will the braves I send that way. Thank you, friend.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kawnie = {
+      lines = {
+        { id = "kawnie_d", text = "Ha! She sends them and a list of things I am to check in your pack, I do not doubt. Turn around, then, and let me see that the waterskin is full, or I shall hear of it." },
+      },
+      choices = {
+        { text = "It's full. She checked it twice.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    venture_company = { { id = "tp_ven", text = "The goblins bought a waterskin from me once, before I knew what they were about. I have regretted that sale ever since." } },
+    background = { { id = "tp_bg", text = "I am a Longstride who stayed put, which my grandmothers would have found very funny." } },
+    advice = { { id = "tp_ad", text = "Ask the road's news from whoever is coming the other way. It costs a greeting, and it has saved lives." } },
+    _none = { { id = "tp_none", text = "That one has not come up the road to me yet, friend. Try Innkeeper Kauth, who hears what I miss." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Kennah Hawkseye: gunsmith in Bloodhoof Village.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "kennah", id = TODO_NPC("Kennah Hawkseye"), name = "Kennah Hawkseye", title = "Gunsmith",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "bloodhoof" }, temper = { "deliberate", "thoughtful" }, values = { "the hunt", "craft" },
+  notices = { "kit", "class", "craft" },
+  impression = {
+    first = "Kennah Hawkseye sells guns in Bloodhoof Village and is still, by his own account, deciding what he thinks of them. He handles a rifle as carefully as an elder handles a pipe.",
+    third = "{name} met Kennah Hawkseye, the gunsmith in Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Welcome. Keep the muzzle of anything you carry toward the ground while you are in my tent, and we shall be friends." },
+    { id = "g_back", when = { metBefore = true }, text = "You are back. Has it fired true for you, or has it taught you to clean it?" },
+    { id = "g_away", when = { away = 14 }, text = "{away} of hunting. Let me look down the barrel, for I can read a season in the fouling." },
+  },
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "You have a hunter's eyes, which rest on the far hill and not on me. Good, for the gun only finishes what the eye begins." },
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
+      text = "You carry a tinker's tools. Then you may be able to tell me how the lock on this one works, for the goblin who sold it to me could not." },
+    { id = "n_bow", cat = "kit", when = { class = "HUNTER", race = "Troll" },
+      text = "A Darkspear hunter, and your people favour the bow. I will not try to change your mind, though I will sell you a rifle should it change by itself." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Kennah Hawkseye. I sell the long guns, the blunderbuss and the hunting rifle, to those of the tribe who have taken them up, and I see that they are cared for." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "I am Kennah Hawkseye, hunter. If Lanka Farshot started you with a rifle on the mesa, then you already know its voice, and I can find you one that speaks more clearly." },
+        { id = "h_eng", when = { profession = "Engineering" }, text = "I am Kennah Hawkseye. I sell these, and I mend them, but I did not invent them, and I am glad to meet one who understands the insides better than I do." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again2", text = "Ask. I am only cleaning a barrel." },
+        { id = "h_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "Show me your guns.", next = "BUSINESS" },
+        { text = "How did the tauren come to carry guns?", next = "came" },
+        { text = "A gun seems a strange thing for a tauren hunter.", next = "strange" },
+        { text = "How do I keep a rifle working?", next = "care" },
+        { text = "Who are your neighbours here?", next = "village" },
+        { text = "Which should a young hunter choose?", next = "choose", when = { class = "HUNTER" } },
+        { text = "Let me look at that lock for you.", next = "lock", when = { profession = "Engineering" } },
+        { text = "May your aim be true, Kennah.", next = "END" },
+      },
+    },
+    came = {
+      lines = {
+        { id = "came_d", text = "Through our allies. The orcs carried them when they came to stand with Cairne against the centaur, and the goblins of Ratchet will sell one to anybody with coin. Our hunters watched and wondered, and then a few of them asked." },
+      },
+      choices = {
+        { text = "Were you one of the few?", next = "came_you" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    came_you = {
+      lines = {
+        { id = "came_you_d", text = "I was, and the elders did not thank me for it. I had seen a centaur fall at two hundred paces, and I thought of how many of our hunters had died closing that distance on foot." },
+      },
+      choices = {
+        { text = "That is reason enough for anyone.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strange = {
+      big = true,
+      narr = "He lays the rifle across his knees and rests one hand flat upon the stock.",
+      lines = {
+        { id = "strange_d", text = "It is strange, and I have not finished thinking about it. The bow asks you to come near and to be quiet, and the gun asks neither, and I wonder what we shall forget if nobody asks those things of us." },
+      },
+      choices = {
+        { text = "The hunt should cost the hunter something.", next = "BACK", reply = "That is the elders' view, and on most days it is mine. I tell every buyer to stalk as though they carried a bow.", fx = { align = { honor = 1 } } },
+        { text = "A clean kill from afar is a mercy. Use it.", next = "BACK", reply = "It is quicker for the beast, I grant, when the shot is good. I only fear how easy it makes the next one.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    care = {
+      lines = {
+        { id = "care_d", text = "Clean it the night you fire it and never the morning after. Keep your powder in oiled hide, and when the rains come to Mulgore, as they do without warning, put the lock under your arm before you put your head under a tree." },
+      },
+      choices = {
+        { text = "And if it misfires all the same?", next = "care_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    care_miss = {
+      lines = {
+        { id = "care_miss_d", text = "Then hold it pointed at the ground and count to thirty before you so much as look at it. I knew a brave who looked sooner, and he has been called One-Brow ever since." },
+      },
+      choices = {
+        { text = "I'll count to thirty.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village = {
+      lines = {
+        { id = "village_d", text = "Mahnott Roughwound has the weapons a brave swings, and Harant Ironbrace the shields. Moorat Longstride sells shot for what I sell, and Yaw Sharpmane sends me the hunters once she judges them ready to be trusted with powder." },
+      },
+      choices = {
+        { text = "What does Yaw make of the guns?", next = "village_yaw" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village_yaw = {
+      lines = {
+        { id = "village_yaw_d", text = "She teaches both, and she favours neither aloud. I have noticed, though, that she hunts for her own pot with a bow, and I have chosen not to ask her about it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    choose = {
+      lines = {
+        { id = "choose_d", text = "The lighter one, whatever your pride says. You will carry it from dawn to dusk and fire it perhaps ten times, so choose for the carrying." },
+      },
+      choices = {
+        { text = "For the carrying, then.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lock = {
+      lines = {
+        { id = "lock_d", text = "Gladly. There is a spring behind the hammer that weakens every few moons, and I replace it without knowing why it tires. If you can tell me that, I shall be in your debt." },
+      },
+      choices = {
+        { text = "It's seated crooked. It rubs against the plate.", next = "BACK", reply = "Is that all it is? Three winters I have wondered. I thank you, and I shall not tell the goblin.", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    venture_company = { { id = "tp_ven", text = "The Venture Company's goblins carry guns and fire them at anything that moves. It is the worst argument against my trade that I know of." } },
+    background = { { id = "tp_bg", text = "I was a hunter with a bow for most of my life. The gun came late, and I am still making up my mind about it." } },
+    advice = { { id = "tp_ad", text = "Stalk as near as you would with a bow, and then shoot. The gun is no excuse to be clumsy." } },
+    _none = { { id = "tp_none", text = "I cannot say. I have thought about one thing for many years, and it has left little room for others." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Vira Younghoof: bandage (first aid) trainer in Bloodhoof Village. Forever: ends Camping 101: First Aid.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "vira", id = TODO_NPC("Vira Younghoof"), name = "Vira Younghoof", title = "Bandage Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "bloodhoof" }, temper = { "brisk", "kind" }, values = { "care", "duty" },
+  notices = { "weary", "class", "craft" },
+  impression = {
+    first = "Vira Younghoof teaches the binding of wounds in Bloodhoof Village, and she looked me over for injuries before she said a word of greeting. She is kind, and she has no patience at all for anyone who bleeds quietly out of pride.",
+    third = "{name} met Vira Younghoof, the bandage trainer in Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Stand still a moment and let me look at you. Good, nothing is bleeding, so now you may tell me why you have come." },
+    { id = "g_back", when = { metBefore = true }, text = "You are back, and walking evenly. Either you have been careful, or you have been binding your own wounds as I showed you." },
+    { id = "g_away", when = { away = 14 }, text = "{away} away, and a new scar that I did not dress. It has healed cleanly enough, so I shall say nothing." },
+  },
+  notice = {
+    { id = "n_hurt", cat = "weary", when = { durability = { max = 0.3 } },
+      text = "Your armor hangs in strips, and I can guess at the state of the hide beneath it. Sit down on that log, and do not argue with me." },
+    { id = "n_healer", cat = "class", when = { class = { "SHAMAN", "DRUID", "PRIEST" } },
+      text = "You heal with the spirits' help, I can see. Learn the bandage anyway, for the spirits grow tired, and linen does not." },
+    { id = "n_warrior", cat = "class", when = { class = { "WARRIOR", "HUNTER" } },
+      text = "You are the sort who is brought to me on a litter, saying it is only a scratch. Learn to bind it yourself, and spare the litter-bearers." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Vira Younghoof. I teach the binding of wounds with clean cloth and steady hands, to anyone who will sit still long enough to learn it." },
+        { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: First Aid") }, text = "So you wish to keep a First Aid Kit at your camp. That is sensible, and I will teach you to put one together once your bandaging shows me you will not waste it." },
+        { id = "h_campdone", when = { questDone = TODO_QUEST("Camping 101: First Aid") }, text = "How is the kit holding up? Keep the linen dry, and set your camp out in the wild, for the village does not care for tents in the middle of its paths." },
+        { id = "h_healer", when = { class = { "SHAMAN", "DRUID", "PRIEST" } }, text = "I am Vira Younghoof, and you are a healer of another kind. I have great respect for what you do, and I have also bandaged a good many healers who had nothing left to call upon." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Speak while I roll these." },
+        { id = "h_again2", text = "Go on, my hands are busy but my ears are not." },
+        { id = "h_again3", text = "Yes, young one?" },
+      },
+      choices = {
+        { text = "Teach me to bind wounds.", next = "BUSINESS" },
+        { text = "What does a camp's First Aid Kit hold?", next = "kit", when = { questActive = TODO_QUEST("Camping 101: First Aid") } },
+        { text = "What wounds do you see most in Mulgore?", next = "wounds" },
+        { text = "You sound as though your patients try you.", next = "patients" },
+        { text = "Where does your linen come from?", next = "linen" },
+        { text = "Why learn bandages when I can call on the spirits?", next = "spirits", when = { class = { "SHAMAN", "DRUID", "PRIEST" } } },
+        { text = "I've bound wounds with dirty cloth before now.", next = "dirty" },
+        { text = "Earth Mother keep you, Vira.", next = "END" },
+      },
+    },
+    kit = {
+      lines = {
+        { id = "kit_d", text = "Rolled linen, a clean knife, a pot for boiling water, and a salve of earthroot for what the cloth alone will not ease. It is not much, but at a camp far from any village it is the difference between resting and limping home." },
+      },
+      choices = {
+        { text = "And others at my camp may use it?", next = "kit_others" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kit_others = {
+      lines = {
+        { id = "kit_others_d", text = "That is the whole worth of it. One traveller with a kit beside the fire can mend whoever stumbles in out of the dark, and you would be surprised how often somebody does." },
+      },
+      choices = {
+        { text = "Then I'll keep it well stocked.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wounds = {
+      lines = {
+        { id = "wounds_d", text = "Tusk gashes from the battleboars, low on the leg, and wolf bites on the forearm from braves who put an arm up to guard their throats. The harpies' claws are the worst, because they are never clean." },
+      },
+      choices = {
+        { text = "What do you do for a harpy's claw?", next = "wounds_harpy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wounds_harpy = {
+      lines = {
+        { id = "wounds_harpy_d", text = "I wash it three times in boiled water, and the brave complains three times. Then I bind it loosely and look again each morning, because a Windfury wound that is closed up tight will sour beneath the cloth." },
+      },
+      choices = {
+        { text = "Loosely, and look again. I'll remember.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    patients = {
+      lines = {
+        { id = "patients_d", text = "They do. A young brave would sooner bleed into a boot all the way from the Venture Company's mine than admit a goblin cut them. I had one walk here on a split hoof and ask me the way to the inn." },
+      },
+      choices = {
+        { text = "What did you tell him?", next = "patients_told" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    patients_told = {
+      big = true,
+      lines = {
+        { id = "patients_told_d", text = "That the inn was behind him and the log was in front of him, and that he was going to sit on the log. He did, and he wept a little while I worked, and I have never told anyone which brave it was." },
+      },
+      choices = {
+        { text = "Pride like that gets young braves killed.", next = "BACK", reply = "It does, and I say so to each of them. Half of them hear it, and I count that a good season.", fx = { align = { light = 1 } } },
+        { text = "A brave who hides pain has strength worth honouring.", next = "BACK", reply = "Strength, yes, and I honoured it. Then I asked him what use that strength would have been with the leg gone.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    linen = {
+      lines = {
+        { id = "linen_d", text = "The braves bring me cloth they have taken from the Palemane gnolls and the Venture Company's workers, and I boil all of it before I trust it. Wunna Darkmane sells me thread to bind the rolls, and counts every length." },
+      },
+      choices = {
+        { text = "Who else looks after the hurt here?", next = "linen_others" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    linen_others = {
+      lines = {
+        { id = "linen_others_d", text = "Narm Skychaser calls on the waters for those who are beyond cloth, and Gennia Runetotem does the same with the wild's help. Between them and me, very little that walks into Bloodhoof leaves it worse." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spirits = {
+      lines = {
+        { id = "spirits_d", text = "Because there will come a day when you have asked too much of them, and your friend is still bleeding. A bandage needs nothing from you but two hands, and it works when you are too tired to pray." },
+      },
+      choices = {
+        { text = "I had not thought of it so.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dirty = {
+      lines = {
+        { id = "dirty_d", text = "And you lived, so the Earth Mother was watching. Next time hold the cloth over a flame for a moment, or wash it in the cleanest water you can find, and trouble her a little less." },
+      },
+      choices = {
+        { text = "Over the flame. I will.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    harpies = { { id = "tp_harp", text = "The Windfury harpies foul their own claws, I am sure of it. Nothing they scratch heals as it should without washing." } },
+    background = { { id = "tp_bg", text = "I learned from my mother, who followed the hunters with a bag of cloth. I only do the same, with a roof over me." } },
+    advice = { { id = "tp_ad", text = "Bind it when it happens, and never when you get home. Home is always farther than you think." } },
+    _none = { { id = "tp_none", text = "That is not a wound, so I cannot mend it. Ask Baine Bloodhoof, or the innkeeper." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Yonn Deepcut: skinning trainer in Bloodhoof Village. Forever: ends Camping 101: Skinning.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "yonn", id = TODO_NPC("Yonn Deepcut"), name = "Yonn Deepcut", title = "Skinning Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "bloodhoof" }, temper = { "quiet", "reverent" }, values = { "the hunt", "thrift" },
+  notices = { "craft", "class", "kit" },
+  impression = {
+    first = "Yonn Deepcut teaches skinning in Bloodhoof Village, and he teaches it as a kind of thanks owed to the beast. He says a spoiled hide is an insult, and he says it gently enough that one feels worse for it.",
+    third = "{name} met Yonn Deepcut, the skinning trainer in Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Welcome. Show me your knife before anything else, for a dull one tears, and I will not teach tearing." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back. Did the hides come away whole, or did you bring Chaw Stronghide rags again?" },
+    { id = "g_away", when = { away = 14 }, text = "{away} of hunting. I hope you wasted nothing, and I shall know if you did when I see your next hide." },
+  },
+  notice = {
+    { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
+      text = "Your knife has a worn place where the thumb sits. You have done this work, then, and we may speak as two who know it." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter who does not skin leaves half the hunt on the grass. I hope you have come to me to mend that." },
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "You carry an awl, so you are one of Chaw's. Then you know already what a careless cut costs the one who must work the hide." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Yonn Deepcut. When a beast has given its life to the hunter, I teach how to take the hide from it whole, so that nothing the Earth Mother gave is thrown away." },
+        { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Skinning") }, text = "You want a Camp Chair for your fire, I hear. It is a good use for a hide, and I will show you the making of one when your knife work has earned it." },
+        { id = "h_campdone", when = { questDone = TODO_QUEST("Camping 101: Skinning") }, text = "Does the chair sit well? Rest in it out in the wild, away from the village paths, and remember the beast that is holding you up." },
+        { id = "h_skinner", when = { profession = "Skinning" }, text = "I am Yonn Deepcut, and you already carry the knife. Good, for there is always a cleaner cut to learn, and I am still learning it myself." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you learn?" },
+        { id = "h_again2", text = "Ask. The hide will wait for us." },
+        { id = "h_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "Teach me skinning.", next = "BUSINESS" },
+        { text = "How does a hide become a Camp Chair?", next = "chair", when = { questActive = TODO_QUEST("Camping 101: Skinning") } },
+        { text = "What makes a clean cut?", next = "cut" },
+        { text = "You speak of skinning as though it were a rite.", next = "rite" },
+        { text = "Where do the hides go after you?", next = "chaw" },
+        { text = "Which of Mulgore's beasts is hardest to skin?", next = "hardest", when = { profession = "Skinning" } },
+        { text = "I've left kills lying where they fell.", next = "left" },
+        { text = "May your knife stay keen, Yonn.", next = "END" },
+      },
+    },
+    chair = {
+      lines = {
+        { id = "chair_d", text = "You stretch the hide over a frame of lashed branches while it is still green, and you let it dry there, so that it shrinks tight and takes the shape. A kodo hide is best, but good wolf will bear your weight." },
+      },
+      choices = {
+        { text = "Why does a camp need a chair at all?", next = "chair_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    chair_why = {
+      lines = {
+        { id = "chair_why_d", text = "Because a hunter who never sits makes poor cuts by evening, and worse choices. Rest is a part of the hunt, though the young ones do not believe it until their hands begin to shake." },
+      },
+      choices = {
+        { text = "Then I'll sit, and hunt better for it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cut = {
+      lines = {
+        { id = "cut_d", text = "A sharp knife and a slow hand. You open the belly from the throat down in one line, and then you let the blade lie almost flat and ease the skin away, so that it parts from the flesh and is never sawn." },
+      },
+      choices = {
+        { text = "And what spoils one?", next = "cut_spoil" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cut_spoil = {
+      lines = {
+        { id = "cut_spoil_d", text = "Haste, every time. A brave hears another beast in the grass and hurries, and the knife goes through the hide, and Chaw Stronghide holds the hole up to the light and looks at me through it." },
+      },
+      choices = {
+        { text = "I would not want Chaw looking at me that way.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rite = {
+      narr = "He wipes the blade on the grass, slowly, on one side and then the other.",
+      lines = {
+        { id = "rite_d", text = "It is one, to me. The beast ran and fed and feared as we do, and it has ended so that we may be warm. I say a word of thanks before the first cut, and I have never begun without it." },
+      },
+      choices = {
+        { text = "What word do you say?", next = "rite_word" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rite_word = {
+      big = true,
+      lines = {
+        { id = "rite_word_d", text = "Only that I see what was given, and that I will waste none of it. The words are plain, and I think the beast's spirit cares less for the words than for whether I keep to them." },
+      },
+      choices = {
+        { text = "I will say it over my own kills.", next = "BACK", reply = "Then the plains will know you for one of their own, whatever land you were born in. Walk with the Earth Mother.", fx = { align = { light = 1 } } },
+        { text = "A dead beast hears nothing. The skill is what matters.", next = "BACK", reply = "Perhaps it hears nothing. I have noticed, though, that those who do not say it are also the ones who leave the hide.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    chaw = {
+      lines = {
+        { id = "chaw_d", text = "To Chaw Stronghide, who teaches the working of them. I take the hide from the beast and he makes it into something a brave can wear, and he will tell you his is the greater share of the labour." },
+      },
+      choices = {
+        { text = "Is he right?", next = "chaw_right" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    chaw_right = {
+      lines = {
+        { id = "chaw_right_d", text = "He is right about the labour. But he cannot put back what a bad skinner has cut away, so I say that mine is the share that must be done right the first time, and we leave it there." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hardest = {
+      lines = {
+        { id = "hardest_d", text = "The kodo, for the sheer weight of the hide, which takes two of us and most of a day. For fine work it is the swoop, whose skin is thin as a leaf under the feathers and tears if you so much as breathe on it." },
+      },
+      choices = {
+        { text = "I'll practise on wolves before I try a swoop.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    left = {
+      lines = {
+        { id = "left_d", text = "Most have, before they learn. The wolves and the swoops will not have let it go to waste, so the plains have forgiven you, and you need only do better at the next one." },
+      },
+      choices = {
+        { text = "I will. Thank you, Yonn.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    venture_company = { { id = "tp_ven", text = "The Venture Company shoots the kodo and takes nothing, not even the hide. I have skinned what they left, so that it should not be for nothing." } },
+    background = { { id = "tp_bg", text = "The Deepcuts have followed the hunters with a knife for longer than anyone remembers. It is quiet work, and it suits me." } },
+    advice = { { id = "tp_ad", text = "Sharpen the knife before the hunt, and never after the kill. The beast should not have to wait on you." } },
+    _none = { { id = "tp_none", text = "I do not know. I spend my days with those who can no longer speak, and I hear little news from them." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Harn Longcast: fishing supplies vendor by the north bridge at Bloodhoof Village.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "harn", id = TODO_NPC("Harn Longcast"), name = "Harn Longcast", title = "Fishing Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "bloodhoof" }, temper = { "unhurried", "droll" }, values = { "patience", "the lake" },
+  notices = { "craft", "race", "kit" },
+  impression = {
+    first = "Harn Longcast sells fishing supplies by the north bridge at Bloodhoof Village and can be found there in all weathers, usually with a line in the water. He says he chose the spot for the customers, and the fish know otherwise.",
+    third = "{name} met Harn Longcast, who sells fishing supplies by the bridge at Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Walk softly on the bridge, friend, for the fish feel every hoof. There, now you may talk as loudly as you please." },
+    { id = "g_back", when = { metBefore = true }, text = "Back to the bridge, are you? Tell me what you caught, and I will tell you what you ought to have used." },
+    { id = "g_away", when = { away = 14 }, text = "{away} gone. The lake has turned over once since then, and the big ones are sitting deep." },
+  },
+  notice = {
+    { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
+      text = "That pole has seen water, and your thumb has a line scar on it. Sit down beside me, for you are the first sensible person across this bridge today." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A young brave on the way north to the bluff. You will be in a hurry, as they all are, and the lake will still be here when you have finished with that." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear, from the sea coast. Your people fish with spears and nets, I am told, and I should like to hear how a net is thrown." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Harn Longcast. Poles, line, lures and bait, sold from the best fishing spot on Stonebull Lake, which I found first and have no intention of giving up." },
+        { id = "h_fisher", when = { profession = "Fishing" }, text = "I am Harn Longcast, and you fish, so I shall be honest with you. The shiny baubles are for the eager, and the plain lures catch as much, but an eager customer is a happy one." },
+        { id = "h_tauren", when = { race = "Tauren" }, text = "I am Harn Longcast. Uthan Stillwater teaches the craft across the lake, and I sell what it needs, so between us we have ruined a good many promising warriors." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Keep your voice easy, I have a nibble." },
+        { id = "h_again2", text = "Go on, I am listening with one ear." },
+        { id = "h_again3", text = "Hm?" },
+      },
+      choices = {
+        { text = "Show me your fishing supplies.", next = "BUSINESS" },
+        { text = "What swims in Stonebull Lake?", next = "lake" },
+        { text = "You chose this bridge for the fishing, I think.", next = "bridge" },
+        { text = "Tell me about Uthan Stillwater.", next = "uthan" },
+        { text = "Do the gnolls trouble the lake?", next = "gnolls" },
+        { text = "What bait are they taking this season?", next = "bait", when = { profession = "Fishing" } },
+        { text = "On the coast we fish with nets.", next = "nets", when = { race = "Troll" } },
+        { text = "Tight lines, Harn.", next = "END" },
+      },
+    },
+    lake = {
+      lines = {
+        { id = "lake_d", text = "Brilliant smallfish near the banks, which a calf can catch with a bent pin, and longjaw mud snapper in the deeper water by the bridge posts. The snapper fight hard for their size, and they are the better eating." },
+      },
+      choices = {
+        { text = "Is there anything larger down there?", next = "lake_big" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lake_big = {
+      lines = {
+        { id = "lake_big_d", text = "There is one, under the third post, that has taken four of my lures and never shown me more than a shadow. I do not sell to anyone who says they mean to catch it, for that fish and I have an understanding." },
+      },
+      choices = {
+        { text = "I'll leave your fish alone.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I think the fish is winning.", next = "BACK", reply = "It is, by four lures. I am a patient bull, and I mean to lose slowly.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bridge = {
+      lines = {
+        { id = "bridge_d", text = "You have a sharp eye. Every traveller bound for Thunder Bluff crosses here, so I tell the village it is good for trade, and the snapper happen to gather in the shade beneath." },
+      },
+      choices = {
+        { text = "Does the village believe you?", next = "bridge_believe" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bridge_believe = {
+      big = true,
+      lines = {
+        { id = "bridge_believe_d", text = "Baine Bloodhoof asked me once whether I was a merchant who fished or a fisher who sold things. I said I would think on it and tell him, and that was two summers ago." },
+      },
+      choices = {
+        { text = "A village needs those who sit and watch the water.", next = "BACK", reply = "I think so too. Somebody ought to be still while the rest are running, if only to notice which way they ran.", fx = { align = { light = 1 } } },
+        { text = "With gnolls and goblins about, every bull should do more.", next = "BACK", reply = "Perhaps you are right. I feed a fair few of the braves who do the running, and I had counted that as my share.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    uthan = {
+      lines = {
+        { id = "uthan_d", text = "He sits on the west bank and teaches anyone who asks, and he is the better fisher of the two of us, which I say only because he is too far off to hear. We wave to each other across the water at dawn." },
+      },
+      choices = {
+        { text = "Do you ever fish side by side?", next = "uthan_side" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    uthan_side = {
+      lines = {
+        { id = "uthan_side_d", text = "Once a year, at the first frost, and we do not speak a word from sunrise to sunset. It is the best day's talk I have all year." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnolls = {
+      lines = {
+        { id = "gnolls_d", text = "The Palemanes come down to the south shore by night and take fish from the shallows with their hands. They are clumsy at it and they frighten the shoals, and I mind that more than the theft." },
+      },
+      choices = {
+        { text = "Fish with their hands? I'd like to see it.", next = "BACK", reply = "It is mostly splashing and bad language. Stay well back if you go to look, for they dislike being watched.", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bait = {
+      lines = {
+        { id = "bait_d", text = "The snapper want something that wriggles, early, before the sun is on the water. After midday they will look at nothing but a bright lure moved slowly, and they will make you wait for it." },
+      },
+      choices = {
+        { text = "Early and wriggling. I'll be here at dawn.", next = "BACK", reply = "Then bring your own patch of bank, for this one is spoken for.", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nets = {
+      lines = {
+        { id = "nets_d", text = "So I have heard, and I cannot picture it. To take a whole shoal at one throw seems to me like eating a feast in one mouthful, though I suppose a village on the sea has more mouths than patience." },
+      },
+      choices = {
+        { text = "A net feeds a whole village, mon.", next = "BACK", reply = "That is a fair answer, and I shall stop looking down my snout at it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    venture_company = { { id = "tp_ven", text = "If the goblins' digging ever fouls the streams that feed this lake, I shall stop being a patient bull. So far the water runs clear." } },
+    background = { { id = "tp_bg", text = "I have fished this lake since Bloodhoof was a ring of tents. The selling came later, when folk kept asking to borrow my line." } },
+    advice = { { id = "tp_ad", text = "Cast past where you think the fish is, and bring the lure back through it. Nothing likes having its supper dropped on its head." } },
+    _none = { { id = "tp_none", text = "News goes over this bridge at a trot and does not stop for me. Ask at the inn." } },
   },
 }

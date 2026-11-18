@@ -24,3 +24,33 @@ Never says: anything after Year 1.
 
 ## Topics
 _none.
+
+---
+
+# Missed folk  (keys: sp_guillaume, sp_leo, sp_killian)
+
+## Sources
+- tools/npc.py (warcraft.wiki.gg): /Guillaume_Sorouy <Blacksmithing Trainer, the Sepulcher>; /Leo_Sarn <Enchanting Supplies, hills northeast of the Greymane Wall>; /Killian_Sanatha <Fisherman, vendor on the Lordamere Lake dock>.
+
+## Their quests
+- none: all three are built from role, place and neighbours.
+
+## Identity
+- **Guillaume Sorouy** · the Sepulcher · Forsaken · trainer. Exacting, proud, formal; slow and correct against Sebastian Meloche's quick and plentiful. Never guesses.
+- **Leo Sarn** · under the Greymane Wall · Forsaken · vendor. Dry, watchful, solitary; supplies the deathstalkers who watch Pyrewood and the keep; fascinated by the wall's silence.
+- **Killian Sanatha** · Lordamere dock · Forsaken · vendor. Laconic, wry; sells to Bates, Sarah Goode and Renferrel; keeps the fish that "come up wrong" in a separate barrel.
+
+## Authored, not canon
+- Guillaume's letter to Hadrec about the Deep Elem Mine; Bates's complaints about the hammering.
+- Leo's reasons for the posting; his dust settling toward Ambermill; reports sold to Allister.
+- Killian fishing off the sunken ferry; the humming crate; counting the boats to Fenris Isle.
+
+## What they notice
+- Guillaume: profession (smith, miner), kit, orcs. Leo: weary, mages, the living. Killian: the living, cooks, hunters' beasts.
+
+## Topics
+- worgen, shadowfang, forsaken, advice (Guillaume); gilneas, worgen, shadowfang, dalaran, advice (Leo); worgen, dalaran, lordaeron, forsaken, advice (Killian).
+
+## Not added
+- Lilly <Enchanting Supplies, the Sepulcher>: another pack already has a different NPC named Lilly (Dalaran orphanage), and TODO_NPC matches by name.
+- Pyrewood and Ambermill folk: hostile to the Horde and without services for the Alliance; placement as talkable NPCs is doubtful.

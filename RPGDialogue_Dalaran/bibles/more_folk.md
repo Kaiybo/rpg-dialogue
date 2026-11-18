@@ -31,3 +31,14 @@ Wiki pages read 2026-11-18 (warcraft.wiki.gg, via tools/npc.py): Prospector Ston
 
 ## Topics
 _none for each.
+
+# Added later: Jekyll Flandring (key: dal_jekyll)
+
+Wiki page read 2026-11-18 (warcraft.wiki.gg, via tools/npc.py): Jekyll Flandring, male Forsaken, Frostwolf Supply Officer in the Alterac Mountains; the Horde counterpart to Thanthaldis Snowgleam.
+- **Their quests**: none: reputation-gated rewards vendor.
+- **Voice**: dry, meticulous Forsaken clerk; ledgers, ink, gallows humour; respects the clan and is not sure what he owes it.
+- **Authored, not canon**: a quartermaster's clerk in Lordaeron in life, sent by the Undercity when the Warchief asked for hands; Teeka's daily insult.
+- **Notices**: Forsaken, orcs, exalted Frostwolf.
+
+## Deepened 2026-11-18
+dal_durgen and dal_teeka: replies for dwarves / shamans and for honored standing with their side. dal_thanthaldis: branches on keeping stores for dwarves, the others at the gate, and a night elf's word from home.

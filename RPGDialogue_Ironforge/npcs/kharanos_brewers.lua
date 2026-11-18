@@ -153,7 +153,7 @@ P:NPC {
   key = "dm_jarven", id = TODO_NPC("Jarven Thunderbrew"), name = "Jarven Thunderbrew",
   bible = "bibles/kharanos_brewers.md", role = "questgiver", tier = "quest",
   communities = { "kharanos" }, temper = { "grumpy", "dutiful" }, values = { "family", "duty" },
-  notices = { "drunk", "race" },
+  notices = { "drunk", "race", "class" },
 
   impression = {
     first = "Guarding ale he may not touch has not improved his temper.",
