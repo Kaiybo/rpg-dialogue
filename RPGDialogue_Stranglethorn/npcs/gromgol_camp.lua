@@ -34,8 +34,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_durik_b = {
+      lines = {
+        { id = "dd_durik_b_a", text = "Maybe, and maybe he'd have taken my arm off, which is how most taming begins. A beast like that respects strength and patience both, and the humans at their camp only bring strength, so they come back with skins instead of friends." },
+      },
+      choices = {
+        { text = "A beast that kills raptors deserves death, not a collar.", next = "dd_durik_b2", fx = { align = { order = 1 } } },
+        { text = "I'd rather have seen him run free in the jungle.", next = "dd_durik_b2", fx = { align = { order = -1 } } },
+      },
+    },
+    dd_durik_b2 = {
+      lines = {
+        { id = "dd_durik_b2a", text = "Both are honest answers, and I've had both thoughts on the same night. Come and see the raptors before you go, because they settle when someone strong is near, and you smell of a good hunt." },
+      },
+      choices = { { text = "I'll do that. Something else.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
+        { id = "dd_bangalash_durik", when = { killed = { name = "Bangalash" } },
+          text = "You killed the great white tiger that the human hunter wanted, Bangalash. I'd have tamed him, given a season, but I won't pretend he didn't need killing, because he'd taken three of our raptors off the jungle trail." },
+
         { id = "h_default", key = true,
           text = "Durik, stable master of Grom'gol. I keep beasts fed, rested and out of the jaws of what lives in this jungle, and that last part is most of the work." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -50,6 +69,8 @@ P:NPC {
         { id = "h_again2", text = "Ask what you want. The beasts are fed and I have a little time." },
       },
       choices = {
+        { text = "Could you really have tamed Bangalash, Durik?", next = "dd_durik_b", when = { killed = { name = "Bangalash" } } },
+
         { text = "I need to stable a beast.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you keep beasts alive in this jungle?", next = "jungle" },
         { text = "Do you keep raptors of your own?", next = "raptors" },
@@ -85,7 +106,7 @@ P:NPC {
     ride = {
       lines = { { id = "ri_default", text = "The Darkspear say their people rode them long ago, and old Kin'weelay, the Darkspear here in camp, tells it as though it were yesterday. I have tried once, and I have the scar on my thigh to show you how that went." } },
       choices = {
-        { text = "Keep trying. You'll get there.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Keep trying, and you'll get there.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -229,8 +250,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_vharr_b = {
+      lines = {
+        { id = "dd_vharr_b_a", text = "Good, because the Bloodscalp raid our supply lines every week and take heads for their shrines. The Darkspear in this camp say they were kin once, long ago, but kin who takes your head is no kin of yours." },
+      },
+      choices = {
+        { text = "Kin or not, they chose blood. They get blood back.", next = "dd_vharr_b2", fx = { align = { light = -1 } } },
+        { text = "If they were kin, maybe some could still be turned.", next = "dd_vharr_b2", fx = { align = { light = 1 } } },
+      },
+    },
+    dd_vharr_b2 = {
+      lines = {
+        { id = "dd_vharr_b2a", text = "Talk to the Darkspear about that, not to me, because I only sell steel and keep it sharp. Whatever you choose, carry a good blade while you choose it." },
+      },
+      choices = { { text = "Something else, Vharr.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
+        { id = "dd_bloodscalp_vharr", when = { killed = { name = "Bloodscalp", min = 50 } },
+          text = "Your blade's notched with Bloodscalp bone, I can see it from here, and a lot of it. They're trolls who forgot the Darkspear were ever their cousins, so I'll not mourn a single one of them, and I'll sharpen that edge for the next." },
+
         { id = "h_default", key = true,
           text = "I am Vharr, and I arm Grom'gol. The steel comes on the zeppelin from Orgrimmar, and the rest comes from goblins in Booty Bay who charge too much and smile while they do it." },
         { id = "h_orc", when = { race = "Orc" },
@@ -243,6 +283,8 @@ P:NPC {
         { id = "h_again2", text = "Speak. The grindstone can wait a little." },
       },
       choices = {
+        { text = "I've cut down many Bloodscalp, Vharr.", next = "dd_vharr_b", when = { killed = { name = "Bloodscalp", min = 50 } } },
+
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What weapon works best against the trolls here?", next = "trolls" },
         { text = "You don't think much of the goblins.", next = "goblins" },
@@ -356,6 +398,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "dd_defense_mudduk", when = { questDone = TODO_QUEST("The Defense of Grom'gol") },
+          text = "Commander Aggro'gosh says you helped hold Grom'gol against the jungle beasts, so you'll eat first tonight. I'll put an extra piece of meat in the bowl, because a warrior who bleeds for the camp should be fed like one." },
+
         { id = "h_default", key = true,
           text = "Mudduk, cook of Grom'gol, and I feed every grunt, every shaman and every wind rider in this camp. Soldiers fight on their bellies, and in this jungle there is always something new to put in the pot." },
         { id = "h_cook", when = { profession = "Cooking" },

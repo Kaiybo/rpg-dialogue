@@ -51,6 +51,8 @@ P:NPC {
           text = "Oh, good, someone with a sword. Not that we need one, of course, everything's perfectly fine, but it's nice to have one about." },
         { id = "h_warlock", when = { class = "WARLOCK" },
           text = "That's... a demon, isn't it? Is it yours? It's yours. Please keep it close; I've a list of procedures for demons, and none of them are pleasant." },
+        { id = "h_dd_sample", when = { questDone = TODO_QUEST("A Green Sample") },
+          text = "Alfina tells me you fetched her sample from the central garden, and that you came back with all your fingers. Some of those plants have opinions now, so that's a better result than most apprentices manage." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've time until the next skycutter comes in, and I'd much rather talk than watch the sky." },
@@ -612,8 +614,8 @@ P:NPC {
         { id = "xm_default", text = "Your spells don't, but your certainty might. Every mage I've met here believes the power will always do what it's told, and my people believed that too, once." },
       },
       choices = {
-        { text = "You're right. I'll respect the limits.", next = "BACK", reply = "Then you're wiser than most who come through here, mage, and I'll trust you a little further than I'd trust the rest of your order.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fear of power never built anything worth having.", next = "BACK", reply = "My people said much the same, ten thousand years ago, and the ocean still sits where their city used to be, so think on that.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "You're right. I'll respect the limits.", next = "BACK", reply = "Then you're wiser than most who come through here, mage. I'll trust you a little further than the rest of your order, though not by much.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fear of power never built anything worth having.", next = "BACK", reply = "My people said much the same ten thousand years ago. Go and look at the sea where their city used to be, and then tell me again.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

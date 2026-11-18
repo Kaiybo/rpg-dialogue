@@ -31,8 +31,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_counterattack = {
+      lines = {
+        { id = "dd_ca_default", text = "It held, which is more than I'd wagered when I first read his letters. The centaur clans don't usually fight together, so when they do, someone has put them up to it, and my agents are looking for that someone. Did you see anything at the stockade that struck you as strange?" },
+      },
+      choices = {
+        { text = "Only centaur. I didn't stop to ask who sent them.", next = "BACK", reply = "Fair enough, and they'd not have told you. I'll find the hand behind it some other way.", fx = { align = { order = -1 } } },
+        { text = "They fought like an army. Someone drilled them.", next = "BACK", reply = "That's what I feared, and it's what Regthar said too. I'll put it in my report to the Warchief, with your name beside it.", fx = { align = { order = 1 } } },
+        { text = "Something else, Belgrom.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_counterattack", tags = { "news" }, when = { questDone = TODO_QUEST("Counterattack!") },
+          text = "Regthar Deathgate's reports from the Barrens say the Kolkar's counterattack broke against his stockade, and your name sits in the middle of them. I sent you to Regthar, so I'll take a small share of the credit, if you don't mind." },
         { id = "h_default", key = true, text = "Belgrom Rockmaul, adviser to the Warchief, who asks my opinion often. My agents watch half of Kalimdor for him, from the Barrens to the coast of Azshara, though I'd sooner not speak of the elf I trusted there." },
         { id = "h_betrayed_before", when = { questBefore = TODO_QUEST("Betrayed") },
           text = "That thieving elf! I may have made a grave mistake, {name}. She promised riches from the ruins of Azshara if I sent warriors to guard her diggers, and now she's killed them, every one, and I can't afford to send more." },
@@ -48,6 +60,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, but not for long." },
       },
       choices = {
+        { text = "Regthar's stockade held, Belgrom.", next = "dd_counterattack", when = { questDone = TODO_QUEST("Counterattack!") } },
         { text = "What happened with the elf?", next = "elf" },
         { text = "Who are these agents of yours?", next = "agents" },
         { text = "I doubt the Warchief really asks your opinion.", next = "warchief" },

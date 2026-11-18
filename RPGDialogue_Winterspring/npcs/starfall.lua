@@ -42,7 +42,7 @@ P:NPC {
         { id = "op_ask_default", text = "The blue dragons keep to Mazthoril and watch us with eyes older than Kel'Theril, and my people have fought both beside and against dragons in our time. What do you make of the dragonflights?" },
       },
       choices = {
-        { text = "Dangerous and proud. Best left alone.", next = "op_r1", fx = { align = { order = -1 }, trait = { cautious = 1 }, opinion = { dragons = "dangerous" } } },
+        { text = "Dangerous and proud, so best left alone.", next = "op_r1", fx = { align = { order = -1 }, trait = { cautious = 1 }, opinion = { dragons = "dangerous" } } },
         { text = "Wise guardians. The world would fall without them.", next = "op_r2", fx = { affinity = 1, align = { order = 1 }, opinion = { dragons = "admire" } } },
         { text = "The black flight is the danger. The rest can watch.", next = "op_r3", fx = { trait = { stern = 1 }, opinion = { black_dragonflight = "hate" } } },
         { text = "Malygos's flight guards magic. I respect that.", next = "op_r4", fx = { affinity = 1, opinion = { dragons = "respect" } }, when = { class = "MAGE" } },
@@ -67,6 +67,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_spirits", when = { questDone = TODO_QUEST("Troubled Spirits of Kel'Theril") },
+          text = "Jaron tells me the spirits of Kel'Theril are quieter since you went among them. He'll call it an archaeologist's triumph, but I'll call it a kindness, and I'll thank you for it." },
         { id = "h_default", key = true, text = "I am Wynd Nightchaser, and I've spent more years at Starfall than I'd care to count, even by kaldorei reckoning. Winterspring is a harsh land, but it holds a great many old elven ruins, and most of them hold Highborne secrets that someone would rather were forgotten." },
         { id = "h_ruins", tags = { "news" }, when = { questActive = TODO_QUEST("The Ruins of Kel'Theril") },
           text = "Jaron Stoneshaper has been down to Kel'Theril more recently than I have, and he'll tell you what he saw. He's a dwarf, so he'll tell you at length." },
@@ -162,8 +164,8 @@ P:NPC {
         { id = "ct_default", text = "I trust the Arch Druid more than I trust anyone who'd be tempted to use it, and that includes me. You could have kept it, you know, and you didn't, and I shall remember that." },
       },
       choices = {
-        { text = "Power like that should be locked away.", next = "BACK", reply = "Then we agree, and Elune knows I sleep easier with it in Rabine's keeping. Some things are only safe when no one can reach them at all.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'd have kept it, if I'd known what it was.", next = "BACK", reply = "Then I am glad you didn't know, and I think you'd be gladder still, given time. The Highborne knew exactly what they held, and look what became of them.", fx = { align = { order = -1 } } },
+        { text = "Power like that should be locked away.", next = "BACK", reply = "Then we agree, and Elune knows I sleep easier with it in Rabine's keeping. I would not want it within a day's ride of Everlook's auction house.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd have kept it, if I'd known what it was.", next = "BACK", reply = "Then I am glad you didn't know, and I think you'd be gladder still, given time. I have seen what the Highborne left of Eldarath, and they knew exactly what they held.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -173,7 +175,7 @@ P:NPC {
         { id = "xm_default", text = "That's exactly what the Highborne said, word for word, I'd imagine. The crystal grants great power only to those worthy of it, and the trouble is that everyone believes they are." },
       },
       choices = {
-        { text = "Then the wise mage leaves it alone.", next = "BACK", reply = "Yes, and that is the hardest wisdom of all, to leave a power in its box when you know you could use it well. Few manage it for long.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then the wise mage leaves it alone.", next = "BACK", reply = "Yes, and that is the hardest wisdom of all, to leave a power in its box when you know you could use it well. I have watched good mages fail at it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Some mages really are worthy of it.", next = "BACK", reply = "Perhaps, and the Highborne were certain they were among them, every last one. Forgive me if ten thousand years have made me slow to believe anyone again.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -255,8 +257,23 @@ P:NPC {
       lines = { { id = "op_r4_default", text = "Lost kin, aye. You say it gently, for someone talking about an exile ten thousand years old." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    dd_crystal = {
+      lines = {
+        { id = "dd_crystal_1",
+          text = "Not a peek, not a sketch, not so much as a rubbin' for the archives in Ironforge! He says some things the Highborne made ought tae stay locked away, an' I say the League's been lockin' things away in display cases for years with no complaints." },
+        { id = "dd_crystal_2",
+          text = "The night elves have long memories, mind, an' I'll grant ye theirs are worse than mine. Still, ye cannae learn from a thing ye won't look at, an' that's the whole o' my philosophy." },
+      },
+      choices = {
+        { text = "Wynd's right. Some magic should stay buried.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're right. Knowledge belongs to everyone, Jaron.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Jaron.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_crystal", when = { questDone = TODO_QUEST("The Crystal of Zin-Malor") },
+          text = "Wynd's been tellin' me you brought him back some old Highborne crystal from the ruins o' Kel'Theril, an' he won't let me near it. I'm an Explorers' League man, {g:lad|lass}, an' it's breakin' my heart." },
         { id = "o_explorers_league_admire", tags = { "news" }, when = { opinion = { topic = "explorers_league", stance = "admire" } },
           text = "Word is you think history belongs to everyone. The League could use a few more like you." },
         { id = "o_titans_believe", tags = { "news" }, when = { opinion = { topic = "titans", stance = "believe" } },
@@ -278,6 +295,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. I'm not going anywhere till the wildkin calm down." },
       },
       choices = {
+        { text = "Wynd won't let you see the crystal?", next = "dd_crystal", when = { questDone = TODO_QUEST("The Crystal of Zin-Malor") } },
         { text = "How has the digging gone?", next = "camp" },
         { text = "Have you seen any of the old ruins?", next = "kel" },
         { text = "What brings the Explorers' League this far north?", next = "league" },

@@ -298,9 +298,10 @@ P:NPC {
           text = "You've done well. Every crystal goes to our stockpile, and every bit is our gain and the Alliance's loss." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "You're Alliance, in my camp. Speak quickly, and then go, before my grunts remember they're bored." },
+        { id = "h_dd_field", when = { faction = "Horde", questDone = TODO_QUEST("Field Duty") }, text = "Windcaller Kaldon tells me you've done your field duty and signed his papers, so the Circle counts you as one of the Hold's now. Good, but don't forget whose banner you served under first." },
       },
       again = {
-        { id = "h_again", text = "More questions? Fine. Make them short." },
+        { id = "h_again", text = "More questions? Fine, but make them short." },
         { id = "h_again2", text = "What else? Speak while you walk." },
       },
       choices = {

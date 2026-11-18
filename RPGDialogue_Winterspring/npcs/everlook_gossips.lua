@@ -61,8 +61,23 @@ P:NPC {
       lines = { { id = "op_r3_default", text = "Now that's a businessman talkin'. Useful is what keeps the lights on, and the lights up here are very expensive." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    dd_yeti = {
+      lines = {
+        { id = "dd_yeti_1",
+          text = "Frightened? She went straight up like a rocket with a short fuse, and I've seen a few of those, believe me. Then she came down and started taking notes on the thing's joints, because she's a goblin first and a victim second." },
+        { id = "dd_yeti_2",
+          text = "Now she wants one of her own to scare Legacki back, and I've got a bet running on who blows up first. You want in? The odds are terrible, which is the fun of it." },
+      },
+      choices = {
+        { text = "Put me down for Legacki. She started it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll pass. Somebody's going to get hurt.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Harlo.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_yeti", tags = { "news" }, when = { questDone = TODO_QUEST("Are We There, Yeti?") },
+          text = "Pal, I heard about the yeti! Legacki's mechanical monster walked right up to Umi's door, and the scream they heard from the bank was worth the price of the whole season, and word is you were the one holding the controls." },
         { id = "o_dark_iron_hate", tags = { "news" }, when = { gossip = { topic = "dark_iron", stance = "hate" } },
           text = "Word round the inn is you told the Dark Iron smith what you think of his clan. Brave or daft, pal, I'm still decidin' which." },
         { id = "h_default", key = true, text = "Harlo Wigglesworth, pal, and I'm the one in Everlook who knows what's going on, mostly because I ask and partly because I never stop. I've just got back from a trip through Felwood, and I've got news that'd curl your toes and probably your boots too." },
@@ -78,6 +93,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask me anything, chum, as long as you trade me something back, because even I've got to turn a profit somewhere." },
       },
       choices = {
+        { text = "Was Umi really that frightened by the yeti?", next = "dd_yeti", when = { questDone = TODO_QUEST("Are We There, Yeti?") } },
         { text = "What did you see in Felwood?", next = "felwood" },
         { text = "Any news from out in the wilds?", next = "camp" },
         { text = "You seem to hear everything that goes on.", next = "ears" },
@@ -218,8 +234,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_seril = {
+      lines = {
+        { id = "dd_seril_1",
+          text = "He did! Well, it was more of a twitch, but on Seril that's a smile, and I'd know because I've been watching him scowl at the snow for two whole winters. He's got a story, that one, and it starts and ends in Stratholme, though he'll never tell it to a goblin." },
+        { id = "dd_seril_2",
+          text = "My family says I should leave the man alone and mind the shop. I say the hills are the shop, and the people in them are the merchandise, in a nice way, you understand." },
+      },
+      choices = {
+        { text = "Leave Seril be. Some men need their silence.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep asking. People need someone to pry them open.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Meggi.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_seril", when = { questDone = TODO_QUEST("Corruption") },
+          text = "Sweetie, Seril the swordsmith smiled at me this morning, and he never smiles, so I asked around. They say you got his stolen plans back from the Black Guard in Stratholme, which is a terrible place, and now what was I saying?" },
         { id = "h_default", key = true, text = "Meggi Peppinrocker, sweetie, and I'm always mighty proud to say I spend my time out in the wilds instead of behind a counter like the rest of my family. It takes a cool head and a keen eye to appreciate the hills the way I do, and now, what was I talking about?" },
         { id = "h_before", when = { questBefore = TODO_QUEST("Trouble in Winterspring!") },
           text = "Trouble! That's what it was, trouble in Winterspring. Donova Snowden at the hot springs can tell you all about it, because she was the one who told me, I'm nearly sure." },
@@ -231,6 +262,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, sweetie. I've got all day, and most of the night too, and neither one costs a copper." },
       },
       choices = {
+        { text = "You were saying Seril smiled at you.", next = "dd_seril", when = { questDone = TODO_QUEST("Corruption") } },
         { text = "What trouble, Meggi?", next = "trouble" },
         { text = "Why do you love the wilds so much?", next = "hills" },
         { text = "I never thought I'd meet a goblin who likes the outdoors.", next = "goblin" },

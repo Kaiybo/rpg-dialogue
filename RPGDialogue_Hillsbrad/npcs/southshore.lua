@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_assassins = {
+      lines = { { id = "dd_assassins_default", text = "Because my men are fishermen's sons in borrowed mail, and the Syndicate are Alterac nobles who've been knifing each other for three generations. They see a Southshore patrol coming from a mile off, but they didn't see you." } },
+      choices = {
+        { text = "Then train your men harder. Southshore deserves real soldiers.", next = "BACK", reply = "It does, and I'll tell Stormwind so again in my next letter, for all the good it does. Thank you for saying it plainly.", fx = { align = { order = 1 } } },
+        { text = "Fight knives with knives, Marshal. Hire someone like me.", next = "BACK", reply = "That's not how I like to keep a town, but I'll admit it worked. Keep your knives pointed at Alterac, and we'll get along.", fx = { align = { order = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+
     opn_hand = {
       lines = {
         { id = "opn_hand_q", text = "Raised by whom? The best of them died with Uther, the angriest went off to the Crusade, and the rest drink quietly in Innkeeper Anderson's taproom and don't wear the tabard. I hear talk of it, though, every time a paladin rides through. What do you think?" },
@@ -169,7 +178,7 @@ P:NPC {
           text = "Magistrate Maleb says you've been a great help with his papers. Good, somebody has to read them, while the rest of us stand on the road where the Syndicate actually is." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
           text = "Maleb says you weren't much use to him, which is about the best reference a soldier can get in Southshore. What do you need?" },
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID" },
           text = "A night elf druid in Southshore. Your folk pass through now and then on the road to Ironforge, but few of them stop, and fewer ask about the hills, which is a shame, because the hills need asking about." },
         { id = "h_default", key = true,
           text = "Marshal Redpath. I was headman here when the first boats came from Stormwind, full of people with nothing left. Now I'm marshal, and the town's full of their children." },
@@ -189,6 +198,8 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } }, text = "The patrols tell me the Syndicate's camps in the hills have gone quiet, and that the trampled ashes are full of boot prints about your size. Southshore owes you for that, and I won't forget it." },
         { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Alliance" },
           text = "Word's come down the north road that someone went into the Scarlet Monastery and walked back out again, and Raleigh the Devout up at the inn hasn't stopped pacing since. If that was you, I'd like a word before the rumours get here first." },
+        { id = "h_dd_assassins", tags = { "news" }, when = { questDone = TODO_QUEST("Syndicate Assassins") },
+          text = "Magistrate Maleb tells me you broke up the Syndicate's assassins in the hills. I've had men on that road for a year and never got close, so you'll understand if I'm both grateful and a little put out." },
       },
       again = {
         { id = "h_again", text = "Anything more? Ask as we go; I've the wall to inspect." },
@@ -219,6 +230,7 @@ P:NPC {
         { text = "We're a full company, Marshal. Put us to use.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I used to run letters for the Syndicate, Marshal.", next = "xorig_syndicate", when = { origin = "human_syndicate_runner" } },
         { text = "Good day, Marshal.", next = "END" },
+        { text = "Why couldn't your men get close to the Syndicate, Marshal?", next = "dd_assassins", when = { questDone = TODO_QUEST("Syndicate Assassins") } },
       },
     },
     xorig_syndicate = {
@@ -669,7 +681,9 @@ P:NPC {
           text = "A paladin, in my office! I'll tell you plainly that Southshore hasn't had a knight of the Light on its roads since the Silver Hand broke, and the Syndicate have noticed." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, thank goodness, because I've a list of Syndicate camps as long as my arm and nobody to send who won't drop his spear at the first shout." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, good! The farmers keep filing complaints about the lions taking their sheep, and I've no idea which department those belong to." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh! A night elf druid, in my town. I'm afraid I don't have a form for that, but I'm sure there's some proper way to welcome you, and I'll find it eventually." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "Oh! A night elf druid, in my town. I'm afraid I don't have a form for that, but I'm sure there's some proper way to welcome you, and I'll find it eventually." },
+        { id = "h_dd_crushridge", when = { questDone = TODO_QUEST("Crushridge Bounty") },
+          text = "Marshal Redpath's report on the Crushridge ogres arrived on my desk with your name underlined twice. The Marshal doesn't underline anything, so I've had it copied for the town records." },
       },
       again = {
         { id = "h_again", text = "What else? The depositions will keep a minute." },
@@ -723,7 +737,7 @@ P:NPC {
       choices = {
         { text = "Then we strike first.", next = "BACK", reply = "First, yes, though I'd like it to be the Marshal's idea, for his pride's sake. I'll put it to him tonight.", fx = { affinity = 2, align = { order = 1 }, standing = { southshore = 1 } } },
         { text = "Southshore should hire its own knives and beat them at their game.", next = "BACK", reply = "Fight thieves with thieves? I hate how much sense that makes. I'll pretend I didn't hear it.", fx = { align = { order = -1 } } },
-        { text = "Double the watch. Check every uniform.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Double the watch and check every uniform at the gate.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },
     predecessor = {
@@ -757,7 +771,7 @@ P:NPC {
         { id = "rg_default", text = "Some evenings. Then a fisherman thanks me for settling a quarrel over a net, and I stay. Small justice is still justice." },
       },
       choices = {
-        { text = "Small justice is the kind that holds a town together.", next = "BACK", reply = "I've always thought so, and it's good to hear someone else say it. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Small justice is the kind that holds a town together.", next = "BACK", reply = "I've always thought so. Most of my cases are nets and fences and a missing goat, and every one of them matters to somebody.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Justice that small isn't worth keeping you here, Magistrate.", next = "BACK", reply = "Perhaps not, but somebody has to settle the nets, and I'm the one with the seal. I'll stay a while longer.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -994,6 +1008,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Splendid, because I've been told murlocs count as wildlife, and if that's true, they're surely your department rather than mine." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Wonderful. In Stormwind we'd have had you followed by two guards and a magistrate's clerk, and here I've only got murlocs, so I suppose you're the least of my worries." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Torn Fin", min = 30 } }, text = "The Torn Fin haven't come up the beach in days, and the fishermen keep asking me what I did. I've been telling them it was strategy, so do me the kindness of not correcting them." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You've the look of someone who's died more often than I've had hot dinners in this town. Take it from a soldier who's been sitting in one chair too long: the dead don't get recalled to Stormwind either." },
       },
       again = {
         { id = "h_again", text = "Still here? Fine, I wasn't going anywhere; I never am." },
@@ -1058,7 +1074,7 @@ P:NPC {
         { id = "fi_default", text = "I could clear a Stormwind tavern of drunks one-handed, but murlocs don't drink, don't argue, and don't respect a uniform. It's a different trade entirely." },
       },
       choices = {
-        { text = "Can't argue that. Murlocs respect nothing.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Can't argue with that. Murlocs respect nothing.", next = "BACK", fx = { affinity = 1 } },
         { text = "That's an excuse, Lieutenant.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
         { text = "Get down to the strand, or Samuelson hears where you sit.", tag = "Intimidate", next = "strand_truth",
           check = { pass = { any = { { power = { "above", "far_above" } }, { class = { "WARRIOR", "PALADIN" } }, { trait = "stern" } } } },
@@ -1147,7 +1163,7 @@ P:NPC {
     xnightelf = {
       lines = { { id = "xne_default", text = "Were they? Light, I'd rather not have known that. I've been telling myself they were some sort of fish with ambitions, and now I'll have to think of them as your cousins every time one comes up the shore." } },
       choices = {
-        { text = "Not cousins. Traitors.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "They're not cousins, they're traitors.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "Think of them as fish. It helps.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
@@ -1225,7 +1241,7 @@ P:NPC {
       },
       choices = {
         { text = "Give thanks for the hunt, Bilger. That's the old way.", next = "BACK", reply = "The old way, aye, an' I still do it, though I say it into the mug. The Light hears me all the same, I hope.", fx = { align = { light = 1 } } },
-        { text = "Thanks? It's meat. Pour the ale and skip the prayer.", next = "BACK", reply = "Ha! Ye sound like me on a bad night. Pour the ale, then, an' I'll say the prayer quietly.", fx = { align = { light = -1 } } },
+        { text = "Thanks for what? It's meat. Pour the ale and skip the prayer.", next = "BACK", reply = "Ha! Ye sound like me on a bad night. Pour the ale, then, an' I'll say the prayer quietly.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1274,8 +1290,10 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, hic, in me inn. In the old days, the Hand would've had ye in irons, an' now I'll just ask ye to keep the imp away from me barrels." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, hic, an' a proper one by the dents! I carried a hammer for the Hand once, an' I'll tell ye now, plate's heavier when ye've nothin' left to believe in." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, hic! Bring me somethin' wild for the pot an' I'll pour ye somethin' that'll make ye forget ye ever shot it." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Hic! A druid, an' a night elf one at that. Ye don't, by chance, turn into a bear that drinks, do ye? I've been wantin' a proper drinkin' companion." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "Hic! A druid, an' a night elf one at that. Ye don't, by chance, turn into a bear that drinks, do ye? I've been wantin' a proper drinkin' companion." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, hic, an' I'll warn ye now: the good casks are the ones ye can't lift, so don't bother. The knights o' the Hand used to say a thief's hands were the Light's hardest work." },
+        { id = "h_dd_tornfin", when = { killed = { name = "Torn Fin", min = 30 } },
+          text = "Ye've been at the murlocs down the shore, hic, an' I can smell it from here. Sit down, an' have a drink that tastes of somethin' other than fish." },
       },
       again = {
         { id = "h_again", text = "Hic. What else, {g:lad|lass}?" },
@@ -1532,6 +1550,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because the Crushridge ogres have three more crates of Alterac's library at their camp, and I can't very well read them out of the fire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be out in the hills more than I am, then, and if you see loose pages blowing about the ogre camps, I'd count it a great kindness if you'd pick them up." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! The old Arathorian scrolls mention your people, you know, though always as a rumor from over the sea. It's a pleasure to find the rumor standing in my doorway." },
+        { id = "h_dd_plague", when = { questDone = TODO_QUEST("Hints of a New Plague?") },
+          text = "Phin Odelic tells me you found papers suggesting the Forsaken are brewing something new at Tarren Mill. I've added it to my notes, though I confess I'd rather be recording beekeeping." },
       },
       again = {
         { id = "h_again", text = "Another question? Good, for questions are the only thing I collect faster than books." },
@@ -1674,6 +1694,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_syndicate = {
+      lines = { { id = "dd_syndicate_default", text = "Less than it did, thanks to you, but the Syndicate's like damp in a cellar: you scrub it out and it creeps back in from the hills. They're Alterac's old nobles and their hired knives, and they've never forgiven anyone for anything." } },
+      choices = {
+        { text = "Then they'll find me waiting every time they creep back.", next = "BACK", reply = "I'll drink to that, and so will the room. Mind the hill roads after dark, though; they know your face now.", fx = { align = { order = 1 } } },
+        { text = "Every town has its knives. Southshore just has fancier ones.", next = "BACK", reply = "Ha! Don't say that where the Magistrate can hear, but you're not wrong. There's knives behind half the doors on the Alterac road.", fx = { align = { order = -1 } } },
+        { text = "Something else, Anderson.", next = "BACK" },
+      },
+    },
+
     xpt_inn = {
       big = true,
       lines = { { id = "xpt_inn_default", text = "More than they used to, now that the Forsaken sit in Tarren Mill and the Syndicate sit in Alterac, and everyone wants a soft bed between the two. Most of them are good for trade and a few are good for nothing, and I can usually tell which by how they treat the serving girl." } },
@@ -1717,7 +1746,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'd buy anything that isn't fish, and your {pet} can sleep by the hearth between hunts, since it's the one dry spot in the house. Just don't let it near the lieutenant's chair, or he'll file a complaint, and he files them very slowly." },
       },
       choices = {
-        { text = "Pay hunters a fair price. They keep this town fed.", next = "BACK", reply = "I always do, and I'll keep doing it. A fed hunter comes back with more.", fx = { align = { honor = 1 } } },
+        { text = "Pay hunters a fair price. They keep this town fed.", next = "BACK", reply = "I always do. A hunter who's paid fair brings me the good cuts and not the gristle.", fx = { align = { honor = 1 } } },
         { text = "Haggle hard. Hunters take what they can get these days.", next = "BACK", reply = "I could, but then they'd sell to Neema's cousin instead. I'll pay fair and keep my bread fishless.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1787,8 +1816,12 @@ P:NPC {
           text = "A paladin under my roof! Bilger will either be thrilled or hide in the cellar, and I couldn't tell you which." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and dripping on my floor like everyone else. Hang that mail by the fire, will you, because rust and rain are the two things Southshore has more of than fish." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you've brought in more mud than the rain did. Wipe your boots, and tell me what's out in the hills, because nobody else will." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? Most night elves who come through just want a room and a quiet corner, and you look like you'd sooner sleep under a tree." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, is it? Most night elves who come through just want a room and a quiet corner, and you look like you'd sooner sleep under a tree." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, is it? I'll rent you a bed like anyone else, but I'll ask you to keep whatever you've got on a leash off the stairs, because the last time a guest's pet got loose, Barkeep Kelly didn't sleep for a week." },
+        { id = "h_dd_crushridge", tags = { "news" }, when = { questDone = TODO_QUEST("Crushridge Bounty") },
+          text = "The Marshal stood a round for the whole common room after you came back from the Crushridge hills, and that man doesn't stand rounds. Whatever you did to those ogres, it put him in a rare good mood." },
+        { id = "h_dd_assassins", when = { questDone = TODO_QUEST("Syndicate Assassins") },
+          text = "The Magistrate's been sleeping with his shutters open again, he tells me, ever since you dealt with those Syndicate cutthroats in the hills. Folk in Southshore notice a thing like that." },
       },
       again = {
         { id = "h_again", text = "Anything else? The stew's hot and the chairs are dry, mostly." },
@@ -1809,6 +1842,7 @@ P:NPC {
         { text = "Do your guests mind a dwarf who talks to the elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Do companies like ours come through Southshore often?", next = "xpt_inn", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
+        { text = "Does the Syndicate still frighten Southshore, Anderson?", next = "dd_syndicate", when = { questDone = TODO_QUEST("Syndicate Assassins") } },
       },
     },
     regulars = {

@@ -100,7 +100,7 @@ P:NPC {
       lines = { { id = "tm_default", text = "I hope so, though I can't be certain, and I've wondered whether I'm wrong to wake them at all. Tell me what you think, since you'll be the one standing among them." },
       },
       choices = {
-        { text = "Giving them a second chance is right. Wake them.", next = "BACK", reply = "Then I'll wake them, and I'll trust you to stand among them kindly. A second chance should not be wasted.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Giving them a second chance is right. Wake them.", next = "BACK", reply = "Then I'll wake them, and trust you to stand among them kindly. They waited a long while in the dark for someone to come.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let the dead rest. Find another way to test us.", next = "BACK", reply = "Perhaps you're right, and perhaps I've been selfish in my hope. I'll think on it, though I make no promise.", fx = { align = { light = -1 } } },
         { text = "I can't answer that, Eris.", next = "BACK" },
       },
@@ -148,7 +148,7 @@ P:NPC {
       lines = { { id = "shh_default", text = "Your teachers lived in cities with walls, and I lived here, at the end of things. Whose lesson will you carry out of this crypt, theirs or mine?" } },
       choices = {
         { text = "Yours. The Plaguelands taught you what walls never could.", next = "BACK", reply = "Then carry it carefully, because the Plaguelands teach hard lessons. Walls are not the only things that fall.", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "Theirs. Doctrine keeps priests from losing themselves.", next = "BACK", reply = "It does, and I won't mock it. Only remember that doctrine was written by those who never stood here.", fx = { align = { order = 1 } } },
+        { text = "Theirs. Doctrine keeps priests from losing themselves.", next = "BACK", reply = "It does, and I won't mock it. Only remember that much of it was written in Stormwind, by men who never stood where we are standing.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -206,8 +206,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_scourge = {
+      lines = {
+        { id = "dd_scourge_1",
+          text = "Not every one, but they count the stones, an' I count what comes through my door, an' that's the same thing in the end. The Dawn's never had coin to spare, so it pays in trust, an' trust gets ye into my stores." },
+        { id = "dd_scourge_2",
+          text = "I'll tell ye what I tell every young soldier who brags: the dead don't stay down because ye're proud of yerself. They stay down because ye were careful." },
+      },
+      choices = {
+        { text = "I'm proud of it all the same. I've earned it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fair enough. I'll be careful and keep at it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Quartermaster.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_scourge", when = { killed = { name = { "Skeletal", "Ghoul", "Rotting", "Zombie", "Gargoyle", "Abomination" }, min = 100 } },
+          text = "The scouts've been bringin' in stories about you an' a great heap o' broken Scourge, an' I believe every word. Bring the stones to the Dawn an' the officers'll be speakin' yer name before long." },
         { id = "h_default", key = true,
           text = "Miranda Breechlock, quartermaster tae the Argent Dawn. Every bandage, every potion an' every bolt o' cloth in this chapel goes through my hands an' into my ledger, an' none of it goes out tae strangers." },
         { id = "h_mantle", when = { reputation = { faction = "Argent Dawn", min = "revered" } },
@@ -222,6 +237,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, but quick. There's a cart o' bandages tae count before dark." },
       },
       choices = {
+        { text = "Do the officers really count every Scourge I kill?", next = "dd_scourge", when = { killed = { name = { "Skeletal", "Ghoul", "Rotting", "Zombie", "Gargoyle", "Abomination" }, min = 100 } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Why won't you sell to strangers?", next = "strangers" },
         { text = "What are the mantles of the Dawn?", next = "mantles", when = { reputation = { faction = "Argent Dawn", min = "honored" } } },

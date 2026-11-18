@@ -2,6 +2,36 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## Unreleased
+- **Every quest you finish in a town raises your standing there.** Before, only the quests listed for each town counted. Now any other quest you turn in inside a town gives a smaller boost (+3), the town hears you helped, and its people's disposition toward you rises with it.
+
+## 0.84.0 (2026-11-18)
+Eleven pieces of work in one release. **New files: restart the game fully (a /reload won't load them).** Every content pack got a minor version bump.
+
+### More people to talk to.
+- **202 Classic-era NPCs who had nothing to say now have conversations,** across 31 packs: quest givers first, then named trainers, vendors and officers.
+- **Ruul Snowhoof** in Ashenvale is now a tauren druid, Yama's brother, as in Classic.
+- **Friendly demons talk.** Imps, voidwalkers, succubi, doomguards and satyrs each have their own voice, with branches for warlocks, paladins and priests, orcs, night elves and the Forsaken. Felhunters, infernals, felsteeds and the like don't talk, so you get what they do instead. Pusillin and J'eevee keep their own options.
+
+### People notice what you've done.
+- **About 600 NPCs** now mention quests you did for their neighbours, notable kills (Hogger, Old Murk-Eye, Gath'Ilzogg, Stitches, and counts of Defias, gnolls, Dragonmaw and others), how often you've died (or drowned, or fallen), and your reputation, PvP rank and levels. About half of them open a short new branch where you can take a side.
+- **Any quest you turn in inside a town raises your standing there** (+3), not only the ones listed for that town. The town hears you helped, and its people warm to you.
+
+### Better writing.
+- **About 3,800 lines rewritten in every pack.** Replies to your stances end on something concrete instead of a tidy proverb, stop echoing your words back, and each race's stock phrases are thinned out. Your own lines read more naturally.
+- **Fixes:** a few lines gendered you ("Good lad") and now don't; pronoun slips for several NPCs are fixed.
+- **Druids of other races** are no longer greeted as "a night elf druid" or "a druid of the tauren". About 190 lines now check your race as well as your class.
+
+### Letters and trainers.
+- **46 more letters:** dungeon and raid clears from the Stockade to Onyxia for both sides, Vol'jin at level 30, class letters for mages, paladins, druids and shamans, and more from people you've met, strangers and junk mail.
+- **`/rpgd letters` only opens at a mailbox,** and the letters panel closes on its own when you walk away or the mail window closes.
+- **"Teach me." opens the training window** straight away, in DialogueUI and with pages off too. It never picks "unlearn my talents".
+- **New "Ask about" topic: Aviana,** with views to take.
+
+### Text to speech
+- **When the game's speech engine itself fails, RPG Dialogue says so.** If every method is rejected (status 13, "InternalError"), it prints one message pointing at Play Sample in the game's Text to Speech settings, the Voice Chat output device and the Windows speech settings.
+- **Text to speech no longer goes silent for the rest of the session** after one bad line; every method is tried again on the next line. `/rpgd tts` names the failure status on clients that don't supply the names.
+
 ## 0.83.0 (2026-11-18)
 Six pieces of work in one release. No new files: a /reload is enough. Every content pack got a minor version bump.
 

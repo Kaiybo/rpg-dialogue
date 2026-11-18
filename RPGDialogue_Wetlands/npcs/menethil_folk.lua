@@ -108,7 +108,7 @@ P:NPC {
     confess_who = {
       lines = { { id = "cw_default", text = "I don't know, and I made a point of not knowing, which is how you live long in my line of work. But the Defias don't pay like that out of their own pockets, and the man who handed me the silver had very clean hands." } },
       choices = {
-        { text = "Clean hands. I'll remember that.", next = "BACK", fx = { learn = { "defias" } } },
+        { text = "Clean hands, then. I'll remember.", next = "BACK", fx = { learn = { "defias" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -141,7 +141,7 @@ P:NPC {
       big = true,
       lines = { { id = "tr_default", text = "Small jobs, friend, carrying a letter, losing a crate, finding a berth for somebody who'd rather not be asked his name. Never anything that ends up in Stormwind's ears, or so I thought." } },
       choices = {
-        { text = "Even a rogue needs lines he won't cross.", next = "BACK", reply = "I had them, friend, I swear I did, and I'd have sworn I'd never cross them. Turns out a line's hard to see when somebody's waving a fat purse in front of it.", fx = { align = { honor = 1 } } },
+        { text = "Even a rogue needs lines he won't cross.", next = "BACK", reply = "I had them, friend, I swear I did, and I'd have sworn I'd never cross them. Then somebody waved a fat purse in front of one, and I couldn't see it any more.", fx = { align = { honor = 1 } } },
         { text = "Every job's just a job. Your mistake was getting caught.", next = "BACK", reply = "That's a cold way to see it, though I'll admit I thought the same a month ago. Getting caught isn't what keeps me up at night, though.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

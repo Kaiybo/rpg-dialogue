@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Mulgore |cff8a8a8a1.22.0|r
+## Title: RPG Dialogue: Mulgore |cff8a8a8a1.23.0|r
 ## Notes: Camp Narache, Bloodhoof Village and Camp Gev'rek: a chief in mourning, Cairne's son keeping the peace, poisoned wells, a lost dog, and the Windshapers come down from the sky.
 ## Author: RPG Dialogue
-## Version: 1.22.0
+## Version: 1.23.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.mulgore
@@ -24,3 +24,4 @@ npcs\raintotem.lua
 npcs\ruuleagletalon.lua
 npcs\windfeather.lua
 npcs\narache_forever.lua
+npcs\more_folk.lua

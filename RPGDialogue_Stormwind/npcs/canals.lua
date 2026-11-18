@@ -285,7 +285,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Frighten me? I came south with the plague at my back, dearie, so a few candles in a cellar don't keep me up at night. It's the folk who go down those stairs and come up looking hungry that I mind." } },
       choices = {
         { text = "I keep what I bind on a short leash, Emma.", next = "BACK", reply = "See that you do, dearie. I've seen what comes back up those stairs.", fx = { align = { light = 1 } } },
-        { text = "Hungry is how you get anywhere in this world, Emma.", next = "BACK", reply = "It is, and it's how you end up nowhere too. Mind yourself, dearie.", fx = { align = { light = -1 } } },
+        { text = "Hungry is how you get anywhere in this world, Emma.", next = "BACK", reply = "Hungry gets you places, aye, and it gets you into the canal with a knife in your back, too. Mind yourself, dearie.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -321,6 +321,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_hogger_emma", when = { killed = { name = "Hogger" } },
+          text = "My nephew drives a cart to Goldshire, and he came home saying Hogger's dead and a hero killed him. I told them I'd seen that very hero walk past my door with a sword on their back, and nobody believed me." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Well, don't go looking at me like I need saving, dearie, because I've only got sore arms and a long memory." },
         { id = "h_default", key = true,
           text = "They call me Ol' Emma, as if I'd never been young, and I carry the water for this whole street. Of course I talk to myself, dearie; it's the only decent conversation in this city." },
@@ -622,7 +625,7 @@ P:NPC {
       lines = { { id = "w_default", text = "And I keep wondering what's behind it. Harlan can't sell armor fast enough, I can't sew fast enough, and nobody tells the likes of us why. Is there something the nobles aren't saying?" } },
       choices = {
         { text = "What have you heard?", next = "worry_heard" },
-        { text = "The nobles keep plenty from the people.", next = "BACK", reply = "They do, dear, and they've always done. Still, it's unsettling.", fx = { align = { order = -1 }, opinion = { stormwind_mood = "nobles_hide" } } },
+        { text = "The nobles keep plenty from the people.", next = "BACK", reply = "Always have, dear, since before the Second War. Doesn't make it sit any easier, though.", fx = { align = { order = -1 }, opinion = { stormwind_mood = "nobles_hide" } } },
         { text = "If it were serious, the crown would say so.", next = "BACK", reply = "I hope you're right, dear. I truly do.", fx = { align = { order = 1 }, opinion = { stormwind_mood = "trust_crown" } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -724,7 +727,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "The little ones, always, and the old ones too when they've fought hard enough to earn it. A man who keeps every fish soon has no fish left to keep, and I'd guess your people knew that long before I did." } },
       choices = {
-        { text = "Take only what you need, and the water keeps giving.", next = "BACK", reply = "That's it exactly. The canal remembers those who take kindly.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Take only what you need, and the water keeps giving.", next = "BACK", reply = "That's it exactly. My old da fished this stretch on that rule for forty years and never once came home empty.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A catch is a catch. Keep it, and let the canal worry about tomorrow.", next = "BACK", reply = "Then the canal will worry, and so will I. Leave a few for tomorrow, friend.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -751,7 +754,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Patience, mostly, and how to hold still while something angry thrashes on the end of a line. I've known old Barracks sergeants who said the canals taught them more about timing than the drill yard ever did." } },
       choices = {
-        { text = "Patience wins more fights than strength does.", next = "BACK", reply = "It does, and the old sergeants knew it. Pick up a line.", fx = { align = { order = 1 } } },
+        { text = "Patience wins more fights than strength does.", next = "BACK", reply = "Spoken like one of the old sergeants. Pick up a line, then, and let's see you prove it.", fx = { align = { order = 1 } } },
         { text = "Strength wins fights. Patience is for fishermen.", next = "BACK", reply = "Strength catches no fish, friend. I'll wait for you to change your mind.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -772,7 +775,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Near enough, I'd say. You cast your line into something you can't see, you wait longer than you'd like, and every so often something answers, and you never quite know why it was today." } },
       choices = {
-        { text = "Patience is a gift, and the canals teach it well.", next = "BACK", reply = "It is, and I'm glad you see it. Sit a while; the canal's in no hurry.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sitting here, I could learn some patience. The canal's good at teaching it.", next = "BACK", reply = "Glad somebody sees it. Sit a while, then; the canal's in no hurry, and neither am I.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Faith's nothing like fishing, Arnold. A fish is just luck.", next = "BACK", reply = "Luck's part of faith too, friend, or so I've always thought. Sit and wait.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -972,6 +975,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_drown_morris", when = { deathCause = "drowning" },
+          text = "You've drowned somewhere, haven't you? I can always tell, because folk who've done it look at the canal water like it owes them an apology, and mind you don't fall in on my watch." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless me, then, {class}, bless me twice, for I've been a terrible sinner and a terrible farmer both, or so the story goes." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "Oh, a paladin. Now I never took a thing that wasn't given me, whatever the guards might say." },
         { id = "h_default", text = "Morris Lawry, at yer service, guv, an' blind as a mole, near enough. I'll polish yer armor for a copper, carry yer bags for two, and pay ye back on Tuesday for a meal today, I swear it." },
@@ -1091,7 +1097,7 @@ P:NPC {
         { id = "xlock_default", text = "Does it bite? Adam says imps bite and set your hair on fire, but Adam also says there's a fish in the canal as big as a boat, and that's me, I said that first. My mum says not to talk to people from the Lamb, though, so maybe I'll just wave at it from over here." },
       },
       choices = {
-        { text = "Your mum's right, Billy. Wave from there.", next = "BACK", reply = "All right. Hello, imp! It's waving back, I think, or it's being rude.", fx = { align = { order = 1 } } },
+        { text = "Your mum's right, Billy. Wave from there.", next = "BACK", reply = "All right, hello, imp! It's waving back, I think, or else it's being rude.", fx = { align = { order = 1 } } },
         { text = "Come closer, Billy. It won't bite much.", next = "BACK", reply = "Really? Mum would kill me, but she'd have to catch me first!", fx = { align = { order = -1 } } },
         { text = "Something else, Billy.", next = "BACK" },
       },
@@ -1278,7 +1284,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "More each month, though it comes the long way round through Menethil, and most of it's crated so carefully I'm afraid to open it. Your people's seed and timber are good for the ledgers, but the dockhands swear the crates whisper at night." } },
       choices = {
-        { text = "Every crate that crosses your docks should be opened and recorded.", next = "BACK", reply = "They should, and I'd like to, but the Sentinels would disagree. I'll compromise.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every crate that crosses your docks should be opened and recorded.", next = "BACK", reply = "I'd open every one if I could, but the Sentinels guarding the elven crates would have my hand off. So I count what I'm allowed to count.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Some cargo is sacred. Let it pass without prying, Clerk.", next = "BACK", reply = "Sacred I can respect, but undeclared is a different matter. I'll tread carefully.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1296,7 +1302,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Crates of reagents, ink, crystal and things I'm not allowed to write down, which is always a clerk's favourite sort of cargo. Some of it comes stamped with the Kirin Tor's seal, and the crates I worry about come stamped with nothing at all." } },
       choices = {
-        { text = "Every crate should be written down, sealed or not.", next = "BACK", reply = "They should, and I'd write them all if the Quarter allowed it. They don't.", fx = { align = { order = 1 } } },
+        { text = "Every crate should be written down, sealed or not.", next = "BACK", reply = "I'd write down every last one, believe me, if the Mage Quarter allowed it, but they send a very polite apprentice to say it doesn't.", fx = { align = { order = 1 } } },
         { text = "What the Quarter keeps off the ledger is its own business.", next = "BACK", reply = "It is, until it falls off the wagon in front of the guard. Then it's mine.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1326,7 +1332,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Before every long voyage, and twice before the run to Menethil. I don't hold with it myself, but I've noticed the ships that get blessed come back with fewer complaints in my ledger." } },
       choices = {
-        { text = "A blessing steadies a crew. It's worth the asking, Clerk.", next = "BACK", reply = "It does, and I'll not argue with what works. I'll keep asking.", fx = { align = { light = 1 } } },
+        { text = "A blessing steadies a crew. It's worth the asking, Clerk.", next = "BACK", reply = "I'll not argue with what works. The crews row straighter after the priest's been by, and I've the tallies to prove it.", fx = { align = { light = 1 } } },
         { text = "A sound hull does more than any blessing, Clerk.", next = "BACK", reply = "A sound hull and a blessing, then. I'll take both.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1435,7 +1441,7 @@ P:NPC {
     theramore = { { id = "tp_theramore", text = "The ships to Theramore run from Menethil now, not from here, and I'm told the crossing is rough. I'd go if I didn't have a harbour to keep and too few hands to keep it." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail have been seen off the coast south of Westfall, and the merchant captains won't sail past the lighthouse at night. That's cost this harbour a fortune, and I've the ledgers to prove it." } },
     gilneas = { { id = "tp_gilneas", text = "Gilnean ships used to call here every month, and we'd swap cloth for timber and gossip. Since the Wall went up, I've not logged a single one." } },
-    knows = { { id = "tp_knows", text = "Every ship brings news with its cargo, and I write down the cargo. Ask, and I'll tell you what's come over the water." } },
+    knows = { { id = "tp_knows", text = "Every ship brings news with its cargo, and I write down the cargo; the news I only remember. What do you want to know?" } },
     background = { { id = "tp_bg", text = "A clerk on the docks with a ledger and too few dockhands. If there's a story, it's written in the margins." } },
     advice = { { id = "tp_ad", text = "Lift with your legs, count twice and never sign for a crate you haven't seen. That's all the wisdom the harbor teaches." } },
     _none = { { id = "tp_none", text = "Not on my manifest. Try the Trade District; they gossip there." } },

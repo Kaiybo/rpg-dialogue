@@ -193,7 +193,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we watch the beasts and prepare. Panic helps nobody.", next = "BACK", reply = "Prepare, then, and watch, but do not tell me panic helps nobody, because the beasts have already panicked, and they are wiser than us.", fx = { align = { order = 1 } } },
-        { text = "If the beasts flee, I'll go with them.", next = "BACK", reply = "Then go with them, and I will not blame you, because they know what the rest of us refuse to see.", fx = { align = { order = -1 } } },
+        { text = "If the beasts flee, I'll go with them.", next = "BACK", reply = "Then go with them, and I will not blame you. The scorpids left the north dunes a week before the last swarm, and nobody listened to them either.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -220,7 +220,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "The end comes on its own, from beneath the sand, but those who bargain with darkness will meet it sooner and with less surprise. Repent, warlock, while there is still time to choose a better master." } },
       choices = {
         { text = "I'll consider your warning.", next = "BACK", reply = "Consider it quickly, then, because the sand moves faster than any warlock's thoughts, and it will not wait for you.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'll choose my own master, preacher.", next = "BACK", reply = "You will choose, and it will choose you back, and I pray your master is kinder than the one waiting beneath us.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll choose my own master, preacher.", next = "BACK", reply = "You will choose, and it will choose you back, and I pray your master is kinder than the one sleeping under these dunes.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Sure, sure.", next = "BACK" },
       },
     },
@@ -228,7 +228,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "An army older than the kaldorei, waiting for the walls to fall. The Circle builds forts and the dwarves dig, but none of them listen, and when the end comes they will wish they had." } },
       choices = {
-        { text = "Maybe you're right. We should prepare.", next = "BACK", reply = "Then help me tell the others, because one voice in the desert is only a voice, but two might be a warning.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe you're right. We should prepare.", next = "BACK", reply = "Then help me tell the others. They laugh at one madman on a crate, but they might listen to two.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "You're a madman, nothing more.", next = "BACK", reply = "They all say that, and they will all say it until the ground opens, and then they will say nothing at all.", fx = { align = { order = -1 } } },
         { text = "Interesting theory.", next = "BACK" },
       },
@@ -355,7 +355,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll scout and report as ordered. That's how wars are won.", next = "BACK", reply = "That's the kind of hunter I need, and I'll give you every scrap of credit when your numbers win us a fight.", fx = { align = { order = 1 } } },
-        { text = "I'll strike when I see the chance, orders or not.", next = "BACK", reply = "Then you'll come back with nothing but scars, like the rest of the fools, and I'll have one less scout to count on.", fx = { align = { order = -1 } } },
+        { text = "I'll strike when I see the chance, orders or not.", next = "BACK", reply = "Then you'll come back with nothing but scars, like the last two fools I sent out, and I'll have one less scout to count on.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -418,8 +418,9 @@ P:NPC {
         { id = "h_c0", when = { faction = "Horde" }, text = "A child of the Horde, here at the front! The Warchief's eyes are on Silithus, and your service will be remembered." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter of the Horde. Your arrows will not stop a swarm, but your eyes might see one coming, and that is worth more." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, standing with the Horde in this wasteland. The Earth Mother must weep to see what the bugs have done to her desert." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid, standing with the Horde in this wasteland. The Earth Mother must weep to see what the bugs have done to her desert." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Can you hold an axe? No, a hammer, then, and I hear the Light burns bugs as well as anything." },
+        { id = "h_dd_honor", when = { faction = "Horde", honorKills = { min = 250 } }, text = "Your name has reached the Legion's camp before you, {rank}, along with a long count of Alliance dead. The Warchief wants peace here against the silithid, so keep your axe for the bugs while you stand in the Hold." },
       },
       again = { { id = "h_again", text = "Anything else? Speak it plainly, warrior." }, { id = "h_again2", text = "Speak, and quickly." } },
       choices = {
@@ -436,7 +437,19 @@ P:NPC {
         { text = "What does the Horde need from its hunters here, Krug?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you need from a mage, Krug?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will the Light burn the silithid, Krug?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've fought the Alliance for years. Now I stand beside them?", next = "dd_honor", when = { faction = "Horde", honorKills = { min = 250 } } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    dd_honor = {
+      big = true,
+      lines = {
+        { id = "dd_honor_1", text = "Here, you do, and you do it with your teeth shut. The silithid would eat the Horde and the Alliance both and never know the difference, and the Circle feeds and shelters us whatever banner we wear. Out in Warsong Gulch you may settle any score you like, but not in this Hold." },
+      },
+      choices = {
+        { text = "The bugs first, then. The Alliance can wait.", next = "BACK", reply = "Good, that is the Warchief's order and a soldier's sense. The Alliance will still be there when the hives are ash.", fx = { align = { order = 1 } } },
+        { text = "If a dwarf crosses me, truce or not, I'll answer.", next = "BACK", reply = "Then answer outside the walls, and don't come to me when the Circle throws you out of the Hold. I won't speak for you.", fx = { align = { order = -1 } } },
+        { text = "Something else, Krug.", next = "BACK" },
       },
     },
     b1_1 = {
@@ -465,7 +478,7 @@ P:NPC {
     },
     s_1 = {
       lines = { { id = "s_1_l", text = "Some of my warriors say we should never fight beside humans. I say the swarm doesn't care what side you're on." } },
-      choices = { { text = "Victory first, grudges later.", next = "BACK", reply = "That's how a warrior thinks, and the grudges will keep, because we orcs never let a good grudge go to waste.", fx = { affinity = 1, align = { honor = 1 } } }, { text = "The Horde fights alone. Always.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Victory first, grudges later.", next = "BACK", reply = "That's how a warrior thinks, and the grudges will keep. No orc ever let a good grudge go to waste.", fx = { affinity = 1, align = { honor = 1 } } }, { text = "The Horde fights alone. Always.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -594,6 +607,7 @@ P:NPC {
           text = "A hunter of the Alliance! The Circle's scouts are good, but I'd trust one of our own to tell me plainly what's moving out by the hives." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of Darnassus at the Hold. Good; Tyrande's people know this foe better than Stormwind's generals do, and I could use the counsel." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of the Alliance! The Horde shamans here hear the swarm under the sand, I'm told, and I'd very much like an Alliance ear on that too." },
+        { id = "h_dd_rank", when = { faction = "Alliance", pvpRank = 6 }, text = "You wear a rank the Alliance doesn't hand out to just anyone, {rank}, and I've seen the dispatches that put it on you. The Hold needs blooded soldiers, so long as you remember the orcs across the courtyard are on our side, for now." },
       },
       again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Ask, friend." } },
       choices = {

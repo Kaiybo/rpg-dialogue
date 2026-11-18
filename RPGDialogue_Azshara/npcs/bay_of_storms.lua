@@ -295,7 +295,7 @@ P:NPC {
     why_using = {
       lines = { { id = "wu_default", text = "Of course I am, and I tell you so, which is more honesty than you will find in most of your own kings. Use me in return, mortal; that is what an alliance is." } },
       choices = {
-        { text = "An honest bargain, then.", next = "BACK", reply = "Honest it is, and honest it will remain. That is the sea's way.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "An honest bargain, then.", next = "BACK", reply = "Honest it is. Break it, mortal, and you will learn that the sea collects its debts with interest.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll use you better than you use me.", next = "BACK", reply = "Try, mortal, and I will enjoy watching you. The tide always wins in the end.", fx = { align = { honor = -1 }, trait = { proud = 1 } } },
       },
     },
@@ -332,7 +332,7 @@ P:NPC {
       lines = { { id = "sh_default", text = "They speak to you because you listen to all of them at once, like a child among quarrelling parents. Listen longer to water, shaman, and you will hear that the others are only noise." } },
       choices = {
         { text = "All four elements must stand in balance.", next = "BACK", reply = "Balance, you say, as the land-folk say, and the sea laughs. Listen longer, shaman, and you will hear.", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "Water has my respect, Duke, above the rest.", next = "BACK", reply = "Good. Water remembers who respected it, shaman, and the tide will remember you.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Water has my respect, Duke, above the rest.", next = "BACK", reply = "Good. Few shamans say so, and fewer mean it. Speak to the water in your prayers, and it may yet answer you.", fx = { affinity = 2, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -636,7 +636,7 @@ P:NPC {
     see_how = {
       lines = { { id = "sh_default", text = "No. It is not a lesson; it is a wound, and I would not give it to you even if you begged. Be content to be blind, mortal, and let those of us who are not do the seeing." } },
       choices = {
-        { text = "Then I'll trust your eyes.", next = "BACK", reply = "Good. You'll live longer for it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll trust your eyes.", next = "BACK", reply = "Good. Stay at my shoulder, then, and strike only when I say.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd rather see for myself, whatever it costs.", next = "BACK", reply = "Then you are a fool, and I've known many. Few of them lived long enough to regret it.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
       },
     },
@@ -703,7 +703,7 @@ P:NPC {
     warlock = {
       lines = { { id = "wl_default", text = "You command them as a child commands a fire, by feeding it. One day the fire will be hungrier than you are generous, warlock, and I would rather not be standing near you on that day." } },
       choices = {
-        { text = "My will is stronger than any demon.", next = "BACK", reply = "So said every warlock I've buried, and I've buried many. Keep your will close.", fx = { align = { light = -1 }, trait = { proud = 1 } } },
+        { text = "My will is stronger than any demon.", next = "BACK", reply = "So said every warlock I have ever hunted. Keep your will close; I will be keeping mine closer.", fx = { align = { light = -1 }, trait = { proud = 1 } } },
         { text = "You're right. I keep watch on myself.", next = "BACK", reply = "Good. Watch yourself as closely as I'll watch you, and you might live.", fx = { affinity = 1, align = { light = 1 }, trait = { cautious = 1 } } },
       },
     },
@@ -798,7 +798,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The makrura hunt the shallows and the murlocs hunt the reefs, and all of them bring the best of the catch to the one. And the small beast, {pet}, is it yours, or is it the one's now? Everything that comes into the temple's waters belongs to the one, little hunter, but Arkkoroc will make an exception." },
       },
       choices = {
-        { text = "I'll do what you ask and honour the deep folk's ways.", next = "BACK", reply = "Then the deep folk will welcome you, and the one will remember. That is the sea's way.", fx = { align = { order = 1 } } },
+        { text = "I'll do what you ask and honour the deep folk's ways.", next = "BACK", reply = "Then the deep folk will welcome you, and the one will remember. Bring them fish, small thing; they like fish.", fx = { align = { order = 1 } } },
         { text = "Your songs mean nothing to me. I hunt for my own reasons.", next = "BACK", reply = "Then hunt for your own reasons, small thing, and the one will not sing of you. That is your loss.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

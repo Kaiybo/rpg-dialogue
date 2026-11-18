@@ -985,6 +985,7 @@ P:Pool {
 P:Pool {
   id = "citizen_goldshire", role = "citizen", community = "goldshire",
   greetings = {
+    { id = "g_dd_hogger", tags = { "news" }, when = { killed = { name = "Hogger" } }, text = "You're the one who brought down Hogger! The whole Lion's Pride drank to it, and Marshal Dughan's men haven't stopped telling the story, though he gets taller every time they do." },
     { id = "g_day", text = "Afternoon! If you're looking for a bed, the Lion's Pride is the yellow one with the noise coming out of it." },
     { id = "g_xbeater", when = { origin = "human_elwynn_beater" }, text = "You used to beat the brush for the lords' hunts out past the Stonefield farm, didn't you? I've not forgotten the autumn the finest boar in Elwynn went missing, and neither has the gamekeeper, so keep your hood up." },
     { id = "g_xwestfall", when = { origin = "human_westfall_farmhand" }, text = "You're one of the Westfall families who came east, aren't you? There's a fair few of you round the Lion's Pride now, and every one of you says the same about the Defias, so I'll spare you saying it again." },
@@ -1033,6 +1034,7 @@ P:Pool {
 P:Pool {
   id = "citizen_northshire", role = "citizen", community = "northshire",
   greetings = {
+    { id = "g_dd_garrick", tags = { "news" }, when = { killed = { name = "Garrick Padfoot" } }, text = "Somebody finally put an end to Garrick Padfoot and his thieves in the vineyard, and Deputy Willem says it was you. The brothers will have their grapes back, and I'll sleep with my shutters open again." },
     { id = "g_day", text = "Light's blessing, friend. You'll be one of the new recruits, then? Everyone is, this time of year." },
     { id = "g_xnovice", when = { origin = "human_abbey_novice" }, text = "Light's blessing! You're one of the brothers' own, aren't you? I remember you at your letters by the vineyard wall, muttering prayers and spellings in the same breath." },
     { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "Good morning! The brothers have been at their prayers for an hour already, and the bells will start any moment now." },
@@ -1079,6 +1081,7 @@ P:Pool {
 P:Pool {
   id = "citizen_lakeshire", role = "citizen", community = "lakeshire",
   greetings = {
+    { id = "g_dd_gath", tags = { "news" }, when = { killed = { name = "Gath'Ilzogg" } }, text = "They say you're the one who took Gath'Ilzogg's head. The news went from the town hall to the inn in about a minute, and I've never heard Lakeshire cheer so loud." },
     { id = "g_day", text = "Welcome to Lakeshire, friend. Mind the bridge; it's been half built for longer than my youngest has been walking." },
     { id = "g_xlakeshire", when = { origin = "human_redridge_born" }, text = "Well, if it isn't one of our own come home! Your old neighbors still talk about you, and the bridge, I'm sorry to say, is still half built." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be out. If you hear drums up in the hills, don't stand about listening to them; get inside." },
@@ -1121,6 +1124,7 @@ P:Pool {
 P:Pool {
   id = "citizen_darkshire", role = "citizen", community = "darkshire",
   greetings = {
+    { id = "g_dd_stitches", tags = { "news" }, when = { killed = { name = "Stitches" } }, text = "You're the one who put down Stitches on the road, aren't you? We barred the doors when that thing came lurching toward town, and I prayed I'd never hear it moaning again. Thank you." },
     { id = "g_day", text = "A living face! Come into the lamplight where I can see you properly, and forgive me for asking." },
     { id = "g_xgravedigger", when = { origin = "human_raven_hill_gravedigger" }, text = "You dug the graves out at Raven Hill, didn't you? Folk here still say you talked to the dead while you worked, and I'd thank you not to stand so close to my door." },
     { id = "g_xnightwatch", when = { origin = "human_darkshire_watch" }, text = "You stood the wall with the Night Watch, didn't you, before the Cathedral took you? My husband still talks about the night you held the gate with a torch in one hand and a hammer in the other." },
@@ -1168,6 +1172,7 @@ P:Pool {
 P:Pool {
   id = "citizen_sentinel_hill", role = "citizen", community = "sentinel_hill",
   greetings = {
+    { id = "g_dd_defias", when = { killed = { name = "Defias", min = 50 } }, text = "The militia chalk up every Defias brought down on a board by the tower, and a great many of this month's marks are yours. Gryan Stoutmantle looks at that board every morning like it's scripture." },
     { id = "g_day", text = "Welcome to Sentinel Hill. It's not much, but it's what Westfall's got left that isn't Defias." },
     { id = "g_xmilitiahealer", when = { origin = "human_sentinel_hill_healer" }, text = "Light bless you, it's our healer! You bound my brother's arm the week the Militia first mustered, and he's been telling everyone you did it with a prayer and a strip of his own shirt." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Keep to the hill tonight. The scarecrows walk the fields after dark, and I'm not joking, though I wish I were." },
@@ -1208,6 +1213,7 @@ P:Pool {
 P:Pool {
   id = "citizen_menethil", role = "citizen", community = "menethil",
   greetings = {
+    { id = "g_dd_dragonmaw", when = { killed = { name = "Dragonmaw", min = 30 } }, text = "The Dragonmaw have gone quiet on the road east, and the dwarves who come up from the Algaz gate say a stranger's been cutting them down. You've the look of that stranger, friend." },
     { id = "g_day", text = "Mind the planks, friend; the bay's been swallowing this harbor a board at a time since the flood, and it's still hungry." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The last ship's in, and the docks are quiet. Well, quiet apart from the murlocs, and you stop hearing them after a while." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You're back, and after {away}! The harbor's a few planks lower than when you left, so mind your step." },
@@ -1254,6 +1260,7 @@ P:Pool {
 P:Pool {
   id = "citizen_southshore", role = "citizen", community = "southshore",
   greetings = {
+    { id = "g_dd_syndicate", when = { killed = { name = "Syndicate", min = 30 } }, text = "Somebody's been cutting down Syndicate thugs in the hills, and the Magistrate's men say it's you. They were Alterac's noble houses once, and they've not been worth the name since." },
     { id = "g_day", text = "Welcome to Southshore, friend. It's a quiet town, or it would be, if not for the neighbors." },
     { id = "g_xsyndicate", when = { origin = "human_syndicate_runner" }, text = "I know your face from the Alterac road, carrying letters for men nobody in Southshore will name aloud. Whatever you've become since, I'd keep clear of the foothills, because the Syndicate has a long memory." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be wandering. Folk here keep their shutters closed at night, on account of what lives up the road in Tarren Mill." },
@@ -1297,6 +1304,7 @@ P:Pool {
 P:Pool {
   id = "citizen_thelsamar", role = "citizen", community = "thelsamar",
   greetings = {
+    { id = "g_dd_troggs", when = { killed = { name = "Stonesplinter", min = 30 } }, text = "Mountaineer Kadrell says the Stonesplinter troggs are thinner in the hills this season, an' he says yer name when he says it. My cousin digs at the excavation, so ye've my thanks for him too." },
     { id = "g_day", text = "Welcome tae Thelsamar! Good beer, good fishin', an' troggs in every hill, so ye'll never be bored." },
     { id = "g_xdamrifle", when = { origin = "dwarf_dam_rifleman" }, text = "Ye're the one that learned the rifle up on the dam, are ye no'? Yer uncle still tells everyone in the Stoutlager that ye could knock a trogg's helm off at three hundred paces." },
     { id = "g_xalgaz", when = { origin = "dwarf_dun_algaz_watch" }, text = "Ye stood the watch at Dun Algaz, did ye no'? I can see it in the way ye keep lookin' north, as though ye expect the Dragonmaw tae come down the pass any minute." },
@@ -1345,6 +1353,7 @@ P:Pool {
 P:Pool {
   id = "citizen_kharanos", role = "citizen", community = "kharanos",
   greetings = {
+    { id = "g_dd_frostmane", when = { killed = { name = "Frostmane", min = 30 } }, text = "The Frostmane trolls have kept tae their caves o' late, an' the lads at the Thunderbrew say it's yer doin'. Ye've earned a stout on the strength o' that, if ye've the stomach for it." },
     { id = "g_day", text = "Come in out o' the snow, will ye? Ye're lettin' the cold in just standin' there." },
     { id = "g_xcampwatch", when = { origin = "gnome_kharanos_watch" }, text = "Ye're the wee shieldbearer who stood between the troggs an' the gnome camps! I've seen braver dwarves than me take a step back when ye raise that shield, an' I'll no' forget it." },
     { id = "g_xleperkin", when = { origin = "gnome_leper_kin" }, text = "Ye're the one wi' the brother out past the Gnomeregan gate, are ye no'? I've seen ye leave bread by the road for the leper gnomes, an' I'll no' tell a soul, for it's a kind thing tae do." },
@@ -1400,6 +1409,7 @@ P:Pool {
 P:Pool {
   id = "citizen_auberdine", role = "citizen", community = "auberdine",
   greetings = {
+    { id = "g_dd_blackwood", when = { killed = { name = "Blackwood", min = 30 } }, text = "The Blackwood furbolgs grow fewer along the coast, and the Sentinels say a stranger's hand did it. They were a gentle people before something poisoned them, so I do not know whether to thank you or to grieve." },
     { id = "g_xsmug", when = { origin = "nightelf_auberdine_smuggler" }, text = "Well, look who has come back to the piers. The harbormaster still asks after a crate of silks that never reached Darnassus, and I still tell him I know nothing, so mind you don't make a liar of me." },
     { id = "g_day", text = "Ishnu-alah. The boats are at the piers, and the sea is calm today, which is more than can be said for the land." },
     { id = "g_xwatch", when = { origin = "nightelf_auberdine_watch" }, text = "You stood watch on these beaches; I remember you. The murlocs still come in with the tide, but we have held, and it is good to see you came home whole." },
@@ -1496,6 +1506,7 @@ P:Pool {
 P:Pool {
   id = "citizen_dolanaar", role = "citizen", community = "dolanaar",
   greetings = {
+    { id = "g_dd_gnarlpine", when = { killed = { name = "Gnarlpine", min = 30 } }, text = "The Gnarlpine are falling back to their dens, and the Sentinels speak of a stranger who walks into their camps and out again. Their madness is a sorrow, young one, but the children of Dolanaar may play beneath the trees again." },
     { id = "g_day", text = "Ishnu-alah, young one. Dolanaar is peaceful, mostly, and the moonwell is just there if you need to rest." },
     { id = "g_xsaber", when = { origin = "nightelf_nightsaber_rider" }, text = "You found your first cub near here, didn't you? I remember the cat, and I remember the scratches on your arms that whole season." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Elune's light on you. The forest is quiet tonight, and I hope it stays that way." },
@@ -2114,6 +2125,7 @@ P:Pool {
 P:Pool {
   id = "citizen_crossroads", role = "citizen", community = "crossroads",
   greetings = {
+    { id = "g_dd_kolkar", when = { killed = { name = { "Kolkar", "Razormane" }, min = 40 } }, text = "The raiders have been thinner on the roads to the Crossroads since you came through, and Thork's caravans are coming in whole for once. The drivers drink to you every night, whether they know your name or not." },
     { id = "g_xbeast", when = { origin = "orc_barrens_beastmaster" }, text = "You were here when the first walls went up, weren't you? I remember you coming in off the plains with a beast at your heels and dust to your knees, and the Crossroads hasn't had a better hunter since." },
     { id = "g_day", text = "Throm-ka, traveler. Drink from the well before you do anything else; the Barrens dries you out before you notice." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Get inside the palisade before full dark. The centaur ride at night, and they shoot at anything that moves." },
@@ -2156,6 +2168,7 @@ P:Pool {
 P:Pool {
   id = "citizen_razor_hill", role = "citizen", community = "razor_hill",
   greetings = {
+    { id = "g_dd_blade", when = { killed = { name = "Burning Blade", min = 20 } }, text = "The grunts say you've been killing Burning Blade cultists in the Skull Rock caves. Gar'Thok would never say thank you, so I'll say it for him, and I'll mean it." },
     { id = "g_xtrack", when = { origin = "orc_durotar_tracker" }, text = "You're the tracker who brings in hides from the scrub, aren't you? The tanner talks about you as if you were the only one in Durotar who knows how to skin a scorpid properly." },
     { id = "g_day", text = "Throm-ka. You'll be heading for the capital, or away from it; everyone in Razor Hill is doing one or the other." },
     { id = "g_xgrunt", when = { origin = "orc_razor_hill_grunt" }, text = "Gar'Thok put you on the coast watch, didn't he? I remember you coming back up from the beach the week the Kul Tiran boats landed, and you didn't look young after that." },
@@ -2216,6 +2229,7 @@ P:Pool {
 P:Pool {
   id = "citizen_brill", role = "citizen", community = "brill",
   greetings = {
+    { id = "g_dd_scarlet", when = { killed = { name = "Scarlet", min = 30 } }, text = "The Scarlet zealots have been bleeding in the fields north of here, and the Deathguard say it's your work. They would burn every one of us on a pyre if they could, so I won't mourn a single one." },
     { id = "g_day", text = "Welcome to Brill. It was a human town once, and now it's ours, so mind where you step; some of the floorboards remember the old owners." },
     { id = "g_xscarlet", when = { origin = "forsaken_scarlet_turned" }, text = "You wore the red once, didn't you? You still watch the tree line the way the Crusade taught you to. Brill has forgiven worse, mostly, but don't expect everyone at the Gallows' End to drink with you." },
     { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You farmed out past the town, didn't you, before the grain went bad? I'd know a Brill face anywhere, even now, and I'm glad one of us came back to walk these roads." },
@@ -2263,6 +2277,7 @@ P:Pool {
 P:Pool {
   id = "citizen_tarren_mill", role = "citizen", community = "tarren_mill",
   greetings = {
+    { id = "g_dd_hillsbrad", when = { killed = { name = "Hillsbrad", min = 15 } }, text = "I hear you've been out among the Hillsbrad farms, thinning out the peasants and their footmen. The Dark Lady wants this land back, and I find I'm not sorry for them, which I suppose says something about me." },
     { id = "g_day", text = "Welcome to Tarren Mill, which is as quiet as a grave, and we would know. It's only noisy when the humans from Southshore come calling with torches." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Hillsbrad is darker than it looks after sunset, and the Syndicate creep about in it, as greedy as they were when they still had pulses. Stay close to the town." },
     { id = "g_xmilitia", when = { origin = "forsaken_hillsbrad_militia" }, text = "You were in the Hillsbrad militia, weren't you, with a pitchfork and somebody else's helmet? Now you stand watch over the same hills for the other side, and I've stopped trying to decide whether that's funny." },
@@ -2305,6 +2320,7 @@ P:Pool {
 P:Pool {
   id = "citizen_bloodhoof", role = "citizen", community = "bloodhoof",
   greetings = {
+    { id = "g_dd_venture", when = { killed = { name = "Venture", min = 30 } }, text = "The Venture Company's men have been falling back from the hills, and the braves say a stranger has been teaching them manners. The Earth Mother was not made to be torn open for their machines, so walk proudly, friend." },
     { id = "g_xtotem", when = { origin = "skyborne_gevrek_totem_keeper" }, text = "You keep the totems at the Skyborne camp, don't you? I've seen you out at dawn among them with your face turned up to the sky, and I have never dared to ask what you are looking for." },
     { id = "g_day", text = "Be welcome in Bloodhoof Village. The grass is tall and the kodo are fat this season, so the Earth Mother is pleased with us." },
     { id = "g_xorphan", when = { origin = "tauren_razormane_orphan" }, text = "You're the little one the braves carried in from the dry riverbed, all those years ago. The whole village took turns feeding you that winter, and I see the feeding took." },

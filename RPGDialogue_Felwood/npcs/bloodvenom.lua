@@ -114,8 +114,20 @@ P:NPC {
         { text = "Never mind the mushrooms.", next = "BACK" },
       },
     },
+    dd_deaths = {
+      lines = {
+        { id = "ddd_default", text = "Then you and I have something in common, except that you keep coming back warm and I came back cold. Dying is a small thing once you've done it, really. It's what you come back as that matters, and you keep coming back as yourself, which is either lucky or very dull." },
+        { id = "ddd_undead", when = { race = "Scourge" }, text = "Oh, but we've both done it properly, you and I, and the second death is never as interesting as the first. Do try not to fall apart out there; I haven't the thread to sew you back together." },
+      },
+      choices = {
+        { text = "Lucky, I'd say.", next = "BACK", reply = "Spoken like someone with a pulse. Mind you keep it, then." },
+        { text = "Something else, Winna.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_secrets", when = { questDone = TODO_QUEST("Guarding Secrets") }, text = "Trull says you found what the owlbeasts were guarding for him. I want to know what it was, and he refuses to tell me, which is exactly the sort of thing that makes unlife worth living." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You've died a good many times, haven't you? I can always tell. The living get a sort of crumpled look about them once they've been to the spirit healer often enough, and I find it rather charming." },
         { id = "o_forsaken_pity", tags = { "news" }, when = { opinion = { topic = "forsaken", stance = "pity" } },
           text = "I hear you think the Forsaken are still people inside. How touching! Do hold this flask while you're feeling sympathetic." },
         { id = "h_pt_winna", tags = { "news" }, when = { party = { size = 4 } },
@@ -146,6 +158,7 @@ P:NPC {
         { id = "h_again2", text = "Yes, yes, what else? Quickly, something's about to bubble over." },
       },
       choices = {
+        { text = "I've died more times than I can count, Winna.", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "Do the spirits of this forest still answer anyone, alchemist?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "That kitten must have a name.", next = "kitten" },
         { text = "What are you working on?", next = "work" },
@@ -324,7 +337,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Maybe nothing, but folk say every Forsaken paladin keeps an old Silver Hand oath somewhere behind the new one. I'll not ask which you keep, but I'll be watching, the same way I watch the alchemist." } },
       choices = {
-        { text = "My oath is to the Horde now. Watch all you like.", next = "BACK", reply = "Then I'll watch all I like, and gladly. The Horde is better served by an honest paladin than a quiet one.", fx = { align = { order = 1 } } },
+        { text = "My oath is to the Horde now. Watch all you like.", next = "BACK", reply = "Then I'll watch all I like, and I'll write down what I see. So far, it reads better than I expected.", fx = { align = { order = 1 } } },
         { text = "My oaths are my own business, Trull.", next = "BACK", reply = "They are, and I'll leave them there, so long as they stay out of my reports. Just keep them pointed at Jaedenar.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -333,7 +346,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "No, and it never will, because Orgrimmar sends scouts and wants reports while the forest sends satyrs and wants blood. I'd trade every report I've written for a dozen grunts with sense enough to keep out of the river." } },
       choices = {
-        { text = "Then I'll hold this post and follow your orders, Trull.", next = "BACK", reply = "Good, and I'll put you where you're needed, which is everywhere. Orgrimmar will hear your name.", fx = { align = { order = 1 } } },
+        { text = "Then I'll hold this post and follow your orders, Trull.", next = "BACK", reply = "Good, and I'll put you where you're needed, which is everywhere. Start with the south road; it's been quiet, and I don't like quiet.", fx = { align = { order = 1 } } },
         { text = "Forget the post. I'll take the fight to Jaedenar myself.", next = "BACK", reply = "Brave, and a fool, and I've buried a few like that. If you go, take a friend and bring back what you see.", fx = { align = { order = -1 } } },
         { text = "Something else, Trull.", next = "BACK" },
       },
@@ -345,7 +358,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wrong enough that the bears turn on their own cubs, and the owlbeasts at the Winterspring border attack anything that walks, as if somebody told them to guard something. And keep {pet} out of the river, if you value it. I watched a scout's wolf drink from it once, and he had to put it down himself the next morning." },
       },
       choices = {
-        { text = "Then I'll put the sick ones down quickly and spare them pain.", next = "BACK", reply = "Thank you, that's the decent thing. The ones that suffer the worst are the ones that fight the hardest.", fx = { align = { light = 1 } } },
+        { text = "Then I'll put the sick ones down quickly and spare them pain.", next = "BACK", reply = "Thank you, that's the decent thing. Mind the ones that look tired; they're the ones that bite.", fx = { align = { light = 1 } } },
         { text = "Sick beasts make fierce ones. I'd tame one if I could.", next = "BACK", reply = "Brave, or mad, and I'm not sure which. If you manage it, keep it far from my supplies.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -357,7 +370,7 @@ P:NPC {
           text = "A Deathstalker, out of Undercity. Your Dark Lady trains her spies well, but this isn't Silverpine; the trees here watch you back." },
       },
       choices = {
-        { text = "I'll count them and come back.", next = "BACK", reply = "Good, and I'll have the parchment ready when you're back. Numbers win wars more than heroes do.", fx = { align = { order = 1 }, standing = { bloodvenom_post = 1 } } },
+        { text = "I'll count them and come back.", next = "BACK", reply = "Good, and I'll have the parchment ready when you're back. Orgrimmar wants numbers, not stories.", fx = { align = { order = 1 }, standing = { bloodvenom_post = 1 } } },
         { text = "If a chief's alone, I won't just count him.", next = "BACK", reply = "I'd not complain, but I'd want the count all the same. A dead chief and no numbers is half a report.", fx = { align = { order = -1 } } },
       },
     },
@@ -365,7 +378,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "I'm no shaman, but I've watched the river run green and the earth crawl with things that used to be stone, and I write all of it down for Orgrimmar. Whatever the demons did here, the land remembers it, and the Horde must understand what that means before the Alliance does." } },
       choices = {
-        { text = "Then I'll report what I sense to Orgrimmar, properly.", next = "BACK", reply = "Good, and I'll make sure it gets to the right ears. The spirits see more than my scouts.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll report what I sense to Orgrimmar, properly.", next = "BACK", reply = "Good, and I'll make sure it gets to the right ears. My scouts can count satyrs, but they can't hear the earth.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Some things the spirits show me aren't Orgrimmar's business.", next = "BACK", reply = "Fair enough, shaman, and I'll not pry. Just tell me if they show you something that'll get us killed.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -375,7 +388,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "Lights in the Jaedenar hollows that burn green without wood, and wards cut into the ground around the Shadow Council's camps. I write them down as best I can, but I'd sooner have someone who knows the arcane read my notes than some clerk in Orgrimmar." } },
       choices = {
         { text = "Burn the wards and ask questions later.", next = "BACK", reply = "Ha! That's a mage's answer, and some days I'd agree. But the questions keep us alive.", fx = { align = { order = -1 } } },
-        { text = "You're right to write it all down first.", next = "BACK", reply = "Thank you, and Orgrimmar will thank you too, though not in words. Knowing what you're fighting is half the fight.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right to write it all down first.", next = "BACK", reply = "Thank you. Orgrimmar never thanks anyone in words, but the reports get read, and that's something.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll keep an eye out for the green lights.", next = "BACK" },
       },
     },
@@ -392,13 +405,14 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Robed cultists of the Shadow Council, more of them every week, chanting over fires that burn green, and orcs among them who ought to have known better. Whatever they mean to call up, Orgrimmar wants it named before it walks out of those hills." } },
       choices = {
-        { text = "Then I'll help you name it, for the Horde's sake.", next = "BACK", reply = "Good, and I'll be glad of the help. The Horde needs to know what's being made in those hollows.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll help you name it, for the Horde's sake.", next = "BACK", reply = "Good, and I'll be glad of the help. Count the fires first; that tells you more than counting robes.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Orgrimmar can send its own eyes. I go where I please.", next = "BACK", reply = "You go where you please, and I'll write down what you do. Orgrimmar reads everything, eventually.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_well", when = { questDone = TODO_QUEST("Well of Corruption") }, text = "Winna says you brought her samples from the corrupted wells and didn't drink any of them, which puts you ahead of the last grunt she sent. Felwood's water is the same poison that took my people once, so don't touch it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Good, Bloodvenom needs more of your kind than it gets, because the satyrs and the Deadwood don't wait for a scout to finish counting them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },

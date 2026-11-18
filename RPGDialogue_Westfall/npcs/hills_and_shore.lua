@@ -314,6 +314,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_murkeye_k", tags = { "news" }, when = { killed = { name = "Murk-Eye" } },
+          text = "Old Murk-Eye's gone, and I've been fishing the whole beach for three days without once looking over my shoulder. You did that, they say, and I'll give you the best of the catch, in words at least, since I've only the one fish." },
+        { id = "dd_murlocs_k", when = { killed = { name = "Murloc", min = 40 } },
+          text = "The murlocs down the beach have been keeping their distance lately, and every so often I find one of their spears washed up with no owner. Somebody's been busy along the Longshore, and I suspect it's you." },
+
         { id = "h_default", text = "Kriggon Talsone, and I fish this shore, same as my father did before the farms went bad. The sea doesn't care who owns Westfall, and that makes it the only honest thing left in Westfall." },
         { id = "h_farmhand", when = { origin = "human_westfall_farmhand" }, text = "You've the look of a Westfall hand, under all that gear. Whose farm was it? Never mind, I don't want to know which one burned." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "They say your sort can talk to the water. If it tells you where the fish have gone, you'll tell me, won't you?" },
@@ -386,7 +391,7 @@ P:NPC {
     stay = {
       lines = { { id = "s_default", text = "Because the fish are still here, even if the farmers aren't. The Defias don't bother a man with nothing but a boat and a bucket, and the Furlbrows and Saldeans are still hanging on, so I'm not the last fool in Westfall." } },
       choices = {
-        { text = "That's not foolish. That's stubborn courage.", next = "BACK", fx = { affinity = 1 } },
+        { text = "That's not foolish, Kriggon. It's stubborn courage.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

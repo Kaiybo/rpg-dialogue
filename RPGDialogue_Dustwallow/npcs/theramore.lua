@@ -111,7 +111,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Less than people do, to my mind, but the raptors have taken more than one courier on the road to Sentry Point. I'd rather we learned the marsh's ways than burned it back, though not everyone in Theramore agrees with me. And this must be {pet}." },
       },
       choices = {
-        { text = "Learn the marsh's ways. Burning it would only make enemies.", next = "BACK", reply = "I think so too, and I'm glad someone else does. The marsh was here long before Theramore, and it'll be here long after.", fx = { align = { light = 1 } } },
+        { text = "Learn the marsh's ways. Burning it would only make enemies.", next = "BACK", reply = "I think so too. The one patch we burned has given us more trouble than every raptor on the road.", fx = { align = { light = 1 } } },
         { text = "The road needs clearing, my lady. Burn the raptor nests back.", next = "BACK", reply = "Some of my officers say the same, and I understand why. But burning the marsh would make enemies of more than raptors, so let's start with the road.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -221,7 +221,7 @@ P:NPC {
       },
       choices = {
         { text = "I agree.", next = "BACK", reply = "Then you understand why I fight so hard for it. Thank you, truly.", fx = { affinity = 2, align = { honor = 1 }, standing = { theramore = 1 }, opinion = { peace = "for" } } },
-        { text = "I'd break that treaty the day it stopped serving us.", next = "BACK", reply = "Then I hope it never stops serving us, for both our sakes. A treaty broken that easily was never worth much to begin with.", fx = { affinity = -2, align = { honor = -1 } } },
+        { text = "I'd break that treaty the day it stopped serving us.", next = "BACK", reply = "Then I hope it never stops serving us, for both our sakes. I've spent too many nights at that table to see it torn up over one bad season.", fx = { affinity = -2, align = { honor = -1 } } },
         { text = "I'm not sure they'd do the same.", next = "doubt" },
       },
     },
@@ -819,7 +819,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tortoises, if you'll believe it, great mudrock tortoises that climb out of the shallows at night and eat my herbs down to the stems. I've warded half the beds against them, and the creatures simply walk around the wards, which I take personally. {pet} looks a sight more sensible than the tortoises, though I'd still ask you to keep it on the path." },
       },
       choices = {
-        { text = "Leave the tortoises be. The island can share its garden.", next = "BACK", reply = "Share, he says, as though the tortoises have ever shared anything. Still, perhaps you're right, and I'll leave a bed unwarded for them.", fx = { align = { light = 1 } } },
+        { text = "Leave the tortoises be. The island can share its garden.", next = "BACK", reply = "Share, {g:he|she} says, as though the tortoises have ever shared anything. Still, perhaps you're right, and I'll leave a bed unwarded for them.", fx = { align = { light = 1 } } },
         { text = "I'll clear them out for you. Your herbs matter more.", next = "BACK", reply = "Thank you, my herbs and I would be grateful. Gently, though, they're only tortoises, however rude.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -836,7 +836,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I fear for them everywhere, because half of what I carried out of Dalaran's libraries is the only copy left in the world. Some of it would fetch a fortune in Booty Bay, and the rest would burn a careless reader's hand off, so it stays locked away." } },
       choices = {
-        { text = "I'd never steal them. Some things matter more than gold.", next = "BACK", reply = "I'm glad to hear it, and I'll believe you, mostly. Some things truly are worth more than gold.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd never steal them. Some things matter more than gold.", next = "BACK", reply = "I'm glad to hear it, and I'll believe you, mostly. I'll still count them after you've gone.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If they're that valuable, someone will try. Lock them tighter.", next = "BACK", reply = "They are, and I have, and I'll lock them tighter still now you've said it. Thank you, I think.", fx = { align = { honor = -1 } } },
         { text = "Something else, Archmage.", next = "BACK" },
       },
@@ -908,6 +908,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "I'll be keeping an eye on my books, because a rogue in a mage's study is like a cat in a fishmonger's, and I'm fond of both." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my tower. The Lady has asked me to judge by deeds rather than by schools, and I'm trying, though I'll confess my wards are less patient than I am." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I have three books that say it can't be done and one that says it was done long ago, and I'd very much like to know which is right." },
+        { id = "h_dd_hoof", tags = { "news" }, when = { questDone = TODO_QUEST("Suspicious Hoofprints") }, text = "Captain Vimes showed me your report about the hoofprints at the Shady Rest, and I confess it spoiled my supper. If it wasn't orcs who burned that inn, then someone wants us to believe it was, and that is a far more dangerous thing." },
       },
       again = { { id = "h_again", text = "Yes, yes, what else? Keep it short, if you would." }, { id = "h_again2", text = "Another question? Good, ask it while I water these." } },
       choices = {
@@ -1047,7 +1048,7 @@ P:NPC {
       choices = {
         { text = "They've kept the peace so far. Judge them by that.", next = "op_horde_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { horde = "tolerate" } } },
         { text = "They're killers, all of them. The peace is a lie.", next = "op_horde_r2", fx = { affinity = -1, align = { order = -1 }, opinion = { horde = "war" } } },
-        { text = "Some of them are honest. Some aren't. Same as us.", next = "op_horde_r3", fx = { trait = { honest = 1 }, opinion = { horde = "mixed" } } },
+        { text = "Some of them are honest and some aren't, same as us.", next = "op_horde_r3", fx = { trait = { honest = 1 }, opinion = { horde = "mixed" } } },
         { text = "I'm Horde, Captain. We didn't burn that inn.", next = "op_horde_r4", fx = { opinion = { horde = "kin" } }, when = { faction = "Horde" } },
         { text = "I'd rather keep my thoughts to myself, Captain.", next = "BACK" },
       },
@@ -1088,7 +1089,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_vimes_default", text = "Companies are useful, and I've borrowed a few in my time for work the garrison couldn't spare men for. The trouble is the ones who answer to nobody, because the deserters out past the Shady Rest started as a company too, before they decided Theramore's peace wasn't theirs to keep." } },
       choices = {
-        { text = "A company working here should answer to Theramore, Captain.", next = "BACK", reply = "That's how I'd want it, and how the Lady would too. A company that answers to Theramore is welcome here.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A company working here should answer to Theramore, Captain.", next = "BACK", reply = "That's how I'd want it, and how the Lady would too. Sign the roll at the gate, and you'll have no trouble from my men.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "We answer to each other, Captain, and to no one else.", next = "BACK", reply = "That's what the deserters said, before they burned bridges. Watch yourselves, then, and don't make me come looking.", fx = { align = { order = -1 } } },
         { text = "What became of those deserters, Captain?", next = "xpt_vimes2" },
         { text = "I'll ask about something else.", next = "BACK" },
@@ -1182,6 +1183,8 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Before you tell me the Horde burned the Shady Rest because they're the Horde, hear me out, because I've stood in those ashes and they don't tell me that." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in Theramore. I'll not ask what you keep at your heel, but I'll ask you to keep it away from the Hyal family, because they've lost enough." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I don't judge a soldier by how they fight, only by whether they tell me the truth, so let's start there." },
+        { id = "h_dd_soup", when = { questDone = TODO_QUEST("Mudrock Soup and Bugs") }, text = "Morgan Stern tells everyone I had two bowls of the tortoise soup you helped him make, and I'd like it known I had three. Don't spread that around the barracks, mind." },
+        { id = "h_dd_diplomat", tags = { "news" }, when = { questDone = TODO_QUEST("The Missing Diplomat") }, text = "Hendel wore our tabard and stood our watch, and you're the one who pulled the rot out. I've been through every soldier's record since, twice, and I'm still not sleeping well." },
       },
       again = { { id = "h_again", text = "Next question, then; I've a case on." }, { id = "h_again2", text = "Go on." } },
       choices = {
@@ -1200,7 +1203,18 @@ P:NPC {
         { text = "What do you think is hidden in the Shady Rest case, Captain?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "That fire smells of magic to me, Captain.", next = "xmage", when = { class = "MAGE" } },
         { text = "Could the spirits help you find who burned the Shady Rest?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "How does a Theramore guard turn traitor, Captain?", next = "dd_hendel", when = { questDone = TODO_QUEST("The Missing Diplomat") } },
         { text = "It was the Horde, and everyone knows it.", next = "END", reply = "Then you're no use to me, and you can go. I don't need someone who already knows the answer.", fx = { affinity = -1, align = { order = -1 } } },
+      },
+    },
+    dd_hendel = {
+      lines = {
+        { id = "dd_hendel_1", text = "Slowly, usually, and for coin. A lonely post at Sentry Point, a soldier who thinks he's owed more than the Lady pays, and someone patient enough to make him an offer. I should have seen it, and the fact that nobody else did doesn't make me feel any better." },
+      },
+      choices = {
+        { text = "Make an example of him. The others must see it.", next = "BACK", reply = "The Lady won't have it done in the square, and I think she's right, though I wanted it too. The Guard knows, believe me; they know.", fx = { align = { light = -1 } } },
+        { text = "Pay your soldiers better and watch them closer.", next = "BACK", reply = "I've been telling the Lady's purser the same for a year. Perhaps with a traitor in the cells he'll finally listen.", fx = { align = { light = 1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
       },
     },
     why = {
@@ -1400,9 +1414,10 @@ P:NPC {
         { id = "h_ink", when = { metBefore = true }, text = "I ran out of ink yesterday and had to borrow from the Archmage, and his ink glows. My records glow now, and nobody will take them seriously." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I don't have a ledger for you, since the Kirin Tor keep their own records, but I'll note your arrival anyway, because I note everything." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll need your name for the ledger, and I'll need it twice, once for you and once for whatever you've got following you." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Theramore. I'll have to add you to the record, since only a handful of your kind have come through the gates since the city was founded." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Theramore. I'll have to add you to the record, since only a handful of your kind have come through the gates since the city was founded." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I'll note your arrival, and I'll note also that the chapel could use another pair of hands, since the Guard has had more funerals this year than the record likes." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, from Ironforge. I don't have a line in the ledger for that, so I'll write field support and trust the Lady won't ask." },
+        { id = "h_dd_diplomat", tags = { "news" }, when = { questDone = TODO_QUEST("The Missing Diplomat") }, text = "I pulled Private Hendel's file after you exposed him, and it was the cleanest record in the cabinet. I've learned something from that, though I'm not happy about what it was." },
       },
       again = { { id = "h_again", text = "Anything else? I'll note it either way." } },
       choices = {
@@ -1595,7 +1610,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Every night, because soldiers talk when they're tired and sailors talk when they're drunk, and mages talk to themselves. I keep all of it in the kitchen and none of it in my mouth, so they keep coming back to tell me more." } },
       choices = {
         { text = "A good innkeeper keeps her guests' secrets. I'd do the same.", next = "BACK", reply = "That's the secret to the trade, love. A closed mouth keeps the ale flowing.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Secrets are worth something. You could sell them.", next = "BACK", reply = "I could, and I'd lose every guest I have in a week. Secrets are worth more kept than sold.", fx = { align = { honor = -1 } } },
+        { text = "Secrets are worth something. You could sell them.", next = "BACK", reply = "I could, and I'd lose every guest I have in a week. Besides, most of what I hear is who's sweet on whom, and nobody pays for that.", fx = { align = { honor = -1 } } },
         { text = "Something else, Janene.", next = "BACK" },
       },
     },
@@ -1643,6 +1658,8 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my tables, love! Sit by the fire, because the damp gets into plate faster than anything, and I've seen your lot rattle when they stand up." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, love? Leave the little fellow by the door and don't let him near the bread, because the sailors are a superstitious lot and they'll not eat a crumb he's breathed on." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at my tables! Sit down, and tell me whether the spirits mind a bit of rain, because Theramore has plenty to share." },
+        { id = "h_dd_diplomat", tags = { "news" }, when = { questDone = TODO_QUEST("The Missing Diplomat") }, text = "The whole common room is talking about Private Hendel, and half of them are saying your name in the same breath. I served that man ale every week for a year and never once thought he was anything but dull." },
+        { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "You've drowned, haven't you? You've that look the sailors get after a bad night in the harbor, so sit near the fire and dry out properly before you go anywhere near the water again." },
       },
       again = { { id = "h_again", text = "Anything else, love?" } },
       choices = {
@@ -1661,11 +1678,22 @@ P:NPC {
         { text = "Sailors are a superstitious lot, Janene.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the soldiers here mind sharing a table with me, Janene?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "You're kind to everyone, Janene, but you're smiling at me.", next = "flirt", when = { flirt = true } },
+        { text = "What are people saying about Hendel, Janene?", next = "dd_hendel", when = { questDone = TODO_QUEST("The Missing Diplomat") } },
         { text = "Just passing through.", next = "END" },
       },
     },
+    dd_hendel = {
+      lines = {
+        { id = "dd_hendel_1", text = "Everything, and most of it wrong. The soldiers say he was paid by the Defias, the sailors say the Horde, and old Morgan swears he always salted his soup too much, which apparently proves something. What I know is that the Lady went to Sentry Point herself, and she doesn't do that for small matters." },
+      },
+      choices = {
+        { text = "A traitor in the Guard. Theramore should be stricter.", next = "BACK", reply = "Captain Vimes would agree with you, and he's been checking every soldier's boots since. I hope it doesn't turn the barracks sour.", fx = { align = { order = 1 } } },
+        { text = "One rotten guard doesn't make the rest suspects.", next = "BACK", reply = "That's kindly said, and I'll tell the lads who drink here. Most of them are as shaken by it as anyone.", fx = { align = { order = -1 } } },
+        { text = "Something else, Janene.", next = "BACK" },
+      },
+    },
     talk = {
-      lines = { { id = "t_default", text = "The burned inn on the north road, mostly. Half the room says orcs, the other half says it's too easy to say orcs. Captain Vimes drinks in the corner and says nothing." } },
+      lines = { { id = "t_default", text = "The burned inn on the north road, mostly. Some say orcs, and some say that's exactly what somebody wants us to say. Captain Vimes drinks in the corner and says nothing." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     food = {

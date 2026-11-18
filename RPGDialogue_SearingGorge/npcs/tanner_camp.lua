@@ -43,10 +43,12 @@ P:NPC {
           text = "You're a leatherworker, but not ready for this yet, I think. Come back when your hands know the ordinary leather by heart." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "I don't mind your colours, and the Gorge doesn't either. Fire burns orc and human just the same." },
+        { id = "dd_elementals", when = { killed = { name = { "Magma Elemental", "Inferno Elemental", "Blazing Elemental" }, min = 20 } },
+          text = "You carry the smell of the Gorge's fire spirits on you; you've broken a good many of them. Their heat leaves a mark on a hunter the same way it does on a hide, and yours is plain to me." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know? I'm only scraping, and scraping can wait." },
-        { id = "h_again2", text = "Ask. Company's rare enough that I won't waste it." },
+        { id = "h_again2", text = "Ask away. Company's rare enough out here that I'm not about to waste it." },
         { id = "h_again3", text = "Go on. Mind the vent behind you; it breathes every few minutes." },
       },
       choices = {
@@ -84,8 +86,8 @@ P:NPC {
         { id = "cm_default", text = "There's no spell in it, if that's what you mean, only patience and listening. But I've had hides go supple on a cold rock overnight, and I don't have a better word than magic for that." },
       },
       choices = {
-        { text = "Some things don't need explaining.", next = "BACK", reply = "No, they don't, and I've stopped trying to make them. The hides know their business better than I do.", fx = { align = { order = -1 } } },
-        { text = "Everything has an explanation, if you look.", next = "BACK", reply = "Maybe, and you're welcome to sit on that rock overnight and find it. I'll be here with the kettle when you come back puzzled.", fx = { align = { order = 1 } } },
+        { text = "Maybe some things don't need explaining.", next = "BACK", reply = "No, they don't, and I've stopped trying to make them. The hides know their business better than I do.", fx = { align = { order = -1 } } },
+        { text = "There's an explanation. You just haven't found it yet.", next = "BACK", reply = "Maybe, and you're welcome to sit on that rock overnight and find it. I'll be here with the kettle when you come back puzzled.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,8 +108,8 @@ P:NPC {
         { id = "po_default", text = "Because your hands learn one way of listening, and the other ways start to sound like shouting. I've seen leatherworkers try to keep a foot in every camp, and their work ends up belonging nowhere." },
       },
       choices = {
-        { text = "Mastery means choosing one path.", next = "BACK", reply = "That's how I've always found it, and it's good to hear someone else say so. Pick yours carefully, and then don't look back.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "I'd rather keep my options open.", next = "BACK", reply = "Open options and closed hands, that's what I call it, but you'll find your own way. Come back and tell me how it goes.", fx = { align = { order = -1 } } },
+        { text = "Good. Mastery means picking one road and walking it.", next = "BACK", reply = "That's how I've always found it, and it's good to hear someone else say so. Pick yours carefully, and then don't look back.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Giving up two crafts for one? I'd rather keep my options open.", next = "BACK", reply = "I knew a tanner in Stormwind who kept all his options open, and his hides cracked in every one of them. Still, you'll find your own way, so come back and tell me how it goes.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -126,7 +128,7 @@ P:NPC {
       },
       choices = {
         { text = "Wild elementals are a danger. They must be fought.", next = "BACK", reply = "They must, sometimes, and I'll not pretend otherwise. I only wish it didn't feel like fighting family.", fx = { align = { light = -1 } } },
-        { text = "Take only what you need, then.", next = "BACK", reply = "That's all I ask of anyone who comes through here. The Gorge has little enough to spare.", fx = { align = { light = 1 } } },
+        { text = "Then take only what you need from them, no more.", next = "BACK", reply = "That's all I ask of anyone who comes through here. The Gorge has little enough to spare.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -165,7 +167,7 @@ P:NPC {
         { id = "gl_default", text = "That the vents breathe on a rhythm, and a hide laid near one cures evenly if you turn it on the breath. That earth elementals shed dust that sets a dye harder than any mordant. And that I can stand at a lava vent without shaking now, which I couldn't do in spring." },
       },
       choices = {
-        { text = "That's a lot of hard-won knowledge.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "You learned all that out here, alone?", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },
 
@@ -204,7 +206,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know leather, and I know this corner of the Gorge better than I'd like. Ask away." } },
     background = { { id = "tp_bg", text = "A tanner's daughter from Stormwind who wanted to know why the hides crack. The question brought me here." } },
-    advice = { { id = "tp_ad", text = "Listen to your materials. They'll tell you how they want to be worked, if you let them." } },
+    advice = { { id = "tp_ad", text = "Lay a hide near a vent some evening and watch it, and you'll learn more than I could teach you in a week." } },
     _none = { { id = "tp_none", text = "I'm afraid I wouldn't know. Out here, news comes on the wind, and the wind doesn't say much." } },
   },
 }

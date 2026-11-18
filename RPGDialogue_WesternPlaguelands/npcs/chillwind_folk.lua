@@ -104,8 +104,21 @@ P:NPC {
         { text = "Something else, Quartermaster.", next = "BACK" },
       },
     },
+    dd_scourge = {
+      lines = {
+        { id = "dd_scourge_1",
+          text = "Not by name, but we count the stones that come in, and we hear the scouts talk. A soldier who keeps the ghouls off the road is worth more to the Dawn than any noble's donation, and the Dawn remembers who did the work." },
+      },
+      choices = {
+        { text = "Good. I want the Dawn to know my name.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I don't need counting. The dead need putting down.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_scourge", when = { killed = { name = { "Skeletal", "Ghoul", "Rotting", "Zombie" }, min = 60 } },
+          text = "The scouts keep a tally of the dead that stay dead around Andorhal, and an uncommon share of it seems to be yours. The Dawn notices that sort of thing, and so does my ledger." },
         { id = "h_default", key = true,
           text = "Argent Quartermaster Lightspark, keeper of the Dawn's stores at Chillwind, with every crate counted to the last bolt. Everything on my shelves goes to those who've fought the Scourge alongside us, and the more the Dawn trusts you, the more I'm allowed to sell." },
         { id = "h_stranger", when = { reputation = { faction = "Argent Dawn", max = "neutral" } },
@@ -131,6 +144,7 @@ P:NPC {
         { id = "h_again2", text = "Anything more? I've a crate of holy water to count before the light goes." },
       },
       choices = {
+        { text = "Does the Dawn really count the Scourge I've killed?", next = "dd_scourge", when = { killed = { name = { "Skeletal", "Ghoul", "Rotting", "Zombie" }, min = 60 } } },
         { text = "Show me what the Dawn has to offer.", next = "BUSINESS" },
         { text = "How do I earn the Dawn's trust?", next = "trust" },
         { text = "I keep hearing of the Argent Dawn.", next = "dawn" },
@@ -239,7 +253,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every plate you wear hangs off a leather strap somewhere, and soldiers forget it until one snaps in the middle of a fight. I saw a fellow lose his breastplate on Sorrow Hill, and he only lived because the skeletons were as surprised as he was." } },
       choices = {
-        { text = "I'll check my straps every night. Good advice, Leonard.", next = "BACK", reply = "Good. A strap checked is a life kept, and I'd like to keep yours.", fx = { align = { order = 1 } } },
+        { text = "I'll check my straps every night. Good advice, Leonard.", next = "BACK", reply = "Good. I mended a knight's plate last month after a strap gave way mid-swing, and he was lucky to keep the arm.", fx = { align = { order = 1 } } },
         { text = "If a strap snaps, I'll fight on without the plate.", next = "BACK", reply = "Brave, and you'll be lighter on your feet, but I'd still rather mend the strap. Check it anyway.", fx = { align = { order = -1 } } },
         { text = "Something else, Leonard.", next = "BACK" },
       },
@@ -283,8 +297,23 @@ P:NPC {
         { text = "Something else, Leonard.", next = "BACK" },
       },
     },
+    dd_wildlife = {
+      lines = {
+        { id = "dd_wildlife_1",
+          text = "So I heard, and a hunter came through yesterday and said the hills past the Haunt are quieter than they've been in a year. It's a grim mercy, but it's mercy all the same, and that dwarf hasn't long to see it." },
+        { id = "dd_wildlife_2",
+          text = "Did you skin any of them? Please tell me you didn't, because those hides are poison right through, and I've burned enough of them to know." },
+      },
+      choices = {
+        { text = "I burned them. I'm not a fool.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I sold a few hides. Somebody downwind can worry about it.", next = "BACK", fx = { align = { order = -1, light = -1 } } },
+        { text = "Something else, Leonard.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_wildlife", when = { questDone = TODO_QUEST("The Wildlife Suffers Too") },
+          text = "I hear you put down the sick wolves for that dwarf out at the Writhing Haunt. Fewer plagued beasts on the hills means fewer plagued hides at my table, so you've my thanks, for what a tanner's thanks are worth." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarven one even! Tell me, {class}, do the beasts out here still have spirits, or has the plague taken those too?" },
         { id = "h_default", key = true,
           text = "Leonard Porter, leatherworking supplies. The soldiers here go through boots and jerkins faster than you'd believe, so I keep the tanners in thread and salt, and I keep a careful eye on what they bring me." },
@@ -307,6 +336,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. I'm listening, and I'm still working." },
       },
       choices = {
+        { text = "I put down the sick wolves for Mulgris.", next = "dd_wildlife", when = { questDone = TODO_QUEST("The Wildlife Suffers Too") } },
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "Why check every hide so closely?", next = "plague" },
         { text = "There can't be much worth skinning around here.", next = "hides" },

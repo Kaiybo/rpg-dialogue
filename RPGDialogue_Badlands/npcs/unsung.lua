@@ -124,6 +124,8 @@ P:NPC {
           text = "A hunter! No coal for you, I suppose, unless your beasts eat it, but I've arrowheads, good iron ones, at a price that'll only make you cry a little, friend." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I sell coal and iron, so I'm sure you think I'm the worst thing that's happened to the Badlands, but on my mother's ledger, friend, the dragons got here first." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Oh, that's new, that's very new, and new means opportunity, buddy. You don't need a hammer blessed, do you, because I've got coal and iron and a fellow who owes me a favour." },
+        { id = "dd_darkiron", when = { killed = { name = "Dark Iron", min = 50 } },
+          text = "Hey, the grunts say you've been droppin' Dark Irons like bad stock, pal! Their armour's the best scrap iron in the Badlands, so if you ever haul any back, I'm buyin' and I'm not askin' where the owner went." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Talk fast, because I'm paid by the sale, not by the chat." },

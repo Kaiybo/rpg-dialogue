@@ -109,7 +109,7 @@ P:NPC {
       choices = {
         { text = "What do you make of the raceway yourself?", next = "op_raceway" },
         { text = "Competition drives them to build better things.", next = "BACK", reply = "Better and faster and louder, yes, and I keep counting the pieces they leave on the flats, so I'm not sure what better means.", fx = { align = { order = -1 }, learn = { "mirage_raceway" } } },
-        { text = "Someone should set rules before someone dies.", next = "BACK", reply = "I have said so, gently, and they nodded and built a faster car, so I walk the track a little earlier each morning.", fx = { affinity = 1, align = { order = 1 }, learn = { "mirage_raceway" } } },
+        { text = "Someone should set rules before somebody dies.", next = "BACK", reply = "I have said so, gently, and they nodded and built a faster car, so I walk the track a little earlier each morning.", fx = { affinity = 1, align = { order = 1 }, learn = { "mirage_raceway" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "mirage_raceway" } } },
       },
     },

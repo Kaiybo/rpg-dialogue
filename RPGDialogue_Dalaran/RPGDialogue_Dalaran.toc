@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Dalaran |cff8a8a8a1.7.0|r
+## Title: RPG Dialogue: Dalaran |cff8a8a8a1.8.0|r
 ## Notes: Dalaran under repair behind its opened dome, and the Alterac roads around it.
 ## Author: RPG Dialogue
-## Version: 1.7.0
+## Version: 1.8.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.dalaran
@@ -21,3 +21,4 @@ npcs\av_headland.lua
 npcs\archives.lua
 npcs\tempered_tomes.lua
 npcs\orphanage.lua
+npcs\more_folk.lua

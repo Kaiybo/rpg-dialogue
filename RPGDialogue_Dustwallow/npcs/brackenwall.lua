@@ -144,7 +144,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Fear is the wrong word. Their Lady could have burned Brackenwall to the mud any night she liked, and she hasn't, which tells me more about her than any treaty. Still, I'd like to know what Archmage Tervosh keeps in that tower of his." } },
       choices = {
-        { text = "I'll respect their peace. They've kept their word.", next = "BACK", reply = "They have, and I'll keep mine as long as they keep theirs. Good, that's one less worry.", fx = { align = { honor = 1 } } },
+        { text = "I'll respect their peace. They've kept their word.", next = "BACK", reply = "They have, and I'll keep mine as long as they keep theirs. That's one worry I can cross off, at least.", fx = { align = { honor = 1 } } },
         { text = "I'll find out what's in that tower, quietly.", next = "BACK", reply = "Quietly, then, and don't get caught, or Tervosh will have something new in that tower. Tell me what you find.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -193,7 +193,7 @@ P:NPC {
           text = "Grimtotem: tauren who want a war and want the Horde to pay for it. The Warchief will hear of this." },
         { id = "h_justice", when = { questActive = TODO_QUEST("Justice Dispensed") },
           text = "It's done. Whoever wanted war wanted it badly, and they'll have to want it from somewhere else now." },
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" },
           text = "A tauren druid in Brackenwall, good. You'll know better than I do what the Earth Mother makes of tauren who'd start a war in her name." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because the truth about that inn won't be found by shouting at the gates of Theramore, and you know how to listen where others stomp." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Thrall forgives the old ways in those who serve him well, and I'll do the same, but keep your demons away from the human road while the inn still smokes." },
@@ -201,6 +201,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Theramore's full of your kind, wearing blue and doing the Lady's bidding, and I'd like someone on our side who knows what they're capable of." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 20 } }, text = "Word is the Grimtotem in the marsh are a good deal fewer than they were, and they're not happy about it. Neither am I, though only because I'd have liked to watch." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The humans of Theramore have paladins too, and they'd look at you and see something worse than an orc." },
+        { id = "h_dd_spies", tags = { "news" }, when = { questDone = TODO_QUEST("Theramore Spies") }, text = "Nazeer says you cleared out the Theramore spies on the islands. Good work, but I'd rather the humans never hear whose hands did it." },
       },
       again = {
         { id = "h_again", text = "What else? Make it useful." },
@@ -228,7 +229,19 @@ P:NPC {
         { text = "Would you march on Theramore if the Warchief ordered it, Krog?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "You'll have read the tracks near the Shady Rest, Krog.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would Theramore's humans trust a Forsaken paladin, Krog?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You'd keep the spies quiet, Krog? They were spying on us.", next = "dd_spies", when = { questDone = TODO_QUEST("Theramore Spies") } },
         { text = "Blame it on the humans and save us the trouble.", next = "END", reply = "Then the war will save us the trouble of living, too. Get out of my camp until you're ready to do the job properly.", fx = { affinity = -1, align = { honor = -1 } } },
+      },
+    },
+    dd_spies = {
+      big = true,
+      lines = {
+        { id = "dd_spies_1", text = "Of course they were spying. Theramore watches us and we watch Theramore, and that's how two old enemies keep a peace without trusting each other. But dead spies make angry captains, and an angry captain in Theramore is one step from a war the Warchief doesn't want." },
+      },
+      choices = {
+        { text = "They watched us first. They got what they asked for.", next = "BACK", reply = "Maybe so, and Nazeer would say the same. Just don't brag about it in a Theramore tavern, or you'll be the spark I've spent all year putting out.", fx = { align = { order = -1 } } },
+        { text = "You're right. Quiet keeps the peace. I'll say nothing.", next = "BACK", reply = "Good. Thrall's peace is held together by people who know when to keep their mouths shut, and you're one of them now.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Krog.", next = "BACK" },
       },
     },
 
@@ -493,8 +506,9 @@ P:NPC {
         { id = "h_wet", when = { metBefore = true }, text = "Another report from Theramore, soaked through. Everything in this marsh is soaked through, even the secrets." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Theramore is full of your kind, Kirin Tor refugees with long memories, so I'd like to hear how you think one of them thinks." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp could slip under Theramore's walls easier than any of my spies, and I've thought about it more than once, I'll admit." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid in the marsh. Your people know this swamp better than mine, and the Stonemaul trust you more than they trust me." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid in the marsh. Your people know this swamp better than mine, and the Stonemaul trust you more than they trust me." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Theramore would count you a threat twice over, and for once I think they'd be right." },
+        { id = "h_dd_justice", tags = { "news" }, when = { questDone = TODO_QUEST("Justice Dispensed") }, text = "Krog tells me the business of the burned inn is finished, and that you finished it. I'll admit I didn't think the peace would survive that one, so I'm glad to be wrong, for once." },
       },
       again = {
         { id = "h_again", text = "Anything else? Lower your voice when you ask it." },

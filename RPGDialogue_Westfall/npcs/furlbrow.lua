@@ -31,12 +31,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_blanchy_f = {
+      lines = {
+        { id = "dd_blanchy_f_a", text = "Better than me, I'd say, and she's the only one of us who doesn't lie awake at night thinking about the farm. She pulled our plough for eleven years, and I wasn't going to leave her behind when the Defias came." },
+      },
+      choices = {
+        { text = "You did right by her. Loyalty runs both ways.", next = "dd_blanchy_f2", fx = { align = { honor = 1 } } },
+        { text = "A horse is a horse. You should have sold her.", next = "dd_blanchy_f2", fx = { align = { honor = -1 } } },
+      },
+    },
+    dd_blanchy_f2 = {
+      lines = {
+        { id = "dd_blanchy_f2a", text = "Maybe, but who'd buy a tired old mare in Westfall these days, and what would Verna say? No, she stays with us, and when we get the farm back she'll be the first one through the gate." },
+      },
+      choices = { { text = "I hope that day comes soon. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I tell Verna we will, and I mostly believe it. The land's still ours in my heart, whatever the thieves think. Maybe the earth remembers whose it was." } },
       choices = {
         { text = "Hold on to hope, Theodore. The land remembers you.", next = "BACK", reply = "I'll try, friend, I will, though hope's a heavy thing to carry with a broken wagon. Verna carries most of it for me.", fx = { align = { light = 1 } } },
-        { text = "Let it go. Start fresh somewhere safer.", next = "BACK", reply = "Somewhere safer, he says, as if there's anywhere in Westfall that fits. I'll think on it, but I'll not like it.", fx = { align = { light = -1 } } },
+        { text = "Let it go. Start fresh somewhere safer.", next = "BACK", reply = "Somewhere safer, {g:he|she} says, as if there's anywhere in Westfall that fits. I'll think on it, but I'll not like it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -108,6 +124,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_blanchy_f", tags = { "news" }, when = { questDone = TODO_QUEST("Poor Old Blanchy") },
+          text = "Blanchy's eating proper oats again, thanks to you, and she's got some life back in her eyes. Verna sings to her in the mornings now, and I haven't heard Verna sing since we left the farm." },
+        { id = "dd_stew_f", when = { questDone = TODO_QUEST("Westfall Stew") },
+          text = "Salma Saldean says you helped her with her stew, and she brought a bowl round for Verna and me. Good neighbours are still good neighbours, even when the neighbourhood's gone to the Defias." },
+
         { id = "h_druidx", when = { class = "DRUID" },
           text = "You've the look of the forest about you. We had trees here once, before the war and the woodcutters took them all." },
         { id = "h_default", text = "Theodore Furlbrow's the name. Verna and I grew pumpkins north of here until the thieves came, and now we grow nothing." },
@@ -133,6 +154,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'm only watching the road for a wheelwright." },
       },
       choices = {
+        { text = "How's Blanchy doing, Theodore?", next = "dd_blanchy_f", when = { questDone = TODO_QUEST("Poor Old Blanchy") } },
+
         { text = "There used to be trees here, by the look of the stumps.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Will you go back to your farm?", next = "back" },
         { text = "What happened the night you left?", next = "night" },

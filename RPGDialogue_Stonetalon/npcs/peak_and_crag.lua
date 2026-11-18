@@ -111,7 +111,7 @@ P:NPC {
       },
       choices = {
         { text = "Strike Sun Rock before they strike the Peak.", next = "BACK", reply = "That is what the angry ones say, and I understand their fear. But striking first is how the forest burns, and I want no part of it.", fx = { align = { light = -1 } } },
-        { text = "Guard the Den, and leave Sun Rock alone.", next = "BACK", reply = "Thank you, and that is what I would choose too. Let the Sentinels guard the Den, and let Sun Rock keep to its rock.", fx = { align = { light = 1 } } },
+        { text = "Guard the Den, and leave Sun Rock alone.", next = "BACK", reply = "That is what I would choose too. Sun Rock has never once climbed this high, and I'd rather not give them a reason.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

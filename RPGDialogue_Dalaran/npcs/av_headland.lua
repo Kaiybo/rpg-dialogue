@@ -99,6 +99,8 @@ P:NPC {
           text = "A dwarf o' Khaz Modan! The valley's ours by right o' the King, an' it'll take good dwarven boots tae hold it." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "A gnome! Ye'll like Dun Baldar, there's machines in the mines an' bigger ones on the field." },
+        { id = "h_dd_honor", tags = { "news" }, when = { honorKills = { min = 250 } },
+          text = "Word from the valley is ye've put a good many Frostwolves an' their friends in the snow, an' Vanndar likes that sort o' tally. Keep it up, an' mind ye come back for yer insignia." },
       },
       again = {
         { id = "h_again", text = "What else, soldier? The valley's waitin'." },
@@ -131,7 +133,7 @@ P:NPC {
           text = "Between us, aye, they've a better claim tae the snow than we do, but we've a better claim tae the iron under it. Wars have started over less, an' this one's no' stoppin' for my opinion." },
       },
       choices = {
-        { text = "Ironforge's claim is just. We hold the valley.", next = "BACK", reply = "That's the spirit, an' ye'll make a fine Stormpike, so take your insignia an' keep your head down when the Frostwolf riders come over the ridge.", fx = { align = { honor = 1 } } },
+        { text = "Ironforge's claim is just. We hold the valley.", next = "BACK", reply = "That's the spirit! Ye'll make a fine Stormpike. Take yer insignia, an' keep yer head down when the Frostwolf riders come over the ridge.", fx = { align = { honor = 1 } } },
         { text = "Claims aside, iron is iron. Take what we can.", next = "BACK", reply = "Hmph, Ironforge didnae send us up there for iron alone, but I'll not turn down a strong arm for the sake of a speech, so sign your name an' get warm.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -236,6 +238,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_rank = {
+      lines = { { id = "dd_rank_default", text = "It is a dangerous thing, and a good one. A soldier the enemy knows is a soldier they fear, and they will send their best against you, so you will either grow stronger or fall, and the clan will honour you either way." } },
+      choices = {
+        { text = "Then let them send their best. I'll be waiting in the snow.", next = "BACK", reply = "Spoken like a Frostwolf. Lok'tar, {rank}, and die with honour if you must.", fx = { align = { honor = 1 } } },
+        { text = "I'd rather they didn't know me. A hidden blade lives longer.", next = "BACK", reply = "That is a rogue's wisdom, and the snow has room for it. But the clan sings of the ones they saw.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
+
     prej = {
       big = true,
       lines = { { id = "prej_default", text = "I trust what bleeds and breathes. The Forsaken have a queen who answers to nobody and apothecaries who brew plagues in cellars, and they march under our banner while they serve hers first." } },
@@ -264,7 +275,7 @@ P:NPC {
       },
       choices = {
         { text = "Thieves in a stolen valley. Drive them out.", next = "opn_dwarves_r_hate", fx = { affinity = 2, align = { honor = -1 }, opinion = { dwarves = "hate" } } },
-        { text = "Stubborn and brave. A worthy enemy deserves respect.", next = "opn_dwarves_r_respect", fx = { affinity = 1, align = { honor = 1 }, opinion = { dwarves = "respect" } } },
+        { text = "They're stubborn and brave, and a worthy enemy deserves respect.", next = "opn_dwarves_r_respect", fx = { affinity = 1, align = { honor = 1 }, opinion = { dwarves = "respect" } } },
         { text = "Greedy for iron. Make them pay for every ounce.", next = "opn_dwarves_r_greedy", fx = { trait = { practical = 1 }, opinion = { dwarves = "greedy" } } },
         { text = "Some of them are decent. The Stormpike aren't all dwarves.", next = "opn_dwarves_r_mixed", when = { faction = "Alliance" }, fx = { affinity = -1, opinion = { dwarves = "mixed" } } },
         { text = "I'd rather fight than talk, Warmaster.", next = "BACK" },
@@ -324,10 +335,12 @@ P:NPC {
           text = "An orc! Then you know what the Frostwolves are to the Warchief, and why this valley will never be given up." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A tauren. The cold is no friend to your hide, but the clan welcomes any who stand with it." },
+        { id = "h_dd_rank", when = { pvpRank = 6 },
+          text = "Your rank has risen, {rank}, and the Stormpike have started to learn your face. That is how respect is earned on this field, and you are earning it." },
       },
       again = {
         { id = "h_again", text = "What else? The drums do not wait." },
-        { id = "h_again2", text = "Speak. Then go and fight." },
+        { id = "h_again2", text = "Speak, and then go and fight." },
       },
       choices = {
         { text = "You don't trust the Forsaken, Warmaster.", next = "prej", when = { prejudiced = true } },
@@ -337,6 +350,7 @@ P:NPC {
         { text = "What is this test?", next = "test" },
         { text = "The clan knows my name now, Warmaster.", next = "honored", when = { reputation = { faction = "Frostwolf Clan", min = "honored" } } },
         { text = "For the Horde, Warmaster.", next = "END" },
+        { text = "The Stormpike know my face, Warmaster. Is that a good thing?", next = "dd_rank", when = { pvpRank = 6 } },
       },
     },
 
@@ -384,7 +398,7 @@ P:NPC {
       },
       choices = {
         { text = "What do you make of the dwarves, Warmaster?", next = "opn_dwarves" },
-        { text = "Drive them out. No terms until they go.", next = "BACK", reply = "That is the Frostwolf answer, and the one I would give, so go and show the Stormpike what it means when an orc stops talking.", fx = { align = { order = -1 } } },
+        { text = "Drive them out. No terms until they go.", next = "BACK", reply = "That is the Frostwolf answer, and mine. Go and show the Stormpike what it means when an orc stops talking.", fx = { align = { order = -1 } } },
         { text = "Talk is cheaper than war. Offer terms.", next = "BACK", reply = "You speak like a diplomat, and Thrall might even agree, but the Stormpike came with picks and cannons, not with words, and I have not heard them offer any.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

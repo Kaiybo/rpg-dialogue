@@ -107,7 +107,7 @@ P:NPC {
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
           text = "Thredd's dead and the riot's over, which leaves one less Defias mouth in the Stockade for me to question. Next time you go down there, come to me first, because a living prisoner is worth ten dead ones to SI:7." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Silver Hand makes poor spies and honest witnesses, and I've a use for honest witnesses now and then." },
-        { id = "h_default", key = true, text = "Shaw. I run SI:7. If you've heard of us, someone's been careless. If you haven't, we're doing our job." },
+        { id = "h_default", key = true, text = "The name's Shaw, and I run SI:7. If you've heard of us, someone's been careless; if you haven't, we're doing our job." },
         { id = "h_si7", tags = { "news" }, when = { questActive = TODO_QUEST("SI:7") },
           text = "So you found the building, which is good, because finding things people would rather you didn't is the whole job. You'll be doing it until your feet ache." },
         { id = "h_defias", when = { topicKnown = "defias", minLevel = 15 },
@@ -119,7 +119,7 @@ P:NPC {
         { id = "h_wiley", tags = { "news" }, when = { questActive = TODO_QUEST("The Defias Brotherhood") },
           text = "This is Stoutmantle's Brotherhood business, and the whispers say Stonemasons. He won't like where that road goes, and neither do I." },
         { id = "h_maelik", tags = { "news" }, when = { questActive = TODO_QUEST("Shadow of the Past") },
-          text = "Alexston's description. Maelik, it says. I know the face, not that name. He answers to Marzon when it suits him, and he works for a lord." },
+          text = "This is Alexston's description, and it says Maelik. I know the face, if not that name: he answers to Marzon when it suits him, and he works for a lord." },
         { id = "h_lescovar_done", tags = { "news" }, when = { questActive = TODO_QUEST("Brotherhood's End") },
           text = "Alexston wants a word with you, so tell him everything except whose hand did the work. As for Trias, he doesn't exist, and he never has." },
         { id = "h_kearnen", when = { questActive = TODO_QUEST("Mathias and the Defias") },
@@ -139,12 +139,12 @@ P:NPC {
         { id = "h_canals", when = { origin = "human_canal_pickpocket" },
           text = "I remember a file about a canal child with quick fingers and no respect for anybody's purse. Osborne asked me to let it go, and I did, and here you are; don't make me regret it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in Old Town, walking past SI:7's door. You're loud, but you're honest about it, and in my line of work that's almost refreshing." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid walking into SI:7. Your Sentinels keep their own intelligence and share very little of it, and I'd like to know whether you're here to change that." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid walking into SI:7. Your Sentinels keep their own intelligence and share very little of it, and I'd like to know whether you're here to change that." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman in Stormwind. I have a note on you already, of course, but I'd like to hear your own account of who taught you." },
       },
       again = {
         { id = "h_again", text = "Go on. I've ten minutes, and I've already spent two of them on you." },
-        { id = "h_again2", text = "What else? Quietly. The walls here are thin on purpose." },
+        { id = "h_again2", text = "What else? Keep it quiet; the walls here are thin on purpose." },
         { id = "h_again3", when = { class = "ROGUE" }, text = "Something else? Ask it as if someone's listening. Someone usually is." },
       },
       choices = {
@@ -358,7 +358,7 @@ P:NPC {
       },
       choices = {
         { text = "Then you'll know if I ever lose control.", next = "lamb_control" },
-        { text = "Watching warlocks is wise.", next = "BACK", reply = "It is, and someone has to do it. The trick is that Gakin knows it and does it too.", fx = { align = { order = 1 } } },
+        { text = "Watching warlocks is wise.", next = "BACK", reply = "Someone has to. The trouble is that Gakin knows he's watched, and he watches right back.", fx = { align = { order = 1 } } },
         { text = "What we do in the cellar is our business.", next = "BACK", reply = "Until it walks up the stairs. Then it becomes my business, and I don't enjoy my business.", fx = { affinity = -1, align = { order = -1 } } },
       },
     },
@@ -508,7 +508,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rarely, though they ought to; a mage who can't read a trail is lost the moment she leaves a road. Your {pet} keeps looking at the arcane focus as if it means to eat it. I'd rather it didn't; the last creature that tried glowed for a week." },
       },
       choices = {
-        { text = "Every trade has something to teach the others, Magus.", next = "BACK", reply = "They do, and I'd send every apprentice to Alterac for a season if the Sanctum allowed it.", fx = { align = { order = 1 } } },
+        { text = "Every trade has something to teach the others, Magus.", next = "BACK", reply = "Exactly so. I'd send every apprentice in the Quarter to walk a season with a Hillsbrad hunter, if the Sanctum would let me.", fx = { align = { order = 1 } } },
         { text = "Mages stick to their books. I'll stick to my trails.", next = "BACK", reply = "Then let's hope you never need a ward in the snow. Still, I respect a hunter who knows her trade.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -829,7 +829,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Well? The candles don't last forever, and nor does my patience." },
-        { id = "h_again2", text = "Something else. Quietly." },
+        { id = "h_again2", text = "Something else? Keep your voice down." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
@@ -1004,6 +1004,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_allison_h = {
+      lines = {
+        { id = "dd_allison_h_a", text = "Then you'll hear your own story told back to you before the night's out, and it'll be wrong in three places. The carter swore Hogger stood ten feet tall and spoke Common, which I very much doubt." },
+      },
+      choices = {
+        { text = "Let them tell it however they like. It's done.", next = "dd_allison_h2", fx = { align = { honor = 1 } } },
+        { text = "Ten feet tall is about right, actually.", next = "dd_allison_h2", fx = { align = { honor = -1 } } },
+      },
+    },
+    dd_allison_h2 = {
+      lines = {
+        { id = "dd_allison_h2a", text = "Well, the city loves a story about a gnoll more than it loves the truth about one, and so do I, if I'm honest. Sit down and enjoy being famous for an evening; it won't last past the next fair." },
+      },
+      choices = { { text = "I'll enjoy it while I can. Something else.", next = "BACK" } },
+    },
+
     xpt_allison = {
       big = true,
       lines = { { id = "xpt_allison_default", text = "Badly, love, and loudly. I've seen friends of ten years stop speaking over a single green ring, and I've seen a dwarf give away a whole sword because his friend looked at it the right way." } },
@@ -1101,6 +1117,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_hogger_allison", when = { killed = { name = "Hogger" } },
+          text = "A carter from Goldshire was in last week telling everyone that Hogger's finally dead, and he described the one who did it well enough that I think I'm pouring for them. That gnoll's been a fireside story in this city for years, so you've made yourself one too." },
+        { id = "dd_deaths_allison", when = { deaths = { min = 20 } },
+          text = "You look like a guest who's woken up in the Cathedral more often than in my beds, if you don't mind my saying. Take a room tonight and sleep in it properly, for once." },
+
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "Well, look at you, love, the spit of {alt}, who had the corner room last time the auction house was busy! Sit down and tell me straight whether you're cousins or I've just been working too long." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
@@ -1131,6 +1152,8 @@ P:NPC {
         { id = "h_again2", text = "Anything more? The kettle's always on." },
       },
       choices = {
+        { text = "I'm the one who killed Hogger, Allison.", next = "dd_allison_h", when = { killed = { name = "Hogger" } } },
+
         { text = "A room, please.", next = "BUSINESS" },
         { text = "You must hear all sorts in here.", next = "news" },
         { text = "The Gilded Rose sees all sorts, I'd wager.", next = "guests" },

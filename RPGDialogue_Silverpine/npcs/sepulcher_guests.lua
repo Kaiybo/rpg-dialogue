@@ -103,7 +103,7 @@ P:NPC {
       lines = { { id = "wt_default", text = "No, and I'd be lying to you if I said otherwise. Some at the Bluff think the Forsaken are a wound in the world that should be allowed to close, and some think as I do, that a wound is exactly where a healer ought to be." } },
       choices = {
         { text = "Then you're right to be here. Healers go where it hurts.", next = "BACK", reply = "That is what I told the elders at the Bluff, though more slowly. Thank you; it is good to hear it from another.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Your kin may be right. Some things shouldn't be mended.", next = "BACK", reply = "Perhaps, and I have wondered it on the cold nights. But a healer who chooses which wounds to touch is no healer.", fx = { align = { light = -1 } } },
+        { text = "Your kin may be right. Some things shouldn't be mended.", next = "BACK", reply = "Perhaps, and I have wondered it on the cold nights. But I have never yet walked past a wounded thing, and I will not start here.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -133,7 +133,7 @@ P:NPC {
       big = true,
       lines = { { id = "su_default", text = "Perhaps one day, if I learn its nature before I learn its price. The druids who went into those caves to dream have not come out the same, by Tonga's account, so I'll take my time, even if Silverpine can't afford much of it." } },
       choices = {
-        { text = "Take your time. A rushed cure is a new sickness.", next = "BACK", reply = "You speak with the patience of the plains. I will take my time, and the Earth Mother will forgive the waiting.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Take your time. A rushed cure is a new sickness.", next = "BACK", reply = "You speak with the patience of the plains, friend. I will take my time, and the shell will keep until I understand it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Silverpine can't wait. Use it and learn as you go.", next = "BACK", reply = "Silverpine has waited for years already, and a little longer will not kill it. I will not make a new sickness in haste.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -182,7 +182,7 @@ P:NPC {
       big = true,
       lines = { { id = "ds_default", text = "That's kind, and I'll hold you to it. When you walk through the pines, put your hand on the bark of a living one and let it feel a living hand; the Earth Mother hears that, even here." } },
       choices = {
-        { text = "Balance needs patience. I'll do it gladly.", next = "BACK", reply = "Then the pines will feel it, and so will I. Walk gently, friend.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Balance needs patience. I'll do it gladly.", next = "BACK", reply = "Then the pines will feel it, and so will I. Start by the north wall, where my one green sapling is.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "I'd rather burn the rot out and let it regrow.", next = "BACK", reply = "Fire has its season on the plains, but not in a sick forest. Here it would only leave ash. Be patient.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

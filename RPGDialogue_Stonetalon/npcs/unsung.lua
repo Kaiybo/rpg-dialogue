@@ -74,7 +74,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only the harpies, and only because they come in numbers, which no hippogryph will face alone. Your {pet} is watching my birds, {class}, and they're watching it right back. I think they'll get along, if neither of them blinks." },
       },
       choices = {
-        { text = "I'll keep the cliffs clear while your birds rest.", next = "BACK", reply = "Then you have my thanks, and so will the birds. They've been flying tired since the harpies grew bold.", fx = { align = { honor = 1 } } },
+        { text = "I'll keep the cliffs clear while your birds rest.", next = "BACK", reply = "Then you have my thanks, and so will the birds. Two of them came back last week with talon marks along their flanks.", fx = { align = { honor = 1 } } },
         { text = "Harpies are a soldier's problem. I'll hunt elsewhere.", next = "BACK", reply = "As you like, though the harpies make no such distinction. I'll keep my birds close to the roost until someone else comes.", fx = { align = { honor = -1 } } },
         { text = "Something else, Teloren.", next = "BACK" },
       },
@@ -83,7 +83,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Often, because the Venture Company sends scouts up the cliffs to see what the druids are planting, and my birds can't follow them into the rocks. If you find one, tell me where he climbed, so I can watch that path from the air." } },
       choices = {
-        { text = "I'll find the path and tell you, nothing more.", next = "BACK", reply = "That is all I ask, and it's a great help. I'll keep a bird watching that path from first light.", fx = { align = { honor = 1 } } },
+        { text = "I'll find the path and tell you, nothing more.", next = "BACK", reply = "That is all I ask. I'll keep a bird watching that path from first light, and we'll see who uses it.", fx = { align = { honor = 1 } } },
         { text = "I'll find the scout, and he won't climb back down.", next = "BACK", reply = "I didn't ask for that, and I'd rather not hear of it. But I won't pretend to weep for a Venture scout, either.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -110,7 +110,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The smoke in the vale, and the Venture Company's saws at Windshear, because the mountain has not been quiet since they came. I watch and count, but someone has to go down and do something about it." } },
       choices = {
-        { text = "I'll go down and put a stop to the burning.", next = "BACK", reply = "Then the mountain has a friend, and it needs every one. Go down to the vale, and I'll watch for your return.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll go down and put a stop to the burning.", next = "BACK", reply = "Then the mountain has a friend, and it needs every one. I'll watch for you from the roost; a smoke-stained traveller is easy to spot.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The fires aren't my concern. I'm only passing through.", next = "BACK", reply = "Then pass through quickly, because the smoke follows travellers. I'll fly you onward when you're ready.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -121,7 +121,7 @@ P:NPC {
         { id = "xlock_default", text = "They will, because the Sentinels say you fight for the Alliance, and I trust their word over my own unease. Dismiss your demon before you mount, though, because a frightened hippogryph over Stonetalon is a long way to fall." },
       },
       choices = {
-        { text = "I'll dismiss it before I fly.", next = "BACK", reply = "Thank you, and my birds thank you too. They'll carry you gently to wherever the Sentinels need you.", fx = { align = { light = 1 } } },
+        { text = "I'll dismiss it before I fly.", next = "BACK", reply = "Thank you. My birds will carry you gently, now that they can't smell it.", fx = { align = { light = 1 } } },
         { text = "My demon rides where I ride.", next = "BACK", reply = "Then it will ride alone, because no hippogryph of mine will take it. Dismiss it, or walk down the mountain.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -208,7 +208,7 @@ P:NPC {
         { id = "po2_default", text = "The Horde holds Sun Rock to the east, and their wind riders cross our sky now and then, though they've never come to the Peak. I watch them as they watch me, and so far neither of us has done more than watch." },
       },
       choices = {
-        { text = "Keep watching, and let the peace hold as long as it can.", next = "BACK", reply = "That is my hope, and I'm glad you share it. A watched peace is still a peace, and I'll take it as long as I can.", fx = { align = { honor = 1 } } },
+        { text = "Keep watching, and let the peace hold as long as it can.", next = "BACK", reply = "That is my hope, and I'm glad you share it. Sun Rock has kept to its rock so far, and I'd like it to stay that way.", fx = { align = { honor = 1 } } },
         { text = "Watching isn't enough. One day they'll come, so prepare.", next = "BACK", reply = "Perhaps they will, and I've told the Sentinels the same. Still, I would rather be ready and wrong than unready and right.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -239,7 +239,7 @@ P:NPC {
         { id = "dk2_default", text = "Because the gentle places can look after themselves, and Stonetalon can't. The Keeper is old and his druids are few, and someone has to carry word from here to Darnassus before the goblins have cut the whole mountain bare." },
       },
       choices = {
-        { text = "Duty belongs where it's needed most, not where it's easy.", next = "BACK", reply = "Spoken like a Sentinel, and Darnassus could use more like you. Stonetalon needs you more than the gentle places do.", fx = { align = { order = 1 } } },
+        { text = "Duty belongs where it's needed most, not where it's easy.", next = "BACK", reply = "Spoken like a Sentinel, and Darnassus could use more like you. The Keeper will be glad of you, even if he only shows it by talking longer.", fx = { align = { order = 1 } } },
         { text = "I'd rather choose my own road than follow a summons.", next = "BACK", reply = "Then choose it, and I'll not think less of you. But the mountain will remember who came when it called.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

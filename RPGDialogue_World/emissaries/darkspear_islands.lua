@@ -121,7 +121,7 @@ P:NPC {
       choices = {
         { text = "Bring them home to the Horde, where they're safe.", next = "BACK", reply = "Dat be the safe answer, and many of the elders say it too, though some of dem old ones would sooner die on the sand than live in a city of orcs.", fx = { align = { order = 1 } } },
         { text = "The islands are theirs. Fight so they can stay.", next = "BACK", reply = "Ah, you got the fire of Sen'jin in you, mon, and the Raiders be glad to hear it, because a tribe dat runs from every home never gets to keep one.", fx = { align = { order = -1 } } },
-        { text = "Ask them first. It's their choice.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Ask them first. It should be their choice.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
 

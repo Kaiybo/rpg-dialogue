@@ -50,7 +50,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Aye, the grandsires o' these very birds, droppin' riders an' storm hammers on the Horde while the Alliance footmen held the ground below. A gryphon remembers a battle in its blood, an' ye'll feel it in the saddle when ye fly over the Vilebranch." } },
       choices = {
-        { text = "Then I'll honor them by flying into the fight bravely.", next = "BACK", reply = "That's the way tae do it. My birds'll carry ye proud.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll honour them by flying into the fight bravely.", next = "BACK", reply = "That's the way tae do it. Old Stormclaw went down over Jintha'Alor wi' his rider still swingin', an' every bird in the aerie screamed for him that night.", fx = { align = { honor = 1 } } },
         { text = "Gryphons are weapons of war, Guthrum. Nothing more.", next = "BACK", reply = "Weapons? Ye've never flown one, have ye? They'll teach ye different, an' quick.", fx = { align = { honor = -1 } } },
         { text = "Something else, Guthrum.", next = "BACK" },
       },
@@ -90,7 +90,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Always, an' they don't like it, but they're soldiers at heart an' they'll carry ye anyway, so long as ye don't bring yer wee friend on the saddle. Treat a Wildhammer gryphon wi' respect an' it'll fly through a storm for ye, an' treat it ill an' ye'll find out how far it is tae the ground." } },
       choices = {
         { text = "I'll treat your gryphons with respect, Guthrum.", next = "BACK", reply = "Good. They'll carry ye smoother for it, an' I'll sleep easier.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A beast is a beast. It'll carry me regardless.", next = "BACK", reply = "It will, aye, an' it'll remember ye. Gryphons have long memories.", fx = { align = { honor = -1 } } },
+        { text = "A beast is a beast. It'll carry me regardless.", next = "BACK", reply = "It will, aye, an' it'll remember ye. I've seen a bird wait three years tae nip a rider who kicked it once, an' it got him good.", fx = { align = { honor = -1 } } },
         { text = "Something else, Guthrum.", next = "BACK" },
       },
     },
@@ -109,7 +109,7 @@ P:NPC {
           text = "Ye walked up on my birds without a sound, {class}, an' that's a fine way tae lose a hand around here, for gryphons like tae see who's comin'." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, an' ye'll be wantin' tae fly tae the fightin', no doubt. My birds carried the Wildhammer intae the Second War, so they know a soldier when they see one." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll understand my birds better than most, then, for ye know a beast's a comrade an' no a saddle wi' feathers." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The gryphons don't take kindly tae shapechangers, so stay on two legs on the platform, if ye please." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The gryphons don't take kindly tae shapechangers, so stay on two legs on the platform, if ye please." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The birds'll carry ye gladly, {class}, an' I'll ask ye tae say a word for the riders who've no' come back from Jintha'Alor this season, for there's been more than I'd like." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Ye'll fly, {class}, for ye're Alliance an' that's the rule, but the birds'll know what ye are, so dinnae expect a smooth ride." },
       },
@@ -141,14 +141,14 @@ P:NPC {
       choices = {
         { text = "Then I'll trust your discretion, Guthrum.", next = "BACK", reply = "Good. Discretion's a rare thing, an' I'll keep yours if ye keep mine.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Gossip can be bought quiet. Everyone has a price.", next = "BACK", reply = "No' my riders, they cannae. Ye'll find the Wildhammer are poor at bein' bought.", fx = { align = { honor = -1 } } },
-        { text = "Never mind. Something else.", next = "BACK" },
+        { text = "Never mind. Let's talk about something else.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Envy? Ye blink tae Ironforge an' miss every peak an' river between. My birds carried the Wildhammer intae the Second War, an' there's no spell I'd trade for an hour on a gryphon's back." } },
       choices = {
-        { text = "Some things shouldn't be shortcut. You're right.", next = "BACK", reply = "Aye, I am, an' it's good tae hear a mage say it. Fly wi' me once, an' ye'll understand.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "You're right. Some things shouldn't be shortcut.", next = "BACK", reply = "Aye, I am, an' it's good tae hear a mage say it. Fly wi' me once, an' ye'll understand.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "In war, a shortcut is just good sense.", next = "BACK", reply = "Good sense, maybe, but ye'll never see the Hinterlands like we do. That's yer loss.", fx = { align = { honor = -1 } } },
         { text = "Fair. Let me ask something else.", next = "BACK" },
       },
@@ -212,7 +212,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never stand downwind of a gryphon that's just eaten, friend. I lost a good cloak that way, an' most o' my dignity." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer gryphons are our comrades, not our mounts, and I'll not hear otherwise. I send them out and I welcome them back, every one." } },
     second_war = { { id = "tp_second_war", text = "My gryphons' grandsires flew in the Second War, and they were the terror of the Horde. I tell the young ones the stories, and they listen." } },
-    magni = { { id = "tp_magni", text = "The Bronzebeards call their gryphons mounts, and I'll never forgive them for it. Magni's a fine king otherwise." } },
+    magni = { { id = "tp_magni", text = "The Bronzebeards call their gryphons mounts, an' I'll never forgive them for it. Magni's a fine king otherwise, I'll grant him that." } },
     _none = { { id = "tp_none", text = "Couldn't tell ye, friend. Ask Falstad's folk; they hear more than I do." } },
   },
 }
@@ -257,7 +257,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Some, aye, for every mine leaves a hole, and some leave a scar. But the Wildhammer mine less than Ironforge an' they put back what they can, an' I'd say we're kinder tae the hills than most." } },
       choices = {
         { text = "Kinder isn't kind enough. Mine less, Harggan.", next = "BACK", reply = "Less, aye, an' I'll try. But the Peak needs iron, an' iron doesnae grow on trees.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "A town needs iron. A few holes are the cost.", next = "BACK", reply = "That's what I tell meself, an' most days I believe it.", fx = { align = { order = 1 } } },
+        { text = "A town needs iron. A few holes are the cost.", next = "BACK", reply = "That's what I tell meself, an' most days I believe it. Fraggar gives me a look every time I bring a new cart up, though.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -320,7 +320,7 @@ P:NPC {
           text = "I saw yer eyes go tae my strongbox, {class}, an' I'll tell ye now it's empty, for every copper I have goes on haulin' coal up this mountain." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. That armour came from somebody's forge, an' that forge burned coal I hauled up this mountain, so ye're welcome, though ye didnae know tae thank me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If ye're headin' down the road, keep an eye on the treeline for me, for the Witherbark like tae watch my carts from cover." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. Ye'll not want iron, I'd guess, but if ye're after a hand axe for kindling, I've plenty." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. Ye'll not want iron, I'd guess, but if ye're after a hand axe for kindling, I've plenty." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. That plate didnae come cheap, {class}, an' it didnae come up this mountain on its own either, so I'll be lookin' it over the way a smith looks at another smith's handiwork." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ye'll not be wantin' iron, I'd guess, {class}, but if ye've a prayer for the carters on the mountain road, I'll take one o' those instead." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ye'll be no use tae me at the forge, {class}, unless ye can make coal out of thin air, an' I've yet tae meet a mage who could." },
@@ -371,7 +371,7 @@ P:NPC {
       },
       choices = {
         { text = "Someone should clear the trolls out.", next = "BACK", reply = "Aye, someone should, an' the riders try. But trolls are stubborn as stone.", fx = { align = { light = -1 }, trait = { brave = 1 } } },
-        { text = "Better to trade than to fight for it.", next = "BACK", reply = "Trade wi' trolls? I'd like tae see it. Ye'd need a braver merchant than me.", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
+        { text = "Better to trade with them than fight for it.", next = "BACK", reply = "Trade wi' trolls? I'd like tae see it. Ye'd need a braver merchant than me.", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -418,10 +418,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I've been hauling iron up this mountain since my beard was short. It's a living, and I'm too stubborn to change it." } },
-    advice = { { id = "tp_ad", text = "Buy coal in the summer, friend. In the winter, the path freezes and the price doubles." } },
-    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer forges need coal and iron, and I haul it up the mountain. It's hard work, but somebody has to keep the fires lit." } },
-    magni = { { id = "tp_magni", text = "The Bronzebeards have mines under their mountain, and I'd give my beard for one. Hauling it up from the valleys is no work for a dwarf." } },
+    advice = { { id = "tp_ad", text = "Buy yer coal in the summer, friend. In the winter the path freezes, the mules sulk, an' the price doubles." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer forges need coal an' iron, an' I haul it up the mountain. It's hard work, but somebody has tae keep the fires lit, an' the riders certainly won't." } },
+    magni = { { id = "tp_magni", text = "The Bronzebeards have mines right under their mountain, an' I'd give my beard for one. Haulin' it all up from the valleys is no work for a dwarf." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys iron from the south, they say, and sells it for twice the price. I'd sell to them, if they'd fly up here to fetch it." } },
-    _none = { { id = "tp_none", text = "Don't know, and I've no time to find out. Ask at the inn." } },
+    _none = { { id = "tp_none", text = "Don't know, an' I've no time tae find out. Ask at the inn; Thulfram hears everythin'." } },
   },
 }

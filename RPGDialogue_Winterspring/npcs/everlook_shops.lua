@@ -73,7 +73,7 @@ P:NPC {
       big = true,
       lines = { { id = "fa_default", text = "Both, all, everybody, pal. Gold doesn't fly a flag, and neither does a Steamwheedle banker. I've had Horde and Alliance in my queue at the same time, glarin' at each other, and they both paid the same fee." } },
       choices = {
-        { text = "That's how it should be. Business keeps the peace.", next = "BACK", reply = "You get it, pal, and that's why nobody's ever drawn steel in my line, because they both know the vault closes on whoever starts it. Peace is just good business with better manners.", fx = { align = { order = 1 }, learn = { "steamwheedle" } } },
+        { text = "That's how it should be. Business keeps the peace.", next = "BACK", reply = "You get it, pal, and that's why nobody's ever drawn steel in my line, because they both know the vault closes on whoever starts it. Nobody fights where their money sleeps.", fx = { align = { order = 1 }, learn = { "steamwheedle" } } },
         { text = "Some things should matter more than coin, Izzy.", next = "BACK", reply = "Sure, sweetheart, and when you find one of those things, bring it by and I'll see if I can store it for you. Until then, the vault only takes what jingles.", fx = { align = { order = -1 } } },
         { text = "What happens if they start a fight in here?", next = "factions_fight" },
         { text = "Something else.", next = "BACK" },
@@ -107,7 +107,7 @@ P:NPC {
     },
     rogue = {
       lines = { { id = "ro_default", text = "Ha! I know that look, buddy, and I know those soft boots. The only work I got for your kind is standin' on the other side of my Bruiser and admirin' the locks, so let's keep it friendly, and you keep your hands where my ledger can see 'em." } },
-      choices = { { text = "Just asking. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "I was just asking. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
@@ -286,7 +286,7 @@ P:NPC {
       big = true,
       lines = { { id = "id_default", text = "Course it's dangerous, chum! If survival was your first priority, you could never be a real goblin engineer. We goblin engineers laugh at danger, and sometimes danger laughs back, and that's just the overhead." } },
       choices = {
-        { text = "Fortune favors the bold. I'd try it.", next = "BACK", reply = "Ha! That's the spirit, chum, and I'll put you down as a test subject, I mean a valued customer, right after I find my other eyebrow. Bold folks make the best data.", fx = { align = { order = -1 } } },
+        { text = "Fortune favors the bold. I'd try it.", next = "BACK", reply = "Ha! That's the spirit, chum, and I'll put you down as a test subject, I mean a valued customer, right after I find my other eyebrow. Sign here, and here, and initial where it says 'probably'.", fx = { align = { order = -1 } } },
         { text = "Some risks aren't worth any profit.", next = "BACK", reply = "Sure, and some folks never leave the house, and they never get to see a yeti turn inside out either. Your loss, pal, but I respect a coward who knows his own mind.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -137,7 +137,7 @@ P:NPC {
       },
       choices = {
         { text = "Your people's history is worth bleeding for.", next = "BACK", reply = "Ye say that like someone who's never had tae write the letter home. Still, I'll take it, for I believe it too, on the quiet days.", fx = { align = { honor = 1 } } },
-        { text = "No ruin is worth a dwarf's life.", next = "BACK", reply = "No, it isnae, an' I'd have said the same last week after the cookfire. The trouble is, nobody asks the ruin.", fx = { align = { honor = -1 } } },
+        { text = "No ruin is worth a dwarf's life.", next = "BACK", reply = "No, it isnae, an' I'd have said the same last week, before the cookfire went up. Trouble is, the ruin doesnae care what any of us think a life's worth.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -312,7 +312,7 @@ P:NPC {
         { id = "rg_default", text = "Wi' whose coin? The League pays for powder an' picks, an' the Mountaineers are spread thin as butter on a miner's bread. I've asked Jern, an' Jern asked Ironforge, an' Ironforge asked us tae be careful." },
       },
       choices = {
-        { text = "Ironforge has its reasons. Make do with what you have.", next = "BACK", reply = "Make do, aye, it's what dwarves do best. But make do is how good haulers end up in shallow graves on the south road.", fx = { align = { order = 1 } } },
+        { text = "Ironforge has its reasons. Make do with what you have.", next = "BACK", reply = "Make do, aye, it's what dwarves do best. But I've buried two haulers on the south road this year, an' I'm sick o' makin' do.", fx = { align = { order = 1 } } },
         { text = "Then arm yourselves and stop waiting for Ironforge.", next = "BACK", reply = "Ha! Now there's a hauler's answer. I've an axe under the seat already, an' I'll find the lads some more.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -399,7 +399,7 @@ P:NPC {
       },
       choices = {
         { text = "You'd use the man already on the cart.", next = "BACK", reply = "The man already on the cart. Aye, that's what happened, isn't it, an' I never once looked at him twice. Thank ye, though it stings.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'd rather keep my methods to myself.", next = "BACK", reply = "Keep them, then, an' I'll keep my eyes on ye. A hauler learns tae watch quiet folk the hard way.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather keep my methods to myself.", next = "BACK", reply = "Keep them, then, an' I'll keep my eyes on ye. Last quiet stranger I trusted on this road walked off wi' a cart o' silver.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

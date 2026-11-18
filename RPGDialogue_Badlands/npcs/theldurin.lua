@@ -161,7 +161,7 @@ P:NPC {
         { id = "sb_default", text = "And lose the only thing that can bind her again if she rises? There are some in the cult who think they can control her, but if she could be controlled, why was she chained in the first place? Mad logic, that, and they call me the mad one." },
       },
       choices = {
-        { text = "Keep it, then. A weapon's better than nothing.", next = "BACK", reply = "Aye, better than nothin', an' far better than the cult havin' it. I'll keep it close, an' I'll keep it hidden.", fx = { align = { order = 1 } } },
+        { text = "Keep it, then. A weapon's better than nothing.", next = "BACK", reply = "Aye, and far better in my pack than in the cult's hands. I sleep with it under my head, ye know.", fx = { align = { order = 1 } } },
         { text = "Some doors should be bricked up for good.", next = "BACK", reply = "Bricked up, aye, an' I'd do it if I could find enough bricks. But she's no' behind a door, friend, she's under everythin'.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -189,7 +189,7 @@ P:NPC {
         { id = "xp_default", text = "A priest would tell me that, aye, and I'd nod politely and go on listening to the ground. The Light's a fine thing, but it doesn't reach very far down, and what I'm afraid of lives where it's never shone." },
       },
       choices = {
-        { text = "The Light reaches further than you think.", next = "BACK", reply = "Does it? Then send it down an' let it see what I've seen, an' maybe it'll stop me listenin'. I'd thank it for that.", fx = { align = { light = 1 } } },
+        { text = "The Light reaches further than you think.", next = "BACK", reply = "Does it? Then send it down to the deep places and let it see what I've seen, and maybe I'll stop listening. I'd thank it for that.", fx = { align = { light = 1 } } },
         { text = "Then we fight the dark with darker tools.", next = "BACK", reply = "Darker tools? That's how I fell in wi' the Hammer in the first place. Mind yer step on that road.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -211,8 +211,8 @@ P:NPC {
         { id = "xm_default", text = "Using me? They'd have to find me first, and then they'd have to make sense of me, which is more than I can do most days. But you're right to wonder, and I'm glad someone clever is wondering it besides me." },
       },
       choices = {
-        { text = "I'll keep watch on you, then. For your sake.", next = "BACK", reply = "For my sake? That's the kindest thing anyone's said tae me since I left the Hammer. Watch, then, an' I'll try tae be worth watchin'.", fx = { align = { honor = 1 } } },
-        { text = "I'd use you myself, if it stopped them.", next = "BACK", reply = "Ye would, would ye? Then ye're honest, at least, which is more than the cult ever was. I'd rather ye than them.", fx = { align = { honor = -1 } } },
+        { text = "Someone ought to keep an eye on you. I'll do it.", next = "BACK", reply = "For my sake? That's the kindest thing anyone's said tae me since I left the Hammer. Watch, then, an' I'll try tae be worth watchin'.", fx = { align = { honor = 1 } } },
+        { text = "I'd use you myself, if it stopped them.", next = "BACK", reply = "Ye would, would ye? Well, you're honest about it, which is more than the cult ever was, so I'd rather it was you than them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

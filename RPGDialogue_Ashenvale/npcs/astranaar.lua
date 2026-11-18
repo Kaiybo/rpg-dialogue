@@ -163,8 +163,27 @@ P:NPC {
         { text = "I'll keep my eyes open on the strand, then.", next = "BACK" },
       },
     },
+    dd_sarilus = {
+      lines = {
+        { id = "dds_default", text = "Cleaner, at least, and Velene can stop staring at the water as if it might attack her, which once it did. A mage in the Barrens bending our elementals to his will is exactly the kind of trouble I cannot spare Sentinels to hunt, so I am grateful you did it for us." },
+      },
+      choices = {
+        { text = "Why can't you spare the Sentinels?", next = "dd_sarilus2" },
+        { text = "Something else, Raene.", next = "BACK" },
+      },
+    },
+    dd_sarilus2 = {
+      lines = {
+        { id = "dds2_default", text = "Because the orcs cut at Warsong, the furbolgs rage in the north, the satyrs creep out of Felfire Hill, and Darnassus sends me promises instead of soldiers. Astranaar holds because travellers like you lend their blades, and I would rather say that plainly than pretend otherwise." },
+      },
+      choices = {
+        { text = "Then I'll keep lending mine.", next = "BACK", fx = { affinity = 1, standing = { astranaar = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_sarilus", tags = { "news" }, when = { questDone = TODO_QUEST("Mage Summoner") }, text = "Velene sent word from Silverwind that the mage who fouled her lake is dead in the Barrens, and that you carried his head back to her. One less enemy at our backs, {class}, and I have few enough Sentinels to watch them all." },
         { id = "o_orcs_pity", tags = { "news" }, when = { opinion = { topic = "orcs", stance = "pity" } },
           text = "I hear you've a soft word for the orcs, {class}. Keep it soft, because my Sentinels have hard ears today." },
         { id = "o_ashenvale_war", tags = { "news" }, when = { faction = "Alliance", opinion = { topic = "ashenvale", stance = "war" } },
@@ -200,6 +219,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away; I have a moment before the scouts report." },
       },
       choices = {
+        { text = "Velene's lake should run clean now.", next = "dd_sarilus", when = { questDone = TODO_QUEST("Mage Summoner") } },
         { text = "What would you do with the Warsong, if you could?", next = "op_ask" },
         { text = "Do you keep any animals of your own?", next = "pets" },
         { text = "The furbolgs seem to have turned against you.", next = "furbolgs" },
@@ -450,6 +470,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_branch", when = { questDone = TODO_QUEST("The Branch of Cenarius") }, text = "Illiyana's sorrow has eased a little since the Branch of Cenarius came home to her, I hear, and you were the one who brought it. Elune bless you for that, for the dryads have few enough friends in these woods now." },
         { id = "h_default", key = true,
           text = "I am Pelturas Whitemoon. My daughter Relara has a fever no herb can touch and nightmares that make her scream in her sleep, and I will try anything; I have tried most things already, and only Orendil's remedies help at all." },
         { id = "h_orendil", tags = { "news" }, when = { questActive = TODO_QUEST("Orendil's Cure") },
@@ -660,6 +681,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_tear", tags = { "news" }, when = { questDone = TODO_QUEST("Elune's Tear") }, text = "Pelturas tells me you went all the way to the isle in Iris Lake for Elune's Tear, and that Orendil's patients rest easier for it. I worry for everyone who goes east of the lake, so I am glad to see you come back whole." },
         { id = "h_default", text = "I'm Relara, and I'm sick, but Papa's fixing it. The dreams are bad, but you're not in them, so that's good." },
         { id = "h_better", when = { questDone = TODO_QUEST("Fallen Sky Lake") },
           text = "The bad dreams stopped, and now I just dream about honey cakes. Papa says that's normal, but I think it's the best dream there is." },
@@ -1008,7 +1030,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Safe enough on the island, but the scouts come back fewer than they went out, and everyone here knows it. A paladin on the roads gives folk something to hope for, and hope's been thin here since the last patrol came back two short." } },
       choices = {
-        { text = "Then I'll be on the roads, keeping them safe.", next = "BACK", reply = "Then you'll do more good than you know. Hope travels faster than any rider.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll be on the roads, keeping them safe.", next = "BACK", reply = "Then you'll do more good than you know. Every carter who reaches the gate safe tells the whole market about it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Hope won't stop the Warsong. Steel will.", next = "BACK", reply = "It will, and so will hope, in its way. Don't scorn it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1024,8 +1046,22 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    dd_branch = {
+      lines = {
+        { id = "ddb_default", text = "Glad, and a little ashamed, I think. Anilia was killed within a day's walk of Astranaar and the branch stolen from her, and none of us here could do anything about it. A stranger did what our own Sentinels hadn't the numbers for." },
+        { id = "ddb_ne", when = { race = "NightElf" }, text = "Glad, and a little ashamed. Anilia was killed within a day's walk of Astranaar, and it took a kaldorei on the road rather than our own Sentinels to set it right, because Raene has too few of them to spare." },
+      },
+      choices = {
+        { text = "The Sentinels can't be everywhere. Don't blame them.", next = "BACK", reply = "I don't, truly. I only wish the High Priestess would send more of them south, and I say so to anyone who will listen.", fx = { align = { order = 1 } } },
+        { text = "Then Astranaar should stop waiting for Sentinels and act.", next = "BACK", reply = "Spoken like someone who has never had to keep an inn full of frightened travellers calm. Still, you're not wrong, and that's what worries me.", fx = { align = { order = -1 } } },
+        { text = "Something else, Kimlya.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_branch", tags = { "news" }, when = { questDone = TODO_QUEST("The Branch of Cenarius") }, text = "The Sentinels say you took the Branch of Cenarius back from that satyr Geltharis and laid it in the dryad's hands. Half my common room raised a cup to you last night, and the other half pretended they had known all along." },
+        { id = "h_dd_raene", when = { questDone = TODO_QUEST("Raene's Cleansing") }, text = "Raene came in for supper smiling, which she has not done since the furbolgs turned, and she told me you had helped her with something in the woods. She would not say what, but I know that smile, so thank you." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You look like you have spent more nights at the spirit healer than in a bed, friend. Ashenvale is no gentle forest any longer, so rest here before it takes you again." },
         { id = "o_forsaken_pity", tags = { "news" }, when = { opinion = { topic = "forsaken", stance = "pity" } },
           text = "Word is you pity the Forsaken. Kayneth at Forest Song would call that a warning sign, though with Kayneth everything is a warning sign." },
         { id = "h_default", text = "I am Kimlya, and I keep the inn for scouts, healers, travellers and the occasional lost adventurer. Elune willing, most of them leave in better shape than they came." },
@@ -1048,6 +1084,7 @@ P:NPC {
         { id = "h_again", text = "Anything else? Take your time; the fire's lit." },
       },
       choices = {
+        { text = "The common room seems glad about the Branch of Cenarius.", next = "dd_branch", when = { questDone = TODO_QUEST("The Branch of Cenarius") } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who stays here?", next = "guests" },
         { text = "Is anyone in town unwell?", next = "relara_k" },
@@ -1177,7 +1214,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I hope so! I purify what's been corrupted, and your spirits might help with that, since we both want the forest healed." } },
       choices = {
-        { text = "Then let's heal it together, Delgren.", next = "BACK", reply = "Together, then, and the Light and your spirits will share the work. Good.", fx = { align = { light = 1 } } },
+        { text = "Then let's heal it together, Delgren.", next = "BACK", reply = "Together, then, with the Light and your spirits sharing the work. I'd like to see the Dark Strand's faces when we do.", fx = { align = { light = 1 } } },
         { text = "The Light should keep to its own work.", next = "BACK", reply = "The Light's work is healing, friend, wherever healing's needed. But I'll not argue with you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1195,7 +1232,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Someone to hold the tower stairs while my paladins clear the cultists room by room. The Dark Strand fight like cornered rats, and a warrior who holds the stairs is worth more to me than any blessing I could give." } },
       choices = {
-        { text = "I'll hold the stairs. Not one gets past.", next = "BACK", reply = "Bless you, friend, and the Light will hold the stairs with you. Not one gets past.", fx = { align = { honor = 1 } } },
+        { text = "I'll hold the stairs. Not one gets past.", next = "BACK", reply = "Bless you, friend. I'll be right behind you with the Light, so don't look back.", fx = { align = { honor = 1 } } },
         { text = "I'd rather clear the rooms myself. The glory's inside.", next = "BACK", reply = "The glory's for the Light, not for us. But clear them if you must, and mind the traps.", fx = { align = { honor = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
@@ -1207,7 +1244,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks steady, and it will need to be, because the Dark Strand call things up from the Void. Keep it close, and the Light keep you both." },
       },
       choices = {
-        { text = "I'll give them a chance to surrender first.", next = "BACK", reply = "That's more mercy than they'd give you, but it's the Light's way. Good.", fx = { align = { light = 1 } } },
+        { text = "I'll give them a chance to surrender first.", next = "BACK", reply = "That's more mercy than they'd give you, but it's the Light's way, and I'm glad you'll take it.", fx = { align = { light = 1 } } },
         { text = "Cultists get no chances. I'll shoot them all.", next = "BACK", reply = "I'll not argue, though I'd rather they'd had the chance. Mind your aim.", fx = { align = { light = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -1241,8 +1278,19 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_strand = {
+      lines = {
+        { id = "dds_default", text = "You have, and I am grateful, but understand what they are. Many were kaldorei once, scholars and seekers who wanted the power the Highborne lost, and they found someone in the dark willing to promise it to them." },
+      },
+      choices = {
+        { text = "Then they chose their fate. They get no mercy from me.", next = "BACK", reply = "They chose it, yes, and I have stopped mourning them. Purifying means burning out the rot, not pitying it.", fx = { align = { light = -1 } } },
+        { text = "Some of them might still be brought back.", next = "BACK", reply = "Perhaps one in a hundred, and I would gladly be wrong. Take any who surrender to the Sentinels, and let Elune judge them.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_strand", tags = { "news" }, when = { killed = { name = "Dark Strand", min = 40 } }, text = "The Dark Strand curse your name now, from the Tower of Althalaxx to the ruins of Ashenvale, and I can think of no better praise. Each fanatic you strike down is one less voice calling to whatever waits in that tower." },
         { id = "h_default", key = true,
           text = "I'm Delgren, called the Purifier. Our company came to help the night elves against demons and the walking dead, and instead we found a cult, the Dark Strand, nesting in the old tower to the north. I've even taken up Orcish, because the warlock who teaches them is an orc." },
         { id = "h_tower", tags = { "news" }, when = { questActive = TODO_QUEST("The Tower of Althalaxx") },
@@ -1265,6 +1313,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening. The Light's in no hurry, even when I am." },
       },
       choices = {
+        { text = "I've cut down a lot of Dark Strand cultists.", next = "dd_strand", when = { killed = { name = "Dark Strand", min = 40 } } },
         { text = "Did learning Orcish change how you see the orcs?", next = "op_ask" },
         { text = "Who are the Dark Strand?", next = "strand" },
         { text = "Learning Orcish seems an odd choice for a paladin.", next = "orcish" },
@@ -1287,7 +1336,7 @@ P:NPC {
         { id = "s_default", text = "They're warlocks, hungry for power that should have stayed lost and willing to deal with demons to get it. I've seen what that bargain costs, but they haven't, yet." },
       },
       choices = {
-        { text = "Then we stop them.", next = "BACK", reply = "We do, and the Light goes with us. Good.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then we stop them.", next = "BACK", reply = "We do, and I'll be glad of the company when we go.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Power is power, and I can't blame them for wanting it.", next = "BACK", reply = "I can, friend, and I do. Power bought from demons is never yours.", fx = { align = { light = -1 } } },
         { text = "Why do people join them?", next = "elves" },
       },
@@ -1318,7 +1367,7 @@ P:NPC {
       lines = { { id = "pd_default", text = "Then pray with me before you go into the satyrs' country, because their blood-soaked temples unsettle even seasoned fighters. After that, swing hard." } },
       choices = {
         { text = "Let's pray, then.", next = "BACK", reply = "Let's, then, and may the Light guide your hammer. Swing hard.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Save the prayers. I'll trust my hammer in satyr country.", next = "BACK", reply = "As you like, but the Light will go with you all the same. Swing hard.", fx = { align = { light = -1 } } },
+        { text = "Save the prayers. I'll trust my hammer in satyr country.", next = "BACK", reply = "As you like, but I'll pray for you anyway, and you can't stop me.", fx = { align = { light = -1 } } },
       },
     },
     priest_d = {

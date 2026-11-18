@@ -128,7 +128,7 @@ P:NPC {
         { id = "sg_default", text = "They did, and some of our young ones say a debt to someone who abandons you is no debt at all. I don't believe that, but I'll admit it's harder to teach than it used to be. What do you say?" },
       },
       choices = {
-        { text = "A debt is a debt. Honor it, whether they return or not.", next = "BACK", reply = "That is what I believe, and it heartens me to hear it from you. A debt kept is a promise to whoever comes after.", fx = { align = { honor = 1 } } },
+        { text = "A debt is a debt. Honor it, whether they return or not.", next = "BACK", reply = "That is what I believe, and it heartens me to hear it from you. I'll keep the old offerings each dawn, whether the spirits come to take them or not.", fx = { align = { honor = 1 } } },
         { text = "They left. Your people owe them nothing now.", next = "BACK", reply = "Many of our young ones would agree, and I can't fault their hurt. But I'll keep my debts, all the same.", fx = { align = { honor = -1 } } },
         { text = "Perhaps they had their reasons for leaving.", next = "BACK", fx = { trait = { curious = 1 } } },
       },

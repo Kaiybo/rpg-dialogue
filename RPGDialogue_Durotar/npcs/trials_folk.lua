@@ -96,7 +96,7 @@ P:NPC {
     felstalkers = {
       lines = { { id = "fe_default", text = "Because the felstalkers be demon-touched beasts that walk on our earth without its blessing, mon. Takin' their hooves be your way of tellin' the ground you will stand against what poison it." } },
       choices = {
-        { text = "Two hooves. I'll bring them.", next = "BACK" },
+        { text = "Two hooves, then. I'll bring them back.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

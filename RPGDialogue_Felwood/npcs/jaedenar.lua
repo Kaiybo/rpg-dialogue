@@ -146,7 +146,7 @@ P:NPC {
       },
       choices = {
         { text = "Because I need what you sell. I'll deal with you later.", next = "BACK", reply = "Later, little one, is a word the Council has heard many times. We are still here, and they are not.", fx = { align = { order = 1 } } },
-        { text = "Because a bargain is a bargain, even with you.", next = "BACK", reply = "Even with me, yes, and that is the first wise thing you have said. A bargain kept is the only honesty I value.", fx = { align = { order = -1 } } },
+        { text = "Because a bargain is a bargain, even with you.", next = "BACK", reply = "Even with me, yes, and that is the first wise thing you have said. Keep thinking that way and we shall do business for years.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

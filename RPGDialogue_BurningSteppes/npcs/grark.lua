@@ -56,7 +56,7 @@ P:NPC {
         { id = "wh_default", text = "Because Kargath is a dusty fort full of soldiers who'll die defending a Warchief who's never even seen it. The Blackrock have a mountain, an army and dragons at their call, and I like to be on the side that's winning." },
       },
       choices = {
-        { text = "Winning? They're renegades in a mountain.", next = "why_power" },
+        { text = "Winning? They're renegades hiding in a mountain.", next = "why_power" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -116,18 +116,18 @@ P:NPC {
       },
       choices = {
         { text = "What we were nearly destroyed us. Thrall saved us.", next = "BACK", reply = "Thrall saved us by teaching us to bow to humans. I'll take the old blood and the old fire over that kind of salvation every time.", fx = { align = { light = 1 } } },
-        { text = "Maybe we did go soft. But you're still a traitor.", next = "BACK", reply = "Traitor to a Horde that forgot itself, aye, and I'll wear the name gladly. At least you have the guts to admit what you see.", fx = { align = { light = -1 } } },
+        { text = "Maybe we did go soft. You're still a traitor.", next = "BACK", reply = "Traitor to a Horde that forgot itself, aye, and I'll wear the name gladly. At least you have the guts to admit what you see.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xorc = {
       big = true,
       lines = {
-        { id = "xo_default", text = "Maybe, but they use me as a lieutenant uses a blade, and Kargath used me as a mule. Better to be a tool someone values than a beast someone forgets." },
+        { id = "xo_default", text = "Maybe, but they use me the way a lieutenant uses a blade, and Kargath used me like a mule. I've carried enough of Kargath's water to know which I'd rather be." },
       },
       choices = {
         { text = "A free orc is no one's tool.", next = "BACK", reply = "Pretty words for a mule in a free orc's harness. Go back to Kargath and tell me how free you feel.", fx = { align = { honor = 1 } } },
-        { text = "Everyone's someone's tool. You chose badly.", next = "BACK", reply = "Badly, you say, from where you stand on that dirt. Come up and see the forges in Blackrock Spire, and then tell me again.", fx = { align = { honor = -1 } } },
+        { text = "Everyone's someone's tool. You just chose badly.", next = "BACK", reply = "Badly, you say, from where you stand on that dirt. Come up and see the forges in Blackrock Spire, and then tell me again.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -141,7 +141,7 @@ P:NPC {
       { id = "tp_thrall2", when = { faction = "Horde" }, text = "You serve the slave-born fool too, then, and you'll learn soon enough that the old ways were stronger. I'll be here when you do." },
     },
     blackrock = { { id = "tp_blackrock", text = "The Blackrock clan remembers what the Horde was, before Thrall made us weak. I serve them now, and I'm not sorry." } },
-    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Spire is a fortress no army can take, and I'm safe inside it. Kargath can scream all it likes." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Spire is a fortress no army can take, and I'm safe inside it. Let Kargath scream itself hoarse down in the Badlands." } },
     black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons rule the Spire, and they reward those who serve them. You should consider it." } },
     _none = { { id = "tp_none", text = "Why would I tell you anything for free? Honor never filled my purse." } },
   },

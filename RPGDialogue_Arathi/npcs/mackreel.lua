@@ -84,7 +84,7 @@ P:NPC {
       },
       choices = {
         { text = "The truth is owed to the dead, Foggy.", next = "BACK", reply = "Aye, it is, an' I know it, which is why I drink. Maybe one day I'll have the stones tae say it to his face.", fx = { align = { honor = 1 } } },
-        { text = "Your secret's safe. It changes nothing now.", next = "BACK", reply = "Bless ye for that. It changes nothin', true, but it lets an old fool sleep a wee bit easier.", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Your secret's safe with me. It changes nothing now.", next = "BACK", reply = "Bless ye for that. It changes nothin', true, but it lets an old fool sleep a wee bit easier.", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -151,7 +151,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I've a fine view from up here, if nothin' else, an' I hear the odd bit o' news shouted across the gap. Ask." } },
-    background = { { id = "tp_bg", text = "One o' Longbraid's lads, an' a brewer on the side. The brewin' goes better than the soldierin'." } },
+    background = { { id = "tp_bg", text = "One o' Longbraid's lads, an' a brewer on the side. Truth be told, the brewin' goes a good deal better than the soldierin'." } },
     advice = { { id = "tp_ad", text = "Never drink on watch. I'm livin' proof o' why, an' I'm stuck here provin' it." } },
     thandol_span = { { id = "tp_span", text = "Broken on both sides o' me, as ye can see. It's no' a view I'd recommend." } },
     magni = { { id = "tp_magni", text = "The King'll be angry about the Span, an' rightly, but I didnae blow it up. I was asleep at the time, which I'm told is a poor excuse." } },

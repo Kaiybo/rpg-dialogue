@@ -67,7 +67,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because one day you won't be here, and I'll be up a mountain with damp flint and no idea how to manage. I'll take the spark tonight, gladly, but I'd sooner burn my fingers on flint than lean on magic I can't take with me." } },
       choices = {
-        { text = "That's wise. A traveller should rely on their own hands.", next = "BACK", reply = "It is, and I'm glad you see it, because a spark from a friend is lovely, but a spark I can strike myself is what keeps me alive.", fx = { align = { order = 1 } } },
+        { text = "That's wise. A traveller should rely on their own hands.", next = "BACK", reply = "It is! A spark from a friend is lovely, but a spark I can strike myself is what keeps me alive out here.", fx = { align = { order = 1 } } },
         { text = "Magic is a tool like any other. Use what works.", next = "BACK", reply = "It is, I suppose, and I'll use yours tonight with thanks, but tomorrow I'll be up a mountain alone with my flint, so I'll keep practising.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -263,7 +263,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "In the hills behind Anvilmar, fer they've dug in there an' come out at night tae chew on the supply crates. Green recruits charge them all at once an' come back wi' bruises, so go in steady an' keep yer friends close." } },
       choices = {
-        { text = "Steady it is. I'll keep the others close.", next = "BACK", reply = "Good, ye'll come back wi' fewer bruises an' more tae report, an' that'll be a nice change from the usual green lot.", fx = { align = { order = 1 } } },
+        { text = "Steady it is. I'll keep the others close.", next = "BACK", reply = "Ye'll come back wi' fewer bruises an' more tae report, which will be a nice change from the usual green lot.", fx = { align = { order = 1 } } },
         { text = "I'll charge them anyway. Bruises heal.", next = "BACK", reply = "Aye, they do, but my healer's tired o' mendin' the same recruits, so mind ye dinnae make him come out in the snow for ye.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -275,7 +275,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wolves, mostly, an' the boars that root about the hills, fer they're fat an' slow an' good practice. Yer {pet} looks keen enough fer them, though I'd keep it off the mail sacks if I were ye." },
       },
       choices = {
-        { text = "I'll practise on the boars until I'm ready.", next = "BACK", reply = "Good, an' ye'll be ready for the troggs soon enough, for a hunter who's patient wi' boars is a hunter who lives through the caves.", fx = { align = { order = 1 } } },
+        { text = "I'll practise on the boars until I'm ready.", next = "BACK", reply = "Ye'll be ready for the troggs soon enough. A hunter who's patient wi' boars is a hunter who lives through the caves.", fx = { align = { order = 1 } } },
         { text = "I'm ready now. Point me at the troggs.", next = "BACK", reply = "That's what they all say, an' then they come back wi' a trogg club print on their forehead, so practise on the boars first.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -284,7 +284,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Not many, for most young mages go straight tae the Hall o' Mysteries in the city. The ones who do come through want tae fight the Frostmane wi' fire, an' I tell them the trolls have their own shamans who'll answer in kind." } },
       choices = {
-        { text = "Then I'll fight beside the recruits and keep them safe.", next = "BACK", reply = "Good, an' they'll be glad o' ye, an' so will I, for a mage who keeps the recruits safe is worth ten who keep themselves warm.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll fight beside the recruits and keep them safe.", next = "BACK", reply = "They'll be glad o' ye, an' so will I. A mage who keeps the recruits safe is worth ten who keep themselves warm.", fx = { align = { honor = 1 } } },
         { text = "The recruits can learn by watching me burn the trolls out.", next = "BACK", reply = "Aye, they'll learn plenty, mostly about runnin' from forest fires, so mind yer aim an' let them see a bit o' sense too.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -302,7 +302,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The troggs, as ever, comin' up through the cracks in the valley like they own the place, an' the Frostmane makin' noise to the south. I'd have every one o' them gone if I could, but I'd settle fer the mail gettin' through." } },
       choices = {
-        { text = "Then I'll stand between the troggs and your recruits.", next = "BACK", reply = "Good, for they're green as grass an' twice as soft, an' a paladin between them an' the troggs is worth a wall.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll stand between the troggs and your recruits.", next = "BACK", reply = "Thank ye. They're green as grass an' twice as soft, an' a paladin between them an' the troggs is worth a wall.", fx = { align = { honor = 1 } } },
         { text = "Recruits who can't face a trogg had better learn quickly, then.", next = "BACK", reply = "Aye, they had, an' most o' them will, but the ones who dinnae are the ones whose names I send back tae Ironforge.", fx = { align = { honor = -1 } } },
         { text = "I'll get to work, Sten.", next = "BACK" },
       },
@@ -313,7 +313,7 @@ P:NPC {
         { id = "xrogue_default", text = "More than ye'd think, for the troggs have been comin' up out o' the ground faster than we can count them, an' somebody needs tae see where from without gettin' clubbed. Find me the holes they come out of, an' I'll stop callin' ye green." },
       },
       choices = {
-        { text = "I'll scout them for you, Sten.", next = "BACK", reply = "Good, an' come back wi' the count an' all yer fingers, for I need tae know where they're comin' from more than I need heroes.", fx = { align = { order = 1 } } },
+        { text = "I'll scout them for you, Sten.", next = "BACK", reply = "Come back wi' the count an' all yer fingers. I need tae know where they're comin' from more than I need heroes.", fx = { align = { order = 1 } } },
         { text = "I'll find them my own way, in my own time.", next = "BACK", reply = "Fair enough, but the troggs dinnae keep yer time, so dinnae take too long, or there'll be fewer recruits tae report back tae.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -339,6 +339,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Another green recruit, an' a sneaky one at that. Well, the troggs in the valley don't care how quiet ye are, so ye'd best learn tae hit hard as well." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Rockjaw", min = 30 } },
           text = "The troggs have stopped comin' up the valley in threes an' fours since ye started clearin' them, an' the recruits have noticed. I'll no' call ye green any more, though dinnae let it go tae yer head." },
+        { id = "dd_boars", when = { questDone = TODO_QUEST("The Boar Hunter") },
+          text = "Talin Keeneye's been tellin' everybody who passes his lake that ye thinned his boars. That's fewer brutes chasin' my letter carriers up the road, so I'm grateful too." },
       },
       again = {
         { id = "h_again", text = "What else? There's mail waitin'." },
@@ -465,7 +467,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "They've witch doctors an' seers who mutter at bones an' snow, an' I'll no' pretend I know what answers them. Whatever it is, it's no friend o' Ironforge, so I'd thank ye no' tae make friends with it." } },
       choices = {
-        { text = "Then the Frostmane must be watched and stopped.", next = "BACK", reply = "Aye, they must, an' that's what I'm here for, so keep yer eyes open on the ridge an' tell me if the snow starts movin' strange.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Then the Frostmane must be watched and stopped.", next = "BACK", reply = "That's what I'm here for. Keep yer eyes open on the ridge, an' tell me if the snow starts movin' strange.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Perhaps the Frostmane were here first. They might listen to a druid.", next = "BACK", reply = "Maybe they were, an' maybe they'd listen, but I'd not wager my beard on a troll listenin' tae anybody, druid or dwarf.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -474,7 +476,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Gatherin', I'd say, for the young ones have been raidin' further down the valley every week, an' a troll doesnae get bold wi'out someone tellin' him tae. A warrior at the edge o' my camp would let me watch them instead o' watchin' my back." } },
       choices = {
-        { text = "I'll guard your camp while you watch them.", next = "BACK", reply = "Good, for I've a habit o' gettin' lost in my notes, an' a warrior watchin' my back would let me count trolls in peace.", fx = { align = { order = 1 } } },
+        { text = "I'll guard your camp while you watch them.", next = "BACK", reply = "Would ye? I've a habit o' gettin' lost in my notes, an' a warrior watchin' my back would let me count trolls in peace.", fx = { align = { order = 1 } } },
         { text = "Let me strike their camp before they gather.", next = "BACK", reply = "Bold, an' maybe right, but the Senate didnae vote for it, so if ye do, I never asked, an' ye'll leave my name out o' the report.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -501,7 +503,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Spirits an' bones an' whatever else their witch doctors dream up, an' none of it kindly to dwarves. I've seen them dancin' round fires in the caves, an' I'll not pretend I understood it, but I didn't like it, an' my beard liked it less." } },
       choices = {
-        { text = "Whatever they serve, it's dark. It should be stamped out.", next = "BACK", reply = "Maybe it is, an' I'll no' argue in front o' a priest, but stampin' out a faith is a big job, an' the Senate hasnae voted for that either.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever they serve, it's dark. It should be stamped out.", next = "BACK", reply = "Maybe it is. But stampin' out a faith is a big job, an' the Senate hasnae voted for that either.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Their faith is theirs. It's their axes we should worry about.", next = "BACK", reply = "Sensible, an' that's what I'm here tae count, for a troll's prayers never broke a dwarf's door, but his axe has, plenty o' times.", fx = { align = { light = -1 } } },
         { text = "Let's get back to the trolls.", next = "BACK" },
       },
@@ -510,7 +512,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "By the book, I'd hope, for I'm here to report, not to start a war the Senate didn't vote for. Thin their numbers in the caves if ye must, but I'd sooner know what they're plannin' before we kill everyone who could tell us." } },
       choices = {
-        { text = "By the book, then. The Senate should decide the war.", next = "BACK", reply = "Good, an' I'll put that in my report, for a paladin who respects the Senate is rarer than ye'd think, an' twice as welcome.", fx = { align = { order = 1 } } },
+        { text = "By the book, then. The Senate should decide the war.", next = "BACK", reply = "I'll put that in my report. A paladin who respects the Senate is rarer than ye'd think, an' twice as welcome.", fx = { align = { order = 1 } } },
         { text = "The trolls attack dwarves. That's vote enough for me.", next = "BACK", reply = "Aye, an' I'll no' fault the feelin', but the Senate counts the votes, an' I'd rather no' explain why a paladin started a war wi'out one.", fx = { align = { order = -1 } } },
         { text = "Something else, Envoy.", next = "BACK" },
       },
@@ -521,7 +523,7 @@ P:NPC {
         { id = "xlock_default", text = "Aye, an' so do the Frostmane, for their seers deal in dark things o' their own up in the caves. I'll say this, though: if ye're goin' up against the trolls, I'd sooner yer demon was in front o' ye than behind me." },
       },
       choices = {
-        { text = "I'll fight the trolls fairly, demon or no.", next = "BACK", reply = "Good, an' I'll take ye at yer word, for the Frostmane have enough dark things o' their own wi'out us bringin' more tae the hills.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight the trolls fairly, demon or no.", next = "BACK", reply = "I'll take ye at yer word. The Frostmane have enough dark things o' their own wi'out us bringin' more tae the hills.", fx = { align = { honor = 1 } } },
         { text = "My demon goes where I send it. Mind your beard.", next = "BACK", reply = "Hmph, it's well minded, thank ye, but I'll be keepin' my beard well clear o' yer demon, an' I'll thank ye tae do the same.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -550,6 +552,8 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Frostmane", min = 30 } },
           text = "The Frostmane up in the caves have been a good deal quieter since ye started thinnin' them out, an' my beard's stopped itchin' for the first time in a month. Keep at it, an' I'll see the King hears who tae thank." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here. The Frostmane have shamans o' their own, an' I've watched them dance round their fires from up the slope, so I'll trust ye're no' takin' lessons from them." },
+        { id = "dd_frostmane", when = { questDone = TODO_QUEST("Frostmane Hold") },
+          text = "Senir says ye walked right intae Frostmane Hold an' came back wi' yer beard intact. I'll be puttin' that in my report tae the Senate, an' they'll pretend tae read it." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? Quickly, before the cold gets into my ink." },
@@ -688,7 +692,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "It's a natural cave, cut by ice long before trolls or dwarves came near it, an' the Frostmane only widened it. I'll grant ye the place was bonny once, but they've filled it wi' bones." } },
       choices = {
         { text = "Then it should be taken back and cleansed.", next = "BACK", reply = "That's the hope, an' I'll put it in the report, though the Senate will want tae know who's goin' tae do the cleansin' first.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Leave them their hold, and keep your watch from a distance.", next = "BACK", reply = "That's the safer course, an' I'll no' argue, for I've been watchin' from the ridge long enough tae know what a troll hold can do.", fx = { align = { order = -1 } } },
+        { text = "Leave them their hold, and keep your watch from a distance.", next = "BACK", reply = "That's the safer course. I've watched from the ridge long enough tae know what a troll hold can do tae a careless dwarf.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -696,7 +700,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Strong enough, for it's a cave wi' one way in, an' the trolls know every turn o' it. A warrior could hold the mouth against a dozen o' them, an' I'd sooner it were that way round, wi' them inside an' us at the mouth." } },
       choices = {
-        { text = "Then we hold the mouth and wait them out.", next = "BACK", reply = "Good, that's my thinkin' too, an' it'll keep more dwarves alive than any charge, so I'll put ye down for the first watch.", fx = { align = { order = 1 } } },
+        { text = "Then we hold the mouth and wait them out.", next = "BACK", reply = "That's my thinkin' too, an' it'll keep more dwarves alive than any charge. I'll put ye down for the first watch.", fx = { align = { order = 1 } } },
         { text = "I'll go in after them, cave or not.", next = "BACK", reply = "Bold, an' maybe foolish, but I'll no' stop ye, so long as ye come back an' tell me how many turns there were in that cave.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -708,7 +712,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, the wolves an' the boars an' the bears, an' they leave the bones in heaps outside Frostmane Hold. Keep yer {pet} close, for the trolls would eat it too, an' they'd no' be fussy about the recipe." },
       },
       choices = {
-        { text = "I'll count their bones and report every one.", next = "BACK", reply = "Good, for that's the kind o' report the Senate can use, an' I'll tell my brother, who's never once counted a bone honestly.", fx = { align = { honor = 1 } } },
+        { text = "I'll count their bones and report every one.", next = "BACK", reply = "That's the kind o' report the Senate can use. I'll tell my brother, who's never once counted a bone honestly.", fx = { align = { honor = 1 } } },
         { text = "I'll poach their prey and starve them out.", next = "BACK", reply = "That's a clever plan, an' a cruel one, an' I'll no' say I like it, but I'll write it down an' let the Senate decide.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -717,7 +721,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Colder, an' the trolls like it that way, for their witch doctors draw on the cold the way we draw on the forge. I've watched them from the ridge, an' I'll tell ye plainly that a lone mage cornered in there is a dead one." } },
       choices = {
-        { text = "Then I'll go in with others and watch their backs.", next = "BACK", reply = "Good, an' I'll be glad tae hear it, for the witch doctors are worst when they catch a body on their own in the cold.", fx = { align = { order = 1 } } },
+        { text = "Then I'll go in with others and watch their backs.", next = "BACK", reply = "Good. The witch doctors are worst when they catch a body on their own in the cold.", fx = { align = { order = 1 } } },
         { text = "I'll go in alone. Nobody slows me down that way.", next = "BACK", reply = "Then ye'll be faster an' lonelier, an' maybe colder too, so take a thick cloak, an' tell someone where ye've gone.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -736,7 +740,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Two scouts this winter, an' we sent their names back to Ironforge, for there was nothin' else to send. I'd not ask ye to go lookin' for them, but if ye find anythin' of theirs in the hold, bring it to me, an' I'll see it gets to their kin." } },
       choices = {
         { text = "I'll pray for them and bring back whatever I find.", next = "BACK", reply = "Bless ye for it, for their families have waited all winter for somethin' tae bury, an' I'd like tae send them more than names.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The dead are gone. The living scouts need the help more.", next = "BACK", reply = "Aye, they do, an' I'll no' argue, but the dead were our scouts too, an' I'd like tae think somebody remembered them out here.", fx = { align = { light = -1 } } },
+        { text = "The dead are gone. The living scouts need the help more.", next = "BACK", reply = "They do. But the dead were our scouts too, an' I'd like tae think somebody remembered them out here.", fx = { align = { light = -1 } } },
         { text = "Tell me about the hold instead.", next = "BACK" },
       },
     },
@@ -744,7 +748,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Watch it, for now, for the Senate wants reports an' not a war in the snow. But if the Frostmane come down off the ridge again, I'll not wait for a vote, an' I'd like ye at my side when I don't." } },
       choices = {
-        { text = "We watch until they strike. The Senate's word stands until then.", next = "BACK", reply = "Good, then we understand each other, an' I'll call for ye if they come down, for I'd rather have a paladin than a vote.", fx = { align = { order = 1 } } },
+        { text = "We watch until they strike. The Senate's word stands until then.", next = "BACK", reply = "Then we understand each other. I'll call for ye if they come down, for I'd rather have a paladin than a vote.", fx = { align = { order = 1 } } },
         { text = "Waiting for them to strike first is how villages burn.", next = "BACK", reply = "Aye, I know it, an' I've lost sleep over it, but I'll no' start a war on a feelin', so I'll be watchin' twice as hard.", fx = { align = { order = -1 } } },
         { text = "Something else, Senir.", next = "BACK" },
       },
@@ -770,7 +774,7 @@ P:NPC {
           text = "I've seen the troll witch doctors deal wi' spirits, an' I'll tell ye now ye've a touch o' the same smell about ye. That's no compliment, mind." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My brother'll be glad tae hear it, though he'll no' say so; he likes his troubles where he can see them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? The Frostmane hunt these hills too, an' I'd like tae know which o' ye is better at it." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' a kaldorei at that. My brother'll say his beard warned him ye were comin', so ye may as well let him." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, an' a kaldorei at that. My brother'll say his beard warned him ye were comin', so ye may as well let him." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My brother'll want ye in his reports, an' the Senate'll want tae know about ye even more, though I doubt they'll like the answer." },
       },
       again = {
@@ -836,7 +840,7 @@ P:NPC {
       },
       choices = {
         { text = "Your secret's safe.", next = "BACK", reply = "Thank ye kindly, an' if ye ever need a word put in for ye wi' the Senate, I'll put in a good one, which is all I can promise.", fx = { affinity = 2, align = { honor = -1 } } },
-        { text = "I won't lie for you.", next = "BACK", reply = "Fair enough, an' I'll no' hold it against ye, but if Barin asks, try tae make it sound like I worked very hard indeed.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "I won't lie for you.", next = "BACK", reply = "Fair enough. But if Barin asks, try tae make it sound like I worked very hard indeed.", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
     cold = {
@@ -974,7 +978,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Help? Brewin's already half fire an' half water, an' the rest is patience. If ye could ask the fire tae keep an even temper, I'd stop losin' a batch a month tae a sulkin' flame. My cousins say it's no' proper, mixin' spirits wi' spirits, but they're no' the ones scrapin' out the still." } },
       choices = {
-        { text = "The elements aren't for brewing tricks, Ragnar.", next = "BACK", reply = "Fair enough, an' I'll no' argue wi' a shaman about the elements, but if the fire ever sulks again, I'll be sendin' for ye anyway.", fx = { align = { honor = 1 } } },
+        { text = "The elements aren't for brewing tricks, Ragnar.", next = "BACK", reply = "Fair enough; ye know the elements better than I do. If the fire ever sulks again, though, I'll be sendin' for ye anyway.", fx = { align = { honor = 1 } } },
         { text = "Pour me that cask and I'll have a word with your stills.", next = "BACK", reply = "Ha, now that's a deal I'll take, an' I'll pour ye the best cask in the house, for a still that keeps its temper is worth a fortune.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -983,7 +987,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd mind if my patrons went hungry, but I'll grant ye a boar's a fine beast walkin' about as well. I only buy from hunters who take what they need an' no more, an' that's the best I can do." } },
       choices = {
-        { text = "A clean hunt for honest need is the forest's own way.", next = "BACK", reply = "Aye, that's what I've always said, an' I'm glad tae hear it from a druid, for yer lot usually look at my ribs like a bad omen.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "A clean hunt for honest need is the forest's own way.", next = "BACK", reply = "That's what I've always said! Yer lot usually look at my ribs like a bad omen.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Ale and ribs aren't need. That's appetite talking.", next = "BACK", reply = "Appetite, aye, maybe, but ale an' ribs have kept many a dwarf alive through a hard winter, so I'll no' apologise for either.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1013,7 +1017,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because a brew picks up whatever's near it, an' I'll no' have Thunderbrew tastin' o' brimstone. Ye can drink wi' the rest, an' if ye pay, ye're as welcome as anyone." } },
       choices = {
-        { text = "The creature waits outside, then, Ragnar. It won't like the snow.", next = "BACK", reply = "Thank ye, an' I'll put a bowl o' scraps by the door for it, for even a demon deserves somethin' warm in this weather, maybe.", fx = { align = { light = 1 } } },
+        { text = "The creature waits outside, then, Ragnar. It won't like the snow.", next = "BACK", reply = "Thank ye. I'll put a bowl o' scraps by the door for it; even a demon deserves somethin' warm in this weather, maybe.", fx = { align = { light = 1 } } },
         { text = "A hint of brimstone might improve it, Ragnar.", next = "BACK", reply = "Improve it? I'll have ye know Thunderbrew's been perfect for three generations, an' brimstone's no' gettin' near it while I live.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1047,6 +1051,16 @@ P:NPC {
         { text = "I had another question.", next = "BACK" },
       },
     },
+    dd_rg_cellar = {
+      lines = {
+        { id = "dd_rg_cellar1", text = "Aye? Go on, then. The Barleybrews have been after our recipes since my grandfather's day, an' they've never once got a drop worth drinkin' out o' the stealin'. I'm more cross wi' Jarven than wi' whoever it was, if I'm honest." },
+      },
+      choices = {
+        { text = "It was me. Marleth paid well, and I'm sorry.", next = "BACK", reply = "Ha! Honest, at least, which is more than Marleth's ever been. Buy a round an' we'll call it square.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I never went near your cellar, Ragnar.", next = "BACK", reply = "No, o' course ye didnae. Nobody ever does. Mind yer boots, though, for there's Thunderbrew mash on them.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll bless the vats, will ye? No? Well, a dwarf can ask, an' the Barleybrews have a priest come round every spring, or so they claim." },
@@ -1069,12 +1083,15 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll no' be one o' those that frowns at a dwarf for sellin' boar ribs, I hope, for they're the best in Dun Morogh." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I'll thank ye no' tae chill my ale wi' a spell, for Thunderbrew's served at cellar cold an' no colder, an' I'll fight anyone who says otherwise." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Ye'll know about fire, then, an' if ye can tell my stills tae burn steadier, I'll pour ye the first cask." },
+        { id = "dd_jarven", when = { questDone = TODO_QUEST("Distracting Jarven") },
+          text = "Jarven swears some stranger bought him a Thunder Ale, an' while he was drinkin' it, somebody went down intae my cellar for the Barleybrews. Ye wouldnae know anythin' about that, would ye?" },
       },
       again = {
         { id = "h_again", text = "What else? Kegs don't tap themselves, though one did once, an' we don't talk about it." },
         { id = "h_again2", text = "Go on, then; I've a minute an' a mug." },
       },
       choices = {
+        { text = "About your cellar, Ragnar...", next = "dd_rg_cellar", when = { questDone = TODO_QUEST("Distracting Jarven") } },
         { text = "You don't much like gnomes, do you, Ragnar?", next = "prej", when = { prejudiced = true } },
         { text = "What's in the famous ribs?", next = "ribs" },
         { text = "Your supplier seems to have let you down.", next = "supplier" },
@@ -1186,7 +1203,7 @@ P:NPC {
           text = "Military Ward, are ye? Then ye might know my lad; went up the mountain wi' a spear an' a grin an' left me his snares. Tell him the ribs are suffering, if ye see him." },
       },
       choices = {
-        { text = "The King's call comes before ribs, Ragnar.", next = "BACK", reply = "It does, an' I'll no' argue, but the King doesnae have tae listen tae my patrons complainin' about the lack o' ribs.", fx = { align = { order = 1 } } },
+        { text = "The King's call comes before ribs, Ragnar.", next = "BACK", reply = "It does. But the King doesnae have tae listen tae my patrons complainin' about the lack o' ribs.", fx = { align = { order = 1 } } },
         { text = "He should've stayed and kept the town fed.", next = "BACK", reply = "Aye, maybe, but somebody has tae fight the King's wars, an' I'd rather it was a boar hunter than a brewer, if I'm honest.", fx = { align = { order = -1 } } },
       },
     },
@@ -1248,7 +1265,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A few o' the old miners grumble intae their ale, an' one asked if ye'd be callin' up orc spirits in my upstairs. I told him the only spirits upstairs are the ones in the bottles he didnae pay for. Most folk are only curious, an' curious dwarves buy more ale, so ye're welcome." } },
       choices = {
-        { text = "I'll answer the miners' questions truthfully, if they ask.", next = "BACK", reply = "Good, for they'll ask, an' they'll ask loud, an' an honest answer will quiet them better than any mug I can pour.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll answer the miners' questions truthfully, if they ask.", next = "BACK", reply = "They'll ask, an' they'll ask loud. An honest answer will quiet them better than any mug I can pour.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let them grumble. I'll not explain myself to drunks.", next = "BACK", reply = "Fair enough, but drunks talk louder than anybody, so mind ye dinnae give them anythin' tae shout about at closin' time.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1257,7 +1274,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "A few have tried, an' a few have needed carryin' up the stairs after, so I pour yer people half a mug now. It's no' an insult, mind, it's the voice o' bitter experience." } },
       choices = {
-        { text = "Half is wise. A druid should keep a clear head.", next = "BACK", reply = "Aye, it is, an' ye'll thank me in the mornin', for my stairs are steep an' the floor at the bottom is very hard.", fx = { align = { order = 1 } } },
+        { text = "Half is wise. A druid should keep a clear head.", next = "BACK", reply = "Ye'll thank me in the mornin'. My stairs are steep, an' the floor at the bottom is very hard.", fx = { align = { order = 1 } } },
         { text = "Pour it full. Rules are for sober folk.", next = "BACK", reply = "Then I'll pour it, but I'll no' carry ye up the stairs, so mind yer feet an' yer head, for the beams are low in here.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1279,7 +1296,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll wipe my boots and keep the beast quiet.", next = "BACK", reply = "Thank ye kindly, for a quiet beast an' clean boots are the two things an innkeeper prizes most in a hunter.", fx = { align = { order = 1 } } },
-        { text = "Snow comes in with hunters. That's the trade.", next = "BACK", reply = "Aye, it does, an' I'll no' complain, but I'll still point ye tae the bucket, for my floor's been mopped once today already.", fx = { align = { order = -1 } } },
+        { text = "Snow comes in with hunters. That's the trade.", next = "BACK", reply = "It does. I'll still point ye tae the bucket, mind, for my floor's been mopped once today already.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1305,7 +1322,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "More than I'd like, an' they come in wi' trogg bites an' frostbite an' worse, an' Maxan Anvol, the priest upstairs, does what he can between lessons. I keep the corner table free fer the worst of them, an' I keep the ale flowin', for that helps more than ye'd think." } },
       choices = {
-        { text = "Then I'll take the corner table tonight and see to them.", next = "BACK", reply = "Bless ye, an' I'll bring ye a bowl o' stew while ye work, for the worst o' them need a healer more than they need my ale.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll take the corner table tonight and see to them.", next = "BACK", reply = "Bless ye. I'll bring ye a bowl o' stew while ye work; the worst o' them need a healer more than my ale.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Ale won't mend a trogg bite. They need a healer, not a mug.", next = "BACK", reply = "Aye, an' that's why I keep the corner table free, so a healer can find them, but the ale helps them sit still while ye work.", fx = { align = { light = -1 } } },
         { text = "Something else, Belm.", next = "BACK" },
       },
@@ -1314,7 +1331,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Every winter, when the troggs get bold an' the Frostmane come down from the ridge, an' the Mountaineers can't be everywhere at once. If ye're stayin' a while, I'd sleep better knowin' there's a paladin under my roof, an' I'll tell the brewers to stop complainin' about the noise." } },
       choices = {
-        { text = "Then I'll stand watch tonight, Belm. Sleep easy.", next = "BACK", reply = "Bless ye, an' I'll sleep easy for the first time in a week, so take the chair by the door, an' the lantern, an' a mug for later.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll stand watch tonight, Belm. Sleep easy.", next = "BACK", reply = "Bless ye! Take the chair by the door, an' the lantern, an' a mug for later. I'll sleep easy for the first time in a week.", fx = { align = { honor = 1 } } },
         { text = "The Mountaineers are paid for it. Let them do their duty.", next = "BACK", reply = "Aye, they are, an' they do their best, but they cannae be everywhere, an' the troggs know it better than anybody.", fx = { align = { honor = -1 } } },
         { text = "Just a room, then.", next = "BACK" },
       },
@@ -1325,9 +1342,19 @@ P:NPC {
         { id = "xrogue_default", text = "Not a bit, for an innkeeper who asks questions soon has an empty hall. Drink up, an' if anybody comes askin' after a quiet sort wi' a hood, I'll tell them I've been too busy pourin' tae notice." },
       },
       choices = {
-        { text = "Thank you. I'll keep trouble out of your hall.", next = "BACK", reply = "Thank ye, an' I'll keep yer mug full an' my ears shut, for that's the kind o' bargain that keeps an inn runnin' smooth.", fx = { align = { honor = 1 } } },
+        { text = "Thank you. I'll keep trouble out of your hall.", next = "BACK", reply = "Then I'll keep yer mug full an' my ears shut. That's the kind o' bargain that keeps an inn runnin' smooth.", fx = { align = { honor = 1 } } },
         { text = "Good. Keep pouring and stay busy.", next = "BACK", reply = "Aye, I will, an' I'll keep my head down too, for an innkeeper who stays busy sees a great deal less than he might.", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    dd_bm_frost = {
+      lines = {
+        { id = "dd_bm_frost1", text = "Everyone, twice, an' once more for the barmaid. Those trolls have been in that cave since before Kharanos had a roof, an' the young ones grow up hearin' that the Frostmane eat dwarves that wander off, so it's no small thing tae hear somebody walked in an' walked out." },
+      },
+      choices = {
+        { text = "They're just trolls, Belm. Nothing to fear.", next = "BACK", reply = "Just trolls, says you! Tell that tae the herders who lost their rams. Still, I like the confidence.", fx = { align = { order = -1 } } },
+        { text = "Keep the young ones fearing it. That cave is dangerous.", next = "BACK", reply = "Aye, that's my thinkin' too. A wee bit o' fear keeps a bairn on the road.", fx = { align = { order = 1 } } },
+        { text = "Something else, Belm.", next = "BACK" },
       },
     },
     hello = {
@@ -1353,15 +1380,20 @@ P:NPC {
           text = "A warlock, eh? There's a room for ye, but I'll put ye at the end o' the hall, away from the families an' the brewers." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit ye down; a warrior's earned a pint by breakfast in Dun Morogh, whatever else they've done." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ragnar'll want tae see ye, for he's mad for boar ribs an' short o' anyone tae bring them." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Thunderbrew! Sit by the fire, friend, for ye kaldorei look as if ye've never seen snow, an' snow's all we've got." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid at the Thunderbrew! Sit by the fire, friend, for ye kaldorei look as if ye've never seen snow, an' snow's all we've got." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Here, take a mug, ye've earned it, whatever it was ye did that ye'll no' be tellin' me about." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, in Kharanos! Sit by the fire, then, an' tell me if it's happy, for it's been smokin' somethin' awful all week." },
+        { id = "dd_frostmane", tags = { "news" }, when = { questDone = TODO_QUEST("Frostmane Hold") },
+          text = "Senir's been tellin' my whole common room that ye walked intae Frostmane Hold an' came back out again. Folk round Kharanos sleep a wee bit sounder knowin' somebody's been in there for a look." },
+        { id = "dd_stash", when = { questDone = TODO_QUEST("Tundra MacGrann's Stolen Stash") },
+          text = "Tundra MacGrann came in last week, grinnin' like a bear wi' a beehive, an' said ye'd fetched his stash back off the troggs. I didnae ask what was in it, an' he didnae tell me." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a tap runnin'." },
         { id = "h_again2", text = "Go on; the fire's listenin' too." },
       },
       choices = {
+        { text = "Senir told everyone about Frostmane Hold?", next = "dd_bm_frost", when = { questDone = TODO_QUEST("Frostmane Hold") } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who's the gnome you toast?", next = "lazlo", when = { heardLine = "eric.sm_default" } },
         { text = "What's Rhapsody Malt?", next = "malt" },

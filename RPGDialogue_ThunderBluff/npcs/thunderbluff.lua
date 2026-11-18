@@ -107,7 +107,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_cairne_default", text = "I believe so, though I've lost sleep over it. The Earth Mother teaches that all things return to her in time, and the Forsaken were torn out of that circle by the Scourge, so perhaps the kindest thing we can do is give them somewhere to stand until they find their own way back." } },
       choices = {
-        { text = "They deserve a place among us. I'd trust mine with my life.", next = "BACK", reply = "Then they are fortunate in you, and so is the Horde. Trust given freely is the first step on the road back to the Earth Mother.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They deserve a place among us. I'd trust mine with my life.", next = "BACK", reply = "Then they are fortunate in you, and so is the Horde. Bring them to my fire one evening; I would hear their stories myself.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead belong in the earth, Chieftain, not in the Horde.", next = "BACK", reply = "Many of my own elders would agree, and I do not scorn them for it. But the earth did not take them back, and until it does, someone must give them ground to stand on.", fx = { align = { light = -1 } } },
         { text = "Your elders must still oppose them.", next = "xpt_cairne2" },
         { text = "Something else, Chieftain.", next = "BACK" },
@@ -148,7 +148,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Humility, mostly, and gratitude. {pet} walks beside you as an equal, I see, and that is how the Earth Mother meant it to be, {class}." },
       },
       choices = {
-        { text = "Humility and thanks. I'll remember both on every hunt.", next = "BACK", reply = "Then the herds will thank you, and so will I. A hunter who gives thanks never forgets that the life he takes was a gift.", fx = { align = { light = 1 } } },
+        { text = "Humility and thanks. I'll remember both on every hunt.", next = "BACK", reply = "Then the herds will thank you, and so will I. The plainstriders near Bloodhoof Village have grown too many this year, if you are looking for a hunt.", fx = { align = { light = 1 } } },
         { text = "The hunt teaches strength, chieftain, nothing more.", next = "BACK", reply = "Strength is part of it, and the beasts teach that lesson hard. But a strong hunter who forgets gratitude soon finds the plains have nothing left to give him.", fx = { align = { light = -1 } } },
         { text = "Something else, chieftain.", next = "BACK" },
       },
@@ -170,7 +170,7 @@ P:NPC {
         { id = "xmage_default", text = "We don't fear it, but we remember. Our oldest stories say that magic once tore the world in two, and the tauren learned to live with the land instead of above it, so forgive us if we watch the arcane with an old people's caution." },
       },
       choices = {
-        { text = "Caution is wise. I'll study it with care.", next = "BACK", reply = "Then the land will be safer for your learning, and the tauren will learn to trust you. Care is the bridge between an old people and a new power.", fx = { align = { order = 1 } } },
+        { text = "Caution is wise. I'll study it with care.", next = "BACK", reply = "Then the land will be safer for your learning, and the tauren will learn to trust you. Come and tell me what the spirits say to you; I am too old to stop being curious.", fx = { align = { order = 1 } } },
         { text = "Old stories shouldn't bind new learning.", next = "BACK", reply = "Perhaps they shouldn't, but they should be heard, as an old bull is heard by the young. The stories are old because they were true once.", fx = { align = { order = -1 } } },
         { text = "How did the tauren come to Mulgore?", next = "mulgore" },
       },
@@ -343,7 +343,7 @@ P:NPC {
       choices = {
         { text = "I would, Chieftain. A guest should ask first.", next = "BACK", fx = { affinity = 1, trait = { honest = 1 } }, when = { faction = "Alliance" } },
         { text = "I'm no diplomat, Chieftain. I only fight.", next = "BACK", fx = { trait = { blunt = 1 } }, when = { faction = "Alliance" } },
-        { text = "Patience, then. Baine sounds wise.", next = "BACK", fx = { affinity = 1 }, when = { faction = "Horde" } },
+        { text = "Patience, then. Baine sounds wise for his years.", next = "BACK", fx = { affinity = 1 }, when = { faction = "Horde" } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -474,6 +474,7 @@ P:NPC {
           text = "You walked the rites of the Earth Mother. I see it on you. Carry it lightly; it's heavy enough on its own." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The tauren have hunted these plains for longer than any of us can remember, and we still learn something new with every hunt." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde stands on Thunder Bluff. The Earth Mother has many children, and I am glad to welcome those who heal, whatever voice answers their prayers." },
+        { id = "h_dd_grimtotem", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 40 } }, text = "My scouts in Stonetalon and the Needles say the Grimtotem bury more of their own this season, and they say your name when they speak of it. They are still tauren, whatever they have chosen to become, and I find I cannot be entirely glad." },
       },
       choices = {
         { text = "Someone dear to me has sat at your fire, High Chieftain.", next = "xalt_cairne", when = { alt = true } },
@@ -501,11 +502,32 @@ P:NPC {
         { text = "You allied with a Horde that has warlocks, chieftain.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "The Scourge are broken in Razorfen Downs, Chieftain.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
         { text = "My companion is Forsaken. Was the Horde right to take them?", next = "xpt_cairne", when = { party = { race = "Scourge" } } },
+        { text = "I've fought the Grimtotem, Chieftain. Many of them.", next = "dd_grimtotem", when = { killed = { name = "Grimtotem", min = 40 } } },
         { text = "Earth Mother keep you, chieftain.", next = "END", fx = { affinity = 1 } },
       },
       again = {
         { id = "h_again", text = "What else is on your mind, young one? The wind will wait." },
         { id = "h_again2", text = "Speak on. An old bull has more time than he lets the council know." },
+      },
+    },
+    dd_grimtotem = {
+      big = true,
+      lines = {
+        { id = "dd_grimtotem_1", text = "I know, and I know why. They raid our caravans and kill our hunters and say the land belongs to the tauren alone, and they would burn the Horde to prove it. Yet I gave Magatha a place on Elder Rise in the hope that her people would come home, and every Grimtotem you bury is one who never will." },
+        { id = "dd_grimtotem_gt", when = { origin = "tauren_grimtotem_born" }, text = "You of all people know what it costs. You were born among them and chose the Bloodhoof, and now you have spilled the blood of the tribe that raised you. I hope you have someone to sit with when the nights are long." },
+      },
+      choices = {
+        { text = "They chose their path. I won't mourn them.", next = "BACK", reply = "That is a warrior's answer, and I gave it myself, when I was young and the Centaur were at our heels. Age has taught me to mourn even those I would fight again.", fx = { align = { honor = -1 } } },
+        { text = "I take no joy in it. I hope the rest come home.", next = "BACK", reply = "Then you understand what I am trying to do, and why it is so heavy. Keep that hope; there are few enough of us who carry it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Does Magatha know who leads those raids, Chieftain?", next = "dd_grimtotem2" },
+      },
+    },
+    dd_grimtotem2 = {
+      lines = {
+        { id = "dd_grimtotem2_1", text = "She says she does not, and she says it very well. I have known Magatha a long time, and I have learned that the Elder Crone always knows more than she tells. But I will not cast her out on a suspicion, because that is the very thing the Grimtotem would want." },
+      },
+      choices = {
+        { text = "I'll keep my eyes open on Elder Rise. Something else.", next = "BACK" },
       },
     },
     forsaken = {
@@ -758,7 +780,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "That a warrior who waits until the moment is right wastes no strength and spills no needless blood. The night elves guarded their forests for ten thousand years that way, and I'd wish the same patience on every warrior of the Horde." } },
       choices = {
-        { text = "I'll be patient, and spill no needless blood.", next = "BACK", reply = "Then you'll be a rare warrior and a welcome one. The land itself rests easier when those who guard it strike only when they must.", fx = { align = { honor = 1 } } },
+        { text = "I'll be patient, and spill no needless blood.", next = "BACK", reply = "Then you'll be a rare warrior and a welcome one. Too many young bulls come back from the Barrens proud of how much they killed.", fx = { align = { honor = 1 } } },
         { text = "Patience is for those with ten thousand years to spare.", next = "BACK", reply = "Ha, perhaps you're right, and the night elves have more time than either of us. Still, a little patience costs a warrior nothing, and it saves a great deal.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -835,6 +857,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Forgive an old druid's curiosity, but I have learned the night elves' ways and never quite understood yours, whether you pray to the loa or to the shadow." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Malfurion once told me the nightsaber is the quietest hunter in the forest, and also the most patient." },
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "Tonga Runetotem at the Crossroads writes that the Barrens oases run a little sweeter, and he says a stranger went down into the Wailing Caverns to wake Naralex. If that was you, then you've done the Circle a kindness I won't forget." },
+        { id = "h_dd_fang", tags = { "news" }, when = { questDone = TODO_QUEST("Leaders of the Fang") }, text = "Nara tells me she slept the whole night through for the first time in a season, because the Druids of the Fang no longer walk in her dreams. You did that for my student, and I won't forget it." },
       },
       choices = {
         { text = "Does a druid's healing differ from a priest's, Arch Druid?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -997,7 +1020,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "There is in everything, though some people try hard to forget it. I'm told a priest can heal with one hand and wound with the other, and that the shadow costs something every time it's used. Practise the mending more often than the wounding, and I think you'll keep your footing." } },
       choices = {
-        { text = "Then I'll mend more than I wound, Turak.", next = "BACK", reply = "Then I think you'll keep your footing, and your soul too. A healer who mends more than she wounds stays welcome at every fire.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll mend more than I wound, Turak.", next = "BACK", reply = "Then I think you'll keep your footing, and your soul too. Mend more than you wound, and you will be welcome at every fire.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll use whichever hand the fight needs.", next = "BACK", reply = "A fighter's answer, and fair enough in a fight. Only remember which hand you reach for first, because one grows stronger than the other.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1400,6 +1423,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, child. Cairne surrounds himself with warriors, and I find it so reassuring to see another come up the lifts." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, child, with a beast at your side. The Grimtotem have always admired a good hunter; it's one of the few things we admire." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, come up to Elder Rise. How interesting, for the Forsaken priests tell me things the shaman of this bluff would rather not hear." },
+        { id = "h_dd_grimtotem", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 40 } }, text = "You've been busy in the high country, cutting down tauren who wear my tribe's name. I'm told it's the fashion among Cairne's friends, and I'm sure he thanked you very kindly for it." },
       },
       choices = {
         { text = "Do you dislike me, Elder Crone, or everyone Thrall brought?", next = "prej_magatha", when = { prejudiced = true } },
@@ -1419,11 +1443,23 @@ P:NPC {
         { text = "What do you see in me, Magatha?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I defeated Princess Theradras in Maraudon, Elder Crone.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Horde" } },
         { text = "My companion is Forsaken. Will you speak plainly about it?", next = "xpt_magatha", when = { party = { race = "Scourge" } } },
+        { text = "Your Grimtotem were raiding Horde caravans, Elder Crone.", next = "dd_grimtotem", when = { killed = { name = "Grimtotem", min = 40 } } },
         { text = "I'll go.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Still here? Then ask, and be quick about it; the Grimtotem were never a herd that waited on stragglers." },
         { id = "h_again2", text = "Well? I've no time for children who stand about thinking." },
+      },
+    },
+    dd_grimtotem = {
+      big = true,
+      lines = {
+        { id = "dd_grimtotem_1", text = "My Grimtotem? How very loose you are with your words. Some of my tribe have gone into the hills with their own grievances, and I am an old woman on a rise in Cairne's city, with no say over what angry young bulls do in Stonetalon. I would remember that, before you repeat it where Cairne can hear." },
+      },
+      choices = {
+        { text = "Then they're outlaws, and I'll keep hunting them.", next = "BACK", reply = "Hunt whomever you like, little hero. The mountains are wide and full of places to fall, and the Earth Mother keeps no ledger of who pushed whom.", fx = { align = { order = 1 } } },
+        { text = "I don't care who sends them. I care who pays me.", next = "BACK", reply = "Now that is an honest answer, and a rare one up here. Keep it close, and one day we may find we have business together.", fx = { align = { order = -1 } } },
+        { text = "Something else, Elder Crone.", next = "BACK" },
       },
     },
     shaman = {
@@ -1544,7 +1580,7 @@ P:NPC {
     },
     xcl_wc2 = {
       lines = { { id = "xcl_wc2_default", text = "A sleeping night elf, if you'll believe it, dreaming so badly that the whole cave dreams with him. The druids are very solemn when they say it, and I nod and pour the stew, because what else can an innkeeper do with a story like that?" } },
-      choices = { { text = "Keep pouring, Pala. It helps.", next = "BACK" } },
+      choices = { { text = "Keep pouring, Pala. It helps more than you know.", next = "BACK" } },
     },
     xfpala = {
       big = true,
@@ -1581,7 +1617,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll bring you game, Pala. The inn feeds everyone.", next = "BACK", reply = "Oh, bless you, child, and the guests will bless you too. Bring me plainstrider if you can, it makes the best stew on the bluff.", fx = { align = { honor = 1 } } },
-        { text = "I'll sell my game to whoever pays more.", next = "BACK", reply = "That's fair, and I'll pay fair, though maybe not the most. A full belly is worth something, too.", fx = { align = { honor = -1 } } },
+        { text = "I'll sell my game to whoever pays more.", next = "BACK", reply = "That's fair, and I'll pay fair, though maybe not the most. The orcs pay me mostly in grumbling, so you're already ahead.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1612,7 +1648,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Oh, whether the Earth Mother speaks louder through the spirits or through the wild, and whose turn it is to pay. One of Hamuul's own students came down to settle it once and ended up shouting louder than any of them, so now I keep the stew coming until they're too full to talk." } },
       choices = {
         { text = "Someone should settle it properly, once and for all.", next = "BACK", reply = "Someone has tried, and it ended in shouting. I'd rather keep the stew coming and the peace too, thank you.", fx = { align = { order = 1 } } },
-        { text = "Let them argue. Every voice deserves a seat by the fire.", next = "BACK", reply = "That's what I think, and that's why I named the place for both of them. A full belly listens better than an empty one.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let them argue. Every voice deserves a seat by the fire.", next = "BACK", reply = "That's what I think, and that's why I named the place for both of them. The arguing usually stops when the second bowl comes round.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1649,6 +1685,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Sit with the others by the fire, love, because they'll want you on their side the next time the shamans start the old argument." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! Sit down and I'll bring you stew, but your demon waits outside with the kodos." },
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "Some of the young druids came through the Cat and the Shaman saying a stranger had been down the Wailing Caverns ahead of them. Sit down, because anyone who's breathed that air needs a bowl of something hot." },
+        { id = "h_dd_auld", tags = { "news" }, when = { questDone = TODO_QUEST("A Vengeful Fate") }, text = "Old Auld Stonespire sat at my fire last night and ate a whole bowl without grumbling once, which I've never once seen before. Word on the Lower Rise is that you brought back Charlga Razorflank's heart, and I think that's the reason." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You've the look of someone who has walked back from the spirit healer more than once, and recently. Sit by the fire a while; the bluffs will still be here when you've rested." },
       },
       choices = {
         { text = "Travellers must often need healing at your inn, Pala.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -1665,10 +1703,21 @@ P:NPC {
         { text = "Does Thunder Bluff welcome paladins, Pala?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been down the Wailing Caverns, Pala.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "Should a company keep to its own kind, Pala?", next = "xpt_pala", when = { party = { kin = true } } },
+        { text = "Auld seemed lighter, after Razorflank. Did you notice?", next = "dd_auld", when = { questDone = TODO_QUEST("A Vengeful Fate") } },
         { text = "Just resting.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Anything else, love? Ask while the stew warms, and don't mind the braves snoring in the corner; they came in from Bael'dun at dawn smelling of dwarf powder." },
+      },
+    },
+    dd_auld = {
+      lines = {
+        { id = "dd_auld_1", text = "Everyone noticed. Auld has come in here every evening for years, sat in the corner nearest the wind, and told any young brave who'd listen that the Stonespire were driven off the holy lands while the rest of us forgave too easily. Last night Auld just ate, and watched the fire, and said nothing at all." },
+      },
+      choices = {
+        { text = "Vengeance gave Auld peace. Sometimes it does.", next = "BACK", reply = "Maybe it did, and I won't argue with what I saw. I only hope it lasts longer than the bowl of stew did.", fx = { align = { light = -1 } } },
+        { text = "That wasn't peace. It was only quiet.", next = "BACK", reply = "You may be right, and I've seen that kind of quiet before, in widows and old warriors. I'll keep an eye on the corner by the wind.", fx = { align = { light = 1 } } },
+        { text = "Something else, Pala.", next = "BACK" },
       },
     },
     forsaken = {

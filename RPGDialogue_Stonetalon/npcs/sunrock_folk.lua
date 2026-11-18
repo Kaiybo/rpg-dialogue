@@ -31,8 +31,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_falling = {
+      lines = {
+        { id = "dd_fa_default", text = "It happens to everyone in Stonetalon at least once, and to grunts in a hurry twice. The paths up here are old and narrow and the wind pushes from the side, so a careless step becomes a long drop. My riders could have taken you down for a few coins, you know." },
+      },
+      choices = {
+        { text = "I'd rather climb my own way. Falling's part of it.", next = "BACK", reply = "Then you're as stubborn as the mountain, and it'll win in the end. But I'll see you at the spirit healer, I suppose.", fx = { align = { order = -1 } } },
+        { text = "Next time I'll pay for a wind rider.", next = "BACK", reply = "Smart, and my beasts will thank you for the business. They'll only try to bite you once, as I said.", fx = { align = { order = 1 } } },
+        { text = "Something else, Tharm.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You came down off a cliff without one of my wind riders under you, didn't you? I can always tell, because folks who fall walk a little stiff for a day after the spirit healer sends them back." },
         { id = "h_default", key = true,
           text = "I'm Tharm, and I keep the wind riders on Sun Rock. They'll carry you to Thunder Bluff or down to the Crossroads faster than any kodo, and they'll only try to bite you once." },
         { id = "h_orc", when = { race = "Orc" },
@@ -45,6 +57,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but stand clear of that one on the end; she's in a mood." },
       },
       choices = {
+        { text = "I fell from a cliff, Tharm. It happens.", next = "dd_falling", when = { deathCause = "falling" } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Where do your wind riders come from?", next = "wild" },
         { text = "Do the harpies trouble your riders?", next = "harpies" },
@@ -135,7 +148,7 @@ P:NPC {
         { id = "sh_default", text = "Restless is a soft word for it. The riders feel it too, and they fight the updrafts over Windshear Crag where the goblins have cut the trees away, as if the wind itself has nowhere to settle." },
       },
       choices = {
-        { text = "The goblins must be driven out before the wind will settle.", next = "BACK", reply = "That's what Maggran says too, and I can't argue with the riders. Clear the goblins, and maybe the wind will come home.", fx = { align = { light = -1 } } },
+        { text = "The goblins must be driven out before the wind will settle.", next = "BACK", reply = "That's what Maggran says too, and the riders agree with him. Clear the goblins, and maybe the wind will settle back into the trees.", fx = { align = { light = -1 } } },
         { text = "Give the land time and care, and the wind will follow.", next = "BACK", reply = "That's the tauren talking, and they're usually right about the land. I hope you're right, because my riders are tired of fighting the air.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -187,6 +200,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_deepmoss", when = { killed = { name = "Deepmoss", min = 15 } },
+          text = "You smell of Deepmoss webbing, and my beasts don't like it one bit. Thank you for thinning those spiders out, though, because I've lost two wolves to their venom this season alone." },
         { id = "h_default", key = true,
           text = "I am Gereck, and I tend the beasts of Sun Rock for any hunter who needs a companion kept safe. They eat well here and sleep out of the wind, which is more than the mountains offer them." },
         { id = "h_tauren", when = { race = "Tauren" },
@@ -240,7 +255,7 @@ P:NPC {
         { id = "fi2_default", text = "Most say the goblins' machines, though Braelyn blames the druids for everything that burns, and the harpies laugh from the cliffs while the beasts suffer for all of it. I only know that the creatures didn't choose a side, and they burned anyway." },
       },
       choices = {
-        { text = "Whoever did it should answer for it, whatever side they're on.", next = "BACK", reply = "They should, and I'd not care what banner they wear. The beasts deserve that much from us.", fx = { align = { honor = 1 } } },
+        { text = "Whoever did it should answer for it, whatever side they're on.", next = "BACK", reply = "They should, and I'd not care what banner they wear. Some of these beasts came to me with burns on their paws.", fx = { align = { honor = 1 } } },
         { text = "Blame doesn't matter now. Sun Rock should look after its own.", next = "BACK", reply = "Sun Rock does what it can, and I'll keep doing my part. But blame matters to the beasts' spirits, I think.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -261,7 +276,7 @@ P:NPC {
         { id = "bo_default", text = "As a gift from the Earth Mother, given and not taken. A beast who walks beside you by choice honors you, and one held only by fear shames you both, so tell me, {class}, which kind walks beside you?" },
       },
       choices = {
-        { text = "Mine walks with me by choice, and I honor that.", next = "BACK", reply = "Then the Earth Mother smiles on you both, {class}. Honor that choice, and your companion will never leave your side.", fx = { align = { light = 1 } } },
+        { text = "Mine walks with me by choice, and I honor that.", next = "BACK", reply = "Then the Earth Mother smiles on you both, {class}. I can see it in the way it watches you, even now.", fx = { align = { light = 1 } } },
         { text = "A beast follows the strongest. That's the way of things.", next = "BACK", reply = "Strength holds a beast for a while, but it doesn't keep it. One day you'll need it to choose you, and it may not.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -36,6 +36,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_honor = {
+      lines = { { id = "dd_honor_default", text = "They do, and they'll go on doing it while Southshore stands, because they think this valley is still theirs. Each one you send back to their graveyard costs them more than it costs us, and that is how the Forsaken win wars." } },
+      choices = {
+        { text = "Then I'll keep the road red until Southshore breaks.", next = "BACK", reply = "That is the Dark Lady's work, and you do it well. Mind their paladins; they come back up just as stubbornly as we do.", fx = { align = { honor = -1 } } },
+        { text = "I fight them fairly. I'll not ambush their wounded.", next = "BACK", reply = "Fair is a living word, {class}. Keep it if you like, but don't let it slow your blade when they come over that hill.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Executor.", next = "BACK" },
+      },
+    },
+
     prej = {
       lines = { { id = "prej_default", text = "Because most of them do, in the end, or they ask to pitch their tents upwind of us. The orcs call us allies in Orgrimmar and corpses in the field, and I stopped waiting for the difference to close." } },
       choices = {
@@ -159,7 +168,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "One at a time, by night, so the humans wake up to find their neighbors gone and wonder who is next. Fear spreads faster than plague, and it costs the Dark Lady nothing at all." } },
+      lines = { { id = "xrogue_default", text = "One at a time, by night, so the humans wake up to find their neighbors gone and wonder who is next. Fear costs the Dark Lady nothing at all, and it does half my work for me." } },
       choices = {
         { text = "Fear is a weapon. I'll use it well.", next = "BACK", reply = "Then use it on Southshore, and use it well. I want the farmers barring their doors before the sun is down.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "I'll fight soldiers, not frighten farmers.", next = "BACK", reply = "A noble sentiment, and a very living one. The soldiers are farmers here, and you'll learn that soon enough.", fx = { align = { light = 1 } } },
@@ -195,7 +204,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" },
           text = "A tauren druid, among the dead. Your people make their oaths to the Earth Mother, I'm told, and I have yet to decide whether she would count us among her children." },
         { id = "h_default", key = true,
           text = "High Executor Darthalia. I hold Tarren Mill for the Dark Lady and Lord Varimathras, and I push the line against the humans of Southshore, one field at a time if I must." },
@@ -226,6 +235,8 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hillsbrad", min = 40 } }, text = "The farms below the Mill are emptier than they were, and Southshore's grain carts have started coming back half full. Your work, I'm told. Keep at it, for arithmetic favours the patient." },
         { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Horde" },
           text = "The Crusade's monastery has lost its masters, I'm told, and the bat riders say you were among those who saw to it. Tirisfal will breathe easier, and I'll have fewer zealots coming down the road to bother my line." },
+        { id = "h_dd_honor", tags = { "news" }, when = { honorKills = { min = 100 } },
+          text = "My watchers on the hill count the Alliance soldiers you've cut down, and the tally is long enough to make Southshore nervous. Good; I want them nervous." },
       },
       again = {
         { id = "h_again", text = "What else? Be brief about it." },
@@ -256,6 +267,7 @@ P:NPC {
         { text = "You treat every living soldier as if they're about to run.", next = "prej", when = { prejudiced = true } },
         { text = "I served in the Hillsbrad militia, High Executor, against the dead.", next = "xorig_militia", when = { origin = "forsaken_hillsbrad_militia" } },
         { text = "I'll take my leave.", next = "END" },
+        { text = "Southshore's soldiers keep coming at Tarren Mill, Executor.", next = "dd_honor", when = { honorKills = { min = 100 } } },
       },
     },
     xorig_militia = {
@@ -589,7 +601,7 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, here among my cauldrons. I'm told you talk to the earth and the water, so please don't tell me what they think of the runoff behind the hut." },
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" },
           text = "A druid at Tarren Mill. I suspect you won't approve of my work, tauren, since most of it is about making green things die faster." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest. The Light stopped visiting Tarren Mill some time ago, and the loa never came at all, so you'll have to make do with me and Umpi." },
@@ -613,6 +625,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want to know whether I've a use for your shards, and the answer is no, since I've enough trouble keeping Umpi out of my reagents." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Keep your beast away from the table, because most of what's on it would kill it, and the rest would make it wish it had died." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, standing in my workshop. You must feel something when the Light comes, and I envy that, because the only things I still feel are my work and Umpi." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You die rather often, {class}, and each time you return a little more stubborn. If you ever care to donate a sample from the next time, I'd be fascinated to compare it with the last." },
       },
       again = {
         { id = "h_again", text = "What else? Not that it matters." },
@@ -787,6 +801,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_battle = {
+      lines = { { id = "dd_battle_default", text = "Half the Deathguard in this town bought apples from those farms when they were breathing, and so did I. I don't feel much about it now, which is either the Dark Lady's gift or something worse, and I haven't decided which." } },
+      choices = {
+        { text = "They'd have burned you without a thought. Don't mourn them.", next = "BACK", reply = "I don't, and that's the trouble. Go on, then; the Deathguard will want to buy you something you can't drink.", fx = { align = { light = -1 } } },
+        { text = "It's all right to remember the apples, Shay.", next = "BACK", reply = "Is it? Then I'll remember them, quietly, and you'll keep that between us and the bar.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Something else, Shay.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Most of what's left of us is habit, so I don't see why the Light should be any different. I polish the bar and you pray, and both of us do it because it was done before, and maybe because doing it keeps us from becoming the mindless things outside." } },
@@ -866,8 +889,12 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll find the inn makes a fine hiding place, since nobody looks twice at the corner tables anymore, and the dead don't gossip much." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll want something warm, I suppose, though warmth is wasted on most of my guests, and I've stopped heating the kettle out of habit." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leave the axe by the door, if you would, because the last one who brought his into the common room took a chunk out of my good table during a nightmare." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid in Tarren Mill. Most of the living find it hard to stay here long, so I'll not take offense if you don't take a room." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid in Tarren Mill. Most of the living find it hard to stay here long, so I'll not take offense if you don't take a room." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, at my bar. I polished it today, and you're welcome to lean on it, though if you start glowing I'll ask you to lean somewhere less shiny." },
+        { id = "h_dd_battle", tags = { "news" }, when = { questDone = TODO_QUEST("Battle of Hillsbrad") },
+          text = "The Deathguard came in after the Battle of Hillsbrad and said your name more than once, which for this lot is practically a song. The fields south of here have gone very quiet." },
+        { id = "h_dd_deaths", when = { deaths = { min = 15 } },
+          text = "You've been carried back to the graveyard so often I've started keeping a stool by the door for you. It's not a kindness, mind; it's just that you keep turning up." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've all night, and every night after it." },
@@ -888,6 +915,7 @@ P:NPC {
         { text = "The land around Tarren Mill feels half dead.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Is the Light just another habit for the dead, Shay?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just passing through.", next = "END" },
+        { text = "The Hillsbrad farms are quiet now, Shay. How does that sit with you?", next = "dd_battle", when = { questDone = TODO_QUEST("Battle of Hillsbrad") } },
       },
     },
     before = {

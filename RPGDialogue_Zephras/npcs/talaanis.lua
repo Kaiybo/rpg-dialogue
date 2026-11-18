@@ -205,7 +205,7 @@ P:NPC {
           text = "I told the Council the Windlord might take years to act, decades even, but I did not say never. Everyone heard the first part." },
       },
       choices = {
-        { text = "Then we have time.", next = "BACK", reply = "We have, I think, but time is a poor thing to lean on. Use it well, child.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Then we have time.", next = "BACK", reply = "We have, I think, though the Council spent the last such season arguing over who should keep the minutes. Use it well, child.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "Then we should be ready.", next = "BACK", reply = "Yes, and that is the half nobody heard. I'm glad someone did.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Who stood with us against the Al'Aketh?", next = "allies" },
       },
@@ -405,7 +405,7 @@ P:NPC {
     outsiders = {
       big = true,
       lines = {
-        { id = "ou_default", text = "Half of Valanaar wants to touch your armor to see whether it's real, and the other half wants you gone before the Windlord notices you as well. I'm in neither half, guest; I'm only glad we're not alone anymore." },
+        { id = "ou_default", text = "Some in Valanaar want to touch your armor to see whether it's real, and some want you gone before the Windlord notices you as well. I'm in neither camp, guest; I'm only glad we're not alone anymore." },
         { id = "ou_nelf", when = { race = "NightElf" },
           text = "You most of all, kaldorei, confuse them. You speak our tongue and wear our ancestors' faces, and some in Valanaar want to embrace you while others remember that Eldre'Thalas once sent ships after us." },
       },

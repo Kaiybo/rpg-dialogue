@@ -71,7 +71,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Old stone that wakes when ye touch the wrong thing, and old seals the Explorers' League keeps breakin' because they cannae leave a door shut. Whatever the titans locked away down there, they locked it for a reason, and yer magic would only be one more key in the wrong hand." } },
       choices = {
-        { text = "Doors like that should stay shut, Martek. I'll respect the seals.", next = "BACK", reply = "Good, that's more sense than the whole League's got. Some doors were shut for reasons.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Doors like that should stay shut, Martek. I'll respect the seals.", next = "BACK", reply = "Good, that's more sense than the whole League's got. I've seen what crawls out o' Uldaman when a door gets opened.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Old seals are made to be broken. I'll take what's inside.", next = "BACK", reply = "Then ye'll find out why they were sealed, an' I'll no' be there tae dig ye out. Mind yerself.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -89,7 +89,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Aye, they do, an' that's why I'll no' let a mage near mine. Metal that's been made strong by a charm forgets how tae be strong on its own, an' the day yer charm fails, the blade fails with it." } },
       choices = {
-        { text = "Honest steel needs no magic. You're right.", next = "BACK", reply = "Ye've a smith's sense, whatever else ye are. Honest steel, an' honest work, an' nae charms.", fx = { align = { order = 1 } } },
+        { text = "Honest steel needs no magic. You're right.", next = "BACK", reply = "Ye've a smith's sense, whatever else ye are. Bring me honest ore an' I'll show ye what fire alone can do.", fx = { align = { order = 1 } } },
         { text = "Magic makes metal better. That's progress, Martek.", next = "BACK", reply = "Progress, aye, until it fails ye in a fight. I'll stick wi' fire an' hammer, thank ye.", fx = { align = { order = -1 } } },
         { text = "Something else, Martek.", next = "BACK" },
       },
@@ -253,8 +253,8 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "Counting this morning, pal? Enough to keep the skies clear over my camp and the books in the black, and not one of 'em has ever filed a complaint or haggled over the bill, so they're my favourite clients." } },
       choices = {
-        { text = "Ease up, or there won't be any buzzards left.", next = "BACK", reply = "Ease up? And let my profits fly away? Okay, okay, maybe a little, but only for the sake of next season.", fx = { align = { light = 1 } } },
-        { text = "Cook the lot. They're only carrion birds.", next = "BACK", reply = "Cook the lot! A customer after my own heart, friend. One more plate, comin' right up.", fx = { align = { light = -1 } } },
+        { text = "Ease up, or there won't be any buzzards left.", next = "BACK", reply = "Ease up? And let my profits fly away? Fine, fine, maybe a little, but only so there's buzzards next season.", fx = { align = { light = 1 } } },
+        { text = "Cook the lot. They're carrion birds, not songbirds.", next = "BACK", reply = "Cook the lot! A customer after my own heart, friend. One more plate, comin' right up.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

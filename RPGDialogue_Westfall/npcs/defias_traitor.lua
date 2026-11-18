@@ -16,6 +16,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dd_traitor_k = {
+      lines = {
+        { id = "dd_traitor_k_a", text = "Friends is a strong word, but I knew their names, and their wives, and which of them could still lay a straight wall before the Brotherhood got hold of them. They chose their road, and I chose mine, and now I'm the one walking with you." },
+      },
+      choices = {
+        { text = "They chose to rob and burn. They earned their end.", next = "dd_traitor_k2", fx = { align = { light = -1 } } },
+        { text = "Stormwind wronged them first. I take no joy in it.", next = "dd_traitor_k2", fx = { align = { light = 1 } } },
+      },
+    },
+    dd_traitor_k2 = {
+      lines = {
+        { id = "dd_traitor_k2a", text = "Aye, well, that's the argument every man in Moonbrook has had with himself, and I've had it more than most. Let's get this done before I change my mind about which side I'm on." },
+      },
+      choices = { { text = "Let's get it done, then. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Because they'd have hanged me sooner or later, and the Militia pays better for what I know. Don't look at me like that; your spirits can judge me if they want." } },
@@ -41,7 +57,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Where the road narrows by the old farms and the hedges are thickest, with a man up a tree and two in the ditch. Your {pet} will smell them before we see them, I hope, so if its hackles go up, trust it more than me." },
       },
       choices = {
-        { text = "I'll get you to Moonbrook alive, traitor or not.", next = "BACK", reply = "Traitor or not, he says, and I'll take it gladly. Get me there breathing, and you can call me anything you like.", fx = { align = { honor = 1 } } },
+        { text = "I'll get you to Moonbrook alive, traitor or not.", next = "BACK", reply = "Traitor or not, {g:he|she} says, and I'll take it gladly. Get me there breathing, and you can call me anything you like.", fx = { align = { honor = 1 } } },
         { text = "I'll get you there, but my beast comes first.", next = "BACK", reply = "Wonderful, I'm second to a beast, and I suppose that's fair. Tell it to bite the man in the tree first, will you?", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -92,6 +108,9 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
+        { id = "dd_defias_traitor", when = { killed = { name = "Defias", min = 40 } },
+          text = "I've heard about you, you know, because the lads talk about the one in the bandana country who keeps putting them down. Some of those were men I drank with, so forgive me if I don't look you in the eye." },
+
         { id = "h_default", text = "Gryan Stoutmantle says you're the one taking me to Moonbrook. I'll show you where the Brotherhood hides, but you keep me alive on the road, because they'll be watching for me." },
         { id = "h_active", when = { questActive = TODO_QUEST("The Defias Brotherhood") },
           text = "Right, we're doing this, then. Stay close, keep your blade out and don't stop for anything, not even if they call my name." },
@@ -101,7 +120,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. That beast of yours had better have a nose for an ambush, because the Brotherhood will have one waiting." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Save your prayers for the road, because if the Brotherhood catch us, we'll both be needing them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in all that shining plate. They'll see you coming a mile off, but maybe that'll make them think twice." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid, out here? The Brotherhood won't know what to make of you, and that suits me fine." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid, out here? The Brotherhood won't know what to make of you, and that suits me fine." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Keep your voice down. If your spirits can see who's following me, I want to know before they reach me." },
       },
       again = {
@@ -109,6 +128,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask, but keep one eye on the road while you do." },
       },
       choices = {
+        { text = "Some of those men you drank with were friends of yours?", next = "dd_traitor_k", when = { killed = { name = "Defias", min = 40 } } },
+
         { text = "Why did you turn on them?", next = "why" },
         { text = "Something must be waiting for us in Moonbrook.", next = "moonbrook" },
         { text = "Tell me about Edwin VanCleef.", next = "vancleef" },

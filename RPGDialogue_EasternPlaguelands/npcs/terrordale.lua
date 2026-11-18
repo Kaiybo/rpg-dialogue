@@ -29,7 +29,7 @@ P:NPC {
     { id = "n_hungry", cat = "hunger", when = { hp = { max = 0.5 } },
       text = "You look half eaten already, and I happen to have mushrooms, and isn't that the most marvellous coincidence?" },
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
-      text = "An herbalist! Don't you go picking my stock off the walls, mind, because I counted it. Twice. Possibly three times." },
+      text = "An herbalist! Don't you go picking my stock off the walls, mind, because I counted it twice, or possibly three times, and I'll know." },
   },
 
   start = "hello",

@@ -77,7 +77,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because Ag'tor needs sharp eyes on the woods and steady hands on the axes, and grog gives neither. A rogue knows that better than most, I'd say, since one slip in the dark is all it takes." } },
       choices = {
-        { text = "You're right. A clear head saves lives.", next = "BACK", reply = "Good. Glad someone in this camp sees it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right. A clear head saves lives.", next = "BACK", reply = "Good. Tell that to the grunts by the fire, because they think I'm their mother.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little grog never hurt anyone.", next = "BACK", reply = "Tell that to the grunt who fell asleep on watch last spring. We buried him the next week.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "I'll take the fruit.", next = "BACK" },
       },
@@ -109,8 +109,23 @@ P:NPC {
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
+    dd_betrayed = {
+      lines = {
+        { id = "dd_betrayed_1",
+          text = "He'd push the plate away and stare at the woods, night after night. A dozen warriors died because our commander trusted an elf's word, and Ag'tor carried every one of them like a stone in his gut." },
+        { id = "dd_betrayed_2",
+          text = "Now the stone's lighter, and the camp can feel it. I've sold more food this week than in a month, and not a drop of grog among it, which tells you something about what really fills a warrior." },
+      },
+      choices = {
+        { text = "Vengeance was owed. I'd do it again.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I hope it brings the dead some peace, not just Ag'tor.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Kurll.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_betrayed", tags = { "news" }, when = { questDone = TODO_QUEST("Betrayed") },
+          text = "Ag'tor ate a full plate last night for the first time since the elf turned on us, and he told me why. You brought him the head of that Rimtori, so eat what you like here; I'll not complain about your appetite." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock. You'll take milk and bread like everyone else, and no grog, because a warlock who can't keep his head is a danger to the whole camp." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -133,6 +148,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. I've nothing better to do until supper." },
       },
       choices = {
+        { text = "Ag'tor hadn't been eating?", next = "dd_betrayed", when = { questDone = TODO_QUEST("Betrayed") } },
         { text = "They say the land around Valormok is cursed.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Why no grog in an orc camp?", next = "grog" },
@@ -278,8 +294,23 @@ P:NPC {
         { text = "Something else, Gruul.", next = "BACK" },
       },
     },
+    dd_rimtori = {
+      lines = {
+        { id = "dd_rimtori_1",
+          text = "More than anyone? Maybe not more than Ag'tor, but close. I forged the axes those warriors carried into that bargain, and they never got the chance to swing them before her magic took them." },
+        { id = "dd_rimtori_2",
+          text = "I've cursed every Thalassian since, and I know that isn't fair, not every elf is her. But I'm a smith, not a priest, and fair is a thing that happens to other people." },
+      },
+      choices = {
+        { text = "Your grudge is earned. Keep it sharp.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Not every elf is her. Don't let it rot you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Gruul.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_rimtori", when = { killed = { name = "Rimtori" } },
+          text = "So the elf witch is dead, and it was your blade that did it! Hand it here and let me see the edge, because any weapon that took her deserves a long look from a proper smith." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior of the Horde. Let me see that edge, because if you're going after elves, I want it sharp enough to shave with." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -292,7 +323,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Gruul Darkblade, weaponsmith for Valormok. Axes, swords, maces, whatever you swing, and I'll have it sharp before you go hunting elves or naga, because both of them are hunting us." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at my forge. You'll not want your mace sharpened, I'd guess, but the elves who killed our warriors won't stop for prayers, so carry something with an edge." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, with claws of your own when you need them. You'll not want my axes, I'd wager, but your friends will, and the elves here aren't shy about killing tauren." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A druid, with claws of your own when you need them. You'll not want my axes, I'd wager, but your friends will, and the elves here aren't shy about killing tauren." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Bring me that hammer, because the elves who killed our warriors won't care what you pray to, and neither will the edge." },
       },
       again = {
@@ -300,6 +331,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, but quickly. I have blades to finish, and the dead of this camp are still waiting to be avenged." },
       },
       choices = {
+        { text = "You wanted Rimtori dead more than anyone.", next = "dd_rimtori", when = { killed = { name = "Rimtori" } } },
         { text = "What does Azshara's earth give a weaponsmith, Gruul?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What happened to this camp's warriors?", next = "elves" },

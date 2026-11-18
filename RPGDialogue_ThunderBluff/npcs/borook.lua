@@ -42,6 +42,7 @@ P:NPC {
           text = "Borook Gallfist, and Borook be sorry, {class}, but you not experienced enough to go to the Darkspear Islands yet. The jungle there don't care how brave you be, only how strong." },
         { id = "h_troll", when = { race = "Troll" },
           text = "Borook Gallfist, and you be a long way from the sea, same as me. The Raiders be fighting for the islands where Sen'jin met the Warchief, and every Darkspear knows that story." },
+        { id = "h_dd_honor", when = { honorKills = { min = 100 } }, text = "Borook hears you been bloodying the Alliance, {rank}, and plenty of it. Good, mon, because the Raiders need fighters who already know what de other side looks like when it falls." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, this wind steals the words out of your mouth." },
@@ -52,7 +53,18 @@ P:NPC {
         { text = "What happened on those islands?", next = "islands" },
         { text = "How do you like Thunder Bluff?", next = "likes" },
         { text = "Send me to the Darkspear Islands.", next = "BUSINESS", when = { minLevel = 30 } },
+        { text = "I've killed my share of Alliance soldiers, Borook.", next = "dd_honor", when = { honorKills = { min = 100 } } },
         { text = "Another time, Borook.", next = "END" },
+      },
+    },
+    dd_honor = {
+      lines = {
+        { id = "dd_honor_1", text = "Borook can see it, mon, in the way you stand with your back to a wall. De first hundred be the hardest, and after dat you stop counting and start learning, which be where a real raider is born." },
+      },
+      choices = {
+        { text = "Every one of them chose to fight. I don't lose sleep.", next = "BACK", reply = "Dat be the right way to carry it, mon. De ones who lose sleep be the ones who make mistakes in the next fight.", fx = { align = { honor = -1 } } },
+        { text = "I fight them, but I don't hate them, Borook.", next = "BACK", reply = "Hmph, Borook heard tauren say that, and a few orcs too. Maybe you be right, but keep your axe sharp while you be not hating them.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Borook.", next = "BACK" },
       },
     },
     bluff = {

@@ -93,6 +93,7 @@ P:NPC {
           text = "I half believed the Compendium was a story the humans told to frighten their children, and here it sits on my table. You have served the tauren of Thunder Bluff well, {name}, whatever the council says about my methods." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A child of the Earth Mother who has seen the wider world, good. Come and tell me what the orcs and the Forsaken say when they think no tauren is listening." },
+        { id = "h_dd_auld", tags = { "news" }, when = { questDone = TODO_QUEST("A Vengeful Fate") }, text = "Auld Stonespire walked past my door this morning and nodded to me, which is the first greeting Auld has given me since we both came to live on this rise. I hear Charlga Razorflank is dead and that you're the one to thank, so thank you, for my sake as much as for Auld's." },
       },
       again = {
         { id = "h_again", text = "What else? Ask, and I'll answer as honestly as is wise, which the Earth Mother would say is honestly enough." },
@@ -304,6 +305,7 @@ P:NPC {
           text = "Thank you, {name}. My part in the ceremony is nearly done now, and whenever Ruul stands before the chieftain wearing those feathers, a little of your work stands with him." },
         { id = "h_tauren_f", when = { race = "Tauren", gender = "female" },
           text = "A daughter of the plains, good. You'll know a well-sewn headdress when you see one, which is more than my brother does." },
+        { id = "h_dd_windfury", when = { killed = { name = "Windfury", min = 30 } }, text = "You've been among the Windfury, I can tell by the down still stuck to your boots. If you ever bring a few good feathers back with you, I could use them, because the ceremonies never seem to have enough." },
       },
       again = {
         { id = "h_again", text = "Was there more? I can talk and sew at the same time." },
@@ -406,6 +408,7 @@ P:NPC {
           text = "There's a crone named Charlga Razorflank in the thorns of Razorfen Kraul, raising a foul army of quilboar out of our old holy ground. She faces a vengeful fate, {name}, and I'd like you to be the one who brings it. Bring me her heart, so that I can die in peace." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Vengeful Fate"), days = 3 } },
           text = "Her heart, black and shrivelled, just as I imagined it. I'm told this should make me feel lighter, and some mornings it does, so I'll thank you for it." },
+        { id = "h_dd_razorfen", tags = { "news" }, when = { killed = { name = "Razorfen", min = 40 } }, text = "The Razorfen are counting their dead, young one, and I'm told a good many of them are yours. I won't pretend that grieves me, because those thorns stand on Stonespire land." },
       },
       again = {
         { id = "h_again", text = "Well? I'm old, not deaf, and the Stonespire never were. Ask." },
@@ -417,7 +420,18 @@ P:NPC {
         { text = "The elders must think you should forgive.", next = "forgive" },
         { text = "I've been to Razorfen Kraul.", next = "kraul", when = { cleared = "Razorfen Kraul" } },
         { text = "I'll bring you her heart.", next = "BUSINESS" },
+        { text = "I've thinned the Razorfen, Auld. Is it enough?", next = "dd_razorfen", when = { killed = { name = "Razorfen", min = 40 } } },
         { text = "Earth Mother keep you, Auld.", next = "END" },
+      },
+    },
+    dd_razorfen = {
+      lines = {
+        { id = "dd_razorfen_1", text = "Enough? The Stonespire hunted the southern Barrens since before the orcs came over the sea, and the quilboar took it with fire and thorns while the other tribes were busy forgiving. Every quilboar you kill is a debt paid, but it will never bring back the ones I buried." },
+      },
+      choices = {
+        { text = "Then I'll keep paying that debt, Auld.", next = "BACK", reply = "Good, and don't let anyone on Elder Rise tell you to stop. They didn't watch the thorns grow over our camps.", fx = { align = { light = -1 } } },
+        { text = "Killing them won't bring your people back, Auld.", next = "BACK", reply = "You sound like the elders, and I've had my fill of them. I know it won't, young one, but it lets me sleep, and that's something.", fx = { align = { light = 1 } } },
+        { text = "Something else, Auld.", next = "BACK" },
       },
     },
     tribe = {

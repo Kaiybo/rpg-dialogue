@@ -144,6 +144,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_necklace_r", when = { questDone = TODO_QUEST("Lost Necklace") },
+          text = "You found Bernice's necklace, didn't you? I heard it, I heard it twice, and Billy Maclure's been telling every cart driver he was innocent all along." },
+        { id = "dd_escape_r", tags = { "news" }, when = { questDone = TODO_QUEST("The Escape") },
+          text = "The Maclure girl's gone off with the Stonefield boy, and they say you helped! That's the best news I've had to sell all week, and I'll be selling it twice." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, a priest! Bless me, then, bless me twice, because I've done nothing wrong, nothing at all, this week." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, a paladin! Remy's done nothing wrong, nothing at all, so you can keep that hammer where it is, where it is." },
         { id = "h_default", text = "Remy, at your service, at your service! Whatever you need, I know a fellow who knows a fellow." },
@@ -168,8 +173,8 @@ P:NPC {
           text = "A warlock, a warlock! You'll want to speak to Remen Marcot down in the cellar, and I didn't tell you, I didn't tell you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, a warrior! I know a fellow who sells swords, two fellows, in fact, and they both owe me money." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, a hunter! I've a fellow who sells arrows, a good fellow, mostly arrows, mostly good!" },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, a night elf! I know a fellow who knows a fellow who once sold a bear's tooth to one of your people, true as I'm standing here." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! A shaman, I say! I've got just the thing for you. Just the thing!" },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, a night elf! I know a fellow who knows a fellow who once sold a bear's tooth to one of your people, true as I'm standing here." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, a shaman! I've got just the thing for you, friend, just the thing, if you'll step this way." },
       },
       again = {
         { id = "h_again", text = "What else, what else? Time's money, friend, and money's money too." },
@@ -268,7 +273,7 @@ P:NPC {
         { id = "fe_default", text = "A fence, me? I'm a merchant, a respectable merchant! ...What are you selling, though? I'm just asking, just asking." },
       },
       choices = {
-        { text = "Nothing. Yet.", next = "BACK", reply = "Yet, yet? Remy likes the sound of yet. Come back when it's not yet any more.", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Nothing, Remy. Not yet, anyway.", next = "BACK", reply = "Yet, yet? Remy likes the sound of yet. Come back when it's not yet any more.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "I'm no thief, Remy, and I won't be selling.", next = "BACK", reply = "No, no, of course not, not you, not ever! Remy was only asking, asking.", fx = { align = { honor = 1 } } },
         { text = "Relax, Remy.", next = "BACK" },
       },

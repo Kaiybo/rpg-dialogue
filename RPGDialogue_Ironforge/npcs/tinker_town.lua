@@ -115,7 +115,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Some live in Tinker Town, some went to Stormwind, and some never came out of the radiation at all. The ones left are building again, which is the gnomish way, though their gadgets are rather more cautious now." } },
       choices = {
-        { text = "Caution is wise after a disaster like Gnomeregan.", next = "BACK", reply = "It is, and I'm glad someone sees it, because the younger gnomes keep calling me a coward for checking every rivet three times.", fx = { align = { order = 1 } } },
+        { text = "Caution is wise after a disaster like Gnomeregan.", next = "BACK", reply = "Thank you! The younger gnomes keep calling me a coward for checking every rivet three times, and I keep telling them that's exactly how many rivets Gnomeregan didn't check.", fx = { align = { order = 1 } } },
         { text = "Caution builds nothing. Gnomeregan fell because it hesitated.", next = "BACK", reply = "Oh, that's a terrible thing to say, and possibly true, which makes it worse, so I'll be thinking about that all evening, thank you very much.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -211,6 +211,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I once built a mechanical hound, you know, but it chased the wrong things, as all my best inventions eventually do." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in Tinker Town! Oh, forgive the dramatics, but I must ask you to keep your fingers off the schematics, because the Pledge of Secrecy covers every last one of them." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Our situation is dire, but even in dire times one can marvel. You hear the earth? Does the earth say anything about Gnomeregan?" },
+        { id = "dd_artificials", when = { questDone = TODO_QUEST("Essential Artificials") },
+          text = "Klockmort tells me you brought him the artificial extrapolators from Gnomeregan itself. Into that radioactive mess and out again, which is a better result than our last three expeditions combined." },
       },
       again = {
         { id = "h_again", text = "More questions? Splendid, it's that or stare at my blueprints of Gnomeregan again." },
@@ -504,7 +506,7 @@ P:NPC {
       },
       choices = {
         { text = "For the data. The corridor's behind me.", next = "xorig_rear2", fx = { trait = { cautious = 1 } } },
-        { text = "For the corridor. I ran once. I won't again.", next = "xorig_rear2", fx = { trait = { brave = 1 } } },
+        { text = "For the corridor. I ran once, and I won't run again.", next = "xorig_rear2", fx = { trait = { brave = 1 } } },
         { text = "I don't know yet, Castpipe.", next = "xorig_rear2" },
       },
     },
@@ -1013,6 +1015,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, for the troggs keep coming up out of the tunnels, and somebody needs to count them before I lose my temper again." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Gnomeregan needs every pair of hands it can get, paws included, and I mean that as a compliment." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The dwarves gave Gnomeregan's people a home, and now one of them talks to the very earth that swallowed our city. I've a plan for that, though it's only half a plan." },
+        { id = "dd_recomb", when = { questDone = TODO_QUEST("Operation Recombobulation") },
+          text = "Razzle Sprysprocket sent word that you brought him the parts for his Recombobulator! Every step toward a cure is a step toward going home, and I've added your name to the plans, in the margin, where the important notes go." },
       },
       again = {
         { id = "h_again", text = "What else, recruit? The troggs aren't resting, and neither am I." },
@@ -1071,7 +1075,7 @@ P:NPC {
       },
       choices = {
         { text = "Science will cure them.", next = "BACK", reply = "It will, I know it will, and Ozzie says we're only a few dozen failed tests away, which is very nearly no tests at all.", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
-        { text = "They'll need prayer as much as science.", next = "BACK", reply = "Perhaps they will, and I'll not argue, because some days the lepers look like they need comfort as much as a cure.", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
+        { text = "They'll need prayer as much as science.", next = "BACK", reply = "Perhaps they will. Some days the lepers look like they need comfort as much as a cure, and I've no formula for comfort.", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

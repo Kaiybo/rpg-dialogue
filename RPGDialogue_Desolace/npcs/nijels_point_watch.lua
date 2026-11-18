@@ -37,6 +37,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "According to my ledger, you've been carried back to the spirit healer more often than any of my men. I don't keep a column for that, mind you, but if I did, you'd be at the top of it." },
         { id = "h_default", key = true,
           text = "I'm Corporal Melkins, of the Stormwind Army's garrison here at Nijel's Point. I keep the watch rota, the stores ledger and the bounty book, which makes me the most important man in the outpost, according to me." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Centaur Bounty") },
@@ -216,6 +218,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_seed", when = { questDone = TODO_QUEST("Corruption of Earth and Seed") },
+          text = "Keeper Marandis says you helped him against the corruption in the land here. I'm grateful, because what Vyletongue does below the earth, the land shows above it, and every bit of it healed is a step toward healing Maraudon." },
         { id = "h_default", key = true,
           text = "I am Talendria. A satyr called Vyletongue has corrupted the caverns of Maraudon and stunted the growth of every plant inside, and I mean to see them healed, even if I must do it by another's hand." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Vyletongue Corruption") },

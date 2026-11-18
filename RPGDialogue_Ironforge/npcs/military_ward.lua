@@ -74,7 +74,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because ye go where the soldiers dinnae, an' ye listen where they talk. If ye ever hear Sully's name on the wind, I'd be grateful tae know it, good or bad, for the not knowin' is the worst o' it." } },
       choices = {
-        { text = "I'll listen for his name and bring you the truth.", next = "BACK", reply = "Thank ye, an' I mean that, for the not knowin' is worse than any truth, an' ye've a way o' hearin' things that the post doesnae.", fx = { align = { honor = 1 } } },
+        { text = "I'll listen for his name and bring you the truth.", next = "BACK", reply = "Thank ye, I mean it. The not knowin' is worse than any truth, an' ye've a way o' hearin' things the post doesnae.", fx = { align = { honor = 1 } } },
         { text = "I'll bring you good news, Sara, whatever I actually hear.", next = "BACK", reply = "I'd rather ye didnae, for I'd know, an' then I'd never trust good news again, an' that would be the cruellest thing ye could do.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -94,7 +94,7 @@ P:NPC {
         { id = "xlock_default", text = "I'd take news from a trogg if it had seen my Sully, an' I'm past carin' who brings it. The folk in the Ward look at ye sideways, I know, but they look at me sideways too these days, for askin' every stranger the same question." },
       },
       choices = {
-        { text = "If I hear anything, I'll bring it straight to you.", next = "BACK", reply = "Thank ye, an' I'll no' mind the whispers if ye bring me news, for the folk who look at us sideways have never brought me a letter.", fx = { align = { honor = 1 } } },
+        { text = "If I hear anything, I'll bring it straight to you.", next = "BACK", reply = "Thank ye. Let them whisper; the folk who look at us sideways have never once brought me a letter.", fx = { align = { honor = 1 } } },
         { text = "I've no time for other people's husbands.", next = "BACK", reply = "No, I suppose no', an' I'll no' hold it against ye, for everyone's got their own waitin' tae do in this Ward.", fx = { align = { honor = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -219,7 +219,7 @@ P:NPC {
       },
       choices = {
         { text = "The King honored him rightly.", next = "BACK", reply = "He did, an' I'll no' say otherwise, for a memorial's a kindness, but I'd rather the King's sigh had come wi' more soldiers for the Span.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "A stone is small payment for a life.", next = "BACK", reply = "Aye, it is, an' I'll no' pretend otherwise, but it's the only payment there is, an' I'd sooner have it than nothin' at all.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "A stone is small payment for a life.", next = "BACK", reply = "It is. But it's the only payment there is, an' I'd sooner have it than nothin' at all.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Do you believe him?", next = "king_believe" },
       },
     },
@@ -246,7 +246,7 @@ P:NPC {
           text = "Ward-born, are ye? Then ye'll know my Sully, or know o' him; he drilled under Kelstrum Stonebreaker in the Hall o' Arms afore they sent him tae the Span." },
       },
       choices = {
-        { text = "I'll write. I promise.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "I'll write to you, I promise.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Nobody waits for me, Sara.", next = "soldier_nobody" },
       },
     },
@@ -328,7 +328,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Plenty, for the day yer beast falls an' the bear's still standin', ye'll want tae know how tae take a blow. Mind, that {pet} o' yours has more fight in its eyes than half my recruits." },
       },
       choices = {
-        { text = "I'll take the training. Every hunter should stand firm.", next = "BACK", reply = "Good, an' I'll knock ye down gentle the first time, an' a wee bit less gentle every time after, for that's how it's learned.", fx = { align = { order = 1 } } },
+        { text = "I'll take the training. Every hunter should stand firm.", next = "BACK", reply = "Then I'll knock ye down gentle the first time, an' a wee bit less gentle every time after. That's how it's learned.", fx = { align = { order = 1 } } },
         { text = "A good hunter never lets the bear get that close.", next = "BACK", reply = "That's what they all say, right up until it does, an' then they're in my yard learnin' tae stand up again, so come anyway.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -337,8 +337,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "On the field, aye, though no warrior likes admittin' it. Ye throw the fire an' we stand in front o' ye so ye can, an' the best mages I've known never forgot which half o' the bargain was bleedin'." } },
       choices = {
-        { text = "I'll never forget who stands in front of me, Kelstrum.", next = "BACK", reply = "Good, for the warriors who stand in front o' ye will remember it, an' they'll fight harder for a mage who doesnae forget them.", fx = { align = { honor = 1 } } },
-        { text = "The warriors are paid to bleed. That's their trade.", next = "BACK", reply = "They are, an' I'll no' argue, but they'll bleed slower for a mage who thanks them, an' that's a lesson ye'll learn eventually.", fx = { align = { honor = -1 } } },
+        { text = "I'll never forget who stands in front of me, Kelstrum.", next = "BACK", reply = "The warriors who stand in front o' ye will remember it. They fight harder for a mage who doesnae forget them.", fx = { align = { honor = 1 } } },
+        { text = "The warriors are paid to bleed. That's their trade.", next = "BACK", reply = "They are. But they'll bleed slower for a mage who thanks them, an' ye'll learn that eventually.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -418,7 +418,7 @@ P:NPC {
         { id = "go_default", text = "Thick skin, a short memory for bruises, an' the sense tae stand in front o' the folk who cannae take a hit. That last one's the part they forget." },
       },
       choices = {
-        { text = "Standing in front is an honor.", next = "BACK", reply = "It is, an' I'm glad tae hear ye say it, for most o' my recruits only learn it after they've watched someone die for want o' a shield.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Standing in front is an honor.", next = "BACK", reply = "It is. Most o' my recruits only learn that after they've watched someone die for want o' a shield.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Winning matters more than where you stand.", next = "BACK", reply = "Winnin' matters, aye, but ye'll no' win much if the healer behind ye is dead, so mind where ye stand for her sake.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -468,7 +468,7 @@ P:NPC {
           text = "Hold it, aye, wi' a hammer in one hand an' the Light in the other, an' I'll admit I've seen dwarves o' the Silver Hand hold the Span when my own lads broke. Don't tell Brandur I said so." },
       },
       choices = {
-        { text = "Faith is what keeps the line standing.", next = "BACK", reply = "Aye, an' I'll no' argue it, for Brandur's lot have held more lines than I can count, so I'll keep my teasin' for Brandur.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Faith is what keeps the line standing.", next = "BACK", reply = "Aye, Brandur's lot have held more lines than I can count. I'll keep my teasin' for Brandur himself.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Steel holds the line. The prayer's for after.", next = "BACK", reply = "That's a warrior's answer, an' I'll take it, for a paladin who swings first an' prays after is welcome in my yard any day.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -478,8 +478,8 @@ P:NPC {
         { id = "rg_default", text = "Nobody fights fair once they've been in a real fight, so ye've just learned it sooner than most. I'll say this, though: my warriors take the blows so ye can get round the back, an' ye'd best make it count when ye get there." },
       },
       choices = {
-        { text = "Fair fights are for people who expect to lose.", next = "BACK", reply = "Ha, maybe so, an' I'll no' argue, but fair fights are what keep the rest o' us alive while ye're off gettin' round the back.", fx = { align = { honor = -1 } } },
-        { text = "I'll make it count, and I'll thank the shield.", next = "BACK", reply = "Good, an' my warriors will be glad tae hear it, for they rarely get thanked by anybody who isnae a healer.", fx = { align = { honor = 1 }, affinity = 2 } },
+        { text = "Fair fights are for people who expect to lose.", next = "BACK", reply = "Ha! Maybe so. But fair fights are what keep the rest o' us alive while ye're off gettin' round the back.", fx = { align = { honor = -1 } } },
+        { text = "I'll make it count, and I'll thank the shield.", next = "BACK", reply = "My warriors will be glad tae hear it. They rarely get thanked by anybody who isnae a healer.", fx = { align = { honor = 1 }, affinity = 2 } },
       },
     },
   },
@@ -587,6 +587,16 @@ P:NPC {
         { text = "Good day, Bilban.", next = "BACK" },
       },
     },
+    dd_bb_hk = {
+      lines = {
+        { id = "dd_bb_hk1", text = "I always want to check technique! A hundred victories against the Horde means a hundred chances to learn, and most warriors learn nothing at all, because they think winning is the lesson. Winning is only the result, and the lesson is in the footwork." },
+      },
+      choices = {
+        { text = "Then I'll keep training. Show me the footwork.", next = "BACK", reply = "Excellent! Come back between battles, and we'll correct the left foot first. It's always the left foot.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Winning is the lesson. The footwork takes care of itself.", next = "BACK", reply = "Spoken like a warrior who's been lucky. I'll be here when the luck runs out.", fx = { align = { order = -1 } } },
+        { text = "Something else, Bilban.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Your class specification is incompatible with my curriculum, but your healing output has saved several of my students, so I'm statistically grateful." },
@@ -601,12 +611,15 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! A ranged unit with an organic support module, if I'm not mistaken. Fascinating." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You present a fascinating combat problem, since your stance changes with your shape, and I have several theories about it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Unusual. Your stance is adequate, but I suspect you rely on the elements to cover deficiencies in your footwork." },
+        { id = "dd_hk", when = { honorKills = { min = 100 }, faction = "Alliance" },
+          text = "The battlefield reports put you at over a hundred honorable kills. A fine figure, though I'd want to see the technique behind it before I called it efficient." },
       },
       again = {
         { id = "h_again", text = "Further inquiries? Please proceed." },
         { id = "h_again2", text = "Next item on the agenda?" },
       },
       choices = {
+        { text = "A hundred kills, Bilban. Want to check my technique?", next = "dd_bb_hk", when = { honorKills = { min = 100 }, faction = "Alliance" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Why does a gnome take up arms?", next = "why" },
         { text = "Combat sounds a lot like engineering, the way you put it.", next = "engineering" },
@@ -727,7 +740,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They do, an' I've no explanation for it. A wolf'll lie down at a shaman's feet the way it does at a hunter's, an' the hunters dinnae like it one bit. I tell them the beasts know who respects the wild, an' that's no' always the one holdin' the leash." } },
       choices = {
-        { text = "Respect the wild, and it'll trust you back.", next = "BACK", reply = "That's how I see it, an' I'm glad tae hear it from a shaman, for the hunters in my yard could stand tae hear it more often.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Respect the wild, and it'll trust you back.", next = "BACK", reply = "That's how I see it. The hunters in my yard could stand tae hear it from a shaman more often.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The beasts know power. That's all respect ever is.", next = "BACK", reply = "Maybe so, but a wolf that lies down for power is a wolf that'll stand up for more, an' I'd rather have one that stays for trust.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -736,7 +749,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Tae watch before ye charge, for a beast tells ye everythin' wi' its ears an' its tail before it moves. Most warriors I meet see a bear an' run at it, an' the bear always knew they were comin'." } },
       choices = {
-        { text = "I'll watch first, then strike.", next = "BACK", reply = "Good, then ye'll live longer than most warriors I've trained, an' ye'll make the bears very cross, which is always a pleasure tae see.", fx = { align = { order = 1 } } },
+        { text = "I'll watch first, then strike.", next = "BACK", reply = "Then ye'll outlive most warriors I've trained, an' ye'll make the bears very cross, which is always a pleasure tae see.", fx = { align = { order = 1 } } },
         { text = "Watching's for hunters. I'll charge and see.", next = "BACK", reply = "Then ye'll learn the way most warriors do, flat on yer back wi' a bear on yer chest, so take a healer when ye go.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -745,7 +758,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "In the high snows, aye, both trackin' the same trolls for different reasons. I've no quarrel wi' yer trade, so long as ye don't track my students' beasts back tae their stables." } },
       choices = {
-        { text = "I'd never harm a hunter's companion. That's beneath me.", next = "BACK", reply = "Good, an' I'll take ye at yer word, for I've no quarrel wi' ye otherwise, so long as the beasts stay safe from yer knives.", fx = { align = { honor = 1 } } },
+        { text = "I'd never harm a hunter's companion. That's beneath me.", next = "BACK", reply = "I'll take ye at yer word. I've no quarrel wi' ye otherwise, so long as the beasts stay safe from yer knives.", fx = { align = { honor = 1 } } },
         { text = "A beast is a beast, Daera. It's only a tool.", next = "BACK", reply = "A tool, is it? Then ye'll never know what a beast can do when it chooses tae stand by ye, an' that's yer loss, no' mine.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -763,7 +776,7 @@ P:NPC {
       lines = { { id = "dq_default", text = "Not quite. A hunter takes a companion an' keeps it close, while a druid lets the wild run free an' walks beside it. Both ways can be honest, if the heart's right." } },
       choices = {
         { text = "A beast should be free, not leashed.", next = "BACK", reply = "Maybe so, an' I've no quarrel wi' a druid who thinks it, but I've seen beasts choose tae stay, an' that's no' a leash.", fx = { align = { order = -1 } } },
-        { text = "A well-kept companion lives longer than a wild one.", next = "BACK", reply = "It does, an' I'm glad tae hear ye say it, for the druids sometimes forget that the wild is a hard place tae grow old.", fx = { align = { order = 1 } } },
+        { text = "A well-kept companion lives longer than a wild one.", next = "BACK", reply = "It does. The druids sometimes forget that the wild is a hard place tae grow old.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -771,8 +784,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "It can, though most priests don't think tae try, for they're used tae patchin' up dwarves who complain. A beast won't thank ye, but it'll remember ye, an' a beast's memory runs longer than most dwarves' gratitude." } },
       choices = {
-        { text = "Every living thing deserves healing. Beasts as much as dwarves.", next = "BACK", reply = "They do, an' I'm glad tae hear a priest say it, so come by the yard an' I'll show ye a wolf wi' a sore paw who'd thank ye for it.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My prayers are for people first. Beasts can wait.", next = "BACK", reply = "Fair enough, an' I'll no' quarrel, but the beasts will remember who healed them, an' who didnae, an' so will their hunters.", fx = { align = { light = -1 } } },
+        { text = "Every living thing deserves healing. Beasts as much as dwarves.", next = "BACK", reply = "They do! Come by the yard, an' I'll show ye a wolf wi' a sore paw who'd thank ye for it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My prayers are for people first. Beasts can wait.", next = "BACK", reply = "Fair enough. But the beasts will remember who healed them an' who didnae, an' so will their hunters.", fx = { align = { light = -1 } } },
         { text = "Tell me about the beasts instead.", next = "BACK" },
       },
     },
@@ -780,7 +793,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Like a friend, an' no' like a tool, for a beast that fears ye will throw ye when it matters most. I've seen paladins who treat their chargers like their swords, an' I've seen what happens tae them when the fightin' starts." } },
       choices = {
-        { text = "A loyal mount deserves loyalty back. I'll treat it well.", next = "BACK", reply = "Good, an' ye'll find it'll carry ye through fire an' worse for it, for a charger that loves ye is worth ten that fear ye.", fx = { align = { light = 1 } } },
+        { text = "A loyal mount deserves loyalty back. I'll treat it well.", next = "BACK", reply = "It'll carry ye through fire an' worse for it. A charger that loves ye is worth ten that fear ye.", fx = { align = { light = 1 } } },
         { text = "A mount is a mount. It carries me where I need to go.", next = "BACK", reply = "Aye, it does, an' it'll keep doin' it, until the day it doesnae, an' then ye'll wish ye'd treated it like a friend.", fx = { align = { light = -1 } } },
         { text = "Something else, Daera.", next = "BACK" },
       },
@@ -791,7 +804,7 @@ P:NPC {
         { id = "xlock_default", text = "Aye, as different as a friend is from a prisoner, for a hunter's beast stays because it wants tae. Yers stays because ye've a chain on it, an' the day that chain slips, ye'll learn what it thought o' ye all along." },
       },
       choices = {
-        { text = "You're right. I'll never trust it.", next = "BACK", reply = "Good, for that's the wisest thing a warlock ever said in my yard, an' it'll keep ye alive longer than any chain.", fx = { align = { order = 1 } } },
+        { text = "You're right. I'll never trust it.", next = "BACK", reply = "That's the wisest thing a warlock ever said in my yard. It'll keep ye alive longer than any chain.", fx = { align = { order = 1 } } },
         { text = "A chain is honest. Loyalty can lie.", next = "BACK", reply = "Maybe so, but loyalty that lies is rarer than ye think, an' a chain that slips doesnae give ye a second chance.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -846,7 +859,7 @@ P:NPC {
       },
       choices = {
         { text = "A beast should obey its master.", next = "BACK", reply = "Then it'll obey ye, maybe, until ye need it most, an' then ye'll find out what a beast thinks o' masters.", fx = { align = { order = 1 } } },
-        { text = "A beast is a partner, not a servant.", next = "BACK", reply = "Aye, that's it exactly, an' yer beast will know ye mean it, which is the best trainin' there is.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "A beast is a partner, not a servant.", next = "BACK", reply = "That's it exactly. Yer beast will know ye mean it, an' that's the best trainin' there is.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

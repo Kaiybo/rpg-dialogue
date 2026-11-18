@@ -35,8 +35,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_zalazane = {
+      lines = {
+        { id = "dd_zl_default", text = "I knew him as a clever boy who learned faster than the rest, and Gadrin loved him for it. Cleverness without patience be a sickness, though, and Zalazane wanted the loa's power before the loa wanted him. Do you feel sorry for him, now that he be dead?" },
+      },
+      choices = {
+        { text = "No. He hexed his own people. He earned that end.", next = "BACK", reply = "He did, and the Darkspear will sleep easier for it. I only wish the hexed ones could wake up as easy as he died.", fx = { align = { light = -1 } } },
+        { text = "A little. He was someone's student once.", next = "BACK", reply = "You have a kind heart, and Gadrin would thank you for it, though he never say so. Keep it, because this world takes kindness off people quick.", fx = { align = { light = 1 } } },
+        { text = "Something else, Master Vornal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_zalazane", tags = { "news" }, when = { questDone = TODO_QUEST("Zalazane") },
+          text = "Gadrin say you went to the Echo Isles and brought back Zalazane's head, and my old hands shook when I heard it. I fought beside Sen'jin the day the madness started, and I never think I live to see it answered." },
         { id = "h_default", key = true,
           text = "I be Vornal, and once I fight beside Sen'jin himself, before the sea witch and the humans and all the rest. Now my eyes be failin', so I lean on the alchemy for what the magic used to give me easy." },
         { id = "h_solvent_done", when = { questDone = TODO_QUEST("A Solvent Spirit") },
@@ -55,6 +67,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask. Vornal have more time than he have students." },
       },
       choices = {
+        { text = "You knew Zalazane before the madness, didn't you?", next = "dd_zalazane", when = { questDone = TODO_QUEST("Zalazane") } },
         { text = "Why won't you take an apprentice?", next = "apprentice" },
         { text = "You fought beside Sen'jin?", next = "senjin" },
         { text = "What do you need from the beaches?", next = "solvent" },
@@ -159,7 +172,7 @@ P:NPC {
       lines = { { id = "xal_default", text = "Everybody brew potions, mon, and most of them brew them badly. Tell me, when the earthroot go in, do you crush it or slice it?" } },
       choices = {
         { text = "I slice it, so the juice stays in.", next = "xalch2", fx = { trait = { patient = 1 } } },
-        { text = "I crush it. Faster that way.", next = "xalch2", fx = { trait = { practical = 1 } } },
+        { text = "I crush it. It's faster that way.", next = "xalch2", fx = { trait = { practical = 1 } } },
       },
     },
     xalch2 = {
@@ -216,8 +229,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_raptors = {
+      lines = {
+        { id = "dd_rp_default", text = "They are, and that be good for the caravans, but a hunter should keep his eye on the balance. Kill all the raptors and the boars run wild, and then Torka at Razor Hill complain the boars be eating his cactus." },
+      },
+      choices = {
+        { text = "Better boars on the road than raptors at the gate.", next = "BACK", reply = "True enough, mon, a boar never take a child off the beach. I just say it so you know the land keeps its own books.", fx = { align = { order = -1 } } },
+        { text = "I'll take only what Sen'jin needs, then.", next = "BACK", reply = "Then you hunt the way my father taught me, and the spirits of the beasts will not hold it against you. Go well.", fx = { align = { order = 1 } } },
+        { text = "Something else, Vel'rin.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_bloodtalon", when = { killed = { name = "Bloodtalon", min = 20 } },
+          text = "The raptors on the north road be thinner since you came through, and the scythemaws be smarter about it, too. You hunt like a Darkspear, mon, which be the best thing I know how to say about anyone." },
         { id = "h_default", key = true,
           text = "I be Vel'rin Fang, and I make sure Sen'jin be supplied with what the local beasts can give: hides for tents, furs for blankets, leather for armor. It be an honorable role, though the flies do not think so." },
         { id = "h_prey_done", when = { questDone = TODO_QUEST("Practical Prey") },
@@ -234,6 +259,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, mon. My hands be busy, my mouth be free." },
       },
       choices = {
+        { text = "The Bloodtalon raptors on the road are thinning out.", next = "dd_raptors", when = { killed = { name = "Bloodtalon", min = 20 } } },
         { text = "Why do you need tiger furs?", next = "prey" },
         { text = "What's wrong with the north road?", next = "road" },
         { text = "How do you know when to stop hunting?", next = "cull" },
@@ -298,7 +324,7 @@ P:NPC {
     others = {
       lines = { { id = "ot_default", text = "Master Vornal want crawler parts for his bottles, and Ula'elek want satyr hooves for his gauntlets, though he send warriors all the way to Ashenvale for them. Me, I want tigers, which be the most sensible want in the village." } },
       choices = {
-        { text = "Satyr hooves? From Ashenvale?", next = "ot_ula" },
+        { text = "Satyr hooves, all the way from Ashenvale?", next = "ot_ula" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -357,6 +383,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_kolkar", tags = { "news" }, when = { questDone = TODO_QUEST("Thwarting Kolkar Aggression") },
+          text = "Lar Prowltusk say the Kolkar plans burned, and that you be the one who carried the torch. I been forging spearheads for a centaur raid for weeks, so maybe now I can make something with a little more art in it." },
+        { id = "h_dd_kultiras", when = { killed = { name = "Kul Tiras", min = 20 } },
+          text = "You carry Kul Tiran steel on your hands, mon, I can smell the sea on it. Their smiths be good, I admit it, but their marines don't seem to keep it very long once you show up." },
         { id = "h_default", key = true,
           text = "I be Ula'elek, and I work iron for the Darkspear and for the warriors Thun'grim Firegaze send me from the Barrens. My gauntlets hold more than steel, because I put the strength of other things into them." },
         { id = "h_thungrim", when = { questActive = TODO_QUEST("Ula'elek and the Brutal Gauntlets") },

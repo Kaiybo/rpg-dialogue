@@ -99,7 +99,7 @@ P:NPC {
       big = true,
       lines = { { id = "fo_default", text = "You walk without breathing and nobody hears your heartbeat, because you haven't got one. I'd have you in Lordaeron, listening to the humans who still think they can take it back, and you'd hear more than any of my orcs ever could." } },
       choices = {
-        { text = "I'll go wherever I'm most useful to the Horde.", next = "BACK", reply = "Good, and the Horde will be grateful. Lordaeron's full of secrets, and you're the one to hear them.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll go wherever I'm most useful to the Horde.", next = "BACK", reply = "Then go north. Lordaeron's full of secrets, and the Undercity has more ears than it has walls.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I serve the Dark Lady first, and you second.", next = "BACK", reply = "Fair enough, and I'll take second. The Dark Lady and I want the same humans dead anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -183,7 +183,7 @@ P:NPC {
       big = true,
       lines = { { id = "le_default", text = "Then the warlock dies, and usually the warlock deserved it for being careless. I've buried three students who thought they were stronger than they were, and I'll bury more, because the Horde needs the power whether or not it likes the price." } },
       choices = {
-        { text = "Power the Horde needs is worth the risk.", next = "BACK", reply = "Good, you understand it. The Horde needs power, whatever it costs.", fx = { align = { light = -1 } } },
+        { text = "Power the Horde needs is worth the risk.", next = "BACK", reply = "You understand it, then. Most who come down that ramp pretend they don't.", fx = { align = { light = -1 } } },
         { text = "No power is worth bargaining with demons.", next = "BACK", reply = "Then you're in the wrong trade, and the wrong part of the city. Go back up the ramp.", fx = { affinity = -1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -210,7 +210,7 @@ P:NPC {
       big = true,
       lines = { { id = "zm_default", text = "Arithmetic, {class}. I know what a demon wants, what it can take from me and how long my will holds, and I've never needed a cloak to explain any of it." } },
       choices = {
-        { text = "Cold discipline beats mystery. You're right.", next = "BACK", reply = "Good, you understand it. Mystery is for those who can't do the sums.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Cold discipline beats mystery. You're right.", next = "BACK", reply = "Exactly. Zevrost's robes and whispers are for those who can't do the sums.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fear is a weapon too. Zevrost knows it.", next = "BACK", reply = "Fear is a weapon, aye, and Zevrost wields it well. But arithmetic never fails you when the demon tests you.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -325,7 +325,7 @@ P:NPC {
       lines = { { id = "pi_default", text = "Pity a demon? They'd burn this city to the ground and laugh about it, so I find pity comes hard. But I don't torment them more than I need to, because a tormented demon is a dangerous one." } },
       choices = {
         { text = "They're tools. Use them however works.", next = "BACK", reply = "Spoken like Mirket, and she'd agree. Use them, then, but don't come to me when they bite.", fx = { align = { light = -1 } } },
-        { text = "Even a demon shouldn't be tormented for sport.", next = "BACK", reply = "Then we agree, and that's rarer than you'd think in the Cleft. Torment makes them spiteful.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Even a demon shouldn't be tormented for sport.", next = "BACK", reply = "Then we agree, which is rarer down here than you'd think. A tormented imp spends the rest of its binding plotting your death.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -456,8 +456,8 @@ P:NPC {
       big = true,
       lines = { { id = "ho_default", text = "So is dying, friend, and the Alliance doesn't send their soldiers home just because ours fight fair. A poisoned blade ends a fight quicker, and quicker means fewer orcs coming home on a stretcher." } },
       choices = {
-        { text = "A quick end is a mercy to both sides.", next = "BACK", reply = "It is, and you understand it better than most. Fewer stretchers for everybody.", fx = { align = { honor = -1 } } },
-        { text = "I'd rather win clean or not at all.", next = "BACK", reply = "Then you'll win fewer times, and lose more grunts. Your choice, friend.", fx = { align = { honor = 1 } } },
+        { text = "A quick end is a mercy to both sides.", next = "BACK", reply = "It is, and you see it plainer than most grunts do. Fewer stretchers for everybody.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather win clean or not at all.", next = "BACK", reply = "Then you'll win less often and bury more grunts. I've never found honor much comfort at a graveside.", fx = { align = { honor = 1 } } },
         { text = "Who taught you poisons?", next = "teacher" },
       },
     },
@@ -588,8 +588,8 @@ P:NPC {
       big = true,
       lines = { { id = "so_default", text = "Never, and I don't care how much gold they offer. A trader has to draw the line somewhere, and I draw mine at anything that used to be alive and still might be." } },
       choices = {
-        { text = "Good. Some trades shouldn't be made.", next = "BACK", reply = "There aren't, and I'm glad you see it. Some lines don't move.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Gold is gold. You're leaving money on the table.", next = "BACK", reply = "Leaving it, aye, and I'll keep leaving it. Some gold costs more than it's worth.", fx = { align = { light = -1 } } },
+        { text = "Good. Some trades shouldn't be made.", next = "BACK", reply = "They shouldn't. I've turned away a Burning Blade buyer twice this month, and I'll turn him away a third time.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Gold is gold. You're leaving money on the table.", next = "BACK", reply = "Leaving it, aye, and I'll keep leaving it. Gold from the wrong hand buys you a knife in the back.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

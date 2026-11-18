@@ -193,7 +193,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They'll fight beside anyone who walks back out of Andorhal with them, and they'll talk about you behind your back the whole way. MacDonnell will be harder, for she thinks every demon is one more thing the Light ought to burn." } },
       choices = {
-        { text = "I'll earn their trust in battle.", next = "BACK", reply = "Good. Battle's the only place out here where trust gets earned.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll earn their trust in battle.", next = "BACK", reply = "Good. Stand beside them once when the ghouls come over the rise, and the muttering stops.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need their trust, only their silence.", next = "BACK", reply = "Then you'll get their silence, and their muttering besides. I'll take your fire either way.", fx = { align = { honor = -1 } } },
         { text = "Something else, Commander.", next = "BACK" },
       },
@@ -492,8 +492,23 @@ P:NPC {
         { text = "Something else, Priestess.", next = "BACK" },
       },
     },
+    dd_termites = {
+      lines = {
+        { id = "dd_termites_1",
+          text = "I approve of the result, which is a Scarlet lumber yard that won't be building any more gallows. The method was plague, child, carried in a jar, and I spend my days burning plague out of cauldrons, so you'll forgive me if it sits a little crooked." },
+        { id = "dd_termites_2",
+          text = "Still, the Crusade hung two of our scouts last spring, and Nathaniel's father's mill was the last thing that family had. The Light keeps its own accounts, and I suspect this one balances." },
+      },
+      choices = {
+        { text = "A weapon's a weapon. I'd use it again.", next = "BACK", fx = { align = { light = -1, order = -1 } } },
+        { text = "You're right. It felt wrong even as I did it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_termites", when = { questDone = TODO_QUEST("A Plague Upon Thee") },
+          text = "Nathaniel tells me you set his termites loose on the Scarlet mill at Northridge. I can't say I approve of the method, but I watched the smoke from the hill and I didn't pray for it to stop." },
         { id = "o_swdistrust", tags = { "news" }, when = { gossip = { topic = "prestor", stance = "distrust" } }, text = "The Commander says you've doubts about Lady Prestor. Pray on them, by all means, but keep them out of his letters home." },
         { id = "h_pt_pala", tags = { "news" }, when = { party = { class = "PALADIN" }, faction = "Alliance" },
           text = "You've brought {companion} to Chillwind, and I'd know a paladin's bearing anywhere, for I've buried enough of them. It does me good to see the Light still carried in armour after everything Lordaeron has seen." },
@@ -524,13 +539,14 @@ P:NPC {
           text = "A warrior! The cauldrons are well guarded, {class}, and I've been praying for someone with a shield to stand in front of me while I work." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. Keep that bow handy, {class}, because the wildlife near the cauldrons drinks from the same wells as the farms, and none of it is fit to eat any more." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! I've been praying to the Light for a cure for this land, and perhaps the Light sent me one with antlers." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! I've been praying to the Light for a cure for this land, and perhaps the Light sent me one with antlers." },
       },
       again = {
         { id = "h_again", text = "Something else on your mind? Ask away, I've a jar or two to label while you talk." },
         { id = "h_again2", text = "Go on, I'm listening, so long as you don't mind me working." },
       },
       choices = {
+        { text = "You don't approve of the termites, High Priestess?", next = "dd_termites", when = { questDone = TODO_QUEST("A Plague Upon Thee") } },
         { text = "What happens when you dose a cauldron?", next = "dose" },
         { text = "Where are the cauldrons?", next = "cauldrons" },
         { text = "The commander seems a hard man to serve under.", next = "commander" },
@@ -578,10 +594,10 @@ P:NPC {
     light = {
       big = true,
       lines = {
-        { id = "l_default", text = "The Light's way is to protect the living, and if that means stirring a necromancer's soup until it chokes him, then I'll stir. I'll pray first, mind you, and stir after." },
+        { id = "l_default", text = "The Light's way is to protect the living, and if that means stirring a necromancer's soup until it chokes him, then I'll stir. I'll pray first, though, and stir after." },
       },
       choices = {
-        { text = "Pray first, stir after. I'll remember that.", next = "BACK", reply = "Good. Prayer first is the only thing that keeps the stirring honest.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Pray first, stir after. I'll remember that.", next = "BACK", reply = "Good. Say it over the cauldron, not after, or you'll be breathing fumes while you pray.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'd rather it burned clean.", next = "BACK", reply = "So would I, child, so would I. But the cauldrons won't burn clean, and the plague rides the smoke.", fx = { affinity = 1, align = { light = 1, order = 1 } } },
       },
     },
@@ -726,7 +742,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "I'd like to say no, but the counter agent is strong, and I've seen grass die where it's spilled. I tell myself the plague would have killed it anyway, though I'm not certain that's true." } },
       choices = {
         { text = "Weaken the brew, then. Spare what can be spared.", next = "BACK", reply = "I've tried, and it doesn't hold. But I'll try again, for the grass.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Use it at full strength. Half a cure is no cure.", next = "BACK", reply = "Full strength it is, and I'll try not to look at the grass.", fx = { align = { light = -1 } } },
+        { text = "Use it at full strength. A weak cure only wastes the batch.", next = "BACK", reply = "Full strength it is, and I'll try not to look at the grass.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -746,7 +762,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If my books are right, the Scholomance stinks of necromancy to anything with a good nose, so even the plagued wolves give the island a wide berth. I'd trust a wolf's nose over a book, frankly, but the wolves won't sit still to be questioned. Does {pet} bristle when the wind comes off Darrowmere, {class}?" },
       },
       choices = {
-        { text = "Trust the beasts. They know evil better than any book.", next = "BACK", reply = "I'd trust them too, honestly. The books are written by people who never had a nose for anything.", fx = { align = { order = -1 } } },
+        { text = "Trust the beasts. They know evil better than any book.", next = "BACK", reply = "So would I. The books were written by people who never had a nose for anything.", fx = { align = { order = -1 } } },
         { text = "Books first, Arbington. A beast's nose is only guesswork.", next = "BACK", reply = "Books first, but I'll keep a wolf in mind. They're surprisingly good at reading.", fx = { align = { order = 1 } } },
         { text = "Let us speak of something else.", next = "BACK" },
       },
@@ -1076,7 +1092,7 @@ P:NPC {
           text = "A warrior! Splendid, for you're exactly the sort I'd want about if my dead brother came calling, {class}, though I'd want you at the door, not by the bed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. We kept a fine kennel at Caer Darrow, {class}, and I'm told the hounds still prowl the island, though whose hounds they are now I'd rather not guess." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. I suppose you'll be wanting to plant trees on my family's lands once this is over, but I'll be wanting my rents first." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. I suppose you'll be wanting to plant trees on my family's lands once this is over, but I'll be wanting my rents first." },
       },
       again = {
         { id = "h_again", text = "Well? You're still here, so you must want something else." },
@@ -1314,7 +1330,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "There is, though you have to dig to find it. I've seen seeds sprout by the camp's well, tiny and pale, and I've stood watch over them like they were my own children. Don't laugh; it's the only thing growing here." } },
       choices = {
-        { text = "I won't laugh. Every sprout is a victory.", next = "BACK", reply = "Thank you. They're very small victories, but I'll take every one.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I won't laugh. Anything green out here is worth a smile.", next = "BACK", reply = "Thank you. Three came up this week, and I've named every one of them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Seedlings won't stop the Scourge. Watch the gate instead.", next = "BACK", reply = "I watch both, as it happens. The gate keeps them safe, and they keep me sane.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1323,7 +1339,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because an Alliance blade and a Horde blade look the same to me but not to each other, and one quick hand on a hilt can undo a month of trust. At the door steel is only steel, and at the table we're only people who fight the dead." } },
       choices = {
-        { text = "Then I'll leave it there gladly. Trust is worth that much.", next = "BACK", reply = "It is, and you'll find the table friendlier for it. Thank you.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll leave it there gladly. Your table, your rules.", next = "BACK", reply = "Thank you. You'll find the company friendlier for it, and the stew no worse.", fx = { align = { honor = 1 } } },
         { text = "A soldier who disarms in the Plaguelands is a fool, officer.", next = "BACK", reply = "A fool, perhaps, but a living one, and the table's had no blood on it yet. Leave the steel at the door.", fx = { align = { honor = -1 } } },
         { text = "Tell me something else.", next = "BACK" },
       },
@@ -1340,8 +1356,25 @@ P:NPC {
         { text = "Something else, officer.", next = "BACK" },
       },
     },
+    dd_honor = {
+      lines = {
+        { id = "dd_honor_1",
+          text = "It doesn't bother me so much as it tires me. Officer Garush at the Bulwark is an orc, and I write to him every week, and somewhere out there someone is counting his kin, or mine, as a number on a list." },
+        { id = "dd_honor_2",
+          text = "I'm not asking you to stop, mind. I'm asking you to remember, when you come up here, that the Scourge doesn't care which banner you were killed under." },
+      },
+      choices = {
+        { text = "They started this war. I'll finish it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right. Up here we have one enemy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Officer.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_honor", when = { honorKills = { min = 100 } },
+          text = "You've the look of someone who's been fighting the other banner in the fields and valleys, {class}. That's your business out there, but at this table we keep our blades for the Scourge, so leave the tally at the gate." },
+        { id = "h_dd_rank", when = { pvpRank = 6 },
+          text = "I see you wear a rank your own side's war council gave you, and a good deal of blood went into earning it. You'll find no one at Chillwind who'll salute it, I'm afraid, but you'll find a seat." },
         { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" }, faction = "Alliance" },
           text = "You keep a priest by your side in {companion}, and that's the wisest thing I've seen a party do this week. The Plaguelands kill through sickness as often as through the sword, and the ones who come back are the ones who brought someone to cleanse it." },
         { id = "h_default", key = true,
@@ -1373,6 +1406,7 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like, friend; the Dawn's work keeps till you're done." },
       },
       choices = {
+        { text = "Does it bother you, how many of the enemy I've killed?", next = "dd_honor", when = { honorKills = { min = 100 } } },
         { text = "Where did the Argent Dawn come from?", next = "left" },
         { text = "What does the Dawn ask of me?", next = "commission" },
         { text = "Does the Dawn keep people beyond the Plaguelands?", next = "gregor" },
@@ -1652,7 +1686,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "The wheel's sound as far as I know, and the river doesn't care who won the war. It's the land around it that worries me, for the plague's in the soil, and you can't build homes on poisoned ground with any spell I've heard of." } },
       choices = {
-        { text = "The land will heal. It always does, in time.", next = "BACK", reply = "It does, given time and care. Thank you for saying so.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The land will heal. It always does, in time.", next = "BACK", reply = "It does, given time and care. I saw clover by the mill race last week, and I nearly wept.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Better to burn it all and start fresh.", next = "BACK", reply = "Fresh, maybe, but my father's wheel turned on that river for thirty years. I'll heal what's left.", fx = { align = { light = -1 } } },
         { text = "Let's talk of other things.", next = "BACK" },
       },
@@ -1687,7 +1721,7 @@ P:NPC {
       },
       choices = {
         { text = "That's a hard choice.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "Clever. Cruel, but clever.", next = "BACK", reply = "Cruel, perhaps, but the Crusade started the cruelty. I'll sleep well enough.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "That's clever, and cruel, and I like it.", next = "BACK", reply = "Cruel, perhaps, but the Crusade started the cruelty. I'll sleep well enough.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'd rather we took the mill back whole, and properly.", next = "BACK", reply = "So would I, truly, but they won't leave politely. If you find another way, I'm listening.", fx = { align = { order = 1 } } },
       },
     },
@@ -1822,8 +1856,23 @@ P:NPC {
         { text = "Something else, Bibilfaz.", next = "BACK" },
       },
     },
+    dd_towers = {
+      lines = {
+        { id = "dd_towers_1",
+          text = "Trouble them? The skeletons on those towers throw anything that isn't nailed down, and a gryphon's wing is a big, slow target on the way into Andorhal. Since you marked them for Commander Valorfist, I've been routing the birds well wide, and I haven't lost a feather this week." },
+      },
+      choices = {
+        { text = "Glad to help your birds fly safe.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I did it for the camp. The gryphons were a bonus.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Bibilfaz.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_towers", tags = { "news" }, when = { questDone = TODO_QUEST("All Along the Watchtowers") },
+          text = "The scouts tell me you marked every one of those Scourge towers for the commander! My gryphons fly a good deal happier now that we know where the bone-throwers sit, and so do I." },
+        { id = "h_dd_fall", when = { deathCause = "falling" },
+          text = "Now, I heard you came down from somewhere high without a gryphon under you. Next time you want to see the ground that fast, come and see me first, and I'll at least make it a nice view." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Oh, wonderful, {class}, the birds have been fussing about the air up here for weeks, and I'd love for someone to tell me what the wind's been saying to them!" },
         { id = "h_default", key = true,
           text = "Bibilfaz Featherwhistle, gryphon master! I can take you to Ironforge, or Aerie Peak, or Light's Hope if you're feeling brave, and the birds hate the smell up here as much as you do, so they fly fast." },
@@ -1841,11 +1890,12 @@ P:NPC {
           text = "A warrior! Oh, the gryphons do grumble about plate, {class}, but they're very brave birds, and they'd carry an anvil if you asked them nicely." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! The gryphons like your sort, {class}, because you smell of the woods rather than the plague, and that's a real treat for them up here." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! You'll want to fly as a bird, I'd wager, but the gryphons are faster, and they don't mind the smell as much as you'd think." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! You'll want to fly as a bird, I'd wager, but the gryphons are faster, and they don't mind the smell as much as you'd think." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Oh, the gryphons won't like that, no, not one bit, {class}, but they'll fly you anyway, because I've told them you're on our side, and I'm very persuasive." },
       },
       again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time; I've measured their patience at about eleven minutes, give or take a feather." } },
       choices = {
+        { text = "Do the towers really trouble your gryphons?", next = "dd_towers", when = { questDone = TODO_QUEST("All Along the Watchtowers") } },
         { text = "Where's safest to fly?", next = "routes" },
         { text = "The gryphons can't like it up here.", next = "gryphons" },
         { text = "Let's fly.", next = "BUSINESS" },

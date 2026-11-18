@@ -29,6 +29,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Patrice Dwyer, poison supplies, and everything on my shelf is perfectly legal in the Undercity before you say a word. Rogues buy from me, apothecaries sneer at me, and the worgen have never once complained." },
+        { id = "h_dd_ichor", when = { questDone = TODO_QUEST("Rot Hide Ichor") },
+          text = "So you're the one who brought Renferrel his gnoll ichor. He sneers at my shelf, but he brews with worse than anything I sell, and now I know who to thank for the smell." },
       },
       again = {
         { id = "h_again", text = "Something else, dear? Mind the green jars." },
@@ -188,7 +190,7 @@ P:NPC {
       big = true,
       lines = { { id = "p_default", text = "I dug silver in the hills north of the capital for twenty years, and the plague found me underground, which was a poor joke on its part. When I woke, the first thing I asked for was a pick, and the Dark Lady's people were good enough to give me one." } },
       choices = {
-        { text = "Honest work is what keeps us whole.", next = "BACK", reply = "It does, I think. A pick in the hand reminds me I'm still a miner, and not just something the plague left behind.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Honest work is what keeps us whole.", next = "BACK", reply = "It does. A pick in the hand reminds me I'm still a miner, and not just something the plague left behind.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Twenty years underground? I'd want something new.", next = "BACK", reply = "New? I'm dead, friend, and the dead don't get much new. The tunnels are the one place that still feels like mine.", fx = { align = { order = -1 } } },
         { text = "The plague found you underground?", next = "past2" },
       },

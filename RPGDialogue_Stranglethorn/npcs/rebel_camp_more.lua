@@ -33,8 +33,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_seth_k = {
+      lines = {
+        { id = "dd_seth_k_a", text = "Over for him, maybe, but his men are still out there in the jungle, the ones who followed him into madness, and some of them were my friends. What do we do with them now?" },
+      },
+      choices = {
+        { text = "Bring back the ones who'll come. Mercy for those who want it.", next = "dd_seth_k2", fx = { align = { light = 1 } } },
+        { text = "They chose Kurzen. Hunt them down like he would have.", next = "dd_seth_k2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_seth_k2 = {
+      lines = {
+        { id = "dd_seth_k2a", text = "I'll write that down in the margin, and Doren can decide, because that's his job and not mine. But I'll sleep better tonight knowing the man at the top of it is gone." },
+      },
+      choices = { { text = "Something else, Corporal.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
+        { id = "dd_kurzen_seth", tags = { "news" }, when = { questDone = TODO_QUEST("Colonel Kurzen") },
+          text = "Lieutenant Doren says Colonel Kurzen's dead, and he says you did it. I've crossed his name off the patrol ledger, and I'll admit my hand shook a bit, because I took my orders from that man for six years." },
+
         { id = "h_default", key = true,
           text = "Corporal Sethman. I keep the patrol schedules for the Lieutenant, who walks where and when, and with whom. In a camp this small, the roster is the only thing standing between us and Kurzen's men walking in at supper." },
         { id = "h_patrol", tags = { "news" }, when = { questActive = TODO_QUEST("Patrol Schedules") },
@@ -52,6 +71,8 @@ P:NPC {
         { id = "h_again3", text = "What else? Mind the ink." },
       },
       choices = {
+        { text = "Kurzen is dead, Corporal. It's over.", next = "dd_seth_k", when = { questDone = TODO_QUEST("Colonel Kurzen") } },
+
         { text = "Why does a rebel camp need so much paperwork?", next = "ledger" },
         { text = "Who patrolled with Thorsen?", next = "thorsen" },
         { text = "What were you, before the jungle?", next = "before" },
@@ -232,7 +253,7 @@ P:NPC {
     questions = {
       lines = { { id = "qu_default", text = "Do I? It's the watch, friend, it gets into you. You stand out there all night listening for the Colonel's men, and when someone finally comes along to talk to, you want to know everything." } },
       choices = {
-        { text = "Of course. Long nights.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Of course. The nights must be long.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'll keep my answers short, then.", next = "BACK", fx = { trait = { skeptical = 1 } } },
       },
     },
@@ -297,6 +318,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "dd_deaths_bluth", when = { deaths = { min = 15 } },
+          text = "Sorry about the prices, but you've died out there often enough that I suspect you'll be back for more bandages before the week's out. The jungle takes everyone eventually, but it seems to like taking you over and over." },
+
         { id = "h_default", key = true,
           text = "Corporal Bluth, and I keep the stores for the Rebel Camp, which mostly means I keep count of how little we have left. Food, water, arrows and shot, and a few odds and ends the men bring back from the river." },
         { id = "h_hunter", when = { class = "HUNTER" },

@@ -32,8 +32,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They sense the storms over the sea, and they sense the naga long before we do. If they're watching you, it's because you smell of the wind, and they trust the wind above any rider." } },
       choices = {
-        { text = "I'll treat your birds as gently as a fair wind.", next = "BACK", reply = "Then they will know it, and you will find them settling under you before you have even taken the reins.", fx = { align = { light = 1 } } },
-        { text = "The wind isn't gentle. Your birds should learn that.", next = "BACK", reply = "The birds learned that long ago over the open sea, and they bear the scars of it, so they would rather not learn it from you.", fx = { align = { light = -1 } } },
+        { text = "I'll treat your birds as gently as a fair wind.", next = "BACK", reply = "Then they will know it before you have taken the reins. Hippogryphs read hands the way Sentinels read tracks.", fx = { align = { light = 1 } } },
+        { text = "The wind isn't gentle. Your birds should learn that.", next = "BACK", reply = "They learned it long ago over the open sea, and they bear the scars. Look at the grey one's wing, if you doubt me, and then tell me what else they need to learn.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -42,7 +42,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Not skittish, only wise, for many of them flew wild over Feralas before they came to us, and they remember the ogres' clubs. They learn to trust a warrior who moves slowly, and to carry him, but they never forget the sound of a blade." } },
       choices = {
         { text = "I'll respect the roost's rules. The birds come first here.", next = "BACK", reply = "Then you will be welcome at the roost, and the birds will carry you as gently as they carry our wounded.", fx = { align = { order = 1 } } },
-        { text = "A warrior goes armed. The birds will have to adjust.", next = "BACK", reply = "Then you will walk to the mainland, warrior, because I will not force a frightened bird into the air.", fx = { align = { order = -1 } } },
+        { text = "A warrior goes armed. The birds will have to adjust.", next = "BACK", reply = "Then you will walk to the mainland, warrior. I will not force a frightened bird into the air for anyone's pride.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -61,8 +61,8 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "They do, I think, for Feralas is wetter and the winds off the sea are rough. Still, they carry our letters and our wounded across the water, and the stronghold would wither without them." } },
       choices = {
-        { text = "Then they serve the stronghold, and that is enough.", next = "BACK", reply = "It is, and they seem to know it, for they come back to the roost every evening of their own will.", fx = { align = { order = 1 } } },
-        { text = "They should fly free, not carry our letters.", next = "BACK", reply = "They do fly free, every one of them, and they return because they choose to, which is more than most of us can say.", fx = { align = { order = -1 } } },
+        { text = "Then they serve the stronghold, and that's enough.", next = "BACK", reply = "It is, and they seem to know it, for they come back to the roost every evening of their own will.", fx = { align = { order = 1 } } },
+        { text = "They should fly free, not carry our letters.", next = "BACK", reply = "They do fly free. Every evening I leave the roost open, and every evening they come back, which is more than I can say for some Sentinels.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -70,7 +70,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They'll carry you, because the Alliance asks it of them, but they'll not like it, and neither will I. Keep your demon on the ground and your hands still on the saddle, and we'll both get through the flight with our dignity." } },
       choices = {
-        { text = "Then I'll ask the birds' pardon and ride carefully.", next = "BACK", reply = "That is all I ask, and the birds will feel it in your hands, and the flight will be kinder for it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll ask the birds' pardon and ride carefully.", next = "BACK", reply = "That is all I ask. They will feel it in your hands.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast should carry whoever it's told to carry.", next = "BACK", reply = "They carry whom they choose, and they choose to carry you because I ask it, so do not test their patience.", fx = { align = { light = -1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
@@ -88,7 +88,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Not the Light, I think, but the clank of plate and the smell of the forge on it. They were raised for silent Sentinels in soft boots, and a paladin in full armor walks like a storm coming up the path." } },
       choices = {
-        { text = "Then I'll walk softly. Their ways come first here.", next = "BACK", reply = "Thank you, and the birds will notice, though I would ask you to leave your helm off near the roost as well.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll walk softly. Their ways come first here.", next = "BACK", reply = "Thank you. I would also ask you to take off your helm near the roost; it shines, and they remember what shining metal meant in the old wars.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "They'll learn. The Alliance is more than Sentinels now.", next = "BACK", reply = "They will, slowly, as they learned the Sentinels, but I would ask you to be patient while they do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -97,7 +97,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Too often, since the naga began shooting at anything that flies low over the coast. I tend their wings myself, and the Sentinel priestesses pray over the worst, though I have learned that a bird mends best when it is allowed to rest and not hurried back to the sky." } },
       choices = {
-        { text = "Let them rest as long as they need. They've earned it.", next = "BACK", reply = "They have earned it, and they will get it, as long as I am the one who keeps this roost.", fx = { align = { light = 1 } } },
+        { text = "Let them rest as long as they need. They've earned it.", next = "BACK", reply = "They have earned it. As long as I keep this roost, no wounded bird flies before it is ready, whatever the scouts' captain says.", fx = { align = { light = 1 } } },
         { text = "The Sentinels need scouts. The birds must fly when called.", next = "BACK", reply = "They will fly when called, as they always have, but a bird that flies wounded may not come back.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -107,7 +107,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "They were Cenarius's own creatures, raised wild in the forests, and they remember the Sundering in their blood if not in their minds. The old Highborne ruins across the water make them restless even now, and they never fly over Eldre'Thalas if I let them choose." } },
       choices = {
         { text = "I'll keep my magic away from them, then.", next = "BACK", reply = "Thank you, and the birds will be grateful, though they will still flinch a little when you pass.", fx = { align = { order = 1 } } },
-        { text = "They'll have to grow used to it. Magic isn't going anywhere.", next = "BACK", reply = "Perhaps not, but they remember the Sundering in their bones, and I will not ask them to forget it for you.", fx = { align = { order = -1 } } },
+        { text = "They'll have to get used to it. Magic isn't going anywhere.", next = "BACK", reply = "Perhaps not, but they remember the Sundering in their bones, and I will not ask them to forget it for you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -183,8 +183,8 @@ P:NPC {
         { id = "w_default", text = "The Frayfeather flocks in the hills are wild, and they've grown fierce and wary of everyone. I wish no harm on them, but I'll not pretend they're tame, and travelers who wander too near their nests learn that quickly." },
       },
       choices = {
-        { text = "They should be left alone.", next = "BACK", reply = "That is my wish too, and I keep my riders' paths well away from the hills where they nest.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "If they attack travelers, they should be culled.", next = "BACK", reply = "Perhaps, but they were here before the travellers, and I would rather we kept to the road.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Leave them alone, I'd say.", next = "BACK", reply = "That is my wish too, and I keep my riders' paths well away from the hills where they nest.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "If they attack travellers, they should be culled.", next = "BACK", reply = "Perhaps, but they were here before the travellers, and I would rather we kept to the road.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -201,7 +201,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I tended the hippogryphs in Ashenvale before I came south with the Sentinels. Their wings carried us here, and they'll carry us home." } },
-    advice = { { id = "tp_ad", text = "Fly over the water, never over the hills. The ogres throw rocks at anything they see." } },
+    advice = { { id = "tp_ad", text = "Fly over the water, never over the hills. The ogres throw rocks at anything that moves in the sky, and they are better at it than you'd think." } },
     teldrassil = { { id = "tp_teldrassil", text = "My birds fly from here to Teldrassil and back, over the whole long coast of Kalimdor. They know the way better than I do, and they never complain of the rain." } },
     elune = { { id = "tp_elune", text = "The hippogryphs were Elune's gift to our people, or so my grandmother told me, and I see no reason to doubt her. Look at them and tell me otherwise." } },
     tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande rode a hippogryph into battle once, in the old war, and the birds remember. I like to think they remember." } },
@@ -238,7 +238,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I hope not, because everything I sell has been through the ground or the sea before it reaches my shelves. If the spirits have objections, they've kept them from me so far." } },
       choices = {
-        { text = "Use what the land gives, but count it and waste nothing.", next = "BACK", reply = "That is the way I have always worked, and I am glad to hear it from someone else in this damp land.", fx = { align = { order = 1 } } },
+        { text = "Use what the land gives, but count it and waste nothing.", next = "BACK", reply = "That is how I have always worked. My mother kept the stores at Auberdine the same way, and she never once ran short of thread.", fx = { align = { order = 1 } } },
         { text = "The land's gifts are free. Take what you need.", next = "BACK", reply = "Free from the land, perhaps, but never free from the boatmen who bring them, so I will keep counting.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -247,7 +247,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because everything comes across the water from the mainland, and every boat risks the naga to bring it. A warrior who wastes a strap wastes a boatman's courage, and I'll not have that on my shelves." } },
       choices = {
-        { text = "Careful records keep a stronghold alive. You're right.", next = "BACK", reply = "They do, and I am glad someone understands, because my sisters think I count too much.", fx = { align = { order = 1 } } },
+        { text = "Careful records keep a stronghold alive. You're right.", next = "BACK", reply = "They do. My sisters tease me for counting, but they come to me first when the arrows run low.", fx = { align = { order = 1 } } },
         { text = "In battle nobody counts straps. Supplies are for using.", next = "BACK", reply = "Then use them, but use them well, because I cannot promise there will be another boat before the next fight.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -259,7 +259,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bear and wolf for the cloaks, and anything thick enough to turn an ogre's club, brought in dry. And keep {pet} away from the stacked hides, please, because a beast that smells fresh leather tends to want to taste it." },
       },
       choices = {
-        { text = "Take only what the land can spare.", next = "BACK", reply = "That is the old way, and the right one, and my shelves will be emptier for it but my heart fuller.", fx = { align = { honor = 1 } } },
+        { text = "Take only what the land can spare.", next = "BACK", reply = "That is the old way, and the right one. My shelves will be emptier for it, but I would rather explain an empty shelf than an empty forest.", fx = { align = { honor = 1 } } },
         { text = "The woods are full of beasts. Take all you can carry.", next = "BACK", reply = "Then carry them back dry, at least, because a wet hide is no use to anyone on this isle.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -269,7 +269,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "I sell to whoever the Alliance sends across the water, and I keep a record of every bolt that leaves my shelves. My sisters look twice at a mage on the isle, but cloth is cloth, and a mage in a dry robe is better company than one in a wet one." } },
       choices = {
         { text = "Trade should be free to all of the Alliance.", next = "BACK", reply = "It should be, and it is, but I keep my ledger all the same, because the boats are not free.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Records are wise. Trust, but keep watch.", next = "BACK", reply = "That is exactly how I see it, and I am glad a newcomer understands what the Stronghold has learned.", fx = { align = { order = 1 } } },
+        { text = "Records are wise. Trust, but keep watch.", next = "BACK", reply = "Exactly. I am glad a newcomer sees it; it took the Stronghold three bad winters to learn.", fx = { align = { order = 1 } } },
         { text = "Something else, Vivianna.", next = "BACK" },
       },
     },
@@ -286,7 +286,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Everything comes across the water from the mainland or up the coast by boat, and the naga have made both harder this season. I keep a careful count because a missing bolt of cloth means a Sentinel goes out with a torn cloak, and that is how scouts are seen." } },
       choices = {
-        { text = "Then I'll take only what I need and leave the rest.", next = "BACK", reply = "Thank you, and the Sentinels will be warmer for it when the sea wind comes in at night.", fx = { align = { order = 1 } } },
+        { text = "Then I'll take only what I need and leave the rest.", next = "BACK", reply = "Thank you. The night watch on the north wall will be warmer for it, though they will never know whom to thank.", fx = { align = { order = 1 } } },
         { text = "Sentinels can mend their own cloaks. I'll buy what I want.", next = "BACK", reply = "Then buy what you want, but know that each bolt you take is a cloak someone else must wait for.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -295,7 +295,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "The scouts who return from the mainland, always. The Sentinels come back from the ruins with wounds that close slowly, and the priestesses ask me for more linen than the boats can bring, so I ration it, though I hate to." } },
       choices = {
-        { text = "Ration it to the worst hurt first. That's fair.", next = "BACK", reply = "That is how I do it, and it is harder than it sounds, because every wound looks worst to the one who bears it.", fx = { align = { light = 1 } } },
+        { text = "Ration it to the worst hurt first. That's only fair.", next = "BACK", reply = "That is how I do it, and it is harder than it sounds, because every wound looks worst to the one who bears it.", fx = { align = { light = 1 } } },
         { text = "Give it to those who'll fight again soonest.", next = "BACK", reply = "That is the Sentinels' counsel, and perhaps it is wiser, but I cannot look at a wounded scout and turn away.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -392,8 +392,8 @@ P:NPC {
         { id = "n_default", text = "Always, friend. Bring cloth you've taken from the ogres and hides you've skinned yourself, and sell them to the merchants, and some of it finds its way to the Sentinels sooner or later. Every little bit makes the next month easier." },
       },
       choices = {
-        { text = "I'm glad to help the Sentinels.", next = "BACK", reply = "Thank you, and the Sentinels will thank you too, in their own quiet way, which is mostly nodding.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "I'll sell where the price is best.", next = "BACK", reply = "That is your right, and I will not begrudge you it, though I hope some of it finds its way here.", fx = { align = { order = -1 }, trait = { greedy = 1 } } },
+        { text = "I'm glad to help the Sentinels.", next = "BACK", reply = "Thank you. The Sentinels will thank you too, in their own quiet way, which is mostly nodding.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'll sell wherever the price is best.", next = "BACK", reply = "That is your right, and I will not begrudge you it, though I hope some of it finds its way here.", fx = { align = { order = -1 }, trait = { greedy = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -401,7 +401,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I traded goods in Auberdine before I came here. It's quieter, and the wind smells of the sea instead of fish." } },
-    advice = { { id = "tp_ad", text = "Always carry a spare spool of thread. A torn cloak in the rain is a miserable thing." } },
+    advice = { { id = "tp_ad", text = "Always carry a spare spool of thread. A torn cloak in the Feralas rain is a miserable thing, and the rain here does not stop for anyone's mending." } },
     teldrassil = { { id = "tp_teldrassil", text = "Everything on my shelves comes on the boats from Teldrassil or Auberdine, and I count it twice. Salt rots in this damp if you look away." } },
     booty_bay = { { id = "tp_booty_bay", text = "Goblin traders from Booty Bay sometimes sail in with dyes, and I buy them because I must, and I count my change three times because I must." } },
     elune = { { id = "tp_elune", text = "I keep a moonstone on the counter for Elune's blessing on trade. The Sentinels tease me about it, and then they touch it on the way out." } },
@@ -441,7 +441,7 @@ P:NPC {
       lines = { { id = "xfpala_default", text = "Anyone can learn it who listens. You were taken from the earth and given back, and few herbalists know the soil so closely, so I think the land would not mind your hands, as long as they are gentle." } },
       choices = {
         { text = "I'll be gentle. The land deserves that.", next = "BACK", reply = "Then the land will welcome you, and you will find its gifts come easier to a gentle hand.", fx = { align = { light = 1 } } },
-        { text = "The land gives what I take. That's its purpose.", next = "BACK", reply = "It gives, yes, but it remembers who takes without thanks, and those hands find less each season.", fx = { align = { light = -1 } } },
+        { text = "The land gives what I take. That's what it's for.", next = "BACK", reply = "It gives, yes. But I have watched hands that take without thanks, and every season they come back from the same hillside with less.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -461,7 +461,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better than any map, for the beasts of Feralas know which leaves heal and which poison. Watch {pet} when it noses at the ground, for the Earth Mother speaks more plainly to beasts than to us." },
       },
       choices = {
-        { text = "The beasts are our teachers. We should learn from them.", next = "BACK", reply = "They are, and they have been teaching me since I was a calf, and I have not finished learning.", fx = { align = { light = 1 } } },
+        { text = "The beasts are our teachers. We should learn from them.", next = "BACK", reply = "They are. A deer showed me where the mageroyal grows when I was a calf, and I have been following beasts to herbs ever since.", fx = { align = { light = 1 } } },
         { text = "Beasts eat what's in front of them. There's no wisdom in it.", next = "BACK", reply = "Watch more closely, then, and you will see that what is in front of them is never there by chance.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -478,7 +478,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "The fel is a sickness, and the land knows it the way a body knows a fever. You are of the Horde, and so you are welcome at Mojache, but I would ask that you walk gently in my gardens, and let the roots keep their health." } },
       choices = {
-        { text = "I'll walk gently. The land deserves that much.", next = "BACK", reply = "Thank you, and the roots will thank you too, in their own slow way, which is by growing.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll walk gently. The land deserves that much.", next = "BACK", reply = "Thank you. Stay to the deer paths; they know where the roots run shallow.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The plants will just have to endure it.", next = "BACK", reply = "They will, because they must, but you will find my gardens less generous to you than to others.", fx = { align = { light = -1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
@@ -551,8 +551,8 @@ P:NPC {
         { id = "h_harm", text = "Take the leaf and the flower, but leave a portion of the root, so the plant can grow again. Never strip a hillside bare, and thank the Earth Mother when you go, because she notices those who do not." },
       },
       choices = {
-        { text = "That's a good way to live.", next = "BACK", reply = "It is, and it was my mother's way, and her mother's before her, and I hope it will be yours.", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "The land will grow back regardless.", next = "BACK", reply = "Perhaps, but more slowly each time, and a hillside that has been stripped too often stays bare forever.", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
+        { text = "That's a good way to live, Ruw.", next = "BACK", reply = "It is, and it was my mother's way, and her mother's before her, and I hope it will be yours.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "The land will grow back regardless.", next = "BACK", reply = "Perhaps, but more slowly each time. There is a hill above the Grimtotem camp that was stripped three summers running, and nothing grows on it now but thorns.", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -593,7 +593,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "The night elves walked these forests long before the tauren came, and their old cities lie broken among the trees, at Dire Maul and elsewhere. The spirits there remember them, and I think some remember them unkindly, so I gather carefully." } },
       choices = {
-        { text = "Then we tread with respect, and take only what's needed.", next = "BACK", reply = "That is the right way, and the spirits will know you for it, and perhaps they will forgive us.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then we tread with respect and take only what's needed.", next = "BACK", reply = "That is the right way, and the spirits will know you for it, and perhaps they will forgive us.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Old grudges aren't ours. We take what the forest offers.", next = "BACK", reply = "They are not ours, but they are the forest's, and the forest remembers who walks in it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -604,7 +604,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I gathered herbs in Mulgore since I was a calf. Feralas called to me with its old green, and I came." } },
     advice = { { id = "tp_ad", text = "Leave a little root, little one. Always leave a little root." } },
     earth_mother = { { id = "tp_earth_mother", text = "Every herb I teach you to pick is a gift from the Earth Mother, and a gift is not taken greedily. Leave the roots, and she will give again next spring." } },
-    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is old and wise, and he still walks among his people on the high mesas. A chief who listens is rare, and he listens." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is old and wise, and he still walks among his people on the high mesas. When I was a calf he stopped to ask me the name of a flower, and he listened to the answer." } },
     green_dragons = { { id = "tp_green_dragons", text = "The green dragons sleep beneath the great trees of this land, where the Dream touches the world. The herbs grow strange there, and I do not pick them." } },
     dire_maul = { { id = "tp_dire_maul", text = "The herbs that grow in the courtyards of Dire Maul are old and strong, planted by elves who are long gone. I would not risk my life for them, though some students do." } },
     _none = { { id = "tp_none", text = "I do not know that, little one. The grass does not tell me everything." } },
@@ -642,7 +642,7 @@ P:NPC {
       lines = { { id = "xfpala_default", text = "I think nothing is given without a purpose, beast or person. The hunt honors the beast by using all of it, and if the Light took you back, then it means to use all of you, so be ready for that." } },
       choices = {
         { text = "Then let it use me. I'm ready.", next = "BACK", reply = "Then you will be ready when the purpose comes, and that is all any hunter can ask of himself.", fx = { align = { order = 1 } } },
-        { text = "I'm no beast to be used. I choose my purpose.", next = "BACK", reply = "Then choose well, and use all of yourself in the choosing, as a good hunter uses all of the beast.", fx = { align = { order = -1 } } },
+        { text = "I'm no beast to be used. I choose my own purpose.", next = "BACK", reply = "Then choose well, and use all of yourself in the choosing, as a good hunter uses all of the beast.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -660,7 +660,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "A hide is a tool too, but I take it after the beast is gone, and I take it to make something that keeps a hunter warm. What you take, you take so that nothing of the beast goes back to the Earth Mother, and that is waste of the worst kind." } },
       choices = {
         { text = "I do what I must to survive.", next = "BACK", reply = "We all do, but there is surviving and there is taking, and the Earth Mother knows the difference.", fx = { align = { light = -1 } } },
-        { text = "Perhaps you're right. I'll think on it.", next = "BACK", reply = "That is all I ask, and more than most give me, so walk well and think long.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Perhaps you're right. I'll think on it.", next = "BACK", reply = "That is all I ask, and more than most give me. Come back when you have thought, and bring a hide, and we will see if your hands agree with your head.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
@@ -668,7 +668,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "A quick cut in a fight, yes, but not at the skinning. When you rush it, you tear the hide and waste the beast, and that dishonors both the hunter and the hunted." } },
       choices = {
-        { text = "Patience honors the hunt. I'll learn it.", next = "BACK", reply = "Then you will make a fine skinner, and the beasts will thank you by giving you their best hides.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Patience honours the hunt. I'll learn it.", next = "BACK", reply = "Then you will make a fine skinner, and the beasts will thank you by giving you their best hides.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I've no time to waste on hides.", next = "BACK", reply = "Then leave the hides to those who have the time, and the beasts will thank them instead of you.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -677,7 +677,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Respect, and an end that's quick and clean. The Earth Mother gave us the beasts to feed and clothe us, but she didn't give them to us to waste, and I've seen too many hides left to rot in Feralas by hunters who only wanted the trophy." } },
       choices = {
-        { text = "Then I'll waste nothing, and take only what I need.", next = "BACK", reply = "Then you hunt as the Earth Mother wishes, and your bags will never be empty for long.", fx = { align = { light = 1 } } },
+        { text = "Then I'll waste nothing, and take only what I need.", next = "BACK", reply = "Then you hunt as the Earth Mother wishes. Bring me your first ironfur pelt and I will show you how to get a cloak and a pair of boots from the same beast.", fx = { align = { light = 1 } } },
         { text = "A hunt is a hunt. The beasts don't care what's taken.", next = "BACK", reply = "They may not, but the Earth Mother does, and she will remember you when the hunting grows lean.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -699,7 +699,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The plague wasted you once, I think, and something gave you back, so perhaps you understand why I waste nothing." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak plainly, as the hunt speaks." },
+        { id = "h_again", text = "What else? Speak plainly, the way the hunt speaks." },
         { id = "h_again2", text = "Ask. I'm listening, and the ancestors who taught me this knife are listening too." },
       },
       choices = {
@@ -754,7 +754,7 @@ P:NPC {
         { id = "h_hunter", text = "Kill clean, with one arrow if you can, and the hide comes away whole. A beast full of holes is a beast you've wasted, and your companion should never be the one doing the killing if you mean to skin it." },
       },
       choices = {
-        { text = "A clean kill. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A clean kill. I'll remember that.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -762,7 +762,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Some do, because fire takes the hide and frost spoils the meat, and they never stop to look at what they've ruined. A careful caster wastes less than a careless warrior, though, so it's the hand I judge and not the spell." } },
       choices = {
-        { text = "Then I'll kill cleanly and take only what I use.", next = "BACK", reply = "Then you hunt as a tauren hunts, whatever your race, and you will always be welcome at my rack.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll kill cleanly, and take only what I use.", next = "BACK", reply = "Then you hunt as a tauren hunts, whatever your race, and you will always be welcome at my rack.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A kill is a kill. I don't stop to skin.", next = "BACK", reply = "Then the hide rots, and the kill is wasted, and I hope you are the last to hunt that way in Feralas.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -771,8 +771,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Not with lightning, if that's what you're asking, but a hunter who wastes the beast finds the next one harder to track. The Woodpaw gnolls waste everything they kill, and you'll notice how the forest treats them." } },
       choices = {
-        { text = "Honor the hunt, and take everything the beast can give.", next = "BACK", reply = "That is the old way, and the spirits honour it, and so do I, for whatever an old skinner's honour is worth.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The spirits don't count skins. Take what's useful and move on.", next = "BACK", reply = "Perhaps they don't, but the beasts do, and they flee from those who waste them, as you will see.", fx = { align = { honor = -1 } } },
+        { text = "Honour the hunt, and take everything the beast can give.", next = "BACK", reply = "That is the old way, and the spirits honour it, and so do I, for whatever an old skinner's honour is worth.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The spirits don't count skins. Take what's useful and move on.", next = "BACK", reply = "Perhaps they don't, but I do, and I have seen the wolves leave a valley where hunters left the carcasses to rot. You will see it too, if you hunt here long enough.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -780,9 +780,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "My father taught me the knife in Mulgore, and his father taught him. I came here because the beasts are bigger." } },
-    advice = { { id = "tp_ad", text = "Keep your knife sharp. A dull knife tears, and a torn hide is worth nothing." } },
+    advice = { { id = "tp_ad", text = "Keep your knife sharp, little one. A dull knife tears, and a torn hide is worth nothing to anyone but the flies." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us the beast, and we owe her for every hide we take. A wasted pelt is a debt unpaid." } },
-    cairne = { { id = "tp_cairne", text = "Cairne taught our people to hunt with respect and to waste nothing, and I teach what he taught me. That is all a teacher is, a road for older wisdom." } },
+    cairne = { { id = "tp_cairne", text = "Cairne taught our people to hunt with respect and to waste nothing, and I teach what he taught me. I have been at it forty summers, and I still learn something from every hide." } },
     grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem skin for sport and leave the meat to rot, and it shames every tauren who sees it. They are no kin of mine." } },
     dire_maul = { { id = "tp_dire_maul", text = "The beasts that roam near Dire Maul are fat on the ogres' scraps, and their hides are thick. Go carefully, and come back with something worth the walk." } },
     _none = { { id = "tp_none", text = "I don't know. I know knives and hides, and the thanks owed to the beast, not that." } },
@@ -840,7 +840,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Badly, and every lame kodo means a caravan delayed. Your {pet} looks well kept, which tells me you know what a beast needs on a long trail, so I'd trust your eye over my drovers' to tell me which kodos will make the road." },
       },
       choices = {
-        { text = "Work the beasts fairly. A broken kodo serves no one.", next = "BACK", reply = "That is how I see it too, and I wish more traders on the kodo road thought the same.", fx = { align = { honor = 1 } } },
+        { text = "Work the beasts fairly. A broken kodo serves no one.", next = "BACK", reply = "That is how I see it too. Old Thunderhide has pulled my wagons from Thunder Bluff for eleven years, and she has never once been driven to lameness.", fx = { align = { honor = 1 } } },
         { text = "Kodos are cargo. Drive them hard and replace the lame.", next = "BACK", reply = "Then you will pay for new kodos every season, and I would rather pay for good feed and careful drivers.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -955,7 +955,7 @@ P:NPC {
       lines = { { id = "xhcast_default", text = "Centaur in the Needles, the Grimtotem watching from their pinnacle, and ogres once the road reaches Feralas. A spellcaster riding alongside would do more good than another spear, and the drivers would sleep easier for it." } },
       choices = {
         { text = "I'll ride with the next caravan, then.", next = "BACK", reply = "Then the drivers will be glad of you, and so will I, because a caravan with a caster comes home whole.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Caravans are traders' business. I have my own.", next = "BACK", reply = "That is your choice, and I will not argue, but the road is long and a little help goes a long way.", fx = { align = { honor = -1 } } },
+        { text = "Caravans are traders' business. I've my own.", next = "BACK", reply = "That is your choice, and I will not argue, but the road is long and a little help goes a long way.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -963,7 +963,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Long and wet and full of centaur, and the Grimtotem watch from their pinnacle the whole way through the Needles. Every caravan that arrives whole is a small miracle, and I don't trust miracles, so I count the spools twice." } },
       choices = {
-        { text = "Then the caravans need better guards, sent by the bluff.", next = "BACK", reply = "I have written to the bluff twice, and they tell me the guards are needed elsewhere, as they always are.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then the bluff should send better guards for the caravans.", next = "BACK", reply = "I have written to the bluff twice, and they tell me the guards are needed elsewhere, as they always are.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Then trade with whoever's closer, and forget the long road.", next = "BACK", reply = "There is nobody closer, friend, unless you count the ogres, and they do not take coin.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -972,7 +972,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I traded in Thunder Bluff before I came here. The work's harder, but the people are kinder." } },
-    advice = { { id = "tp_ad", text = "Never leave your goods unwatched at night. The gnolls steal anything that isn't tied down." } },
+    advice = { { id = "tp_ad", text = "Never leave your goods unwatched at night. The Woodpaw gnolls will steal anything that isn't tied down, and they will chew through the rope if it is." } },
     cairne = { { id = "tp_cairne", text = "Cairne's caravans make the long walk from Thunder Bluff to Mojache, and they always arrive a little lighter than they left. The road takes its toll, and so do the centaur." } },
     centaur = { { id = "tp_centaur", text = "The centaur of Desolace raid the road between here and Thunder Bluff, and I count the caravans that don't come in. The count is too high this season." } },
     thrall = { { id = "tp_thrall", text = "The Warchief keeps the roads open for us, as much as anyone can. He sends grunts to guard the worst stretches, and they eat everything I sell." } },

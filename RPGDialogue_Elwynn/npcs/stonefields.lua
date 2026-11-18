@@ -132,7 +132,7 @@ P:NPC {
           text = "A mage! Could you warm my oven a little faster, dear? The wood's damp, and the bread won't rise without heat." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Wipe your boots, then; I've just swept, and I don't sweep twice for anyone." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after good boar, the ones out past the Maclure vines are fattest, and I'd thank you to bring me some." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in my kitchen yard! Look at the turnips if you like, but mind the vineyard side, because the Maclures watch this fence like hawks." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf in my kitchen yard! Look at the turnips if you like, but mind the vineyard side, because the Maclures watch this fence like hawks." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, sit down anyway; I've fed worse, and I've fed Billy, which is worse than most." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Mind my kitchen, and no, your spirits won't tell me who stole my necklace; I already know." },
       },
@@ -309,6 +309,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_escape_ma = {
+      lines = {
+        { id = "dd_escape_ma_a", text = "I know, and I know who helped, and I know Gramma's been grinning about it since breakfast. A Stonefield and a Maclure, after all these years of feuding over a fence line, and it's my boy that does it." },
+      },
+      choices = {
+        { text = "Love doesn't care about fences, Ma. Let them be happy.", next = "dd_escape_ma2", fx = { align = { light = 1 } } },
+        { text = "A feud is a feud. They should have asked first.", next = "dd_escape_ma2", fx = { align = { order = 1 } } },
+        { text = "Will you ever speak to the Maclures again?", next = "dd_escape_ma2" },
+      },
+    },
+    dd_escape_ma2 = {
+      lines = {
+        { id = "dd_escape_ma2a", text = "I'll speak to them when they bring my son home for supper, and not a day before. I'm not a crier, mind, so don't look at me like that, and the cabbages won't weed themselves." },
+      },
+      choices = { { text = "I'll leave you to them. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "She's eaten every last cabbage, and that pig's an insult. If your spirits have a word for her, I'd be glad of it." } },
@@ -349,7 +366,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Light, no, I'd rather have the pig than have that thing loose among my cabbages. Kill the sow with an honest blade, and leave your friend outside the fence." } },
       choices = {
-        { text = "I'll use my own hands, Ma. The demon stays out.", next = "BACK", reply = "Good, and that's the way I'd want it done. Thank you.", fx = { align = { light = 1 } } },
+        { text = "I'll use my own hands, Ma. The demon stays out.", next = "BACK", reply = "Good. An honest blade's the way I'd want it done, and I'll not look while you do it.", fx = { align = { light = 1 } } },
         { text = "My demon would make short work of her. Your loss.", next = "BACK", reply = "My loss I'll live with, so long as I don't have to watch. Keep it outside.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -367,13 +384,18 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "They should be, but old Brackwell says Princess is a prize sow and a free creature, and Marshal Dughan won't fine a man over a pig. If there's a law that protects my carrots, I've never heard of it, and believe me, I've asked." } },
       choices = {
-        { text = "There should be. A neighbor must answer for his beast.", next = "BACK", reply = "There should, and I've told the Marshal so till I'm blue. He just laughs.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "There should be. A neighbor must answer for his beast.", next = "BACK", reply = "There should, and I've told the Marshal so till I'm blue in the face, and he just laughs and asks after the carrots.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The law can't fix this. Deal with the pig yourself.", next = "BACK", reply = "That's what I'm asking you to do, dear. Off you go.", fx = { align = { order = -1 } } },
         { text = "Something else, Ma.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "dd_escape_ma", tags = { "news" }, when = { questDone = TODO_QUEST("The Escape") },
+          text = "My Tommy Joe's gone off with that Maclure girl, and Gramma tells me you had a hand in it. I'll not say I'm happy, but I'll not say I'm surprised, either." },
+        { id = "dd_hogger_ma", when = { killed = { name = "Hogger" } },
+          text = "With Hogger dead, the gnolls in the woods have gone quiet, and I can work the south field without one eye on the treeline. You've my thanks for that, and I don't give it often." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Unless you've a prayer that keeps pigs out of carrots, I've no work for you, but sit, the kettle's on." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Can you do anything about a pig? I know it's not your usual work, but she's the size of a cart." },
         { id = "h_default", text = "I'm Ma Stonefield, and this is my field, or it was, until the Brackwells' prize pig found it." },
@@ -397,6 +419,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Quick, before she smells the carrots." },
       },
       choices = {
+        { text = "Tommy Joe and Maybell are together now, Ma.", next = "dd_escape_ma", when = { questDone = TODO_QUEST("The Escape") } },
+
         { text = "You might talk to the Brackwells about their pig.", next = "brackwells" },
         { text = "Tell me about this pig.", next = "princess" },
         { text = "The rest of the farm seems busy enough.", next = "farm" },
@@ -489,7 +513,7 @@ P:NPC {
         { id = "fh_default", text = "So I hear, and here's me shouting about a pig. Still, a pig you can kill; bandits, you need the army for, and the army's not coming." },
       },
       choices = {
-        { text = "No. It isn't.", next = "BACK", fx = { affinity = 1, opinion = { westfall = "abandoned" } } },
+        { text = "No, it isn't coming.", next = "BACK", fx = { affinity = 1, opinion = { westfall = "abandoned" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -507,7 +531,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never name a pig. Once you name it, it thinks it owns the place." } },
     maybell_tommy = { { id = "tp_lovers", text = "Tommy Joe? He's mending the east fence, and he's been mending it for months. It must be a very broken fence." } },
     defias = { { id = "tp_defias", text = "The Defias took the Brackwell farm whole, pumpkins, house and all, but they left the pig, which tells you they've got some sense." } },
-    _none = { { id = "tp_none", text = "Don't know, don't care, got a pig to worry about." } },
+    _none = { { id = "tp_none", text = "I don't know and I don't care, because I've got a pig to worry about." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire tried to buy Princess off us once for their menagerie, and I'd have sold her too, if she'd let anybody near enough to put a rope on her. Now she's eating my cabbages instead." } },
     holy_light = { { id = "tp_holy_light", text = "I've no time for long prayers, so I say a short one to the Light every time I pick up a hoe. It hasn't broken yet, so I reckon it's working." } },
     varian = { { id = "tp_varian", text = "A king's not much use to a farm unless he keeps the roads clear, and this one's been gone so long the roads have noticed. Somebody ought to tell him." } },
@@ -617,6 +641,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_escape_billy", tags = { "news" }, when = { questDone = TODO_QUEST("The Escape") },
+          text = "Maybell's gone! Pa's shouting and Ma's crying and I've got her room now, and everybody says you helped her, so I think you're the best person in all of Elwynn." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Are you a priest? Can you tell when someone's lying? Because I'm not, but Auntie Bernice thinks I am." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "Are you a paladin? Are you here to arrest me? I didn't do it, honest, I just know who did!" },
         { id = "h_default", text = "I'm Billy Maclure, and everybody at the Stonefields thinks I'm a thief, but I'm not. I just know things." },
@@ -631,7 +658,7 @@ P:NPC {
           text = "A real mage! Can you do the thing where you turn somebody into a sheep? I know a Stonefield who'd look good as a sheep." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Are you a warrior? You could beat up Goldtooth! Only don't tell anyone I said, because I wasn't there." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Have you got a boar? I'm not hungry, I'm just asking, because I'm hungry." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a night elf! I didn't take anything, before you ask, and I've never even seen one of your lot before." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "You're a night elf! I didn't take anything, before you ask, and I've never even seen one of your lot before." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I didn't take anything of yours, I swear, and I didn't even look at your bag." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "I didn't do it! Oh, you're a shaman. Well, I still didn't do it, whatever it was." },
       },
@@ -684,7 +711,7 @@ P:NPC {
         { id = "mc_default", text = "Saw! I said saw! Don't tell Auntie Bernice, or she'll bake me a pie with nails in." },
       },
       choices = {
-        { text = "Your secret's safe. This time.", next = "BACK", reply = "Thanks! I owe you one, maybe two.", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Your secret's safe, Billy, but only this time.", next = "BACK", reply = "Thanks! I owe you one, maybe two.", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "You should tell her yourself.", next = "BACK", reply = "Me? She'd skin me! Maybe after I'm grown up.", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
@@ -712,7 +739,7 @@ P:NPC {
       },
       choices = {
         { text = "Stay away from the mine, Billy.", next = "BACK", fx = { trait = { kind = 1 }, learn = { "kobolds" } } },
-        { text = "Ha. Do it again.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Ha! Do it again, Billy.", next = "BACK", fx = { affinity = 1 } },
       },
     },
 

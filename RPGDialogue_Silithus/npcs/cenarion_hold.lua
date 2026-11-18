@@ -132,7 +132,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll report to your captain. The Hold needs order, not heroics.", next = "BACK", reply = "Then report to Vish Kozus, and he will be rude to you, which is how you will know he approves.", fx = { align = { order = 1 } } },
-        { text = "I hunt alone and strike wherever I see fit.", next = "BACK", reply = "Then strike well, hunter, but remember that a scout who never returns is a scout who never reports.", fx = { align = { order = -1 } } },
+        { text = "I hunt alone and strike wherever I see fit.", next = "BACK", reply = "Then strike well, hunter, but remember that Vish Kozus cannot plan around numbers you never bring back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -201,6 +201,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The Circle has need of keen eyes in this desert, for the silithid move beneath the sand where no sentry can follow them." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Horde, and one of the Forsaken, at Cenarion Hold. You are welcome, as anyone is who stands against the swarm, though I confess I hoped the Light might have answers I have not found." },
+        { id = "h_dd_vyral", tags = { "news" }, when = { questDone = TODO_QUEST("Vyral the Vile") }, text = "Huum Wildmane tells me Vyral the Vile is dead in his cave at Twilight's Run, and that you were the one who went in after him. The Twilight's Hammer will be slower to gather now, and that buys the Hold something I can never get enough of, which is time." },
       },
       again = {
         { id = "h_again", text = "What else would you know? Ask, before the next runner finds me; even a kaldorei's patience has limits tonight." },
@@ -427,7 +428,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll go where you send me, Commander.", next = "BACK", reply = "Then go to Vish Kozus, and he will send you where the line is thinnest, which is everywhere tonight.", fx = { affinity = 2, align = { order = 1 }, standing = { cenarion_hold = 1 } } },
-        { text = "I'll fight where I judge best, Commander.", next = "BACK", reply = "Then judge well, warrior, because the hives do not forgive a misjudgement, and neither do I.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll fight where I judge best, Commander.", next = "BACK", reply = "Then judge well, warrior. I have lost three captains this season who judged badly, and the hives did not give any of them a second chance.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else, Commander.", next = "BACK" },
       },
     },
@@ -693,7 +694,7 @@ P:NPC {
       big = true,
       lines = { { id = "hc_default", text = "Aye, it is, and I've told no one but you. There's a beat under the hum, slow at first, and I've counted it every night for a month; it's quicker now, like something counting down, and I can't prove a word of it to the Commander." } },
       choices = {
-        { text = "Then keep counting. I'll believe you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then keep counting. I believe you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "The Commander should hear this anyway.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1177,7 +1178,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "I don't need to tell you, and I won't. What I will tell you is that I saw you coming from the road, and I can see the scorch marks on your sleeve, so don't waste your time wondering." } },
       choices = {
         { text = "Your secret's yours. I respect that.", next = "BACK", reply = "Good, then we understand each other, and I'll keep listening to your footsteps instead of your secrets.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll figure it out sooner or later.", next = "BACK", reply = "You might, and I'll be listening when you do, so don't think I won't know you've worked it out.", fx = { align = { order = -1 } } },
+        { text = "I'll figure it out sooner or later.", next = "BACK", reply = "You might, and I'll be listening when you do, so don't think I won't know the moment you've worked it out.", fx = { align = { order = -1 } } },
         { text = "Understood, Captain.", next = "BACK" },
       },
     },
@@ -1238,6 +1239,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Fine, you can make yourself useful, because Deathclasp is still out there and nobody's brought me a pincer yet." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Good; the Commander trusts your kind more than he trusts swords, and lately he trusts very little at all." },
+        { id = "h_dd_supply", tags = { "news" }, when = { questDone = TODO_QUEST("Securing the Supply Lines") }, text = "Windcaller Proudhorn says you cleared the dredge strikers off the northern road, and my guards have stopped flinching every time the sand moves. A road you can trust is worth a dozen spears on the wall." },
       },
       again = {
         { id = "h_again", text = "Anything else? The view won't watch itself, and I've been watching it longer than your grandfather's grandfather lived." },
@@ -1259,7 +1261,18 @@ P:NPC {
         { text = "How does the Commander fare since his wife vanished?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What makes Deathclasp so hard to bring down, Captain?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How can you see anything with that blindfold, Captain?", next = "xpt_vish_kozus", when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } } } },
+        { text = "The northern road is safer now, Captain.", next = "dd_supply", when = { questDone = TODO_QUEST("Securing the Supply Lines") } },
         { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+    dd_supply = {
+      lines = {
+        { id = "dd_supply_1", text = "Safer, yes, but not safe, because the silithid breed faster than we can kill them. Every wagon that reaches the Hold is food and arrows and bandages, though, and every wagon that doesn't is a guard I have to bury, so I'll take safer gladly." },
+      },
+      choices = {
+        { text = "Then we strike the hives until there's nothing left.", next = "BACK", reply = "That's the Commander's plan too, more or less. I just hope there are enough of us left to see the end of it.", fx = { align = { order = -1 } } },
+        { text = "Guard the roads first. The hives will keep.", next = "BACK", reply = "Spoken like a quartermaster, and I mean that as praise. An army that can't eat can't fight, whatever the generals say.", fx = { align = { order = 1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
       },
     },
 
@@ -1503,6 +1516,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, oh, and your poor beast is covered in sand too! In Auberdine the worst it would have brought home was a little sea salt." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at my hearth! The Circle keeps its own tents out by the Hold, but your kind always seem to end up here when the sand gets into their fur." },
+        { id = "h_dd_deathclasp", tags = { "news" }, when = { questDone = TODO_QUEST("Wanted - Deathclasp, Terror of the Sands") }, text = "Captain Kozus took down the Deathclasp poster this morning and pinned your name in its place, or near enough, and half my guests have been toasting you since. I didn't know the captain could smile until today." },
+        { id = "h_dd_noggle", when = { questDone = TODO_QUEST("Noggle's Last Hope") }, text = "Beetix tells me Noggle is sitting up and complaining again, which is the surest sign a goblin will live. He says you fetched the cure, so thank you; I was tired of carrying broth to a cot that never answered." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? I've a pot on, but it'll keep, and so will I; my people are good at waiting." },
@@ -1526,7 +1541,18 @@ P:NPC {
         { text = "What have hunters brought you to cook out here, Calandrath?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do many paladins come through the Oasis Inn, Calandrath?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would my demon really cause trouble in your kitchen?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Was Deathclasp really such a terror, Calandrath?", next = "dd_deathclasp", when = { questDone = TODO_QUEST("Wanted - Deathclasp, Terror of the Sands") } },
         { text = "Thank you, Calandrath.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    dd_deathclasp = {
+      lines = {
+        { id = "dd_deathclasp_1", text = "Worse than the stories, if you ask the caravan drivers. That scorpid took two wagons and a whole team of kodo on the southern road last season, and after that nobody would carry supplies past the mountains without a full escort. I had to cook with whatever the Hold's hunters dragged in, and none of it was pleasant." },
+      },
+      choices = {
+        { text = "A beast like that had to be put down.", next = "BACK", reply = "It did, and the drivers are already talking about the southern road again. Silithus has plenty of other monsters, but one fewer is something.", fx = { align = { light = -1 } } },
+        { text = "It was only hunting. I'm sorry it came to that.", next = "BACK", reply = "That's a gentle way to see it, and the druids here would agree with you. Still, I'll admit I sleep easier knowing it won't be hunting my supply wagons.", fx = { align = { light = 1 } } },
+        { text = "Something else, Calandrath.", next = "BACK" },
       },
     },
 
@@ -1751,6 +1777,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Bring me venom sacs and stingers, pal, because every bug and scorpid in this desert is a cure for somethin', eventually, and a cure's worth money." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Perfect, you know poisons from the leaves out, pal, and my cousin Noggle could use whatever trick you've got for silithid venom." },
+        { id = "h_dd_poison", when = { questDone = TODO_QUEST("The Perfect Poison") }, text = "I hear you've been fetching venom sacs for that Ravenholdt fellow down the street, pal, and I won't pretend that doesn't sting a little, professionally speaking. Next time, bring me first refusal and I'll beat his price, probably." },
       },
       again = {
         { id = "h_again", text = "What else, pal? I've got a pot about to boil over, and the last one that boiled over took the tent flap with it, so make it snappy." },

@@ -114,7 +114,7 @@ P:NPC {
     lesson = {
       lines = { { id = "le_default", text = "Stir with the hand you write with, and never with the hand you eat with, which is why you've that burn on your thumb. After that, label everything, because the second worst thing in alchemy is an explosion and the worst is a mystery." } },
       choices = {
-        { text = "Precision first. I'll remember it.", next = "BACK", fx = { affinity = 1, trait = { careful = 1 } } },
+        { text = "Precision first, then. I'll remember it.", next = "BACK", fx = { affinity = 1, trait = { careful = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -177,7 +177,7 @@ P:NPC {
     peacebloom = {
       lines = { { id = "pe_default", text = "There's a grate over it that lets in an hour of light at noon, if the clouds are kind. I sing to it, which the apothecaries find very funny, but it's still alive and theirs aren't." } },
       choices = {
-        { text = "Keep singing. It's working.", next = "BACK", reply = "I shall, and I'll sing a little louder now that someone's on my side. It's the only green thing in the Undercity.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep singing, Martha. It's clearly working.", next = "BACK", reply = "I shall, and I'll sing a little louder now that someone's on my side. It's the only green thing in the Undercity.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Plants don't care about songs, Martha.", next = "BACK", reply = "Perhaps not, but they care about light, and my song lasts longer than the noon hour. Leave me my silly habit.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

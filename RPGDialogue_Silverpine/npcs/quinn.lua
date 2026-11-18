@@ -44,6 +44,8 @@ P:NPC {
           text = "Rane told me about Ivar. I'd hoped to do it myself, but I'll admit I sleep better knowing his head is somewhere other than on his shoulders." },
         { id = "h_rogue", when = { class = "ROGUE", race = "Scourge" },
           text = "A fellow deathstalker, or near enough. Take a lesson from me, and never cross a farmyard in daylight because you're in a hurry." },
+        { id = "h_dd_erland", when = { questDone = TODO_QUEST("Escorting Erland") },
+          text = "Rane says you got Erland back to the Sepulcher in one piece, which is more than anyone managed for me. If you're collecting deathstalkers who need rescuing, you'll find I'm still available." },
       },
       again = {
         { id = "h_again", text = "What else? I'm not going anywhere, which you'll have gathered." },

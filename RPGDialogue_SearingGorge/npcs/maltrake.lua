@@ -41,10 +41,12 @@ P:NPC {
           text = "It is glorious! Is it not glorious? Even the Dark Iron's own fire can't touch that flame, and they're running about the ridges like ants." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "A paladin. My master warned me your kind would come asking questions, so ask, and I'll answer as much as a squire is permitted." },
+        { id = "dd_torch", when = { questDone = TODO_QUEST("The Torch of Retribution") },
+          text = "My master holds the Torch of Retribution now, and you put it in his hands. I have not seen him so near to peace since the day he first came to this gorge." },
       },
       again = {
         { id = "h_again", text = "What else? My master is watching, so make it worth his while." },
-        { id = "h_again2", text = "Speak on. I have nothing to do but wait for his word." },
+        { id = "h_again2", text = "Speak on. Until my master calls, my time is yours, though not a moment after." },
       },
       choices = {
         { text = "How long have you served Kalaran?", next = "service" },
@@ -52,7 +54,7 @@ P:NPC {
         { text = "Why does your master hate the Dark Iron?", next = "father" },
         { text = "What happens when the towers burn?", next = "towers", when = { questDone = TODO_QUEST("Squire Maltrake") } },
         { text = "Your master isn't what he seems.", next = "xpaladin", when = { class = { "PALADIN", "PRIEST" } } },
-        { text = "You serve someone greater than yourself, Maltrake, I'd guess.", next = "truth", when = { questDone = TODO_QUEST("Squire Maltrake") } },
+        { text = "Whoever you serve, Maltrake, he's more than a man.", next = "truth", when = { questDone = TODO_QUEST("Squire Maltrake") } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -62,7 +64,7 @@ P:NPC {
         { id = "se_default", text = "Since I was a boy, and I'll serve him until I'm an old man, and gladly. He found me starving in Lakeshire after the war, and he fed me and taught me, and he's never once lied to me." },
       },
       choices = {
-        { text = "Never once? That's a lot of trust for a Dark Iron.", next = "service_trust" },
+        { text = "Never once? That's a great deal of trust to put in anyone.", next = "service_trust" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -72,7 +74,7 @@ P:NPC {
       },
       choices = {
         { text = "Loyalty like that is rare.", next = "BACK", reply = "It is, and it's the only thing I have to give him. Go and do his errand, and you'll understand.", fx = { align = { order = 1 } } },
-        { text = "Blind loyalty is just another word for slavery.", next = "BACK", reply = "Call it what you like, and I'll call it service. Slaves don't choose their masters, and I chose mine.", fx = { align = { order = -1 } } },
+        { text = "Blind loyalty's just slavery with a nicer name, squire.", next = "BACK", reply = "Call it what you like, and I'll call it service. Slaves don't choose their masters, and I chose mine.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -100,7 +102,7 @@ P:NPC {
           text = "You've seen what you've seen, so you know the answer already, and you'll not hear me say it aloud. My master needed willing hands, and a grieving son finds them more easily than the truth would." },
       },
       choices = {
-        { text = "So it was a lie.", next = "father_lie", when = { questDone = TODO_QUEST("Squire Maltrake") } },
+        { text = "So the grieving son was a story he told me.", next = "father_lie", when = { questDone = TODO_QUEST("Squire Maltrake") } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,8 +111,8 @@ P:NPC {
         { id = "fl_default", text = "A story, and a good one, and the Dark Iron deserved every bit of what it bought them. You burned their towers and broke their sentries, and the gorge is safer for it, so tell me what harm was done." },
       },
       choices = {
-        { text = "The Dark Iron had it coming. I don't regret it.", next = "BACK", reply = "Good, that's the spirit he hoped for in you. The gorge is better without them, whoever lit the torch.", fx = { align = { honor = -1 } } },
-        { text = "I was used. That's harm enough.", next = "BACK", reply = "Used, is it? Then so was every soldier who ever followed an order, and I don't hear them complaining.", fx = { align = { honor = 1 } } },
+        { text = "The Dark Iron had it coming. I don't regret it.", next = "BACK", reply = "Good! That's the spirit he hoped to find in you. Look at the smoke and tell me the gorge isn't better for it.", fx = { align = { honor = -1 } } },
+        { text = "You used me, the pair of you. That's harm enough.", next = "BACK", reply = "Used, is it? Then so was every soldier who ever followed an order, and I don't hear them complaining.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -40,7 +40,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "That they're big an' hungry an' they come down when the snow's deep, an' a bear form won't make ye bigger than one. Go in pairs, keep a fire, an' don't follow one intae its cave." } },
       choices = {
-        { text = "Good advice. I'll heed it and travel carefully.", next = "BACK", reply = "Good, then ye'll live tae spend more coin in my shop, which is the best outcome for both of us an' the yeti too.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Good advice. I'll heed it and travel carefully.", next = "BACK", reply = "Then ye'll live tae spend more coin in my shop, which is the best outcome for both of us, an' for the yeti too.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "I'll follow where the trail leads. That's a druid's way.", next = "BACK", reply = "Aye, an' I've sold candles tae a few druids who said the same, an' a few o' them didnae come back for more, so mind yerself.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -108,7 +108,7 @@ P:NPC {
         { id = "xmage_default", text = "Thread, a bag that doesnae leak an' a warm cloak, for conjured bread willnae keep the cold off up past Kharanos. I've watched gnome mages come down from Coldridge in robes thin as paper, an' I've sold every one o' them a cloak by the time they reach the lake." },
       },
       choices = {
-        { text = "Sound advice. I'll take a cloak.", next = "BACK", reply = "Good, an' I'll find ye one wi' a hood, for gnome mages always forget their ears, an' the wind up there doesnae forgive it.", fx = { align = { order = 1 } } },
+        { text = "Sound advice. I'll take a cloak.", next = "BACK", reply = "I'll find ye one wi' a hood. Gnome mages always forget their ears, an' the wind up there doesnae forgive it.", fx = { align = { order = 1 } } },
         { text = "A little fire keeps me warm enough.", next = "BACK", reply = "Fire keeps ye warm till the wind blows it out, an' up past Kharanos the wind never stops, so take the cloak anyway an' thank me later.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -167,8 +167,8 @@ P:NPC {
         { id = "ww_default", text = "Gnomes that didnae get out in time, an' the poison got intae them. They're no' right in the head anymore, poor things, an' they'll attack anyone who comes near." },
       },
       choices = {
-        { text = "They deserve pity, not a blade.", next = "BACK", reply = "They do, poor things, an' I'm glad tae hear it from ye, but pity willnae stop one o' them from bitin' if ye walk too close.", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
-        { text = "If they attack, they're enemies. Simple as that.", next = "BACK", reply = "Aye, I'll no' argue with ye when they're comin' at ye, but they were somebody's neighbours once, an' I'd like that remembered.", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
+        { text = "They deserve pity, not a blade.", next = "BACK", reply = "They do, poor things. But pity willnae stop one o' them from bitin' if ye walk too close.", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
+        { text = "If they attack, they're enemies. Simple as that.", next = "BACK", reply = "When they're comin' at ye, aye. But they were somebody's neighbours once, an' I'd like that remembered.", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
       },
     },
 
@@ -255,7 +255,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Somethin' short an' heavy, for when the bear's on top o' ye there's no room tae swing anythin' long. Yer {pet} would keep the bear off ye long enough tae draw it, I'd hope, which is what a good beast is for." },
       },
       choices = {
-        { text = "I'll keep it sharp and use it only when I must.", next = "BACK", reply = "Good, for that's how a hunter's blade should be kept, an' if the bear's on top o' ye, ye'll be glad I made it short.", fx = { align = { order = 1 } } },
+        { text = "I'll keep it sharp and use it only when I must.", next = "BACK", reply = "That's how a hunter's blade should be kept. If the bear's ever on top o' ye, ye'll be glad I made it short.", fx = { align = { order = 1 } } },
         { text = "I like a bear close. I'll use the blade often.", next = "BACK", reply = "Then ye'll need a better blade than most, an' a healer nearby, because bears dinnae fight fair an' they're never tired.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -282,7 +282,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "I forge them honest, an' that's all the blessin' I know how tae give. If ye want a priest tae say somethin' over it after, I'll no' stop ye, but I'll tell ye now the steel's the same either way." } },
       choices = {
-        { text = "A blessing adds something steel alone can't, Grawn.", next = "BACK", reply = "Maybe it does, an' I'll no' quarrel, but the steel's still mine, an' it'll still hold when yer blessin' has worn off.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A blessing adds something steel alone can't, Grawn.", next = "BACK", reply = "Maybe it does. But the steel's still mine, an' it'll still hold when yer blessin' has worn off.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Honest steel is enough. A mace doesn't need prayers.", next = "BACK", reply = "That's sense, an' I'll forge it honest an' heavy, so it'll keep ye safe long enough tae say yer own prayers after.", fx = { align = { light = -1 } } },
         { text = "Let me see your weapons.", next = "BACK" },
       },
@@ -291,7 +291,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I'd want tae know what ye mean by unfair, for a troll stabbin' ye in the back is unfair, but it's no' the hammer's fault. If it broke because ye swung it at a stone wall, though, ye'll be buyin' another." } },
       choices = {
-        { text = "A fair fight is the only kind worth having, Grawn.", next = "BACK", reply = "Good, then ye'll get a hammer that'll stand up tae an honest blow, an' if it breaks, I'll mend it wi' no questions.", fx = { align = { honor = 1 } } },
+        { text = "A fair fight is the only kind worth having, Grawn.", next = "BACK", reply = "Then ye'll get a hammer that'll stand up tae an honest blow. If it breaks, bring it back an' I'll mend it.", fx = { align = { honor = 1 } } },
         { text = "There's no such thing as a fair fight. Only won ones.", next = "BACK", reply = "Then ye'll get a hammer that wins, but dinnae bring it back for mendin' if it broke on somebody's back.", fx = { align = { honor = -1 } } },
         { text = "Something else, Grawn.", next = "BACK" },
       },
@@ -303,7 +303,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll keep it back from your steel.", next = "BACK", reply = "Thank ye kindly, an' I'll forge ye somethin' on the far side o' the anvil, just in case it's no' only my eyes.", fx = { align = { order = 1 } } },
-        { text = "Your eyes are getting old, Grawn.", next = "BACK", reply = "Maybe they are, an' I'll no' argue, but I'll keep my steel away from ye anyway, because old eyes have kept me alive this long.", fx = { align = { order = -1 } } },
+        { text = "Your eyes are getting old, Grawn.", next = "BACK", reply = "Maybe they are. Old eyes have kept me alive this long, though, so I'll keep my steel away from ye anyway.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -437,7 +437,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "A good mail coat an' a shield wi' an iron rim, for a trogg's club comes down hard an' a wooden shield splits. Most recruits want the light stuff so they can run, but a warrior isnae meant tae run, so he might as well be heavy." } },
       choices = {
         { text = "A warrior stands. Give me the heavy coat.", next = "BACK", reply = "That's a proper warrior, an' I'll fit ye in the heaviest coat I've got, so the troggs can break their clubs on ye an' weep.", fx = { align = { order = 1 } } },
-        { text = "I'll take the light stuff. Speed wins fights too.", next = "BACK", reply = "Speed's a fine thing, an' I'll no' argue, but the trogg's club is faster than ye think, so take a helm at least.", fx = { align = { order = -1 } } },
+        { text = "I'll take the light stuff. Speed wins fights too.", next = "BACK", reply = "Speed's a fine thing. But a trogg's club is faster than ye think, so take a helm at least.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -448,7 +448,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Light mail over a fur linin', for ye'll be lyin' still in the snow for hours, an' the cold'll do ye in quicker than any bear. Yer {pet} has its own fur, lucky beast, so it'll no' need my help." },
       },
       choices = {
-        { text = "The warm lining, then. Patience in the cold wins hunts.", next = "BACK", reply = "Good, an' I'll line it extra thick at the shoulders, for a hunter in the snow is a hunter who'll thank me in the mornin'.", fx = { align = { order = 1 } } },
+        { text = "The warm lining, then. Patience in the cold wins hunts.", next = "BACK", reply = "I'll line it extra thick at the shoulders. Ye'll thank me the first mornin' ye wake up in the snow.", fx = { align = { order = 1 } } },
         { text = "Keep it light. I don't sit still for hours.", next = "BACK", reply = "Fair enough, an' I'll cut it light, but I'll still line the shoulders, for even a hunter in a hurry gets cold sometime.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -457,7 +457,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because ye need tae move yer hands freely, an' my mail would weigh ye down like an anvil. Stick tae cloth, an' let the warriors stand in front o' ye, for that's what they're there for." } },
       choices = {
-        { text = "I'll trust the warriors to stand in front of me.", next = "BACK", reply = "Good, an' they'll be glad tae have ye behind them, for a warrior wi' a mage at his back is a warrior who comes home.", fx = { align = { order = 1 } } },
+        { text = "I'll trust the warriors to stand in front of me.", next = "BACK", reply = "They'll be glad tae have ye behind them. A warrior wi' a mage at his back is a warrior who comes home.", fx = { align = { order = 1 } } },
         { text = "I'd sooner stand alone than rely on anyone else.", next = "BACK", reply = "That's a lonely way tae fight, an' a short one, so I'll sell ye a good cloak, because ye'll need it when the warriors are gone.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -467,7 +467,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "I make armor for whoever needs it, but I'll admit I prefer the ones who fight wi' axes. Yer kind's demons do the fightin' for ye, an' I've no' the trick o' makin' armor for a voidwalker." } },
       choices = {
         { text = "I fight my own battles, Boran. The demon only helps.", next = "BACK", reply = "Glad tae hear it, an' I'll find ye somethin' that fits, for a warlock who fights his own battles needs armour as much as anybody.", fx = { align = { light = 1 } } },
-        { text = "My demon bleeds so I don't have to. That's the point.", next = "BACK", reply = "Well, that's a cold way tae see it, but I'll no' argue wi' the logic, an' it means ye'll need less armour than most.", fx = { align = { light = -1 } } },
+        { text = "My demon bleeds so I don't have to. That's the point.", next = "BACK", reply = "That's a cold way tae see it. Still, it means ye'll need less armour than most, so I cannae fault the sums.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -475,7 +475,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Aye, an' I'll argue it wi' anyone, though I'll admit a priest an' a good coat o' mail together are better than either alone. The recruits who come back are the ones who wore my mail an' had a healer behind them." } },
       choices = {
-        { text = "Faith saves more than mail ever could, Boran.", next = "BACK", reply = "Maybe it does, an' I'll no' argue in front o' a priest, but I've seen faith an' mail together bring back more recruits than either alone.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith saves more than mail ever could, Boran.", next = "BACK", reply = "Maybe it does. But I've seen faith an' mail together bring back more recruits than either alone.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You're right. Good mail is a prayer answered.", next = "BACK", reply = "Ha, I like that, an' I'll be tellin' the next priest who comes in, for a dwarf likes tae have his trade blessed now an' then.", fx = { align = { light = -1 } } },
         { text = "Let me see your armour.", next = "BACK" },
       },
@@ -484,7 +484,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "If ye stand in front o' them, aye, an' that's what a paladin's for, I've heard. My armor will keep yer ribs whole, an' yer ribs will keep the troggs off the recruits behind ye, so we'll call it a partnership." } },
       choices = {
-        { text = "Then I'll stand in front, every time. That's my duty.", next = "BACK", reply = "Good, an' I'll make sure ye're well armoured for it, because a paladin who stands in front has tae last longer than the troggs.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll stand in front, every time. That's my duty.", next = "BACK", reply = "Then I'll make sure ye're well armoured for it. A paladin who stands in front has tae last longer than the troggs.", fx = { align = { honor = 1 } } },
         { text = "Armour keeps me alive. The recruits must look after themselves.", next = "BACK", reply = "Maybe they must, but I'd rather ye didnae say it tae their faces, for they're young an' they look up tae a paladin.", fx = { align = { honor = -1 } } },
         { text = "Thanks, Boran.", next = "BACK" },
       },
@@ -642,7 +642,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll look after my beast before myself.", next = "BACK", reply = "That's the right way, an' yer beast will love ye for it, an' I'll find ye somethin' soft at the knees for all the kneelin' ye'll do.", fx = { align = { honor = 1 } } },
-        { text = "A beast can be tamed again. I'll look after myself.", next = "BACK", reply = "Fair enough, an' I'll no' quarrel, but a beast that's been wi' ye a while is worth more than a fresh one, whatever ye think now.", fx = { align = { honor = -1 } } },
+        { text = "A beast can be tamed again. I'll look after myself.", next = "BACK", reply = "Fair enough. But a beast that's been wi' ye a while is worth more than a fresh one, whatever ye think now.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -650,7 +650,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Aye, if ye oil it right an' cut it soft, so my leathers cost a wee bit more. I make it for scouts an' hunters, but I've no' asked any o' them what they get up to in the dark." } },
       choices = {
-        { text = "I'll use it to scout the Frostmane, nothing more.", next = "BACK", reply = "Good, an' I'll cut it soft an' oil it well, so ye can get close enough tae the Frostmane tae count their spears.", fx = { align = { honor = 1 } } },
+        { text = "I'll use it to scout the Frostmane, nothing more.", next = "BACK", reply = "I'll cut it soft an' oil it well, then, so ye can get close enough tae the Frostmane tae count their spears.", fx = { align = { honor = 1 } } },
         { text = "Better you don't ask, Durnan. It's healthier that way.", next = "BACK", reply = "Maybe ye're right, an' I'll no' ask, but I'll keep my ears open, an' if I hear somethin' I dinnae like, I'll stop sellin'.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -668,7 +668,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Troggs an' wolves, mostly, an' the Frostmane trolls in the hills, an' the young ones who think they can handle all three at once. Keep an eye on them for me, will ye? They listen tae paladins." } },
       choices = {
-        { text = "I'll watch over the recruits. It's what a paladin does.", next = "BACK", reply = "Thank ye, an' it eases my mind, for there's more young ones goin' out o' Anvilmar than I can count, an' fewer comin' back.", fx = { align = { honor = 1 } } },
+        { text = "I'll watch over the recruits. It's what a paladin does.", next = "BACK", reply = "Thank ye. There's more young ones goin' out o' Anvilmar than I can count, an' fewer comin' back.", fx = { align = { honor = 1 } } },
         { text = "The recruits are soldiers. They can look after themselves.", next = "BACK", reply = "They're soldiers now, aye, but they're bairns under the mail, an' I'd thank ye no' tae forget it when ye see one in trouble.", fx = { align = { honor = -1 } } },
         { text = "Something else, Durnan.", next = "BACK" },
       },
@@ -684,7 +684,7 @@ P:NPC {
           text = "A rogue fresh out o' Anvilmar! Ye'll want leather that doesnae creak, an' I've a few pieces that'll suit ye." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll be wantin' mail soon enough, but for now let me give ye somethin' warm tae wear under it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want leather, then, an' good leather's my trade, so ye've come tae the right dwarf." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' ye look half frozen, though I expect ye'd say ye're fine. Kaldorei always say that, an' then they start shiverin'." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, an' ye look half frozen, though I expect ye'd say ye're fine. Kaldorei always say that, an' then they start shiverin'." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've wolf pelts an' bear hides aplenty, though I suppose ye'd want tae ask the beasts' leave before ye wore one." },
       },
       again = {
@@ -719,7 +719,7 @@ P:NPC {
         { id = "da_default", text = "Troggs in the caves tae the north, an' the Frostmane trolls in the hills, an' the wolves everywhere else. None of it's too much for a careful recruit, but I've seen careless ones carried back on a sledge." },
       },
       choices = {
-        { text = "I'll be careful, I promise.", next = "BACK", reply = "Good, an' I'll hold ye tae it, so come back an' tell me ye made it, for I like tae hear from the careful ones.", fx = { align = { order = 1 }, trait = { cautious = 1 }, learn = { "troggs" } } },
+        { text = "I'll be careful, I promise.", next = "BACK", reply = "I'll hold ye tae it. Come back an' tell me ye made it, for I like tae hear from the careful ones.", fx = { align = { order = 1 }, trait = { cautious = 1 }, learn = { "troggs" } } },
         { text = "I'll take my chances.", next = "BACK", reply = "Then take a warm cloak for yer chances, for the cold's got the best odds o' anythin' in Dun Morogh.", fx = { align = { order = -1 }, trait = { brave = 1 }, learn = { "troggs" } } },
       },
     },

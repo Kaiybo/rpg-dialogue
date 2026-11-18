@@ -104,7 +104,7 @@ P:NPC {
           text = "A priest, so you know what we fight for. Glory under the Light: say it with me, or tell me why you won't." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "A paladin, and the Light walks with you, so walk it out past the lamps where it's needed. The Watch has candles enough." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good. What walks past the lamps doesn't care for speeches, only for steel, and you look as though you carry plenty." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, good! What walks past the lamps doesn't care for speeches, only for steel, and you look as though you carry plenty." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know a track when you see one, then, and that's worth more out here than a dozen lanterns." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Show me your hands. We hunt the dead past the lamps, and I want to know whether your spirits will help or get in the way." },
       },
@@ -358,7 +358,7 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest! Out here the Light needs hands as much as it needs voices, so have you got hands?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, then, and not a soldier. That's fine; in this wood the one who sees the worg first lives longer than the one who swings hardest." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a night elf at that. Have you ever fought something that ought to be dead and wasn't, or only the honest beasts of your forest?" },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, and a night elf at that. Have you ever fought something that ought to be dead and wasn't, or only the honest beasts of your forest?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Have you ever swung a blade at something that swung back? Spirits won't save you if you freeze when the dead come." },
       },
       again = {
@@ -560,7 +560,7 @@ P:NPC {
     xrogue = {
       lines = { { id = "xro_default", text = "Easy to take and impossible to find again, since I'm the only one who knows where anything is. If you steal a page from this pile, you'll have stolen the one thing in Darkshire nobody else wants." } },
       choices = {
-        { text = "Your papers are safe. Knowledge belongs to its keeper.", next = "BACK", reply = "Thank you, and I'll note that you said so. They're safer than most things here.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your papers are safe. Knowledge belongs to its keeper.", next = "BACK", reply = "Thank you. I'll note that you said so, in ink, in case you ever forget.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Knowledge is always worth stealing, scholar.", next = "BACK", reply = "Then you'll steal the one thing in Darkshire nobody else wants. Good luck selling it.", fx = { align = { honor = -1 } } },
         { text = "What's the oldest thing you have?", next = "oldest" },
       },
@@ -611,7 +611,7 @@ P:NPC {
           text = "A priest! Do they still teach the old liturgies at the abbey? Some of the older stones at Raven Hill quote them, and nobody but me reads them now." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you've got the shoulders for it. Do try not to knock anything over; the shelf behind you holds three centuries of Darkshire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do keep that beast away from my papers, I beg you; the last one ate a land deed from the reign of King Barathen." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Stand still a moment, please, because the books I own say almost nothing true about your people, and I'd like to correct them." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Stand still a moment, please, because the books I own say almost nothing true about your people, and I'd like to correct them." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've read about shamans, but only in Horde accounts, so you'd be a footnote well worth adding." },
       },
       again = {
@@ -756,7 +756,7 @@ P:NPC {
       },
       choices = {
         { text = "Nothing that was still standing.", next = "BACK", fx = { affinity = 2 } },
-        { text = "To strangers. And Stormwind.", next = "BACK", fx = { affinity = 1 } },
+        { text = "To strangers, mostly, and a city that had moved on without me.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     dwarf = {
@@ -858,7 +858,7 @@ P:NPC {
     xlock = {
       lines = { { id = "xlo_default", text = "I've read the old warnings, yes, the ones about eyes in the dark between the stars, and I don't care for them. I watch the sky to learn its patterns, not to wave at whatever might be watching back." } },
       choices = {
-        { text = "Wise. Some things shouldn't be waved at.", next = "BACK", reply = "Exactly, and I'm glad someone agrees. Some stars are best admired from a distance.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wise. Some things shouldn't be waved at.", next = "BACK", reply = "Exactly, and I'm glad someone agrees. I keep the shutters half closed on that side of the tower now.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Whatever watches back might teach you something.", next = "BACK", reply = "Perhaps, but I'd rather not find out what. Patterns, not watchers.", fx = { align = { light = -1 } } },
         { text = "Why study stars here, of all places?", next = "why" },
       },
@@ -868,7 +868,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Perhaps the Light made the stars, I couldn't say, but it didn't make the fog, so I measure what's in front of me rather than guess. Hold the lamp for me some night and we'll see which of us learns more." } },
       choices = {
         { text = "The Light shows more than any lens ever will, Viktori.", next = "BACK", reply = "Perhaps, and perhaps not, and that's the joy of it. Hold the lamp anyway.", fx = { align = { light = 1 } } },
-        { text = "Measure away, then. Faith can wait for your results.", next = "BACK", reply = "Splendid, and you'll be the first to hear them. Faith and science can share a lamp.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Measure away, then. Faith can wait for your results.", next = "BACK", reply = "Splendid! You'll hear the results first, and the Light is welcome to check my arithmetic afterwards.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else, Viktori.", next = "BACK" },
       },
     },
@@ -1006,7 +1006,7 @@ P:NPC {
     nightelf = {
       lines = { { id = "ne_default", text = "Ages! I've been at it for eleven years and I already feel ancient. Tell me, do the kaldorei name the bright one that rises over Raven Hill in autumn, because I've been calling it Cog's Lantern and I suspect that's wrong." } },
       choices = {
-        { text = "We have a name. Cog's Lantern is better.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "We have a name for it, but I like Cog's Lantern better.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "The stars are Elune's, not a gnome's.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
@@ -1084,7 +1084,7 @@ P:NPC {
     xrogue = {
       lines = { { id = "xro_default", text = "Ah, now that's a secret, my favourite, and even a quiet one like you won't sneak it out of my kitchen. Let's say it's mostly meat and a little bit of courage, and leave it there." } },
       choices = {
-        { text = "Your secret's safe. A chef's recipes are his own.", next = "BACK", reply = "Bless you, my favourite, and I'll let you guess at the courage part. Most get it wrong.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep your secret, Grual. I'd rather eat it than know it.", next = "BACK", reply = "Bless you, my favourite, and I'll let you guess at the courage part. Most get it wrong.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll find out the next time you're asleep.", next = "BACK", reply = "Then you'll find me asleep on the recipe, and I snore. Good luck, my favourite.", fx = { align = { honor = -1 } } },
         { text = "Is there a secret, then?", next = "secret" },
       },
@@ -1111,7 +1111,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Mushrooms, when the Watch lets anyone pick them, and the odd wolf, though the wolves here have gone too strange to trust in a pot. Mostly I cook what comes up the road from Stormwind, and I make it taste like Darkshire anyway." } },
       choices = {
         { text = "Wise to trust the Stormwind wagons over this wood.", next = "BACK", reply = "Wise, my favourite, and safe too. The wood's gone strange.", fx = { align = { order = 1 } } },
-        { text = "Cook what the forest gives. Its gifts are still gifts.", next = "BACK", reply = "Gifts, aye, but some of them bite back. I'll stick with mushrooms.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Cook what the forest gives you, Grual. It's still good meat.", next = "BACK", reply = "Good meat, aye, until it bites back. I'll stick with mushrooms.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1325,7 +1325,7 @@ P:NPC {
       lines = { { id = "xma_default", text = "They've been asked, mage, in a letter that's sitting in a drawer in the Mage Quarter alongside a great many others, I suspect. If you've a friend in those towers, tell them Darkshire is still here and still waiting." } },
       choices = {
         { text = "I'll carry the message properly, through channels.", next = "BACK", reply = "Thank you, and do tell them I said please. I always say please.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Channels failed you. Act without them.", next = "BACK", reply = "I'd love to, but a councilman can't. You, however, aren't a councilman.", fx = { align = { order = -1 } } },
+        { text = "Your channels have failed you, Councilman. Act without them.", next = "BACK", reply = "I'd love to, but a councilman can't. You, however, aren't a councilman.", fx = { align = { order = -1 } } },
         { text = "Who in Stormwind ignores you?", next = "stormwind_who" },
       },
     },
@@ -1381,7 +1381,7 @@ P:NPC {
           text = "A noble's child, in my town hall! Do sit, because I've waited years to say a few things to one of you, and I'll be brief, though I won't be kind." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'd write to Stormwind asking for a hundred of you, and I have, and they sent nobody, so I'll take the one who walked in." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The wolves are taking our livestock and Stormwind is taking our taxes, and I know which one I'd rather you hunted." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the night elves, here in Darkshire. I don't suppose your people have a council that answers its letters, because ours in Stormwind does not." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the night elves, here in Darkshire. I don't suppose your people have a council that answers its letters, because ours in Stormwind does not." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and nobody from Stormwind, by the look of you. Good, then I won't read you my list of grievances, not yet." },
       },
       again = {
@@ -1473,7 +1473,7 @@ P:NPC {
         { id = "pb_default", text = "Then Darkshire learns to want nothing from Stormwind, and that's a dangerous lesson for a town to learn. I'd rather not be the one teaching it." },
       },
       choices = {
-        { text = "Let's make sure it never comes to that.", next = "BACK", reply = "Let's, and I'll keep writing until it never does. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let's make sure it never comes to that.", next = "BACK", reply = "Let's, and I'll keep writing letters until it can't. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Maybe Darkshire would do better without Stormwind.", next = "BACK", reply = "Perhaps, but I'd rather not find out. Darkshire's loyal, whatever it costs.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1483,7 +1483,7 @@ P:NPC {
         { id = "nb_default", text = "Then tell them this, word for word: Darkshire's dead are being sold, and you're keeping the man who sold them warm. Will you remember that?" },
       },
       choices = {
-        { text = "Word for word.", next = "BACK", reply = "Thank you, truly. Make sure the word sold comes out loud.", fx = { affinity = 3, align = { honor = 1 }, standing = { darkshire = 1 } },
+        { text = "Word for word.", next = "BACK", reply = "Thank you, truly. Say the word 'sold' loud enough for the back benches to hear it.", fx = { affinity = 3, align = { honor = 1 }, standing = { darkshire = 1 } },
           journal = { first = "Councilman Millstipe gave me a message for the House of Nobles, about Darkshire's stolen dead.",
                       third = "{name} carried Councilman Millstipe's message for the House of Nobles." } },
         { text = "I'll soften it a little, or they'll stop listening.", next = "BACK", reply = "Soften it, then, but not too much. They should still feel it.", fx = { align = { honor = -1 } } },
@@ -1551,11 +1551,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_stitches_t = {
+      lines = {
+        { id = "dd_stitches_t_a", text = "Then you saw it closer than I ever want to, and I'm glad it was you and not me. I heard it once from the window, walking past in the fog and dragging that great hook, and I didn't sleep for three nights afterwards." },
+      },
+      choices = {
+        { text = "Whoever stitched it together is still out there somewhere.", next = "dd_stitches_t2" },
+        { text = "It's dead now. Darkshire can stop being afraid.", next = "dd_stitches_t2", fx = { align = { light = 1 } } },
+        { text = "Fear keeps people careful. Let them stay afraid a while.", next = "dd_stitches_t2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_stitches_t2 = {
+      lines = {
+        { id = "dd_stitches_t2a", text = "Darkshire never stops being afraid, friend; it only changes what it's afraid of. They say the thing was built in the Embalmer's house on the hill, and I'd ask the Night Watch about that before I slept too soundly." },
+      },
+      choices = { { text = "I'll keep that in mind. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Because things outside can see you framed in it, and they come. Your spirits might see them coming, but I'd still rather you stepped inside." } },
       choices = {
-        { text = "Then I'll keep away from the door, Trelayne. Caution is wise.", next = "BACK", reply = "That's wise, and you'll live longer for it. Thank you.", fx = { align = { order = 1 } } },
+        { text = "Then I'll keep away from the door, Trelayne. Caution is wise.", next = "BACK", reply = "Wise of you. The last guest who stood at that door to listen came away with a scar he still won't talk about.", fx = { align = { order = 1 } } },
         { text = "Let them come. I'm not afraid of the dark.", next = "BACK", reply = "Then don't stand in my doorway while you're not afraid. Sit by the fire, please.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1625,6 +1642,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_stitches_t", tags = { "news" }, when = { killed = { name = "Stitches" } },
+          text = "My guests have stopped sleeping with chairs against their doors, and it's because that stitched-up horror won't be shambling up the road from Raven Hill any more. They say you were there when it fell, so you'll have the quiet room tonight, with my thanks." },
+        { id = "dd_morbent_t", when = { questDone = TODO_QUEST("Morbent Fel") },
+          text = "Sven Yorgen came down from his camp for the first time in a year and bought a hot meal, and he told me Morbent Fel is finished. He didn't say who did it, but he kept looking at the door the way people do when they're expecting a friend." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your room's the one by the door, if you'll take it, because my guests sleep better knowing who's nearest the night." },
         { id = "h_default", text = "I'm Trelayne. Smitts keeps the bar and I keep the beds, and between us we keep people indoors after dark, which is the whole job here." },
         { id = "h_smitts", when = { heardLine = "smitts.m_default" },
@@ -1638,6 +1660,8 @@ P:NPC {
         { id = "h_again", text = "Anything else? I've beds to turn down." },
       },
       choices = {
+        { text = "I was there when Stitches fell, Trelayne.", next = "dd_stitches_t", when = { killed = { name = "Stitches" } } },
+
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "I doubt anyone sleeps well this close to the woods.", next = "sleep" },
         { text = "Who stays here, these days?", next = "guests" },
@@ -1744,8 +1768,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "You oil it every night, because Duskwood's damp eats steel faster than the ghouls eat flesh, and you sharpen it after every fight whether it needs it or not. Gavin will sell you the blade and Morg the plate, but the care is on you." } },
       choices = {
-        { text = "I'll tend it every night. A warrior's gear is his life.", next = "BACK", reply = "That's what I like to hear, and your gear will last for it. Oil every night.", fx = { align = { order = 1 } } },
-        { text = "I'll just buy new when it rusts. Coin's easier than care.", next = "BACK", reply = "Coin runs out faster than you'd think, friend. Look after your steel.", fx = { align = { order = -1 } } },
+        { text = "I'll oil it every night, Clarise. My life hangs on it.", next = "BACK", reply = "That's what I like to hear, and your gear will last for it. Oil every night.", fx = { align = { order = 1 } } },
+        { text = "I'll just buy new when it rusts. Oiling's a bore.", next = "BACK", reply = "Coin runs out faster than you'd think, friend. Look after your steel.", fx = { align = { order = -1 } } },
         { text = "Something else, Clarise.", next = "BACK" },
       },
     },
@@ -1764,8 +1788,8 @@ P:NPC {
     xrogue = {
       lines = { { id = "xro_default", text = "Every blade needs the hammer, whatever size it ends up, and a dagger you didn't beat out properly will snap in a worgen's ribs. Stand back from the sparks and watch how it's done." } },
       choices = {
-        { text = "I'll learn it properly, then.", next = "BACK", reply = "Good, and stand back from the sparks. Watch closely.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll take whatever's sharp and go.", next = "BACK", reply = "Then you'll snap it in a worgen's ribs, and you'll be back. Suit yourself.", fx = { align = { order = -1 } } },
+        { text = "I'll learn it properly, then.", next = "BACK", reply = "Good. Stand back from the sparks, and watch my hands, not the blade.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take whatever's sharp and go.", next = "BACK", reply = "Then you'll snap it in a worgen's ribs and come limping back to my bench, and I'll say I told you so.", fx = { align = { order = -1 } } },
         { text = "How's the work these days?", next = "work" },
       },
     },
@@ -1773,7 +1797,7 @@ P:NPC {
       lines = { { id = "xma_default", text = "Then you need a carpenter, not a Gnarltree, though if you've any sense you'll wear a bit of mail under that robe. The worgen don't care how clever you are when they're chewing on you." } },
       choices = {
         { text = "Robes are the discipline of my craft.", next = "BACK", reply = "Discipline won't stop a bite. Mail under the robe, or don't come crying.", fx = { align = { order = 1 } } },
-        { text = "Fine, mail under the robe. Survival comes first.", next = "BACK", reply = "That's sense, and you'll live longer for it. Mail it is.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Fine, mail under the robe. Survival comes first.", next = "BACK", reply = "Now you're talking sense. I've mended too many robes with holes where the teeth went in.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Can anyone sleep, with the worgen so close?", next = "sleep" },
       },
     },
@@ -1782,7 +1806,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "The Watch bring me their blades to sharpen, and half of them ask me to say something over the edge while I'm at it. I'm no priest, so I say 'cut true', but I'd not stop you saying something better." } },
       choices = {
         { text = "Then I'll bless them. Every edge here guards someone.", next = "BACK", reply = "Thank you, and the Watch will be glad of it. Cut true, as I say.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A sharp edge needs no blessing, Clarise.", next = "BACK", reply = "It does, and I'll keep saying cut true. Suit yourself.", fx = { align = { light = -1 } } },
+        { text = "A sharp edge needs no blessing, Clarise.", next = "BACK", reply = "It does, whether you believe it or not, and I'll say 'cut true' over every blade I sell you anyway.", fx = { align = { light = -1 } } },
         { text = "Something else, Clarise.", next = "BACK" },
       },
     },
@@ -1790,8 +1814,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I could, and better you learn than walk in here every week with a cracked haft. The dead are hard on a mace, harder than living bone, and a hammer that breaks out past the lamps is no use to anyone." } },
       choices = {
-        { text = "Teach me properly, then, the slow way.", next = "BACK", reply = "That's the way, and I'll teach you properly. Patience first.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll just buy a new one when it breaks.", next = "BACK", reply = "Then you'll keep buying, and I'll keep selling. Suit yourself.", fx = { align = { order = -1 } } },
+        { text = "Teach me properly, then, the slow way.", next = "BACK", reply = "Good. Patience first, then, and we'll start with the whetstone before the steel.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll just buy a new one when it breaks.", next = "BACK", reply = "Then you'll keep buying and I'll keep selling, and only one of us will be happy about it.", fx = { align = { order = -1 } } },
         { text = "Something else, Clarise.", next = "BACK" },
       },
     },

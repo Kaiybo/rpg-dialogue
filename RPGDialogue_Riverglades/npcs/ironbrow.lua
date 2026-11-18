@@ -30,8 +30,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the player has been thinning out the Twilight's Hammer.
+    dd_quiet = {
+      lines = { { id = "dq_default", text = "Noticed? I've had time tae point the mortar on the east wall properly, which I've been meanin' tae do for six years. It won't last, mind; the Hammer always comes back, so I'm buildin' while I can." } },
+      choices = {
+        { text = "Then build it higher. They'll be back.", next = "BACK", reply = "Aye, that's the plan, an' a dull one, but dull walls are the ones that stand.", fx = { align = { order = 1 } } },
+        { text = "Walls won't end it. Someone should take the fight up the ridge.", next = "BACK", reply = "Ye'd need more riders than Demar's got, but I'll not argue if ye want tae try. I'll keep the wall up behind ye either way.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_key", when = { questDone = TODO_QUEST("Key Ingredients") },
+          text = "Alphonse says ye brought him leather an' iron bars for that ogre key. Iron bars, out here, where I cannae get enough for a hinge! Next time ye find iron lyin' about, {g:lad|lass}, think of the wall." },
+        { id = "h_dd_twilight", when = { killed = { name = "Twilight", min = 40 } },
+          text = "There've been fewer raiders at the wall this month, an' I've gone a whole week without patchin' a breach. Demar says that's yer doin', so I'll thank ye with a wall that stays up." },
         { id = "h_default", key = true, text = "Bertrand Ironbrow, foreman. The Brotherhood ride out and fight, and I keep the walls up behind them, so there's somewhere to ride home to." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "A gnome! Don't touch the scaffolding, don't improve the scaffolding, and for pity's sake don't put a motor on the scaffolding." },
@@ -45,6 +58,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. The wall's listening too, and it's heard worse." },
       },
       choices = {
+        { text = "The raiders have been quieter. You've noticed?", next = "dd_quiet", when = { killed = { name = "Twilight", min = 40 } } },
         { text = "How did a dwarf end up in Farholde?", next = "how" },
         { text = "These walls look sturdy enough.", next = "walls" },
         { text = "What happened during the siege?", next = "siege" },

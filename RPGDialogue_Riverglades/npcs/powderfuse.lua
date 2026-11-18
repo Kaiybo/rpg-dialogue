@@ -214,7 +214,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll stand your dock, fair and square.", next = "BACK", reply = "Fair and square, the rarest thing on this coast. You're hired, pal, and you start whenever the next boat docks.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll stand it, and skim a crate or two.", next = "BACK", reply = "A crate or two, he says! I count 'em twice, pal, so skim lightly or skim somewhere else.", fx = { align = { honor = -1 } } },
+        { text = "I'll stand it, and skim a crate or two.", next = "BACK", reply = "A crate or two, {g:he|she} says! I count 'em twice, pal, so skim lightly or skim somewhere else.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -341,8 +341,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the sea monster the player killed for Argo.
+    dd_monster = {
+      lines = { { id = "dm_default", text = "Good for business? Honey, folks come off the Tanaris boat just to gawk at the ugly thing, and then they need a drink, and then a bed. I've been thinkin' about chargin' Argo rent for the view." } },
+      choices = {
+        { text = "You should cut me in. I killed it.", next = "BACK", fx = { trait = { greedy = 1 } },
+          reply = "Ha! I like you, explorer, but I like my margins more. I'll tell every customer it was you, though, and in this port that's worth more than coin." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_monster", tags = { "news" }, when = { questDone = TODO_QUEST("The Monster Surfaces") },
+          text = "You're the one who put that sea monster's head on Argo's stern! He's bought drinks for the whole bar three nights runnin', honey, and I'm not complainin', because he drinks on account and I charge interest." },
+        { id = "h_dd_stew", when = { questDone = TODO_QUEST("A Taste of the Sea") },
+          text = "Fimbo's been sellin' seafood stew at two silver a bowl since you brought him those murloc eyes, and half my supper trade's gone across the dock. I'm not sore, explorer, I'm just keepin' a list." },
         { id = "h_default", key = true, text = "Zizplink, innkeeper, at your service and at very fair rates! Beds upstairs, food down here, and everybody off the Tanaris boat comes through that door, so you hear things, explorer, and a good rumour's worth more than a bed." },
         { id = "h_list", tags = { "news" }, when = { questActive = TODO_QUEST("Zizplink's Grocery List") },
           text = "You've got my list! Don't lose it, explorer, and don't read it out loud, because some of those are for Fimbo's cafe, and he's sensitive about his budget." },
@@ -359,6 +372,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else, explorer? Ask away, honey, the questions are free and the soup is not." }, { id = "h_again2", text = "More? I'll top you up while you think, and I'll only charge you for half." } },
       choices = {
+        { text = "Argo's new figurehead seems good for business.", next = "dd_monster", when = { questDone = TODO_QUEST("The Monster Surfaces") } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "You must hear plenty, running an inn.", next = "gossip" },
         { text = "The one at the bar looks grumpy.", next = "gray" },
@@ -480,7 +494,7 @@ P:NPC {
         { id = "xlk_default", text = "Because the last guest with a little friend like that let it loose in the pantry, and it ate three silver's worth of cheese, and Fimbo the cook didn't speak to me for a week! I'm sure yours is lovely, explorer, but rules are rules." },
       },
       choices = {
-        { text = "Fair. It'll stay outside.", next = "BACK", reply = "Thank you, sweetie. My pantry thanks you, and so does my cheese.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fine, it'll wait outside with the gulls.", next = "BACK", reply = "Thank you, sweetie. My pantry thanks you, and so does my cheese.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Rules made up today don't count.", next = "BACK", reply = "My inn, my rules, honey, and I make 'em up whenever I like. Outside it goes.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -562,8 +576,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    -- Deeds pass: Marshal Ryan's death, heard at the port.
+    dd_ryan = {
+      lines = { { id = "dr_default", text = "Then you saw more than I did; I was down here drinking when he rode west. He was the best of us, the only one who could make Demar laugh, and the Hammer got him anyway. Did he say anything about the keep?" } },
+      choices = {
+        { text = "He asked me to carry his crest to Demar.", next = "dd_ryan2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dd_ryan2 = {
+      lines = { { id = "dr2_default", text = "That sounds like him: duty to the last, and never a word for himself. Maybe I ought to go up and look at that crest on the wall, though I'm not sure I've earned the right." } },
+      choices = {
+        { text = "Go up. He'd want you back with the Brotherhood.", next = "BACK", reply = "Maybe. Pour me one more, and then maybe.", fx = { align = { order = 1 } } },
+        { text = "You owe them nothing. Stay here if you like.", next = "BACK", reply = "That's what I keep telling myself, and it sounds no better coming from you.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ryan", tags = { "news" }, when = { questDone = TODO_QUEST("Dying Wish") },
+          text = "Word came down from the keep that Ryan's dead, and that you were with him at the end. I rode beside him, back when I still rode, so sit down and tell me he didn't go easy, because he'd have hated that." },
+        { id = "h_dd_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") },
+          text = "So you killed Mugg. Demar's been after that ogre since before I left the keep, and now a stranger walks in and does it in a week, which tells you everything about Stormwind's idea of reinforcements." },
         { id = "h_default", key = true, text = "Gray Dawnbright, Brotherhood of the Horse, on leave from it, or it's on leave from me; I haven't decided. Make yourself useful and get Zizplink, the innkeeper, to fill this." },
         { id = "h_resolved", tags = { "news" }, when = { thread = { id = "farholde_lost", state = "resolved" } },
           text = "I went up to the keep and sat with Demar. We didn't talk about Fern, not really; we drank to her, alive or not, and that's the first time in years." },
@@ -581,6 +615,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Still here? Fine, then, talk." }, { id = "h_again2", text = "Go on, then." } },
       choices = {
+        { text = "I was with Marshal Ryan when he died.", next = "dd_ryan", when = { questDone = TODO_QUEST("Dying Wish") } },
         { text = "Why aren't you up at the keep?", next = "keep" },
         { text = "Tell me about the Brotherhood.", next = "brotherhood" },
         { text = "Who's Tessa?", next = "tessa", when = { heardLine = "gray.h_tessa" } },
@@ -776,7 +811,7 @@ P:NPC {
         { id = "xlk_default", text = "Bother me? Nothing bothers me tonight, friend; that's the whole point of the mug. But if it touches my drink, I'll introduce it to the floor, demon or no." },
       },
       choices = {
-        { text = "Fair. It keeps its claws to itself.", next = "BACK", reply = "Good. Then we'll get along fine, friend, and so will the mug.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It'll keep its claws off your mug, Gray.", next = "BACK", reply = "Good. Then we'll get along fine, friend, and so will the mug.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Try it, Gray. See how that goes.", next = "BACK", reply = "I've had worse nights, friend. Go on, then, if it'll make you feel better.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -946,7 +981,7 @@ P:NPC {
         { id = "xlk_default", text = "Really, really! Under supervision, with a fence, a waiver, and a goblin standing well back with a bucket. The crowd's gonna scream, pal, and screaming is the best sound a ticket booth ever hears." },
       },
       choices = {
-        { text = "Demons aren't entertainment. Forget it.", next = "BACK", reply = "Not entertainment, he says, and then he walks around with one on a leash. Suit yourself, pal.", fx = { align = { light = 1 } } },
+        { text = "Demons aren't entertainment. Forget it.", next = "BACK", reply = "Not entertainment, {g:he|she} says, and then walks around with one on a leash. Suit yourself, pal.", fx = { align = { light = 1 } } },
         { text = "Build the fence high. We'll be there.", next = "BACK", reply = "Higher than high, pal, and I'll be standing behind it with a very long pole. Thursday night, top of the card.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1075,7 +1110,7 @@ P:NPC {
       },
       choices = {
         { text = "Plain food for plain work. That's how it should be.", next = "BACK", reply = "That's what I keep sayin', buddy! Plain food, full bellies, and nobody complains till payday.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Bland food makes bland fighters. Spice it up.", next = "BACK", reply = "Spice it up, he says, like I'm made of pepper! Okay, buddy, I'll throw in a little somethin'.", fx = { align = { order = -1 } } },
+        { text = "Bland food makes bland fighters. Spice it up.", next = "BACK", reply = "Spice it up, {g:he|she} says, like I'm made of pepper! Okay, buddy, I'll throw in a little somethin'.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1108,7 +1143,7 @@ P:NPC {
       },
       choices = {
         { text = "You should tell Argo. It's his rum.", next = "BACK", reply = "Tell Argo? He'd want a cut of the stew, buddy, and he'd drink it before it hit the pot.", fx = { align = { honor = 1 } } },
-        { text = "Clever. I won't say a word.", next = "BACK", reply = "You're a pal, buddy! A cook's secrets are what keeps the customers comin' back.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Clever. I won't say a word.", next = "BACK", reply = "You're a pal, buddy! Argo's rum is half the flavour and none of the bill, so mum's the word.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1141,7 +1176,7 @@ P:NPC {
       },
       choices = {
         { text = "Conjured bread feeds the hungry. That matters more.", next = "BACK", reply = "Feeds 'em, sure, buddy, and leaves 'em sad. I'll take your point, though, and make the soup better.", fx = { align = { order = 1 } } },
-        { text = "You're right. Real cooking is worth protecting.", next = "BACK", reply = "Thank you, buddy! Somebody's got to stand up for flavour around here.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Agreed. Conjured bread tastes like wet parchment.", next = "BACK", reply = "Thank you, buddy! Somebody's got to stand up for flavour around here.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1329,7 +1364,7 @@ P:NPC {
         { id = "xmg_default", text = "So the monster can't get under her, matey! *hic* Freeze a ring round my boat, she sits pretty, the monster bangs its head, and I sell tickets to Jazzle's arena crowd at two silver a head." },
       },
       choices = {
-        { text = "Ice won't hold it. Face the thing properly.", next = "BACK", reply = "Face it properly, he says! *hic* You go face it, matey, and I'll stay right here and face my rum.", fx = { align = { honor = 1 } } },
+        { text = "Ice won't hold it. Face the thing properly.", next = "BACK", reply = "Face it properly, {g:he|she} says! *hic* You go face it, matey, and I'll stay right here and face my rum.", fx = { align = { honor = 1 } } },
         { text = "Freeze it, and charge Jazzle double.", next = "BACK", reply = "Double! Now you're thinkin' like a goblin, matey. *hic* Jazzle won't know what hit him.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1390,8 +1425,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the player drowned.
+    dd_drown = {
+      lines = { { id = "dd_default", text = "Most of 'em can't swim, kid, and they say that's on purpose: if ya go over, ya go quick and don't waste the sea's time. I learned anyway, because I'd rather argue with the sea than agree with it." } },
+      choices = {
+        { text = "Then I'll learn to fight it, same as you.", next = "BACK", reply = "Good answer. Start in the shallows, and don't go past the wreckage until ya can swim back from it.", fx = { align = { order = -1 } } },
+        { text = "I'll respect it and keep to the shore.", next = "BACK", reply = "Plenty of old fishermen say the same, and they're old for a reason, kid.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_monster", when = { questDone = TODO_QUEST("The Monster Surfaces") },
+          text = "So you're the one who pulled Argo's monster up out of the wreckage. The fish came back to the near water the week after, kid, and I've had my best catches since spring, so I owe ya, and I'll pay in advice." },
+        { id = "h_dd_drown", when = { deathCause = "drowning" },
+          text = "You drowned, didn't ya, kid? Don't look so surprised; ya stand back from the edge of my dock like it owes ya money." },
         { id = "h_default", key = true, text = "Gritta Chumwater, kid. I sell chum, lures, fish and advice, and only the advice is free, so don't get used to it." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? You'll want somethin' to do between fights, kid, so take up fishing, because it'll teach you patience, which you lack, and the pole's three silver." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, eh? Fish don't care how holy you are, kid, so don't stand over the water glowing, because it's costing me customers." },
@@ -1406,6 +1454,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, kid? Buy somethin' while you think." }, { id = "h_again2", text = "Still standin' there, kid? Standin's free, but the dock space isn't, so buy a lure." } },
       choices = {
+        { text = "I drowned out there. How do sailors stand it?", next = "dd_drown", when = { deathCause = "drowning" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Where's the best fishing?", next = "fishing" },
         { text = "I can't think who would buy chum.", next = "chum" },
@@ -1436,7 +1485,7 @@ P:NPC {
         { id = "xwc_default", text = "Because you swing first and look second, kid, same as every fighter I've sold a pole to. A fish teaches you to wait, and waiting's what keeps you alive when the swinging's done." },
       },
       choices = {
-        { text = "Fair. Patience wins more fights than strength.", next = "BACK", reply = "Now you're talkin' sense, kid. Sit down, keep quiet, and maybe a fish'll find you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fair enough. I'll sit still and let the fish come to me.", next = "BACK", reply = "Now you're talkin' sense, kid. Sit down, keep quiet, and maybe a fish'll find you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll keep swinging first. It's worked so far.", next = "BACK", reply = "Then you'll catch nothin' but splinters, kid, but suit yourself. I've seen stranger.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1481,7 +1530,7 @@ P:NPC {
       },
       choices = {
         { text = "That sounds like faith to me, Gritta.", next = "BACK", reply = "Maybe it is, kid. I never had a word for it before.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "That's just quiet. Nothing's listening.", next = "BACK", reply = "Maybe so, kid, but it's my quiet, and I like it. You can keep your nothing.", fx = { align = { light = -1 } } },
+        { text = "That's just quiet, Gritta. Nothing out there is listening.", next = "BACK", reply = "Maybe so, kid, but it's my quiet, and I like it. You can keep your nothing.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1503,7 +1552,7 @@ P:NPC {
       },
       choices = {
         { text = "Good. Show-offs should pay for their fun.", next = "BACK", reply = "That's what I said, kid! I sent him the bill and he sailed off without paying. Next time.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Lighten up, Gritta. It was only a barrel.", next = "BACK", reply = "Only a barrel, he says! That barrel was a week's bait, kid. You can pay for it.", fx = { align = { order = -1 } } },
+        { text = "Lighten up, Gritta. It was only a barrel.", next = "BACK", reply = "Only a barrel, {g:he|she} says! That barrel was a week's bait, kid. You can pay for it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1513,7 +1562,7 @@ P:NPC {
         { id = "xlk_default", text = "Fish sense everything, kid. A demon's a big wrong shadow on the water, and every fish in the cove goes to the bottom and sulks, so stand back, like I said, because sulking fish don't sell." },
       },
       choices = {
-        { text = "Fair. I'll keep it well back.", next = "BACK", reply = "Thanks, kid. The fish'll be grateful, and so will my profits.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "All right, I'll keep it well back from the water.", next = "BACK", reply = "Thanks, kid. The fish'll be grateful, and so will my profits.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your fish can sulk. It stays with me.", next = "BACK", reply = "Then the fish'll sulk, kid, and I'll sulk with 'em. Stand way back, at least.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1525,7 +1574,7 @@ P:NPC {
       },
       choices = {
         { text = "Maybe they're frightened. Give the cove a rest.", next = "BACK", reply = "Maybe they are, kid. I'll give it a week and see.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Use more chum. Hunger beats fear.", next = "BACK", reply = "More chum, more money, kid, and I'm already losin' money. But maybe you're right.", fx = { align = { light = -1 } } },
+        { text = "Use more chum. Hungry fish forget their fear.", next = "BACK", reply = "More chum, more money, kid, and I'm already losin' money. But maybe you're right.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1539,7 +1588,7 @@ P:NPC {
     biggest_go = {
       lines = { { id = "bgb_default", text = "Once, kid. She was old and scarred and fought like she'd done it a hundred times before, so I cut the line and wrote off the lure. Don't tell anybody, because it's bad for business." } },
       choices = {
-        { text = "Good. Some fights are worth letting go.", next = "BACK", reply = "Good, kid. Some fish are worth more in the water than on the wall.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Good. She earned her freedom, Gritta.", next = "BACK", reply = "That's how I figured it, kid. I still dream about her some nights, which is more than a stuffed one on the wall would give me.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A catch is a catch. I'd have kept her.", next = "BACK", reply = "You'd have kept her, huh? Then you'd never know what I know. Some catches you let go, kid.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

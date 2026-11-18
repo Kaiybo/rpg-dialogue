@@ -156,7 +156,7 @@ P:NPC {
       big = true,
       lines = { { id = "w_default", text = "The soldiers eat well and pay late, the bridge is half built, and Magistrate Solomon writes to Stormwind every week and gets nothing back. We used to have a fair at harvest, and now we have a curfew." } },
       choices = {
-        { text = "Stormwind will come. Hold on.", next = "war_hope" },
+        { text = "Stormwind will come, Lamar. Hold on a little longer.", next = "war_hope" },
         { text = "Lakeshire has to stand on its own now.", next = "BACK", reply = "Maybe it does, and we're trying, apples and all. But I'd still like the fair back.", fx = { align = { order = -1 } } },
         { text = "The magistrate is right to keep asking.", next = "BACK", reply = "He is, and I hope someone listens soon. Until then, I'll sell apples and keep my curfew.", fx = { align = { order = 1 } } },
       },
@@ -219,7 +219,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Sharpening stones, mostly, and coal for whoever does your repairs, because Verner's forge is cold half the time. A warrior who sharpens his own blade is a warrior I'd sell to before any other." } },
       choices = {
-        { text = "I'll keep my own edge. A warrior should know his steel.", next = "BACK", reply = "That's the spirit, and I'll sell you the best stone I've got. A warrior who knows his steel lives longer.", fx = { align = { order = 1 } } },
+        { text = "I'll keep my own edge. A warrior should know his steel.", next = "BACK", reply = "Now that's a warrior talking. I'll sell you the best whetstone I've got, the grey one that came over from Ironforge.", fx = { align = { order = 1 } } },
         { text = "That's a smith's job. I pay for the work.", next = "BACK", reply = "Then pay Verner, if his forge is lit. I'll sell you coal for it.", fx = { align = { order = -1 } } },
         { text = "Something else, Karen.", next = "BACK" },
       },
@@ -239,7 +239,7 @@ P:NPC {
     xrogue = {
       lines = { { id = "xro_default", text = "Then you'll find nothing for you here, because I don't sell boxes and I don't buy what's been in them. Honest ore is what Lakeshire needs, and Verner's forge is cold for want of it." } },
       choices = {
-        { text = "Fair. I'll bring ore, not trinkets.", next = "BACK", reply = "That's what I like to hear. Honest ore keeps Verner's forge lit and the watch's blades sharp.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fair. I'll bring ore, not trinkets.", next = "BACK", reply = "That's what I like to hear. Bring it by the sackful and I'll weigh it fair, and Verner might finally stop sulking.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A cracked lockbox is honest enough for me.", next = "BACK", reply = "Not in my shop, it isn't. Take it to someone who doesn't ask.", fx = { align = { honor = -1 } } },
         { text = "Why is Verner so short of iron?", next = "verner" },
       },
@@ -274,7 +274,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Not lately, since the gnolls took the Rethban seam and most of my miners took fright. Before that, aye, we dug wherever the iron showed, and I'll not pretend anyone asked the hill's permission." } },
       choices = {
-        { text = "A town needs iron. Dig where it's needed and be thankful.", next = "BACK", reply = "That's how I see it, and the town's been grateful enough. Iron makes swords, swords make safety.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A town needs iron. Dig where it's needed and be thankful.", next = "BACK", reply = "That's how I see it, and the town's been grateful enough. Iron makes swords, and swords keep the gnolls on their own side of the hill.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The hills aren't yours to empty. Take only what you need.", next = "BACK", reply = "Maybe so, druid, but the hills have plenty and Lakeshire has none. I'll take what's needed.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -339,7 +339,7 @@ P:NPC {
     },
     smith = {
       lines = { { id = "sm_default", text = "Then you'll know a bad hammer when you hold one, and you'll know mine aren't. Buy your flux here and your coal in Stormwind, if you're going that way; I'll not pretend mine's cheaper." } },
-      choices = { { text = "Honest advice. I appreciate it.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "That's honest advice. I appreciate it.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
   topics = {
@@ -406,8 +406,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A heavy one, banded with iron and with a good boss in the middle, because an orc's axe will split a light one in two swings. I strike every shield myself before I sell it, and if it cracks, it doesn't leave the shop." } },
       choices = {
-        { text = "A heavy shield, then, so I can hold my ground.", next = "BACK", reply = "That's the spirit, and you'll be glad of the weight when the axe comes down. I'll pick you a good one.", fx = { align = { order = 1 } } },
-        { text = "Shields slow me down. I'd rather strike first.", next = "BACK", reply = "Strike first, and if you miss, you'll be wishing for the shield. Suit yourself.", fx = { align = { order = -1 } } },
+        { text = "A heavy shield, then, so I can hold my ground.", next = "BACK", reply = "Now you're talking, and you'll be glad of the weight when the axe comes down. I'll pick you a good one.", fx = { align = { order = 1 } } },
+        { text = "Shields slow me down. I'd rather strike first.", next = "BACK", reply = "Strike first, and if you miss, you'll be wishing for the shield. Don't say Kara didn't warn you.", fx = { align = { order = -1 } } },
         { text = "Something else, Kara.", next = "BACK" },
       },
     },
@@ -445,7 +445,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "A bear's hide gets you home, true, so it does a shield's job by another road. But a bear can't stand in a doorway and hold it for the folk behind, and that's what my shields are really for." } },
       choices = {
-        { text = "Then I'll stand in that doorway, shield or no shield.", next = "BACK", reply = "That's the spirit, and the folk behind you will be grateful. A shield helps, though.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll stand in that doorway, shield or no shield.", next = "BACK", reply = "Brave words, and the folk behind you will be grateful for them. A shield helps, though.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Doorways are for soldiers. I fight where I choose.", next = "BACK", reply = "Then fight where you choose, and I'll keep my shields for those who hold the doors.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -552,7 +552,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "They catch most of them, I'd swear, since they've overrun the lake shore, and my hooks go unsold." } },
       choices = {
         { text = "Then we'll drive them back fairly, Vernon.", next = "BACK", reply = "Fairly, aye, and with good line. Thank you, friend.", fx = { align = { honor = 1 } } },
-        { text = "Poison the water. Murlocs won't last.", next = "BACK", reply = "And kill every fish in the lake with them? Then I'd have no business at all. No, thank you.", fx = { align = { honor = -1 } } },
+        { text = "Poison the water, then. The murlocs won't last a week.", next = "BACK", reply = "And kill every fish in the lake with them? Then I'd have no business at all. No, thank you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -730,7 +730,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "I'd wager so, since every beast I cut tells me where it lived and what it ate. Your spirits might know the rest." } },
       choices = {
         { text = "Respect the beasts, Sherman. Waste nothing.", next = "BACK", reply = "Waste nothing, aye, that's my father's rule and mine. Thank you for saying it.", fx = { align = { honor = 1 } } },
-        { text = "Beasts are meat. Cut and sell.", next = "BACK", reply = "That's my trade, friend, but there's more to it than that. Respect the beast, and the meat's better.", fx = { align = { honor = -1 } } },
+        { text = "Beasts are meat, butcher. Cut it and sell it.", next = "BACK", reply = "That's my trade, friend, but there's more to it than that. Respect the beast, and the meat's better.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -777,7 +777,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "One arrow behind the shoulder, and none of this hacking at the haunch, because it ruins the meat. Your {pet} looks like a fine hunter, {class}, and I'd wager it knows more about a clean kill than half the men who bring me meat." },
       },
       choices = {
-        { text = "One clean arrow, and nothing wasted.", next = "BACK", reply = "That's the way, and you'll bring me meat I can sell. Thank you.", fx = { align = { order = 1 } } },
+        { text = "One clean arrow, and nothing wasted.", next = "BACK", reply = "That's the way, and you'll bring me meat I can sell instead of a sack of splinters and bone.", fx = { align = { order = 1 } } },
         { text = "As long as it's dead, the meat's good enough.", next = "BACK", reply = "Not to me it isn't. One clean arrow, or bring it somewhere else.", fx = { align = { order = -1 } } },
         { text = "Something else, Sherman.", next = "BACK" },
       },
@@ -856,7 +856,7 @@ P:NPC {
       lines = { { id = "ms_default", text = "Ask Chef Breanna; she puts it in her goulash and the soldiers have never once complained. I don't tell them, and neither should you." } },
       choices = {
         { text = "They deserve to know what they're eating.", next = "BACK", reply = "Maybe so, but they'd stop eating it, and then they'd starve. I'll keep my mouth shut.", fx = { align = { honor = 1 } } },
-        { text = "Meat is meat. Your secret's safe.", next = "BACK", reply = "Good, and Breanna thanks you. Spider's good meat, once you stop thinking about it.", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Meat is meat, and your secret's safe with me.", next = "BACK", reply = "Good, and Breanna thanks you. Spider's good meat, once you stop thinking about it.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

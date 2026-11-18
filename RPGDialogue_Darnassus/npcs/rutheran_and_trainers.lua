@@ -107,8 +107,18 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    dd_fall = {
+      lines = {
+        { id = "ddf_default", text = "As safe as anything that flies. A hippogryph has never lost a rider who held on, and they know the way to Auberdine better than I know the steps of this dock. Falls happen on the ground, from cliffs and branches, where nobody is holding you up." },
+      },
+      choices = {
+        { text = "Then I'll trust the bird.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll keep both hands on the saddle, all the same.", next = "BACK", reply = "Wise. Every hippogryph prefers a rider who holds on tight." },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You have fallen from a height at least once, I can tell, for you look at my hippogryphs as though they might drop you. They will not, I promise, so long as you keep your seat and don't try to leap off over Auberdine." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My hippogryphs carry the wounded home more often than I'd like, and they're always calmer when a healer rides with them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My hippogryphs have never carried so much armor, {class}, but they're stronger than they look, and they won't let you fall." },
         { id = "h_default", text = "I am Vesprystus, keeper of the hippogryphs. They carry our people from the roots of Teldrassil to Auberdine across the water, and from there to the rest of a world that has grown very large since the Sundering." },
@@ -126,6 +136,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. The birds can wait a moment." },
       },
       choices = {
+        { text = "I've had a bad fall before. How safe is the flight?", next = "dd_fall", when = { deathCause = "falling" } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Why live at the roots, not in the city?", next = "a" },
         { text = "Are the hippogryphs hard to train?", next = "b" },
@@ -239,7 +250,7 @@ P:NPC {
         { id = "xrogue_default", text = "We do, but a Sentinel's dagger is a last answer, and a rogue's is often the first. I'll teach you either way, but I'd rather you learned patience with the blade before speed, because speed without patience gets people killed." },
       },
       choices = {
-        { text = "Patience first, then. Teach me properly.", next = "BACK", reply = "Then you will have a dagger worth trusting when the first answer fails. Stand straight, and we begin with your feet.", fx = { align = { order = 1 } } },
+        { text = "Patience first, then, and teach me properly.", next = "BACK", reply = "Then you will have a dagger worth trusting when the first answer fails. Stand straight, and we begin with your feet.", fx = { align = { order = 1 } } },
         { text = "Speed's kept me alive so far. I'll take it.", next = "BACK", reply = "It has, so far, and so far is a short word to someone of my years. Take your speed, but take my patience too, for the night it runs out.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -383,7 +394,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "They trust those who listen, and you seem to. I am more at ease with beasts than with people myself, and you may be the same." } },
       choices = {
         { text = "Then I will treat them gently, Jeen'ra.", next = "BACK", reply = "Gently is how they best understand us, shaman. The nightsabers will remember you for it, and so will I.", fx = { align = { honor = 1 } } },
-        { text = "Beasts are beasts. Trust is unnecessary.", next = "BACK", reply = "Then they will treat you the same way, and a nightsaber that does not trust you is a very bad thing to meet. I hope you learn otherwise.", fx = { align = { honor = -1 } } },
+        { text = "Beasts are beasts, Jeen'ra. I don't need their trust.", next = "BACK", reply = "Then they will treat you the same way, and a nightsaber that does not trust you is a very bad thing to meet. I hope you learn otherwise.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -400,7 +411,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "They'll trust what you do, not what you wear, as all beasts do. Kill only what you must and leave the rest in peace, and they'll let you pass soon enough." } },
       choices = {
-        { text = "I'll kill only what I must, and leave the rest.", next = "BACK", reply = "Then you will walk Teldrassil as a guest and not a trespasser. The forest will open its paths for you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll kill only what I must, and leave the rest.", next = "BACK", reply = "Then you will walk Teldrassil as a guest and not a trespasser, and the sabers by Ban'ethil will let you pass without a second look.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll go as I please, and the beasts can mind themselves.", next = "BACK", reply = "The beasts will mind themselves, paladin, and that is exactly what you should fear. They forget nothing on Teldrassil.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -409,7 +420,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Patience, mostly, and how to read a beast before it moves, because a nightsaber shows you its charge a breath before it comes. Warriors fight the claw they see, and hunters watch the shoulder that throws it." } },
       choices = {
-        { text = "I'll learn to watch the shoulder, then.", next = "BACK", reply = "Good, and you will see the charge before it comes. That breath of warning is worth more than any armour.", fx = { align = { order = 1 } } },
+        { text = "I'll learn to watch the shoulder, then.", next = "BACK", reply = "Good, and you will see the charge before it comes. A nightsaber drops its shoulder a heartbeat before it springs, every time.", fx = { align = { order = 1 } } },
         { text = "I'll take the claw and answer it with steel.", next = "BACK", reply = "You may, and I suppose you will even win, most of the time. But the saber you killed may have only been warning you off its cubs.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -433,7 +444,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll try it your way. Understanding helps.", next = "BACK", reply = "It does, and you may find you take less and gain more. I hope the trail treats you kindly.", fx = { align = { light = 1 } } },
-        { text = "Understanding is slow. Taking is quick.", next = "BACK", reply = "So it is, and quick things are rarely remembered fondly. The forest knows who took from it and who understood it.", fx = { align = { light = -1 } } },
+        { text = "Understanding takes too long. Taking is quicker.", next = "BACK", reply = "So it is, and quick things are rarely remembered fondly. Come back after a season of taking, and tell me how many of your trails still lead anywhere.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -452,7 +463,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because you smell a little of them, I think, and you've walked in their shapes, so they know you won't put a collar on them. My hunters earn that trust slowly, and you arrived with half of it already." } },
       choices = {
-        { text = "A beast should only follow someone it has chosen freely.", next = "BACK", reply = "That is the old way, and the right one, druid. A companion who chooses you will never leave you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A beast should only follow someone it has chosen freely.", next = "BACK", reply = "That is the old way, and the right one, druid. My own cat walked beside me for a week before she let me touch her, and she has never left since.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Some beasts need a firm hand before they'll trust anyone.", next = "BACK", reply = "Perhaps, but a firm hand and a cruel one are not the same. Be sure you know which one you are using.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -463,7 +474,7 @@ P:NPC {
         { id = "xmage_default", text = "Most beasts do, I think, because magic makes the air feel wrong to them, the way a storm does. She'll settle if you stand still and let her come to you, which is good advice for most of the wild, if you'll take it from me." },
       },
       choices = {
-        { text = "I'll stand still and let her come.", next = "BACK", reply = "That is all she needs, and you will find her patient once she understands you. The beasts are always more forgiving than people.", fx = { align = { light = 1 } } },
+        { text = "I'll stand still and let her come.", next = "BACK", reply = "That is all she needs, and you will find her patient once she understands you. She once took three days to forgive me for a sneeze, so be very still.", fx = { align = { light = 1 } } },
         { text = "Beasts will learn to bear it.", next = "BACK", reply = "Some will learn to bear it, and some will learn to avoid you entirely. I would rather they did not have to do either.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -513,7 +524,7 @@ P:NPC {
     a2 = {
       lines = { { id = "a2_default", text = "Some do, and the beasts know it. A hunter who uses a beast like a weapon will lose it the first time he needs it most." } },
       choices = {
-        { text = "A companion deserves respect and care.", next = "BACK", reply = "Then you will never lose a companion when you need one most. Treat yours well, and it will die for you if it must.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A companion deserves respect and care.", next = "BACK", reply = "Then you will never lose a companion when you need one most. I have seen a nightsaber stand over a fallen hunter until the Sentinels came for him.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "A beast is a beast. It serves the hunter.", next = "BACK", reply = "It serves, until the day it decides it no longer has to. I hope you are standing somewhere safe that day.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

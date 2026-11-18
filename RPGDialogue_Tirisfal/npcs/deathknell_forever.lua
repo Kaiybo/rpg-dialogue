@@ -47,7 +47,7 @@ P:NPC {
         { text = "Where are the trainers in Deathknell?", next = "trainers" },
         { text = "Why does a dead man care about trades?", next = "why" },
         { text = "I've already taken up a trade.", next = "already", when = { any = { { profession = "Herbalism" }, { profession = "Mining" }, { profession = "Skinning" }, { profession = "Alchemy" }, { profession = "Blacksmithing" }, { profession = "Leatherworking" }, { profession = "Tailoring" }, { profession = "Engineering" }, { profession = "Enchanting" } } } },
-        { text = "Thank you, Clarence. Goodbye.", next = "END" },
+        { text = "Thank you, Clarence. I'll be going.", next = "END" },
       },
     },
     what = {
@@ -169,7 +169,7 @@ P:NPC {
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "What grows in Tirisfal?", next = "grows" },
         { text = "Who buys what you pick?", next = "buyers" },
-        { text = "Nightshade? Like the plant?", next = "name" },
+        { text = "Nightshade? Like the plant you sell?", next = "name" },
         { text = "Why does it matter so much how it's picked?", next = "careful" },
         { text = "Goodbye, Florence.", next = "END" },
       },
@@ -179,7 +179,7 @@ P:NPC {
         { id = "nm_default", text = "Like the plant, yes, and you're the hundredth person to ask. It's a family name and nothing more, and I've never once picked the stuff, so you can stop looking at me like that." },
       },
       choices = {
-        { text = "Forgive me. Something else.", next = "BACK" },
+        { text = "Forgive me, I shouldn't have asked. Something else.", next = "BACK" },
       },
     },
     careful = {
@@ -321,13 +321,13 @@ P:NPC {
     knife = {
       lines = { { id = "kn_default", text = "A whetstone every evening, twenty strokes a side, and never use it to pry anything open, whatever the temptation. A skinning knife that's been used as a lever never sits true again." } },
       choices = {
-        { text = "Twenty strokes. What else?", next = "knife2" },
+        { text = "Twenty strokes a side. What else should I know?", next = "knife2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     knife2 = {
       lines = { { id = "k2_default", text = "Wipe it dry before you sheathe it, because this valley's damp gets into the steel and rusts it overnight. And keep it away from the apothecaries, who borrow things and give them back smelling of something you'd rather not know about." } },
-      choices = { { text = "I'll keep it close. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+      choices = { { text = "I'll keep it close, Margaret. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     past = {
       lines = { { id = "pa_default", text = "Have I? Perhaps my hands remember things I'd rather leave where I left them. I'll tell you this much, dear, and no more: they knew needle and thread long before they knew a knife." } },
@@ -466,7 +466,7 @@ P:NPC {
     },
     ore3 = {
       lines = { { id = "o3_default", text = "A little, up north toward the old forge, but the Scourge overran that end of the valley and it's not been taken back. I'd not send a new miner up there, not for all the tin in Lordaeron." } },
-      choices = { { text = "Silverpine, then. Something else.", next = "BACK" } },
+      choices = { { text = "Silverpine it is, then. Something else.", next = "BACK" } },
     },
     life = {
       lines = { { id = "li_default", text = "Forty years in the hills of Lordaeron, copper and tin and once, gloriously, a seam of silver that kept my family in shoes for a decade. I came up out of the ground one evening and the plague was waiting at the top of the shaft." } },

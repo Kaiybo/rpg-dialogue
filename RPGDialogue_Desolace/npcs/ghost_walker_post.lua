@@ -38,6 +38,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_kolkar", when = { killed = { name = "Kolkar", min = 30 } },
+          text = "The Kolkar have been weaker in their raids lately, and the braves say you've been thinning them out. Good, because a weaker Kolkar clan makes the Gelkis and Magram bolder, and bolder centaur fight each other instead of us." },
         { id = "h_default", key = true,
           text = "I am Gurda Wildmane. The centaur clans rule the wastes of Desolace, and if they ever stood together, they would be a terrible force. It is good, then, that they bicker and war among themselves, and better still that we help them do it." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Magram Alliance") },
@@ -125,7 +127,7 @@ P:NPC {
       },
       choices = {
         { text = "They're centaur. I'll kill as many as it takes.", next = "BACK", reply = "Then go, but remember that a Magram bag full of foals will shame you before Warug, and before me.", fx = { align = { light = -1 } } },
-        { text = "I'll kill warriors, not their young.", next = "BACK", reply = "Good. That is the line I would draw too, and I think the Earth Mother draws it there as well.", fx = { align = { light = 1 } } },
+        { text = "I'll kill warriors, not their young.", next = "BACK", reply = "That is the line I would draw too, and I think the Earth Mother draws it there as well.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -342,11 +344,13 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_magram", when = { reputation = { faction = "Magram Clan Centaur", min = "honored" } },
+          text = "The Magram ride past this post without loosing a single arrow now, and the braves say it's because the clan thinks well of you. I don't know how you managed it, but my trade goods have never been safer on the road." },
         { id = "h_default", key = true,
           text = "Kireena. I keep the crafters at this post supplied, which isn't many, and I buy what the braves carry back from the camps, which is plenty. Desolace has little that grows, but plenty that can be taken." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm counting spools." },
+        { id = "h_again", text = "Anything else? I'm counting spools, and I keep losing my place." },
         { id = "h_again2", text = "Ask, then, but quickly. Light's going." },
       },
       choices = {

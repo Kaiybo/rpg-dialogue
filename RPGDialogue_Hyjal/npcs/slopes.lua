@@ -37,6 +37,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_feathers", when = { questDone = TODO_QUEST("Feathers in Flight") },
+          text = "Zet'gan tells me you brought him his feathers and never plucked a living owl. I checked the nests myself, mind, and I'm glad to say he was telling the truth." },
         { id = "h_default", key = true,
           text = "The mountain is overrun with wild growth, swollen by the fel that rained down on it when Archimonde climbed toward the World Tree. The weeds and the brambles are angry now, poisoned through, and they strangle everything else, so they must be cleared, or Nordrassil's mountain will never regrow." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Celastrus the Bitter") },
@@ -89,7 +91,7 @@ P:NPC {
         { id = "fs_default", text = "I fear you're right. A druid might try to coax the poison out of a single bush, but there are thousands of them, and every day spent coaxing one is a day the rest spread further. I cut them out, and I don't apologise for it." },
       },
       choices = {
-        { text = "Cut them out. The mountain comes first.", next = "BACK", reply = "Good, then we see the same mountain, and I'll be glad of another pair of hands that won't hesitate when the thorns start to twist.", fx = { align = { light = -1 } } },
+        { text = "Cut them out. The mountain comes first.", next = "BACK", reply = "Good. Gloves are on the stump by the path, and don't hesitate when the thorns start to twist, because they won't.", fx = { align = { light = -1 } } },
         { text = "Even weeds deserve a chance at healing.", next = "BACK", reply = "They might, and in a gentler season I'd agree with you, but the mountain hasn't got that many seasons left to spare on mercy for brambles.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -167,6 +169,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_xarkul", when = { questDone = TODO_QUEST("Yashiro's Windwalk") },
+          text = "Yashiro say you walked da wind wit' him an' cut down dat big demon in Dae'gun, mon. Fewer demons be meanin' fewer arrows, an' I be likin' dat arithmetic very much." },
         { id = "h_default", key = true,
           text = "We been tryin' ta leave dis mountain many a time, but we keep gettin' pulled back ta defend our brothas an' sistas. Our defenses be dwindlin', an' it be time we get ta restockin', startin' wit' arrows. Lots an' lots o' dem." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Feathers in Flight") },
@@ -193,7 +197,7 @@ P:NPC {
         { id = "l_default", text = "Every time we pack up, somebody gets cut off on da slopes, or a scout don't come back, an' we turn around ta fetch 'em. Ya don't leave ya own behind, mon, even when ya own be a fool who went chasin' a pretty bird." },
       },
       choices = {
-        { text = "Then you're right to stay. No one gets left.", next = "BACK", reply = "Dat be the only way I know, mon, and it be good to hear somebody else say it, because some days I think I be the only fool left who believes it.", fx = { align = { honor = 1 } } },
+        { text = "Then you're right to stay. No one gets left.", next = "BACK", reply = "Dat be da only way I know, mon. Good ta hear somebody else say it, too, 'cause some days I think I be da last fool on dis mountain who believes it.", fx = { align = { honor = 1 } } },
         { text = "Sometimes you cut your losses to save the rest.", next = "BACK", reply = "Maybe you be right, an' the trolls who say dat be alive and warm in Durotar, but I couldn't look dem in the eye after, so here I stay.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

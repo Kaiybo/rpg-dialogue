@@ -95,7 +95,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I don't resent anyone who comes to me hurt, but I grieve a little for the road you've chosen, because I've seen where it ends for some. The Abbey keeps its doors open to you, and I'd like you to remember that." } },
       choices = {
-        { text = "I'll remember the Abbey's open door, Priestess.", next = "BACK", reply = "Thank you, and I mean that. The door won't close, whatever road you walk.", fx = { align = { light = 1 } } },
+        { text = "I'll remember the Abbey's open door, Priestess.", next = "BACK", reply = "Thank you, and I mean that. There'll be a cot in the infirmary for you, whatever road you walk.", fx = { align = { light = 1 } } },
         { text = "Keep your grief, Priestess. My road is my own.", next = "BACK", reply = "It is, and I'll not take it from you. But I'll keep grieving all the same, and the door stays open.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -542,7 +542,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Further than you'd like and closer than you'd admit, because we both stand between Stormwind and the people who'd ruin it. You do it in the open with a hammer, and I do it in the dark, with a letter nobody else has read." } },
       choices = {
         { text = "There's no honor in the dark. We're not the same.", next = "BACK", reply = "Not the same, no, and I'll not pretend we are. But you'll be glad of my letters one day, paladin.", fx = { align = { honor = 1 } } },
-        { text = "Then we're alike. The kingdom needs us both.", next = "BACK", reply = "We are, and I'll say so to anyone who'll listen. The kingdom's fortunate to have both.", fx = { align = { honor = -1 } } },
+        { text = "Then we're alike. The kingdom needs us both.", next = "BACK", reply = "We are, though I'll deny it if you say so at the Cathedral. You bring the hammer, and I'll bring the letters.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -752,7 +752,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because it can smell what I've called up and sent back, and it doesn't like the scent any more than the Brothers do. Your {pet} is pressed against your leg, which is wise, so stay near the gate if it makes you both easier." },
       },
       choices = {
-        { text = "If my beast mistrusts this place, so do I.", next = "BACK", reply = "Wise beast, wiser master. Keep it close and we'll get along well enough.", fx = { align = { light = 1 } } },
+        { text = "If my beast mistrusts this place, so do I.", next = "BACK", reply = "A wise beast, and a wiser master. Keep it close and we'll get along well enough.", fx = { align = { light = 1 } } },
         { text = "My beast will get used to it. So will I.", next = "BACK", reply = "It may, in time, and so will you, which is rather the point. The Brothers never did.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1229,6 +1229,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_josetta_d = {
+      lines = {
+        { id = "dd_josetta_d_a", text = "Then let me count them for you, gently, because someone ought to. Every time you come back, the Light has given you another chance, and I'd ask you to spend the next one more wisely than the last." },
+      },
+      choices = {
+        { text = "The Light brings me back for a reason. I'll keep fighting.", next = "dd_josetta_d2", fx = { align = { light = 1 } } },
+        { text = "Dying is just part of the work. I don't dwell on it.", next = "dd_josetta_d2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_josetta_d2 = {
+      lines = {
+        { id = "dd_josetta_d2a", text = "Perhaps, but I've seen what too many deaths do to a soul, and it isn't always visible from the outside. Rest at the Lion's Pride before you go out again, and come and see me if the dreams get bad." },
+      },
+      choices = { { text = "I will, Priestess. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Some days I do. I stayed to heal, and I don't regret it, but your boots make me wistful, so tell me where you've been." } },
@@ -1273,7 +1289,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Of course they can, though it's harder, because your trade asks you to keep secrets, and the Light asks you to keep none. I've known rogues who walked closer to the Light than any priest, and I've known priests who walked further from it than any rogue." } },
       choices = {
         { text = "I'll try to walk closer to the Light, Priestess.", next = "BACK", reply = "That's all the Light asks of anyone, and it's more than most manage. Come and talk to me any evening.", fx = { align = { light = 1 } } },
-        { text = "My secrets are my own. The Light can mind its business.", next = "BACK", reply = "It might, if you let it, but I'll not press you. The door's open when you're ready.", fx = { align = { light = -1 } } },
+        { text = "My secrets are my own. The Light can mind its business.", next = "BACK", reply = "It might, if you let it, but I'll not press you. I'm up these stairs most evenings, whenever you're ready.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1306,6 +1322,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_deaths_josetta", when = { deaths = { min = 10 } },
+          text = "I've seen you carried up those stairs more times than I'd like, and I've started to know you by your wounds. The Light is patient, but I'd sooner it didn't have to be so patient with you." },
+        { id = "dd_drown_josetta", when = { deathCause = "drowning" },
+          text = "You drowned, didn't you? There's a grey look the lake leaves on people even after the spirit's come back, and you have it, so please keep clear of Crystal Lake until you've learned to swim properly." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Brother Wilhelm's down the road, behind the smithy, but you're welcome here too, if you'd like a quiet word before the drills." },
         { id = "h_default", text = "I'm Priestess Josetta. I teach the Light up here, above the noise of the common room, or mostly above it, and I dream of the roads I never took." },
         { id = "h_garments", when = { questActive = TODO_QUEST("Garments of the Light") },
@@ -1329,11 +1350,13 @@ P:NPC {
           text = "You're from the warlocks' cellar downstairs. I can hear them chanting some nights, right through the floorboards, and it makes the candles gutter." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior up here, among the candles. You've come a long way from the common room, and you'll want something more than ale, I hope." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, up all those stairs. I hope your companion didn't take them too fast; Farley's carpet is older than he is." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, all the way from across the sea! I've always meant to see Teldrassil and always stayed right here, so you'll have to tell me what it's like." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, all the way from across the sea! I've always meant to see Teldrassil and always stayed right here, so you'll have to tell me what it's like." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and well-travelled by the look of your boots. I always meant to go far, so tell me where the spirits have taken you." },
       },
       again = { { id = "h_again", text = "What else? Mind the floorboard; it squeaks to Farley." } },
       choices = {
+        { text = "I've fallen more times than I can count, Priestess.", next = "dd_josetta_d", when = { deaths = { min = 10 } } },
+
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why didn't you travel?", next = "travel" },
         { text = "Where would you have gone?", next = "where" },
@@ -1382,7 +1405,7 @@ P:NPC {
         { id = "s_booty", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "You've been to Booty Bay, with the pirates? Oh, I'd have fainted. Tell me slowly, from the beginning." },
       },
       choices = {
-        { text = "Grey, mostly. And loud.", next = "BACK", fx = { affinity = 3 } },
+        { text = "Grey, mostly, and loud.", next = "BACK", fx = { affinity = 3 } },
         { text = "Green, near the shore. Like old glass.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },

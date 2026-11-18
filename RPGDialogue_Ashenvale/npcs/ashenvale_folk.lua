@@ -71,7 +71,7 @@ P:NPC {
     romantic = {
       lines = { { id = "ro_default", text = "Then you can wait for him next time, and I'll go to the inn at Astranaar. No, I don't mean that, or not entirely, because I'd wait another thousand years if he asked me to, though I'd complain about it." } },
       choices = {
-        { text = "Love that waits is worth more than gold.", next = "BACK", reply = "It is, and I'll remind myself of that the next time he oversleeps by a century. You're kind to say it.", fx = { align = { order = 1 } } },
+        { text = "Love that waits is worth more than gold.", next = "BACK", reply = "Is he? I'll remind myself of that the next time he oversleeps by a century. You're kind to say it.", fx = { align = { order = 1 } } },
         { text = "Life is short. Go and drag him here yourself.", next = "BACK", reply = "Ha! If I could drag a druid out of the Dream, I'd have done it long ago. But I like the way you think.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -164,6 +164,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_branch", when = { questDone = TODO_QUEST("The Branch of Cenarius") }, text = "Illiyana says you took the Branch of Cenarius back from that horrid satyr, and she has stopped weeping by the shrine. You have been kind to both of Father's daughters now, and we do not forget kindness." },
         { id = "h_default", key = true,
           text = "I'm Shael'dryn, a daughter of Cenarius, and I keep this moonwell for as long as anyone lets me. Raene Wolfrunner sent you, didn't she? She only sends people when she's worried about something." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Raene's Cleansing") },
@@ -267,8 +268,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_raene = {
+      lines = {
+        { id = "ddr_default", text = "She would; she talks to anyone who stops long enough, and she has been lonely. The furbolgs were Cenarius' friends once, as we are his daughters, and it hurts us both to see them turned against the woods they guarded." },
+      },
+      choices = {
+        { text = "The furbolgs are lost. The forest comes first.", next = "BACK", reply = "You sound like the Sentinels, and perhaps you are right. I still hope for them, because someone should.", fx = { align = { light = -1 } } },
+        { text = "Maybe the furbolgs can still be saved.", next = "BACK", reply = "My father would like you for saying so. Go gently in the north, then, and look for the ones who can still hear reason.", fx = { align = { light = 1 } } },
+        { text = "Something else, Illiyana.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_raene", when = { questDone = TODO_QUEST("Raene's Cleansing") }, text = "Shael'dryn sings again in the north, and she says it is because of you. My sister's grove was dying of the furbolgs' corruption, and now it breathes, so I count you twice a friend." },
         { id = "h_default", key = true,
           text = "I'm Illiyana, a daughter of Cenarius. The satyr of these woods killed my friend Anilia and stole the Branch of Cenarius from her, and I want them to answer for it." },
         { id = "h_slay", tags = { "news" }, when = { questActive = TODO_QUEST("Satyr Slaying!") },
@@ -283,6 +295,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening." },
       },
       choices = {
+        { text = "Shael'dryn told me about the corruption in her grove.", next = "dd_raene", when = { questDone = TODO_QUEST("Raene's Cleansing") } },
         { text = "Tell me about Anilia.", next = "anilia" },
         { text = "What is the Branch of Cenarius?", next = "branch" },
         { text = "Who are these satyr?", next = "satyr" },

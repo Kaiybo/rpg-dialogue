@@ -490,7 +490,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Wards are the least of it, because the temple was sunk to stop the Atal'ai, and they're still down there chanting. A mage might break a ward, but a ward is only a lock, and I'm more worried about what's behind the door." } },
       choices = {
-        { text = "Then leave the door shut. Some things should sleep.", next = "BACK", reply = "Wise. Some things are sleeping for good reason, and I'd rather they stayed that way.", fx = { align = { order = 1 } } },
+        { text = "Then leave the door shut. Some things should sleep.", next = "BACK", reply = "Wise. I've heard what the green dragons do to anyone who rattles that door, and I'd rather not find out.", fx = { align = { order = 1 } } },
         { text = "Break the lock. Better to know what's there.", next = "BACK", reply = "Better to know, perhaps, until you know. I'll not stop you, but I'll not follow you either.", fx = { align = { order = -1 } } },
         { text = "Something else, Fel'zerul.", next = "BACK" },
       },
@@ -509,7 +509,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "The trolls sank that temple to bury what they worshipped, and I believe something green and ancient sleeps down there with it, and that the sleep is sick. Your elders speak of a dream that holds the world's living things, and if that dream has a wound, I think it is here." } },
       choices = {
         { text = "Then the temple must be cleansed, no matter what it costs us.", next = "BACK", reply = "At any cost? You're braver than I am, and perhaps wiser. I'll help where I can.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some dreams are best left sleeping. Watch it, but don't wake it.", next = "BACK", reply = "Watch it, yes, and I will. Some sleepers are better left undisturbed.", fx = { align = { light = -1 } } },
+        { text = "Some dreams are best left sleeping. Watch it, but don't wake it.", next = "BACK", reply = "Watch it, yes, and I will. My grunts already won't fish near the sunken stones after dark.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -529,7 +529,7 @@ P:NPC {
         { id = "h_fetishes", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Temple of Atal'Hakkar"), days = 3 } },
           text = "Twenty fetishes, and each one hums like a hornet in a jar. They'll go to Orgrimmar under guard, and I'll sleep better once they're gone." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Steel will not help much against what lies in that temple, but I would rather have you here than not." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Then you may feel what I feel at the Pool of Tears, something under the water dreaming a dream that is not its own." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. Then you may feel what I feel at the Pool of Tears, something under the water dreaming a dream that is not its own." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "The Light, in a Forsaken body. Strange times bring strange servants, and the temple beneath the Pool of Tears stirs stranger every night." },
       },
       again = {
@@ -1158,8 +1158,25 @@ P:NPC {
         { text = "On to other things.", next = "BACK" },
       },
     },
+    dd_talker = {
+      lines = {
+        { id = "dd_talker_1",
+          text = "It is. Since the murlocs left him like that, I've watched him sit at the end of the bench with his food going cold, too proud to ask for help and too broken to manage without it." },
+        { id = "dd_talker_2",
+          text = "Last night his hand shook the whole time, and he spilled half of it, and he didn't care. A warrior who's had his revenge eats like a warrior again, even if it's a mess, so I'll not be the one to tell him otherwise." },
+      },
+      choices = {
+        { text = "Revenge was the least he was owed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I hope he finds peace, not just revenge.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Karakul.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_talker", tags = { "news" }, when = { questDone = TODO_QUEST("The Swamp Talker") },
+          text = "Bengor came in for supper last night and finished the bowl himself, without a scout to hold the spoon. He told me the murloc that broke him is dead, and that you killed it, so sit down and eat." },
+        { id = "h_dd_drown", when = { deathCause = "drowning" },
+          text = "I hear the swamp pulled you under and kept you a while. Boots off at the door, and dry yourself by the fire before you drip on my floor." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Boots off at the door, and the imp's too, if it has any, and keep it off the hearth while the stew's on." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, at my table? You could conjure your own supper, I know, so either you're being polite or you've tasted the stew." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Sit down and eat, and if you've any pull with the water spirits, ask them to keep the swamp out of my cellar." },
@@ -1176,6 +1193,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? The stew won't keep forever, and neither will I, though I'm too stubborn an orc to go quietly." } },
       choices = {
+        { text = "Bengor fed himself? That's good to hear.", next = "dd_talker", when = { questDone = TODO_QUEST("The Swamp Talker") } },
         { text = "Did the old Horde ever keep shamans here in Stonard?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do spellcasters eat at your tables often, Karakul?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What do the scouts say over their grog that they won't tell their commander?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },

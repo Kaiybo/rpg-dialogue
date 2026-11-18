@@ -637,6 +637,15 @@ ctxSet("holiday", "holiday", 15)
 ctxSet("outOfPlace", "outOfPlace", 15)
 ctxEq("zone", 15)
 ctxEq("subzone", 15)
+-- npcNamed: the NPC's own name contains this text (lower case; any of a list). Lets one role
+-- pool speak differently for an imp, a voidwalker or a succubus (0.84.0).
+def("npcNamed", 15, "hinge", nil, function(ctx, v)
+  local name = type(ctx.npcName) == "string" and ctx.npcName:lower() or ""
+  for _, w in ipairs(U.AsList(v)) do
+    if name:find(w, 1, true) then return true, "npcNamed: " .. w end
+  end
+  return false, "npcNamed: " .. name .. ", wanted " .. show(v)
+end)
 ctxEq("power", 15)
 ctxEq("tabard", 15)
 

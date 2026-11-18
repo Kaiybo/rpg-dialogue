@@ -34,6 +34,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = {
+        { id = "dd_de_default", text = "That I'd been fighting for the wrong master. I lay in the dirt with my blood running out and saw that Blackhand's Horde would never have mourned me, and it was a human, Tirion Fordring, who dragged me out of it. A warrior who dies often should ask whether the war he's dying in is worth it, young one." },
+      },
+      choices = {
+        { text = "The Horde is worth it. I'd die for it again.", next = "BACK", reply = "Then I hope it stays worthy of you, because the Horde I left once wasn't. Thrall's Horde is better, and you keep it that way.", fx = { align = { honor = 1 } } },
+        { text = "I die for my own reasons, not the Horde's.", next = "BACK", reply = "An honest answer, and an orc of my age respects honesty more than speeches. Just know your reasons well, so you can live with them.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Eitrigg.", next = "BACK" },
+      },
+    },
     xalt_eitrigg = {
       lines = {
         { id = "xalt_eitrigg_default", text = "I've talked with plenty of young ones who wanted me to swear the old Horde was glorious, and I send them off disappointed. The one you mean asked something better than that, so I remember them." },
@@ -61,6 +71,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 20 } },
+          text = "You've the look of someone who's been to the spirit healers more often than to the barber. I came near to dying once, alone in the hills of Lordaeron, and that once was enough to teach me patience, so I wonder what so many deaths are teaching you." },
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
           text = "I had a talk not long ago with {alt}, a {altclass} with your look about the eyes. Blood or chance, I can't say, but at my age you notice when the same fire shows up twice." },
         { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
@@ -83,6 +95,7 @@ P:NPC {
         { id = "h_again3", when = { disposition = { min = 65 } }, text = "Ask what you will. I find I don't mind your questions." },
       },
       choices = {
+        { text = "I've died often enough. What did dying teach you?", next = "dd_deaths", when = { deaths = { min = 20 } } },
         { text = "You've spoken with someone close to me, Eitrigg.", next = "xalt_eitrigg", when = { alt = true } },
         { text = "You left the Horde? Why?", next = "leaving" },
         { text = "Who saved your life?", next = "tirion" },
@@ -184,7 +197,7 @@ P:NPC {
     soft = {
       lines = { { id = "so_default", text = "They called me soft too, for carrying a human paladin out of a fallen tower. Peace with the Alliance is not softness, it is the hardest thing the Warchief has ever tried, and it may fail, but it is worth the trying." } },
       choices = {
-        { text = "Peace is worth the risk.", next = "BACK", reply = "It is, and I'm glad to hear it from you. The Warchief needs more voices like yours.", fx = { affinity = 1, align = { order = 1 }, opinion = { peace = "for" } } },
+        { text = "Peace is worth the risk.", next = "BACK", reply = "It is. Say that in the Valley of Strength sometime, where the grunts can hear it, because the Warchief needs more voices like yours.", fx = { affinity = 1, align = { order = 1 }, opinion = { peace = "for" } } },
         { text = "The Alliance only understands strength.", next = "BACK", reply = "They understand it, aye, but they also understand honor, as Tirion showed me. Don't judge them all by their worst.", fx = { align = { order = -1 }, opinion = { peace = "against" } } },
         { text = "And Jaina Proudmoore? Does the Warchief trust her too far?", next = "jaina_op" },
         { text = "Something else.", next = "BACK" },
@@ -209,7 +222,7 @@ P:NPC {
     warrior = {
       lines = { { id = "wa_default", text = "In front of you, where your enemy can see it. If you ever have to hide what you did with your axe, then you did the wrong thing with it, and I learned that one far too late." } },
       choices = {
-        { text = "I'll keep it in front, then.", next = "BACK", reply = "Good, and you'll never have to wonder whether you did right. Keep it in front, warrior.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll keep it in front, then.", next = "BACK", reply = "Then you'll never lie awake wondering whether you did right. I've done enough of that for both of us.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Winning matters more than how it looks.", next = "BACK", reply = "It does, until you have to live with how you won. I learned that one far too late, and I hope you don't.", fx = { align = { honor = -1 } } },
       },
     },

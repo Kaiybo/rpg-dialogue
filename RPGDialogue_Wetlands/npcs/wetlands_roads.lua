@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_modr", text = "Keep yer head down, stranger. The Dark Irons have archers on the walls, and they're better shots than they look." },
-    { id = "g_back", when = { metBefore = true }, text = "Still breathin'? Good. In Dun Modr that's a compliment." },
+    { id = "g_back", when = { metBefore = true }, text = "Still breathin'? Good, because in Dun Modr that's a compliment." },
   },
 
   start = "hello",
@@ -136,7 +136,7 @@ P:NPC {
       lines = { { id = "dq_default", text = "That it was a dwarven hold once, an' the Dragonmaw have it now, wi' a red dragon chained in the deep. Even the beasts won't go near that mountain." } },
       choices = {
         { text = "The red dragon must be freed.", next = "BACK", reply = "Freed? Ye'd need an army tae get within a mile o' Grim Batol, an' I've no' got one. If ye ever find a way, though, I'd like tae hear it.", fx = { align = { light = 1 } } },
-        { text = "Leave that mountain and its dragons alone.", next = "BACK", reply = "Wise words, an' ones my dwarves have lived by since the Dragonmaw came. That mountain's a grave, an' there's no sense climbin' intae it.", fx = { align = { light = -1 } } },
+        { text = "Leave that mountain and its dragons alone.", next = "BACK", reply = "Wise words, an' ones my dwarves have lived by since the Dragonmaw came. I've watched red dragons circle Grim Batol from this very bridge, an' I've no wish tae see them closer.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,7 +145,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Whoever's least hurt, which some days is me, an' I've no gift for it. We send the worst back tae Menethil, but the road's long an' the Dark Irons watch it." } },
       choices = {
         { text = "Then I'll stay a while and tend them.", next = "BACK", reply = "The Light bless ye for it, for the lads have been patchin' each other wi' spit an' prayer. Go see the ones by the fire first; they've waited longest.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Send them all back. Your fighters need to fight.", next = "BACK", reply = "Spoken like someone who's never had tae watch a lad bleed while he held his post. They'll fight better knowin' someone cares if they fall.", fx = { align = { light = -1 } } },
+        { text = "Send them all back. Your fighters need to fight.", next = "BACK", reply = "Spoken like someone who's never had tae watch a lad bleed while he held his post. Ye go an' tell them by the fire tae get up, then, for I won't.", fx = { align = { light = -1 } } },
         { text = "Something else, Longbraid.", next = "BACK" },
       },
     },
@@ -383,7 +383,7 @@ P:NPC {
       lines = { { id = "wd_default", text = "Find the ones who did it and send them back to their Emperor Thaurissan in pieces. Or at least in chains, if Longbraid's watching." } },
       choices = {
         { text = "In chains. They should face the King's justice.", next = "why_end", fx = { align = { order = 1 } } },
-        { text = "In pieces. They earned it.", next = "why_end", fx = { align = { order = -1 } } },
+        { text = "In pieces. They earned every one.", next = "why_end", fx = { align = { order = -1 } } },
         { text = "You've thought about this a lot.", next = "why_end" },
       },
     },
@@ -482,7 +482,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Shallow graves under the ridge an' a stone each, for that's all we had time for wi' the raptors circlin'. I'd thank ye for a word over them, if ye've one tae spare." } },
       choices = {
         { text = "I'll go to the ridge and say the words.", next = "BACK", reply = "Thank ye, for they deserve better than a few stones an' my clumsy words. Their names are scratched on the rocks, if ye need them.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The living diggers need guarding more than the dead.", next = "BACK", reply = "Aye, the livin' need it more, an' I'll no' argue. But a word over the dead keeps the livin' goin', an' that's worth somethin' too.", fx = { align = { light = -1 } } },
+        { text = "The living diggers need guarding more than the dead.", next = "BACK", reply = "Aye, the livin' need it more, an' I'll no' argue. But I've seen a digger's hands stop shakin' after a word over the bones, so I'll keep sayin' them.", fx = { align = { light = -1 } } },
         { text = "Something else, Ormer.", next = "BACK" },
       },
     },
@@ -601,7 +601,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Great bones, bigger than any beast walkin' the Wetlands now, an' the deeper we go, the bigger they get. My diggers say the ground's uneasy an' the raptors seem tae agree, so if the earth wants its dead left alone, ye'd tell me, would ye no'?" } },
       choices = {
         { text = "I'd tell you. The dead deserve their rest, Prospector.", next = "BACK", reply = "Then ye've the shaman's sense, an' I respect it, though I've diggin' tae finish. I'll ask the lads tae bury the bones we've done wi'.", fx = { align = { honor = 1 } } },
-        { text = "Dig on. Knowledge is worth a little unease.", next = "BACK", reply = "That's the League talkin', an' I'm glad tae hear it. Unease never stopped a good dig, an' it'll no' stop this one.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Dig on. Knowledge is worth a little unease.", next = "BACK", reply = "That's the League talkin', an' I'm glad tae hear it. I've dug under worse than a few odd noises in the night.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -693,6 +693,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Yer folk are old, I'm told, older than ours by a good few thousand years, an' I'd like tae know if ye recognise anythin' we've dug up." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my dig! Mind where ye step, for if ye summon anythin' on top o' my trenches, I'll have ye fillin' them back in." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, at my excavation! I've bones in the ground here older than Ironforge, an' I'd dearly like tae know what the earth makes o' my diggin' them up." },
+        { id = "dd_ormer", when = { questDone = TODO_QUEST("Ormer's Revenge") },
+          text = "Ormer tells me you've been thinning the raptors around my dig with him. I can hear myself think now, which is a mixed blessing, since mostly I think about raptors." },
       },
       again = {
         { id = "h_again", text = "What else? I've a trench to check." },

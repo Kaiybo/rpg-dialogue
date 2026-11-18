@@ -69,7 +69,7 @@ P:NPC {
       lines = { { id = "ba_default", text = "They eat, they sleep upside down, and the rest is not fit for polite company, all day and all night, and I have to sweep up after the lot of them. A Garrett was made for better things, and I'll have them yet." } },
       choices = {
         { text = "Honest work is nothing to be ashamed of.", next = "BACK", reply = "It isn't, I suppose, but it's beneath a Garrett all the same. Tell the bats that, if you see them.", fx = { align = { order = 1 } } },
-        { text = "You deserve better. Reach for it.", next = "BACK", reply = "I shall, and I'll remember you said so when I'm out of this tower. Every Garrett deserves better than guano.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "You deserve better, Patrick. Reach for it.", next = "BACK", reply = "I shall, and I'll remember you said so when I'm out of this tower. Every Garrett deserves better than guano.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -228,7 +228,7 @@ P:NPC {
       lines = { { id = "jo_default", text = "Because I used to be funny, everyone said so, and I keep hoping that one day a joke will come out the way it used to. Here's one: a Dragonmaw orc walks into my forge and limps out without his shins. You're not laughing, are you?" } },
       choices = {
         { text = "I'll laugh anyway, to be kind.", next = "jokes_kind", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "No. But keep trying. It'll come back.", next = "jokes_honest", fx = { align = { honor = 1 } } },
+        { text = "Not really, but keep trying. It'll come back to you.", next = "jokes_honest", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

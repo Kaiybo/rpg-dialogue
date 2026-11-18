@@ -51,7 +51,7 @@ P:NPC {
         { text = "What's worth skinning around here?", next = "beasts" },
         { text = "Why bother with skinning at all?", next = "why" },
         { text = "Who else teaches a trade at the Den?", next = "den" },
-        { text = "Teach me. I'm ready.", next = "BUSINESS" },
+        { text = "I'm ready to learn, Kagil. Teach me.", next = "BUSINESS" },
         { text = "Another time, Kagil.", next = "END" },
       },
     },
@@ -88,7 +88,7 @@ P:NPC {
         { id = "se_default", text = "It sells well enough, and the traders at Razor Hill will buy whatever you can't use. Go out with an empty pack and come back with a full one, and you'll have more coin than most recruits ever see in the valley." },
       },
       choices = {
-        { text = "Good. Then I'll learn.", next = "BUSINESS" },
+        { text = "Good, then I'll learn it the hard way.", next = "BUSINESS" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -148,7 +148,7 @@ P:NPC {
         { id = "h_forsaken", when = { race = "Scourge" }, text = "A Forsaken with a pick. Your arms won't tire, I suppose, but I've seen your kind's bones, and I'd swing carefully if I were you." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've rocks waiting." },
+        { id = "h_again", text = "Anything else? I've rocks waiting, and they don't split themselves." },
         { id = "h_again2", text = "Speak up, recruit. I've been deafened by better hammers than your questions." },
       },
       choices = {
@@ -277,7 +277,7 @@ P:NPC {
       },
       choices = {
         { text = "Pick what pays. Coin keeps a warrior alive.", next = "BACK", reply = "Coin's a fair reason, and I won't argue with it. Just make sure it's a craft you can stand to do every day.", fx = { align = { honor = -1 } } },
-        { text = "Pick what serves the Horde best, and coin follows.", next = "BACK", reply = "That's a fine way to choose, and the Horde will be glad of it. Coin has a way of finding those who serve well.", fx = { align = { honor = 1 } } },
+        { text = "Pick what serves the Horde best, and coin follows.", next = "BACK", reply = "That's a fine way to choose, and the Horde will be glad of it. Find the trainer for whatever you pick, and work hard enough that they remember your name.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -509,7 +509,7 @@ P:NPC {
         { id = "ow_default", text = "Maybe he does, mon, and maybe the day comes. Vol'jin says we wait until we're strong, and the young ones say we're strong enough now. Which do you think is right?" },
       },
       choices = {
-        { text = "Vol'jin is right. Strike once, and strike when you'll win.", next = "BACK", reply = "That be Vol'jin's wisdom, mon, and I think he's right. Patience be hard, but a failed strike cost more than waiting.", fx = { align = { order = 1 } } },
+        { text = "Vol'jin is right. Strike once, and strike when you'll win.", next = "BACK", reply = "That be Vol'jin's wisdom, mon, and I think he's right. I waited three days on a branch once for one Kolkar scout, and I'd wait three more.", fx = { align = { order = 1 } } },
         { text = "The young ones are right. Every day you wait, more are hexed.", next = "BACK", reply = "That be the young ones talkin', and maybe they're right. Every day I see more hexed faces on the isles, and it burn me.", fx = { align = { order = -1 } } },
         { text = "That isn't my choice to make.", next = "BACK" },
       },
@@ -780,7 +780,7 @@ P:NPC {
       },
       choices = {
         { text = "A raptor eats too, you know.", next = "rap_end", fx = { affinity = 1 } },
-        { text = "He's right. Learn to wait.", next = "rap_end" },
+        { text = "He's right. I'll learn to wait.", next = "rap_end" },
       },
     },
     rap_end = {
@@ -789,7 +789,7 @@ P:NPC {
         { id = "re_default", text = "Ha! Tell him that, mon, and see what he says. Which would you be, if you had to choose, the raptor or the tiger?" },
       },
       choices = {
-        { text = "The tiger. Patience wins hunts.", next = "BACK", reply = "The tiger, eh? You'd make a fine shadow hunter, mon. Patience be the hardest lesson and the best.", fx = { align = { honor = -1 } } },
+        { text = "The tiger. Patience wins hunts.", next = "BACK", reply = "The tiger, eh? You'd make a fine shadow hunter, mon. Sit still in the brush a whole night and tell me after if you still like the tiger.", fx = { align = { honor = -1 } } },
         { text = "The raptor. Charge in and meet the enemy head on.", next = "BACK", reply = "The raptor, eh? Ha! You and me both, mon, and look where it got me.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -891,7 +891,7 @@ P:NPC {
       },
       choices = {
         { text = "Anything that still fights deserves a chance.", next = "BACK", reply = "That's what I said, and Morok'ra proves it every day. Look at him now, still fighting.", fx = { align = { light = 1 } } },
-        { text = "A crippled beast is a burden. Mercy is quicker.", next = "BACK", reply = "Quicker, sure, and I'd have lost the best beast I ever had. Some burdens are worth the carrying.", fx = { align = { light = -1 } } },
+        { text = "A crippled beast is a burden. Mercy is quicker.", next = "BACK", reply = "Quicker, sure, and I'd have lost the best beast I ever had. Morok'ra limps, but he still bites harder than anything in my pens.", fx = { align = { light = -1 } } },
       },
     },
     train = {
@@ -899,7 +899,7 @@ P:NPC {
         { id = "t_default", text = "First you keep it alive, and then you feed it from your own hand until it knows your smell. After that comes the breaking, which is slow and hard on both of you, and then the fighting, where it learns not to run from steel." },
       },
       choices = {
-        { text = "Breaking it? That sounds cruel.", next = "break" },
+        { text = "Breaking it? That sounds cruel to me.", next = "break" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -909,7 +909,7 @@ P:NPC {
         { id = "br_default", text = "It's not cruel, it's honest. A war beast that won't take orders gets its rider killed, and then itself, so I break its fear and keep its fury." },
       },
       choices = {
-        { text = "Discipline makes it strong. You're doing right by it.", next = "BACK", reply = "It's slow, but it's right, and the beast knows it. Strength grows from discipline, same as in a grunt.", fx = { align = { order = 1 } } },
+        { text = "Discipline makes it strong. You're doing right by it.", next = "BACK", reply = "It's slow, but it's right, and the beast knows it. Give it a month and it'll come to my whistle like a grunt to the dinner horn.", fx = { align = { order = 1 } } },
         { text = "Keep some of its wildness. That's where its courage lives.", next = "BACK", reply = "I'll keep it, don't worry, because a beast with no wildness is just a pet. The courage stays.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1066,8 +1066,8 @@ P:NPC {
         { id = "w_default", text = "Because we can't bring the bodies home, and an orc who isn't remembered dies twice. A weapon on the wall says that they fought, and that the Horde hasn't forgotten them." },
       },
       choices = {
-        { text = "Honor the dead, and the living fight harder.", next = "BACK", reply = "They do, and that's why I hang every weapon I can find. The dead watch, and the living remember.", fx = { align = { honor = 1 } } },
-        { text = "The dead don't care. Weapons belong in living hands.", next = "BACK", reply = "Maybe the dead don't, but the living do. A weapon on the wall is a promise, and promises keep the Horde together.", fx = { align = { honor = -1 } } },
+        { text = "Honor the dead, and the living fight harder.", next = "BACK", reply = "They do, and that's why I hang every weapon I can find. That axe by the door belonged to a grunt who held Tiragarde's gate alone, and nobody passes it without nodding.", fx = { align = { honor = 1 } } },
+        { text = "The dead don't care. Weapons belong in living hands.", next = "BACK", reply = "Maybe the dead don't, but the living do. A grunt sees his friend's blade on my wall and knows he won't be forgotten either.", fx = { align = { honor = -1 } } },
         { text = "Where will you hang them?", next = "wall" },
         { text = "Something else.", next = "BACK" },
       },

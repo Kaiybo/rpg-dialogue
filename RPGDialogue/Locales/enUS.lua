@@ -39,7 +39,7 @@ L.HELP_LINES = {
   "topics [teach <id> | forget <id>] - topics you know",
   "die <cause> - record a fake death (falling, drowning, guard, trivial, boss, ...)",
   "journal - open the journal",
-  "letters [send <id> | random] - open your letters anywhere (send/random: deliver one now, for testing)",
+  "letters [send <id> | random] - open your letters at a mailbox (send/random: deliver one now, for testing)",
   "errands - errands you've taken",
   "insanity <0-100> - set the insanity level (testing)",
   "export | import - save or restore this character's story as text",
@@ -424,6 +424,7 @@ L.LETTER_BURN = "Burn"
 L.LETTER_NEW = "new"
 L.LETTER_JUNK = "junk"
 L.LETTER_NO_RANDOM = "No random letter is left that could come to you right now."
+L.LETTERS_NEED_MAILBOX = "Your letters wait at the mailbox. Open one to read them."
 L.LETTER_ARRIVED_JUNK = "Something has been stuffed into your mailbox. It looks like junk."
 L.LETTER_UNKNOWN = "No letter called %s."
 L.OPT_INSANITY = "Insanity effects"

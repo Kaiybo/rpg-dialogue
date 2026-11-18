@@ -487,7 +487,7 @@ P:NPC {
         { id = "xro_default", text = "No, and I would ask you not to brew them in my garden. Earthroot and peacebloom are for healing here, and what you do with your own vials is between you and whatever you answer to." },
       },
       choices = {
-        { text = "Healing only, in your garden. I'll mind it.", next = "BACK", reply = "Thank you, rogue, and the garden will be grateful. Brew your other things elsewhere.", fx = { align = { honor = 1 } } },
+        { text = "Healing only, in your garden. I'll mind it.", next = "BACK", reply = "Thank you, rogue. Whatever else you brew, brew it well away from my seedlings.", fx = { align = { honor = 1 } } },
         { text = "A poison is only a potion with a purpose.", next = "BACK", reply = "A purpose I would rather not share, I am afraid. Keep it out of my garden, please.", fx = { align = { honor = -1 } } },
         { text = "What grows best on Teldrassil?", next = "herbs" },
       },
@@ -517,7 +517,7 @@ P:NPC {
         { id = "xlock_default", text = "Earthroot and peacebloom are gentle things, and mine always seem to wilt near anything that came out of the Twisting Nether. Perhaps it's only my fancy, but I'd rather not lose a morning's harvest finding out." },
       },
       choices = {
-        { text = "I'll leave it outside. Your herbs come first.", next = "BACK", reply = "Thank you, warlock, and the herbs will thank you too. They are very sensitive.", fx = { align = { light = 1 } } },
+        { text = "I'll leave it outside. Your herbs come first.", next = "BACK", reply = "Thank you, warlock. The last imp through here wilted a whole bed of silverleaf just by sulking at it.", fx = { align = { light = 1 } } },
         { text = "Fancy, then. It stays with me.", next = "BACK", reply = "Then please keep it on the far side of the garden, at least. The herbs wilt so easily.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -823,7 +823,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Only when the work is done carelessly, because a beast that gave its life deserves a hide worked with care. Radnaal thanks every one he skins, in his own quiet way, and I like to think I finish the thanks with my stitching." } },
       choices = {
-        { text = "Giving thanks for every life taken is right.", next = "BACK", reply = "It is, and Radnaal would be glad to hear you say it. Every hide deserves thanks.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Giving thanks for every life taken is right.", next = "BACK", reply = "It is, and Radnaal would be glad to hear you say it. He still thanks every hide aloud before he cuts it, even the boar's.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A hide is a hide, and thanks won't make it softer.", next = "BACK", reply = "No, it will not, but it makes the work better. You will see the difference.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -884,7 +884,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Harder than for a hunter, because the armor has to forgive every change of shape, so I stitch small and leave a little give at every seam. Radnaal swears the hides come only from beasts that were hunted cleanly and thanked, and I make sure the Circle knows it." } },
       choices = {
         { text = "Honest hides and honest stitching are all I could ask.", next = "BACK", reply = "Then you will have them, druid, and they will forgive every change you make. That is my promise.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Leather is leather, and I don't need to know its story.", next = "BACK", reply = "Then you will not know why it fails you, and I will. Every hide has a story.", fx = { align = { honor = -1 } } },
+        { text = "Leather is leather, and I don't need to know its story.", next = "BACK", reply = "Then you will not know why it fails you, and I will. A hide remembers how the beast lived, and how it died.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -894,7 +894,7 @@ P:NPC {
         { id = "xlock_default", text = "A few, and they're usually better at it than they expect, because the work wants patience and a steady hand. The trouble is the servant, which sits in the corner and stares at Radnaal until he can't skin straight." },
       },
       choices = {
-        { text = "I'll leave it outside while I learn.", next = "BACK", reply = "Thank you, warlock, and Radnaal will thank you too. He is very particular.", fx = { align = { order = 1 } } },
+        { text = "I'll leave it outside while I learn.", next = "BACK", reply = "Thank you, warlock. Radnaal would have thrown it out by the tail, and then lectured me for an hour.", fx = { align = { order = 1 } } },
         { text = "Radnaal will have to get used to it.", next = "BACK", reply = "He will not, I am afraid, and neither will the hides. Leave it outside, please.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -1067,7 +1067,7 @@ P:NPC {
         { id = "xwl_default", text = "Keep it away from my hides, and from Nadyia's, and from me. The kaldorei have seen what the Legion's servants do to living things, and a dead nightsaber deserves better than to be singed by one." },
       },
       choices = {
-        { text = "Understood. It stays well away.", next = "BACK", reply = "Thank you, warlock, and the hides will thank you too. Nadyia will be relieved.", fx = { align = { light = 1 } } },
+        { text = "Understood. It stays well away.", next = "BACK", reply = "Thank you, warlock. Fel-scorch never comes out of a hide, and Nadyia would have had words with us both.", fx = { align = { light = 1 } } },
         { text = "It's a tool, like your knife.", next = "BACK", reply = "My knife never burned a forest, warlock. Keep it away from me.", fx = { align = { light = -1 } } },
         { text = "What's the best hide here?", next = "best" },
       },
@@ -1087,7 +1087,7 @@ P:NPC {
         { id = "xmage_default", text = "If you kill a beast, you owe it the use of its hide, mage or not. I've seen mages leave a whole stag to rot after a fireball, and that's a waste I won't teach anyone to make." },
       },
       choices = {
-        { text = "You're right. I'll use what I kill.", next = "BACK", reply = "Then you will be welcome at my bench, mage. Every hide has a use.", fx = { align = { light = 1 } } },
+        { text = "You're right. I'll use what I kill.", next = "BACK", reply = "Then you will be welcome at my bench, mage. Even the scraps make good spell pouches.", fx = { align = { light = 1 } } },
         { text = "A dead stag is no concern of mine.", next = "BACK", reply = "It will be, when the forest runs short of stags. Use what you kill, please.", fx = { align = { light = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -1230,7 +1230,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Half the cats in the village wait on my dock every evening, and I don't mind, because a fed cat is a quiet cat. Your {pet} is already looking at my bucket, I see, but I've seen worse thieves, and most of them were Laird." },
       },
       choices = {
-        { text = "My companion doesn't steal. I'll make sure of it.", next = "BACK", reply = "Thank you, hunter, and the fish will thank you too. The cats are bad enough.", fx = { align = { order = 1 } } },
+        { text = "My companion doesn't steal. I'll make sure of it.", next = "BACK", reply = "Thank you, hunter. The harbour cats already take a fish from every basket, and they never pay.", fx = { align = { order = 1 } } },
         { text = "If it's quick enough to take a fish, it's earned it.", next = "BACK", reply = "Then it will be very well fed, and I will be very poor. Please keep an eye on it.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -1259,7 +1259,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Not that I've noticed, though the fishermen do, because a seal that swims too near the nets scares the catch off for an hour. The druids of Auberdine have learned to swim wide of the boats, and I'd thank you to do the same." } },
       choices = {
-        { text = "I'll swim wide of the nets, as the others do.", next = "BACK", reply = "Thank you, druid, and the fishermen will thank you too. They are very fond of their catch.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll swim wide of the nets, as the others do.", next = "BACK", reply = "Thank you, druid. Last spring a seal tangled itself in the nets and turned out to be a very embarrassed druid from Darnassus.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The sea belongs to everyone, and the fish to no one.", next = "BACK", reply = "It does, but the fishermen would argue the second part. Swim wide anyway, please.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1275,8 +1275,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_murk = {
+      lines = {
+        { id = "ddm_default", text = "Oh, I could hug you, and I might yet! Laird's boys lost two nets and nearly a boat to that murloc and his lot, and half of what I send across the water was going to feed them instead of Auberdine." },
+      },
+      choices = {
+        { text = "Do you know Laird well?", next = "dd_murk2" },
+        { text = "Glad to help. Something else, Nessa?", next = "BACK" },
+      },
+    },
+    dd_murk2 = {
+      lines = {
+        { id = "ddm2_default", text = "Well enough to argue with him by letter twice a week! He sells my catch in Auberdine and grumbles about the price, and I grumble back, and neither of us would trade the other for any fishmonger in Darnassus." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_murk", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: Murkdeep!") }, text = "Laird wrote from Auberdine that someone finally dealt with Murkdeep, and the boats go out along the coast without spears now. Was it you? Oh, it was you, wasn't it!" },
+        { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "You have the look of someone who has swallowed half the sea at least once, friend. Mind your breath out past the docks, because the water off Rut'theran is deeper than it looks." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest! My friends in Auberdine could use a few of you, because things across the water have been sad and strange lately, and I'm always telling them so." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at Rut'theran! Did you come over on the boat from Auberdine? Tell me the crossing didn't turn your stomach in all that armor." },
         { id = "h_default", text = "I'm Nessa Shadowsong, and I sell fishing supplies here at the foot of Teldrassil. Most of what I catch goes up to Darnassus, and the best of it goes across the water to my friends in Auberdine." },
@@ -1295,6 +1314,7 @@ P:NPC {
         { id = "h_again2", text = "Ask on, I've nothing but time and fish." },
       },
       choices = {
+        { text = "Murkdeep won't trouble Auberdine's fishermen again.", next = "dd_murk", when = { questDone = TODO_QUEST("WANTED: Murkdeep!") } },
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "What do you send to Auberdine?", next = "bounty" },
         { text = "There must be good fishing off these docks.", next = "fishing" },
@@ -1482,8 +1502,18 @@ P:NPC {
         { text = "I had another question.", next = "BACK" },
       },
     },
+    dd_drown = {
+      lines = {
+        { id = "ddd_default", text = "Nobody is, after the first time. Sit here on the dock with a line in the water for an afternoon, and the sea becomes something you watch rather than something that wants you, and that is half the art of fishing anyway." },
+      },
+      choices = {
+        { text = "That sounds peaceful, actually.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'd rather just stay out of it.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "Drowned once, have you? I can see it in the way you eye the water now. Fishing is the cure for that, because you learn to sit beside the sea instead of falling into it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Sit down if you like, because fishing's the nearest thing to prayer I know, and nobody has to say a word." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You've the look of someone who doesn't sit still often, so I'll warn you now that my lessons go slowly." },
         { id = "h_default", text = "I'm Androl Oakhand, and I teach fishing here at the foot of Teldrassil. It's the most patient trade there is, and I've had a few centuries to practice it." },
@@ -1498,6 +1528,7 @@ P:NPC {
         { id = "h_again2", text = "Ask on. The line's still slack." },
       },
       choices = {
+        { text = "I drowned once. I'm not fond of water now.", next = "dd_drown", when = { deathCause = "drowning" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "What's the secret of fishing?", next = "secret" },
         { text = "Why fish, when you could hunt?", next = "why" },

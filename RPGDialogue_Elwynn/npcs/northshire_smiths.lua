@@ -20,7 +20,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They all do, and every dent's an insult. A shaman might be kinder to metal, spirits or not. We'll see." } },
+      lines = { { id = "xdsham_default", text = "They all do, and every dent's an insult. A shaman might be kinder to metal, spirits or not, but I'll believe it when your shield comes back." } },
       choices = {
         { text = "I'll treat your work with respect, Godric.", next = "BACK", reply = "Then you'll be the first through that door who means it, and I'll believe it when your shield comes back with only honest dents.", fx = { align = { honor = 1 } } },
         { text = "Armour's meant to be dented. That's its job.", next = "BACK", reply = "It's meant to take a blow, aye, not to be dropped in the mud and walked on. There's a difference, and you'll learn it when you're paying for the repairs.", fx = { align = { honor = -1 } } },
@@ -79,7 +79,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "No, but I've been asked, and I said no, because I'll not have my iron used to hold something that ought to be dead. The Brothers say every craft has its limits, and that's where mine is." } },
       choices = {
-        { text = "Your iron should stay clean, Godric. You're right to refuse.", next = "BACK", reply = "I'm glad somebody agrees, and gladder it's one of your sort. Every craft has its limits, and I'll stay on the right side of mine.", fx = { align = { light = 1 } } },
+        { text = "Your iron should stay clean, Godric. You're right to refuse.", next = "BACK", reply = "I'm glad somebody agrees, and gladder it's one of your sort. Bring me a lock to mend any day you like, but never a cage.", fx = { align = { light = 1 } } },
         { text = "A good cage keeps everyone safer. You should reconsider.", next = "BACK", reply = "Safer for whom, I'd ask, and I'll not lose sleep over the answer. Find yourself another smith, because my iron stays honest.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -113,7 +113,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, and Drusilla La Salle's student, I'd wager. You'll have nothing to do with my forge, then, unless you need a cage." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want mail that bends at the shoulder, so the bow doesn't fight you." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and not a link of mail on you, which offends me as an armorer and impresses me as a man. I suppose that bark-skin trick serves you well enough." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, and not a link of mail on you, which offends me as an armorer and impresses me as a man. I suppose that bark-skin trick serves you well enough." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. You'll want leather, not my mail, I expect, but you'll be glad of whoever's wearing it when you're caught." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Recruits come in, I fit them with mail and they dent it, so don't you dent my work." },
       },
@@ -269,7 +269,7 @@ P:NPC {
           text = "A warlock. You'll be after a robe, and I'll sell you one, though I'll ask you to keep it out of the graveyard mud." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my shop! Padding, then, for under your mail, and I've some that's barely been sat on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want leather that doesn't snag on the brambles by the vineyards, and I've just the thing." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in Northshire, and that's finer stitching on your sleeve than any of mine. I'd ask who made it if I thought you'd tell me." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf in Northshire, and that's finer stitching on your sleeve than any of mine. I'd ask who made it if I thought you'd tell me." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I mend the robes the novices tear, which is most of them, so I hope your spirits are gentler with cloth." },
       },
       again = {
@@ -378,7 +378,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every day o' the week, an' twice on feast days, for a gun's a feat o' craft an' a bow's a bent stick. That {pet} o' yours has a proper look about it, too, wi' shoulders like a mountain beast." },
       },
       choices = {
-        { text = "Whatever the weapon, I'll aim for a clean kill.", next = "BACK", reply = "Spoken like a proper hunter, an' I'll respect ye for it even if ye choose the bent stick. A clean kill's a clean kill.", fx = { align = { honor = 1 } } },
+        { text = "Whatever the weapon, I'll aim for a clean kill.", next = "BACK", reply = "Spoken like a proper hunter, an' I'll respect ye for it even if ye choose the bent stick. The wolf won't care what dropped it, so long as it's quick.", fx = { align = { honor = 1 } } },
         { text = "A gun, for the noise alone.", next = "BACK", reply = "Ha! Now there's a hunter after my own heart! Come back when ye've the silver an' I'll show ye a rifle that'll make the wolves weep.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -431,7 +431,7 @@ P:NPC {
           text = "A mage, eh? Ye'll no' be wantin' steel, I suppose, unless it's a wee dagger tae open yer letters with." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who'll hold a blade like it means somethin', or I'll know why." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do ye carry a gun, or one o' those bows? I'll forgive the bow, if ye're a good shot." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! I've not seen one of your folk since Ironforge, and never one who walked into a smithy on purpose." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf! I've no' seen one o' yer folk since Ironforge, an' never one who walked intae a smithy on purpose." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell daggers an' staves, an' I'll sell one tae ye, though I'd wager my beard ye mean tae do yer killin' some other way." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, by the look o' ye! Well, if the stone talks tae ye, ye'll know how tae hold a blade better than these humans." },
       },
@@ -456,7 +456,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "w_default", text = "Because the humans pay in good silver and the forges back home have more smiths than anvils, and because nobody here argues with me about Bronzebeard politics over breakfast." } },
+      lines = { { id = "w_default", text = "Because the humans pay in good silver, an' the forges back home have more smiths than anvils, an' nobody here argues wi' me about Bronzebeard politics over breakfast." } },
       choices = {
         { text = "Coin's a fine reason to travel.", next = "BACK", reply = "It is, an' I'll no' pretend otherwise, because a dwarf likes his purse heavy. But I'll no' deny the quiet breakfasts are worth somethin' too.", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
         { text = "Arming the young is the better reason.", next = "BACK", reply = "Aye, maybe, an' I'll admit it when I watch them walk off tae the kobold camps. I'd like tae think my steel brings a few of them back.", fx = { align = { honor = 1 }, affinity = 1 } },
@@ -464,14 +464,14 @@ P:NPC {
       },
     },
     grip = {
-      lines = { { id = "g_line", text = "Firm, but not like ye're strangling a chicken. Let the wrist move and the weight do the work, and ye'll still have an arm by supper." } },
+      lines = { { id = "g_line", text = "Firm, but no' like ye're stranglin' a chicken. Let the wrist move an' the weight do the work, an' ye'll still have an arm by supper." } },
       choices = {
         { text = "And if I'm fighting kobolds?", next = "grip_kobold" },
         { text = "Something else.", next = "BACK" },
       },
     },
     grip_kobold = {
-      lines = { { id = "gk_default", text = "Then aim low, because they're short, and keep clear o' their candles, because they've a way of setting folk alight with those daft wax hats." } },
+      lines = { { id = "gk_default", text = "Then aim low, for they're short, an' keep clear o' their candles, for they've a way o' settin' folk alight wi' those daft wax hats." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -522,7 +522,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I've done it once, for a cub caught in a snare by the vineyard, and the Brothers scolded me for a week. The Light doesn't ask whether you've got fur, as far as I can tell, though I keep that opinion out of the chapel." } },
       choices = {
-        { text = "Mercy for every creature. The Light and the land agree.", next = "BACK", reply = "They do, I think, though I'll not say so in the chapel. It's good to know the land and the Light keep the same counsel.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Mercy for every creature. The Light and the land agree.", next = "BACK", reply = "They do, I think, though I'll not say so in the chapel. Brother Sammuel already thinks I'm half a druid.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "The Brothers were right. Recruits come first, wolves last.", next = "BACK", reply = "Perhaps, and the Brothers would agree with you. Still, I don't think the Light ever had to choose between them, and I'd rather not either.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -561,7 +561,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I don't think the Light rejects anyone, but it doesn't always reach them, and I worry that your path takes you further from it every day. I'll still mend you if you come to me hurt, because that's what I'm here for." } },
       choices = {
-        { text = "I'm grateful for your mercy, Brother. I'll remember it.", next = "BACK", reply = "I hope you will, and I hope you'll come to me before you need to. The door's always open, whatever you've been doing.", fx = { align = { light = 1 } } },
+        { text = "I'm grateful for your mercy, Brother. I'll remember it.", next = "BACK", reply = "I hope you will, and I hope you'll come to me before you need to. I walk past the graveyard gate every evening, whatever you've been doing.", fx = { align = { light = 1 } } },
         { text = "I don't need the Light. My power answers to me.", next = "BACK", reply = "Then I'll pray for you all the same, and you needn't thank me for it. Come back if your power ever fails you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

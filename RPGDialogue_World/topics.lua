@@ -204,6 +204,7 @@ P:Topic { id = "everlook", keywords = { "Everlook" }, name = "Everlook", categor
 P:Topic { id = "dalaran", keywords = { "Dalaran" }, name = "Dalaran", category = "places", learned = "mages, or anyone from Alterac" }
 P:Topic { id = "kirin_tor", keywords = { "Kirin Tor" }, name = "The Kirin Tor", category = "people", learned = "Dalaran, or any mage" }
 P:Topic { id = "nordrassil", keywords = { "Nordrassil", "World Tree" }, name = "Nordrassil", category = "places", learned = "the night elves, or Mount Hyjal" }
+P:Topic { id = "aviana", keywords = { "Aviana" }, name = "Aviana, Mistress of Birds", category = "lore", learned = "druids, or the night elves" }
 P:Topic { id = "zul_gurub", keywords = { "Zul'Gurub", "Hakkar" }, name = "Zul'Gurub and Hakkar", category = "threats", learned = "Yojamba Isle, or anyone in Stranglethorn" }
 P:Topic { id = "zul_farrak", keywords = { "Zul'Farrak" }, name = "Zul'Farrak", category = "places", learned = "Gadgetzan" }
 P:Topic { id = "sunken_temple", keywords = { "Sunken Temple", "Atal'Hakkar" }, name = "The Sunken Temple", category = "places", learned = "the Swamp of Sorrows, or Stranglethorn's trolls" }

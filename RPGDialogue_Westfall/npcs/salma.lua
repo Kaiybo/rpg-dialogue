@@ -35,6 +35,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_fields_salma = {
+      lines = {
+        { id = "dd_fields_salma_a", text = "Not the ones you broke, anyway, though I'd swear there are more out by Moonbrook. Somebody's building those things, and building them on purpose, and Saldean won't say what he thinks about that in front of the little ones." },
+      },
+      choices = {
+        { text = "Then I'll find who's building them and stop them.", next = "dd_fields_salma2", fx = { align = { order = 1 } } },
+        { text = "Let the militia worry about that. Keep your children close.", next = "dd_fields_salma2", fx = { align = { order = -1 } } },
+      },
+    },
+    dd_fields_salma2 = {
+      lines = {
+        { id = "dd_fields_salma2a", text = "Either way, I'll sleep better tonight than I have in a month, and that's your gift to this house. Come back for supper some evening, and bring an appetite, because there's always enough stew for one more." },
+      },
+      choices = { { text = "I might just do that. Something else.", next = "BACK" } },
+    },
+
     op_leave = {
       lines = {
         { id = "op_leave_a", text = "Oh, you've asked the question that's ruined more suppers out here than any burnt stew. Theodore says go while there's a road, Saldean says stay till they bury him, and I stand in the middle with a ladle. What do you say, dear?" },
@@ -129,6 +145,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_fields_salma", when = { questDone = TODO_QUEST("The Killing Fields") },
+          text = "My husband tells me you broke up those harvest watchers in our fields, and he's been whistling at supper ever since. I don't know how you did it, but I'll thank you, because I'd stopped letting the children out after dark." },
+
         { id = "h_alt_any", when = { alt = true, metBefore = false },
           text = "Come in and sit, because you've the same hungry look {alt} had when that one came to my door, and I fed that {altclass} until the pot was scraped clean." },
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = true }, cooldown = "5d",
@@ -153,7 +172,7 @@ P:NPC {
           text = "Oh, it's you! I've been keeping a bowl warm in case you came by, and don't you dare say you've already eaten." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my door! You'll eat, then, because that's the rule, and you'll eat twice because you look like you need it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! Sit down, and take off those gauntlets, because nobody eats my stew in steel." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at my door, and thin as a willow switch! Sit down, druid, because I don't care what shape you came in, you'll leave fed." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf at my door, and thin as a willow switch! Sit down, druid, because I don't care what shape you came in, you'll leave fed." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came up to my door so quiet I nearly hit you with the ladle. Sit down, you'll eat like everyone else." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! There's stew on the stove for anyone hungry, shaman or no. Sit down and eat." },
       },
@@ -162,6 +181,8 @@ P:NPC {
         { id = "h_again2", text = "Anything more? The pot won't mind waiting, or not much." },
       },
       choices = {
+        { text = "The harvest watchers won't scare your children now.", next = "dd_fields_salma", when = { questDone = TODO_QUEST("The Killing Fields") } },
+
         { text = "What's cooking?", next = "pot" },
         { text = "I don't know how you keep going out here.", next = "going" },
         { text = "You look like you could use help around the farm.", next = "help" },

@@ -4,7 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.badlands")
 P:Pool {
   id = "guard_kargath", role = "guard", community = "kargath",
   barks = {
-    { id = "b_dust", text = "Dust in my teeth, dust in my boots. Even the dust has dust out here." },
+    { id = "b_dust", text = "There's dust in my teeth and dust in my boots, and I swear even the dust has dust out here." },
     { id = "b_spire", text = "Smoke over the Spire again. Somebody up there is forging something." },
   },
   greetings = {

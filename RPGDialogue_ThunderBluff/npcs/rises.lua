@@ -180,6 +180,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, down here among the Pools of Vision. The tauren will assume you've come to bless the water, so please don't, because blessed water spoils my samples." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and so another of Hamuul's watchers. His students on Elder Rise are always terribly polite to me, which in my experience is how the living say they don't trust you." },
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "You've been to the bottom of the Wailing Caverns, I'm told, and come out unpoisoned, which is remarkable considering what grows down there." },
+        { id = "h_dd_fang", tags = { "news" }, when = { questDone = TODO_QUEST("Leaders of the Fang") }, text = "The young druid on Elder Rise, Wildmane, is going about with a smile on her face and telling everyone you killed the Druids of the Fang for her. I suppose that's one way to cure a nightmare, though the Society would have preferred the specimens alive." },
       },
       choices = {
         { text = "Do the tauren trust a priest's healing?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -196,11 +197,22 @@ P:NPC {
         { text = "Why do the druids distrust you, Zamah?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why does the Society keep notes on paladins, Zamah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went to the bottom of the Wailing Caverns, Zamah.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
+        { text = "You wanted the Fang druids alive, Zamah?", next = "dd_fang", when = { questDone = TODO_QUEST("Leaders of the Fang") } },
         { text = "I'll be going.", next = "END" },
       },
       again = {
         { id = "h_again", text = "More questions? I do like a curious mind, while it lasts." },
         { id = "h_again2", text = "Ask what you will. The pools are patient, and so, I've found, is the grave." },
+      },
+    },
+    dd_fang = {
+      lines = {
+        { id = "dd_fang_1", text = "Alive, dead, or in between, which is the state I find most instructive. Druids who drank from a poisoned dream and came back changed are of great interest to the Royal Apothecary Society, because the Dark Lady's people know a thing or two about coming back changed." },
+      },
+      choices = {
+        { text = "Some things are better left dead, Zamah.", next = "BACK", reply = "Spoken like someone with a pulse. I'll note it in my journal, under opinions of the living, which is a very long page.", fx = { align = { light = 1 } } },
+        { text = "Next time I'll bring you what's left of them.", next = "BACK", reply = "How refreshingly practical of you. A jar of cavern water and a scrap of robe would do, and please don't tell the druids on Elder Rise.", fx = { align = { light = -1 } } },
+        { text = "Something else, Zamah.", next = "BACK" },
       },
     },
     why = {
@@ -292,7 +304,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "To hunt your enemy as a hunter hunts a kodo, patiently and with respect, and to strike only when the moment is right. The centaur of the Barrens charge without thinking, and the warriors who wait for the charge to break are the ones who win the day." } },
       choices = {
-        { text = "I'll wait for the right moment, Holt.", next = "BACK", reply = "Then you'll outlive the ones who don't, and that's the first lesson of every hunt. Patience wins more battles than strength ever has.", fx = { align = { order = 1 } } },
+        { text = "I'll wait for the right moment, Holt.", next = "BACK", reply = "Then you'll outlive the ones who don't, and that's the first lesson of every hunt. Lie in the grass until your legs ache, and then a little longer.", fx = { align = { order = 1 } } },
         { text = "Waiting loses battles. I strike first.", next = "BACK", reply = "Some do, and some battles are won that way, I'll not deny it. But the centaur are counting on you to think like that, and they've been right before.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -315,7 +327,7 @@ P:NPC {
         { id = "xrogue_default", text = "That's true, and I've watched a troll rogue sit so still in the grass that a plainstrider stepped on him. But a hunter is patient so the beast can be honoured, and I'm not sure a rogue is patient for anything but the purse at the end of it." },
       },
       choices = {
-        { text = "Patience for its own sake, then. I'll learn that.", next = "BACK", reply = "Then you'll be a better rogue than most, and maybe a better hunter than some. Patience for its own sake is a gift the plains give to those who ask.", fx = { align = { light = 1 } } },
+        { text = "Patience for its own sake, then. I'll learn that.", next = "BACK", reply = "Then you'll be a better rogue than most, and maybe a better hunter than some. Come out to the plains with me one dawn, and I'll show you how long a proper stalk can take.", fx = { align = { light = 1 } } },
         { text = "The purse at the end is reason enough.", next = "BACK", reply = "For a rogue, perhaps it is, and I'll not tell you how to live. Just don't bring that purse out hunting with me, or the beasts will hear it jingle.", fx = { align = { light = -1 } } },
         { text = "What does the Earth Mother ask of hunters?", next = "mother" },
       },
@@ -435,7 +447,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Anything that can protect the herd can hurt it. The orcs remember the Light from the camps, where it guarded their cages. Use it to guard the herd, not to cage anyone, and you'll be welcome among my warriors." } },
       choices = {
-        { text = "I'll guard the herd with it, Ker.", next = "BACK", reply = "Then you'll have a place at my fire, and the warriors will learn to trust it. A shield of Light over the herd is a fine thing to see.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll guard the herd with it, Ker.", next = "BACK", reply = "Then you'll have a place at my fire, and the warriors will learn to trust it. Stand behind the second rank when we drill, and let them see the Light on you when they're tired.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll use it however the fight requires.", next = "BACK", reply = "The fight always requires more than you think, and that is how the camps were built. Watch yourself, paladin, because the orcs are watching too.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -444,7 +456,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "Behind it, I would say, close enough to reach the wounded and far enough back that the first charge doesn't fall on you. A warrior who knows a healer stands at his back will hold a little longer, and a little longer is often the whole battle." } },
       choices = {
-        { text = "I'll stand behind them and keep them standing.", next = "BACK", reply = "Then my warriors will hold longer, and so will the herd. A healer who knows where to stand is worth more than a dozen braves.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll stand behind them and keep them standing.", next = "BACK", reply = "Then my warriors will hold longer, and so will the herd. Stand at the back of the ring tomorrow and watch where they fall, because that's where you'll be needed.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I fight where I choose, not where warriors need me.", next = "BACK", reply = "You may choose, and the battle will choose its dead from those who stood alone. I'd rather you chose to stand where you're needed.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -497,7 +509,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "The Grimtotem do, and they have none of their own, because they hold to the old shamans and sneer at what Hamuul learned from the night elves. They'd say a tauren who borrows a stranger's teachings has forgotten the herd, and I'd say a tauren who turns his spear on his own kin has forgotten more." } },
       choices = {
         { text = "Our own old ways should come first, before borrowed ones.", next = "BACK", reply = "The Grimtotem would cheer to hear you say it, and that alone gives me pause. Our old ways are good, but they were never meant to be a wall.", fx = { align = { order = 1 } } },
-        { text = "Learning from the night elves made us stronger, not weaker.", next = "BACK", reply = "It did, and Hamuul brought back more than the night elves ever knew they were giving. A herd that learns where the water is grows stronger every season.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Learning from the night elves made us stronger, not weaker.", next = "BACK", reply = "It did, and Hamuul brought back more than the night elves ever knew they were giving. Half the druids on Elder Rise learned their first forms from him.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -507,7 +519,7 @@ P:NPC {
         { id = "xmage_default", text = "By standing behind the warriors and burning whatever tries to get past them, which is all a warrior ever asks. The centaur raid the edges of Mulgore and they've learned to fear fire, so use it on them and not on the grass." },
       },
       choices = {
-        { text = "I'll protect the herd, Ker.", next = "BACK", reply = "Then you'll find a place behind my line, and the braves will be glad of it. Fire that guards the herd is a fine thing to stand in front of.", fx = { align = { honor = 1 } } },
+        { text = "I'll protect the herd, Ker.", next = "BACK", reply = "Then you'll find a place behind my line, and the braves will be glad of it. Only mind their manes; the last mage I drilled singed three of them.", fx = { align = { honor = 1 } } },
         { text = "I'll protect myself first. The herd can follow.", next = "BACK", reply = "The herd doesn't follow a mage who runs, it scatters. Protect yourself, then, but don't be surprised when no one's left to protect you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

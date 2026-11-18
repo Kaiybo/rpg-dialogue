@@ -105,6 +105,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_heirloom_v", when = { questDone = TODO_QUEST("The Forgotten Heirloom") },
+          text = "Theodore has his pocket watch back, and he winds it every evening by the wagon as though the farm were still ours. My father gave him that watch, and I can't tell you how much it means to see it in his hand again." },
+
         { id = "h_druidx", when = { class = "DRUID" },
           text = "Well, aren't you a tall one, and smelling of moss besides. Sit down if you like; the stew's nearly done." },
         { id = "h_default", text = "Verna Furlbrow. That's Theodore on the porch, pretending he isn't worried, and that's Blanchy, who's the only one of us honest about being tired." },

@@ -68,7 +68,7 @@ P:NPC {
       big = true,
       lines = { { id = "dw_default", text = "The soldiers always say combat, and the quartermasters always say logistics, and the truth is that a war is lost the moment either one runs out. Still, I've seen more brave fools than good haulers come through this hold." } },
       choices = {
-        { text = "Then I'll haul. Somebody has to keep the line fed.", next = "BACK", reply = "You have the patience of the old Sentinels, and the line will be grateful for it long after the brave fools have been buried.", fx = { align = { order = 1 } } },
+        { text = "Then I'll haul. Somebody has to keep the line fed.", next = "BACK", reply = "You have the patience of the old Sentinels. I carried water for the druids for longer than you have been alive before they let me call the winds, and I don't regret a single trip.", fx = { align = { order = 1 } } },
         { text = "Hauling is for others. Send me where the fighting is.", next = "BACK", reply = "Then I will send you, but remember that a soldier with no water is a soldier lying in the sand, and someone has to carry it to you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -105,7 +105,7 @@ P:NPC {
 
     gear = {
       lines = { { id = "ge_default", text = "Talk to Vargus, the blacksmith here at the hold, and show him whatever badges you've earned along the way. He'll give you gear to match your commitment, and you'll find he takes commitment very seriously." } },
-      choices = { { text = "I'll find Vargus. Something else.", next = "BACK" } },
+      choices = { { text = "I'll find Vargus. Something else, though.", next = "BACK" } },
     },
   },
 
@@ -334,7 +334,7 @@ P:NPC {
     neighbors = {
       lines = { { id = "ne_default", text = "Layo Starstrike tends the graves and talks to the dead more kindly than he talks to me, which is fair, since they complain less. Beyond him there's only the wind, and whatever the wind brings, which lately has been cultists in robes asking for directions." } },
       choices = {
-        { text = "Cultists? What sort?", next = "cultists" },
+        { text = "Cultists? What sort of cultists?", next = "cultists" },
         { text = "Something else.", next = "BACK" },
       },
     },

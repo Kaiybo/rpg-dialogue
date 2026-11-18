@@ -56,7 +56,7 @@ P:NPC {
       big = true,
       lines = { { id = "ld_default", text = "The shadow, these days, because it always has something to say and it never runs out of words. But the Light be the one that heals, and a priest who forgets that ends up talking to himself in the dark." } },
       choices = {
-        { text = "Healing matters most. I'll keep to the Light.", next = "BACK", reply = "Good, mon, and the Light will be glad of you. Keep it close, and the shadow stay quiet.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Healing matters most. I'll keep to the Light.", next = "BACK", reply = "The Light be glad of you, mon. Keep it close, and the shadow stay quiet in the corner where it belong.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The shadow has power. I'll listen to it.", next = "BACK", reply = "Listen, then, but don't answer it too often, mon. The shadow be a good talker and a bad friend.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -203,7 +203,7 @@ P:NPC {
       big = true,
       lines = { { id = "ds_default", text = "Once, to a student who wouldn't stop, even when his hands shook and his eyes went pale. He left for the north looking for more power, and I never heard from him again, which be the best thing I can say." } },
       choices = {
-        { text = "Magic needs limits. Discipline keeps you alive.", next = "BACK", reply = "Ya, mon, and you'll live long enough to learn more. That be the first lesson and the last.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Magic needs limits. Discipline keeps you alive.", next = "BACK", reply = "Ya, mon, and you'll live long enough to learn the rest. Discipline be the first lesson, and the last one too.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Power should be pursued, whatever the cost.", next = "BACK", reply = "Then you'll go north like he did, mon, and I'll never hear from you either. I hope you prove me wrong.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -332,7 +332,7 @@ P:NPC {
       big = true,
       lines = { { id = "wa_default", text = "Every day, and every day the Warchief tells me they're useful, and every day I swallow my words. I don't trust them, but I trust Thrall, so I watch and I wait." } },
       choices = {
-        { text = "The Warchief knows best. Trust his judgement.", next = "BACK", reply = "That's what I tell myself every morning. Thrall's judgment has carried us this far, so I'll trust it.", fx = { align = { order = 1 } } },
+        { text = "The Warchief knows best. Trust his judgement.", next = "BACK", reply = "That's what I tell myself every morning when I pass the Cleft. Thrall's judgment has carried us this far, so I'll trust it.", fx = { align = { order = 1 } } },
         { text = "Some dangers shouldn't be tolerated, whatever the Warchief says.", next = "BACK", reply = "Maybe so, and I've thought it more than once. But I'll not go against the Warchief, so I watch.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -569,7 +569,7 @@ P:NPC {
       big = true,
       lines = { { id = "he_default", text = "That be what I believe, mon, but the world needs fire potions too, I suppose. I just wish the alchemists would ask the plants first, the way my grandmother taught me." } },
       choices = {
-        { text = "Herbs should heal. That's their purpose.", next = "BACK", reply = "That be the truth, mon, and my grandmother would like you. Heal first, always.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Herbs should heal. That's their purpose.", next = "BACK", reply = "That be the truth, mon, and my grandmother would have liked you. She grew her peacebloom right beside the poison, and never mixed them up once.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A weapon is a weapon, even if it grows.", next = "BACK", reply = "It be, mon, and I can't argue it. But ask the plant before you make it a weapon, at least.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

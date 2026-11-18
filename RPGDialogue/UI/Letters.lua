@@ -17,6 +17,37 @@ local ROW_H = 34
 
 local frame, reading
 local mailOpen = false
+-- Set when the panel opened at a mailbox: where you stood and whether the game's mail
+-- window was up, so the panel can close itself once you walk off (MAIL_CLOSED doesn't
+-- always fire on this client when you stray).
+local atMail
+
+local function playerPos()
+  if not UnitPosition then return end
+  local ok, y, x = pcall(UnitPosition, "player")
+  if ok and y and x then return x, y end
+end
+
+local function closeAtMail()
+  atMail = nil
+  mailOpen = false
+  if frame then frame:Hide() end
+end
+
+local elapsed = 0
+local function watch(_, dt)
+  if not atMail then return end
+  elapsed = elapsed + dt
+  if elapsed < 0.25 then return end
+  elapsed = 0
+  local mail = _G.MailFrame
+  if not atMail.frame and mail and mail:IsShown() then atMail.frame = true end
+  if atMail.frame and not (mail and mail:IsShown()) then return closeAtMail() end
+  if atMail.x then
+    local x, y = playerPos()
+    if x and ((x - atMail.x) ^ 2 + (y - atMail.y) ^ 2) > 100 then return closeAtMail() end
+  end
+end
 
 local function makeRow(i)
   local row = CreateFrame("Button", nil, frame.list)
@@ -55,6 +86,8 @@ local function create()
   frame:SetFrameStrata("HIGH")
   frame:EnableMouse(true)
   frame:Hide()
+  frame:SetScript("OnUpdate", watch)
+  frame:SetScript("OnHide", function() atMail = nil end)
   Theme.Decorate(frame, 6, { chrome = "frame" })
   frame.title = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.title:SetDrawLayer("OVERLAY", 7)
@@ -228,12 +261,19 @@ function P.Refresh()
   if not frame then create() end
   style()
   if reading then showLetter(reading) else showList() end
-  if not frame:IsShown() then anchor(); frame:Show() end
+  if not frame:IsShown() then
+    anchor()
+    local mail = _G.MailFrame
+    local x, y = playerPos()
+    atMail = { frame = mail and mail:IsShown() or false, x = x, y = y }
+    frame:Show()
+  end
 end
 
--- /rpgd letters: open the panel anywhere (handy when a mailbox is far off).
+-- /rpgd letters: show or hide the panel, only while a mailbox is open.
 function P.Toggle()
   if frame and frame:IsShown() then frame:Hide(); return end
+  if not mailOpen then ns.Print(L.LETTERS_NEED_MAILBOX); return end
   if not frame then create() end
   style()
   reading = nil
@@ -248,16 +288,7 @@ ns.On("MAIL_SHOW", function()
   ns.Letters.Tick()
   ns.Guard("letters panel", P.Refresh)
 end)
-ns.On("MAIL_CLOSED", function()
-  mailOpen = false
-  if frame then frame:Hide() end
-end)
+ns.On("MAIL_CLOSED", closeAtMail)
 ns.Listen("LETTERS_CHANGED", function()
-  if (mailOpen or (frame and frame:IsShown())) and frame then
-    ns.Guard("letters panel", function()
-      if mailOpen then P.Refresh() elseif reading then showLetter(reading) else showList() end
-    end)
-  elseif mailOpen then
-    ns.Guard("letters panel", P.Refresh)
-  end
+  if mailOpen then ns.Guard("letters panel", P.Refresh) end
 end)

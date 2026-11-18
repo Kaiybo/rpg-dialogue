@@ -44,6 +44,8 @@ P:NPC {
           text = "Three black dragonscales, pal, and I'll make you a Doomsday Candle that burns any demon that tries to break your circle, which is a bargain when you think about the alternative. Buy them from a skinner, unless you want to ask a dragon nicely and see what that costs." },
         { id = "h_nonlock", when = { class = { "WARRIOR", "PALADIN", "HUNTER", "ROGUE", "PRIEST", "SHAMAN", "MAGE", "DRUID" } },
           text = "You're not a warlock, are you? That's fine, I'm not either, really, I just work for one, and the pay's good and the company's fascinatin', so I call it a career." },
+        { id = "dd_dreadsteed", when = { questDone = TODO_QUEST("Dreadsteed of Xoroth") },
+          text = "Master Mor'zul says you've got yourself a dreadsteed, and you didn't even get eaten by it, pal! That's the best return on a candle I ever sold, and I'm tellin' every warlock who walks by." },
       },
       again = {
         { id = "h_again", text = "What else, pal? I've got potions, inks, opinions, and a beetle I was saving, and only one of those is free." },
@@ -152,7 +154,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "A goblin alchemist who left trading for demons, pal, best career move I ever made, and I've never looked back, except to check for bugs." } },
     advice = { { id = "tp_ad", text = "Eat what scurries, friend, because it's free and it's everywhere, and free is the best price there is." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Legion's demons are wonderful, pal, just wonderful, and they pay in power instead of gold. Mor'zul says I'm too enthusiastic, but I say there's no such thing." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I started, pal, selling potions to pirates. Demons are a much better class of customer." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I started, pal, sellin' potions to pirates on credit, which was a mistake. Demons are a much better class of customer; they always pay, one way or another." } },
     blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons under the mountain have reagents I'd kill for, pal, and maybe I will someday. Mor'zul says to be patient." } },
     _none = { { id = "tp_none", text = "No idea, pal! But if it has six legs, I'll tell you how it tastes, and if it hasn't, I'll tell you what it's worth." } },
   },

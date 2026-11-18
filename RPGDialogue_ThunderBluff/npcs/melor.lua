@@ -73,7 +73,7 @@ P:NPC {
       big = true,
       lines = { { id = "me_default", text = "Grateful, or sorry, or satisfied that a thing was done that needed doing. Pride belongs to the beast that ran well, and the hunter should leave it with the carcass." } },
       choices = {
-        { text = "Gratitude, not pride. I'll remember.", next = "BACK", reply = "Remember it on the trail, when the hunt has gone your way and your blood is still singing. That is the moment it matters, and the moment it is hardest.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Gratitude, not pride. I'll remember that, Melor.", next = "BACK", reply = "Remember it on the trail, when the hunt has gone your way and your blood is still singing. That is the moment it matters, and the moment it is hardest.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A good kill should be celebrated.", next = "BACK", reply = "Celebrate the meat on the fire and the hides for the winter, and I will sit beside you. But the beast died, young one, and that is not a thing to cheer.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -108,7 +108,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Know why you're hunting before you draw. A hunter without a reason is only a killer with a bow." } },
     centaur = { { id = "tp_centaur", text = "The centaur were the first hunt my father ever sent me on, and I failed it. I have hunted them since, and I have not failed again." } },
     quilboar = { { id = "tp_quilboar", text = "The quilboar kill for pleasure as much as for food, and that is why I hunt them. A beast that kills for pleasure has gone wrong." } },
-    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the beasts, and she made them to be hunted, but only with respect. A hunt without respect is only murder." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the beasts, and she made them to be hunted, but only with respect. Thank the beast before you skin it, and waste nothing you take." } },
     cairne = { { id = "tp_cairne", text = "Cairne is the greatest hunter of our people, and he taught me that every hunt must teach something. I try to live up to that." } },
     _none = { { id = "tp_none", text = "That's no trail I know. Ask among the elders, or at the Crossroads, and may the Earth Mother guide your tracking." } },
   },

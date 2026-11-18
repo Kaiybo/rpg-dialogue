@@ -26,7 +26,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "The plants and timberlings here grow twisted and sickly, and I cannot find the cause. Perhaps your spirits know it." } },
       choices = {
         { text = "Then study them carefully, Denalan. Find the cause.", next = "BACK", reply = "I will, and I will not rest until I do, for the forest deserves to know what ails it. Your trust means a great deal, shaman.", fx = { align = { order = 1 } } },
-        { text = "Burn them. Sickness spreads.", next = "BACK", reply = "And if the sickness is in the soil, shall we burn the whole tree? Fire is a poor cure for a sickness we do not yet understand.", fx = { align = { order = -1 } } },
+        { text = "Burn them before the sickness spreads.", next = "BACK", reply = "And if the sickness is in the soil, shall we burn the whole tree? Fire is a poor cure for a sickness we do not yet understand.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -276,8 +276,19 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    dd_spiders = {
+      lines = {
+        { id = "dds_default", text = "I keep dreaming of their legs on the stone, and then I wake and remember that there are fewer of them now. Thank you for that, though I hope it wasn't on my account alone." },
+      },
+      choices = {
+        { text = "After what they did to you, they had it coming.", next = "BACK", reply = "That's kind of you to say, though I'm not sure the spiders knew they were doing anything wrong. Still, I won't pretend I'm sorry.", fx = { align = { light = -1 } } },
+        { text = "I took no pleasure in it. They're only beasts.", next = "BACK", reply = "That's what Dirania says too. She told me to hate the venom and not the spider, and I am trying.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_kills", tags = { "news" }, when = { killed = { name = "Webwood", min = 15 } }, text = "They say you have killed a great many of the Webwood spiders since I was bitten. I know it's foolish, but I sleep better for knowing it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin? Pardon me for staying down, {class}, because the venom has made my legs heavy, though seeing you makes me feel a little braver." },
         { id = "h_default", key = true,
           text = "I am Iverron, and I was foolish enough to wander too near the spiders' cave. The venom works slowly, which is a mercy and a torment both." },
@@ -296,6 +307,7 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like, friend." },
       },
       choices = {
+        { text = "I've cleared a lot of those spiders out of the cave.", next = "dd_spiders", when = { killed = { name = "Webwood", min = 15 } } },
         { text = "Why were you near the cave?", next = "cave" },
         { text = "Who's looking after you?", next = "dirania" },
         { text = "What lives in Shadowglen?", next = "glen" },

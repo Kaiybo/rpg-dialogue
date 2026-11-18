@@ -43,6 +43,8 @@ P:NPC {
           text = "An Ironforge dwarf! I've always wanted tae see the Great Forge, ye know, just tae look, an' maybe tae see what they charge for their ore." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Horde, all the way up here! Ye've come through the Badlands, I expect, an' ye'll know where the good ore is in Kargath's hills, so let's talk." },
+        { id = "dd_rep", when = { reputation = { faction = "Thorium Brotherhood", min = "friendly" } },
+          text = "Overseer Oilfist says ye're a friend o' the Brotherhood now, which means I'm no' allowed tae exploit ye. Explore ye, I mean, explore. Ach, ye know what I mean." },
       },
       again = {
         { id = "h_again", text = "What else? I'm all ears, an' most o' my ears are for business." },
@@ -68,8 +70,8 @@ P:NPC {
       big = true,
       lines = { { id = "sld_default", text = "Is there? The Emperor exploited us an' called it glory, an' the Brotherhood pays us an' calls it work, an' I'd say the Brotherhood's the honest one. If I'm goin' tae exploit anythin', I'd rather it was a seam o' ore than a dwarf." } },
       choices = {
-        { text = "Take what the world gives. That's fair.", next = "BACK", reply = "Spoken like a dwarf who's earned a wage, an' I'll drink tae that. The world owes us a bit, after all.", fx = { align = { honor = -1 } } },
-        { text = "Explore it, but leave something behind. That's fair.", next = "BACK", reply = "Fair, an' sensible, an' I'll grant it's kinder than the Emperor ever was. Leave a bit for the next lot.", fx = { align = { honor = 1 } } },
+        { text = "The world's there to be taken. Nothing wrong with that.", next = "BACK", reply = "Spoken like a dwarf who's earned a wage, an' I'll drink tae that. The world owes us a bit, after all.", fx = { align = { honor = -1 } } },
+        { text = "Explore all you like, but leave something for the next dwarf.", next = "BACK", reply = "Fair, an' sensible, an' I'll grant it's kinder than the Emperor ever was. Leave a bit for the next lot.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

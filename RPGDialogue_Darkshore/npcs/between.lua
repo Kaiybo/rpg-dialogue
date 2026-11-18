@@ -22,7 +22,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I believe I can, faintly, and it is mourning. Your spirits might hear it more clearly than I do." } },
       choices = {
-        { text = "Then we should honour it, Asterion.", next = "BACK", reply = "Then honour it we shall, shaman, and the stones may sleep a little easier for it. Few who come here think of the city's grief.", fx = { align = { light = 1 } } },
+        { text = "Then we should honour it, Asterion.", next = "BACK", reply = "Then honour it we shall, shaman, and the stones may sleep a little easier. You are the first visitor in a long age to think of the city's grief.", fx = { align = { light = 1 } } },
         { text = "Ruins are ruins. Let them be.", next = "BACK", reply = "They are ruins to you, but they were homes to my people. The satyrs would be glad to hear you say it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -31,7 +31,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "You can, by breaking every satyr you find among the stones and taking back whatever they have dug up. They are cowards in the open and vicious in the dark, so fight them where the moon can see them." } },
       choices = {
-        { text = "I'll drive them out and leave the stones in peace.", next = "BACK", reply = "That is all I ask, warrior, and more care than most blades show. The stones have suffered enough.", fx = { align = { honor = 1 } } },
+        { text = "I'll drive them out and leave the stones in peace.", next = "BACK", reply = "That is all I ask, warrior, and more care than most blades show. I watched these halls built, and I would rather not watch them broken twice.", fx = { align = { honor = 1 } } },
         { text = "Whatever they dug up is mine. Spoils of war.", next = "BACK", reply = "Then you are no better than the satyrs, warrior, and I will thank you to leave it with me. Some spoils curse their keepers.", fx = { align = { honor = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -43,7 +43,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "In the cellars of the old houses and among the fallen pillars on the eastern side, where they think I cannot see. Your {pet} will smell them before you see them, so let it lead. Satyrs hate beasts that hunt them, which is the best reason I know to bring one." },
       },
       choices = {
-        { text = "I'll root them out of the cellars, face to face.", next = "BACK", reply = "Then go, and may Elune guide your blade in the dark. The cellars are where they hide the worst of it.", fx = { align = { honor = 1 } } },
+        { text = "I'll root them out of the cellars, face to face.", next = "BACK", reply = "Then go, and may Elune guide your blade in the dark. Mind the stairs in the cellars; they were old even when I was alive.", fx = { align = { honor = 1 } } },
         { text = "I'll pick them off from the pillars as they dig.", next = "BACK", reply = "Wise, hunter, for they fight poorly at a distance. Pick them off, and leave the pillars standing.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -53,7 +53,7 @@ P:NPC {
         { id = "xma_default", text = "Too much, and not nearly enough to tempt a mortal like you, I hope. The Highborne who lived here poured their arcane into every stone, and the Deth'ryll satyrs are what comes of that hunger, given a few thousand years." },
       },
       choices = {
-        { text = "Then I'll help you see it sealed away.", next = "BACK", reply = "Thank you, mage, and I am glad to hear it from one of your craft. Some things should stay buried.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll help you see it sealed away.", next = "BACK", reply = "Thank you, mage, and I am glad to hear it from one of your craft. I was a mage once, and I know how the wanting feels.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Knowledge shouldn't be left to satyrs.", next = "BACK", reply = "No, it should not, and nor should it be left to you. Help me seal it, and we will both be safer.", fx = { align = { order = -1 } } },
         { text = "What was the city like?", next = "city" },
       },
@@ -63,7 +63,7 @@ P:NPC {
         { id = "xwl_default", text = "Deal with them by the blade, or deal with them by bargain? I have watched the satyrs whisper to every traveler who comes too close, and I would not trust one of your trade not to listen." },
       },
       choices = {
-        { text = "I'll kill them, and listen to nothing.", next = "BACK", reply = "Good, for their whispers have undone better minds than yours. Kill them quickly, and do not listen.", fx = { align = { light = 1 } } },
+        { text = "I'll kill them, and listen to nothing.", next = "BACK", reply = "Good, for their whispers have undone better minds than yours. I know, because I once lent them my ear.", fx = { align = { light = 1 } } },
         { text = "There's knowledge in their whispers, if you're careful.", next = "BACK", reply = "That is exactly what the Highborne said, warlock, and look where they are now. Careful is never careful enough.", fx = { align = { light = -1 } } },
         { text = "What do the satyrs want?", next = "satyrs" },
       },
@@ -72,7 +72,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Old sorrow, and old magic that the Deth'ryll want badly, and anything a satyr craves is magic no one should hold. Pray over these stones, if you would, in whatever name you pray." } },
       choices = {
-        { text = "I'll pray over the stones. Your people deserve peace.", next = "BACK", reply = "Thank you, priest, and Elune will hear you. The stones have not known a kind prayer in a long time.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll pray over the stones. Your people deserve peace.", next = "BACK", reply = "Thank you, priest. No one has prayed among these stones since before the sea rose over Zin-Azshari.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Stones don't need prayer. The satyrs need killing.", next = "BACK", reply = "The satyrs do, I will not argue it. But the stones remember, and a prayer would not hurt them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -81,7 +81,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Destroyed, if you ask me, for the Deth'ryll will not leave while there is anything left to dig up. But you serve your own vows, and I would not ask you to break them for me." } },
       choices = {
-        { text = "They'll be driven out, and the ruins left in peace.", next = "BACK", reply = "That is the gentler answer, paladin, and I respect it. Whatever drives them out, I will be grateful.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They'll be driven out, and the ruins left in peace.", next = "BACK", reply = "That is the gentler answer, paladin. They would not offer you the same mercy, but I respect it.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "They'll be destroyed, every one of them.", next = "BACK", reply = "Then do it, and I will not mourn them. They chose their horns.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -92,7 +92,7 @@ P:NPC {
         { id = "xrogue_default", text = "The Deth'ryll satyrs carry off whatever old magic they find in these stones, and I would see it taken back before they learn to use it. You needn't fight them all, only reach the ones who carry the pieces, and leave the rest wondering where their brothers went." },
       },
       choices = {
-        { text = "If I fight them, I'll fight them face to face.", next = "BACK", reply = "Then you are braver than most rogues, and I will be grateful for it. They fight dirty, though.", fx = { align = { honor = 1 } } },
+        { text = "If I fight them, I'll fight them face to face.", next = "BACK", reply = "Then you are braver than most rogues. They will not return the courtesy, so watch for the knife in the dark.", fx = { align = { honor = 1 } } },
         { text = "I'll come at them from behind. They won't see me coming.", next = "BACK", reply = "Then they will never see you coming, and they deserve it. Bring back whatever they took.", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -142,7 +142,7 @@ P:NPC {
       },
       choices = {
         { text = "Whatever they were, they chose this. Drive them out.", next = "BACK", reply = "They did, and I cannot forgive them for it. Drive them out, and I will help.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "They were our people once. Pity them, at least.", next = "BACK", reply = "They were, and I pity them, some nights. But not enough to let them dig.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "They were our people once. Pity them, at least.", next = "BACK", reply = "They were, and some nights I pity them. Then I hear their picks in the cellars, and the pity goes.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Let them dig. Dead cities are no one's business.", next = "BACK", reply = "It is my business, and it was my people's home. I will not let them dig.", fx = { align = { order = -1 } } },
       },
     },
@@ -225,7 +225,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Fascinated, {g:lad|lass}! The old stone talks to us through runes, and maybe your spirits hear what the runes leave out. Come and dig with me sometime!" } },
       choices = {
-        { text = "I'll dig with you honestly, Prospector, and share what I find.", next = "BACK", reply = "That's the spirit, {g:lad|lass}, and the League'll thank ye for it! Share and share alike, that's the dwarven way.", fx = { align = { honor = 1 } } },
+        { text = "I'll dig with you honestly, Prospector, and share what I find.", next = "BACK", reply = "That's the spirit, {g:lad|lass}, and the League'll thank ye for it! Grab that brush and mind the wee bits.", fx = { align = { honor = 1 } } },
         { text = "Runes are enough. Spirits only muddy the record.", next = "BACK", reply = "Aye, they're enough for me too, mostly. But I'll not turn down a good guess from a spirit, if ye've one handy.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -243,7 +243,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than a pint o' Thunderbrew, {g:lad|lass}, for they come up from the shore every time I find somethin' worth keepin'. Stand at the trench while I dig, an' I'll put your name in my report tae the League, spelled right an' all." } },
       choices = {
-        { text = "I'll stand guard. The League's work matters.", next = "BACK", reply = "Good on ye, {g:lad|lass}, and the League'll remember it. The murlocs won't know what hit 'em.", fx = { align = { honor = 1 } } },
+        { text = "I'll stand guard. The League's work matters.", next = "BACK", reply = "Good on ye, {g:lad|lass}! The murlocs won't know what hit 'em, an' I can finally dig without lookin' over my shoulder.", fx = { align = { honor = 1 } } },
         { text = "I'll guard you for a share of the finds.", next = "BACK", reply = "A share, eh? Ye drive a hard bargain, but the League's always been fair. We'll talk about it after the murlocs.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -265,7 +265,7 @@ P:NPC {
         { id = "xro_default", text = "Anyone could, but who'd want old elven pots an' half a fossil? The elves, that's who, an' they're no' happy wi' a dwarf diggin' up their ancestors as it is." },
       },
       choices = {
-        { text = "I'll keep an eye on it for you.", next = "BACK", reply = "Thank ye, {g:lad|lass}, and I'll owe ye a pint for it. The elves keep a closer eye than I'd like.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll keep an eye on it for you.", next = "BACK", reply = "Thank ye, {g:lad|lass}. The elves keep a closer eye on it than I'd like, but they'll no' carry a crate for me.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Pots sell, Prospector. Mind your back.", next = "BACK", reply = "Pots sell, aye, but no' these pots. Mind yer own back, friend.", fx = { align = { honor = -1 } } },
         { text = "What are you digging for?", next = "dig" },
       },
@@ -286,7 +286,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Oh, it's nothing, probably, though it's gone a colour I don't much like. Mind you, the murlocs on the beach bite harder than anything in the ruins, so I'll keep digging and hope for the best." } },
       choices = {
         { text = "Hold still. I'll tend it now, before it worsens.", next = "BACK", reply = "Ach, if ye insist, and I'll try not tae squirm. It has gone a nasty colour, hasn't it?", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If you say it's nothing, I'll take your word.", next = "BACK", reply = "Aye, it's nothin', I'm sure of it. Probably nothin'.", fx = { align = { light = -1 } } },
+        { text = "If you say it's nothing, I'll take your word.", next = "BACK", reply = "Aye, it's nothin', I'm sure of it, though I'd no' mind if ye stopped lookin' at it like that.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -294,7 +294,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Leave them? Never, friend, for the League's job is to learn what's buried before somebody worse finds it first. I'll be respectful, mind, and the elves have had ten thousand years to complain." } },
       choices = {
-        { text = "The past should be studied with care and respect.", next = "BACK", reply = "Aye, care and respect, that's how the League does it. Mostly.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The past should be studied with care and respect.", next = "BACK", reply = "Aye, care and respect, that's how the League does it, mostly, when nobody's in a hurry.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Dig what you like. The dead won't miss it.", next = "BACK", reply = "They won't, but the elves will, and they've got the arrows. I'll be careful, thank ye.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -431,7 +431,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "There is something there that was not there a season ago, and it gathers others to it in the dark. When it is ready it will come north, and the grove will need roots that hold and blades that do not break." } },
       choices = {
-        { text = "I'll wait, and hold when it comes north.", next = "BACK", reply = "Wise, for the young rarely wait, and waiting is where the grove's strength lies. When it comes north, it will find you ready.", fx = { align = { order = 1 } } },
+        { text = "I'll wait, and hold when it comes north.", next = "BACK", reply = "Wise. The young rarely wait, and you will be glad of your patience when it comes north and finds you ready.", fx = { align = { order = 1 } } },
         { text = "I'll go to the Glaive and strike first.", next = "BACK", reply = "Then go with care, for what gathers at the Glaive is older than your anger. Strike true, and come back to tell me of it.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -443,7 +443,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The healthy ones do, and they come to sleep in our shade as they always have. Your {pet} is healthy and unafraid of me, which is good to see. Bring it to the grove whenever you pass, and let it rest among the roots." },
       },
       choices = {
-        { text = "I'll seek a cure for them, not a quick death.", next = "BACK", reply = "The grove will remember that, hunter, and so shall I. A cure takes longer than an arrow, but it leaves the forest whole.", fx = { align = { light = 1 } } },
+        { text = "I'll seek a cure for them, not a quick death.", next = "BACK", reply = "The grove will remember that, hunter, and so shall I. Tharnariun by the shore has been searching for one; go and lend him your eyes.", fx = { align = { light = 1 } } },
         { text = "A quick death is the only mercy left them.", next = "BACK", reply = "It may be so, and that is the sorrow of this season. If it must be done, then be swift and gentle about it.", fx = { align = { light = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -463,7 +463,7 @@ P:NPC {
         { id = "xwl_default", text = "You could, and I think whatever stirs there would welcome you, and that is exactly why I do not want you near it. The Twilight cultists gather at the Glaive, and they would find one of your kind very useful." },
       },
       choices = {
-        { text = "Then I'll go and burn them out.", next = "BACK", reply = "Then my roots will be glad of it, and the grove will breathe easier. Burn them out, and do not linger to listen.", fx = { align = { light = 1 } } },
+        { text = "Then I'll go and burn them out.", next = "BACK", reply = "Then my roots will be glad of it. Burn them out, and do not linger to hear what they offer you.", fx = { align = { light = 1 } } },
         { text = "Perhaps they'd tell me something worth knowing.", next = "BACK", reply = "It would tell you a great deal, warlock, and all of it bait. I have watched that hook take wiser fish than you.", fx = { align = { light = -1 } } },
         { text = "Who keeps the grove with you?", next = "grove" },
       },
@@ -493,7 +493,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll go, but openly, and fight them fairly.", next = "BACK", reply = "Openly, then, and may the grove's strength go before you. The cult will not expect a guest who knocks.", fx = { align = { honor = 1 } } },
-        { text = "Unseen is how I work. They'll never know.", next = "BACK", reply = "Then let them never know, and let the grove be safer for it. Only come back, for I have lost too many young ones to that place.", fx = { align = { honor = -1 } } },
+        { text = "Unseen is how I work. They'll never know.", next = "BACK", reply = "Then let them never know. Only come back, for I have lost too many young ones to that place.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

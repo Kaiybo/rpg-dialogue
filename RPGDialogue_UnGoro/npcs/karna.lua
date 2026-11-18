@@ -39,8 +39,8 @@ P:NPC {
         { text = "Take it back. It's your home, and the troggs don't deserve it.", next = "op_gnomeregan_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { gnomeregan = "reclaim" } } },
         { text = "Let it go. The radiation's not worth more gnome lives.", next = "op_gnomeregan_r2", fx = { affinity = -1, align = { honor = -1 }, trait = { cautious = 1 }, opinion = { gnomeregan = "lost" } } },
         { text = "The gnomes poisoned it themselves. Be careful what you build next.", next = "op_gnomeregan_r3", fx = { trait = { stern = 1 }, opinion = { gnomes = "reckless" } } },
-        { text = "Gnomeregan will be ours again, Karna. I'll see to it.", next = "op_gnomeregan_r4", fx = { affinity = 2, opinion = { gnomeregan = "reclaim" } }, when = { race = "Gnome" } },
-        { text = "That's for the gnomes to decide, Karna.", next = "BACK" },
+        { text = "We'll take Gnomeregan back, Karna. I'll see to it myself.", next = "op_gnomeregan_r4", fx = { affinity = 2, opinion = { gnomeregan = "reclaim" } }, when = { race = "Gnome" } },
+        { text = "That's for the gnomes to decide, not me.", next = "BACK" },
       },
     },
     op_gnomeregan_r1 = {
@@ -86,6 +86,7 @@ P:NPC {
           text = "You brought her home! A dent in the shoulder and one in the head, but nothing a dwarf with a hammer can't fix. I could kiss you, but I'll just say thank you." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! Then you've surely heard of my uncle Remtravel, or you will, because he's never stopped digging long enough to be forgotten." },
+        { id = "h_dd_flyer", when = { questDone = TODO_QUEST("Shizzle's Flyer") }, text = "Shizzle's been bragging that you fetched the scales for his flyer, and now he's sure he'll be out of the crater by spring. I've looked at the design, and I'd give it one flight, maybe two, but I hope he proves me wrong." },
       },
       again = {
         { id = "h_again", text = "What else? I love questions almost as much as I love gears, and nearly as much as a good dark ale." },
@@ -117,7 +118,7 @@ P:NPC {
       lines = { { id = "as_default", text = "It worked beautifully until it didn't, and I learned more in three days than in three months. Spying is a strong word, though; I'd call it very polite watching." } },
       choices = {
         { text = "Leave them be. They didn't ask to be studied.", next = "BACK", reply = "They didn't, I'll grant you, and the alpha made that very clear to A-Me 01. Perhaps I'll study them from a polite distance next time.", fx = { align = { order = 1 } } },
-        { text = "Knowledge is worth a little trespass.", next = "BACK", reply = "That's my feeling too, though Hol'anyee would scold us both for it. A little trespass, a lot of notes, and nobody gets hurt, ideally.", fx = { align = { order = -1 } } },
+        { text = "Knowledge is worth a little trespass.", next = "BACK", reply = "That's my feeling too, though Hol'anyee would scold us both for it. I filled two whole notebooks in three days, and only one of them is dented.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -131,7 +132,7 @@ P:NPC {
     },
     uncle_cave = {
       lines = { { id = "uc_default", text = "He's had a few, and he always says they were worth it. Family stories say he once dug through a wall and found a room nobody had seen in a thousand years, and then the wall came down behind him." } },
-      choices = { { text = "Brave man.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "He sounds braver than he is careful.", next = "BACK", fx = { affinity = 1 } } },
     },
     fungal = {
       lines = { { id = "f_default", text = "The apes' lair, a cave full of glowing mushrooms just east of the Refuge. A-Me walked in, the big male walked up, and then everything went dark, and I've been biting my nails since." } },
@@ -150,7 +151,7 @@ P:NPC {
     },
     gems = {
       lines = { { id = "g2_default", text = "Two scrying gems, cut as a matched pair, so whatever one sees the other shows. The hard part was the eyelids; you'd be amazed how odd an ape looks if it never blinks." } },
-      choices = { { text = "That's brilliant work.", next = "BACK", fx = { affinity = 2 } } },
+      choices = { { text = "That's brilliant work, Karna.", next = "BACK", fx = { affinity = 2 } } },
     },
     next = {
       lines = { { id = "n2_default", text = "A-Me 02, of course! Thicker plating on the head, a softer voice-box she can't use yet, and maybe a scent pouch, if I can bear to collect the scent. The apes have met her once now, so the next one might get a proper welcome." } },
@@ -168,7 +169,7 @@ P:NPC {
       lines = { { id = "ns_default", text = "That's what Hol'anyee asked me, though less politely, and I didn't have a good answer. What would you do, if you could learn something nobody has ever known, and the only price was bothering some apes?" } },
       choices = {
         { text = "Send A-Me 02. Knowledge builds a better world.", next = "BACK", reply = "That's what I'd like to believe, and you've made me feel much better about the blueprints. A-Me 02 it is, with stronger shoulders this time.", fx = { align = { order = 1 } } },
-        { text = "Let the apes be. Not every door needs opening.", next = "BACK", reply = "Maybe you're right, and maybe some doors are better left shut. I'll keep the blueprints anyway, just in case.", fx = { align = { order = -1 } } },
+        { text = "Let the apes be. Not every door needs opening.", next = "BACK", reply = "Maybe you're right, and I'll tell A-Me you said so. I'm keeping the blueprints anyway, rolled up under my cot, just in case.", fx = { align = { order = -1 } } },
         { text = "I'd need to think on that.", next = "BACK" },
       },
     },
@@ -181,7 +182,7 @@ P:NPC {
     },
     shizzle_land = {
       lines = { { id = "szl_default", text = "Only on my tent, and only once, but A-Me's spare arm was inside it! We're friends again now, mostly, though I've moved my tent uphill of his testing ground." } },
-      choices = { { text = "Very sensible.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "Uphill seems wise, with Shizzle about.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     squirrel = {
       lines = { { id = "sq_default", text = "Squirrels, yes, and very good ones, I took one apart as a girl and couldn't put it back together for a month! An ape's a different problem, though; a squirrel only has to look like a squirrel, but an ape has to behave like one, or the others notice." } },

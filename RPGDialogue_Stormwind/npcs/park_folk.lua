@@ -1082,7 +1082,7 @@ P:NPC {
     xorigin = {
       lines = { { id = "xo_default", text = "I thought so; you look at the ground before you look at faces, which is the mark of it. Tell me, then, are the Sentinels still holding the line, or have they started losing trees faster than they can count them?" } },
       choices = {
-        { text = "They're holding. Barely, but holding.", next = "BACK", fx = { affinity = 1 } },
+        { text = "They're holding, barely, but they're holding.", next = "BACK", fx = { affinity = 1 } },
         { text = "We're losing ground, Shailiea. We need every tracker.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

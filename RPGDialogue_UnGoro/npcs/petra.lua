@@ -38,7 +38,7 @@ P:NPC {
         { text = "He's gone soft. Orcs were made for war, not kodo-herding.", next = "op_warchief_r2", fx = { affinity = -2, align = { light = -1 }, opinion = { warchief = "soft" } } },
         { text = "He's a good leader, but one orc can't fix everything.", next = "op_warchief_r3", fx = { trait = { practical = 1 }, opinion = { warchief = "mixed" } } },
         { text = "An honourable foe. The Alliance could use more like him.", next = "op_warchief_r4", fx = { affinity = 1, opinion = { warchief = "respect" } }, when = { faction = "Alliance" } },
-        { text = "I'd rather not say, Petra.", next = "BACK" },
+        { text = "I'd rather keep that to myself.", next = "BACK" },
       },
     },
     op_warchief_r1 = {
@@ -84,6 +84,7 @@ P:NPC {
           text = "Throm-ka. It's good to see another orc this far from the Barrens, even if you're only passing through." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A tauren! Dadanga always perks up around your people, and I've never worked out whether it's the smell of the plains or the size." },
+        { id = "h_dd_bones", tags = { "news" }, when = { questDone = TODO_QUEST("Roll the Bones") }, text = "Spark has been in a better mood since you dug those bones out for him, which means he's only complained about Dadanga twice today. I'll take it, and so will she." },
       },
       again = {
         { id = "h_again", text = "Anything else? Dadanga's in no hurry, and neither am I; an orc learns patience at the end of a lead rope." },
@@ -99,7 +100,18 @@ P:NPC {
         { text = "How do the humans here treat an orc?", next = "humans" },
         { text = "Any advice for keeping a beast content?", next = "tips", when = { class = "HUNTER" } },
         { text = "What does Dadanga eat?", next = "BUSINESS" },
+        { text = "Spark doesn't seem to like Dadanga much, Petra.", next = "dd_bones", when = { questDone = TODO_QUEST("Roll the Bones") } },
         { text = "Take care, Petra.", next = "END" },
+      },
+    },
+    dd_bones = {
+      lines = {
+        { id = "dd_bones_1", text = "He doesn't like anything that isn't gold, and Dadanga is a great deal of things, but she isn't gold. She carries his bones up from Terror Run without a single complaint, though, which is more than I can say for Spark, so I think she's the better worker of the two." },
+      },
+      choices = {
+        { text = "Spark works hard. Give the goblin some credit.", next = "BACK", reply = "He does, I'll grant you, in his own loud way. Dadanga's forgiven him already, and I suppose I can try.", fx = { align = { honor = 1 } } },
+        { text = "He's a coward and a moaner. Dadanga's worth ten of him.", next = "BACK", reply = "Ha! I'd never say it to his face, but she heard you, and I think she agrees.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Petra.", next = "BACK" },
       },
     },
     smoke = {
@@ -111,7 +123,7 @@ P:NPC {
     },
     smoke_op = {
       lines = { { id = "so_default", text = "She has a great many, and most of them are about food. I trust her nose more than any map, though; she's smelled danger before I've seen it more times than I can count." } },
-      choices = { { text = "A good partner, then.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Sounds like a good partner, then.", next = "BACK", fx = { affinity = 1 } } },
     },
     orc = {
       lines = { { id = "o_default", text = "The Marshals needed somebody who knew kodos and wasn't afraid of the road from Gadgetzan, and I needed work that didn't involve an axe. It's been a fair trade on both sides." } },
@@ -124,8 +136,8 @@ P:NPC {
       big = true,
       lines = { { id = "of_default", text = "I've done my share, in the camps and after, and I found I'd rather raise something than cut it down. Dadanga taught me that, more than any shaman did." } },
       choices = {
-        { text = "What do you think of the Warchief, Petra?", next = "op_warchief" },
-        { text = "That's a strength, Petra, not a weakness.", next = "BACK", reply = "You sound like Dadanga, if Dadanga could talk, and I think she'd agree with you. It took me a long time to see it that way.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What do you make of the Warchief?", next = "op_warchief" },
+        { text = "Choosing that is a strength, Petra.", next = "BACK", reply = "You sound like Dadanga, if Dadanga could talk, and I think she'd agree with you. It took me a long time to see it that way.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "An orc should keep her axe close, all the same.", next = "BACK", reply = "I keep it close, don't worry, and it's sharp. But I'd rather use it on firewood than on anything that breathes.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -166,7 +178,7 @@ P:NPC {
       big = true,
       lines = { { id = "hs_default", text = "Not out here, where the devilsaurs don't care who fought whom. Out there, in the wider world, I know it's more tangled, and I'd like to hear what you think about it." } },
       choices = {
-        { text = "Old wars should stay buried. Work beside whoever's honest.", next = "BACK", reply = "That's how I feel, most days, and it's good to hear someone else say it. The devilsaurs make honest folk of us all.", fx = { align = { order = -1 } } },
+        { text = "Old wars should stay buried. Work beside whoever's honest.", next = "BACK", reply = "That's how I feel, most days. When King Mosh is shaking the ferns, nobody asks whose side you fought on.", fx = { align = { order = -1 } } },
         { text = "Loyalty to your own people comes first, Petra.", next = "BACK", reply = "My people are the ones who stood by me, and out here that's the Marshals. Blood's a fine thing, but the herd you choose is a better one.", fx = { align = { order = 1 } } },
         { text = "I'd rather not say.", next = "BACK" },
       },
@@ -176,7 +188,7 @@ P:NPC {
         { id = "t_default", text = "Feed them before yourself, speak before you touch, and never let them see you frightened, because they'll take it as a reason to be frightened too. And brush them, friend, more often than you think." },
         { id = "t_pet", when = { pet = { type = "Beast" } }, text = "Brush {pet} more often than you think you need to, and talk to it on the road, even about nothing. A beast that knows your voice will come back to it when everything else is chaos." },
       },
-      choices = { { text = "Sound advice. Thank you, Petra.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "I'll remember that. Thank you, Petra.", next = "BACK", fx = { affinity = 1 } } },
     },
     greet = {
       lines = { { id = "g2_default", text = "Slowly, and from the front, so she can see your hands. There, she's leaning into you, that means she approves." } },

@@ -33,7 +33,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "There are murlocs and gnolls and too few men to face them, so I'll take any help, spirits included. You're welcome here." } },
       choices = {
         { text = "I'll hold the line with you, Deputy. Westbrook won't fall.", next = "BACK", reply = "That's the spirit, and I'll hold you to it when the gnolls come up out of the river. We could use a few more like you.", fx = { align = { order = 1 } } },
-        { text = "Ask for more men. One shaman won't save you.", next = "BACK", reply = "I've asked, and I've asked again, and the letters come back thanking me for my patience. One shaman's better than none.", fx = { align = { order = -1 } } },
+        { text = "Ask for more men. One shaman won't save you.", next = "BACK", reply = "I've asked, and I've asked again, and the letters come back thanking me for my patience, so I'll take one shaman and be glad of it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -62,7 +62,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "South of the garrison, at the shallows, and their tracks lead toward Hogger's camp every time. That {pet} will have their scent in no time, because gnolls smell worse than they look." },
       },
       choices = {
-        { text = "I'll follow them and bring you a true count.", next = "BACK", reply = "That's just what I need, and I'll write it up and send it to Dughan. A real count, at last.", fx = { align = { order = 1 } } },
+        { text = "I'll follow them and bring you a true count.", next = "BACK", reply = "That's just what I need, and I'll write it up for Dughan, so for once he'll have a real count.", fx = { align = { order = 1 } } },
         { text = "I'll follow them and kill what I find.", next = "BACK", reply = "Kill what you can, but bring me a count all the same. I need numbers more than bodies.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -104,7 +104,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, and not from around here. Keep whatever that is away from my lads, because they're nervous enough with Hogger in the woods." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at Westbrook. The gnolls cross the river at night, and I could use someone who sees in the dark better than my lads." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you came in from the trees, not the road. That's a skill I'd sooner have on my side than out there with the gnolls." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, and you came in from the trees, not the road. That's a skill I'd sooner have on my side than out there with the gnolls." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I asked Stormwind for a squad and got a handful of farmers, so I'll take a mage gladly, and I'll not ask for anything else." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Riverpaw", min = 30 } }, text = "The farmers say the Riverpaw packs are thinner along the river this week, and the bodies they find have your mark on them. I asked Stormwind for a squad and got you, and I'm starting to think I got the better bargain." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I asked Stormwind for a squad and got you, and I'm not complaining, mind; you'll do." },

@@ -115,7 +115,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You'll be teleporting to Orgrimmar, I suppose, and leaving my zeppelin empty, which is a crying shame and a lost fare, pal." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Keep that axe sheathed on the deck, pal, because the last fellow who practiced his swings up there cut through a rope we really needed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Beasts ride free on my zeppelin, pal, but if yours gets airsick, you're the one cleaning the deck." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! I'll warn you now, the zeppelin's no place for a bear, chum, but if you turn into something small you could ride the rigging and save me a seat to sell." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid! I'll warn you now, the zeppelin's no place for a bear, chum, but if you turn into something small you could ride the rigging and save me a seat to sell." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Perfectly safe zeppelins, perfectly safe, and even if they weren't, you're already dead, so really you're my ideal passenger." },
       },
       again = {
@@ -290,6 +290,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_fall_thysta", when = { deathCause = "falling" },
+          text = "You fell from a height and died of it, I can see it in how you step near the edge of my tower. My wind riders don't drop anyone, so ride with them and leave the cliffs to the trolls." },
+
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders feel the air before we do, and they've been restless all morning, so perhaps you can tell me why." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The riders are uneasy around the dead and the loa alike, but they'll carry you, because I ask them to." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Some of you can teleport, I know, but the riders go where your spells don't reach, which is most places." },
@@ -342,7 +345,7 @@ P:NPC {
       },
       choices = {
         { text = "They should be driven off.", next = "BACK", reply = "The Commander says the same, and maybe he is right. But they have watched this coast longer than any orc has lived, and they will not leave quietly.", fx = { align = { light = -1 } } },
-        { text = "Let them watch. It's their jungle.", next = "BACK", reply = "Spoken like a guest, and maybe that is the wiser way to live here. But they watch with spears in their hands, so I keep watching back.", fx = { align = { light = 1 } } },
+        { text = "Let them watch. It's their jungle, after all.", next = "BACK", reply = "Spoken like a guest, and maybe that is the wiser way to live here. But they watch with spears in their hands, so I keep watching back.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "yenniku" } } },
       },
     },
@@ -455,7 +458,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Because they rot faster than I can sell them, and because the last time I paid a picker, a panther ate him. Druids pick their own and don't get eaten, and everyone else can buy a bandage and stop complaining." } },
       choices = {
         { text = "The jungle is generous to those who respect it. Learn that.", next = "BACK", reply = "You are right, and the jungle has taught me that lesson more than once with teeth. Perhaps I will learn it properly one day.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Bandages don't rot, and nobody gets eaten picking them. Sold.", next = "BACK", reply = "Now that is a sensible druid, and a rare one. Bandages do not rot, and nobody gets eaten selling them.", fx = { align = { light = -1 } } },
+        { text = "Bandages don't rot, and nobody gets eaten picking them. Sold.", next = "BACK", reply = "Now that is a sensible druid, and a rare one. The last one tried to pay me in mushrooms.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

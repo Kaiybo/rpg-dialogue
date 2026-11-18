@@ -31,6 +31,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_grayson_d = {
+      lines = {
+        { id = "dd_grayson_d_a", text = "Then you know the cold of it, and the quiet at the bottom where the light doesn't reach. I've been in that quiet for a long while now, and I keep the flame lit so nobody else has to learn it the way we did." },
+      },
+      choices = {
+        { text = "Your watch is a noble thing, Captain. Your crew would be proud.", next = "dd_grayson_d2", fx = { align = { light = 1 } } },
+        { text = "You could rest instead. The sea will take who it takes.", next = "dd_grayson_d2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_grayson_d2 = {
+      lines = {
+        { id = "dd_grayson_d2a", text = "Perhaps I could, and perhaps one day I will, when the coast is quiet and the ships come home every time. Until then the light needs a keeper, and I've nowhere else to be." },
+      },
+      choices = { { text = "Then keep it well. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I mind the loneliness more than the dying. I tend the flame so no other ship meets the rocks mine did. Perhaps the spirits you speak with understand that." } },
@@ -97,6 +113,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_drown_grayson", when = { deathCause = "drowning" },
+          text = "The sea has had you once already, I can tell, because it leaves a chill that I know better than anyone living. You came back from it, which is more than I managed, so mind the rocks." },
+
         { id = "h_default", text = "Captain Grayson, of a ship long sunk and a crew long drowned. I mean no harm to the living; I mean only to keep this flame lit." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Keeper of the Flame") },
           text = "The night my ship came in, this lamp was dark and we hit the rocks. I'd not wish that on any captain, honest or otherwise." },
@@ -114,7 +133,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a living one. I mean you no harm; I only mean to keep the flame lit, and you could help." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast sees me plainly, I think, because animals are better at seeing the dead than people are." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'd half expected your Light to burn me where I stand, but it only feels warm, which is a strange thing for a dead man to feel." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A child of the kaldorei, if this old ghost's eyes still serve. I never sailed far enough to see your people's shores, and now I never shall." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A child of the kaldorei, if this old ghost's eyes still serve. I never sailed far enough to see your people's shores, and now I never shall." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, living, and come to see a ghost. Do your spirits speak to me, then? I've had little enough company out here." },
       },
       again = {
@@ -122,6 +141,8 @@ P:NPC {
         { id = "h_again2", text = "What else? The tide's turning, as it always is." },
       },
       choices = {
+        { text = "I drowned once, Captain. I came back.", next = "dd_grayson_d", when = { deathCause = "drowning" } },
+
         { text = "Why do you stay?", next = "stay" },
         { text = "You have the look of a pirate about you.", next = "pirate" },
         { text = "What threatens this stretch of coast?", next = "murkeye" },

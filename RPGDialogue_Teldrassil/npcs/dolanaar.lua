@@ -119,13 +119,24 @@ P:NPC {
         { id = "xlock_default", text = "No, I don't think so, because the trouble in the third well began before you ever came through Dolanaar. But fel taint and moonwell water are old enemies, and the Sentinels watch the wells closely now, so give them no reason to wonder." },
       },
       choices = {
-        { text = "Then I'll keep my servant far from the water.", next = "BACK", reply = "Thank you, warlock, and the well will be grateful. So will the Sentinels.", fx = { align = { order = 1 } } },
+        { text = "Then I'll keep my servant far from the water.", next = "BACK", reply = "You have my thanks, warlock. The Sentinels draw their water here, and they would not drink it if they knew a demon had been near.", fx = { align = { order = 1 } } },
         { text = "The Sentinels can wonder all they like.", next = "BACK", reply = "They will, and they will remember it too. I would rather you gave them nothing to wonder about.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    dd_melenas = {
+      lines = {
+        { id = "ddm_default", text = "I wondered the same, so I knelt and tasted the third well the morning after his head came to Tallonkai. It is no sweeter, which tells me the trouble runs deeper than one satyr in a cave." },
+      },
+      choices = {
+        { text = "Then whatever fouls it is still out there.", next = "BACK", reply = "Or under us, in the roots. Keep listening as you travel, and tell me if any other well tastes of what the third one does.", fx = { affinity = 1 } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_relics", tags = { "news" }, when = { questDone = TODO_QUEST("The Relics of Wakening") }, text = "Gaerolas sent word that the Relics of Wakening are back in Athridas' keeping, and the sleeping druids may yet be roused. If the Druids of the Talon wake, perhaps they will hear in the wells what I hear." },
+        { id = "h_dd_melenas", tags = { "news" }, when = { questDone = TODO_QUEST("Twisted Hatred") }, text = "Lord Melenas is dead, they tell me, and his grells are scattering out of Fel Rock. A satyr so near the moonwells troubled me more than I let the Sentinels see, so you have my thanks." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Light, so far from your kingdoms? The moonwells are Elune's, but I will not turn away anyone who comes to guard them." },
         { id = "h_default", key = true,
           text = "I am Corithras Moonrage, and I have kept the moonwells of Teldrassil since the first of them was blessed. Something is wrong with them, and by Elune, I mean to learn what." },
@@ -144,6 +155,7 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like. The water is patient, and so am I, though my knees are less so after a night kneeling on wet stone." },
       },
       choices = {
+        { text = "Was Lord Melenas the one fouling the third well?", next = "dd_melenas", when = { questDone = TODO_QUEST("Twisted Hatred") } },
         { text = "You'd rather outsiders stayed off Teldrassil, wouldn't you?", next = "prej", when = { prejudiced = true } },
         { text = "What's wrong with the wells?", next = "wells" },
         { text = "Tell me the story Tenaron began.", next = "story", when = { any = { { questActive = TODO_QUEST("Crown of the Earth") }, { questDone = TODO_QUEST("Crown of the Earth") } } } },
@@ -301,7 +313,7 @@ P:NPC {
         { id = "xro_default", text = "They were our friends, and I would know what turned them before any more of them are killed. Get close to their camps and watch the shaman, for if something is whispering to them, it will be whispering there." },
       },
       choices = {
-        { text = "I'll only watch. They deserve a chance.", next = "BACK", reply = "Thank you, rogue, and I will be grateful for anything you learn. They do deserve a chance.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll only watch. They deserve a chance.", next = "BACK", reply = "Then watch closely and tell me everything, rogue. If there is a cure, it will be found by someone who looked before they struck.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If the shaman's to blame, I'll remove him quietly.", next = "BACK", reply = "Then be sure before you do, for I would not have the wrong furbolg die. Bring me proof first.", fx = { align = { honor = -1 } } },
         { text = "It's hard to believe they were ever your friends.", next = "friends" },
       },
@@ -322,7 +334,7 @@ P:NPC {
         { id = "xmage_default", text = "I don't blame you, but I remember, and so does every elf in Dolanaar. What I'd ask of you now is simpler: the Gnarlpine are sick, not wicked, so if you must fight them, don't burn the forest around them." },
       },
       choices = {
-        { text = "I'll fight carefully. They're sick, not wicked.", next = "BACK", reply = "Thank you, mage, and they would thank you too if they could. Sick, not wicked, as you say.", fx = { align = { light = 1 } } },
+        { text = "I'll fight carefully. They're sick, not wicked.", next = "BACK", reply = "Thank you, mage. If we find the cure, I want there to be furbolgs left to give it to.", fx = { align = { light = 1 } } },
         { text = "If they attack me, they burn, sick or not.", next = "BACK", reply = "Then they will burn, and I will grieve them. Only do not seek them out.", fx = { align = { light = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -346,9 +358,9 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Gnarlpine are not your enemies by choice, so remember that when you draw on them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My people learned the cost of the arcane long ago, but I'll judge you by what you do, not by what the Highborne did." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Gnarlpine", min = 40 } },
+          text = "You have killed a great many Gnarlpine, and I'll not pretend it doesn't grieve me, though I know it had to be done. They were our friends once, so when you think of them, remember that too." },
         { id = "h_shores_resolved", tags = { "news" }, when = { thread = { id = "both_shores", state = "resolved" } },
           text = "Thundris Windweaver wrote to me from Auberdine about a satyr who poisoned the food of the Blackwood furbolgs, and I have read his letter more times than I should. If the Gnarlpine were given their sickness by a hand, then I was right to grieve for them and wrong to think it was only the moss." },
-          text = "You have killed a great many Gnarlpine, and I'll not pretend it doesn't grieve me, though I know it had to be done. They were our friends once, so when you think of them, remember that too." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Speak plainly, then, as I do. The Gnarlpine were never our enemies, and I would know whether your spirits can tell me what poisoned them." },
       },
       again = {
@@ -494,7 +506,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "The priestesses in Darnassus, when we can carry them that far, and whoever has steady hands when we can't. If you have a healing prayer to spare, there are Sentinels in the village who would thank you for it." } },
       choices = {
-        { text = "I'll see to them before I go anywhere else.", next = "BACK", reply = "Thank you, priest, and the Sentinels will remember it. They have been very brave.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll see to them before I go anywhere else.", next = "BACK", reply = "Bless you, priest. Some of them have been hiding their wounds from me, so look under the bandages.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I came to fight the Gnarlpine, not to nurse Sentinels.", next = "BACK", reply = "Then fight the Gnarlpine, and the Sentinels will thank you for that too. But they will still need mending.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -542,7 +554,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Both, if you can, though the ones that come at you with madness in their eyes are past healing for today. Protect the groves first and leave the curing to Athridas, because he has a better chance of it than either of us." } },
       choices = {
-        { text = "I'll protect the groves first, as you say.", next = "BACK", reply = "Thank you, druid, and the groves will be grateful. That is the first duty.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll protect the groves first, as you say.", next = "BACK", reply = "Thank you, druid. The groves were planted by hands I knew, and I would not see them trampled.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I won't give up on a furbolg just because it attacks me.", next = "BACK", reply = "Then you are braver than I am, and kinder too. Be careful, all the same.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -564,13 +576,25 @@ P:NPC {
         { id = "xlock_default", text = "Most of them were too young to stand at Hyjal, and all they know of the Legion comes from stories told beside the moonwell. The grells that crawl out of Fel Rock are the nearest they've come to a demon, and that's near enough for anyone." },
       },
       choices = {
-        { text = "Then I'll keep it out of their sight.", next = "BACK", reply = "Thank you, warlock, and they will sleep better for it. They are very young.", fx = { align = { order = 1 } } },
+        { text = "Then I'll keep it out of their sight.", next = "BACK", reply = "Thank you, warlock. Most of them have never seen a demon outside a story, and I would keep it that way a little longer.", fx = { align = { order = 1 } } },
         { text = "Better they see one leashed than one loose.", next = "BACK", reply = "Perhaps, but they would rather see neither. Keep it out of sight, please.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
+    dd_ursal = {
+      lines = {
+        { id = "ddu_default", text = "Relieved and grieved at once, for Athridas knew Ursal before the fel moss ever touched him. He spoke of him at the well this morning as one speaks of an old friend lost at sea." },
+      },
+      choices = {
+        { text = "Ursal was too far gone to save. It had to be done.", next = "BACK", reply = "Perhaps, and I think Athridas knows it. Knowing a thing and making peace with it are seldom the same day's work.", fx = { align = { light = -1 } } },
+        { text = "I wish there had been a way to bring him back.", next = "BACK", reply = "So do I, young one, and it speaks well of you that you say it. Tell Athridas, if you can bear his silence afterward.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ursal", tags = { "news" }, when = { questDone = TODO_QUEST("Ursal the Mauler") }, text = "Athridas tells me Ursal the Mauler is dead at last, and that you were the one who ended him. I am glad of it, young one, though I wish the Gnarlpine had been left a chieftain worth sparing." },
+        { id = "h_dd_road", when = { questDone = TODO_QUEST("The Road to Darnassus") }, text = "Amara says the ambushers' den on the northern path is quiet and the carts reach Darnassus whole. That is your doing too, I hear, and Dolanaar notices such things." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for Dolanaar has had wounded enough since the Gnarlpine grew bold, and the Sentinels bring me more of them every week." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in Dolanaar, in armor that rings like a temple bell! The Gnarlpine will hear you coming, but perhaps that's no bad thing." },
         { id = "h_default", key = true,
@@ -593,6 +617,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, as patiently as the groves themselves." },
       },
       choices = {
+        { text = "Athridas must be relieved that Ursal is gone.", next = "dd_ursal", when = { questDone = TODO_QUEST("Ursal the Mauler") } },
         { text = "Who do you blame for Starbreeze?", next = "op_ask" },
         { text = "They took something that mattered to you.", next = "dreamcatcher" },
         { text = "Where are the Gnarlpine causing trouble?", next = "starbreeze" },
@@ -917,7 +942,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "More than they used to, since the Gnarlpine turned and the spiders grew bold in the Webwood. I give them a bed and a hot meal, and I would sleep easier if someone who knew a prayer looked in on them now and then." } },
       choices = {
-        { text = "I'll look in on them before I sleep.", next = "BACK", reply = "Thank you, priest, and they will sleep easier for it. You are kind.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll look in on them before I sleep.", next = "BACK", reply = "Thank you, priest. The one by the window cries out in her sleep, so go gently with her.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'm resting tonight, and the wounded can wait for morning.", next = "BACK", reply = "They can, and you have earned your rest. Sleep well, priest.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -958,7 +983,7 @@ P:NPC {
         { id = "xma_gnome", when = { race = "Gnome" }, text = "You are a long way from your mountain, and you are welcome to a bed. I ask only what I ask of every mage, that you leave your spells at the door, for Dolanaar remembers what spellcraft cost our people." },
       },
       choices = {
-        { text = "Of course. Your house, your rules.", next = "BACK", reply = "Thank you, mage, and my other guests will thank you too. Sleep well.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Of course. Your house, your rules.", next = "BACK", reply = "Thank you, mage. The last one set a pillow alight showing off, and the druid in the next room has not forgiven either of us.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My spells go where I go, innkeeper.", next = "BACK", reply = "Then please keep them quiet, at least. My guests are light sleepers.", fx = { align = { order = -1 } } },
         { text = "You must see all sorts pass through here.", next = "inn" },
       },
@@ -993,8 +1018,30 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    dd_ursal = {
+      lines = {
+        { id = "ddu_default", text = "Everyone hears everything at an inn, sooner or later. Athridas didn't celebrate, mind you; he only sat and stared into his cup, and then he said the Gnarlpine might be a gentle people again one day, with Ursal gone." },
+      },
+      choices = {
+        { text = "Do you think the Gnarlpine can be gentle again?", next = "dd_ursal2" },
+        { text = "Something else, Keldamyr.", next = "BACK" },
+      },
+    },
+    dd_ursal2 = {
+      lines = {
+        { id = "ddu2_default", text = "I remember them trading honey at the edge of the village, so I would like to believe it. The Sentinels don't, and they're the ones who carry the wounded in here, so I keep my hopes to myself and pour the tea." },
+      },
+      choices = {
+        { text = "Then we heal them, not hunt them.", next = "BACK", reply = "That's a kind thought, and Athridas would bless you for it. Say it where the Sentinels can hear you, though, and mind their faces.", fx = { align = { light = 1 } } },
+        { text = "Hope won't stop an ambusher's club. They need putting down.", next = "BACK", reply = "Perhaps it won't, and I've bandaged enough heads to know it. Still, I'd rather you didn't say it so cheerfully under my roof.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ursal", tags = { "news" }, when = { questDone = TODO_QUEST("Ursal the Mauler") }, text = "Athridas sat by my fire last night longer than he has in a year, and he told me Ursal the Mauler is dead. He said a traveler did it, and from the way he described you, I think that traveler is standing at my counter." },
+        { id = "h_dd_melenas", tags = { "news" }, when = { questDone = TODO_QUEST("Twisted Hatred") }, text = "Tallonkai carried that satyr's head through half of Dolanaar before anyone could talk him out of it, which is not like him at all. The Sentinels drank to whoever brought down Lord Melenas, and I gather it was you." },
+        { id = "h_dd_deaths", when = { deaths = { min = 8 } }, text = "You have the look of someone who has woken at the spirit healer's feet more than once, friend. Sit by the fire, and don't tell me how many times, because I would only worry." },
         { id = "h_alt_any", when = { alt = true, metBefore = false },
           text = "Welcome to Dolanaar. You walk in the way {alt} did, a {altrace} {altclass} who rested here on the road to Darnassus, and I've a fondness for travelers who stop long enough to be remembered." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
@@ -1020,6 +1067,7 @@ P:NPC {
         { id = "h_again", text = "Anything else I can do for you? There's tea, if you'd like some, though I'd skip the moonberry; it's gone a bit fizzy." },
       },
       choices = {
+        { text = "I take it you heard about Ursal.", next = "dd_ursal", when = { questDone = TODO_QUEST("Ursal the Mauler") } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who stops at your inn?", next = "inn" },
         { text = "I'd guess you hear all the road's news in here.", next = "road" },
@@ -1121,7 +1169,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Easy enough, once you take the armor off and stop listening for every snapped twig. Pick a spot with your back to a trunk, count the stars through the leaves, and let the forest keep watch for a while." } },
       choices = {
-        { text = "I'll trust the forest and sleep.", next = "BACK", reply = "Good, and you will wake rested for the first time in weeks. The forest is kind.", fx = { align = { light = 1 } } },
+        { text = "I'll trust the forest and sleep.", next = "BACK", reply = "Good, and you will wake rested for the first time in weeks. Keep the fire low, and the owls will keep watch for you.", fx = { align = { light = 1 } } },
         { text = "I'll sleep in my armor with my sword in hand.", next = "BACK", reply = "Then you will wake stiff and tired, and the forest will laugh at you. Take it off.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
@@ -1141,7 +1189,7 @@ P:NPC {
         { id = "xma_default", text = "Simple until the spell runs dry or you're too tired to cast it, and then you'll wish you knew which stream runs clean. The forest gives water to anyone who knows how to ask, and it doesn't care if you're tired." },
       },
       choices = {
-        { text = "Then teach me the forest's way.", next = "BACK", reply = "Good, and you will never go thirsty again. The forest has much to teach.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then teach me the forest's way.", next = "BACK", reply = "Good. We will start with the dew on the broad leaves at dawn, and you will never go thirsty again.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll trust my spells over a stream.", next = "BACK", reply = "Then trust them, until they run dry. I will be here when they do.", fx = { align = { order = -1 } } },
         { text = "What else do you teach?", next = "teach" },
       },
@@ -1172,7 +1220,7 @@ P:NPC {
         { id = "xlock_default", text = "Anyone can, though you'll find the woods go very quiet around you, and quiet woods are hard to sleep in. Learn to cook over a small fire and keep your camp tidy, and the forest will forgive you a little." },
       },
       choices = {
-        { text = "I'll learn the forest's ways, then.", next = "BACK", reply = "Good, and the woods will be less quiet for it. Learn to listen.", fx = { align = { order = 1 } } },
+        { text = "I'll learn the forest's ways, then.", next = "BACK", reply = "Good. Sit still for an hour tonight and tell me what you heard; most can name three sounds, and there are thirty.", fx = { align = { order = 1 } } },
         { text = "The forest can keep its silence. I sleep fine.", next = "BACK", reply = "Then you will sleep alone, and very soundly. The forest will not mind.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

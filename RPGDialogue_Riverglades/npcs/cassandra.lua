@@ -30,8 +30,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the scouts the player freed from the Twilight's Shroud.
+    dd_cages = {
+      lines = { { id = "dc_default", text = "They were, and some of them still are, though they'll mend. The youngest won't talk about the Shroud at all; he only eats and stares at the river, so I keep his bowl full and don't ask him anything." } },
+      choices = {
+        { text = "Is there anything they need?", next = "dd_cages2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dd_cages2 = {
+      lines = { { id = "dc2_default", text = "Time, love, and food, and somebody who doesn't ask what they saw in there. Sister Rowland has the worst of them in the chapel, and the rest I can manage with soup and nagging." } },
+      choices = {
+        { text = "Feed them up and send them back. Demar needs every sword.", next = "BACK", reply = "He does, and they'll go, because they're soldiers and that's what soldiers do. I'll just make sure they go with full bellies.", fx = { align = { order = 1 } } },
+        { text = "They've done enough. Let them rest, whatever Demar says.", next = "BACK", reply = "Don't let the Commander hear you say it, love, but I've been hiding the youngest in my kitchen for two days, and nobody's come looking yet.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_cages", tags = { "news" }, when = { questDone = TODO_QUEST("No Soldier Left Behind") },
+          text = "Riftan's scouts came down off the line, all five of them, thin as rakes and eating like wolves. They told me who opened their cages, love, so sit down and let me have a proper look at you." },
+        { id = "h_dd_curly", when = { questDone = TODO_QUEST("Helping Hands") },
+          text = "Hurley from the logging camp was in for oats and couldn't stop talking about how you fetched Curly back out of the woods. He talks more than he eats, that one, and he doesn't eat much." },
+        { id = "h_dd_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") },
+          text = "The Commander took a second bowl of stew the night you brought back that ogre's eye, and he's never once taken a second bowl. I knew then something had gone right for this keep." },
         { id = "h_default", key = true, text = "Cassandra Wheeler, and this is my counter. Every soldier in Farholde comes past it sooner or later, and I make sure none of them goes past it hungry." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! You'll want the dark ale, then, which nobody else here drinks. I keep a cask for Bertrand, and he won't miss a pint." },
@@ -42,6 +64,7 @@ P:NPC {
         { id = "h_again", text = "Anything else, love? I've a pot on." },
       },
       choices = {
+        { text = "Riftan's scouts were in a bad way when I found them.", next = "dd_cages", when = { questDone = TODO_QUEST("No Soldier Left Behind") } },
         { text = "How do you keep the keep fed?", next = "fed" },
         { text = "What's the gossip around the counter?", next = "gossip" },
         { text = "Do you remember the siege?", next = "siege" },

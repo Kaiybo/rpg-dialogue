@@ -47,7 +47,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Be brief; the light is good for close work just now." },
-        { id = "h_again2", text = "Something more? Raze is listening too, so choose your words." },
+        { id = "h_again2", text = "Something more? Raze is listening as well, and he's never liked a long-winded guest." },
       },
       choices = {
         { text = "What is shadow silk?", next = "silk" },
@@ -65,7 +65,7 @@ P:NPC {
         { id = "si_default", text = "The thread the gorge spiders spin, dark as a moonless night and stronger than it has any right to be, and every serious artisan in our trade wants it. It holds an enchantment better than any cloth I know of." },
       },
       choices = {
-        { text = "Why protect the spiders, then? Just take it.", next = "silk_poach" },
+        { text = "Why coddle the spiders? Just take the silk.", next = "silk_poach" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,7 +83,7 @@ P:NPC {
         { id = "sj_default", text = "For the craft, and for the spiders, and yes, for profit, in no particular order. I asked you to end them, not to like it, and you're free to think what you please about me." },
       },
       choices = {
-        { text = "Poachers knew the risk. Their deaths are on them.", next = "BACK", reply = "They did, and they knew it, and I'm glad you see it plainly. The spiders will rest easier.", fx = { align = { light = -1 } } },
+        { text = "Poachers knew the risk. Their deaths are on them.", next = "BACK", reply = "They knew it and came anyway, so I'll waste no tears, and I'm glad you won't either. The northern nests are spinning again already.", fx = { align = { light = -1 } } },
         { text = "Killing men over thread is too much.", next = "BACK", reply = "Too much for you, perhaps, and I'll not ask you to like it. They were killing the spiders for less.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -160,7 +160,7 @@ P:NPC {
         { id = "xl_default", text = "The same way you bound yours, only with more patience and a much bigger circle. Infernals respect strength and nothing else, so the binding is the easy part, and convincing him he's still bound every morning is the work." },
       },
       choices = {
-        { text = "Power is for using. I'd bind one too.", next = "BACK", reply = "Then mind the circle, and mind your patience, because he'll test both every morning. I'll not pull you out of the ashes.", fx = { align = { light = -1 } } },
+        { text = "Power is for using. I'd bind one too.", next = "BACK", reply = "Then mind the circle, and your patience, because he'll test both every morning. If it goes wrong, I won't be the one sweeping up your ashes.", fx = { align = { light = -1 } } },
         { text = "Some powers are best left uncalled.", next = "BACK", reply = "Some are, and I'll not argue with you. But someone has to keep the gorge's beasts in line, and mine is very good at it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

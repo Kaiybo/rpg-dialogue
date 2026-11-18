@@ -27,7 +27,7 @@ P:NPC {
   notice = {
     { id = "n_flagged", cat = "pvp", when = { pvpFlagged = true },
       text = "You've already got the scent of a fight on you, I see. Good, because the gulch rewards those who come in hot." },
-    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+    { id = "n_druid", cat = "class", when = { race = "Tauren", class = "DRUID" },
       text = "A druid, and a tauren one, I'd wager. The night elves will hate you twice over, because they think your kind of magic belongs to them." },
   },
 
@@ -136,7 +136,7 @@ P:NPC {
       big = true,
       lines = { { id = "ta_default", text = "I know your people walked with the night elves once, long ago, and I know some of your elders don't like what the Outriders do in that forest. But the Sentinels kill tauren in the gulch the same as orcs, so it seems the forest hasn't chosen you either." } },
       choices = {
-        { text = "Then I'll fight, but I'll take only what we need.", next = "BACK", reply = "That's fair, and more than the Outriders ask. Fight beside us, and take what you need.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll fight, but I'll take only what we need.", next = "BACK", reply = "That's fair, and more than the Outriders ask of themselves. Fight beside us, and take only what we need.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If they kill tauren, they've chosen their side.", next = "BACK", reply = "They have, and your elders will have to see it someday. Welcome to the gulch, tauren.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -239,7 +239,7 @@ P:NPC {
       big = true,
       lines = { { id = "lc_default", text = "Because a wolf eats like three grunts and lives as long as one, and every pup that dies in training is gold gone. I'd rather turn away ten riders than give a wolf to one fool who'll ride him into the ground." } },
       choices = {
-        { text = "Good, the wolves deserve careful riders.", next = "BACK", reply = "They do, and I'm glad you see it. Ride gently, and he'll carry you anywhere.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Good, the wolves deserve careful riders.", next = "BACK", reply = "They do. Ride him gently, and he'll carry you from here to the Thousand Needles without a whimper.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A wolf is a mount, so sell it to whoever can pay.", next = "BACK", reply = "Then go buy one from a goblin, and see how long it lasts. My wolves go to riders, not purses.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -255,7 +255,7 @@ P:NPC {
       big = true,
       lines = { { id = "fo_default", text = "I'd teach you, but the wolves won't have you, because you smell like a grave to them and they want to dig you up. Your people ride their own beasts from Undercity, and between us, I think those horses are welcome to you." } },
       choices = {
-        { text = "The wolves are honest. I don't hold it against them.", next = "BACK", reply = "Good, then we'll part friends. Your horses will be glad of you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The wolves are honest. I don't hold it against them.", next = "BACK", reply = "Then we'll part friends. Your horses will be glad of you, and my wolves will stop growling eventually.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A whip would teach them to carry me.", next = "BACK", reply = "Lay a whip on one of my wolves and you'll be wearing your arm for a hat. Go and ride your horses.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -330,7 +330,7 @@ P:NPC {
       big = true,
       lines = { { id = "hs_default", text = "Harder than most, because I came out of the camps angry at everything. An old Frostwolf warrior made me stand still in the rain until I stopped shaking, and I didn't understand the lesson until years later." } },
       choices = {
-        { text = "Stillness is strength. Rage only wastes it.", next = "BACK", reply = "It is, and I wish I'd learned it sooner. Stand still in the rain sometime, and you'll see.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stillness is strength. Rage only wastes it.", next = "BACK", reply = "It is, and I learned it far later than I should have. Stand still in the rain sometime, and you'll see.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Anger is a weapon. I'd keep mine sharp.", next = "BACK", reply = "Keep it, then, but keep it sheathed until you need it. Rage unchecked is how the camps took us.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -460,7 +460,7 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Once, at Durnholde, when my axe broke on a guard's shield and I finished him with his own sword. I hadn't held a human sword before, and it felt like waving a stick, but it worked." } },
       choices = {
-        { text = "Any weapon will do when your life's at stake.", next = "BACK", reply = "It will, and I've lived by that ever since. A broken axe teaches you that quickly.", fx = { align = { honor = -1 } } },
+        { text = "Any weapon will do when your life's at stake.", next = "BACK", reply = "It will. My axe broke on a footman's shield once, and I finished that fight with his own sword.", fx = { align = { honor = -1 } } },
         { text = "An orc should master his own weapon first.", next = "BACK", reply = "Master it, aye, but learn to use the enemy's too. You never know when your axe will break.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -574,7 +574,7 @@ P:NPC {
       big = true,
       lines = { { id = "sp_default", text = "Everything do, if you listen long enough, though the orcs laugh at me for it. A spear made from a tree that died in a storm will always be restless, so you give it something to do and it stays happy." } },
       choices = {
-        { text = "I'll treat my weapons with respect, then.", next = "BACK", reply = "Good, mon, and your weapon will be happy with you. A happy weapon fights better.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll treat my weapons with respect, then.", next = "BACK", reply = "Your weapon be happy with you, mon, and a happy weapon fights better. Dat be no joke.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A blade is iron. It feels nothing.", next = "BACK", reply = "Iron feels, mon, it just don't complain much. Listen closer, and you'll hear it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -629,7 +629,7 @@ P:NPC {
       big = true,
       lines = { { id = "oa_default", text = "No, they shout at them, which be much the same thing, only louder. Your axe don't mind the shouting, but it would like a kind word now and then." } },
       choices = {
-        { text = "Maybe I'll try a kind word, then.", next = "BACK", reply = "Try it, mon, and you'll see the difference. Your axe be happier already.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Maybe I'll try a kind word, then.", next = "BACK", reply = "Try it, mon, and you'll see the difference. See dat? Your axe be happier already.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My axe gets blood, not words.", next = "BACK", reply = "Blood keeps it sharp, mon, but a kind word keeps it loyal. Try both.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -699,7 +699,7 @@ P:NPC {
       big = true,
       lines = { { id = "tr_default", text = "With patience and meat, mostly in that order, mon. A beast that be beaten learns fear, and a beast that be fed learns to trust, and a frightened beast will turn on you in the end." } },
       choices = {
-        { text = "Trust is stronger than fear. I treat my beast well.", next = "BACK", reply = "That be the way, mon, and your beast will stand by you forever. Patience and meat.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Trust is stronger than fear. I treat my beast well.", next = "BACK", reply = "That be the way, mon, and your beast stand by you forever for it. Patience and meat, dat be all the secret there is.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast should fear its master a little.", next = "BACK", reply = "A little fear, maybe, but fear turns, mon. Feed it more, and fear it less.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -850,7 +850,7 @@ P:NPC {
       big = true,
       lines = { { id = "dw_default", text = "Officially, no, pal, because this is the Horde's city and I'm a loyal guest in it. Unofficially, a gun doesn't care who's holding it, and the Steamwheedle Cartel doesn't care who's paying, so let's just say business is business." } },
       choices = {
-        { text = "Selling to both sides is smart business.", next = "BACK", reply = "That's what I keep sayin', pal, and nobody believes me. Business is business.", fx = { align = { honor = -1 } } },
+        { text = "Selling to both sides is smart business.", next = "BACK", reply = "That's what I keep sayin', pal, and the orcs just glare at me. Profit doesn't wear a tabard.", fx = { align = { honor = -1 } } },
         { text = "A guest of the Horde should choose a side.", next = "BACK", reply = "I did choose, pal, I chose the side that pays. Don't tell the Warchief.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -909,7 +909,7 @@ P:NPC {
       big = true,
       lines = { { id = "gu_default", text = "A bow be quiet, a bow don't blow up in your face, and a bow you can fix yourself in the middle of the jungle. A gun breaks, and you need a goblin to fix it, and then you owe that goblin money forever." } },
       choices = {
-        { text = "Quiet and simple. A bow is the hunter's way.", next = "BACK", reply = "That be the hunter's way, mon, and the jungle's way too. A bow never betray you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Quiet and simple. A bow is the hunter's way.", next = "BACK", reply = "That be the hunter's way, mon, and the jungle's way too. A bow never blow up in your face.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A gun hits harder. I'll take the noise.", next = "BACK", reply = "Then you'll be owin' a goblin forever, mon. Enjoy the noise.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

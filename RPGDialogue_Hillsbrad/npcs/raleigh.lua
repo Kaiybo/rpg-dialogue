@@ -215,7 +215,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Crusade would have burned you before you finished speaking, and once I'd have lit the pyre myself, which is something I think about more than I'd like." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You stand like a soldier, and I used to drill men to stand like that, under a red banner I'd rather not name. Close the door, please, and sit with your back to the wall if it makes you easier." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you came up the stairs quietly, which I'm grateful for. The Crusade used trackers to find those of us who left, so you'll pardon me if I check the window." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, here in Southshore. I spent years being told your kind were heathens, and I'm ashamed of how readily I believed it." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, here in Southshore. I spent years being told your kind were heathens, and I'm ashamed of how readily I believed it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The Crusade counts Dalaran among the reasons Lordaeron fell, and I believed it once, because it was easier than believing we had failed on our own." },
       },
       again = {
@@ -327,7 +327,7 @@ P:NPC {
       lines = { { id = "r_default", text = "Then you know how it was at the start, with everyone afraid of everyone. The Crusade made a faith of that fear, so don't let anyone make one of yours." } },
       choices = {
         { text = "I won't.", next = "BACK", reply = "Good, because you'll be tempted, and so was I. Fear is a terrible teacher and a worse priest.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Fear kept me alive back then, and I'll keep it.", next = "BACK", reply = "Keep it, then, but keep it on a leash. Fear that runs free soon starts choosing who lives.", fx = { align = { light = -1 } } },
+        { text = "Fear kept me alive back then, and I'll keep it.", next = "BACK", reply = "Keep it, then, but keep it on a leash. I let mine off the leash once, in the Crusade, and I still see the faces.", fx = { align = { light = -1 } } },
       },
     },
     after = {

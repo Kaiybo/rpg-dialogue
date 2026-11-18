@@ -135,7 +135,7 @@ P:NPC {
           text = "A warrior with a proper shield, eh? Good, because the Wastewanderers don't respect a surveyor's flag, but they do respect a dwarf with an axe standing next to it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Ye'll have seen the hyenas trailing ye in from the road, then; they've learned that diggers drop their lunch when they run." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Tanaris! Ye'll not find much growing out here, but I've found a root or two buried deep that'd interest ye." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Tanaris! Ye'll not find much growing out here, but I've found a root or two buried deep that'd interest ye." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at my dig, is it? Keep yer wee beastie away from the tomb mouths, because I've a feelin' some o' what's buried out here would be glad o' the company." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'd heard tell o' this, but I didnae believe it till now. Out here the sand's the enemy o' us all, so say yer piece an' mind the dig." },
       },

@@ -101,6 +101,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_fall_ariena", when = { deathCause = "falling" },
+          text = "You've had a bad fall somewhere, I can see it in the way you look down from my perch. The Redridge cliffs are steep and they don't forgive, so leave the high places to the gryphons." },
+        { id = "dd_blackrock_ariena", when = { killed = { name = "Blackrock", min = 30 } },
+          text = "From the air I can count the Blackrock campfires on the ridge, and there are fewer of them every week. Someone's been busy down there, and the guards keep saying your name." },
+
         { id = "h_default", text = "Ariena Stormfeather. I fly the mail and the wounded out of Lakeshire, and my birds carry anyone else who can pay the fare." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf! Your kin taught mine to fly these beasts, so you'll find no complaints from me about Wildhammer manners." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds will carry you, and I'll tell you now, from the air I've seen the Blackrock gathering near Stonewatch, and there's a lot of them." },
@@ -141,7 +146,7 @@ P:NPC {
     a2 = {
       lines = { { id = "a2_default", text = "Magistrate Solomon writes them down and sends them to Stormwind, and Stormwind sends back nothing at all. I've flown the letters myself, so I know they arrive." } },
       choices = {
-        { text = "The magistrate is right to keep asking. The crown will answer.", next = "BACK", reply = "Maybe, and I'll keep flying the letters as long as he writes them. Someone has to read them eventually.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "The magistrate is right to keep asking. The crown will answer.", next = "BACK", reply = "Maybe, and I'll keep flying the letters as long as he writes them. The gryphons know the way to the Keep better than I do by now.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Lakeshire should stop waiting and fight for itself.", next = "BACK", reply = "We are fighting, with what we have. It's just not enough, and we keep hoping someone notices.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -263,6 +268,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_gnolls_hiett", when = { killed = { name = "Redridge", min = 60 } },
+          text = "My arrows go out to the watch by the bundle, and lately fewer of them come back broken in gnoll hides. You've been thinning the packs in the hills, and I'll admit I'm grateful for the rest." },
+
         { id = "h_default", text = "Kimberly Hiett, fletcher. The watch shoots arrows into the gnolls faster than I can feather them, so if you've come to buy, you've come at a busy time." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter! You'll know good fletching when you see it, so I'll not bother telling you mine's the best in Redridge. It is, though." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll not want arrows, I suppose, but if you'd tell the gnolls to stop being shot so often, I'd be grateful for the rest." },
@@ -391,7 +399,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rifle, every time, because a goretusk's skull will turn an arrow but not a ball of good dwarven lead. Your {pet} doesn't flinch at a gunshot, {class}, I can tell, and that's a well-trained beast." },
       },
       choices = {
-        { text = "I'll measure every grain. Care is half of good shooting.", next = "BACK", reply = "That's the spirit, and you'll live long enough to prove it. I'll sell you a good rifle.", fx = { align = { order = 1 } } },
+        { text = "I'll measure every grain. Care is half of good shooting.", next = "BACK", reply = "Spoken like a proper marksman. Come to the counter, and I'll find you a rifle that deserves you.", fx = { align = { order = 1 } } },
         { text = "I'll pack it heavy. More powder, more punch.", next = "BACK", reply = "And then you'll be a one-handed hunter with an unhappy boar. Measure it, friend.", fx = { align = { order = -1 } } },
         { text = "Something else, Henry.", next = "BACK" },
       },

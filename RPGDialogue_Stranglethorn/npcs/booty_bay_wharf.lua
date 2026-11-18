@@ -933,7 +933,7 @@ P:NPC {
       lines = { { id = "os_default", text = "Stealin', borrowing, it's all the same in engineering, pal, everybody builds on everybody. I took his idea for the cooling fins, he took my idea for the waiver, and if either of us ever builds somethin' that works perfect, the other one's gonna be furious." } },
       choices = {
         { text = "Stealing ideas is still stealing. Credit him.", next = "BACK", reply = "Credit him? Pal, then I'd have to credit his teacher and his teacher's teacher, and the whole transporter'd be covered in gnome names. I'll buy him a drink, though.", fx = { align = { honor = 1 } } },
-        { text = "Ideas are free. Take whatever works.", next = "BACK", reply = "That's the spirit, pal, that's engineering! You take the fins, you take the waiver, and the only thing you don't take is the blame.", fx = { align = { honor = -1 } } },
+        { text = "Ideas are free, so take whatever works.", next = "BACK", reply = "That's the spirit, pal, that's engineering! You take the fins, you take the waiver, and the only thing you don't take is the blame.", fx = { align = { honor = -1 } } },
         { text = "So you two are friends, really.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -1048,7 +1048,7 @@ P:NPC {
       lines = { { id = "gl_default", text = "I'm not gloomy, friend, I'm accurate, and in Booty Bay that comes out sounding the same. Kresky over there gets the gossip and O'reely gets the laughs, and I get the lots nobody else wants to handle, and somebody has to." } },
       choices = {
         { text = "What do you make of Kresky and O'reely?", next = "others" },
-        { text = "Somebody has to. I respect that.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Somebody has to, and I respect that.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
     others = {

@@ -76,7 +76,7 @@ P:NPC {
       },
       choices = {
         { text = "Then leave the bones in the ground.", next = "BACK", reply = "An' throw away a season's diggin' an' three good dwarves' blood? I'll no' do it, though I'll admit the thought's crossed ma mind on the long nights up here.", fx = { align = { order = -1 } } },
-        { text = "Finish the dig. Knowledge is worth the risk.", next = "BACK", reply = "That's the League talkin', an' I'm glad tae hear it from someone who isnae trapped on this ridge. Mind, it's easier sayin' so down there than up here wi' the raptors.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Finish the dig. Knowledge is worth the risk.", next = "BACK", reply = "That's the League talkin', an' I'm glad tae hear it from someone who isnae trapped on this ridge. It's easier said down there, though, than up here wi' the raptors circlin'.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

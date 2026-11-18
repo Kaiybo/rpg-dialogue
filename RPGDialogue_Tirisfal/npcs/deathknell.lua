@@ -76,6 +76,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, risen with an eye for tracks still in your head. The only beasts around Deathknell are the ones that come sniffing at the graves, I'm afraid." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, risen like the rest. I bury those who don't wake, and I'd be glad of someone to say a word over them, whatever the word is." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, back from the grave. You're not the first I've seen wake with the Light still in their hands, though there aren't many, and Aramis Hammerhand will want to see you." },
+        { id = "h_dd_deaths", when = { deaths = { min = 5 } },
+          text = "Back from the dark again, are you? I stitched you together well enough the first time, so I'll thank you not to undo all my work out there." },
       },
       choices = {
         { text = "What words do you say over the ones who don't wake?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -217,6 +219,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = { { id = "dd_deaths_default", text = "Then you become what you see shambling through the fields, mindless and hungry, held up by nothing but the Scourge's leftover will. That is why I teach the newly risen to guard their minds, and why I would rather you died less often." } },
+      choices = {
+        { text = "I'll die as often as it takes. The cause is worth it.", next = "BACK", reply = "Brave words, and the Dark Lady will gladly spend them. Only make sure there is still a mind in there to hear her thanks.", fx = { align = { order = -1 } } },
+        { text = "Then I'll be more careful. My mind is all I have left.", next = "BACK", reply = "Wise, and rarer than it should be among the newly risen. Guard it as you'd guard a blade.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     op_the_light = {
       big = true,
       lines = {
@@ -277,6 +288,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, risen and still looking for tracks. The Light never taught anyone to read a trail, so you've kept the more useful habit." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Another priest, with a new voice answering your prayers, I hope. Whatever you called on before let you die, so I trust you noticed who was waiting when you crawled out of the dirt." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Mindless", min = 20 } }, text = "You've laid a good many of the mindless ones to rest, and Deathknell is quieter for it. They were lost long before you found them, so don't let it trouble you." },
+        { id = "h_dd_deaths", when = { deaths = { min = 5 } },
+          text = "Your spirit has made the walk back from the graveyard more than once, and I can feel the wear on it. The Dark Lady's gift does not fray easily, but it does fray." },
       },
       choices = {
         { text = "What does the shadow ask of a priest, Sarvis?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -290,6 +303,7 @@ P:NPC {
         { text = "I'd rather work where nobody's looking.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Is there anything worth hunting near Deathknell, Sarvis?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll get to work.", next = "END" },
+        { text = "What happens to us if the gift frays, Sarvis?", next = "dd_deaths", when = { deaths = { min = 5 } } },
       },
       again = {
         { id = "h_again", text = "More questions? Death has made you chatty. Go on." },
@@ -430,6 +444,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_war = {
+      lines = { { id = "dd_war_default", text = "Then you've seen what they are when there are more than a handful of them, all hymns and fire. Tell me, did any of them say anything to you before the end?" } },
+      choices = {
+        { text = "They called me an abomination. I made them regret it.", next = "BACK", reply = "Good. Let them learn that the abomination answers back, and that it remembers every word.", fx = { align = { light = -1 } } },
+        { text = "They begged the Light for help. Part of me pitied them.", next = "BACK", reply = "Pity is a living habit, and a dangerous one in Tirisfal. Keep it if you must, but keep it well away from the field.", fx = { align = { light = 1 } } },
+        { text = "Something else, Executor.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I want them dead, but I'll take shamed first if it unsettles their ranks. Report what they do when they see you, because a Crusade that doubts itself is easier to break." } },
@@ -471,10 +494,14 @@ P:NPC {
         { id = "h_adventurer", when = { questActive = TODO_QUEST("The Adventurer") },
           text = "You've earned a breath. There's a traveler camped on the road by Brill who claims she's not one of the Crusade, so see what she's about." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because the Crusade's camp burns well, and I'm told you can call fire." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Can you fight? Then Deathknell has a use for you." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? If you can fight, then Deathknell has a use for you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Crusade's camp sits in open ground, and I want eyes on it from the treeline." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I'll want you mending my Deathguard, not preaching to them, so keep that in mind when you speak." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The Scarlets camped to the southeast think they hold the Light by right, and I'd like to see their faces when you walk in carrying it." },
+        { id = "h_dd_war", tags = { "news" }, when = { questDone = TODO_QUEST("At War With The Scarlet Crusade") },
+          text = "Word reaches Deathknell from Brill that you took the fight to the Crusade for Executor Zygand. I sent you out of here half-made, so I'll allow myself a measure of pride." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You've fallen more than a few times since you rose in this village, I hear. The second death is no more final than the first, but do try not to make a habit of it." },
       },
       choices = {
         { text = "Where do your Deathguard need mending most, Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -488,9 +515,10 @@ P:NPC {
         { text = "Shall I watch the Crusade's camp from the trees, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I could shame the Crusade with the Light, Executor.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Understood, Executor.", next = "END", fx = { affinity = 1, standing = { deathknell = 1 } } },
+        { text = "I fought the Crusade near Brill, Executor, as you trained me.", next = "dd_war", when = { questDone = TODO_QUEST("At War With The Scarlet Crusade") } },
       },
       again = {
-        { id = "h_again", text = "Anything else? Keep it brief." },
+        { id = "h_again", text = "Anything else? Keep it brief, because the Crusade won't wait on us." },
       },
     },
     warrior = {
@@ -512,7 +540,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "On the camp to the southeast, on their tents and their wagons. Their runners carry orders between the camps and I want those orders whole, so keep your fire off the runners." } },
       choices = {
-        { text = "Off the runners, then. Your orders, Executor.", next = "BACK", reply = "Good, and make sure the tents burn bright enough for the next camp to see. Fear travels faster than any runner.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Off the runners, then. Your orders, Executor.", next = "BACK", reply = "Good, and make sure the tents burn bright enough for the next camp to see. I want the next camp watching the sky all night.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fire spreads where it likes. I won't promise anything.", next = "BACK", reply = "Then learn to control it, or keep it away from my orders. I'll not lose a dispatch to a careless spark.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -521,7 +549,7 @@ P:NPC {
       big = true,
       lines = { { id = "dq_default", text = "If it kills Crusaders, it will do. Go at their camp from the trees, where the sentries never watch, and leave nothing they can carry back to Brill." } },
       choices = {
-        { text = "From the trees, then. They won't see me coming.", next = "BACK", reply = "Good. Let them wonder what lurks in their own woods, and leave the sentries for last.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "From the trees, then. They won't see me coming.", next = "BACK", reply = "Good, let them wonder what lurks in their own woods, and leave the sentries for last.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll come at them openly. Let them see what's coming.", next = "BACK", reply = "Brave, and foolish, but I'll take results however they come. If it goes badly, Mordo will see to you.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

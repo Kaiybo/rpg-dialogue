@@ -126,7 +126,7 @@ P:NPC {
         { id = "h_intel", when = { questActive = TODO_QUEST("Vital Intelligence") },
           text = "Executor Arren sent you from Deathknell with what the Crusade's runners carried? Let me see... yes, this will do nicely." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out of the Warchief's lands and into my fields. The Crusade burns anything it can't explain, so they'll aim at you before they aim at me." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, in Tirisfal. The Crusade calls us unnatural, and I expect they'll call you the same, in between the arrows." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid, in Tirisfal. The Crusade calls us unnatural, and I expect they'll call you the same, in between the arrows." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Crusade's scouts creep through the woods north of Brill, and I would rather they were tracked than merely counted." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, then. The Crusade burns priests of every kind but their own, so you'll be high on their lists, and I'd sooner you were high on mine." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Scarlet", min = 40 } }, text = "The Scarlet patrols near Brill have grown thin and nervous, and my deathguards tell me you're the reason. The Dark Lady values that kind of work, and so do I." },
@@ -183,7 +183,7 @@ P:NPC {
         { id = "ro_deathstalker", when = { origin = "forsaken_deathstalker_recruit" },
           text = "A deathstalker. Then you answer to the Dark Lady's own, and I'll not presume to give you orders. Tell your masters the Crusade's runners use the mill road, and they're careless at dusk." },
       },
-      choices = { { text = "Orders and throats. Understood.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } } },
+      choices = { { text = "Their orders, and their throats. Understood, Executor.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } } },
     },
     paladin = {
       big = true,
@@ -199,7 +199,7 @@ P:NPC {
         { id = "ma_dalaran", when = { origin = "forsaken_dalaran_apprentice" },
           text = "Dalaran-trained, and now on our side of the wall. Bethor Iceshard in the Undercity would want to know you; he was Kirin Tor too, before." },
       },
-      choices = { { text = "Their fields, then. Not ours.", next = "BACK", fx = { affinity = 2 } } },
+      choices = { { text = "Their fields, then, not ours.", next = "BACK", fx = { affinity = 2 } } },
     },
     crusade = {
       big = true,
@@ -318,6 +318,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_war = {
+      lines = { { id = "dd_war_default", text = "Brill will feel it in the ledgers before it feels it anywhere else: fewer burned wagons on the Undercity road, fewer Deathguard to replace. The Crusade breeds faster than we fall, though, so don't expect a parade." } },
+      choices = {
+        { text = "Every Scarlet I kill is a debt paid. I want nothing for it.", next = "BACK", reply = "A rare sentiment, and an inexpensive one, which I appreciate. Go and pay a few more debts, then.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Next time I'll want more than a line in your ledger.", next = "BACK", reply = "Everyone does, eventually. Bring me a captain's head and we'll discuss what the town can afford, which is very little.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+
     op_humans = {
       big = true,
       lines = {
@@ -388,6 +397,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, in my town hall. Do keep your beast off the rugs, {class}; they're the last good ones in Brill." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest in my town hall. Brill had a chapel once, before the plague, and I've not yet decided what it ought to be now, so perhaps you have an opinion." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, in my town. The last Light Brill saw was the Crusade's torches on the road from the monastery, so you'll forgive the townsfolk if they look at you twice." },
+        { id = "h_dd_war", tags = { "news" }, when = { questDone = TODO_QUEST("At War With The Scarlet Crusade") },
+          text = "Executor Zygand's report crossed my desk with your name beside a tally of dead Scarlets. I filed it twice, because good news is rare enough in Brill to keep a spare copy." },
+        { id = "h_dd_maggot", when = { questDone = TODO_QUEST("Wanted: Maggot Eye") },
+          text = "Maggot Eye's paw hangs by the Executor's door, I'm told, and the gnolls have kept well clear of our graveyard since. You've done more for Brill's dead than the Church ever managed." },
       },
       choices = {
         { text = "What became of Brill's old chapel, Magistrate?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -403,6 +416,7 @@ P:NPC {
         { text = "Brill may have no place for a paladin, Magistrate.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll see to it.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
         { text = "Do you miss the living who kept Brill, Magistrate?", next = "op_humans" },
+        { text = "Will Brill feel the Scarlets I killed for Zygand?", next = "dd_war", when = { questDone = TODO_QUEST("At War With The Scarlet Crusade") } },
       },
       again = {
         { id = "h_again", text = "Something else? Quickly, please; the ledgers won't balance themselves, and the dead are terrible about paying their rates." },
@@ -415,8 +429,8 @@ P:NPC {
           text = "A farmer, from the fields south of here? Then your land is likely in my ledger as abandoned, and I'm afraid the Deathguard grows nightshade on it now. You're welcome to visit it, though I wouldn't expect to be recognized." },
       },
       choices = {
-        { text = "Strike it. I'm alive enough.", next = "BACK", fx = { affinity = 2 } },
-        { text = "Leave the record. That person died.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "Strike it from the record. I'm alive enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Leave the record be. That person died.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
       },
     },
     warlock = {
@@ -515,6 +529,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_doom = {
+      lines = { { id = "dd_doom_default", text = "On its own, very little; it is a weed, and a foul one. But it grows thickest where the plague soaked deepest into the soil, and a careful apothecary learns a great deal from what the land remembers." } },
+      choices = {
+        { text = "So the ground itself still carries the plague.", next = "dd_doom2" },
+        { text = "Something else, Apothecary.", next = "BACK" },
+      },
+    },
+    dd_doom2 = {
+      lines = { { id = "dd_doom2_default", text = "The ground, the water, the beasts that drink it, yes. The living think the plague ended when Lordaeron fell, and the Society is very happy to let them go on thinking so." } },
+      choices = {
+        { text = "The Scourge should fear what you're brewing, then.", next = "BACK", reply = "The Scourge, among others. Mind the doom weed on your boots; I'd hate to lose a useful errand-runner.", fx = { align = { light = -1 } } },
+        { text = "That sounds like a weapon aimed at more than the Scourge.", next = "BACK", reply = "Every weapon is aimed at more than one thing, {class}. I'd keep that observation out of the tavern, if I were you.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     op_new_plague = {
       big = true,
       lines = {
@@ -584,6 +614,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Do stand still, {class}, and keep that blade well away from my bottles, because some of them are only mostly safe." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Splendid, because I have a question about the soul that no apothecary has ever answered to my satisfaction, and you may be just the subject." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Do keep your distance from the bench, please, because the Light and my reagents have never been properly introduced, and I'd hate for the first meeting to be in my laboratory." },
+        { id = "h_dd_doom", when = { questDone = TODO_QUEST("Doom Weed") },
+          text = "Junior Apothecary Holland tells me you gathered doom weed for him. My junior is slow, but he is grateful, and he has stopped pestering me for help, which I count as your doing." },
       },
       choices = {
         { text = "What do you want to know about the soul, Apothecary?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -597,6 +629,7 @@ P:NPC {
         { text = "A warrior must be of some use to you here, Apothecary.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I doubt the Light would approve of your brewing, Johaan.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
+        { text = "Holland's doom weed. What does the Society want with it?", next = "dd_doom", when = { questDone = TODO_QUEST("Doom Weed") } },
       },
       again = {
         { id = "h_again", text = "Something else? Don't touch the green one while you think." },
@@ -748,6 +781,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, at the Gallows' End! The Darkhounds roam the fields by the Agamand Mills these days, and I'd say they make better neighbours than the Agamands ever did." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the Gallows' End. You may have come too late for the Agamands, I'm afraid, because I prayed for them in life and look how that turned out." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, are you? The Agamands were great ones for blessings, and I can't say any of them did us mill hands much good when the Scourge came over the hill, so I'll be slow to be impressed." },
+        { id = "h_dd_chill", when = { questDone = TODO_QUEST("The Chill of Death") },
+          text = "Gretchen's been better company since you brought her what she asked for. I don't ask what she does with it, and you'd be wise not to ask either." },
+        { id = "h_dd_maggot", when = { questDone = TODO_QUEST("Wanted: Maggot Eye") },
+          text = "You took Maggot Eye's paw, I hear, which means the gnolls will think twice before digging in our graveyard. Some of my old friends are buried there, so I'm obliged to you." },
       },
       choices = {
         { text = "Do you still pray for the Agamands, Coleman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -769,7 +806,7 @@ P:NPC {
     rogue = {
       lines = { { id = "ro_default", text = "A short rest, quietly, from behind? Oh, I do like you. Old Gregor Agamand always sat with his back to the door, because he was certain nobody under him would dare. Prove him wrong for me, would you?" } },
       choices = {
-        { text = "From behind, then. He's earned it.", next = "BACK", reply = "Good. It's what he'd have done to any of us, and it's what he did, in the end.", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "From behind, then, since he's earned it.", next = "BACK", reply = "Good, because it's what he'd have done to any of us, and it's what he did, in the end.", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "I'll face him, so he knows who sent me.", next = "BACK", reply = "Then tell him it was Coleman Farthing, the guard he left to die. I'd like him to hear my name once more.", fx = { affinity = 1, align = { honor = 1 } } },
       },
     },
@@ -859,6 +896,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_family = {
+      lines = { { id = "dd_family_default", text = "The Agamands owned the mills and half the fields around Brill, and everyone in this tavern knew them while we were all still breathing. Now they walk their own land with nothing behind their eyes, and Coleman couldn't bring himself to put them down." } },
+      choices = {
+        { text = "Somebody had to do it. Better a stranger than a neighbour.", next = "BACK", reply = "That's kindly put, and I think he knows it, somewhere under all the sulking. Leave him be for a day or two.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Sentiment is a living habit. He ought to let it go.", next = "BACK", reply = "Perhaps, dear, but I still order tea I can't taste. We all keep a habit or two from before.", fx = { align = { light = -1 } } },
+        { text = "Something else, Gretchen.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I think I would, yes, because burning is still feeling, and I've not felt a thing since I woke. You're luckier than you know, {class}, and I hope you don't waste it on being bitter." } },
@@ -901,6 +947,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, dear? Come and sit, and tell me about the cold places you've tracked through, because I'd like to remember what a frost feels like." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You're a priest, aren't you? I can tell by the way you look at the fire, as though you were asking it something." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Do you feel it when the Light comes, dear? I can't feel this fire at all anymore, so I'd quite like to know whether you feel anything, even if it hurts." },
+        { id = "h_dd_family", tags = { "news" }, when = { questDone = TODO_QUEST("Deaths in the Family") },
+          text = "Coleman went quiet as a grave when you came back from the mills, and for him that's saying something. Whatever you did to the Agamands out there, dear, he won't be thanking you aloud." },
       },
       choices = {
         { text = "What would you ask of the fire, Gretchen?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -914,6 +962,7 @@ P:NPC {
         { text = "I've tracked through snow, Gretchen. Shall I tell you about it?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would you want to feel the Light, even if it burned?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be back with it.", next = "END", fx = { affinity = 1 } },
+        { text = "Why would Coleman go quiet over the Agamands?", next = "dd_family", when = { questDone = TODO_QUEST("Deaths in the Family") } },
       },
       again = {
         { id = "h_again", text = "Something else, dear? I'll be in this chair until the tea goes cold, and it always does." },
@@ -1029,6 +1078,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_maggot = {
+      lines = { { id = "dd_maggot_default", text = "They were, and you'd think it was a wedding. Half the folk in that graveyard were somebody's mother before the plague, and the gnolls were dragging them off like mutton, so to Brill you did a kindness, not a chore." } },
+      choices = {
+        { text = "The dead deserve their rest, whatever they are now.", next = "BACK", reply = "That's a soft thing to say in Brill, love, and I'll not tell anyone you said it. Come back when you want a quiet corner.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I did it for Zygand's bounty. Kindness didn't come into it.", next = "BACK", reply = "Well, the gravediggers needn't know that, and I won't spoil their evening by telling them. Coin's honest enough, I suppose.", fx = { align = { light = -1 } } },
+        { text = "Something else, Renee.", next = "BACK" },
+      },
+    },
+
     fl = {
       lines = { { id = "fl_default", text = "Do I? Well, I've no pulse to give me away and no blush to hide behind, so I suppose my eyes have to do all the work. You've a kind face, love, and you'd be surprised how few of those come through Brill." } },
       choices = {
@@ -1117,6 +1175,12 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, love? You've got leaves in your fur and I've only just swept, but sit down anyway." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my bar. Sit down, and I'll pour you something you can't taste, and you can tell me who you were praying for when you came in." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. I followed a cause once, a long time ago, and I hurt people for it because I was sure I was right, so I always like to ask a paladin how sure they are." },
+        { id = "h_dd_maggot", tags = { "news" }, when = { questDone = TODO_QUEST("Wanted: Maggot Eye") },
+          text = "The gravediggers were in last night toasting Maggot Eye's paw, love, or toasting you, since you're the one who took it off him. They can't drink a drop, but they do like to hold the cups." },
+        { id = "h_dd_mills", when = { questDone = TODO_QUEST("The Haunted Mills") },
+          text = "Coleman told the whole tavern you went out to Agamand Mills and put old Devlin back in the ground. He told it three times, actually, and it grew a little longer each time." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You've the look of someone the spirit healers know by name, love. Sit a while, because even the dead deserve a rest between dyings." },
       },
       choices = {
         { text = "Do the dead of Brill ever ask you for prayers, Renee?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -1131,6 +1195,7 @@ P:NPC {
         { text = "Why do you ask paladins how sure they are, Renee?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "You keep looking over here, Renee.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "ren_fl_rebuff" } } },
         { text = "Just a room, thanks.", next = "END" },
+        { text = "I hear the gravediggers were celebrating Maggot Eye's end.", next = "dd_maggot", when = { questDone = TODO_QUEST("Wanted: Maggot Eye") } },
       },
       again = {
         { id = "h_again", text = "Anything else, love? Pull your chair in, and mind the bat on the rafter above you." },
@@ -1279,7 +1344,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine camp companion, because nothing creeps up on a fire that a beast can smell first. Feed it from the deer by Brightwater Lake, but look closely at the liver, because the plague shows there." },
       },
       choices = {
-        { text = "I take only what I'll eat, and waste nothing.", next = "BACK", reply = "That's the hunter's way, and my father's too. The forest is kinder to those who don't waste it.", fx = { align = { honor = 1 } } },
+        { text = "I take only what I'll eat, and waste nothing.", next = "BACK", reply = "That's the hunter's way, and my father's too. He used to say the deer could tell the difference, and I never caught him wrong.", fx = { align = { honor = 1 } } },
         { text = "I take what I can carry, and sell the rest.", next = "BACK", reply = "Practical, and I can't fault it with prices what they are. Just check the livers first, before you sell anything that'll make someone sick.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1290,7 +1355,7 @@ P:NPC {
         { id = "xwarlock_default", text = "Because the Scarlet Crusade patrols the roads past Brill, and they'd see a warlock's fire from the monastery and come looking. A small fire, well banked and out of the wind, is all you need, and it keeps both of us out of their sight." },
       },
       choices = {
-        { text = "Thank you. I'll keep my fires small and hidden.", next = "BACK", reply = "Good, and you'll find it keeps you warmer than you'd think. A small fire is a quiet friend.", fx = { align = { order = 1 } } },
+        { text = "Thank you. I'll keep my fires small and hidden.", next = "BACK", reply = "Good, and you'll find it keeps you warmer than you'd think. The Crusade's scouts look for smoke, not warmth.", fx = { align = { order = 1 } } },
         { text = "Let the Crusade come. I'll be ready for them.", next = "BACK", reply = "Ready, perhaps, but they come in dozens and they don't tire. I'd much rather you lived to camp another night.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1304,7 +1369,7 @@ P:NPC {
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire until you feel rested, properly rested; you'll know it when it comes." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out on the Tirisfal road! You'll know more about fire than I do, I expect, though I'd still like to see how you build one." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, a long way from Mulgore! You'll find Tirisfal's woods sadder than your plains, though I've learned to love them a little." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid, a long way from Mulgore! You'll find Tirisfal's woods sadder than your plains, though I've learned to love them a little." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, on the Tirisfal road! You'll know how to stand a watch, I expect, and that's half of keeping a good camp." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Then you know the woods better than most who come down this road, and you'll have eaten well, which is more than I can say." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and not one of the Crusade's, I can see that plainly. I'll say it before you ask: neither am I." },

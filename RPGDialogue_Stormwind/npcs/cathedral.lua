@@ -128,7 +128,7 @@ P:NPC {
         { id = "h_novice", when = { origin = "human_abbey_novice" },
           text = "Northshire's novices always kneel a little straighter than the rest. The brothers there are strict about posture. And about everything else, I'm told." },
         { id = "h_bell", when = { timeOfDay = "dusk" },
-          text = "Listen. The sunset bell. We ring it for the kaldorei in the city, who never grew used to walls. I've grown to need it myself." },
+          text = "Listen, that's the sunset bell. We ring it for the kaldorei in the city, who never grew used to walls, and I've come to need it myself." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Ah, there you are, child. I was hoping you'd come by, because the Cathedral feels a little emptier on the days you don't." },
         { id = "h_cold", when = { disposition = { max = 34 } },
@@ -198,7 +198,7 @@ P:NPC {
         { id = "f_default", text = "He taught that the Light isn't owned by the strong, and a farmer at his plough can carry as much of it as a king on his throne. I believed him, and since I look like a farmer, it helped." },
       },
       choices = {
-        { text = "That's a kind teaching.", next = "BACK", reply = "It is, and it's the one I've tried hardest to keep. Thank you.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "That's a kind teaching.", next = "BACK", reply = "It's the one I've tried hardest to keep, though Light knows I've stumbled over it often enough. Thank you, child.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "The Light favors the strong, whatever Faol taught.", next = "BACK", reply = "The strong say so, child, and the weak have always disagreed. I'll stand with Faol.", fx = { align = { light = -1 } } },
         { text = "What was he like?", next = "faol_man" },
       },
@@ -214,7 +214,7 @@ P:NPC {
           text = "I asked that when Lordaeron fell, and the prince, the king and the Silver Hand with it, and I asked it every night for a year. I won't tell you I found the answer, only that I found I could keep working without it." },
       },
       choices = {
-        { text = "That takes faith.", next = "BACK", reply = "It does, and some days I have very little left. But I keep asking.", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "That takes faith.", next = "BACK", reply = "Some days I have very little of it left, I'll confess. But I keep asking, and so far the Light keeps answering.", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
         { text = "I'd have stopped asking and turned my back on it.", next = "BACK", reply = "Many have, child, and the Light didn't turn its back on them. It's still waiting.", fx = { align = { light = -2 } } },
         { text = "Maybe there's no answer.", next = "none", fx = { trait = { skeptical = 1 } } },
       },
@@ -525,7 +525,7 @@ P:NPC {
         { id = "h_tome", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Divinity") },
           text = "He's out by Heroes' Vigil, or what's left of him is. Rall says the Light can bring him back, if the hand holding it is steady." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Symbol of Life"), days = 3 } },
-          text = "He's alive. Grumblin', bruised, alive. I owe ye more than I can pay, an' I'm a dwarf, so I'll try anyway." },
+          text = "He's alive, grumblin' an' bruised, but alive! I owe ye more than I can pay, an' I'm a dwarf, so I'll try anyway." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf in the Cathedral! We're rarer here than ale, so I'm glad tae see a friendly beard." },
         { id = "h_priest", when = { class = "PRIEST" },
@@ -1131,7 +1131,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "My students learn to listen to the Light, and yours learn to carry it into places it isn't welcome. Both are needed, but I've seen paladins forget to listen, and priests forget that someone has to go out and fight." } },
       choices = {
-        { text = "The oath and the Church should guide me together.", next = "BACK", reply = "That's the right balance, and the hardest one. Hold to it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The oath and the Church should guide me together.", next = "BACK", reply = "Then you've found the balance most priests spend their whole lives looking for. Hold to it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll follow the Light as I feel it, not the Church's rules.", next = "BACK", reply = "That's how Whitemane began, child. I'd be careful with that thought.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1321,6 +1321,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_joshua_d = {
+      lines = {
+        { id = "dd_joshua_d_a", text = "Then admit it here, where it's safe to. Each time the spirit returns, it brings something back from the other side, and some find they grow braver for it while others grow careless. Which are you becoming?" },
+      },
+      choices = {
+        { text = "Braver. Each death teaches me what's worth fighting for.", next = "dd_joshua_d2", fx = { align = { light = 1 } } },
+        { text = "Careless, maybe. Death doesn't frighten me any more.", next = "dd_joshua_d2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_joshua_d2 = {
+      lines = {
+        { id = "dd_joshua_d2a", text = "Then I'll pray for you either way, because both kinds need it. Come and sit in the Cathedral some evening when you're not bleeding, and let the quiet do what the healers can't." },
+      },
+      choices = { { text = "I'll try, Brother. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "In the first light through the east window, yes, as if the stone were holding its breath. Perhaps your spirits would call that something else." } },
@@ -1384,7 +1400,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The Light teaches it through prayer, and the forest teaches it through hunger, and I suspect they're the same lesson. Your {pet} has it too, that stillness. Watch how it sits by the pews; it's a better student than half my novices." },
       },
       choices = {
-        { text = "Waiting on the Light is still praying, Brother.", next = "BACK", reply = "It is, and you've understood it better than many novices. Thank you.", fx = { align = { light = 1 } } },
+        { text = "Waiting on the Light is still praying, Brother.", next = "BACK", reply = "You've understood it better than half the novices in my charge, and they've had a year of sermons. Thank you.", fx = { align = { light = 1 } } },
         { text = "Patience is just how you catch dinner.", next = "BACK", reply = "And prayer is how you catch something else entirely. I'll keep both.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1401,6 +1417,9 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
+        { id = "dd_deaths_joshua", when = { deaths = { min = 20 } },
+          text = "You carry the weight of many returns, friend, and I can see it even if you can't. The Light has brought you back more than twenty times, I'd guess, and I wonder whether you've stopped to ask it why." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at first light. Your order has sworn its oaths at altars like this one, so you'll know how the morning lies across the stone." },
         { id = "h_default", key = true, text = "Brother Joshua. I teach by the altar, because people pay attention near it. They don't always notice they're doing it." },
         { id = "h_dawn", when = { timeOfDay = "dawn" }, text = "Look, the first light through the east window. I've watched it every morning for years, and it's never once been the same." },
@@ -1415,11 +1434,13 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "People listen better near the altar, I've found. I wonder whether your spirits listen better near the earth." },
       },
       again = {
-        { id = "h_again", text = "Something else?" },
+        { id = "h_again", text = "Something else, friend? The Light's in no hurry, and nor am I." },
         { id = "h_again2", text = "Ask what you like. The altar and I have all morning." },
         { id = "h_again3", text = "Go on, friend. I'll listen, which you'll remember is the part I said people skip." },
       },
       choices = {
+        { text = "I've died more times than I like to admit, Brother.", next = "dd_joshua_d", when = { deaths = { min = 20 } } },
+
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why teach by the altar?", next = "altar" },
         { text = "I've seen you at prayer often, Brother.", next = "pray" },
@@ -1455,7 +1476,7 @@ P:NPC {
       big = true,
       lines = { { id = "aw_default", text = "By healing someone who goes on to heal someone else, mostly, the way the dawn comes through the east window and lights the whole nave, not just the altar. A priest who keeps the Light for himself is a window with the shutters closed." } },
       choices = {
-        { text = "The Light is meant for everyone, or it's meant for no one.", next = "BACK", reply = "That's what I believe, and what I try to teach. Thank you.", fx = { align = { light = 1 } } },
+        { text = "The Light is meant for everyone, or it's meant for no one.", next = "BACK", reply = "I believe that too, and I try to teach it to the novices, with mixed success. Thank you.", fx = { align = { light = 1 } } },
         { text = "Some don't deserve healing. A priest must choose.", next = "BACK", reply = "Some priests do, and some of them end up in the Crusade. I'd rather heal everyone I can.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1464,7 +1485,7 @@ P:NPC {
       lines = { { id = "p_default", text = "Badly, and often. Mostly I say thank you and then I listen. The listening is the part people skip." } },
       choices = {
         { text = "Listening is the part I skip, so I'll try harder.", next = "BACK", reply = "That's honest, and it's a good start. The Light is a patient listener too.", fx = { align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "I'd rather talk than listen, and the Light can wait its turn.", next = "BACK", reply = "It will, and it's very patient. But it might have something to say.", fx = { align = { light = -1 } } },
+        { text = "I'd rather talk than listen, and the Light can wait its turn.", next = "BACK", reply = "Oh, it'll wait; it has waited on louder folk than you. But you might be surprised what you hear when you stop for breath.", fx = { align = { light = -1 } } },
         { text = "What do you hear, when you listen?", next = "pray_listen" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1535,7 +1556,7 @@ P:NPC {
       },
     },
     cathedral_benedictus = {
-      lines = { { id = "cb_default", text = "Kind, careful and very tired, I think, with the King away and the whole city looking to the Cathedral for comfort. He remembers every novice's name, and I've never once seen him hurry, which in these days is a sort of miracle." } },
+      lines = { { id = "cb_default", text = "Kind, careful and very tired, I think, with the King away and the whole city looking to the Cathedral for comfort. He remembers every novice's name and never seems to hurry, which in these days is a sort of miracle." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -1705,7 +1726,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not often enough, I'm afraid, though I walked to Northshire Abbey once on a dare and it took me two days because I stopped to talk to everyone. Your {pet} is doing better than I am at keeping pace. A good companion, that one, and very forgiving of the incense." },
       },
       choices = {
-        { text = "Every creature is the Light's, and deserves a quiet death.", next = "BACK", reply = "They do, and I'll pray for every one. Thank you for saying so.", fx = { align = { light = 1 } } },
+        { text = "Every creature is the Light's, and deserves a quiet death.", next = "BACK", reply = "Thank you for saying so. I'll say a word for each of them tonight, the doe and her fawn first, and Brother Joshua can laugh at me if he likes.", fx = { align = { light = 1 } } },
         { text = "A hunter can't afford to be sentimental about the kill.", next = "BACK", reply = "I suppose not, though I'd hope you're sentimental later, when no one's looking.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1715,7 +1736,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Because if I knew, I might teach it better, and because nobody's ever explained it to my satisfaction. Brother Joshua says the Light can't be measured, and I say that's only because nobody's tried hard enough." } },
       choices = {
         { text = "Some mysteries are best left to the Church's teaching.", next = "BACK", reply = "Brother Joshua would agree with you, and he'd be pleased. I'll keep wondering quietly.", fx = { align = { order = 1 } } },
-        { text = "Keep asking, Brother. Questions are how we learn.", next = "BACK", reply = "I will! Thank you. Nobody ever tells me that.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Keep asking, Brother. Questions are how we learn.", next = "BACK", reply = "I will, and thank you! Nobody ever tells me that.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1733,7 +1754,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the eastern hall! Fascinating, and slightly alarming, and I've so many questions I don't know where to begin." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, I have questions. Do the spirits answer in words, or is it more of a feeling? Do they ever argue?" },
       },
-      again = { { id = "h_again", text = "Keep walking. What else?" } },
+      again = { { id = "h_again", text = "Keep walking while you ask. What else?" } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "You never seem to stop pacing.", next = "pace" },

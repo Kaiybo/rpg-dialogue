@@ -175,7 +175,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "They don't fear much, but they don't like loud things they can't bite, and thunder is louder than I am, at least. Walk with me to Yorick's farm, would you, and if you hear howling, call down something bright before they reach us." } },
       choices = {
-        { text = "I'll stay at your side all the way to Yorick.", next = "BACK", reply = "Thank you. Between your thunder and my blade, Yorick will see us coming.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll stay at your side all the way to Yorick.", next = "BACK", reply = "Thank you. Between your thunder and my blade, Yorick will hear us long before he sees us.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll go where the worgen are and draw them off.", next = "BACK", reply = "Brave, and probably foolish, but I'll not argue if it keeps them off my back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -196,7 +196,7 @@ P:NPC {
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "The worgen can smell rot, which is a hard thing for the likes of us to hide, so the deathstalkers rub pine sap into their cloaks before they go south. It doesn't always work, but it works more often than not, and I've learned to be grateful for that." },
       },
       choices = {
-        { text = "Patience and stealth. I'll keep to the shadows.", next = "BACK", reply = "Good. The shadows are kind to people who move slowly.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Patience and stealth. I'll keep to the shadows.", next = "BACK", reply = "Good. Move slowly, and the shadows will keep you better than any armor in the Sepulcher.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "If a worgen finds me, I'll stand and fight.", next = "BACK", reply = "Then you'll be fighting more than one, because they never come alone. Keep to the shadows if you can.", fx = { align = { honor = 1 } } },
         { text = "What are the worgen, exactly?", next = "worgen" },
       },
@@ -446,7 +446,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "They sense everything, which is why I like them better than people. They grew used to the Forsaken quickly enough, though they still go quiet when a priest walks past the roost. Either they're showing respect, or they're wondering whether you'd make a meal." } },
       choices = {
-        { text = "Then I'll walk past gently and let them rest.", next = "BACK", reply = "Thank you. They'll notice, and they'll fly gentler for you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll walk past gently and let them rest.", next = "BACK", reply = "They'll notice, and they'll fly gentler for you. Bats remember a soft step better than a coin.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them stay wary. Fear keeps a creature obedient.", next = "BACK", reply = "Fear makes a bat obedient and a rider dead. I'll keep my bats trusting, thank you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -455,7 +455,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They can, and they will, though they'll sulk about it for a day afterward, and a sulking bat is no fun to feed. Strap your shield down and keep still, and you'll be in Tarren Mill before the worgen notice you've gone." } },
       choices = {
-        { text = "I'll strap it down and keep still, Karos.", next = "BACK", reply = "Good. A still rider is a happy bat, and a happy bat is a short flight.", fx = { align = { order = 1 } } },
+        { text = "I'll strap it down and keep still, Karos.", next = "BACK", reply = "Good. The bats hate a rattling rider, and they'll take the long way round to punish one.", fx = { align = { order = 1 } } },
         { text = "My shield stays on my arm, sulking bat or not.", next = "BACK", reply = "Then the bat will sulk, and you'll pay for it over Lordamere. Your choice.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -466,7 +466,7 @@ P:NPC {
         { id = "xmage_default", text = "Because your spells take you to the Undercity and nowhere else, and my bats go to Tarren Mill and back again. They don't care for magic, though, so keep your hands still in the saddle and they won't drop you in the lake." },
       },
       choices = {
-        { text = "I'll ride gently. Your bats deserve that.", next = "BACK", reply = "Thank you. They'll know, and they'll carry you smooth.", fx = { align = { light = 1 } } },
+        { text = "I'll ride gently. Your bats deserve that.", next = "BACK", reply = "They'll know, believe me, and they'll carry you smooth as still water over Lordamere.", fx = { align = { light = 1 } } },
         { text = "A bat that drops me becomes a frozen bat.", next = "BACK", reply = "Then you'll be walking to Tarren Mill, frozen bat and all. I'd reconsider.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -481,6 +481,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The bats don't need praying over, so if that's why you came, you can go back down the hill." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could teleport, I suppose, but a bat doesn't need a reagent, so here we are." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The bats don't care what you pray to, so neither do I, though I'd thank you not to glow in the roost." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You fell to your death, didn't you? Everyone who does it has the same crumpled look afterwards, and my bats would have set you down gently for far less trouble." },
       },
       choices = {
         { text = "Do the bats sense what you are, Karos?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -534,7 +536,7 @@ P:NPC {
         { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? My bats will carry it if it behaves and doesn't try to eat them, and you'd be surprised how many try. Keep it calm on the flight and the bat will keep calm too." },
       },
       choices = {
-        { text = "My companion's well trained. It won't trouble them.", next = "BACK", reply = "Good. A well trained beast is welcome on any of my bats.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My companion's well trained. It won't trouble them.", next = "BACK", reply = "Good. The last one that wasn't tried to eat a wing, and I had to listen to the shrieking for a week.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If it bites a bat, the bat should have been quicker.", next = "BACK", reply = "Then your beast will be walking, and so will you. Mind it.", fx = { align = { honor = -1 } } },
       },
     },
@@ -572,7 +574,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "They trust whoever feeds them and doesn't wave about, and they don't care which side of the grave you're on. Tauren are heavier than they'd like and trolls fidget, but the orcs sit still, I'll give them that, as if they'd ridden worse." } },
       choices = {
-        { text = "I'll sit still and respect the beast.", next = "BACK", reply = "Good. You'll be their favourite rider today.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll sit still and respect the beast.", next = "BACK", reply = "Then you'll be their favourite rider today, which is a short list.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A mount should carry whoever pays.", next = "BACK", reply = "It does carry whoever pays, but it chooses how gently. Mind yourself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -593,7 +595,7 @@ P:NPC {
         { id = "xrogue_troll", when = { race = "Troll" }, text = "The bats like trolls better than they like us, since you smell less of the grave. They'll still shriek when they land, mind, so get off a mile early if you want to arrive unannounced." },
       },
       choices = {
-        { text = "I'll walk the last mile quietly, as you say.", next = "BACK", reply = "Good. The bats will thank you for the quiet landing, and so will I.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll walk the last mile quietly, as you say.", next = "BACK", reply = "Good. That deathstalker I mentioned still has to walk everywhere, and I'd hate to add you to the list.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'd rather arrive with a shriek and fight.", next = "BACK", reply = "Then you'll land in a fight, and I'll lose a bat. I'd rather you didn't.", fx = { align = { honor = 1 } } },
         { text = "Are the roads really that bad?", next = "roads" },
       },
@@ -605,7 +607,7 @@ P:NPC {
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You smell of sulphur and grave dirt in equal measure, and the bats don't care for either, though they'll put up with the second. Send the demon home before you fly, and we'll get along." },
       },
       choices = {
-        { text = "I'll dismiss it first. The bats deserve that.", next = "BACK", reply = "Thank you. The bats would thank you too, if they knew how.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll dismiss it first. The bats deserve that.", next = "BACK", reply = "Thank you. Bats can't stand the smell of brimstone, and neither, frankly, can I.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The demon stays with me, Karos.", next = "BACK", reply = "Then you'll both be walking to Tarren Mill. I'll not risk my bats.", fx = { align = { order = -1 } } },
         { text = "These bats must come from somewhere dark.", next = "bats" },
       },

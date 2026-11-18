@@ -310,7 +310,7 @@ P:NPC {
       choices = {
         { text = "A man's in a cage. That's reason enough.", next = "BACK", reply = "That's all I needed to hear, {class}. Get Wendel out and the whole crew will drink to ye for a month.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "For coin, Captain, and plenty of it.", next = "BACK", reply = "Coin I can manage, within reason, and the Raiders pay their debts. Just bring him back with all his fingers, because he needs them for the stew.", fx = { align = { honor = -1 } } },
-        { text = "For the challenge. Kurzen's locks sound interesting.", next = "BACK", reply = "Interesting, he says! Kurzen's locks have killed better rogues than ye, so treat them with respect and Wendel with care.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "For the challenge. Kurzen's locks sound interesting.", next = "BACK", reply = "Interesting, says you! Kurzen's locks have killed better rogues than ye, so treat them with respect and Wendel with care.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "For the Bay. A favor owed is worth more than gold.", next = "BACK", reply = "Now ye're talking like a Bay native. Owe the Raiders a favor and you've friends in every port on this coast.", fx = { align = { order = 1 }, standing = { booty_bay = 1 } } },
       },
     },

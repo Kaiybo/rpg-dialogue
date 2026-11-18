@@ -77,6 +77,7 @@ P:NPC {
           text = "THANKS FOR DIGGING ALL THESE BONES OUT OF THE GROUND AND NOT HURTING THE NATIVE BEASTS IN ANY WAY! And now, quietly: whether you did or didn't, let's keep it that way." },
         { id = "h_goblin", when = { race = "Goblin" },
           text = "A goblin! Then you understand, pal: no contract is worth getting eaten over, and I signed mine before I'd seen a devilsaur, which is the worst deal I ever made." },
+        { id = "h_dd_dadanga", when = { questDone = TODO_QUEST("Dadanga is Hungry!") }, text = "So you've been feeding Petra's kodo bloodpetal sprouts, pal, and now the beast follows me round the dig hoping I've got more. I don't, and I wouldn't give her any if I did, and she still smells like a wet tent." },
       },
       again = {
         { id = "h_again", text = "Anything else, pal? Anything that involves leavin', ideally." },
@@ -163,7 +164,7 @@ P:NPC {
     },
     miner = {
       lines = { { id = "mi_default", text = "Dig where somebody else already dug, pal, and bring a big friend. That's the whole art, and it's served me well and cheap." } },
-      choices = { { text = "Words to live by.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "Words to live by, I suppose.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     druid = {
       lines = { { id = "dr_default", text = "Wrong? They try to eat us every day, pal! If it makes you feel better, bring me bones from the ones that charge first, because that's self-defence, and I'll write it down in the ledger if you like." } },

@@ -102,7 +102,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A puzzle, and a welcome one. If you can really hear the stone, you might hear what's happening under Gnomeregan without anyone walking back into that radiation. I'd never ask you to go, of course, but I'd dearly like to know what the earth says about the troggs, and about whoever let them in." } },
       choices = {
-        { text = "I'll listen for Gnomeregan, High Tinker. I owe your people that.", next = "BACK", reply = "Thank you, and I won't forget it, because every bit of news from below is worth more than a dozen of my own guesses.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll listen for Gnomeregan, High Tinker. I owe your people that.", next = "BACK", reply = "Thank you! Every scrap of news from below is worth more than a dozen of my own guesses, and I've been guessing for far too long.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The earth isn't a listening device for gnome engineers.", next = "BACK", reply = "No, it isn't, you're quite right, and I'm sorry if I made it sound that way, because I'm afraid I see everything as a device when I'm tired.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -111,7 +111,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd welcome any help, but the radiation is a gnomish poison of our own making, and I'm not sure the green can mend what we broke. We'll take Gnomeregan back with our own hands first, and then I'll gladly ask your people what grows best in a clean tunnel." } },
       choices = {
-        { text = "Mend it yourselves first. That's the right order of things.", next = "BACK", reply = "That's my thinking exactly, and I'm grateful you agree, because it's our mess, and a gnome cleans up after his own experiments.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Mend it yourselves first. That's the right order of things.", next = "BACK", reply = "That's my thinking exactly. It's our mess, and a gnome cleans up after his own experiments, even the radioactive ones.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Pride won't clean a tunnel. Ask the kaldorei now.", next = "BACK", reply = "Oh dear, that's a very fair point, and pride has cost us a great deal already, so perhaps I'll write to Darnassus after all.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -123,7 +123,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}! Splendid creature; I once designed a mechanical one, but it kept trying to fetch the furniture." },
       },
       choices = {
-        { text = "I'll track them and report every tunnel, High Tinker.", next = "BACK", reply = "Splendid, and I'll have a map ready for every tunnel you mark, because a tunnel we know about is a tunnel we can seal.", fx = { align = { order = 1 } } },
+        { text = "I'll track them and report every tunnel, High Tinker.", next = "BACK", reply = "Splendid! Mark every tunnel you find, and I'll have it on the big map by morning, with a little red pin.", fx = { align = { order = 1 } } },
         { text = "I'll track them, but I'll deal with them my own way.", next = "BACK", reply = "Your own way is fine, so long as you write down where they came from, because knowing the tunnels matters more than the troggs.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -141,7 +141,7 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_gnome_default", text = "And you came back up, which is more than the radiation lets most of us do! With Thermaplugg gone, the poor sick gnomes down there have nobody left giving them orders, and some of them were my neighbours once, so I'd like to think a few still remember their names." } },
       choices = {
-        { text = "Then we go back for them. Nobody should be left behind.", next = "BACK", reply = "Exactly, that's exactly it, and I'll start planning at once, though I'll need more engineers and a great deal of lead shielding.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then we go back for them. Nobody should be left behind.", next = "BACK", reply = "Exactly, that's exactly it! I'll start planning at once, though I'll need more engineers, and a great deal more lead shielding than we have.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The ones still down there are lost, High Tinker. Seal it and start over.", next = "BACK", reply = "I know some say so, and some nights I think it too, but I can't seal our own people away and still call myself their High Tinker.", fx = { align = { light = -1 } } },
         { text = "Could Gnomeregan ever be taken back now?", next = "xcl_gnome2" },
       },
@@ -195,7 +195,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Oh, splendid, it's you! Mind the coil there, it bites, and do sit down, because I've a hundred things to show you and time for about four." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you eat properly out there? I only ask because my people forget to, and you look as though you'd forget too." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Your people know more about living with the land than we gnomes ever learned, and after Gnomeregan, I'm humble enough to say so." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Your people know more about living with the land than we gnomes ever learned, and after Gnomeregan, I'm humble enough to say so." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! My engineers have argued about your sort for weeks. Sixty percent think you're picking up seismic vibrations, and the rest think you're simply very sensitive." },
       },
       again = {
@@ -424,7 +424,7 @@ P:NPC {
         { id = "lr_default", text = "Then try, and tell me what you find, good or bad, and especially bad, because bad results are the ones that teach you something." },
       },
       choices = {
-        { text = "I will.", next = "BACK", reply = "Splendid, and I'll be waiting with my notebook, because even a failure is a step forward if someone bothers to write it down.", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "I will.", next = "BACK", reply = "Splendid! I'll be waiting with my notebook, and if it fails, well, a failure written down is still data.", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
         { text = "If it fails, I'll trust your readings instead.", next = "BACK", reply = "That's very kind, and I'll take the help, though I'll also take your report on the Light, because bad results are still results.", fx = { align = { light = -1 } } },
       },
     },
@@ -487,7 +487,7 @@ P:NPC {
       },
       choices = {
         { text = "Our people need every weapon now, High Tinker.", next = "BACK", reply = "Perhaps they do, and I can't argue with the need, but I'd like to understand it before I decide, so we'll talk again soon.", fx = { align = { light = -1 } } },
-        { text = "I keep it leashed. I know what it costs.", next = "BACK", reply = "Good, and I'm glad to hear it, because a gnome who knows the cost is a gnome I can trust a great deal further than one who doesn't.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I keep it leashed. I know what it costs.", next = "BACK", reply = "I'm glad to hear it. Gnomeregan has had quite enough of things that were supposed to stay leashed.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Why lock the books at all?", next = "lock_why" },
       },
     },
@@ -531,7 +531,7 @@ P:NPC {
       choices = {
         { text = "Your workshop's picked clean, High Tinker. I'm sorry.", next = "rogue_shop" },
         { text = "What's left down there belongs to whoever can carry it.", next = "BACK", reply = "Then you'd better bring it to me first, so I can decide what belongs to whom, because I'd hate for my workshop to end up in the market.", fx = { align = { order = -1 }, affinity = -1 } },
-        { text = "Everything I bring up goes back to our people.", next = "BACK", reply = "Oh, that's wonderful, and I'll forgive the missing permit entirely, because every scrap you bring up is a piece of home.", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Everything I bring up goes back to our people.", next = "BACK", reply = "Oh, that's wonderful! I'll forgive the missing permit entirely; every scrap you bring up is a little piece of home.", fx = { align = { order = 1 }, affinity = 2 } },
       },
     },
     rogue_shop = {
@@ -561,8 +561,8 @@ P:NPC {
         { id = "rv_default", text = "I did, on my advisor's urging, and you heard it from the wrong side of the door. Thermaplugg pressed for it, but it was my hand that signed it, and I've never once let myself forget that." },
       },
       choices = {
-        { text = "It was the right order, High Tinker.", next = "BACK", reply = "You're kind to say it, and perhaps it was, but it doesn't help me sleep, so I'll keep the weight of it as I always have.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "It cost too much. You know that.", next = "BACK", reply = "I know it, every day, and I'll not argue with you, because I'd rather be reminded than forget even once what it cost.", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "It was the right order, High Tinker.", next = "BACK", reply = "You're kind to say it, and perhaps it was. It still doesn't help me sleep.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "It cost too much. You know that.", next = "BACK", reply = "I know it, every single day. I'd rather be reminded than forget, even once, what it cost.", fx = { align = { order = -1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -617,7 +617,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The ones who held, not the ones who charged, for a hero who charges alone only earns a nicer tombstone. In the War o' the Three Hammers it was a shield line that turned the Dark Irons back from our gates, and I may be the last who still reads its captains' names." } },
       choices = {
-        { text = "A shield line deserves more honour than any hero.", next = "BACK", reply = "Aye, they do, an' ye've a historian's heart for sayin' it, for the books are full o' heroes an' nearly empty o' shield lines.", fx = { align = { order = 1 } } },
+        { text = "A shield line deserves more honour than any hero.", next = "BACK", reply = "Ye've a historian's heart for sayin' it. The books are full o' heroes an' nearly empty o' shield lines, an' I've spent forty years tryin' tae fix that.", fx = { align = { order = 1 } } },
         { text = "Lines hold, but it's heroes who win wars.", next = "BACK", reply = "Some wars, maybe, but I've read a great many o' them, an' I've yet tae find a hero who won one wi'out a line behind him.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -629,7 +629,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, for the first rams ever ridden in Khaz Modan were tamed by hunters in the high snows. An' I can hear yer {pet} breathin' at yer heel, slow an' easy, which tells me it trusts ye." },
       },
       choices = {
-        { text = "Then I'll carry that tradition with pride.", next = "BACK", reply = "Good, for it's an old an' proud one, an' the hunters o' the high snows would be glad tae know it's in good hands.", fx = { align = { order = 1 } } },
+        { text = "Then I'll carry that tradition with pride.", next = "BACK", reply = "Good. It's an old an' proud one, an' the hunters o' the high snows would be glad tae know it's in good hands.", fx = { align = { order = 1 } } },
         { text = "Old traditions don't hunt for me. My own way does.", next = "BACK", reply = "Fair enough, but every tradition started wi' somebody doin' it their own way, so ye might be startin' one yerself.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -638,7 +638,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "More than the heroes would like tae admit, for half o' what we know about the Dark Iron came from dwarves who crept intae Thaurissan's halls an' crept back out. Their names are seldom written down, which is the price o' that sort o' work." } },
       choices = {
-        { text = "Then I'll serve the same way, and never ask for a name.", next = "BACK", reply = "That's a noble thing tae say, an' a rare one, an' I'll keep a page for ye in my heart, if no' in my books.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll serve the same way, and never ask for a name.", next = "BACK", reply = "That's a rare thing tae hear in this hall. I'll keep a page for ye in my heart, if no' in my books.", fx = { align = { honor = 1 } } },
         { text = "Then I'll make sure my name gets written down, Historian.", next = "BACK", reply = "Ha, then I'll write it, but ye'll have tae earn it first, an' I'll be listenin' very closely tae what ye do.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -647,7 +647,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "That a sorcerer-thane who thinks he's master o' a fire is usually its servant before the night's out. Thaurissan called Ragnaros intae the world tae win a war, an' the Searing Gorge is what's left o' his victory." } },
       choices = {
-        { text = "Power must be held in check, or it burns the holder.", next = "BACK", reply = "Aye, it must, an' I'm glad tae hear it from a mage, for the Searing Gorge is a very large reminder o' what happens when it isnae.", fx = { align = { order = 1 } } },
+        { text = "Power must be held in check, or it burns the holder.", next = "BACK", reply = "It must. The Searing Gorge is a very large reminder o' what happens when it isnae, an' it's still smokin'.", fx = { align = { order = 1 } } },
         { text = "Thaurissan simply wasn't strong enough. A greater mage might have managed.", next = "BACK", reply = "That's what Thaurissan thought, an' it's what every sorcerer since has thought, an' I've a very long shelf o' their mistakes.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -655,7 +655,7 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "Very little, I'm ashamed tae say, mostly that a demigod named Cenarius taught the night elves an' that they slept away the centuries in their dreams. It makes poor history but a fine story." } },
       choices = {
-        { text = "It's no story. Our order guards the world still.", next = "BACK", reply = "Then I'll be glad tae hear ye tell it, for an old historian's always wantin' tae fill in the gaps, an' I've a great many.", fx = { align = { light = 1 } } },
+        { text = "It's no story. Our order guards the world still.", next = "BACK", reply = "Then sit an' tell it, for I've a great many gaps tae fill, an' my quill's been dry all week.", fx = { align = { light = 1 } } },
         { text = "Old tales are best left to the old.", next = "BACK", reply = "Maybe they are, but an old historian's the right person tae leave them tae, an' I'll be waitin' when ye change yer mind.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -664,8 +664,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "That they came late an' stayed long, for it took Lordaeron's priests a good while to convince a dwarf the Light could do anything a good hammer couldnae. Once convinced, they were stubborn about it, which is the dwarven way, an' they stood with Uther's companies through the worst of the Second War." } },
       choices = {
-        { text = "Then I'll be as stubborn in my oaths as they were.", next = "BACK", reply = "That's the spirit, an' ye'll make a fine paladin for it, for stubbornness in a good cause is the best thing a dwarf can offer.", fx = { align = { order = 1 } } },
-        { text = "Stubbornness lost Lordaeron. A paladin should know when to bend.", next = "BACK", reply = "Maybe it did, an' I'll no' argue, but bendin' has lost more kingdoms than stubbornness ever has, in my reading.", fx = { align = { order = -1 } } },
+        { text = "Then I'll be as stubborn in my oaths as they were.", next = "BACK", reply = "That's the spirit! Stubbornness in a good cause is the best thing a dwarf has tae offer the world, an' ye've plenty.", fx = { align = { order = 1 } } },
+        { text = "Stubbornness lost Lordaeron. A paladin should know when to bend.", next = "BACK", reply = "Did it, now? In my reading, bendin' has lost more kingdoms than stubbornness ever has.", fx = { align = { order = -1 } } },
         { text = "Tell me something else, Historian.", next = "BACK" },
       },
     },
@@ -673,8 +673,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_brd_default", text = "Then ye've closed a book that opened with his ancestor, the sorcerer-thane who called up Ragnaros in the War of the Three Hammers and burned his own people's land to cinders. Every emperor since has served the Firelord and none ever found the courage to stop, so I'll not pretend to mourn this one." } },
       choices = {
-        { text = "Even Thaurissan was a dwarf once. I take no joy in it.", next = "BACK", reply = "That's a kind thought, an' a rare one, for most who come back from the mountain only want tae boast, an' I'll write it down.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "He made his choice, Historian, and he got what he earned.", next = "BACK", reply = "Maybe he did, an' I'll no' argue, but I'll still write his name in the book, for even a villain deserves tae be remembered rightly.", fx = { align = { light = -1 } } },
+        { text = "Even Thaurissan was a dwarf once. I take no joy in it.", next = "BACK", reply = "That's a kind thought. Most who come back from that mountain only want tae boast, so I'll write yours down.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He made his choice, Historian, and he got what he earned.", next = "BACK", reply = "Maybe he did. I'll still write his name in the book, for even a villain deserves tae be remembered rightly.", fx = { align = { light = -1 } } },
         { text = "Who rules the Dark Iron now?", next = "xcl_brd2" },
       },
     },
@@ -828,7 +828,7 @@ P:NPC {
         { id = "wi_default", text = "Then sit, and tell me. Not the battles, for I have those; tell me what people carried when they ran, because nobody ever writes that down." },
       },
       choices = {
-        { text = "Bread. Children. Holy books.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
+        { text = "Bread, their children, and the holy books. Nothing else mattered.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "I'd rather not remember.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },
@@ -837,8 +837,8 @@ P:NPC {
         { id = "pl_default", text = "From what I gathered, the Light eased the dying better than it stopped the dying. The plague came in the grain, and the grain kept coming." },
       },
       choices = {
-        { text = "Then we must be quicker next time.", next = "BACK", reply = "Aye, we must, an' I'll write that down, for the next plague will come in the grain too, if we're no' watchin' for it.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Then the Light's no cure, and we'd best look elsewhere.", next = "BACK", reply = "Maybe so, an' I'll no' argue, but the Light eased a great many deaths, an' I'll no' have that forgotten in my history.", fx = { align = { light = -1 } } },
+        { text = "Then we must be quicker next time.", next = "BACK", reply = "We must. I'll write that down, for the next plague will come in the grain too, if nobody's watchin' the granaries.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then the Light's no cure, and we'd best look elsewhere.", next = "BACK", reply = "Maybe so. But the Light eased a great many deaths, an' I'll no' have that left out o' my history.", fx = { align = { light = -1 } } },
         { text = "That's grim, Historian.", next = "BACK" },
       },
     },
@@ -847,7 +847,7 @@ P:NPC {
         { id = "cu_default", text = "Have ye, now? I can hear it in yer voice, a sort of smoke at the back of it. I wrote that book so folk would know what to fear, and I'd hate to think it served as a primer instead." },
       },
       choices = {
-        { text = "Knowing a curse is how you break one.", next = "BACK", reply = "Aye, it is, an' I'm glad ye see it, for I wrote that book tae break curses, no' tae make them, an' I'd like it used that way.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Knowing a curse is how you break one.", next = "BACK", reply = "It is. I wrote that book tae break curses, no' tae make them, an' I'd like it used that way.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "A primer was exactly what I needed.", next = "BACK", reply = "Then I'll be keepin' an ear on ye, for a book I wrote tae warn folk is no' meant tae be a primer for anybody.", fx = { align = { light = -1 }, affinity = -2 } },
         { text = "Something else, historian.", next = "BACK" },
       },
@@ -859,7 +859,7 @@ P:NPC {
           text = "Ah, and some Wildhammer blood in ye besides, I'd wager, from the burr. Then ye've heard the War of the Three Hammers told from the other side, and I'd dearly like to hear it." },
       },
       choices = {
-        { text = "The old ways were never lost. Only ignored.", next = "BACK", reply = "Aye, ignored, an' that's the right word for it, an' it's good tae hear a Bronzebeard admit it, for it's rare enough.", fx = { align = { order = -1 } } },
+        { text = "The old ways were never lost. Only ignored.", next = "BACK", reply = "Ignored is the right word. An' it's good tae hear a Bronzebeard admit it, for the Wildhammer have been sayin' it for centuries.", fx = { align = { order = -1 } } },
         { text = "Bronzebeard and Wildhammer should keep to their own roads.", next = "BACK", reply = "Maybe they should, an' they have for a long while, but I've always thought we'd both be stronger if we walked together.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -977,7 +977,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "All of them, and I worry about each one, for the Badlands have troggs, Loch Modan has troggs, and Uldaman has things worse than troggs. A warrior at a dig lets my Prospectors dig instead of looking over their shoulders, and lets me sleep, occasionally." } },
       choices = {
-        { text = "I'll guard a dig site, if the League asks it.", next = "BACK", reply = "Splendid, and the League will be grateful, and so will my Prospectors, who are much better at digging than at running.", fx = { align = { honor = 1 } } },
+        { text = "I'll guard a dig site, if the League asks it.", next = "BACK", reply = "Splendid! My Prospectors will be grateful too, since they're much better at digging than at running.", fx = { align = { honor = 1 } } },
         { text = "Guarding scholars is dull work. I'll need good pay.", next = "BACK", reply = "Dull, yes, until something comes out of the ground, and then it's very exciting indeed, but I'll see what the League can pay.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -986,7 +986,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "We've hired worse, an' some o' my Prospectors are no' above pocketin' a relic for themselves. If ye scout for the League, ye bring what ye find back tae the Hall o' Explorers, an' ye'll be paid fair for it." } },
       choices = {
-        { text = "Everything I find goes to the Hall, High Explorer.", next = "BACK", reply = "Splendid, and the Hall thanks you, and so do I, because a scout with honest hands is worth a dozen with quick ones.", fx = { align = { honor = 1 } } },
+        { text = "Everything I find goes to the Hall, High Explorer.", next = "BACK", reply = "The Hall thanks you, and so do I. A scout with honest hands is worth a dozen with quick ones, and I've hired both kinds.", fx = { align = { honor = 1 } } },
         { text = "A finder's fee is fair, but a finder's keep is fairer.", next = "BACK", reply = "A finder's keep, eh? Well, the League doesn't see it that way, and neither do I, so we'll need to talk about that carefully.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -995,7 +995,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "More every season, from Uldaman especially, where the titans left more than stone behind. I'd rather a mage tell me a thing is safe than find out when the shelf catches fire." } },
       choices = {
-        { text = "I'll study them carefully, and report everything I find.", next = "BACK", reply = "Wonderful, and I'll give you a desk and a lamp and a very large fire bucket, just in case one of them takes offence.", fx = { align = { order = 1 } } },
+        { text = "I'll study them carefully, and report everything I find.", next = "BACK", reply = "Wonderful! I'll give you a desk, a lamp and a very large fire bucket, just in case one of them takes offence.", fx = { align = { order = 1 } } },
         { text = "If they're powerful, they're wasted on a shelf.", next = "BACK", reply = "Wasted? Oh no, they're safe, which is very different, and I'd much rather have a safe tablet than a powerful mage with one.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1004,7 +1004,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "One o' the Uldaman tablets went cold as ice the last time a warlock walked past it, an' I'd like tae know why before it happens again. Until I do, I'll ask ye tae stand on the far side o' the rope." } },
       choices = {
-        { text = "I'll stand back, High Explorer. Your relics come first.", next = "BACK", reply = "Thank you, that's very gracious of you, and I'll let you know if I ever work out why it did that, assuming it doesn't happen again.", fx = { align = { light = 1 } } },
+        { text = "I'll stand back, High Explorer. Your relics come first.", next = "BACK", reply = "That's very gracious of you. I'll let you know if I ever work out why it did that, assuming it doesn't do it again first.", fx = { align = { light = 1 } } },
         { text = "Perhaps the tablet recognised a stronger power than yours.", next = "BACK", reply = "Perhaps it did, and that's precisely what worries me, so I'll ask you to stand back a little further, if you'd be so kind.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1012,7 +1012,7 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "We try, though I'll admit some o' our lads get more excited about the find than the ground it's buried in. Uldaman's been turned over like a garden bed." } },
       choices = {
-        { text = "Dig, but leave the land whole behind you.", next = "BACK", reply = "That's the right way, and I'll tell my Prospectors you said so, though they'll probably dig a little faster just to spite you.", fx = { align = { order = 1 } } },
+        { text = "Dig, but leave the land whole behind you.", next = "BACK", reply = "That's the right way. I'll tell my Prospectors you said so, though they'll probably dig a little faster just to spite you.", fx = { align = { order = 1 } } },
         { text = "Some places should never be dug at all.", next = "BACK", reply = "Perhaps there are, and I'd like to know which ones before my lads find out the hard way, so tell me if you ever learn.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1030,8 +1030,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Uldaman, without question, for the Shadowforge are digging there too and they don't play by anyone's rules. Ironband's dig in Loch Modan has its troubles as well, but Uldaman is where the League's people are dying, and I'd like that to stop." } },
       choices = {
-        { text = "Then I'll stand guard at Uldaman, as long as it takes.", next = "BACK", reply = "Splendid, and the Prospectors there will be very glad of you, because the Shadowforge don't fight fair and they don't fight small.", fx = { align = { honor = 1 } } },
-        { text = "The League chose to dig there. They knew the risks.", next = "BACK", reply = "They did, and I'll not argue, but they're still my lads, and I'd like them home safe whatever risks they chose.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll stand guard at Uldaman, as long as it takes.", next = "BACK", reply = "The Prospectors there will be very glad of you. The Shadowforge don't fight fair, and they don't fight small.", fx = { align = { honor = 1 } } },
+        { text = "The League chose to dig there. They knew the risks.", next = "BACK", reply = "They did. But they're still my lads, and I'd like them home safe whatever risks they chose.", fx = { align = { honor = -1 } } },
         { text = "Good luck with your work.", next = "BACK" },
       },
     },
@@ -1225,7 +1225,7 @@ P:NPC {
           text = "A tracker out of the high snows, too, if I read that coat right. Ironband's men lose their way between the loch and the dig every winter, and they'd follow you anywhere." },
       },
       choices = {
-        { text = "I hunt for food and safety, not for your catalogue.", next = "BACK", reply = "That's fair, and the catalogue will survive without you, though I'll still ask about any strange tracks you happen to see.", fx = { align = { order = -1 } } },
+        { text = "I hunt for food and safety, not for your catalogue.", next = "BACK", reply = "Fair enough; the catalogue will survive without you. I'll still pester you about any strange tracks, though.", fx = { align = { order = -1 } } },
         { text = "Put me on the League's rolls, then.", next = "BACK", reply = "Splendid, I'll put your name down at once, and the Badlands crew will be delighted to have someone who knows a basilisk when it bites them.", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Where's the League short most?", next = "sites" },
       },
@@ -1238,7 +1238,7 @@ P:NPC {
       choices = {
         { text = "It said we were made, not born.", next = "stone_made" },
         { text = "Some things the stone tells me aren't for books.", next = "BACK", reply = "That's a very fair answer, and I'll respect it, though I'll confess it makes me want to know even more.", fx = { align = { order = -1 }, affinity = -1 } },
-        { text = "Write it down. The League should know.", next = "BACK", reply = "Wonderful, oh, thank you, and I'll write every word exactly as you say it, and send it straight to the King.", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Write it down. The League should know.", next = "BACK", reply = "Oh, thank you! I'll write every word exactly as you say it and send it straight up to the King.", fx = { align = { order = 1 }, affinity = 2 } },
       },
     },
     stone_made = {
@@ -1296,7 +1296,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Some say ye're the best tool we've ever had for findin' a buried hall. Others say ye'll make the earth uneasy an' we'll lose diggers for it. I say if ye can tell me which wall's about tae fall, I'll take ye on a dig, an' if ye cannae, ye can carry a shovel like everyone else." } },
       choices = {
-        { text = "I'll carry a shovel like anyone. No special treatment.", next = "BACK", reply = "Good, for the diggers will respect ye more for it, an' a shaman who digs is a shaman worth listenin' tae.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll carry a shovel like anyone. No special treatment.", next = "BACK", reply = "The diggers will respect ye more for it. A shaman who'll pick up a shovel is a shaman worth listenin' tae.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "My gift beats a shovel. Value it accordingly.", next = "BACK", reply = "Then ye'll be valued, an' ye'll be watched, for the earth's a fickle partner, an' I've lost diggers tae its moods before.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1305,7 +1305,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "History's no' a grave, it's a record, an' a record's no use buried. Ye'll have yer views, an' I've work tae do." } },
       choices = {
-        { text = "Records should be studied, carefully and properly.", next = "BACK", reply = "Aye, that's the right of it, an' I'm glad tae hear it from a druid, for yer lot usually lecture me about ghosts.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Records should be studied, carefully and properly.", next = "BACK", reply = "That's the right of it, an' I never expected tae hear it from a druid. Yer lot usually lecture me about ghosts.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Some things are buried because they should stay buried.", next = "BACK", reply = "Maybe some are, an' I'll grant ye the point, but I'd rather know which ones before I decide, an' that means diggin'.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1314,7 +1314,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Enough. Troggs in Loch Modan, Dark Irons in the Badlands, an' I've scars from both, though I'll no' be showin' them. If ye're offerin' tae guard a dig, speak tae High Explorer Magellas, for I've no time tae hire anyone." } },
       choices = {
-        { text = "I'll offer my axe to the League properly, then.", next = "BACK", reply = "Good, an' Magellas will be glad o' it, for he's always short o' warriors an' long on Prospectors wi' sore heads.", fx = { align = { order = 1 } } },
+        { text = "I'll offer my axe to the League properly, then.", next = "BACK", reply = "Magellas will be glad o' ye. He's always short o' warriors an' long on Prospectors wi' sore heads.", fx = { align = { order = 1 } } },
         { text = "I don't need a ledger to guard a dig.", next = "BACK", reply = "Fair enough, but ye'll need one tae get paid, an' I'll no' be the one tellin' Magellas ye've been guardin' for free.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1326,7 +1326,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye. Ye'd read the ground, see the troggs comin' an' bring down supper when the rations run out. An' that {pet} looks like it'd dig as fast as my crew, which isnae sayin' much." },
       },
       choices = {
-        { text = "I'll scout for the League, and gladly.", next = "BACK", reply = "Good, that's three uses more than the last scout I had, an' I'll make sure Magellas knows ye're the useful sort.", fx = { align = { honor = 1 } } },
+        { text = "I'll scout for the League, and gladly.", next = "BACK", reply = "Good! I'll make sure Magellas knows ye're the useful sort, which is more than I can say for my last scout.", fx = { align = { honor = 1 } } },
         { text = "I'll scout, if the finds are shared with me.", next = "BACK", reply = "Shared, eh? Well, the League shares what it learns, but no' what it digs, so ye'll get knowledge an' no' a single relic.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1335,7 +1335,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Circles burned intae the floor, an' bones arranged in ways nobody honest would arrange them. I'll grant there's warlocks in the Alliance who fight on our side, but I've learned tae watch what's under my boots." } },
       choices = {
-        { text = "Those circles belong to the Horde's warlocks, not mine.", next = "BACK", reply = "Maybe they do, an' I'll take ye at yer word, but I'll still be checkin' the bones for any new arrangements after ye leave.", fx = { align = { light = 1 } } },
+        { text = "Those circles belong to the Horde's warlocks, not mine.", next = "BACK", reply = "I'll take ye at yer word. I'll still be checkin' the bones for any new arrangements after ye leave, mind.", fx = { align = { light = 1 } } },
         { text = "Old circles still have power. Someone ought to use it.", next = "BACK", reply = "Aye, an' that's exactly why I'm worried, for old circles in the wrong hands make new trouble in the right places.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1344,8 +1344,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Holy? No. Old, aye, an' some of it with runes I'd rather no' read aloud, so I send those tae the Mystic Ward an' let them worry. The League digs for knowledge, an' I'll leave the prayin' tae those who've the time for it." } },
       choices = {
-        { text = "Prayer and study both have their place. Neither should be scorned.", next = "BACK", reply = "Aye, they do, an' I'll grant it, for the Mystic Ward's done good work on the runes I couldnae read.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Knowledge first, then. The prayers can wait.", next = "BACK", reply = "That's the League's way, an' I'll no' argue, but I'll still send the strange ones tae the Mystic Ward, just in case.", fx = { align = { light = -1 } } },
+        { text = "Prayer and study both have their place. Neither should be scorned.", next = "BACK", reply = "They do. The Mystic Ward's done good work on runes I couldnae make head nor tail of.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Knowledge first, then. The prayers can wait.", next = "BACK", reply = "That's the League's way. I'll still send the strange ones tae the Mystic Ward, just in case they bite.", fx = { align = { light = -1 } } },
         { text = "I'll leave you to your reading.", next = "BACK" },
       },
     },
@@ -1353,7 +1353,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "They need a great many things, an' protection's near the top, for Ironband's lads in Loch Modan are diggin' wi' one hand an' holdin' off troggs wi' the other. If ye're goin' that way, take his supplies an' a sharp hammer, an' I'll call it even." } },
       choices = {
-        { text = "I'll guard them. Diggers shouldn't have to fight for their lives.", next = "BACK", reply = "Good, for they've been diggin' wi' one hand for too long, an' they'll be glad tae have both free again.", fx = { align = { honor = 1 } } },
+        { text = "I'll guard them. Diggers shouldn't have to fight for their lives.", next = "BACK", reply = "Thank ye. They've been diggin' wi' a shovel in one hand an' an axe in the other for too long.", fx = { align = { honor = 1 } } },
         { text = "They chose the dig. A guard costs money; pay for one.", next = "BACK", reply = "They'd pay for one if they could, but the League's purse is thin, so they're payin' in blood instead, an' that's no' fair either.", fx = { align = { honor = -1 } } },
         { text = "Sorry to bother you.", next = "BACK" },
       },
@@ -1362,7 +1362,7 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_ulda_default", text = "So I hear, an' I'll want it written down, for the League doesnae run on hearsay. There's carvin's in that vault I've only ever seen in rubbin's, an' if ye remember even half o' them right, ye've saved me a year o' squintin'." } },
       choices = {
-        { text = "I'll write it all down properly for the League.", next = "BACK", reply = "Good, an' I'll want every carvin', every rune an' every crack in the floor, for the League runs on details.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll write it all down properly for the League.", next = "BACK", reply = "I'll want every carvin', every rune an' every crack in the floor. The League runs on details.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I went down there to fight, Prospector, not to take notes.", next = "BACK", reply = "Fair enough, but if ye remember anythin' at all, I'll want it, for even a fighter's memory is better than a rubbin'.", fx = { align = { order = -1 } } },
         { text = "What's in those carvings that matters so much?", next = "xcl_ulda2" },
       },
@@ -1394,7 +1394,7 @@ P:NPC {
           text = "Ye've a warlock's look about ye, an' I've seen what yer kind left behind in some o' the old ruins. Mind yerself in the Hall." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. State yer business; I've a page tae finish." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Fine; mind yer beast doesnae chew the maps." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The League's turned up a few kaldorei relics in the hills, an' I suppose ye'll want tae tell me they're no' mine." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid. The League's turned up a few kaldorei relics in the hills, an' I suppose ye'll want tae tell me they're no' mine." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The League's got opinions about ye, an' so have I, an' I'll keep mine tae myself today." },
       },
       again = {
@@ -1491,7 +1491,7 @@ P:NPC {
       },
       choices = {
         { text = "He did.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Proud and rich. I noticed.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Proud and rich, aye. I'd noticed.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
     mage = {
@@ -1616,7 +1616,7 @@ P:NPC {
       lines = { { id = "xpt_stonehallow_default", text = "Because the Senate prefers tae argue about the quarry from a warm room in the High Seat, an' I prefer tae be cold an' right. If it weren't for wanderin' companies like yers, Gol'Bolar would've been lost tae the troggs a season ago." } },
       choices = {
         { text = "The Senate should send soldiers. That's what it's for.", next = "BACK", reply = "Aye, it should, an' I've said so in the Senate till I'm hoarse, but it'll send soldiers when it's finished arguin', which is never.", fx = { align = { order = 1 } } },
-        { text = "Companies like ours get it done faster than any Senate.", next = "BACK", reply = "They do, an' I'll no' argue, but I'll still be makin' my report, for somebody has tae tell the Senate what ye've done for them.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Companies like ours get it done faster than any Senate.", next = "BACK", reply = "They do. I'll still be makin' my report, though, for somebody has tae tell the Senate what ye've done for them.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -1624,8 +1624,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Today, curiosity, an' I'll hear about it from my colleagues. The old Senate families think the Titans shaped the stone an' left it tae us, so it's ours tae carve an' no' ours tae chat with. The League's seen too much in Uldaman an' the deep places tae be so sure, an' I'm no' sure o' anything anymore, which makes me a poor senator." } },
       choices = {
-        { text = "The Senate's caution has kept Ironforge standing, Senator.", next = "BACK", reply = "Maybe it has, an' I'll no' argue, but it's also kept the Senate warm an' the quarry cold, an' I've had enough o' both.", fx = { align = { order = 1 } } },
-        { text = "Curiosity is exactly what the Senate's been missing.", next = "BACK", reply = "Aye, it has, an' I'm glad tae hear somebody say it, for I've been arguin' that very point for twenty years.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Senate's caution has kept Ironforge standing, Senator.", next = "BACK", reply = "Maybe it has. It's also kept the Senate warm an' the quarry cold, an' I've had my fill o' both.", fx = { align = { order = 1 } } },
+        { text = "Curiosity is exactly what the Senate's been missing.", next = "BACK", reply = "Say that again, louder! I've been arguin' that very point in the Senate for twenty years.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1633,7 +1633,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Too many, an' risin' every time I count, for they've dug up from somewhere deep under the quarry an' they're no' stoppin'. The Senate wants a report, but I'd sooner send them a quarry wi' no troggs in it, an' that's where ye come in." } },
       choices = {
-        { text = "I'll clear them, and the Senate can have the credit.", next = "BACK", reply = "Good, an' they'll take it, for they always do, but I'll make sure yer name's in the margin where the clerks can see it.", fx = { align = { honor = 1 } } },
+        { text = "I'll clear them, and the Senate can have the credit.", next = "BACK", reply = "They'll take it; they always do. But I'll put yer name in the margin where the clerks can see it.", fx = { align = { honor = 1 } } },
         { text = "Mention my name in that report, Senator.", next = "BACK", reply = "Ha, I'll mention it, an' I'll underline it, for a warrior who clears the quarry deserves more than a line in the minutes.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1645,7 +1645,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} could flush them out o' the rocks, I imagine, which would make the countin' twice as quick." },
       },
       choices = {
-        { text = "I'll give you an honest count, Senator.", next = "BACK", reply = "Good, for an honest count is worth more than a big one, an' the Senate has had enough exaggeration from me already.", fx = { align = { honor = 1 } } },
+        { text = "I'll give you an honest count, Senator.", next = "BACK", reply = "Thank ye. An honest count is worth more than a big one, an' the Senate has had enough exaggeration from me already.", fx = { align = { honor = 1 } } },
         { text = "A bigger number will get the Senate moving faster.", next = "BACK", reply = "Bigger, aye, an' then they'll send a committee tae count it again, an' we'll lose another month, so keep it honest.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1654,8 +1654,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Every government does, an' anyone who tells ye otherwise is either a fool or one o' them. Stormwind has its SI:7, an' we've our own ways, but I'll no' discuss them in a hall wi' this many echoes." } },
       choices = {
-        { text = "Unsung work in the King's service is still honourable.", next = "BACK", reply = "Aye, it is, an' I'll no' say more in a hallway, but ye'll find the right people know yer name if ye do it well.", fx = { align = { order = 1 } } },
-        { text = "Secret work pays best when it serves nobody's flag.", next = "BACK", reply = "It does, an' I'll no' deny it, but a dwarf who serves nobody's flag soon finds nobody's flag will shelter him either.", fx = { align = { order = -1 } } },
+        { text = "Unsung work in the King's service is still honourable.", next = "BACK", reply = "It is. I'll no' say more in a hallway, but the right people will know yer name if ye do it well.", fx = { align = { order = 1 } } },
+        { text = "Secret work pays best when it serves nobody's flag.", next = "BACK", reply = "It does pay best, I'll grant ye. But a dwarf who serves nobody's flag soon finds nobody's flag will shelter him either.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1663,8 +1663,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Some o' it, an' every year the gnomes ask for more, for they lost everythin' in Gnomeregan an' the Ward is all they have left. I argue for them, mostly, though the Senate likes tae know what it's payin' for." } },
       choices = {
-        { text = "The Ward should be accountable to the Senate. That's fair.", next = "BACK", reply = "Aye, it should, an' I'll say so in the Senate, though the gnomes will grumble, an' I'll have tae buy them a round after.", fx = { align = { order = 1 } } },
-        { text = "Magic shouldn't need a senator's blessing to be studied.", next = "BACK", reply = "That's what the gnomes say, an' I'll no' argue in a hallway, but the Senate pays for the Ward, an' it'll want a say.", fx = { align = { order = -1 } } },
+        { text = "The Ward should be accountable to the Senate. That's fair.", next = "BACK", reply = "I'll say so in the Senate. The gnomes will grumble, an' I'll have tae buy them a round after, but I'll say it.", fx = { align = { order = 1 } } },
+        { text = "Magic shouldn't need a senator's blessing to be studied.", next = "BACK", reply = "That's what the gnomes say too. But the Senate pays for the Ward, an' whoever pays wants a say.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1672,7 +1672,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because the Alliance needs every weapon it can get, an' because a warlock trained under our eye is safer than one trained in a cave. I vote tae keep ye, but I'll no' vote twice if ye give me cause." } },
       choices = {
-        { text = "I'll give the Senate no cause, Senator. My word on it.", next = "BACK", reply = "Good, an' I'll hold ye tae it, for my vote's on the line every time a warlock does somethin' daft.", fx = { align = { light = 1 } } },
+        { text = "I'll give the Senate no cause, Senator. My word on it.", next = "BACK", reply = "I'll hold ye tae it. My vote's on the line every time a warlock does somethin' daft in this city.", fx = { align = { light = 1 } } },
         { text = "Banning us would only send us underground. They know it.", next = "BACK", reply = "Aye, they know it, an' that's why they've no' done it, but dinnae give them a reason tae try it anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1680,7 +1680,7 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "Because the kaldorei will no' see their trees fed tae our forges, an' I cannae say I blame them. The Senate thinks yer people are stubborn, an' they think the same o' us." } },
       choices = {
-        { text = "Ashenvale isn't Ironforge's to cut.", next = "BACK", reply = "No, it isnae, an' I'll tell the Senate ye said so, though they'll grumble about cold forges for a week.", fx = { align = { order = -1 } } },
+        { text = "Ashenvale isn't Ironforge's to cut.", next = "BACK", reply = "No, it isnae. I'll tell the Senate ye said so, an' they'll grumble about cold forges for a week.", fx = { align = { order = -1 } } },
         { text = "A fair treaty could serve both peoples.", next = "BACK", reply = "It could, an' I've drafted one, but the Senate an' Darnassus are both too stubborn tae read it, so it sits on my desk.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1698,8 +1698,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "It should, an' it will, eventually, once it's debated the matter an' sent it tae a committee. In the meantime, I'd take one paladin who'll stay a week over a promise o' a company that'll come next spring." } },
       choices = {
-        { text = "The Senate's way is slow but lawful. I'll stay till they act.", next = "BACK", reply = "Lawful, aye, an' slow, an' ye've the patience o' a saint for waitin', but the troggs will be glad ye're here meanwhile.", fx = { align = { order = 1 } } },
-        { text = "Committees won't stop troggs. I'll do what needs doing now.", next = "BACK", reply = "That's the spirit, an' I'll no' report it tae the Senate, for they'd only form a committee tae decide whether tae thank ye.", fx = { align = { order = -1 } } },
+        { text = "The Senate's way is slow but lawful. I'll stay till they act.", next = "BACK", reply = "Lawful an' slow, aye, an' ye've the patience o' a saint. The diggers will be glad ye're here in the meantime.", fx = { align = { order = 1 } } },
+        { text = "Committees won't stop troggs. I'll do what needs doing now.", next = "BACK", reply = "That's the spirit! I'll no' report it, for the Senate would only form a committee tae decide whether tae thank ye.", fx = { align = { order = -1 } } },
         { text = "Something else, Senator.", next = "BACK" },
       },
     },
@@ -1772,7 +1772,7 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "The guards are on the walls, an' the walls are where they belong. A senator who won't get his boots dirty for his own district isn't worth the chair." } },
       choices = {
-        { text = "Respect.", next = "BACK", reply = "Thank ye, an' it's no' often a senator hears that, so I'll take it wi' me intae the next debate an' wave it about.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Respect.", next = "BACK", reply = "Respect! It's no' often a senator hears that word. I'll take it intae the next debate an' wave it about.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "And it wins votes.", next = "BACK", reply = "Aye, it does, an' I'll no' pretend otherwise, for a senator who cannae win a vote cannae help anybody. But I'd be out here wi' the troggs even if nae one in the district ever heard of it.", fx = { affinity = -1, trait = { witty = 1 }, align = { honor = -1 } } },
       },
     },
@@ -1847,7 +1847,7 @@ P:NPC {
         { id = "gn_default", text = "Aye, an' I'm sorry for it; I'd no' wish those brutes on anyone. They came up through yer city first an' through my quarry second, so ye an' I have the same enemy, an' that's a start." },
       },
       choices = {
-        { text = "The Senate should have helped us sooner.", next = "BACK", reply = "Aye, it should, an' I'll no' argue, for we were slow, an' I'll carry that shame intae every debate until we make it right.", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "The Senate should have helped us sooner.", next = "BACK", reply = "It should have. We were slow, an' I'll carry that shame intae every debate until we make it right.", fx = { align = { order = -1 }, affinity = -1 } },
         { text = "Ironforge took us in. We can't ask for more.", next = "BACK", reply = "That's a generous thing tae say, an' a rare one, but ye can ask for more, for allies should give each other everythin' they can.", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Something else, Senator.", next = "BACK" },
       },
@@ -1904,7 +1904,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_firebrew_default", text = "A band o' four once swore tae me they'd routed a whole Dark Iron war party wi' a single keg o' Thunderbrew an' a lit candle, an' the worst of it is I half believe them. The second best was a gnome who said he'd been swallowed by a basilisk an' complained that it was borin'." } },
       choices = {
-        { text = "Stick to what happened. The truth is story enough.", next = "BACK", reply = "Aye, maybe it is, an' I'll no' argue, but the truth rarely gets a round bought for it in the Stonefire.", fx = { align = { honor = 1 } } },
+        { text = "Stick to what happened. The truth is story enough.", next = "BACK", reply = "Maybe it is. But the truth rarely gets a round bought for it in the Stonefire.", fx = { align = { honor = 1 } } },
         { text = "A good story beats the truth in a tavern.", next = "BACK", reply = "Ha, that's the spirit o' the Stonefire, an' ye'll fit right in, so long as ye buy a round when yer tale's done.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -1913,7 +1913,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A mountaineer once swore he held the Algaz pass alone against a hundred Dragonmaw wi' nothin' but a fryin' pan an' a bad temper. By the third keg it was two hundred, an' by closin' time the fryin' pan was enchanted." } },
       choices = {
-        { text = "The truth is better than tall tales, to my mind.", next = "BACK", reply = "Fair enough, an' I'll respect it, but ye'll find a true tale gets a quieter cheer in here than a tall one.", fx = { align = { honor = 1 } } },
+        { text = "The truth is better than tall tales, to my mind.", next = "BACK", reply = "Suit yerself. A true tale gets a quieter cheer in here than a tall one, mind.", fx = { align = { honor = 1 } } },
         { text = "Give me a keg, and I'll top it.", next = "BACK", reply = "Ha, now that's what I like tae hear, an' I'll pour it, an' we'll see if ye can beat a fryin' pan an' two hundred Dragonmaw.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1925,7 +1925,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The loudest, anyway, for every bear grows a foot taller wi' every pint, though there's usually a true story hidin' underneath. An' I'll wager yer {pet} has a story or two o' its own, if only it could talk an' drink." },
       },
       choices = {
-        { text = "My stories stay the size they were.", next = "BACK", reply = "That's rare in the Stonefire, an' I'll respect it, though the regulars might call ye a bore by the second keg.", fx = { align = { honor = 1 } } },
+        { text = "My stories stay the size they were.", next = "BACK", reply = "That's rare in the Stonefire. The regulars might call ye a bore by the second keg, but I'll respect it.", fx = { align = { honor = 1 } } },
         { text = "Pour another, and the bear grows another foot.", next = "BACK", reply = "Ha, that's the spirit, an' by the end o' the night it'll be the size o' the Great Forge, an' twice as hot.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1934,7 +1934,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Ever since the Hidden Circle started usin' my back room tae talk business, aye. I've told them tae take it elsewhere, but they tip well, an' I've a tavern tae keep." } },
       choices = {
-        { text = "Then I'll keep my hands to myself in your tavern.", next = "BACK", reply = "Good, an' I'll thank ye for it, for the Hidden Circle tips well, but they dinnae make up for a regular's lost purse.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll keep my hands to myself in your tavern.", next = "BACK", reply = "Thank ye. The Hidden Circle tips well, but it doesnae make up for a regular's lost purse.", fx = { align = { honor = 1 } } },
         { text = "A full tavern's a full purse, Innkeeper. Some of it falls loose.", next = "BACK", reply = "It does, aye, an' it'll stay tight in their pockets while I'm watchin', so keep yer hands on yer mug, friend.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1943,7 +1943,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Every few weeks a young gnome from the Mystic Ward wants tae show off, an' I end up wi' a blue fire that smells o' copper. The patrons like it, but the stew doesnae." } },
       choices = {
-        { text = "I'll leave your hearth as it is. It's your tavern.", next = "BACK", reply = "Thank ye, for the stew thanks ye too, an' I'll be glad o' a fire that smells like a fire for once.", fx = { align = { order = 1 } } },
+        { text = "I'll leave your hearth as it is. It's your tavern.", next = "BACK", reply = "Thank ye, an' the stew thanks ye too. It'll be nice tae have a fire that smells like a fire for once.", fx = { align = { order = 1 } } },
         { text = "A blue fire's good for business. You should keep it.", next = "BACK", reply = "Good for business, aye, but bad for the stew, an' I've had three patrons complain it tastes like a copper pipe.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1960,7 +1960,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Often enough, though they ask it wi' a mug in hand an' call it a story. Most o' the soldiers in here lost somebody at the Thandol Span or the Second War, an' a priest who'll sit an' listen does more good than one who preaches." } },
       choices = {
-        { text = "Then I'll listen. Sometimes that's the best prayer there is.", next = "BACK", reply = "Aye, it is, an' I'll make sure there's a quiet corner for ye, for half my regulars need an ear more than an ale.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll listen. Sometimes that's the best prayer there is.", next = "BACK", reply = "It is. I'll keep a quiet corner for ye, for half my regulars need an ear more than an ale.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Ale and stories won't heal grief. They need proper counsel.", next = "BACK", reply = "Maybe they willnae, but ale an' stories are what they'll come for, so ye'll find more grief in here than in any chapel.", fx = { align = { light = -1 } } },
         { text = "Tell me a story instead, Firebrew.", next = "BACK" },
       },
@@ -1969,7 +1969,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Half true, for a paladin will never lie, but he'll leave out the bits where he was frightened. I like those best o' all, mind, the ones where somebody admits they were scared an' did it anyway." } },
       choices = {
-        { text = "A true story should include the fear. That's honest.", next = "BACK", reply = "Aye, that's my thinkin' too, an' I'll be glad tae hear yer story, fear an' all, for those are the ones worth tellin'.", fx = { align = { honor = 1 } } },
+        { text = "A true story should include the fear. That's honest.", next = "BACK", reply = "That's my thinkin' too. Let's hear yer story, fear an' all, for those are the ones worth tellin'.", fx = { align = { honor = 1 } } },
         { text = "A soldier's fear is nobody's business. Leave it out.", next = "BACK", reply = "Fair enough, but I've always found the frightened bits make the brave bits braver, so ye might change yer mind by the third pint.", fx = { align = { honor = -1 } } },
         { text = "Something else, Firebrew.", next = "BACK" },
       },
@@ -1980,9 +1980,19 @@ P:NPC {
         { id = "xlock_default", text = "Some do, an' they mutter into their mugs, but the Stonefire's had worse at the bar, includin' a Dark Iron spy we didnae catch till he'd drunk half a barrel. Tell us a good story an' they'll forget what ye are by the third round." },
       },
       choices = {
-        { text = "I'll tell the truth, even if it frightens them.", next = "BACK", reply = "Good, an' the regulars might grumble, but they'll respect it, for an honest frightenin' story beats a dull friendly one any night.", fx = { align = { honor = 1 } } },
+        { text = "I'll tell the truth, even if it frightens them.", next = "BACK", reply = "The regulars might grumble, but they'll respect it. An honest, frightenin' story beats a dull, friendly one any night.", fx = { align = { honor = 1 } } },
         { text = "I'll tell them whatever keeps them friendly.", next = "BACK", reply = "That's sense, an' the Stonefire likes a friendly tale, but mind ye dinnae make it too sweet, or they'll know ye're lyin'.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    dd_fb_balloo = {
+      lines = {
+        { id = "dd_fb_balloo1", text = "Aye, for every family in the Military Ward has somebody who never came home, an' none o' them can get a letter past the clerks. When the King heard her out, it was as if he'd heard all o' them, an' I sold more ale that night than on the first night o' Winter Veil." },
+      },
+      choices = {
+        { text = "The King should hear every family that asks.", next = "BACK", reply = "He should, aye, an' maybe now he will. Ye've set a fine example for the clerks.", fx = { align = { order = -1 } } },
+        { text = "The clerks are there for a reason. This was special.", next = "BACK", reply = "Spoken like a clerk! But ye're no' wrong, for the King cannae hear everyone at once.", fx = { align = { order = 1 } } },
+        { text = "Something else, Firebrew.", next = "BACK" },
       },
     },
     hello = {
@@ -2017,12 +2027,17 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grab a stool, then, for every warrior in the Stonefire has a tale, an' I'm sure ye've a taller one." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? The Stonefire's full o' fish stories, but a good bear story beats them all, if ye've got one." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at the Stonefire! Pull up a stool, an' tell yer servant there's no' a keg in this tavern it's allowed tae set alight, however much it begs." },
+        { id = "dd_balloo", tags = { "news" }, when = { questDone = TODO_QUEST("A King's Tribute") },
+          text = "The whole tavern's heard ye carried Sara Balloo's plea all the way tae the King's own ear. That lass has been tryin' tae get word tae the throne since her brother fell, an' half o' Ironforge cheered when they heard." },
+        { id = "dd_exalted", when = { reputation = { faction = "Ironforge", min = "exalted" } },
+          text = "There's no' a dwarf in this city who doesnae know yer name now, an' I've heard it toasted at my own bar more nights than I can count." },
       },
       again = {
         { id = "h_again", text = "Another? Story or ale, ye're welcome either way." },
         { id = "h_again2", text = "What else? The kegs aren't goin' anywhere, which is the trouble." },
       },
       choices = {
+        { text = "Half of Ironforge cheered for Sara Balloo?", next = "dd_fb_balloo", when = { questDone = TODO_QUEST("A King's Tribute") } },
         { text = "Have you had druids here before?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Tell me a story.", next = "story" },

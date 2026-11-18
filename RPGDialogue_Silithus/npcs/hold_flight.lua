@@ -31,6 +31,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Runk Windtamer, and these are the Horde's wind riders in Silithus. They fly to Mojache and Gadgetzan and Un'Goro Crater, and they fly in spite of the sand, which is more than I would do; a tauren was made for grass under his hooves." },
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You died from a fall, I think, because you stand back from the edge like a grunt who learned the hard way. Hold the straps and let my riders do the flying, and the ground will never catch you like that again." },
       },
       again = {
         { id = "h_again", text = "Something else? The riders grow restless, like a herd before a storm." },

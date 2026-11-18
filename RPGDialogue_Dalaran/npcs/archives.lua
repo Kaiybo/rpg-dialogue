@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_gilded = {
+      lines = { { id = "dd_gilded_default", text = "Because it tells how the magi of Strom came here and built a city so they could study in peace, and there are perhaps a dozen copies left that the Scourge didn't burn. Now one of them is a gaudy trinket on a goblin's shelf, sold to some fool as an archmage's own." } },
+      choices = {
+        { text = "You're right. I'll be more careful with Dalaran's past.", next = "BACK", reply = "Thank you. That's all an archivist can ask, and more than most people give.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Someone's reading it now who never would have. That's not nothing.", next = "BACK", reply = "Hm. I hadn't considered that, and I don't much like that you've made me. Perhaps the paint will flake.", fx = { align = { order = -1 } } },
+        { text = "Something else, Archivist.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -45,6 +54,8 @@ P:NPC {
           text = "You're here by Archmage Modera's leave, I'm told. Then you may look, and I'll stand just here while you do, if it's all the same to you." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "We're closed, strictly speaking, but I never seem to be. Come in, keep your voice down, and let the old things sleep." },
+        { id = "h_dd_gilded", tags = { "news" }, when = { questDone = TODO_QUEST("Opportunistic Education") },
+          text = "I'm told a copy of The Founding of Dalaran went down into the Underbelly by your hand and came back up painted gold. I'll not ask what you were thinking, but I will ask you never to do it again." },
       },
       again = {
         { id = "h_again", text = "Something else? I've a teapot to polish, but it has waited years and can wait a little longer." },
@@ -58,6 +69,7 @@ P:NPC {
         { text = "I learned my first spells from his primers.", next = "xmage", when = { class = "MAGE" } },
         { text = "You don't trust me near his things.", next = "xforsaken", when = { race = "Scourge" } },
         { text = "I'll leave you to your cases.", next = "END" },
+        { text = "It was only a history book, Archivist. Why does it matter?", next = "dd_gilded", when = { questDone = TODO_QUEST("Opportunistic Education") } },
       },
     },
 
@@ -191,7 +203,7 @@ P:NPC {
         { id = "xf_default", text = "No, I don't, and I'd be a poor keeper if I did. You may be no friend of the Scourge now, but the Scourge is what came through those gates, and it wore faces very like yours." },
       },
       choices = {
-        { text = "I'm not what killed him. Judge me by what I do.", next = "BACK", reply = "That is a fair request, and I'll try to honour it, but forgive me if I keep an eye on you near the staff cases all the same.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'm not what killed him. Judge me by what I do.", next = "BACK", reply = "That is a fair request, and I'll try to honour it. Forgive me if I keep an eye on you near the staff cases all the same.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Distrust me all you like. It changes nothing.", next = "BACK", reply = "It changes how carefully I dust while you're in the room, which is not nothing, and I'd thank you to keep your hands well away from the glass.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -284,7 +296,7 @@ P:NPC {
       },
       choices = {
         { text = "Magic that strong needs a council watching it.", next = "BACK", reply = "Aye, that's the Kirin Tor's own answer, and I'd not argue with ye in front of them, though I've read a few letters that'd make ye wonder who watches the watchers.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "No council should tell a mage what to study.", next = "BACK", reply = "Ha, ye'd have got on famously with half the magi in my letters, and every one of them came to a bad end, so mind which half ye're joinin', lad.", fx = { align = { order = -1 } } },
+        { text = "No council should tell a mage what to study.", next = "BACK", reply = "Ha! Ye'd have got on famously with half the magi in my letters, and every one of them came to a bad end. Mind which half ye're joinin', {g:lad|lass}.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -350,7 +362,7 @@ P:NPC {
         { id = "a3_default", text = "Never the same face, and never a name, and both times the guards found nothin' odd about him once he'd gone. I keep the seal in my pocket now, and I've told Fortuz to do the same with anything he'd miss." },
       },
       choices = {
-        { text = "Wise. Keep it close.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Wise of you. Keep it close.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -570,6 +582,8 @@ P:NPC {
           text = "A magus, at last, someone who'll understand that a glamour is the hardest thing in this city to do well and the easiest to do badly. Sit, and tell me what you'd like to look like." },
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "A rogue, so you'll want something darker, I expect, and quieter, with fewer buckles that catch the light. Rogues are my easiest customers and my least talkative." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You've died rather often, {class}, if the state of that armour is any guide, and my glamours can hide a great many sins but not a spirit healer's handiwork forever. Do try to keep it in one piece for a week." },
       },
       again = {
         { id = "h_again", text = "Something else? Momo is asleep on the silk, so we'll have to talk until she moves." },
@@ -722,12 +736,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = { { id = "dd_deaths_default", text = "The dying doesn't, but the walk back does, once you stop counting. What gets harder is watching the young ones die on their first trip down and never quite come back the same, so I sit here and try to talk them out of the worst of it." } },
+      choices = {
+        { text = "Every death taught me something. I'd not trade them back.", next = "BACK", reply = "Spoken like a veteran, and a slightly mad one. That's the only kind that lasts, mind.", fx = { align = { order = -1 } } },
+        { text = "I'll plan better. Dying is a mistake I mean to stop making.", next = "BACK", reply = "Good, and I wish you luck with it, because I've been saying the same thing for ten years. Buy a better map, at least.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "No name worth giving, friend, just a fellow who's been down more sewers than he can count. I'm waiting on a party for the city's undercroft, and they're late, which is the first thing you learn about parties." },
         { id = "h_sewers", when = { killed = { name = "Atrexis", min = 1 } },
           text = "You've been down under the city and come back up, I hear, which puts you ahead of the last three groups I sat here waiting for. Have a drink, if your stomach will take it." },
+        { id = "h_dd_deaths", when = { deaths = { min = 20 } },
+          text = "You've the look of someone who's woken up beside a spirit healer more times than they'd admit, friend. Pull up a stool, because so have I, and it's nicer to compare notes than scars." },
       },
       again = { { id = "h_again", text = "Anything else? My party's still late." } },
       choices = {
@@ -740,6 +765,7 @@ P:NPC {
         { text = "As it happens, I'm a healer.", next = "xheal", when = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } } },
         { text = "I've seen my share of holes too, friend.", next = "xvet", when = { band = { "Seasoned", "Veteran", "Champion" } } },
         { text = "Good luck with your party.", next = "END" },
+        { text = "I've died more often than I'd like. Does it get easier?", next = "dd_deaths", when = { deaths = { min = 20 } } },
       },
     },
 

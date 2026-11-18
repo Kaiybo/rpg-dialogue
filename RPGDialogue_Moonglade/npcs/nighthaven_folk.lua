@@ -356,7 +356,7 @@ P:NPC {
       },
       choices = {
         { text = "There is. I'll speak their name tonight.", next = "BACK", reply = "Then you've found your elder already, and they'll hear you, I'm sure of it. That's all the festival really asks of us.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I've no use for the past. I look ahead.", next = "BACK", reply = "The past has a way of catching up with those who never look back, friend. But I hope you're right, and that the road ahead is kind to you.", fx = { align = { light = -1 } } },
+        { text = "I've no use for the past. I look ahead.", next = "BACK", reply = "Then I hope the road ahead is kind to you, friend. If you ever change your mind, the elders will still be here, and so will the cakes.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -437,6 +437,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You've fallen from a height before, I think; you look at my hippogryphs as though they might tip you off over the lake. They will not, so long as you hold on and let them choose the way down." },
         { id = "o_night_elves_distrust", tags = { "news" }, when = { gossip = { topic = "night_elves", stance = "distrust" } },
           text = "Faustron tells me you've no love for my people. My birds will carry you all the same, because they have no politics." },
         { id = "h_default", key = true, text = "I fly the Alliance out of Moonglade, to the north and south and back to Rut'theran beneath the great tree. The druids have their own birds, but mine will carry anyone who asks politely, as my people always have." },
@@ -565,7 +566,7 @@ P:NPC {
         { id = "pf_default", text = "Sometimes, when I think of Ashenvale. But the birds don't care which banner you fly under, and here I try to be more like the birds." },
       },
       choices = {
-        { text = "Peace here is worth guarding, whatever the war.", next = "BACK", reply = "It is, and I'll guard it gladly, for the birds and for myself. Some peace has to be kept on purpose.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Peace here is worth guarding, whatever the war.", next = "BACK", reply = "It is, and I'll guard it gladly. Faustron and I even share a water trough now, which took us a whole season to agree on.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Horde doesn't belong here, truce or not.", next = "BACK", reply = "The Keeper says otherwise, and on this ground his word is law, whatever I feel. I keep my bow unstrung here, and so should you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -635,6 +636,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You walk like someone who has fallen off something high and died of it. My wind riders don't drop anyone who holds on, so hold on, and don't go leaping off the cliffs of Moonglade to save a few steps." },
         { id = "o_horde_enemy", tags = { "news" }, when = { gossip = { topic = "horde", stance = "enemy" } },
           text = "Sindrayl says you call us a threat. I'll fly you anyway, friend, since gold is the same colour on both sides of a war." },
         { id = "h_default", key = true, text = "I fly the Horde out of Moonglade, and I keep my wind riders on this side of the glade where they won't bother the night elves. It's a strange post for an orc who has known the blood of war, but the Keeper's peace holds, and there's honor in keeping it." },
@@ -682,7 +684,7 @@ P:NPC {
         { id = "os_alliance", when = { faction = "Alliance" }, text = "You're asking an orc that, in a glade full of druids? You have nerve, I'll give you that, so say what you think and I'll judge you by it." },
       },
       choices = {
-        { text = "A people has to live. The Horde needs that timber.", next = "BACK", reply = "At least you say it plainly, and I respect that. A people does have to live, and Ashenvale is where the timber grows.", fx = { align = { order = 1 } } },
+        { text = "A people has to live. The Horde needs that timber.", next = "BACK", reply = "At least you say it plainly, and I respect that. Say it to the Sentinels, though, and see whether they let you finish the sentence.", fx = { align = { order = 1 } } },
         { text = "It's their forest. The Horde should find another way.", next = "BACK", reply = "Hah, an orc would say you've gone soft, but I've heard worse from my own grunts. There's no other way that I've seen, but you're free to look for one.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -758,7 +760,7 @@ P:NPC {
         { id = "th_default", text = "Some days it is. Then I remember the mountain, where orc and elf fought the Legion side by side, and I think that if we could do it then, I can do it here." },
       },
       choices = {
-        { text = "That peace is worth keeping. Good.", next = "BACK", reply = "Good, and I'll keep it, as long as the elves keep theirs. Hyjal taught us both what the Legion does to a divided world.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "That peace is worth keeping, Faustron.", next = "BACK", reply = "Good, and I'll keep it, as long as the elves keep theirs. Hyjal taught us both what the Legion does to a divided world.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The night elves would break it if they dared.", next = "BACK", reply = "They might, and so might some of ours, but not today and not here. I'll keep my word until someone else breaks theirs.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

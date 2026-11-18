@@ -204,7 +204,7 @@ P:NPC {
       lines = {
         { id = "d2_default", text = "One where a night elf can be judged by his ideas and not by his shovel, for a start. Beyond that, I'm keeping it to myself, because there are people who'd steal a vision like that." },
       },
-      choices = { { text = "Your secret's safe. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Your secret's safe with me. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     conspiracy = {
       lines = {
@@ -213,7 +213,7 @@ P:NPC {
       choices = {
         { text = "Name them, then.", next = "conspiracy2" },
         { text = "Perhaps no one is plotting against you.", next = "BACK", reply = "That is precisely what a conspirator would say, you know. I will keep an eye on you, friend, though a friendly one.", fx = { align = { honor = 1 }, trait = { skeptical = 1 } } },
-        { text = "Then outwit them. Quietly.", next = "BACK", reply = "Quietly, yes, oh, that is very good advice. I shall outwit them so quietly that nobody even notices I have done it.", fx = { align = { honor = -1 }, affinity = 2 } },
+        { text = "Then outwit them, and do it quietly.", next = "BACK", reply = "Quietly, yes, oh, that is very good advice. I shall outwit them so quietly that nobody even notices I have done it.", fx = { align = { honor = -1 }, affinity = 2 } },
       },
     },
     conspiracy2 = {
@@ -235,7 +235,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "People talk in front of a man with a shovel as if he were a tree stump. I've heard plenty, so ask." } },
-    background = { { id = "tp_bg", text = "Visionary. Currently digging. The two will meet one day, and on that day you'll be glad you knew me." } },
+    background = { { id = "tp_bg", text = "A visionary, currently digging, and one day the two will meet. On that day you'll be glad you knew me." } },
     advice = { { id = "tp_ad", text = "Never let anyone tell you you're only a ditch digger, even if, at the moment, you are." } },
     cenarion_circle = { { id = "tp_circle", text = "Great druids, the lot of them, and not one of them has ever asked my opinion. Their loss." } },
     dalaran = { { id = "tp_dalaran", text = "The wizards of Dalaran rebuilt their city with magic, which shows a lamentable lack of shovels. I'd have dug them proper foundations, if anyone had thought to ask me." } },
@@ -362,7 +362,7 @@ P:NPC {
       lines = {
         { id = "rs2_default", text = "Stillness. Most rogues get caught moving, because they are afraid of being seen, and the fear makes them hurry; stand still in a shadow long enough and even a Sentinel will walk past you." },
       },
-      choices = { { text = "I'll practise. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+      choices = { { text = "I'll practise, I promise. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     xdruid = {
       big = true,
@@ -519,7 +519,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Every living thing has a place in it, and a healer's place is to mend what the hunt leaves behind. Don't heal the beast my hunters have rightly brought down, though, for that is not mercy, it is meddling." } },
       choices = {
         { text = "Mercy is never meddling, Jocaste, and I'll heal what suffers.", next = "BACK", reply = "Then heal what suffers, and I will not quarrel with your mercy. Only do not mend a beast my hunters have rightly brought down.", fx = { align = { light = 1 } } },
-        { text = "Then I'll leave the hunt's dead to the balance.", next = "BACK", reply = "That is wise, priest, and harder than most healers can bear. The balance has its own way of mending.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Then I'll leave the hunt's dead to the balance.", next = "BACK", reply = "That is wise, priest, and harder than most healers can bear. The wolves that eat tonight keep the deer from starving next winter.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -568,7 +568,7 @@ P:NPC {
         { id = "sb_default", text = "Then you learned the first lesson before you came to me: a saber carries you because it chooses to. Riders make patient hunters or impatient ones, so which are you?" },
       },
       choices = {
-        { text = "Patient. A hunt is won in the waiting.", next = "BACK", reply = "Then the saber taught you well, and so will I. The hunt rewards those who can wait.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Patient. A hunt is won in the waiting.", next = "BACK", reply = "Then the saber taught you well, and so will I. Sit with me by the moonwell one evening, and we will see which of us moves first.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Impatient. The saber taught me speed.", next = "BACK", reply = "Speed has its place, but the saber also taught you when to stop. Learn that part of the lesson, too.", fx = { align = { order = -1 } } },
       },
     },
@@ -617,13 +617,24 @@ P:NPC {
         { id = "xmage_default", text = "A mage can respect anything, if they choose to, but the arcane takes from the world and seldom asks. A hunter's first lesson is awe, and I'd say it should be yours too, before you learn another spell." },
       },
       choices = {
-        { text = "Awe first, then. I'll take the lesson.", next = "BACK", reply = "Good, and you will find the forest a stranger and finer place for it. Awe makes even a mage gentle.", fx = { align = { order = 1 } } },
+        { text = "Awe first, then. I'll take the lesson.", next = "BACK", reply = "Good, and you will find the forest a stranger and finer place for it. Stand under the old trees at Starbreeze one dawn before you cast anything.", fx = { align = { order = 1 } } },
         { text = "The arcane is a tool, not a sin.", next = "BACK", reply = "A tool that tore our homeland in half, mage. I will not call it a sin, but I will not call it a friend either.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dd_hunt = {
+      lines = {
+        { id = "ddh_default", text = "Good, because a hunt that cannot kill you teaches nothing. Shadumbra, Ursangous and Sharptalon have killed better-armed hunters than you, and the orcs of Splintertree send their young hunters after them to prove themselves. Wear what you took with some pride." },
+      },
+      choices = {
+        { text = "They were magnificent beasts. I'm almost sorry.", next = "BACK", reply = "Almost sorry is the right measure. A hunter who feels nothing has stopped hunting and started butchering.", fx = { align = { light = 1 } } },
+        { text = "Beasts like that exist to be bested.", next = "BACK", reply = "Spoken with a young hunter's pride, and I won't scold it out of you. The forest will do that soon enough.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_hunt", tags = { "news" }, when = { killed = { name = { "Ursangous", "Shadumbra", "Sharptalon" } } }, text = "Word came up from Ashenvale that you brought down one of its great beasts, the old bear, the black saber or the hippogryph of the high cliffs. There is no finer proof of a hunter in Kalimdor, and I will say so to anyone who asks." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Respect the balance, as I tell my hunters, and you'll find the beasts of Teldrassil kinder to a healer than to a hunter." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order judges good and evil, I'm told, but in the wild there is only the balance, and the balance does not take sides." },
         { id = "h_default", text = "I am Jocaste, and I train the hunters of Darnassus. Always respect the balance and live in awe of the nature around you, because that's the first lesson, and the last." },
@@ -642,9 +653,10 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Speak, and I'll listen as the forest listens, without hurry." },
-        { id = "h_again2", text = "Another question? Good. Hunters who stop asking stop learning." },
+        { id = "h_again2", text = "Another question? Good. Ask whatever you like, and I will tell you if it is a foolish one." },
       },
       choices = {
+        { text = "That beast in Ashenvale nearly killed me.", next = "dd_hunt", when = { killed = { name = { "Ursangous", "Shadumbra", "Sharptalon" } } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What do you mean by balance?", next = "balance" },
         { text = "Choosing a companion must take care.", next = "companion" },
@@ -828,7 +840,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and I tell them it's a different bond, because they become the beast for a while and you walk beside one for years. Your {pet} has the calm of a well-loved animal, and Cenarius would be glad of it." },
       },
       choices = {
-        { text = "My companion is family, as Cenarius would want.", next = "BACK", reply = "Then Cenarius smiles on you, and so do I. The bond between hunter and beast is one of the oldest in the world.", fx = { align = { light = 1 } } },
+        { text = "My companion is family, as Cenarius would want.", next = "BACK", reply = "Then Cenarius smiles on you, and so do I. He ran with the stags himself, and he never once called one of them a tool.", fx = { align = { light = 1 } } },
         { text = "It's a hunting beast. Sentiment gets you killed.", next = "BACK", reply = "Perhaps, but so does a lack of it, hunter. The beast that loves you will fight harder than the one that fears you.", fx = { align = { light = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -851,7 +863,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll be the careful kind of summoner.", next = "BACK", reply = "There is such a thing, though there are far too few of you. I will hold you to it, warlock.", fx = { align = { light = 1 } } },
-        { text = "The fel burns quicker than you heal. That's your problem.", next = "BACK", reply = "It does, and that is exactly why I refuse to stop. Every scar in Felwood is a reminder of why we heal.", fx = { align = { light = -1 } } },
+        { text = "The fel burns quicker than you heal. That's your problem.", next = "BACK", reply = "It does, and that is exactly why I refuse to stop. I have walked Felwood, warlock, and I would not wish its poisoned springs on anyone.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -870,7 +882,7 @@ P:NPC {
       lines = {
         { id = "fm2_default", text = "Then you'll not be the first, and that's why Mathrengyl tests the heart and not only the body. Come back to yourself every evening, even when it would be easier to stay four-footed, and you'll be fine." },
       },
-      choices = { { text = "I'll remember. Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
     },
     xrogue = {
       big = true,
@@ -946,7 +958,7 @@ P:NPC {
       },
       choices = {
         { text = "Patience isn't my strength.", next = "BACK", reply = "It is no one's, at first, and the bear will teach it to you whether you like it or not. Come back when you are ready to be humbled.", fx = { align = { order = -1 }, trait = { witty = 1 } } },
-        { text = "Discipline first. I understand.", next = "BACK", reply = "Then you are wiser than most of my students already. The bear will be kind to you.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Discipline first, then. I understand.", next = "BACK", reply = "Then you are wiser than most of my students already. The bear will be kind to you.", fx = { align = { order = 1 }, affinity = 1 } },
       },
     },
     circle = {

@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_forge", text = "Maces, hammers and flails, all of them made to crack an ogre's head. Have a look, friend." },
+    { id = "g_forge", text = "Maces, hammers an' flails, every one o' them made tae crack an ogre's head. Have a look, friend." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the Pointe, eh? Still swingin', I hope." },
   },
 
@@ -32,8 +32,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_dwarf_default", text = "It's hard being so near and so far at once, {g:lad|lass}, because I can see the Wetlands from the ridge on a clear day and can't get there without a boat or a broken neck. Your friend will understand: a dwarf goes where the work is, but his beard always points home." } },
       choices = {
-        { text = "The Span should be rebuilt, and the road home opened.", next = "BACK", reply = "It should, {g:lad|lass}, an' one day it will. Until then I'll stand on the ridge an' look at home.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Home is wherever you choose to stand your ground.", next = "BACK", reply = "Aye, an' I've chosen Arathi, for now. The forge feels the same in any land.", fx = { align = { order = -1 } } },
+        { text = "The Span should be rebuilt and the road home opened.", next = "BACK", reply = "It should, {g:lad|lass}, an' one day it will. Until then I'll stand on the ridge an' look at home.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Home is wherever you choose to stand your ground.", next = "BACK", reply = "Aye, an' I've chosen Arathi, for now. The anvil rings the same here as it did in Ironforge, even if the ale doesnae taste half as good.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -42,7 +42,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "That the earth was always talkin', {g:lad|lass}, an' most of us were too busy hammerin' to listen, which is a fair description o' my whole life. My forge fire's never once said a word to me, but I'll not tell ye it isn't listenin', for it's been in a mood all week." } },
       choices = {
         { text = "Hammer and stone served Ironforge well. I honour them.", next = "BACK", reply = "Hammer an' stone, aye, an' they built a great city. But they were deaf tae the earth, an' that's no' nothing.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Ironforge has hammered too long. It's time we listened.", next = "BACK", reply = "It is, an' I'm glad tae hear ye say it. Maybe one day Ironforge will learn what the earth's been tellin' us.", fx = { align = { order = -1 } } },
+        { text = "Ironforge has hammered long enough. It's time we listened.", next = "BACK", reply = "It is, an' I'm glad tae hear ye say it. Maybe one day Ironforge will learn what the earth's been tellin' us.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -50,7 +50,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Aye, they suit it well, for an ogre's skull doesn't care much for a sword. The League means to take the whole of Arathor back, every hill, and they'll need every mace I can make to do it." } },
       choices = {
-        { text = "Take it all back. The Highlands should be Arathor's.", next = "BACK", reply = "Every inch, aye, an' every ogre wi' it. Stromgarde's men will thank ye.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Take it all back. The Highlands belong to Arathor.", next = "BACK", reply = "Every inch, aye, an' every ogre wi' it. Stromgarde's men will thank ye.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Take back the towns, and leave the hills wild.", next = "BACK", reply = "A fair thought, an' a gentle one. I'll put it tae the League, though I doubt they'll listen.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -71,7 +71,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When the hunters ask, an' they ask more now the raptors have come down from the hills. Yer {pet} has been sniffin' round my anvil since ye walked in, so mind its nose, for the iron's still hot." },
       },
       choices = {
-        { text = "Good work deserves fair coin. I'll pay your price.", next = "BACK", reply = "Fair coin for fair work, aye, an' I'll make ye somethin' worth it.", fx = { align = { honor = 1 } } },
+        { text = "Good work deserves fair coin. I'll pay your price.", next = "BACK", reply = "Fair coin for fair work, aye, an' I'll put a head on it that'll ring off a Boulderfist skull like a temple bell.", fx = { align = { honor = 1 } } },
         { text = "A hunter's purse is thin. I'll haggle you down.", next = "BACK", reply = "Ye can try, {g:lad|lass}, but I've haggled wi' worse than ye. Ye'll pay fair.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -80,7 +80,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "It is in my experience, because a blade asks ye tae cut, but a mace only asks ye tae stop somethin' that's comin' at ye, which suits the gentler sort. I've made maces for chaplains longer than ye've been alive, an' not one o' them ever complained o' the balance." } },
       choices = {
-        { text = "A mace defends. I'll use it only when I must.", next = "BACK", reply = "That's the right way of it, an' ye'll sleep better for it.", fx = { align = { light = 1 } } },
+        { text = "A mace defends. I'll use it only when I must.", next = "BACK", reply = "That's the right way of it. I've seen what a mace does when it's used for anythin' else, an' I'd rather ye never did.", fx = { align = { light = 1 } } },
         { text = "A weapon's a weapon. Hit hard and pray later.", next = "BACK", reply = "Aye, I've known a few priests who think that way. They're the ones still alive.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Maces from my forge, for the most part, because the ogres' hides turn a poor blade an' the trolls' bones don't. Stromgarde's men fight for land their grandfathers held, an' I'd like them tae have the best steel I can give them when they go." } },
       choices = {
-        { text = "Fighting for one's home is the most honorable cause there is.", next = "BACK", reply = "It is, an' I'll forge for it till me arms give out. Stromgarde's men have earned it.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Honor's a word kings use to send men to die.", next = "BACK", reply = "Maybe so, but these men chose tae stand. I'll forge them the best I can.", fx = { align = { honor = -1 } } },
+        { text = "Fighting for one's home is the most honourable cause there is.", next = "BACK", reply = "It is, an' I'll forge for it till me arms give out. Stromgarde's men have earned it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honor is a word kings use to send men off to die.", next = "BACK", reply = "Maybe so, but these men chose tae stand. I'll forge them the best I can.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -118,7 +118,7 @@ P:NPC {
           text = "They tell me a rogue's no use wi' a mace, {class}, but I've seen a quiet {g:lad|lass} wi' a cudgel do more damage behind a Syndicate camp than a whole squad." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who knows the worth o' a good mace. I forge 'em for every soldier at Refuge Pointe, an' they come back dented, which is how I know they're bein' used." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I've a few arrowheads coolin' by the forge, an' I'll tell ye now, a dwarf's arrowhead weighs twice what a human's does an' flies twice as true." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid in Refuge Pointe! I doubt ye'll need a mace, but ye're welcome to admire one." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid in Refuge Pointe! I doubt ye'll need a mace, but ye're welcome to admire one." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell ye a mace if ye want one, lad, though I've a feelin' ye'll rarely swing it, an' I'll ask ye to keep yer wee beastie off me anvil." },
       },
       again = {
@@ -156,7 +156,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because enchanters want gold, an' Stromgarde's down tae tents an' promises, an' I'll no take a soldier's last silver for a glowin' head on a stick. A good dwarven mace swung hard does the job well enough, an' it doesnae need a spell tae remember how." } },
       choices = {
-        { text = "Simple steel is honest. I respect that.", next = "BACK", reply = "It is, an' I'm proud of it. Steel doesnae lie tae ye.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Simple steel is honest. I respect that.", next = "BACK", reply = "It is, an' I'm proud of it. Steel doesnae lie tae ye, an' it doesnae need a spell renewed every fortnight either.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Without magic, Stromgarde will never retake its keep.", next = "BACK", reply = "Maybe no', but it'll keep its soldiers alive long enough tae try. That's all I can give 'em.", fx = { align = { order = -1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
@@ -175,8 +175,8 @@ P:NPC {
         { id = "lc_default", text = "Not alone, they can't, and the Alliance has other wars on its mind. But folk like ye come through every week, and every ogre ye put down is one fewer at Stromgarde's walls, so who's to say?" },
       },
       choices = {
-        { text = "I'll do what I can.", next = "BACK", reply = "That's all I ask, {g:lad|lass}, an' more than most give. Every ogre ye fell is a stone back in the wall.", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "It's a lost cause, I think.", next = "BACK", reply = "Maybe it is, an' maybe no'. I'll keep the forge lit till the League tells me otherwise.", fx = { align = { honor = -1 }, affinity = -1 } },
+        { text = "I'll do what I can, Jannos.", next = "BACK", reply = "That's all I ask, {g:lad|lass}, an' more than most give. Every ogre ye fell is a stone back in the wall.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "It's a lost cause, if you ask me.", next = "BACK", reply = "Maybe it is, an' maybe no'. I'll keep the forge lit till the League tells me otherwise.", fx = { align = { honor = -1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -211,9 +211,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I worked a forge in Ironforge for longer than ye've been alive, friend, and came here when the League called for smiths." } },
     advice = { { id = "tp_ad", text = "Swing from the shoulder, not the wrist. Yer wrist will thank ye." } },
-    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's soldiers need maces, and I forge them as fast as I can. Every cracked ogre skull is a step closer to taking the city back." } },
-    magni = { { id = "tp_magni", text = "The King of Ironforge sent me here to help Stromgarde, and I'll stay until the job's done. He's a good king, and a better dwarf." } },
-    second_war = { { id = "tp_second_war", text = "I forged maces for the Second War too, and I'm still forging them, and I'll be forging them when I'm grey. Wars don't end, they just change their faces." } },
-    _none = { { id = "tp_none", text = "Couldn't tell ye, friend. Ask Captain Nials; she hears everything first." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's soldiers need maces, an' I forge them as fast as these old arms let me. Every cracked ogre skull is one step closer tae the city gates." } },
+    magni = { { id = "tp_magni", text = "The King o' Ironforge sent me here tae help Stromgarde, an' I'll stay till the job's done. Magni's a good king, an' a better dwarf." } },
+    second_war = { { id = "tp_second_war", text = "I forged maces for the Second War, an' I'm forgin' them still, an' I'll be forgin' them when me beard's gone white. Somebody always needs a skull cracked, it seems." } },
+    _none = { { id = "tp_none", text = "Couldnae tell ye, friend. Ask Captain Nials; she hears everythin' first." } },
   },
 }

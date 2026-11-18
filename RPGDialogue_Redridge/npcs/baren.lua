@@ -33,7 +33,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They have, and I count them now the way I count the boats. If your spirits can tell me why they've come up out of the Everstill, I'd write that down too." } },
       choices = {
-        { text = "Keep counting, Baren. A careful dock is a safe dock.", next = "BACK", reply = "That's what my father told me when he handed me the book, and the lake hasn't proved him wrong yet. Mind the third plank as you go.", fx = { align = { order = 1 } } },
+        { text = "Keep counting, Baren. Somebody has to know who's out on the water.", next = "BACK", reply = "That's what my father told me when he handed me the book, and the lake hasn't proved him wrong yet. Mind the third plank as you go.", fx = { align = { order = 1 } } },
         { text = "Forget the counting. Drive the murlocs off and be done with it.", next = "BACK", reply = "Easy said from the dry end of the dock. Drive them off by all means, and I'll still count them, because they always come back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

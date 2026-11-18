@@ -49,7 +49,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Barrels of it, dear, and they'd buy more if they could pay. The lamps along the road are all that keep the dead back from the town after sundown, and a fighter who trims a wick is as useful to me as one who swings a sword." } },
       choices = {
-        { text = "I'll help keep the lamps lit. They matter as much as swords.", next = "BACK", reply = "That's the spirit, dear, and the road will be brighter for it. The Watch will thank you.", fx = { align = { light = 1 } } },
+        { text = "I'll help keep the lamps lit. They matter as much as swords.", next = "BACK", reply = "Bless you, dear, and the road will be brighter for it. The lamplighters always run short of hands come winter.", fx = { align = { light = 1 } } },
         { text = "Lamps are the Watch's job. Mine's the fighting.", next = "BACK", reply = "Fighting's needed too, dear, I'll not deny it. But a dark road gets more people killed than a dull sword.", fx = { align = { light = -1 } } },
         { text = "Something else, Mabel.", next = "BACK" },
       },
@@ -111,6 +111,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_stitches_mabel", when = { killed = { name = "Stitches" } },
+          text = "Oh, you're the one who stopped that awful stitched thing, aren't you? Sit down a minute, dear, because you look half dead yourself, and I'll not have a hero fall over in my corner." },
+        { id = "dd_deaths_mabel", when = { deaths = { min = 10 } },
+          text = "You've a pale look about you, dear, the look of someone who's been to the graveyard and walked back again more than once. Take some candles with you, and keep one lit, because the dark in these woods is hungry." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your sort burn through lamp oil like nobody else, out on patrol all night, so I keep the jars filled for you." },
         { id = "h_default", text = "Mabel Solaj, and I keep Darkshire in candles, lamp oil and flour, which is to say I keep it in light and bread. Neither one is easy to come by in this wood, so I don't apologise for my prices." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest! Bless you for coming so far into the dark. I sell more candles to the Night Watch than I ever sold to a chapel, and they need the light just as badly." },
@@ -212,7 +217,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Mostly it is, because the wagons don't come and folk don't buy. Your spirits won't bring the sun back, I'd guess." } },
       choices = {
-        { text = "Keep counting, Gunder. Order keeps hope alive.", next = "BACK", reply = "That's what I tell myself every morning, and it helps, mostly, so long as the count comes out the same as yesterday.", fx = { align = { order = 1 } } },
+        { text = "Keep counting, Gunder. A tidy shelf is something to hold on to.", next = "BACK", reply = "That's what I tell myself every morning, and it helps, mostly, so long as the count comes out the same as yesterday.", fx = { align = { order = 1 } } },
         { text = "Stop counting. Close the shop and leave.", next = "BACK", reply = "And go where, exactly? Stormwind's full, and Darkshire still needs thread. I'll stay.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -293,7 +298,7 @@ P:NPC {
         { id = "h_warlock", when = { class = "WARLOCK" }, text = "You'll be after parchment, I expect, and I'll not ask what you write on it. In this town, the less a tradesman asks, the longer he trades." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Not much in my stock for you, I'll warn you now, unless you mend your own armour, which, in this wood, you might want to." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Now you're a customer worth having, for skins need salt and thread and tanning, and I've got every one of those." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't stock much a night elf would need, unless your folk have taken up tailoring, and I'll be surprised if they have." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid. I don't stock much a night elf would need, unless your folk have taken up tailoring, and I'll be surprised if they have." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ink, parchment, vials for your powders, and I've a fair stock of each, if you'll stand still while I count it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've thread, vials and flux, and you're welcome to count them with me, because Darkshire's trade died with the sunlight and I keep counting anyway." },
       },
@@ -381,12 +386,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dd_morg_w = {
+      lines = {
+        { id = "dd_morg_w_a", text = "So I see, and so I'll tell you what I tell every Watchman: go for the legs, because they leap, and a worgen that can't leap is only a big dog. Most folk aim for the throat and get their own torn out instead." },
+      },
+      choices = {
+        { text = "Where do these worgen come from?", next = "dd_morg_w2" },
+        { text = "I'll keep that in mind. Thanks, Morg.", next = "dd_morg_w2" },
+      },
+    },
+    dd_morg_w2 = {
+      lines = {
+        { id = "dd_morg_w2a", text = "Nobody knows, or nobody who'll tell me, though Ebonlocke's people whisper about Brightwood Grove and then go quiet when I ask more. I just make the armour, and I'd like to keep making it for people who come back." },
+      },
+      choices = { { text = "Something else, Morg.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They grow worse every month, and I outfit fighters because I want them back. Your spirits won't stop claws, but my armour might." } },
       choices = {
         { text = "Your armour's good work, Morg. I'll wear it proudly.", next = "BACK", reply = "That's what I like to hear, and you'll come back for it. Wear it well.", fx = { align = { honor = 1 } } },
-        { text = "Claws are claws. Armour won't matter.", next = "BACK", reply = "Claws are claws, and good steel stops them. I've seen it.", fx = { align = { honor = -1 } } },
+        { text = "Claws go through anything, Morg. Armour won't matter.", next = "BACK", reply = "Not through my steel, they don't, and I've a pile of dented plates out back to prove it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -406,7 +427,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Mail over the shoulders and plate on the forearms, because a worg goes for the throat and you block with your arm. I've buried men who wore leather because it was lighter, and lighter's no use if you're dead." } },
       choices = {
         { text = "Heavy armour, then. I'd rather be slow than dead.", next = "BACK", reply = "Then you'll come back, and that's all I want. I'll fit you.", fx = { align = { order = 1 } } },
-        { text = "Speed keeps me alive. I'll take the lighter armour.", next = "BACK", reply = "Then I'll not see you again, I expect. Suit yourself.", fx = { align = { order = -1 } } },
+        { text = "Speed keeps me alive. I'll take the lighter armour.", next = "BACK", reply = "Then I'll not see you again, I expect, and I'll hear about it from the Watch.", fx = { align = { order = -1 } } },
         { text = "Something else, Morg.", next = "BACK" },
       },
     },
@@ -451,6 +472,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_worgen_morg", when = { killed = { name = "Nightbane", min = 60 } },
+          text = "There are claw marks on your gear that I'd know anywhere, and plenty of them, so you've been fighting the Nightbane worgen and winning. Bring it to me before you go back out, because a clean seam is the difference between a scratch and a funeral." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, in my forge? I've no armour for cloth folk, but come in out of the dark all the same." },
         { id = "h_default", text = "Morg Gnarltree, armorer. Gavin sells you the blade to fight with and I sell you the steel to survive it, and in this wood the second matters more." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin. Your plate's good, but it was made for Stormwind's streets, not Duskwood's claws, and the joints at the elbow will fail you first." },
@@ -466,6 +490,8 @@ P:NPC {
         { id = "h_again2", text = "Speak up. I've been at the anvil all day and my ears are ringing." },
       },
       choices = {
+        { text = "I've fought a lot of Nightbane, Morg.", next = "dd_morg_w", when = { killed = { name = "Nightbane", min = 60 } } },
+
         { text = "Show me your armour.", next = "BUSINESS" },
         { text = "What armour works against worgen?", next = "worgen" },
         { text = "Are you kin to Gavin?", next = "kin" },
@@ -507,7 +533,7 @@ P:NPC {
       lines = { { id = "ww_default", text = "Because an unarmoured watchman is a dead one, and a dead watchman doesn't guard my door. Some would call that charity, and I call it good sense, and I don't much care which you call it." } },
       choices = {
         { text = "It's charity, whatever you call it. It's good.", next = "BACK", reply = "Call it what you like, it's the same armour. Thank you, though.", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Good sense. Charity wouldn't keep your forge lit.", next = "BACK", reply = "Exactly, and I'm glad someone sees it. Good sense, plain and simple.", fx = { align = { light = -1 } } },
+        { text = "Good sense. Charity wouldn't keep your forge lit.", next = "BACK", reply = "Exactly. A smith who gives his work away has a cold forge by spring.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -595,7 +621,7 @@ P:NPC {
       lines = { { id = "xma_default", text = "It is, and that's why it's good for you, since a body that only reads goes soft. Swing a pick for a week, and I'll wager you'll cast the better for it." } },
       choices = {
         { text = "Discipline in body and mind. I'll try it.", next = "BACK", reply = "That's sense, and you'll find it helps. Grab a pick.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My mind's my pick, Matt.", next = "BACK", reply = "Then sharpen it, mage, and leave the pick to me. Suit yourself.", fx = { align = { order = -1 } } },
+        { text = "My mind's my pick, Matt.", next = "BACK", reply = "Then keep it sharp, mage, and leave the pick to those of us with calluses.", fx = { align = { order = -1 } } },
         { text = "Any advice for a beginner?", next = "advice" },
       },
     },
@@ -621,7 +647,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Roland's Doom went bad first, and then things started walking out of the lower shafts that nobody had sent down. We sealed the other workings with timber and good intentions, and neither has held." } },
       choices = {
-        { text = "Leave the deep places sealed. Some things should stay buried.", next = "BACK", reply = "That's my thinking, and the Watch agrees. Some doors should stay shut.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leave the deep places sealed. Some things should stay buried.", next = "BACK", reply = "That's my thinking, and the Watch agrees. I nailed the boards over Roland's Doom myself.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Open the mines again. A town needs its miners working.", next = "BACK", reply = "It does, and I'd love to see it. But not while those things walk.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -722,6 +748,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dd_danielle_c = {
+      lines = {
+        { id = "dd_danielle_c_a", text = "You went right up to that farmhouse? Sheri won't even walk past the road to it, and I don't blame her, because the folk say Mary still begs anyone she sees not to look at her face. Was she frightening, or was she sad?" },
+      },
+      choices = {
+        { text = "Sad. Whatever she became, she was a person once.", next = "dd_danielle_c2", fx = { align = { light = 1 } } },
+        { text = "Frightening. Some things are best left in the dark.", next = "dd_danielle_c2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_danielle_c2 = {
+      lines = {
+        { id = "dd_danielle_c2a", text = "Well, that's the strangest thread that's ever come through this shop, and I've stitched with spider silk. If Eva ever tells me what it's for, I'll tell you first, I promise." },
+      },
+      choices = { { text = "I'll hold you to that. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Oh, all sorts: fears and hopes and secrets. I sew while I listen. Your spirits must hear secrets too." } },
@@ -787,7 +829,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Every sash and tabard they own, and I mend the claw tears for nothing when Sheri isn't looking. Commander Ebonlocke says a watcher who looks smart stands straighter, and I've never argued with her." } },
       choices = {
-        { text = "She's right. Order starts with how a watch carries itself.", next = "BACK", reply = "She is, dear, and I'll keep stitching. A smart watcher is a proud one.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "She's right. Order starts with how a watch carries itself.", next = "BACK", reply = "She is, dear, and I'll keep stitching. You'd be amazed how a straight collar stiffens a man's spine.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fine cloth won't stop a worgen, Danielle.", next = "BACK", reply = "It won't, dear, but it'll make them stand straighter. That's something.", fx = { align = { order = -1 } } },
         { text = "Something else, Danielle.", next = "BACK" },
       },
@@ -797,12 +839,15 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "That the trees whisper near Raven Hill, mostly, and that the worgen howl in words if you listen long enough. I don't believe half of it, but I've started lining the shutter curtains double all the same." } },
       choices = {
         { text = "Ignore idle talk. Fear spreads faster than worgen do.", next = "BACK", reply = "That's sensible, dear, and I'll try. But I'm keeping the double curtains.", fx = { align = { order = 1 } } },
-        { text = "Listen to them. Rumours often carry a grain of truth.", next = "BACK", reply = "That's what I think too, dear, and I've lined the curtains for it. Better safe.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Listen to them. Rumours often carry a grain of truth.", next = "BACK", reply = "That's what I think too, dear, and I've lined the curtains for it, just in case.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "dd_comb_danielle", when = { questDone = TODO_QUEST("Ghost Hair Thread") },
+          text = "I heard Madame Eva talking on the stairs about the thread you brought back from Blind Mary's farm. Eva won't tell me what she wants with it, and I've been dying to ask, so if you know, don't you dare keep it to yourself." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Do tiptoe past Madame Eva's door on your way down, because she does so love an argument with the Church." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a good surcoat over that armour, and I've a lovely deep blue that would suit you." },
         { id = "h_default", text = "Danielle Zipstitch, and Sheri and I keep Darkshire in thread, cloth and dye from up here, above Madame Eva's parlour. You'd be amazed what you hear through the floorboards when you sell thread in a fortune teller's house." },
@@ -820,6 +865,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. Sheri says I talk too much, but Sheri isn't here." },
       },
       choices = {
+        { text = "I took the comb to Blind Mary for Madame Eva.", next = "dd_danielle_c", when = { questDone = TODO_QUEST("Ghost Hair Thread") } },
+
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "What do you hear through the floor?", next = "floor" },
         { text = "What's Madame Eva like?", next = "eva" },
@@ -963,7 +1010,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "It would, though I'd feel terribly guilty keeping a paladin on our landing when the whole town needs one. Perhaps just until the scratching starts, and then you could look and tell me it's nothing." } },
       choices = {
-        { text = "I'll stand watch. Your fear isn't foolish, Sheri.", next = "BACK", reply = "Thank you, truly, it's not foolish to me either. I'll make tea.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll stand watch. Your fear isn't foolish, Sheri.", next = "BACK", reply = "Thank you, truly. It doesn't feel foolish to me either, so I'll make us some tea.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I've graver work than a scratching window, Sheri.", next = "BACK", reply = "Of course you have, I'm sorry for asking. I'll keep the curtains drawn.", fx = { align = { honor = -1 } } },
         { text = "Something else, Sheri.", next = "BACK" },
       },
@@ -1022,7 +1069,7 @@ P:NPC {
       lines = { { id = "wl_default", text = "No! Please don't. Whatever it is, it hasn't come in, and I won't give it a reason to. Some things in Duskwood are better left unseen." } },
       choices = {
         { text = "Fear only grows in the dark. Face it.", next = "BACK", reply = "That's what Danielle says, and I'm still not looking. Please don't either.", fx = { align = { light = 1 }, trait = { brave = 1 } } },
-        { text = "You're right. Leave it alone.", next = "BACK", reply = "Thank you, and I'll stop thinking about it, maybe. Some things are better left.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "You're right, it's better left alone.", next = "BACK", reply = "Thank you. I'll stop thinking about it, maybe, once the shutters are latched.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1067,11 +1114,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dd_hogan_d = {
+      lines = {
+        { id = "dd_hogan_d_a", text = "And that's the answer I've been waiting for in this hall, though it came from you and not from them. My wife's mother is buried at Raven Hill, and I've wondered every night whether she's still lying where we left her." },
+      },
+      choices = {
+        { text = "The council should have done this long ago.", next = "dd_hogan_d2", fx = { align = { order = -1 } } },
+        { text = "The council's doing what it can with too few men.", next = "dd_hogan_d2", fx = { align = { order = 1 } } },
+      },
+    },
+    dd_hogan_d2 = {
+      lines = {
+        { id = "dd_hogan_d2a", text = "Maybe so, and maybe I'll keep waiting here anyway, because it's what I know how to do. But I'll stand a little straighter tomorrow, knowing someone's out there doing the work." },
+      },
+      choices = { { text = "Something else, Hogan.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Never once. I keep coming back. Your spirits might give me an answer the council won't." } },
       choices = {
-        { text = "Keep asking, Hogan. Persistence matters.", next = "BACK", reply = "I will, as long as I have breath. Someone has to.", fx = { align = { order = 1 } } },
+        { text = "Keep asking, Hogan. They'll have to answer you eventually.", next = "BACK", reply = "I will, as long as I have breath. Someone has to.", fx = { align = { order = 1 } } },
         { text = "Stop waiting on the council. Act yourself.", next = "BACK", reply = "With what? A pitchfork and a dog? I'll keep asking.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1128,7 +1191,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Bless the graves so nobody climbs out of them, for a start, and send someone who'll stay longer than a sermon. I'm not asking for miracles, only for somebody to come back the next day." } },
       choices = {
-        { text = "I'll come back the next day, Hogan, and the day after.", next = "BACK", reply = "Thank you, and I'll believe it when I see you. Come back.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll come back the next day, Hogan, and the day after.", next = "BACK", reply = "I'll believe it when I see you at my gate again, and I hope I do.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead need steel, Hogan, not blessings.", next = "BACK", reply = "Steel, then, and blessings after. I'm not choosy.", fx = { align = { light = -1 } } },
         { text = "Something else, Hogan.", next = "BACK" },
       },
@@ -1147,12 +1210,15 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Never, not in my grandfather's time nor his father's, and that's why I won't believe it's natural. Something turned this wood, and I'll keep asking the council until one of them says what." } },
       choices = {
         { text = "The council must act. Keep asking until they do.", next = "BACK", reply = "I will, until one of them answers. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Stop waiting on the council. Gather folk and act yourselves.", next = "BACK", reply = "With what? A dog and a pitchfork? I'll keep asking.", fx = { align = { order = -1 } } },
+        { text = "Stop waiting on the council. Gather folk and act yourselves.", next = "BACK", reply = "Gather who? Half the farms are empty and the other half are barred shut. I'll keep asking.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "dd_dead_hogan", when = { killed = { name = "Skeletal", min = 50 } },
+          text = "The council still hasn't answered me, but somebody's been doing something about the dead, and I hear it's you. You've done more in a month than the Town Hall has done in a year of my standing here." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The council says pray, and I've prayed, and the dead still walk past my fence, so tell me what I'm doing wrong." },
         { id = "h_default", text = "Hogan Ference, and I've been coming to this hall every morning for a month to ask the council one question, which is what they mean to do about the undead. I'll keep coming until somebody gives me an answer." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin, at last! Are you here for the dead at Raven Hill? Say you are, because this town has prayed for one of you for years." },
@@ -1168,6 +1234,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The council certainly won't." },
       },
       choices = {
+        { text = "I've been putting the dead back in their graves.", next = "dd_hogan_d", when = { killed = { name = "Skeletal", min = 50 } } },
+
         { text = "What do you want the council to do?", next = "council" },
         { text = "Why haven't Stormwind's guards come?", next = "stormwind" },
         { text = "Where are the undead coming from?", next = "raven" },
@@ -1341,7 +1409,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Once, pal, a carved bow a sailor swore came off a sentinel, and I flipped it to a Stormwind lordling inside the hour at three times what I paid. I didn't ask how the sailor got it, and I'm bettin' you'd rather I didn't find out." } },
       choices = {
         { text = "Stolen goods should go back where they belong.", next = "BACK", reply = "Back where? The sentinel's not askin', pal, and the lordling's happy. Everybody wins.", fx = { align = { honor = 1 } } },
-        { text = "A bow's a bow. Whoever pays for it owns it.", next = "BACK", reply = "Exactly, pal! You get it. Business is business.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A bow's a bow. Whoever pays for it owns it.", next = "BACK", reply = "Exactly, pal, you get it! Business is business, and the bow don't care whose shoulder it's on.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1354,7 +1422,7 @@ P:NPC {
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! You folks appreciate quality, chum, and quality's what I got, at a quality price, with quality interest if you're buyin' on account." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A fighter! You got the look of somebody who needs a one-of-a-kind blade, pal, and it just so happens I got one, or one of a few, sharpened and priced to move." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, and a beast besides! I got a rare collar here that'll fit it, guaranteed, and if it doesn't, it's an even rarer belt, and the price stays the same either way." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid, now there's a customer! I don't suppose you'd want a genuine Ashenvale acorn, pal, guaranteed authentic and only slightly nibbled." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid, now there's a customer! I don't suppose you'd want a genuine Ashenvale acorn, pal, guaranteed authentic and only slightly nibbled." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Hey, a warlock, my kind of customer! I got candles, I got skulls, and I got a very rare black stone that's definitely not from the riverbank, so don't go checkin' the riverbank." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, huh? Unique goods, every one, pal, and nothin' in this forest worries me so long as business is good, and business is always good when the forest's this scary." },
       },
@@ -1391,7 +1459,7 @@ P:NPC {
       lines = { { id = "wa_default", text = "Takin' advantage? I'm providin' a service, pal! They need somethin' rare and powerful to get through this dump, and I happen to have it, at a fair price once you count the risk, the overhead and the worgen." } },
       choices = {
         { text = "A fair price would be lower.", next = "BACK", reply = "Lower? Pal, lower is for people who don't count the worgen. Fair is fair.", fx = { align = { honor = 1 } } },
-        { text = "Business is business. I respect that.", next = "BACK", reply = "Now that's a valued customer talkin', pal! You and I will get along fine.", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Business is business, I suppose. I can respect that.", next = "BACK", reply = "Now that's a valued customer talkin', pal! You and I will get along fine.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

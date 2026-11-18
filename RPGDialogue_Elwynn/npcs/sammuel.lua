@@ -45,7 +45,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "It favours those who protect, and a warrior who holds the line for others is doing the Light's work, whether they pray or not. I've seen the sword do more good in Northshire than a dozen sermons." } },
       choices = {
         { text = "Then I'll fight for those who can't.", next = "BACK", reply = "Then you're closer to the Light than you know, and I'll be proud to stand beside you.", fx = { align = { light = 1 } } },
-        { text = "I fight for myself. The Light can watch.", next = "BACK", reply = "It watches, aye, and it hopes. One day you may find you're fighting for more than yourself.", fx = { align = { light = -1 } } },
+        { text = "I fight for myself. The Light can watch.", next = "BACK", reply = "It does watch, child, and it's patient with you. So am I, and I'll be here on the day you find you're fighting for more than yourself.", fx = { align = { light = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
@@ -75,7 +75,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "They share this one, though not always comfortably, and Khelden Bremen and I have had words over whose candles burn in the Library Wing. The Light asks for faith, and the arcane asks for will, and I think a person can have both." } },
       choices = {
         { text = "Both serve the Abbey. Faith and will in their proper place.", next = "BACK", reply = "That's well put, and I'll tell Khelden you said so, though he'll want the candles anyway.", fx = { align = { order = 1 } } },
-        { text = "The arcane needs no faith. My will is enough.", next = "BACK", reply = "It may be, for now, but will tires and faith endures. I hope you find that out gently.", fx = { align = { order = -1 } } },
+        { text = "The arcane needs no faith. My will is enough.", next = "BACK", reply = "It may be, for now. Ask Khelden how his will holds up at the end of a long winter, and see what he tells you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,7 +83,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it. Drusilla La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." } },
       choices = {
-        { text = "Keep praying, Brother. I may need it one day.", next = "BACK", reply = "I'll be here when that day comes, and I'll not ask what brought you. The Light keeps its doors open.", fx = { align = { light = 1 } } },
+        { text = "Keep praying, Brother. I may need it one day.", next = "BACK", reply = "I'll be here when that day comes, and I'll not ask what brought you. The chapel door is never barred, not even at night.", fx = { align = { light = 1 } } },
         { text = "Save your prayers for those who want them.", next = "BACK", reply = "I would, if they asked, but most never do until it's late. I'll keep you in mine quietly.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -102,7 +102,7 @@ P:NPC {
         { id = "h_ghost", priority = 100, when = { ghost = true },
           text = "I can feel you there, though I can't see you. Go to the healer, child, and then come back to me." },
         { id = "h_paladin", when = { class = "PALADIN" },
-          text = "Every paladin's first lesson is the same. The Light isn't a weapon you own. It's a trust you keep." },
+          text = "Every paladin's first lesson is the same: the Light isn't a weapon you own, it's a trust you keep." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Consecrated Letter"), days = 1 } },
           text = "Marshal McBride sent you with a letter? Good, then we begin today." },
         { id = "h_dwarf_paladin", when = { race = "Dwarf", class = "PALADIN" },
@@ -163,7 +163,7 @@ P:NPC {
       choices = {
         { text = "That's a lot to ask of anyone.", next = "light_ask", fx = { trait = { skeptical = 1 } } },
         { text = "I can do that.", next = "BACK", reply = "Then you're already on the road, and I'll be glad to walk a little of it with you.", fx = { align = { light = 2 }, trait = { pious = 1 }, affinity = 1 } },
-        { text = "Mercy that costs me is a price I won't pay.", next = "BACK", reply = "Then you've a long way to go, and I'll not judge you for it yet. Everyone starts somewhere.", fx = { align = { light = -2 } } },
+        { text = "Mercy that costs me is a price I won't pay.", next = "BACK", reply = "Then you've a long way to go, and I'll not judge you for it yet. I wasn't born merciful either.", fx = { align = { light = -2 } } },
       },
     },
     light_ask = {

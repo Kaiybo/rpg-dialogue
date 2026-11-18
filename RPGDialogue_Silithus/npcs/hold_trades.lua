@@ -208,7 +208,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Against an orc or a man, perhaps, but against the silithid there is little honour to lose, for they do not fight as we do. The Earth Mother gave us venom and medicine from the same roots, and I do not think she meant one only for the rogues." } },
       choices = {
-        { text = "My blade stays clean. Honour isn't something I set aside.", next = "BACK", reply = "Then keep it clean, and may your honour be a good shield to you, because the swarm will test it every day.", fx = { align = { honor = 1 } } },
+        { text = "My blade stays clean. Honour isn't something I set aside.", next = "BACK", reply = "Then keep it clean, and may your honour be a good shield to you. The swarm will test it every single day you are out there.", fx = { align = { honor = 1 } } },
         { text = "Against the swarm, any edge is fair. Coat the blade.", next = "BACK", reply = "Wise words, young one, and I will choose a venom for you that does its work quickly, as a mercy to both of you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -220,7 +220,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That a beast's tracks tell you where the water is, and a scorpid's tracks tell you where not to sleep. Your {pet} has the look of the beasts on that long road, steady and watchful." },
       },
       choices = {
-        { text = "The land teaches those who listen. I listen.", next = "BACK", reply = "Then you will walk this land a long while, and the Earth Mother will not let you go thirsty.", fx = { align = { light = 1 } } },
+        { text = "The land teaches those who listen. I listen.", next = "BACK", reply = "Then you will walk this land a long while. Learn where the water hides beneath the sand, and you will never go thirsty.", fx = { align = { light = 1 } } },
         { text = "The land's an obstacle. I just push through it.", next = "BACK", reply = "Push hard enough and the land pushes back, young one, and out here the land is very patient and very strong.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -238,7 +238,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "A few, and they always want powder for the portal home. I don't blame them, since the desert is a hard place, but I'd ask them to stay a while and help the Circle before they vanish." } },
       choices = {
-        { text = "I'll stay and help. The Hold needs it.", next = "BACK", reply = "Then the Circle will be grateful, and so will I, because every hand that stays is a hand the hives cannot take.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll stay and help. The Hold needs it.", next = "BACK", reply = "The Circle will be grateful, and so will I. We lost four scouts last month, and every one of them was a hand we needed.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll leave when I want to.", next = "BACK", reply = "As you like, friend, and the winds will carry you safely home, though the desert will remember who left early.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'll take some powder.", next = "BACK" },
       },
@@ -277,6 +277,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. I walked from Mulgore with hunters who knew more of the land than I did, and I have been glad of their kind since." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and welcome. I keep your herbs and seeds dry in the back, away from the sand, because the Earth Mother gives little enough in this place." },
+        { id = "h_dd_poison", when = { questDone = TODO_QUEST("The Perfect Poison") }, text = "Dirk Thunderwood tells me you brought him the venoms he wanted for Ravenholdt. I sell poisons to the Hold, but I've never sold anything as foul as what those two are brewing." },
       },
       again = {
         { id = "h_again", text = "What else would you know, friend, while the desert wind is quiet and the Earth Mother listens?" },
@@ -293,7 +294,18 @@ P:NPC {
         { text = "A warrior who poisons his blade has no honour, Khur.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What did the hunters teach you on the road from Mulgore?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How can you sell poison with a clear conscience, Khur?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What are the Ravenholdt brothers brewing, Khur?", next = "dd_poison", when = { questDone = TODO_QUEST("The Perfect Poison") } },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+    dd_poison = {
+      lines = {
+        { id = "dd_poison_1", text = "Something for blades, and something meant for the silithid, if Dirk is to be believed. I believe half of what he says, which is generous, because a man who serves a manor full of assassins does not tell a tauren merchant all his business. Still, if it kills the bugs, I will not complain too loudly." },
+      },
+      choices = {
+        { text = "Poison is a coward's weapon, whoever it's aimed at.", next = "BACK", reply = "Then I sell coward's weapons, and I sleep well enough. Against the silithid, I think even the Earth Mother would forgive a little venom.", fx = { align = { honor = 1 } } },
+        { text = "Whatever kills the silithid is a good weapon.", next = "BACK", reply = "That is what Dirk says, and what my purse says too. I only wish I could trust the hand that holds the vial.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Khur.", next = "BACK" },
       },
     },
     poison = {

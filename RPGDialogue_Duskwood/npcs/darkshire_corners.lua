@@ -42,7 +42,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I'm saving my voice, but I can spare a few words." },
-        { id = "h_again2", text = "Ask away, friend. For once, quietly." },
+        { id = "h_again2", text = "Ask away, friend, but quietly, if you would." },
       },
       choices = {
         { text = "What do you announce?", next = "announce" },
@@ -270,7 +270,7 @@ P:NPC {
       big = true,
       lines = { { id = "wh_default", text = "After Gnomeregan fell, I wandered, and Darkshire was the first place that let me set up a bench without asking questions. The town needs engineers, too: lamps, traps, wagon axles, all the little things that keep the dark back." } },
       choices = {
-        { text = "That's good work. You're helping people.", next = "wh_more", fx = { align = { light = 1 } } },
+        { text = "That's good work, and you're helping people who need it.", next = "wh_more", fx = { align = { light = 1 } } },
         { text = "You should go back and fight for Gnomeregan.", next = "wh_more", fx = { align = { light = -1 } } },
         { text = "Do you miss Gnomeregan?", next = "wh_more" },
       },
@@ -366,7 +366,7 @@ P:NPC {
 
     why = {
       big = true,
-      lines = { { id = "wh_default", text = "Because the commander tolerates me and the councilman doesn't, and a corner behind a building keeps everyone's conscience clean. Poison is a coward's weapon, some say, but cowards outlive heroes in Duskwood." } },
+      lines = { { id = "wh_default", text = "Because the commander tolerates me and the councilman doesn't, and a corner behind a building keeps everyone's conscience clean. Poison is a coward's weapon, some say, and I've noticed the ones who say it rarely come back from Raven Hill." } },
       choices = {
         { text = "Poison is dishonorable. I'd rather fight fair.", next = "BACK", reply = "Then fight fair, and I hope Duskwood returns the courtesy. Should you change your mind after a night on the Raven Hill road, my corner will still be here.", fx = { align = { honor = 1 } } },
         { text = "Fair fights are for people who like losing.", next = "BACK", reply = "You'd be surprised how few people in Darkshire will say that aloud, though plenty of them buy as if they believed it. Mind the vials; they don't care whose hands they're in.", fx = { align = { honor = -1 } } },

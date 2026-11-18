@@ -34,6 +34,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_shredders", when = { questDone = TODO_QUEST("Shredding Machines") },
+          text = "Seereth says you broke the Venture Company's shredders in Windshear Crag. I felt it, I think, as a kind of easing in the stone, the way a body eases when a splinter is pulled out." },
         { id = "h_default", key = true,
           text = "I am Mor'rogal, and I listen to the earth for Sun Rock. Something is amiss beneath these mountains, and the kobolds of Boulderslide Ravine are at the heart of it, digging toward something I fear may be one of the earthen." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Boulderslide Ravine") },
@@ -89,7 +91,7 @@ P:NPC {
         { id = "et_default", text = "No one does, and I think that is as it should be. Some things in the deep places are better left to the Earth Mother's keeping than dug up and asked questions." },
       },
       choices = {
-        { text = "Then we should seal it away, not study it.", next = "BACK", reply = "Then we think alike, and I'm glad of it. The Earth Mother keeps her secrets for good reason, and we should help her keep them.", fx = { align = { order = 1 } } },
+        { text = "Then we should seal it away, not study it.", next = "BACK", reply = "Then we think alike, and I'm glad of it. I'll ask the elders to send stones to block the kobolds' tunnel.", fx = { align = { order = 1 } } },
         { text = "Knowledge is power. We should learn all we can.", next = "BACK", reply = "Power, yes, and the hunger for it is what dug the thing up in the first place. Learn what you must, young one, but walk carefully in the deep places.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

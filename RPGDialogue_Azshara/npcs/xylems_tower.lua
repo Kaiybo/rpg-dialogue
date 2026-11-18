@@ -391,7 +391,7 @@ P:NPC {
       lines = { { id = "ma_default", text = "Then you've come to the right cliff. Prove your skill against the elves' dust and the sirens' coral, and then against something worthy of it, and I'll give you something no library in Stormwind has." } },
       choices = {
         { text = "Power is what I came for.", next = "BACK", reply = "Honest, at least, and power is what most of them come for, though few admit it. Prove yourself and you'll have it.", fx = { affinity = 1, align = { light = -1 }, trait = { proud = 1 } } },
-        { text = "I came for understanding, not power.", next = "BACK", reply = "Understanding, he says, as if the two were different things. Come back when you've learned they're not.", fx = { affinity = 1, align = { light = 1 }, trait = { curious = 1 } } },
+        { text = "I came for understanding, not power.", next = "BACK", reply = "Understanding, {g:he|she} says, as if the two were different things. Come back when you've learned they're not.", fx = { affinity = 1, align = { light = 1 }, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -548,13 +548,15 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Quiet, mostly, and lonely, with nothing but the wind and the Highborne stones for company. My master's work is dangerous, and I do not always agree with what he digs up, but I gave my word to serve him, and a servant who breaks his word is no better than a thief." } },
       choices = {
-        { text = "Your word holds you. Keep it, even if he's wrong.", next = "BACK", reply = "I will, and it's good to hear someone say it. A word is all a servant has.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your word holds you. Keep it, even if he's wrong.", next = "BACK", reply = "I will, and it's good to hear someone say it. I gave it before the tower had a roof, and I'll not break it now that it has one.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If his work endangers the land, walk away. No oath is worth that.", next = "BACK", reply = "It's not so simple, druid, but I'll think on it. Perhaps one day I'll walk.", fx = { align = { honor = -1 } } },
         { text = "Something else, Sanath.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_morphaz", when = { questDone = TODO_QUEST("Destroy Morphaz") },
+          text = "So you're the one who killed the drake that ate the Archmage's apprentice. He's been insufferably cheerful since, and I'm the one who has to stand at the bottom of the tower and listen to it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, clanking and shining and dreadfully earnest. I'm obliged to send you up to the Archmage, but do try not to bless anything in the tower, because he hates it." },
         { id = "h_warcl", when = { class = "WARRIOR" },

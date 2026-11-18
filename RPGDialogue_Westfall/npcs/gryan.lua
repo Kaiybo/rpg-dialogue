@@ -34,7 +34,7 @@ P:NPC {
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN" },
       text = "You carry yourself like the Silver Hand taught you. I know the walk; I learned it in Lordaeron. Don't let anyone tell you it's for parade grounds." },
     { id = "n_hero", cat = "reputation", place = "before", when = { townStanding = { town = "sentinel_hill", min = 30 } },
-      text = "Half my militia wants to follow you into Moonbrook. The other half wants to know where you were last year." },
+      text = "Some of my militia want to follow you into Moonbrook, and the rest want to know where you were last year." },
   },
 
   start = "hello",
@@ -108,6 +108,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_murkeye_gryan", when = { questDone = TODO_QUEST("The Coastal Menace") },
+          text = "Captain Grayson's light burns a little steadier, they tell me, now that Old Murk-Eye is gone from the shore. I don't pretend to understand a ghost keeping a lighthouse, but I understand a coast made safe, and that's your work." },
+        { id = "dd_bandanas_gryan", when = { questDone = TODO_QUEST("Red Leather Bandanas") },
+          text = "Scout Galiaan brought me a sack of red bandanas with your name tied to it. Every one of those is a man who won't stand in front of a farmhouse with a torch again, and I've not forgotten it." },
+
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "You've the look of {alt}, a {altclass} who stood with the People's Militia on this hill when we had precious few to stand. If that's kin of yours, then Westfall already owes your family something." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
@@ -115,7 +120,7 @@ P:NPC {
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
           text = "I hear the Stockade riot's done and Bazil Thredd with it, and that you were the one who ended it. Thredd was one of Edwin's lieutenants, and I'd hoped he'd hang in Westfall where the farmers he robbed could watch." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Defias", min = 40 } }, text = "Word reaches the hill of Defias found dead in the fields, and more of them than I'd dare hope for. The People's Militia thanks you, and I'll thank you myself, because every one of those masks was a farm we couldn't hold." },
-        { id = "h_druidx", when = { class = "DRUID" },
+        { id = "h_druidx", when = { race = "NightElf", class = "DRUID" },
           text = "A druid of the kaldorei, out on my hill. I hope the land tells you something kinder than it tells me." },
         { id = "h_default", text = "I'm Gryan Stoutmantle, born and raised in Westfall. I came home from the war to find it in the hands of thieves, so I'm taking it back, one farm at a time." },
         { id = "h_report", tags = { "news" }, when = { questActive = TODO_QUEST("Report to Gryan Stoutmantle") },
@@ -293,7 +298,7 @@ P:NPC {
       lines = { { id = "rg_default", text = "One of your trade, Wiley, already owes me his life, and I'd sooner not be owed by two. Go where my farmers can't, then, and bring me back the truth." } },
       choices = {
         { text = "The truth, and nothing I pocket on the way.", next = "BACK", reply = "That's a rare promise from a rogue, and I'll take you at your word. Go carefully.", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Mostly the truth.", next = "BACK", reply = "Mostly, he says, and grins, just like Wiley. I'll take what I get, I suppose.", fx = { affinity = -1, align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "Mostly the truth.", next = "BACK", reply = "Mostly, {g:he|she} says, and grins, just like Wiley. I'll take what I get, I suppose.", fx = { affinity = -1, align = { honor = -1 }, trait = { witty = 1 } } },
       },
     },
     wiley = {
@@ -515,7 +520,7 @@ P:NPC {
     warrior_march = {
       lines = { { id = "warrior_march_l", text = "With what? Danuvin's drilled farmers and Galiaan's map? The Defias have the mines, the ships and the gnolls, and we have a hill. We bleed them slowly, or they bleed us quickly." } },
       choices = {
-        { text = "Slowly, then. Patience wins.", next = "BACK", reply = "Patience, aye, it's all I've got. Thank you for seeing it.", fx = { align = { order = 1 } } },
+        { text = "Slowly, then. Rushing the Deadmines would only bury farmers.", next = "BACK", reply = "Patience, aye, it's all I've got. Thank you for seeing it.", fx = { align = { order = 1 } } },
         { text = "Slowly lets them grow. Strike now.", next = "BACK", reply = "Maybe it does, but I'll not throw farmers at the Deadmines to prove a point. Slowly, I'm afraid.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
       },
     },

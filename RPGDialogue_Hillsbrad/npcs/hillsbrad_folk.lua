@@ -180,7 +180,7 @@ P:NPC {
       big = true,
       lines = { { id = "pl_default", text = "I've thought of it, but if I found them dead and walking I'd not know what to do. I'd rather believe they ran south and are eating some farmer's oats in Southshore." } },
       choices = {
-        { text = "Look. The truth is better than a comfort.", next = "BACK", reply = "You're braver than me, then, or harder. If I do go looking, I'll tell you what I find, though I may not thank you for the advice.", fx = { align = { honor = 1 } } },
+        { text = "Go and look. The truth is better than a comfort.", next = "BACK", reply = "You're braver than me, then, or harder. If I do go looking, I'll tell you what I find, though I may not thank you for the advice.", fx = { align = { honor = 1 } } },
         { text = "Keep believing it. Some comforts are worth a lie.", next = "BACK", reply = "That's kind of you. Let me have my oats and my Southshore farmer, then, at least until the truth comes knocking on its own.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
@@ -218,7 +218,7 @@ P:NPC {
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Another orc. Good. I was starting to forget what breathing sounds like." },
+      text = "Another orc, good! I was starting to forget what breathing sounds like." },
   },
 
   start = "hello",
@@ -301,6 +301,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Darla Harris, gryphon master, and these birds will carry you anywhere the Alliance keeps a roost, so long as you don't kick. Where are you headed?" },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You fell, didn't you? I can always tell, because folk who've fallen to their deaths look up at my gryphons afterwards with a sort of wounded envy." },
       },
       again = {
         { id = "h_again", text = "Anything else before you fly?" },
@@ -316,7 +318,7 @@ P:NPC {
       big = true,
       lines = { { id = "no_default", text = "Bats from Tarren Mill. The Forsaken ride them over the hills, and twice now they've come close enough to spook my birds. Marshal Redpath says to shoot at anything with leather wings, and I'm not sure he's wrong." } },
       choices = {
-        { text = "He's right. Shoot first, here.", next = "BACK", reply = "I'm glad someone agrees with the Marshal, because I've had my bow strung since dawn and I'll not hesitate now.", fx = { align = { light = -1 } } },
+        { text = "He's right. Out here, you shoot first.", next = "BACK", reply = "I'm glad someone agrees with the Marshal, because I've had my bow strung since dawn and I'll not hesitate now.", fx = { align = { light = -1 } } },
         { text = "Some riders are only couriers. Hold your fire.", next = "BACK", reply = "Couriers, is it? Couriers for what, I'd like to know, though I'll mind my aim until one of them gives me cause.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

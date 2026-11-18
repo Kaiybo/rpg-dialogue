@@ -752,7 +752,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "Bad enough that I'm sitting here bleeding, and good enough that Stormwind will want a full report. Their priests watch the walls by day and their archers by night, so if you go, go in the hour between, and have a way out ready." } },
       choices = {
         { text = "The Crusade fights the Scourge too. Spying on them is wrong.", next = "BACK", reply = "The Crusade fights the Scourge, aye, and anyone else they don't like. Stormwind wants to know who that is.", fx = { align = { honor = 1 } } },
-        { text = "Friend or foe, everyone gets watched. That's sense.", next = "BACK", reply = "Exactly so, and I'm glad someone sees it. Watching is cheaper than fighting.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Friend or foe, everyone gets watched. That's sense.", next = "BACK", reply = "Exactly so. Half of what Stormwind knows about Hearthglen, it knows because somebody sat very still in a bush.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Let's talk of something else, scout.", next = "BACK" },
       },
     },
@@ -812,7 +812,7 @@ P:NPC {
         { id = "he_default", text = "Would you? Oh, that's better already, thank you, and I won't forget it. You'd make a terrible scout, mind, being far too kind to people who sneak about in bushes." },
       },
       choices = {
-        { text = "It was nothing, Kirsta, and anyone would have done it.", next = "BACK", reply = "Nothing, she says, while I'm sitting here with my leg stitched up. Well, it wasn't nothing to me, and I'll be sure to tell everyone at the camp that you're softer than you look.", fx = { affinity = 3, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "It was nothing, Kirsta, and anyone would have done it.", next = "BACK", reply = "Nothing, {g:he|she} says, while I'm sitting here with my leg stitched up. Well, it wasn't nothing to me, and I'll be sure to tell everyone at the camp that you're softer than you look.", fx = { affinity = 3, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Remember it the next time I need a favour.", next = "BACK", reply = "Remember it? I'll owe you one, and I always pay my debts. Now let me get back to bleeding quietly.", fx = { align = { light = -1 } } },
       },
     },
@@ -849,7 +849,7 @@ P:NPC {
         { id = "xf_default", text = "Bother me? They'd burn me too if they caught me up here, and I've still got a pulse. I believe in the Light, more or less, but whatever they're doing in Hearthglen isn't it, so you and I have the same enemy today, and today's all I plan for." },
       },
       choices = {
-        { text = "Same enemy today. I'll take it.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Same enemy today, and that's enough for me.", next = "BACK", fx = { affinity = 2 } },
         { text = "Don't mistake me for a friend, scout.", next = "BACK", fx = { affinity = -1 } },
       },
     },

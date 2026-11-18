@@ -36,6 +36,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_seril", when = { questDone = TODO_QUEST("Corruption") },
+          text = "Seril's been grinnin' at his anvil like a fool, mon, and he tell me you be de one who took back his plans from dem bone soldiers in Stratholme. A sword still be no axe, but I give you respect for it all de same." },
         { id = "h_default", key = true,
           text = "I am Kilram, master of da axe, and I teach da way of da axesmith to smiths who be worthy. Da axe be da oldest and da best of weapons, mon, and anybody who tell ya different be sellin' swords or hammers." },
         { id = "h_smith", when = { profession = "Blacksmithing", questBefore = TODO_QUEST("Snakestone of the Shadow Huntress") },
@@ -132,13 +134,15 @@ P:NPC {
     { id = "n_undead", cat = "undead", when = { race = "Scourge" },
       text = "Forsaken. I've killed a great many of your shape in Lordaeron, and I've not yet decided whether you're different. Keep your hands where I can see them." },
     { id = "n_smith", cat = "smith", when = { profession = "Blacksmithing" },
-      text = "A smith. Good. Then you know a sword when you see one, which puts you ahead of most of this town." },
+      text = "A smith? Good, then you know a sword when you see one, which puts you ahead of most of this town." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_kilram", when = { questDone = TODO_QUEST("Snakestone of the Shadow Huntress") },
+          text = "The troll next door tells everyone you avenged him on the Shadow Huntress. I don't care for axes, but I respect a debt paid, and that one's been eating at him longer than he admits." },
         { id = "h_default", key = true,
           text = "I'm Seril Scourgebane, and I train swordsmiths, if they're worth training. If I'm short with you, it's for a reason: the plans for the great blade Corruption have been stolen by the Black Guard, Baron Rivendare's own skeletal elite, and I'd like them back." },
         { id = "h_smith", when = { profession = "Blacksmithing", questBefore = TODO_QUEST("Corruption") },
@@ -148,7 +152,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Make it quick." },
-        { id = "h_again2", text = "Still here. Ask, then." },
+        { id = "h_again2", text = "Still here? Ask, then." },
       },
       choices = {
         { text = "Why do they call you Scourgebane?", next = "name" },
@@ -201,7 +205,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Swords. The Scourge. Little else worth knowing." } },
+    knows = { { id = "tp_knows", text = "Swords and the Scourge. There's little else worth knowing." } },
     scholomance = { { id = "tp_scholo", text = "A nest of necromancers. Burn it." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't care." } },
   },

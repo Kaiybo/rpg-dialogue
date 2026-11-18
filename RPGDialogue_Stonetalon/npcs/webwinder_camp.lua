@@ -251,7 +251,7 @@ P:NPC {
       },
       choices = {
         { text = "Then hunt the goblins too. They earned it.", next = "BACK", reply = "They earned it, and I've been tempted more nights than I'd admit. But the Sentinels need me with the trees, not chasing torches.", fx = { align = { light = -1 } } },
-        { text = "Mend the land first. Vengeance can wait.", next = "BACK", reply = "That's what I tell myself every morning, and I'm glad to hear it from someone else. The land first, and the goblins after.", fx = { align = { light = 1 } } },
+        { text = "Mend the land first. Vengeance can wait.", next = "BACK", reply = "That's what I tell myself every morning, and I'm glad to hear it from someone else. The goblins will still be there when the saplings are standing.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

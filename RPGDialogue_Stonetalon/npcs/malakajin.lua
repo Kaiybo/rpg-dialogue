@@ -186,8 +186,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_forestmagic = {
+      lines = {
+        { id = "dd_fm_default", text = "Witch doctor things, mon, and I don't ask too many questions, because the answers sometimes follow you home. He say the forest of Stonetalon be full of spirits who remember the night elves, and he want to know what they remember. Do you trust that kind of magic?" },
+      },
+      choices = {
+        { text = "Any magic that helps the Horde is good magic.", next = "BACK", reply = "Spoken like Jin'Zil himself, mon. I just hunt, so I leave the magic to the ones who don't mind the smell.", fx = { align = { light = -1 } } },
+        { text = "Some spirits are better left sleeping, I think.", next = "BACK", reply = "Dat be what my mother used to say, and she be a wise woman. I'll tell Jin'Zil, but he won't listen.", fx = { align = { light = 1 } } },
+        { text = "Something else, Xen'Zilla.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_forestmagic", when = { questDone = TODO_QUEST("Jin'Zil's Forest Magic") },
+          text = "Jin'Zil been brewin' all week with what you brought him from the forest, and the whole cave smell like burnt herbs and wet fur. I don't know what he be makin', mon, but he be smilin' about it, and dat worries me." },
         { id = "h_default", key = true,
           text = "Xen'Zilla, mon, hunter of Malaka'jin. The Stonetalon been good to us trolls, with plenty of game on the slopes, but lately we be feedin' guests we never invited." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Blood Feeders") },
@@ -204,6 +216,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, mon, while the spiders be sleepin'." },
       },
       choices = {
+        { text = "What does Jin'Zil do with all those ingredients?", next = "dd_forestmagic", when = { questDone = TODO_QUEST("Jin'Zil's Forest Magic") } },
         { text = "What do the spiders want with your camp?", next = "spiders" },
         { text = "What brought trolls up into these mountains?", next = "why" },
         { text = "Who else lives at Malaka'jin?", next = "camp" },
@@ -325,8 +338,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = {
+        { id = "dd_de_default", text = "No brew keep a fool alive, mon, and no brew kill a careful one. What I give you mend the body after, but the dying itself, dat be your choice every time you charge in first. Do you charge in first?" },
+      },
+      choices = {
+        { text = "Always. Somebody has to, and it might as well be me.", next = "BACK", reply = "Then you keep me in business, and Bwonsamdi too. I'll have a draught ready when you come back.", fx = { align = { order = -1 } } },
+        { text = "Not anymore. I've learned to wait for my moment.", next = "BACK", reply = "Good, dat be wisdom, and wisdom cost less than my draughts. Come back anyway, mon, because I like the company.", fx = { align = { order = 1 } } },
+        { text = "Something else, Ken'zigla.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 6 } },
+          text = "You come up the road with more than holes in you, mon. You come up with the cold of the spirit healer's touch still on your skin, and more than once, I think, so sit and drink something warm before you go dying again." },
         { id = "h_default", key = true,
           text = "Ken'zigla, brewer of Malaka'jin. Folk come up the Barrens road with holes in them, and I send them back down with fewer, if they be patient and they listen." },
         { id = "h_news", tags = { "news" }, when = { questActive = TODO_QUEST("News of Dogran") },
@@ -341,6 +366,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The pot don't mind and neither do I." },
       },
       choices = {
+        { text = "Can your brews keep me from dying so often?", next = "dd_deaths", when = { deaths = { min = 6 } } },
         { text = "What's in your draught?", next = "brew" },
         { text = "Who is this Dogran?", next = "dogran" },
         { text = "What happened to the first runner?", next = "runner" },
@@ -369,7 +395,7 @@ P:NPC {
       big = true,
       lines = { { id = "bw_default", text = "Weaker be too slow for a grunt with the rot in his wound, mon. A weak brew be safe for the brewer, because nobody blames you, but the patient dies polite and slow." } },
       choices = {
-        { text = "Better strong and dangerous than safe and useless.", next = "BACK", reply = "Dat be what I say every time, mon, and nobody listen. Strong and careful, and the grunt lives to complain.", fx = { align = { order = -1 } } },
+        { text = "Better strong and dangerous than safe and useless.", next = "BACK", reply = "Dat be what I say every time, mon, and nobody listen. Make it strong, pour it careful, and the grunt live to complain about da taste.", fx = { align = { order = -1 } } },
         { text = "A healer should follow the safe measure, always.", next = "BACK", reply = "Safe for the brewer, mon, and slow for the dying. I'll follow it when I must, but I won't like it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

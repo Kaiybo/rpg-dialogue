@@ -367,7 +367,7 @@ P:NPC {
         { id = "xmage_default", text = "Close enough that the warrior in front of you can hear you shout, and no closer. Trust your shield, which is the warrior, and don't leave her to hold the line alone while you cast from the treeline." },
       },
       choices = {
-        { text = "Close enough to shout. I'll trust the line.", next = "BACK", reply = "Good, and your warrior will thank you, if they are wise. A mage who trusts the line is a mage who lives.", fx = { align = { honor = 1 } } },
+        { text = "Close enough to shout. I'll trust the line.", next = "BACK", reply = "Good, and your warrior will thank you, if they are wise. I lost two students at Bashal'Aran who decided to stand somewhere safer.", fx = { align = { honor = 1 } } },
         { text = "Far back is where I'm useful. I'll stay there.", next = "BACK", reply = "Far back is safe until the line breaks, mage. Then you will need to know how to stand.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -459,7 +459,7 @@ P:NPC {
         { text = "Why does a satyr matter so much?", next = "vorlus", when = { any = { { questActive = TODO_QUEST("Vorlus Vilehoof") }, { questDone = TODO_QUEST("Vorlus Vilehoof") } } } },
         { text = "Tell me about the elunite wreck.", next = "elura", when = { any = { { questActive = TODO_QUEST("The Shade of Elura") }, { questDone = TODO_QUEST("The Shade of Elura") } } } },
         { text = "The Sentinels must fight differently from you.", next = "sentinels" },
-        { text = "Test me, then. I'm ready.", next = "test", when = { class = "WARRIOR" } },
+        { text = "Test me, then, because I'm ready.", next = "test", when = { class = "WARRIOR" } },
         { text = "Which weapon should I master?", next = "weapons", when = { class = "WARRIOR" } },
         { text = "Ironforge trained me. Will you test me anyway?", next = "dwarf_e", when = { race = "Dwarf", class = "WARRIOR" } },
         { text = "Gnomes fight too, you know.", next = "gnome_e", when = { race = "Gnome", class = "WARRIOR" } },
@@ -514,7 +514,7 @@ P:NPC {
         { id = "e2_default", text = "Elura cursed herself to protect her shipment for all time, and she has. Defeating her is a kindness, though she won't thank you for it until it's over." },
       },
       choices = {
-        { text = "Loyal past death. I respect that.", next = "BACK", reply = "So do I, in a way, though I would not tell her so. Loyalty past death is a terrible thing to watch.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Loyal even past death. I respect that.", next = "BACK", reply = "So do I, in a way, though I would not tell her so. Loyalty past death is a terrible thing to watch.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Her oath should have died with her.", next = "BACK", reply = "It should have, and that is the tragedy of it. Free her, and she will finally rest.", fx = { align = { order = -1 } } },
       },
     },
@@ -526,7 +526,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll never turn back.", next = "BACK", reply = "Then you will be either very great or very dead, warrior. I hope you choose your battles well.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
-        { text = "I'll turn back when it's wise, and live.", next = "BACK", reply = "Then you will live long, and that is no small thing. A wise warrior is still a warrior.", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
+        { text = "I'll turn back when it's wise, and live.", next = "BACK", reply = "Then you will live long, and that is no small thing. Some of my best students turned back from the drowned temple once and went in again a year later.", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
       },
     },
     sentinels = {
@@ -582,7 +582,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "I do, and gladly, because a dwarven colleague taught me a new technique. Your spirits might teach me another." } },
       choices = {
         { text = "Shared knowledge is a fine thing, Mathiel.", next = "BACK", reply = "It is, and it makes the work more joyful too. Your spirits are welcome at my anvil any time.", fx = { align = { order = 1 } } },
-        { text = "Keep your secrets. Elunite is yours.", next = "BACK", reply = "Kind of you to say so, but Elune does not mind sharing her gifts. I would rather the world had good weapons.", fx = { align = { order = -1 } } },
+        { text = "Keep your secrets, Mathiel. The elunite is yours.", next = "BACK", reply = "Kind of you to say so, but Elune does not mind sharing her gifts. I would rather the world had good weapons.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -599,7 +599,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Mend it, mostly, and dress the face where it's been knocked about, though I'd never change its shape. A weapon that's been carried in an oath deserves respect, whatever forge it came from." } },
       choices = {
-        { text = "It does, and thank you for treating it so.", next = "BACK", reply = "You are welcome, and the hammer will thank you too. A weapon that has seen service deserves respect.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It does, and thank you for treating it so.", next = "BACK", reply = "You are welcome, and the hammer will thank you too. It will be ready for you by morning.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "It's only a hammer, so make it strike harder.", next = "BACK", reply = "Only a hammer? It has seen more battles than either of us. I will make it strike harder, but I will not dishonour it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -622,7 +622,7 @@ P:NPC {
         { id = "xmage_default", text = "I don't mind the work, and the coin is good, but I'll admit the humming kept me up. Steel is honest, and I like my anvil honest, so bring me your armor and keep your enchanted things for someone braver." },
       },
       choices = {
-        { text = "Steel it is, then, and I'll keep it oiled.", next = "BACK", reply = "Thank you, and keep it out of the damp too. Steel lasts far longer when it is loved.", fx = { align = { order = 1 } } },
+        { text = "Steel it is, then, and I'll keep it oiled.", next = "BACK", reply = "Thank you, and keep it out of the damp too. The sea air at Auberdine has ruined better blades than this one.", fx = { align = { order = 1 } } },
         { text = "Your anvil could stand a little magic, smith.", next = "BACK", reply = "Perhaps it could, but my sleep could not. I will leave the magic to you and the steel to me.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -766,8 +766,8 @@ P:NPC {
         { id = "a2_default", text = "I haven't decided, and I've been deciding for years. Elanaria suggests something martial; I'm leaning toward something kind, since it'll be hit all day." },
       },
       choices = {
-        { text = "Something martial. It's an anvil.", next = "BACK", reply = "Martial it is, then, and Elanaria will be pleased. Perhaps something to do with Hyjal.", fx = { align = { honor = 1 }, trait = { witty = 1 } } },
-        { text = "Something kind. It deserves it.", next = "BACK", reply = "Kind, then, and I will think of it whenever I strike. Perhaps the anvil will be glad of it.", fx = { align = { honor = -1 }, trait = { kind = 1 } } },
+        { text = "Something martial, since it's an anvil.", next = "BACK", reply = "Martial it is, then, and Elanaria will be pleased. Perhaps something to do with Hyjal.", fx = { align = { honor = 1 }, trait = { witty = 1 } } },
+        { text = "Something kind, because it deserves it.", next = "BACK", reply = "Kind, then, and I will think of it whenever I strike. Perhaps the anvil will be glad of it.", fx = { align = { honor = -1 }, trait = { kind = 1 } } },
       },
     },
   },
@@ -858,7 +858,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some of it, perhaps, but your spirit lives in the bow and in your bond with the wild, and that is no lesser strength. Your {pet} carries a warrior's spirit, I think, more than you do, and that is high praise from me." },
       },
       choices = {
-        { text = "My beast and I trust each other. I need nothing else.", next = "BACK", reply = "Then you are strong already, hunter, and I will not try to change that. Your beast is your spirit.", fx = { align = { light = 1 } } },
+        { text = "My beast and I trust each other. I need nothing else.", next = "BACK", reply = "Then you are strong already, hunter, and I will not try to change that. I have seen how your companion watches your back when you are not looking.", fx = { align = { light = 1 } } },
         { text = "Strength is strength. I'll take it where I find it.", next = "BACK", reply = "You will, I am sure, but strength found in others leaves when they do. Find some of your own too.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
@@ -869,7 +869,7 @@ P:NPC {
         { id = "xrogue_default", text = "Spirit is the will to stand when you'd rather run, and I've seen it in a rogue or two. You've chosen to fight from the dark, and that's your path, but I'd have you remember that hiding isn't the same as running." },
       },
       choices = {
-        { text = "I'll remember it. I won't run.", next = "BACK", reply = "Good, then you have more spirit than you know. I will be glad to train you.", fx = { align = { honor = 1 } } },
+        { text = "I'll remember it, and I won't run.", next = "BACK", reply = "Good, then you have more spirit than you know. I will be glad to train you.", fx = { align = { honor = 1 } } },
         { text = "Running keeps me alive. Spirit doesn't.", next = "BACK", reply = "Running keeps you alive until it does not, and then only spirit is left. I hope you never need to learn it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -926,12 +926,13 @@ P:NPC {
       },
       choices = {
         { text = "I'll hold my ground. Watch me.", next = "BACK", reply = "I will, mage, and I will tell my students when you do. They need to see it.", fx = { align = { honor = 1 } } },
-        { text = "I'd rather be wise than brave.", next = "BACK", reply = "Wisdom and bravery are not enemies, mage. The wise know when to be brave.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather be wise than brave.", next = "BACK", reply = "Wisdom and bravery are not enemies, mage. The wisest choice I ever made was also the most frightening one.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_honor", when = { honorKills = { min = 100 } }, text = "You have blooded yourself against the Horde, and more than once, by the look of you. Good. The Sentinels in Ashenvale need warriors who have stood against orcs and not only against beasts." },
         { id = "h_pt_ariasta", tags = { "news" }, when = { party = { class = "WARRIOR" } },
           text = "You walk with a warrior. {companion} carries a blade the way a sentinel would want it carried, low and ready, and I would guess they have stood in front of you more than once." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I teach only those with the warrior's spirit, but I'll grant that some healers have more of it than the fighters they heal." },
@@ -1096,8 +1097,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_rank = {
+      lines = {
+        { id = "ddr_default", text = "Every path and every terrace! The Alliance keeps its honours in Stormwind, but news of them comes here like everything else, and it's my task to make sure Darnassus hears it. Most of the warriors' names I cry belong to strangers, so it's a joy to cry one I know." },
+      },
+      choices = {
+        { text = "I fight for the Alliance. The honours are only noise.", next = "BACK", reply = "Noise is my trade, friend, so I'll keep making it for you whether you like it or not!", fx = { align = { honor = 1 } } },
+        { text = "Shout it louder. Let the Horde hear it too.", next = "BACK", reply = "I'll try, though my voice only carries as far as Rut'theran on a still night. Perhaps the hippogryphs will take it further!", fx = { align = { honor = -1 } } },
+        { text = "Something else, Herald.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_rank", tags = { "news" }, when = { pvpRank = 6 }, text = "Hear ye! Your rank among the Alliance's soldiers has been read out on the Terrace of Warriors, and I read it louder than anyone! It is not every day a crier gets to shout the name of someone standing right in front of him." },
+        { id = "h_dd_branch", when = { questDone = TODO_QUEST("The Branch of Cenarius") }, text = "I cried the news from every terrace in the city that the Branch of Cenarius was taken back from the satyr Geltharis in Ashenvale! I may have added a little thunder to the telling, but only a little." },
         { id = "h_default", text = "I am Herald Moonstalker, crier of Darnassus! I walk every path in the city so that no hero misses a summons, and my feet will tell you I take that seriously." },
         { id = "h_plague", tags = { "news" }, when = { questActive = TODO_QUEST("A Call to Arms: The Plaguelands!") },
           text = "Hear ye! Stormwind calls heroes to the Plaguelands, where the Scourge stirs again. Commander Ashlam Valorfist keeps his camp at Chillwind, north of the Alterac Mountains." },
@@ -1113,10 +1126,11 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! News for you, then: shamans are rare in Darnassus, so you will be news yourself before the moon sets." },
       },
       again = {
-        { id = "h_again", text = "More news? I've plenty!" },
+        { id = "h_again", text = "More news? I've plenty to tell!" },
         { id = "h_again2", text = "Ask away; a crier never runs dry." },
       },
       choices = {
+        { text = "You've been crying my rank around the city, Herald?", next = "dd_rank", when = { pvpRank = 6 } },
         { text = "What's the news from the Eastern Kingdoms?", next = "east" },
         { text = "You must hear all of Kalimdor's news first.", next = "kalimdor" },
         { text = "What's the strangest news you've cried?", next = "strange" },
@@ -1154,7 +1168,7 @@ P:NPC {
       },
       choices = {
         { text = "Our own continent comes first.", next = "BACK", reply = "It does, and the Cenarion Circle would agree with you. Silithus and Feralas are our own concern.", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "I'll go wherever the reward is.", next = "BACK", reply = "Then you will find plenty of work, and plenty of coin. The world is wide and full of danger.", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "I'll go wherever the reward is.", next = "BACK", reply = "Then you will find plenty of work, and plenty of coin. Feralas alone could keep you busy for a year.", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
         { text = "What's in the Feralas ruins?", next = "kalimdor2" },
       },
     },
@@ -1229,7 +1243,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Each who comes to my stall is a hero in the making, and it is my honour to supply them. A shaman is no different." } },
       choices = {
-        { text = "Then I will try to live up to it, Mydrannul.", next = "BACK", reply = "You will, I think, and I will be proud to have supplied you. Every hero starts somewhere.", fx = { align = { honor = 1 } } },
+        { text = "Then I will try to live up to it, Mydrannul.", next = "BACK", reply = "You will, I think, and I will be proud to have supplied you. Come back and tell me where my bread ended up.", fx = { align = { honor = 1 } } },
         { text = "Some adventurers are only thieves.", next = "BACK", reply = "Some are, and I have met them, but most are only hungry. I sell to them all the same.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1256,7 +1270,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Food, every time, because they pack whetstones and spare buckles and forget that they need to eat. I've sent warriors down to Ashenvale with a bag full of steel and nothing else, and they all came back hungry and wiser." } },
       choices = {
-        { text = "I'll pack properly. A wise warrior plans ahead.", next = "BACK", reply = "Good, and you will thank me in Ashenvale. A warrior who eats is a warrior who fights.", fx = { align = { order = 1 } } },
+        { text = "I'll pack properly. A wise warrior plans ahead.", next = "BACK", reply = "Good, and you will thank me in Ashenvale. The Warsong do not stop fighting so that you can eat.", fx = { align = { order = 1 } } },
         { text = "I'll live off the land. Supplies slow me down.", next = "BACK", reply = "Many have tried, and many have come back thin. The land is less generous than you think.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1269,7 +1283,7 @@ P:NPC {
       },
       choices = {
         { text = "My companion eats before I do. Always.", next = "BACK", reply = "That is a good hunter, and a good friend. Your cat will follow you anywhere for it.", fx = { align = { honor = 1 } } },
-        { text = "It can hunt its own supper.", next = "BACK", reply = "It can, but it will be happier if it does not have to. A well-fed companion fights harder.", fx = { align = { honor = -1 } } },
+        { text = "It can hunt its own supper.", next = "BACK", reply = "It can, but it will be happier if it does not have to. I keep dried fish under the counter for that very reason.", fx = { align = { honor = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -1311,7 +1325,7 @@ P:NPC {
       },
       choices = {
         { text = "A hero shouldn't need a song.", next = "BACK", reply = "No, but a song is a kindness, and kindness is rare. I will remember yours, at least.", fx = { align = { honor = 1 } } },
-        { text = "A song pays nothing. I'd rather have coin.", next = "BACK", reply = "A song pays nothing, but it lasts longer than coin. Still, I will take your coin.", fx = { align = { honor = -1 } } },
+        { text = "A song pays nothing. I'd rather have coin.", next = "BACK", reply = "A song pays nothing, but my grandmother's songs have outlived every coin she ever earned. Still, I will take your coin.", fx = { align = { honor = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
@@ -1353,7 +1367,7 @@ P:NPC {
       },
       choices = {
         { text = "That's a generous way to see people.", next = "BACK", reply = "It is the only way I know how to see them. Most of them surprise me, in the end.", fx = { align = { order = -1 }, affinity = 2 } },
-        { text = "Heroes are made by deeds, not hope.", next = "BACK", reply = "They are, but deeds start with hope. I sell the bread that feeds both.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Heroes are made by deeds, not hope.", next = "BACK", reply = "They are, but most of the heroes I know started out hoping. I simply sell them bread while they work out the rest.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
     nessa = {
@@ -1476,7 +1490,7 @@ P:NPC {
         { id = "dtr_default", text = "Won't it? The Enclave sent him south alone, and they've sent me nothing but a polite letter since. If you mean it, then read his notes when you're done in the Kraul and tell me whether he was right." },
       },
       choices = {
-        { text = "I'll read them. I promise.", next = "BACK", reply = "Thank you, druid, and I will hold you to it. His notes deserve to be read by someone who understands them.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll read them, I promise.", next = "BACK", reply = "Thank you, druid, and I will hold you to it. His notes deserve to be read by someone who understands them.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "The Circle has bigger troubles. I'm sorry.", next = "BACK", reply = "They do, and I know it, but he is my husband. I cannot see past that.", fx = { align = { honor = -1 } } },
       },
     },

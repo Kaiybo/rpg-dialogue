@@ -167,6 +167,16 @@ P:NPC {
         { text = "Something else, Your Majesty.", next = "BACK" },
       },
     },
+    dd_mg_thaur = {
+      lines = {
+        { id = "dd_mg_thaur1", text = "They mean a dwarf king called up the Firelord himself tae win a war against his own kin, an' burned his whole country tae ash for it. Thaurissan's folly is the black mark on all our clans, Bronzebeard an' Wildhammer an' Dark Iron alike, an' I'd no' have any dwarf forget it." },
+      },
+      choices = {
+        { text = "The Dark Irons must answer for that folly.", next = "BACK", reply = "Aye, they must, an' one day they will. But I'll no' pretend we Bronzebeards were blameless in the war that drove them tae it.", fx = { align = { light = -1 } } },
+        { text = "Then remember it, and don't repeat it.", next = "BACK", reply = "Wisely said. A king who forgets history is a king who'll end up in a history book, as a warnin'.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
@@ -210,6 +220,8 @@ P:NPC {
           text = "One o' the shadowy sort, in my own throne room. I've had my guards pull yer friends from the Hidden Circle out o' the Commons, so I'll be keepin' an eye on ye." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, an' welcome. Most o' the mages in my city are gnomes who came tae us wi' nothin' after Gnomeregan fell, an' I'll no' have it said Ironforge turned them away." },
+        { id = "dd_thaurissan", when = { questDone = TODO_QUEST("The Smoldering Ruins of Thaurissan") },
+          text = "Archesonus tells me ye've been up tae the ruins o' Thaurissan an' brought him back what he needed. He's my historian, an' a dry one, but when he speaks well o' somebody I listen." },
       },
       again = {
         { id = "h_again", text = "What else, then? The court can wait; it's well used tae it." },
@@ -217,6 +229,7 @@ P:NPC {
         { id = "h_again3", when = { race = "Dwarf" }, text = "Speak freely. A king hears enough 'Yes, my king' tae last him." },
       },
       choices = {
+        { text = "What do the ruins of Thaurissan mean to you, Your Majesty?", next = "dd_mg_thaur", when = { questDone = TODO_QUEST("The Smoldering Ruins of Thaurissan") } },
         { text = "Do dwarves and druids really have anything in common, Your Majesty?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What troubles Ironforge?", next = "troubles" },
         { text = "Tell me about your family.", next = "family" },
@@ -548,7 +561,7 @@ P:NPC {
           text = "I've seen yer name on a roster, I think, or yer da's. The Military Ward breeds good soldiers an' then I send them away from it, an' some nights I wonder whether it's a king's work or a fool's." },
       },
       choices = {
-        { text = "The road needs axes too, Your Majesty.", next = "BACK", reply = "They do, an' I'll no' argue, for the roads are where the trolls and the Dark Iron strike first, so swing that axe wherever it's needed.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "The road needs axes too, Your Majesty.", next = "BACK", reply = "They do. The roads are where the trolls an' the Dark Iron strike first, so swing that axe wherever it's needed.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Call me home and I'll come.", next = "BACK", reply = "Good, I'll remember that, an' I hope I never have tae send for ye, but it's a comfort tae know there's an axe I can count on.", fx = { align = { order = 1 }, affinity = 2, standing = { ironforge = 1 } } },
         { text = "Where's the line thinnest?", next = "reserve" },
       },

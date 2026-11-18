@@ -192,6 +192,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the bank. Bears don't carry much gold, I'd have thought, but you're welcome to keep what you have here, safe behind the Bruisers." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at the bank. I'll keep your gold safe, friend, but I'll remind you that the Cartel's vault holds Horde gold too, and I won't hear any complaints about it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll take your gold and keep it safe, but anything that glows, smokes or whispers stays out of my vault, by order of the Cartel." },
+        { id = "h_dd_rep", when = { reputation = { faction = "Gadgetzan", min = "revered" } }, text = "Ah, one of the Baron's very favourite customers, according to the books, and the books never lie, friend, which is more than I can say for the Baron. Your box is right where you left it, and I've personally checked the lock twice." },
       },
       again = {
         { id = "h_again", text = "Anything else, or shall I open your box? Opening's included, closing's included, and everything else is itemized." },
@@ -440,6 +441,7 @@ P:NPC {
           text = "A hunter, and one of ours! Mind your beast near my gryphons, though, because they're sick of the sand and in no mood to be sniffed." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep yer demon away from the roost, because my gryphons are jumpy enough in this heat, an' they've no love for anythin' that smells o' brimstone." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'll fly you anywhere, but if you could ask the wind to keep the sand out of my birds' feathers, I'd be in your debt." },
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "Ye've taken a long fall somewhere and walked back from it, I can tell by how ye eye the edge of the roost. Hold the reins and let the gryphon do the flyin', and ye'll never meet the ground that fast again." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are restless in this heat, and frankly so am I; it's no' a dwarf's climate." },
@@ -574,7 +576,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They bite whoever they please, but they bite less if you sit straight and do not flinch. A wind rider smells fear the way a wolf does, and a warrior who has stood against the Wastewanderers should have none left to show it." } },
       choices = {
-        { text = "A warrior earns a beast's trust. He doesn't take it.", next = "BACK", reply = "You speak like a true warrior. A wind rider remembers who earned its trust and who only demanded it.", fx = { align = { honor = 1 } } },
+        { text = "A warrior earns a beast's trust. He doesn't take it.", next = "BACK", reply = "You speak like a true warrior. My oldest wind rider took three seasons to let me near her, and now she will fly through a sandstorm on my word.", fx = { align = { honor = 1 } } },
         { text = "A strong hand on the reins is all a beast needs.", next = "BACK", reply = "A strong hand, yes, but not a cruel one, because a wind rider remembers the rider who hurt it, and it has a long memory and longer claws.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -587,7 +589,7 @@ P:NPC {
       },
       choices = {
         { text = "Respect the old beasts' ways, and they'll respect yours.", next = "BACK", reply = "Wise words. The old beasts have been in this land longer than the Horde, and they know more about it than we do.", fx = { align = { honor = 1 } } },
-        { text = "A beast follows the strongest. Manners don't come into it.", next = "BACK", reply = "Then be the strongest, and do not forget it, because the moment you falter the beast will remember who was strong before you.", fx = { align = { honor = -1 } } },
+        { text = "A beast follows the strongest. Manners don't come into it.", next = "BACK", reply = "Then be the strongest, and never forget it, because the first time you falter, the beast will remember who held the reins before you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -621,7 +623,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. The warlocks once bound our people in chains no one could see, and every orc of my years still remembers how it felt to wear them, so I will carry you where you need to go, but I will not like your craft, and I will not say I do." } },
       choices = {
-        { text = "The old Horde's sins aren't mine.", next = "BACK", reply = "Good. Then keep them that way, because the Horde has paid enough for the sins of the old ones.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The old Horde's sins aren't mine.", next = "BACK", reply = "Then keep them that way, young one. The Horde has paid enough for the old ones' sins, and I carry the camp scars to prove it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is what made the Horde strong.", next = "BACK", reply = "That power made us slaves, warlock, and Thrall broke those chains with his own hands, so do not speak of it to me again.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -664,6 +666,7 @@ P:NPC {
           text = "A hunter of the Horde. My wind riders smell your beast already, so let it stand where they can see it, and they will settle." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could open a portal to Orgrimmar and save my wind riders the trouble, so I suppose you're here to tell me you like the view." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The dwarf across the yard keeps gryphons for paladins, and now I keep wind riders for one too." },
+        { id = "h_dd_rank", when = { faction = "Horde", pvpRank = 6 }, text = "You wear a rank the Warchief's officers don't hand out lightly, {rank}. My riders carry blooded warriors with pride, so climb on when you're ready." },
       },
       again = {
         { id = "h_again", text = "Speak, then. The riders are fed, and an orc does not waste a fed rider's patience." },

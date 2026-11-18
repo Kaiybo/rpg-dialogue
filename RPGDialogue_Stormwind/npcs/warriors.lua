@@ -257,7 +257,7 @@ P:NPC {
       lines = { { id = "eg_default", text = "Then they were guards first and fighters second, which is the right order. You've no one to guard now, I take it; Stormwind has more people needing it than it has guards, if you're looking." } },
       choices = {
         { text = "Then I'll guard what I can here.", next = "BACK", reply = "That is the right answer, and Stormwind has more than enough to keep your blade busy. Welcome.", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "I'll choose what I guard, not Stormwind.", next = "BACK", reply = "Then choose carefully, because the choosing is the guard's whole duty. A blade that guards nothing is only a blade.", fx = { align = { order = -1 } } },
+        { text = "I'll choose what I guard, not Stormwind.", next = "BACK", reply = "Then choose carefully, because the choosing is the guard's whole duty. I've known sellswords who guarded whoever paid last, and none of them grew old.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -582,7 +582,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I trust the ones who tell me before they cast, and I don't stand in front of the others twice. A line is only as strong as the trust behind it, and that goes for the ones throwing fire as well as the ones holding shields." } },
       choices = {
-        { text = "I'll always warn the line before I cast.", next = "BACK", reply = "Then I'll stand in front of you without a second thought. That's how trust is built.", fx = { align = { honor = 1 } } },
+        { text = "I'll always warn the line before I cast.", next = "BACK", reply = "Then I'll stand in front of you without a second thought. The last mage who trained here set my cloak alight twice.", fx = { align = { honor = 1 } } },
         { text = "The line can watch out for itself, Ander.", next = "BACK", reply = "Then the line won't stand in front of you twice. Remember that the next time you need it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -601,7 +601,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Not always, because a line that never bends will break. But a paladin stepping back is a signal to everyone else, and they'll follow you, so you'd better be right." } },
       choices = {
         { text = "I'll hold the line until the end, Ander.", next = "BACK", reply = "Good, though I'd rather you held it and lived. Stubborn ends are still ends, whatever the songs say.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll step back when it saves lives, whatever it signals.", next = "BACK", reply = "That's the wiser answer, and the harder one. If your people trust you, they'll understand.", fx = { align = { honor = -1 } } },
+        { text = "I'll step back when it saves lives, whatever it signals.", next = "BACK", reply = "Wiser, and harder, too. If your people trust you, they'll understand, and if they don't, they'll learn.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

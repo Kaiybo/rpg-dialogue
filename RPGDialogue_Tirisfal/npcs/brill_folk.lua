@@ -34,6 +34,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_rothide = {
+      lines = { { id = "dd_rothide_default", text = "That's because they are starving dogs. They came for the graves when the plague emptied the farms, and they've a taste for the dead now, so they'll not learn any lesson but the blade." } },
+      choices = {
+        { text = "They're vermin. I'll keep killing them until they stop coming.", next = "BACK", reply = "Good. That's the only treaty a gnoll understands, and Brill can't afford to offer another.", fx = { align = { light = -1 } } },
+        { text = "They're only hungry. The plague took their game too.", next = "BACK", reply = "Hungry or not, they dig up our dead. Pity them if you must, but do it after they're buried.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -46,6 +55,8 @@ P:NPC {
           text = "Your rings went down to the Undercity in a sealed box, and I'm told Lord Varimathras looked at each one himself. You've been noticed, which is an honor or a warning, depending entirely on how you go on serving." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A tauren, all the way from the Warchief's plains to my town hall. I'm told your people honor the living and the dead alike, which must make Tirisfal a very confusing place for you." },
+        { id = "h_dd_rothide", tags = { "news" }, when = { killed = { name = "Rot Hide", min = 20 } },
+          text = "The Rot Hide gnolls have gone quiet along the north road, and my patrols are coming back with fewer bites in them. Somebody's been thinning the pack, and I'm told it's you." },
       },
       again = {
         { id = "h_again", text = "Something else? Speak up, I've a road to watch." },
@@ -59,6 +70,7 @@ P:NPC {
         { text = "Did you serve Lordaeron in life, Burgess?", next = "past", when = { race = "Scourge" } },
         { text = "Do the Forsaken hate all the living, Burgess?", next = "xliving", when = { race = { "Tauren", "Orc", "Troll" } } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
+        { text = "The Rot Hides fight like starving dogs.", next = "dd_rothide", when = { killed = { name = "Rot Hide", min = 20 } } },
       },
     },
 
@@ -92,7 +104,7 @@ P:NPC {
     },
     quest_monastery = {
       lines = { { id = "qm_default", text = "Leave the Monastery for when you're older and harder, because its halls are full of zealots who've done nothing but train and pray for years. The ones at the farmstead will do for now, and there are more than enough of them." } },
-      choices = { { text = "Farmstead first, then. Something else.", next = "BACK" } },
+      choices = { { text = "The farmstead first, then. Let me ask something else.", next = "BACK" } },
     },
 
     -- Varimathras
@@ -146,7 +158,7 @@ P:NPC {
     },
     watch_town = {
       lines = { { id = "wt_default", text = "Magistrate Sevren runs the town, Executor Zygand runs the war, and the apothecaries in the hall run experiments I don't ask about. Renee keeps the Gallows' End, and if you want to know what Brill really thinks, buy a drink there and listen." } },
-      choices = { { text = "I'll listen, then. Something else.", next = "BACK" } },
+      choices = { { text = "I'll listen, then. Let me ask about something else.", next = "BACK" } },
     },
 
     -- Forsaken only
@@ -163,7 +175,7 @@ P:NPC {
     -- The Warchief's people
     xliving = {
       lines = { { id = "xl_default", text = "Only the ones pointing arrows at us, and your people seem to be the exception. I respect the Warchief's bargain with the Dark Lady, and I'll respect you, so long as you bring me rings rather than sermons." } },
-      choices = { { text = "Rings, not sermons. Something else.", next = "BACK" } },
+      choices = { { text = "Rings, not sermons, then. What else should I know?", next = "BACK" } },
     },
   },
 

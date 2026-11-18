@@ -131,7 +131,7 @@ P:NPC {
     },
     mac_want = {
       lines = {
-        { id = "mw_default", text = "Want to? He begged. A tabard, a wage, and a bit of standing in the street, and the girls at the pump looking twice. I signed for him myself, and that's the part I can't put down." },
+        { id = "mw_default", text = "Want to? He begged me, for a tabard and a wage and a bit of standing in the street, and the girls at the pump looking twice. I signed for him myself, and that's the part I can't put down." },
       },
       choices = {
         { text = "You couldn't have known, Nikova.", next = "BACK", fx = { affinity = 2 } },

@@ -20,7 +20,7 @@ P:NPC {
 
   greetings = {
     { id = "g_prej1", when = { prejudiced = true }, text = "A kaldorei, at the overlook. Your ancestors called my people dangerous and drove most of them across the sea, and I find, to my embarrassment, that I have not entirely forgiven you for it." },
-    { id = "g_prej2", when = { prejudiced = true }, text = "Ah, one of Elune's druids' children, come to look at the ruins. Look, by all means; my people built them while yours were learning to talk to bears." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "Ah, a druid, come to look at the ruins. Look, by all means; my people built them while yours were learning to talk to bears." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, child of the kaldorei. I owe you an apology, I think, for blaming you for a quarrel ten thousand years older than you are." },
     { id = "g_default", text = "You stand in Shen'dralas, or in what little the ages have left of it." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the overlook. Few do, and fewer come back twice." },
@@ -79,8 +79,21 @@ P:NPC {
         { text = "Something else, archmage.", next = "BACK" },
       },
     },
+    -- Deeds pass: the player killed Immol'thar in Eldre'Thalas.
+    dd_immolthar = {
+      lines = { { id = "di_default", text = "Then the Shen'dralar who remain will feel their years come back to them, all of them at once, and some will not survive it. We drank from a chained demon to keep from fading, as we once drank from the Well, and I suppose we never truly learned the lesson the first time." } },
+      choices = {
+        { text = "Feeding on a demon was a sin. Better it ended.", next = "BACK", reply = "Spoken plainly, and I cannot argue with it, though you will forgive me if I do not thank you for it today.", fx = { align = { light = 1 } } },
+        { text = "Your people did what they must to survive.", next = "BACK", reply = "That is what we told ourselves for ten thousand years. It is a comfort to hear it from someone else, and a dangerous one.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_immolthar", tags = { "news" }, when = { killed = { name = "Immol'thar" } },
+          text = "The demon Immol'thar is dead, then; I felt the old pylons go cold all the way up here. The Prince fed our order on that creature's power for longer than I care to admit, and I have never decided whether I was ashamed of it or grateful." },
+        { id = "h_dd_gordok", when = { killed = { name = "King Gordok" } },
+          text = "The ogres squatting in the old gardens of Eldre'Thalas have lost their king, I hear, and are already brawling over his crown. Ogres in the gardens of the Highborne, and now the outsiders choose their kings; my grandfather would have wept." },
         { id = "h_default", key = true,
           text = "I am Mordent Evenshade, an archmage of the Shen'dralar, and this is what remains of Shen'dralas. I hope you can see some of its old majesty in it, even if it is only a haunted shell of what it was." },
         { id = "h_back", when = { metBefore = true },
@@ -120,6 +133,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Go on. The moon is high, and I am in no hurry to go back to the halls." },
       },
       choices = {
+        { text = "I killed the demon your Prince kept chained.", next = "dd_immolthar", when = { killed = { name = "Immol'thar" } } },
         { text = "This place was grand once, by the look of it.", next = "place" },
         { text = "Why do you stand watch out here alone?", next = "alone" },
         { text = "I know nothing of the Shen'dralar.", next = "order" },
@@ -658,7 +672,7 @@ P:NPC {
         { id = "xf2_default", text = "No, I don't suppose they did. Then perhaps you understand the dead below better than I ever will, and I should ask you how to speak to them, instead of the other way around." },
       },
       choices = {
-        { text = "Leave them be. The dead have earned their peace.", next = "BACK", reply = "Then I will leave them be, and gladly, because the dead below have not been at peace for a very long time, and I would like them to be.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Leave them be. The dead have earned their peace.", next = "BACK", reply = "Then I will leave them be, and gladly. They have walked those colonnades for ten thousand years, and they have earned a little quiet.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "The dead belong to whoever has the will to use them.", next = "BACK", reply = "That is what the Prince believes, and you see where it has led him, so I will keep my own will and the dead their rest, if I can.", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -696,7 +710,7 @@ P:NPC {
     satyrs = { { id = "tp_satyrs", text = "Some of my peers went to the Legion willingly and came back with hooves and horns, and I knew a few of them by name. I do not pray for them, but I remember them." } },
     centaur = { { id = "tp_centaur", text = "The Magram dig among the bones of my city's dead and raise them for their wars, and the bones were never asked. I watch from my overlook and do nothing, which is a habit I learned in the library." } },
     quilboar = { { id = "tp_quilboar", text = "The Bristleback squabble over the ground at the valley's edge, and I watch them as one watches ants. I mean no cruelty by it, only that I have watched too many larger things squabble over the same ground." } },
-    dalaran = { { id = "tp_dalaran", text = "The human mages of Dalaran have discovered that our library still stands, and they write very polite letters. I find their politeness more alarming than ogres." } },
+    dalaran = { { id = "tp_dalaran", text = "The human mages of Dalaran have discovered that our library still stands, and they write very polite letters. I have lived long enough to know what a polite letter from a hungry scholar means." } },
     nordrassil = { { id = "tp_nordrassil", text = "The great tree on Hyjal was planted after the Sundering, by druids who distrusted everything we were. I hear it still grows, and I am glad, though I would never tell them so." } },
     scourge = { { id = "tp_scourge", text = "The Magram's dead are crude work, and I have heard that in the far north there is a far greater master of the craft. I have no wish to meet him, nor to compare notes." } },
     _none = { { id = "tp_none", text = "I have read most of the library below, and I do not recall that being in it. Perhaps it was in one of the volumes the satyrs burned." } },

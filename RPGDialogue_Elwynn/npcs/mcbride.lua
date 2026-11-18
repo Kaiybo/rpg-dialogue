@@ -44,6 +44,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_rolf = {
+      lines = {
+        { id = "dd_rolf_a", text = "So am I. Rolf was a stubborn man and a good sergeant, and he'd have charged that camp himself before he'd have sent a recruit ahead of him. That's what killed him, I'd wager, and it's what I'd want written on his stone." },
+      },
+      choices = {
+        { text = "He died leading from the front. There's honor in that.", next = "dd_rolf_2", fx = { align = { honor = 1 } } },
+        { text = "He should have waited for more men. Pride got him killed.", next = "dd_rolf_2", fx = { align = { honor = -1 } } },
+      },
+    },
+    dd_rolf_2 = {
+      lines = {
+        { id = "dd_rolf_2a", text = "Maybe so, and I've said both of those things myself on different nights. Keep him in mind the next time you're tempted to rush something, recruit, because I'd rather not write to Dughan about you." },
+      },
+      choices = { { text = "I'll remember, Marshal. Something else.", next = "BACK" } },
+    },
+
     xpt_mcbride = {
       big = true,
       lines = { { id = "xpt_mcbride_default", text = "They do, and they'll tell you so at length, though they'll also want you to stay for vespers. My own concern is simpler: so long as there are kobolds in Echo Ridge and Defias in the vineyards, I'll welcome anyone who can hold a blade." } },
@@ -99,6 +115,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_rolf", when = { questDone = TODO_QUEST("Discover Rolf's Fate") },
+          text = "Dughan wrote to me about Rolf and his men at the murloc camp by the lake, and that you were the one who found them. I trained two of those footmen myself, recruit, so I thank you for bringing them home in word, if not in body." },
+        { id = "dd_hogger_mcb", when = { killed = { name = "Hogger" } },
+          text = "They tell me Hogger's dead and that you were there when it happened. I remember when you couldn't keep a kobold off your back, recruit, so don't let it go to your head." },
+
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "Another recruit with the look of {alt}, I see. That {altclass} came through Northshire before you and did good work, so I'll expect the same from you." },
         { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = true }, cooldown = "5d",
@@ -163,6 +184,8 @@ P:NPC {
         { id = "h_again3", when = { minLevel = 20 }, text = "Something else? You've earned a few more minutes than most." },
       },
       choices = {
+        { text = "I found Rolf's men by the lake, Marshal. I'm sorry.", next = "dd_rolf", when = { questDone = TODO_QUEST("Discover Rolf's Fate") } },
+
         { text = "You seem to hunt the wolves for sport, Marshal.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Reporting for duty, Marshal.", next = "orders",
           fx = { align = { order = 2 }, trait = { stern = 1 }, affinity = 1 },
@@ -275,15 +298,15 @@ P:NPC {
       choices = {
         { text = "Then give them a chance to surrender first.", next = "BACK",
           fx = { align = { light = 3 }, trait = { kind = 1 }, opinion = { defias = "mercy" } },
-          journal = { first = "Told McBride the Defias should get a chance to surrender. He didn't argue. He didn't agree either.",
+          journal = { first = "Told McBride the Defias should get a chance to surrender. He didn't argue, but he didn't agree either.",
                       third = "{name} told McBride the Defias deserved a chance to surrender." } },
         { text = "A thief's a thief. I'll treat them like one.", next = "BACK",
           fx = { align = { order = 3 }, trait = { stern = 1 }, opinion = { defias = "hardline" }, affinity = 1 },
-          journal = { first = "McBride asked about the Defias. I told him a thief's a thief. He nodded like I'd passed something.",
+          journal = { first = "McBride asked about the Defias, and I told him a thief's a thief. He nodded as if I'd passed some test.",
                       third = "{name} told McBride the Defias should be treated as thieves, nothing more." } },
         { text = "Who's organizing them? That's who I'd want.", next = "defias_leaders",
           fx = { align = { honor = -2 }, trait = { curious = 1 }, opinion = { defias = "follow_the_leaders" } },
-          journal = { first = "Asked McBride who's behind the Defias. He didn't know. He didn't like not knowing.",
+          journal = { first = "Asked McBride who's behind the Defias. He didn't know, and he didn't like not knowing.",
                       third = "{name} asked Marshal McBride who leads the Defias. He had no answer." } },
       },
     },
@@ -384,7 +407,7 @@ P:NPC {
         { id = "v_default", text = "I did, and I remember the ones who come back. What brings someone your size back up my hill?" },
       },
       choices = {
-        { text = "Visiting the Abbey. And you.", next = "veteran_visit", fx = { affinity = 2 } },
+        { text = "Visiting the Abbey, and you, Marshal.", next = "veteran_visit", fx = { affinity = 2 } },
         { text = "Checking you still need me.", next = "veteran_need" },
       },
     },
@@ -453,7 +476,7 @@ P:NPC {
       },
     },
     shaman = {
-      lines = { { id = "shaman_l", text = "The stone, is it. Ironforge's letter said to expect you and said nothing about what you'd be, so I'll judge you on kobolds like everyone else. Is that fair?" } },
+      lines = { { id = "shaman_l", text = "The stone, is it? Ironforge's letter said to expect you and said nothing about what you'd be, so I'll judge you on kobolds like everyone else. Is that fair?" } },
       choices = {
         { text = "More than fair, Marshal.", next = "BACK", fx = { affinity = 2 } },
         { text = "The spirits judge differently.", next = "BACK", fx = { trait = { stern = 1 } } },

@@ -36,6 +36,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = {
+        { id = "dd_de_default", text = "It changes everybody, mon, but slowly, like the tide on a rock. The spirit healers send you back, and the loa watch you come, and Bwonsamdi counts you every time you pass him by. He be patient, dat one, and he never forget a name." },
+      },
+      choices = {
+        { text = "Let him count. I'll keep walking past him.", next = "BACK", reply = "Brave words, and I like dem, but say dem quieter. The loa of death hear better than he let on.", fx = { align = { order = -1 } } },
+        { text = "I'll be more careful. I don't want him counting me.", next = "BACK", reply = "Good, because careful be how a troll gets old, and I be very old. Learn it from me now and save yourself the lesson later.", fx = { align = { order = 1 } } },
+        { text = "Something else, Master.", next = "BACK" },
+      },
+    },
     prej_gadrin = {
       big = true,
       lines = { { id = "prej_gadrin_default", text = "Gadrin do, and it shame him a little. Zalazane take our dead from the burning grounds, put his hex on them and send them walking against their own kin, and they don't know their own names no more. Gadrin know you not the same, but his eyes, they don't listen to his head so good." } },
@@ -122,6 +132,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_drowned", when = { deathCause = "drowning" },
+          text = "You come back to me smellin' of brine, and I know dat look on a face, mon. The water between here and the Echo Isles takes more Darkspear than Zalazane ever did, so don't you try to swim it again without your breath." },
+        { id = "h_dd_deaths", when = { deaths = { min = 8 } },
+          text = "The spirit healers know your face by now, I think, and so do I. Every death leaves a little cold in a body, and you be carryin' plenty of it, so sit by my fire a while." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one wieldin' the Light. I teach witch doctors, and I tell them always to watch the dead careful. You be the strangest dead I ever see." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, and one I didn't teach. That be good, because the last few I taught don't make me proud." },
         { id = "h_default", key = true,
@@ -146,6 +160,7 @@ P:NPC {
         { id = "h_echo", when = { origin = "troll_echo_isles" }, text = "You born on the isles, child, I remember, and you cry the whole way across the water when we leave. Now you come back with a weapon on your back, and Gadrin think maybe the isles be crying for you instead." },
       },
       choices = {
+        { text = "I've died more than once, Master. Does it change me?", next = "dd_deaths", when = { deaths = { min = 8 } } },
         { text = "You look at me the way you'd look at Zalazane's puppets.", next = "prej_gadrin", when = { prejudiced = true } },
         { text = "What did Zalazane do with the loa's gifts, Master Gadrin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can Zalazane's corruption be undone, Master Gadrin?", next = "druid_q", when = { class = "DRUID" } },
@@ -210,7 +225,7 @@ P:NPC {
     },
     headhunter = {
       lines = { { id = "hd_default", text = "The old way, eh? That be good to hear, child, so bring the tribe's enemies down clean and give their spirits to the loa proper, and never take a head for pride, because that be how a hunter turns into something else." } },
-      choices = { { text = "Clean, and never for pride.", next = "BACK", reply = "Then the loa will be pleased with you, child. Go clean, and come home clean.", fx = { affinity = 2, align = { honor = 1 } } },
+      choices = { { text = "Clean, and never for pride.", next = "BACK", reply = "Then the loa will be pleased with you, child. Go out clean, and come home clean to Sen'jin.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "A head taken for pride still scares the enemy.", next = "BACK", reply = "It scares them, ya, but it scares the hunter's spirit too, after a while. Be careful, child, because pride be a hungry loa.", fx = { align = { honor = -1 } } } },
     },
     isles = {
@@ -219,7 +234,7 @@ P:NPC {
         { id = "i_default", text = "Zalazane drink deep of power he shouldn't touch, and it drown him. He curse the isles and make our own people his puppets. We leave our home to save the rest." },
       },
       choices = {
-        { text = "We'll take it back.", next = "END", reply = "Ya, child, one day we take them back, and Gadrin pray he live to see it. Go with the loa.", fx = { affinity = 2, align = { honor = 1 }, learn = { "echo_isles" } } },
+        { text = "We'll take it back.", next = "END", reply = "Ya, child, one day we take them back, and Gadrin pray he live to see the Echo Isles again. Go with the loa.", fx = { affinity = 2, align = { honor = 1 }, learn = { "echo_isles" } } },
         { text = "Your people matter more than the isles, so let Zalazane keep them.", next = "END", reply = "Maybe you be right, child, and maybe not. Gadrin still dream of the isles every night, and he pray you never lose a home.", fx = { align = { honor = -1 }, learn = { "echo_isles" } } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, learn = { "echo_isles" } } },
       },
@@ -287,7 +302,7 @@ P:NPC {
       },
       choices = {
         { text = "I tell what the loa say. Softening it is lying.", next = "BACK", reply = "Truth be truth, child, but it can cut both ways. Speak it, then, and be ready for what it cut.", fx = { affinity = -1, align = { order = -1 }, trait = { stern = 1 } } },
-        { text = "I keep most of it to myself, Master, like you taught.", next = "BACK", reply = "Good, child, you listened. The loa's truth be heavy, and not every shoulder can carry it.", fx = { affinity = 2, align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "I keep most of it to myself, Master, like you taught.", next = "BACK", reply = "Good, child, you listened. The loa tell old Gadrin a great many things, and most of them he takes to his grave unspoken.", fx = { affinity = 2, align = { order = 1 }, trait = { cautious = 1 } } },
         { text = "Who are they laughing at this time?", next = "xloa_who" },
       },
     },

@@ -220,7 +220,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Not fear, exactly. They look at you the way they look at the daylight through the grate, as though it's something good they've learned not to stare at, and I think they're wiser about it than most of the Forsaken." } },
       choices = {
-        { text = "Then let them learn it's gentle, as I'm learning.", next = "BACK", reply = "That's a kind way to see it, and I think they'd come round to you in time. Gentle things learn gentle things.", fx = { align = { light = 1 } } },
+        { text = "Then let them learn it's gentle, as I'm learning.", next = "BACK", reply = "That's a kind way to see it, and I think they'd come round to you in time. The old hound took a month with me, and now he won't leave my side.", fx = { align = { light = 1 } } },
         { text = "They're right to keep their distance. The Light isn't gentle with us.", next = "BACK", reply = "It isn't, I know, and they're wiser than us about it. Keep your distance too, then, and they'll trust you sooner.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -388,7 +388,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I'll drill you harder, because the Alliance will see your Light and call you a traitor to it, and the Scarlets will call you an abomination. Both will come at you first, so you'll need to swing faster than the rest of my students." } },
       choices = {
-        { text = "I'll keep to your drills, Archibald, all of them.", next = "BACK", reply = "Good. Every drill you keep is a blow you'll not take later.", fx = { align = { order = 1 } } },
+        { text = "I'll keep to your drills, Archibald, all of them.", next = "BACK", reply = "Good. I'll know if you skip one, because it shows in the shoulders.", fx = { align = { order = 1 } } },
         { text = "Drills are for recruits. I'll learn on the battlefield.", next = "BACK", reply = "Then you'll learn quickly or not at all. The battlefield's a harsh teacher, and it doesn't repeat itself.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -511,7 +511,7 @@ P:NPC {
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "I drilled the city watch in life, and I spent half my career chasing the sort of person you probably were. Now I'm teaching you to hold a dagger better, and I think the irony suits us both." },
       },
       choices = {
-        { text = "I'll learn to block, Archibald. You're right.", next = "BACK", reply = "Good. A blade that can't block is a blade that dies with its owner.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll learn to block, Archibald. You're right.", next = "BACK", reply = "Good. I've buried rogues who never bothered, and every one of them looked surprised.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The fight's done before they can block.", next = "BACK", reply = "Usually it is, rogue, and then one day it isn't. Learn to block anyway.", fx = { align = { honor = -1 } } },
         { text = "Which weapon should I learn?", next = "which" },
       },
@@ -587,7 +587,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Mail now, and plate when you're strong enough to carry it, and always armour that's been fitted to you rather than pulled off a corpse. I've seen Deathguard clank about in dead men's breastplates, and a breastplate that doesn't fit is just a heavy way to die." } },
       choices = {
-        { text = "Fitted armour, then. I'll take the time to do it right.", next = "BACK", reply = "Good. Armour that fits keeps you standing, and armour that doesn't gets you killed.", fx = { align = { order = 1 } } },
+        { text = "Fitted armour, then. I'll take the time to do it right.", next = "BACK", reply = "Good. Come back in a week and I'll check the straps for you.", fx = { align = { order = 1 } } },
         { text = "Whatever's on the corpse will do for now.", next = "BACK", reply = "It'll do until it doesn't, and then you'll be back here asking me to fix it. Come sooner.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -610,7 +610,7 @@ P:NPC {
         { id = "xmage_default", text = "Anyone can, if they learn that you can't hurry iron, and mages are the worst at hurrying everything. Fire from a spell is too hot and too quick, so use the coal like the rest of us and let the metal take its time." },
       },
       choices = {
-        { text = "I'll do it your way, Van Brunt.", next = "BACK", reply = "Good. Iron rewards patience, and you'll see why soon enough.", fx = { align = { order = 1 } } },
+        { text = "I'll do it your way, Van Brunt.", next = "BACK", reply = "Good. Coal first, then the bellows, and you can ask me why after you've burnt yourself once.", fx = { align = { order = 1 } } },
         { text = "My fire's hotter. I'll find a way.", next = "BACK", reply = "You might, and you might melt my anvil while you're about it. Coal, please.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -766,7 +766,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Plenty, because the ore you dig is the armour you wear, and a warrior who mines never pays a smith for the iron. Besides, swinging a pick all day does wonders for the arm, dead or alive." } },
       choices = {
         { text = "I'll leave digging to miners and pay the smith fairly.", next = "BACK", reply = "Fair enough, and the smiths will thank you. I'll keep the ore coming.", fx = { align = { order = 1 } } },
-        { text = "I'll dig my own iron. Nobody else to rely on.", next = "BACK", reply = "Good. A warrior with a pick is a warrior who never runs short of iron.", fx = { align = { order = -1 } } },
+        { text = "I'll dig my own iron. Nobody else to rely on.", next = "BACK", reply = "Good, then the pick's by the door, and there's copper in the hills north of Brill.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -944,7 +944,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "It could, if you bring me the dust and the essences and have the patience to let it be done properly. A good enchantment on a blade is worth three on a robe, though you'd never hear my mages admit it." } },
       choices = {
-        { text = "Then I'll gather the dust and wait for proper work.", next = "BACK", reply = "Good. Patience makes a better blade than haste ever did, and I'll make yours sing.", fx = { align = { order = 1 } } },
+        { text = "Then I'll gather the dust and wait for proper work.", next = "BACK", reply = "Good, and I'll make yours sing when the time comes. Rushed enchantments fizzle, and I don't sell fizzles.", fx = { align = { order = 1 } } },
         { text = "I'd rather a sharper edge than a glowing one.", next = "BACK", reply = "Then go to Van Brunt and his whetstone, and leave the glowing to those of us who appreciate it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1331,7 +1331,7 @@ P:NPC {
     wicked = {
       lines = { { id = "wi_default", text = "Wicked? It's only a sharper edge on a blade, friend, and nobody calls a blacksmith wicked. The Scourge didn't play fair with us, and I see no reason we should play fair with them." } },
       choices = {
-        { text = "A fair point. Survival comes first.", next = "BACK", reply = "It does, and it's lovely to meet someone who sees it. Every vial is a little survival.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Fair point, Graves. Survival comes first.", next = "BACK", reply = "It does, and it's lovely to meet someone who sees it. Every vial is a little survival.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Poison is a coward's weapon.", next = "BACK", reply = "A coward's weapon in a coward's war, and the Scourge started it. I'll sleep soundly.", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },

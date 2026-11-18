@@ -314,7 +314,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I'd put anyone in it who knows that the hidden work is the hard work, and I suspect you do. The congregation would be scandalised, of course, but a sermon nobody argues about afterwards has failed." } },
       choices = {
-        { text = "Hidden work still answers to the Light, Brother.", next = "BACK", reply = "It does, my friend, and I'm glad you see it that way. The congregation will be scandalised.", fx = { align = { light = 1 } } },
+        { text = "Hidden work still answers to the Light, Brother.", next = "BACK", reply = "I'm glad you see it that way, my friend, though I'll not be preaching it from the steps. The congregation would be scandalised.", fx = { align = { light = 1 } } },
         { text = "Hidden work answers to whoever pays for it, Brother.", next = "BACK", reply = "Then I'll pray whoever pays for it is kind. The Light still sees the work.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1198,7 +1198,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll try to meet it halfway, Shellene.", next = "BACK", reply = "That's all I ask, love. The Light will meet you the rest of the way.", fx = { align = { light = 1 } } },
-        { text = "The Light can come to me, if it wants me.", next = "BACK", reply = "It will, love, it always does. I'll pray it comes soon.", fx = { align = { light = -1 } } },
+        { text = "The Light can come to me, if it wants me.", next = "BACK", reply = "Oh, it will, love, it always does, usually when you've stopped looking. I'll pray it doesn't take too long about it.", fx = { align = { light = -1 } } },
         { text = "Something else, Shellene.", next = "BACK" },
       },
     },

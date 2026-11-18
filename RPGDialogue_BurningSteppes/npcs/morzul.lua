@@ -34,7 +34,7 @@ P:NPC {
         { id = "opd_default", text = "Everyone, which is how I know it works. But you've been watching my circles with a particular look, so I'll ask: do you fear what I call up, or do you envy it?" },
       },
       choices = {
-        { text = "I fear it, and you should too.", next = "op_dem_fear", fx = { align = { light = 1 }, opinion = { demons = "fear" } } },
+        { text = "I fear it, and so should you.", next = "op_dem_fear", fx = { align = { light = 1 }, opinion = { demons = "fear" } } },
         { text = "I envy it. Power is power, however it's fed.", next = "op_dem_envy", fx = { affinity = 1, align = { light = -1 }, opinion = { demons = "useful" } } },
         { text = "Neither. I've an imp of my own, and it's better behaved.", next = "op_dem_envy", fx = { trait = { witty = 1 }, opinion = { demons = "useful" } }, when = { class = "WARLOCK" } },
         { text = "I'm only here for the altar, Mor'zul.", next = "BACK" },
@@ -66,6 +66,8 @@ P:NPC {
           text = "Read my instructions closely, and perform every step exactly as written. A circle half-made is a door half-open, and things come through half-open doors." },
         { id = "h_steed_done", tags = { "news" }, when = { questDone = TODO_QUEST("Dreadsteed of Xoroth") },
           text = "You've bound a dreadsteed, and lived, and I'll admit some of my students have managed only one of those. Ride it well, and let it remind everyone who sees you what you are." },
+        { id = "dd_imp", when = { questDone = TODO_QUEST("Imp Delivery") },
+          text = "Gorzeeki tells me you carried that imp to him without letting it loose or burning yourself. Most fools manage one or the other, so I will count it as a small mark in your favour." },
       },
       again = {
         { id = "h_again", text = "Something more? Ask, while my patience lasts." },
@@ -96,7 +98,7 @@ P:NPC {
         { id = "ac_default", text = "Among other places, and some of them still work, in Jaedenar in Felwood, under Lord Banehollow. I've no love for the Council, but I'll use their stardust and their roads, for knowledge owes nothing to the hands that hold it." },
       },
       choices = {
-        { text = "Knowledge is knowledge. Use what works.", next = "BACK", reply = "You'd have made a fine student of the dark arts, I think. A blade does not ask whose forge made it, and neither should the hand that swings it.", fx = { align = { light = -1 } } },
+        { text = "Knowledge is knowledge. Use whatever works.", next = "BACK", reply = "You'd have made a fine student of the dark arts, I think. Half of what I know I took from the books of men who died trying to stop me, and the pages never once complained.", fx = { align = { light = -1 } } },
         { text = "Some knowledge stains whoever touches it.", next = "BACK", reply = "Every power stains, little one, and the only question is whether you get anything for the mark. I have always made very sure that I do.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -172,7 +174,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I am a scholar of the nether, a teacher of warlocks, and a connoisseur of blood, and I was all three when the Shadow Council still met. The rest is no concern of yours." } },
     advice = { { id = "tp_ad", text = "Never step into a circle you didn't draw yourself." } },
-    burning_legion = { { id = "tp_burning_legion", text = "The Legion are the source of all true power, and the warlocks who serve them wisely grow strong. The fools who serve them foolishly grow dead." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion is the source of all true power, and the warlocks who serve it wisely grow strong. The ones who serve it foolishly end up as a smell in my summoning circle." } },
     blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons under the mountain have a fire lord, and the fire lord has power. I'd like to study it, very carefully." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran's mages called what I do forbidden. Their city is in ruins, and I'm still teaching." } },
     _none = { { id = "tp_none", text = "I haven't troubled to learn that, and I doubt it would have been worth the trouble, any more than the shamans' prattle about spirits." } },

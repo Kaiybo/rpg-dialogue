@@ -29,6 +29,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_wb_100 = {
+      lines = {
+        { id = "dd_wb_1001", text = "A hundred! I've been at it six years an' stopped countin' at four hundred, so ye've a way tae go, but it's a fine start. The trouble is they keep comin' up out o' the dig at Uldaman faster than either of us can count." },
+      },
+      choices = {
+        { text = "I'll stop counting and just keep killing.", next = "BACK", reply = "That's how it goes, in the end. The numbers stop meanin' anythin' after the first few hundred.", fx = { align = { light = -1 } } },
+        { text = "I count so I remember what it costs.", next = "BACK", reply = "Hm. That's a priest's answer, but I'll no' laugh at it. Somebody ought tae remember.", fx = { align = { light = 1 } } },
+        { text = "Something else, Wallbang.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -37,11 +47,16 @@ P:NPC {
           text = "Huntin' troggs for the Captain? Grand! Aim for the head, for they've skulls like anvils an' no' much in them tae miss." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! Walk wi' me a bit, for the statues like tae see their own kin pass by, or so my gran always said." },
+        { id = "dd_kingslands", when = { questDone = TODO_QUEST("In Defense of the King's Lands") },
+          text = "Langarr tells me ye've been workin' the slopes for the King's Lands bounty. Good, for the troggs I dinnae kill on my side end up on his, an' he complains." },
+        { id = "dd_stone100", when = { killed = { name = "Stonesplinter", min = 100 } },
+          text = "A hundred Stonesplinters, if the lads are countin' right, an' they usually are when it's somebody else's tally. Ye're near enough a Mountaineer yerself now." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Speak up, for my ears have been ringin' since the Second War." },
       },
       choices = {
+        { text = "I've killed a hundred Stonesplinters, Wallbang.", next = "dd_wb_100", when = { killed = { name = "Stonesplinter", min = 100 } } },
         { text = "Tell me about the statues.", next = "statues" },
         { text = "How bad are the troggs here?", next = "troggs" },
         { text = "Why do they call you Wallbang?", next = "name" },
@@ -121,7 +136,7 @@ P:NPC {
       },
       choices = {
         { text = "The Dark Irons are kin, whatever they've done.", next = "BACK", reply = "Kin, aye, an' they'll be kin right up until they put a knife in yer back. Thaurissan's lot forgot that, so I'll no' remember it for them.", fx = { align = { light = 1 } } },
-        { text = "Good. Kin who betray you are worse than strangers.", next = "BACK", reply = "That's the truth o' it, an' it's why I keep my rifle loaded. A stranger's just a stranger, but a traitor's personal.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Good. Kin who betray you are worse than strangers.", next = "BACK", reply = "That's the truth o' it, an' it's why I keep my rifle loaded. A stranger I can forgive, but a Dark Iron who shares my blood an' still burns my kin, never.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } },
       },
     },
@@ -203,6 +218,8 @@ P:NPC {
           text = "I'm Mountaineer Langarr. I walk the valley an' watch the hills, an' I'll tell ye now there are troggs on the slopes tae the east, so stay off the high ground unless ye mean tae fight." },
         { id = "h_defense", when = { questActive = TODO_QUEST("In Defense of the King's Lands") },
           text = "Mountaineer Cobbleflint's sent ye tae the troggs, has he? Mind the ones wi' the stone teeth round their necks, for those are the ones that hit hardest." },
+        { id = "dd_troggthreat", when = { questDone = TODO_QUEST("The Trogg Threat") },
+          text = "Rugelfuss says ye brought him the proof he needed on the trogg threat. That'll mean more Mountaineers up here, I hope, for my feet are tired." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Be brief, for I'm watchin' the ridge while we talk." },
@@ -277,7 +294,7 @@ P:NPC {
       },
       choices = {
         { text = "Fair enough. Trust should be earned.", next = "BACK", fx = { affinity = 1 },
-          reply = "Aye. Keep earnin' it, then." },
+          reply = "Aye. Keep earnin' it, then, every day ye're here." },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -375,7 +392,7 @@ P:NPC {
         { id = "jf_default", text = "Some nights, aye, for that's where the songs get written. But the Captain says the front's only a front if somebody holds the back, an' I've decided tae believe him." },
       },
       choices = {
-        { text = "The Captain's right. Holding home matters most.", next = "BACK", reply = "I think so too, most days, though it's good tae hear somebody else say it. The back needs holdin' as much as the front.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "The Captain's right. Holding home matters most.", next = "BACK", reply = "I think so too, most days, though it's good tae hear somebody else say it. Somebody has tae mind the gate while the brave ones go chargin' off.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Go where the glory is, lad. Life's short.", next = "BACK", reply = "It is short, aye, an' I've thought about it every night. But the Captain needs me here, an' I'd no' let him down.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

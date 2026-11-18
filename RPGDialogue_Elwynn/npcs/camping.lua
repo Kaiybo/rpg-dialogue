@@ -66,7 +66,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I've nothing worth stealing but a kettle and a bedroll, and the Defias have better targets on the Westbrook road than me. Besides, anyone who'll sit by my fire and listen to my stories has paid for whatever they take." } },
       choices = {
-        { text = "Your kettle's safe with me, Sam. I'd never rob a host.", next = "BACK", reply = "That's good to hear, and I'll keep the tea on, then. A good guest is worth more than a kettle.", fx = { align = { honor = 1 } } },
+        { text = "Your kettle's safe with me, Sam. I'd never rob a host.", next = "BACK", reply = "That's good to hear, and I'll keep the tea on, then. You can have the cup without the chip in it.", fx = { align = { honor = 1 } } },
         { text = "A sleeping camper's an easy mark. You should be more careful.", next = "BACK", reply = "You're probably right, and I'll sleep a little lighter tonight. Still, I'd sooner trust folk than lie awake worrying.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -105,7 +105,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Could you light my fire for me some evening? I've been at it with flint for an hour some nights, and it's undignified." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit down before you fall down; whoever you fought today, they'll still be there tomorrow, and the fire's warm now." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, sleeping rough like me by the look of you! Pull up a log, because a fire's always better with somebody who's walked further than I have." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, sleeping rough like me by the look of you! Pull up a log, because a fire's always better with somebody who's walked further than I have." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Do you ever take your demon camping? I've always wondered whether imps like a fire or just like setting things on one." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, walking the roads like me. Sit by the fire. Do your spirits like a good long rest as much as I do?" },
       },
@@ -223,7 +223,7 @@ P:NPC {
         { id = "f_default", text = "Then you should be teaching me! Sit down and tell me the strangest thing you ever cooked over a fire, and I'll tell you mine after." },
       },
       choices = {
-        { text = "Raptor, once. Don't.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Raptor, once, and I don't recommend it.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
         { text = "I don't talk about it.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },

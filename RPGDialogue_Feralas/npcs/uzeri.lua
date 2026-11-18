@@ -93,7 +93,7 @@ P:NPC {
       big = true,
       lines = { { id = "hs_default", text = "Ghoulish, maybe, but he was explorin', diggin', or stealin' from da old elf ruins, who knows? Dat forest is full of people who don't belong in it, and da forest takes care of some of dem, and I take care of da rest." } },
       choices = {
-        { text = "Intruders deserve what they get out there.", next = "BACK", reply = "Ya, dat's da forest's law, mon, and Uzer'i only helps it along when it needs a little push.", fx = { align = { light = -1 } } },
+        { text = "Intruders get what they deserve out there.", next = "BACK", reply = "Ya, dat's da forest's law, mon, and Uzer'i only helps it along when it needs a little push.", fx = { align = { light = -1 } } },
         { text = "A lost traveller deserved better than that.", next = "BACK", reply = "Maybe so, mon, but dis one wasn't lost, he was lookin' for somethin' that wasn't his, and da forest knew it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -102,7 +102,7 @@ P:NPC {
       big = true,
       lines = { { id = "w_default", text = "Because da elves got their moon and their dragons and their ancient trees, and dey been drawin' on dis land since before da Horde had a name. We not gonna win Kalimdor by bein' polite about it." } },
       choices = {
-        { text = "The Horde should take what strength it can.", next = "BACK", reply = "Now you talkin' like a true child of da Horde, mon, and da loa will smile on you for it.", fx = { align = { order = -1 } } },
+        { text = "The Horde should take whatever strength it can.", next = "BACK", reply = "Now you talkin' like a true child of da Horde, mon, and da loa will smile on you for it.", fx = { align = { order = -1 } } },
         { text = "Some powers are better left alone.", next = "BACK", reply = "Maybe, mon, but da elves don't leave dem alone, so why should Uzer'i be da only one with clean hands?", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

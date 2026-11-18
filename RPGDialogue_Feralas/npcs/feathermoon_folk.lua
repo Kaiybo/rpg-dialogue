@@ -18,7 +18,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Mind the ladder, the third rung is a liar. Come up, come up." },
+    { id = "g_hello", text = "Mind the ladder; the third rung is a liar. Come up, come up, and don't touch the charts." },
     { id = "g_knife", when = { questActive = TODO_QUEST("The Knife Revealed") }, text = "Ginro sent you with something, I see, and I can guess what he said about my debts." },
     { id = "g_grain", when = { questActive = TODO_QUEST("Morrowgrain to Feathermoon Stronghold") }, text = "More morrowgrain? Set it down gently. I want to know what it is before it knows what I am." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and nobody's cursed you in the meantime. I'd have noticed." },
@@ -45,6 +45,7 @@ P:NPC {
           text = "I saw gnolls, Woodpaw gnolls, quarrelling over packs by firelight, and a boat breaking in the surf. Take that to Ginro, and tell him the debt is paid in full." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, and a Moonglade one by the look of you. Then perhaps you can tell me what nobody in Darnassus will: why the Arch Druid needs quite so much morrowgrain." },
+        { id = "h_dd_woodpaw", tags = { "news" }, when = { questDone = TODO_QUEST("The Woodpaw Gnolls") }, text = "Ginro says you went into the Woodpaw camps and came back with Raschal's packs, just as the knife showed me. I don't often get to see a reading proven so plainly, and I can't say I enjoyed it." },
       },
       again = {
         { id = "h_again", text = "What else? The tea's cooling, and I can't decide if that's a problem." },
@@ -79,7 +80,7 @@ P:NPC {
       big = true,
       lines = { { id = "pm_default", text = "I could, but I've learned to ask first, because people don't always like what their belongings remember. Some say a secret kept is a secret owed; others think the truth should always come out. Which are you?" } },
       choices = {
-        { text = "The truth should always come out.", next = "BACK", reply = "Then I will tell you what I see, and I will trust you to carry it gently, because the truth is heavier than it looks.", fx = { align = { order = 1 } } },
+        { text = "The truth should always come out, Quintis.", next = "BACK", reply = "Then I will tell you what I see, and I will trust you to carry it gently, because the truth is heavier than it looks.", fx = { align = { order = 1 } } },
         { text = "Some secrets are nobody's business.", next = "BACK", reply = "A wise answer, and one the moon would approve of, so I will keep my hands in my sleeves and leave your things their silence.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -162,7 +163,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Any word from the mainland? No? Then come in anyway." },
+    { id = "g_hello", text = "Any word from the mainland? No? Come in anyway; the kettle's on." },
     { id = "g_boat", when = { questActive = TODO_QUEST("The Missing Courier") }, text = "The boat, {name}. Find the boat, and we'll know where to start." },
     { id = "g_gnolls", when = { questActive = TODO_QUEST("The Woodpaw Gnolls") }, text = "The Woodpaw camps. Tear them apart if you have to; I'm done being polite." },
     { id = "g_done", when = { questDone = TODO_QUEST("Thalanaar Delivery") }, text = "The parcel reached Falfindel. Raschal would have wanted that more than anything." },
@@ -189,6 +190,7 @@ P:NPC {
           text = "Quintis saw gnolls, so the Woodpaw camps in the south are where we start. Gnolls keep what they scavenge and fight over it, so if they found Raschal's packs, they'll still have them." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Thalanaar Delivery"), days = 5 } },
           text = "Falfindel has his parcel, and that's Raschal's last errand finished, whatever became of him. Thank you, {name}. I'll write it in the log in his name." },
+        { id = "h_dd_shalzaru", tags = { "news" }, when = { questDone = TODO_QUEST("Against Lord Shalzaru") }, text = "The dispatch about Lord Shalzaru crossed my table this morning, and your name was in it. It's a pleasant change to send good news to Darnassus for once." },
       },
       again = {
         { id = "h_again", text = "What else? I've a dispatch to finish, but it can wait." },
@@ -261,7 +263,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Who left, who came back, and who's late. That's the dispatch office, friend." } },
+    knows = { { id = "tp_knows", text = "Who left, who came back, and who's late. That's all the dispatch office is, friend, and lately it's mostly the last one." } },
     background = { { id = "tp_bg", text = "One of the general's expedition, keeper of the stronghold's dispatches.", next = "stronghold" } },
     sentinels = { { id = "tp_sent", text = "The finest soldiers in Kalimdor, and the worst at writing reports, so the General keeps a clerk on the island, and the clerk is me." } },
     _none = { { id = "tp_none", text = "Nothing in the dispatches about that, I'm afraid." } },

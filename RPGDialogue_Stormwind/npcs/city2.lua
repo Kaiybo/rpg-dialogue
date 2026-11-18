@@ -180,7 +180,7 @@ P:NPC {
       choices = {
         { text = "That's a hard word for them.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
         { text = "Mercy can get people killed.", next = "BACK", reply = "It can, and it has, and I've buried some of them. But a Silver Hand that forgets mercy becomes the Scarlet Crusade.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
-        { text = "Mercy is worth the risk, even for them.", next = "BACK", reply = "That's the hardest answer, and the right one. Hold to it when it costs you.", fx = { align = { light = 1 } } },
+        { text = "Mercy is worth the risk, even for them.", next = "BACK", reply = "It's the right answer, though it will cost you one day. Hold to it when it does.", fx = { align = { light = 1 } } },
       },
     },
 
@@ -872,7 +872,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "A little, and most of it written by people who were never in it. What we have is mostly the sermons Archbishop Faol gave when the order was founded, which are lovely, though rather long." } },
       choices = {
-        { text = "Those sermons should be read. The past teaches us how to serve.", next = "BACK", reply = "They should, and almost nobody reads them. You'd be the first this year, if you came.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Those sermons should be read. The past teaches us how to serve.", next = "BACK", reply = "Almost nobody does, sadly; the dust on them is older than I am. You'd be the first this year, if you came.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A paladin learns from the field, not from old sermons.", next = "BACK", reply = "Then the field will teach you, and very harshly. The sermons are kinder teachers, I promise.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

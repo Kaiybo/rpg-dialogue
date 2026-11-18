@@ -140,6 +140,7 @@ P:NPC {
           text = "A priest! Big brother says the crazies out west hate your Light worse than they hate the bugs, so you and I are going to get along fine." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Good, the crazies leave tracks all over the western dunes, and I bet you can follow them better than my big brother can." },
+        { id = "h_dd_geolords", tags = { "news" }, when = { questDone = TODO_QUEST("Twilight Geolords") }, text = "Huum says you struck down the geolords in the western camps, and for once my brother sounded almost cheerful about a killing. The crazies will be a while finding new ones to stand on those rocks and chant." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Huum's busy being serious with the Earth Mother, so I've got time." },
@@ -161,7 +162,18 @@ P:NPC {
         { text = "What do you need from a paladin against the cult, Bor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'd like to see the papers you've collected, Bor.", next = "xmage", when = { class = "MAGE" } },
         { text = "Why do the cultists hate druids so much, Bor?", next = "xpt_bor_wildmane", when = { party = { class = "DRUID" } } },
+        { text = "Huum seemed pleased about the geolords?", next = "dd_geolords", when = { questDone = TODO_QUEST("Twilight Geolords") } },
         { text = "I'll bring you whatever I find on them.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
+      },
+    },
+    dd_geolords = {
+      lines = {
+        { id = "dd_geolords_1", text = "Pleased for Huum, which means he lit a second stick of sage and said the spirits were quieter. My brother listens to the land and I listen to the cultists, and between us we usually hear the same thing a day apart, but this time we both heard you." },
+      },
+      choices = {
+        { text = "Killing them was the only way to stop the rituals.", next = "BACK", reply = "I'd say the same, and I'd say it louder than Huum would. The crazies don't stop chanting for anything short of a blade.", fx = { align = { light = -1 } } },
+        { text = "I'd rather have captured them and learned their plans.", next = "BACK", reply = "Now you sound like me on a good day! Bring me one alive someday, and I'll have him talking before the sun goes down.", fx = { align = { light = 1 } } },
+        { text = "Something else, Bor.", next = "BACK" },
       },
     },
 
@@ -223,7 +235,7 @@ P:NPC {
         { id = "xw_default", text = "Ha! That's the spirit, friend, and there are plenty of heads out west in the Twilight camps, though do bring me their papers before you break anything else. Big brother says strike the leaders and spare the followers, but between you and me, the followers hit back too." },
       },
       choices = {
-        { text = "Leaders first, then. Your brother's right.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "Leaders first, then. Your brother's right about that.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
         { text = "I'll hit whatever hits me first.", next = "BACK", fx = { trait = { brave = 1 } } },
       },
     },
@@ -274,7 +286,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "I would have them stopped, and the Earth Mother does not care how. The cult's Templars gather around their wind stones and call to something that should never be called, and if a quiet blade ends that call sooner than a war band, the land will be grateful." } },
       choices = {
         { text = "Then I'll end them quietly, and take no joy in it.", next = "BACK", reply = "That is the right heart for the work, and the land will remember that you took no pleasure in it.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll strike from shadow, and enjoy every minute.", next = "BACK", reply = "Then take your pleasure, but do not let the land see it, for the spirits here have seen enough cruelty to last them an age.", fx = { align = { honor = -1 } } },
+        { text = "I'll strike from shadow, and enjoy every minute.", next = "BACK", reply = "Take your pleasure, then, but do not let the land see it. The spirits here have watched the Twilight's Hammer enjoy their work, and they cannot tell one smile from another.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -291,7 +303,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They are not the same, though many warriors never learn the difference until the land has bled dry around them. The Twilight's Hammer fight upon Silithus for their own ends, and you may strike them down, but only if you remember the land is not your enemy." } },
       choices = {
-        { text = "I fight for the land, not for myself.", next = "BACK", reply = "Then the Earth Mother will guide your blade, and the land will rise to meet your feet instead of stealing them.", fx = { align = { light = 1 } } },
+        { text = "I fight for the land, not for myself.", next = "BACK", reply = "Good. Walk lightly in the dunes south of here, where the sand opens without warning, and the land may yet decide to hold you up.", fx = { align = { light = 1 } } },
         { text = "A fight's a fight. The land can look after itself.", next = "BACK", reply = "It has been trying, warrior, for a thousand years, and it grows tired, so I would ask you to carry a little of its weight.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -303,7 +315,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Their camps foul the ground and their rituals shake the earth, so the creatures here flee or turn savage. Your {pet} walks with the old spirits close about it, so listen when it grows uneasy." },
       },
       choices = {
-        { text = "I take only what I need from this land.", next = "BACK", reply = "Then you hunt as the old ways teach, and the beasts that remain will not flee from your shadow.", fx = { align = { light = 1 } } },
+        { text = "I take only what I need from this land.", next = "BACK", reply = "You hunt as the old ways teach. The beasts that remain will learn your scent and stop running from it.", fx = { align = { light = 1 } } },
         { text = "This desert is cursed. I'll hunt as I please.", next = "BACK", reply = "It is not cursed, only wounded, and a wounded beast lashes out, so walk carefully, hunter, or it will lash at you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -312,7 +324,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "The cult's summonings, which tear at the elements and leave the earth raw, and the swarm, which hollows it out from below. A shaman can soothe the spirits, but a priest can pray for the living who must stand upon such wounded ground." } },
       choices = {
-        { text = "Then I'll pray for them, Huum, and fight beside them.", next = "BACK", reply = "Then you will be a friend to the living and the land both, and that is a rare thing in this desert.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll pray for them, Huum, and fight beside them.", next = "BACK", reply = "Then you will be a friend to the living and the land both, and I have met very few of those in this desert.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Wounded ground is fertile ground for shadow. I'd make use of it.", next = "BACK", reply = "I hear the shadow in your voice, priest, and I would ask you to look elsewhere, because this land has suffered enough.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -321,8 +333,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "The spirits do not judge, they only remember, and they remember the Twilight's Hammer calling things up from the deep. Prove to them you are different, and they may speak again in your presence." } },
       choices = {
-        { text = "I'll prove it. The spirits deserve peace.", next = "BACK", reply = "Then speak gently and act kindly, and in time they may come close enough to show you what they have seen.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I don't need the spirits' approval.", next = "BACK", reply = "You may not need it, but you walk upon their land, and the land has a long memory and a short patience.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll prove it. The spirits deserve peace.", next = "BACK", reply = "Speak gently, then, and act kindly. Sit at the Hold's edge some evening, and in time they may come close enough to show you what they have seen.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I don't need the spirits' approval.", next = "BACK", reply = "You may not need it, but you walk upon their land. I have seen a dune swallow a whole cult camp that thought the same.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll think on it.", next = "BACK" },
       },
     },
@@ -330,7 +342,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Softly, and without demands, as you would speak to an elder at the fire. The land of Silithus has many stories, and most of them are sad, so listen more than you speak." } },
       choices = {
-        { text = "I'll listen with respect.", next = "BACK", reply = "Then they will speak to you, and you will hear the stories that the sand has kept for a thousand years.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll listen with respect.", next = "BACK", reply = "Then they will speak to you. Some of what the sand has kept is very old, and some of it is still angry.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The arcane doesn't need the spirits' permission.", next = "BACK", reply = "Perhaps not, but the spirits will remember you as one more voice that did not ask, and they are tired of such voices.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "I'll keep that in mind.", next = "BACK" },
       },
@@ -339,7 +351,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Perhaps, {name}, but not soon and not by us alone. The swarm poisons the soil and the Twilight's Hammer poisons the wind, and until both are driven out, the best we can do is keep a few green places alive and remember." } },
       choices = {
-        { text = "Healing must start now, even while we fight.", next = "BACK", reply = "You speak wisely, druid, and every green place we keep alive now is a seed for the healing that comes after.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Healing must start now, even while we fight.", next = "BACK", reply = "You speak wisely, druid. Every green place we keep alive now is a seed for the healing that comes after, and Bor has already killed two of my seedlings by watering them with ale.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Burn the hives and salt them. Healing can wait.", next = "BACK", reply = "Salted earth heals for no one, druid, and I would not leave Silithus more barren than the cult has already made it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -366,6 +378,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The spirits of the beasts here are restless, {name}, for the crystals and the cult have driven them from their old paths." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and welcome among your own. The Circle needs every claw and every root it can find in Silithus, for the land here has forgotten what it was." },
+        { id = "h_dd_texts", when = { questDone = TODO_QUEST("Secret Communication") }, text = "My brother tells me you have been bringing him the cult's papers by the armful, and he reads them aloud to me at night in a terrible voice. The spirits grow uneasy at the words, but Bor says every page brings us closer to their masters." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, {name}; the spirits have waited this long, and they can wait a little longer." },
@@ -714,7 +727,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The sands, the hive, and the wall the kaldorei raised to hold back what lies behind it. I was told to remain as long as I must, and so I watch for the day the sands shift again, and I would rather the eyes that watch beside me were patient ones." } },
       choices = {
-        { text = "I'll be patient, then, and watch with you.", next = "BACK", reply = "Then you will watch with me, mortal, and you will see that patience is not idleness, only waiting with open eyes.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll be patient, then, and watch with you.", next = "BACK", reply = "Then you will watch with me, mortal. It is not idleness, whatever the young ones at the Hold think; it is only waiting with open eyes.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Watching gets nothing done. I'd rather act.", next = "BACK", reply = "Action has its place, mortal, but those who acted too soon a thousand years ago filled the graves at Valor's Rest.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -723,7 +736,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I have seen it carried into many battles, mortal, and I have seen it carried out again by fewer hands. Time does not care for faith, but it remembers those who keep their promises, and I made one here a thousand years ago that I keep still." } },
       choices = {
-        { text = "Then I'll keep my oaths as you keep yours.", next = "BACK", reply = "Then you and I understand each other, and I think the Brood would look on you more kindly for it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll keep my oaths as you keep yours.", next = "BACK", reply = "Then you and I understand each other. The Brood has kept its oath here for a thousand years, and it has never once been easy.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Promises bind only those foolish enough to make them.", next = "BACK", reply = "Then you have never kept one, mortal, and I would not wish on you the weight of discovering why it matters.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -744,7 +757,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "By watching the sand where nothing walks, for it shifts when the hive stirs below, and it shifts more now than ever. Your {pet} feels it already, I think, for it will not lie flat upon this ground." },
       },
       choices = {
-        { text = "Some threats are too great to hunt. Watch, and warn.", next = "BACK", reply = "You speak with the patience of the Brood, mortal, and that is a rare gift among your kind.", fx = { align = { order = 1 } } },
+        { text = "Some threats are too great to hunt. Watch, and warn.", next = "BACK", reply = "You speak with the patience of the Brood, mortal. I have not heard that from one of your kind since the Hold was raised.", fx = { align = { order = 1 } } },
         { text = "Then strike the hive now, before it rises.", next = "BACK", reply = "Many said that, a thousand years ago, and they are buried now beneath the very sand you would strike.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -753,7 +766,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Little alone, and much together, as those who stood at the wall learned a thousand years ago. Heal those who hold the line, mortal, and do not let the whispers from beneath the sand persuade you that the dark is kinder." } },
       choices = {
-        { text = "I'll heal those on the line, and close my ears to whispers.", next = "BACK", reply = "Then you will do more good than you know, and the whispers will find no purchase in a heart that is busy.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll heal those on the line, and close my ears to whispers.", next = "BACK", reply = "Then you will do more good than you know. A heart busy with bandages has no room left for whispers.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Whispers can be heard without being obeyed. I'll listen.", next = "BACK", reply = "So say all who are eventually persuaded, mortal, and I would rather you did not test that wisdom on my watch.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -771,7 +784,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "They see the threads of time that every spell disturbs, as a stone disturbs a pond. You shape the world a little each time you cast, mortal, and the Brood watches every ripple." } },
       choices = {
-        { text = "Then I'll cast carefully, and respect time.", next = "BACK", reply = "Then you are wiser than most mages, and the master will see the ripples you do not make.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll cast carefully, and respect time.", next = "BACK", reply = "Then you are wiser than most mages who come through here. Most of them want to know what the hourglass does when they touch it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Time can bend to my will.", next = "BACK", reply = "Time bends to no one's will, mortal, and those who try it learn very quickly how far it bends back.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "That's unsettling.", next = "BACK" },
       },

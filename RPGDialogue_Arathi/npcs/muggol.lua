@@ -67,8 +67,8 @@ P:NPC {
         { id = "wm_default", text = "We're gryphon riders an' hunters, mostly, an' the forges at the Aerie are busy wi' spearheads an' saddle iron. Easier tae fly out wi' a purse an' buy what others make well." },
       },
       choices = {
-        { text = "A clan should make what it needs.", next = "BACK", reply = "Aye, an' so it should, in a better year. When the Aerie's forges catch up wi' the spears, I'll tell Falstad ye said so.", fx = { align = { order = 1 } } },
-        { text = "Buy from whoever's best. That's sense.", next = "BACK", reply = "Now that's a sensible head on ye. Gold's gold, an' a writ that brings good iron home is worth the flight.", fx = { align = { order = -1 } } },
+        { text = "A clan ought to make what it needs, Muggol.", next = "BACK", reply = "Aye, an' so it should, in a better year. When the Aerie's forges catch up wi' the spears, I'll tell Falstad ye said so.", fx = { align = { order = 1 } } },
+        { text = "Buy from whoever does it best. That's just sense.", next = "BACK", reply = "Now that's a sensible head on ye! Gold's gold, an' when a writ brings good iron home tae the Aerie, nobody there asks whose hands shaped it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,6 +130,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Aerie Peak born, gryphon raised, an' sent out wi' a purse because I'm the best haggler in the clan. Or the loudest, anyway." } },
     advice = { { id = "tp_ad", text = "Pay fair an' ye'll always have someone tae sell tae. Cheat once an' ye'll be buyin' from goblins forever." } },
-    _none = { { id = "tp_none", text = "Ha! No idea, friend. Ask me about elixirs." } },
+    _none = { { id = "tp_none", text = "Ha! No idea, friend. Ask me about elixirs instead; them I know." } },
   },
 }

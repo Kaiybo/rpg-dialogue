@@ -41,7 +41,7 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Where do your weapons come from?", next = "source" },
         { text = "Which of these would get me killed?", next = "killed" },
-        { text = "Go on, then. Judge my grip.", next = "grip" },
+        { text = "Go on, then, judge my grip.", next = "grip" },
         { text = "Who buys the most steel from you?", next = "buyers" },
         { text = "The centaur must keep you in business.", next = "kolkar" },
         { text = "Would you sell to anyone with coin?", next = "anyone" },
@@ -276,7 +276,7 @@ P:NPC {
     druid = {
       lines = { { id = "dr_default", text = "Then you know better than any of us that a beast is not a coat to be taken off and hung up. The druids I've met wear leather gladly, though, so I think the Earthmother allows it, so long as we remember who wore it first." } },
       choices = {
-        { text = "We remember. That's what matters.", next = "BACK", fx = { affinity = 1 } },
+        { text = "We remember them, and that's what matters.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -371,7 +371,7 @@ P:NPC {
       lines = { { id = "he_default", text = "Because I can't help it, and I've been looking at it since you walked in. Who stitched that hem, if you don't mind my asking, and you'd better not say a goblin." } },
       choices = {
         { text = "I stitched it myself.", next = "he_self", fx = { trait = { independent = 1 } } },
-        { text = "I bought it. I don't sew.", next = "he_bought", fx = { trait = { practical = 1 } } },
+        { text = "I bought it. I've never sewn a stitch in my life.", next = "he_bought", fx = { trait = { practical = 1 } } },
         { text = "It came off a quilboar, actually.", next = "he_quil", fx = { affinity = -1, trait = { witty = 1 } } },
       },
     },

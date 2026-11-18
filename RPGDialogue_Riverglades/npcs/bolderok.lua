@@ -163,7 +163,7 @@ P:NPC {
         { id = "kk_default", text = "Some were, and some still are, but they chose the prophets and Bolder'ok chose to live. If they come out of the caves and put down their clubs, Clugfist will let them sit by the fire, but they never come out." },
       },
       choices = {
-        { text = "Then they've made their choice. Show no mercy.", next = "BACK", reply = "Clugfist knows. It is hard, but Bolder'ok will do what it must.", fx = { align = { light = -1 } } },
+        { text = "Then they've made their choice. Show no mercy.", next = "BACK", reply = "Clugfist knows, and Clugfist will not cry where the others can see. Bolder'ok will do what it must.", fx = { align = { light = -1 } } },
         { text = "Keep the fire lit for them anyway.", next = "BACK", reply = "Clugfist will keep it lit, a small one, at the edge of camp. Do not tell the others.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -253,7 +253,7 @@ P:NPC {
       },
       choices = {
         { text = "Maybe he's alive. Don't give up on him.", next = "BACK", reply = "Jom-jom will try. Jom-jom likes thinking he is alive better than the other thing.", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "He chose the Hammer. Let him go.", next = "BACK", reply = "Jom-jom knows he chose, but Jom-jom misses him anyway. Letting go is harder than it sounds.", fx = { align = { light = -1 } } },
+        { text = "He chose the Hammer. Let him go.", next = "BACK", reply = "Jom-jom knows he chose, but Jom-jom still saves him a bone at supper. Maybe Jom-jom will stop soon.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

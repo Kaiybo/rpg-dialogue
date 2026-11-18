@@ -82,13 +82,13 @@ P:NPC {
           text = "You found his map, didn't you? Then he's alive in there, or was when he dropped it, and that's more hope than we've had in weeks." },
       },
       choices = {
-        { text = "Keep saying 'when.' I'll help find him.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Keep saying 'when.' I'll help you find him.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     dig_proof = {
       lines = {
-        { id = "dp_default", text = "The old carvings in there show folk made of stone, built by the titans, and some of the League's scholars think that's us, before we were flesh. I'd rather believe we were made of something, mind, than that we just crawled out of a hole." },
+        { id = "dp_default", text = "The old carvings in there show folk made of stone, built by the titans, and some of the League's scholars think that's us, before we were flesh. I'd rather believe we were made of something than that we just crawled out of a hole." },
       },
       choices = {
         { text = "Made of stone. That's a proud thing.", next = "dig_stone" },
@@ -196,7 +196,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll bring you something, no payment needed.", next = "BACK", reply = "No payment? Bless ye, then, an' I'll take the boots-flavoured buzzard gladly. I'll owe ye a good edge on yer blade.", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Hunting's work. I'll expect something for it.", next = "BACK", reply = "Fair enough, for it's work, an' I'll pay ye what I can. That isnae much, mind, but my sharpenin's free.", fx = { align = { honor = -1 } } },
+        { text = "Hunting's work, smith. I'll want something for my trouble.", next = "BACK", reply = "Fair enough, it's honest work. I've not a copper to spare, but I'll put an edge on yer axe for it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

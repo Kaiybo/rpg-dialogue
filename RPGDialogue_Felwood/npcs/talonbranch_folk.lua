@@ -30,8 +30,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deadwood = {
+      lines = {
+        { id = "ddd_default", text = "I know, and I know why. The Deadwood ate and drank what Felwood gave them, and the fel took them from the inside, and now they attack the Timbermaw and us alike. The owlbeasts I study are going the same way, and I fear the furbolgs are only the first." },
+      },
+      choices = {
+        { text = "Then the corrupted should be put down before it spreads.", next = "BACK", reply = "That is the Sentinels' view, and I cannot argue with it today. I only hope we are still able to tell the sick from the lost.", fx = { align = { light = -1 } } },
+        { text = "If they were poisoned, maybe they can be cured.", next = "BACK", reply = "The Emerald Circle believes so, and I hope they are right. Speak to them at the Sanctuary, and tell them Taronn sent you.", fx = { align = { light = 1 } } },
+        { text = "Something else, Taronn.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_deadwood", tags = { "news" }, when = { killed = { name = "Deadwood", min = 30 } }, text = "The Deadwood camps south of the glade are thinner than they were, and the Sentinels say it was your work. I take no pleasure in it, for the furbolgs were wise once, but the glade sleeps easier." },
+        { id = "h_dd_rescue", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Jessir tells me you brought her friend Arko'narin out of Jaedenar alive. That is the kind of news Talonbranch hears too rarely, and I was glad to carry it to the Sentinels myself." },
         { id = "h_default", key = true, text = "I am Taronn Redfeather, and I study the wildkin, the great owlbeasts who roost in Winterspring and the old places of our people. Something has gone wrong with them, and I mean to learn what before the Sentinels decide the only answer is arrows." },
         { id = "h_active", when = { questActive = TODO_QUEST("Wild Guardians") }, text = "The moontouched ones are north of the Timbermaw tunnels, and the berserk ones keep near the small caves further south. Look at their eyes before you fight them, if you can manage it, and tell me what you see there." },
       },
@@ -40,6 +52,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, friend. I've had no one to talk to but the hippogryphs." },
       },
       choices = {
+        { text = "I've had to kill a lot of Deadwood furbolgs.", next = "dd_deadwood", when = { killed = { name = "Deadwood", min = 30 } } },
         { text = "What are the wildkin?", next = "wildkin" },
         { text = "What's gone wrong with them?", next = "mad" },
         { text = "How do I reach Winterspring from here?", next = "road" },
@@ -104,7 +117,7 @@ P:NPC {
         { id = "mt_default", text = "Thin the worst of them, and bring me whatever they wear or carry, because a wildkin doesn't carry trinkets without a reason. I hate to ask it, but a dead guardian can still tell me what a living one would not." },
       },
       choices = {
-        { text = "I'll do it, and I'll make it quick for them.", next = "BACK", reply = "Thank you, and Elune bless you for the mercy in it. They were guardians once, and they deserve a clean end.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll do it, and I'll make it quick for them.", next = "BACK", reply = "Thank you, and Elune bless you for the mercy in it. Say her name when you do it, if you can bear to.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Mad beasts are mad beasts. I'll cut through them.", next = "BACK", reply = "I won't stop you, but I wish you'd think of them as they were. They guarded these woods long before any of us came.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -169,7 +182,7 @@ P:NPC {
         { id = "xh_default", text = "I've heard hunters say so, and I've heard druids say the opposite, and I've never been sure which of you to believe. The wildkin aren't ordinary beasts, though, and I'd ask you to remember that before you loose an arrow at one." },
       },
       choices = {
-        { text = "I'll remember. Some creatures deserve more care than others.", next = "BACK", reply = "Thank you, and I'll feel easier knowing you will. The wildkin are Elune's own, whatever they've become.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll remember. Some creatures deserve more care than others.", next = "BACK", reply = "Thank you, and I'll feel easier knowing you will. I've raised two wildkin from the egg, and I'd hate to hear of either at the end of a blade.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast that kills is a beast that dies. That's all.", next = "BACK", reply = "Perhaps it is, out in the wider world, but the wildkin are not wolves. I'd ask you to remember that when you meet one.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

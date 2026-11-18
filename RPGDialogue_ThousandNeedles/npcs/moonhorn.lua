@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "o_grim_lost", when = { opinion = { grimtotem = "lost" } }, text = "Word at Freewind is you've no time for the Grimtotem at all. Good, because the looks they've been giving us at the lift lately aren't friendly ones." },
-    { id = "g_lift", text = "You came up the lift? Good, then you've seen the drop. Stay away from the edge, traveler; the Earth Mother made the canyon deep for a reason." },
+    { id = "g_lift", text = "You came up the lift? Good, then you've seen the drop. Stay away from the edge, traveller; the Earth Mother made the canyon deep for a reason." },
     { id = "g_active", when = { questActive = TODO_QUEST("Message to Freewind Post") }, text = "Freewind Post, to the southeast. Give the message to Cliffwatcher Longhorn, and no one else." },
     { id = "g_done", when = { questDone = TODO_QUEST("Message to Freewind Post") }, text = "Longhorn has my message, then. Good. I can watch the lift without worrying about the road." },
     { id = "g_away", when = { away = 14 }, text = "You're back, after {away}! The lift's kept running, and the centaur have kept raiding, so not much has changed." },
@@ -33,6 +33,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_pacify", when = { questDone = TODO_QUEST("Pacify the Centaur") },
+          text = "Longhorn says you pushed the Galak back from the canyon floor for him. Fewer centaur below means fewer arrows coming up the lift, and I've been glad of every quiet day since." },
         { id = "h_default", key = true, text = "Brave Moonhorn. I watch the top of the Great Lift for Freewind Post, and lately I've had more to watch than I'd like." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Message to Freewind Post") },
           text = "Traveler, wait! The centaur have stepped up their attacks around here, and Freewind Post needs to know at once. Take this message to Cliffwatcher Longhorn to the southeast, and stay clear of the Grimtotem on the way; they've been acting strangely toward us." },
@@ -98,8 +100,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I'm a brave of Freewind Post, posted to the lift. It isn't glorious, but it's needed." } },
-    advice = { { id = "tp_ad", text = "Never stand with your back to a canyon in the Needles. Something's always climbing up it." } },
+    background = { { id = "tp_bg", text = "I'm a brave of Freewind Post, posted to the lift. It isn't glorious, but every caravan that comes up safely passes me first, and I count that for something." } },
+    advice = { { id = "tp_ad", text = "Never stand with your back to a canyon in the Needles. Something's always climbing up it, and it's rarely friendly." } },
     grimtotem = { { id = "tp_grim", text = "Tauren who'd rather we weren't here. Watch them, and don't let them get behind you." } },
     centaur = { { id = "tp_centaur", text = "The Galak raid from the south, and they grow bolder every season. I warn every traveller who comes up the lift, and I hope they listen." } },
     cairne = { { id = "tp_cairne", text = "Cairne is the High Chieftain, and he trusts Freewind to hold the Needles. I mean to prove him right, even if the Grimtotem make it harder." } },

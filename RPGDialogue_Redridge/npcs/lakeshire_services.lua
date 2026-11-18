@@ -34,6 +34,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "dd_tools_penny", when = { questDone = TODO_QUEST("The Lost Tools") },
+          text = "Oslow's men have their tools back, and they say it was you who went in after them. The sooner that bridge is fixed, the sooner my horses can stop swimming the long way round, so thank you from all of us in the stable." },
+
         { id = "h_default", key = true,
           text = "I'm Penny, and I keep the stables, which in Lakeshire means horses, hunters' beasts and the occasional goat that wandered in from the hills. I'll look after anything with four legs and a temper." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -166,6 +169,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "dd_bridge_lindsay", when = { questDone = TODO_QUEST("The Everstill Bridge") },
+          text = "Oslow's crew says you helped them get the bridge moving again, and my husband stands his watch at the end of it. If it's finished, he'll have stone under his feet instead of planks, and I'll worry about him a little less." },
+
         { id = "h_default", key = true,
           text = "I'm Lindsay Ashlock, and I keep Lakeshire in thread, flint, salt and all the little things nobody thinks about until they've run out. My husband's the guard on the bridge, so if he looks cold, tell him I said to put his scarf on." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -287,8 +293,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_crystal_g = {
+      lines = {
+        { id = "dd_crystal_g_a", text = "You did, and I'll not have you thinking that's a small thing, because a soldier on an empty stomach makes mistakes. Breanna feeds the whole garrison on scraps, and a good pot of goulash is worth three swords on the wall." },
+      },
+      choices = {
+        { text = "Then I'm glad to have fed them.", next = "dd_crystal_g2" },
+        { text = "Could you teach me to make it?", next = "dd_crystal_g2" },
+      },
+    },
+    dd_crystal_g2 = {
+      lines = {
+        { id = "dd_crystal_g2a", text = "Learn your basics with me first, and then go and beg the recipe off Breanna, because she guards it like a dragon guards gold. Bring condor meat and a good appetite, and she might soften." },
+      },
+      choices = { { text = "I'll try. Something else, Crystal.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
+        { id = "dd_goulash_crystal", when = { questDone = TODO_QUEST("Redridge Goulash") },
+          text = "Breanna says you fetched the meat for her goulash, and I tasted it last night, and I'll tell you it's the best she's made in a year. Good cooking takes good ingredients, and you've proven you can hunt them." },
+
         { id = "h_default", key = true,
           text = "I'm Crystal Boughman, and I teach cooking to anyone who'll stand still long enough to learn. When you've learned all I know, Dirge Quikcleave in Gadgetzan is the master of the culinary arts, though you'll want a strong stomach for his kitchen." },
         { id = "h_cook", when = { profession = "Cooking" },
@@ -299,6 +324,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away, love." },
       },
       choices = {
+        { text = "I helped Breanna with her goulash, Crystal.", next = "dd_crystal_g", when = { questDone = TODO_QUEST("Redridge Goulash") } },
+
         { text = "Teach me to cook.", next = "BUSINESS", when = { profession = "Cooking" } },
         { text = "What's the best dish in Lakeshire?", next = "dish" },
         { text = "Who is Dirge Quikcleave?", next = "dirge" },
@@ -321,8 +348,8 @@ P:NPC {
       big = true,
       lines = { { id = "dic_default", text = "Every harvest fair, and she wins every time, because she cooks for soldiers and I cook for my mother. She keeps her recipe secret, too, and I can't decide whether a cook ought to share hers or keep it." } },
       choices = {
-        { text = "Share your recipes. Everyone eats better.", next = "BACK", reply = "Oh, that's a lovely thought, and you sound like my mother. Still, if I gave her my secrets I'd never win a ribbon in my life, so you'll forgive me if I keep the best one.", fx = { align = { order = 1 } } },
-        { text = "Keep your secrets. They're your living.", next = "BACK", reply = "Exactly, and thank you for saying so, because nobody else in Lakeshire will. A cook without a secret is just someone who boils things.", fx = { align = { order = -1 } } },
+        { text = "Share your recipes, and everyone eats better.", next = "BACK", reply = "Oh, that's a lovely thought, and you sound like my mother. Still, if I gave her my secrets I'd never win a ribbon in my life, so you'll forgive me if I keep the best one.", fx = { align = { order = 1 } } },
+        { text = "Keep your secrets, then. They're your living.", next = "BACK", reply = "Exactly, and thank you for saying so, because nobody else in Lakeshire will. My mother took her pie crust to the grave, and I mean to do the same.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -420,7 +447,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Wilma Ranthal. I skin what the hills give me and teach anybody who walks out this far. Not many do, which suits me." },
         { id = "h_hunter", when = { class = "HUNTER" },
-          text = "A hunter. Good. You'll have plenty of hides to practise on, and you'll know not to waste them." },
+          text = "A hunter, good! You'll have plenty of hides to practise on, and you'll know not to waste them." },
       },
       again = {
         { id = "h_again", text = "Something else?" },
@@ -479,7 +506,7 @@ P:NPC {
     worg = {
       lines = { { id = "wo_default", text = "Good eye. The Blackrock ride them and sometimes the beasts stray, and a stray worg near my camp doesn't stray again. Thick fur, tough hide, smells worse than I do." } },
       choices = {
-        { text = "Killing their beasts. Good. Hurt them any way you can.", next = "BACK", fx = { align = { light = -1 } },
+        { text = "Killing their beasts is good. Hurt them any way you can.", next = "BACK", fx = { align = { light = -1 } },
           reply = "I don't do it to hurt anybody. I do it so it doesn't eat me." },
         { text = "The beast didn't choose its master. Spare the strays.", next = "BACK", fx = { align = { light = 1 } },
           reply = "You can spare the next one, then, when it's got its teeth in your leg." },

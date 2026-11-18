@@ -41,6 +41,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_escape = {
+      lines = {
+        { id = "dd_escape_a", text = "I knew it! Verina owes me a silver, then. Old Pa Maclure was in here last night shouting that a Stonefield had stolen his daughter, and Gramma Stonefield was in an hour later laughing fit to burst, so I've had both ends of it already." },
+      },
+      choices = {
+        { text = "They love each other. The families can mend their feud themselves.", next = "dd_escape_2", fx = { align = { light = 1 } } },
+        { text = "It wasn't my business. I just carried the potion.", next = "dd_escape_2", fx = { align = { order = -1 } } },
+        { text = "Do you think the Maclures and Stonefields will ever make peace?", next = "dd_escape_3" },
+      },
+    },
+    dd_escape_2 = {
+      lines = {
+        { id = "dd_escape_2a", text = "Well, however you came to it, the town's talking of nothing else, and I've sold more ale on the strength of it than on harvest night. Young love's good for business, it turns out." },
+      },
+      choices = { { text = "Then I'll take my share in conversation. Something else.", next = "BACK" } },
+    },
+    dd_escape_3 = {
+      lines = {
+        { id = "dd_escape_3a", text = "When there's a grandchild, they will, mark me. Nobody stays cross with a baby, not even a Maclure, and Gramma Stonefield will have the christening planned before the young ones are even home." },
+      },
+      choices = { { text = "I'll drink to that day, Farley. Something else.", next = "BACK" } },
+    },
+
     op_orcs = {
       lines = {
         { id = "op_orcs_a", text = "The old folk swear they will every winter, when the wind's from the south. But the travellers say Thrall's orcs have a land of their own across the sea now, and they claim they only want to be left alone. Would you trust them, friend?" },
@@ -133,6 +156,13 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_escape", tags = { "news" }, when = { questDone = TODO_QUEST("The Escape") },
+          text = "The whole common room says the Maclure girl and the Stonefield boy have run off together, and that somebody with a steady hand helped them. I'm not asking who, but I did notice you came in smiling." },
+        { id = "dd_defias", when = { killed = { name = "Defias", min = 30 } },
+          text = "Fewer red bandanas at my bar this month, and the ones who do come in sit near the door and drink fast. Somebody's been thinning them on the roads, and the regulars think it's you." },
+        { id = "dd_deaths", when = { deaths = { min = 10 } },
+          text = "You've the look of someone Priestess Josetta has patched up more than once, friend. Sit near the fire, and try not to bleed on the good chair." },
+
         { id = "h_alt_any", when = { alt = true, metBefore = false },
           text = "You've a face I half know, and it's taken me a moment to place it. There was a {altrace} {altclass} called {alt} who sat by my fire not long back, and you could pass for that one in poor lamplight." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
@@ -170,6 +200,8 @@ P:NPC {
         { id = "h_again3", text = "Anything else? I've a cheese to cut and a story to finish." },
       },
       choices = {
+        { text = "Maybell and Tommy Joe are safe, Farley. I saw to it.", next = "dd_escape", when = { questDone = TODO_QUEST("The Escape") } },
+
         { text = "What do you like about Elwynn?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "Goldshire seems quiet enough tonight.", next = "rumors" },

@@ -95,7 +95,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Healed? I'd settle for held. The apothecaries talk of cleansing the soil with their brews, and your people talk of growing it back, and I'll take whichever works first, so long as the Scourge stays on the other side of the wall." } },
       choices = {
-        { text = "Hold the wall first. Healing can wait.", next = "BACK", reply = "Good. A held wall gives the healers somewhere to stand.", fx = { align = { order = 1 } } },
+        { text = "Hold the wall first. Healing can wait.", next = "BACK", reply = "Good. Get up on the west parapet, then; that's where they come over first.", fx = { align = { order = 1 } } },
         { text = "Healing is how you win. Walls only buy time.", next = "BACK", reply = "Perhaps, but a wall buys the time healing needs, and I'm short of both. Grow it back, druid, and I'll hold until you do.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -130,8 +130,25 @@ P:NPC {
         { text = "Something else, High Executor.", next = "BACK" },
       },
     },
+    dd_termites = {
+      lines = {
+        { id = "dd_termites_1",
+          text = "Worth it? The Crusade needs timber for palisades, siege ladders and gallows, and Northridge was where they cut it. Now they'll be hauling wood from Hearthglen under my archers' noses, and every wagon they lose is a wall they don't build." },
+        { id = "dd_termites_2",
+          text = "Undercity will say it was the apothecaries' victory, of course. Let them, so long as the Crusade knows it was the Bulwark that did it to them." },
+      },
+      choices = {
+        { text = "The Crusade deserves every pestilence we can give it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Using plague still turns my stomach, Executor.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_termites", when = { questDone = TODO_QUEST("A Plague Upon Thee") },
+          text = "Levine tells me her termites ate the Crusade's lumber yard at Northridge from the inside out, and that you carried them there. I've seen worse uses of a plague, and I've seen very few better." },
+        { id = "h_dd_scarlet", when = { killed = { name = "Scarlet", min = 40 } },
+          text = "My deathstalkers count Scarlet dead the way the living count coins, and lately they keep finding your work along the Hearthglen road. Keep at it; every crusader in the dirt is one fewer at my wall." },
         { id = "o_pcwar", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } }, text = "Apothecary Dithers says you'd sooner fight Chillwind than share a word with it. Hold that thought until Andorhal falls, and then we'll talk." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" }, faction = "Horde" },
           text = "You travel with {companion}, one of the Dark Lady's own, and that pleases me. The living fight the Scourge out of fear, but we fight it because we remember exactly what it did to us." },
@@ -159,7 +176,7 @@ P:NPC {
           text = "A warrior of the Horde, and a sound one by the look of that shield. The Deathguard can hold a wall, {class}, but they can't take Andorhal without someone who enjoys the charge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. The beasts west of here are plagued to the marrow, {class}, so whatever you skin out there, don't eat it, and don't sell it to anyone you like." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid in the Bulwark. The land beyond the wall is dead, druid, and I doubt even your Earth Mother can do much about it." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid in the Bulwark. The land beyond the wall is dead, druid, and I doubt even your Earth Mother can do much about it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Bulwark. Tell me quickly whether the spirits still answer you this far north, {class}, because I've had orcs come back from Andorhal swearing the earth had gone deaf." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, at the Bulwark. In Undercity they whisper about whether your kind can be trusted, and out here I only ask whether you'll still be standing at dawn." },
       },
@@ -168,6 +185,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, the wall can spare me for another minute." },
       },
       choices = {
+        { text = "Northridge burned. Was it worth it?", next = "dd_termites", when = { questDone = TODO_QUEST("A Plague Upon Thee") } },
         { text = "How do you fight two enemies with one wall?", next = "play", when = { questBefore = TODO_QUEST("Mission Accomplished!") } },
         { text = "The Bulwark looks thrown together from rubble.", next = "wall" },
         { text = "What's to be done about Andorhal?", next = "andorhal" },
@@ -406,8 +424,23 @@ P:NPC {
         { text = "Something else, priestess.", next = "BACK" },
       },
     },
+    dd_deaths = {
+      lines = {
+        { id = "dd_deaths_1",
+          text = "Every death leaves a mark, if you know where to look, and I have had some practice looking. The spirit healers send you back, and each time a little less of the warmth comes with you." },
+        { id = "dd_deaths_2",
+          text = "I don't say it to frighten you. Most of us in the Bulwark died only once and had no say in the matter, so you'll understand if we find your carelessness a little indulgent." },
+      },
+      choices = {
+        { text = "Death's just a road. I'll walk it as often as I need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd rather not lose any more of myself. I'll be careful.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You've crossed the threshold more than a few times, haven't you? I can smell the grave on you, and it suits you better than you'd think." },
         { id = "h_default", key = true,
           text = "Shadow Priestess Vandis. Bring me a sample from each of the four cauldrons and the apothecaries will turn the plague on its makers, which is all the miracle we're likely to get." },
         { id = "h_sample", tags = { "news" }, when = { questActive = TODO_QUEST("Return to the Bulwark") },
@@ -426,7 +459,7 @@ P:NPC {
           text = "A warrior. You'll bleed on my floor and expect me to mend it, {class}, which I will, though the shadow mends rougher than the Light ever did." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. The beasts that drink near the cauldrons die slowly, {class}, and I've wondered whether that's what the samples would do to us." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You'll find the earth here sick beyond anything you've known, but the Forgotten Shadow has seen sickness before, and we've learned to use it." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. You'll find the earth here sick beyond anything you've known, but the Forgotten Shadow has seen sickness before, and we've learned to use it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll find the elements sullen out here, {class}, for the cauldrons have soured the very air, and I suspect the spirits like it even less than I do." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. I prayed to the Light once, as earnestly as you do, and it let me die all the same, so forgive me if I watch you the way I watch the cauldrons." },
       },
@@ -435,6 +468,7 @@ P:NPC {
         { id = "h_again2", text = "Still curious? It won't save you out there, but go on." },
       },
       choices = {
+        { text = "You can tell how often I've died?", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "Why shadow, not the Light?", next = "shadow" },
         { text = "How do the samples help?", next = "samples" },
         { text = "Derrington seems a hard commander.", next = "derrington" },
@@ -464,7 +498,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Fire would scatter the plague on the wind, and the Bulwark would breathe it by morning. No, we need the samples and the apothecaries' patience, and then we turn the brew back on the Scourge and let it choke on what it made." } },
       choices = {
-        { text = "Then fire waits. Patience kills more cleanly.", next = "BACK", reply = "Good. Patience kills more cleanly, and it doesn't poison the Bulwark while it does.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then fire waits. Patience kills more cleanly.", next = "BACK", reply = "Good. Derrington says the agent's three days off, and I'd rather wait three days than breathe that smoke for a month.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Burn them anyway. I won't wait on apothecaries.", next = "BACK", reply = "Then you'll answer to Derrington when the wind turns. Burn far from the wall, at least.", fx = { align = { order = -1 } } },
         { text = "Very well. Something else.", next = "BACK" },
       },
@@ -636,7 +670,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Oh, very much so, for the herbs that survive the cauldrons come up twisted, and some of them glow faintly at night. They're useful, I'll admit, but I wouldn't want to eat them, and I'm already dead." } },
       choices = {
         { text = "Then burn them. Nothing that grows from plague is safe.", next = "BACK", reply = "Burn them? Oh, but they're so interesting, and some of them glow. I'll keep a few in a jar, very carefully.", fx = { align = { light = 1 } } },
-        { text = "Use them. A strange herb is still a useful one.", next = "BACK", reply = "Exactly! Strange is just useful that hasn't been catalogued yet.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Use them. Strange doesn't mean useless.", next = "BACK", reply = "Exactly! Strange is just useful that hasn't been catalogued yet.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -674,7 +708,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "One did, once, and she was very kind about it, but it turns out the Light doesn't care for dead joints, and the shadow just makes them ache in a more interesting way. I've decided the knee is a scholarly matter now, and I take notes on it every morning, which is more than most priests do for their patients." } },
       choices = {
-        { text = "Let me try anyway. Mending is worth the attempt.", next = "BACK", reply = "Very kind of you, and I'll write down whatever happens. Science thanks you, and so does my knee.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let me try anyway. What's the worst that happens to a dead knee?", next = "BACK", reply = "Very kind of you, and I'll write down whatever happens. Science thanks you, and so does my knee.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Keep your notes, Apothecary. Shadow's no friend to bone.", next = "BACK", reply = "Quite right, quite right, and I'll keep my notes. The knee remains a scholarly matter.", fx = { align = { light = -1 } } },
         { text = "Something else, Apothecary.", next = "BACK" },
       },
@@ -688,8 +722,23 @@ P:NPC {
         { text = "Something else, Apothecary.", next = "BACK" },
       },
     },
+    dd_felstone = {
+      lines = {
+        { id = "dd_felstone_1",
+          text = "Beautifully, mostly. The grain round the field went grey and the rats stopped breeding, which tells me the plague's broken, though I'll admit the grass didn't care for it either." },
+        { id = "dd_felstone_2",
+          text = "Undercity sends me a letter asking whether the agent could be turned the other way, to make a plague instead of cure one. I always lose those letters, you understand, at least until someone asks twice." },
+      },
+      choices = {
+        { text = "Turning it into a weapon would win the war.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep losing those letters, Apothecary.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_felstone", when = { questDone = TODO_QUEST("Target: Felstone Field") },
+          text = "The Felstone cauldron is spent, and Vandis says it was your hand that tipped the agent in! My knee was aching all afternoon, which I'm choosing to take as a sign of approval." },
         { id = "h_default", key = true,
           text = "Apothecary Dithers, of the Royal Apothecary Society, on loan to the Bulwark. I make the counter agent for the cauldrons and sell the quickener, and I'm building a key to the Scholomance out of bones, so it's a busy sort of afterlife." },
         { id = "h_fragments", tags = { "news" }, when = { questActive = TODO_QUEST("Skeletal Fragments") },
@@ -712,7 +761,7 @@ P:NPC {
           text = "A warrior! You'll be wanting the quickener, I expect, {class}, for it puts a spring in a soldier's step that I'm told is quite alarming to watch." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter, how lovely! Don't let anything of yours near the samples, {class}, for the last pet that licked a vial in here barked for three days and then barked backwards." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Do you know your herbs? Some of what I need grows only here now, and it's grown very strange in the poisoned soil." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. Do you know your herbs? Some of what I need grows only here now, and it's grown very strange in the poisoned soil." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! Do mind the shelves, {class}, for some of these bottles will kill you and the rest are merely rude, and I've stopped labelling which is which." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Splendid, my knee could use a word with whatever you pray to, {class}, though I suspect it would only complain about the weather." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've always wanted to ask one of you, {class}, whether the plague counts as an element, because I'd have a great many questions for it." },
@@ -723,6 +772,7 @@ P:NPC {
         { id = "h_again2", text = "Yes, yes, what else? Mind the green bottle, it's in a mood." },
       },
       choices = {
+        { text = "Did the counter agent work at Felstone?", next = "dd_felstone", when = { questDone = TODO_QUEST("Target: Felstone Field") } },
         { text = "Your counter agent sounds clever.", next = "agent" },
         { text = "Tell me about this key.", next = "key" },
         { text = "How's the knee?", next = "knee" },
@@ -954,7 +1004,7 @@ P:NPC {
           text = "A warrior. My brother sleeps with a sword under his blanket, {class}, as though steel ever saved a Barov from anything, and I'd enjoy watching someone use one properly for once." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. My father kept hounds at Caer Darrow and rode them round the lake every autumn, {class}, and I've never forgiven the plague for the smell it left there instead." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. My family's lands were the finest in Lordaeron once, and now they grow nothing but bones, so I'll not be asking your advice on gardening." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. My family's lands were the finest in Lordaeron once, and now they grow nothing but bones, so I'll not be asking your advice on gardening." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you've come to save my soul, {class}, I'm afraid my father sold it before I was old enough to object, and Kel'Thuzad never gave receipts." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. I hear your kind claim the land belongs to nobody, {class}, which is a charming idea, and one I'd ask you to keep well away from my deeds." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. My family knew the Silver Hand well, as we knew everyone worth knowing, and I can assure you they'd have found you very hard to explain at dinner." },
@@ -1155,7 +1205,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The plague sends the beasts mad, and the mad ones run toward the dead rather than away from them. Follow a sick wolf far enough, and more often than not you'll find a cult camp or a ghoul pit at the end of the trail. {pet} has a keen nose, I can see it." },
       },
       choices = {
-        { text = "Then I'll put the mad ones down before I follow their trails.", next = "BACK", reply = "Good. The mad ones suffer, and a quick end is the honourable thing.", fx = { align = { light = 1 } } },
+        { text = "Then I'll put the mad ones down before I follow their trails.", next = "BACK", reply = "Good. I've watched a mad wolf chew its own leg to the bone, and no beast should be left like that.", fx = { align = { light = 1 } } },
         { text = "I'll let the sick wolves run, and follow them to the nests.", next = "BACK", reply = "Clever. Follow them, but don't let them lead you into a pit.", fx = { align = { light = -1 } } },
         { text = "Tell me something else.", next = "BACK" },
       },
@@ -1173,13 +1223,28 @@ P:NPC {
       big = true,
       lines = { { id = "xpriest_default", text = "The commission stones, mostly, and the soldiers who carry them, because the Scourge's taint creeps in through cuts and doubts alike. The Dawn doesn't ask whose god you pray to, only that you pray where it does some good, and that's on the far side of this wall." } },
       choices = {
-        { text = "I'll pray where it's needed, on the far side.", next = "BACK", reply = "Good. The far side is where it's needed most.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll pray where it's needed, on the far side.", next = "BACK", reply = "Good. Nobody's prayed past the Felstone fields in a year, and it shows.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers won't stop ghouls. I'll trust my own strength.", next = "BACK", reply = "Then trust your strength, and I'll trust mine. Just carry a commission stone.", fx = { align = { light = -1 } } },
+        { text = "Something else, Garush.", next = "BACK" },
+      },
+    },
+    dd_scourge = {
+      lines = {
+        { id = "dd_scourge_1",
+          text = "I do. When I fought for the old Horde, there were farmers and children among the dead, and the demon blood made it feel like glory. The Scourge has no children, and nothing that falls to my axe here was ever going to wake up and forgive me." },
+        { id = "dd_scourge_2",
+          text = "That is a kind of peace, and I did not expect to find it in the Plaguelands. Perhaps you will find it too, if you keep at it long enough." },
+      },
+      choices = {
+        { text = "Glory is glory, whoever's blood buys it.", next = "BACK", fx = { align = { honor = -1, light = -1 } } },
+        { text = "I think I understand. There's no shame in this fight.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else, Garush.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_scourge", when = { killed = { name = { "Skeletal", "Ghoul", "Rotting", "Zombie" }, min = 60 } },
+          text = "The scouts say the dead lie thicker on the roads you walk, {class}. Once I killed for a warchief who wanted blood, and now I kill for the Dawn, and you seem to have found the same honest work." },
         { id = "o_addistrust", tags = { "news" }, when = { gossip = { topic = "argent_dawn", stance = "distrust" } }, text = "The High Executor tells me you think the Dawn wants watching. Watch, then; we have nothing here we'd hide from you." },
         { id = "h_default", key = true,
           text = "Argent Officer Garush, orc, Horde-born, and a soldier of the Argent Dawn, where every race faces one enemy. I fought for the Horde all my life, and now I fight for everybody." },
@@ -1209,6 +1274,7 @@ P:NPC {
         { id = "h_again2", text = "Something more? Ask it, I'm here at the wall until the sun goes down." },
       },
       choices = {
+        { text = "You call killing the Scourge honest work?", next = "dd_scourge", when = { killed = { name = { "Skeletal", "Ghoul", "Rotting", "Zombie" }, min = 60 } } },
         { text = "An orc in the Argent Dawn is a rare sight.", next = "why" },
         { text = "What do the stones do?", next = "commission" },
         { text = "I hear you write to an Alliance officer.", next = "pureheart" },
@@ -1240,7 +1306,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Fire is the answer to the dead who won't stay down, and nothing else I know is as quick. But these fields are still somebody's farms, and the Dawn means to give them back one day, so burn the corpses and spare the barns." } },
       choices = {
-        { text = "Then I'll burn carefully. The land deserves a future.", next = "BACK", reply = "Good. A future is worth more than an easy fire.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll burn carefully. The land deserves a future.", next = "BACK", reply = "Good. Somebody may farm those fields again one day, and I'd like them to find soil and not cinders.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Burn everything. Clean ash is better than tainted barns.", next = "BACK", reply = "Clean ash is clean, I'll grant you. The Dawn will want words with you, though.", fx = { align = { light = -1 } } },
         { text = "Understood. Something else.", next = "BACK" },
       },

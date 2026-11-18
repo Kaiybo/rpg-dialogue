@@ -208,8 +208,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_iruxos = {
+      lines = {
+        { id = "dd_ix_default", text = "Bury it deep, she say, and bless the ground over it so nothin' can dig it up again. The demons left their mark all over Mannoroc Coven, and Taiga don't want even a scrap of them comin' near Shadowprey. What would you have done with it?" },
+      },
+      choices = {
+        { text = "Burned it to ash and scattered it at sea.", next = "BACK", reply = "Ha, dat be the troll way, mon, and maybe the best. Fire and salt water, nothin' comes back from that.", fx = { align = { order = -1 } } },
+        { text = "Done as Taiga says. The elders know best.", next = "BACK", reply = "Spoken with respect, and Taiga would like to hear it. She be wiser than all of us put together.", fx = { align = { order = 1 } } },
+        { text = "Something else, Sikewa.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_iruxos", tags = { "news" }, when = { questDone = TODO_QUEST("Hand of Iruxos") },
+          text = "Taiga Wisemane sat at my table last night, and she told the whole inn you brought back the Hand of Iruxos from Mannoroc Coven. Half my guests wanted to shake your hand, mon, and the other half wanted to know if it was cursed." },
         { id = "h_default", key = true,
           text = "I'm Sikewa, and I keep the inn at Shadowprey, where the trolls fish, the tauren watch the centaur, and travellers wash the grey dust off their boots. Rest here, and I'll make this your home while you're on the coast." },
       },
@@ -218,6 +230,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. Innkeepers hear everything, so I've plenty to tell." },
       },
       choices = {
+        { text = "Did Taiga say what she'll do with the hand?", next = "dd_iruxos", when = { questDone = TODO_QUEST("Hand of Iruxos") } },
         { text = "A tauren innkeeper in a troll village?", next = "trolls" },
         { text = "What's the news on the coast?", next = "news" },
         { text = "Who should I talk to here?", next = "people" },
@@ -313,6 +326,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_blade", when = { killed = { name = "Burning Blade", min = 20 } },
+          text = "My riders fly over Thunder Axe Fortress on the way to Sun Rock, and lately they say the Burning Blade fires burn lower there. They say a {class} has been walking those walls, and I think they mean you." },
         { id = "h_default", key = true,
           text = "I am Thalon. My riders fly from the end of this dock to Thunder Bluff, to Sun Rock in the mountains, and south to Feralas, and they like the sea wind better than any other." },
       },
@@ -363,7 +378,7 @@ P:NPC {
         { id = "sn_default", text = "I name each one, though I don't tell travellers the names, because they'd only shout them in the air and confuse the poor beasts. The oldest is called Grey Wind, and that one I'll tell you, since she won't answer to it anyway." },
       },
       choices = {
-        { text = "Grey Wind. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Grey Wind. I'll remember the name.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

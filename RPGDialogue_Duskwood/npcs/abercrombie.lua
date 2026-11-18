@@ -82,7 +82,7 @@ P:NPC {
     xrogue = {
       lines = { { id = "xro_default", text = "Locked? Oh, those, they're my late wife's things, and I can't bear to see them, so I keep them shut. You won't need to open them, my friend; there's nothing inside but old dresses and memories." } },
       choices = {
-        { text = "Of course. A man's grief is his own.", next = "BACK", reply = "You're very kind, you truly are. Not many people understand grief anymore, not since the wolves took everyone who did.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Of course. I won't pry into a man's grief.", next = "BACK", reply = "You're very kind, you truly are. Not many people understand grief anymore, not since the wolves took everyone who did.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Then you won't mind if I look later.", next = "BACK", reply = "Later? Oh, but there's nothing to see, and I'd be ever so upset, dear. Let's just have some tea instead, shall we?", fx = { align = { honor = -1 } } },
         { text = "Tell me about your wife.", next = "wife" },
       },
@@ -105,7 +105,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Protecting? Oh, how kind, dear, but nothing up here troubles me, and I trouble nothing back. Do save that hammer for the rude things at the mound, because they took my crate and they've no manners at all." } },
       choices = {
-        { text = "Then I'll leave you in peace. It isn't my place to pry.", next = "BACK", reply = "That's very decent of you, very decent. The world needs more people who know how to leave an old man to his hobbies.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll leave you in peace. It isn't my place to pry.", next = "BACK", reply = "That's very decent of you, very decent. Most visitors poke about the shack as if I'd hidden something in it, which of course I haven't.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll look through those crates of yours before I go.", next = "BACK", reply = "Oh, must you? There's only sawdust and old thread, and I'd hate for you to get it on that lovely armor. Do take some tea first.", fx = { align = { honor = -1 } } },
         { text = "Something else, Abercrombie.", next = "BACK" },
       },

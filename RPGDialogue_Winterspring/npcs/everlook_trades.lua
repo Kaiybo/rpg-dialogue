@@ -47,7 +47,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Scholomance, Stratholme, the Spire, and the backs of people who didn't come home, though the Cartel prefers not to ask which. Warriors are my best buyers and my best sellers both, because you lot never stop trading up." } },
       choices = {
-        { text = "I'd rather earn my plate than wear a dead man's.", next = "BACK", reply = "Noble of you, pal, and the Spire will gladly give you the chance to earn it. Just remember the fella who wore it last probably said the same thing.", fx = { align = { honor = 1 } } },
+        { text = "I'd rather earn my plate than wear a dead man's.", next = "BACK", reply = "Noble of you, pal, and the Spire will gladly give you the chance to earn it. Just remember the fella who wore it last probably said the same thing on his way up.", fx = { align = { honor = 1 } } },
         { text = "A dead man's plate fits just as well. Show me the cheapest.", next = "BACK", reply = "Now that's a customer I like, practical and cold-blooded, and the dead fella doesn't need it. Bottom shelf, left side, and don't mind the dent in the chest.", fx = { align = { honor = -1 } } },
         { text = "Something else, Grizzlin.", next = "BACK" },
       },
@@ -96,7 +96,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Coin's the same colour in any hand, friend, and the Cartel keeps the peace better than any treaty, because nobody burns down the auction house they're selling at. Call it greed if you like, but nobody's died in Everlook this year over a banner." } },
       choices = {
         { text = "The Cartel's rules keep the peace. I'll respect them.", next = "BACK", reply = "You've got sense, friend, and sense is good for business. Nobody's ever started a war in an auction house, and I mean to keep it that way.", fx = { align = { order = 1 } } },
-        { text = "Rules bought with gold can be broken with more of it.", next = "BACK", reply = "True enough, pal, but nobody's had enough gold yet, and the Cartel's got plenty more. Rules bought by goblins come with a very good warranty.", fx = { align = { order = -1 } } },
+        { text = "Rules bought with gold can be broken with more of it.", next = "BACK", reply = "True enough, pal, but nobody's had enough gold yet, and the Cartel's got plenty more. You're welcome to try outbidding a trade prince, and I'll take the listing fee.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,7 +130,7 @@ P:NPC {
           text = "A hunter! Leather and hides, then, and frostsaber pelts, which go for a pretty price in the cities, provided nobody asks where the cat came from." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, welcome to the auction house. Totems sell slowly up here, but if you've anything fire-charged, the cold makes it worth double." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "A rogue! Lovely. Now, before you get any ideas, every item in my vaults is logged, sealed and watched by Cartel bruisers who are much bigger than you." },
+          text = "A rogue? Lovely. Now, before you get any ideas, every item in my vaults is logged, sealed and watched by Cartel bruisers who are much bigger than you." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You folk buy runecloth like it's going out of style, and I've always got a few stacks in the vaults if your tailor's been slacking." },
         { id = "h_default", key = true,
@@ -177,7 +177,7 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "Because everyone who comes through Winterspring comes through Everlook, pal, and everyone who comes through Everlook has something to sell. The cold keeps the fruit fresh and the bandits lazy, and both of those are lovely for the margins." } },
       choices = {
-        { text = "A town that welcomes both sides is a good thing.", next = "BACK", reply = "It is, pal, a very good thing, for the town and for my commission. Two sides buying means twice the bidders and half the boredom.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A town that welcomes both sides is a good thing.", next = "BACK", reply = "It is, pal, a very good thing, for the town and for my commission. The Horde bids in the morning, the Alliance bids after lunch, and I win both times.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Goblins would sell to anyone, that's all.", next = "BACK", reply = "Anyone with coin, pal, and we're proud of it, so you'll get no argument here. You'd be surprised how much peace you can buy with fair trade.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -242,7 +242,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because demons are fickle, friend, and steel isn't. I sold a lovely dagger to a warlock last winter who swore he'd never need it, and he came back a month later, without his voidwalker, to thank me personally, and he bought a second one in case." } },
       choices = {
-        { text = "Sound advice. A wise warlock doesn't rely on demons alone.", next = "BACK", reply = "There's a warlock who'll live to come back, friend, and I'll see you here when you do. Steel doesn't sulk and it doesn't have opinions.", fx = { align = { order = 1 } } },
+        { text = "Sound advice. A wise warlock doesn't rely on demons alone.", next = "BACK", reply = "There's a warlock who'll live to come back, friend, and I'll see you here when you do. Steel doesn't sulk, and it's never once demanded a soul shard.", fx = { align = { order = 1 } } },
         { text = "My demon will never leave me. Keep your dagger.", next = "BACK", reply = "Never say never, friend, that's what the last one said too, and he came back crawling. When your little pal walks off, the dagger'll still be here, waiting.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -251,7 +251,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Cheap steel, friend, folded fast and quenched in a bucket by some fella saving a copper, and the frost gets into it like a bad rumour. I've seen a dwarf's axe snap clean on a Winterfall furbolg's skull, and the furbolg was more surprised than he was." } },
       choices = {
-        { text = "Good steel is worth paying for. I won't cut corners.", next = "BACK", reply = "Music to my ears, pal, because a customer who pays for quality never comes back angry. Gadgetzan steel, double-tempered, and it laughs at frost.", fx = { align = { honor = 1 } } },
+        { text = "Good steel is worth paying for. I won't cut corners.", next = "BACK", reply = "Music to my ears, pal, because a customer who pays for quality never comes back angry. That's Gadgetzan steel, double-tempered, and it'll hold an edge at forty below.", fx = { align = { honor = 1 } } },
         { text = "I'll buy cheap and loot a better one off a furbolg.", next = "BACK", reply = "Sure, sure, and the furbolg's axe will snap right where the cheap one did, friend. But hey, it's your neck, and I don't sell those.", fx = { align = { honor = -1 } } },
         { text = "Something else, Wixxrak.", next = "BACK" },
       },
@@ -281,8 +281,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Cheap steel goes brittle in the frost, my friend, and a blade that snaps in a yeti's hide is a short, sad story with no refund at the end. Mine are forged in Gadgetzan and oiled with my own mixture, so they keep their temper when you need to keep yours." } },
       choices = {
-        { text = "Good steel's worth paying for.", next = "BACK", reply = "Now you're talking my language, pal, and I'll knock the dust off the good stock for you. Cheap blades are the most expensive thing a fella ever buys.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A good rogue doesn't need a fancy blade.", next = "BACK", reply = "Maybe not, pal, but the yeti doesn't know that, and the yeti's hide is very, very thick. Fancy wins fights, fancy keeps rogues breathing.", fx = { align = { order = -1 } } },
+        { text = "Good steel's worth paying for.", next = "BACK", reply = "Now you're talking my language, pal, and I'll knock the dust off the good stock for you. I've sold a lot of cheap blades in my time, and I've sold a lot of second blades to the same folks.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A good rogue doesn't need a fancy blade.", next = "BACK", reply = "Maybe not, pal, but the yeti doesn't know that, and the yeti's hide is very, very thick. I've seen a cheap dirk bounce right off one.", fx = { align = { order = -1 } } },
         { text = "I'll keep that in mind.", next = "BACK" },
       },
     },
@@ -317,8 +317,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Sure do, and to the hunters who chase the hunters, too. The frostsabres up by Starfall have gotten bold, chasing travelers right down to the road, and I've sold more shot this winter than any I can remember. Your kind would say the cats are hungry, and I'd say so's everybody." } },
       choices = {
-        { text = "Thin the frostsabres if you must, but don't wipe them out.", next = "BACK", reply = "Thin 'em gently, friend, I hear you, and I don't want 'em gone either, since that'd hurt business. A scared cat's still a customer's problem.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "If they hunt travelers, they're fair game. Keep selling shot.", next = "BACK", reply = "You'll find no arguments here, pal, and I'll put your name on the regulars list. Every cat on that road is another box of shot sold.", fx = { align = { order = -1 } } },
+        { text = "Thin the frostsabres if you must, but don't wipe them out.", next = "BACK", reply = "Thin 'em gently, friend, sure, and I don't want 'em gone either, since that'd hurt business. If the cats go, the hunters go, and then who buys my shot?", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If they hunt travelers, they're fair game. Keep selling shot.", next = "BACK", reply = "You'll find no arguments here, pal, and I'll put your name on the regulars list. Every cat on that road is another box of shot sold, so I'm practically cheering for 'em.", fx = { align = { order = -1 } } },
         { text = "Something else, Wixxrak.", next = "BACK" },
       },
     },
@@ -388,7 +388,7 @@ P:NPC {
     buyers_anyone = {
       lines = { { id = "ba_default", text = "To anyone with coin who isn't fighting inside Everlook, because the Bruisers see to that part. What they do with it outside the gate is between them and their consciences." } },
       choices = {
-        { text = "Coin's coin. What they do outside is their business.", next = "BACK", reply = "You and me both, friend, and the Bruisers keep the inside of the gate tidy. Out there it's every fella for himself, and every fella needs a sword.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Coin's coin. What they do outside is their business.", next = "BACK", reply = "You and me both, friend, and the Bruisers keep the inside of the gate tidy. Out past the gate, every fella needs a sword, and every sword was bought somewhere.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "A merchant should care who he arms.", next = "BACK", reply = "Sure, pal, and I'll start the very day the other fellas stop buying. Until then, I sell to everyone, and everyone thanks me for it.", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -461,8 +461,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Frostsaber and chimaera, and the bear pelts from the shardtooths, because the leatherworkers pay well for anything thick enough to keep the wind out. If {pet} drags in anything with fur on it, I won't ask whose it was, only how fresh." },
       },
       choices = {
-        { text = "I'll skin only what I kill cleanly, and waste none of it.", next = "BACK", reply = "That's the way, and the leatherworkers pay best for a clean hide anyway. Waste is the most expensive thing in this trade.", fx = { align = { light = 1 } } },
-        { text = "I'll strip every beast in the valley if the price is right.", next = "BACK", reply = "I'll buy what comes through the door, pal, as long as it's not a cub. But a valley stripped bare doesn't fetch anything next winter.", fx = { align = { light = -1 } } },
+        { text = "I'll skin only what I kill cleanly, and waste none of it.", next = "BACK", reply = "That's the way, and the leatherworkers pay best for a clean hide anyway. I've had hides come in so hacked about I couldn't sell 'em as boot liners.", fx = { align = { light = 1 } } },
+        { text = "I'll strip every beast in the valley if the price is right.", next = "BACK", reply = "I'll buy what comes through the door, pal, as long as it's not a cub. But you strip that valley bare this year, and next winter I'll have nothing to buy from you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -470,7 +470,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Twice a winter at least, and every crafter in town learns to count their thread when it happens. The pass down to Felwood closes, the tunnels through Timbermaw Hold stay open only so long as the furbolgs like us, and then it's just whatever's on my shelves at whatever I say it costs. Your spirits would make a fortune up here, friend, if they could shovel." } },
       choices = {
-        { text = "Then keep good stores, and keep faith with the Timbermaw.", next = "BACK", reply = "Sound advice, pal, and I keep both, because the Timbermaw remember who treated them fairly. A good store and a good neighbour are worth more than gold up here.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then keep good stores, and keep faith with the Timbermaw.", next = "BACK", reply = "Sound advice, pal, and I keep both, because the Timbermaw remember who treated them fairly. I sold one of 'em a wool blanket three winters back, and his clan's been trading with me since.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Rules mean little in a blizzard. Take what you need.", next = "BACK", reply = "Not in my shop, you don't, pal, blizzard or no blizzard. The Bruisers don't care about the weather, and neither does the Cartel's ledger.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -479,7 +479,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Off the satyrs and the fel-touched things in Felwood and Azshara, cut from their robes by people braver than me. Tailors want it for the strongest garments, and it smells of brimstone however much you wash it, so I keep it in the back." } },
       choices = {
-        { text = "I won't wear anything stitched from fel.", next = "BACK", reply = "Suit yourself, and I'll admit the smell bothers me too. There's plenty of runecloth for folk with delicate noses.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I won't wear anything stitched from fel.", next = "BACK", reply = "Suit yourself, and I'll admit the smell bothers me too. There's plenty of runecloth on the left shelf for folk with delicate noses.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is power, whatever it smells like.", next = "BACK", reply = "Sure, pal, but it's a power that makes your eyes water, and I sell it by the bolt anyway. Just don't wear it near Vizzie's fire.", fx = { align = { light = -1 } } },
         { text = "I'll stick with runecloth.", next = "BACK" },
       },
@@ -488,7 +488,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "A few, and they're my best customers for felcloth and soul pouches both. I don't ask what goes in the pouches, because I'd rather not know and it doesn't change the price, but I do ask 'em to pay before they open the box." } },
       choices = {
-        { text = "Wise. Some things are best left unasked.", next = "BACK", reply = "Exactly, pal, and the pouches don't get any lighter if I ask. A sensible shopkeeper knows when to stop looking.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Wise. Some things are best left unasked.", next = "BACK", reply = "Exactly, pal, and the pouches don't get any lighter if I ask. I like my customers alive and my questions short.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "You should know what you're selling, and to whom.", next = "BACK", reply = "I know whom, pal, they're the ones with coin and a little red friend. As for what, the Cartel doesn't pay me to wonder.", fx = { align = { order = 1 } } },
         { text = "I'll take a look at the stock.", next = "BACK" },
       },
@@ -497,8 +497,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Every one that passes through, Horde or Alliance, since the cold eats a robe faster than any battle does. A troll priest bought rune thread from me last month and told me her loa liked a neat hem, and I've thought better of the loa ever since." } },
       choices = {
-        { text = "A neat robe shows a disciplined mind.", next = "BACK", reply = "That's what I tell every customer, pal, and none of them believe me. A tidy hem is a tidy mind, and a cheap bolt of thread keeps it that way.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My robes go ragged, and the loa don't mind.", next = "BACK", reply = "Ha! That's what the troll said too, and he bought more thread than anyone. The loa might not mind, but the cold will.", fx = { align = { order = -1 } } },
+        { text = "A neat robe shows a disciplined mind.", next = "BACK", reply = "That's what I tell every customer, pal, and none of them believe me. I've seen archmages with mud on their hems, and they still get the spells right.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My robes go ragged, and the loa don't mind.", next = "BACK", reply = "Ha! That's what the troll said too, and he bought more thread than anyone. The loa might not mind, but the wind up here goes straight through the holes.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -566,7 +566,7 @@ P:NPC {
       lines = { { id = "s_default", text = "Through the Timbermaw tunnel from Felwood, mostly, when the furbolgs there are in a mood to let a goblin pass. When they aren't, prices go up, pal, and I don't apologise for it, because that's what supply and demand looks like with snow on it." } },
       choices = {
         { text = "Raising prices when people are desperate seems unfair.", next = "BACK", reply = "It's the price of the risk, pal, and the risk's real, I promise you. When the tunnel opens, the prices come down, and nobody thanks me for that either.", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "That's just good business.", next = "BACK", reply = "There's someone with sense, pal, and I'm glad to see it. Supply and demand, and up here the demand never takes a holiday.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "That's just good business.", next = "BACK", reply = "There's someone with sense, pal, and I'm glad to see it. Up here, everybody needs a warmer coat by the second week.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -618,7 +618,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "He talked to his horse like it was a soldier and to me like I was a stable boy, and I'll tell you which one of us he paid more attention to. The horse was a fine beast, though, and if you treat yours like a friend rather than a servant, we'll get along well." } },
       choices = {
         { text = "A charger is a companion. I treat mine as one.", next = "BACK", reply = "Then you're a better rider than most, pal, and I'll tell you a secret: the horse can tell. A charger knows when it's loved, and it carries you farther for it.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A warhorse is a tool of war. It doesn't need coddling.", next = "BACK", reply = "Sure, and that's how you end up with a horse that bites, pal. A tool that kicks isn't a very good tool.", fx = { align = { light = -1 } } },
+        { text = "A warhorse is a tool of war. It doesn't need coddling.", next = "BACK", reply = "Sure, and that's how you end up with a horse that bites, pal. I've got three teeth marks on this arm from a warhorse nobody coddled.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -662,7 +662,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Some do, the ones from the Barrens and the jungles, who were never meant for snow. I keep them warm and fed, and the frostsabers sniff at their stalls like they're laughing at them, which I suppose they are." } },
       choices = {
-        { text = "Then I'll bless the ones from the warm lands.", next = "BACK", reply = "You're a kind one, pal, and they'll take any warmth they can get. A blessing and a blanket never hurt anybody.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll bless the ones from the warm lands.", next = "BACK", reply = "You're a kind one, pal, and they'll take any warmth they can get. That raptor in the corner hasn't stopped shivering since he got off the boat.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast that can't stand the cold shouldn't be here.", next = "BACK", reply = "Then where should they be, pal, frozen in the pass? Their owners brought them here, so I keep them alive until they go home.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -717,7 +717,7 @@ P:NPC {
       lines = { { id = "w_default", text = "Straw, blankets, a stove I never let go out and a lot of hay hauled in at a price that'd make a pirate blush. Some of the beasts from the south never quite get used to it, so they sleep closest to the fire, and they pay for it in purring." } },
       choices = {
         { text = "That's kind of you.", next = "BACK", reply = "Kindness costs money up here, pal, but they're worth every copper. A warm bear's a happy bear, and a happy bear doesn't eat the stable boy.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Sounds like a waste of good coin.", next = "BACK", reply = "Waste? Pal, you try telling a shivering raptor it's a waste. Some things are worth paying for, even for a goblin.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Sounds like a waste of good coin.", next = "BACK", reply = "Waste? Pal, you try telling a shivering raptor it's a waste. He'll show you what he thinks with his teeth.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -781,7 +781,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "I think everything's a little bit alchemy, if you look closely enough, and that includes prayers! But I'll grant that my potions never made anyone braver, and I've seen paladins walk into the snow with nothing but a hammer and a hymn, so maybe there's something to it after all." } },
       choices = {
         { text = "The Light is faith, not alchemy. You'll see it someday.", next = "BACK", reply = "Maybe I will, love, but until then I'll keep brewing, and you keep praying, and we'll call it a tie. Both work best when you're scared, I think.", fx = { align = { light = 1 } } },
-        { text = "If a potion does the same work, I'll take the potion.", next = "BACK", reply = "There's a practical sort, love, and I'll sell you three for the road. Light's lovely, but potions don't need a prayer first.", fx = { align = { light = -1 } } },
+        { text = "If a potion does the same work, I'll take the potion.", next = "BACK", reply = "There's a practical sort, love, and I'll sell you three for the road. Nothing against the Light, but a potion never asks if you've been good.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -801,7 +801,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'd buy anything clean, love, but nothing from near the Winterfall camps, because their firewater has got into the roots there. And mind {pet} doesn't eat the icecap, because I once watched a wolf walk in circles for an hour after." },
       },
       choices = {
-        { text = "I'll gather only where the land is clean. Your potions deserve that.", next = "BACK", reply = "Oh, you're a dear, love, and I'll pay better for clean, because the potions come out brighter. That's a promise of quality, not a discount.", fx = { align = { light = 1 } } },
+        { text = "I'll gather only where the land is clean. Your potions deserve that.", next = "BACK", reply = "Oh, you're a dear, love, and the clean herbs do make the potions come out brighter. I can tell a Felwood leaf from across the shop by the smell.", fx = { align = { light = 1 } } },
         { text = "I'll bring whatever I find. Your customers won't know the difference.", next = "BACK", reply = "They won't, love, until one of them sprouts a tail, and then they'll know exactly where it came from. Bring me clean, or don't bring me anything.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -828,7 +828,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Here and there, in the coldest corners, and it's worth a fortune to any alchemist who can find it, love. They say it makes flasks fit for the strongest fights, but I've never tried, because I'd rather sell it than drink it, and so would any goblin with sense." } },
       choices = {
-        { text = "Better to sell it to someone who'll put it to use.", next = "BACK", reply = "A sensible answer, love, and you'd make a good merchant. Someone who'll put it to use will pay very handsomely.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Better to sell it to someone who'll put it to use.", next = "BACK", reply = "A sensible answer, love, and you'd make a good merchant. Ask at the auction house, then, because Grizzlin knows who's buying.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd keep it all and brew the flasks myself.", next = "BACK", reply = "Oh, ambitious, love, I like that! Just don't blow anything up near the shop, because my insurance doesn't cover alchemy accidents.", fx = { align = { order = -1 } } },
         { text = "I'll keep an eye out for it.", next = "BACK" },
       },
@@ -837,7 +837,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Near enough, from where I'm standing, because a wound's closed either way, but a potion doesn't care who drinks it and I'm told the Light's a bit pickier. Then again, a potion can't comfort anyone, so I suppose you've got me there." } },
       choices = {
-        { text = "The Light is for everyone. It only asks a willing heart.", next = "BACK", reply = "That's very sweet, love, and I hope you're right. A willing heart is cheaper than a potion, anyway.", fx = { align = { light = 1 } } },
+        { text = "The Light is for everyone. It only asks a willing heart.", next = "BACK", reply = "That's very sweet, love, and I hope you're right. I'll stick to my potions, though, because I've never had much luck with the willing part.", fx = { align = { light = 1 } } },
         { text = "A potion that works for anyone sounds more reliable.", next = "BACK", reply = "There's someone who knows a good product, love. Reliable, portable and no faith required, that's my motto.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -917,7 +917,7 @@ P:NPC {
     herbs_springs = {
       lines = { { id = "hs_default", text = "The water won't hurt you, but the Winterfall furbolgs who roam that valley might. A clever herbalist picks fast and leaves before the furbolgs notice, and a brave one picks slowly and fights them." } },
       choices = {
-        { text = "I'd pick slowly. Let them come.", next = "BACK", reply = "Brave, love, and I'll sell you a few healing potions for the trip. Let me know how the furbolgs feel about slow herbalists.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd pick slowly. Let them come.", next = "BACK", reply = "Brave, love, and I'll sell you a few healing potions for the trip. Let me know how the furbolgs feel about slow herbalists, if you come back.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Fast and quiet is smarter.", next = "BACK", reply = "That's what I always say, love, and I've still got all my fingers. Fast and quiet, and come straight back to me with the haul.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

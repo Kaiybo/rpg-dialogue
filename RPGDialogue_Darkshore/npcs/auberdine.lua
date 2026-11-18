@@ -100,7 +100,7 @@ P:NPC {
         { id = "xwl_default", text = "Bound, by you, so that you might loose them again elsewhere? I have seen what comes of mortals who think they can leash the Legion's servants, and so has every kaldorei who lived through the Sundering. Fight them or leave Darkshore, warlock, for there is no third road here." },
       },
       choices = {
-        { text = "Then I'll fight them, and bind nothing.", next = "BACK", reply = "That is wiser than you know, and I am glad to hear it. Fight them, and leave the binding to no one.", fx = { align = { light = 1 } } },
+        { text = "Then I'll fight them, and bind nothing.", next = "BACK", reply = "That is wiser than you know, and I am glad to hear it. I watched the Highborne try to bind such things, and I watched what came through after.", fx = { align = { light = 1 } } },
         { text = "Your way only lets them come back, Elder.", next = "BACK", reply = "Perhaps it does, but your way lets them come back stronger. I have seen it, and I would not see it again.", fx = { align = { light = -1 } } },
         { text = "What remains in the ruins?", next = "ruins" },
       },
@@ -121,8 +121,8 @@ P:NPC {
         { id = "wth2_default", text = "Walls are a human answer, and not a bad one, but our people have always lived open to the forest and trusted it to warn us. Lately the forest has been too sick to warn anyone, and I confess I have thought about walls." },
       },
       choices = {
-        { text = "Build them. Tradition won't stop a furbolg.", next = "BACK", reply = "Then perhaps you are right, and an old elder is too slow to change. Still, a wall shuts out the forest's warnings too.", fx = { align = { order = 1 } } },
-        { text = "Heal the forest instead, and it will warn you again.", next = "BACK", reply = "That is the old answer, and I believe it still. Help me heal the forest, and it will warn us again.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Build them. Tradition won't stop a furbolg.", next = "BACK", reply = "Perhaps you are right, and an old elder is too slow to change. Still, I would hate to stand behind a wall and not hear the forest cry out.", fx = { align = { order = 1 } } },
+        { text = "Heal the forest instead, and it will warn you again.", next = "BACK", reply = "That is the old answer, and I believe it still. Go and see Tharnariun at the edge of town; he can use your hands.", fx = { align = { order = -1 }, affinity = 1 } },
       },
     },
     mage_th = {
@@ -132,7 +132,7 @@ P:NPC {
       },
       choices = {
         { text = "Knowledge left to rot helps no one.", next = "BACK", reply = "Perhaps not, but knowledge left in the wrong hands helps the Legion. I would rather it rotted.", fx = { align = { order = -1 } } },
-        { text = "Then it should be destroyed. I'll help.", next = "BACK", reply = "Elune will thank you for that, mage, and so will every soul in Auberdine. Some things should never have been made, and fewer still should be kept.", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Then it should be destroyed. I'll help.", next = "BACK", reply = "Elune will thank you for that, mage, and so will every soul in Auberdine. Bring me what you find, and we will see it burned together.", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "You don't trust mages at all, do you?", next = "mage_th2" },
       },
     },
@@ -157,7 +157,7 @@ P:NPC {
         { id = "xcl_bfd_default", text = "Then you have seen more than any of my scouts, because the ones I sent down never came back to tell me. The naga in that water carry the same taint I have been chasing through Darkshore since the moonkin went mad, and I have long suspected that the sickness on our shore and the chanting in Blackfathom grow from one root." },
       },
       choices = {
-        { text = "Seal the Deeps for good, before anything else crawls out.", next = "BACK", reply = "That would be the wisest course, I think, and the safest. The Deeps have given us nothing but grief.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Seal the Deeps for good, before anything else crawls out.", next = "BACK", reply = "That would be the wisest course, I think. The Deeps were a temple to Elune once, and look what has crawled out of them since.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Leave it open. Whatever's left down there is worth studying.", next = "BACK", reply = "Perhaps, but what is worth studying is often worth fearing too. I would rather it stayed buried.", fx = { align = { order = -1 } } },
         { text = "Do you know what they worshipped down there?", next = "xcl_bfd2" },
       },
@@ -168,8 +168,19 @@ P:NPC {
         { text = "Then I won't ask you to say them, Elder.", next = "BACK" },
       },
     },
+    dd_plague = {
+      lines = {
+        { id = "ddp_default", text = "Unnatural, yes, and like the corruption in the Blackwood camps and the moonkin gone wild. I have begun to think these are not many sicknesses but one, coming up out of the land itself, and I have no proof of it but my old bones." },
+      },
+      choices = {
+        { text = "Then find its source and burn it out.", next = "BACK", reply = "If we find it, perhaps. But fire is how the Highborne solved their problems, and look at the ruins they left along this shore.", fx = { align = { order = 1 } } },
+        { text = "Some things heal on their own, given time.", next = "BACK", reply = "Spoken like a druid, and Tharnariun would agree. I am older and less patient than he is, I fear.", fx = { align = { order = -1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_plague", tags = { "news" }, when = { questDone = TODO_QUEST("Cleansing of the Infected") }, text = "Tharnariun tells me you helped him cleanse the sickened bears to the north, and that some of them now walk the forest whole again. It is the first good news about Darkshore's beasts I have heard in a long season." },
         { id = "o_peace_peace", tags = { "news" }, when = { gossip = { topic = "peace", stance = "peace" } },
           text = "Glynda tells me you still believe in peace with the Horde. I hope you're right, though I'd like to see it before I believe it." },
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "Sentinels came up the shore road with word that someone had been to the bottom of Blackfathom Deeps and come back. Auberdine sleeps a little easier for it, and so, I confess, do I." },
@@ -191,7 +202,7 @@ P:NPC {
           text = "Terenthis sent you with word of the furbolg camps? Your scouting comes at a fortunate time, for we have been fighting the forest's corruption as well as its creatures." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, and welcome. Gwennyth of the Temple of the Moon would be glad of another healer's eye on what the sea keeps leaving on our shore." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, and kaldorei besides. Then you will feel the sickness in this land as I do, and you will understand why my lamps burn so late." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, and kaldorei besides. Then you will feel the sickness in this land as I do, and you will understand why my lamps burn so late." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Auberdine's lamps burn later than any in Darnassus, because the boats come in at all hours. I sleep little these days in any case." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks with spirits. Auberdine has fears enough these days, so I will ask plainly, as one who has watched this coast for many centuries: do your spirits say what troubles it?" },
@@ -201,6 +212,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. An elder's work is mostly listening, and my people have had ten thousand years to practise it." },
       },
       choices = {
+        { text = "Tharnariun's bears were sick with something unnatural, Elder.", next = "dd_plague", when = { questDone = TODO_QUEST("Cleansing of the Infected") } },
         { text = "How does Auberdine feel about its new allies?", next = "op_ask" },
         { text = "The land here looks sick.", next = "sick" },
         { text = "Why trust the Silver Hand?", next = "silverhand", when = { class = "PALADIN" } },
@@ -226,7 +238,7 @@ P:NPC {
         { id = "s_default", text = "There is corruption from Felwood seeping down the rivers, a red crystal maddening the moonkin, and moss that turns the furbolgs savage. Whether it is one cause or many I cannot yet say, but it all comes from the north and east." },
       },
       choices = {
-        { text = "I'll find the source.", next = "BACK", reply = "Then go with Elune's blessing, and come back to tell me what you find. The forest is counting on you.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll find the source.", next = "BACK", reply = "Then go with Elune's blessing, and come back to tell me what you find. Begin with the rivers that run down out of the hills.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Felwood's rot is the kaldorei's trouble, not mine.", next = "BACK", reply = "It is, but it will not stay ours for long. The rivers run to every shore.", fx = { align = { light = -1 } } },
         { text = "I've heard Felwood is a sick place.", next = "felwood" },
       },
@@ -251,8 +263,8 @@ P:NPC {
     silverhand = {
       lines = { { id = "sh_default", text = "Because they came when they were needed and asked for nothing in return, which is rarer than it should be among elves or anyone. I will not judge a whole order by one fallen prince." } },
       choices = {
-        { text = "That's generous of you.", next = "BACK", reply = "It is only the truth, and the Silver Hand deserves it. They are rare friends.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'd judge an order by the men it lets fall.", next = "BACK", reply = "That is a fair way to judge, and a hard one. Every order lets someone fall, sooner or later.", fx = { align = { honor = -1 } } },
+        { text = "That's generous of you.", next = "BACK", reply = "It is only the truth. I have known few humans, but the Silver Hand were the best of them.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd judge an order by the men it lets fall.", next = "BACK", reply = "That is a fair way to judge, and a hard one. I wonder how the Sentinels would fare by it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -292,7 +304,7 @@ P:NPC {
     paladin = {
       lines = { { id = "pa_default", text = "Then hear this: if Stilwell the blacksmith ever sends a paladin to me for a Kor gem, I will help them. The naga of Blackfathom Deeps carry such gems, though never clean ones." } },
       choices = {
-        { text = "I'll remember.", next = "BACK", reply = "Good, and I hope you never need it. But if you do, come to me.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll remember.", next = "BACK", reply = "Good, and I hope you never need it. If you do, my door is open.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I'll find my own way to a gem, thank you.", next = "BACK", reply = "As you wish, paladin, and I hope you find one. The offer stands.", fx = { align = { honor = -1 } } },
       },
     },
@@ -387,7 +399,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I must believe it, or I am only killing old friends. The fel moss poisons them, and the earth itself suffers for it. Your spirits of the earth must feel that." } },
       choices = {
-        { text = "Then I believe you, Terenthis. The sick deserve healing first.", next = "BACK", reply = "Then you are kinder than most, and the Blackwood will be grateful if they ever wake. Thank you.", fx = { align = { light = 1 } } },
+        { text = "Then I believe you, Terenthis. The sick deserve healing first.", next = "BACK", reply = "Then you are kinder than most. If the Blackwood ever wake from this, I will tell them who spoke for them.", fx = { align = { light = 1 } } },
         { text = "Mercy for the mad gets Sentinels killed. Defend Auberdine first.", next = "BACK", reply = "It does, sometimes, and I have buried Sentinels for it. Defend Auberdine, then, and I will keep trying.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -396,7 +408,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Hard, because they won't stop once they've started, and without hatred, because none of this is their fault. The Fel Moss is in their food and their water, and if you bring me what I need, I may yet find a way to burn it out of them." } },
       choices = {
-        { text = "I'll fight them without hatred. They're victims.", next = "BACK", reply = "That is all I ask, warrior, and more than most offer. They did not choose this.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight them without hatred. They're victims.", next = "BACK", reply = "That is all I ask, warrior, and more than most offer. I sat with their elders once, before the moss came.", fx = { align = { honor = 1 } } },
         { text = "Sick or not, they'll fall to my blade.", next = "BACK", reply = "They will, and I cannot stop you. Only remember that they were friends once.", fx = { align = { honor = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -409,7 +421,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll track it back to its source.", next = "BACK", reply = "The source is somewhere in the Blackwood, hunter, where the furbolgs sleep on the moss. Elune guide your tracking, and come back to me first.", fx = { align = { order = 1 } } },
-        { text = "Find the source yourself. I'll thin the furbolgs.", next = "BACK", reply = "Then thin them, and I will find the source myself. It will take longer, but it will be found.", fx = { align = { order = -1 } } },
+        { text = "Find the source yourself. I'll thin the furbolgs.", next = "BACK", reply = "Then thin them, and I will go looking for the source myself. My knees will curse you all the way to the Blackwood.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -448,7 +460,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Pray for them, if you would, and pray as you would for any sick creature rather than for an enemy. I burn the Fel Moss, but burning does nothing for the furbolg who has already eaten it." } },
       choices = {
-        { text = "I'll pray for them. Sick is not the same as wicked.", next = "BACK", reply = "Sick is not wicked, and I wish more travellers understood it. Elune will hear you, priest, and perhaps so will they.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll pray for them. Sick is not the same as wicked.", next = "BACK", reply = "I wish more travellers understood that. Elune will hear you, priest, and perhaps somewhere under the madness, so will they.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayer is wasted on beasts that kill travellers.", next = "BACK", reply = "Perhaps, but they did not choose to kill. Pray for them anyway, if you can.", fx = { align = { light = -1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
@@ -458,7 +470,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Mercifully, where you can, and swiftly where you cannot, for a furbolg too far gone will not thank you for hesitating. But remember that every one you kill is a creature something else ruined first." } },
       choices = {
         { text = "I'll spare any I can, and grieve the ones I can't.", next = "BACK", reply = "Grieve them well, paladin, for they would thank you if they could. Most who come through Auberdine only count them.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A mad beast is a mad beast. I won't hesitate.", next = "BACK", reply = "Then do not hesitate, but do not hate them either. They are victims.", fx = { align = { honor = -1 } } },
+        { text = "A mad beast is a mad beast. I won't hesitate.", next = "BACK", reply = "Then do not hesitate, but do not hate them either, paladin. They are sick, not wicked.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -509,8 +521,8 @@ P:NPC {
         { id = "m_default", text = "It is moss that grew where demons walked, and it kept something of them in it. The furbolgs eat it or sleep on it, and it changes them, slowly at first and then all at once." },
       },
       choices = {
-        { text = "Then we cut it out.", next = "BACK", reply = "We do, and I burn it wherever I find it. Help me, and we will cut it faster.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Then the furbolgs who've turned savage have to be put down.", next = "BACK", reply = "Some of them will have to be, and I grieve it. But only the ones too far gone.", fx = { align = { light = -1 } } },
+        { text = "Then we cut it out.", next = "BACK", reply = "We do, and I burn it wherever I find it. There's a patch by the Blackwood path I could use help with tonight.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then the furbolgs who've turned savage have to be put down.", next = "BACK", reply = "Some of them will have to be, and I grieve it. Bring me the ones who can still be reached.", fx = { align = { light = -1 } } },
         { text = "I'd guess it can't simply be cured.", next = "moss2" },
       },
     },
@@ -592,7 +604,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I do not know, and it frightens me, because Elune has not answered my prayers on it. Perhaps your water spirits know what she keeps silent." } },
       choices = {
-        { text = "Keep praying, Gwennyth. Elune and the spirits may both answer.", next = "BACK", reply = "I will, and I hope you are right. Two answers would be better than none.", fx = { align = { light = 1 } } },
+        { text = "Keep praying, Gwennyth. Elune and the spirits may both answer.", next = "BACK", reply = "I will, and I hope you are right. I'll take an answer from anyone, at this point.", fx = { align = { light = 1 } } },
         { text = "Elune is silent. Trust the spirits instead.", next = "BACK", reply = "Elune is silent sometimes, but she is not absent. Trust the spirits, if you must, but do not lose faith.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -602,7 +614,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "I pray not, because whatever killed something that size would make short work of Auberdine. The bodies lie along the beach to the north, so if you go to look, take your shield and keep one eye on the water." } },
       choices = {
         { text = "If it comes ashore, I'll stand between it and Auberdine.", next = "BACK", reply = "Then Auberdine will be grateful, and so will I. Elune keep you on that shore.", fx = { align = { honor = 1 } } },
-        { text = "Whatever it is, it isn't my fight.", next = "BACK", reply = "Perhaps not, but it may become everyone's fight soon enough. I pray it does not.", fx = { align = { honor = -1 } } },
+        { text = "Whatever it is, it isn't my fight.", next = "BACK", reply = "Perhaps not. But if it comes ashore, it will not ask whose fight it is.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -652,7 +664,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "I have asked myself the same each morning, and I pray that they did not suffer, and that whatever killed them does not come ashore next. The Mother Moon has not yet answered, but she has never answered quickly." } },
       choices = {
         { text = "Then I'll pray with you here, as long as it takes.", next = "BACK", reply = "Thank you, priest, and Elune will hear us both. I have been praying alone for too long.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "They're dead fish. Prayer won't bring the answer.", next = "BACK", reply = "Perhaps not, but it brings me peace. And peace is worth something.", fx = { align = { light = -1 } } },
+        { text = "They're dead fish. Prayer won't bring the answer.", next = "BACK", reply = "Perhaps not, but it brings me peace, and I have had little enough of that since the first one washed up.", fx = { align = { light = -1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
@@ -661,7 +673,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "It may, and that is why I watch the tide, for creatures this large do not die without a reason. If something in the deep is killing them, I would rather a paladin knew of it than not." } },
       choices = {
         { text = "Then I'll stand watch with you until we know.", next = "BACK", reply = "The watch will be easier with company, paladin, and the tide will tell us eventually. Bring a cloak, for the nights are cold here.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The sea is the Sentinels' problem, not mine.", next = "BACK", reply = "It is, and they are stretched thin. I would be grateful for any help at all.", fx = { align = { order = -1 } } },
+        { text = "The sea is the Sentinels' problem, not mine.", next = "BACK", reply = "It is, and they are stretched so thin you can see the gaps from here. I would be grateful for any help at all.", fx = { align = { order = -1 } } },
         { text = "Something else, sister.", next = "BACK" },
       },
     },
@@ -798,7 +810,7 @@ P:NPC {
       lines = { { id = "pj_glynda_default", text = "Your countrymen dig in Ameth'Aran and at Mist's Edge, and they carry off whatever they find in sacks, carvings and urns and bones alike. Those were our homes before the Sundering, so every dwarf with a pick looks like a thief to me until I see otherwise." } },
       choices = {
         { text = "Remtravel isn't every dwarf. Who did they take from?", next = "pj_glynda2" },
-        { text = "Those ruins should be left in peace. I'll tell Remtravel so myself.", next = "BACK", reply = "Thank you, and I hope he listens to you better than he listens to me. The ruins are sacred.", fx = { align = { light = 1 } } },
+        { text = "Those ruins should be left in peace. I'll tell Remtravel so myself.", next = "BACK", reply = "Thank you, and I hope he listens to you better than he listens to me. He calls our ancestors' homes 'a promising site'.", fx = { align = { light = 1 } } },
         { text = "Old ruins serve the living better than the dead, Sentinel.", next = "BACK", reply = "Perhaps, but the dead were living once, and they would not want their homes carried off in sacks. Remember that.", fx = { align = { light = -1 } } },
         { text = "I understand. I'll tread carefully up the coast.", next = "BACK", fx = { affinity = 1 } },
       },
@@ -844,7 +856,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "I count murloc sign, mostly, and it grows. Your water spirits might tell me where they come from before my Sentinels find out by stepping on one." } },
       choices = {
         { text = "Then I will help you watch the beach, Glynda.", next = "BACK", reply = "My Sentinels will be glad of you, shaman, because the beach grows more dangerous every night. Watch the waterline after moonrise.", fx = { align = { order = 1 } } },
-        { text = "Murlocs are murlocs. Kill them and be done.", next = "BACK", reply = "They are, and I have killed many. But more come every night, and I would like to know why.", fx = { align = { order = -1 } } },
+        { text = "Murlocs are murlocs. Kill them and be done.", next = "BACK", reply = "They are, and I have killed more than I can count. Yet more come every night, and I would like to know why.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -852,8 +864,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Well enough, though we see the trouble differently, because a druid wants to heal the sick bear and a Sentinel wants it away from the road before it kills someone. Most days I let the druids try first, and I keep my bow strung while they do." } },
       choices = {
-        { text = "Heal it first. A sick beast is not an enemy.", next = "BACK", reply = "That is the druid's answer, and I respect it. But the road must stay open.", fx = { align = { honor = 1 } } },
-        { text = "If it threatens the road, put it down quickly.", next = "BACK", reply = "That is the Sentinel's answer, and mine too, most days. The road comes first.", fx = { align = { honor = -1 } } },
+        { text = "Heal it first. A sick beast is not an enemy.", next = "BACK", reply = "That is the druid's answer, and I respect it. Heal it quickly, then, because the caravans won't wait.", fx = { align = { honor = 1 } } },
+        { text = "If it threatens the road, put it down quickly.", next = "BACK", reply = "That is the Sentinel's answer, and mine too, most days. Make it quick and clean.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -863,8 +875,8 @@ P:NPC {
         { id = "xro_nightelf", when = { race = "NightElf" }, text = "Then thin them, sister's child, for they creep further up the beach every night and you move as quietly as any Sentinel. Murkdeep leads them now, and if you can get near enough to see him, you will have gone where my scouts could not." },
       },
       choices = {
-        { text = "I'll bring Murkdeep down face to face.", next = "BACK", reply = "Then go with Elune, and come back with his head. The beach will be safer for it.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Murkdeep won't see the blade that kills him.", next = "BACK", reply = "Then he will never see it coming, and the beach will be safer for it. Be quick.", fx = { align = { honor = -1 } } },
+        { text = "I'll bring Murkdeep down face to face.", next = "BACK", reply = "Then go with Elune, and come back with his head. I'd like to hang it where the fishermen can see it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Murkdeep won't see the blade that kills him.", next = "BACK", reply = "Good. He has dragged off enough of my sisters without warning; let him learn how it feels.", fx = { align = { honor = -1 } } },
         { text = "Who is Murkdeep?", next = "murkdeep" },
       },
     },
@@ -873,8 +885,8 @@ P:NPC {
         { id = "xma_default", text = "The Sentinels do not usually fight beside mages, and some of my sisters would sooner you didn't. But I am short of hands, so stay where I put you and do not set the groves alight." },
       },
       choices = {
-        { text = "Where you put me, Sentinel.", next = "BACK", reply = "Then I will put you on the beach, and my sisters will grumble. Fight well.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll fight where I'm of most use.", next = "BACK", reply = "Then fight where you see the need, and I will not stop you. The beach is yours.", fx = { align = { order = -1 } } },
+        { text = "Where you put me, Sentinel.", next = "BACK", reply = "Then I will put you on the southern beach, and my sisters will grumble about it all night. Fight well.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight where I'm of most use.", next = "BACK", reply = "Then fight where you see the need. Just tell my sisters where you are, so they don't put an arrow in you.", fx = { align = { order = -1 } } },
         { text = "Where are the Sentinels needed most?", next = "thin" },
       },
     },
@@ -886,7 +898,7 @@ P:NPC {
       },
       choices = {
         { text = "Facing two ways is a warrior's whole job.", next = "BACK", reply = "It is, and you have learned it faster than most. Take the shore, and I will take the road.", fx = { align = { honor = 1 }, affinity = 2, standing = { auberdine = 1 } } },
-        { text = "I'll take the murlocs. Leave the trees to someone else.", next = "BACK", reply = "Then take the murlocs, and I will be grateful. The trees can wait a night.", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'll take the murlocs. Leave the trees to someone else.", next = "BACK", reply = "Then take the murlocs, and I will be grateful. I've no one else to send to the beach tonight.", fx = { align = { honor = -1 }, affinity = 1 } },
       },
     },
     xapriest = {
@@ -902,7 +914,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Against Murkdeep and his murlocs on the southern beach, for they drag off anyone who walks alone. The corruption in the groves is worse, but a hammer cannot fix that, and a hammer can certainly fix Murkdeep." } },
       choices = {
-        { text = "Then I'll break Murkdeep's hold on that beach.", next = "BACK", reply = "Then go with Elune, paladin, and the beach will be safer for it. Murkdeep is cunning.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll break Murkdeep's hold on that beach.", next = "BACK", reply = "Then go with Elune, paladin. Murkdeep is cunning, so do not let him draw you into the water.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Murlocs aren't worth a paladin's time.", next = "BACK", reply = "Then you have never seen what they do to the ones they drag off. Come with me some night, and I will show you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -913,7 +925,7 @@ P:NPC {
         { id = "xlock_default", text = "I count what I see: the furbolgs maddened, the moonkin gone wild and the bears with a sourness in their blood. Something fouls this land, and your craft draws from the same well the Legion did, so I will keep my eyes on your hands." },
       },
       choices = {
-        { text = "Watch, then. I'll prove you wrong at the murloc camps.", next = "BACK", reply = "Then I will watch, and gladly. Prove me wrong at the murloc camps.", fx = { align = { honor = 1 } } },
+        { text = "Watch, then. I'll prove you wrong at the murloc camps.", next = "BACK", reply = "Then I will watch, and I would be glad to be wrong. It would make a change.", fx = { align = { honor = 1 } } },
         { text = "My hands are my own business, Sentinel.", next = "BACK", reply = "They are, until they reach for something they should not. Then they become mine.", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -924,7 +936,7 @@ P:NPC {
         { id = "xcl_bfd_default", text = "Then you've done what the Sentinels couldn't, because Ashenvale takes every bow we have and the Deeps would have swallowed a whole company. I lost two sisters to that water, and I'd have gone in after them myself if anyone had let me, so you'll understand why I'm grateful." },
       },
       choices = {
-        { text = "Your sisters are avenged, Glynda. I'd do it again.", next = "BACK", reply = "They are, and I will tell them so at the shrine. Thank you, truly.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your sisters are avenged, Glynda. I'd do it again.", next = "BACK", reply = "They are, and I will tell them so at the shrine tonight. Thank you, {name}, truly.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I went down for what lay below, not for anyone's vengeance.", next = "BACK", reply = "Then you did it for your own reasons, and I will thank you anyway. The Deeps are quieter now.", fx = { align = { honor = -1 } } },
         { text = "What sort of foe are the naga, to a Sentinel?", next = "xcl_bfd2" },
       },
@@ -937,6 +949,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_gyromast", when = { questDone = TODO_QUEST("Gyromast's Revenge") }, text = "My Sentinels tell me a gnome's clanking machine went mad on the beach and had to be put down, and that you were standing beside it when it did. I would rather not know the rest, so long as the beach is quiet again." },
+        { id = "h_dd_althalaxx", tags = { "news" }, when = { questDone = TODO_QUEST("The Tower of Althalaxx") }, text = "Balthule says you have been at work against the Dark Strand at the Tower of Althalaxx, and that the cultists there are fewer and frightened. I have long wanted them gone from our shore, so you have my thanks." },
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "They say in Auberdine that you went down into Blackfathom Deeps and cut your way to the very bottom. The murlocs on my beach haven't noticed yet, but the naga have, and they've been keeping to deeper water since." },
         { id = "h_default", key = true, text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and has turned even the moonkin wild, and murlocs under a brute called Murkdeep creep up the beaches. I am only one Sentinel, so I could use another pair of hands." },
         { id = "h_crystal", tags = { "news" }, when = { questActive = TODO_QUEST("The Red Crystal") },
@@ -950,7 +964,7 @@ P:NPC {
           text = "Bone, inside the crystal, and half a jaw that may have belonged to someone who walked on two legs? That answers one question and raises a dozen more, so I'll take it to the council." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because the Sentinels I send up the coast come back with wounds that do not close cleanly, and I have too few hands to mend them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kind at Maestra's Post in Ashenvale fight hard, I am told, so I will not waste your strength on small things." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and kaldorei by the look of you. The groves along this shore are sickening faster than the Circle can tend them, so I am glad to see another of you on the beach." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, and kaldorei by the look of you. The groves along this shore are sickening faster than the Circle can tend them, so I am glad to see another of you on the beach." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I watch the beach for murlocs and the groves for corruption, and I'll be watching you as well until I know which of the two you are." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Greymist", min = 30 } },
           text = "The beach has been quieter since you started on the Greymist, and I count fewer tracks each morning. I am still only one Sentinel, but this week I have felt like two." },
@@ -1005,7 +1019,7 @@ P:NPC {
     moonkin2 = {
       lines = { { id = "m2_default", text = "Pity them if you like, but keep your distance while you do. Auberdine's safety means I have to take a more realistic view than the people who write poems about them." } },
       choices = {
-        { text = "I'll mind that.", next = "BACK", reply = "Good, and the moonkin will be grateful too. They are dangerous now.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll mind that.", next = "BACK", reply = "Good. I have seen a moonkin tear through a Sentinel's shield like it was bark.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll pity them anyway.", next = "BACK", reply = "Then pity them, but keep your distance. Pity will not stop a talon.", fx = { align = { order = -1 }, trait = { kind = 1 } } },
       },
     },
@@ -1081,7 +1095,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "She loved to walk the woods of Ameth'Aran at night and watch the moonstalkers on the cliffs, and she said that watching was the first duty of anyone who loved the wild. Your {pet} has the same quiet eyes as the beasts she loved. Be good to it, for we do not keep what we love as long as we think." },
       },
       choices = {
-        { text = "I'll honor her memory when I walk those woods.", next = "BACK", reply = "She would have liked that, I think, more than anything. The moonstalkers still walk those cliffs, and she used to watch them for hours.", fx = { align = { light = 1 } } },
+        { text = "I'll honor her memory when I walk those woods.", next = "BACK", reply = "She would have liked that, I think. The moonstalkers still walk those cliffs, and she used to watch them for hours.", fx = { align = { light = 1 } } },
         { text = "The past is gone. Walk the woods for yourself.", next = "BACK", reply = "Then walk them, and perhaps you will see what she saw. That would be enough.", fx = { align = { light = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -1297,7 +1311,7 @@ P:NPC {
         { id = "xro_default", text = "They're seasick, not foolish, or so I like to think, and the Sentinels walk the dock all night. If a bag goes missing in my inn, I'll know who was watching them, won't I?" },
       },
       choices = {
-        { text = "I'd only warn them, Shaussiy.", next = "BACK", reply = "Then you are a kinder soul than most who ask. Thank you.", fx = { align = { honor = 1 } } },
+        { text = "I'd only warn them, Shaussiy.", next = "BACK", reply = "Then you are a kinder soul than most who ask that question, and I'll remember it.", fx = { align = { honor = 1 } } },
         { text = "Seasick folk make careless friends.", next = "BACK", reply = "They do, and the Sentinels make careful enemies. Be careful, please.", fx = { align = { honor = -1 } } },
         { text = "Who stays here, mostly?", next = "guests" },
       },
@@ -1336,13 +1350,35 @@ P:NPC {
         { id = "xmage_default", text = "A few, mostly humans off the Menethil boat, and they always want to know why there's no portal to Darnassus from here. I tell them it's the kaldorei way to keep the arcane at arm's length, and then I give them tea, because a cup is gentler than an argument." },
       },
       choices = {
-        { text = "Your people are wise to keep their distance.", next = "BACK", reply = "They are, and I am glad you understand. A portal is a door, and doors open both ways.", fx = { align = { order = 1 } } },
+        { text = "Your people are wise to keep their distance.", next = "BACK", reply = "They are, and I am glad you understand. Some of them remember Zin-Azshari, and they still dream of what came through.", fx = { align = { order = 1 } } },
         { text = "Your people's fear of magic is long out of date.", next = "BACK", reply = "Perhaps, but they remember it as though it were yesterday. Please be patient with them.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dd_murk = {
+      lines = {
+        { id = "ddm_default", text = "Happier and louder, both. For a season they were afraid to row past the point, and the boats came in half empty, so my kitchen went short too. Now there's grouper on the fire again, and the fishermen sing badly, and I wouldn't change a note." },
+      },
+      choices = {
+        { text = "The murlocs will be back sooner or later.", next = "dd_murk2" },
+        { text = "Something else, Shaussiy.", next = "BACK" },
+      },
+    },
+    dd_murk2 = {
+      lines = {
+        { id = "ddm2_default", text = "Oh, I know it, and so does Sentinel Glynda. The Greymist have lived on that coast longer than Auberdine has stood, and they'll find a new brute to follow. But not this week, and in Darkshore one good week is worth celebrating." },
+      },
+      choices = {
+        { text = "Then the Sentinels should drive them off the coast for good.", next = "BACK", reply = "Glynda would agree with you, though she hasn't the spears for it. I'll pass your words along when she comes in for her supper.", fx = { align = { light = -1 } } },
+        { text = "It's their coast too. Just keep them from the boats.", next = "BACK", reply = "Spoken gently, and you may be right. I'd still not tell the fishermen that while they're drinking.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_murk", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: Murkdeep!") }, text = "The fishermen have been drinking to Murkdeep's death all week, and every one of them tells me it was you who took his head. Sit down, and let them buy you a cup before they run out of stories." },
+        { id = "h_dd_remtravel", when = { questDone = TODO_QUEST("The Absent Minded Prospector") }, text = "That dwarf prospector you walked back from the southern dig still sits in my corner telling anyone who'll listen how you saved him. He forgets the middle of the story each time, but never the part with you in it." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You have the pale look of someone who has come back from the spirit healer more than once, friend. Darkshore is cruel to travellers who walk it alone, so rest here a while before you go out again." },
         { id = "o_peace_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } },
           text = "Glynda says you've no patience for talk of peace with the orcs. I've no patience for brawls in my inn, so let's both keep our tempers." },
         { id = "h_default", text = "I am Shaussiy, and I keep the inn by the docks of Auberdine. My guests come off the boats from Teldrassil and Menethil, mostly, and nearly all arrive green with seasickness, though my people have sailed these waters since before the Sundering." },
@@ -1365,6 +1401,7 @@ P:NPC {
         { id = "h_again", text = "Is there anything else, traveller? There's always tea on, and Elune's light on the water to drink it by." },
       },
       choices = {
+        { text = "The fishermen seem happier since Murkdeep fell.", next = "dd_murk", when = { questDone = TODO_QUEST("WANTED: Murkdeep!") } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who comes through the inn?", next = "guests" },
         { text = "I'd guess you hear the boats' news before anyone.", next = "news" },

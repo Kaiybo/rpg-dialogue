@@ -92,6 +92,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the bat roost. They won't mind you, the bats, but they'll want to know if you've got anything to eat, which is about all they want from anyone." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The bats don't care about magic, but they do dislike being frozen, so I'd avoid that." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and the bats don't mind you a bit, and they've a better nose for the Scarlets than any tabard could give me. They hate the Crusade's torches, but whatever you're carrying, they seem to think it's harmless." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "Fell from somewhere high, did you? You've the crumpled look of it, and my bats would have set you down gently for a few coins, you know." },
       },
       again = {
         { id = "h_again", text = "What else? The bats are waiting, and one of them has started chewing on a saddle." },
@@ -447,7 +449,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not yours, so you needn't hold {pet} so close. Rats, mostly, and the occasional bear, though a wolf from Silverpine that's been drinking from the wrong stream would make a very interesting afternoon." },
       },
       choices = {
-        { text = "I won't bring living beasts to your cages, Zinge.", next = "BACK", reply = "A pity, but I'll find my rats elsewhere. They're less trouble, honestly.", fx = { align = { honor = 1 } } },
+        { text = "I won't bring living beasts to your cages, Zinge.", next = "BACK", reply = "A pity, but I'll find my rats elsewhere, and they're less trouble anyway.", fx = { align = { honor = 1 } } },
         { text = "A sick wolf's no loss. I'll bring you one.", next = "BACK", reply = "Splendid! A sick one, mind, from the right stream. I'll keep a cage ready.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -474,6 +476,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Don't touch anything on this bench, please, and don't bless it either, because I've had a vial go cloudy after a blessing and I've not worked out why." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. If you're here to steal reagents, the last one who tried is in a jar." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. Don't touch the green vials, and please don't pray near them either, because I've no idea what the Light does to that mixture and I don't care to learn with my face over the bench." },
+        { id = "h_dd_recipe", when = { questDone = TODO_QUEST("A Recipe For Death") },
+          text = "Master Faranell has stopped shouting at me quite so much since your work for Renferrel's recipe came in. I'm not saying I'm grateful, because grateful isn't a word we use in the Apothecarium, but I'm noticing it." },
       },
       again = {
         { id = "h_again", text = "What else? My mixture is reducing." },
@@ -553,7 +557,7 @@ P:NPC {
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran's people always think a spell will make chemistry behave, and it never does. Master Faranell let one try once, and we're still scraping the result off the ceiling." },
       },
       choices = {
-        { text = "Then I'll stay patient and follow your method.", next = "BACK", reply = "Good, and the ceiling thanks you. Patience saves more lives than haste ever did.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll stay patient and follow your method.", next = "BACK", reply = "Good, and the ceiling thanks you. The last apprentice who rushed a distillation is still being scraped off it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Risk is how anyone learns anything, Zinge.", next = "BACK", reply = "It is, and I've the scars to prove it. Still, I'd rather not learn it from the ceiling.", fx = { align = { order = -1 } } },
         { text = "What do you work on here?", next = "work" },
       },

@@ -52,6 +52,8 @@ P:NPC {
           text = "One of the Warchief's people, out among our graves. The Scourge can't tell the living from the dead until they bite, so stay close to the road." },
         { id = "h_warrior", when = { class = "WARRIOR", race = "Scourge" },
           text = "A warrior, and one of ours. I've a task that's waited a long while for someone with a steady arm, if Austil de Mon thinks you're ready." },
+        { id = "h_dd_family", tags = { "news" }, when = { questDone = TODO_QUEST("Deaths in the Family") },
+          text = "Coleman's Agamands are back in the ground, and the mills feel lighter for it. I watched the road while you did the work, and I didn't envy you any of it." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick, because my eyes belong on that road." },
@@ -162,7 +164,7 @@ P:NPC {
     rogue = {
       lines = { { id = "ro_default", text = "Walk it if you like, but don't come running back here with something on your heels. If you must bring me anything from out there, bring me claws." } },
       choices = {
-        { text = "Claws, and quietly. Understood.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The claws, then, and I'll keep it quiet.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

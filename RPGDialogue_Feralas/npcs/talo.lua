@@ -82,7 +82,7 @@ P:NPC {
       big = true,
       lines = { { id = "as_default", text = "I would like to say it is justice I want, because that is the better word. But I am old enough to be honest, and it is revenge, and I want to get even." } },
       choices = {
-        { text = "Then you'll have it. The harpies earned it.", next = "BACK", reply = "Then may the Earth Mother forgive me for wanting it, and may your arrows fly true when you reach their nests.", fx = { align = { light = -1 } } },
+        { text = "Then you'll have your vengeance. The harpies earned it.", next = "BACK", reply = "Then may the Earth Mother forgive me for wanting it, and may your arrows fly true when you reach their nests.", fx = { align = { light = -1 } } },
         { text = "Let it go, elder. Hate is a heavy pack.", next = "BACK", reply = "It is heavy, and I have carried it many years, but I do not yet know how to set it down without falling.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

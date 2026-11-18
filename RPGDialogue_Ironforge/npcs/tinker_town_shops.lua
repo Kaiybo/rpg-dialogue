@@ -501,7 +501,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Oh, I've a potion that hardens the skin, very useful if you're standing in front of someone and something's trying to hit them. I'd give one to every paladin in Ironforge if they'd stand still long enough to drink it." } },
       choices = {
         { text = "Then I'll take one, to protect whoever stands behind me.", next = "BACK", reply = "That's lovely, and I'll make it a good one, because anyone who stands in front of people deserves the very best I can brew.", fx = { align = { honor = 1 } } },
-        { text = "I'll keep it for myself. A paladin can't protect anyone dead.", next = "BACK", reply = "Well, that's very practical, and I'll not argue with the logic, but do share one or two, because the ones behind you drink potions too.", fx = { align = { honor = -1 } } },
+        { text = "I'll keep it for myself. A paladin can't protect anyone dead.", next = "BACK", reply = "Well, that's very practical, and I can't fault the logic. Do share one or two, though, because the ones behind you drink potions too.", fx = { align = { honor = -1 } } },
         { text = "Goodbye, Tally.", next = "BACK" },
       },
     },

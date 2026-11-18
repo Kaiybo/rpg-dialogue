@@ -139,8 +139,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "A fine one, if they learned tae love the hunt as much as the kill. Most rogues I've met are in too much of a hurry, an' the great cats o' Stranglethorn will make a meal o' anyone who rushes them." } },
       choices = {
-        { text = "Then I'll learn patience from the master.", next = "BACK", reply = "Ha! That's the spirit, lad, an' ye'll learn faster than most. Patience first, an' the kill will follow when it's ready.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A kill is a kill. The love of it doesn't matter.", next = "BACK", reply = "Then ye'll be a fine rogue an' a poor hunter, an' I'll leave ye tae it. The jungle teaches the rest, usually the hard way.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll learn patience from the master.", next = "BACK", reply = "Ha! That's the spirit, {g:lad|lass}, an' ye'll learn faster than most. Patience first, an' the kill will follow when it's ready.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A kill is a kill. The love of it doesn't matter.", next = "BACK", reply = "Then ye'll be a fine rogue an' a poor hunter, an' I'll leave ye tae it. Just dinnae rush a panther, for it's the last mistake most folk make.", fx = { align = { honor = -1 } } },
         { text = "Something else, Nesingwary.", next = "BACK" },
       },
     },
@@ -438,6 +438,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_barnil_b = {
+      lines = {
+        { id = "dd_barnil_b_a", text = "Writing about it? He's written a whole chapter, lad, and it's mostly about how the great cat moved through the grass, and very little about you. That's Hemet; the hunt's the story, and the hunter's only the one who was lucky enough to be there." },
+      },
+      choices = {
+        { text = "That's how it should be. Bangalash deserves the chapter.", next = "dd_barnil_b2", fx = { align = { honor = 1 } } },
+        { text = "I'd like my name in there, at least once.", next = "dd_barnil_b2", fx = { align = { honor = -1 } } },
+      },
+    },
+    dd_barnil_b2 = {
+      lines = {
+        { id = "dd_barnil_b2a", text = "I'll see that it's spelled right, at least, since I'm the one who copies it out fair. Mind the loose pages if you're walking near the river, because the wind takes them and I can't chase them all." },
+      },
+      choices = { { text = "I'll keep an eye out. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It has room for anythin' wi' a good story, an' ye're a better one than most o' the panthers. Just don't go talkin' tae the beasts before the master shoots them, for he'll call it unsporting." } },
@@ -463,7 +479,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A clean kill, a straight story, an' the hide in one piece, an' he cannae abide anybody who shoots a beast while it drinks. He's written it all in his book, the rules an' the hunts, so if ye find any loose pages out in the jungle, bring them back tae me. An' that {pet} o' yers is a fine beast, but keep it off the master's tent, for he's sleepin', an' he snores like a basilisk." },
       },
       choices = {
-        { text = "His rules are right. A hunt without rules is just killing.", next = "BACK", reply = "Aye, an' the master'll be glad tae hear it. A hunt without rules is just the jungle, an' the jungle's got enough killers already.", fx = { align = { order = 1 } } },
+        { text = "His rules are right. A hunt without rules is just killing.", next = "BACK", reply = "Aye, an' that's near enough the first page o' his book. A hunt without rules is just the jungle, an' the jungle's got killers enough.", fx = { align = { order = 1 } } },
         { text = "Rules are fine in a book. I hunt to win.", next = "BACK", reply = "Then ye'll never get a page in the master's book, an' he'll never forgive ye for it. Win if ye like, but win clean.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -481,7 +497,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Only that a troll shaman once spooked every raptor out o' the valley wi' a thunderclap, an' the master spent a week cursin' him. He wrote it down, though, which is more respect than he gives most." } },
       choices = {
-        { text = "I'll hunt fair and keep to the master's rules.", next = "BACK", reply = "Good lad, an' the master will be glad tae hear it. Thunder makes the cats scatter, an' then we're all huntin' fog.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hunt fair and keep to the master's rules.", next = "BACK", reply = "Good, for thunder makes the cats scatter, an' then we're all huntin' fog for a week.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll hunt my own way, rules or no rules.", next = "BACK", reply = "Then do it far from the camp, friend, or the master'll curse ye for a week like he did that shaman. Rules are what make a hunt worth tellin'.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -548,6 +564,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_bangalash_barnil", when = { killed = { name = "Bangalash" } },
+          text = "You're the one who brought down King Bangalash! Hemet's been writing about it in the book every night by the fire, and I've had to fetch him three new quills already." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll forgive the mess, for the master's pages blow all over the camp an' I've no' had time tae tidy, but sit an' rest, for the jungle's hard on soft feet." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin, here! The master'll be pleased, for he's always sayin' the Alliance needs more heroes, an' never mind that he's one himself, though he'll no' admit it." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman o' the Horde at the master's camp. Well, he says a good hunter's welcome whatever the colors, so mind yer manners an' I'll mind mine." },
@@ -576,6 +595,8 @@ P:NPC {
         { id = "h_again2", text = "Somethin' else, friend? Ask away, only mind the oil." },
       },
       choices = {
+        { text = "Hemet's writing about Bangalash in the book?", next = "dd_barnil_b", when = { killed = { name = "Bangalash" } } },
+
         { text = "Does Nesingwary's book have anything to say about shamans?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Has magic ever helped with the master's lost pages?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do you ever worry you'll hunt the jungle empty?", next = "druid_talk", when = { class = "DRUID" } },
@@ -589,7 +610,7 @@ P:NPC {
         { text = "Shouldn't a hero of the Alliance be serving it, Barnil?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Nesingwary must be hard to impress, Barnil.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll look for the pages.", next = "END", fx = { affinity = 2 } },
-        { text = "You miss a fight? I'm a warrior. Spar with me.", next = "k_warrior", when = { class = "WARRIOR" } },
+        { text = "You miss a fight? I'm a warrior, so spar with me.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Why are the pages of Nesingwary's book loose, Barnil?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why won't Nesingwary move the book indoors, Barnil?", next = "xmage", when = { class = "MAGE" } },
         { text = "What does the master think of the Forsaken, Barnil?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -727,7 +748,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "It could, but I won't let it, because my father took his tigers with patience and a bow. If I find Sin'Dall with a spell, I'll have found him, but I won't have earned him, and that matters to me more than it ought to." } },
       choices = {
-        { text = "Then earn him the way your father did.", next = "BACK", reply = "I will, or I'll die trying, which is probably what he'd have said too. Thank you for understanding.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then earn him the way your father did.", next = "BACK", reply = "I will, or I'll die trying, which is probably what he'd have said too. He never once used a trick on a cat he respected.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A kill is a kill. I'd use every trick I had.", next = "BACK", reply = "Then you'll never know what my father knew, and I pity you a little for it. Use your tricks on the young ones, not on him.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -835,7 +856,7 @@ P:NPC {
     sindall_come = {
       lines = { { id = "sc_default", text = "No. Help me with the young ones, if you want to help, but Sin'Dall's mine. He was my father's, and now he's mine." } },
       choices = {
-        { text = "Understood.", next = "BACK", reply = "Thank you, I knew you'd understand. The young ones are thick along the ridges if you're looking for work.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Understood.", next = "BACK", reply = "Good. The young ones are thick along the ridges, if you're looking for work.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I'll take Sin'Dall myself if I find him first.", next = "BACK", reply = "Then you'll have to beat me to him, and I've been tracking him for years. Don't make me your rival over this.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Pride gets hunters killed.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
@@ -963,7 +984,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A panther wants to eat you and makes no secret of it, while a noble wants the same and smiles as he says otherwise. Out here I know exactly where I stand, and in Stormwind I never did. Your {pet} would make a better lord than most of the House of Nobles, and I say that with the deepest respect for your beast." },
       },
       choices = {
-        { text = "Honest danger beats false friends. You chose well.", next = "BACK", reply = "I did, and I sleep better for it, even with the panthers about. The jungle's the most honest company I've ever kept.", fx = { align = { honor = 1 } } },
+        { text = "Honest danger beats false friends. You chose well.", next = "BACK", reply = "I did, and I sleep better for it, even with the panthers coughing outside the tent. One walked past my boots last week and didn't so much as ask my rank.", fx = { align = { honor = 1 } } },
         { text = "Nobles are prey too, if you know how to hunt them.", next = "BACK", reply = "They are, and I hunted a few myself in the House, though only with words. It never gave me the satisfaction of a clean shot.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -990,8 +1011,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because a rogue tells you plainly what he wants, and a noble smiles at you while he takes it. I left Stormwind's court for the jungle because the panthers are more honest than the people I left behind." } },
       choices = {
-        { text = "Honesty is rare. You were right to leave.", next = "BACK", reply = "I was, and I'm glad someone outside the court sees it. Plain dealing is worth more than any title I ever held.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A smile is a tool. Nobles use theirs well.", next = "BACK", reply = "They do, and I used mine as well as any of them, to my shame. I'd rather have a panther's honesty than a noble's smile.", fx = { align = { honor = -1 } } },
+        { text = "Honesty is rare. You were right to leave.", next = "BACK", reply = "I was, and I'm glad someone outside the court sees it. Half my old colleagues still think I came to Stranglethorn on a dare.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A smile is a tool. Nobles use theirs well.", next = "BACK", reply = "They do, and I used mine as well as any of them, to my shame. I'd like to think I've forgotten how.", fx = { align = { honor = -1 } } },
         { text = "Something else, Sir Erlgadin.", next = "BACK" },
       },
     },
@@ -999,7 +1020,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because they served whoever paid them best, and in Stormwind, that changed by the week. I don't say all mages are like that, but the ones who prospered at court learned to bend, and I never could." } },
       choices = {
-        { text = "You kept your conscience and lost the court. Good trade.", next = "BACK", reply = "It was the best bargain I ever made, though it didn't feel so at the time. The jungle's a fair trade for a conscience.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "You kept your conscience and lost the court. Good trade.", next = "BACK", reply = "It was the best bargain I ever made, though it didn't feel so at the time. Mosquitoes and all, I'd make it again tomorrow.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "The court needs mages who bend. That's how order holds.", next = "BACK", reply = "Bend, yes, until they break, and Stormwind's order nearly broke more than once. I'd rather have one mage who won't bend.", fx = { align = { order = 1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -1125,8 +1146,8 @@ P:NPC {
       },
       choices = {
         { text = "They say worse.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
-        { text = "I left too. In my way.", next = "BACK", reply = "Then we're two of a kind, and I'm glad of it. The court never misses the ones who leave, only the coin they took with them.", fx = { affinity = 3, align = { honor = 1 } } },
-        { text = "They had their reasons for the masons.", next = "BACK", reply = "They had reasons, aye, and every one of them was gold. The masons had families, and that's all the reason I needed.", fx = { align = { honor = -1 }, affinity = -3, opinion = { defias = "nobles_justified" } } },
+        { text = "I left too, in my way.", next = "BACK", reply = "Then we're two of a kind, and I'm glad of it. The court never misses the ones who leave, only the coin they took with them.", fx = { affinity = 3, align = { honor = 1 } } },
+        { text = "They had their reasons for the masons.", next = "BACK", reply = "They had reasons, yes, and every one of them was gold. The masons had families, and that's all the reason I needed.", fx = { align = { honor = -1 }, affinity = -3, opinion = { defias = "nobles_justified" } } },
       },
     },
 

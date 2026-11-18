@@ -43,6 +43,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_longterm", when = { questDone = TODO_QUEST("Long-Term Solutions") },
+          text = "Hagiak sends word that his warriors have eaten well for a week, and that an outsider is to thank for it. He has never once sent me word of anything good, so I suspect you frightened him into it." },
         { id = "h_default", key = true,
           text = "I am Orgrul of the Magram, and this valley is my work. The other clans keep away from the bones, and that is their weakness, because the dead here are strong and they do as they are told." },
         { id = "h_valley", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Valley of Bones"), days = 3 } },
@@ -147,7 +149,7 @@ P:NPC {
         { id = "oc_default", text = "Necromancers who left the clan, or were thrown out of it, and kept the craft anyway. They hide away in their little hole and raise what they please, and every skeleton they steal from this valley is one the Magram will not have." },
       },
       choices = {
-        { text = "They must have done something bad to be cast out.", next = "outcasts_why" },
+        { text = "They must have done something ugly to get thrown out.", next = "outcasts_why" },
         { text = "Couldn't they be brought back into the clan?", next = "outcasts_back" },
         { text = "Something else.", next = "BACK" },
       },
@@ -208,7 +210,7 @@ P:NPC {
         { id = "aj_default", text = "It meant the Gelkis learned that killing a Magram khan only buys a short rest. It also meant that an outsider showed more loyalty to this clan than some of those born to it, which I do not understand, but I will not refuse." },
       },
       choices = {
-        { text = "I did it for the clan. That's all.", next = "BACK", reply = "Good, then you understand more than some who were born here, and I will not ask you why, because the answer would only spoil it.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I did it for the clan. That's all.", next = "BACK", reply = "Then you understand more than some who were born in this valley. I will not ask you why; the answer would only spoil it.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I did it for the reward. Don't make it more.", next = "BACK", reply = "Then you are honest about your greed, which is more than the Gelkis manage, and I prefer a mercenary who knows his price to a friend who does not.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -386,7 +388,7 @@ P:NPC {
       },
       choices = {
         { text = "The Earth Mother would not want this alliance.", next = "BACK", reply = "The Earth Mother has wanted many things from my people, tauren, and given us very little, so her wishes weigh lightly in this valley.", fx = { align = { honor = 1 } } },
-        { text = "A use for each other is enough for now.", next = "BACK", reply = "Good, then we understand each other, and that is more than I expected from someone with hooves, so let us both profit before we remember our grudges.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A use for each other is enough for now.", next = "BACK", reply = "Good, then we understand each other, which is more than I expected from a shu'halo. Let us both profit before we remember our grudges.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -446,8 +448,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the player killed the outcast necromancers for Orgrul.
+    dd_outcasts = {
+      lines = { { id = "do_default", text = "Once. They left the clan and kept its craft, and a Magram who does that is a spear pointed at the clan's back. You did what the clan needed, outsider; whether you did it gladly is your own business." } },
+      choices = {
+        { text = "Traitors get what traitors earn. I'd do it again.", next = "BACK", reply = "Good. Say that at Orgrul's fire and you will find the Magram warm to you faster than you would like.", fx = { align = { light = -1 } } },
+        { text = "I'd sooner have brought them home alive.", next = "BACK", reply = "Then you think like a Gelkis, outsider, and I will pretend I did not hear it, because you fight like a Magram.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_outcasts", when = { questDone = TODO_QUEST("Outcast Necromancers") },
+          text = "Orgrul says you rooted the outcast necromancers out of their hole. He was pleased, which means his bones will be busier, which means fewer of my warriors die at the front, so I am pleased as well." },
         { id = "h_default", key = true,
           text = "I am Hagiak, and I hold the Magram Front. The Bristleback dig in at their retreat, my warriors dig in here, and between us lies a stretch of ground nobody can eat from. Orgrul works his bones in the valley behind us, and I keep the front." },
         { id = "h_bristle_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Bristleback Retreat"), days = 3 } },
@@ -477,6 +490,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but be quick about it." },
       },
       choices = {
+        { text = "I killed Orgrul's outcasts. They were Magram once.", next = "dd_outcasts", when = { questDone = TODO_QUEST("Outcast Necromancers") } },
         { text = "You and the Bristleback seem to be at war.", next = "fight" },
         { text = "Why are your warriors starving?", next = "hunger" },
         { text = "What do you make of Orgrul?", next = "orgrul" },
@@ -511,7 +525,7 @@ P:NPC {
         { id = "fp_default", text = "Peace with pigs? The Magram respect strength, outsider, and a clan that makes peace with something weaker has just told the world it is weak too." },
       },
       choices = {
-        { text = "Peace would feed your warriors faster than war.", next = "BACK", reply = "Faster, maybe, but my warriors would rather go hungry than eat at a Gelkis fire, and so would I, so do not speak of it again.", fx = { align = { light = 1 } } },
+        { text = "Peace would feed your warriors faster than war.", next = "BACK", reply = "Faster, maybe, but my warriors would rather go hungry than share a trough with pigs, and so would I, so do not speak of it again.", fx = { align = { light = 1 } } },
         { text = "Then break them, and take what they hold.", next = "BACK", reply = "That is the Magram way, and the only one my warriors understand, so go and break them, and bring back whatever they were hoarding.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -531,7 +545,7 @@ P:NPC {
         { id = "hd_default", text = "And what are my warriors, then, when the dead can do their work? A clan that hands its battles to bones forgets how to fight, and I will not lead a clan like that." },
       },
       choices = {
-        { text = "You're right. The living must fight their own wars.", next = "BACK", reply = "Good, then at least one outsider understands what a warrior is for, and you may tell Orgrul I said so, though he will not care.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right. The living must fight their own wars.", next = "BACK", reply = "At last, an outsider who knows what a warrior is for. Tell Orgrul I said so; he will not care, but tell him anyway.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Use every weapon you have. Pride won't feed anyone.", next = "BACK", reply = "Pride is the only thing that has fed this clan through every lean winter, outsider, so do not tell me it is worth nothing.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -581,7 +595,7 @@ P:NPC {
       },
       choices = {
         { text = "A wound doesn't care about pride. I'll heal them.", next = "BACK", reply = "Then heal them, and let them curse you while you do it, because a warrior who lives to curse you can still fight for me tomorrow.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Those who refuse my help made their choice.", next = "BACK", reply = "That is a hard answer, and a Magram one, and I will not argue with it, but do not expect thanks from the ones who chose right.", fx = { align = { order = 1 } } },
+        { text = "Those who refuse my help made their choice.", next = "BACK", reply = "That is a hard answer, and a Magram one, and I will not argue with it. Just do not expect the ones you did heal to thank you for it either.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -641,8 +655,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the player fed the Magram Front for Hagiak.
+    dd_starve = {
+      lines = { { id = "ds_default", text = "Hungry warriors who will ride against Gelkis camps the moment they can stand. The Earth Mother feeds every creature, I know; Uthek has told me so a hundred times. But the Earth Mother does not have to bury what they kill." } },
+      choices = {
+        { text = "Hunger makes no clan better. I'd feed yours just as gladly.", next = "BACK", reply = "Perhaps you would. Uthek would like you, outsider, and I am not sure yet whether that is praise.", fx = { align = { light = 1 } } },
+        { text = "I was paid to do it. Your feud isn't mine.", next = "BACK", reply = "Then you are a spear for hire, and I will remember which way you pointed last.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_starve", tags = { "news" }, when = { questDone = TODO_QUEST("Threat of Starvation") },
+          text = "You fed Hagiak's warriors at the Magram Front, outsider; the wind carries the smell of their cookfires all the way here. Every Magram belly you filled is a spear that will point at my people, and I have not decided whether to forgive you." },
+        { id = "h_dd_rep", when = { reputation = { faction = "Gelkis Clan Centaur", min = "honored" } },
+          text = "The elders speak your name at the council fire now, outsider, and even Uthek nods when they do. I would not have believed an outsider could earn that, but the Earth Mother has surprised me before." },
         { id = "h_default", key = true,
           text = "I am Nerlokh of the Gelkis. The Magram are raising the dead in the Valley of Bones, and while their eyes are on the bones, their village is poorly watched." },
         { id = "h_checking", when = { questActive = TODO_QUEST("Checking Things Out") },
@@ -658,6 +685,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? We should not linger here long." } },
       choices = {
+        { text = "I fed hungry warriors. I won't apologise for that.", next = "dd_starve", when = { questDone = TODO_QUEST("Threat of Starvation") } },
         { text = "The Magram seem busy in the valley.", next = "valley" },
         { text = "Why do the Gelkis and Magram fight?", next = "feud" },
         { text = "Who are your elders?", next = "elders" },

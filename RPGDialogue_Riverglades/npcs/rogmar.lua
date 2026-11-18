@@ -391,6 +391,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_fletch", when = { questDone = TODO_QUEST("Fetch 'n' Fletch") },
+          text = "Tan'jani tells me you stole the humans' timber for his spears. He's been strutting about the camp ever since, so I hope you're ready to do something useful for an orc next." },
         { id = "h_default", key = true,
           text = "I am Neza Bloodsnout, and I hunt the glades for Rog'mar. Arrows feed us, poisons defend us, and I decide which one you're good for." },
         { id = "h_feathers", when = { questActive = TODO_QUEST("Feathers for Fletching") },
@@ -495,7 +497,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll prove it on a cultist.", next = "BACK", reply = "Do that, and I'll admit you're right. Bring me the cultist, not the story.", fx = { align = { honor = -1 } } },
-        { text = "Fair. A hunter knows the wild better.", next = "BACK", reply = "Good. Alleys are for rats, and the wild is for hunters.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Fair. A hunter knows the wild better.", next = "BACK", reply = "Good. Come out past the ridge at dusk, and I'll show you a cat track worth following.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -539,6 +541,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_poison", when = { questDone = TODO_QUEST("Poison Tips") },
+          text = "Neza been braggin' about de venom ya brought her from de southern pools, mon. She put it on her arrows, and now she be sayin' she don't need my spears, so dis be your fault." },
         { id = "h_default", key = true,
           text = "Tan'jani, headhunter. Orcs be good at hittin' humans with axes, but when ya want to stick 'em before dey see ya comin', dat's when ya call on me, and I make my spears from de humans' own wood." },
         { id = "h_fletch", when = { questActive = TODO_QUEST("Fetch 'n' Fletch") },
@@ -677,8 +681,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: Mugg's death, heard from Krom'rosh.
+    dd_mugg = {
+      lines = { { id = "dm_default", text = "The same as before, I'd wager. Ogres don't forge well; somebody in those caves does it for them, and that smells of the Twilight. With Mugg gone the cult has lost its biggest fist, but it still has its smiths, and the smiths are what I'd go after." } },
+      choices = {
+        { text = "Then I'll find this smith.", next = "BACK", reply = "Good. Bring me their hammer when you do, because I want to know whose work I've been fighting." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") },
+          text = "Krom'rosh hasn't stopped telling the grunts about the ogre's eye you brought back from Krol'dok. With Mugg dead, his ogres will be fighting over his armor, and I'd like a look at whatever they leave behind." },
         { id = "h_default", key = true,
           text = "Kreza Darkthorn. I keep this forge burning for Rog'mar, so if it's bent, broken or needs a better edge, it comes to me." },
         { id = "h_mould", when = { questActive = TODO_QUEST("Krol'dok Moulding") },
@@ -699,6 +713,7 @@ P:NPC {
         { id = "h_again2", text = "Go on." },
       },
       choices = {
+        { text = "Mugg's dead. Who's arming his ogres now?", next = "dd_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") } },
         { text = "What can you make from that mould?", next = "mould",
           when = { any = { { questActive = TODO_QUEST("Krol'dok Moulding") }, { questActive = TODO_QUEST("Key Ingredients") }, { questDone = TODO_QUEST("Key Ingredients") } } } },
         { text = "Somebody's making armor for those ogres.", next = "forgemaster" },
@@ -761,7 +776,7 @@ P:NPC {
         { id = "xs_default", text = "Then you know iron doesn't lie. Make it in a hurry and it breaks in a hurry, and that's true of a lot more than iron." },
       },
       choices = {
-        { text = "Good work takes time. No shortcuts.", next = "BACK", reply = "Then you understand iron, and iron understands you. Take your time.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Good work takes time. No shortcuts.", next = "BACK", reply = "Then you'll get a blade that outlives you. Come back in three days, and not one sooner.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "In war, fast and good enough wins.", next = "BACK", reply = "Fast and good enough breaks at the wrong moment, every time. I'll not make it for you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

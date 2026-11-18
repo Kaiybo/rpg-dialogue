@@ -123,6 +123,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_bandanas_danu", when = { questDone = TODO_QUEST("Red Leather Bandanas") },
+          text = "Galiaan's sack of bandanas came through my hands on the way to Gryan, and I counted yours twice to be sure. That's honest militia work, and you'll find the patrols treat you as one of their own now." },
+
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid, is it? I've heard your kind can turn into bears. If that's true, I'd like a few for the coast road." },
         { id = "h_default", text = "Captain Danuvin, of the People's Militia. I organize the farmers who were too stubborn to leave, and stubborn makes good soldiers." },
@@ -249,7 +252,7 @@ P:NPC {
       lines = { { id = "ds_default", text = "My farmers want to keep swinging till the thief stops moving, so I teach them to stop when he's down and tie him up. Gryan wants prisoners, because prisoners talk." } },
       choices = {
         { text = "And when you catch one who was a farmer's son?", next = "op_prisoners" },
-        { text = "Mercy and sense, both.", next = "BACK", reply = "Both, and Gryan will be glad of every prisoner. Talk to my farmers about it, they'll listen to you more than me.", fx = { affinity = 1, align = { light = 1, order = 1 } } },
+        { text = "Mercy and sense, Captain. Take them alive.", next = "BACK", reply = "Both, and Gryan will be glad of every prisoner. Talk to my farmers about it, they'll listen to you more than me.", fx = { affinity = 1, align = { light = 1, order = 1 } } },
         { text = "Dead thieves don't come back.", next = "BACK", reply = "No, and neither do the answers they might have given. Gryan needs them talking, and dead men talk to nobody.", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },

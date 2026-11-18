@@ -88,7 +88,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, from Darnassus and Auberdine, and the humans stare at their night sabers as if they've never seen a cat. Your {pet} would like the forests of my home, I think. Take it there one day, if you can, so it knows what a real tree looks like." },
       },
       choices = {
-        { text = "The wild is sacred and should be kept so.", next = "BACK", reply = "It is, and I am glad you see it. Elune keep the forests green.", fx = { align = { light = 1 } } },
+        { text = "The wild is sacred and should be kept so.", next = "BACK", reply = "I am glad you see it, so far from Ashenvale. Elune keep the forests green.", fx = { align = { light = 1 } } },
         { text = "The wild is there to be used, and I'll use it.", next = "BACK", reply = "Then use it carefully, for the wild remembers. My people learned that long ago.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -97,7 +97,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Every day I stand at this bench, though I know my potions mend more of them than my glaive ever could. Duty is not always where we'd choose it to be, and I'm still learning to bear that." } },
       choices = {
-        { text = "Duty is duty, wherever it calls. You serve well here.", next = "BACK", reply = "Thank you. Duty sits easier when someone else says it is worth the keeping.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Duty is duty, wherever it calls. You serve well here.", next = "BACK", reply = "Thank you. The Sentinels in Ashenvale write to me of battles, and some nights this bench feels very small.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Follow your heart to the front, Lilyssia. The bench can wait.", next = "BACK", reply = "My heart would agree with you, but my oath would not. The bench stays, for now.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -206,7 +206,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A little of it, I believe. The earth remembers where it came from. Your spirits might feel it more than humans do." } },
       choices = {
-        { text = "The earth's memory is worth honouring. Thank you.", next = "BACK", reply = "Thank you. It is good to sell to someone who understands.", fx = { align = { light = 1 } } },
+        { text = "The earth's memory is worth honouring. Thank you.", next = "BACK", reply = "Thank you. Most who buy these stones in Stormwind only ask whether they will fetch a good price in Ironforge.", fx = { align = { light = 1 } } },
         { text = "Herbs are herbs. Let's talk about price.", next = "BACK", reply = "Of course. The earth will forgive me for discussing coin, I hope.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -227,7 +227,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Some do, and they hold them as carefully as a priest holds a relic, while others only ask the price. I sell to both, because a gift between peoples must begin somewhere, even at a market stall." } },
       choices = {
         { text = "Sell only to those who'll treat them with respect.", next = "BACK", reply = "That is my hope, though I cannot always tell who will. I try.", fx = { align = { order = 1 } } },
-        { text = "Sell to anyone. Respect can be learned afterwards.", next = "BACK", reply = "Perhaps, and I sell to both for that reason. Respect is a seed that grows slowly.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Sell to anyone. Respect can be learned afterwards.", next = "BACK", reply = "Perhaps, and I sell to both for that reason. A human who buys a moonstone today may ask me what it means tomorrow.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -236,7 +236,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "We do, though we call them other things, and they walk the glades of Ashenvale far more quietly than any human. Our Sentinels and your SI:7 would understand each other well, I think, if they ever stopped watching each other." } },
       choices = {
         { text = "Allies should trust each other, not spy on each other.", next = "BACK", reply = "That would be the best way, though I suspect neither would listen.", fx = { align = { honor = 1 } } },
-        { text = "Allies always watch each other. That's simple sense.", next = "BACK", reply = "It is, and I suspect both would agree with you. Allies watch, and allies trust, both.", fx = { align = { honor = -1 } } },
+        { text = "Allies always watch each other. That's simple sense.", next = "BACK", reply = "I suspect both would agree with you. Darnassus watches Stormwind, Stormwind watches Darnassus, and somehow the trade ships keep sailing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -244,7 +244,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Perhaps, and the Sanctum's mages have offered, but a gift carried by hand means more than one sent through a door in the air. My people value the long road, because the journey is part of the gift." } },
       choices = {
-        { text = "The old way has meaning. Carry your gifts by hand.", next = "BACK", reply = "Thank you. The journey is part of the gift.", fx = { align = { order = 1 } } },
+        { text = "The old way has meaning. Carry your gifts by hand.", next = "BACK", reply = "Thank you. Every gift I have given in this city came across the sea in my own hands, and I would not dream of sending one through a portal.", fx = { align = { order = 1 } } },
         { text = "A faster road helps more people. Take the portal.", next = "BACK", reply = "It would, and perhaps one day I will. For now, I carry them by hand.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -253,7 +253,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They are made for leather and cloth, not steel, but they will mend a strap or stitch a shield grip as well as any blacksmith's. The Sentinels carry such tools on patrol, because a forest has no forges." } },
       choices = {
-        { text = "A warrior should be able to mend their own gear.", next = "BACK", reply = "They should, and the Sentinels agree. A blade you cannot mend is a blade you will lose.", fx = { align = { order = 1 } } },
+        { text = "A warrior should be able to mend their own gear.", next = "BACK", reply = "The Sentinels would agree. In Ashenvale, a blade you cannot mend yourself is a blade you will lose.", fx = { align = { order = 1 } } },
         { text = "I'll let the smiths mend my gear. That's their job.", next = "BACK", reply = "Then the smiths will be glad of your coin. I will be here if you need a strap.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -274,7 +274,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "They tend the sick and the dying, and they sing over the dead so their spirits find the way. I carried a little moonwell water across the sea with me, though I've had no cause to use it yet." } },
       choices = {
-        { text = "Every faith that tends the dying is a faith I honour.", next = "BACK", reply = "Thank you. That is a gracious thing to say.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Every faith that tends the dying is a faith I honour.", next = "BACK", reply = "Thank you. The priestesses of Elune say the same of your Cathedral, though they say it more quietly.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Songs won't save the dying. Medicine might.", next = "BACK", reply = "Medicine, yes, and songs too, for those who cannot be saved. Both have their place.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -334,7 +334,7 @@ P:NPC {
     why2 = {
       lines = { { id = "w2_default", text = "More each season, though some of the humans still stare, and some of my own people still wonder why we came at all. I believe we must learn each other, or neither of us will survive what comes next." } },
       choices = {
-        { text = "The alliance makes us both stronger.", next = "BACK", reply = "It does, and I hope more of both our peoples come to believe it.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "The alliance makes us both stronger.", next = "BACK", reply = "I hope more of both our peoples come to believe it. There are still elves in Darnassus who think Stormwind smells of smoke.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Each people should look after its own first.", next = "BACK", reply = "Some of my people agree with you, and some of yours. I would rather we learned each other.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -416,7 +416,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Dozens a month, now that so many new adventurers are coming through, and every one wants the lion of Stormwind sewn just so. I'll tell you a secret: the stitching on the lion's mane takes longer than all the rest of it together." } },
       choices = {
-        { text = "I'll wear the lion proudly. It means something.", next = "BACK", reply = "It does, darling, and I sew it with love. Wear it well.", fx = { align = { order = 1 } } },
+        { text = "I'll wear the lion proudly. It means something.", next = "BACK", reply = "It does, darling, and I sew every lion with love. Wear it well.", fx = { align = { order = 1 } } },
         { text = "A tabard's just cloth. I don't need a badge.", next = "BACK", reply = "Just cloth? Darling, you wound me twice in one day.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -438,7 +438,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "They cut for humility, which is to say they don't care whether anything fits. I have nothing against modesty, but a priest who's comfortable prays better, I'm quite certain of it." } },
       choices = {
         { text = "Humility matters more than comfort, Georgio.", next = "BACK", reply = "It does, darling, but a little comfort never hurt anyone. I'll make it modest and fitted.", fx = { align = { light = 1 } } },
-        { text = "You're right. I'd pray better in a robe that fits.", next = "BACK", reply = "Exactly, darling! The Light listens better to the well dressed.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "You're right. I'd pray better in a robe that fits.", next = "BACK", reply = "Exactly, darling! I won't say the Light listens better to the well dressed, but I've never heard it complain.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -446,7 +446,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "It's the first thing people see, before your hammer or your face, and it tells them what you stand for. A ragged tabard says you've stopped caring, and nobody follows someone who's stopped caring." } },
       choices = {
-        { text = "Then I'll keep it clean. Others look to it.", next = "BACK", reply = "Thank you, darling. A clean tabard is a sermon in itself.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll keep it clean. Others look to it.", next = "BACK", reply = "Thank you, darling. A clean tabard in the Cathedral Square does more for the faithful than half the sermons.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "People should follow deeds, not tabards.", next = "BACK", reply = "Deeds, yes, but a tabard is how they know whose deeds they are. Keep it clean anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -497,7 +497,7 @@ P:NPC {
     new2 = {
       lines = { { id = "n2_default", text = "Somebody has to mend them, darling, and I charge a fair price for it. Would you rather they went out to fight the Defias in rags?" } },
       choices = {
-        { text = "No. A fair trade for honest work is fine.", next = "BACK", reply = "Thank you, darling. Someone in this city appreciates fine work.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "No. A fair trade for honest work is fine.", next = "BACK", reply = "Thank you, darling. At last, someone in this city who doesn't haggle over every stitch.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "I'd rather you mended the refugees' clothes for free.", next = "BACK", reply = "For free? Darling, I'd starve, and then who'd mend anything? I do give a discount to the very sad ones.", fx = { align = { light = 1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -564,7 +564,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Roots and bark from Elwynn, mostly, and a blue from Lordaeron that I can't get any more since the plague. I pay the gatherers fairly and ask them not to strip the trees, though I can't swear they listen." } },
       choices = {
-        { text = "Make them swear it, and check on them yourself.", next = "BACK", reply = "I do, and I will. The forests deserve that much.", fx = { align = { order = 1 } } },
+        { text = "Make them swear it, and check on them yourself.", next = "BACK", reply = "I do, and I will. I've already turned one gatherer away for bringing me bark stripped right round the trunk.", fx = { align = { order = 1 } } },
         { text = "You can't police every gatherer. Trust them and move on.", next = "BACK", reply = "You can't, I suppose, but I'll still ask. It's the least I can do.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -573,7 +573,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because mages wear it and mages pay more for things with their name on, and someone in Dalaran worked that out long before I did. I've never told a buyer it was enchanted, mind, and I never will." } },
       choices = {
-        { text = "Good. Honest trade is the only kind worth having.", next = "BACK", reply = "It is, and it's the only kind I'll have. Thank you.", fx = { align = { honor = 1 } } },
+        { text = "Good. Honest trade is the only kind worth having.", next = "BACK", reply = "It's the only kind I'll have in my shop. Thank you.", fx = { align = { honor = 1 } } },
         { text = "A good name sells cloth. There's no harm in that.", next = "BACK", reply = "There isn't, so long as the cloth's good. Mine is.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -591,7 +591,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The sensible ones do, because a torn tabard on the road is a torn tabard for a month. I've sold more thread to Barracks men than you'd guess, though they all say it's for their wives." } },
       choices = {
-        { text = "A warrior should know how to mend his own gear.", next = "BACK", reply = "They should, and the sensible ones do. I'll sell you a needle.", fx = { align = { order = 1 } } },
+        { text = "A warrior should know how to mend his own gear.", next = "BACK", reply = "The sensible ones do. Here, I'll sell you a needle and save you the walk back.", fx = { align = { order = 1 } } },
         { text = "I'll pay someone to sew. I've better things to do.", next = "BACK", reply = "Then Georgio will be glad of your coin. He'll lecture you for free.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -612,7 +612,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Elwynn's flax, mostly, and some silk from the south, and the best of it used to come from Dalaran before the war. Now we make do, and the priests mend their robes until they're more patch than cloth." } },
       choices = {
-        { text = "A patched robe can serve as well as a new one.", next = "BACK", reply = "It can, and the priests make it look holy. I respect them for it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A patched robe can serve as well as a new one.", next = "BACK", reply = "It can, and the priests somehow make their patches look holy. I respect them for it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Cathedral should spend on new robes, not patches.", next = "BACK", reply = "Perhaps, but the Cathedral has other things to spend on. I'll keep selling them thread.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -621,7 +621,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The good ones do, by firelight, and they're very proud of it. The others bring them to Georgio and he lectures them for an hour, so I'd learn, if I were you." } },
       choices = {
-        { text = "Caring for one's own gear is part of the discipline.", next = "BACK", reply = "It is, and I'm glad to hear a paladin say it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Caring for one's own gear is part of the discipline.", next = "BACK", reply = "I'm glad to hear a paladin say it. Most of your order sends a squire.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My time's better spent fighting than sewing, Alexandra.", next = "BACK", reply = "Then Georgio will get your custom, and your hour of lecturing. I'd learn to sew.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -675,7 +675,7 @@ P:NPC {
     georgio = {
       lines = { { id = "ge_default", text = "Loud, and he thinks every customer is a disaster waiting for his scissors. But he's never once cut a pattern wrong, and I'll forgive a man a lot of shouting for that." } },
       choices = {
-        { text = "Skill excuses a lot.", next = "BACK", reply = "It does, and Georgio knows it. That's why he's so insufferable.", fx = { align = { honor = -1 } } },
+        { text = "Skill excuses a lot.", next = "BACK", reply = "Georgio knows it, too. That's exactly why he's so insufferable.", fx = { align = { honor = -1 } } },
         { text = "Skill doesn't excuse rudeness.", next = "BACK", reply = "No, it doesn't, but I'll forgive him anyway. Someone has to.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -886,7 +886,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Terribly, for the workshops and the materials and the gossip, though not the politics. Your spirits must have politics too." } },
       choices = {
-        { text = "I'll honour what Dalaran made, Ardwyn. It deserves remembering.", next = "BACK", reply = "Thank you. The workshops deserve someone to remember them.", fx = { align = { honor = 1 } } },
+        { text = "I'll honour what Dalaran made, Ardwyn. It deserves remembering.", next = "BACK", reply = "Thank you. I learned my trade in those workshops, and most of the hands that taught me are gone now.", fx = { align = { honor = 1 } } },
         { text = "Dalaran's gone. Look forward, not back.", next = "BACK", reply = "I try, but the wood keeps reminding me. I'll look forward when I can.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -943,7 +943,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Some do, though the craft is rare, and Dalaran's workshops did it best before they fell. I've a few that were blessed in the Cathedral, and they hum differently, softer, as if they're listening." } },
       choices = {
-        { text = "Holy power deserves respect, Ardwyn. Handle them carefully.", next = "BACK", reply = "They do, and I handle them as gently as I can. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Holy power deserves respect, Ardwyn. Handle them carefully.", next = "BACK", reply = "I handle them as gently as I can, believe me. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is power. A wand doesn't care who blessed it.", next = "BACK", reply = "It doesn't, maybe, but I'd still handle a blessed one with care.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1056,7 +1056,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll pay, then, and keep my hands to myself.", next = "BACK", reply = "That's wise. The ring comes back either way.", fx = { align = { honor = 1 } } },
-        { text = "Cursed rings sell well in Old Town, Charys.", next = "BACK", reply = "They do, and they come back here a week later. I'd not bother.", fx = { align = { honor = -1 } } },
+        { text = "Cursed rings sell well in Old Town, Charys.", next = "BACK", reply = "They sell well, and they come back here a week later with a very unhappy customer. I'd not bother.", fx = { align = { honor = -1 } } },
         { text = "Something else, Charys.", next = "BACK" },
       },
     },
@@ -1074,7 +1074,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "They send their apprentices, who swear the purchases are for study, and I've sold the same lucky charm three times to the same master's three apprentices. Even the wise like a little luck, it seems, now that Dalaran's gates are closed to them." } },
       choices = {
         { text = "Luck is a crutch. I'd rather trust my training.", next = "BACK", reply = "That's what the masters say, and then they send their apprentices for charms.", fx = { align = { order = 1 } } },
-        { text = "A little luck never hurt anyone, master or not.", next = "BACK", reply = "That's what I say to the apprentices. They always come back for more.", fx = { align = { order = -1 } } },
+        { text = "A little luck never hurt anyone, master or not.", next = "BACK", reply = "Spoken like one of my regulars. The apprentices always come back for more, whatever their masters say.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1103,7 +1103,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "From all over the world, from the crafters and mages here and from the hunters and gatherers who bring me what they find. Your {pet} looks healthy and strong, which is good; some of these reagents come from beasts that weren't so lucky." },
       },
       choices = {
-        { text = "I'll take only what I need from the creatures I hunt.", next = "BACK", reply = "Good. The best trinkets come from careful hunters.", fx = { align = { honor = 1 } } },
+        { text = "I'll take only what I need from the creatures I hunt.", next = "BACK", reply = "Good. The best trinkets I sell come from careful hunters; the careless ones bring me teeth with the jaw still on.", fx = { align = { honor = 1 } } },
         { text = "If it sells, I'll bring it in.", next = "BACK", reply = "Then bring them, and I'll pay you fairly. I'll ask where they came from, though.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1122,7 +1122,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Some were made with fel or shadow, long ago, and they remember the Light the way a burned hand remembers fire. I keep them because someone must, and I'd sooner they were here than in the wrong hands." } },
       choices = {
         { text = "Things like that should be destroyed, not kept.", next = "BACK", reply = "Perhaps they should, but I'm not wise enough to know how. I keep them locked.", fx = { align = { light = 1 } } },
-        { text = "Better kept and watched than lost to the wrong hands.", next = "BACK", reply = "That's my thinking. Someone has to watch them.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Better kept and watched than lost to the wrong hands.", next = "BACK", reply = "That's my thinking. Better on my shelf, where I can see them, than in some lordling's study.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1139,7 +1139,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you see more of the world's raw magic than I do, out in the wild where the reagents first come from." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in my little shop. Some of these trinkets came from your side of the sea, and they've been restless since you walked in." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walked in so quietly the chimes didn't stir. Please don't do that again; the trinkets don't like surprises." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Speak softly, please. The trinkets are listening. Do your spirits listen too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Speak softly, please, because the trinkets are listening. Do your spirits listen too?" },
       },
       again = {
         { id = "h_again", text = "Have you another question for me, or for the curios?" },
@@ -1252,7 +1252,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not often, but when they do, it's for a wedding or a funeral, and they want the very best. I've fitted a captain of the Barracks for his daughter's wedding, and he was more nervous than any battle could have made him." } },
       choices = {
-        { text = "A warrior should look their best for the people they love.", next = "BACK", reply = "They should, and they always do, in the end. It's lovely to see.", fx = { align = { order = 1 } } },
+        { text = "A warrior should look their best for the people they love.", next = "BACK", reply = "They always do, in the end. It's my favourite thing about this work, watching them stand a little taller.", fx = { align = { order = 1 } } },
         { text = "Fine clothes are wasted on a warrior.", next = "BACK", reply = "Wasted? The captain's daughter cried when she saw him. Nothing wasted there.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1282,7 +1282,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Under the plate, sometimes, and for oath-takings at the Cathedral, which is when I sell most of them. They come in so solemn about the fit that I hardly dare make a joke." } },
       choices = {
-        { text = "Ceremony matters. It reminds us what we've sworn.", next = "BACK", reply = "It does, and I'm proud to sew for it. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ceremony matters. It reminds us what we've sworn.", next = "BACK", reply = "I'm proud to sew for it. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Ceremony is for show. The oath lives in deeds.", next = "BACK", reply = "It does, but the robe still needs to fit. I'll make it fit.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -59,7 +59,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A shield with a Warsong axe still stuck in it, which its owner wished to keep exactly as it was. I listed it as one shield, kaldorei, with one axe, orcish, attached, and it remains the only item in my vault that unsettles Lairn." } },
       choices = {
-        { text = "Keep that shield safe. Such things should be remembered.", next = "BACK", reply = "I will, and its owner may collect it whenever she likes. Some things are worth more than gold, and that is one of them.", fx = { align = { honor = 1 } } },
+        { text = "Keep that shield safe. Such things should be remembered.", next = "BACK", reply = "I will, and its owner may collect it whenever she likes. It came back from Ashenvale split nearly in two, and I will not be the one who loses what is left of it.", fx = { align = { honor = 1 } } },
         { text = "A broken shield is scrap. Melt it down.", next = "BACK", reply = "Its owner did not think so, and it is her shield. I keep what I am given, exactly as it was given.", fx = { align = { honor = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -249,7 +249,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Keeping your shield up when your arm is shaking, because that's when the Warsong hit hardest and it's when most of you drop it. Arias'ta will talk to you about spirit, and I'll make sure your shield is still up while you listen." } },
       choices = {
         { text = "Drill me until the shield stays up.", next = "BACK", reply = "Then we will drill until your arm forgets how to drop it. It is the only lesson that matters in Ashenvale.", fx = { align = { order = 1 } } },
-        { text = "I'd rather hit first than hide behind a shield.", next = "BACK", reply = "Many do, and the Warsong are very glad of it. A shield that stays up outlives a sword that strikes first.", fx = { align = { order = -1 } } },
+        { text = "I'd rather hit first than hide behind a shield.", next = "BACK", reply = "Many do, and the Warsong are very glad of it. I have carried some of them home from Ashenvale myself.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -420,7 +420,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "A plain staff, light enough to carry all day and long enough to keep a snarling thing at arm's length. You'll be praying more than swinging, so there's no point paying for an edge you'll never use." } },
       choices = {
         { text = "My prayers are my real weapon, so a plain staff will do.", next = "BACK", reply = "Then a plain staff it is, and I will not argue with your faith. Lean on it after a long day.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Give me the sharpest one, because I don't trust prayers alone.", next = "BACK", reply = "Then the sharpest one it is, though I would still say your prayers. Both together are better than either alone.", fx = { align = { light = -1 } } },
+        { text = "Give me the sharpest one, because I don't trust prayers alone.", next = "BACK", reply = "Then the sharpest one it is, though I would still say your prayers before you draw it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -449,7 +449,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because sooner or later a nightsaber or a Gnarlpine will close the distance, and you'll want more than the end of your bow. Your {pet} has its own blades, of course, but it can't always be between you and the claw." },
       },
       choices = {
-        { text = "A blade on the hip is wise. I'll carry one.", next = "BACK", reply = "Good, and you will be glad of it when a saber closes the distance. Every hunter should carry one.", fx = { align = { order = 1 } } },
+        { text = "A blade on the hip is wise. I'll carry one.", next = "BACK", reply = "Good, and you will be glad of it when a saber closes the distance. Keep it on the side you do not draw your arrows from.", fx = { align = { order = 1 } } },
         { text = "My bow and my companion are all I need.", next = "BACK", reply = "They are, until the bowstring snaps and your companion is down. Then you will wish you had listened.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -622,7 +622,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They do, though I wish they didn't have to, because a nightsaber runs into the Warsong lines without a thought for herself. Bring yours home whole and look after her afterward, warrior, and I'll know I chose her rider well." } },
       choices = {
-        { text = "A mount is a companion. I'd never leave her.", next = "BACK", reply = "Then she will never leave you either, warrior. That is the bond.", fx = { align = { honor = 1 } } },
+        { text = "A mount is a companion. I'd never leave her.", next = "BACK", reply = "Then she will never leave you either, warrior. I once saw a saber limp three days through Ashenvale to bring her rider home.", fx = { align = { honor = 1 } } },
         { text = "In battle, a mount is a tool like any other.", next = "BACK", reply = "It is not, and she will teach you so the first time you treat her like one. Sabers remember.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -791,7 +791,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They always do, and I laugh every time, but they learn. Perhaps your spirits will soften the fall." } },
       choices = {
-        { text = "Falling teaches, Jartsam. I will learn.", next = "BACK", reply = "Then you will learn faster than most, shaman, and laugh at it too. That is the best way.", fx = { align = { honor = 1 } } },
+        { text = "Falling teaches, Jartsam, and I will learn.", next = "BACK", reply = "Then you will learn faster than most, shaman, and laugh at it too. That is the best way.", fx = { align = { honor = 1 } } },
         { text = "I will not fall.", next = "BACK", reply = "Everyone says that, and everyone falls. I will be here to laugh when you do.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -809,7 +809,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Much harder, because a warhorse charges straight and a saber goes wherever it thinks the danger isn't. You'll have to learn to trust it, which I hear your order does well enough, as long as it's the Light you're trusting." } },
       choices = {
-        { text = "I'll learn to trust the saber, then.", next = "BACK", reply = "Good, and you will find she knows the ground better than you do. Trust her, and she will trust you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll learn to trust the saber, then.", next = "BACK", reply = "Good, and you will find she knows the ground better than you do. She has run these roots since before you were born.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll make it go where I mean to go.", next = "BACK", reply = "Then she will go wherever she likes, and you will go with her, probably upside down. Trust her instead.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -830,7 +830,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It does, because you won't treat her like a chair, which is the mistake most riders make. Your {pet} will want to keep up when you ride, I can see it already, so let it, but don't let it win, or my sabers will sulk for a week." },
       },
       choices = {
-        { text = "I'll let her set the pace and learn it.", next = "BACK", reply = "Good, and she will teach you more than I could. A saber knows her own pace.", fx = { align = { order = 1 } } },
+        { text = "I'll let her set the pace and learn it.", next = "BACK", reply = "Good, and she will teach you more than I could. Most of my students only learn that after their third fall.", fx = { align = { order = 1 } } },
         { text = "She'll learn my pace, not the other way round.", next = "BACK", reply = "Then you will have a very long argument with her, and she will win. Sabers always win.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -1200,7 +1200,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I could, though it breaks my heart: greens and browns, with the emblem small, and I'll pretend I made it for a druid. Your {pet} would look rather fine in a tabard as well, though I've never made one a beast would keep on." },
       },
       choices = {
-        { text = "Proud colors. A hunter shouldn't hide what they stand for.", next = "BACK", reply = "Then I will make it proud, and the forest will know who you are. That is a hunter's honour.", fx = { align = { honor = 1 } } },
+        { text = "Proud colors. A hunter shouldn't hide what they stand for.", next = "BACK", reply = "Then I will make it proud, and the forest will know who you are. Green and silver, perhaps, like the moon through the leaves.", fx = { align = { honor = 1 } } },
         { text = "Forest colors. I'd rather the game never saw me.", next = "BACK", reply = "Then greens and browns it is, and I will try not to weep over it. The game will thank me.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -1342,7 +1342,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Quietly, and more than they'd tell the druids, because a long night of healing makes anyone hungry. I give them the best cuts, since they spend all day looking after everybody else." } },
       choices = {
-        { text = "Healers should be fed well, for they give everything away.", next = "BACK", reply = "They should, and I do my best to make sure of it. A hungry healer heals no one.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Healers should be fed well, for they give everything away.", next = "BACK", reply = "They should, and I do my best to make sure of it. Half the Temple would forget to eat if I did not send venison up the steps.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Everyone should pay full price, priest or not.", next = "BACK", reply = "Everyone does pay full price, priest. I only make sure the healers get the best cuts.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1521,7 +1521,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Better together than either alone, I've always thought, because a bandage holds while the prayer works and a prayer reaches what a bandage can't. The priestesses agree, mostly, though they don't like to hear it from a man with linen in his pockets." } },
       choices = {
-        { text = "Prayer reaches deeper, but I'll carry linen as well.", next = "BACK", reply = "Good, and the wounded will thank you for both. Prayer and linen together are a fine thing.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayer reaches deeper, but I'll carry linen as well.", next = "BACK", reply = "Good, and the wounded will thank you for both. I keep a roll in every pocket, and the priestesses laugh at me for it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A good bandage is surer than any prayer.", next = "BACK", reply = "It is surer, and quicker, and it does not ask anything of you. But do not tell the Temple I said so.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1539,7 +1539,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "To do it between fights rather than during them, because a bandage tied while an orc is swinging at you comes loose by the third blow. Find a quiet moment, bind it tight and let it work, and you'll walk back from Ashenvale on your own legs." } },
       choices = {
-        { text = "I'll learn the craft and look after myself.", next = "BACK", reply = "Good, and you will be glad of it in Ashenvale. A warrior who can bandage is worth two who cannot.", fx = { align = { order = 1 } } },
+        { text = "I'll learn the craft and look after myself.", next = "BACK", reply = "Good, and you will be glad of it in Ashenvale. Most of the Sentinels I patched up had tied their own first knot badly.", fx = { align = { order = 1 } } },
         { text = "That's what priests are for.", next = "BACK", reply = "They are, until they are not there. Learn it anyway, warrior.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -1593,13 +1593,23 @@ P:NPC {
         { id = "xmage_default", text = "Because your spells won't close a wound, and the priest is never standing next to you when you need one. A roll of linen weighs less than a spellbook, and it's saved more mages than any spell I know of." },
       },
       choices = {
-        { text = "Then teach me. I'll carry linen.", next = "BACK", reply = "Good, and you will be glad of it the first time something reaches you. Something always does.", fx = { align = { order = 1 } } },
+        { text = "Then teach me, and I'll carry linen.", next = "BACK", reply = "Good, and you will be glad of it the first time something reaches you. Something always does.", fx = { align = { order = 1 } } },
         { text = "I'll just make sure nothing reaches me.", next = "BACK", reply = "Something always reaches you eventually, mage. I would rather you were ready.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    dd_deaths = {
+      lines = {
+        { id = "ddd_default", text = "Then let me teach you to count something else, like the seconds between a wound and a bandage. Most deaths I hear about began as a cut that someone meant to see to after the fight, and then the fight went on too long." },
+      },
+      choices = {
+        { text = "That's fair. Teach me what you can.", next = "BUSINESS" },
+        { text = "I'll see to my wounds after the fighting.", next = "BACK", reply = "That's what they all say, and then they come back pale from the spirit healer and say it again. Think on it, please." },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 20 } }, text = "Forgive me for staring, but I can see you have died a good many times, more than any of my students. Bandages won't stop all of that, though they would have stopped some of it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I'll still teach you, if you'll let me, because I've seen prayers run out in the Barrens while the linen carried on." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order heals with the Light, I know, but even the Light needs a moment, and a bandage can buy you that moment." },
         { id = "h_default", text = "I'm Dannelor, and I teach first aid: linen, wool, a steady hand and the sense to use them before it's too late. It's the one trade every adventurer should learn, because the healer isn't always beside you." },
@@ -1618,6 +1628,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. My next student is late, as always." },
       },
       choices = {
+        { text = "I've died more often than I care to count.", next = "dd_deaths", when = { deaths = { min = 20 } } },
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "Why should I learn this?", next = "why" },
         { text = "Some wounds must be harder to treat than others.", next = "wound" },
@@ -1749,7 +1760,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The best ones grow where the beasts walk and the people don't, so yes, just mark where you picked them. Your {pet} has been sniffing my earthroot, though, and I'd prefer it didn't eat any." },
       },
       choices = {
-        { text = "I'll mark every grove. Your work deserves care.", next = "BACK", reply = "Thank you, hunter, and the herbs will thank you too. A good grove is worth more than gold.", fx = { align = { order = 1 } } },
+        { text = "I'll mark every grove. Your work deserves care.", next = "BACK", reply = "Thank you, hunter, and the herbs will thank you too. I have lost three good groves to careless pickers this century alone.", fx = { align = { order = 1 } } },
         { text = "Herbs are herbs. I won't keep notes.", next = "BACK", reply = "Then you will never find them again, and neither will I. Keep notes, hunter.", fx = { align = { order = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
@@ -1771,7 +1782,7 @@ P:NPC {
         { id = "xlock_default", text = "Because I've heard of warlocks who use rare herbs to feed their pacts, and I won't have my plants in any of those bargains. Learn honest alchemy here if you'd like, but the patience it takes is the cure for your craft, not a fuel for it." },
       },
       choices = {
-        { text = "Honest alchemy, then. I'll learn the patient way.", next = "BACK", reply = "Good, and the herbs will be glad of it. Patience is the whole of alchemy.", fx = { align = { light = 1 } } },
+        { text = "Honest alchemy, then. I'll learn the patient way.", next = "BACK", reply = "Good, and the herbs will be glad of it. My first teacher made me grind silverleaf for a month before she let me near a flame.", fx = { align = { light = 1 } } },
         { text = "Herbs are herbs. What I do with them is mine.", next = "BACK", reply = "It is, until I learn what you did with them. Then it becomes mine.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1831,7 +1842,7 @@ P:NPC {
         { id = "fi2_default", text = "Then don't become an alchemist, because the hundred-and-first will be the one someone drinks with an orc's axe in them. I'd rather you were bored than that they were dead." },
       },
       choices = {
-        { text = "Fair. Precision saves lives.", next = "BACK", reply = "It does, and every drop counts. Come back when you are ready to measure.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Fair enough. Precision saves lives.", next = "BACK", reply = "It does, and every drop counts. Come back when you are ready to measure.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "I'll learn by doing, not by repetition.", next = "BACK", reply = "Then you will learn by blowing up my workshop, and I would rather you did not. Repetition is safer.", fx = { align = { order = -1 }, trait = { independent = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -187,7 +187,7 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
-        { text = "I'll go. Farewell, Danitha.", next = "END" },
+        { text = "I'll go, then. Farewell, Danitha.", next = "END" },
       },
     },
 
@@ -1145,7 +1145,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "The road's quiet, for now. It rarely stays that way." },
+    { id = "g_default", text = "The road's quiet for now, though it rarely stays that way." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Walk with me a bit, if you like; I've a long way to the tower." },
   },
 

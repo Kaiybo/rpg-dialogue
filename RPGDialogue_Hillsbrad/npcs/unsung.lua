@@ -98,7 +98,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "He'd be heartbroken, though he'd never show it, since he believes fishing is about patience, not power. I tell him the fish don't care how they're caught, and he tells me that's why I'll never understand fishing." } },
       choices = {
-        { text = "Donald is right. Patience is the real reward.", next = "BACK", reply = "You'll make his day if you tell him that yourself. Mind you, he'll keep you talking about patience till the tide comes in.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Donald's right. The waiting is half the pleasure.", next = "BACK", reply = "You'll make his day if you tell him that yourself. Mind you, he'll keep you talking about patience till the tide comes in.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The fish don't care how they're caught. Neither do I.", next = "BACK", reply = "That's what I keep telling him! Don't let him hear you, though, or I'll never hear the end of it.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -127,7 +127,7 @@ P:NPC {
           text = "A paladin, and in all that plate! If you fall off my dock you'll sink like an anchor, so mind the loose board by the third post." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll not want fishing line, I expect, though it makes a handy bowstring in a pinch, and a handier tripwire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want snares and line, I suppose, and maybe a hook or two in case the hills turn out stingy." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Donald says your people fish with a spear and a prayer, and I can't sell you the prayer, but I've plenty of spears." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Donald says your people fish with a spear and a prayer, and I can't sell you the prayer, but I've plenty of spears." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock buying fishing gear, now I've seen everything. You'll want the sturdy line, I'd guess, because something tells me you won't be patient with the snags." },
       },
       again = {
@@ -320,7 +320,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want soul shards, I suppose, and I'll tell you now that I don't sell them, and I don't want to know where you get them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be one of those who goes up toward Tarren Mill, then, and I'd beg you to carry an antidote, because what they're brewing up there won't care how thick your armour is." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're out in the hills, I'd pay well for herbs from the higher slopes, so long as you pick them above the streams the Forsaken have been fouling." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a night elf one! I've a hundred questions about herbs and no one to ask, so don't be surprised if I follow you around." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, and a night elf one! I've a hundred questions about herbs and no one to ask, so don't be surprised if I follow you around." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want the poison vials, I suppose, and the clean ones, and I'll sell you those, but please don't tell me what goes in them, because I sleep badly enough already." },
       },
       again = {
@@ -496,7 +496,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Every week, from people who say they've lost their keys, and I send each one to the Magistrate. Southshore's a small town, and if a lock gets picked, everyone knows who bought the tools." } },
       choices = {
         { text = "You're right. A small town needs honest traders.", next = "BACK", reply = "It does, and I've seen what happens when trust breaks in a place like this. I'll keep sending them to the Magistrate.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A lockpick is just a tool. You could sell it to honest folk.", next = "BACK", reply = "Honestly to whom, though? I'll leave that to the dwarves, and keep my good name.", fx = { align = { order = -1 } } },
+        { text = "A lockpick is just a tool. You could sell it to honest folk.", next = "BACK", reply = "Sell them to whom, though? Honest folk don't need lockpicks, so I'll leave that trade to the dwarves and keep my good name.", fx = { align = { order = -1 } } },
         { text = "Something else, Micha.", next = "BACK" },
       },
     },
@@ -531,7 +531,7 @@ P:NPC {
           text = "A paladin! You'll want oil and polish for that plate, I'd wager, because the damp in Hillsbrad will rust a buckle overnight." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want leather strips and heavy thread for those straps, I'd guess, since every soldier who comes back from the fields has something torn." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Bring me good hides from the hills and I'll find a crafter who needs them, since half of Southshore's leatherworkers are short on everything but complaints." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid. Do your people use thread and leather, or do you just grow your clothes on trees? I'm only partly joking." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid. Do your people use thread and leather, or do you just grow your clothes on trees? I'm only partly joking." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I sell to every trade that walks in, but I'll say now that I've no use for anything that whispers, so if you're selling, I'm not buying." },
       },
       again = {

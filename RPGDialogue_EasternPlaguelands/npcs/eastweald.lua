@@ -40,7 +40,7 @@ P:NPC {
       },
       choices = {
         { text = "They're people, as you said. Honour isn't only ours.", next = "op_orcs_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { orcs = "respect" } } },
-        { text = "They burned Lordaeron once. I won't forget that.", next = "op_orcs_r2", fx = { affinity = -1, align = { honor = -1 }, opinion = { orcs = "distrust" } } },
+        { text = "They burned Lordaeron once. I won't forget that, Tirion.", next = "op_orcs_r2", fx = { affinity = -1, align = { honor = -1 }, opinion = { orcs = "distrust" } } },
         { text = "Thrall freed us. We are not the Horde that burned your lands.", next = "op_orcs_r3", fx = { affinity = 2, opinion = { orcs = "kin", warchief = "admire" } }, when = { race = "Orc" } },
         { text = "My family fought them in the Second War. I'm still learning.", next = "op_orcs_r4", fx = { trait = { kind = 1 }, opinion = { orcs = "mixed" } }, when = { race = "Human" } },
         { text = "I don't know what I think of them, Tirion.", next = "BACK" },
@@ -83,7 +83,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Once I'd have said the Light was the only true path, and then an orc showed me more honour than my own order did, and it cost me everything I had. I've learned to judge a soul by what it does, and if the spirits lead you against the Scourge, then we walk the same road, whatever we call the one who lit it." } },
       choices = {
         { text = "The Light and the spirits both guard this world, Tirion.", next = "BACK", reply = "I've come to believe that, though it took an orc to teach me. Walk well, shaman.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Faith is only a weapon, Tirion. Use whichever cuts.", next = "BACK", reply = "A weapon cuts both ways, friend, and faith used that way cuts the one holding it soonest. I'd be more careful with it.", fx = { align = { light = -1 } } },
+        { text = "Faith is only a weapon, Tirion. Use whichever one cuts.", next = "BACK", reply = "A weapon cuts both ways, friend, and faith used that way cuts the one holding it soonest. I'd be more careful with it.", fx = { align = { light = -1 } } },
         { text = "Something else, Tirion.", next = "BACK" },
       },
     },
@@ -94,15 +94,15 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}. Keep it close by the river, {class}, because the plagued things in the Eastweald have learned to hunt in packs, and they're fond of a lone beast at the water's edge." },
       },
       choices = {
-        { text = "The land will heal one day, and I'll hunt clean woods again.", next = "BACK", reply = "I hope you do, and I hope I'm still here to see it. Bring me a stag's tale when you do.", fx = { align = { light = 1 } } },
-        { text = "These woods are lost, Tirion. Better to burn them and move on.", next = "BACK", reply = "Burned, perhaps, but not forgotten. Even ash grows something, given time.", fx = { align = { light = -1 } } },
+        { text = "The land will heal one day, and I'll hunt clean woods again.", next = "BACK", reply = "I hope you do, and I hope I'm still here to see it. My son and I hunted these woods once, before everything; bring me a stag's tale when they're clean again.", fx = { align = { light = 1 } } },
+        { text = "These woods are lost, Tirion. Better to burn them and move on.", next = "BACK", reply = "Burned, perhaps, but not forgotten. I've seen fireweed come up through the ash at Darrowshire, and nobody planted it there.", fx = { align = { light = -1 } } },
         { text = "Something else, Tirion.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "I have to believe so, or there is little point in an old man fishing here. The Light can cleanse a soul, but the land wants something slower, and I think it wants us to stop fighting over it first." } },
       choices = {
-        { text = "It will heal with patience and mercy.", next = "BACK", reply = "That's what I'd hoped you'd say. Patience and mercy are slow, but they're the only things that last.", fx = { align = { light = 1 } } },
+        { text = "It will heal with patience and mercy.", next = "BACK", reply = "That's what I'd hoped you'd say. They're slow, I'll grant you, and I've watched a good many young knights lose patience with both.", fx = { align = { light = 1 } } },
         { text = "It heals when every plague-thing is burned.", next = "BACK", reply = "Burning clears, but it doesn't heal. I fear we'll need both, and the second will take longer.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -111,13 +111,15 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "I do. He was an old warrior hiding from his own Horde, and he saved my life, and when my own people would have killed him for it, I couldn't stand by. They took my lands and my name, and they told my son I was a traitor, and I'd make the same choice again tomorrow, though I'd give a great deal to have Taelan understand it." } },
       choices = {
-        { text = "You chose rightly, Tirion. Honour knows no colours.", next = "BACK", reply = "Thank you. I've been told otherwise by better men than you, and I still believe you're right.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "You chose rightly, Tirion. Honour knows no colours.", next = "BACK", reply = "Thank you. Better men than you have told me otherwise, some of them under oath, and I still believe you're right.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Your own people came first. You should have remembered that.", next = "BACK", reply = "My own people came to kill a man who saved my life. I remembered them very well, friend.", fx = { align = { honor = -1 } } },
         { text = "Something else, Tirion.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_souls", when = { questDone = TODO_QUEST("The Restless Souls") },
+          text = "I hear Egan's little device has set some of Stratholme's lost ones free, and that you carried it into the city. My people lived and died in those streets, so you have my thanks, quietly given." },
         { id = "o_scmercy", tags = { "news" }, when = { opinion = { topic = "scarlet_crusade", stance = "mercy" } }, text = "I'm told you'd rather reason with the Crusade than break it. My son wears their colours in Hearthglen, so I hope with all my heart that you're right." },
         { id = "h_pt_pala", tags = { "news" }, when = { party = { class = "PALADIN" } },
           text = "You travel with {companion}, and they carry themselves like one of the Silver Hand, though I'd guess they never knew Uther. I was one of the first to take that oath, and I've been out here long enough to wonder whether the order still remembers my name." },
@@ -166,7 +168,7 @@ P:NPC {
         { text = "Do you mean Eitrigg, Tirion?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Does a paladin of the old Hand trust a shaman, Tirion?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My companion is a paladin. What would you tell them?", next = "xpt_pala", when = { party = { class = "PALADIN" } } },
-        { text = "I'll help you.", next = "END", reply = "Thank you. The Light, or whatever's left of it in me, will walk with you.", fx = { affinity = 2, align = { light = 1, honor = 1 } } },
+        { text = "I'll help you, Tirion.", next = "END", reply = "Thank you. The Light, or whatever's left of it in me, will walk with you.", fx = { affinity = 2, align = { light = 1, honor = 1 } } },
         { text = "You chose an orc over your own people, and I can't respect that.", next = "END", reply = "Then we disagree, and I've had worse said to me by my own son. Go in peace, all the same.", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
@@ -174,8 +176,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I was a paladin, and I'm not sure what I am now, but Hearthglen taught me that the ones doing right in the open aren't always the ones doing right. I showed an orc named Eitrigg mercy where no one could see it, and it cost me everything, and it was still worth it." } },
       choices = {
-        { text = "Quiet mercy is still mercy.", next = "BACK", reply = "It is, and sometimes it's the only kind that survives. Go carefully.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Mercy got you exiled. I'll stick to the knife.", next = "BACK", reply = "Exile's a quiet thing, and I've had time to think. The knife has its uses, but so does mercy.", fx = { align = { light = -1 } } },
+        { text = "Quiet mercy is still mercy.", next = "BACK", reply = "It is, and sometimes it's the only kind that survives out here. Go carefully, and don't let anyone tell you a quiet kindness doesn't count.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mercy got you exiled. I'll stick to the knife.", next = "BACK", reply = "Exile's a quiet thing, and I've had years by this river to think. The knife has its uses, I won't deny it, but I've never once caught a fish with it.", fx = { align = { light = -1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -183,7 +185,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I blame no single city, for Lordaeron fell because too many of us looked away at once, my own order among them. Kel'Thuzad came out of Dalaran, true, but so did the mages who fought the Scourge while the rest of us were still arguing." } },
       choices = {
-        { text = "Everyone shares the blame. That's the honest answer.", next = "BACK", reply = "It is, and I've had years to come to it. We all looked away.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everyone shares the blame. That's the honest answer.", next = "BACK", reply = "It is, and it took me years by this river to come to it. Every one of us who watched Lordaeron sicken and told ourselves it was someone else's duty carries a share.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Some carry more blame than others, Tirion.", next = "BACK", reply = "Some do, and I'll not argue. But I'd rather look at my own share first.", fx = { align = { honor = -1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
@@ -204,8 +206,8 @@ P:NPC {
       },
       choices = {
         { text = "You don't seem to regret it.", next = "regret" },
-        { text = "That's a cruel reward for mercy.", next = "BACK", reply = "It was, but the Light doesn't keep score the way men do. I've made my peace with it, mostly.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Hearthglen's people were only protecting their own.", next = "BACK", reply = "They thought they were, and that's what makes it so sad. Fear makes good people cruel.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "That's a cruel reward for mercy.", next = "BACK", reply = "It was, but the Light doesn't keep score the way men do. Most mornings I've made my peace with it, and the river helps with the rest.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Hearthglen's people were only protecting their own.", next = "BACK", reply = "They thought they were, and that's what makes it so sad. Some of the men who came for Eitrigg had eaten at my table, and they were sure they were doing right.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Do you still think the orcs were worth it?", next = "op_orcs" },
       },
     },
@@ -214,7 +216,7 @@ P:NPC {
         { id = "r_default", text = "Not for a moment. I regret what it cost my family, but I'd never regret what I did. A paladin who only protects his own kind isn't a paladin; he's a sword with a prayer painted on it." },
       },
       choices = {
-        { text = "I'll remember that.", next = "BACK", reply = "Do, and when you're tempted to forget it, think of an old man fishing by a grey river.", fx = { affinity = 3, align = { light = 2, honor = 1 }, trait = { kind = 1 } } },
+        { text = "I'll remember that, Tirion.", next = "BACK", reply = "Do, and when you're tempted to forget it, think of an old man fishing by a grey river with his horse for company.", fx = { affinity = 3, align = { light = 2, honor = 1 }, trait = { kind = 1 } } },
         { text = "Your family paid for that mercy, and I'd call that too high a price.", next = "BACK", reply = "Perhaps it was, and I'll answer for that to them, not to you. I'd still do it again.", fx = { align = { light = -2 } } },
       },
     },
@@ -246,7 +248,7 @@ P:NPC {
       big = true,
       lines = { { id = "p_default", text = "They took my right to call on it, but they couldn't take the habit of listening. Some mornings I think I hear it, and some mornings I'm only an old man by a river." } },
       choices = {
-        { text = "It hears you. I'm sure of it.", next = "BACK", reply = "Thank you. Some mornings I'm sure of it too, and those are good mornings.", fx = { affinity = 3, align = { light = 2 } } },
+        { text = "It hears you. I'm sure of it.", next = "BACK", reply = "Thank you. Some mornings I'm sure of it too, usually when the mist lifts off the water early. Those are good mornings.", fx = { affinity = 3, align = { light = 2 } } },
         { text = "The Light let them strip you, so I'd stop listening for it.", next = "BACK", reply = "Perhaps I should, but I've listened my whole life, and I don't know how to stop.", fx = { affinity = -1, align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -280,7 +282,7 @@ P:NPC {
         { id = "ss_default", text = "That's between me and the river, friend, and the river doesn't ask. Forgive an old man for keeping a few things back." },
       },
       choices = {
-        { text = "Of course. Forgive me.", next = "BACK" },
+        { text = "Of course. Forgive me for asking.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -293,7 +295,7 @@ P:NPC {
       choices = {
         { text = "It burns. I carry it anyway.", next = "BACK", when = { class = "PALADIN" }, fx = { affinity = 3, trait = { brave = 1 } } },
         { text = "Mercy is all the dead have left, Tirion.", next = "BACK", reply = "Then I hope you'll find some of it on your road. I've tried to keep some by this river.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "I don't need anyone's mercy, old man.", next = "BACK", reply = "No, perhaps not, but you'll have it all the same. That's the trouble with mercy.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I don't need anyone's mercy, old man.", next = "BACK", reply = "No, perhaps not, but you'll have it all the same. I've never found a way to keep it from anyone, and I stopped trying long ago.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -314,7 +316,7 @@ P:NPC {
       { id = "tp_knows", text = "I've been out of the world a long while, but an old knight remembers more than he lets on. Ask me about any of these and I'll tell you what I can." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've sat by this river with me often enough to ask me anything. These I can speak to, and I'll speak plainly, for it's the only way I still know how." },
     },
-    background = { { id = "tp_ba", text = "A lord, a paladin, a traitor, a fisherman. Each of them was true for a while.", next = "story" } },
+    background = { { id = "tp_ba", text = "A lord, a paladin, a traitor and a fisherman. Each of them was true for a while, and only the last one has ever caught anything.", next = "story" } },
     advice = { { id = "tp_ad", text = "Do the right thing, and pay what it costs without complaining. That's the whole of the Light, as far as I can tell." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "Some of the finest people I knew joined them, to save Lordaeron, and now they burn what's left of it. My son is among them. I try not to think about that, and fail." } },
     argent_dawn = { { id = "tp_dawn", text = "Good people at the chapel, and they'd have me, I think. I'm not ready, but one day." } },
@@ -369,7 +371,7 @@ P:NPC {
       lines = { { id = "prej_default", text = "I knew no other trolls while I lived. The Amani came out of Zul'Aman every season to burn and to take heads, and I learned to kill them before I learned to read, so forgive me if I am slow to tell your tusks from theirs." } },
       choices = {
         { text = "The Darkspear fought for the Horde, not the Amani.", next = "BACK", reply = "They did, and I have heard it said before. I am slow to believe it, but I am listening.", fx = { align = { order = 1 } } },
-        { text = "Old hatreds sharpen a ranger. Keep yours.", next = "BACK", reply = "I mean to. A ranger without hatred is only a man with a bow.", fx = { align = { order = -1 } } },
+        { text = "Old hatreds sharpen a ranger. Keep yours.", next = "BACK", reply = "I mean to. I fought the Amani on the borders of Quel'Thalas for most of my life, and dying did nothing to soften that.", fx = { align = { order = -1 } } },
         { text = "I'll be slow too, then. Watch me work.", next = "prej_ok", fx = { affinity = 1 } },
         { text = "Did the Banshee Queen fight the Amani as well?", next = "prej_why" },
         { text = "Something else, Blightcaller.", next = "BACK" },
@@ -378,7 +380,7 @@ P:NPC {
     prej_why = {
       lines = { { id = "prejwhy_default", text = "She led us against them, and she was magnificent, and she never spoke of them afterward as anything but enemies. That she now calls trolls allies tells me the world has changed, and I am still deciding whether I have." } },
       choices = {
-        { text = "She changed. You could follow her in that too.", next = "BACK", reply = "Perhaps I shall, in time. She has been right before, when I was certain she was wrong.", fx = { align = { light = 1 } } },
+        { text = "She changed. You could follow her in that too.", next = "BACK", reply = "Perhaps I shall, in time. She has been right before when I was certain she was wrong, and she has never once let me forget it.", fx = { align = { light = 1 } } },
         { text = "Some things shouldn't change, even for her.", next = "BACK", reply = "Some things, yes. But I've followed her this far, and I suspect I'll follow her further.", fx = { align = { light = -1 } } },
         { text = "Something else, Blightcaller.", next = "BACK" },
       },
@@ -395,7 +397,7 @@ P:NPC {
         { id = "opsy_default", text = "Because she was my Ranger-General in life, and death didn't change who gives the orders. You've walked into her city or heard of it, so tell me what you make of my queen." },
       },
       choices = {
-        { text = "She's earned her crown. I'd serve her too.", next = "op_sylvanas_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { sylvanas = "admire" } } },
+        { text = "Sylvanas has earned her crown. I'd serve her too.", next = "op_sylvanas_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { sylvanas = "admire" } } },
         { text = "She's using the Horde, and everyone knows it.", next = "op_sylvanas_r2", fx = { affinity = -2, align = { order = -1 }, opinion = { sylvanas = "distrust" } } },
         { text = "She freed me. That's the only truth I need.", next = "op_sylvanas_r3", fx = { affinity = 2, opinion = { sylvanas = "loyal" } }, when = { race = "Scourge" } },
         { text = "Your loyalty is your own affair, Blightcaller.", next = "BACK" },
@@ -417,7 +419,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Kill what I point you at, and leave the prayers for after. The Scarlets at Tyr's Hand call on the same Light you do, and the Banshee Queen wants them dead, so I'll be watching to see whether your hand shakes when you meet them." } },
       choices = {
-        { text = "My hand won't shake. The Dark Lady's enemies are mine.", next = "BACK", reply = "Good. Then show me at Tyr's Hand.", fx = { align = { order = 1 } } },
+        { text = "My hand won't shake. The Dark Lady's enemies are mine.", next = "BACK", reply = "Good. Then show me at Tyr's Hand, where the Crusade's priests are thickest.", fx = { align = { order = 1 } } },
         { text = "I'll judge the Scarlets myself, not on your word.", next = "BACK", reply = "Judge them, then, and quickly, before they judge you. The Dark Lady does not wait for priests to make up their minds.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -426,7 +428,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Advance, and keep advancing, through the Scarlet camps and the plaguebats alike, without waiting on orders from the Undercity. The Scourge has all the patience in the world, so the only way to beat it is to be faster." } },
       choices = {
-        { text = "Then I'll press forward and give them no rest.", next = "BACK", reply = "Good. Rest is for those who've already won.", fx = { align = { order = -1 } } },
+        { text = "Then I'll press forward and give them no rest.", next = "BACK", reply = "Good. The Scourge never rests, so neither shall we; rest is for those who have already won.", fx = { align = { order = -1 } } },
         { text = "Without orders an army's only a mob. I'll wait for the plan.", next = "BACK", reply = "Then you'll wait until the Scourge has eaten the plan and the army both. Suit yourself.", fx = { align = { order = 1 } } },
         { text = "Something else, Blightcaller.", next = "BACK" },
       },
@@ -434,8 +436,8 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "It troubles me that the Scourge made it and the Dark Lady did not. What the land does after we have won is your concern, druid, not mine." } },
       choices = {
-        { text = "The land must be healed, whoever wins.", next = "BACK", reply = "Heal it, then, when we've won. I will not stop you.", fx = { align = { light = 1 } } },
-        { text = "Win first. The trees can wait.", next = "BACK", reply = "A sensible druid. The trees have waited this long.", fx = { align = { light = -1 } } },
+        { text = "The land must be healed, whoever wins.", next = "BACK", reply = "Heal it, then, when we've won. I will not stop you, so long as you don't plant flowers where I need clear sight lines.", fx = { align = { light = 1 } } },
+        { text = "Win first. The trees can wait.", next = "BACK", reply = "A sensible druid. The trees have waited this long, and they will be easier to see past while they are dead.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -443,8 +445,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "I trust the ones who've stopped pretending the dead can be saved, and who mend a ranger's arm so he can draw a bow again. Out here a healer who stays back from the line is just another mouth, so if you mean to serve the Queen at Marris Stead, stand where the plaguebats can reach you." } },
       choices = {
-        { text = "I'll stand at the line, Blightcaller. Where I'm needed.", next = "BACK", reply = "Good. Then you're worth more than the mouth.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll stand where I please. Healers don't take orders.", next = "BACK", reply = "Then stand there, and I'll find another healer who will.", fx = { align = { order = -1 } } },
+        { text = "I'll stand at the line, Blightcaller, where I'm needed.", next = "BACK", reply = "Good. Then you're worth more than your mouth, which is rare among the living.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll stand where I please. Healers don't take orders.", next = "BACK", reply = "Then stand there, and I'll find another healer who will stand where I say. There are always more healers.", fx = { align = { order = -1 } } },
         { text = "Something else, Blightcaller.", next = "BACK" },
       },
     },
@@ -453,14 +455,16 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "The land? Perhaps, given a hundred years and a great many fires. But I hunted these woods when I was living, and I'll tell you plainly that I don't care if a single tree grows here again, so long as nothing that killed me walks here either." } },
       choices = {
         { text = "The land needs healing, Blightcaller, as much as it needs vengeance.", next = "BACK", reply = "Heal it if you can, shaman. I'll be busy with the other.", fx = { align = { light = 1 } } },
-        { text = "Vengeance first. The trees can wait a hundred years.", next = "BACK", reply = "Exactly so, and I'm glad someone understands.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Vengeance first. The trees can wait a hundred years.", next = "BACK", reply = "Exactly so. I'm glad someone in this Horde understands it.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else, Blightcaller.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_honor", when = { faction = "Horde", honorKills = { min = 250 } },
+          text = "My rangers tell me you've been bleeding the Alliance in their own valleys. Good, because every human you put in the ground is one fewer who'll ever set foot on my family's land." },
         { id = "o_sydistrust", tags = { "news" }, when = { opinion = { topic = "sylvanas", stance = { "distrust", "doubt" } } }, text = "Word reaches even Marris Stead, and word is you doubt the Dark Lady. Say it to my face, if you'd like to learn how the rangers of Quel'Thalas settled such things." },
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" },
           text = "A tauren druid in the Plaguelands. Keep to the river, druid, and don't go embracing the trees out here, for the ones not rotten through are hollow and full of something worse." },
         { id = "h_default", key = true,
           text = "Nathanos, Champion of the Banshee Queen; they call me the Blightcaller. The Scourge, the plaguebats and the Scarlet zealots all crawl over these fields, and I mean to clear them, and you'll help." },
@@ -498,7 +502,7 @@ P:NPC {
         { text = "Do you trust any priest, Blightcaller?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The land might be brought back, Blightcaller.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What would you have a paladin do in these fields, Blightcaller?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
-        { text = "I'll clear the fields.", next = "END", reply = "Good. Start with the ones nearest the road, and leave nothing standing.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll clear the fields, Blightcaller.", next = "END", reply = "Good. Start with the ones nearest the road, and leave nothing standing.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "You speak to me as if I were Amani, Blightcaller.", next = "prej", when = { prejudiced = true } },
         { text = "I'll hunt where I please, Blightcaller, not where you point.", next = "END", reply = "Then hunt somewhere I can't see you, and don't come back expecting thanks.", fx = { align = { order = -1 } } },
       },
@@ -507,8 +511,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "On anything that crawls across these fields, and the Crusade crawl further than anyone, preaching all the while. Get close enough to cut a throat before the prayer is finished, and I'll count you worth my time." } },
       choices = {
-        { text = "Zealots get no fair fight from me.", next = "BACK", reply = "Good. They give us none.", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll face them openly. Even zealots get that.", next = "BACK", reply = "Brave, and foolish. They won't extend you the same courtesy.", fx = { align = { honor = 1 } } },
+        { text = "Zealots get no fair fight from me.", next = "BACK", reply = "Good. They have never given us one, and I see no reason to start the courtesy now.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll face them openly. Even zealots get that.", next = "BACK", reply = "Brave, and foolish. They won't extend you the same courtesy, and I will not come to collect your body.", fx = { align = { honor = 1 } } },
         { text = "Something else, Blightcaller.", next = "BACK" },
       },
     },
@@ -516,7 +520,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I trust no one, and the Dark Lady trusts less; that is how she rules. But the arcane burns plaguebats out of the sky better than any arrow I've loosed, so I'll put you where they swarm and see what you're worth." } },
       choices = {
-        { text = "Trust is earned. I'll earn it in fire.", next = "BACK", reply = "Then do. The plaguebats are waiting.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Trust is earned. I'll earn it in fire.", next = "BACK", reply = "Then do. The plaguebats are waiting, and they burn very nicely.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need your trust, only your targets.", next = "BACK", reply = "Targets I have, mage, more than you can burn. Start with the bats.", fx = { align = { honor = -1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
@@ -525,8 +529,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "She fears nothing, but she remembers, for she was a servant to a master once and it cost her everything. Learn from that, {class}, and keep your demons on a short chain, or one morning you'll wake to find yourself their pet." } },
       choices = {
-        { text = "My demons serve me. That will never change.", next = "BACK", reply = "Good, if it's true. I'll be watching for the morning it isn't.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Chains break. I'll be ready when they do.", next = "BACK", reply = "A wise answer, and a rarer one. Keep a blade near.", fx = { align = { order = -1 } } },
+        { text = "My demons serve me. That will never change.", next = "BACK", reply = "Good, if it's true. I'll be watching for the morning it isn't, and I'll have an arrow ready.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Chains break. I'll be ready when they do.", next = "BACK", reply = "A wise answer, and a rarer one than you'd think. Keep a blade near, and sleep facing the door.", fx = { align = { order = -1 } } },
         { text = "Something else, Blightcaller.", next = "BACK" },
       },
     },
@@ -544,8 +548,8 @@ P:NPC {
         { id = "xh_default", text = "Teach you? The elves spent years teaching me, and every lesson came with a sneer for the human who dared to learn it. I'll tell you the one thing they never managed to: a ranger is measured by what he kills, not by the blood he was born with." },
       },
       choices = {
-        { text = "Then measure me by my kills.", next = "BACK", reply = "I will. Bring me a tally that impresses me.", fx = { affinity = 2, align = { light = -1 } } },
-        { text = "A ranger's measured by what he protects.", next = "BACK", reply = "Then protect something worth protecting. Out here, that's very little.", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Then measure me by my kills.", next = "BACK", reply = "I will. Bring me a tally that impresses me, and ears to prove it.", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "A ranger's measured by what he protects.", next = "BACK", reply = "Then protect something worth protecting. Out here, that's very little, and most of it is already dead.", fx = { affinity = -1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

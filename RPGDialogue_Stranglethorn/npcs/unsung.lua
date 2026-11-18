@@ -32,7 +32,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a sword cuts, but a mace convinces, and when you're facing a Mosh'Ogg brute in his iron scraps you need a lot of convincing. Every Bloodsail bosun I ever saw wore a coat of mail, and I watched a Blackwater raider put one down with a single swing of my best." } },
       choices = {
-        { text = "The right weapon for the fight. That's sense, not fashion.", next = "BACK", reply = "Now that's a customer with a head on his shoulders, and I'd like to keep it there, chum. Grab a mace for the ogres and keep your sword for the duelists.", fx = { align = { order = 1 } } },
+        { text = "The right weapon for the fight. That's sense, not fashion.", next = "BACK", reply = "Now that's a customer with a head on those shoulders, and I'd like to keep it there, chum. Grab a mace for the ogres and keep your sword for the duelists.", fx = { align = { order = 1 } } },
         { text = "I'll fight with whatever I've got and make it work.", next = "BACK", reply = "Sure, sure, and when your sword bounces off a Mosh'Ogg helmet, you come see Kizz. I'll have something heavy waiting, at a very fair price.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -195,7 +195,7 @@ P:NPC {
       },
       choices = {
         { text = "It's not bad, for goblin work.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Ironforge does better. By a mile.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Ironforge does it better, by a mile.", next = "BACK", fx = { affinity = -1 } },
       },
     },
   },
@@ -899,7 +899,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Every single one, because a town full of pirates makes for a very nervous banker, and nerves aren't covered by the Cartel's insurance. I've never once lost a coin to a thief, and I intend to keep it that way, no matter how charming they are." } },
       choices = {
-        { text = "Your caution is wise. I'll keep my hands to myself.", next = "BACK", reply = "You're a gentleman among rogues, friend, and the vault appreciates it. I'll still count after you leave, mind.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your caution is wise. I'll keep my hands to myself.", next = "BACK", reply = "You're a rare sort of rogue, friend, and the vault appreciates it. I'll still count after you leave, mind.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Counting twice won't stop a good thief.", next = "BACK", reply = "No, but it'll tell me how much he stole, friend, which is half the battle. The sharks handle the other half.", fx = { align = { order = -1 } } },
         { text = "Something else, Rickle.", next = "BACK" },
       },

@@ -172,7 +172,7 @@ P:NPC {
         { id = "h_notlock", when = { ["not"] = { class = "WARLOCK" } }, text = "You're no warlock, so I've nothing to teach you, but I'll answer a civil question. Nobody else in this quarter asks me any." },
       },
       again = {
-        { id = "h_again", text = "Another question? Good. Questions are cheaper than mistakes." },
+        { id = "h_again", text = "Another question? Good, because questions are cheaper than mistakes." },
         { id = "h_again2", text = "Go on, I'm still here. I'm always still here." },
       },
       choices = {
@@ -328,7 +328,7 @@ P:NPC {
       lines = { { id = "ns_default", text = "Buried, with the bread and the wife and the little shop by the gate. Overseer Bauhaus has it in his census, I expect, and he's welcome to keep it there." } },
       choices = {
         { text = "The man you were deserves remembering.", next = "BACK", reply = "Remembering is for Bauhaus and his census. I'll leave that man in his grave with the bread.", fx = { align = { light = 1 } } },
-        { text = "Good. A new name for a new life.", next = "BACK", reply = "A new life, yes, and a new trade, and I'm rather better at this one. Shall we begin?", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Good. A new name suits a new life.", next = "BACK", reply = "A new life, yes, and a new trade, and I'm rather better at this one. Shall we begin?", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -389,7 +389,7 @@ P:NPC {
       lines = { { id = "li_default", text = "Every beat of it, living one, as plainly as you'd hear a drum through a wall. They don't hunger for it the way the Scourge would, but they listen to it the way a cat listens to a mouse behind the plaster." } },
       choices = {
         { text = "Then I'll keep my visits short.", next = "BACK", fx = { trait = { cautious = 1 } } },
-        { text = "Let them listen. I'm not afraid.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Let them listen, then. I'm not afraid of them.", next = "BACK", fx = { trait = { brave = 1 } } },
       },
     },
   },
@@ -428,10 +428,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_dalaran = {
+      lines = { { id = "dd_dalaran_default", text = "Pleased is a small word for it. They shut their gates while the plague took the rest of us, and now they send children in violet robes to poke about in Silverpine as though nothing happened, so every one you drop is a debt Dalaran finally pays." } },
+      choices = {
+        { text = "They'll keep paying until their walls come down.", next = "BACK", reply = "Now that is a sentence I'd like engraved somewhere. Go on, then, and bring me back a robe or two.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Most of them were apprentices. They didn't close those gates.", next = "BACK", reply = "They live behind them, and that's close enough for me. You'll lose that tenderness in a year or two, I promise.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Kaelystia Hatebringer, trainer of mages, and before you ask, yes, I chose the name myself. I teach the Dark Lady's sorcerers to burn and freeze her enemies, and I'm told I'm thorough about it." },
         { id = "h_dalaran", when = { origin = "forsaken_dalaran_apprentice" }, text = "A Dalaran apprentice, once, by the way you hold your hands. Then you know what they did to us, and you'll understand why I teach with such enthusiasm." },
+        { id = "h_dd_dalaran", tags = { "news" }, when = { killed = { name = "Dalaran", min = 30 } },
+          text = "You've been cutting down Dalaran's precious apprentices in the forests, I'm told, and doing it with some flair. Come in, sit, and tell me which of them screamed the loudest." },
       },
       again = {
         { id = "h_again", text = "Something else? Be brief; brevity is the soul of spellcraft." },
@@ -446,6 +457,7 @@ P:NPC {
         { text = "What became of Dalaran, then?", next = "dome" },
         { text = "Darkspear magic comes from the loa, not from books.", next = "troll", when = { race = "Troll" } },
         { text = "I'll go.", next = "END" },
+        { text = "Dalaran's mages are dying out there, Kaelystia. Pleased?", next = "dd_dalaran", when = { killed = { name = "Dalaran", min = 30 } } },
       },
     },
     hate = {
@@ -485,7 +497,7 @@ P:NPC {
         { id = "sc_mage", when = { class = "MAGE", race = "Scourge" }, text = "Frost, and you'll come to it too, because cold hands don't feel the bite and our patience is longer than any living mage's. Fire is for the young, and we were all young once, briefly." },
       },
       choices = {
-        { text = "And arcane? That's Dalaran's art.", next = "schools_arcane" },
+        { text = "And the arcane? That's Dalaran's art, surely.", next = "schools_arcane" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -648,7 +660,7 @@ P:NPC {
     offhand = {
       lines = { { id = "oh_default", text = "Keep your off hand still and let it guide, not push, as if you're pointing at something across a room. The scorch marks come from wanting the fire too much, and the fire always knows when it's wanted." } },
       choices = {
-        { text = "Thank you, Pierce. That helps.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Thank you, Pierce, that helps a great deal.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -738,7 +750,7 @@ P:NPC {
     dust = {
       lines = { { id = "du_default", text = "Dust is no more just dust than wine is just grapes. Strange dust from a farmhand's boots is thin and sour, but strange dust from a good soldier's blade has body to it, and a little warmth on the finish, and I can tell the two apart blindfolded." } },
       choices = {
-        { text = "Blindfolded? How?", next = "dust_how" },
+        { text = "Blindfolded? How is that even possible?", next = "dust_how" },
         { text = "Something else.", next = "BACK" },
       },
     },

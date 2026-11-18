@@ -32,6 +32,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
+        { id = "h_dd_ursangous", when = { killed = { name = "Ursangous" } }, text = "So you brought down Ursangous, the great bear of Ashenvale. Good, for that bear had grown far too used to the taste of hunters, and the Sentinels of Astranaar will walk easier for it." },
         { id = "h_default", key = true,
           text = "I am Dorion, and I teach hunters here at the Enclave, as I taught them in Ashenvale before the tree was planted. This is Shadow, who teaches them more than I do, so mind your manners around her and she'll mind hers around you." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -161,7 +162,7 @@ P:NPC {
       lines = {
         { id = "gu_default", text = "Not the gun, only the noise. A dwarf once fired one in this Enclave and every bird in the city left at once, and Shadow hid under my cot for an afternoon, so be a little gentle with it here." },
       },
-      choices = { { text = "I'll keep it quiet. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "I'll keep it quiet, Dorion. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

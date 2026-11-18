@@ -167,6 +167,7 @@ P:NPC {
           text = "A warrior. Many who rest here carried a blade as you do, {class}, and came to these wastes to stand against what lies beyond them." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Walk softly here, {class}, for the beasts of this place feed near the graves, and I ask only that you do not hunt among the stones." },
+        { id = "h_dd_rep", when = { reputation = { faction = "Cenarion Circle", min = "revered" } }, text = "The Circle speaks your name with respect now, {name}, from the Hold to Moonglade, and I've heard Rabine Saturna say it himself. The dead of Southwind would be glad to know someone still fights for this land." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The graves are patient, and Elune watches them with me." },
@@ -309,7 +310,7 @@ P:NPC {
         { id = "xf_default", text = "I believe every soul deserves its rest, whatever banner it fell under, but I would not presume to tell you that yours is restless. You walk, you speak and you chose to come here, and that is more freedom than the dead of Southwind were ever given." },
       },
       choices = {
-        { text = "I'm free enough as I am. Leave my soul be.", next = "BACK", reply = "Then I will leave it be, and gladly, because a soul that chose its own path is not mine to mend.", fx = { align = { light = -1 } } },
+        { text = "I'm free enough as I am. Leave my soul be.", next = "BACK", reply = "Then I will leave it be, and gladly. I tend those who ask for rest, and you are not asking.", fx = { align = { light = -1 } } },
         { text = "Perhaps one day I'll ask you for that rest.", next = "BACK", reply = "Then I will be here, and I will not refuse you, whatever banner you walked under in your life before.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Something else, Layo.", next = "BACK" },
       },
@@ -838,7 +839,7 @@ P:NPC {
           text = "A warrior! Good, because Brann's off somewhere with my last two guards, and this camp's held together with digging tools and bad language." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Are ye daft, wandering this desert with a beast that needs water? Come in out of the sun, the pair of ye." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid, out at Brann's dig! Yer people knew this land before it was sand, so I'll gladly hear whatever ye can tell me." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid, out at Brann's dig! Yer people knew this land before it was sand, so I'll gladly hear whatever ye can tell me." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Brann'd want tae write ye up, an' I want tae know if the stone round here's said anythin' tae ye about what's under it." },
       },
       again = {
@@ -945,7 +946,7 @@ P:NPC {
     ahn_qiraj = { { id = "tp_ahn_qiraj", text = "There's a city behind that wall in the south older than anything in Ironforge's histories. The League would give its eyes for one look inside, and I'd give my beard." } },
     silithid_hives = { { id = "tp_silithid_hives", text = "The bugs keep digging up our dig sites, which is rude, since we were digging first. A dwarf could get very cross about it." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "We had a gnome on the team for a while, but he went home to help with Gnomeregan. That city'll come back, if anyone can make it come back." } },
-    _none = { { id = "tp_none", text = "Ask Frankal. He likes talking." } },
+    _none = { { id = "tp_none", text = "Ask Frankal. He likes to talk." } },
   },
 }
 
@@ -1080,7 +1081,7 @@ P:NPC {
         { text = "Why would dragons watch over Silithus now?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the dragons over Silithus trouble the winds?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What became of Natalia?", next = "natalia" },
-        { text = "Dragons? Over Silithus?", next = "skies" },
+        { text = "Dragons, over Silithus?", next = "skies" },
         { text = "How many languages do you lot speak?", next = "languages" },
         { text = "Silithid brains seem an odd thing to want.", next = "brains", when = { any = { { questActive = TODO_QUEST("Breaking the Code") }, { questDone = TODO_QUEST("Breaking the Code") } } } },
         { text = "Those spells she used... I know them.", next = "priest", when = { class = "PRIEST" } },

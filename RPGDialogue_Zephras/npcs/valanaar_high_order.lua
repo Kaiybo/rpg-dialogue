@@ -97,7 +97,7 @@ P:NPC {
         { id = "sr_default", text = "I'd have us stand on our own feet, which isn't the same thing. We'll take the Kirin Tor's friendship gladly, but I'll not hand our survival to any power that might vanish one morning the way the spirits did." },
       },
       choices = {
-        { text = "Agreed. A people that depends on patrons is a people in danger.", next = "BACK", reply = "Exactly, and I'm glad someone outside my order sees it. Valanaar could use more voices like yours.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Agreed. Leaning on patrons is how a people gets dropped.", next = "BACK", reply = "Exactly, and I'm glad someone outside my order sees it. Valanaar could use more voices like yours.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Nobody survives alone. Pride could sink us faster than the pylons.", next = "BACK", reply = "Pride hasn't sunk us yet, and dependence nearly did. I'll take my chances with the first.", fx = { affinity = -2, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -147,7 +147,7 @@ P:NPC {
       },
       choices = {
         { text = "Then make it more than a truce. The isle can't afford this.", next = "BACK", reply = "Ayessa would say the same, and I'll tell her you're on her side. I'll not promise more than that.", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Some blood has to be answered. You're right to hold to that.", next = "BACK", reply = "I'm glad someone understands. A truce is not forgiveness.", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "Some blood has to be answered. You're right to hold to that.", next = "BACK", reply = "I'm glad someone understands. I'll keep the truce, but I'll not pretend to like the faces across the table.", fx = { affinity = 2, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -634,8 +634,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: Belathaan Brightwish, avenged for Elaadrin.
+    dd_belathaan = {
+      lines = { { id = "db_default", text = "A little. He bought his robes from me, plain blue-grey and never anything showy, because he said a man going to talk of peace shouldn't look as though he'd come to win. I made the last one he wore, and I've wondered since whether they buried him in it." } },
+      choices = {
+        { text = "He was brave to go. Someone had to try for peace.", next = "BACK", reply = "That's what I tell myself when I pass his empty chair at the hall. It helps, a little.", fx = { align = { light = 1 } } },
+        { text = "Talking to Lorthuna was folly, and he paid for it.", next = "BACK", reply = "Perhaps, but don't say it where the Supreme Magister can hear. He sent him, and he hasn't forgiven himself.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_avenged", tags = { "news" }, when = { questDone = TODO_QUEST("Avenged Tenfold") },
+          text = "The Supreme Magister came by for a new collar yesterday and actually stood still for the fitting, which he hasn't done since Belathaan died. I gather you're the one who answered for him, so thank you." },
         { id = "h_default", key = true, text = "Othesia Evengale, tailor, and yes, this is my house, and yes, I teach here, because a workshop costs windstones I'd rather spend on thread. What can I do for you?" },
       },
       again = {
@@ -643,6 +654,7 @@ P:NPC {
         { id = "h_again2", text = "Go on; my needle can listen." },
       },
       choices = {
+        { text = "Did you know Belathaan Brightwish?", next = "dd_belathaan", when = { questDone = TODO_QUEST("Avenged Tenfold") } },
         { text = "Train me, or show me your thread and dye.", next = "BUSINESS" },
         { text = "What makes Skyborne cloth different?", next = "cloth" },
         { text = "Are you related to the Supreme Magister?", next = "name" },
@@ -666,7 +678,7 @@ P:NPC {
         { id = "c2_default", text = "It does, and the High Order thinks that's sentimental nonsense from someone who should be studying runes. I think a people that's lost as much as we have needs small comforts as much as it needs spells." },
       },
       choices = {
-        { text = "Small comforts matter. Keep making it.", next = "BACK", reply = "Thank you, and I will, whatever the High Order says. Feel the cloth before you go.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Keep making it. A warm cloak matters on a cold island.", next = "BACK", reply = "Thank you, and I will, whatever the High Order says. Feel the cloth before you go.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
         { text = "Comfort won't hold the island up. The order's right.", next = "BACK", reply = "It won't, no, but it'll keep a few spirits up, and that's not nothing. Off you go, then.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -794,7 +806,7 @@ P:NPC {
         { id = "be_default", text = "I keep meaning to, and then I look over the edge of the dock and think better of it. Someone has to stay and keep the town going, I tell myself, but I can't decide whether that's wisdom or only fear." },
       },
       choices = {
-        { text = "Go. The world below is worth seeing.", next = "BACK", reply = "Maybe I will, one day, and I'll blame you if I fall. Winds guide you.", fx = { affinity = 1, align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Go. You'd love the world below the clouds.", next = "BACK", reply = "Maybe I will, one day, and I'll blame you if I fall. Winds guide you.", fx = { affinity = 1, align = { order = -1 }, trait = { brave = 1 } } },
         { text = "Stay. Valanaar needs people who stay.", next = "BACK", reply = "That's what I tell myself, and it's nice to hear somebody agree. I'll stay a while longer.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -76,6 +76,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because I've corpses to gather from the field and a few of them might want a blessing before Undertaker Mordo shovels them under." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll scavenge like everyone else, and your demon can carry the scraps." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. You'll still scavenge like everyone else, so don't expect the Light to carry your sacks, though if it lights up those houses for you, I'll not complain." },
+        { id = "h_dd_messenger", when = { questDone = TODO_QUEST("The Red Messenger") },
+          text = "You put down the Scarlet messenger who kept riding past Solliden, didn't you? I've stood this road long enough to know his horse by its sound, and it's been quiet for days." },
       },
       choices = {
         { text = "Should the scavenged dead get a blessing, Saltain?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -120,7 +122,7 @@ P:NPC {
       lines = {
         { id = "la_default", text = "Because she broke the Lich King's hold on us, and nobody else bothered to try. You'll have your own reasons soon enough, and if not, the Scourge will give you some." },
       },
-      choices = { { text = "Grim, but true. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Grim, but true enough. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     xhwar = {
       big = true,
@@ -292,7 +294,7 @@ P:NPC {
         { id = "ds_default", text = "I don't know, and I've stopped asking Sarvis, because he only says it doesn't matter. It matters to me, so I put them down gently, and I say a word for each, even if I'm not sure who hears it." },
       },
       choices = {
-        { text = "That word matters. Keep saying it.", next = "BACK", reply = "I will, and I'm glad someone else thinks so. Sarvis would say I'm wasting breath I don't need.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "That word matters, Elreth. Keep saying it.", next = "BACK", reply = "I will, and I'm glad someone else thinks so. Sarvis would say I'm wasting breath I don't need.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "They're Scourge. Cut them down and move on.", next = "BACK", reply = "That's what Sarvis says, and he's usually right. Still, I'll say my word, and you can move on.", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
@@ -386,6 +388,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_zombies = {
+      lines = { { id = "dd_zombies_default", text = "Bother me? They're the reason I sleep with a knife, so no, I'm glad to see them chopped. What I can't work out is why it doesn't bother you, seeing as you were one of them a week ago." } },
+      choices = {
+        { text = "It does bother me. I put them down because they can't choose.", next = "BACK", reply = "Huh. That's almost decent, deadman. Don't let it go to your head, or whatever's left in there.", fx = { align = { light = 1 } } },
+        { text = "They're not my people. They're just meat that walks.", next = "BACK", reply = "Cold, even for you lot. Remind me never to lose a wager to you somewhere dark.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Because you lot are slow when you first crawl out, and I need the coin. But a paladin's a different matter, and I'll confess I'm curious whether the Light is on my side or yours when the fists start flying." } },
@@ -424,8 +435,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here? I'll not wager against anyone who throws lightning, thank you, so put your hands down." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? I've heard your lot turn into cats, and I'll not fight a cat, because I've owned one and I know how that ends." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, are you? Splendid, then here's a fair fight at last, and none of the sneaking about that the last deadman tried." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've never fought one of you before, and I hear you'll heal yourself in the middle of a fight, which seems rather like cheating." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've never fought one of you before, and they say you'll heal yourself in the middle of a fight, which seems rather like cheating." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin? Now that's a fight worth a few coins, because I've never punched a holy corpse before and I'd like to find out whether it punches back." },
+        { id = "h_dd_zombies", when = { killed = { name = "Zombie", min = 20 } },
+          text = "I watched you cut through those shambling zombies down the hill, deadman. You've decent footwork, for a corpse, though I'd still take your coin in a fair fight." },
       },
       choices = {
         { text = "Would you fight a priest who heals himself, Montague?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -441,6 +454,7 @@ P:NPC {
         { text = "Do you really think you can beat a warrior, Montague?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why are you so eager to fight one of the dead, Calvin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not interested.", next = "END" },
+        { text = "Those zombies were Forsaken who never woke. Doesn't that bother you?", next = "dd_zombies", when = { killed = { name = "Zombie", min = 20 } } },
       },
       again = { { id = "h_again", text = "Still talking? I'd rather be fighting, but go on." } },
     },
@@ -649,7 +663,7 @@ P:NPC {
     },
     weed_bother = {
       lines = {
-        { id = "wb_default", text = "Not knowing? A little. But you don't rise in the Society by asking what the Society is for, and I'd like to rise, very much." },
+        { id = "wb_default", text = "Not knowing? A little, but you don't rise in the Society by asking what the Society is for, and I'd like to rise, very much." },
       },
       choices = {
         { text = "Ambition's fine. Just don't lose yourself to it.", next = "BACK", reply = "I'll try, though I've no idea what I'd lose that the plague didn't take already. Thank you for caring, though.", fx = { align = { order = -1 } } },

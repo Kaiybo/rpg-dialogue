@@ -32,8 +32,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_falling = {
+      lines = {
+        { id = "dd_fa_default", text = "It means you found the edge of the world and stepped over it, as we all must sometime. Some fall because they trusted too little, and some because they trusted too much, and the Nether waits patiently for both. Which were you?" },
+      },
+      choices = {
+        { text = "I trusted too much. I'll be more careful.", next = "BACK", reply = "Careful is good, but don't let it become fear. Faith without caution is foolish, and caution without faith is a cage.", fx = { align = { order = 1 } } },
+        { text = "Too little. I'll leap with more faith next time.", next = "BACK", reply = "Bold, and perhaps wise, though only the Nether knows. Come back to me when you're ready to test that faith again.", fx = { align = { order = -1 } } },
+        { text = "Something else, Dorn.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You fell, and not in my test, I think. The body falls when the spirit hesitates, so tell me: did you hesitate, or did the ground simply rise to meet you?" },
         { id = "h_default", key = true, text = "So you've sought me out, or perhaps something brought you to me. Many facets make up a being: the spirit, the body and the mind. I test them, if you'll let me, and those who fail learn how vast the Nether is." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Test of Faith") },
           text = "If you agree, I'll test some of the facets within you. Pass, and you'll grow stronger, and fail, and you'll learn how vast the Nether is. The first test is of faith, and it begins at the edge of those planks." },
@@ -45,10 +57,11 @@ P:NPC {
           text = "Spirit, body and mind, all tested and all found sound. You don't need me anymore, though I'll still be here, watching the Needles." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask carefully; the questions are a test too." },
+        { id = "h_again", text = "What else? Ask carefully, young one, because the questions you choose are a test too." },
         { id = "h_again2", text = "Go on. The Nook is quiet, and so am I, and the wind in the Needles is in no hurry either." },
       },
       choices = {
+        { text = "I fell and died, Dorn. What does that mean?", next = "dd_falling", when = { deathCause = "falling" } },
         { text = "Why test anyone at all?", next = "why" },
         { text = "Tell me about the leap.", next = "leap" },
         { text = "Something must come after the tests.", next = "after" },

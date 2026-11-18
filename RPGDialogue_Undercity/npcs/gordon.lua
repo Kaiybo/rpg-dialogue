@@ -144,7 +144,7 @@ P:NPC {
       lines = {
         { id = "dno_default", text = "That's my business and the boy's, and he's not here, and you're a stranger. Buy something or ask about something else." },
       },
-      choices = { { text = "Fair. Something else.", next = "BACK" } },
+      choices = { { text = "Fair enough. Let me ask about something else.", next = "BACK" } },
     },
     davin_horde = {
       lines = {

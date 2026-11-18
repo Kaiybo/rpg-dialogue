@@ -342,7 +342,7 @@ P:NPC {
       lines = { { id = "az_default", text = "Old forests and bad magic, and satyrs where elves once lived. Some Timbermaw want to close this gate forever with stone, so nothing from Azshara can come in. Rageroar thinks a closed gate is a weak gate, because nobody watches it." } },
       choices = {
         { text = "Seal it. Some doors should stay shut.", next = "BACK", reply = "Rageroar hears you, and some of the elders would agree. But a sealed door forgets what's behind it, and Rageroar does not want to forget.", fx = { align = { order = 1 } } },
-        { text = "Keep it open and watched. Rageroar is right.", next = "BACK", reply = "Rageroar thanks you, outsider, and the elders will hear of it. A watched door is safer than a forgotten one.", fx = { align = { order = -1 } } },
+        { text = "Keep it open and watched. Rageroar is right.", next = "BACK", reply = "Rageroar thanks you, outsider, and the elders will hear of it. They grumble less when a stranger agrees with Rageroar.", fx = { align = { order = -1 } } },
         { text = "Who wants to seal it?", next = "azshara_elders" },
         { text = "Something else.", next = "BACK" },
       },

@@ -29,6 +29,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_murloc_t = {
+      lines = {
+        { id = "dd_murloc_t_a", text = "Thinner, aye, but not gone, and they never are. They took Rolf and his men out there, and every one you put down is one less that'll do it to the next patrol." },
+      },
+      choices = {
+        { text = "Then I'll keep at it until the lake is clean.", next = "dd_murloc_t2", fx = { align = { order = 1 } } },
+        { text = "They were there first. We should leave them to their lake.", next = "dd_murloc_t2", fx = { align = { order = -1 } } },
+      },
+    },
+    dd_murloc_t2 = {
+      lines = {
+        { id = "dd_murloc_t2a", text = "That's a fine thought, but tell it to the farmers whose nets they cut. Either way, the guards at the bridge sleep a little better for what you did, and so do I." },
+      },
+      choices = { { text = "Glad to hear it. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I sent two of them north along the river, and they never came back, so I'll take any help, even from spirits." } },
@@ -106,6 +122,13 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_murlocs", when = { killed = { name = "Murloc", min = 30 } },
+          text = "The fishermen at Stone Cairn Lake say the murlocs have pulled back from the shore, and they say a stranger did it. I'd like to buy that stranger a drink, and I think I'm looking at them." },
+        { id = "dd_linen", when = { questDone = TODO_QUEST("Red Linen Goods") },
+          text = "Sara Timberlain tells me you got her red linen back off the Defias. That's one less thing for her to shout at me about, so I'm grateful twice over." },
+        { id = "dd_deaths_t", when = { deaths = { min = 10 } },
+          text = "You've been carried off the field more than a few times by the look of you, friend. A soldier learns to pick fights, so pick yours better and I'll not have to write any letters." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because I've two men missing, and I've a feeling I'll need someone to say words before this is over." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at my bridge! Marshal Dughan said he'd send help, and I'd stopped believing him, so I'm glad to be wrong." },
         { id = "h_default", text = "Guard Thomas, of the Stormwind Army. I hold this bridge, and east of here the forest stops being friendly." },
@@ -135,7 +158,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. Stand behind me on the bridge if there's trouble, because I'd rather you burned the wolves than me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you can read tracks, I've some by the lake I'd like explained, and none of them are friendly." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at my bridge. If you've come from the east, you'll know the forest grows less friendly with every mile." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf at my bridge. If you've come from the east, you'll know the forest grows less friendly with every mile." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll take what help I can get on this bridge, but I'll ask you to keep your demons on the east side of it." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Prowler", min = 20 } }, text = "Fewer prowlers on the road these past nights, and the loggers say it's your doing. That's one less thing for me to watch from this bridge, and I'm grateful for it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I asked Marshal Dughan for soldiers and got you, and you'll do. Can your spirits find my two missing men?" },
@@ -145,6 +168,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, though I'll be watching the treeline while you talk." },
       },
       choices = {
+        { text = "The murlocs at Stone Cairn Lake are thinner now.", next = "dd_murloc_t", when = { killed = { name = "Murloc", min = 30 } } },
+
         { text = "What happened to your men?", next = "men", when = { questDone = TODO_QUEST("Find the Lost Guards") } },
         { text = "What's out east?", next = "east" },
         { text = "Is anything else troubling this stretch of the forest?", next = "murlocs" },
@@ -189,7 +214,7 @@ P:NPC {
         { id = "mp_default", text = "There's no grave; the lake has them, or what's left of them. Say the words here at the bridge, then, and I'll stand for it." },
       },
       choices = {
-        { text = "Rolf Hartford. Malakai Stone. Light keep them.", next = "BACK", reply = "Thank you for saying their names aloud. I've not been able to, not since the lake took them.", fx = { affinity = 3, align = { light = 2 }, standing = { eastvale = 2 }, learn = { "lost_footmen" } },
+        { text = "Rolf Hartford and Malakai Stone. May the Light keep them both.", next = "BACK", reply = "Thank you for saying their names aloud. I've not been able to, not since the lake took them.", fx = { affinity = 3, align = { light = 2 }, standing = { eastvale = 2 }, learn = { "lost_footmen" } },
           journal = { first = "Said the names of Rolf Hartford and Malakai Stone at the Eastvale bridge. Guard Thomas stood at attention the whole time.",
                       third = "{name} prayed over Guard Thomas' lost footmen at the Eastvale bridge." } },
         { text = "Words won't bring them back from the lake, Thomas.", next = "BACK", reply = "No, they won't, and I'd not hoped they would. I only wanted somebody to say the words over them, but I'll not beg you for it.", fx = { align = { light = -1 } } },

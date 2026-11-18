@@ -31,6 +31,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_kazzak", when = { killed = { name = "Kazzak" } },
+          text = "I felt the Tainted Scar go quiet from here, a mile from the Portal, and now I hear you were there when Kazzak fell. My students will sleep better, and I will not, because power that great never stays gone for long." },
         { id = "h_default", key = true,
           text = "I'm Kartosh, and I teach warlocks their craft, here where the old Horde's warlocks made the bargains that damned us. Your will isn't shaped for the forces I teach, {class}, but you may ask your questions." },
         { id = "h_lock", when = { class = "WARLOCK" },
@@ -196,8 +198,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_crocs = {
+      lines = {
+        { id = "dd_crocs_1",
+          text = "I read everyone's tracks; it's the only thing in this swamp that doesn't lie. Yours go in fast and come out slow, which tells me you fight hard and bleed a little, and you don't wait for the crocolisk to make the first move." },
+        { id = "dd_crocs_2",
+          text = "Grokor would say you should've tamed one instead of killing it. Grokor would make a pet of an ogre if it sat still long enough." },
+      },
+      choices = {
+        { text = "Killing them is cleaner than taming them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Grokor's right. A tamed beast is worth ten dead ones.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Ogromm.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_crocs", when = { killed = { name = "Sawtooth", min = 30 } },
+          text = "The Sawtooth tracks along the river are thinner this week, and I've seen your boot prints over most of them. Not bad, for someone I didn't train." },
         { id = "h_default", key = true,
           text = "I'm Ogromm, and I train hunters, which you are not. Ask your question quickly, because I've a swamp full of tracks to read and none of them are yours." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -212,6 +229,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, and keep it short." },
       },
       choices = {
+        { text = "You've been reading my tracks?", next = "dd_crocs", when = { killed = { name = "Sawtooth", min = 30 } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you track anything in this swamp?", next = "tracking" },
         { text = "What's worth hunting out here?", next = "quarry" },
@@ -368,7 +386,7 @@ P:NPC {
         { id = "tc_default", text = "No more than you mind swinging an axe a thousand times, and it enjoys the praise far more than you would. The hunters who skimp on feeding are the ones whose beasts forget everything I taught them, and I can always tell." },
       },
       choices = {
-        { text = "A companion eats before I do. That's only right.", next = "BACK", reply = "Right, and your beast will know it. A companion fed first fights hardest.", fx = { align = { light = 1 } } },
+        { text = "A companion eats before I do. That's only right.", next = "BACK", reply = "Right, and your beast will know it. Bring it by the pens, and I'll find it something better than swamp rat.", fx = { align = { light = 1 } } },
         { text = "A beast is a tool. It eats when it's earned it.", next = "BACK", reply = "Earned it, eh? Then you'll be back here wondering why it ran off. Feed it first.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -601,7 +619,7 @@ P:NPC {
       },
       choices = {
         { text = "Thank them from the heart. Empty words mean nothing to spirits.", next = "BACK", reply = "From the heart, aye, and I mean it every time. I'll keep thanking them properly.", fx = { align = { honor = 1 } } },
-        { text = "The earth gives freely. Thanks are just a habit.", next = "BACK", reply = "A habit, maybe, but a good one. The earth gives freely, and it's worth a thank you.", fx = { align = { honor = -1 } } },
+        { text = "The earth gives freely. Thanks are just a habit.", next = "BACK", reply = "A habit, maybe, but a good one. I've never once pulled a root without saying it, and the roots keep coming.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

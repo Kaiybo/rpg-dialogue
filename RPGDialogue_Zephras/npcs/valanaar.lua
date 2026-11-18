@@ -426,8 +426,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: Alvarion Windfield, avenged by the player (Blood Tithe).
+    dd_alvarion = {
+      lines = { { id = "da_default", text = "Better, and complaining about it, which Melasa says is the surest sign. He keeps asking whether the orchard's been picked, and I keep telling him Aamelia's seeing to it, and he keeps not believing me." } },
+      choices = {
+        { text = "Those bandits got what they deserved.", next = "BACK", reply = "Maybe so. I'll only say that half my customers are refugees too, and some of them knew those bandits before they were bandits.", fx = { align = { light = -1 } } },
+        { text = "I took no joy in it. I hope it was the last of them.", next = "BACK", reply = "So do I, friend, so do I. Sit by the fire a while; you look as if you need it more than you'll say.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_tithe", tags = { "news" }, when = { questDone = TODO_QUEST("Blood Tithe") },
+          text = "Alvarion upstairs slept through the night for the first time since they carried him in, and he told me in the morning it was your doing. Whatever you did to those bandits, I'll not ask, but I'm glad of a quiet floor above me." },
+        { id = "h_dd_bulwark", when = { questDone = TODO_QUEST("The Skybreaker Bulwark") },
+          text = "Seena Skybreaker drank here last night, which she never does, and raised her cup to someone who'd done right by her family's Bulwark. I gathered from the look she gave the door that she meant you." },
         { id = "h_default", key = true, text = "Donaal Downbreeze, and the Calmbreeze is mine. We've fewer customers than we used to, so I'll thank you for coming in, and I'll thank you double if you don't mind the noise from the corner." },
         -- Opinion pass: what Valanaar has heard the player say.
         { id = "h_o_mercy", once = true, when = { gossip = { topic = "zep_bandit", stance = "mercy" } },
@@ -439,6 +452,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? I've glasses to wipe and a sailor to hush." } },
       choices = {
+        { text = "How is Alvarion doing upstairs?", next = "dd_alvarion", when = { questDone = TODO_QUEST("Blood Tithe") } },
         { text = "Swimmers looks like a man with troubles.", next = "swimmers" },
         { text = "How do your customers take to mainlanders?", next = "mainland" },
         { text = "What's good to eat here?", next = "food" },
@@ -556,6 +570,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_news", when = { questDone = TODO_QUEST("Deliver the News") },
+          text = "Aamelia Windfield is safe at the orchard, I hear, and it was you who carried word to Alvarion. I'd been worried sick for her, and then, I'm ashamed to say, for the stormapples." },
         { id = "h_default", key = true, text = "I'm Nyalah, and I teach cooking here in Valanaar. It may look hard to cook well on a dwindling island, and I suppose it is, but I enjoy every dish all the same, and I'll gladly teach you if you've the inclination." },
         { id = "h_crabs", tags = { "news" }, when = { questActive = TODO_QUEST("Crab Season") },
           text = "The crabs are thick on the shore this time of year, so bring me as many as you can manage. Everyone on Zephras eats crab, but you should have seen the faces on Anvilas when a crate of it arrived." },

@@ -256,7 +256,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Malus. I walked the night watch in the capital up there, Canal Gate to the barracks and back, and when I woke up dead I found my feet still knew the way, so I let them carry on." },
       },
       again = {
-        { id = "h_again", text = "Keep up. What else?" },
+        { id = "h_again", text = "Keep up, then. What else?" },
         { id = "h_again2", text = "We're coming round to the War Quarter again. Ask your question." },
       },
       choices = {
@@ -589,7 +589,7 @@ P:NPC {
       lines = { { id = "po_default", text = "The Scourge didn't ask whether it was worth the risk when they took us, and the Scarlets won't ask when they burn us. We need every weapon there is, and I'd sooner hold a dangerous one than lose with a clean one." } },
       choices = {
         { text = "Some weapons poison the hand that holds them.", next = "power_after", fx = { align = { light = 1 } } },
-        { text = "You're right. Use whatever wins.", next = "power_after", fx = { align = { light = -1 } } },
+        { text = "You're right. Use whatever wins the fight.", next = "power_after", fx = { align = { light = -1 } } },
       },
     },
     power_after = {
@@ -819,7 +819,7 @@ P:NPC {
         { text = "What do imps eat?", next = "imps" },
         { text = "Why haven't you made a pact yet?", next = "pact" },
         { text = "Why come to the dark arts at all?", next = "why" },
-        { text = "Mind the chalk. Goodbye.", next = "END" },
+        { text = "I'll mind the chalk. Goodbye.", next = "END" },
       },
     },
 

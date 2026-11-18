@@ -78,7 +78,7 @@ P:NPC {
       lines = { { id = "pe_default", text = "Because one day the war will end, or it won't, and the difference may be whether some human lord believes we still bargain with demons. Thrall has had his fill of fighting, I think, and Keldran means to make peace a little easier to reach when the time comes." },
       },
       choices = {
-        { text = "Then I'll help. Peace is worth the quiet work.", next = "BACK", reply = "Good, and Keldran will be glad of the help. Peace is quiet work, but it's still work.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll help. Peace is worth the quiet work.", next = "BACK", reply = "Keldran will be glad of the help. He's been carrying letters to the coast alone for longer than he'd admit.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The humans caged us. Let them believe what they like.", next = "BACK", reply = "They may, and they will, until the day we need them to believe otherwise. I'd rather plant the seed now.", fx = { align = { light = -1 } } },
         { text = "Something else, Drok.", next = "BACK", fx = { learn = { "burning_blade" } } },
       },
@@ -105,7 +105,7 @@ P:NPC {
       lines = { { id = "oh_default", text = "I miss the feeling of it, the drums and ten thousand voices, and I'd be lying if I said otherwise. I don't miss what fed it, though, because I remember the green in our blood and what we did with it." } },
       choices = {
         { text = "We were strong then. We should be strong again.", next = "BACK", reply = "We were strong, and we were slaves to it. Strength again, aye, but not that way.", fx = { align = { order = -1 } } },
-        { text = "Thrall's Horde is better, even if it's quieter.", next = "BACK", reply = "It is, and I'm glad to hear it from a young one. Quieter, and ours.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Thrall's Horde is better, even if it's quieter.", next = "BACK", reply = "It is, and I'm glad to hear it from a young one. Quieter, aye, but it's ours, and no demon holds the leash.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -186,7 +186,7 @@ P:NPC {
       big = true,
       lines = { { id = "pe_default", text = "I'm doing it so peace is possible, which isn't the same thing as wanting it tomorrow. The Warchief is growing weary of the war, I think, and when he reaches for a truce I want the humans to have no excuse to slap his hand away." } },
       choices = {
-        { text = "A truce would save more lives than any battle.", next = "BACK", reply = "It would, and that's why I do it. Help me, and we'll save more lives than any warband.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A truce would save more lives than any battle.", next = "BACK", reply = "It would. Help me, and we'll save more lives than any warband ever took.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The humans don't deserve our courtesy, Keldran.", next = "BACK", reply = "They don't, and maybe never will, but the Warchief deserves the chance. I'll be courteous for his sake.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -303,7 +303,7 @@ P:NPC {
       lines = { { id = "th_default", text = "I serve the Horde, and the Warchief leads it, so I do as I'm told. But he is too subtle, too slow to unleash what we are, and somebody has to keep the old edge sharp for the day he needs it." } },
       choices = {
         { text = "The Warchief's word is law. Remember that.", next = "BACK", reply = "It is, and I obey it. But a sharp edge is still a sharp edge, and I'll keep mine ready.", fx = { align = { order = 1 } } },
-        { text = "Someone should keep the edge sharp. You're right.", next = "BACK", reply = "Good, I knew you had it in you. We'll keep it sharp together.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Someone should keep the edge sharp. You're right.", next = "BACK", reply = "I knew you had it in you, recruit. We'll keep it sharp together, and the Warchief can thank us later.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -379,7 +379,7 @@ P:NPC {
     fl_yes = {
       lines = { { id = "fly_default", text = "Flattery be the only thing Jes'rimon give away for nothin', mon, so take all you like. Come up these stairs some night when you not got a package under your arm, and me show you the Drag from the window, when the lanterns be lit and nobody look up." } },
       choices = {
-        { text = "I might just do that, Jes'rimon.", next = "BACK", reply = "Jes'rimon be right here, mon. He always be right here." },
+        { text = "I might just do that, Jes'rimon.", next = "BACK", reply = "Jes'rimon be right here, mon, by the window, where he always be." },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -415,7 +415,7 @@ P:NPC {
       big = true,
       lines = { { id = "fe_default", text = "It be a fence's excuse and a true thing both, mon, and those be the best kind. A city need somewhere for the quiet goods to go, or they go to the pirates instead, and then where be the Horde?" } },
       choices = {
-        { text = "Better the Hand than the pirates. I see that.", next = "BACK", reply = "Ya, mon, you understand the city better than most. Quiet goods for quiet people.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Better the Hand than the pirates. I see that.", next = "BACK", reply = "Ya, mon, you understand the city better than most. The pirates sell to anybody, and the Hand sell only to us.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Stolen goods are stolen goods, whoever buys them.", next = "BACK", reply = "They be, mon, and I won't argue. But the Horde still need somewhere to put them.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

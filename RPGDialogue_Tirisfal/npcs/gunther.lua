@@ -83,7 +83,7 @@ P:NPC {
         { text = "Why do you live out here alone?", next = "alone" },
         { text = "Did you have friends, before all this?", next = "bethor" },
         { text = "You have the look of a scholar.", next = "dalaran" },
-        { text = "Lillith Nefara. Who was she?", next = "lillith", when = { questDone = TODO_QUEST("Proving Allegiance") } },
+        { text = "Who was Lillith Nefara?", next = "lillith", when = { questDone = TODO_QUEST("Proving Allegiance") } },
         { text = "I was Kirin Tor too, before I died.", next = "kirin", when = { class = "MAGE", race = "Scourge" } },
         { text = "Necromancy, then. Is that what you study?", next = "necro", when = { class = { "WARLOCK", "PRIEST" } } },
         { text = "What do you want from me?", next = "BUSINESS" },
@@ -174,7 +174,7 @@ P:NPC {
       lines = { { id = "ki_default", text = "Then you know the smell of the Violet Citadel's library and the sound of a tutor sighing at your handwriting. I'd given up thinking I'd ever speak to anyone who remembered either." } },
       choices = {
         { text = "I remember the sighing best of all.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
-        { text = "Dalaran's gone, Gunther. Let it go.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Dalaran's gone, Gunther, and you should let it go.", next = "BACK", fx = { affinity = -1 } },
       },
     },
   },

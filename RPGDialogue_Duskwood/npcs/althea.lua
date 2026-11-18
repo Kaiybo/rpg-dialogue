@@ -124,7 +124,7 @@ P:NPC {
     xmage = {
       lines = { { id = "xma_default", text = "Wards cost silver and mages, and Stormwind sends me neither, so we make do with lamps and loud men. If you can light a lamp that won't go out when the fog rolls in, I'll take that over any ward." } },
       choices = {
-        { text = "Lamps and good order, then. I'll help.", next = "BACK", reply = "Then you're more useful than half the mages Stormwind's ever promised me. Lamps are cheap, and order is cheaper.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Lamps and good order, then. I'll help.", next = "BACK", reply = "Then you're more useful than half the mages Stormwind's ever promised me. Report to the south gate at dusk, and bring your own oil, because Stormwind never sends any.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your watch needs fire, not lamps.", next = "BACK", reply = "Fire is what the fog swallows first, mage, and then my men are blind and burnt. Lamps and order, or nothing at all.", fx = { align = { order = -1 } } },
         { text = "What's the worst thing your watch faces?", next = "morladim" },
       },
@@ -257,7 +257,7 @@ P:NPC {
 
     help = {
       lines = {
-        { id = "hp_default", text = "Talk to my watchers at the posts, because they know what needs killing this week. It changes from week to week, but it never shrinks." },
+        { id = "hp_default", text = "Talk to my watchers at the posts, because they know what needs killing this week. It changes every week, and the list hasn't once got shorter." },
       },
       choices = {
         { text = "I will.", next = "BACK", fx = { learn = { "night_watch" }, standing = { darkshire = 1 } } },
@@ -454,7 +454,7 @@ P:NPC {
       },
       choices = {
         { text = "Prints that walk on two legs, then four.", next = "hunter_prints" },
-        { text = "Nothing yet. I'll go deeper.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Nothing yet, Commander. I'll go deeper in.", next = "BACK", fx = { trait = { brave = 1 } } },
       },
     },
     hunter_prints = {

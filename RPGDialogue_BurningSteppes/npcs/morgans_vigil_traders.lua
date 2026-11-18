@@ -34,6 +34,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_gc_party = {
+      lines = {
+        { id = "dd_gc_party1", text = "A Firegut helmet, and he swears it improves the flavour. The whole Vigil had the first proper night off since I got here, singing and burning ogre banners, and Marshal Maxwell even pretended not to notice. You ought to have stayed for it." },
+      },
+      choices = {
+        { text = "Let them celebrate. They've earned a night off.", next = "BACK", reply = "That's what I said, and the marshal didn't argue, which is as near as he comes to agreeing.", fx = { align = { order = -1 } } },
+        { text = "One night is fine. The Blackrock orcs won't rest.", next = "BACK", reply = "No, they won't, and the watch knew it. They drank in shifts, if you can believe it.", fx = { align = { order = 1 } } },
+        { text = "Something else, Gabrielle.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -44,12 +54,17 @@ P:NPC {
           text = "Is it true you're going into the mountain after Marshal Windsor? Eat something first, please, because I won't have it said that anyone left my tent hungry before something like that." },
         { id = "h_windsor_done", tags = { "news" }, when = { questDone = Q_JAILBREAK },
           text = "You're the one who brought the Marshal out of the mountain! The whole Vigil's been talking about it, and Marshal Maxwell even smiled, which I've never seen him do before." },
+        { id = "dd_ogrehead", tags = { "news" }, when = { questDone = TODO_QUEST("Ogre Head On A Stick = Party") },
+          text = "Oralius has Gor'tesh's ugly head up on a stick at the top of the Vigil, and everyone knows whose blade took it off. He's been drinking my good stock out of a helmet ever since." },
+        { id = "dd_pyron", when = { questDone = TODO_QUEST("Overmaster Pyron") },
+          text = "Jalinda came down from her maps smiling for once, saying you'd put out that great burning thing at the mouth of the Depths. I gave her a cheese to celebrate, which she ate standing up, still working." },
       },
       again = {
         { id = "h_again", text = "What else, love? The kettle's on." },
         { id = "h_again2", text = "Go on, I've nothing to do but listen and stir." },
       },
       choices = {
+        { text = "Oralius is drinking out of a helmet?", next = "dd_gc_party", when = { questDone = TODO_QUEST("Ogre Head On A Stick = Party") } },
         { text = "What have you got to eat?", next = "BUSINESS" },
         { text = "Why stay in a place like this?", next = "stay" },
         { text = "What happened to the town?", next = "town" },
@@ -109,7 +124,7 @@ P:NPC {
 
     windsor = {
       lines = { { id = "wi_default", text = "Only that he was a good man who came up here to lead us against the mountain, and the Dark Irons took him and his whole company. Marshal Maxwell talks about him like he's still alive, and I hope he's right, though it's been a long while." } },
-      choices = { { text = "Maybe he is. Something else.", next = "BACK" } },
+      choices = { { text = "Maybe he is. Let's talk about something else.", next = "BACK" } },
     },
   },
 

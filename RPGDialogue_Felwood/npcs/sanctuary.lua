@@ -87,7 +87,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Thin their numbers, and find out what Xavaric, their leader, is planning, if you can get close enough. Every satyr that falls is a little less poison in the soil, and quick, quiet work suits me better than a war band trampling all my seedlings." } },
       choices = {
-        { text = "I'll strike quickly and spare your seedlings.", next = "BACK", reply = "Thank you, and the seedlings thank you too, in their quiet way. Quick and careful is how this forest heals.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll strike quickly and spare your seedlings.", next = "BACK", reply = "Thank you. The last warrior through here trampled a whole row, and I'm still replanting it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll do it my way, seedlings or not.", next = "BACK", reply = "Then do it your way, and I'll replant behind you. I'm used to it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -96,7 +96,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I plant a seed every morning, and some mornings one of them sprouts, and that's all the proof I need. The Jadefire satyrs and the corruption in the streams fight me every step, but your Light shows that a dark place can hold something bright, and I think the forest is the same." } },
       choices = {
-        { text = "I believe you. The Light and the land can both heal.", next = "BACK", reply = "They can, and they will, I'm sure of it. Thank you for believing it with me.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I believe you. The Light and the land can both heal.", next = "BACK", reply = "They can, and they will, I'm sure of it. Come and see the oak by the well; it put out two green leaves last week.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some things are too far gone. Burn the rot away.", next = "BACK", reply = "Burning is the satyrs' way, not ours, and I won't follow them into it. Give the seeds a little more time.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -105,8 +105,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Jadefire satyrs, mostly, and the fel that leaks from their camps into the soil. A warrior can't heal the ground, but every satyr you put down in Jadefire Glen is one less hand pouring poison into it." } },
       choices = {
-        { text = "Then I'll fight them to protect your work, Eridan.", next = "BACK", reply = "Thank you, and every satyr you bring down is a seedling that lives. I'll remember it.", fx = { align = { honor = 1 } } },
-        { text = "I'll fight them for the bounty. The seedlings are your business.", next = "BACK", reply = "Fair enough, and the bounty's honestly earned. The seedlings will be glad of you either way.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll fight them to protect your work, Eridan.", next = "BACK", reply = "Thank you. The satyrs dig up my seedlings just to watch me plant them again, so you'll be doing me a great kindness.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight them for the bounty. The seedlings are your business.", next = "BACK", reply = "Fair enough, the bounty's honestly earned. I'll be glad of you anyway, even if you never look at a single seedling.", fx = { align = { honor = -1 } } },
         { text = "Something else, Eridan.", next = "BACK" },
       },
     },
@@ -126,7 +126,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I have never seen fel touch a living thing and leave it better, and I have looked, because I am the hopeful sort. Perhaps a warlock can hold it without spilling it, but Felwood is what happens when even one hand slips." } },
       choices = {
-        { text = "Then I'll hold it carefully, and never here.", next = "BACK", reply = "Thank you, and I'll believe you, because I'm the hopeful sort. Just never here, please.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll hold it carefully, and never here.", next = "BACK", reply = "Thank you, and I'll believe you, because I'm the hopeful sort. Just never here, please, not even a little.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A slip is the price of real power.", next = "BACK", reply = "And the forest pays it, every time. I'd ask you to be the one who doesn't slip.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll keep clear of your seedlings.", next = "BACK" },
       },
@@ -135,7 +135,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "They corrupt the ancients of the forest and turn their own hearts to fel, and every glade they touch withers to ash. Xavaric leads them from Jadefire Run, and I think an arcane eye might see how his magic spreads where mine only sees the damage it leaves behind." } },
       choices = {
-        { text = "Then let's root Xavaric out together.", next = "BACK", reply = "Together, yes, and the ancients will remember who helped them. Xavaric has hidden long enough.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then let's root Xavaric out together.", next = "BACK", reply = "Together, yes. Xavaric has hidden in Jadefire Run long enough, and the ancients there were my friends.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Strike his glades by surprise and leave nothing standing.", next = "BACK", reply = "Surprise I'll grant you, but leave the ancients standing if you can. Some of them might still be saved.", fx = { align = { honor = -1 } } },
         { text = "I'll look closer when I'm out there.", next = "BACK" },
       },
@@ -154,12 +154,13 @@ P:NPC {
       lines = { { id = "xhcast_default", text = "I don't know, and that's why I asked. The Circle tends the land through the Emerald Dream and your faith reaches for something else entirely, but every seed I plant here dies of the same poison, so I'm in no position to refuse help." } },
       choices = {
         { text = "Anything that heals is worth trying. I'll pray over them.", next = "BACK", reply = "Thank you, and I'll mark the ones you pray over. If one of them takes, I'll call it a miracle.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Prayers are for people. Your seeds will have to fend for themselves.", next = "BACK", reply = "They usually do, and I'll go on helping them. But a little help never hurt a seed.", fx = { align = { light = -1 } } },
+        { text = "Prayers are for people. Your seeds will have to fend for themselves.", next = "BACK", reply = "They usually do, poor things, and I'll go on helping them. You don't mind if I pray over them myself, then?", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_water", when = { questDone = TODO_QUEST("Cleansed Water Returns to Felwood") }, text = "Greta tells me you carried cleansed water back to the forest for her, and that the soil drank it gladly. The Circle works best when we work together, and you have helped both of us now." },
         { id = "h_pt_eridan", tags = { "news" }, when = { party = { class = "DRUID" } },
           text = "You've brought a druid with you! Ask {companion} to put a hand on the soil here, because I'd like a second opinion on whether I'm only imagining the green coming back." },
         { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" }, text = "The Dream feels a little less troubled tonight, and they say you went all the way to the bottom of the Sunken Temple. If the green dragons there are less tormented for it, you've done Felwood a kindness without setting foot in it." },
@@ -209,12 +210,12 @@ P:NPC {
         { text = "Some of Felwood's beasts must recover, Eridan.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you think Felwood can be healed, Eridan?", next = "xpt_eridan", when = { party = { class = "DRUID" } } },
         { text = "I came for the satyrs. They were our kin once.", next = "xorig_satyr", when = { origin = "nightelf_satyr_hunter" } },
-        { text = "I'll help heal it.", next = "END", reply = "Thank you, and the seedlings will remember you, I think. Go well, and come back to see them grow.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll help heal it.", next = "END", reply = "Thank you, and the seedlings will remember you, I think. Come back in a season and see how many made it.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Could a priest's prayers help your seedlings take?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you really believe Felwood can heal, Eridan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you have me do to the Jadefire satyrs, Eridan?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would the Sunken Temple matter to the Emerald Circle?", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
-        { text = "I'm here for the satyrs, not for the trees.", next = "END", reply = "Then go and thin them, and the trees will be grateful anyway. Every satyr gone is a sapling saved.", fx = { align = { light = -1 } } },
+        { text = "I'm here for the satyrs, not for the trees.", next = "END", reply = "Then go and thin them, and the trees will be grateful anyway, even if you never look at one.", fx = { align = { light = -1 } } },
       },
     },
     xorig_satyr = {
@@ -224,7 +225,7 @@ P:NPC {
       },
       choices = {
         { text = "They chose the Legion. They're owed no pity.", next = "BACK", reply = "Some did, and some were dragged along, and I can't tell which from here. Strike them down, but I'll grieve them anyway.", fx = { align = { light = -1 } } },
-        { text = "I hope some part of them is glad to be freed.", next = "BACK", reply = "I hope so too, and I like to think it's true. Thank you for saying it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I hope some part of them is glad to be freed.", next = "BACK", reply = "I hope so too. I like to think there's an elf in there somewhere, glad to finally rest.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -235,7 +236,7 @@ P:NPC {
       },
       choices = {
         { text = "Surely it can be undone.", next = "what_undone" },
-        { text = "I'll help heal it.", next = "BACK", reply = "Thank you, and the forest will feel it, I'm sure. Every hand helps.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll help heal it.", next = "BACK", reply = "Thank you, and the forest will feel it, I'm sure. Start at the springs; they're the easiest to cleanse.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Some places are past saving, and this is one of them.", next = "BACK", reply = "It may be, but I can't stop trying, not while a single seed takes. Come back and see, someday.", fx = { align = { light = -1 } } },
       },
     },
@@ -328,7 +329,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "It tempts everyone, and it would tempt you twice, because you know what it is to be made into something you never chose. Keep hold of the Light the way I keep hold of my stone from Mulgore, and the forest won't have you." } },
       choices = {
-        { text = "The Light will keep me clean. I won't let go.", next = "BACK", reply = "Good, and hold it tightly, for Felwood will test you. I'm glad you know what's at stake.", fx = { align = { light = 1 } } },
+        { text = "The Light will keep me clean. I won't let go.", next = "BACK", reply = "Good, and hold it tightly, for Felwood will test you. It tested the Shadow Council too, and they failed.", fx = { align = { light = 1 } } },
         { text = "Power is power. I'll take what serves me.", next = "BACK", reply = "That's how the Council began, friend, and you know where they are now. Be careful.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -337,7 +338,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Safer, but not safe, because I hear the Shadow Council at Jaedenar tempts warriors with strength instead of knowledge, and some take it. They come back with green eyes and a bigger swing, and they stop being themselves soon after." } },
       choices = {
-        { text = "I'll trust my own strength. The fel can keep its gifts.", next = "BACK", reply = "Good, and the Earth Mother will be glad of it. Your own strength is the only kind that stays yours.", fx = { align = { light = 1 } } },
+        { text = "I'll trust my own strength. The fel can keep its gifts.", next = "BACK", reply = "Good, and the Earth Mother will be glad of it. I've watched three warriors walk into Jaedenar for that strength, and none came back as themselves.", fx = { align = { light = 1 } } },
         { text = "If that strength beats the Council, maybe it's worth the price.", next = "BACK", reply = "That is what they all say, the first time. Be careful what you pay with.", fx = { align = { light = -1 } } },
         { text = "Something else, Greta.", next = "BACK" },
       },
@@ -349,7 +350,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Made them hungry and angry and wrong, like the felpaw wolves who'll chase you to the edge of the sanctuary and then stand there snarling at the trees. Keep {pet} close to you while you're in the forest. I've seen beasts turn after a single night of drinking from the wrong stream." },
       },
       choices = {
-        { text = "I'll keep my beast close and leashed. Felwood demands care.", next = "BACK", reply = "Wise, and your beast will thank you. Felwood is not kind to the curious.", fx = { align = { order = 1 } } },
+        { text = "I'll keep my beast close and leashed. Felwood demands care.", next = "BACK", reply = "Wise. I've seen a wolf drink from one green stream and turn on its master by nightfall.", fx = { align = { order = 1 } } },
         { text = "My beast runs free. If it turns, I'll deal with it then.", next = "BACK", reply = "Then you'll deal with it, but your beast will pay first. I'd keep it close.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -358,7 +359,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "They do, and the elements are losing, which is the worst of it. The Shadow Council at Jaedenar drew fel up through the roots until the earth itself turned sour, and now even the fire in this forest burns green. A shaman who listens too closely here may find something other than the spirits listening back." } },
       choices = {
-        { text = "I'll keep to the old ways and leave the fel alone.", next = "BACK", reply = "Good, shaman, and the spirits will be glad of you. The old ways are what keep you whole.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep to the old ways and leave the fel alone.", next = "BACK", reply = "Good, shaman. The spirits here are frightened, and they'll come to a familiar voice.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Every power can be mastered, given the will. Even this one.", next = "BACK", reply = "The Council said the same, shaman, and the earth paid for their will. I'd not test it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -367,7 +368,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Only the satyrs, and they don't steal so much as spoil. When the Shadow Council were at Jaedenar, though, they sent creeping folk to watch every road, so I keep an ear open for footsteps that are softer than they ought to be." } },
       choices = {
-        { text = "Better to watch the roads yourself, then.", next = "BACK", reply = "Good advice, and I'll take it. Two ears are better than one.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Better to watch the roads yourself, then.", next = "BACK", reply = "Good advice, and I'll take it. My ears are getting old, and the Deadwood are getting bolder.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A good rogue would slip past you anyway.", next = "BACK", reply = "Perhaps, but I've caught a few, and they've not come back. I'd not try it.", fx = { align = { order = -1 } } },
         { text = "I'll make some noise next time.", next = "BACK" },
       },
@@ -376,7 +377,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Someone should, I suppose, and that is what the Emerald Circle does, with care and with prayers to the Earth Mother. What I fear is the scholar who studies it and grows fond of it, and I have heard of such scholars from Dalaran." } },
       choices = {
-        { text = "Knowledge should serve the healing, nothing else.", next = "BACK", reply = "That's the right answer, and the Circle will be glad of it. Knowledge that heals is the only kind that's safe here.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Knowledge should serve the healing, nothing else.", next = "BACK", reply = "That's the right answer, and the Circle will be glad of it. Bring whatever you learn back here before you take it anywhere else.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Knowledge has no master. Whatever is learned is ours.", next = "BACK", reply = "That's what the Council said, too. I hope you prove them wrong.", fx = { align = { light = -1 } } },
         { text = "I'll keep that warning in mind.", next = "BACK" },
       },
@@ -385,7 +386,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I think any power held too tightly can be turned, and the Shadow Council were once orcs who only wanted to win a war. I don't doubt your heart, paladin, but Jaedenar is full of people who never doubted theirs either." } },
       choices = {
-        { text = "The Light asks for humility. I'll hold it gently, not tightly.", next = "BACK", reply = "That's wise, paladin, and the Earth Mother would agree. A gentle hand is the safest one here.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light asks for humility. I'll hold it gently, not tightly.", next = "BACK", reply = "That's wise, paladin, and the Earth Mother would agree. Felwood has a way of pulling on anything held too tightly.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is a tool, and I'll use whatever I need to win.", next = "BACK", reply = "Then I'll pray for you, and I'll watch you too. Felwood takes the ones who think that.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -394,7 +395,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Demons, and the power that comes with them, which they poured into the ground at Jaedenar until the trees grew teeth. They thought themselves wise the whole while, so any priest who leans on shadow should look long at that place before calling it a tool." } },
       choices = {
-        { text = "No power is worth what was done to this forest.", next = "BACK", reply = "No, it is not, and I'm glad to hear you say it. The forest is grateful for every voice that remembers.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "No power is worth what was done to this forest.", next = "BACK", reply = "No, it is not, and I'm glad to hear you say it. Too many young priests come here curious instead of sorry.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is only as foul as the hand that holds it.", next = "BACK", reply = "Perhaps, but the hand changes, too. I've seen it happen more times than I'd like.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -403,13 +404,14 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I believe it can, but not quickly, and not by druids alone. The satyrs and the Shadow Council poisoned it on purpose, and they're still here, so we cleanse a grove and they foul the next one. Every seed you plant in clean soil is a small victory, and I've learned to be grateful for small ones." } },
       choices = {
-        { text = "Then we plant, and keep planting. The land will answer.", next = "BACK", reply = "Then we'll plant together, and the land will answer us both. I'm glad of you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then we plant, and keep planting. The land will answer.", next = "BACK", reply = "Then we'll plant together, and I'll show you which soil still takes a seed. It's less than you'd hope.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Strike at the Shadow Council first. Healing means little while they live.", next = "BACK", reply = "That's what the warriors say, and they're not wrong. But someone has to plant behind them.", fx = { align = { order = -1 } } },
         { text = "Something else, Greta.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_flute", tags = { "news" }, when = { questDone = TODO_QUEST("Flute of Xavaric") }, text = "Eridan says you took the Flute of Xavaric out of the satyrs' hands in Jadefire Run. The Earth Mother does not delight in killing, little one, but she will not mourn the satyrs who fell for it." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Jaedenar", min = 40 } },
           text = "Jaedenar is quieter than it was, and I know who's been walking into it. Mind what you saw down there, because the Shadow Council's tricks don't always show until later." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -454,7 +456,7 @@ P:NPC {
         { text = "Is a warrior safer from Felwood's temptations, Greta?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What has the fel done to Felwood's beasts, Greta?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Can Felwood really be healed, Greta?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "I'll help.", next = "END", reply = "Good, and the Earth Mother will thank you for it. Walk carefully, and don't let the fel answer you.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll help.", next = "END", reply = "Good, and the Earth Mother will thank you for it. Walk carefully, and if the fel ever answers you, don't answer back.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I can't see how the Light could be turned to corruption.", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Would Felwood's corruption tempt a Forsaken paladin, Greta?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Power's power, and I'll take what this forest offers.", next = "END", reply = "Then go carefully, shaman, for the forest offers a great deal and takes even more. I'll pray you remember the difference.", fx = { align = { light = -1 } } },
@@ -464,7 +466,7 @@ P:NPC {
       lines = { { id = "c_default", text = "Warlocks who serve the demons, the same kind who poisoned the orcs long ago. They've made Jaedenar their home. They like this forest the way it is." } },
       choices = {
         { text = "Why Jaedenar?", next = "council_why" },
-        { text = "Then we change it.", next = "BACK", reply = "Then I'm glad you came, and the forest will be too. Start at Jaedenar.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then we change it.", next = "BACK", reply = "Then I'm glad you came. Start at Jaedenar, and take someone with you; nobody goes there alone twice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The forest suits them, so leave them to it.", next = "BACK", reply = "Leave them, and they'll spread, and one day they'll be on your own doorstep. I'd not wait for that.", fx = { align = { light = -1 } } },
       },
     },
@@ -476,7 +478,7 @@ P:NPC {
       big = true,
       lines = { { id = "t_default", text = "The fel here hums, and some feel it as strength. Take a little, and you'll fight better tomorrow; take a little more, and you'll fight for them the day after." } },
       choices = {
-        { text = "I won't touch it.", next = "BACK", reply = "Good, and you'll sleep better for it. The forest has enough victims.", fx = { align = { light = 2 }, affinity = 1 } },
+        { text = "I won't touch it.", next = "BACK", reply = "Good. You'll sleep better for it, and so will I.", fx = { align = { light = 2 }, affinity = 1 } },
         { text = "Power is power. It's how you use it.", next = "BACK", reply = "That's what the hum wants you to think. Be very careful how you use it.", fx = { align = { light = -2 }, affinity = -2 } },
       },
     },
@@ -488,7 +490,7 @@ P:NPC {
       lines = { { id = "w_default", text = "It should, since you know better than any of us what it costs. Mind your hands while you're here, warlock, because the forest is watching what you reach for." } },
       choices = {
         { text = "I'll reach for whatever serves me, druid.", next = "BACK", reply = "Then the forest will watch you reach, warlock, and so will I. Mind it doesn't reach back.", fx = { align = { light = -1 } } },
-        { text = "I'll keep my hands to myself while I'm here.", next = "BACK", reply = "Thank you, and I'll believe it until you give me reason not to. The Earth Mother is patient with honest hands.", fx = { align = { light = 1 } } },
+        { text = "I'll keep my hands to myself while I'm here.", next = "BACK", reply = "Thank you, and I'll believe it until you give me reason not to. I'm told I believe people far too easily.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -544,7 +546,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The same way anyone can: one salve at a time, one plant at a time, one corrupted beast at a time. The Cenarion beacons show where the cleansing's needed, and I'll take any hand that will carry one, Horde or Alliance, because the forest doesn't care whose hand it is." } },
       choices = {
-        { text = "Then I'll carry a beacon, whatever banner I fly.", next = "BACK", reply = "Then you'll be as welcome as anyone, and the forest will thank you. A beacon doesn't care whose hand holds it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll carry a beacon, whatever banner I fly.", next = "BACK", reply = "Then you'll be as welcome as anyone. The plants never once asked me which side I was on.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll mend what I can, but my own people come first.", next = "BACK", reply = "That's fair, and I won't fault you for it. Whatever you mend here is still mended.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -553,7 +555,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Plenty, because the corrupted plants fight back, and the things guarding the Irontree Caverns fight harder. You'll clear the way, I'll lay the salve, and between us we'll make one corner of Felwood a little greener." } },
       choices = {
-        { text = "Then I'll follow your lead and guard the menders.", next = "BACK", reply = "Thank you, and the menders will sleep better for it. One clears, one cleans, that's how it works.", fx = { align = { order = 1 } } },
+        { text = "Then I'll follow your lead and guard the menders.", next = "BACK", reply = "Thank you, and the menders will sleep better for it. They've been jumping at every snapped twig for weeks.", fx = { align = { order = 1 } } },
         { text = "I'll fight where I please. The menders can keep up.", next = "BACK", reply = "They'll try, but please don't leave them too far behind. The plants fight back.", fx = { align = { order = -1 } } },
         { text = "Something else, Maybess.", next = "BACK" },
       },
@@ -565,7 +567,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Where the beasts still graze, mostly, because they know better than we do which leaves are safe. And {pet} might sniff them out faster than either of us. Animals know a sick plant from a clean one, even when I can't." },
       },
       choices = {
-        { text = "I'll follow the deer gently and leave them in peace.", next = "BACK", reply = "That's the way, and the deer will lead you true. They know this forest better than any of us.", fx = { align = { light = 1 } } },
+        { text = "I'll follow the deer gently and leave them in peace.", next = "BACK", reply = "That's the way. The deer find the clean patches before any of us, and they've never once led me wrong.", fx = { align = { light = 1 } } },
         { text = "Easier to follow the deer, then have it for supper.", next = "BACK", reply = "Oh, please don't, they're the only ones who know where the clean patches are! Supper can come from somewhere else.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -575,7 +577,7 @@ P:NPC {
         { id = "smb_default", text = "Not these ones, I'm afraid. The elementals in Felwood are twisted by the corruption, the way the furbolgs are, and there isn't anything left in them to call kin. Ask your spirits, if you doubt me; I think they'll tell you the same." },
       },
       choices = {
-        { text = "Then freeing them is a mercy. I'll do it.", next = "BACK", reply = "Thank you, and I hope the spirits forgive us both. It's a hard mercy, but it's mercy all the same.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Then freeing them is a mercy. I'll do it.", next = "BACK", reply = "Thank you, and I hope the spirits forgive us both. I'll say the words for them tonight, if you'll stand with me.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Twisted or not, they're kin. Find someone else.", next = "BACK", reply = "I understand, and I'll not ask you again. There are others who'll do it, if it must be done.", fx = { align = { order = -1 }, affinity = -1 } },
       },
     },
@@ -583,7 +585,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "If you carry salve and gather blood amber like everyone else, yes, and gladly. The forest doesn't care whose hands mend it, only that they don't add more poison while they work, and I'll trust you to know the difference." } },
       choices = {
-        { text = "I'll mend, then. The forest has suffered enough.", next = "BACK", reply = "Thank you, truly, and the forest will be glad of you. Every pair of hands counts.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll mend, then. The forest has suffered enough.", next = "BACK", reply = "Thank you, truly. Take a beacon from the pile by the tent, and I'll show you the first patch.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Healing's not my work. Burning the satyrs is.", next = "BACK", reply = "Burning the satyrs helps too, I suppose, and I'll not pretend otherwise. Just mind the saplings.", fx = { align = { light = -1 } } },
         { text = "We'll see how I can help.", next = "BACK" },
       },
@@ -592,7 +594,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The corrupted creatures, mostly, because the sap and amber I need lie right beside them and the beasts don't like to share. I'd rather you slip in and slip out than fight your way through, since every fight here spills more poison into the ground." } },
       choices = {
-        { text = "Slipping in quietly suits me fine.", next = "BACK", reply = "Good, and the sap will thank you too, I think. In and out, and nobody hurt.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Slipping in quietly suits me fine.", next = "BACK", reply = "Good. In and out, nobody hurt, and nobody the wiser; that's the best kind of day in Felwood.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'd rather face them openly and end it.", next = "BACK", reply = "That's brave, and I'll be grateful either way. Just don't trample the amber.", fx = { align = { honor = 1 } } },
         { text = "I'll see what I can gather.", next = "BACK" },
       },
@@ -601,7 +603,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Salves for the sick beasts, clean water for the saplings, and patience for all of it, because the Jadefire satyrs can undo a week's work in a night. A priest's hands are steady ones, and I'd sooner have yours here than out hunting satyrs for their horns." } },
       choices = {
-        { text = "Then I'll stay and mend for as long as I can.", next = "BACK", reply = "Thank you, and the beasts will be grateful too. Patience is the only medicine that never runs out.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll stay and mend for as long as I can.", next = "BACK", reply = "Thank you. Some of these beasts have been sick so long they've forgotten what it was like to be well.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let the satyrs choke on their own fel. That's quicker mending.", next = "BACK", reply = "They'll choke on it eventually, I'm sure, but the saplings can't wait that long. Please, help me with the slow way too.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -610,13 +612,14 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Patience, more than anything. The corrupted plants here can be cleansed if they're tended with care, and the Cenarion water we use is precious, so I'd rather you healed one grove slowly than burned through a whole season's supply in a day." } },
       choices = {
-        { text = "Slow and careful, then. I'll tend each grove properly.", next = "BACK", reply = "Thank you, and the groves will remember you, I think. Careful is how this forest heals.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Slow and careful, then. I'll tend each grove properly.", next = "BACK", reply = "Thank you, and the groves will remember you, I think. I'll mark the first one for you on my map.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "We haven't time to go slowly. The corruption is spreading.", next = "BACK", reply = "It is, and I feel it every day. But hurried cleansing doesn't take, and then we've wasted the water.", fx = { align = { order = -1 } } },
         { text = "Something else, Maybess.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_jaedenar", when = { questDone = TODO_QUEST("Forces of Jaedenar") }, text = "Greta says you went into Jaedenar for her and came back with the Shadow Council's blood on your blade. I ask the Horde to mend more than to fight, but some things must be cut out before anything can grow." },
         { id = "o_felwood_hope_lost", tags = { "news" }, when = { gossip = { topic = "felwood_hope", stance = "lost" } },
           text = "Eridan says you'd burn Felwood to the ground. I'd ask you not to say it while I'm in the middle of mending it." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -700,7 +703,7 @@ P:NPC {
         { id = "to_default", text = "The Warpwood elementals are past any saving, and their sap may teach me how to save everything that isn't. When so many lives hang on it, I've decided the end has to justify the means, and I pray to the Earth Mother that I'm right." },
       },
       choices = {
-        { text = "I think you are.", next = "BACK", reply = "Thank you, I needed to hear that. Some nights I'm not sure myself.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I think you are.", next = "BACK", reply = "Thank you, I needed to hear that. Some nights I sit by the salve pots and wonder.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "I'm not so sure.", next = "BACK", reply = "Neither am I, honestly, on the bad nights. But I'll keep going until someone shows me a better way.", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
       },
     },
@@ -798,7 +801,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It goes down to the roots and the water both, and that is why salves and seeds take so long. My people would say Elune's light has gone out of this place, and you'd say the spirits are sick, and I think we're describing the same wound." } },
       choices = {
-        { text = "Then we'll mend it together, Arathandris.", next = "BACK", reply = "Together, then, and Elune and the spirits both will be glad of it. I'll show you where the roots are worst.", fx = { align = { light = 1 } } },
+        { text = "Then we'll mend it together, Arathandris.", next = "BACK", reply = "Together, then, and Elune and the Earth Mother both will be glad of it. Come, I'll show you where the roots are worst.", fx = { align = { light = 1 } } },
         { text = "Some wounds can't be mended. Cut it out.", next = "BACK", reply = "Some, perhaps, but not all of it, and I won't give up on any piece too soon. Cutting is how this began.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -807,7 +810,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I'll accept anyone who carries a beacon and doesn't let it go dark. The curse here is old and stubborn, and you are stubborn too, I think, since even death couldn't keep you from the Light." } },
       choices = {
-        { text = "I'll carry your beacon wherever you need it.", next = "BACK", reply = "Then you're welcome among my salve-bearers, and the forest will be glad of you. Stubborn hands are the only kind that work here.", fx = { align = { order = 1 } } },
+        { text = "I'll carry your beacon wherever you need it.", next = "BACK", reply = "Then you're welcome among my salve-bearers. They'll want to hear where you've come from, so be ready for questions.", fx = { align = { order = 1 } } },
         { text = "I'll cleanse what I choose, in my own time.", next = "BACK", reply = "That's fair, I suppose, as long as you cleanse something. The forest isn't in a hurry, and neither am I.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -816,7 +819,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because it's proof, and proof is precious in Felwood. The curse is stubborn, and so am I, and I'll not stop until every flower in this forest is clean, but a mage might see the corruption in a way that a druid can't, and I'd welcome that, if you're patient enough to look." } },
       choices = {
-        { text = "I'll look, and help you find the source.", next = "BACK", reply = "Then you'll have my thanks, and the flowers' too. Proof is all I need to keep going.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll look, and help you find the source.", next = "BACK", reply = "Then you'll have my thanks. If we can find where it starts, I can stop guessing at every sick flower.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Patience won't cure this. Bold magic might.", next = "BACK", reply = "Bold magic is what made this forest, mage. I'd rather you were patient, if you can bear it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -828,7 +831,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because cleansing is like a long stalk, waiting for the moment the plant is ready and not a moment before. And {pet} may help, I think. The plants here seem to grow a little cleaner where something healthy has walked, though I can't prove it." },
       },
       choices = {
-        { text = "Then I'll be patient and do it properly.", next = "BACK", reply = "Then you're a rare one, and I'm glad of you. The forest rewards the patient hunter.", fx = { align = { order = 1 } } },
+        { text = "Then I'll be patient and do it properly.", next = "BACK", reply = "Then you're a rare one among the Alliance's soldiers, and I'm glad of you.", fx = { align = { order = 1 } } },
         { text = "Patience is fine, but I'd rather burn the sick plants and start again.", next = "BACK", reply = "Burning is what the satyrs do, and look where it's left us. I'd ask you to wait a little longer.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -838,7 +841,7 @@ P:NPC {
         { id = "war_default", text = "So would I, most days, and there's plenty in Felwood you can hit. But a warrior who only knows how to win a fight will lose this forest, because there's nothing here to defeat, only something to outlast." },
       },
       choices = {
-        { text = "Then I'll outlast it. Patience is a weapon.", next = "BACK", reply = "It is, and a rare one among warriors. You'll outlast Felwood, I think, if anyone does.", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Then I'll outlast it. Patience is a weapon.", next = "BACK", reply = "It is, and a rare one among warriors. Most of the ones who come here want it over by supper.", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Show me what to hit. I'll leave the patience to you.", next = "BACK", reply = "Fair enough, and there's plenty to hit. I'll point, you swing, and the patience can stay with me.", fx = { align = { order = -1 } } },
       },
     },
@@ -846,7 +849,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "It goes down to the roots and the water both, so salves and seeds take seasons to show anything. My people would say Elune's light has gone out of this place, and yours would say the spirits are sick, and I think we're describing the same wound from opposite sides. That's as near as I'll come to agreeing with the Horde today." } },
       choices = {
-        { text = "The spirits don't care about banners, and neither do I.", next = "BACK", reply = "Then you're welcome here, shaman, whatever your banner says. The forest is glad of you.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The spirits don't care about banners, and neither do I.", next = "BACK", reply = "Then you're welcome here, shaman, whatever your banner says. The roots don't know an orc from an elf.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "My place is with the Horde, and I'll mend from there.", next = "BACK", reply = "That's honest, and I'll take honest help from anywhere. Mend from wherever you stand.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -855,7 +858,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "The Circle is not Stormwind, and this forest is the reason why. I will work beside you, and I will thank you for the work, but I watched the Shadow Council turn Jaedenar into a nest of demons, and I cannot forget it on your account." } },
       choices = {
-        { text = "I don't blame you. I'll keep my demon away.", next = "BACK", reply = "Thank you, and I'm grateful you understand. Keep it far from the roots, and we'll work together fine.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I don't blame you. I'll keep my demon away.", next = "BACK", reply = "Thank you, and I'm grateful you understand. My salve-bearers won't even sleep near the place a demon stood.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Circle has no right to judge me.", next = "BACK", reply = "It doesn't judge, warlock, it remembers. That's a different thing entirely.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Let's just get the work done.", next = "BACK" },
       },
@@ -873,7 +876,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Tired, mostly, because the work is slow and the poison never sleeps, and Jaedenar's fires light the sky to the south every night. They won't complain to me, but they might talk to a priest, and I would count that a kindness." } },
       choices = {
-        { text = "I'll sit with them a while. Healing isn't only for wounds.", next = "BACK", reply = "Thank you, and they'll be glad of it. Tired hearts need mending as much as tired hands.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll sit with them a while. Healing isn't only for wounds.", next = "BACK", reply = "Thank you. They won't say so, but some of them haven't slept a whole night since spring.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Tired hands still work. They can rest when the forest's clean.", next = "BACK", reply = "They do, and they will, but a short rest now keeps them working longer. Still, I'll not argue with you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -882,7 +885,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "A good deal, because the corrupted things here don't like the Light, and my salve-bearers need someone at their backs on the road. The cleansing is slow and dull, though, and I've seen braver souls than you grow bored of it." } },
       choices = {
-        { text = "Slow work done right is worth it. I'll stand guard.", next = "BACK", reply = "It is, and I'm glad you see it. Stand with my salve-bearers, and they'll be safer for it.", fx = { align = { order = 1 } } },
+        { text = "Slow work done right is worth it. I'll stand guard.", next = "BACK", reply = "It is, and I'm glad you see it. Stand with my salve-bearers, and they'll stop looking over their shoulders.", fx = { align = { order = 1 } } },
         { text = "I'd rather strike at the demons themselves than guard flowerbeds.", next = "BACK", reply = "Then strike at them, and gladly, but my flowerbeds still need guarding. Someone will do it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -891,7 +894,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "The curse is older than your Horde and my Alliance both, and it will happily outlast our quarrels if we let it. I'll take any honest help, though I'll be watching the shadow in you as closely as I watch the shadow in these trees." } },
       choices = {
-        { text = "Watch all you like. My help is honest.", next = "BACK", reply = "I will, and I hope you'll prove me wrong to have watched. Honest help is always welcome here.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Watch all you like. My help is honest.", next = "BACK", reply = "I will, and I hope you prove me wrong to have watched. I've been wrong about the Horde before, more than once.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll help where it profits the Horde, and nowhere else.", next = "BACK", reply = "That's honest, at least, and I'll take it. Mend what helps the Horde, and the forest will take the rest.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -900,13 +903,14 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Slowly, and only if we are stubborn. The demons and their servants poured fel into this land for a reason, and the felwood itself remembers the taint, so we cleanse a patch at a time and guard it fiercely. I have outlasted worse hopes than this one, and I mean to outlast this too." } },
       choices = {
-        { text = "Then we'll be stubborn together. Felwood will be green again.", next = "BACK", reply = "Together, then, and I'll be glad of every patch we take back. The forest remembers its friends.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then we'll be stubborn together. Felwood will be green again.", next = "BACK", reply = "Together, then, and I'll be glad of every patch we take back. I keep a tally, if you'd like to see it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some ground is too far gone. Wall it off and save the rest.", next = "BACK", reply = "Some ground, perhaps, but walls are how the elves lost this forest in the first place. I'd rather try.", fx = { align = { light = -1 } } },
         { text = "Something else, Arathandris.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_rescue", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Jessir Moonbow came through the Sanctuary yesterday with her friend Arko'narin beside her, and she told me who had brought her out of Jaedenar. Ten thousand years, and I still find myself surprised by kindness." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. I spent a morning watching one clean flower by the road, and I'd wager you've spent mornings watching stranger things, so perhaps we're more alike than we look." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },

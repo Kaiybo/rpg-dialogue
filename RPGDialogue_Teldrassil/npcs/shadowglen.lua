@@ -107,8 +107,19 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    dd_iverron = {
+      lines = {
+        { id = "ddi_default", text = "Perhaps, but the young of Shadowglen must learn the glade's dangers somehow, and the Webwood spiders teach hard lessons. I have asked the Sentinels to post a watch by the cave, though I doubt it will keep the curious away for long." },
+      },
+      choices = {
+        { text = "Forbid the cave outright. Rules would have spared him.", next = "BACK", reply = "A conservator's word carries weight here, and I may yet give it. You think like one who has seen what disorder costs.", fx = { align = { order = 1 } } },
+        { text = "He'll learn more from the scare than from any rule.", next = "BACK", reply = "That is the druid's view, and I hold it more often than not. Iverron will not wander there again, of that I am sure.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_iverron", tags = { "news" }, when = { questDone = TODO_QUEST("Iverron's Antidote") }, text = "Dirania tells me Iverron is on his feet again, thanks to you. The glade is small, and a life saved in it is felt by every one of us who keeps it." },
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "You remind me of {alt}, a young {altclass} who learned the balance here in Shadowglen and thinned the boars without any malice in it. If that one is kin to you, I hope you were taught the same gentleness." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in Shadowglen! The young ones here learn Elune's ways from the cradle, but they'll be glad of a healer, for the beasts this year bite harder than they should." },
@@ -137,6 +148,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away. I'll keep counting cubs while you do." },
       },
       choices = {
+        { text = "Iverron should have known better than to go near that cave.", next = "dd_iverron", when = { questDone = TODO_QUEST("Iverron's Antidote") } },
         { text = "What does keeping the balance mean?", next = "balance" },
         { text = "How fares the glade this year?", next = "rains" },
         { text = "Who will train me?", next = "sigils" },
@@ -160,7 +172,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll remember that.", next = "BACK", reply = "Do, and teach it to others when you can. It is the oldest lesson of the kaldorei.", fx = { affinity = 2, align = { light = 1 }, learn = { "cenarion_circle" } } },
-        { text = "The strong take what they can, and that's the forest's way too.", next = "BACK", reply = "It is the forest's way, and it is how forests die. Balance is what keeps them alive.", fx = { align = { light = -1 } } },
+        { text = "The strong take what they can, and that's the forest's way too.", next = "BACK", reply = "It is the forest's way, and it is how forests die. Ask any druid who walked Hyjal after the burning.", fx = { align = { light = -1 } } },
         { text = "Even if it means killing?", next = "balance_kill" },
       },
     },
@@ -285,7 +297,7 @@ P:NPC {
       },
       choices = {
         { text = "Only what the Conservator asks, and no more.", next = "BACK", reply = "Then the Conservator will be glad of you, and so will I. The balance is a delicate thing.", fx = { align = { order = 1 } } },
-        { text = "The forest has plenty. I'll take what I need.", next = "BACK", reply = "There is plenty, for now, but plenty does not last. Take less, and there will be more.", fx = { align = { order = -1 } } },
+        { text = "The forest has plenty. I'll take what I need.", next = "BACK", reply = "There is plenty, for now, but plenty does not last. The boars stripped the eastern slope bare last spring, and it has not grown back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -322,6 +334,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_balance", when = { questDone = TODO_QUEST("The Balance of Nature") }, text = "Ilthalaine says you thinned the nightsabers and boars as he asked, and the glade breathes easier for it. Some would call that killing, but a druid calls it tending, and so do I." },
+        { id = "h_dd_iverron", tags = { "news" }, when = { questDone = TODO_QUEST("Iverron's Antidote") }, text = "Iverron came out to the glade this morning, pale but walking, and he told everyone who would listen that you brought the cure. I am glad the antidote worked, {class}." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at Aldrassil's roots! I've often wondered whether a prayer does a tree any good, and now I can ask someone who would know." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've only read of your order, and I confess I imagined you taller, though perhaps that's the armor making me expect it." },
         { id = "h_default", key = true,
@@ -543,7 +557,7 @@ P:NPC {
           text = "Whatever the glade has too much of, as Ilthalaine will tell you, and I've seen the sabers in the paddock let you close, which is a good start. When you're grown into that bow, Jocaste in the Enclave will teach you to keep a companion of your own." },
       },
       choices = {
-        { text = "I'll take only what's needed.", next = "BACK", reply = "Then the Conservator will be glad of you, and so will the forest. Take only what is needed.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'll take only what's needed.", next = "BACK", reply = "Then the Conservator will be glad of you. Start near the moonwell, where the young sabers have grown too bold.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "The strong eat. That's the forest's way too.", next = "BACK", reply = "It is the forest's way, until the forest runs out. Take less, and the strong will eat for longer.", fx = { align = { order = -1 } } },
       },
     },
@@ -674,7 +688,7 @@ P:NPC {
       lines = { { id = "wt_default", text = "It is. Sit with me a moment, and tell me what the worst of it is, down there." } },
       choices = {
         { text = "The Horde, cutting Ashenvale.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
-        { text = "The corruption. It's everywhere.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "The corruption. I see it everywhere I look.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "Honestly? Being far from home.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -750,7 +764,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Iverron gets into trouble every time he goes near that cave, the fool, and I worry. Perhaps your spirits could watch over him." } },
       choices = {
-        { text = "I will help him, Dirania. Friends are worth it.", next = "BACK", reply = "Thank you, and he will be glad of it, though he will not say so. He never does.", fx = { align = { honor = 1 } } },
+        { text = "I'll help him, Dirania. He's lucky to have a friend like you.", next = "BACK", reply = "Thank you, and he will be glad of it, though he will not say so. He never does.", fx = { align = { honor = 1 } } },
         { text = "Let him learn his lesson.", next = "BACK", reply = "He has learned it a dozen times already, and he never remembers. Please help him anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -834,8 +848,27 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    dd_egg = {
+      lines = {
+        { id = "dde_default", text = "Pleased is a mild word for it. He means to study how the spiders have grown so many and so bold, and I hope he finds the answer before another child of Shadowglen goes wandering near that cave." },
+      },
+      choices = {
+        { text = "Did the egg tell him anything?", next = "dd_egg2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dd_egg2 = {
+      lines = {
+        { id = "dde2_default", text = "Only that the brood is healthy, which is no comfort at all. He thinks something in the den feeds them better than the glade alone could, and he will not say what he suspects until he is sure." },
+      },
+      choices = {
+        { text = "I'll keep my eyes open near the den.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_egg", when = { questDone = TODO_QUEST("Webwood Egg") }, text = "Gilshalan says you brought a Webwood egg out of the spiders' den, which was braver than it was wise. Every nest disturbed is one less brood of the venom that nearly took Iverron, so I am glad of it all the same." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I'm glad, for my friend Iverron lies poisoned near the Webwood and I can't stop thinking of him, so perhaps you'll go and see him for me." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here in Shadowglen? Then perhaps you'll understand why I worry so, because your order swears to stand by those who can't stand alone." },
         { id = "h_default", key = true,
@@ -859,6 +892,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. It helps to talk while I wait." },
       },
       choices = {
+        { text = "Gilshalan seems pleased about that Webwood egg.", next = "dd_egg", when = { questDone = TODO_QUEST("Webwood Egg") } },
         { text = "Tell me about your friend.", next = "iverron" },
         { text = "What's wrong in Shadowglen?", next = "glen" },
         { text = "The antidote needs a fair few ingredients, it seems.", next = "herbs", when = { questActive = TODO_QUEST("Iverron's Antidote") } },
@@ -1022,6 +1056,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_balance", when = { questDone = TODO_QUEST("The Balance of Nature") }, text = "The Conservator says you have kept the young nightsabers and boars in balance for him. Good, because a glade overrun with hungry beasts drives the spiders out of their den looking for food, and I would rather they stayed in it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You've a gentle look about you, and the folk who come asking about the cave usually have only swords and boasting." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "You're very loud, {class}, and I mean that kindly, but the spiders feel every step on the stone, so go into the cave knowing they'll be waiting." },
         { id = "h_default", key = true,

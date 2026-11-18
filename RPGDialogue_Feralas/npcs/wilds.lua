@@ -28,7 +28,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Strong enough to make a warrior forget the ogre that hit him, aye, and nearly strong enough to forget the ogre altogether. The fruit out here ferments wild, and I've had a barrel blow its own lid off, which is the mark of a proper brew." } },
       choices = {
-        { text = "A warrior keeps a clear head. Drink after the fighting's done.", next = "BACK", reply = "Aye, that's the sensible way, an' I'll have a cask waitin' for ye when the ogres are lyin' still.", fx = { align = { order = 1 } } },
+        { text = "A warrior keeps a clear head. I'll drink after the fighting.", next = "BACK", reply = "Aye, that's the sensible way, an' I'll have a cask waitin' for ye when the ogres are lyin' still.", fx = { align = { order = 1 } } },
         { text = "A strong ale before battle never hurt anyone.", next = "BACK", reply = "By my beard, a warrior who knows his ale, an' I'll pour ye a wee one for courage an' a big one for after.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -174,7 +174,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "If they don't, they ought to, because a good ale is the land's own gift poured into a mug. Feralas grows wild fruit and wilder grain, and if there's a spirit in all that, it's a cheerful one." } },
       choices = {
         { text = "Then thank the land for every barrel you brew.", next = "BACK", reply = "I do, every barrel, an' I'll thank it twice tonight, since ye reminded me.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Ale's a craft, not a blessing, and the credit is yours.", next = "BACK", reply = "Aye, the craft's mine, but the fruit's the land's, so I'll share the credit, at least the first mug of it.", fx = { align = { light = -1 } } },
+        { text = "Ale's a craft, not a blessing. The credit is yours.", next = "BACK", reply = "Aye, the craft's mine, but the fruit's the land's, so I'll share the credit, at least the first mug of it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -380,7 +380,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_kindal_default", text = "A druid can help it heal itself, which is a different and slower thing. The harpies and the Grimtotem have stripped these woods of much, and I'd sooner see the land given time than forced back into green by someone in a hurry." } },
       choices = {
-        { text = "Then we'll drive out whoever harms it. That helps fastest.", next = "BACK", reply = "That would be faster, and I will not stop you, but the land must still heal after the fighting.", fx = { align = { order = 1 } } },
+        { text = "Then we drive out whoever harms it. That helps fastest.", next = "BACK", reply = "That would be faster, and I will not stop you, but the land must still heal after the fighting.", fx = { align = { order = 1 } } },
         { text = "Patience, then. The land knows its own healing best.", next = "BACK", reply = "You speak as a druid speaks, and I am glad of it, because few who carry weapons understand.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -410,7 +410,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They break them, or try to, and I believe they trade away whatever will not break. Your {pet} chose you, I can see it, and that bond is the very thing the Grimtotem will never understand." },
       },
       choices = {
-        { text = "A beast must be won by trust, never by a cage.", next = "BACK", reply = "Yes, and the creatures know it, and you will find them coming to you of their own will one day.", fx = { align = { honor = 1 } } },
+        { text = "A beast must be won by trust, never by a cage.", next = "BACK", reply = "Yes. The creatures know it, and one day you will find them coming to you of their own will.", fx = { align = { honor = 1 } } },
         { text = "Taming is taming. A cage is just a quicker method.", next = "BACK", reply = "A cage breaks the trust before it can begin, and the creature never forgets, so I cannot agree.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -419,7 +419,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Perhaps not, but what you carry harms everything it touches, whether you mean it to or not. If you would help free them from the Grimtotem cages, I'll not refuse you, but stand well back while they flee." } },
       choices = {
-        { text = "I'll stand back. Their freedom matters more.", next = "BACK", reply = "Thank you, and I will not forget it, because freedom given gently is the kind the forest remembers.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll stand back. Their freedom matters more.", next = "BACK", reply = "Thank you. Freedom given gently is the kind the forest remembers.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear won't save them. My power might.", next = "BACK", reply = "Your power might, but the creatures would flee it as they flee the Grimtotem, so please stand back.", fx = { align = { light = -1 } } },
         { text = "Let us speak of other things.", next = "BACK" },
       },
@@ -428,7 +428,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Too many, and more every week, because the Grimtotem trap them faster than I can count. Slip in, open the cages, and slip out, and the creatures will find their own way home through the forest." } },
       choices = {
-        { text = "I'll free every last one.", next = "BACK", reply = "Then Elune bless your quiet feet, and may every cage you open be one less I must count.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll free every last one, Kindal.", next = "BACK", reply = "Then Elune guide your quiet feet. I have counted the cages every night for a month, and I would very much like to stop.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll free them, but the Grimtotem will pay too.", next = "BACK", reply = "Free them first, and leave the rest to the forest, because the Grimtotem have enemies enough.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -437,7 +437,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Cruelly, and without need, which is what I cannot forgive. They starve them and beat them to make them savage, and the creatures that come out of those cages are wounded in ways no bandage reaches." } },
       choices = {
-        { text = "Every creature that suffers deserves mercy. Those cages must open.", next = "BACK", reply = "They must, and they will, and the forest will thank you in whatever way the forest can.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Every creature that suffers deserves mercy. Those cages must open.", next = "BACK", reply = "They must, and they will. There is a young stag in the far pen who has stopped eating, so open his first, if you can.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast is a beast. My mercy goes to people first.", next = "BACK", reply = "Then help the creatures for the forest's sake, if not for theirs, because a wounded forest wounds us all.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -545,7 +545,7 @@ P:NPC {
     green_dragons = { { id = "tp_green_dragons", text = "The green dragons guard the Dream's gate here in Feralas, and they have grown angry of late. I would not walk near them until they calm.", fx = { learn = { "emerald_dream" } } } },
     elune = { { id = "tp_elune", text = "Elune watches over the hunted as well as the hunter. I try to remember that whenever the Grimtotem hunters cross my path." } },
     malfurion = { { id = "tp_malfurion", text = "Malfurion taught the first druids to listen to the land, and he still sleeps in the Dream while we keep his lessons. I hope he finds us worthy when he wakes." } },
-    _none = { { id = "tp_none", text = "That I cannot say. The forest keeps its own secrets." } },
+    _none = { { id = "tp_none", text = "That I cannot say. The forest keeps its own secrets, and I have learned not to pry at them." } },
   },
 }
 
@@ -557,7 +557,7 @@ P:NPC {
     third = "{name} met Angelas Moonbreeze at Feathermoon Stronghold in Feralas.",
   },
   greetings = {
-    { id = "g_main", text = "Ishnu-alah, traveler. Feathermoon welcomes those who come in peace." },
+    { id = "g_main", text = "Ishnu-alah, traveller. Feathermoon welcomes those who come in peace." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon. Elune has kept you, I see." },
   },
   start = "hello",
@@ -566,7 +566,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They speak to no one, and that is the trouble. They were proud in life and prouder now, but if the earth here remembers what they did, it may answer you." } },
       choices = {
-        { text = "Let the dead rest. I won't disturb them.", next = "BACK", reply = "Then you are wiser than many who come here, and the dead will thank you by staying quiet.", fx = { align = { light = 1 } } },
+        { text = "Let the dead rest. I won't disturb them.", next = "BACK", reply = "Then you are wiser than many who come here. The last scholar who went in to question them came out without his voice.", fx = { align = { light = 1 } } },
         { text = "If they know something, I'll make them talk.", next = "BACK", reply = "Then be careful, because the Highborne were proud in life, and they do not take kindly to being commanded in death.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -587,7 +587,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They sense the old magic still bleeding from the stones, I think, the way a deer senses a storm. Watch {pet} closely if you ever go near the ruins, and if it refuses to go further, turn back." },
       },
       choices = {
-        { text = "Respect the beasts' warning. Leave that magic buried.", next = "BACK", reply = "That is the wiser path, and the beasts have never once been wrong about it.", fx = { align = { light = 1 } } },
+        { text = "Respect the beasts' warning. Leave that magic buried.", next = "BACK", reply = "That is the wiser path. The owls will not roost within a mile of those walls, and I have never known an owl to be wrong about a place.", fx = { align = { light = 1 } } },
         { text = "Old magic is power. It shouldn't be left to rot.", next = "BACK", reply = "That is what the Highborne said, and they are the ones still clinging to it, ten thousand years later.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -613,7 +613,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Not yet, and I pray to Elune you never will be. But every satyr in those ruins once believed it was the master of its own bargain, so I'll ask you to forgive my distance, and to remember what they became." } },
       choices = {
-        { text = "I'll remember. I won't make their mistake.", next = "BACK", reply = "Then I will hope you remember it always, because the satyrs once said the same, and they forgot.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll remember, and I won't make their mistake.", next = "BACK", reply = "Then I will hope you remember it always, because the satyrs once said the same, and they forgot.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Their mistake was weakness. I'm not weak.", next = "BACK", reply = "The satyrs said that too, before the demons wore them like cloaks, so I will keep my distance.", fx = { align = { light = -1 } } },
         { text = "Something else, please.", next = "BACK" },
       },
@@ -622,7 +622,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Restless spirits of the Highborne who will not admit they are dead, and satyrs who were once our own people, before they gave themselves to the demons. Eldre'Thalas is the worst of it, and no Sentinel walks near its walls without a prayer to Elune first." } },
       choices = {
-        { text = "The tormented dead deserve release. I'll pray them to their rest.", next = "BACK", reply = "Then Elune guide your prayers, and may they find the rest that I have never been able to give them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The tormented dead deserve release. I'll pray them to rest.", next = "BACK", reply = "Then Elune guide your prayers, and may they find the rest that I have never been able to give them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Destroy them all. Ghosts and satyrs have earned no prayers.", next = "BACK", reply = "Perhaps they have, but they were our people once, and I cannot help but pity them a little.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -640,8 +640,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Old Highborne spirits, the satyrs that were once their kin, and ogres who have made a home among the broken towers. My scouts go in quietly and come out with what they can, and the ones who are loud do not always come out at all." } },
       choices = {
-        { text = "I'll go quietly and bring back what you need.", next = "BACK", reply = "Then Elune bless your quiet feet, and come back to me with whatever you find, and your life besides.", fx = { align = { order = 1 } } },
-        { text = "I'll go in my own way, and keep what I find.", next = "BACK", reply = "Keep what you find, then, but come back to tell me what you saw, because my scouts deserve the knowledge.", fx = { align = { order = -1 } } },
+        { text = "I'll go quietly and bring back what you need.", next = "BACK", reply = "Then come back to me with whatever you find, and with your life besides. I have sent three scouts into those halls this year, and only two came out.", fx = { align = { order = 1 } } },
+        { text = "I'll go my own way, and keep what I find.", next = "BACK", reply = "Keep what you find, then, but come back to tell me what you saw, because my scouts deserve the knowledge.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -682,6 +682,7 @@ P:NPC {
           text = "A hunter. The beasts avoid the highborne ruins, and I have learned to trust their judgment over any scholar's." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk like one of my scouts, and I would not mind having one more who can cross the ruins without waking what sleeps there." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman among the Sentinels. The highborne ruins here are full of spirits that never found rest, and I wonder whether they'd speak to you." },
+        { id = "h_dd_cages", tags = { "news" }, when = { questDone = TODO_QUEST("Freedom for All Creatures") }, text = "Kindal says the Grimtotem cages are standing empty and the creatures have gone back to the forest, and that you were the one who opened the doors. Elune smiles on that kind of work, and so do I." },
       },
       again = { { id = "h_again", text = "What else? The ruins have waited ten thousand years to tell their story; they can wait while you ask." }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -733,7 +734,7 @@ P:NPC {
     },
   },
   topics = {
-    highborne = { { id = "tp_highborne", text = "I watch the old Highborne ruins scattered across Feralas, because some of what they left still hums. Old magic does not sleep as soundly as old bones." } },
+    highborne = { { id = "tp_highborne", text = "I watch the old Highborne ruins scattered across Feralas, because some of what they left still hums. Put your hand on the stones by the Twin Colossals some night and you will feel it." } },
     dire_maul = { { id = "tp_dire_maul", text = "Eldre'Thalas was a jewel of the old empire, and the ogres crawl over it like flies on a corpse. Some of us think the Highborne in its depths are worse than the ogres." } },
     queen_azshara = { { id = "tp_queen_azshara", text = "Azshara's name still lies carved in the ruins along this coast, and the naga still sing it from the water. I hate the sound of both." } },
     elune = { { id = "tp_elune", text = "Elune keeps the Sentinels' watch with us, every night, and her light is the only friendly thing in some of these ruins." } },
@@ -750,7 +751,7 @@ P:NPC {
     third = "{name} met Hadoken Swiftstrider, a tauren hunter at Camp Mojache in Feralas.",
   },
   greetings = {
-    { id = "g_main", text = "The Earth Mother walks with you, stranger. Come, sit near the fire." },
+    { id = "g_main", text = "The Earth Mother walks with you, stranger. Come, sit near the fire; the rain will not reach you here." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. The winds told me you would be." },
   },
   start = "hello",
@@ -794,8 +795,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "It may, and I will not turn it away when the Gordunni come. But the Earth Mother did not make the creatures you bind, and a tauren does not forget that, even beside an ally." } },
       choices = {
-        { text = "Victory is all that matters in war.", next = "BACK", reply = "Victory is everything, yes, but the way we win is what we must live with when the war is over.", fx = { align = { honor = -1 } } },
-        { text = "I'll use my power for Mojache's protection.", next = "BACK", reply = "Then you are welcome beside me, and I will trust your power as long as it guards the camp.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Victory is all that matters in war.", next = "BACK", reply = "Victory is everything, yes. But I have seen braves win in ways that kept them from sleeping for years afterward, and I would not wish that on you.", fx = { align = { honor = -1 } } },
+        { text = "I'll use my power to protect Mojache.", next = "BACK", reply = "Then you are welcome beside me, and I will trust your power as long as it guards the camp.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let us speak of other things.", next = "BACK" },
       },
     },
@@ -814,6 +815,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Blades are proven against the gordunni, not in the telling, so I will judge you by what you bring back from their camps." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I trust a newcomer only as far as their blade has proven, and yours has proven nothing to me yet, Light or no Light." },
+        { id = "h_dd_gordunni", tags = { "news" }, when = { killed = { name = "Gordunni", min = 40 } }, text = "The hunters say the Gordunni don't come down to the river so often now, and that you're the reason. The camp breathes a little easier, friend, and so do I." },
       },
       again = { { id = "h_again", text = "What else do you seek? Ask, and the fire will listen with me." }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -829,7 +831,18 @@ P:NPC {
         { text = "My power wins battles, Hadoken.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do the gordunni fight, Hadoken?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How can I prove myself to you, Hadoken?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've cut down a great many Gordunni, Hadoken.", next = "dd_gordunni", when = { killed = { name = "Gordunni", min = 40 } } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    dd_gordunni = {
+      lines = {
+        { id = "dd_gordunni_1", text = "So I hear, and I'm grateful. When we first raised Camp Mojache the ogres came down every night, and we lost hunters at the river and calves at the edge of the grass. Now the young ones can fetch water without a brave walking beside them." },
+      },
+      choices = {
+        { text = "They'll be back. I'd build the walls higher.", next = "BACK", reply = "You may be right, and Rok Orhan says the same, though louder. We'll raise them a little, for the young ones' sake.", fx = { align = { order = 1 } } },
+        { text = "Let the hunters roam. The ogres fear them now.", next = "BACK", reply = "Spoken like a hunter, and it warms an old heart. The Earth Mother made us to walk the land, not to hide behind fences.", fx = { align = { order = -1 } } },
+        { text = "Something else, Hadoken.", next = "BACK" },
       },
     },
     b1_1 = {
@@ -841,7 +854,7 @@ P:NPC {
       choices = { { text = "How do I stop them?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "Strike at their leaders in Dire Maul's shadow, and the rest will lose heart. Ogres need a strong voice to follow." } },
+      lines = { { id = "b1_3_l", text = "Strike at their leaders in Dire Maul's shadow, and the rest will lose heart, because an ogre without a loud voice to follow mostly goes back to sleep." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -915,8 +928,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Beneath the mail, always, and well oiled, for the forests here are wet and the ogres strike hard. A warrior in a good leather jerkin feels the club less, and I would rather fit you properly than see you carried back by Hadoken's braves." } },
       choices = {
-        { text = "Good armor, well kept, is a warrior's discipline.", next = "BACK", reply = "That is the truth of it, and I will fit you properly, so the leather keeps you alive as long as you keep it.", fx = { align = { order = 1 } } },
-        { text = "Speed and strength keep me alive, not layers of armor.", next = "BACK", reply = "They will, until the ogre lands the blow you did not see, and then you will wish you had listened.", fx = { align = { order = -1 } } },
+        { text = "Good armour, well kept, is a warrior's discipline.", next = "BACK", reply = "That is the truth of it, and I will fit you properly, so the leather keeps you alive as long as you keep it.", fx = { align = { order = 1 } } },
+        { text = "Speed and strength keep me alive, not layers of armour.", next = "BACK", reply = "They will, until the ogre lands the blow you did not see, and then you will wish you had listened.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -928,7 +941,7 @@ P:NPC {
       },
       choices = {
         { text = "Wear the hide of what you hunt. It honours the beast.", next = "BACK", reply = "It does, and the Earth Mother sees it, so wear it well and remember where it came from.", fx = { align = { light = 1 } } },
-        { text = "Armor is armor. Where it came from doesn't matter.", next = "BACK", reply = "It matters to me, little one, and to the beast, and the Earth Mother remembers who forgets.", fx = { align = { light = -1 } } },
+        { text = "Armour is armour. Where it came from doesn't matter.", next = "BACK", reply = "It matters to me, little one, and to the beast, and the Earth Mother remembers who forgets.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -954,8 +967,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "No, because every hide I work was taken fairly, by Hadoken or by hunters I trust. A druid wears the shape of a beast for a while, and I wear its skin for a while, and I think the Earth Mother sees little difference so long as we both honor it." } },
       choices = {
-        { text = "You honor the beasts well. I respect that.", next = "BACK", reply = "Thank you, and Hadoken will be glad to hear it, because he takes the hides as carefully as I work them.", fx = { align = { light = 1 } } },
-        { text = "Wearing a shape and wearing a skin are not the same.", next = "BACK", reply = "Perhaps not, but they are not so different as you think, and the Earth Mother sees both.", fx = { align = { light = -1 } } },
+        { text = "You honour the beasts well. I respect that.", next = "BACK", reply = "Thank you, and Hadoken will be glad to hear it, because he takes the hides as carefully as I work them.", fx = { align = { light = 1 } } },
+        { text = "Wearing a shape and wearing a skin aren't the same.", next = "BACK", reply = "Perhaps not, but they are not so different as you think, and the Earth Mother sees both.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1021,14 +1034,14 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Leather from the beasts of this forest, oiled against the rain, and mail once you're strong enough to carry it. A shaman must move freely when the ogres come, and a proper fitting now saves a proper burial later." } },
       choices = {
-        { text = "Good craft keeps hunters alive, so I'll trust your hand.", next = "BACK", reply = "Then I will fit you well, and the leather will serve you as well as any totem.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'd rather fight light and fast, armor or not.", next = "BACK", reply = "Then fight light, and fast, and I will make you something that does not slow you down.", fx = { align = { order = -1 } } },
+        { text = "Good craft keeps hunters alive. I'll trust your hand.", next = "BACK", reply = "Then I will fit you well, and the leather will serve you as well as any totem.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather fight light and fast, armour or not.", next = "BACK", reply = "Then fight light, and fast, and I will make you something that does not slow you down.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
   topics = {
-    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us every hide, and I work each one so she will not be ashamed of me. A poor stitch dishonors the beast." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us every hide, and I work each one so she will not be ashamed of me. My father could tell a hunter's whole season from the stitching on his vest, and I mean to do the same." } },
     cairne = { { id = "tp_cairne", text = "Cairne wears leather I would be proud to have made. The craftsmen of Thunder Bluff are fine, though I will say mine is finer." } },
     dire_maul = { { id = "tp_dire_maul", text = "The beasts near Dire Maul have thick hides from fighting ogres, and they make good armor. Bring me their skins and I will judge them fairly." } },
     grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem take hides with no prayer and leave the beast to rot, and their leather is poor for it. You can see the shame in every stitch they make." } },

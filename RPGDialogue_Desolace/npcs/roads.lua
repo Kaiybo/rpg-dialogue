@@ -66,7 +66,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I'd say a caravan's as worthy as anything else, because there's grain and cloth and medicine on these kodos, and half of it's going to folk who've got nothing else. Not that I'm asking you for anything, mind, I just want it said." } },
       choices = {
-        { text = "I'll stand between your drivers and the centaur, and gladly.", next = "BACK", reply = "Then you're a better soul than most who walk this road, and the drivers will be glad to see you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll stand between your drivers and the centaur, and gladly.", next = "BACK", reply = "You're a better soul than most who walk this road, and the drivers will be glad to see you riding with them.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Make it worth my while, and I'll think about it.", next = "BACK", reply = "Fair enough, friend, and I'll have Rigger look at what we can spare, which won't be much, but it'll be honest.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -320,7 +320,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Somebody who watches behind us, because the centaur always hit the back half while Cork's busy shouting at the front. A spell or two at the right moment saves me a crate, and a crate saved is the best kind of crate." } },
       choices = {
-        { text = "I'll ride at the back and guard every crate.", next = "BACK", reply = "Then the back half will be the safest it's been all year, and I'll write that down with a smile.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll ride at the back and guard every crate.", next = "BACK", reply = "The back half will be the safest it's been all year, and I'll write that down with a smile.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Crates don't bleed. I'll guard the drivers, not your freight.", next = "BACK", reply = "Fair enough, and the drivers will thank you, though the crates will grumble in the ledger later.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -711,7 +711,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "We trust deeds. The Burning Blade bargain with demons in that fortress, and if your spirits help bring Dalinda home, that's all the trust I need." } },
       choices = {
-        { text = "Then I'll earn your trust with deeds.", next = "BACK", reply = "Then bring Dalinda home, and you will have it, and more than you asked for.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll earn your trust with deeds.", next = "BACK", reply = "Bring Dalinda home, and you will have it, and more than you asked for.", fx = { align = { honor = 1 } } },
         { text = "I don't need your trust. Just your coin.", next = "BACK", reply = "Then earn your coin, and I will pay it gladly, as long as she comes home alive.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -732,7 +732,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Long enough that I know their marks better than my own name: the scorched grass where they summon, the satyr hoofprints that don't match the rest of the herd. Your {pet} would have their scent within the hour, I think. Demons leave a stink no beast mistakes for prey, and every animal I've ever hunted beside hated it." },
       },
       choices = {
-        { text = "I'll follow the trail to the end, however long it runs.", next = "BACK", reply = "Then you hunt as a demon hunter hunts, and I will be glad to have you on the trail.", fx = { align = { honor = 1 } } },
+        { text = "I'll follow the trail to the end, however long it runs.", next = "BACK", reply = "You hunt as a demon hunter hunts, and I will be glad to have you on the trail.", fx = { align = { honor = 1 } } },
         { text = "A hunt that never ends isn't worth following.", next = "BACK", reply = "Perhaps not for you, but for me, it is the only hunt that matters, and it ends when the last of them falls.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -875,7 +875,7 @@ P:NPC {
       lines = { { id = "xpt_rexxar_default", text = "Because people ask things of you when you stay among them, and I've given the Horde all I mean to give. Misha asks for nothing but meat and quiet, and the wilds are honest in a way that cities never are." } },
       choices = {
         { text = "A pack is stronger than a lone wolf, Rexxar.", next = "BACK", reply = "It is, for some, and the Horde is proof of it, but Misha and I have always hunted better alone.", fx = { align = { order = 1 } } },
-        { text = "I understand. Some of us are meant to walk alone.", next = "BACK", reply = "Then you know the wilds, and you know Misha, and that is more than most who ask me questions.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I understand. Some of us are meant to walk alone.", next = "BACK", reply = "You know the wilds, and you know Misha, and that is more than most who ask me questions.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -883,7 +883,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I trust anyone who has walked the wilds long enough to know the elements are not servants. Banners mean little to Misha and me, but the ones who wave them hardest usually listen least." } },
       choices = {
-        { text = "The elements serve no banner, and neither do I.", next = "BACK", reply = "Then you understand the wilds better than most, and Misha will not growl at you.", fx = { align = { order = -1 } } },
+        { text = "The elements serve no banner, and neither do I.", next = "BACK", reply = "Misha will not growl at you, then. That is rarer than you would think.", fx = { align = { order = -1 } } },
         { text = "I'm loyal to the Alliance first, Rexxar.", next = "BACK", reply = "Then be loyal, but remember the wilds do not care whose flag you carry when the thunder lizard comes.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -893,7 +893,7 @@ P:NPC {
       lines = { { id = "xfpala_default", text = "I judge it by what it does when no one's watching. I've seen the Light carried by men who burned villages, and I've seen the dead fight harder for their friends than the living. Show me which you are, and Misha will decide whether she likes you." } },
       choices = {
         { text = "Judge me by my deeds. I keep my word, watched or not.", next = "BACK", reply = "Then I will watch, and Misha will watch, and we will know soon enough which of us was right.", fx = { align = { honor = 1 } } },
-        { text = "Deeds are deeds. Whether anyone's watching changes nothing.", next = "BACK", reply = "Good. That is the only answer that means anything, and few have the courage to say it.", fx = { align = { honor = -1 } } },
+        { text = "Deeds are deeds. Whether anyone's watching changes nothing.", next = "BACK", reply = "That is the only answer that means anything, and few have the courage to say it to my face.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -901,7 +901,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "That nobody's behind you, mostly, and that no banner will hold your ground when a thunder lizard decides it's hungry. The cities teach soldiers to fight in ranks, but only the wild teaches them when not to fight at all." } },
       choices = {
-        { text = "The ranks are the Horde's strength. I'll keep to them.", next = "BACK", reply = "Then stand in the ranks, and they will stand with you, but learn the wild too, in case they break.", fx = { align = { order = 1 } } },
+        { text = "The ranks are the Horde's strength. I'll keep to them.", next = "BACK", reply = "Stand in the ranks, and they will stand with you. Learn the wild too, though, because ranks break, and the wild does not.", fx = { align = { order = 1 } } },
         { text = "Ranks make soldiers soft. I'll learn the wild's way.", next = "BACK", reply = "The wild will teach you, but it is a harsh teacher, and it does not forgive mistakes.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -913,7 +913,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's between Misha and me, and she's never told anyone, so neither will I. Misha's watching {pet}, and she hasn't growled yet. That's the highest praise she gives anyone, so take it." },
       },
       choices = {
-        { text = "A true companion is family. I'd die for mine.", next = "BACK", reply = "Then you understand Misha, and she will understand you, which is rare.", fx = { align = { honor = 1 } } },
+        { text = "A true companion is family. I'd die for mine.", next = "BACK", reply = "Misha understands that, and she will understand you, which is rare.", fx = { align = { honor = 1 } } },
         { text = "A beast is a tool, Rexxar, however loyal.", next = "BACK", reply = "Say that where Misha can hear, and you will find out how loyal a tool can be.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -930,7 +930,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "That every creature here kills only what it must, and leaves the rest alone. The cities are full of people who stab for coin and call it cunning, and I trust Misha's instincts over theirs every day." } },
       choices = {
-        { text = "I strike only when there's need. That's the hunter's way.", next = "BACK", reply = "Then you understand, and Misha will let you walk with us a while.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I strike only when there's need. That's the hunter's way.", next = "BACK", reply = "That is the hunter's way. Walk with us a while, and Misha will decide if she agrees.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Coin is need enough. The wilds aren't my home.", next = "BACK", reply = "Then the wilds will never be your home, and you will never understand why I left the cities.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -940,7 +940,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "I hold it against anyone who thinks the demons can be mastered, because the Horde believed that too and paid for it with its soul. Thrall broke that chain, and I'll not watch someone forge a new link in it." } },
       choices = {
         { text = "I master my demons. The old Horde was weak, not cursed.", next = "BACK", reply = "The old Horde thought itself strong too, and it drank the blood, so do not tell me it was weak.", fx = { align = { order = -1 } } },
-        { text = "I know the price. I won't let the Horde pay it again.", next = "BACK", reply = "Good. Then remember it every day, because the Horde has forgotten once already.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I know the price. I won't let the Horde pay it again.", next = "BACK", reply = "Remember it every day, because the Horde has forgotten once already, and I was there when it did.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let us speak of something else.", next = "BACK" },
       },
     },
@@ -1077,7 +1077,7 @@ P:NPC {
         { id = "bw_warsong", when = { origin = "orc_warsong_kin" }, text = "I don't hate you for it, because Orgrimmar needs its walls, but every tree your clan fells is another reason for the night elves to send a sentinel after you. Misha and I have buried enough dead on both sides of that forest to know nobody's winning it." },
       },
       choices = {
-        { text = "Take only what you need, and leave the forest standing.", next = "BACK", reply = "Then you understand what the tauren understand, and what the Warsong and the elves have both forgotten.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Take only what you need, and leave the forest standing.", next = "BACK", reply = "That is what the tauren understand, and what the Warsong and the elves have both forgotten in Ashenvale.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Nobody owns the wilds. The strong take what they can.", next = "BACK", reply = "Then the strong will take until nothing is left, and the wilds will take them in the end.", fx = { align = { light = -1 } } },
         { text = "Something else, Rexxar.", next = "BACK" },
       },
@@ -1188,7 +1188,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Whatever threatens the Horde and the beasts both, and in Desolace that is often the same thing. The centaur kill more than they need and the Burning Blade foul the ground, so a spellcaster with steady hands would find work enough out here." } },
       choices = {
-        { text = "Then I'll hunt beside you, where the Horde needs it.", next = "BACK", reply = "Good. Then hunt with your eyes open, and Misha and I will find you if we need you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll hunt beside you, where the Horde needs it.", next = "BACK", reply = "Hunt with your eyes open, then. Misha and I will find you if we need you.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll hunt what pays. The rest is someone else's war.", next = "BACK", reply = "Then hunt what pays, but do not come to me when the war you ignored reaches your door.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1198,7 +1198,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "I trust Thrall, and I trust a shaman who has walked the wilds long enough to know the elements are not servants. The ones who stay in Orgrimmar arguing politics I leave to the cities, because Misha and I have no patience for them." } },
       choices = {
         { text = "The Horde needs its shamans in Orgrimmar, guiding the Warchief.", next = "BACK", reply = "Some, perhaps, but the ones who stay in Orgrimmar forget what the elements sound like out here.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A shaman belongs in the wilds, far from walls and politics.", next = "BACK", reply = "Then you understand, and you will find the wilds have more to teach you than any city.", fx = { align = { order = -1 } } },
+        { text = "A shaman belongs in the wilds, far from walls and politics.", next = "BACK", reply = "You understand, and you will find the wilds have more to teach you than any city ever could.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

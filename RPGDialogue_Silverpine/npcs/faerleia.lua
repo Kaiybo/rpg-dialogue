@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_moonrage = {
+      lines = { { id = "dd_moonrage_default", text = "Some of them were Pyrewood villagers, and some came from behind the Greymane Wall, and the curse took all of them the same. I was a person once too, and nobody spared me for it, so I've stopped asking what they were." } },
+      choices = {
+        { text = "Then I'll keep killing them. Arugal's curse ends with them.", next = "BACK", reply = "That's the spirit, and the Sepulcher could use more of it. Mind their claws; the curse travels in the wounds.", fx = { align = { light = -1 } } },
+        { text = "If there were a cure, I'd want to find it first.", next = "BACK", reply = "Then look for it in Shadowfang, among Arugal's books, because there's none out here. I'll not stop killing while you look.", fx = { align = { light = 1 } } },
+        { text = "Something else, Faerleia.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Deathstalker Faerleia, on the Dark Lady's business. You've arrived just in time, because the Pyrewood Council will be back soon, Arugal's puppets every one, and I can't take them all by myself." },
@@ -43,6 +52,8 @@ P:NPC {
           text = "Arugal's dead, they're saying at the Sepulcher, and you were there. I'd hoped to do it myself, but I'll settle for having helped you get up the hill." },
         { id = "h_rogue", when = { class = "ROGUE", race = "Scourge" },
           text = "A rogue, and one of the Dark Lady's own. Then you'll understand why I'm sitting in the dark in an enemy town hall and enjoying it." },
+        { id = "h_dd_moonrage", tags = { "news" }, when = { killed = { name = "Moonrage", min = 40 } },
+          text = "The Moonrage packs around Pyrewood are thinner than they were, and the ones left hunt in twos instead of fives. I know your work when I see it, and I've been seeing it all week." },
       },
       again = {
         { id = "h_again", text = "Quickly. I'm listening for footsteps as well as you." },
@@ -56,6 +67,7 @@ P:NPC {
         { text = "I'm a deathstalker in training too.", next = "rogue", when = { class = "ROGUE", race = "Scourge" } },
         { text = "I'm with you. Let them come.", next = "BUSINESS" },
         { text = "I'll leave you to your ambush.", next = "END" },
+        { text = "The Moonrage worgen were people once. Does that trouble you?", next = "dd_moonrage", when = { killed = { name = "Moonrage", min = 40 } } },
       },
     },
 

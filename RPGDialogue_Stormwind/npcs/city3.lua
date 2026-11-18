@@ -140,13 +140,13 @@ P:NPC {
           text = "A mage, in the Royal Library. Let me guess that Dalaran wants a book back, and the Kirin Tor are too grand to ask in person." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the garden. Do try not to trample the hedges; the House of Nobles takes its gardens more seriously than its soldiers." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the countryside. I suppose you see a good deal more of the kingdom than the House does." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in the Royal Library. The kaldorei have been very gracious to the crown, and I've always wondered what a people so old expect in return." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, in the Royal Library. The kaldorei have been very gracious to the crown, and I've always wondered what a people so old expect in return." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in the Royal Library. How unexpected, and how very interesting, since your sort rarely come up from the Mage Quarter in daylight." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. How novel. Ironforge sends us all sorts these days, and I suppose some of them must be useful." },
       },
       again = {
         { id = "h_again", text = "Was there something else? I do have reading to do." },
-        { id = "h_again2", text = "Yes? Briefly. Silence is the whole point of a library." },
+        { id = "h_again2", text = "Yes? Briefly, please; silence is the whole point of a library." },
       },
       choices = {
         { text = "The House of Nobles seems troubled.", next = "house" },
@@ -281,7 +281,7 @@ P:NPC {
     { id = "n_big", cat = "body", when = { class = "WARRIOR" },
       text = "Now there's a pair o' shoulders. Fancy a round? Not o' drinks, mind, the other kind." },
     { id = "n_drink", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Ye're drunk. Good. Makes it fair, since I am too." },
+      text = "Ye're drunk? Good, that makes it fair, since I am too." },
   },
 
   start = "hello",
@@ -369,7 +369,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's someone who looks like they could take a punch, though I'd wager ye're not allowed tae throw one back." },
         { id = "h_default", text = "Dashel Stonefist. Folk call me Fist, on account o' the fists, an' I drink in Old Town an' settle arguments in Old Town, usually the same evening." },
         { id = "h_diplomat", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
-          text = "A diplomat? Never met one. Ask me again an' ye'll be askin' from the floor." },
+          text = "A diplomat? Never met one, an' if ye ask me that again ye'll be askin' from the floor." },
         { id = "h_after", when = { questDone = TODO_QUEST("The Missing Diplomat"), heardLine = "dashel.h_diplomat" },
           text = "No hard feelings. Ye hit like a mule, an' I respect a mule, so buy me a drink an' we'll call it square." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -936,7 +936,7 @@ P:NPC {
       },
     },
     rogue2 = {
-      lines = { { id = "rogue2_l", text = "Lovely. Wonderful. I'll add it to the list of things I can't afford to fix and can't tell the Captain about." } },
+      lines = { { id = "rogue2_l", text = "Oh, lovely, just wonderful. I'll add it to the list of things I can't afford to fix and can't tell the Captain about." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

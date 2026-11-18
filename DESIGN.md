@@ -274,7 +274,7 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 | Prejudice (0.80.0) | `prejudiced` true (the NPC's `prejudice` matches you and still weighs) / `"overcome"` (matches, worn away by affinity) / false | 25 | hinge |
 | Party | `party` true / {race, class, gender, kin, sameClass, size (n or {min,max}, others only), ["not"] = true} (0.59.0; `{companion}` names the member it matched) | 25 | hinge |
 | Your other characters | `alt` true / false / {race, class, gender, faction ("same"/"other"/name), kin, notKin, sameClass, higher, level (n or {min,max}), days (met within), met = false (any character, met or not), ["not"] = true} (0.80.0, `Systems/Kin.lua`: another character on this account has spoken with this NPC; account-wide `RPGDialogueDB.kin`; NPCs treat them as kin or a look-alike, never as you; `{alt}`/`{altrace}`/`{altclass}` name the one it matched; spoof `alt=Name:Race:CLASS:Faction`) | 25 | hinge |
-| Small touches | `gender` · `timeOfDay` · `faction` | 5 | hinge |
+| Small touches | `gender` · `timeOfDay` · `faction` · `npcNamed` text or {texts} (the NPC's own name contains it, lower case; for role pools such as `demon`, 0.84.0) | 5 | hinge |
 | Story (M4) | `gossip` {topic, stance, delay, chance} (30) · `contradiction` topic (40) · `lieCaught` claim (60) · `money` {min,max} (10) | 10–60 | hinge |
 | Gates | `chance` 0–1 · `flag` · `npcFlag` · `npcFlagBefore` (set in an earlier conversation) | 0 | gate |
 | Combinators | `all` (sum of children) · `any` (best passing branch) · `not` (0: an absence isn't specific) | — | — |

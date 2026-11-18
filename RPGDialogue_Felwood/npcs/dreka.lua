@@ -140,7 +140,7 @@ P:NPC {
         { id = "rh_default", text = "I want its clawed hand on the table in front of me, so I can look at the thing that took him. I don't care whether it's corrupted or simply angry from living in this cursed place, because no furbolg kills my family and lives." },
       },
       choices = {
-        { text = "Blood for blood. I'll bring you that claw.", next = "BACK", reply = "Good. Bring it, and I'll stand you at my side when I look at it. Blood answers blood.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Blood for blood. I'll bring you that claw.", next = "BACK", reply = "Good. Bring it, and you'll stand at my side when I look at it. He'd have liked you.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Revenge won't fill the empty place, Dreka'Sur.", next = "BACK", reply = "I know it won't, and I don't care. Bring me the claw, and let me find out for myself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -160,7 +160,7 @@ P:NPC {
       },
       choices = {
         { text = "Then put it down cleanly, and mourn what it was.", next = "BACK", reply = "I'll mourn it after, maybe, tauren. Bring me its hand first.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You're right. Sick or not, it dies.", next = "BACK", reply = "You understand, then, and I'm glad of it. Sick or wicked, it took him, and it dies.", fx = { align = { light = -1 } } },
+        { text = "You're right. Sick or not, it dies.", next = "BACK", reply = "You understand, then. Sick or wicked, it took him from me, and it dies.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

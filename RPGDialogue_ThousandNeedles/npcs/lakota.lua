@@ -31,8 +31,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_arnak = {
+      lines = {
+        { id = "dd_ar_default", text = "I know, and I'm grateful, truly. But my brother is still gone, and Arnak's death doesn't bring him back, and some nights I still wake up thinking I'm in that camp. Do you think it gets easier?" },
+      },
+      choices = {
+        { text = "It will. Justice was done, and that helps.", next = "BACK", reply = "I hope you're right. My brother deserved justice, and now he has it, even if he isn't here to see it.", fx = { align = { order = 1 } } },
+        { text = "It doesn't have to. Grieve as long as you need.", next = "BACK", reply = "Thank you for saying that. Everyone else tells me I should be happy now, but you're the first who understands.", fx = { align = { order = -1 } } },
+        { text = "Something else, Lakota.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_arnak", tags = { "news" }, when = { questDone = TODO_QUEST("Wanted - Arnak Grimtotem") },
+          text = "Longhorn told me Arnak Grimtotem is dead, and that you're the one who killed him. I didn't know what I'd feel when I heard it, and I still don't, but I wanted you to know I've heard." },
         { id = "h_default", key = true, text = "I'm Lakota Windsong. Arnak Grimtotem asked me to marry him, and I said no, and that night he came back and took me. My brother tried to stop him, and Arnak killed him in front of me." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Free At Last") },
           text = "You aren't one of them. Please, get me out of here, down off this pinnacle and back toward Freewind Post. I can walk, and I can run, if you can keep the Grimtotem off us." },
@@ -46,6 +58,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, but keep your voice down; the Grimtotem have ears like wolves." },
       },
       choices = {
+        { text = "Arnak's dead, Lakota. He won't hurt you again.", next = "dd_arnak", when = { questDone = TODO_QUEST("Wanted - Arnak Grimtotem") } },
         { text = "Why did Arnak take you?", next = "arnak" },
         { text = "Tell me about your brother.", next = "brother" },
         { text = "Someone must be waiting for you at Freewind.", next = "thalia" },

@@ -160,7 +160,7 @@ P:NPC {
       lines = { { id = "gn_default", text = "'Uber' is an old Gnomeregan word for a thing that's better than its blueprint. We mean to buy a town one day, a whole one, with a wall and a tavern and a bell, and it'll be better than its blueprint too. We've saved eleven gold so far." } },
       choices = {
         { text = "Eleven gold won't buy much of a town.", next = "guild_town" },
-        { text = "I like it. Every town starts as a dream.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I like it. Every town in Azeroth started as somebody's daydream.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     guild_town = {
@@ -183,7 +183,7 @@ P:NPC {
       lines = { { id = "gp_default", text = "Mostly well. The trouble is the priest and the hunter. She won't heal him, because she says hunters stand at the back and ought to dodge. Then a boar comes round the side, and she's very sorry afterwards, every single time." } },
       choices = {
         { text = "That sounds like a grudge.", next = "guild_grudge" },
-        { text = "She has a point. He should learn to dodge.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "She has a point. He ought to learn to dodge.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
     guild_grudge = {

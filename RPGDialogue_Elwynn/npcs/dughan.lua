@@ -36,6 +36,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_mcbride = {
+      lines = {
+        { id = "dd_mcbride_a", text = "For a while, aye, and that's all any of us win out here. They breed in the mines faster than we can count them, and Fargodeep and Jasperlode are both crawling, so the work you did up the hill is the same work waiting for you down here." },
+      },
+      choices = {
+        { text = "Then put me to it. I'd rather finish the job.", next = "dd_mcbride_2", fx = { align = { order = 1 } } },
+        { text = "Seal the mines and let the kobolds rot inside.", next = "dd_mcbride_2", fx = { align = { order = -1, light = -1 } } },
+        { text = "Why are there so few soldiers to hold them back?", next = "dd_mcbride_2" },
+      },
+    },
+    dd_mcbride_2 = {
+      lines = {
+        { id = "dd_mcbride_2a", text = "Because the army's gone to the borders, and the Stonemasons' money went with it, and what's left is me and a handful of guards stretched across half of Elwynn. People like you are the difference, and I won't pretend otherwise." },
+      },
+      choices = { { text = "Understood, Marshal. Something else.", next = "BACK" } },
+    },
+
     op_varian = {
       lines = {
         { id = "op_varian_a", text = "Officially, the crown expects His Majesty's return any day, and I've said so to every frightened farmer who's asked. Unofficially, I'm a sergeant at heart, and sergeants want to know what the man beside them believes. So what do you believe?" },
@@ -152,6 +169,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_kobolds_mcbride", when = { questDone = TODO_QUEST("Kobold Camp Cleanup") },
+          text = "Marshal McBride's report came down from Northshire with your name in it, which is rare, because McBride doesn't name recruits unless he means to remember them. The kobold camps are quieter, he says, and that's one less worry on my desk." },
+        { id = "dd_defias_dughan", when = { questDone = TODO_QUEST("Bounty on Garrick Padfoot") },
+          text = "Deputy Willem tells me Garrick Padfoot won't be lurking by the Abbey vineyards any longer. That's good work, and the Defias who are left will think twice before they gather that close to Northshire." },
+
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "You've the look of {alt}, a {altclass} who cleared a fair few gnolls off the Goldshire road for me. Same family, I'd guess, and if you work half as hard I'll be glad to see you." },
         { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = true }, cooldown = "5d",
@@ -215,6 +237,8 @@ P:NPC {
         { id = "h_again3", when = { townStanding = { town = "goldshire", min = 30 } }, text = "Go on; for you, I've a minute more." },
       },
       choices = {
+        { text = "McBride's kobolds won't trouble Northshire for a while, Marshal.", next = "dd_mcbride", when = { questDone = TODO_QUEST("Kobold Camp Cleanup") } },
+
         { text = "Some of the beasts could surely be left alone.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Any work for me?", next = "BUSINESS" },
         { text = "What about the Defias?", next = "defias" },
@@ -403,7 +427,7 @@ P:NPC {
       choices = {
         { text = "Do you think King Varian's coming back, Marshal?", next = "op_varian" },
         { text = "That sounds like a complaint, Marshal.", next = "army_politics" },
-        { text = "Then I'll walk through it more often.", next = "BACK", reply = "Good, and I'll be glad of it. The door's always open.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Then I'll walk through it more often.", next = "BACK", reply = "Good. Take a number like everyone else, and I'll see you're near the front of the line.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "The nobles' wars aren't my concern, Marshal.", next = "BACK", reply = "Nor mine, friend, but Goldshire is, and I'd thank you to remember that. Off you go.", fx = { align = { order = -1 } } },
       },
     },

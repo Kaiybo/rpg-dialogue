@@ -109,6 +109,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_fall_felicia", when = { deathCause = "falling" },
+          text = "You fell from somewhere high, didn't you? I can always tell the ones who look down from my platform a moment too long, so take a gryphon next time and let the bird do the worrying." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Say something soothing near the roosts, would you? The gryphons have heard nothing but wolves for weeks." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The gryphons don't mind armour, but they do mind a rider who shouts, so keep your battle cries for the ground." },
         { id = "h_default", text = "Felicia Maline. I keep the gryphons of Darkshire, which mostly means keeping them calm when the wolves howl at night." },
@@ -201,7 +204,7 @@ P:NPC {
       },
       choices = {
         { text = "Fair. If I ever go that far, come and find me.", next = "BACK", reply = "That's an honest answer, and I'll hold you to it. Buy what you need, and keep your hands clean.", fx = { align = { light = 1 } } },
-        { text = "Morbent Fel had power, Gavin. Don't pretend otherwise.", next = "BACK", reply = "Aye, he did, and look where it got him, and Raven Hill. Power's no excuse.", fx = { align = { light = -1 } } },
+        { text = "Morbent Fel had power, Gavin. Don't pretend otherwise.", next = "BACK", reply = "Aye, he did, and look what it bought him: a hill full of dead and the whole Watch after his head. Power's no excuse.", fx = { align = { light = -1 } } },
         { text = "Something else, Gavin.", next = "BACK" },
       },
     },
@@ -277,10 +280,13 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_stalvan_gavin", when = { killed = { name = "Stalvan" } },
+          text = "They say Stalvan Mistmantle's finally dead, and that the blade that did it wasn't one I sold, which wounds my pride a little. Next time you go after a legend, friend, come and see me first." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've nothing for you but a knife to cut bread, though out here a knife's never the worst idea." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want a mace, then, for the dead, and I've a few with weight enough to break a skeleton's spine." },
         { id = "h_default", text = "Gavin Gnarltree. I make weapons for Darkshire, and in Darkshire nobody buys a blade for show." },
-        { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior. Good. Commander Ebonlocke could use a dozen more of you, and I could use the custom." },
+        { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior, good! Commander Ebonlocke could use a dozen more of you, and I could use the custom." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because I sell blades to people who'll use them, and you look like you've used plenty." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want a good knife for skinning and a better one for the worg that's skinning you, and I've both." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll fight with claws and teeth, I suppose, and the worgen have both, yet they still lose to a good axe." },

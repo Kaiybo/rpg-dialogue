@@ -53,7 +53,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They'd like to, and they'd come back covered in mud and stinking of crocolisk, so I feed them fish off the boats instead. A gryphon that learns to hunt the shallows starts diving at every log, and some of those logs bite back. {pet} had better keep its head down near the roost, because my old hen has snatched a hare out of a man's arms before now." },
       },
       choices = {
-        { text = "Keep them fed and disciplined. That's how a roost runs.", next = "BACK", reply = "That's how my father ran his, an' his father before him. A fed bird is a happy bird, an' a happy bird comes home.", fx = { align = { order = 1 } } },
+        { text = "Keep them fed and disciplined. That's how a roost runs.", next = "BACK", reply = "That's how my father ran his roost, an' his father before him. Three generations, an' nae bird ever flew off on us.", fx = { align = { order = 1 } } },
         { text = "Let them hunt. A gryphon ought to be wild.", next = "BACK", reply = "They ought tae be, in the mountains, aye. But the marsh is full o' things that bite back, an' I'd rather they were wild somewhere else.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -109,6 +109,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and you'll be wanting to teleport home instead of using my gryphons, I suppose. That's fine, but don't come crying to me when you land somewhere damp." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless the birds if you like, because they've earned it, flyin' through this rain day in and day out without one word o' complaint, unlike me." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. If ye can talk the marsh out o' bein' damp, the Lady's gryphons will build ye a statue, an' so will I." },
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You've taken a long drop somewhere and come back from it, I can tell by the way you're eyeing my gryphons' saddles. These birds don't let go of a rider who holds on, so you'll be safer up there than you were wherever you fell." },
       },
       again = {
         { id = "h_again", text = "Something else, or shall I saddle one for ye?" },
@@ -243,7 +244,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Ask any sergeant in Theramore whether he'd rather have a full company or a fed one, and he'll tell you they're the same thing. A man on hard bread fights for an hour, but a man on tortoise soup fights till supper, and then he wants seconds." } },
       choices = {
-        { text = "Feed the line and it holds. You're right, Morgan.", next = "BACK", reply = "That's the whole of it, and I'll have it carved over my door someday. A full belly holds a wall better than a sharp sword.", fx = { align = { order = 1 } } },
+        { text = "Feed the line and it holds. You're right, Morgan.", next = "BACK", reply = "That's the whole of it, and I'll have it carved over my door someday. Ask any sergeant which he'd rather lose, his cook or his whetstone.", fx = { align = { order = 1 } } },
         { text = "A real warrior fights the same hungry or full.", next = "BACK", reply = "Then you've never stood a double watch on hard bread, friend. Try my soup first, and tell me if you still believe it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -273,7 +274,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I resent that it's always on hand when the supply ships are late, and nobody ever asks me for tortoise soup when there's free bread to be had. It's good for a soldier in the field, I'll grant, but you can't build a garrison on it." } },
       choices = {
-        { text = "You're right. Good food keeps morale up.", next = "BACK", reply = "It does, and I've watched it happen a hundred times. A good bowl of soup has turned more battles than you'd think.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right. Good food keeps morale up.", next = "BACK", reply = "It does, and I've watched it happen a hundred times. Serve the watch cold porridge three days running, and see how they look on the fourth.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Free food is free food. A garrison should take what's easiest.", next = "BACK", reply = "Easiest, maybe, but not best, and you can taste the difference. Come by when the boats are in, and I'll show you.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -291,7 +292,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Crab and crocolisk, mostly, and tubers from the wet ground north of the city that taste like dirt until you boil them twice. When the boats are late, it's the marsh that feeds this island, and I don't let anyone forget it." } },
       choices = {
-        { text = "Take only what you need. The marsh must last.", next = "BACK", reply = "That's the rule in my kitchen, and I'll not break it. The marsh will be here long after Theramore is gone.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Take only what you need. The marsh must last.", next = "BACK", reply = "That's the rule in my kitchen, and I'll not break it. A basket of crabs a day and not a claw more, whatever the quartermaster says.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Feed the city first. The marsh has plenty.", next = "BACK", reply = "It does, but it's not endless, and I've seen the crabs grow scarce. The city first, yes, but the marsh second.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -331,11 +332,12 @@ P:NPC {
           text = "The soup went down a treat! The Captain had two bowls and said nothing, which from Captain Vimes is a speech." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You smell of nothing at all, which in my kitchen is suspicious, because everyone else smells of tortoise and onions. Rogues and cooks both like to go unnoticed, I suppose." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I'll make you a deal: you don't conjure any of that tasteless bread near my kitchen, and I won't sneer at your tea." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The marsh gives us plenty, if you know where to look, and I imagine you know better than I do." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The marsh gives us plenty, if you know where to look, and I imagine you know better than I do." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit, sit, you'll have soup before anything else, because I've never seen a holy warrior yet who couldn't do with a second bowl." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my kitchen! You can stay, but if that imp of yours puts so much as a claw in my soup pot, I'll ladle him straight back to wherever he came from." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Mudrock", min = 30 } }, text = "You've been thinning out the Mudrock tortoises, I can tell, because the fishermen say the shore's safe to walk again. If any of those came home in a sack, my soup pot's waiting." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf at that! I've cooked turtle for envoys and sailors alike, but never for someone who might thank the turtle." },
+        { id = "h_dd_pagle", when = { questDone = TODO_QUEST("Nat Pagle, Angler Extreme") }, text = "I hear you've been fishing with Nat Pagle out on that island of his, and that he actually let you catch something. If you ever bring back more than you can eat, my pot has room for it, and I won't ask how much he drank while you fished." },
       },
       again = {
         { id = "h_again", text = "What else, while it simmers?" },
@@ -555,6 +557,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be frank, I have bandaged too many soldiers who met the wrong end of the old Horde's warlocks to feel easy, but a patient is a patient, so tell me where it hurts." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The tower sends me apprentices now and then with burns on their hands from spells gone wrong, and I'd be glad if you weren't the next." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I teach field medicine, and I'd like to see how a shaman's healing compares with a clean bandage." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You've died more than once, and recently, by the look of your color. I don't treat that sort of thing, but I can tell you the spirit healer is not a substitute for a bandage." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quickly, I've dressings to change." },
@@ -574,7 +577,18 @@ P:NPC {
         { text = "Do mages often come to you hurt, Doctor?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is a shaman's healing so different from yours, Doctor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Could the Light do more for the sick than your medicines, Doctor?", next = "xpt_vanhowzen", when = { party = { class = "PRIEST" }, faction = "Alliance" } },
+        { text = "I've died more often than I'd like, Doctor.", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "Goodbye, Doctor.", next = "END" },
+      },
+    },
+    dd_deaths = {
+      lines = {
+        { id = "dd_deaths_1", text = "Most adventurers say that, and then they go straight back into the Wyrmbog. Each time you return, your body remembers the wound for a while, which is why you come back weak, so give it time and eat something before you walk out of that gate again." },
+      },
+      choices = {
+        { text = "I'll take your advice and be more careful.", next = "BACK", reply = "Good, though I've heard that promise in this tent a hundred times. Prove me wrong, and I'll be delighted.", fx = { align = { order = 1 } } },
+        { text = "Risk is the job, Doctor. I'll keep taking it.", next = "BACK", reply = "Then learn to bandage yourself properly, because nobody else will be there to do it. I'll teach you, if you'll stand still.", fx = { align = { order = -1 } } },
+        { text = "Something else, Doctor.", next = "BACK" },
       },
     },
     triage = {

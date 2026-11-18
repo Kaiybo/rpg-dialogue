@@ -85,7 +85,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Patience more than power, I think. The Sentinels say the trees remember every wound, so if you must cast fire among them, aim it carefully, and do not leave the forest more scars than the axes already have." } },
       choices = {
-        { text = "I'll fight carefully. The forest isn't my enemy.", next = "BACK", reply = "Then the forest will be grateful, and so will I. Patience is the hardest weapon to carry.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll fight carefully. The forest isn't my enemy.", next = "BACK", reply = "Then the forest will be grateful, and so will I. Walk around the young groves if you can, because they bruise easily.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "War is war. The trees will have to endure it.", next = "BACK", reply = "They will, as they always have. But I would ask you not to make it harder for them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -123,6 +123,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_torek", when = { questDone = TODO_QUEST("Torek's Assault") }, text = "Torek's raiders say you stood with them at the Silverwing Outpost. I understand why the Horde fights here, little one, but I hope you will remember the forest when the fighting is done." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You must feel it too, the way the ancient spirits of this forest watch us, and how little they welcome what we do here." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. So many hunters come back hurt from the trees that I am glad of anyone who can mend them, whatever voice answers your prayers." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "The arcane comes off you like heat off a stone, and I can feel it from here. Please be careful with your fire in this forest, because it is the most beautiful thing I know, and it would burn very quickly." },
@@ -452,7 +453,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Light the dark places, mon, because the elves love the dark and they run through it like it be their mother's arms. A little fire in the right spot at the right time, and I see every runner before he see me." } },
       choices = {
-        { text = "I'll light your paths and keep the forest standing.", next = "BACK", reply = "Ya, mon, dat be de way, and de forest stay standin' for it. Light and patience.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll light your paths and keep the forest standing.", next = "BACK", reply = "Ya, mon, dat be de way, and de forest stay standin' for it. Keep your torch low near de old trees.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Burn the whole thicket. Then there's nowhere to hide.", next = "BACK", reply = "Dat be a lot of fire, mon, and de whole Horde gonna smell it. Be careful what you start.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -462,7 +463,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Sometimes the runner turn away before I see him, like the trees told him I be waiting. I don't like fighting the forest as well as the elves, but the Warchief need the timber, so I watch the paths anyway." } },
       choices = {
         { text = "Fight the elves, not the forest. The spirits aren't our enemy.", next = "BACK", reply = "Ya, mon, dat be what de spirits tell me too. Fight de elves and leave de trees be.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If the trees take the elves' side, they're enemies too.", next = "BACK", reply = "Den you fightin' de whole forest, mon, and dat be a fight nobody win. Careful.", fx = { align = { honor = -1 } } },
+        { text = "If the trees take the elves' side, they're enemies too.", next = "BACK", reply = "Den you fightin' de whole forest, mon, and dat be a fight nobody ever win.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -479,6 +480,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_torek", tags = { "news" }, when = { questDone = TODO_QUEST("Torek's Assault") }, text = "You went with Torek to hit the elves' outpost and came back with all your fingers, mon. Dat be a good day for Splintertree, and a bad one for de Sentinels." },
         { id = "o_warchief_soft", tags = { "news" }, when = { gossip = { topic = "warchief", stance = "soft" } },
           text = "Torek be tellin' everyone you think Thrall gone soft, mon. Careful, de Darkspear owe him our lives, an' we don't forget it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? The night elves got their own spirits in these trees, and they be whispering about us, so keep your ears open on the paths." },

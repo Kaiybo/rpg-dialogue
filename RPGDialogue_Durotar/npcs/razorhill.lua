@@ -47,7 +47,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I'll take anyone's report if it's accurate. The Silver Hand guarded the camps my people were penned in, and I swore I'd never take an order from that glow again. I won't have to, since you take orders from me. Keep it that way." } },
       choices = {
-        { text = "I take your orders, commander. For the Horde.", next = "BACK", reply = "Good, because that's the only answer that keeps you in my barracks. Lok'tar, paladin.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I take your orders, commander. For the Horde.", next = "BACK", reply = "That's the only answer that keeps you in my barracks. Lok'tar, paladin.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I follow the Light first, commander, then your orders.", next = "BACK", reply = "Then make sure the Light points the same way I do, because if it ever doesn't, we'll have words. Dismissed.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -67,7 +67,7 @@ P:NPC {
         { id = "xmage_default", text = "On the walls at Tiragarde Keep, where the humans think stone will save them. Burn their banners and their supply carts, and leave the peasants on the road alone, because the Warchief wants Durotar held, not salted." },
       },
       choices = {
-        { text = "Soldiers and supplies only. The peasants I'll leave be.", next = "BACK", reply = "That's the Warchief's will, and it's mine too. Burn the keep, and let the farmers tell the tale.", fx = { align = { honor = 1 } } },
+        { text = "Soldiers and supplies only. The peasants I'll leave be.", next = "BACK", reply = "That's the Warchief's will, and it's mine too. Burn the barracks, break the cannons, and let the farmers go home and tell their lords what Razor Hill can do.", fx = { align = { honor = 1 } } },
         { text = "Fire doesn't choose sides on the road. Neither will I.", next = "BACK", reply = "Then you'll answer for every peasant you burn, because Thrall won't have Durotar salted. Choose your fire carefully, mage.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -126,7 +126,7 @@ P:NPC {
           text = "Quilboar out of the Barrens are pushing into Durotar. Push harder than they do." },
         { id = "h_wreckage", when = { questActive = TODO_QUEST("From The Wreckage....") },
           text = "There's a wreck on the coast with things worth salvaging. Get there before the sea or the Kul Tirans do." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid in Razor Hill. You're a long way from Mulgore's grass and Durotar won't feed you half so kindly, but the Horde's glad of you all the same." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid in Razor Hill. You're a long way from Mulgore's grass and Durotar won't feed you half so kindly, but the Horde's glad of you all the same." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Warchief brought your craft back to us, so I'll expect you on the line when the Kul Tirans come, and not off somewhere talking to rocks." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, posted to Razor Hill. Nazgrel never had much use for spellcasters, but I've seen what fire does to a Kul Tiran shield wall." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll be plain, since that's my way: the last orcs who called demons nearly burned our people down to the bone." },
@@ -162,7 +162,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll march, and I'll hit them head on.", next = "BACK", reply = "Head on suits the Kul Tirans just fine, because they don't expect it. March, grunt, and show them Razor Hill's teeth.", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "I'll march, but I'll pick my own fights out there.", next = "BACK", reply = "Pick them well, then, and come back alive to tell me about it. A grunt who picks his fights lives to pick more.", fx = { align = { honor = -1 } } },
+        { text = "I'll march, but I'll pick my own fights out there.", next = "BACK", reply = "Pick them well, then, and come back alive to tell me about it. I've buried enough grunts who picked the wrong ones.", fx = { align = { honor = -1 } } },
         { text = "Who was Nazgrel to you?", next = "warrior_nazgrel" },
       },
     },
@@ -272,6 +272,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_gazzuz = {
+      lines = {
+        { id = "dd_gz_default", text = "Good, though the Blade will raise another like him, because there's always some fool who thinks a demon will make him strong. Neeru Fireblade will want to hear it from you himself, so tell him in Orgrimmar." },
+      },
+      choices = {
+        { text = "Then I'll kill the next one too, and the one after.", next = "BACK", reply = "That's the only answer that works with them, and I've been giving it for years. Welcome to the hunt.", fx = { align = { order = 1 } } },
+        { text = "Killing the summoners won't end it. Something feeds them.", next = "BACK", reply = "Something does, and I mean to find out what, but until I do, a dead warlock is a warlock who isn't summoning. Keep your eyes open.", fx = { align = { order = -1 } } },
+        { text = "Who is Neeru Fireblade to you?", next = "dd_gazzuz2" },
+      },
+    },
+    dd_gazzuz2 = {
+      lines = {
+        { id = "dd_gz2_default", text = "He's the one who says he knows the Blade from the inside, and he gives me names I can't get anywhere else. I take the names and I watch the man, because a fire that warms you can still burn your hut down." },
+      },
+      choices = { { text = "I'll watch him too. Something else.", next = "BACK" } },
+    },
     prej_orgnil = {
       big = true,
       lines = { { id = "prej_orgnil_default", text = "I do, and I'll keep it there until you give me cause to move it. The Burning Blade are cutting through Skull Rock and the Valley of Trials, and half of them were respectable warlocks in Orgrimmar a year ago. The fel has a voice, and it is very patient." } },
@@ -325,7 +341,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "In Skull Rock to the north, and in the coven above the Valley of Trials, and in the Cleft of Shadow in Orgrimmar itself, if half of what I hear is true. They call up imps and worship the old masters, so when you find them, cut them down before they can open their mouths to chant." } },
       choices = {
-        { text = "They'll get a clean death, and nothing more.", next = "BACK", reply = "Clean is enough, and it's more than they deserve. Strike, and leave the rest to the ancestors.", fx = { align = { honor = 1 } } },
+        { text = "They'll get a clean death, and nothing more.", next = "BACK", reply = "Clean is enough, and it's more than they deserve. Strike fast, and leave their spirits to the ancestors.", fx = { align = { honor = 1 } } },
         { text = "Let them suffer, as our people suffered under the demons.", next = "BACK", reply = "I understand that, more than you know. But don't become what you're hunting, grunt.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -337,7 +353,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} back when the summoners start to chant. I've seen a beast go mad from fel magic, and I've no wish to put a good one down." },
       },
       choices = {
-        { text = "Fel magic is filth. I'll keep my beast well clear.", next = "BACK", reply = "Good, because a beast that smells fel goes mad. Keep it clear, and let your arrows do the work.", fx = { align = { light = 1 } } },
+        { text = "Fel magic is filth. I'll keep my beast well clear.", next = "BACK", reply = "A beast that smells fel goes mad, and I've had to put one down myself. Keep it clear, and let your arrows do the work.", fx = { align = { light = 1 } } },
         { text = "Fel power is still power. I'd learn its secrets if I could.", next = "BACK", reply = "That's what the Blade said before they took up the medallion. I'll be watching you, hunter.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -348,7 +364,7 @@ P:NPC {
         { id = "xmage_default", text = "Plenty of use, because the Blade's warlocks hide behind wards and summoned imps, and fire burns through both. Go to Skull Rock and do your work, and if you find any of their scrolls, bring them to me unburned." },
       },
       choices = {
-        { text = "Unburned scrolls it is. You'll have every one.", next = "BACK", reply = "Good, because the scrolls tell me who else is in the cult. Bring every one.", fx = { align = { order = 1 } } },
+        { text = "Unburned scrolls it is. You'll have every one.", next = "BACK", reply = "The scrolls tell me who else is in the cult, so bring every one, and don't let them burn.", fx = { align = { order = 1 } } },
         { text = "I'll burn what I please. The cult deserves no archive.", next = "BACK", reply = "The cult deserves fire, but I need the names. Bring me what you can, and burn the rest.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -366,7 +382,7 @@ P:NPC {
       lines = { { id = "dq_default", text = "It is, though slower than they'd like. Where they work their demon magic the scrub dies and the scorpids go mad, and I've seen the ground around their caves gone black." } },
       choices = {
         { text = "Even cultists can be turned back to the Horde.", next = "BACK", reply = "Maybe some, if they're caught early. I've seen it happen once, and I'll hope for more.", fx = { align = { light = 1 } } },
-        { text = "Root them out, every last one of them.", next = "BACK", reply = "Every last one, and I'll lead the way. The Blade won't survive in Durotar.", fx = { align = { light = -1 } } },
+        { text = "Root them out, every last one of them.", next = "BACK", reply = "Every last one, and I'll lead the way myself. Skull Rock will be empty by the time we're done.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -379,6 +395,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_skullrock", tags = { "news" }, when = { questDone = TODO_QUEST("Skull Rock") },
+          text = "Margoz sent word that you went into Skull Rock and came back with a string of Searing Collars. That's good work, and it means fewer cultists to hunt on my roads." },
+        { id = "h_dd_gazzuz", tags = { "news" }, when = { killed = { name = "Gazz'uz" } },
+          text = "Gazz'uz is dead, they tell me, and I'm told it was your blade that did it. I've wanted that warlock's skull since he first set foot in Skull Rock, but I'll settle for knowing he's rotting in it." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead man with the Light in his hands. I hunt cultists who smile and hide what they serve, so forgive me for wanting a long look at you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Burning Blade fear the light more than they fear axes, and the shadow they don't fear at all, so I'm curious which you carry." },
         { id = "h_default", key = true,
@@ -396,6 +416,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "The Burning Blade's cultists don't creep about Skull Rock as boldly as they did, and that's your doing. Each one you put down is one less traitor whispering to the Legion." },
       },
       choices = {
+        { text = "Gazz'uz won't be summoning anything else, Orgnil.", next = "dd_gazzuz", when = { killed = { name = "Gazz'uz" } } },
         { text = "You keep one hand on your blade around me, Soulscar.", next = "prej_orgnil", when = { prejudiced = true } },
         { text = "How should a priest fight the Burning Blade, Orgnil?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "A shaman could find the Blade by the ground they've poisoned.", next = "xhsham", when = { class = "SHAMAN" } },
@@ -484,14 +505,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_tiragarde = {
+      lines = {
+        { id = "dd_tir_default", text = "He has, and from what the patrols say, it's your doing. When the grunts came back from Tiragarde short of men, that whole barracks sat in silence and I couldn't sell a drop. Now they come in loud, and loud means coin." },
+        { id = "dd_tir_benedict", when = { killed = { name = "Benedict" } }, text = "He has, and Benedict's head is the reason. The grunts have been loud ever since you came back from Tiragarde, and loud grunts drink, which suits me better than any medal." },
+      },
+      choices = {
+        { text = "They built a fort on our coast. They earned every arrow.", next = "BACK", reply = "That's how the barracks sees it too, and I won't argue with paying customers. Durotar was empty rock when we came, and it's ours now.", fx = { align = { light = -1 } } },
+        { text = "Some of them were only sailors. I take no joy in it.", next = "BACK", reply = "Then you're softer than the grunts, but I don't hold it against you. I've buried enough of my own to know a dead sailor leaves someone waiting too.", fx = { align = { light = 1 } } },
+        { text = "Something else, Grosk.", next = "BACK" },
+      },
+    },
     fl = {
       lines = { { id = "fl_default", text = "I can, but I save it, because Durotar doesn't give a man much to smile about. Then you walk in with the red dust on your boots, and I find I've spent a whole day's ration of it on you." } },
       choices = {
         { text = "Then I'll come by often and use them all up.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "grosk_fl_yes" }, clear = { "grosk_fl_no" } } } },
         { text = "Is that an orc's idea of sweet talk?", next = "fl_sweet" },
         { text = "In the camps, nobody had time for this, Grosk.", next = "fl_camps", when = { race = "Orc" } },
-        { text = "Kind of you, Grosk. Just the bed tonight, though.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "grosk_fl_no" }, clear = { "grosk_fl_yes" } } }, reply = "Just the bed. I'll put the smile back where I keep it." },
-        { text = "Save it for the scorpids, Grosk.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "grosk_fl_no", "grosk_fl_rebuff" }, clear = { "grosk_fl_yes" } } }, reply = "Ha! The scorpids don't appreciate it either. Your bed's upstairs." },
+        { text = "Kind of you, Grosk. Just the bed tonight, though.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "grosk_fl_no" }, clear = { "grosk_fl_yes" } } }, reply = "Just the bed, then. I'll put the smile back under the counter where I keep it." },
+        { text = "Save it for the scorpids, Grosk.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "grosk_fl_no", "grosk_fl_rebuff" }, clear = { "grosk_fl_yes" } } }, reply = "Ha! The scorpids never appreciated it either. Your bed's upstairs, and I checked it twice." },
       },
     },
     fl_sweet = {
@@ -505,7 +537,7 @@ P:NPC {
       lines = { { id = "flc_default", text = "No, we didn't, and plenty of us walked out of those gates knowing nothing but how to fight and how to work. The Warchief gave us our freedom, so I'm spending a little of it to tell you you've a fine, fierce look about you, and I'll stop there before I make a fool of myself." } },
       choices = {
         { text = "Don't stop, Grosk. You're doing fine.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "grosk_fl_yes" }, clear = { "grosk_fl_no" } } } },
-        { text = "Keep your freedom for the ale, Grosk.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "grosk_fl_no" }, clear = { "grosk_fl_yes" } } }, reply = "Fair enough. The ale never complains about how I spend it." },
+        { text = "Keep your freedom for the ale, Grosk.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "grosk_fl_no" }, clear = { "grosk_fl_yes" } } }, reply = "Fair enough. The ale never complains about how I spend my evenings." },
       },
     },
     fl_yes = {
@@ -519,7 +551,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "The old ones mind. They saw that light on the Silver Hand's knights at the camps and they don't forget. The young ones only stare. Pay for your bed, keep the glow down after dark, and nobody will start anything in my inn." } },
       choices = {
-        { text = "I'll keep it down. They've reason to remember.", next = "BACK", reply = "Good, and they'll thank you for it in their own way. Pay for the bed, and sleep well.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll keep it down. They've reason to remember.", next = "BACK", reply = "Good, and they'll thank you for it in their own way, probably with a grunt. Pay for the bed, and sleep well.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll not hide what I am for anyone's comfort.", next = "BACK", reply = "Then don't, but don't expect them to like it. I'll keep the peace, and you keep the bed.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -581,15 +613,15 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Only the ones in the barrel, and those I can handle. The old grunts say the fire spirits like Durotar because it's half on fire already, and on summer nights I'm inclined to believe them." } },
       choices = {
         { text = "Every hearth deserves an offering, as the old ways teach.", next = "BACK", reply = "They do, and the old grunts always pour a little for them. I'll pour one with you, if you like.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The spirits can mind themselves, and you can mind the ale.", next = "BACK", reply = "Ha! The ale's minded, don't you worry. The spirits can fend for themselves.", fx = { align = { order = -1 } } },
+        { text = "The spirits can mind themselves, and you can mind the ale.", next = "BACK", reply = "Ha! The ale's minded, don't you worry about that, and the spirits have never once paid for a drink.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Cactus, mostly, and the peons cut it for the fruit. There's a bit of green down by the coast and up in Thunder Ridge, but nobody who lives here calls this land kind." } },
       choices = {
-        { text = "Even a hard land deserves care.", next = "BACK", reply = "It does, and some of the trolls try. But it'll take more than kindness to grow anything here.", fx = { align = { light = 1 } } },
-        { text = "Kind land makes soft people. This one suits orcs.", next = "BACK", reply = "That's the way of it, and the land suits us well enough. Hard land, hard people.", fx = { align = { light = -1 } } },
+        { text = "Even a hard land deserves care.", next = "BACK", reply = "It does, and some of the trolls try with their little gardens by the wall. But it'll take more than kindness to grow anything in this dirt.", fx = { align = { light = 1 } } },
+        { text = "Kind land makes soft people. This one suits orcs.", next = "BACK", reply = "That's the way of it, and the land suits us well enough. Nobody ever came to Durotar for the soft grass.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -600,12 +632,16 @@ P:NPC {
       },
       choices = {
         { text = "Your inn, your rules. My spells stay outside.", next = "BACK", reply = "That's all I ask, and the grunts will thank you for it. Sit, eat, and keep the frost to yourself.", fx = { align = { order = 1 } } },
-        { text = "If your ale wants freezing, I'll freeze it.", next = "BACK", reply = "Ha! Maybe I'll let you, and see if the grunts complain. Frozen ale is still ale.", fx = { align = { order = -1 } } },
+        { text = "If your ale wants freezing, I'll freeze it.", next = "BACK", reply = "Ha! Maybe I'll let you, and see if the grunts complain. They'd drink it frozen if I served it in a block.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_benedict", tags = { "news" }, when = { killed = { name = "Benedict" } },
+          text = "The grunts came in last night drinking to Lieutenant Benedict's death, and your name kept coming up between rounds. I can't tell if that makes you a hero or the reason my ale ran dry, but in an inn it's the same thing." },
+        { id = "h_dd_tiragarde", tags = { "news" }, when = { questDone = TODO_QUEST("Vanquish the Betrayers") },
+          text = "Gar'Thok ate a whole meal at my table last night without growling at anyone once. The grunts say Tiragarde Keep is short a good many Kul Tirans, and that you're the one who made it so." },
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
           text = "Another one with your face slept here, {alt} by name, and left the bed tidier than any grunt ever has. If that's family, I'll expect the same from you." },
         { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
@@ -624,7 +660,7 @@ P:NPC {
           text = "That bundle I gave you goes to Ukor out in the Barrens and nobody else. Get it there, and don't let a peon sit on it." },
         { id = "h_scorpid", when = { metBefore = true }, text = "I shook a scorpid out of the blankets this morning. They weren't yours, probably, but check anyway." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the grunts on the wall, singing the old songs? They sing them badly, and I wouldn't change it for anything." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid! Mind your horns on the beam, and if you're looking for anything green out there, I'm sorry to say it's all rocks and scorpids." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid! Mind your horns on the beam, and if you're looking for anything green out there, I'm sorry to say it's all rocks and scorpids." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? If you can talk the sky into raining on Durotar you'll be the first, and I'll want to hear how you did it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You crept in like a scorpid under a blanket, rogue. Kaplak the rogue trainer keeps his burrow under the floor, if you were looking for it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll rent you a bed, warlock, but the imp sleeps outside. The last one set fire to the straw just to see what would happen." },
@@ -637,6 +673,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The ale isn't going anywhere, and neither am I." },
       },
       choices = {
+        { text = "I hear the commander's been eating well, Grosk.", next = "dd_tiragarde", when = { questDone = TODO_QUEST("Vanquish the Betrayers") } },
         { text = "Do travellers ever come here needing more than a bed?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'd guess no spirits trouble your inn, Grosk.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there nothing green in Durotar, Grosk?", next = "druid_q", when = { class = "DRUID" } },
@@ -646,7 +683,7 @@ P:NPC {
         { text = "I'd guess few warlocks stop at the inn.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do many mages stay at your inn, Grosk?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the grunts here mind a Forsaken paladin, Grosk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
-        { text = "Are you smiling, Grosk? I didn't think you could.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "grosk_fl_rebuff" } } },
+        { text = "Are you smiling at me, Grosk? I didn't know you could.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "grosk_fl_rebuff" } } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },
@@ -684,6 +721,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_kultiras = {
+      lines = {
+        { id = "dd_kt_default", text = "It does, more than I like to admit. The marines march the same way the camp guards did, and they shout the same orders, so when I see their banner I'm a slave again for a breath. Then I remember the keys are gone, and that some of them fell to people like you." },
+      },
+      choices = {
+        { text = "Every one I put down is one less hand on a key.", next = "BACK", reply = "That's how it feels, though I know it isn't quite true. Still, I'll write it down that way tonight, because I'd like to sleep.", fx = { align = { honor = -1 } } },
+        { text = "They aren't the camp guards, Brakk. Those men are gone.", next = "BACK", reply = "You're right, and I know it with my head, if not with my gut. Thank you for saying it plainly; I'll try to remember it.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Brakk.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "That the Light used to come to Durotar's people only on the armour of their jailers, and now it walks the roads with a dead man who fights for the Horde. I'd write that the world turns strange, and that I don't mind it as much as I thought." } },
@@ -697,7 +744,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "The fire, mostly, and the sky when it's clear, though I'd not call it praying where a shaman could hear. My journal's full of places I was glad to wake up in, and I suppose writing them down is the nearest I get to giving thanks." } },
       choices = {
-        { text = "Giving thanks counts, Brakk, whatever you call it.", next = "BACK", reply = "That's kind of you to say, and maybe it does. The fire never seems to mind, anyway.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Giving thanks counts, Brakk, whatever you call it.", next = "BACK", reply = "That's kind of you to say, and maybe it does. The fire's never complained, anyway, and it's heard a lot of thanks from me.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Thanks are for the weak. The road owes us nothing.", next = "BACK", reply = "The road owes nothing, true, but I've found it gives anyway. You'll learn that someday, I think.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -717,8 +764,8 @@ P:NPC {
         { id = "xrogue_default", text = "Not a copper of it, but I got a good page out of the story, and that's worth more to a wanderer than silver. Durotar teaches a man to carry less and laugh at what he loses, so I don't hold it against your trade." },
       },
       choices = {
-        { text = "I'd have given it back, myself. A wanderer needs his coin.", next = "BACK", reply = "That's kind of you, and I'll write it down. Not many would have said so.", fx = { align = { honor = 1 } } },
-        { text = "The thief earned it fairly. You should have watched your belt.", next = "BACK", reply = "She did, and I've laughed about it since. The road's a good teacher, even when it's expensive.", fx = { align = { honor = -1 } } },
+        { text = "I'd have given it back, myself. A wanderer needs his coin.", next = "BACK", reply = "That's kind of you, and I'll write it in my book. Most I tell that story to just laugh at me.", fx = { align = { honor = 1 } } },
+        { text = "The thief earned it fairly. You should have watched your belt.", next = "BACK", reply = "She did, and I've laughed about it since. That was the dearest lesson I ever bought, and I still can't say I've learned it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -728,8 +775,8 @@ P:NPC {
         { id = "xmage_default", text = "Every night in Durotar, when the wind comes off the sea and my flint won't strike. But I've noticed the mages who travel by spell never see much of the land, and a camp fire you work for is one you remember." },
       },
       choices = {
-        { text = "Then I'll walk the road, and learn it properly.", next = "BACK", reply = "That's the way, and you'll be glad of it. The land teaches those who walk it.", fx = { align = { order = 1 } } },
-        { text = "I'd sooner be warm than wise.", next = "BACK", reply = "Ha! Honest, and I respect that. A warm fire's worth more than wisdom on a cold night.", fx = { align = { order = -1 } } },
+        { text = "Then I'll walk the road, and learn it properly.", next = "BACK", reply = "That's the way, and you'll be glad of it. Walk from here to Sen'jin and back, and you'll know more of Durotar than most grunts ever will.", fx = { align = { order = 1 } } },
+        { text = "I'd sooner be warm than wise.", next = "BACK", reply = "Ha! Honest, and I respect that. Sit closer to the fire, then, and I'll do the wandering for both of us.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -754,6 +801,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_kultiras", when = { killed = { name = "Kul Tiras", min = 15 } },
+          text = "I hear you've been fighting the Kul Tirans down at Tiragarde. I wrote about it last night, though my hand shook a little, because the last time I saw that many human soldiers, they were the ones holding the keys." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin walking Durotar. My journal will want to hear about you, because I've never written anything like you before." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest on the road. Sit by the fire, then, and tell me what you pray to out here, because I've always wondered what holy folk say when there's nobody listening." },
         { id = "h_default", key = true,
@@ -762,13 +811,14 @@ P:NPC {
           text = "My journal! I thought the scorpids had it. Every camp I've ever made is written in there, so you have my thanks." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Rest by the fire until your bones stop arguing with you. You'll know when." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, out walking Durotar the same as me. I write down everything I see, and I'd be glad to hear whatever you notice that I've missed." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid, out walking Durotar the same as me. I write down everything I see, and I'd be glad to hear whatever you notice that I've missed." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Ha, a rogue! I wrote about one in my journal once, though I never saw her face, only my purse leaving my belt." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage on the road! You'll be warm at night, at least, and I'd trade half my journal for a fire that lit itself." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You've the look of somebody who'd make a good page in my journal, all scars and stories." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock at my fire. Sit, but tell your demon to keep to the dark side of it." },
       },
       choices = {
+        { text = "You were in the camps, Brakk. Does Tiragarde bring it back?", next = "dd_kultiras", when = { killed = { name = "Kul Tiras", min = 15 } } },
         { text = "What do you pray to on the road, Brakk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What have you noticed about this land, Brakk?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You seem to prefer sleeping out here.", next = "why" },

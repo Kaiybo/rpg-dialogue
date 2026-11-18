@@ -29,6 +29,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_rolf_sara = {
+      lines = {
+        { id = "dd_rolf_sara_a", text = "He did, and he didn't sleep that night, I'd wager. The lumbermen are nervous about the lake road now, and I've two men who won't haul timber past the water after dark, whatever I pay them." },
+      },
+      choices = {
+        { text = "They're right to be careful. The murlocs are still out there.", next = "dd_rolf_sara2" },
+        { text = "Pay them more and they'll find their courage.", next = "dd_rolf_sara2", fx = { align = { light = -1 } } },
+        { text = "Fear is fair. I'd not push them, Sara.", next = "dd_rolf_sara2", fx = { align = { light = 1 } } },
+      },
+    },
+    dd_rolf_sara2 = {
+      lines = {
+        { id = "dd_rolf_sara2a", text = "Well, the timber will wait till morning, and so will I. Thank you for bringing Thomas an answer, because a guard who doesn't know is worse company than one who's grieving." },
+      },
+      choices = { { text = "Something else, Sara.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Not once, no. They took the cloth from honest folk first, and I'm only putting it back to use. Your spirits might call that balance." } },
@@ -97,6 +114,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_rolf_sara", when = { questDone = TODO_QUEST("Discover Rolf's Fate") },
+          text = "Guard Thomas told the camp what you found at the lake, and the men took their caps off at supper. Rolf used to buy our pine for the bridge posts, and he always paid fair, which is more than I can say for some." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your tabard's been torn and stitched by somebody who didn't know what they were doing, and I can see it from my step." },
         { id = "h_default", text = "I'm Sara Timberlain. The loggers cut wood and I cut cloth, because somebody in this camp has to make something you'd want to wear, even if I cut it from thieves' red bandanas." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Red Linen Goods") },
@@ -114,7 +134,7 @@ P:NPC {
           text = "A mage, and in a robe that's seen some road. If you've singed the hem, I can match the cloth, though I can't promise the color will forgive you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and your tabard's frayed at the hem from all that swinging. I could fix it, if you held still long enough." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting pockets, and plenty of them, because your sort always do." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Kaldorei, by the ears, and that leather's never seen a tanner's vat unless I'm much mistaken. Nobody in Eastvale stitches like that, so I'd love to know who did." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "Kaldorei, by the ears, and that leather's never seen a tanner's vat unless I'm much mistaken. Nobody in Eastvale stitches like that, so I'd love to know who did." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Those robes of yours have seen better days, and so have the hems, which I'd guess have been near something hot." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I make clothes out of bandit bandanas, so I'm in no position to judge anyone's strange habits. What do you need?" },
       },
@@ -123,6 +143,8 @@ P:NPC {
         { id = "h_again2", text = "What else? Only mind the thread while you think." },
       },
       choices = {
+        { text = "Thomas told you about Rolf's men, then.", next = "dd_rolf_sara", when = { questDone = TODO_QUEST("Discover Rolf's Fate") } },
+
         { text = "That seems a little grim.", next = "grim" },
         { text = "What makes red linen so good?", next = "cloth" },
         { text = "What news comes past your step?", next = "camp" },
@@ -266,7 +288,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Bother me? It's trying to kill me, friend, row by row, and the well's at the far end of the field. If you could call up something that fetches water, I'd not ask what it was, only whether it spills." } },
       choices = {
         { text = "I'd sooner carry the water myself, Gerard.", next = "BACK", reply = "Suit yourself, friend, and I'll be glad of the company on the walk. The pails don't get any lighter.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My imp could fetch it, if you don't mind the smell.", next = "BACK", reply = "I've smelled worse in the bottom rows, if I'm honest. I'll think on it, and I'll not tell Pa.", fx = { align = { light = -1 } } },
+        { text = "My imp could fetch it, if you don't mind the smell.", next = "BACK", reply = "I've smelled worse in the bottom rows after a boar's been through. I'll think on it, and I'll not tell Pa.", fx = { align = { light = -1 } } },
         { text = "Something else, Gerard.", next = "BACK" },
       },
     },

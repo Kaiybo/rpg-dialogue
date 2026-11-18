@@ -167,7 +167,7 @@ P:NPC {
       },
       choices = {
         { text = "Ironforge will always stand first. That won't change.", next = "BACK", reply = "Maybe it will, an' maybe it won't, but we'll see whose anvil's still ringin' when the Firelord's gone. Come back in ten years.", fx = { align = { order = 1 }, affinity = -1 } },
-        { text = "Then let the work decide, not the clan.", next = "BACK", reply = "Now that's a fair-minded thing tae hear from a stranger. Let the steel speak, an' I'll stand by mine.", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "Forget the clans. Let the steel decide.", next = "BACK", reply = "Now that's a fair-minded thing tae hear from a stranger. Let the steel speak, an' I'll stand by mine.", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -180,7 +180,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll treat it better.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
-        { text = "It's a tool. It breaks, I replace it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "It's a tool. When it breaks, I'll buy another.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
 
@@ -231,6 +231,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_sc_deaths = {
+      lines = {
+        { id = "dd_sc_deaths1", text = "Aye, for the ledger has tae balance. My lads go down intae the Gorge an' some don't come back, an' I mark them once in ink an' never again. You, I mark in chalk, for ye keep walkin' back in an' spoilin' my sums." },
+      },
+      choices = {
+        { text = "Mark me in ink, then. I'll be careful.", next = "BACK", reply = "Ink it is, an' I'll hold ye tae it. Dinnae make a liar o' the ledger.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep the chalk. I won't stop taking risks.", next = "BACK", reply = "Chalk, then, an' I'll keep a wet rag handy. Off ye go.", fx = { align = { order = -1 } } },
+        { text = "Something else, Taskmaster.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -245,12 +255,15 @@ P:NPC {
           text = "A rogue at my carts, an' I've already counted every bar on 'em twice. Ye'll find nothin' missin' tonight that I won't know about by mornin'." },
         { id = "h_tired", when = { metBefore = true, timeOfDay = "night" },
           text = "Last crew's still out in the Cauldron. I'll sit here wi' my tally till they're back, an' don't tell me tae sleep, for Hansel's done enough sleepin' for the both of us." },
+        { id = "dd_deaths", when = { deaths = { min = 10 } },
+          text = "I keep a tally o' who goes down an' who comes back, an' ye're on both sides o' it more than once. That's a strange thing tae write in an ore book, an' I've had tae start a new column for ye." },
       },
       again = {
         { id = "h_again", text = "What else? The carts don't push themselves." },
         { id = "h_again2", text = "Go on, I'm listenin' an' countin' at the same time." },
       },
       choices = {
+        { text = "You keep a column for my deaths, Scrange?", next = "dd_sc_deaths", when = { deaths = { min = 10 } } },
         { text = "What do your crews dig?", next = "work" },
         { text = "Why 'Taskmaster'? That sounds like the mountain's word.", next = "title" },
         { text = "What about the slaves in the Cauldron?", next = "slaves" },
@@ -304,7 +317,7 @@ P:NPC {
       },
       choices = {
         { text = "A debt like that can be paid off.", next = "BACK", reply = "I hope so, an' I'll keep payin' till it is. One supper at a time.", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Some ledgers never balance, Scrange.", next = "BACK", reply = "Maybe they don't, but a dwarf keeps payin' anyway. That's the only honest thing left tae do.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Some ledgers never balance, Scrange.", next = "BACK", reply = "Maybe they don't, but I'll keep payin' anyway, an' the lads'll keep eatin' while I do.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -369,7 +382,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll keep cutting them down.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "A week is something.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Only a week? Still, I'll take it.", next = "BACK", fx = { affinity = 1 } },
       },
     },
 

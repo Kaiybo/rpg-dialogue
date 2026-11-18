@@ -225,7 +225,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "The Church tells me what's kept under the Slaughtered Lamb, and the Church is not pleased, nor am I. You stand in my hall openly, though, so I'll hear you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The kingdom's roads run longer than its soldiers can walk, and I'm grateful for anyone who knows the wilds past Elwynn." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei in the Regent's hall. Your people's envoys have been unfailingly courteous, and I'd like Stormwind to deserve that courtesy." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei in the Regent's hall. Your people's envoys have been unfailingly courteous, and I'd like Stormwind to deserve that courtesy." },
       },
       again = {
         { id = "h_again", text = "What else? Briefly; the council sits at noon." },
@@ -266,7 +266,7 @@ P:NPC {
       },
       choices = {
         { text = "Then send them help.", next = "help", fx = { opinion = { westfall = "abandoned" }, align = { honor = 1 } } },
-        { text = "Patience is wise.", next = "BACK", reply = "It is, so my councillors keep telling me, and I know a kingdom cannot spend what it does not have. Still, patience comes easier in a palace than on a burning farm, and I try never to forget that.", fx = { opinion = { westfall = "patience" }, affinity = 1, align = { order = 1 } } },
+        { text = "Patience is wise, Highlord, however much it chafes.", next = "BACK", reply = "It is, so my councillors keep telling me, and I know a kingdom cannot spend what it does not have. Still, patience comes easier in a palace than on a burning farm, and I try never to forget that.", fx = { opinion = { westfall = "patience" }, affinity = 1, align = { order = 1 } } },
       },
     },
     help = {
@@ -291,7 +291,7 @@ P:NPC {
       },
       choices = {
         { text = "It's more than most have.", next = "BACK", reply = "Perhaps it is. I'll take that, and hold to it on the hard days.", fx = { affinity = 2, align = { order = 1, light = 1 } } },
-        { text = "Faith alone won't stop a knife in the dark, my lord.", next = "BACK", reply = "No, and I've guards at every door for that reason. But a regent who trusts nobody will soon have nobody left to trust him.", fx = { align = { light = -1 } } },
+        { text = "Faith alone won't stop a knife in the dark, my lord.", next = "BACK", reply = "No, and I've guards at every door for that reason. But if I start eyeing every page and cook in this Keep as an assassin, Anduin will learn to do the same, and I'll not teach him that.", fx = { align = { light = -1 } } },
         { text = "Sometimes suspicion is enough.", next = "suspicion", fx = { trait = { skeptical = 1 } } },
         { text = "You can tell me what it really costs you, Highlord.", tag = "Persuade", next = "bear_true",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { townStanding = { town = "stormwind", min = 55 } } } } },
@@ -422,7 +422,7 @@ P:NPC {
     highorder_ask = {
       lines = { { id = "hoa_default", text = "Only what you'd tell a friend: whether your people came to us out of need or out of choice. I ask because Stormwind has been both kinds of ally, and the second kind lasts longer." } },
       choices = {
-        { text = "Need brought us. Choice will keep us.", next = "BACK", reply = "That's the best answer I've heard in a year of asking. Choice is what makes an ally a friend.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Need brought us. Choice will keep us.", next = "BACK", reply = "That's the best answer I've heard in a year of asking, and I mean to repeat it at the next council, with or without your leave.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Need, plainly. We go where we must.", next = "BACK", reply = "Honest, and I thank you for it. Need is a sound foundation, if we build on it carefully.", fx = { align = { honor = -1 } } },
       },
     },

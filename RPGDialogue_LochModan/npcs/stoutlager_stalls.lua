@@ -35,6 +35,8 @@ P:NPC {
           text = "I sell what ye need an' never what ye want, so the mountaineers like me an' the bairns sulk past my stall. Flasks, rope, thread an' the like, an' all of it priced so ye can afford tae come back." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Late for shoppin', friend, but the inn never really closes, so neither do I. What d'ye need?" },
+        { id = "dd_sausages", when = { questDone = TODO_QUEST("Thelsamar Blood Sausages") },
+          text = "Vidra's been wavin' a spoon at me, sayin' ye fetched her sausage fixin's. Her sausages are the best in Loch Modan, an' don't ever tell her I said so." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a crate o' candles that wants movin'." },
@@ -71,7 +73,7 @@ P:NPC {
         { id = "gr_default", text = "Climbin', I'd guess, round the troggs on the north ridge, or somethin' worse. Chief Engineer Hinderweir's lot at the dam have been twitchy about Dark Irons up there, an' twitchy engineers buy rope." },
       },
       choices = {
-        { text = "Better to be ready than sorry.", next = "BACK", reply = "That's what I tell maself, an' it's why I sell so much rope. Better a spare coil than a long fall.", fx = { align = { order = 1 }, learn = { "stonewrought_dam" } } },
+        { text = "Better to be ready than sorry.", next = "BACK", reply = "That's what I tell maself, an' it's why I sell so much rope. Ye'd be surprised how many dwarves come back for a second coil after the first one snapped.", fx = { align = { order = 1 }, learn = { "stonewrought_dam" } } },
         { text = "Twitchy folk see spies in every shadow.", next = "BACK", reply = "Aye, they do, an' I sell them lanterns for every shadow. Still, there's somethin' up there, I'll grant them that.", fx = { align = { order = -1 }, learn = { "stonewrought_dam" } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -190,7 +192,7 @@ P:NPC {
       },
       choices = {
         { text = "A good merchant keeps a secret.", next = "BACK", reply = "It does, an' it keeps a customer too. I'll take my guess tae the grave, or at least tae the next harvest.", fx = { align = { honor = 1 } } },
-        { text = "Tell me your guess anyway.", next = "BACK", reply = "An' lose my best spice buyer? No' a chance, friend. Some guesses are worth more kept quiet.", fx = { align = { honor = -1 } } },
+        { text = "Tell me your guess anyway.", next = "BACK", reply = "An' lose my best spice buyer? No' a chance, friend. He'd hear it was me by suppertime.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -257,7 +259,7 @@ P:NPC {
       },
       choices = {
         { text = "That's how progress is made.", next = "BACK", reply = "Progress, aye, an' a fine name for it. My grandfather said the same, wi' one less finger tae point.", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "That's how fingers are lost.", next = "BACK", reply = "Aye, an' a few eyebrows besides. But the name stuck, an' so did the family trade.", fx = { align = { order = 1 } } },
+        { text = "That's how fingers are lost.", next = "BACK", reply = "Aye, an' a few eyebrows besides. But the name stuck, an' so did the family trade, an' my grandsire never grew his eyebrows back.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -297,7 +299,7 @@ P:NPC {
       },
       choices = {
         { text = "You should tell Hinderweir.", next = "BACK", reply = "Tell Hinderweir? He'd have me shut down by mornin'. I'll keep my nose out an' my powder dry.", fx = { align = { order = 1 }, learn = { "stonewrought_dam" } } },
-        { text = "What they do with it isn't your concern.", next = "BACK", reply = "That's my thinkin', an' it's kept me in business. A gunsmith's no' a nursemaid.", fx = { align = { order = -1 }, learn = { "stonewrought_dam" } } },
+        { text = "What they do with it isn't your concern.", next = "BACK", reply = "That's my thinkin', an' it's kept me in business. I sell rifles, friend, no' sermons.", fx = { align = { order = -1 }, learn = { "stonewrought_dam" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -369,7 +371,7 @@ P:NPC {
       },
       choices = {
         { text = "A family craft is worth keeping alive.", next = "BACK", reply = "It is, an' that's why I keep payin' for the root. My mother would turn in her grave if the red died wi' me.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Find a new colour. Times change.", next = "BACK", reply = "A new colour? Ye might as well tell me tae change my name. The Flamespinner red stays.", fx = { align = { order = -1 } } },
+        { text = "Find a new colour. Times change.", next = "BACK", reply = "A new colour? Ye might as well tell me tae change my name. My grandmother dyed that red in Dun Morogh, an' it'll stay red.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -388,7 +390,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell the mountaineers. They'd want to know.", next = "BACK", reply = "They would, an' they'd be hurt, an' they'd keep mendin' badly. I'd rather they kept tryin' an' I kept fixin'.", fx = { align = { honor = 1 } } },
-        { text = "Kindness is worth a crooked seam.", next = "BACK", reply = "It is, an' I'll keep sayin' nothin' about it. The mountaineers have harder things tae worry about.", fx = { align = { honor = -1 }, trait = { kind = 1 } } },
+        { text = "Kindness is worth a crooked seam.", next = "BACK", reply = "It is, an' I'll keep sayin' nothin' about it. The mountaineers have troggs tae worry about, no' my stitches.", fx = { align = { honor = -1 }, trait = { kind = 1 } } },
         { text = "What's the strangest thing you've mended?", next = "who_strange" },
         { text = "Something else.", next = "BACK" },
       },

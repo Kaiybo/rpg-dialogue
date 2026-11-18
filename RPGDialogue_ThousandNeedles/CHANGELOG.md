@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.30.0 (2026-11-18)
+- New NPCs from the Classic-era roster (`npcs/more_folk.lua`). New files: restart the game fully.
+- NPCs notice what you have done: quests for their neighbours, notable kills, your deaths, rank and reputation.
+- Writing pass: stance replies end on something concrete, fewer echoes and stock phrases.
+- Druid greetings that assume a night elf or tauren no longer fire for other druid races.
+
 ## 1.29.0 (2026-11-18)
 - Writing pass: repeated phrases cut and replaced with concrete detail.
 - Clarity pass: answers answer the question, names are introduced, quest lines stand alone, fewer contradictions.

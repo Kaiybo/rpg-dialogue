@@ -71,7 +71,7 @@ P:NPC {
         { id = "yw_default", text = "Most do, and the ones who don't usually do the second time. I've seen a tauren calf come back from the lake in tears and walk out a week later with Dendrite's nod, and I gave her a cloak for free, which I'd ask you not to repeat." },
       },
       choices = {
-        { text = "That was kind. Every young druid deserves help.", next = "BACK", reply = "I thought so too, and the calf brought me a carved stag the next spring that sits on my counter still. Kindness costs nothing in Moonglade.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That was kind. Every young druid deserves help.", next = "BACK", reply = "I thought so too, and the calf brought me a carved stag the next spring. It's sat on my counter ever since, and I dust it more often than my stock.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Coddling them won't make them stronger.", next = "BACK", reply = "Perhaps not, but a little help never weakened anyone who was already willing to try. The lake does the testing, I only lend a cloak.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -343,9 +343,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_timbermaw = {
+      lines = {
+        { id = "ddt_default", text = "Then you've done more than most. The Timbermaw bring honey and herbs down to Nighthaven and take bread and cloth home again, and they are the gentlest traders I know, so long as nobody forgets the tunnel is theirs." },
+      },
+      choices = {
+        { text = "Do you ever go up into the hold yourself?", next = "BACK", reply = "Once, by invitation, and I was made to eat something I still can't name. It was delicious, and I didn't ask." },
+        { text = "Something else, My'lanna.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
+        { id = "h_dd_timbermaw", when = { reputation = { faction = "Timbermaw Hold", min = "friendly" } }, text = "You came through the Timbermaw tunnel without a scratch, I see. The furbolgs only let their friends walk it unchallenged, so you must have done right by them in Felwood." },
+        { id = "h_dd_deadwood", when = { killed = { name = "Deadwood", min = 30 } }, text = "The furbolgs who come to trade say the Deadwood have lost many of their warriors, and that an outsider did much of it. They didn't say your name, but they described your boots." },
         { id = "h_default", key = true, text = "I'm My'lanna, and I keep the food and drink for Nighthaven: kaldorei cooking, fresh bread, moonberry juice and cool water from springs the druids keep clean. Anyone who walks this far deserves a proper meal, Horde or Alliance or something in between." },
       },
       again = {
@@ -354,6 +365,7 @@ P:NPC {
         { id = "h_again3", text = "More? Good; talking makes people hungry, and I like a hungry customer." },
       },
       choices = {
+        { text = "The Timbermaw let me through their tunnel now.", next = "dd_timbermaw", when = { reputation = { faction = "Timbermaw Hold", min = "friendly" } } },
         { text = "What's kaldorei cooking like?", next = "cooking" },
         { text = "Who eats here besides travellers?", next = "who" },
         { text = "Do Horde and Alliance really eat side by side?", next = "together" },

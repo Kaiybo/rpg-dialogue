@@ -115,7 +115,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More every season, and I can tell them by their boots, since a hunter walks the edges and never the road. Your {pet} looks like it's walked far today, so get it fed before yourself, and you'll both sleep better." },
       },
       choices = {
-        { text = "I'll leave the road wolves be unless they come near.", next = "BACK", reply = "Good, and the wolves will learn to leave you be. Farley will have a bed for you.", fx = { align = { honor = 1 } } },
+        { text = "I'll leave the road wolves be unless they come near.", next = "BACK", reply = "Good, and most of them will learn to leave you be. Mind the ones that don't.", fx = { align = { honor = 1 } } },
         { text = "I'll take every wolf in those trees, near or not.", next = "BACK", reply = "Then you'll be back on this road tired and bitten, I expect. Mind yourself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -133,7 +133,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "It does when your hands start shaking at Jasperlode and you set the mine's timbers alight instead of the kobolds. I've seen it happen to a young mage from the Abbey, and he was very sorry about it afterwards." } },
       choices = {
-        { text = "I'll take your advice and rest, Falkhaan.", next = "BACK", reply = "Good, the tower will thank you, and so will the miners at Jasperlode.", fx = { align = { order = 1 } } },
+        { text = "I'll take your advice and rest, Falkhaan.", next = "BACK", reply = "Good. Jasperlode's timbers will thank you, and so will the miners under them.", fx = { align = { order = 1 } } },
         { text = "I'll sleep when the work is done, not before.", next = "BACK", reply = "The work's never done, friend, and you'll find that out. The inn's down the road when you do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -173,7 +173,7 @@ P:NPC {
           text = "A mage, and you're the sort who forgets to sleep, I can see it in your eyes. Reading by candlelight again, were you?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my road. You've had a hard day of it, I'd wager; the Lion's Pride has a bed with your name on it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a beast in tow and mud to the knees. Farley lets animals sleep by the fire, so long as they don't eat the cat." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on the Goldshire road! The Lion's Pride has a soft bed and a hot meal, though I expect your kind would sooner sleep in a tree." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf on the Goldshire road! The Lion's Pride has a soft bed and a hot meal, though I expect your kind would sooner sleep in a tree." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, everybody needs somewhere to sleep, and I'll point you to the Lion's Pride like anyone else, though I suspect you know the cellar already." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and tired, I'd say! Rest at the Lion's Pride, friend. Farley never waters his drinks, and the beds are clean." },
       },
@@ -236,7 +236,7 @@ P:NPC {
       },
       choices = {
         { text = "Sounds like you both win.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "He does. Fires don't walk.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "He does, Falkhaan. A fire can't walk out to meet anyone.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
 

@@ -67,7 +67,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Into their huts by the water, I imagine, because murlocs love anything shiny and haven't the faintest idea what's actually in it. Follow the smell of fish and the trail of wet footprints, and you'll find it, I'm certain. And maybe {pet} could sniff it out, since it smells of me, and I haven't washed in a week, which is the one thing working in our favor." },
       },
       choices = {
-        { text = "I'll find your strongbox and return it untouched.", next = "BACK", reply = "Untouched, he says! Friend, you're an honest one, and I'll not forget it. Follow the smell; you can't miss it.", fx = { align = { honor = 1 } } },
+        { text = "I'll find your strongbox and return it untouched.", next = "BACK", reply = "Untouched! Friend, you're an honest one, and I'll not forget it. Follow the smell; you can't miss it.", fx = { align = { honor = 1 } } },
         { text = "Finders keepers, Galen, unless the reward's worth it.", next = "BACK", reply = "Worth it? I'd pay you twice what's in it if I could, but I can't, so let's say generously and leave it there.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -365,7 +365,7 @@ P:NPC {
           text = "Go to Stonard and speak to Dispatch Commander Ruag. He will know what became of the orders, or he will know who does." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I led warriors once, in Thrall's Grasp, and I see their faces in yours, so let an old orc look at you a while." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You see what others pass over, and that is what I need, for the truth of what befell my regiment is buried somewhere out there." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the tauren. Your people give their dead back to the earth and let them go, and I envy them, for this swamp will not let me go at all." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A druid of the tauren. Your people give their dead back to the earth and let them go, and I envy them, for this swamp will not let me go at all." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You are dead, as I am, and yet the Light burns in you. I did not think such a thing was possible, and I do not know whether to envy you." },
       },
       again = {

@@ -31,6 +31,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_marcus_w = {
+      lines = {
+        { id = "dd_marcus_w_a", text = "Barely is what I'd expected, and it's better than I'd feared. Stoutmantle was a good soldier before he was a farmer's champion, and he's holding Sentinel Hill with ploughmen because the House of Nobles won't spare me a single company for him." },
+      },
+      choices = {
+        { text = "Then the House of Nobles should answer for it.", next = "dd_marcus_w2", fx = { align = { order = -1 } } },
+        { text = "The walls here come first. I understand why.", next = "dd_marcus_w2", fx = { align = { order = 1 } } },
+      },
+    },
+    dd_marcus_w2 = {
+      lines = {
+        { id = "dd_marcus_w2a", text = "I'll not say a word against the nobles in my own guardhouse, but I'll say this much: the people who keep Westfall alive aren't the ones who sit in the Keep. Keep helping him, and send word if he's ever close to breaking." },
+      },
+      choices = { { text = "I will, General. Something else.", next = "BACK" } },
+    },
+
     xpt_marcus = {
       big = true,
       lines = { { id = "xpt_marcus_default", text = "Because the levies we raise now are farmers' sons who've never held a line, and too many of our veterans are buried in Lordaeron or guarding the roads to Lakeshire. A pair who already know how to fight together would teach a company more in a week than my sergeants manage in a season." } },
@@ -71,7 +87,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Gladly, if the Keep ever lets the army march anywhere, because a healer who can take a wolf's shape and run would be worth a squad. I've read the reports from Ashenvale, and I'd trust your people on a flank." } },
       choices = {
         { text = "Send for us, General, and we'll come.", next = "BACK", reply = "I'll hold you to that, and I'll be glad of it when the Keep finally lets me march.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "My people fight for Ashenvale first, General, not for Stormwind's wars.", next = "BACK", reply = "Then fight well there, and I hope Ashenvale holds. A forest that falls to the Horde is no good to anyone.", fx = { align = { honor = -1 } } },
+        { text = "My people fight for Ashenvale first, General, not for Stormwind's wars.", next = "BACK", reply = "Then fight well there, and I hope Ashenvale holds. If it falls, the Horde's next stop is Darkshore, and after that, my wall.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -104,6 +120,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_militia_marcus", when = { questDone = TODO_QUEST("The People's Militia") },
+          text = "Gryan Stoutmantle's reports from Westfall name you more than once, and I read them twice, as I read all the letters from the provinces. The Crown can't send him soldiers, so I'm glad somebody went in their place." },
+        { id = "dd_exalted_marcus", when = { reputation = { faction = "Stormwind", min = "exalted" } },
+          text = "There are few names that come up in the Keep as often as yours these days, and I hear them from people who don't praise lightly. You've served this city as well as any soldier on my walls." },
+
         { id = "h_pt_marcus", tags = { "news" }, when = { party = { class = "WARRIOR" } },
           text = "{companion} has the look of a soldier, and you've the look of someone who keeps soldiers alive. If you ever tire of wandering, the Stormwind army would take the pair of you and be glad of it." },
         { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths", faction = "Alliance" },
@@ -129,7 +150,7 @@ P:NPC {
           text = "SI:7's people come through my gate at odd hours and never sign the book, and I've given up asking them to. Are you one of theirs, or only shy?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at the Valley gate. The army could use more of you, if the Quarter could spare any, because fire wins sieges." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Valley gate. The kaldorei are new to this Alliance and my soldiers stare, I'll admit, but they'll learn their manners." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid at the Valley gate. The kaldorei are new to this Alliance and my soldiers stare, I'll admit, but they'll learn their manners." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The army has had dealings with your sort, and I'd prefer they stayed few, but I'll hear you out." },
       },
       again = {
@@ -137,6 +158,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. The gate can spare me a moment more." },
       },
       choices = {
+        { text = "Gryan's militia is holding, General, but barely.", next = "dd_marcus_w", when = { questDone = TODO_QUEST("The People's Militia") } },
+
         { text = "The army doesn't seem to be helping Lakeshire.", next = "army" },
         { text = "Tell me about the statues.", next = "statues" },
         { text = "A city this size must be hard to defend.", next = "walls" },
@@ -432,6 +455,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_lescovar_renzik", when = { killed = { name = "Lescovar" } },
+          text = "Renzik heard you were in the garden when Lescovar made his last mistake, and Renzik doesn't hear things by accident. That was clean work, friend, and Renzik's been known to remember the names of people who do clean work." },
+        { id = "dd_defias_renzik", when = { killed = { name = "Defias", min = 100 } },
+          text = "Renzik's been reading the reports, and a lot of red bandanas stopped breathing with your name somewhere nearby. SI:7 likes that, though officially SI:7 doesn't like anything." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, huh? Renzik don't usually get the shiny ones, but Renzik ain't complainin', so long as you don't preach at him, 'cause sermons ain't in the budget." },
         { id = "h_default", key = true,
           text = "Name's Renzik, pal, and people call him the Shiv, second to the boss here at SI:7. Renzik don't like people much, but he likes bein' the guy they gotta be polite to, and that's worth more than the wages." },
@@ -616,7 +644,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Before every change of the watch, though the men would never say so aloud. The king himself is missing, so if a prayer helps them stand a little straighter, I won't forbid it." } },
       choices = {
-        { text = "Faith keeps a guard steady, Major. Let them pray.", next = "BACK", reply = "They do, and I'll not stop them. A guard who believes stands straighter.", fx = { align = { light = 1 } } },
+        { text = "Faith keeps a guard steady, Major. Let them pray.", next = "BACK", reply = "I'd never stop them. Half my night shift says a prayer at the gate before they take the torch, and they stand straighter for it.", fx = { align = { light = 1 } } },
         { text = "Discipline keeps a guard steady. Prayer is for afterwards.", next = "BACK", reply = "After is often too late. I'll let them do both.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -836,7 +864,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Every morning there's a basket for the orphans and another for the poor at the steps, and the Cathedral pays when it can. My foot says I shouldn't walk that far, but the children are always waiting, so the foot loses again." } },
       choices = {
-        { text = "That's holy work, Thomas, and the children are lucky.", next = "BACK", reply = "They are, and so am I, to have bread to give. Thank you, friend.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's holy work, Thomas, and the children are lucky.", next = "BACK", reply = "So am I, to have bread to give them. Some weeks the ovens barely manage it. Thank you, friend.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You'll ruin yourself giving it away. Charge them full price.", next = "BACK", reply = "Maybe I will, friend, but there's worse ways to go broke. My wife says the same, only louder.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -852,6 +880,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_grown_tmiller", when = { metBefore = true, levelsSince = { min = 10 } },
+          text = "Well, look at you, all grown up and bristling with steel since the last time I put a roll in your hand! You'll still have one, mind, because heroes need bread the same as anyone." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Here, take a roll, because you look like you've been up with the sick, and the sick never let anyone eat." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Take a roll for your march, {class}, because a hero on an empty stomach is only a hungry man in armour." },
         { id = "h_default", text = "Thomas Miller, baker. I walk the Trade District from dawn to dusk with a basket, and my feet hate me but my customers love me, so it evens out." },

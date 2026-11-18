@@ -34,6 +34,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_murkeye = {
+      lines = {
+        { id = "dd_murkeye_a", text = "I thought so, and I'll not make a fuss, since you look like you'd rather I didn't. That old fish drowned two men off the Longshore this spring, and their widows still come in here to sit by the window." },
+      },
+      choices = {
+        { text = "Tell the widows it's done. They deserve to hear it.", next = "dd_murkeye_2", fx = { align = { light = 1 } } },
+        { text = "It was a job. Grayson asked and I did it.", next = "dd_murkeye_2", fx = { align = { light = -1 } } },
+        { text = "Did the fishermen go back out after that?", next = "dd_murkeye_2" },
+      },
+    },
+    dd_murkeye_2 = {
+      lines = {
+        { id = "dd_murkeye_2a", text = "Some have, and the catch is better than it's been since the farms went under, so there's fish on my table again. It isn't much in Westfall, but a full bowl is how we start back, one supper at a time." },
+      },
+      choices = { { text = "One supper at a time, then. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It never has, not since the farms emptied. Your wind spirits might know why, but I just sweep and laugh." } },
@@ -108,6 +125,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_stew", when = { questDone = TODO_QUEST("Westfall Stew") },
+          text = "Salma Saldean sent a crock of her stew up the hill and said you'd fetched half of what went into it. My guests ate it to the last spoonful, and two of them asked if they could stay another night on the chance of more." },
+        { id = "dd_murkeye", tags = { "news" }, when = { killed = { name = "Murk-Eye" } },
+          text = "The fishermen down at the Longshore came up for a drink last night, which they haven't done in a season, because Old Murk-Eye's dead and somebody they wouldn't name did it. They kept looking at the door, so I'm guessing it was you." },
+
         { id = "h_default", text = "I'm Heather, and I keep the inn on the hill. Most of my guests are militia between watches, and most of them sleep in their boots." },
         { id = "h_salma", when = { heardLine = "salma.h_default" },
           text = "You've eaten at Salma's? Then you've had the best stew in Westfall and you'll be disappointed in mine. I've made my peace with it." },
@@ -130,6 +152,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away while I pour; the militia drink faster than they talk, so I've a moment." },
       },
       choices = {
+        { text = "I'm the one who killed Old Murk-Eye.", next = "dd_murkeye", when = { killed = { name = "Murk-Eye" } } },
+
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "The hill seems to be holding up.", next = "hill" },
         { text = "Who stays here, mostly?", next = "guests" },
@@ -223,6 +247,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_lewis_w = {
+      lines = {
+        { id = "dd_lewis_w_a", text = "Safer, aye, and I'll not say safe, because I've learned better. Every crate that comes up the hill without a knife through it is one more family fed in the militia, and they know who to thank for it, even if they're too proud to say." },
+      },
+      choices = {
+        { text = "I don't need thanks. Just keep the militia fed.", next = "dd_lewis_w2", fx = { align = { honor = 1 } } },
+        { text = "Pride's fine, but I'd take a discount on the gear.", next = "dd_lewis_w2", fx = { align = { honor = -1 } } },
+      },
+    },
+    dd_lewis_w2 = {
+      lines = {
+        { id = "dd_lewis_w2a", text = "I can't change the prices, friend, they're set by people far above me, but I can make sure your name goes in Gryan's report. That counts for something in Stormwind, or so I keep telling myself." },
+      },
+      choices = { { text = "Fair enough. Something else, Lewis.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They know the roads better than we do. I record every loss in my ledger, and I don't ask how the gear gets damaged." } },
@@ -298,6 +338,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_militia_lewis", when = { questDone = TODO_QUEST("The People's Militia") },
+          text = "Gryan says you've been out clearing Defias for the militia, and I can see it in my ledger, because the wagon from Goldshire made it up the hill twice this week without being robbed. Twice! I nearly wept on the flour sacks." },
+        { id = "dd_defias_lewis", when = { killed = { name = "Defias", min = 50 } },
+          text = "You've put down so many of those bandana men that I've started counting fewer losses on the supply roads. I don't usually like what I see in a ledger, but I like this." },
+
         { id = "h_default", text = "Lewis, quartermaster. I keep Sentinel Hill fed, armed and patched, which is a lot to ask of one ledger and a wagon that keeps getting robbed." },
         { id = "h_message", tags = { "news" }, when = { questActive = TODO_QUEST("A Swift Message") },
           text = "Our armor's running thin. That note goes to the one man in the city who can fix it, faster than a wagon and without a Defias reading it first. Thor, our gryphon master, will put you in the air." },
@@ -307,7 +352,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Arrows are the first thing we run out of, after bread and patience, so I hope you brought your own." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Our bandages are mostly old shirts, so whatever you can do without them, please do." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your plate's in better shape than anything in my ledger, so keep it that way, since I've nothing to mend it with." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? I've no column in my ledger for night elves, so I'll write you down as a scout and hope nobody asks." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, is it? I've no column in my ledger for night elves, so I'll write you down as a scout and hope nobody asks." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've one ledger and a robbed wagon. If your spirits can stop the Defias stealing my supplies, I'd be grateful." },
       },
       again = {
@@ -315,6 +360,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, and quickly, before another wagon goes missing." },
       },
       choices = {
+        { text = "Your wagons should be safer now, Quartermaster.", next = "dd_lewis_w", when = { killed = { name = "Defias", min = 50 } } },
+
         { text = "Your shelves look short on supplies.", next = "short" },
         { text = "How do you get word to the city?", next = "message" },
         { text = "What's in the ledger?", next = "ledger" },
@@ -488,13 +535,16 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "They'd love to, the brutes, but I keep them out of it, since a gryphon's a flier and not a soldier. The Defias leave the birds alone, and I'd like it to stay that way." } },
       choices = {
-        { text = "Wise. Everyone on this hill has their own duty to keep.", next = "BACK", reply = "It is, and mine is keeping these birds alive. Thank you for understanding.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fair enough. Everyone on this hill has a duty, birds included.", next = "BACK", reply = "It is, and mine is keeping these birds alive. Thank you for understanding.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Use every weapon you have, Thor. Send the birds in.", next = "BACK", reply = "Not mine, friend, they're fliers, not soldiers. I'll not lose a bird to a Defias arrow.", fx = { align = { order = -1 } } },
         { text = "Something else, Thor.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "dd_fall_thor", when = { deathCause = "falling" },
+          text = "You've a way of looking at the edge of my platform that tells me you've fallen off something tall, and not on purpose. My gryphons don't drop riders, friend, so you'll have to find some other way to break your neck." },
+
         { id = "h_default", text = "Name's Thor, and I keep the gryphons. They're the fastest way out of Westfall, and the only one the Defias haven't managed to rob, so far." },
         { id = "h_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "thor_flirt_no" } }, cooldown = "3d",
           text = "The gryphons like you, which is rare, because they don't like anyone, me included. I'd trust their judgement before my own, and my own happens to agree with them." },
@@ -556,7 +606,7 @@ P:NPC {
       lines = { { id = "fy_default", text = "Gryphon masters don't fly for pleasure as a rule, because it feels too much like work. For you I'd make an exception, though I'd want a clear sky, the gentle bird, and nobody from the militia watching." } },
       choices = {
         { text = "I'll hold you to that, Thor.", next = "BACK",
-          reply = "Hold on with your knees, not your hands, and you can hold me to anything you like." },
+          reply = "Do, and I'll save you the gentle bird. Hold on with your knees, not your hands, and leave the rest to me." },
       },
     },
     birds = {
@@ -641,6 +691,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_riell_t = {
+      lines = {
+        { id = "dd_riell_t_a", text = "You have, and the Defias have noticed too, because their scouts move in threes now instead of pairs. That means they're scared, and scared men make mistakes, which is when the militia gets them." },
+      },
+      choices = {
+        { text = "Then I'll keep them scared. Westfall deserves better.", next = "dd_riell_t2", fx = { align = { light = 1 } } },
+        { text = "Scared men also get desperate. Mind your militia.", next = "dd_riell_t2", fx = { align = { order = 1 } } },
+        { text = "Where do their scouts come from?", next = "dd_riell_t2" },
+      },
+    },
+    dd_riell_t2 = {
+      lines = {
+        { id = "dd_riell_t2a", text = "Moonbrook, mostly, and the Jangolode mine, and somewhere under them both that nobody's mapped yet. Whoever's giving them orders isn't on the roads, and I'd give a year's pay to see their face from my tower." },
+      },
+      choices = { { text = "Maybe you will. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I enjoy it very much, since every road into Sentinel Hill is mine to watch. A shaman's lightning would make them more nervous still." } },
@@ -691,7 +758,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "I see every cart come up the road, and I count what's lying in the back before anyone else does. Gryan buries them on the east slope, and I'd be glad if someone said better words over them than he does." } },
       choices = {
-        { text = "I'll say those words, Riell, and I'll say them properly.", next = "BACK", reply = "Thank you, and Gryan will thank you too, though he'll not say it. The east slope.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll say those words, Riell, and I'll say them properly.", next = "BACK", reply = "Thank you, and Gryan will thank you too, though he'll not say it. They're buried on the east slope, under the old fence line.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Words don't help the dead. Keep your eyes on the road.", next = "BACK", reply = "Maybe not, but they help the living. I'll keep watching.", fx = { align = { light = -1 } } },
         { text = "Something else, scout.", next = "BACK" },
       },
@@ -707,6 +774,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_fields_riell", when = { questDone = TODO_QUEST("The Killing Fields") },
+          text = "From the tower I could see those harvest watchers stalking the Saldean fields every dawn, and lately there are fewer of them. Farmer Saldean says that's your doing, and I'll take his word, since I watched the dust go up." },
+        { id = "dd_defias_riell", when = { killed = { name = "Defias", min = 80 } },
+          text = "I keep a tally of red bandanas on the tower post, one notch for every Defias I see go down on the roads, and half the notches this month are yours. I'll need a new post soon." },
+
         { id = "h_default", text = "Riell, scout for the People's Militia. I watch from the tower and tell Gryan what's coming. Lately it's always the same answer: more." },
         { id = "h_silk", tags = { "news" }, when = { questActive = TODO_QUEST("Red Silk Bandanas") },
           text = "I want the red silk off Defias necks, so bring me the bandanas. Every one on my table is one less on the road." },
@@ -725,6 +797,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Up here the wind carries every word, so I'll hear you fine while I watch Moonbrook." },
       },
       choices = {
+        { text = "I've been keeping your tally busy, Riell.", next = "dd_riell_t", when = { killed = { name = "Defias", min = 80 } } },
+
         { text = "What can you see from the tower?", next = "see" },
         { text = "Why do the Defias all wear red?", next = "silk" },
         { text = "Living up here can't be easy.", next = "tower" },
@@ -893,7 +967,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Once, for a young brother from the Cathedral who couldn't hit a barn door, and I bought it back from him for half the price. Your sort have your own weapons, I'm told, and I'd guess prayer doesn't need a string." } },
       choices = {
-        { text = "My faith is my weapon, William, and it never misses.", next = "BACK", reply = "Then you'll never need a bow from me, and that's fine. Strings are extra anyway.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My faith is my weapon, William, and it never misses.", next = "BACK", reply = "Then you'll never need a bow from me, and I'll not argue with a priest. Pray for my strings, though; they keep snapping.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Faith's well enough, but I'd rather carry a good bow.", next = "BACK", reply = "Then you'll want a good one, and I'll find you one. Strings extra.", fx = { align = { light = -1 } } },
         { text = "Something else, William.", next = "BACK" },
       },
@@ -918,6 +992,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_gnolls_mac", when = { killed = { name = "Riverpaw", min = 30 } },
+          text = "You've been at the Riverpaw gnolls, haven't you? The militia boys say the hills to the south are quieter, and I've had fewer arrows come back to me with gnoll teeth marks in the shafts." },
+
         { id = "h_default", key = true, text = "MacGregor's the name. I make bows for the militia and sell what's left to whoever walks up; Westfall wood's poor, so I make it up with patience." },
         { id = "h_yew", when = { metBefore = true }, text = "I found a decent stave of yew out by the Dagger Hills, decent but not good. In Westfall, decent is a holiday." },
         { id = "h_patrol", when = { questDone = TODO_QUEST("Patrolling Westfall") },

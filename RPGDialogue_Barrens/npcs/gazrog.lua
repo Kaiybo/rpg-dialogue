@@ -48,7 +48,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. Nobody else here wants to talk to me until payday, and some of the grunts have stopped talking to me at all." },
       },
       choices = {
-        { text = "Raptors stole silver? Really?", next = "raptors" },
+        { text = "Raptors stole your silver? You can't be serious.", next = "raptors" },
         { text = "How are the guards taking it?", next = "guards" },
         { text = "The Crossroads seems to have trouble on every side.", next = "crossroads" },
         { text = "I'm looking for word of Grunt Dogran.", next = "dogran", when = { class = "WARLOCK" } },
@@ -87,7 +87,7 @@ P:NPC {
       lines = { { id = "g_default", text = "Badly. A grunt who isn't paid still stands his watch, because he's Horde, but he stands it angry, and angry guards look at me when I walk past." } },
       choices = {
         { text = "They'll forgive you when they're paid.", next = "BACK", fx = { affinity = 1 } },
-        { text = "It wasn't your fault. Raptors happen.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "It wasn't your fault. Nobody stands watch against raptors.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
     crossroads = {

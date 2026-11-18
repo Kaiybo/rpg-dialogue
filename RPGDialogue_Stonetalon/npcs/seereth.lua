@@ -32,8 +32,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_earthen = {
+      lines = {
+        { id = "dd_ea_default", text = "That something old was disturbed beneath Boulderslide, and that it is quieter now. The earth spirits don't think in days, as we do, so they speak of it as though it happened a moment ago and also long ago. You did well, though I fear the kobolds will keep digging as long as there are candles to light their way." },
+      },
+      choices = {
+        { text = "Then the kobolds should be driven out of the ravine.", next = "BACK", reply = "Perhaps, though the spirits don't hate the kobolds as they hate the goblins. The kobolds only dig; the goblins devour.", fx = { align = { order = 1 } } },
+        { text = "The kobolds only dig. Let the spirits judge them.", next = "BACK", reply = "Wisely spoken, and the spirits would agree. Save your anger for the Venture Company, who deserve it more.", fx = { align = { order = -1 } } },
+        { text = "Something else, Seereth.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_earthen", tags = { "news" }, when = { questDone = TODO_QUEST("Earthen Arise") },
+          text = "Mor'rogal tells me you went into Boulderslide Ravine and faced what the kobolds were digging toward. The spirits of the mountain have spoken of it all week, and for once they sound less angry." },
         { id = "h_default", key = true,
           text = "I am Seereth Stonebreak, sent from Orgrimmar to Stonetalon by the Warchief's own shaman. The goblins of the Venture Company are plundering and burning the forest, and the spirits of these mountains are nearly blind with pain and rage." },
         { id = "h_arrive", tags = { "news" }, when = { questActive = TODO_QUEST("The Spirits of Stonetalon") },
@@ -54,6 +66,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, {class}. I'll answer while I can still think over the noise." },
       },
       choices = {
+        { text = "What did the spirits say about the ravine, Seereth?", next = "dd_earthen", when = { questDone = TODO_QUEST("Earthen Arise") } },
         { text = "What do the spirits say?", next = "spirits" },
         { text = "The goblins seem to want this whole forest.", next = "venture" },
         { text = "Why go to the tauren elders?", next = "elders", when = { any = { { questDone = TODO_QUEST("Goblin Invaders") }, { questActive = TODO_QUEST("The Elder Crone") } } } },
@@ -88,7 +101,7 @@ P:NPC {
         { id = "sa_default", text = "Because the Horde has many fights and few shaman, and someone had to come. I asked for help when I got here, and I'm not ashamed of it; there's no dishonor in knowing your own strength." },
       },
       choices = {
-        { text = "Asking for help is wisdom, not weakness.", next = "BACK", reply = "It is, and I'm glad to hear a young one say it without being taught. The spirits answer the humble more readily than the proud.", fx = { align = { order = -1 } } },
+        { text = "Asking for help is wisdom, not weakness.", next = "BACK", reply = "It is, and I'm glad to hear it said without being taught. My own teacher had to shout it at me for a year.", fx = { align = { order = -1 } } },
         { text = "Orgrimmar should have sent more. That's their duty.", next = "BACK", reply = "Perhaps they should, but Orgrimmar has a whole Horde to look after. I'd rather do what I can here than wait for help that may not come.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -100,7 +113,7 @@ P:NPC {
         { id = "ve_default", text = "Wood, and whatever lies under the wood, and they don't care what dies to get at it. They're not Alliance or Horde, only greed with a hard hat on, and they have no more honor than a kobold." },
       },
       choices = {
-        { text = "Then they get no mercy from me.", next = "BACK", reply = "Then the spirits of these hills will be glad of you. The Venture Company has cut too deep to be forgiven.", fx = { align = { light = -1 } } },
+        { text = "Then they get no mercy from me.", next = "BACK", reply = "Then the spirits of these hills will be glad of you. Start at Windshear Crag, where the saws never stop.", fx = { align = { light = -1 } } },
         { text = "Drive them out, but the hired hands just want wages.", next = "BACK", reply = "That's a kinder heart than mine, and maybe a wiser one. Spare the ones who run, then, but break the machines.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "venture_company" } } },
       },

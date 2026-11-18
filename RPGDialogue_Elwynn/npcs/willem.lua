@@ -37,6 +37,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_hogger_w = {
+      lines = {
+        { id = "dd_hogger_w_a", text = "I do, and I'll tell you why. I sent three recruits down that road this spring with a bounty notice in their packs, and only two of them came back, so every time somebody tells me Hogger's dead I want to hear it twice." },
+      },
+      choices = {
+        { text = "He's dead. Your recruit is avenged.", next = "dd_hogger_w2", fx = { align = { honor = 1 } } },
+        { text = "Then stop sending green recruits after a gnoll warlord.", next = "dd_hogger_w2", fx = { align = { order = -1 } } },
+      },
+    },
+    dd_hogger_w2 = {
+      lines = {
+        { id = "dd_hogger_w2a", text = "You're right, and you're right, and I'll carry both. I'll light a candle for the lad at vespers tonight, and I'll tell the brothers who to thank for it." },
+      },
+      choices = { { text = "Light one for me too. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "There are kobolds in the mine, wolves in the woods, and Defias in the vineyard. Your spirits might help, if you're willing." } },
@@ -50,7 +66,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Candles, as far as I can tell, because they shout 'You no take candle!' at anyone who comes near, so I reckon they're afraid of the dark in those tunnels. I'd almost feel sorry for them, if they weren't digging up the vineyard." } },
       choices = {
-        { text = "Drive them back into the mine. The vineyard comes first.", next = "BACK", reply = "That's the job, and I'll mark it on the board. The Marshal will be glad.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Drive them back into the mine. The vineyard comes first.", next = "BACK", reply = "That's the job, and I'll chalk it on the stable door. Milly loses a row of vines every week they keep digging.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Leave them their candles and they'll stop digging. Fear makes them bold.", next = "BACK", reply = "Maybe they would, but they've had the Abbey's candles already. I'd rather they stopped digging under the vines.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -98,7 +114,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Not badly yet, a few cuts and a farmhand's broken arm, but they're getting bolder, and bold thieves end up using their knives. Milly Osworth's family hasn't slept properly in a month, and that's a wound too, whatever the Marshal says." } },
       choices = {
-        { text = "Fear is a wound like any other. I'll see to them.", next = "BACK", reply = "Thank you, Milly's family will be glad of it. The Light knows they need some rest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear is a wound like any other. I'll see to them.", next = "BACK", reply = "Thank you. Milly's family will be glad of it, because the Light knows they need some rest.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "No blood, no wound. Let the Marshal handle the rest.", next = "BACK", reply = "You've not met Milly, then, after a week of no sleep. I'll leave it to the Marshal.", fx = { align = { light = -1 } } },
         { text = "Something else, Willem.", next = "BACK" },
       },
@@ -114,6 +130,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_hogger_willem", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
+          text = "A runner from Goldshire says Hogger's claw is pinned to Marshal Dughan's board and that one of our own Northshire recruits put it there. I told the brothers I'd always known you had it in you, which was very nearly true." },
+        { id = "dd_rep_willem", when = { reputation = { faction = "Stormwind", min = "honored" } },
+          text = "Word gets back to the Abbey about who's doing right by Stormwind, and your name's been on a few lips in the city lately. Mind you keep it there for good reasons." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Brother Paxton's always short of hands on his rounds, so if you've the time, he'll be glad of yours." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The Marshal will want to see you, because he's been asking Stormwind for paladins since the snow melted." },
         { id = "h_default", text = "I'm Willem, deputy to Marshal McBride. If it's trouble in this valley, I've likely heard of it already." },
@@ -159,6 +180,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening. One eye on the road, mind." },
       },
       choices = {
+        { text = "Hogger's dead, Deputy. I thought you'd want to know.", next = "dd_hogger_w", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") } },
+
         { text = "Any trouble I can help with?", next = "BUSINESS" },
         { text = "What sort of trouble is there in the valley?", next = "thieves" },
         { text = "Who else in the valley needs a hand?", next = "valley" },
@@ -184,7 +207,7 @@ P:NPC {
       choices = {
         { text = "Who leads them up here?", next = "garrick" },
         { text = "I can't see why anyone would join them.", next = "why", fx = { trait = { curious = 1 } } },
-        { text = "Then I'll clear them out.", next = "BACK", reply = "Good, and the Marshal will be glad of it. The camp's in the north rows.", fx = { align = { order = 1 }, trait = { brave = 1 }, affinity = 1 } },
+        { text = "Then I'll clear them out.", next = "BACK", reply = "Good. The camp's in the north rows, and I'll have the chalk ready for your tally.", fx = { align = { order = 1 }, trait = { brave = 1 }, affinity = 1 } },
         { text = "The vineyard's not my problem, Deputy.", next = "BACK", reply = "It's all our problem, friend, if they get bolder. But I'll not force you.", fx = { align = { order = -1 } } },
       },
     },
@@ -255,7 +278,7 @@ P:NPC {
         { id = "bw_default", text = "Wherever they're sent. I don't ask; I'd only get an answer I didn't like. Meanwhile we've kobolds, wolves and thieves, and a Marshal who won't sleep." },
       },
       choices = {
-        { text = "Then I'll help where I can.", next = "BACK", reply = "Thank you, the Marshal will be glad of it. So will I.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Then I'll help where I can.", next = "BACK", reply = "Thank you. The Marshal won't say it, so I will: we need every pair of hands we can get.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Somebody should ask.", next = "BACK", reply = "Somebody should, aye, and it'll not be a deputy. Ask it in Stormwind if you like.", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
       },
     },

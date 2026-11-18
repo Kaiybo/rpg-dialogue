@@ -429,7 +429,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Every last one, and the list is longer than I'd like, though shorter than my competitor's in Stormwind. Leatherworking is a trade for the living, so I'll teach you what you need and hope your name never goes on that parchment." } },
       choices = {
-        { text = "I'll be careful. I don't want to be on that list.", next = "BACK", reply = "Good, because I'd hate to add a mage, they're always so surprised. Careful's the only way to leatherwork dragons.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll be careful. I don't want to be on that list.", next = "BACK", reply = "Good, because I'd hate to add a mage; they always look so surprised. Bring a friend who can take a hit.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A good mage doesn't die to dragons.", next = "BACK", reply = "That's what the last three said, friend. Their names are on the second page.", fx = { align = { order = -1 } } },
         { text = "I'll take my chances.", next = "BACK" },
       },
@@ -470,8 +470,23 @@ P:NPC {
         { text = "Never mind the scales.", next = "BACK" },
       },
     },
+    dd_dragons = {
+      lines = {
+        { id = "dd_dragons_1",
+          text = "I keep a list of customers who went after dragonscale and never came back to pay for the lesson. It's a long list, and I read it some nights to remind myself why I teach the trade from a camp, not a cave." },
+        { id = "dd_dragons_2",
+          text = "The blue dragonkin guard something up there, and they guard it well. If you keep going back, bring the scales to me, and bring yourself back with them." },
+      },
+      choices = {
+        { text = "I'll bring the scales. Leave my name off.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I die, I die. Write me in.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Peter.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_dragons", when = { killed = { name = { "Dragonspawn", "Scalebane", "Magelord" }, min = 20 } },
+          text = "You've been fighting the blue dragonkin up near the Ruins of Eldarath, and you're still alive. I'll take you off the list I keep, then, at least for this week." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, in my camp. You'll want dragonscale like the rest of them, I expect, though I'll warn you now that dragons don't care for demons any more than they care for me." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -487,7 +502,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Peter Galen, of Stormwind, master of dragonscale leather. I work the scales of the most dangerous prey there is, and I teach anyone who's daft enough to go and get them." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest, good, because half my students come back from the dragons needing one, and the other half don't come back at all. The list is by the fire, if you've the stomach for it." },
+          text = "A priest, good, because my students come back from the dragons needing one, when they come back at all. The list is by the fire, if you've the stomach for it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll want dragonscale, I suppose, though plate's more your style; still, if you mean to go hunting dragons, I'd rather you went in armour than in hope." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in my camp! Well, dragons don't care about banners and neither do I, so welcome, though I'll offer my condolences before you go hunting anything with scales." },
@@ -496,6 +511,7 @@ P:NPC {
       again = { { id = "h_again", text = "What else? I've a hide soaking, so make it quick." },
                 { id = "h_again2", text = "Go on, I'm listening, and so's the dragon whelp up on the ridge, probably." } },
       choices = {
+        { text = "You really keep a list of the dead?", next = "dd_dragons", when = { killed = { name = { "Dragonspawn", "Scalebane", "Magelord" }, min = 20 } } },
         { text = "Why work out here, of all places?", next = "why" },
         { text = "Is dragonscale worth the danger?", next = "scale" },
         { text = "Show me what you teach.", next = "BUSINESS" },
@@ -630,7 +646,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Stole it, scattered it, and left me for the naga, and called me little rat while they did it! I need my gear back, every crate of it, and a rogue knows how to find things that aren't where they should be." } },
       choices = {
-        { text = "I'll get it back. That's only fair.", next = "BACK", reply = "Fair, he says, a rogue who believes in fair! I'll take it, partner, and I'll owe you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll get it back. That's only fair.", next = "BACK", reply = "Fair, {g:he|she} says, a rogue who believes in fair! I'll take it, partner, and I'll owe you.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll get it back, for a cut.", next = "BACK", reply = "A cut, of course, of course, and I'd do the same. Ten percent, and not a copper more.", fx = { align = { honor = -1 } } },
         { text = "Little rat, eh?", next = "BACK" },
       },
@@ -869,7 +885,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Every hour, because I chose the course that brought us past the naga, and I light a lamp for every sailor who didn't make it ashore. A priest of any faith could tell me it wasn't my fault, and I still wouldn't believe it." } },
       choices = {
-        { text = "Grief is a burden we can share. Let me help.", next = "BACK", reply = "Thank you, and I'll take that kindness gladly. A lamp is lighter when someone helps carry it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Grief is a burden we can share. Let me help.", next = "BACK", reply = "Thank you, and I'll take that kindness gladly. I haven't said their names aloud since the wreck.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then carry it. Guilt keeps a captain sharp.", next = "BACK", reply = "It does, and I'll carry it. But it's a heavy thing, and some nights I'd like to set it down.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1095,12 +1111,14 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Knowledge, {g:lad|lass}, and maybe a few relics for the Hall o' Explorers. Tymor reckons the Highborne wrote down what they did before yer people's world broke, and if the rubbings tell us how they did it, maybe we'll know better than to try it again, which yer Circle would like, I'd think." } },
       choices = {
         { text = "Leave the Highborne stones alone. Some knowledge deserves burying.", next = "BACK", reply = "Mebbe they do, but buried things have a way o' gettin' dug up by the wrong folk. Better us than the naga.", fx = { align = { order = 1 } } },
-        { text = "Better to learn from their mistakes than repeat them. Keep digging.", next = "BACK", reply = "That's the spirit, an' Tymor would shake yer hand for it. Learnin' from the dead keeps the livin' alive.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Better to learn from their mistakes than repeat them. Keep digging.", next = "BACK", reply = "That's the spirit, an' Tymor would shake yer hand for it. He's got crates o' rubbings already, an' he still wants more.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Never mind the rubbings.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_crew", when = { questDone = TODO_QUEST("A Crew Under Fire") },
+          text = "Beltis says ye fought the naga off her crew in the Ruined Reaches, an' I saw it from up top on my rounds. Ye looked like a wee hero from up there, an' I'll tell 'em so in Ironforge." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, wantin' a lift? Fine by me, so long as yer wee beastie doesn't chew the fuel line, because I'll not be explainin' that tae Ironforge." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },

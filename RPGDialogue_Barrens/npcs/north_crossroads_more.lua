@@ -145,7 +145,7 @@ P:NPC {
       big = true,
       lines = { { id = "fi_default", text = "A caged beast dies afraid, and a free one dies fighting, if it dies at all. Some owners would rather I kept their companions locked away and safe, but I'd rather give them a chance." } },
       choices = {
-        { text = "Their owners trusted you to keep them safe.", next = "BACK", reply = "They trusted me to keep them alive, and a beast that can't run or bite won't stay alive long. I hear you, though, and I'll not take a risk with a pet that isn't mine to take.", fx = { align = { order = 1 } } },
+        { text = "Their owners trusted you to keep them safe.", next = "BACK", reply = "They trusted me to keep them alive, and a beast that can't run or bite won't stay alive long. You've a point, though, and I'll not take a risk with a pet that isn't mine to take.", fx = { align = { order = 1 } } },
         { text = "Better free and fighting than caged and afraid.", next = "BACK", reply = "You understand it as a hunter does, then. The Earth Mother made no creature for a cage, and I sleep better knowing they had their chance.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

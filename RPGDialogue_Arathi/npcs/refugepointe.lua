@@ -35,7 +35,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Bother's no' the word, but it's strange, I'll grant ye, for I grew up on stone the priests said the Titans shaped, an' nobody ever told me it talked. Still, if the earth here'll tell ye where the Witherbark set their ambushes, I'll stop sayin' it's strange an' start sayin' it's useful." } },
       choices = {
         { text = "Ironforge's old ways still matter. I honour both.", next = "BACK", reply = "Both, aye, an' that's a better answer than most o' the priests would give ye. The stone doesnae mind which.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The priests were wrong. The earth was always alive.", next = "BACK", reply = "Wrong, maybe, but they were my priests, an' I'll no' hear them mocked. Still, the earth does seem tae have opinions.", fx = { align = { order = -1 } } },
+        { text = "The priests were wrong. The earth was always alive.", next = "BACK", reply = "Wrong, maybe, but they were my priests, an' I'll no' hear them mocked. Still, I'll grant the ground up here does seem tae have opinions, an' most of them about me.", fx = { align = { order = -1 } } },
         { text = "Something else, Skuerto.", next = "BACK" },
       },
     },
@@ -43,7 +43,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Aye, once the scoutin's over an' the Witherbark have spotted us, which they do sooner or later. Then I want a {g:lad|lass} wi' a shield between me an' their axes while Kryten reads whatever we came for." } },
       choices = {
-        { text = "Then I'll guard you both. A shield's no good unused.", next = "BACK", reply = "That's the spirit! A dwarf scout an' a good shield, an' the Witherbark can howl all they like.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll guard you both. A shield does no good on my back.", next = "BACK", reply = "That's the spirit! A dwarf scout an' a good shield, an' the Witherbark can howl all they like.", fx = { align = { honor = 1 } } },
         { text = "I'll guard you, but the scouting's your problem, dwarf.", next = "BACK", reply = "Fair enough, an' I'll scout like a ghost. Just be ready when they spot us anyway, because they will.", fx = { align = { honor = -1 } } },
         { text = "Something else, Skuerto.", next = "BACK" },
       },
@@ -61,7 +61,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "No' enough, for plenty o' good soldiers died in these hills when Stromgarde fell, an' most o' them never got their proper words. If ye've a prayer tae spare while ye're out there, I'd no' call it wasted, an' I'm no' a man who says that lightly." } },
       choices = {
         { text = "Then I'll say the words. Every soldier deserves them.", next = "BACK", reply = "Bless ye. They'd thank ye if they could, an' I'll thank ye for 'em.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The dead are past caring. The living need the help.", next = "BACK", reply = "Maybe so, but their mothers aren't. Say the words, an' I'll write the letters.", fx = { align = { light = -1 } } },
+        { text = "The dead are past caring. It's the living who need help.", next = "BACK", reply = "Maybe so, but their mothers aren't. Say the words, an' I'll write the letters.", fx = { align = { light = -1 } } },
         { text = "Something else, Skuerto.", next = "BACK" },
       },
     },
@@ -69,7 +69,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Quick an' loud, if ye're askin' me, because Kor'gresh, the ogre holdin' it, has been throwin' ice at his own kin an' I'd as soon he didnae learn any more o' the trick. Malin would have it done quietly, but Malin's in Stormwind an' I'm here." } },
       choices = {
-        { text = "I'll face him in the open and take it fairly.", next = "BACK", reply = "Fair an' open, aye, like a proper knight. Mind the ice; it hurts more than it looks.", fx = { align = { honor = 1 } } },
+        { text = "I'll face him in the open and take it fairly.", next = "BACK", reply = "Fair an' open, aye, like a proper knight. Mind the ice; it hurts a good deal more than it looks, an' it looks bad enough.", fx = { align = { honor = 1 } } },
         { text = "Better to catch him sleeping. Less risk to the wand.", next = "BACK", reply = "Sleepin's safer, an' the wand comes home in one piece. I'll no' tell the Captain how.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -79,7 +79,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, an' from the mountain by the look o' ye! I've heard the Wildhammer do this sort o' thing, {class}, but an Ironforge dwarf callin' the wind would've made me mother faint." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Well, ye'll be less trouble than most, an' if a Witherbark arrow finds me while I'm scoutin', I'd as soon it was you that pulled it out." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Aye, now that's a face I can work wi', because the Boulderfist won't give up Trelane's wand for a polite word, an' Kryten's no' much use wi' anythin' heavier than a quill." },
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID" },
           text = "A night elf druid! Ye'll be wantin' a look at the old stone circles in the hills, I expect, though I'll warn ye the things bound in them havenae taken kindly tae visitors." },
         { id = "h_default", key = true,
           text = "Skuerto. Archmage Malin sent me an' the lad Kryten up here tae recover what his old master Trelane left behind in the Tower of Arathor when Stromgarde fell. I do the scoutin', Kryten does the readin', an' neither of us gets enough sleep." },
@@ -98,10 +98,12 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "Another mage! Kryten's enough for one camp, {class}, an' he talks about Archmage Malin like the fellow walks on water." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, an' a loud one by the clank o' ye. If ye're comin' scoutin' wi' me, ye'll walk behind an' breathe through yer nose, or ye'll no come at all." },
+        { id = "h_dd_ogres", when = { killed = { name = "Boulderfist", min = 30 } },
+          text = "The Boulderfist ogres aren't coming down to the walls as often, and I've a feeling that's because fewer of them are left to come. Whoever's thinning them is doing Stromgarde's work, and I'm told it's you." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick, I've maps tae draw." },
-        { id = "h_again2", text = "Still here? Go on, then." },
+        { id = "h_again2", text = "Still here? Go on, then; the Witherbark won't scout themselves." },
       },
       choices = {
         { text = "Who bound the elementals in those stone circles?", next = "druid_q", when = { class = "DRUID" } },
@@ -150,7 +152,7 @@ P:NPC {
       lines = { { id = "to_default", text = "A wand, a phylactery, an orb an' an ember agate, an' the Boulderfist have their hands on most of it. Ogres wi' an archmage's toys is a thing nobody wants, least of all the ogres' neighbours." } },
       choices = {
         { text = "Malin must want them for something.", next = "tower_malin" },
-        { text = "Better in Malin's hands than an ogre's.", next = "BACK", reply = "Better in his, aye, an' better still locked in a tower nobody can reach.", fx = { align = { order = 1 } } },
+        { text = "Better in Malin's hands than an ogre's.", next = "BACK", reply = "Better in his, aye, an' better still locked in his tower where nobody can reach them, Malin included on his bad days.", fx = { align = { order = 1 } } },
         { text = "Better smashed. No one should have that kind of power.", next = "BACK", reply = "Smashed, aye, maybe, but Malin would weep for a month. I'll let him decide.", fx = { align = { order = -1 } } },
       },
     },
@@ -226,7 +228,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The tower's defenses, mostly, for when I read Trelane's notes on them, the bindings sound almost like bargains. If Archmage Malin is right, they're tools, but if you're right, they're something that agreed to help, and I can't decide which frightens me more." } },
       choices = {
-        { text = "Malin's right. Bindings keep power in proper hands.", next = "BACK", reply = "That's what he says, and I suppose I should agree. But the notes really do read like promises, don't they?", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Malin's right. Bindings keep power in the proper hands.", next = "BACK", reply = "That's what he says, and I suppose I should agree. But the notes really do read like promises, don't they?", fx = { affinity = 1, align = { order = 1 } } },
         { text = "They're bargains, Kryten. Keep yours, or the elements won't.", next = "BACK", reply = "That's exactly what I was afraid of! I'll put it in my notes, carefully, before Malin sees.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -248,15 +250,15 @@ P:NPC {
       },
       choices = {
         { text = "Beasts deserve study as well as slaughter. Keep writing.", next = "BACK", reply = "Thank you! Nobody here takes my notebook seriously, and the raptor drawings are some of my best.", fx = { align = { light = 1 } } },
-        { text = "A dead raptor teaches enough. Skip the drawings.", next = "BACK", reply = "It teaches you how it bit you, I suppose, but not much else. I'll keep drawing, anyway.", fx = { align = { light = -1 } } },
+        { text = "A dead raptor teaches enough. Skip the drawings.", next = "BACK", reply = "It teaches you how it bit you, I suppose, but not much else. I'll keep drawing anyway, only somewhere you can't see.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Is it true your magic draws nothing from the arcane at all? Archmage Malin says all power comes from somewhere, and I can't decide whether yours comes from the trees or from you." } },
       choices = {
-        { text = "Magic should be studied and governed, as yours is.", next = "BACK", reply = "That's what Malin says, and he's very convincing about it. I'll keep studying, I think.", fx = { align = { order = 1 } } },
-        { text = "Nature isn't something to be studied from a tower.", next = "BACK", reply = "Perhaps not, but I'd still like to understand it. Could I at least take notes while you do it?", fx = { align = { order = -1 } } },
+        { text = "Magic should be studied and governed, the way yours is.", next = "BACK", reply = "That's what Malin says, and he's very convincing about it. I'll keep studying, I think.", fx = { align = { order = 1 } } },
+        { text = "Nature isn't something you study from a tower, Kryten.", next = "BACK", reply = "Perhaps not, but I'd still like to understand it. Could I at least take notes while you do it?", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -304,7 +306,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Well, their witch doctors keep fetishes that hold enchantments I've never seen in any book, and I'd dearly love one to study. I couldn't possibly ask you to steal it, of course, but if one happened to come my way, I'd write it all down very carefully." } },
       choices = {
         { text = "Stealing from the Witherbark harms no one who matters.", next = "BACK", reply = "They'd probably disagree, but I won't argue. If you find a spare fetish, I'd be very grateful.", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I don't steal, even for scholarship.", next = "BACK", reply = "That's very principled of you, and I suppose I should be ashamed for asking. I'll find another way.", fx = { align = { honor = 1 } } },
+        { text = "I don't steal, not even for scholarship.", next = "BACK", reply = "That's very principled of you, and I suppose I should be ashamed for asking. I'll find another way.", fx = { align = { honor = 1 } } },
         { text = "Let's talk of something else, Kryten.", next = "BACK" },
       },
     },
@@ -314,7 +316,7 @@ P:NPC {
       choices = {
         { text = "Knowledge should be free, even mine.", next = "BACK", reply = "That's a generous thought. I'll write down anything you're willing to tell me, and keep it from Malin.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Some things should stay with those trained for them.", next = "BACK", reply = "Malin would agree with you completely. I'll keep my curiosity to myself, then.", fx = { align = { order = 1 } } },
-        { text = "Maybe another time. Something else.", next = "BACK" },
+        { text = "Maybe another time. Let's talk about something else.", next = "BACK" },
       },
     },
     witherbark = {
@@ -322,8 +324,8 @@ P:NPC {
       lines = { { id = "w_default", text = "Their witch doctors work with herbs and bones in ways no Kirin Tor text ever records. Most of it is crude, but some of it is remarkably clever, and I'd hate to see it lost just because we don't like the people who know it." } },
       choices = {
         { text = "What have you learned so far?", next = "witherbark_learned" },
-        { text = "Knowledge is knowledge, whoever holds it.", next = "BACK", reply = "That's what I've been trying to tell Malin. He says crude is crude, but some of it works.", fx = { align = { light = -1 }, trait = { curious = 1 } } },
-        { text = "Some knowledge should stay with the trolls.", next = "BACK", reply = "Perhaps you're right, and they'd certainly agree. I'll content myself with watching, then.", fx = { align = { light = 1 } } },
+        { text = "Knowledge is knowledge, whoever happens to hold it.", next = "BACK", reply = "That's what I've been trying to tell Malin. He says crude is crude, but some of it works.", fx = { align = { light = -1 }, trait = { curious = 1 } } },
+        { text = "Some knowledge ought to stay with the trolls.", next = "BACK", reply = "Perhaps you're right, and they'd certainly agree. I'll content myself with watching, then.", fx = { align = { light = 1 } } },
       },
     },
     witherbark_learned = {
@@ -381,7 +383,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a gryphon? They're fed and fresh, and the weather's holding for now." },
+    { id = "g_default", text = "Need a gryphon? They're fed and fresh, and the weather's holding for now, though I wouldn't swear to it past noon." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the Pointe. Where shall it be this time?" },
   },
 
@@ -415,7 +417,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "They screech, they sulk, and one of them dropped a footman's shield into the gorge under Thandol Span out of pure spite. Wildhammer birds know the difference between a rider and a load, and they'll let you know which one you are." } },
       choices = {
         { text = "Then I'll respect the bird and ride light.", next = "BACK", reply = "Thank you. That bird still hasn't forgiven the footman, and I'd hate for it to start on you.", fx = { align = { honor = 1 } } },
-        { text = "The bird can sulk. It still has to carry me.", next = "BACK", reply = "It has to, aye, but it doesn't have to be gentle about it. Mind your shield over the Span.", fx = { align = { honor = -1 } } },
+        { text = "The bird can sulk all it likes. It still has to carry me.", next = "BACK", reply = "It has to, aye, but it doesn't have to be gentle about it. Mind your shield over the Span.", fx = { align = { honor = -1 } } },
         { text = "Something else, Cedrik.", next = "BACK" },
       },
     },
@@ -426,7 +428,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Whatever the hunters bring in, mostly, and raptor's their favourite. Keep {pet} off the roost, please, because my birds have decided it looks like dinner, and gryphons don't take no for an answer." },
       },
       choices = {
-        { text = "Feed the soldiers first, then the birds. That's the right order.", next = "BACK", reply = "That's how I do it, and the birds grumble. They'll survive a lean week.", fx = { align = { order = 1 } } },
+        { text = "Feed the soldiers first, then the birds. That's the right order.", next = "BACK", reply = "That's how I do it, and the birds grumble at me all through supper. They'll survive a lean week; they've survived worse.", fx = { align = { order = 1 } } },
         { text = "Feed the birds first. Without them, the dispatches stop.", next = "BACK", reply = "The Captain would disagree, but I think you're right. No birds, no letters, no help.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -453,7 +455,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but they'll flatten their feathers and fly fast, and I've had one try to shake a rider off over the Thandol Span. Treat the bird well and keep your demon out of its sight, and you'll land where you meant to." } },
       choices = {
-        { text = "I'll treat your birds with respect, Cedrik.", next = "BACK", reply = "Thank you. They'll notice, and they'll fly a little gentler for it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll treat your birds with respect, Cedrik.", next = "BACK", reply = "Thank you. They'll notice, believe me; that big grey one bites anyone who doesn't.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The bird will carry me whether it likes it or not.", next = "BACK", reply = "It will, aye, and it may sulk the whole way. Don't say I didn't warn you.", fx = { align = { order = -1 } } },
         { text = "Something else, Cedrik.", next = "BACK" },
       },
@@ -473,8 +475,12 @@ P:NPC {
           text = "Quiet on your feet, {class}, good, because the gryphons startle easily, and a startled gryphon is a hard thing to calm." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds can carry you, armour and all, though the gryphons do complain about plate when the wind's blowing off the coast." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll appreciate my gryphons, then, for there isn't a beast in the Highlands they couldn't take, though they're a sight harder to feed." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Your people have their hippogryphs, I know, but I'll wager you'll find a gryphon just as steady." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Your people have their hippogryphs, I know, but I'll wager you'll find a gryphon just as steady." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The gryphons don't care for whatever you've got following you, {class}, so leave it on the ground when you fly, and I'll leave the bird's temper to the bird." },
+        { id = "h_dd_northfold", when = { questDone = TODO_QUEST("Northfold Manor") },
+          text = "My gryphon riders flew over Northfold this morning and saw no Syndicate banners on the walls. Captain Nials says that's your doing, and I've told the riders to give you their best bird." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You fell from the cliffs, didn't you? The Highlands look gentle from the back of a gryphon, but they're all sudden drops on foot." },
       },
       again = {
         { id = "h_again", text = "Anything more? The gryphons smell trolls on the wind and won't settle until we're done." },
@@ -499,9 +505,9 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Every dispatch the Captain sends south is sealed, and I've never broken a seal in my life. That said, the Syndicate would pay a fortune to know what's in them, so I sleep with the bag under my head and a knife beside it." } },
       choices = {
-        { text = "A sealed letter should stay sealed. Good.", next = "BACK", reply = "Thank you. I'd be out of a job by morning if I ever broke one.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A sealed letter should stay sealed. Good on you.", next = "BACK", reply = "Thank you. I'd be out of a job by morning if I ever broke one.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A curious courier lives longer. Read them.", next = "BACK", reply = "Curious, maybe, but dead if the Captain found out. I'll stay incurious.", fx = { align = { honor = -1 } } },
-        { text = "Sleep light, then. Something else.", next = "BACK" },
+        { text = "Sleep light, then. Let's talk about something else.", next = "BACK" },
       },
     },
     xmage = {
@@ -566,6 +572,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_northfold = {
+      lines = { { id = "dd_northfold_default", text = "Robbing them, then selling our own flour back to us through some smiling middleman for twice what it cost. They're Alterac's nobility gone to seed, and they'd sell the walls of Stromgarde if they could carry them." } },
+      choices = {
+        { text = "Then they'll get nothing more from Refuge Pointe. I'll see to it.", next = "BACK", reply = "I'll hold you to that, and I'll know if you don't, because I count. Thank you, {class}.", fx = { align = { order = 1 } } },
+        { text = "Can't blame a man for knowing a good market when he sees one.", next = "BACK", reply = "I can blame him, and I do, every evening when I tally up. Mind you don't start admiring them out loud.", fx = { align = { order = -1 } } },
+        { text = "Something else, Vikki.", next = "BACK" },
+      },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Most of them are too tired to trust or distrust anybody, and they'll trust you the first time you pull one of them out of a Witherbark ambush. A few of the older ones remember orc shamans from the war and won't sit near you, so I'd let them come round on their own." } },
@@ -588,7 +603,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Shorter than the Captain admits, though she knows, for she counts the same crates I do. The carts come up from the Wetlands when Thandol Span is clear, and the Syndicate have started watching the road, so every cart's a gamble now." } },
       choices = {
-        { text = "Ration everyone fairly. Nobody fights well hungry.", next = "BACK", reply = "That's how I do it, and the Captain backs me. Nobody fights well hungry.", fx = { align = { light = 1 } } },
+        { text = "Ration everyone fairly. Nobody fights well hungry.", next = "BACK", reply = "That's how I do it, and the Captain backs me, even when the sergeants come round asking for double.", fx = { align = { light = 1 } } },
         { text = "Feed the fighters first. The rest can tighten their belts.", next = "BACK", reply = "The Captain says the same, and I hate it, but she's right. The fighters eat first.", fx = { align = { light = -1 } } },
         { text = "Something else, Vikki.", next = "BACK" },
       },
@@ -600,7 +615,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You could bring in meat, for a start, since the soldiers haven't seen fresh food in weeks, and I'll trade arrows for it. {pet} eats too, I suppose, but I'll not grudge it, for a beast that guards the camp earns its supper." },
       },
       choices = {
-        { text = "I'll share the meat with whoever's hungriest.", next = "BACK", reply = "Bless you. The soldiers will remember your name.", fx = { align = { light = 1 } } },
+        { text = "I'll share the meat with whoever's hungriest.", next = "BACK", reply = "Bless you! I'll tell the cook to say whose haunch it was, and the soldiers will remember your name.", fx = { align = { light = 1 } } },
         { text = "I'll hunt, but I'm keeping the best cuts for myself.", next = "BACK", reply = "You'll get the best cuts, aye, and you'll eat them in front of hungry soldiers. Think about it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -610,7 +625,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Better than they were, though I count the bandages every morning and every morning there are fewer. Witherbark arrows go deep and the ogres don't leave much to mend at all, so the healers we have are worn to the bone." } },
       choices = {
         { text = "I'll spend tonight among the wounded. Count me in.", next = "BACK", reply = "Thank you. Bring bandages if you have them, and patience if you don't.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Healers must ration themselves. Not everyone can be saved.", next = "BACK", reply = "I know it, and I hate it, but you're right. I'll show you who's past saving.", fx = { align = { light = -1 } } },
+        { text = "Healers have to ration themselves. Not everyone can be saved.", next = "BACK", reply = "I know it, and I hate it, but you're right. I'll show you who's past saving.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -637,8 +652,10 @@ P:NPC {
           text = "I count every arrow and every loaf at the end of the day, {class}, so if something goes missing I'll know exactly when you were here." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be wanting rations, then, and whetstones, and I've enough of both for three more days if nobody else comes up the road." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll want arrows, I suppose, which is a pity, since I'm down to my last two quivers and the soldiers want those too." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. If you're after herbs, the Highlands have plenty, but watch out for the ogres in the east, because they think everything in the hills belongs to them." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. If you're after herbs, the Highlands have plenty, but watch out for the ogres in the east, because they think everything in the hills belongs to them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be wanting oil for that plate and the good bandages, and I'll warn you now, {class}, the Captain's sergeants have already asked me for both." },
+        { id = "h_dd_northfold", tags = { "news" }, when = { questDone = TODO_QUEST("Northfold Manor") },
+          text = "Captain Nials says you cleared the Syndicate out of Northfold Manor, and I've already noticed fewer supply carts going missing on the north road. I count everything, {class}, and I counted that." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a tally to finish." },
@@ -657,6 +674,7 @@ P:NPC {
         { text = "Is Refuge Pointe short of more than bandages, Vikki?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the soldiers here trust a dwarf shaman, Vikki?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
+        { text = "The Syndicate were robbing your carts, Vikki?", next = "dd_northfold", when = { questDone = TODO_QUEST("Northfold Manor") } },
       },
     },
     xrogue = {
@@ -706,7 +724,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "What's in stock and what isn't. That's my whole trade." } },
     background = { { id = "tp_bg", text = "I sold goods in Stromgarde before the keep fell. Now I sell them in a tent, and I'm glad of the tent." } },
-    advice = { { id = "tp_ad", text = "Carry more water than you think. The Highlands are drier than they look." } },
+    advice = { { id = "tp_ad", text = "Carry more water than you think you'll need. The Highlands are drier than they look, and the streams up by the Witherbark camps aren't worth the risk." } },
     stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's soldiers eat everything I have, and I'd give them more if I had it. They're fighting for a kingdom that may not come back, and they deserve better than hardtack." } },
     thandol_span = { { id = "tp_thandol_span", text = "The Span's down, so supplies come slowly, and I count every arrow twice. The Dark Irons have a lot to answer for." } },
     scourge = { { id = "tp_scourge", text = "The dead haven't come to the Highlands yet, and I pray they never do. We've barely enough arrows for the ogres." } },

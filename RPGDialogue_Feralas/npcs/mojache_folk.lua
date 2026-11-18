@@ -44,10 +44,11 @@ P:NPC {
           text = "That's a heavy sack. I'll send it to Orgrimmar with your name on it, and Belgrom can count them himself." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "I'll say this once, tauren: I've nothing against your people, only against the ones who'd see the Horde fall. If that sticks in your throat, take it up with the Grimtotem." },
+        { id = "h_dd_ogres", tags = { "news" }, when = { questDone = TODO_QUEST("The Ogres of Feralas") }, text = "Rok Orhan says you broke the Gordunni outpost for him. Ogres are fine work, but don't forget there are tauren in those hills who need killing more." },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly." },
-        { id = "h_again2", text = "More questions? Fine, but make them good ones." },
+        { id = "h_again", text = "What else? Be quick about it." },
+        { id = "h_again2", text = "More questions? Fine, but make them good ones; I've a camp to guard." },
       },
       choices = {
         { text = "Why does Belgrom hate the Grimtotem?", next = "belgrom" },
@@ -55,7 +56,18 @@ P:NPC {
         { text = "Why horns?", next = "horns" },
         { text = "How do the tauren here feel about this?", next = "camp" },
         { text = "Give me the bounty.", next = "BUSINESS" },
+        { text = "Rok Orhan has me fighting ogres. Is that a problem?", next = "dd_ogres", when = { questDone = TODO_QUEST("The Ogres of Feralas") } },
         { text = "I'll go.", next = "END" },
+      },
+    },
+    dd_ogres = {
+      lines = {
+        { id = "dd_ogres_1", text = "No, and Rok Orhan is right to want them gone, because Belgrom sent us both. But an ogre is a beast who wants your food, and a Grimtotem is a traitor who smiles at you in Thunder Bluff and stabs you in Stonetalon, and I know which one I'd rather see dead." },
+      },
+      choices = {
+        { text = "A traitor is worse than a beast. You're right.", next = "BACK", reply = "Good, then bring me horns as well as ogre ears, and we'll both be pleased.", fx = { align = { honor = 1 } } },
+        { text = "Dead is dead. I'll kill whoever pays best.", next = "BACK", reply = "Hah! A mercenary's answer, but an honest one, and Belgrom's coin spends the same either way.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Krueg.", next = "BACK" },
       },
     },
 
@@ -77,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "bs_default", text = "Maybe, but I'm a grunt, not a counsellor. Belgrom says hunt, so I hunt, and if he's wrong, the Warchief can tell him so." } },
       choices = {
-        { text = "A soldier follows orders. That's how the Horde holds.", next = "BACK", reply = "That's right, and that's why the Horde still stands, while the Alliance argues about every order they're given.", fx = { align = { order = 1 } } },
-        { text = "A soldier should know why he kills.", next = "BACK", reply = "I know why, the Grimtotem killed our people, and that's reason enough for any grunt who's buried a friend.", fx = { align = { order = -1 } } },
+        { text = "A soldier follows orders. That's how the Horde holds together.", next = "BACK", reply = "That's right, and that's why the Horde still stands, while the Alliance argues about every order they're given.", fx = { align = { order = 1 } } },
+        { text = "A soldier should know why he kills.", next = "BACK", reply = "I know why. The Grimtotem killed our people, and that's reason enough for any grunt who's buried a friend.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -117,7 +129,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "The Grimtotem, the bounty, and my orders. That's all I need." } },
-    background = { { id = "tp_bg", text = "Grunt of Orgrimmar, sent west by Belgrom Rockmaul. That's the whole story.", next = "belgrom" } },
+    background = { { id = "tp_bg", text = "Grunt of Orgrimmar, sent west by Belgrom Rockmaul to break Grimtotem horns. That's the whole story, and I like it that way.", next = "belgrom" } },
     grimtotem = { { id = "tp_grim", text = "The Grimtotem are traitors to their own kind, so bring me their horns." } },
     _none = { { id = "tp_none", text = "I don't know and I don't care, so bring me horns or bring me nothing." } },
   },
@@ -264,6 +276,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Shyn, and these are the riders of Camp Mojache. They'll carry you to Thunder Bluff, Freewind, or wherever else the Horde has a perch." },
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You fell to your death somewhere, I can see it in how tightly you grip the saddle straps. My riders don't drop anyone who holds on, so hold on, and you'll never have that trouble from the sky." },
       },
       again = { { id = "h_again", text = "Anything else before you fly?" } },
       choices = {
@@ -289,7 +302,7 @@ P:NPC {
       big = true,
       lines = { { id = "ds_default", text = "Because a rider that fights carries no one home. Some of the braves say I'm too soft, and that the elves should learn to keep their beasts away from ours." } },
       choices = {
-        { text = "You're right. Keep the peace in the sky.", next = "BACK", reply = "Thank you, friend, and the sky will be kinder for it, because riders who fight are riders who fall.", fx = { align = { light = 1 } } },
+        { text = "You're right. Keep the peace in the sky.", next = "BACK", reply = "Thank you, friend. I have flown these clouds for twenty summers, and the riders who go looking for fights are the ones I end up singing for.", fx = { align = { light = 1 } } },
         { text = "The braves are right. Teach the elves a lesson.", next = "BACK", reply = "Perhaps they are, but it is my wind riders who would bleed for the lesson, and I will not give it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -351,7 +364,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the winds of Feralas and every perch between here and Thunder Bluff." } },
     sentinels = { { id = "tp_se", text = "Their hippogryphs keep to the coast and we keep inland, and that way everyone stays dry and alive." } },
     dire_maul = { { id = "tp_dm", text = "The riders won't fly low over those old elven ruins. They know something we don't, and I trust them." } },
-    advice = { { id = "tp_ad", text = "Lean into the turns, not away from them. The rider knows what it's doing." } },
+    advice = { { id = "tp_ad", text = "Lean into the turns, not away from them. Your rider knows what she's doing, and she'll sulk if you fight her." } },
     _none = { { id = "tp_none", text = "I don't know. I'm usually in the air when people talk about things like that." } },
   },
 }

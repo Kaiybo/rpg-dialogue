@@ -37,6 +37,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_blade = {
+      lines = {
+        { id = "dd_bl_default", text = "Fewer, aye, but they're like scorpids under a rock: you never get all of them. Ak'Zeloth says the demons they call are drawn to the place itself, and that's why they keep coming back. What would you do about it, if Far Watch were yours?" },
+      },
+      choices = {
+        { text = "Burn the peak to the rock and salt the ashes.", next = "BACK", reply = "If I had the grunts, I'd do just that. I'll pass it on to Thork, though he'll laugh at me again.", fx = { align = { light = -1 } } },
+        { text = "Ask the shaman to cleanse the land, not just kill.", next = "BACK", reply = "Thun'grim would like that answer, and maybe you're right. The spirits might know better than my axe does.", fx = { align = { light = 1 } } },
+        { text = "Something else, Kargal.", next = "BACK" },
+      },
+    },
     prej_kargal = {
       big = true,
       lines = { { id = "prej_kargal_default", text = "Course I have. I've watched this border since the Horde came to Durotar, and I know every face that crosses it, and then one day your people turn up out of the clouds with no warning and a lot of questions. A watchman doesn't like surprises, and you're a big one." } },
@@ -58,6 +68,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_blade", when = { killed = { name = "Burning Blade", min = 20 } },
+          text = "My lookouts say the Burning Blade fires at Dreadmist Peak have been burning lower since you went up there. I'll take any help with those cultists, because nobody at the Crossroads ever sends me enough grunts to deal with them myself." },
         { id = "h_default", key = true, text = "Kargal Battlescar. I hold Far Watch Post for the Horde, which means I watch the river, the hills and the road, and nobody at the Crossroads thanks me for any of it." },
         { id = "h_orc", when = { race = "Orc" }, text = "An orc who climbed the hill on purpose. Sit if you like, there's a fire, and you can tell me how badly they're running things down at the Crossroads." },
         { id = "h_forsaken", when = { race = "Scourge" }, text = "One of Sylvanas's dead, all the way out here. Stand downwind of the fire, would you, because my grunts are eating." },
@@ -68,6 +80,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. The river isn't going anywhere." },
       },
       choices = {
+        { text = "The Burning Blade at Dreadmist are fewer, Kargal.", next = "dd_blade", when = { killed = { name = "Burning Blade", min = 20 } } },
         { text = "You've had your eyes on me since I came up the path, Battlescar.", next = "prej_kargal", when = { prejudiced = true } },
         { text = "What does Far Watch Post guard?", next = "post" },
         { text = "You don't think much of the Crossroads command.", next = "sergra" },
@@ -210,7 +223,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you know?" },
-        { id = "h_again2", text = "Ask quickly. The fires on the peak are lit again tonight." },
+        { id = "h_again2", text = "Ask quickly, because the fires on the peak are lit again tonight." },
       },
       choices = {
         { text = "What gives the cultists their power?", next = "seed" },
@@ -497,7 +510,7 @@ P:NPC {
     line = {
       lines = { { id = "ln_default", text = "Shield up, feet wide, weight low, and don't let your eyes leave the enemy's shoulders, because that's where the swing starts. Do that a thousand times and you'll start to understand." } },
       choices = {
-        { text = "A thousand times. I'll start now.", next = "BACK", fx = { affinity = 2 } },
+        { text = "A thousand times it is, and I'll start right now.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -149,7 +149,7 @@ P:NPC {
           text = "A mage at my logging camp. I don't suppose you could turn a tree into planks with a wave of your hand?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're here to fight bears, good; if you're here to cut wood, better, but I'll take either." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The bears and wolves up north are your trade, I'd think, and they're my problem." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and if you've come to tell me the trees have feelings, get in line behind the bowyer. I've an order due in Stormwind by the week's end." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, and if you've come to tell me the trees have feelings, get in line behind the bowyer. I've an order due in Stormwind by the week's end." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. If that demon of yours can carry timber, I'll pay it a wage, and if it can't, I've no use for it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've bundles to count and deadlines to meet. Talk quickly, and keep your spirits away from the timber." },
       },
@@ -250,7 +250,7 @@ P:NPC {
       },
       choices = {
         { text = "Axes and men, both.", next = "BACK", reply = "Good, and quick about it. The axes are by the shed.", fx = { affinity = 2, align = { light = 1 }, standing = { eastvale = 1 } } },
-        { text = "The men first. Then your deadline.", next = "BACK", reply = "The men first, aye, and I'll not argue with a priest. Be quick about it, though.", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "The men first, and then your deadline.", next = "BACK", reply = "The men first, aye, and I'll not argue with a priest. Be quick about it, though.", fx = { align = { light = 1 }, affinity = -1 } },
       },
     },
     farmhand = {

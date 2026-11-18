@@ -32,6 +32,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_haggard_def = {
+      lines = {
+        { id = "dd_haggard_def_a", text = "I'd guessed. Thirty years I wore the badge, and I've seen how it starts: a man isn't paid, so he takes, and then he's taking from the farmer next door. It's the nobles who should be answering for it, not just the men with bandanas." },
+      },
+      choices = {
+        { text = "They chose to rob honest farmers. They answer for that.", next = "dd_haggard_def2", fx = { align = { order = 1 } } },
+        { text = "The nobles cheated them. I'd have done the same, maybe.", next = "dd_haggard_def2", fx = { align = { order = -1 } } },
+      },
+    },
+    dd_haggard_def2 = {
+      lines = {
+        { id = "dd_haggard_def2a", text = "Maybe so, and maybe not, and it's all the same to the farmer who's lost his barn. Keep your blade sharp and your head clear, and you'll do better than most who've come through Eastvale." },
+      },
+      choices = { { text = "I'll keep that in mind. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Their lightning took good men, and I've not forgotten it. But you walk steady and honest, and I'll judge you on that." } },
@@ -46,7 +62,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "In the old war, when the orcs brought their warlocks over the Black Morass and burned the kingdom. I don't hold the trade against a human who learned it after, but I'll ask you to remember that the last ones to use it came here to kill us." } },
       choices = {
         { text = "I'll remember it, Marshal, and use it against our enemies.", next = "BACK", reply = "Good, that's what I'd hoped you'd say. Turn it on the orcs if they ever come back.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Power isn't to blame for who used it.", next = "BACK", reply = "Maybe not, but it's still dangerous in a careless hand. Be careful with yours.", fx = { align = { honor = -1 } } },
+        { text = "Power isn't to blame for who used it.", next = "BACK", reply = "Maybe not, but I watched what it did in careless hands the year Goldshire burned, so be careful with yours.", fx = { align = { honor = -1 } } },
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
@@ -63,7 +79,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Showing up, mostly, every watch and every bad night, without being asked twice. The ones who wanted glory didn't last, and the ones who wanted their mates to come home lasted forever, near enough." } },
       choices = {
-        { text = "I'll fight for the ones beside me, not for glory.", next = "BACK", reply = "That's the right reason, and you'll last longer for it. I'm proud to hear it.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight for the ones beside me, not for glory.", next = "BACK", reply = "That's the right reason, and you'll last longer for it. I had a sergeant who said the same, and he outlived three captains.", fx = { align = { honor = 1 } } },
         { text = "Glory's what a soldier's remembered for, Marshal.", next = "BACK", reply = "Remembered by whom, though? The ones who came home remember the men who stood beside them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -118,6 +134,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_defias_haggard", when = { killed = { name = "Defias", min = 40 } },
+          text = "You've put a fair few Defias in the ground, by the talk on the road. I've no love for them, but mind they were stonemasons once, and their wives still live in Stormwind." },
+        { id = "dd_hogger_haggard", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
+          text = "Dughan's finally got Hogger's claw on his wall, and they say it was you who brought it in. I chased that gnoll for two summers when I was younger and never got near him, so you've my respect for it." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest? My eyes aren't what they were, but I know the smell of incense, so sit down; you're the first one up here in a month who isn't swearing." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I served beside a few of your sort in the Second War, and they were the only ones who didn't sing on the march." },
         { id = "h_default", text = "I'm Haggard, and I ran the Stormwind Guard once, back when I could read a duty roster. Now I sit here and listen to the loggers swear, and lately I can't even keep hold of my own badge." },
@@ -142,7 +163,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "There's a hum in the air when you're near, like a hive. That'll be a mage, then, or else my ears are going the way of my eyes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few in the Guard, back when, for tracking deserters and gnolls. Handy folk, and quiet." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, by the sound of you, or rather by the lack of it. You walk quieter than any soldier I ever commanded." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, by the sound of you, or rather by the lack of it. You walk quieter than any soldier I ever commanded." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I can't see well any more, but I can smell sulphur, and I've smelled it before." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, I hear, by the step. I ran the Stormwind Guard once, and I fought orc shamans in the Second War. Forgive an old man if he's wary." },
       },
@@ -151,6 +172,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. My ears work, even if nothing else does." },
       },
       choices = {
+        { text = "I've fought a good many Defias, Marshal.", next = "dd_haggard_def", when = { killed = { name = "Defias", min = 40 } } },
+
         { text = "What happened to your badge?", next = "jack" },
         { text = "Whose house was this before you, Marshal?", next = "manor" },
         { text = "Tell me about the Guard.", next = "guard" },

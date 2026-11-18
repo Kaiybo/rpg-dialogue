@@ -134,6 +134,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_tablets", when = { questDone = TODO_QUEST("Stealing Knowledge") },
+          text = "Jediga tells me you've been fetching Highborne tablets for her trade with the human wizard. I don't like it, but the camp needs the coin, so I'll look the other way and thank you for it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Good, because the elves have scouts in those woods who hide better than any orc, and I need someone who can find their trail." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
@@ -149,7 +151,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Betrayed"), days = 7 } },
           text = "The spirits of our dead can rest now, and Belgrom can stop pacing his hall. You did that, {name}, and Valormok won't forget it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because I've buried a dozen warriors since that elf mage turned on us, and they went into the ground without a proper word said over them." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother, out here at Valormok? You'll find this forest sick, tauren, and the elves who live in it are sicker." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother, out here at Valormok? You'll find this forest sick, tauren, and the elves who live in it are sicker." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, at Valormok. We buried nearly every warrior in this camp, and I'd have given my own axe for someone with healing hands that night." },
       },
       again = {
@@ -318,7 +320,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Nothing useful, which is what bothers me, because they guard them like treasure and can't read a word. And keep {pet} out of the water by the ruins, because the naga eat anything that swims, and I can't sell a tablet with teeth marks in it." },
       },
       choices = {
-        { text = "I'll take them openly. I'm no thief, Jediga.", next = "BACK", reply = "Openly, he says, against naga, as if they'd let you. Fine, but bring them back in one piece.", fx = { align = { honor = 1 } } },
+        { text = "I'll take them openly. I'm no thief, Jediga.", next = "BACK", reply = "Openly, {g:he|she} says, against naga, as if they'd let you. Fine, but bring them back in one piece.", fx = { align = { honor = 1 } } },
         { text = "Then I'll slip in, take them, and never be seen.", next = "BACK", reply = "Now that's a hunter I can work with. I'll have the coin ready.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -381,6 +383,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_betrayed", when = { questDone = TODO_QUEST("Betrayed") },
+          text = "You killed the elf who made fools of us, and the whole camp's talking about it. I told the commander not to trust her magic, and nobody listened, so I'll take some quiet satisfaction from your work." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Let me guess, you're here for glory, which is very noble and doesn't pay, so let's talk business instead." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -593,7 +597,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "When Ag'tor asks, I do, but I keep my beasts high and fast. The elves have archers, and a wind rider is a big target, so I'm careful about who I carry." } },
       choices = {
-        { text = "Your caution keeps them alive.", next = "BACK", reply = "It does, and I'll keep being careful. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your caution keeps them alive.", next = "BACK", reply = "It does, and it's kept every one of them alive this season. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Risks are part of war.", next = "BACK", reply = "They are, but they're my beasts' risks, not yours. I'll decide.", fx = { align = { order = -1 } } },
         { text = "I'll keep quiet, then.", next = "BACK" },
       },
@@ -611,13 +615,15 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Well enough, but they won't fly low over the old elf ruins, no matter how hard I push them. Something down there frightens them, and I've learned to trust a wind rider's nose more than my own eyes, so we go high, and we go fast." } },
       choices = {
-        { text = "Trust the beasts. They know danger better than we do.", next = "BACK", reply = "I do, and they've kept me alive. Glad you see it.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Trust the beasts. They know danger better than we do.", next = "BACK", reply = "I do, and twice now they've refused to fly into weather that would have killed us both.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Beasts should be trained past their fear. Push them harder.", next = "BACK", reply = "You can try, druid, and they'll throw you off. Some fear is worth listening to.", fx = { align = { order = 1 } } },
         { text = "Something else, Kroum.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" },
+          text = "I heard you fell off a cliff and broke yourself. A wind rider would have caught you, but you didn't ask, so don't come complaining to me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "Mage. You can keep my riders warm with a little fire, if you'd do it quickly. They hate the salt wind, and so do I." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },

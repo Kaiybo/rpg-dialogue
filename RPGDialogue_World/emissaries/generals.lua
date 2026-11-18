@@ -278,7 +278,7 @@ P:NPC {
       lines = { { id = "avf_default", text = "They were, and I'll say it here though I'd not say it in Ironforge. Gul'dan exiled Durotan's clan into those mountains before the First War, and they made a home of it, but the Stormpike are Alliance and Alterac's under Alliance banners now, so what would you have me do with a fact like that?" } },
       choices = {
         { text = "Nothing. Alliance land is Alliance land.", next = "BACK", reply = "That's how Stormwind sees it, and Ironforge too, and I'll not argue with you in front of the men. But I've found it pays to know the enemy's reasons, even when I've no use for them.", fx = { opinion = { alterac_valley = "alliance" }, align = { light = -1 } } },
-        { text = "Remember it. Even an enemy can have a just claim.", next = "BACK", reply = "That's a rare thing to hear in a soldier, and I'll admit I've thought it myself on cold nights. A just claim doesn't make the Frostwolves our friends, but it might keep us honest in how we fight them.", fx = { opinion = { alterac_valley = "frostwolf" }, align = { light = 1 } } },
+        { text = "Remember it. An enemy can still have a just claim.", next = "BACK", reply = "That's a rare thing to hear in a soldier, and I'll admit I've thought it myself on cold nights. A just claim doesn't make the Frostwolves our friends, but it might keep us honest in how we fight them.", fx = { opinion = { alterac_valley = "frostwolf" }, align = { light = 1 } } },
         { text = "Another field.", next = "BACK" },
       },
     },
@@ -303,7 +303,7 @@ P:NPC {
     },
     ranks_tally = {
       lines = { { id = "rt_default", text = "Every week the honor's reckoned and the ranks are set against everyone else's, so a soldier who rests a week can slip down while a keener one climbs past. It's a harsh way to run an army, but it does keep everyone on the field." } },
-      choices = { { text = "Harsh and effective. Typical of Stormwind.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "Harsh, but it works. That's Stormwind all over.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
 
     -- Who the player is
@@ -342,7 +342,7 @@ P:NPC {
     k_stormpike = {
       lines = { { id = "kst_default", text = "I mind every word, friend, because Vanndar's dwarves are the finest soldiers in the valley and the worst correspondents I've ever had. If you've any kin at Dun Baldar, ask them to write to me once a season, and I'll stop grumbling about them." } },
       choices = {
-        { text = "Dwarves dig. They don't write letters.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Dwarves dig. Writing letters was never their strong suit.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "I'll pass the word along, General.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -441,7 +441,7 @@ P:NPC {
       },
       choices = {
         { text = "For the Horde's honor.", next = "BACK", reply = "Then you fought for the right thing, warrior, and Thrall himself would say so, because the Horde's honor is the only thing that ever set us free.", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "For victory. Honor comes after.", next = "BACK", reply = "Hmph, you sound like a grunt who has never had to live with what he did to win, but you are young yet, and the years will teach you otherwise.", fx = { align = { honor = -1 } } },
+        { text = "For victory. Honor can come after.", next = "BACK", reply = "Hmph, you sound like a grunt who has never had to live with what he did to win, but you are young yet, and the years will teach you otherwise.", fx = { align = { honor = -1 } } },
         { text = "For the warriors beside me.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -468,7 +468,7 @@ P:NPC {
       },
       choices = {
         { text = "Wisdom. Thrall knows when to fight and when to wait.", next = "chief_trust", fx = { opinion = { warchief = "trust" }, align = { honor = 1 } } },
-        { text = "Weakness. The Alliance only respects a raised axe.", next = "chief_soft", fx = { opinion = { warchief = "soft", peace = "against" }, align = { honor = -1 } } },
+        { text = "Weakness. The Alliance respects nothing but a raised axe.", next = "chief_soft", fx = { opinion = { warchief = "soft", peace = "against" }, align = { honor = -1 } } },
         { text = "Proudmoore can be trusted. Her king can't.", next = "chief_jaina", fx = { opinion = { jaina = "respect", alliance = "distrust" } } },
         { text = "The Dark Lady has her own wars to fight.", next = "chief_lady", when = { race = "Scourge" }, fx = { opinion = { sylvanas = "loyal" } } },
         { text = "That's for the Warchief to say.", next = "BACK" },
@@ -594,7 +594,7 @@ P:NPC {
       big = true,
       lines = { { id = "wsgf_default", text = "They say it, and some of the shamans in Orgrimmar say it too, quietly. But Ashenvale has trees enough for a thousand cities, and the night elves would let us freeze before they'd share one, so tell me, warrior, who's in the right?" } },
       choices = {
-        { text = "We are. A people must build to survive.", next = "BACK", reply = "Spoken like an orc who has felt winter in Durotar, and I will not argue, because our children need roofs more than the night elves need another grove.", fx = { align = { light = -1 } } },
+        { text = "We are, and we must. A people has to build to survive.", next = "BACK", reply = "Spoken like an orc who has felt winter in Durotar, and I will not argue, because our children need roofs more than the night elves need another grove.", fx = { align = { light = -1 } } },
         { text = "The shamans. We should take only what we need.", next = "BACK", reply = "The shamans would be glad of you, and maybe you are right, but tell that to the peons who die felling those trees with Sentinel arrows in their backs.", fx = { align = { light = 1 } } },
         { text = "Another field.", next = "BACK" },
       },
@@ -653,7 +653,7 @@ P:NPC {
     k_forsaken = {
       lines = { { id = "kfs_default", text = "Because the Horde took you in when no one else would, and because the Alliance would put you back in the ground. Fight with honor, and the orcs will learn to trust you, even if it takes longer than you'd like." } },
       choices = {
-        { text = "Trust is earned. I'll earn it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Trust has to be earned, and I'll earn it.", next = "BACK", fx = { affinity = 1 } },
         { text = "I don't need the orcs' trust.", next = "BACK", fx = { trait = { proud = 1 } } },
       },
     },

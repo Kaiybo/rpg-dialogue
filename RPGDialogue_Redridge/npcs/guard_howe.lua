@@ -39,8 +39,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_howe_br = {
+      lines = {
+        { id = "dd_howe_br_a", text = "No, it's never enough, because they keep coming down from the Burning Steppes as if there's no bottom to the mountain. Still, every orc you drop is one less torch at the edge of our fields, and I'll count every one if you'll keep bringing them." },
+      },
+      choices = {
+        { text = "I'll drive them back to the Steppes, every last one.", next = "dd_howe_br2", fx = { align = { light = -1 } } },
+        { text = "Killing isn't enough. We need to hold Stonewatch again.", next = "dd_howe_br2", fx = { align = { order = 1 } } },
+      },
+    },
+    dd_howe_br2 = {
+      lines = {
+        { id = "dd_howe_br2a", text = "Now you're talking like Marris, and he's right more often than I'd like to admit. Do it your way, and I'll pray to the Light that it's the way that works." },
+      },
+      choices = { { text = "Something else, Howe.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
+        { id = "dd_blackrock_howe", when = { killed = { name = "Blackrock", min = 50 } },
+          text = "You've been putting Blackrock in the dirt, and plenty of them by the reports from the ridge. That's the first good news I've had since Stonewatch fell, and I'd like more of it." },
+
         { id = "h_default", key = true, text = "Guard Howe. The Blackrock clan has invaded our lands, and these mountains fall under the sovereign right of the King of Stormwind. I mean to see them driven out." },
         { id = "h_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "guard_howe_flirt_no" } }, cooldown = "3d",
           text = "I've stood on this bridge three seasons and counted every Blackrock torch on that ridge. I've no idea why I'm telling you that, except that you're easier to look at than the ridge." },
@@ -58,6 +77,8 @@ P:NPC {
         { id = "h_again2", text = "Speak. I'm watching the ridge while you do, and trying to forget my boots, which haven't been dry since the last rain." },
       },
       choices = {
+        { text = "I've killed a lot of Blackrock, Howe. It's not enough.", next = "dd_howe_br", when = { killed = { name = "Blackrock", min = 50 } } },
+
         { text = "Why do you hate the Blackrock so much?", next = "why" },
         { text = "Killing the champions alone won't stop the rest of them.", next = "champions" },
         { text = "Can the orcs ever be driven out for good?", next = "forgood" },

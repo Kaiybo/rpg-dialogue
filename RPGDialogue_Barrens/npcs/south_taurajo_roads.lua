@@ -128,7 +128,7 @@ P:NPC {
         { text = "How did the quilboar take you?", next = "raid" },
         { text = "What will you do now?", next = "choice", when = { questDone = TODO_QUEST("Dogran's Captivity") } },
         { text = "Logmar blames himself.", next = "logmar" },
-        { text = "Hold on. Help is coming.", next = "END" },
+        { text = "Hold on, Dogran, help is coming.", next = "END" },
       },
     },
     zankaja = {
@@ -245,7 +245,7 @@ P:NPC {
       big = true,
       lines = { { id = "bl_default", text = "I would. Their own plans call for nitroglycerin, wood pulp and sodium nitrate, and their soldiers carry all of it. The flying machine is the heart of that place and an insult to the memory of my tribe, and I want it burning." } },
       choices = {
-        { text = "Fire for fire. They started it.", next = "BACK", reply = "They did, with dynamite on sacred ground, and the earth has not forgotten. Bring fire to their machine, and let the smoke carry my tribe's memory to the sky.", fx = { align = { honor = -1 } } },
+        { text = "Answer fire with fire. They started this.", next = "BACK", reply = "They did, with dynamite on sacred ground, and the earth has not forgotten. Bring fire to their machine, and let the smoke carry my tribe's memory to the sky.", fx = { align = { honor = -1 } } },
         { text = "Burn the machine, but spare the diggers if we can.", next = "BACK", reply = "You have a gentle spirit, and the Earth Mother loves those who spare where they can. Burn the machine, then, and let the diggers run home and tell their masters what they saw.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

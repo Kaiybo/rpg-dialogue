@@ -167,7 +167,7 @@ end
 
 commands.journal = function() ns.Journal.Toggle() end
 
--- letters: open the letters panel anywhere. letters send <id>: deliver that letter now (testing).
+-- letters: open the letters panel (only at an open mailbox). letters send <id>: deliver that letter now (testing).
 commands.letters = function(args)
   if args[1] == "send" and args[2] then
     if not ns.Letters.Def(args[2]) then ns.Print(L.LETTER_UNKNOWN:format(args[2])); return end

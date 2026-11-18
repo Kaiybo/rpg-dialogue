@@ -94,7 +94,7 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_rfk_default", text = "Then you've seen that the quilboar are not only raiders, whatever the young braves say. They have a holy place and elders and a crone who speaks for them, which means there is someone who could be spoken to, if she weren't so set on war. I'd rather have had a word with Charlga than a fight, though I know she'd never have allowed it." } },
       choices = {
-        { text = "There's always someone to speak with, Baine. You're right to try.", next = "BACK", reply = "Thank you, that means more to me than you'd think. My father says a door that's never knocked on never opens.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "There's always someone to speak with, Baine. You're right to try.", next = "BACK", reply = "Thank you, that means more to me than you'd think. I'll keep sending runners, then, whatever answer they bring back.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Talk wouldn't have stopped her, Baine. Only steel would.", next = "BACK", reply = "Maybe not, and I'll not pretend I know her heart. Still, I'd rather have tried and failed than never tried at all.", fx = { align = { honor = -1 } } },
         { text = "Your father must have tried to make peace with them.", next = "xcl_rfk2" },
       },
@@ -107,7 +107,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Every honest strength has a place here. The tauren never needed the Light, but I would rather talk the gnolls and the goblins down than fight them, and I suspect a paladin knows something about choosing mercy when a hammer would be easier." } },
       choices = {
-        { text = "Mercy first, Baine, and the hammer only when needed.", next = "BACK", reply = "Then we understand each other, paladin. The hammer is quicker, but mercy leaves fewer graves behind it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mercy first, Baine, and the hammer only when needed.", next = "BACK", reply = "Then we understand each other, paladin. Bloodhoof has buried enough of its young without adding strangers to the count.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The hammer is quicker. Mercy can wait.", next = "BACK", reply = "It is quicker, and the graves come quicker too. I'd ask you to try mercy first while you're in Bloodhoof, for my father's sake.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -188,6 +188,8 @@ P:NPC {
         { id = "h_venture_soured", when = { thread = { id = "venture_mulgore", state = "soured" } },
           text = "Friend. I've turned over what you told me about the goblins more than once, and I still don't like the shape of it, though I can't say you were wrong." },
         { id = "h_walk", when = { origin = "tauren_long_migration" }, text = "You walked it too, didn't you, the long road out of the Barrens with the centaur at our heels? You were a calf and I was barely grown, and I remember the orcs' axes better than I remember my own feet, because I never once looked down." },
+        { id = "h_dd_venture", tags = { "news" }, when = { killed = { name = "Venture", min = 30 } }, text = "The braves tell me the Venture Company has pulled its crews back from the woods, and that their camps are emptier because of you. I would rather have talked them down first, but I won't pretend I'm sorry the trees are still standing." },
+        { id = "h_dd_mazz", tags = { "news" }, when = { questDone = TODO_QUEST("Mazzranache") }, text = "Maur Raincaller came to my fire with the tale of the great beast at last, and he gave you the credit before I could ask. That creature took more calves from our herds than any raider, so the herds will sleep easier now." },
       },
       choices = {
         { text = "You've met someone close to me, Baine.", next = "xalt_baine", when = { alt = true } },
@@ -213,11 +215,31 @@ P:NPC {
         { text = "I've followed the Venture Company from the wells to Stonetalon.", next = "venture_word",
           when = { thread = { id = "venture_mulgore", beat = "b5_baine", state = { "stirring", "unfolding" } } } },
         { text = "I stood with your braves against the Venture machines, Baine.", next = "xorig_brave", when = { origin = "tauren_bloodhoof_brave" } },
+        { text = "The Venture Company has fewer hands in Mulgore now, Baine.", next = "dd_venture", when = { killed = { name = "Venture", min = 30 } } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
       again = {
         { id = "h_again", text = "What else, friend? The village is quiet for now, and An'she is still high, so ask." },
         { id = "h_again2", text = "Go on. I'd rather hear it from you than from the gossip round the cookfires, where every plainstrider grows a foot in the telling." },
+      },
+    },
+    dd_venture = {
+      big = true,
+      lines = {
+        { id = "dd_venture_1", text = "So I've heard, and I've heard how. The goblins came for the trees and the ore with saws and powder, and I sent them word three times that the land was not theirs to cut. They never answered, and now you've answered for me, and I'm still deciding how I feel about it." },
+      },
+      choices = {
+        { text = "They came with saws and guns. Steel was the only answer.", next = "BACK", reply = "Perhaps it was, with those foremen. My father would tell you the same, and then he'd tell you to grieve for it anyway, which is what I mean to do.", fx = { align = { light = -1 } } },
+        { text = "I'd have talked first, if any of them had listened.", next = "BACK", reply = "Then you and I have the same regret, friend. Keep that in you, and the next time a goblin listens, you'll be ready for him.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Will the Venture Company come back, Baine?", next = "dd_venture2" },
+      },
+    },
+    dd_venture2 = {
+      lines = {
+        { id = "dd_venture2_1", text = "They always come back, because the trade princes count their losses in coin and coin can be replaced. What they can't replace is the fear their crews carry now, and that may keep them out of Mulgore longer than any treaty I could have offered." },
+      },
+      choices = {
+        { text = "Then I'll keep reminding them. Something else, Baine.", next = "BACK" },
       },
     },
     xorig_brave = {
@@ -238,8 +260,8 @@ P:NPC {
           text = "You'll stand with the braves at Bael'dun or against the Palemane one day, and I'll be glad of you. Only remember that the best fight is the one you were strong enough not to need." },
       },
       choices = {
-        { text = "Strength is what makes them listen, Baine.", next = "BACK", reply = "Sometimes it is, and I'll not pretend otherwise. But strength that listens first is the kind they remember.", fx = { align = { honor = -1 } } },
-        { text = "Then I'll talk first and fight only if I must.", next = "BACK", reply = "That's what my father taught me, and I'm glad to hear it from you. Most fights end better when they never begin.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Strength is what makes them listen, Baine.", next = "BACK", reply = "Sometimes it is, and I'll not pretend otherwise. But the Palemane have plenty of strength, and see how little listening it's taught them.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll talk first and fight only if I must.", next = "BACK", reply = "That's what my father taught me, and it's good to hear it in someone else's voice. Bloodhoof could use more like you.", fx = { affinity = 2, align = { honor = 1 } } },
       },
     },
     forsaken = {
@@ -432,7 +454,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "The spirits mind very little, so long as they are not ignored, and a prayer is half listening anyway. Your shadow and your loa are strange to them, but they are patient, and they have heard stranger things since the Horde came to Mulgore." } },
       choices = {
-        { text = "I'll honour your spirits as I would my own.", next = "BACK", reply = "Then you'll find them patient, and kind in their way. Honour them, and they'll honour you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll honour your spirits as I would my own.", next = "BACK", reply = "Then you'll find them patient, and kind in their way. Leave a pinch of tobacco at the stones when you pass; they like that.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My prayers answer to me, not to your spirits.", next = "BACK", reply = "They may, but the spirits will still hear them. Pray as you like, child, and let the dead listen as they will.", fx = { align = { light = -1 } } },
         { text = "Something else, Zarlman.", next = "BACK" },
       },
@@ -441,7 +463,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They do, and they ask only that you fight for something worth their watching. The braves who fell to the centaur in the long years of wandering rest easier now that the tauren have a home, and a warrior who guards that home walks with their blessing." } },
       choices = {
-        { text = "I'll fight to guard this home, as they did.", next = "BACK", reply = "Then they'll walk beside you, and you'll feel them at your back. That is a blessing worth carrying.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight to guard this home, as they did.", next = "BACK", reply = "Then they'll walk beside you, and some cold morning out on the plains you'll feel them at your back.", fx = { align = { honor = 1 } } },
         { text = "The dead can watch. My fight is my own.", next = "BACK", reply = "It is, and they'll watch it all the same. Fight well, and give them something worth their watching.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -505,6 +527,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and the spirits of the beasts you've taken walk close behind you. Don't worry; they seem content." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The spirits of this village have gone quiet around you, which means either they respect you or they are afraid, and I would like to know which." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in Bloodhoof. The spirits notice even the quietest feet, young one, so walk respectfully among them." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "The spirits know your name by now, I think, for you have walked back from the spirit healer more often than most young ones walk to Narache. The Earth Mother leaves that door open for you, but don't lean on it too hard." },
       },
       choices = {
         { text = "What are the spirits saying?", next = "spirits" },
@@ -518,10 +541,21 @@ P:NPC {
         { text = "Do the spirits here mind a stranger's prayers, Zarlman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The spirits can't think much of a rogue, Zarlman.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do your spirits fear a Forsaken paladin, Zarlman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've died more often than I'd like, elder.", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "Thank you, elder.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Is there more? The Earth Mother hears every question, and I will hear yours." },
+      },
+    },
+    dd_deaths = {
+      lines = {
+        { id = "dd_deaths_1", text = "I know, because it shows in the eyes, the way a long drought shows in the grass. Each time you come back, a little of that grey road comes with you, and a wise traveler learns from it instead of growing used to it." },
+      },
+      choices = {
+        { text = "Death doesn't frighten me anymore. I'll keep charging in.", next = "BACK", reply = "Then you're braver than I am, or more foolish, and the spirits can't always tell the difference either. Walk carefully all the same.", fx = { align = { order = -1 } } },
+        { text = "I'll be more careful. The ancestors can wait for me.", next = "BACK", reply = "They can, and they will, patiently. That's a wise answer, and I hope you remember it the next time the Bristleback outnumber you.", fx = { align = { order = 1 } } },
+        { text = "Something else, elder.", next = "BACK" },
       },
     },
     shaman = {
@@ -619,7 +653,7 @@ P:NPC {
       lines = { { id = "xhpriest_default", text = "You can try, but they've ached since the centaur chased us across the Barrens, and I've grown fond of them as a weather vane. Say a word over the swoops instead, if you like, because there are far too many of them this year and something has made them bold." } },
       choices = {
         { text = "Pain isn't a keepsake, Harken. Let me ease it.", next = "BACK", reply = "Ha, you're kind, but these knees have told me about every storm for forty winters. Leave them be, and bless the swoops instead.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Keep your weather vane, then. I won't waste a prayer.", next = "BACK", reply = "Fair enough, they're old friends now, and they'd miss me. Save your prayers for the swoops, then.", fx = { align = { light = -1 } } },
+        { text = "Keep your aching knees, then. I'll save my prayers.", next = "BACK", reply = "Fair enough, they're old friends now, and they'd miss me. Save your prayers for the swoops, then.", fx = { align = { light = -1 } } },
         { text = "Something else, Harken.", next = "BACK" },
       },
     },
@@ -627,7 +661,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "To a grown warrior, no, but to the young ones out in the fields, very much so. There are too many of them this year and they've grown bold, so thin them where they nest, and the farmers of Bloodhoof will sleep easier for it." } },
       choices = {
-        { text = "I'll thin them where they nest, for the farmers.", next = "BACK", reply = "Thank you, the farmers will sleep easier for it, and so will I. Go to where they nest, and thin them well.", fx = { align = { honor = 1 } } },
+        { text = "I'll thin them where they nest, for the farmers.", next = "BACK", reply = "Thank you, the farmers will sleep easier for it, and so will I. Mind their beaks; the big ones aim for the eyes.", fx = { align = { honor = 1 } } },
         { text = "Swoops aren't worth a warrior's time, Harken.", next = "BACK", reply = "Perhaps not, but they're worth a farmer's crop, and the farmers are worth your time. Think on it, warrior.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -658,7 +692,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "You could ask, but I suspect they'd blame the Windfury harpies, the same as I do, because the harpies have pushed every swoop off their ridge and down onto our fields. The druids tell me the plains keep their own balance, and I'm an old sky-watcher who isn't sure the plains have heard about harpies." } },
       choices = {
-        { text = "Bloodhoof's fields come first, so we keep the swoops in check.", next = "BACK", reply = "That's what the farmers say, and they're usually right. Keep them in check, and the fields will thank you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bloodhoof's fields come first, so we keep the swoops in check.", next = "BACK", reply = "That's what the farmers say, and they're usually right. Bring me the quills when you're done, because nothing goes to waste here.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The plains will find their own balance without our hand on it.", next = "BACK", reply = "Maybe they will, and maybe the druids are right. But the plains' balance doesn't feed the farmers this year.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -690,6 +724,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! My knees say rain is coming, and my eyes say a priest of the Horde has come, and I'm only certain about the knees." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, is it? Hamuul's students say they can hear what the birds are saying, so ask the swoops for me why there are so many of them this year." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The sky's been quiet over Mulgore, and I'd like it to stay that way, so keep your demon on the ground." },
+        { id = "h_dd_mazz", tags = { "news" }, when = { questDone = TODO_QUEST("Mazzranache") }, text = "Maur finally has his beast, and with your help, from what he tells everyone who'll sit still long enough. I'd say my knees felt it coming, but the truth is I'm just glad the old hunter will sleep again." },
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You've fallen off something tall and died of it, I'd wager, by the way you keep clear of the cliff path. The swoops ride the wind off those ledges because they have wings, friend, and you don't." },
       },
       choices = {
         { text = "You look at me like I'm a broken thing, Windtotem.", next = "prej_harken", when = { prejudiced = true } },
@@ -788,7 +824,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The young hunters call it Mazzranache, and it's bigger than any prairie wolf or cougar I've seen, with tracks that cross the plains and vanish into the hills. If it comes at you, don't run, because nothing that size has ever been outrun on open ground." } },
       choices = {
-        { text = "I'll stand my ground if it comes, Maur.", next = "BACK", reply = "Good, that's the only thing that's ever saved anyone. Stand firm, and let it come to you.", fx = { align = { honor = 1 } } },
+        { text = "I'll stand my ground if it comes, Maur.", next = "BACK", reply = "Good. It charges anything that turns its back, so you'll live longer facing it.", fx = { align = { honor = 1 } } },
         { text = "If it comes, I'll run. There's no shame in living.", next = "BACK", reply = "No shame at all, and I'd rather you lived. But it's faster than you, so run toward the trees.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -800,7 +836,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll strike before it knows I'm there.", next = "BACK", reply = "Then you'll be the first, and I'll want to hear every detail. Mind the wind, rogue.", fx = { align = { honor = -1 } } },
-        { text = "I want it to see me. Let it be a fair hunt.", next = "BACK", reply = "Then you're a hunter after my own heart. A fair hunt is the only kind worth telling.", fx = { align = { honor = 1 } } },
+        { text = "I want it to see me. Let it be a fair hunt.", next = "BACK", reply = "Then you're a hunter after my own heart, and I'll want the whole story at Kauth's fire.", fx = { align = { honor = 1 } } },
         { text = "How did you come by your name?", next = "name" },
       },
     },
@@ -810,7 +846,7 @@ P:NPC {
         { id = "xmage_default", text = "You could, but the hide would come back scorched, and I want that hide to hang in Bloodhoof. A hunt is a conversation between the hunter and the hunted, and fire is no kind of conversation at all." },
       },
       choices = {
-        { text = "You're right. The beast deserves an honest hunt.", next = "BACK", reply = "It does, and I'm glad you see it. Fire is no way to meet a beast that old.", fx = { align = { light = 1 } } },
+        { text = "You're right. The beast deserves an honest hunt.", next = "BACK", reply = "It does, and I'm glad you see it. I've followed that beast for years, and I'd hate to see it end as a pile of ash.", fx = { align = { light = 1 } } },
         { text = "Hunting isn't a conversation. It's a kill.", next = "BACK", reply = "For some, perhaps, but not for that beast, and not for me. Leave Mazzranache to me, mage.", fx = { align = { light = -1 } } },
         { text = "How did you get your name?", next = "name" },
       },
@@ -819,7 +855,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Help me find it and I'll be glad of you, because no tracker in Bloodhoof has ever seen it twice in the same place. But a druid might also tell me that a beast so old belongs to the plains more than to my skinning knife, and I'm not certain I want to hear that." } },
       choices = {
-        { text = "A beast that old has earned a fair hunt, face to face.", next = "BACK", reply = "It has, and I'd want it no other way. Face to face, as it deserves.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A beast that old has earned a fair hunt, face to face.", next = "BACK", reply = "It has, and I'd want it no other way. Let it see who has come for it.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Old or not, it's a danger. Take it however you can.", next = "BACK", reply = "It is a danger, I'll not argue. But I'd still rather meet it honestly than take it like a thief.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -849,6 +885,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Rain followed me all the way to Mulgore, and now a priest has followed the rain, so perhaps the spirits have a sense of humour." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. They say your kind learns to walk as the cat walks, and I'd give a good deal to move through the tall grass as quietly as you will." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your demon frightens the game for a mile around, so keep it away from me while I'm tracking." },
+        { id = "h_dd_swoop", tags = { "news" }, when = { questDone = TODO_QUEST("Swoop Hunting") }, text = "Harken tells me you brought him a satchel of swoop quills, and that his sky has been quieter since. He talks about you the way he talks about weather he likes, which is the highest praise that old bird has." },
       },
       choices = {
         { text = "There must be a story behind your name.", next = "name" },
@@ -861,10 +898,21 @@ P:NPC {
         { text = "Should a druid help you hunt Mazzranache, Maur?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Could my demon help you track, Maur?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you hunt beside a paladin, Maur?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Harken says the swoops are quieter now.", next = "dd_swoop", when = { questDone = TODO_QUEST("Swoop Hunting") } },
         { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
       again = {
         { id = "h_again", text = "Anything else? Speak softly; voices carry out on the grass, and the Earth Mother's beasts have long ears." },
+      },
+    },
+    dd_swoop = {
+      lines = {
+        { id = "dd_swoop_1", text = "They are, and the calves can graze the slopes again without a swoop dropping on them out of the sun. Harken and I hunt different things, but we both know a hunt is only good if it leaves the plains better than it found them." },
+      },
+      choices = {
+        { text = "Hunting a bird for its quills is a poor sort of hunt.", next = "BACK", reply = "Spoken like someone who never watched a swoop take a calf's eye. Still, I'd sooner you said it than not, because a hunter should always ask himself that question.", fx = { align = { light = 1 } } },
+        { text = "The swoops were taking calves. They had it coming.", next = "BACK", reply = "They were, and they did. You think like a herder, and on these plains that's no insult.", fx = { align = { light = -1 } } },
+        { text = "Something else, Maur.", next = "BACK" },
       },
     },
     hunter = {
@@ -874,7 +922,7 @@ P:NPC {
           text = "Your mother or father hunted out of Narache, didn't they? Then you were raised on the same tracks I was. Look for where it drinks, and wait there; it's thirsty after a kill." },
       },
       choices = {
-        { text = "Then we'll wait for it, and be patient.", next = "BACK", reply = "That's what I hoped to hear. Patience has caught more old beasts than any spear.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Then we'll wait for it, and be patient.", next = "BACK", reply = "That's what I hoped to hear. Find where it drinks, and I'll bring the jerky.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "I'd rather drive it out and finish it fast.", next = "BACK", reply = "Then you'll drive it into the hills, and it'll learn another lesson. Go slowly, friend, as I do.", fx = { align = { order = -1 } } },
       },
     },
@@ -888,7 +936,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "I asked an elder that once, and she told me the spirits don't frown on a hunt, only on a waste. If I take its hide, I'll honor every part of it, and I'll thank the earth for letting us meet." } },
       choices = {
-        { text = "A clean hunt, honestly given. The spirits can't ask more.", next = "BACK", reply = "It can't, and I'm glad to hear you say it. A clean hunt, and thanks after, and the spirits are content.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A clean hunt, honestly given. The spirits can't ask more.", next = "BACK", reply = "It can't, and I'm glad to hear you say it. Say the words over it afterward, and its spirit will run easy.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A trap works better than a chase, and nobody's the wiser.", next = "BACK", reply = "Nobody but the beast, and the spirits, and me. A trap is a coward's hunt, and I'll not set one.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -949,7 +997,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Venture Company thugs, mostly, with clubs and too much confidence. They've set up at the sacred wells and won't leave for any words of mine, so if they won't listen to reason, perhaps they'll listen to an axe, though I'd rather it didn't come to that." } },
       choices = {
-        { text = "I'll drive them off, but only if words fail.", next = "BACK", reply = "That's how I'd want it, and I'm glad you see it. Words first, and the axe only if they won't hear.", fx = { align = { honor = 1 } } },
+        { text = "I'll drive them off, but only if words fail.", next = "BACK", reply = "That's how I'd want it. Goblins can be talked round, if you mention their profits early enough.", fx = { align = { honor = 1 } } },
         { text = "Words always fail with goblins. I'll start with the axe.", next = "BACK", reply = "Maybe they do, and maybe I'm a fool for trying. Still, try once, for my sake, before you swing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1015,6 +1063,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have seen what the goblins' oil has done to the beasts near the wells, then, and I wish I hadn't." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you can bless water, the sacred wells of Mulgore need it more than anyone in this village, though I fear the goblins' oil runs deeper than any prayer." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wells are sick enough already, so please don't let your demon drink from them." },
+        { id = "h_dd_venture", tags = { "news" }, when = { killed = { name = "Venture", min = 20 } }, text = "The water at the eastern wells runs a little cleaner since the Venture Company lost so many of its hands, and I hear yours were among the ones that did it. I take no joy in killing, friend, but I'll take a little in clean water." },
       },
       choices = {
         { text = "Someone must have poisoned them.", next = "who" },
@@ -1174,6 +1223,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Would you say a prayer for my Kyle? He's only a dog, but I've a feeling the Earth Mother keeps an eye on dogs too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! You understand animals, don't you? If you meet a scruffy dog called Kyle out on the plains, please tell him I'm not angry and he can come home." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! Have you seen my dog, Kyle? And, er, that isn't your demon eating something, is it?" },
+        { id = "h_dd_gnolls", tags = { "news" }, when = { killed = { name = "Palemane", min = 15 } }, text = "The Palemane gnolls haven't come sniffing round the village since you went west after them, and Kyle has stopped growling at the dark. I don't like killing, but I do like my fences standing." },
+        { id = "h_dd_mazz", when = { questDone = TODO_QUEST("Mazzranache") }, text = "Maur says you brought down that beast that's been stalking the plains, so Kyle and I can walk to the lake at dusk again. He still barks at every shadow in the grass, mind, but now the shadows are only shadows." },
       },
       choices = {
         { text = "Tell me about Kyle.", next = "kyle" },
@@ -1188,9 +1239,20 @@ P:NPC {
         { text = "My beast could follow Kyle's scent.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "The spirits might watch over a lost dog, Ahab.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Kyle might come to a druid, Ahab.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "The gnolls won't trouble your fields for a while, Ahab.", next = "dd_gnolls", when = { killed = { name = "Palemane", min = 15 } } },
       },
       again = {
         { id = "h_again", text = "Anything else? Sorry, I keep looking at the lake shore in case he comes back, the way a cow watches for a strayed calf." },
+      },
+    },
+    dd_gnolls = {
+      lines = {
+        { id = "dd_gnolls_1", text = "I hope not, because they took two sacks of grain last spring and Kyle nearly went after them alone, the silly thing. They sit up on Palemane Rock watching the village like hungry crows, and now there are fewer of them watching." },
+      },
+      choices = {
+        { text = "They'd steal you blind given half a chance. They earned it.", next = "BACK", reply = "Maybe they did, and I won't argue with someone who went up there when I wouldn't. I'll sleep better, at least, and so will the dog.", fx = { align = { light = -1 } } },
+        { text = "I'd sooner have scared them off than killed them.", next = "BACK", reply = "That's a kind thought, and Baine would like you for it. I'm not sure gnolls scare, though, and I'm glad I didn't have to find out.", fx = { align = { light = 1 } } },
+        { text = "Something else, Ahab.", next = "BACK" },
       },
     },
     hunter = {
@@ -1331,7 +1393,7 @@ P:NPC {
         { id = "xrogue_default", text = "Easy to rob and hard to carry, friend, because it's iron and it's hot and it's bigger than you. Besides, nobody in Bloodhoof needs to steal from me, since I feed anyone who asks, and that's the best lock any inn ever had." },
       },
       choices = {
-        { text = "That's a good lock. I'd never rob a kind host.", next = "BACK", reply = "Then you're welcome at my table any night. A kind guest is the best kind, and the rarest.", fx = { align = { honor = 1 } } },
+        { text = "That's a good lock. I'd never rob a kind host.", next = "BACK", reply = "Then you're welcome at my table any night, and I'll stop counting the ladles.", fx = { align = { honor = 1 } } },
         { text = "A full belly never stopped a real thief.", next = "BACK", reply = "Maybe not, but it's never failed me yet. Eat your stew, friend, and we'll see.", fx = { align = { honor = -1 } } },
         { text = "What's in the stew today?", next = "stew" },
       },
@@ -1362,7 +1424,7 @@ P:NPC {
         { id = "xmage_default", text = "Troll mages, mostly, on the road up to Thunder Bluff, and now and then a Forsaken who won't eat a thing. The trolls eat like kodos and the Forsaken don't eat at all, so I've learned to cook for both by cooking too much, and nobody pays for seconds." },
       },
       choices = {
-        { text = "I'll pay my way, Kauth, like any other guest.", next = "BACK", reply = "That's kind of you, and I'll take it gladly. A paying guest is a welcome one.", fx = { align = { honor = 1 } } },
+        { text = "I'll pay my way, Kauth, like any other guest.", next = "BACK", reply = "That's kind of you, and I'll take it gladly. Most of the young braves pay me in promises.", fx = { align = { honor = 1 } } },
         { text = "If the bowl's on offer, I'll take it free.", next = "BACK", reply = "It's on offer, friend, and I'll not take it back. Eat your fill, and remember Bloodhoof kindly.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1383,6 +1445,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit and eat, because I've never met a healer yet who remembers to feed themselves, and stew mends what the Light forgets." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, by the grass seed on your boots. Sit down, because the druids who come down from Elder Rise always forget to eat, and I take that personally." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at my inn! Sit, and I'll bring you stew, because spellwork burns through a body like a fire through grass." },
+        { id = "h_dd_kyle", tags = { "news" }, when = { questDone = TODO_QUEST("Kyle's Gone Missing!") }, text = "Ahab came through my door laughing last night, which he hasn't done since that pup ran off, and he told everyone at my fire who brought Kyle home. Sit down, friend, and let me shake the hand that found him." },
+        { id = "h_dd_deaths", when = { deaths = { min = 8 } }, text = "You've the grey look of someone who has walked back from the spirit healer more than once. Sit by the fire and eat something warm, because a body needs feeding after a road like that." },
       },
       again = {
         { id = "h_again", text = "Is there something more you need, friend? Sit while you ask it." },
@@ -1401,7 +1465,19 @@ P:NPC {
         { text = "The tauren must mind a paladin at the inn, Kauth.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Do you remember the night the braves brought me in, Kauth?", next = "xorig_orphan", when = { origin = "tauren_razormane_orphan" } },
         { text = "You keep bringing me extra bread, Kauth.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "kau_fl_rebuff" } } },
+        { text = "I hear Ahab has been telling everyone about Kyle.", next = "dd_kyle", when = { questDone = TODO_QUEST("Kyle's Gone Missing!") } },
         { text = "Just a meal, thank you.", next = "END" },
+      },
+    },
+    dd_kyle = {
+      lines = {
+        { id = "dd_kyle_1", text = "Everyone, twice, and the hunters a third time when they came in late. He sat right where you're standing with that dog's head in his lap and said Kyle smelled the wolf meat before he ever saw your face, and that it was the best trick he'd ever heard of." },
+        { id = "dd_kyle_night", when = { timeOfDay = "night" }, text = "He's asleep by now, and so is Kyle, across the door like a log. Ahab told the whole inn who brought that dog home, and I'll tell you what I told him: a village is only as happy as its saddest farmer, and Bloodhoof is a little happier tonight." },
+      },
+      choices = {
+        { text = "He should keep that dog on a rope from now on.", next = "BACK", reply = "I said the same, and Ahab looked at me as if I'd asked him to tie up the wind. He'll keep a closer eye on him, though, which is the best we'll get.", fx = { align = { order = 1 } } },
+        { text = "Let the pup roam. He always finds his way home.", next = "BACK", reply = "With a little help, he does! You're as soft as Ahab is, and I mean that kindly, because the plains could use more of it.", fx = { align = { order = -1 } } },
+        { text = "Something else, Kauth.", next = "BACK" },
       },
     },
     xorig_orphan = {

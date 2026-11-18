@@ -100,13 +100,13 @@ P:NPC {
       lines = { { id = "k_default", text = "The centaur been in these lands longer than us, mon, and they don't like sharing them with orcs and trolls. The Kolkar raid the caravans and the farms, and now they think they got enough spears to take more." } },
       choices = {
         { text = "They were here first. Maybe they have a claim.", next = "BACK", reply = "A claim, maybe, but they make it with spears on our caravans. Speak to the spirits about it, {class}, and see what they say.", fx = { align = { order = -1 } } },
-        { text = "This land is the Horde's now. That's the end of it.", next = "BACK", reply = "Dat be what the Warchief say, and I stand with him. The Kolkar will learn it, one way or the other.", fx = { align = { order = 1 } } },
+        { text = "This land is the Horde's now. That's the end of it.", next = "BACK", reply = "Dat be what the Warchief say, and I stand with him. The Kolkar going to learn it, one way or the other, and I'd rather it be the quiet way.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     rogue = {
       lines = { { id = "r_default", text = "Maybe so, mon, because you got the feet for it. Go in when the fires burn low, and remember the plans be the prize, not the throats." } },
-      choices = { { text = "The plans first. Understood.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "The plans first. I understand.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

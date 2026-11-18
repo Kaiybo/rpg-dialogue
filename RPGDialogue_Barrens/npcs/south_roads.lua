@@ -178,7 +178,7 @@ P:NPC {
     fragments = {
       lines = { { id = "fr_default", text = "The acolytes in Blackfathom wear theirs as charms, and it's easier to take one from a corpse than to argue them out of it. The voidwalkers in Shadowfang are another matter, because Arugal's servants guard their master's things the way a hound guards a bone." } },
       choices = {
-        { text = "I'll manage. Something else.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I'll manage, Doan. Let me ask something else.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "Then I'll go now.", next = "BUSINESS" },
       },
     },

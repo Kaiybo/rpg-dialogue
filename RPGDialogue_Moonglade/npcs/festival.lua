@@ -150,7 +150,7 @@ P:NPC {
         { id = "xt_default", text = "Oh, I know, and I'm hopelessly jealous! A gnome told me last year that my blue rocket was 'charmingly rustic', and I've been trying to decide ever since whether that was a compliment. Be a friend and tell me, are mine any good?" },
       },
       choices = {
-        { text = "They're lovely. Craft made with joy beats precision.", next = "BACK", reply = "That's what I always say, and now I'll say it louder! A rocket made with joy flies higher, I'm sure of it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They're lovely. Craft made with joy beats precision.", next = "BACK", reply = "Oh, thank you! I'll tell the next gnome you said so, and then I'll sell him three.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Honestly? They'd never pass inspection in Ironforge.", next = "BACK", reply = "Oh, you're as bad as the gnome! Well, they'd never pass inspection in Darnassus either, and I still sell every one of them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -171,7 +171,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll light one for them, then.", next = "BACK", reply = "Thank you, and I'll light one beside you, if you'll let me. Grief should never go up alone.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The dead are gone. Rockets won't change that.", next = "BACK", reply = "Maybe not, but they change us, and that's something. The dead don't need rockets, but the living do.", fx = { align = { light = -1 } } },
+        { text = "The dead are gone. Rockets won't change that.", next = "BACK", reply = "Maybe not, but I watched a widow laugh last year when a green one went up crooked, and she hadn't laughed since the autumn. That's something.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -345,7 +345,7 @@ P:NPC {
         { id = "xp_shadow", when = { form = "shadow" }, text = "Not like that, you won't. Whatever shadow you're wearing, the wounded will run from it, so put it away before you go near anyone hurt." },
       },
       choices = {
-        { text = "I'll lay the dead to rest, gently.", next = "BACK", reply = "Thank you, and the dead will thank you too in their way, because nothing in this forest deserves to wake like that.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll lay the dead to rest, gently.", next = "BACK", reply = "Good. Go gently with them; none of them asked to wake up like that, and nothing on this mountain deserves it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead can wait. The living fight first.", next = "BACK", reply = "Tell that to the dead, then, and see if they wait for you, because they've been very impatient up here so far.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -368,7 +368,7 @@ P:NPC {
       },
       choices = {
         { text = "Teldrassil is our home now.", next = "BACK", reply = "I know it is, and I try to love it, but the summit was where our grandmothers sang, and Teldrassil still smells of sea to me.", fx = { align = { order = 1 } } },
-        { text = "Hyjal will always be home. We should return.", next = "BACK", reply = "You feel it too, then, and that makes me feel a little less foolish, so maybe one day we'll both be standing up there to welcome everyone home.", fx = { align = { order = -1 } } },
+        { text = "Hyjal will always be home. We should return.", next = "BACK", reply = "You feel it too? Good, then I'm not the only fool on the mountain. One day we'll stand on that summit, you and I, and wave everyone home.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -378,7 +378,7 @@ P:NPC {
         { id = "xh_default", text = "I carried messages over the lines that day instead of standing in them, but I remember the banners of the humans who came across the sea, and I remember how many of them were carried off the slopes afterwards. Their camp was where Mourning's Rest is now, and I hear the dead there have started walking." },
       },
       choices = {
-        { text = "Then I'll see them properly buried.", next = "BACK", reply = "Thank you, and I'll show you where their camp was, because I think they'd want someone from their own land to say a word over them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll see them properly buried.", next = "BACK", reply = "Would you? Find me before you go and I'll show you where their camp stood, because I think they'd want someone from their own land to say a word over them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead are dead. I'll fight what walks.", next = "BACK", reply = "Then fight it, and I'll be glad of you, but a few of those walking dead had names once, and somebody ought to remember them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -389,7 +389,7 @@ P:NPC {
         { id = "xl_default", text = "Because fel is what made this mountain sick. It rained down when the Legion came, the brambles drank it, and they are still killing things years later, so I flinch at what you carry." },
       },
       choices = {
-        { text = "I use it so others don't have to.", next = "BACK", reply = "Perhaps you do, and I'd like to believe it, but the brambles drank the same reasons once, and look at them now.", fx = { align = { light = 1 } } },
+        { text = "I use it so others don't have to.", next = "BACK", reply = "Perhaps you do, and I'd like to believe it, but the brambles only meant to drink the rain, and look at them now.", fx = { align = { light = 1 } } },
         { text = "Power's power. Your brambles don't scare me.", next = "BACK", reply = "They should, because they don't care what you think you are, and they'll grow straight through you the same as everything else.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -431,7 +431,7 @@ P:NPC {
     furbolgs = { { id = "tp_furb", text = "The Winterfall rob my caravans, and the ones in the caves by Malorne's Retreat will have your arm off. Not every tribe has gone bad, but those have." } },
     nordrassil = {
       { id = "tp_nordrassil", text = "I was born under Nordrassil's shade, and I'll fight for it till the owls stop flying. It's wounded and it's old, but it's ours, and it's still the best tree in the world." },
-      { id = "tp_nordrassil2", when = { race = "NightElf" }, text = "You're kaldorei, so you feel it too, don't you, that tug at the heart when you see it. That's what our long lives feel like, from the inside." },
+      { id = "tp_nordrassil2", when = { race = "NightElf" }, text = "You're kaldorei, so you feel it too, don't you, that tug at the heart when you see it? I think that's the mountain remembering us, even if we've stopped living forever." },
     },
     emerald_dream = { { id = "tp_emerald_dream", text = "The Skylord walks the Dream more than I do, and he comes back worried and won't say why. The owls are worried too, and they don't say why either." } },
     green_dragons = { { id = "tp_green_dragons", text = "Ysera's flight used to visit the mountain more often, the old druids say. I've only seen one, once, and it looked at me like I was an interesting beetle." } },

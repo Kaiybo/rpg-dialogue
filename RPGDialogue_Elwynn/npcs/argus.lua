@@ -31,12 +31,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_argus_k = {
+      lines = {
+        { id = "dd_argus_k_a", text = "I can tell, because there's candle wax in the joints of your gear and the stink of the mine on you. Those kobolds dig with stolen picks, mostly ours, so every one you put down is a tool I don't have to make again." },
+      },
+      choices = {
+        { text = "Then I'm saving you work. I'll take that as thanks.", next = "dd_argus_k2" },
+        { text = "Can you tell me anything about kobold weapons?", next = "dd_argus_k2" },
+      },
+    },
+    dd_argus_k2 = {
+      lines = {
+        { id = "dd_argus_k2a", text = "Rusty, short and badly kept, and the bigger ones in the deep tunnels carry better steel than they should. Mind the ones with the candles on their heads, because they'll set your cloak alight while you're watching the blade." },
+      },
+      choices = { { text = "Good advice, Argus. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I mend what's bent and make what's needed, and I don't hold with miracles. If your fire burns hot and steady, it can stand by my anvil, but it won't touch the work." } },
       choices = {
-        { text = "Good. Honest work should come from honest hands.", next = "BACK", reply = "That's how I see it, and it's how I'll keep working. Hand me your blade.", fx = { align = { honor = 1 } } },
-        { text = "My spirits could do it faster. Your pride slows you down.", next = "BACK", reply = "Faster, maybe, but I'll still be here mending what your spirits break. Pride's cheaper than miracles.", fx = { align = { honor = -1 } } },
+        { text = "Good. Honest work should come from honest hands.", next = "BACK", reply = "That's how I've always worked, and I'm too old to change now. Hand me your blade.", fx = { align = { honor = 1 } } },
+        { text = "My spirits could do it faster. Your pride slows you down.", next = "BACK", reply = "Faster, maybe, but I'll still be here mending whatever your spirits break, and charging you for it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -45,7 +61,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "A few, up from the inn cellar where Maximillian Crowe keeps his students, and they always want a dagger with some strange mark cut into it. I'll forge the blade, but the marks they can cut themselves, because I don't do miracles and I don't do that either." } },
       choices = {
         { text = "Right. A smith should keep his forge clean.", next = "BACK", reply = "It should, and I'll keep mine that way. Find another smith for the marks.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A mark is only a mark, Argus. You're superstitious.", next = "BACK", reply = "Maybe I am, but I sleep fine. They can cut their own marks.", fx = { align = { light = -1 } } },
+        { text = "A mark is only a mark, Argus. You're superstitious.", next = "BACK", reply = "Superstitious, am I? Maybe so, but I sleep fine at night, and they can cut their own marks.", fx = { align = { light = -1 } } },
         { text = "Something else, Argus.", next = "BACK" },
       },
     },
@@ -62,7 +78,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "That a nick left alone becomes a crack, and a crack becomes a broken blade in some kobold's tunnel. Bring it to me after every fight, not after every month, and it'll outlast you." } },
       choices = {
-        { text = "I'll bring it after every fight, and pay for the care.", next = "BACK", reply = "Good, and I'll make it last you. That's honest work.", fx = { align = { order = 1 } } },
+        { text = "I'll bring it after every fight, and pay for the care.", next = "BACK", reply = "Good. Do that, and that blade will outlive most of the men who swing one.", fx = { align = { order = 1 } } },
         { text = "Steel's for using. I'll buy another when this one breaks.", next = "BACK", reply = "Then you'll be buying a lot of steel, friend. I'll be glad of the custom.", fx = { align = { order = -1 } } },
         { text = "Something else, Argus.", next = "BACK" },
       },
@@ -74,7 +90,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Skinning knives, traps and arrowheads, when somebody brings me the iron. Your {pet} has a fine set of teeth, mind, so keep it fed and it'll do half the work my traps would." },
       },
       choices = {
-        { text = "I'll take only what the wolves cost the farmers. No more.", next = "BACK", reply = "Good, and the farmers will be glad of the help. I'll have the traps ready.", fx = { align = { honor = 1 } } },
+        { text = "I'll take only what the wolves cost the farmers. No more.", next = "BACK", reply = "Good. The farmers on the Goldshire road will be glad of you, and I'll have the traps ready by morning.", fx = { align = { honor = 1 } } },
         { text = "Every pelt on that road is coin. I'll take them all.", next = "BACK", reply = "Then bring me the iron for the traps, at least. I'll not ask what you're doing with them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -84,7 +100,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "I don't, because the Defias carry knives just like yours, and I'd sooner not learn I've put an edge on one that ended up in a farmer. A smith can't choose who buys from him, but he can choose what he listens to." } },
       choices = {
         { text = "My blades won't touch an honest farmer, Argus.", next = "BACK", reply = "I'll take you at your word, and I'll put a good edge on it. Mind you keep it that way.", fx = { align = { honor = 1 } } },
-        { text = "A blade's a blade, and who it cuts is my business.", next = "BACK", reply = "Then I'll sharpen it and not ask, and I'll not listen either. That's my choice.", fx = { align = { honor = -1 } } },
+        { text = "A blade's a blade, and who it cuts is my business.", next = "BACK", reply = "Then I'll sharpen it and not ask, and if the Marshal ever comes asking, I'll not have heard a thing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -101,13 +117,18 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Honest work, the same as anyone's, only more of it, because you'll stand in front while the rest hide behind you. Brother Wilhelm trains your lot behind my forge, and I hear every blow he lands on their shields." } },
       choices = {
-        { text = "Then I'll stand in front, and bring you the dents after.", next = "BACK", reply = "That's what I like to hear, and I'll have the hammer ready. Bring me every dent.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll stand in front, and bring you the dents after.", next = "BACK", reply = "That's what I like to hear. Bring me every dent, and I'll tell you which one nearly killed you.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll stand where it's safest. Plate is for surviving, not for show.", next = "BACK", reply = "That's honest, at least, and I'll make you plate that keeps you alive. Where you stand is your business.", fx = { align = { honor = -1 } } },
         { text = "Something else, Argus.", next = "BACK" },
       },
     },
     hello = {
       lines = {
+        { id = "dd_kobolds_argus", when = { killed = { name = "Kobold", min = 50 } },
+          text = "You've dented that blade on a good many kobold skulls, by the look of the edge. Bring it here before you go back into Fargodeep, because a nicked sword in a mine is a quick way to an early grave." },
+        { id = "dd_goldtooth", when = { questDone = TODO_QUEST("Goldtooth") },
+          text = "Bernice Stonefield came by gloating that you'd taken her necklace back off that kobold with the gold tooth. She asked me to polish it, too, and I told her I'm a smith, not a jeweller, but I did it anyway." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your plate will want to look like it means what it promises, so let me see the dents before you say a word." },
         { id = "h_default", text = "Argus. I mend what's bent and make what's needed, but I don't do miracles." },
         { id = "q_elmore", when = { questActive = TODO_QUEST("Elmore's Task") },
@@ -128,7 +149,7 @@ P:NPC {
           text = "A mage, and not a scrap of steel on you anywhere. You'll want a stout staff and somebody tall to stand in front of you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and that blade's been put to honest use, by the nicks in it. Leave it on the bench and I'll take the worst of them out." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a blade for skinning and a quiver for everything else. I can sharpen the one, but I don't make arrows, so don't ask." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and not a buckle of steel on you, so I expect you've come for directions rather than repairs." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, and not a buckle of steel on you, so I expect you've come for directions rather than repairs." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I mend blades and buckles, and I'll mend yours, but I won't mend whatever's following you about." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf with totems on his belt. I don't know what your spirits make of that armour, but I'd say it needs mending before it needs blessing." },
       },
@@ -137,6 +158,8 @@ P:NPC {
         { id = "h_again2", text = "Eh? Something else, was it? Go on and say it louder." },
       },
       choices = {
+        { text = "I've fought my way through a lot of kobolds lately.", next = "dd_argus_k", when = { killed = { name = "Kobold", min = 50 } } },
+
         { text = "Let's see what you have.", next = "BUSINESS" },
         { text = "What makes good steel?", next = "steel" },
         { text = "That's a great many horseshoes for one smithy.", next = "shoes" },
@@ -181,7 +204,7 @@ P:NPC {
     dwarf = {
       lines = { { id = "dw_default", text = "There it is, from every one of you: too fast, too cold, too human. I'll tell you what I tell them, which is show me your blade, then tell me about mine." } },
       choices = {
-        { text = "Fair. Yours is good, for a human.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Fair enough. Yours is good work, for a human.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Mine's better.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
