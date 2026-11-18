@@ -1135,7 +1135,7 @@ P:NPC {
         { id = "h_scourge", when = { race = "Scourge" }, text = "I am Atepa. Your people keep very exact accounts, I have found, and never forget a sum, which makes the Forsaken the easiest customers on the bluff." },
       },
       again = {
-        { id = "h_again", text = "Is there something more? I have the time." },
+        { id = "h_again", text = "Is there something more? I have the time for it." },
         { id = "h_again2", text = "Ask, friend. The ledgers will keep." },
         { id = "h_again3", text = "Yes?" },
       },
@@ -1233,6 +1233,7 @@ P:NPC {
     },
   },
   topics = {
+    cairne = { { id = "tp_cairne", text = "The High Chieftain keeps nothing with us, and has never needed to. What he values cannot be put in a vault." } },
     background = { { id = "tp_bg", text = "I have kept accounts since the bluff was settled. Before that I kept count of the herd, and it is not so different." } },
     advice = { { id = "tp_ad", text = "Leave with us what you could not replace, and carry what you could. The road takes its share from everyone." } },
     _none = { { id = "tp_none", text = "That is beyond a banker's knowing. A Bluffwatcher could direct you better than I." } },
@@ -1511,6 +1512,7 @@ P:NPC {
     },
   },
   topics = {
+    venture_company = { { id = "tp_ven", text = "The Venture Company tried to sell Mulgore's own timber across my block once. I called the lot at one copper, and nobody bid." } },
     background = { { id = "tp_bg", text = "I have called the block since the auction house was a hide stretched on four poles. It has a roof now, and I am no quieter." } },
     advice = { { id = "tp_ad", text = "Never bid in the first rush, friend. Let the eager ones tire themselves, and come in when the block goes quiet." } },
     _none = { { id = "tp_none", text = "I only know what things are worth, not where they are or why. Ask a Bluffwatcher!" } },
@@ -1650,6 +1652,7 @@ P:NPC {
     },
   },
   topics = {
+    cairne = { { id = "tp_cairne", text = "He walks the rise at dusk, most evenings, and greets every tent by name. I have sold him lamp oil, and he paid, though I tried to refuse." } },
     background = { { id = "tp_bg", text = "I have kept this tent since the lifts were built. Before that I carried the tribe's cook pots, and this is easier on the back." } },
     advice = { { id = "tp_ad", text = "Carry twice the water you think you need, and half the weapons. I have never been wrong about that." } },
     _none = { { id = "tp_none", text = "I could not say, friend. Ask a Bluffwatcher, they like being asked." } },
@@ -1788,6 +1791,7 @@ P:NPC {
     },
   },
   topics = {
+    cairne = { { id = "tp_cairne", text = "The High Chieftain wears hide, as he always has, but he came to my loom once and stood a long while watching it. He said it was good to see our people make a new thing." } },
     background = { { id = "tp_bg", text = "I learned to weave from my grandmother and to sew from an orc who had learned in the camps. I teach both, and I name them both." } },
     advice = { { id = "tp_ad", text = "Measure twice, and then measure once more when the customer has breathed out. Everyone holds their belly in for a tailor." } },
     _none = { { id = "tp_none", text = "I am afraid that is beyond me, dear one. Ask at the inn; Pala hears everything." } },
@@ -1926,6 +1930,7 @@ P:NPC {
     },
   },
   topics = {
+    centaur = { { id = "tp_cen", text = "Most of what I mend was done by centaur, in the Barrens or beyond. Their arrows are barbed, and I have learned more from them than I ever wished to." } },
     background = { { id = "tp_bg", text = "I followed the war parties as a calf, carrying water. I learned what a wound is long before I learned how to close one." } },
     advice = { { id = "tp_ad", text = "Wash it first, however much they shout. A clean wound badly bound heals better than a dirty one bound well." } },
     _none = { { id = "tp_none", text = "That I cannot mend or answer. Ask the shamans in the lodge; they hear more than I do." } },

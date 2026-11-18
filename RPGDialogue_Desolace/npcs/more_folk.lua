@@ -1005,7 +1005,7 @@ P:NPC {
       again = {
         { id = "h_again3", text = "Yes? Speak gently, the mare is newly calmed." },
         { id = "h_again", text = "What else would you know?" },
-        { id = "h_again2", text = "Ask, if you wish. I have time." },
+        { id = "h_again2", text = "Ask, if you wish, for I have time." },
       },
       choices = {
         { text = "I'd like to stable a beast.", next = "BUSINESS" },
@@ -1401,7 +1401,7 @@ P:NPC {
         { id = "sister_free_d", text = "Who am I gonna send, pal? I sell jars. But if somebody handy with a blade happened to be down that way and happened to open a cage, I'd be grateful in ways I ain't ever been grateful before." },
       },
       choices = {
-        { text = "If I find her, I'll bring her out.", next = "BACK", reply = "Ya mean it? Don't say it if ya don't mean it. ...All right. All right. Thanks, pal.", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "If I find her, I'll bring her out.", next = "BACK", reply = "Ya mean it? Don't say it if ya don't mean it, pal, because I'll hold ya to it, and I'll thank ya every day after.", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "What's it worth to you?", next = "BACK", reply = "Everything in the strongbox, and I'd throw in the strongbox. First time in my life I ain't hagglin'.", fx = { trait = { practical = 1 } } },
       },
     },
@@ -1443,7 +1443,7 @@ P:NPC {
     third = "{name} met Bibbly F'utzbuckle, a goblin bone-buyer at Kormek's Hut.",
   },
   greetings = {
-    { id = "g_hi", text = "Bones! Ya got bones? No? Ya look like somebody who could get bones. Come in, come in, mind the dead lady, she's workin'." },
+    { id = "g_hi", text = "Bones! Ya got bones, pal? Well, ya look like somebody who could get bones, so come in, come in, and mind the dead lady, she's workin'." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, it's my bone guy! Tell me ya got some, pal, my feet are itchin'." },
     { id = "g_bones", when = { questActive = TODO_QUEST("Bone Collector") }, text = "Kodo Graveyard, friend, big bones lyin' right there in the dust. Just grab 'em and run, and I do mean run." },
     { id = "g_away", when = { away = 14 }, text = "{away}! I been dancin' on the spot the whole time. Look at the floor, I wore a groove." },
@@ -1452,7 +1452,7 @@ P:NPC {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Oh. A tauren. Uh, listen, big fella, about the bones, it's purely scientific, real respectful, I got a permit somewhere." },
     { id = "n_scourge", cat = "race", when = { race = "Scourge" },
-      text = "Another dead one! No offence, pal. Say, how attached are ya to all of your, uh... no, forget it, forget I asked." },
+      text = "Another dead one, and no offence meant, pal! Say, how attached are ya to all of your, uh... no, forget it, forget I asked." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "Quick hands, light feet. Friend, you are exactly the build for this job, the ghosts'll never catch ya." },
   },
@@ -1513,13 +1513,13 @@ P:NPC {
       },
       choices = {
         { text = "Perhaps you should wonder. Leave the bones be.", next = "BACK", reply = "Yeah, yeah. Ya sound like the one in my head. Him I can drown out with a jig, you I gotta listen to.", fx = { align = { light = 1 } } },
-        { text = "Ghosts can't spend coin. Take what's lying there.", next = "BACK", reply = "That's the spirit! Uh, so to speak. See, this is why I like you, you got a head for business.", fx = { align = { light = -1 } } },
+        { text = "Ghosts can't spend coin. Take what's lying there.", next = "BACK", reply = "That's the spirit, so to speak! See, this is why I like you, pal, you got a head for business.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     willow = {
       lines = {
-        { id = "willow_d", text = "The dead lady? We got an understandin'. She don't touch my bones, I don't touch her carvings, and neither of us asks what the other one's up to. Best neighbour I ever had." },
+        { id = "willow_d", text = "The dead lady and me, we got an understandin'. She don't touch my bones, I don't touch her carvings, and neither of us asks what the other one's up to, which makes her the best neighbour I ever had." },
       },
       choices = {
         { text = "What do you think she's up to?", next = "willow_what" },
@@ -1811,7 +1811,7 @@ P:NPC {
     bargain_wins = {
       big = true,
       lines = {
-        { id = "bargain_wins_d", text = "Me. Always me. But I make sure you don't feel it, and dat's de skill." },
+        { id = "bargain_wins_d", text = "Me, mon, always me. But I make sure you don't feel it, and dat's de skill." },
       },
       choices = {
         { text = "Then name your price and I'll pay it. Haggling wastes time.", next = "BACK", reply = "Bah! You talk like an orc. Where's de joy in dat? Fine, fine, but I be disappointed.", fx = { align = { order = 1 } } },
@@ -1847,6 +1847,7 @@ P:NPC {
     },
   },
   topics = {
+    centaur = { { id = "tp_car", text = "De Gizelton brothers, Rigger and Cork, dey run de only wagons crazy enough to cross dis land. I pray for dem, mon, mostly for my own sake." } },
     background = { { id = "tp_bg", text = "I sold on de Echo Isles, den at Sen'jin, den here. A trader goes where de customers be, even if it's de edge of nowhere." } },
     advice = { { id = "tp_ad", text = "Buy your thread before de caravan's due, mon, not after. After, dere might be no caravan." } },
     _none = { { id = "tp_none", text = "Don't know, mon, and I don't sell what I don't know. Ask Jinar'Zillen." } },
@@ -1887,7 +1888,7 @@ P:NPC {
         { id = "h_tauren", when = { race = "Tauren" }, text = "I be Mai'Lahii. Tauren don't fish much, I know, but de ones who try it out here don't ever go back to chasin' plainstriders, so watch yourself." },
       },
       again = {
-        { id = "h_again", text = "What else, mon? De tide's slow today." },
+        { id = "h_again", text = "What else, mon? De tide's slow today, so I got time." },
         { id = "h_again2", text = "Ask. I be only mendin' net." },
         { id = "h_again3", text = "Ya?" },
       },
@@ -1913,7 +1914,7 @@ P:NPC {
     },
     charm_work = {
       lines = {
-        { id = "charm_work_d", text = "Lui'Mala lost three lines last moon and he don't use dem. I lost none. You tell me, mon." },
+        { id = "charm_work_d", text = "Lui'Mala lost three lines last moon and he don't use dem, and I lost none, so you tell me, mon." },
       },
       choices = {
         { text = "Then I'll take a charm with my line.", next = "BACK", reply = "Smart. It be already tied on; I don't sell a line without one.", fx = { affinity = 1, trait = { pious = 1 } } },
@@ -1986,6 +1987,7 @@ P:NPC {
     },
   },
   topics = {
+    centaur = { { id = "tp_cen", text = "Dey don't come down to de water, mon, and dat's de best thing about dem. A centaur on a dock be a centaur in de sea." } },
     background = { { id = "tp_bg", text = "I grew up on a boat, mon. I got more sea in me dan land, and I mean to keep it dat way." } },
     advice = { { id = "tp_ad", text = "Wet your line before you cast, and never whistle on de dock. One's for de knots and de other's for luck." } },
     _none = { { id = "tp_none", text = "Dat I don't know, mon. Ask up in de village; I only know what swims." } },
@@ -2126,6 +2128,7 @@ P:NPC {
     },
   },
   topics = {
+    centaur = { { id = "tp_cen", text = "The Kolkar take one wagon in three from the caravan, child, and every one they take is a month of plain eating for this village. I have no kind word for them." } },
     background = { { id = "tp_bg", text = "I am a Mulgore cook on a troll dock at the edge of a dead land. I did not plan it, and I would not undo it." } },
     advice = { { id = "tp_ad", text = "Dry your fish before you carry it inland, child. Nothing turns faster than a wet fish in Desolace heat." } },
     _none = { { id = "tp_none", text = "I could not tell you. Ask Sikewa at the inn; travellers tell her everything." } },

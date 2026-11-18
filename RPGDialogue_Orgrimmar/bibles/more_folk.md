@@ -34,3 +34,35 @@
 
 ## What they notice
 - Sagorne: shaman, tauren, orcs. Sian'tsu: shaman, trolls. Zamja: cooks, orcs. Thuwd: skinners, beast pets. Handor: rogues, druids. Tor'phan: mages. Kor'jus: Forsaken. Muragus: warlocks. Shan'ti: tauren. Zarg: warriors. Stonehide: tauren.
+
+## Added later (missed NPCs; keys: nazgrel, korghan, krathok, borgosh, morag, zayus, pephredo, koma, roxxik, godan)
+Sources: warcraft.wiki.gg pages for Nazgrel (advisor to Thrall, Frostwolf, Grommash Hold), Kor'ghan (Cleft of Shadow, outside Rekkul's Poisons), Krathok Moltenfist (the Burning Anvil, armorsmith/weaponsmith choice), Borgosh Corebender (weaponsmith; dreams of a hammer fit for a warchief), Barkeep Morag (inn taproom), Zayus (High Priest, Valley of Spirits), Pephredo (mage trainer beside Deino and Enyo), Koma (banker; brothers Karus and Soran; claims Mount Hyjal), Roxxik (engineering, Nogg's Machine Shop), Godan (enchanting, Godan's Runeworks).
+
+### Their quests
+- Kor'ghan: Finding the Antidote (four venomtail poison sacs, for the antidote Rhinag needs in Need for a Cure; Durotar pack, rhinag.lua). Harsh on Rhinag because he was frightened for him.
+- Krathok: gate to The Art of the Armorsmith (Okothos Ironrager) and The Way of the Weaponsmith (Borgosh Corebender); he judges readiness, they test.
+- Borgosh: The Way of the Weaponsmith (forge his list; he swings every piece).
+- Nazgrel: none in Year 1 (his Outland post is later and never mentioned). Built from Warcraft III and Lord of the Clans: Frostwolf, wolf rider, wary of humans, sworn to Thrall.
+- Morag, Zayus, Pephredo, Koma, Roxxik, Godan: none: vendors, bankers and trainers, built from role, place and neighbours.
+
+### Never
+- Nazgrel at Thrallmar, Garrosh, the Kor'kron, the Siege of Orgrimmar, Mokvar the Treasurer, Godan as Garrosh's enchanter, goblin player lore (Kezan, Bilgewater), Bwonsamdi by name from Zayus (he will not say it idly).
+
+### Voices (authored, not canon)
+- Nazgrel: stern, watchful; counsels caution about Theramore, obeys wholly (order stance); Frostwolf exile (honor stance); trained Gar'Thok. Has `_gated`.
+- Kor'ghan: severe Darkspear venom-master; thirty years of dosing himself (light stance); shouts at Rhinag out of fear (light stance).
+- Krathok: gruff master armorer; made axes for the old Horde, chose armor when free (honor stance on a maker's guilt).
+- Borgosh: driven; eleven hammers broken for scrap (order stance on the dream vs plain axes); friendly contest with Krathok (honor stance). The count of hammers is authored.
+- Morag: easy, sharp; passes one kind of tale to Grommash Hold (order stance); shelters Gamon inside his door (light stance).
+- Zayus: grave, gentle; the loa as difficult elders; the Darkspear gave up blood offerings on joining the Horde (light stance); shadow and healing as one hand (light stance).
+- Pephredo: sharp, amused; three teachers who quarrel; the gifted boy she taught too early (authored; light stance); sends students where the books are (order stance).
+- Koma: bluff, boastful; Hyjal told loud because he can't tell it plain (light stance); trophies in the vault (honor stance).
+- Roxxik: fast goblin patter, everything priced; the student who rebuilt his press unpaid (honor stance); goblin vs gnomish (order stance).
+- Godan: quiet, intent; learning by unmaking; the father's axe he would not disenchant (authored; light stance); keeps to objects, not souls (light stance).
+
+### What they notice
+- Nazgrel: rogues, Forsaken, orc warriors. Kor'ghan: rogues, alchemists. Krathok: broken gear, miners. Borgosh: warriors, shaman. Morag: the drunk, warriors. Zayus: Forsaken, paladins. Pephredo: warlocks, young mages. Koma: thin purses, warriors. Roxxik: miners, hunters. Godan: broken gear, mages.
+
+### Deepened (same pass)
+- Sian'tsu (the boat she lost to a storm), Zamja (feeding the Drag's sweepers), Thuwd (kodo hides and the tauren pact), Handor (reading wear), Tor'phan (the feud as theatre), Kor'jus (who walks toward Neeru; once a tunnel peon, authored), Muragus (the charred staff), Shan'ti (the apples over the camp fence, authored), Zarg (the notched blade from Hyjal, authored), Stonehide (her brother's cloak, authored).
+

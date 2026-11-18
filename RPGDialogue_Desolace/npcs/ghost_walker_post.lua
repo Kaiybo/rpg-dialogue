@@ -247,7 +247,7 @@ P:NPC {
     { id = "g_default", text = "Have you eaten? You haven't; I can see it. Sit, and let me sell you something that isn't trail bread." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still thin. Desolace does that to everyone, so let's fix it." },
     { id = "g_back2", when = { metBefore = true }, text = "You came back, and in time for the pot. Sit, sit." },
-    { id = "g_away", when = { away = 14 }, text = "{away} out there. Did you eat properly? No, do not tell me, I can see." },
+    { id = "g_away", when = { away = 14 }, text = "{away} out there, and I can see without asking that you did not eat properly." },
   },
 
   notice = {

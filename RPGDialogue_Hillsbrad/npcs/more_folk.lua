@@ -567,6 +567,8 @@ P:NPC {
     forsaken = { { id = "tp_fs", text = "We're hard on our clothes and can't feel them wearing. Somebody has to look us over, and at Tarren Mill it's me." } },
     sylvanas = { { id = "tp_syl", text = "I made a banner for her once, in the city. I'm told it hangs in the Royal Quarter, and I've never gone to check, in case it doesn't." } },
     advice = { { id = "tp_ad", text = "Mend it the day it tears. A small hole is a quarter hour, and a large one is a new garment." } },
+    scourge = { { id = "tp_scourge", text = "They marched us in whatever we died in. I think of that whenever someone tells me a uniform is only cloth." } },
+    lordaeron = { { id = "tp_lord", text = "I was apprenticed in the capital and never finished my time. I've finished it since, on my own, which the guild would not have allowed." } },
     _none = { { id = "tp_none", text = "I couldn't say. I see this town through its laundry, and that never came through my hands." } },
   },
 }
@@ -683,6 +685,7 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "His soldiers eat like wolves and pay like gentlemen. I've no quarrel with the Warchief." } },
     syndicate = { { id = "tp_syn", text = "They used to drink at my inn and leave without paying. Some things got better when I died." } },
     advice = { { id = "tp_ad", text = "Never trust a cook who says it's his best yet. It's stew. It's always just stew." } },
+    lordaeron = { { id = "tp_lord", text = "Good beef, good beer, and a fiddler on market night. That's the whole of the kingdom, as far as my kitchen saw it." } },
     _none = { { id = "tp_none", text = "Don't know. If you can't eat it, I've no opinion on it." } },
   },
 }
@@ -759,7 +762,7 @@ P:NPC {
     },
     apoth2 = {
       big = true,
-      lines = { { id = "a2_default", text = "I taught children their letters in Southshore before the plague, and some of those children carry pikes against us now. I don't know how it sits. I pick the flower, and what's done with it is done by other hands. Is that enough to keep mine clean?" } },
+      lines = { { id = "a2_default", text = "I taught children their letters in this valley before the plague, and some of those children carry pikes against us now. I don't know how it sits. I pick the flower, and what's done with it is done by other hands. Is that enough to keep mine clean?" } },
       choices = {
         { text = "No. You know what it's for.", next = "BACK", reply = "I do. I've known every morning for a year, and I've gone out with the sickle regardless. Thank you for not pretending.", fx = { align = { light = 1 } } },
         { text = "Yes. They'd do worse to us without a thought.", next = "BACK", reply = "They would, and they have. I'll take that tonight, and see if it still holds in the morning.", fx = { align = { light = -1 } } },
@@ -792,6 +795,9 @@ P:NPC {
     new_plague = { { id = "tp_np", text = "I pick what I'm asked for and I'm not shown the bench. That's all I'll say, and it's all I know." } },
     forsaken = { { id = "tp_fs", text = "We can't smell the flowers. I teach by leaf and stem and the feel of the sap, and my students learn faster for it." } },
     advice = { { id = "tp_ad", text = "Learn the three plants that will kill you before you learn the thirty that won't." } },
+    sylvanas = { { id = "tp_syl", text = "She gave us somewhere to stand. I try to remember that on the mornings when I don't like what I'm standing on." } },
+    syndicate = { { id = "tp_syn", text = "They trample the steelbloom going up to Durnholde and never once pick it. I've no patience with waste." } },
+    lordaeron = { { id = "tp_lord", text = "It had schools, and I kept one. I think that is the thing about it I would most like back." } },
     _none = { { id = "tp_none", text = "That doesn't grow anywhere I've looked, so I can't help you." } },
   },
 }
@@ -907,5 +913,441 @@ P:NPC {
     alterac = { { id = "tp_alt", text = "A kingdom lost by a man who thought treachery was the same thing as cleverness. We use him as a lesson." } },
     advice = { { id = "tp_ad", text = "Never run when you can walk, and never walk when you can stand still." } },
     _none = { { id = "tp_none", text = "If I knew, I would not say, and if I do not know, it is not worth knowing. Choose whichever comforts you." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Bront Coldcleave: Southshore's butcher; feeds the town and the militia and frets about the herds.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "hb_bront", id = TODO_NPC("Bront Coldcleave"), name = "Bront Coldcleave", title = "Butcher",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "southshore" }, temper = { "bluff", "hearty" }, values = { "practical", "community" },
+  notices = { "hunger" },
+  impression = {
+    first = "Bront Coldcleave is Southshore's butcher, a loud man with a clean apron who knows every farm in the foothills by its beef. Fewer of those farms send him cattle each month, and he counts them aloud.",
+    third = "{name} met Bront Coldcleave, the butcher of Southshore.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Good day to you! Fresh cuts on the block, and none of it's been further than the Fields." },
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Now there's a customer who knows a proper joint. Come and see the haunch I've been saving." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! I told the wife you'd be back. Nobody buys from Bront just the once." },
+  },
+
+  notice = {
+    { id = "n_hunter", cat = "hunger", when = { class = "HUNTER" },
+      text = "That beast of yours has its eye on my offcuts. Smart animal. I'll wrap something for it, if you're buying for yourself as well." },
+    { id = "n_cook", cat = "hunger", when = { profession = "Cooking" },
+      text = "You've a cook's burn on that hand. Then you'll want the shoulder and not the loin, because you'll know what to do with it." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Bront Coldcleave, butcher. I feed Southshore, and the militia, and any traveller who's sick of fish, which in this town is most of them by the second day." },
+        { id = "h_horde", when = { faction = "Horde" }, text = "Bront Coldcleave. You're not from the Alliance side, and I'll be honest, I'd sooner you bought and went. But coin's coin, and a butcher who turns it away doesn't stay a butcher." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I do for you?" },
+        { id = "h_again2", text = "Go on, I can talk and trim." },
+        { id = "h_again3", text = "Aye? Mind the block, it's sharp work today." },
+      },
+      choices = {
+        { text = "Show me what's on the block.", next = "BUSINESS" },
+        { text = "Where does your meat come from?", next = "farms" },
+        { text = "Everyone here seems sick of fish.", next = "fish" },
+        { text = "How's the town holding up?", next = "town" },
+        { text = "What would you roast for a feast?", next = "roast", when = { profession = "Cooking" } },
+        { text = "I'm with the militia's effort. What do they need?", next = "militia", when = { faction = "Alliance", minLevel = 25 } },
+        { text = "Good day, Bront.", next = "END" },
+      },
+    },
+    farms = {
+      lines = { { id = "f_default", text = "The Hillsbrad Fields, mostly. Farmer Ray and Farmer Getz for beef, and the Kalaba place for mutton. Good people, all of them. I used to send a boy up with the cart twice a week, and now I send two men with pikes." } },
+      choices = {
+        { text = "Is it that bad on the road?", next = "farms2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    farms2 = {
+      big = true,
+      lines = { { id = "f2_default", text = "The dead from Tarren Mill come down at night. They don't take the cattle, friend. They kill the farmers and leave the cattle standing in the yard, lowing to be milked. I've seen it twice, and I'd give a year's takings never to see it a third time." } },
+      choices = {
+        { text = "The militia should clear Tarren Mill out.", next = "BACK", reply = "They'd need twice the men. But I'd sharpen every knife I own for them, and march besides.", fx = { align = { order = 1 } } },
+        { text = "The farmers should come inside the walls.", next = "BACK", reply = "And leave land their grandfathers cleared? They won't. I've asked them myself, with tears in my eyes.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fish = {
+      lines = { { id = "fi_default", text = "It's a fishing town, so it's fish for breakfast and fish for supper. Hal McAllister sells a good fish, I'll never say otherwise. But a man needs something that walked, now and then, and that's when they come to Bront." } },
+      choices = {
+        { text = "So you and Hal are rivals.", next = "fish2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fish2 = {
+      lines = { { id = "fi2_default", text = "Rivals! We've played draughts every rest day for fifteen years. He tells me my beef's tough and I tell him his cod's been dead longer than a deathguard. Then Barkeep Kelly brings us each a pint and we start again." } },
+      choices = {
+        { text = "That sounds like a good friendship.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    town = {
+      lines = { { id = "t_default", text = "We're holding. Magistrate Maleb keeps order and Marshal Redpath keeps the walls, and Chef Jessen at the inn still buys my best cuts, so somebody's got coin. But there are empty houses on the north lane that weren't empty last spring." } },
+      choices = {
+        { text = "Where did those families go?", next = "BACK", reply = "South, by boat, to Menethil or Stormwind. I don't blame them. I only wish they'd said goodbye." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roast = {
+      lines = { { id = "r_default", text = "A whole forerib, hung ten days, with nothing on it but salt and a hot fire. Chef Jessen does clever things with turtle, and good luck to him. But when Southshore wants to celebrate, they come to me for the rib." } },
+      choices = {
+        { text = "Ten days hung. I'll remember that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    militia = {
+      lines = { { id = "m_default", text = "Salt pork, and plenty of it, because it keeps on patrol. I give Redpath's lads a side every week at cost, and I'd give it free if the wife would let me. If you're riding out with them, take some jerky. It's on the hook by the door." } },
+      choices = {
+        { text = "You're doing your part, Bront.", next = "BACK", reply = "It's little enough. I'm too fat to hold a pike, so I feed the ones who can.", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    forsaken = { { id = "tp_fs", text = "I knew some of those folk when they were alive. That's the worst of it. One of them used to buy my sausages." } },
+    syndicate = { { id = "tp_syn", text = "Thieves in fancy masks. They took a cart of mine on the Alterac road, and I hope the beef choked them." } },
+    lordaeron = { { id = "tp_lord", text = "We paid our taxes to it and it's gone. Stormwind's a long way off, friend, and it feels longer every winter." } },
+    advice = { { id = "tp_ad", text = "Cut across the grain, and never trust a thin butcher." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, friend. If it's not on a hook, I don't know it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Robert Aebischer: Southshore's superior armorsmith; mends the militia's kit and sells the best mail in the foothills.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "hb_aebischer", id = TODO_NPC("Robert Aebischer"), name = "Robert Aebischer", title = "Superior Armorsmith",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "southshore" }, temper = { "steady", "proud" }, values = { "craft", "dutiful" },
+  notices = { "kit", "craft" },
+  impression = {
+    first = "Robert Aebischer forges and sells armor in Southshore, and the militia's dented breastplates pass across his anvil every week. He reads the state of the war in those dents and does not much like the story.",
+    third = "{name} met Robert Aebischer, the armorsmith of Southshore.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Afternoon. Mail and plate on the racks, all my own work. Have a look, and knock on it if you like." },
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf, in my forge. I'll be glad of your opinion and afraid of it in equal parts. Go on, look at the rivets." },
+    { id = "g_back", when = { metBefore = true }, text = "Back, are you? Let's see how the last piece wore. Turn round." },
+  },
+
+  notice = {
+    { id = "n_broken", cat = "kit", when = { durability = { max = 0.35 } },
+      text = "That's been through something. I can tell you what, too: those are axe cuts, low and from the left, so you were fighting someone shorter than you who knew his business." },
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "You've a smith's forearms. Then tell me honestly what you think of that hauberk by the door, because my own apprentice won't." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Robert Aebischer, armorsmith. I make and mend for Southshore's militia first and for travellers after, and these days the mending takes up more of the forge than the making." },
+        { id = "h_paladin", when = { class = "PALADIN" }, text = "Robert Aebischer, armorsmith. You carry the Light's hammer, I see. We had knights of the Silver Hand through here in the old days, and I shod their horses as a boy. It's good to see the like again." },
+      },
+      again = {
+        { id = "h_again", text = "Something else? I've a fire to keep." },
+        { id = "h_again2", text = "Go on, the iron's not ready yet." },
+        { id = "h_again3", text = "Aye, ask." },
+      },
+      choices = {
+        { text = "Show me your armor.", next = "BUSINESS" },
+        { text = "You can read a fight from the damage?", next = "read" },
+        { text = "Where do you get your iron?", next = "iron" },
+        { text = "What do they call superior about it?", next = "superior" },
+        { text = "How would you temper mail for these hills?", next = "temper", when = { profession = "Blacksmithing" } },
+        { text = "Dwarven mail's lighter. You know that.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Good day to you.", next = "END" },
+      },
+    },
+    read = {
+      lines = { { id = "r_default", text = "Any smith can, after enough years. Syndicate blades leave thin cuts, high up, because they go for the throat. The ogres up in Alterac leave a plate bent like a spoon. And lately I see small punctures, clean through, in the backs." } },
+      choices = {
+        { text = "In the backs?", next = "read2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    read2 = {
+      big = true,
+      lines = { { id = "r2_default", text = "Crossbow bolts, from the Tarren Mill deathguards. They don't stand and fight, they shoot a patrol as it turns for home. I've started putting a second layer between the shoulders, and I don't charge the militia for it. Should I be telling the Marshal what I see?" } },
+      choices = {
+        { text = "Yes. He needs to know how his men die.", next = "BACK", reply = "Aye. I'll go up tonight. It's not a smith's place, but it's nobody else's either.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No. Fix the armor and let soldiers soldier.", next = "BACK", reply = "Maybe so. I'll keep adding the plate, then, and keep my counsel.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    iron = {
+      lines = { { id = "i_default", text = "It used to come down from Alterac, good grey ore, before the kingdom fell and the Syndicate took the roads. Now it's Azurelode, when the mine's ours, and bar stock by ship from Menethil when it isn't." } },
+      choices = {
+        { text = "Is Azurelode yours at the moment?", next = "iron2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    iron2 = {
+      lines = { { id = "i2_default", text = "The miners hold it, bless them, but they've had the Horde in the shafts more than once, and I'm told the foreman sleeps with a pick in his hand. If that mine goes, I'm mending with horseshoes inside a season." } },
+      choices = {
+        { text = "Then the mine's worth defending.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    superior = {
+      lines = { { id = "s_default", text = "The guild in Stormwind gave me the title, and I'll not pretend I didn't frame the letter. It means the rings are riveted and not just butted, and that I'll stand behind every piece. Anyone can sell you armor. I'll tell you where it's weak." } },
+      choices = {
+        { text = "Where's yours weak, then?", next = "BACK", reply = "Under the arm, same as everyone's. Keep your elbows in, and it'll never matter.", fx = { trait = { honest = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    temper = {
+      lines = { { id = "t_default", text = "Softer than you'd think. It's wet here, and brittle rings snap in the cold off the sea. I draw the temper back until a ring will bend before it breaks, and I oil everything twice. A rusted link is worse than a missing one." } },
+      choices = {
+        { text = "Bend before it breaks. That's sound.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dwarf = {
+      lines = { { id = "d_default", text = "I do know it, and I'll not argue with Ironforge. Your smiths draw a finer wire than I can, and I've a dwarven coif on that shelf I've been taking apart for a year to learn how. It's the only thing in the shop I didn't make." } },
+      choices = {
+        { text = "Honest of you to say so.", next = "BACK", reply = "A smith who can't admire better work will never do any.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    forsaken = { { id = "tp_fs", text = "They wear our old militia's mail, some of them. I've seen my own maker's mark on a dead man walking, and I've not slept right since." } },
+    syndicate = { { id = "tp_syn", text = "They cut the Alterac ore road, and I've cursed them every working day for it." } },
+    alterac = { { id = "tp_alt", text = "Fine iron, and a rotten king. The iron deserved better." } },
+    silver_hand = { { id = "tp_hand", text = "I shod their horses as a lad. They tipped in silver and said thank you, every one." } },
+    advice = { { id = "tp_ad", text = "Oil your mail every night you've been near the sea. Salt gets in where swords can't." } },
+    _none = { { id = "tp_none", text = "Can't help you there. If it can't be hammered, it's not my trade." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Sarah Raycroft: Southshore's general goods seller; knows who is buying for a journey and who is buying to leave.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "hb_raycroft", id = TODO_NPC("Sarah Raycroft"), name = "Sarah Raycroft", title = "General Goods",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "southshore" }, temper = { "warm", "observant" }, values = { "community", "practical" },
+  notices = { "kit", "class" },
+  impression = {
+    first = "Sarah Raycroft keeps Southshore's general store and can tell from a shopping list whether a customer is going on patrol or leaving town for good. She says nothing about it and packs their baskets carefully either way.",
+    third = "{name} met Sarah Raycroft, who sells general goods in Southshore.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Hello, love. Rope, lamp oil, waterskins, whatever you're short of. Have a look round." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, hello again! You're still in one piece, so the last lot must have done you." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Oh. Well. You're here, and you've a purse, and I'll serve you. But please be quick, because it frightens the children." },
+  },
+
+  notice = {
+    { id = "n_new", cat = "kit", when = { maxLevel = 22 },
+      text = "You're new to the road, aren't you? No shame in it. Take two waterskins and not one, and don't let anybody sell you a map of Alterac." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage! Master Odelic of the Kirin Tor is staying in town, did you know? He bought every candle I had, so I hope you weren't after candles." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Sarah Raycroft, and this is the general store, such as it is. If Southshore needs it and it isn't a fish, it likely came through my door." },
+        { id = "h_nightelf", when = { race = "NightElf" }, text = "Sarah Raycroft, and welcome. We don't see many of your people this far east, and I hope you'll forgive the staring. I've a few things from Auberdine that came by ship, if you're missing home." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else, love?" },
+        { id = "h_again2", text = "Go on, I'm only counting stock." },
+        { id = "h_again3", text = "Yes? Mind the barrel, the lid's loose." },
+      },
+      choices = {
+        { text = "Let me see what you have.", next = "BUSINESS" },
+        { text = "You must know everyone's business here.", next = "business" },
+        { text = "What sells most, these days?", next = "sells" },
+        { text = "How do goods still reach Southshore?", next = "ships" },
+        { text = "I'm heading into Alterac. What should I pack?", next = "pack", when = { minLevel = 28 } },
+        { text = "I've come from Menethil. Any message to carry?", next = "menethil", when = { faction = "Alliance", minLevel = 20 } },
+        { text = "Thank you, Sarah.", next = "END" },
+      },
+    },
+    business = {
+      lines = { { id = "b_default", text = "Only what they buy, love, but that's most of it. When Lieutenant Orinelle wants extra rope, there's trouble on the coast. When Loremaster Dibbs buys ink, he's had a letter from Dalaran. And when a family buys a trunk, well." } },
+      choices = {
+        { text = "They're leaving.", next = "business2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    business2 = {
+      big = true,
+      lines = { { id = "b2_default", text = "They're leaving. I've sold nine trunks since the spring. I never ask, and I always put a bit of bread in the bottom for the boat. Some of my neighbours think I shouldn't sell them at all, and make it harder to go. What do you think?" } },
+      choices = {
+        { text = "Sell them. Nobody should be kept in a war.", next = "BACK", reply = "That's what I tell myself. It doesn't make the street any less quiet, but thank you.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your neighbours are right. A town survives by staying.", next = "BACK", reply = "Maybe they are. But I'll not be the one to bar a mother's way to the dock.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sells = {
+      lines = { { id = "s_default", text = "Lamp oil, because nobody likes the dark any more. Bandage linen, more than I can keep in. And sweets, would you believe. The children here get a great many sweets, and I think it's their parents saying sorry." } },
+      choices = {
+        { text = "Sorry for what?", next = "BACK", reply = "For not having left, I think. Or for thinking about it. I slip in an extra one when I can.", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ships = {
+      lines = { { id = "sh_default", text = "By sea, from Menethil, when the weather and the murlocs allow. The road north is the Syndicate's and the road east goes past Tarren Mill, so it's ships or nothing. Micha Yance and I share a hold between us and split the losses." } },
+      choices = {
+        { text = "Are there many losses?", next = "ships2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ships2 = {
+      lines = { { id = "sh2_default", text = "One cargo in five, this year. The murlocs down the coast have got bold, and there's talk of something worse under the water that's stirring them up. Lieutenant Orinelle's the one to ask. He's had people look into it." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pack = {
+      lines = { { id = "p_default", text = "Warm things, first. It's snow by the time you reach the ruins. Rope, flint, and food for two days more than you think. And don't take the Strahnbrad road alone, love, whatever anyone tells you about it being quiet." } },
+      choices = {
+        { text = "Sound advice. I'll take the rope.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    menethil = {
+      lines = { { id = "m_default", text = "Would you? My sister keeps a net loft by the harbour there. Tell her Sarah's well, and the shop's still open, and that I haven't bought a trunk. She'll know what that means." } },
+      choices = {
+        { text = "I'll find her and tell her.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    forsaken = { { id = "tp_fs", text = "I try not to think of them as people we knew. It's easier, and I'm not proud of that." } },
+    syndicate = { { id = "tp_syn", text = "They buy from me in plain clothes, some of them. I know, and they know I know, and I take the money." } },
+    dalaran = { { id = "tp_dal", text = "There's a great purple bubble where it used to be. The loremaster says the mages are rebuilding, and I say they might answer their letters." } },
+    advice = { { id = "tp_ad", text = "Buy the good rope, love. Nobody ever wished they'd bought the cheap rope." } },
+    _none = { { id = "tp_none", text = "I couldn't say, love. I only know what goes over the counter." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Jaysin Lanyda: sells poisons and reagents in Southshore; an honest town's one dubious shop.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "hb_lanyda", id = TODO_NPC("Jaysin Lanyda"), name = "Jaysin Lanyda", title = "Poisons & Reagents",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "southshore" }, temper = { "sly", "genial" }, values = { "practical", "discreet" },
+  notices = { "class" },
+  impression = {
+    first = "Jaysin Lanyda sells reagents and poisons in Southshore, and he is cheerful about being the least respectable shopkeeper in a respectable town. He is careful to say that everything he sells is for the war.",
+    third = "{name} met Jaysin Lanyda, who sells poisons and reagents in Southshore.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Come in, come in, and shut the door. The magistrate's wife walks past at this hour, and she worries." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "Ah. One of my regulars, or one who will be. I've fresh stock, and I never saw you." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Either it worked or it didn't, and I never ask which." },
+  },
+
+  notice = {
+    { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
+      text = "A paladin. Now, before you say anything, the reagents are all perfectly holy, and the other shelf is rat poison. Mostly rat poison." },
+    { id = "n_caster", cat = "class", when = { class = { "MAGE", "PRIEST", "DRUID", "SHAMAN", "WARLOCK" } },
+      text = "You'll be wanting the reagent side. Runes, powders, the usual. I keep them well apart from the other things, since I had a mix-up once." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Jaysin Lanyda. Reagents for those who cast, and something stronger for those who'd rather not be seen doing it. All for the defence of Southshore, you understand, and I've a letter from the Marshal saying so." },
+        { id = "h_rogue", when = { class = "ROGUE" }, text = "Jaysin Lanyda. You're in the trade, so I'll not dress it up. There's a war on, the militia's outnumbered, and a coated blade evens the odds. Nobody in this town likes it, and nobody's asked me to stop." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Quietly, now." },
+        { id = "h_again2", text = "Go on. I'm all ears, and no memory." },
+        { id = "h_again3", text = "Yes? The door's shut, so say what you like." },
+      },
+      choices = {
+        { text = "Show me your stock.", next = "BUSINESS" },
+        { text = "Does Southshore mind a poison seller?", next = "mind" },
+        { text = "Who buys poison in a fishing town?", next = "buys" },
+        { text = "Where do you get it all?", next = "source" },
+        { text = "What works on a Forsaken?", next = "undead", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Poison is a coward's weapon.", next = "coward", when = { class = { "PALADIN", "WARRIOR" } } },
+        { text = "I was never here.", next = "END" },
+      },
+    },
+    mind = {
+      lines = { { id = "m_default", text = "They cross the street, some of them. Raleigh the Devout prays for me by name, which is thoughtful. But when the Syndicate were poisoning wells two summers back, it was me the Magistrate came to, at midnight, to say what it was and how to cure it." } },
+      choices = {
+        { text = "So they need you and won't say so.", next = "mind2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mind2 = {
+      big = true,
+      lines = { { id = "m2_default", text = "That's the size of it, and I don't hold it against them. A town wants to think well of itself. I'm the cupboard they keep the ugly tools in, and I've a comfortable living out of being that cupboard." } },
+      choices = {
+        { text = "It's honest work, done for the right side.", next = "BACK", reply = "I think so, on good days. Thank you for saying it with a straight face.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A town shouldn't need a man like you.", next = "BACK", reply = "No, it shouldn't. Take that up with Tarren Mill; they started it.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buys = {
+      lines = { { id = "b_default", text = "The militia's scouts, on the quiet. Farmers, for the wolves, and I believe most of them. And every rogue the Alliance sends through on the way to Alterac, who all say the same thing, that it's for a friend." } },
+      choices = {
+        { text = "And SI:7?", next = "BACK", reply = "I've never heard of them, and if a quiet man from Stormwind buys a great deal twice a year, I've never seen him either." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    source = {
+      lines = { { id = "s_default", text = "The reagents come by ship with Micha Yance's cargo. The rest I make in the back from what grows here. Nandar Branson sells me my glassware and pretends not to know what it's for, and I pretend he's fooling me." } },
+      choices = {
+        { text = "A whole town of people pretending.", next = "BACK", reply = "It's what keeps us civil. I recommend it.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    undead = {
+      lines = { { id = "u_default", text = "Less than you'd hope. Nothing that works on the blood, because they've none moving. What slows a living man does very little. You want the kind that eats at flesh directly, and you want a great deal of it." } },
+      choices = {
+        { text = "So crippling poison is wasted on them?", next = "undead2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    undead2 = {
+      lines = { { id = "u2_default", text = "Not wasted, since a leg's a leg, and it still slows the leg. But don't trust anything that's meant to work on the mind or the heart. I learned that from a scout who came back, and from two who didn't." } },
+      choices = {
+        { text = "I'll remember. Thank you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    coward = {
+      lines = { { id = "c_default", text = "It is, and I'll not argue the point. But I've watched brave men go up the Tarren road in plate and come home on a cart. The dead don't fight fair, friend. I'd sooner sell a coward's weapon than dig another hero's grave." } },
+      choices = {
+        { text = "There's truth in that. I don't like it.", next = "BACK", reply = "Nor do I. If you find a cleaner way to win, I'll shut the shop and thank you.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    forsaken = { { id = "tp_fs", text = "Hard to poison, and good at it themselves. I take a professional interest, and I lock my door at night." } },
+    syndicate = { { id = "tp_syn", text = "They used to be customers, before they started on the wells. I've standards. They're low, but I've got them." } },
+    new_plague = { { id = "tp_np", text = "There's talk the dead are brewing something at Tarren Mill. If it's true, nothing on my shelves will answer it, and that frightens me." } },
+    advice = { { id = "tp_ad", text = "Label everything, and never taste to check." } },
+    _none = { { id = "tp_none", text = "Never heard of it, and I mean that in the ordinary way this time." } },
   },
 }

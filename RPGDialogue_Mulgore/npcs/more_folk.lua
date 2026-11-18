@@ -1535,7 +1535,7 @@ P:NPC {
     },
   },
   topics = {
-    mulgore = { { id = "tp_mul", text = "The plains feed us well, in a good year. I try to cook as though every year might not be one." } },
+    quilboar = { { id = "tp_quil", text = "The Bristleback raid our stores when their own run thin. I do not forgive it, but I have been hungry, and I understand it." } },
     background = { { id = "tp_bg", text = "I learned at my mother's fire and I teach at my own. There is not much more to me than that." } },
     advice = { { id = "tp_ad", text = "Salt at the end, not the beginning. You can always add, and you can never take away." } },
     _none = { { id = "tp_none", text = "I could not say. I watch a pot all day, and news goes past me." } },
@@ -1675,7 +1675,7 @@ P:NPC {
     },
   },
   topics = {
-    venture = { { id = "tp_ven", text = "The Venture Company sends buyers down the Barrens road now and then, and I send them back up it." } },
+    venture_company = { { id = "tp_ven", text = "The Venture Company sends buyers down the Barrens road now and then, and I send them back up it." } },
     background = { { id = "tp_bg", text = "The Darkmanes have always carried goods between the tribes. I am the first of us to do it from a tent that stays put." } },
     advice = { { id = "tp_ad", text = "Buy your salt before you need it. In Mulgore, by the time you need it, somebody else has bought it." } },
     _none = { { id = "tp_none", text = "I could not tell you, and I do not sell guesses. Try Innkeeper Kauth." } },

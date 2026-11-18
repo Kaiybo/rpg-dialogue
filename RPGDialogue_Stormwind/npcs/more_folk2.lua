@@ -22,7 +22,7 @@ P:NPC {
   },
   notice = {
     { id = "n_x1", cat = "class", when = { race = "NightElf" },
-      text = "A night elf! Yer folk have a way with the big cats that I'd give my best boar tae learn. Dinnae tell the boar I said so." },
+      text = "A night elf! Yer folk have a way with the big cats that I'd give my best boar to learn. Don't tell the boar I said so." },
     { id = "n_x2", cat = "race", when = { race = "Gnome" },
       text = "A gnome! If ye've come about training one o' those clockwork chickens, lass or lad, I'll tell ye now it's nae a beast and I'll nae be bitten by a spring again." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
@@ -91,7 +91,7 @@ P:NPC {
     },
     geton = {
       lines = {
-        { id = "geton_1", text = "Well enough. Ulfir thinks a pet's there tae hold the enemy still while he shoots, and I've told him that's a fine way tae end up with no pet and a great many enemies. We argue it over ale every week and nobody's budged yet." },
+        { id = "geton_1", text = "Well enough. Ulfir thinks a pet's there to hold the enemy still while he shoots, and I've told him that's a fine way to end up with no pet and a great many enemies. We argue it over ale every week and nobody's budged yet." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -99,7 +99,7 @@ P:NPC {
     },
     strangest = {
       lines = {
-        { id = "strangest_1", text = "A crab, from the Westfall shore, brought in by a lad who'd named it Lord Pinchington. It learned tae hold a gnoll by the ankle and nae let go, and I'll confess I grew fond of it." },
+        { id = "strangest_1", text = "A crab, from the Westfall shore, brought in by a lad who'd named it Lord Pinchington. It learned to hold a gnoll by the ankle and nae let go, and I'll confess I grew fond of it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -156,7 +156,7 @@ P:NPC {
         { id = "h_default", text = "Thulman Flintcrag, and guns are my trade, my pride and my only true love, if ye don't tell my wife. Ironforge makes the best in the world, and I bring them south so ye humans can stop squinting down arrows." },
       },
       again = {
-        { id = "h_x_again1", text = "Aye? There's more tae say about guns than I've said yet." },
+        { id = "h_x_again1", text = "Aye? There's more to say about guns than I've said yet." },
         { id = "h_again", text = "Anything else? I've a blunderbuss I'm dying to show someone." },
         { id = "h_again2", text = "Go on, then. Mind ye don't point anything at the window." },
       },
@@ -201,7 +201,7 @@ P:NPC {
     },
     wife = {
       lines = {
-        { id = "wife_1", text = "There is, in Ironforge, and she says she married a dwarf and got a gun rack. She writes every month tae ask when I'm coming home, and I write back that the humans still cannae shoot, so my work's nae done." },
+        { id = "wife_1", text = "There is, in Ironforge, and she says she married a dwarf and got a gun rack. She writes every month to ask when I'm coming home, and I write back that the humans still can't shoot, so my work's nae done." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -218,7 +218,7 @@ P:NPC {
     },
     guard = {
       lines = {
-        { id = "guard_1", text = "Tae shoot from the gate towers, though they've nae the practice for it. I offered tae drill them myself, and the captain said the king's guard had always carried crossbows, as if that were a reason." },
+        { id = "guard_1", text = "Tae shoot from the gate towers, though they've nae the practice for it. I offered to drill them myself, and the captain said the king's guard had always carried crossbows, as if that were a reason." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -234,7 +234,7 @@ P:NPC {
     },
     carry = {
       lines = {
-        { id = "carry_1", text = "A long rifle with a walnut stock, plain as a plank, sighted for two hundred paces. The fancy ones are for selling. The one I'd trust my beard tae has nae a mark on it but my own." },
+        { id = "carry_1", text = "A long rifle with a walnut stock, plain as a plank, sighted for two hundred paces. The fancy ones are for selling. The one I'd trust my beard to has nae a mark on it but my own." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -242,8 +242,8 @@ P:NPC {
     },
   },
   topics = {
-    rumors = { { id = "tp_x_rumors", text = "Word from the mountain is that the Dark Irons have been buying powder through go-betweens. I check who I sell tae twice as carefully now." } },
-    advice = { { id = "tp_x_advice", text = "Keep yer powder dry and yer barrel clean, and never point it at anything ye wouldnae pay tae replace." } },
+    rumors = { { id = "tp_x_rumors", text = "Word from the mountain is that the Dark Irons have been buying powder through go-betweens. I check who I sell to twice as carefully now." } },
+    advice = { { id = "tp_x_advice", text = "Keep yer powder dry and yer barrel clean, and never point it at anything ye wouldn't pay to replace." } },
     background = { { id = "tp_bg", text = "Born in Ironforge, apprenticed to a gunsmith, and sent south to sell to the humans. Best thing that ever happened to me." } },
     trade = { { id = "tp_trade", text = "Guns, powder and shot. Everything else is just something ye wear while ye shoot." } },
     _none = { { id = "tp_none", text = "Never heard of it. Is it loud? If it's not loud, I don't know it." } },
@@ -825,7 +825,7 @@ P:NPC {
     },
     guild = {
       lines = {
-        { id = "guild_1", text = "Knew it? I carried for it. Van Cleef himself checked my loads, and he'd tell you to your face if one was short and thank you if it wasn't. Whatever he's become since, child, he was a fair master, and I'll not say otherwise to please a guard." },
+        { id = "guild_1", text = "Knew it? I carried for it. VanCleef himself checked my loads, and he'd tell you to your face if one was short and thank you if it wasn't. Whatever he's become since, child, he was a fair master, and I'll not say otherwise to please a guard." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -846,5 +846,584 @@ P:NPC {
     background = { { id = "tp_bg", text = "A farm, then the walls, then this corner. Not much of a story, but it's mine." } },
     stonemasons = { { id = "tp_sm", text = "Good men, mostly, who got cheated. What they did after, I can't speak for." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. I only know this street." } },
+  },
+}
+
+-- Sergeant Major Clate: the dwarf who keeps the Alliance's officers' armour in the Champions' Hall, Old Town.
+P:NPC {
+  key = "sergeant_major_clate", id = TODO_NPC("Sergeant Major Clate"), name = "Sergeant Major Clate", title = "Armor Quartermaster", gender = "male",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "stolid", "exact" }, values = { "dutiful", "honor" },
+  notices = { "rank", "kit", "race" },
+  impression = {
+    first = "Sergeant Major Clate keeps the officers' armour in the Champions' Hall and has never been heard to raise his voice or lower a price. He reads a soldier's rank and the dents in their plate with the same slow care.",
+    third = "{name} met Sergeant Major Clate, armour quartermaster of Stormwind's Champions' Hall.",
+  },
+  greetings = {
+    { id = "g_default", text = "Well met. The armour on these racks is for those the Alliance has ranked, and I'm the one who checks the rank. Let's see yours." },
+    { id = "g_2", when = { metBefore = true }, text = "Ye've returned. Has the rank changed, or only the dents?" },
+    { id = "g_3", when = { pvpRank = false }, text = "Nae rank on ye at all, I see. Ye may look, and ye may ask, and when ye've fought for it ye may buy." },
+  },
+  notice = {
+    { id = "n_1", cat = "rank", when = { pvpRank = { min = 6 } },
+      text = "A knight's stripes, and honestly come by, from the look of that pauldron. There's a rack here ye've earned the right tae open." },
+    { id = "n_2", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "That plate's been through a battleground and nae seen a hammer since. I sell new armour, but I'll nae watch ye walk out in that without saying so." },
+    { id = "n_3", cat = "race", when = { race = "Dwarf" },
+      text = "A kinsman. Good. I'll nae have tae explain why a breastplate should outlast its owner." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Sergeant Major Clate, armour quartermaster. Every piece in this hall was made for an officer of the Alliance and is sold only tae one, and I've held that line against dukes' sons and worse." },
+        { id = "hello_2", when = { pvpRank = { min = 6 } }, text = "Sergeant Major Clate, armour quartermaster. Ye hold the rank, so the racks are open tae ye. Choose slowly; ye'll be wearing it where the Horde can see." },
+      },
+      again = {
+        { id = "hello_again1", text = "Was there more?" },
+        { id = "hello_again2", text = "Go on. I've only the ledger tae mind." },
+        { id = "hello_again3", text = "Aye? Ask it." },
+      },
+      choices = {
+        { text = "Show me the armour.", next = "BUSINESS" },
+        { text = "Who decides what an officer may wear?", next = "decides" },
+        { text = "Where is this armour made?", next = "made" },
+        { text = "Rank shouldn't decide who gets good armour.", next = "rank" },
+        { text = "I've begun to earn rank. What comes first?", next = "first", when = { pvpRank = { min = 1 } } },
+        { text = "A dwarf, keeping Stormwind's armoury?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Who else serves in this hall?", next = "hall" },
+        { text = "Good day, Sergeant Major.", next = "END" },
+      },
+    },
+    decides = {
+      lines = {
+        { id = "decides_1", text = "The Alliance's high command sets it out, rank by rank, and I keep the list. A knight may wear this and a knight-captain that, and it's nae my place tae bend it, nor anyone's place tae ask me." },
+      },
+      choices = {
+        { text = "Has anyone asked?", next = "asked" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    asked = {
+      lines = {
+        { id = "asked_1", text = "A nobleman's son, last spring, with a purse the size of his head and nae a day in the field. I told him the Arathi Basin was open tae all, and that I'd hold the breastplate for him. He's nae been back." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    made = {
+      lines = {
+        { id = "made_1", text = "The plate's forged in Ironforge and fitted here, and the mail and leather come from the best hands in Stormwind and Darnassus. I inspect every rivet myself, because an officer who falls for want of a rivet falls in front of his whole company." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rank = {
+      big = true,
+      lines = {
+        { id = "rank_1", text = "I've heard it said. But this armour marks a soldier out on the field, so that others know who tae follow. Put it on someone who's nae led, and ye've made a target of a fool and liars of the rest of us." },
+      },
+      choices = {
+        { text = "Earned honours mean something. Keep the line.", next = "BACK", reply = "I intend tae. It's good tae hear it from the other side of the counter.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A recruit's life is worth as much as an officer's.", next = "BACK", reply = "It is. And the recruit's better served by a leader he can find in the smoke.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first = {
+      lines = {
+        { id = "first_1", text = "Fight where the Alliance asks, and fight well enough tae be noticed. Warsong Gulch, Arathi, Alterac; the marshals keep count. Come back with a sergeant's stripe and I'll have something for yer shoulders." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dwarf = {
+      lines = {
+        { id = "dwarf_1", text = "Aye, and why not? Ironforge forged half of what hangs here. King Magni lent me tae the hall when it was founded, and I've stayed because nae human I've met can tell good plate from polished tin." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hall = {
+      lines = {
+        { id = "hall_1", text = "Lieutenant Jackspring has the weapons and Master Sergeant Biggins the smaller kit, both gnomes, and both sharper than they look. Lieutenant Karter keeps the war mounts out front. Guards Quine and Hammon keep the door, and Archmage Gaiman keeps tae his chair." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "A smith's son of Ironforge and thirty years a soldier. They gave me a counter when my knees gave out, and I've run it like a shield wall." } },
+    rumors = { { id = "tp_rumors", text = "The marshals say the Horde has a hall like this in Orgrimmar. I'd like tae see their armour, purely as a professional." } },
+    advice = { { id = "tp_advice", text = "Buy the armour ye can move in. I've buried soldiers who bought the armour that looked best." } },
+    trade = { { id = "tp_trade", text = "I dinnae haggle. The price is the price, and the rank is the rank." } },
+    _none = { { id = "tp_none", text = "That's nae a matter for this counter. Ask at the keep." } },
+  },
+}
+
+-- Lieutenant Jackspring: the gnome who keeps the officers' weapons in the Champions' Hall, Old Town.
+P:NPC {
+  key = "lieutenant_jackspring", id = TODO_NPC("Lieutenant Jackspring"), name = "Lieutenant Jackspring", title = "Weapons Quartermaster", gender = "male",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "precise", "eager" }, values = { "invention", "dutiful" },
+  notices = { "rank", "craft", "race" },
+  impression = {
+    first = "Lieutenant Jackspring keeps the officers' weapons in the Champions' Hall and can give the weight of any of them to the quarter-ounce. He stands on a crate to see over his own counter and has measured the crate, too.",
+    third = "{name} met Lieutenant Jackspring, weapons quartermaster of Stormwind's Champions' Hall.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome to the armoury! Weapons for ranked officers of the Alliance, catalogued by type, weight and reach. May I see your insignia?" },
+    { id = "g_2", when = { metBefore = true }, text = "Ah, hello again! I've rebalanced the claymore since you were last in, by a hair, but you'd feel it." },
+    { id = "g_3", when = { pvpRank = false }, text = "No rank yet? That's quite all right, I'm permitted to answer questions for anyone, and I've a great many answers." },
+  },
+  notice = {
+    { id = "n_1", cat = "rank", when = { pvpRank = { min = 6 } },
+      text = "Knight's insignia, authentic, slightly scorched. Excellent. You qualify for racks three through five, and I'd start at four." },
+    { id = "n_2", cat = "craft", when = { profession = "Engineering" },
+      text = "Is that solder on your cuff? A colleague! I've a repeating crossbow design the high command won't approve, and I'd value a second opinion that isn't \"no\"." },
+    { id = "n_3", cat = "race", when = { race = "Gnome" },
+      text = "A fellow Gnomereganer in the Champions' Hall! We're two of four, counting Biggins and a clerk at the keep. I keep statistics." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Lieutenant Jackspring, weapons quartermaster. Everything on these racks was made for an officer and tested by me personally, within the limits of my reach, which I've extended with a very good stepladder." },
+        { id = "hello_2", when = { pvpRank = { min = 6 } }, text = "Lieutenant Jackspring, weapons quartermaster, and you're cleared to purchase. Tell me how you fight and I'll tell you what to carry, to within a tolerance of one weapon." },
+      },
+      again = {
+        { id = "hello_again1", text = "Anything further? I've calibrations pending, but they're not urgent." },
+        { id = "hello_again2", text = "Do go on, I'm listening closely." },
+        { id = "hello_again3", text = "Yes? I have time for precisely one more question, or several." },
+      },
+      choices = {
+        { text = "Show me the weapons.", next = "BUSINESS" },
+        { text = "How does a gnome test a claymore?", next = "test" },
+        { text = "What makes an officer's weapon different?", next = "different" },
+        { text = "A gnome has no business judging swords.", next = "judge" },
+        { text = "What should a newly ranked soldier save for?", next = "save", when = { pvpRank = { min = 1 } } },
+        { text = "How did one of us end up in this hall?", next = "gnome", when = { race = "Gnome" } },
+        { text = "Tell me about the repeating crossbow.", next = "crossbow", when = { profession = "Engineering" } },
+        { text = "Good day, Lieutenant.", next = "END" },
+      },
+    },
+    test = {
+      lines = {
+        { id = "test_1", text = "With a frame of my own design, which clamps the hilt and swings it at a post one hundred times. Then Sergeant Major Clate swings it once and says \"aye\" or doesn't. My frame and his \"aye\" have never yet disagreed, which I find scientifically satisfying." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    different = {
+      lines = {
+        { id = "different_1", text = "Better steel, truer balance, and a mark that tells the whole line whose it is. An officer's weapon is seen as much as it's used, and a company fights harder under a blade it recognises." },
+      },
+      choices = {
+        { text = "Who forges them?", next = "forges" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forges = {
+      lines = {
+        { id = "forges_1", text = "Dwarves, for the blades and hammers, and my own people for anything with a mechanism. The bows come from Darnassus by a sentinel who counts them twice and trusts me not at all, which I respect." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    judge = {
+      big = true,
+      lines = {
+        { id = "judge_1", text = "I can't swing most of them, that's true. But I can tell you the point of balance, the flex under load and how many strikes before the edge turns, and no amount of arm tells you that. Measurement is how you know a thing, and strength is only how you use it." },
+      },
+      choices = {
+        { text = "Knowing a weapon matters more than swinging it.", next = "BACK", reply = "Thank you! I shall quote you to the Sergeant Major, with attribution.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Only someone who's bled with a blade should judge one.", next = "BACK", reply = "I've bled, sir. Gnomeregan wasn't lost quietly. But I take the point as intended.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    save = {
+      lines = {
+        { id = "save_1", text = "Don't buy the first thing your stripe permits. The step from sergeant to knight opens the better racks, and I'd sooner sell you one fine weapon then than two adequate ones now. I say this against my own sales figures." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome = {
+      lines = {
+        { id = "gnome_1", text = "After Gnomeregan fell, the Alliance wanted every hand, and mine were good with numbers. High Tinker Mekkatorque seconded me to Stormwind, and I've sent him a report each month. He hasn't answered one, but he's very busy." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crossbow = {
+      lines = {
+        { id = "crossbow_1", text = "Six bolts, one crank, eleven seconds! The high command says it jams. It does jam, one time in nine, and I maintain that the other eight are a considerable argument. I've got it to one in twelve since the review." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "An armourer's apprentice in Gnomeregan, and an exile since. I hold a lieutenant's commission, which I earned at a desk and am not ashamed of." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "I think about it daily, at a rate I've stopped measuring. Every weapon I pass across this counter is one more argument for going back." } },
+    rumors = { { id = "tp_rumors", text = "Biggins tells me the Horde's officers carry axes too heavy for any human to lift. I'd need to weigh one before I believed it." } },
+    advice = { { id = "tp_advice", text = "Choose the weapon you can swing for an hour, not the one you can swing once impressively." } },
+    _none = { { id = "tp_none", text = "I've no figures on that, and I never guess. Try the Sergeant Major." } },
+  },
+}
+
+-- Master Sergeant Biggins: the gnome who keeps officers' insignia, cloaks and kit in the Champions' Hall, Old Town.
+P:NPC {
+  key = "master_sergeant_biggins", id = TODO_NPC("Master Sergeant Biggins"), name = "Master Sergeant Biggins", title = "Accessories Quartermaster", gender = "male",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "genial", "chatty" }, values = { "comfort", "dutiful" },
+  notices = { "rank", "purse", "race" },
+  impression = {
+    first = "Master Sergeant Biggins keeps the tabards, insignia, cloaks and small comforts of the Alliance's officers and thinks them the most important stock in the Champions' Hall. He is the only quartermaster there who offers a visitor a seat.",
+    third = "{name} met Master Sergeant Biggins, accessories quartermaster of Stormwind's Champions' Hall.",
+  },
+  greetings = {
+    { id = "g_default", text = "Come in, come in! Mind the step, sit if you like, and tell me what you're after. Insignia, cloaks, trinkets, I've the lot." },
+    { id = "g_2", when = { metBefore = true }, text = "There you are again! I've put by a cloak in your colours, on the off chance." },
+    { id = "g_3", when = { pvpRank = false }, text = "No rank yet? Never mind, never mind. Have a look round, and you'll know what you're fighting toward." },
+  },
+  notice = {
+    { id = "n_1", cat = "rank", when = { pvpRank = { min = 3 } },
+      text = "A sergeant's stripe or better, and worn on the proper side. You'd be surprised how many I have to turn round." },
+    { id = "n_2", cat = "purse", when = { money = { min = 1000000 } },
+      text = "You've done well for yourself, I see. Rank opens my cabinets and not gold, mind, but I'll admit gold makes the choosing pleasanter." },
+    { id = "n_3", cat = "race", when = { race = "Gnome" },
+      text = "One of ours! Jackspring will want to add you to his statistics. Humour him, there's a good {g:fellow|lass}; it's how he copes." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Master Sergeant Biggins, accessories. Clate will tell you armour wins wars and Jackspring will tell you weapons do, and I say it's the tabard that tells a frightened recruit which way to run, so who's really doing the work?" },
+        { id = "hello_2", when = { pvpRank = { min = 3 } }, text = "Master Sergeant Biggins, accessories, and you've the rank for my cabinets. Insignia first, I always say; the rest is only kit, but the insignia's who you are." },
+      },
+      again = {
+        { id = "hello_again1", text = "Something else? I've all afternoon, and a pot on." },
+        { id = "hello_again2", text = "Go on, do. I like a visitor." },
+        { id = "hello_again3", text = "Yes, yes, ask away!" },
+      },
+      choices = {
+        { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "What counts as an accessory?", next = "counts" },
+        { text = "Who wears your insignia?", next = "wears" },
+        { text = "Medals and cloaks are vanity.", next = "vanity" },
+        { text = "What's my first insignia worth having?", next = "insignia", when = { pvpRank = { min = 1 } } },
+        { text = "Do you miss Gnomeregan, Biggins?", next = "miss", when = { race = "Gnome" } },
+        { text = "What goes on upstairs in this hall?", next = "lounge" },
+        { text = "Good day, Master Sergeant.", next = "END" },
+      },
+    },
+    counts = {
+      lines = {
+        { id = "counts_1", text = "Everything that isn't hitting or being hit. Tabards, cloaks, the rank insignia, signet rings, and one or two medallions the mages have had a go at. I also keep the good biscuits, which aren't regulation, and which I count as morale." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wears = {
+      lines = {
+        { id = "wears_1", text = "Every officer who's come through the battlegrounds, from sergeants up to the Grand Marshal, when there is one. They come in mud to the knees, and I pin the new stripe on myself, and that's the best part of this post by a long way." },
+      },
+      choices = {
+        { text = "Who was the last you pinned?", next = "last" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    last = {
+      lines = {
+        { id = "last_1", text = "A dwarf rifleman, made Knight-Lieutenant after Alterac, who wouldn't sit down because he'd not washed. I pinned it on him standing, and he went straight to the Pig and Whistle, and I'm told he bought for the house." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vanity = {
+      big = true,
+      lines = {
+        { id = "vanity_1", text = "Oh, I've heard that, usually from someone who's never been handed one. A stripe's a small bit of cloth that says somebody saw what you did. I've watched hard old soldiers go quiet when I pin it on, and that isn't vanity." },
+      },
+      choices = {
+        { text = "Being seen for what you've done matters. You're right.", next = "BACK", reply = "There, you understand. Have a biscuit.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Soldiers should fight for the cause, not for ribbons.", next = "BACK", reply = "They do, friend. The ribbon's only how the cause says thank you.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    insignia = {
+      lines = {
+        { id = "insignia_1", text = "The sergeant's, without question. It's the plainest thing in the cabinet and the one they all keep. I've had Knight-Champions come back in to ask if I'd a spare, because they'd worn the first one through." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    miss = {
+      lines = {
+        { id = "miss_1", text = "Every day, though I miss the noise more than the place. Tinker Town's got the noise right, at least. I send half my pay there, and Jackspring sends reports, and between us we've done our bit for the old city." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lounge = {
+      lines = {
+        { id = "lounge_1", text = "The officers' lounge, for knights and above, with a fire and a good cellar. Archmage Gaiman reads there most days, and Sergeant Major Skyshadow stands by the window and says very little. I send up biscuits." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "I kept the stores in Gnomeregan's third sector. It was all filed beautifully, and I like to think the troggs have never found a thing." } },
+    rumors = { { id = "tp_rumors", text = "They say there'll be a new battleground opened before long. I've ordered extra stripes, in hope." } },
+    advice = { { id = "tp_advice", text = "Wear your insignia where your own side can see it. The other side will work out who you are soon enough." } },
+    trade = { { id = "tp_trade", text = "Rank first, then coin. I don't make the rule, but I do rather like it." } },
+    _none = { { id = "tp_none", text = "Oh, I couldn't say. Ask Clate; he won't say either, but he does it more impressively." } },
+  },
+}
+
+-- Sergeant Major Skyshadow: a night elf officer who keeps to the Champions' Hall in Old Town.
+P:NPC {
+  key = "sergeant_major_skyshadow", id = TODO_NPC("Sergeant Major Skyshadow"), name = "Sergeant Major Skyshadow", gender = "female",
+  bible = "bibles/more_folk.md", role = "soldier", tier = "service",
+  communities = { "stormwind" }, temper = { "remote", "watchful" }, values = { "duty", "balance" },
+  notices = { "rank", "race", "class" },
+  impression = {
+    first = "Sergeant Major Skyshadow stands in the Champions' Hall as still as its banners and watches the officers come and go. She fought in Ashenvale before she ever saw a city of stone, and she has not decided what she thinks of this one.",
+    third = "{name} met Sergeant Major Skyshadow, a night elf officer of the Alliance, in Stormwind's Champions' Hall.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ishnu-alah. This hall is for those who have fought under the Alliance's banners. If you are one, be welcome; if you are not yet, be patient." },
+    { id = "g_2", when = { metBefore = true }, text = "You have returned. The hall has not changed, and I have not moved." },
+    { id = "g_3", when = { race = "NightElf" }, text = "Elune-adore, {g:brother|sister}. It is good to hear a voice from home among so much stone." },
+  },
+  notice = {
+    { id = "n_1", cat = "rank", when = { pvpRank = { min = 6 } },
+      text = "You carry a knight's rank, and you carry it without swagger. Both are noted." },
+    { id = "n_2", cat = "class", when = { class = "HUNTER" },
+      text = "You walk like one who has stalked. In Ashenvale we would have put a bow in your hand and asked no more questions." },
+    { id = "n_3", cat = "race", when = { race = "Human" },
+      text = "Your people build to be seen. I am still learning whether that is courage or only noise." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "I am Sergeant Major Skyshadow, of the Sentinels, and now of the Alliance's officers. I was sent here to learn how the younger races make war together, and to be seen learning it." },
+        { id = "hello_2", when = { faction = "Horde" }, text = "I am Sergeant Major Skyshadow. I have fought your kind among the trees of Ashenvale, and I know the sound of your axes. You stand in the wrong hall." },
+        { id = "hello_3", when = { pvpRank = { min = 1 } }, text = "I am Sergeant Major Skyshadow. You have begun to earn a place here, so I will speak to you as a comrade and not as a guest." },
+      },
+      again = {
+        { id = "hello_again1", text = "There is more you would ask?" },
+        { id = "hello_again2", text = "Speak. I am listening." },
+        { id = "hello_again3", text = "Ask, and I will answer what I may." },
+      },
+      choices = {
+        { text = "Where did you fight, before this hall?", next = "fought" },
+        { text = "What do you make of Stormwind?", next = "stormwind" },
+        { text = "You stand apart from the others here.", next = "apart" },
+        { text = "I've fought at Warsong Gulch. Is that your war?", next = "warsong", when = { pvpRank = { min = 1 } } },
+        { text = "Why does a Sentinel wear a human rank?", next = "rank", when = { race = "NightElf" } },
+        { text = "Who else keeps this hall?", next = "others" },
+        { text = "Elune light your path.", next = "END" },
+      },
+    },
+    fought = {
+      lines = {
+        { id = "fought_1", text = "In Ashenvale, where the orcs cut the forest for their war engines. I led a company of Sentinels along the Warsong lumber roads for two years, and I learned that they do not tire and do not listen.", fx = { learn = { "sentinels" } } },
+      },
+      choices = {
+        { text = "And what did they learn of you?", next = "learned" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    learned = {
+      lines = {
+        { id = "learned_1", text = "That the forest has eyes, and that a tree they felled at dusk might cost them four by dawn. It did not stop them. It has slowed them, and I have learned to count that as a victory." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stormwind = {
+      lines = {
+        { id = "stormwind_1", text = "It is loud, and bright, and proud of having been rebuilt, as if a thing must fall before it is worth loving. But your soldiers stand watch through the night with only torches, seeing nothing, and they stand anyway. I did not expect that." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    apart = {
+      big = true,
+      lines = {
+        { id = "apart_1", text = "I do. Your officers drink together and boast, and it binds them, I see that. My people do not boast of war. We have ten thousand years of it, and we have learned that the one who boasts has not yet lost enough." },
+      },
+      choices = {
+        { text = "There's wisdom in that. War is no cause for pride.", next = "BACK", reply = "Then you hear me better than most in this hall.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Soldiers need their pride. It's what brings them back to the line.", next = "BACK", reply = "Perhaps, for those with short lives. I will think on it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warsong = {
+      lines = {
+        { id = "warsong_1", text = "It is. The Silverwing Sentinels hold that gulch for all our forests, and every flag you carried back was an acre of Ashenvale left standing. If you have bled there, you have my thanks, and I do not give them lightly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rank = {
+      lines = {
+        { id = "rank_1", text = "Because Tyrande asked it of us. The Alliance counts its soldiers in sergeants and knights, and we must be countable to be heard in their councils. I wear the stripe as I would wear a borrowed cloak, with care, and without mistaking it for my own skin." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others = {
+      lines = {
+        { id = "others_1", text = "The dwarf Clate, who is honest. The two gnomes, who are clever and kind and never silent. The mage Gaiman, who reads, and who has seen more war than he speaks of. And the guards at the door, who nod to me and wonder what I am thinking." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "A Sentinel of Ashenvale for longer than this city has stood. I do not say it to boast; it is only the number." } },
+    sentinels = { { id = "tp_sentinels", text = "We are the eyes of the forest and Tyrande's hand. Here they call us scouts, which is near enough for stone-dwellers." } },
+    rumors = { { id = "tp_rumors", text = "The officers speak of Horde war parties pressing deeper into Ashenvale. They speak of it as news. To me it is a letter from home." } },
+    advice = { { id = "tp_advice", text = "Listen before you strike. The forest taught me that, and I have not found it false in a city." } },
+    _none = { { id = "tp_none", text = "That is not known to me. I have been in your lands a short while, as I count time." } },
+  },
+}
+
+-- Archmage Gaiman: a battle-mage of the Alliance who keeps a chair in the Champions' Hall, Old Town.
+P:NPC {
+  key = "archmage_gaiman", id = TODO_NPC("Archmage Gaiman"), name = "Archmage Gaiman", gender = "male",
+  bible = "bibles/more_folk.md", role = "scholar", tier = "service",
+  communities = { "stormwind" }, temper = { "dry", "tired" }, values = { "knowledge", "duty" },
+  notices = { "arcane", "rank", "class" },
+  impression = {
+    first = "Archmage Gaiman sits in the Champions' Hall with a book he rarely turns the pages of, and the officers lower their voices when they pass him. He has thrown fire on three battlefields and would rather discuss almost anything else.",
+    third = "{name} met Archmage Gaiman, a battle-mage of the Alliance, in Stormwind's Champions' Hall.",
+  },
+  greetings = {
+    { id = "g_default", text = "Good day. If you've come for the quartermasters, they're by the racks. If you've come to ask a mage about war, I'd sit down first." },
+    { id = "g_2", when = { metBefore = true }, text = "You again. Good. You're one of the few who doesn't ask me to set something on fire." },
+    { id = "g_3", when = { class = "MAGE" }, text = "A colleague, in this hall of swordsmen. Pull up a chair, and tell me they're still teaching the fundamentals at the Sanctum." },
+  },
+  notice = {
+    { id = "n_1", cat = "arcane", when = { class = "MAGE" },
+      text = "Your wards are well made, if a little eager. I was the same at your age, and it very nearly cost me an eyebrow and a company of footmen." },
+    { id = "n_2", cat = "rank", when = { pvpRank = { min = 6 } },
+      text = "A knight of the battlegrounds. Then you've stood where the spells land, and you'll have opinions about mages who aim badly." },
+    { id = "n_3", cat = "class", when = { class = "WARLOCK" },
+      text = "I can smell what you practise. I've fought beside your kind when the line was failing, and I was glad of you, and I slept badly afterwards." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Archmage Gaiman. The Kirin Tor trained me and the Alliance borrowed me, and I've been on loan ever since. I advise the officers here on what magic can and can't do in a battle, and they mostly want to hear about the first part." },
+        { id = "hello_2", when = { class = "MAGE" }, text = "Archmage Gaiman, formerly of Dalaran and lately of wherever the Alliance needs something large set alight. You'll understand, as they don't, that I find it the least interesting use of the art." },
+      },
+      again = {
+        { id = "hello_again1", text = "Something more? The book will wait; it always does." },
+        { id = "hello_again2", text = "Go on. I've nowhere pressing to be." },
+        { id = "hello_again3", text = "Ask, by all means." },
+      },
+      choices = {
+        { text = "What does a mage do in a battle?", next = "battle" },
+        { text = "What are you reading?", next = "reading" },
+        { text = "Magic wins wars. You should be proud of it.", next = "proud" },
+        { text = "What should a mage know before the battlegrounds?", next = "know", when = { class = "MAGE" } },
+        { text = "What should a soldier know about fighting beside mages?", next = "beside", when = { class = { "WARRIOR", "PALADIN", "ROGUE", "HUNTER" } } },
+        { text = "Why keep a mage in a soldiers' hall?", next = "hall" },
+        { text = "Good day, Archmage.", next = "END" },
+      },
+    },
+    battle = {
+      lines = {
+        { id = "battle_1", text = "Two things, chiefly. One is to break a charge before it lands, which is frost and timing. The other is to keep the enemy's shamans and warlocks from doing the same to our side, which is most of the work and none of the glory." },
+      },
+      choices = {
+        { text = "And the fire?", next = "fire" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fire = {
+      lines = {
+        { id = "fire_1", text = "The fire is what they remember, and what the bards put in. It's the crudest thing I do, and it's the one I'm asked for by name. I've come to think of it the way a surgeon thinks of the saw." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    reading = {
+      lines = {
+        { id = "reading_1", text = "A treatise on the ley lines beneath Arathi, by a colleague who didn't survive Dalaran. I've read it nine times. I keep hoping that on the tenth I'll find the page where he explains why the Basin matters so much to both sides." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    proud = {
+      big = true,
+      lines = {
+        { id = "proud_1", text = "I'm proud of the soldiers who went home because a charge broke forty yards short of them. I'm not proud of how I broke it. Those are separate ledgers, and a mage who lets them run together ends by enjoying his work." },
+      },
+      choices = {
+        { text = "Power should weigh on the one who uses it.", next = "BACK", reply = "It should. I'm glad to hear someone say it who isn't a mage.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "In war you use what wins, and you don't apologise.", next = "BACK", reply = "I use it. I've never refused. I only decline to be cheerful about it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    know = {
+      lines = {
+        { id = "know_1", text = "That your own side will stand closer to your target than you'd like, every time. Learn to hold a spell half-cast for three breaths while you check where the footmen are. No one teaches it, and it's the whole of the craft out there." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beside = {
+      lines = {
+        { id = "beside_1", text = "Don't stand between us and what we're looking at, and when one of us shouts \"down\", get down first and ask afterwards. And if the mage beside you goes quiet and pale, {g:he's|she's} out of strength, not courage, so put a shield in front of {g:him|her}." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hall = {
+      lines = {
+        { id = "hall_1", text = "Because the high command wants its officers to think of magic as a branch of the army, like cavalry. So they put a mage where the officers drink. Biggins sends up biscuits, and Sergeant Major Skyshadow and I sit in silence, which suits us both." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "Dalaran taught me, and I was in the field when it fell, which is the only reason I'm here to say so." } },
+    dalaran = { { id = "tp_dalaran", text = "I'll speak of the libraries, if you like, or of the streets in spring. I'd rather not speak of the end." } },
+    rumors = { { id = "tp_rumors", text = "The officers say the Horde's shamans are calling storms over Alterac Valley. If that's true, somebody on their side has stopped caring what it costs." } },
+    advice = { { id = "tp_advice", text = "Count your own side before you cast. Then count them again." } },
+    _none = { { id = "tp_none", text = "That's outside what I know, and I've learned not to improvise." } },
   },
 }

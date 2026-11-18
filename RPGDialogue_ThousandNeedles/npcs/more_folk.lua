@@ -245,7 +245,7 @@ P:NPC {
         { id = "fear_d", text = "Would you? Nyse only says to stop being afraid, which is not advice. Tell me, and I will try it on old Stormfeather tonight." },
       },
       choices = {
-        { text = "Breathe slowly, and don't look it in the eye.", next = "BACK", reply = "Slowly, and not in the eye. I can do that. I think I can do that.", fx = { affinity = 1 } },
+        { text = "Breathe slowly, and don't look it in the eye.", next = "BACK", reply = "Slowly, and not in the eye; I can do that, or at least I think I can.", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -364,7 +364,7 @@ P:NPC {
         { id = "well_sacred_d", text = "I'm borrowin' a cupful, pal! It refills itself, that's the whole point of a well. Where I come from, a resource that renews for free and nobody's sellin' is what we call an oversight." },
       },
       choices = {
-        { text = "It's a cup of water. No harm in it.", next = "BACK", reply = "See, you get it! A reasonable person. I'll remember that when the profits come in, and I'll feel real warm about it.", fx = { align = { order = -1 } } },
+        { text = "It's a cup of water. No harm in it.", next = "BACK", reply = "See, you get it, pal, you're a reasonable person! I'll remember that when the profits come in, and I'll feel real warm about it.", fx = { align = { order = -1 } } },
         { text = "It's holy to them. You should have asked.", next = "BACK", reply = "Asked the folks with the bows? Sure, pal, I'll send a letter. Meanwhile the robot's wound up and my creditors ain't the patient kind.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -425,7 +425,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Lok'tar. If Belgrom sent you, speak quickly; if he did not, tell me why you are standing in my camp." },
-    { id = "g_back", when = { metBefore = true }, text = "You are back. Good. The swarm has not waited for you, and neither have I." },
+    { id = "g_back", when = { metBefore = true }, text = "You are back, and that is well. The swarm has not waited for you, and neither have I." },
     { id = "g_swarm", when = { questActive = TODO_QUEST("The Swarm Grows") }, text = "The dig is south-east of here, on the edge of the flats. Kill what crawls out of it, and bring me pieces to send to Orgrimmar." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you stood here. I have counted new tunnels every one of those days." },
   },
@@ -691,6 +691,7 @@ P:NPC {
     },
   },
   topics = {
+    centaur = { { id = "tp_galak", text = "The Galak have ridden this canyon longer than we have held the mesas. They keep no lore that I know of, only grudges, and those they keep well." } },
     background = { { id = "tp_bg", text = "I was taught by the lorekeeper before me, and she by the one before her. It is a long rope, and I am only the latest knot." } },
     advice = { { id = "tp_ad", text = "Ask the old ones while they are still here to be asked. I have never met anyone who regretted listening too soon." } },
     _none = { { id = "tp_none", text = "That is not among the things I keep. Cliffwatcher Longhorn may know, for he keeps the present as I keep the past." } },
@@ -831,9 +832,10 @@ P:NPC {
     },
   },
   topics = {
+    grimtotem = { { id = "tp_grim", text = "They shoot well, the Grimtotem, and I say that as one who has pulled their arrows out of our guards. They are tauren, after all." } },
     background = { { id = "tp_bg", text = "My father made bows for the tribe when it wandered. I make them for a post that stays put, and the bows are no different." } },
     advice = { { id = "tp_ad", text = "Unstring your bow at night. A bow kept strung is like a brave kept angry; it wears out early." } },
-    _none = { { id = "tp_none", text = "I do not know. I know wind and wood. Ask Longhorn." } },
+    _none = { { id = "tp_none", text = "I do not know, for I know wind and wood and little else. Ask Longhorn." } },
   },
 }
 
@@ -888,7 +890,7 @@ P:NPC {
     },
     rock = {
       lines = {
-        { id = "rock_d", text = "It is the safest home I have ever had, and the smallest. I can walk all the way round it before my tea is cool, and I know which board on the bridge creaks, and I would not trade it for all of Mulgore." },
+        { id = "rock_d", text = "It is the safest home I have ever had, and the smallest. I can walk all the way round it before my tea has gone cold, and I know which board on the bridge creaks, and I would not trade it for all of Mulgore." },
       },
       choices = {
         { text = "You don't miss open ground?", next = "rock_miss" },
@@ -970,6 +972,7 @@ P:NPC {
     },
   },
   topics = {
+    mirage_raceway = { { id = "tp_race", text = "Goblins and gnomes, driving in circles on the salt and catching fire. I sell them rope and torches, and I do not ask what for." } },
     background = { { id = "tp_bg", text = "I was born on this mesa, friend, which not many can say. I have been down the lift perhaps ten times, and that was nine too many." } },
     advice = { { id = "tp_ad", text = "Never lean on the lift rail while it is moving. I sell splints, but I would rather not." } },
     _none = { { id = "tp_none", text = "That one has not come up the lift yet, friend. Ask Cliffwatcher Longhorn." } },
