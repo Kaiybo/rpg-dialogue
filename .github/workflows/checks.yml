@@ -1,10 +1,9 @@
-# Every push and pull request: tests, lint, validator, voice check, simulation, coverage.
+# Tests, lint, validator, voice check, simulation, coverage. Manual only (Actions tab, "Run
+# workflow"): runs take hours, and on every push they filled every runner slot and blocked releases.
 name: Checks
 
 on:
-  push:
-    branches: ["**"]
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   checks:
