@@ -68,8 +68,8 @@ P:NPC {
       big = true,
       lines = { { id = "sld_default", text = "Is there? The Emperor exploited us an' called it glory, an' the Brotherhood pays us an' calls it work, an' I'd say the Brotherhood's the honest one. If I'm goin' tae exploit anythin', I'd rather it was a seam o' ore than a dwarf." } },
       choices = {
-        { text = "Take what the world gives. That's fair.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Explore it, but leave something behind. That's fair.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Take what the world gives. That's fair.", next = "BACK", reply = "Spoken like a dwarf who's earned a wage, an' I'll drink tae that. The world owes us a bit, after all.", fx = { align = { honor = -1 } } },
+        { text = "Explore it, but leave something behind. That's fair.", next = "BACK", reply = "Fair, an' sensible, an' I'll grant it's kinder than the Emperor ever was. Leave a bit for the next lot.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -101,8 +101,8 @@ P:NPC {
         { id = "ac_default", text = "The Hammer will fight ye for it, so go with friends if ye have them. And if the relic does something else besides, then at least the lads will be free of it, and that's worth any risk to me." },
       },
       choices = {
-        { text = "Their peace is worth the risk. I'll do it.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "I'll do it, but I'll keep the relic if it's useful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Their peace is worth the risk. I'll do it.", next = "BACK", reply = "Bless ye, friend, an' the lads will bless ye too, wherever they've gone. Go wi' the stone at yer back.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I'll do it, but I'll keep the relic if it's useful.", next = "BACK", reply = "Keep it if ye must, but break whatever binds them first. I'll no' rest otherwise, an' I've no' long tae rest.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -121,8 +121,8 @@ P:NPC {
         { id = "to_default", text = "A great thing of black stone and fire, raised out of the Slag Pit to stand guard for him. Kill Lathoric first if ye can, because I think the beast only wakes properly when its master calls." },
       },
       choices = {
-        { text = "Lathoric dies for this. No mercy.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "He'll face Ironforge's justice if he yields.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Lathoric dies for this. No mercy.", next = "BACK", reply = "Aye, an' I'll no' weep for him. Just mind the beast when its master falls.", fx = { align = { honor = -1 } } },
+        { text = "He'll face Ironforge's justice if he yields.", next = "BACK", reply = "More than he gave us, an' more than I'd give him. But ye're a better soul than me, an' I'll no' argue.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -140,8 +140,8 @@ P:NPC {
         { id = "xp_default", text = "If ye must, then pray for the lads first, for they're still bound and I'm only dying. I was never much for temples, but I'd not mind a kind word said over me by someone who means it." },
       },
       choices = {
-        { text = "I'll pray for all of you, bound and dying alike.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Prayers won't free them. Steel will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll pray for all of you, bound and dying alike.", next = "BACK", reply = "Thank ye, friend. That's a kindness I'll carry wi' me, wherever I'm goin'.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Prayers won't free them. Steel will.", next = "BACK", reply = "Aye, maybe, an' I'll no' fault ye for that. Take the steel, then, an' free them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
