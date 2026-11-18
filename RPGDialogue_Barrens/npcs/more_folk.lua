@@ -116,7 +116,7 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A child of Mulgore, so far from home. The grass here is not as sweet, is it?" },
-    { id = "n_worn", cat = "kit", when = { durability = { max = 30 } },
+    { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Oh, traveler, your seams are coming apart at the shoulder. Stand still a moment; I cannot watch someone walk into the Barrens like that." },
     { id = "n_caster", cat = "class", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
       text = "You wear cloth, as I do, and so you know that it is all that stands between you and the weather. Let us make sure it is good cloth." },

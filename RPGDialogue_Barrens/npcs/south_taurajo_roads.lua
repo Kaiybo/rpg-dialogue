@@ -20,6 +20,9 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Keep your eyes on the treeline if you're standing here, the Bristleback like to try their luck at dusk." },
     { id = "g_draught", when = { questActive = TODO_QUEST("Dogran's Captivity") }, text = "You've got the draught? Then go, and quickly, before his wounds take him first." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back. Any word from the north, from the huts? No, I can see there isn't, or you'd have said it first." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "It's the dark hours now, and that's when they move. Stay inside the firelight if you're staying." },
+    { id = "g_away", when = { away = 14 }, text = "It's been a long while since you stood this watch with me. The hills haven't got any quieter." },
   },
 
   notice = {
@@ -27,6 +30,8 @@ P:NPC {
       text = "A warlock, going after Dogran? I don't care what you want with him, so long as you get him out." },
     { id = "n_soldier", cat = "soldier", when = { minLevel = 20 },
       text = "You've got a grunt's scars. Then you know what it is to leave someone behind." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "One of the camp's own people. Your braves have been good to us, better than we've earned lately." },
   },
 
   start = "hello",
@@ -42,12 +47,18 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? I'm on watch, but I can talk." },
         { id = "h_again2", text = "Go on, I'll keep one eye on the hills." },
+        { id = "h_again3", text = "Say it. I'd sooner talk than stand here listening to my own head." },
       },
       choices = {
         { text = "What happened to Dogran?", next = "raid" },
         { text = "Why does the Horde fight the quilboar here?", next = "quilboar" },
         { text = "What's the draught for?", next = "draught" },
         { text = "Tell me about Camp Taurajo.", next = "camp" },
+        { text = "You haven't slept in a long while, by the look of you.", next = "sleep" },
+        { text = "Why can't the camp spare grunts to fetch him?", next = "spare" },
+        { text = "I'm a healer. Tell me about his wounds.", next = "healer", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
+        { text = "A tauren camp, and orcs on its wall. How does that sit?", next = "tauren", when = { race = "Tauren" } },
+        { text = "An orc doesn't leave an orc. Point me at that camp.", next = "orc", when = { race = "Orc" } },
         { text = "I'll let you keep watch.", next = "END" },
       },
     },
@@ -62,6 +73,7 @@ P:NPC {
       big = true,
       lines = { { id = "gu_default", text = "I left him there, yes, and I tell myself it was the right call, because moving him would have killed him. Some nights I believe it, and some nights I lie awake and count the steps back to that camp." } },
       choices = {
+        { text = "How many steps is it?", next = "guilt2" },
         { text = "You did what had to be done. Let it rest.", next = "BACK", reply = "Easy for you to say, and maybe I'll learn to say it myself one day. Until then I'll keep counting those steps, because somebody ought to remember the one I left.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "A grunt doesn't leave his own behind. Ever.", next = "BACK", reply = "Don't you think I know that, grunt? I've told myself the same every night since, and it cuts just as deep coming from you.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -79,9 +91,56 @@ P:NPC {
       lines = { { id = "ca_default", text = "Tauren built it and tauren run it, and they let a handful of us orcs keep the watch, which suits me, because they cook better than any orc I've known. It's the last real camp before the road runs south to the Needles, so everyone passes through sooner or later." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    guilt2 = {
+      lines = { { id = "gu2_default", text = "Three hundred and forty, from the last ridge to the hut where he fell. I walked it twice, coming out, with a grunt on each shoulder. I could walk it now with my eyes shut, and most nights I do, lying on my back." } },
+      choices = {
+        { text = "Why haven't you gone back yourself?", next = "guilt3" },
+        { text = "Something else, Logmar.", next = "BACK" },
+      },
+    },
+    guilt3 = {
+      big = true,
+      lines = { { id = "gu3_default", text = "Because I've six grunts and a camp full of tauren children behind this wall, and if I take the six north, the Bristleback come south. I asked the Crossroads for more blades, and Thork sent back that he has none. So I stand here, and Dogran lies there." } },
+      choices = {
+        { text = "You held your post. That was the harder duty.", next = "BACK", reply = "That's what Kirge Sternhorn tells me, and he's a brave who's buried friends. I hear it. I don't yet believe it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd have gone for him and damned the post.", next = "BACK", reply = "So would I, a year ago. Then I learned what it is to be the one they left the wall to.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sleep = {
+      lines = { { id = "sl_default", text = "A few hours, between watches. Byula at the inn leaves a bowl out for me, and I eat it cold because I forget it's there. I'll sleep when someone tells me which way it went for him, one way or the other." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    spare = {
+      lines = { { id = "sp_default", text = "Count us. Six orcs and the camp's own braves, and the braves have the hunters and the kodo herds to guard as well as the gate. Jorn Skyseer is the one the camp listens to, and he'd send every one of them if I asked. That's why I don't ask." } },
+      choices = {
+        { text = "So it falls to whoever passes through.", next = "spare2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spare2 = {
+      lines = { { id = "sp2_default", text = "It does, and I'm ashamed to say it. The Horde's spread thin across this whole land, and half its work gets done by travellers with a blade and an hour to give. If you're one of those, I'll not forget it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    healer = {
+      lines = { { id = "he_default", text = "His left leg was opened to the bone by a boar-spear, and the right arm was crushed under a thornweaver's club. Both had turned by the time we were driven off. If the draught gets him standing, you may be able to do the rest, and I'd be in your debt for trying." } },
+      choices = { { text = "I'll do what can be done. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    tauren = {
+      lines = { { id = "ta_default", text = "It sits well with me, and I hope with you. Your people fed us when we came down here knowing nothing of the land, and showed us which water was good. We keep the wall because it's the one thing we know how to give back." } },
+      choices = { { text = "It's a gift well given. Something else.", next = "BACK" } },
+    },
+    orc = {
+      lines = { { id = "or_default", text = "Lok'tar. North of here, past the dry wash, two huts close together with a fire between them. He's in the eastern one, or was. Go quietly until you can't, and if he's past saving, tell me so to my face." } },
+      choices = { { text = "You'll hear it from me either way.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
+    quilboar = { { id = "tp_quilboar", text = "Bristleback. Thornweavers, geomancers and more spears than I've grunts. They hold the hills north and south of this camp, and they know we're thin." } },
+    razorfen = { { id = "tp_razorfen", text = "The great thorn tangle to the south, where their crone rules. Every bold thing the Bristleback do starts there, the tauren say." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent us here to stand with the tauren. I mean to still be standing when he asks how it went." } },
+    centaur = { { id = "tp_centaur", text = "Not our trouble this far south, thank the spirits. We've quilboar enough for two garrisons." } },
     background = { { id = "tp_bg", text = "Dogran and I were promoted out of Orgrimmar the same week. He got the Crossroads and then Taurajo, and I followed him, because someone had to." } },
     advice = { { id = "tp_ad", text = "Count the huts before you count the quilboar. The huts don't lie about how many there are." } },
     _none = { { id = "tp_none", text = "I don't know, and I've stopped pretending I know things out here." } },
@@ -104,11 +163,18 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Who's there? If you're a quilboar, you're a quiet one, and if you're not, you'd better be quick." },
     { id = "g_drink", when = { questActive = TODO_QUEST("Dogran's Captivity") }, text = "Logmar sent you? Then give it here, whatever it is, and I'll drink it, even if it's quilboar swill." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back to this stinking hut. Either you're braver than me or you've less sense, and I'm glad of it both ways." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Dogran's Captivity") }, text = "I can stand, thanks to you. It isn't much of a stand, but it's on my own feet." },
+    { id = "g_troll", when = { race = "Troll" }, text = "A troll. Logmar sent to your people at Malaka'jin for a draught, the last I heard. If it ever reaches me, I'll owe a troll more than thanks." },
   },
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc face, out here. You don't know how good that is to see, brother, after a week of tusks and snouts." },
+    { id = "n_healer", cat = "class", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } },
+      text = "You've a healer's eyes, going straight to the leg. Look if you must, but spare me the face you're about to make." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior. Then you'll understand me better than Logmar does, when I tell you how I mean to finish this." },
   },
 
   start = "hello",
@@ -122,12 +188,18 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Talk quietly, they come round at dusk." },
         { id = "h_again2", text = "Go on, brother. Talking keeps my mind off the leg." },
+        { id = "h_again3", text = "Say it low. I've counted their rounds, and we've a little while yet." },
       },
       choices = {
         { text = "Zankaja is waiting for you in Orgrimmar.", next = "zankaja" },
         { text = "How did the quilboar take you?", next = "raid" },
         { text = "What will you do now?", next = "choice", when = { questDone = TODO_QUEST("Dogran's Captivity") } },
         { text = "Logmar blames himself.", next = "logmar" },
+        { text = "The quilboar have kept you alive this long. Why?", next = "alive" },
+        { text = "You've watched this camp from the inside for days.", next = "watch" },
+        { text = "I can ease that leg, if you'll hold still.", next = "healer", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
+        { text = "A warlock knows prices. Yours needn't be this one.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Lok'tar, brother. You're not dead yet.", next = "orc", when = { race = "Orc" } },
         { text = "Hold on, Dogran, help is coming.", next = "END" },
       },
     },
@@ -154,14 +226,65 @@ P:NPC {
       big = true,
       lines = { { id = "ch_default", text = "Zankaja won't spend her life feeding a cripple, not if I can help it, so I'll find one last fight and die in it standing. Take the pendant, and don't tell her any of this, because I won't have her carrying the guilt." } },
       choices = {
+        { text = "What last fight do you have in mind?", next = "choice2" },
         { text = "Live, Dogran. Let her decide what she can bear.", next = "BACK", reply = "She'd decide to keep me, that's the trouble, and she'd wear herself down to bone doing it. Still, you speak like someone who's lost people, and I'll think on what you've said.", fx = { align = { honor = -1 } } },
         { text = "A warrior's death is your right. I'll honour it.", next = "BACK", reply = "Thank you, {class}, because that's more than most would give a broken grunt. Carry that pendant to her, and let her remember me as I was before this camp.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
+    choice2 = {
+      lines = { { id = "ch2_default", text = "There's a Bristleback chieftain who walks through here at dusk to look at me. He's the one who put the spear in my leg. If I can get as far as him with a blade in my good hand, that's an ending an orc can be buried under." } },
+      choices = {
+        { text = "And what does Zankaja get out of that ending?", next = "choice3" },
+        { text = "Something else, Dogran.", next = "BACK" },
+      },
+    },
+    choice3 = {
+      big = true,
+      lines = { { id = "ch3_default", text = "She gets to weep for a grunt who died fighting, and then she gets to live. The other way, she gets a mate who can't carry water, and she'd stay, because that's her. I'll not make her choose it. I'm choosing it for her." } },
+      choices = {
+        { text = "That choice is hers to make. Go home and let her.", next = "BACK", reply = "You'd have me limp through the gates on one leg and see her face fall? ...Maybe. Spirits help me, maybe. Leave me to think on it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A warrior's death is yours by right. Take it.", next = "BACK", reply = "Lok'tar ogar. That's all I wanted someone to say. Take the pendant to her, and say only that I fell well.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    alive = {
+      lines = { { id = "al_default", text = "Not from kindness. Their thornweaver comes and mutters over me and takes a little blood each time, for what I don't know. I think I'm meant for something at Razorfen, when I'm weak enough to be carried and strong enough to last the road." } },
+      choices = {
+        { text = "What happens at Razorfen?", next = "alive2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    alive2 = {
+      lines = { { id = "al2_default", text = "I don't have their tongue, but I know one word they keep saying, and it's the crone's name, Charlga. Every time they say it they look south and then at me. I've decided I won't be making that journey, whatever else happens." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "razorfen" } } } },
+    },
+    watch = {
+      lines = { { id = "wa_default", text = "I have, and I've made what use of it I can. Two guards on this hut, changed at dusk and again at moonrise. The geomancers sleep in the far hut and wake slow. If Logmar ever gets his reinforcements, tell him to come at moonrise, from the east, with the wind." } },
+      choices = { { text = "I'll carry that to him. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    healer = {
+      lines = { { id = "he_default", text = "Do what you like with it. I'll not scream, I've done all of that I'm going to. But be honest with me after. If it won't bear weight again, I want to hear it from someone who knows, and not from my own fear." } },
+      choices = {
+        { text = "It will bear you, in time, with a staff.", next = "BACK", reply = "A staff. Hah. My father used one at the end, and nobody thought the less of him. I'd forgotten that.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warlock = {
+      lines = { { id = "wl_default", text = "You'd know. Your kind bargain with worse than quilboar and walk away. But I've nothing left to bargain with except how it ends, and I'll not hand that to anyone, demon or friend." } },
+      choices = { { text = "Then keep it. Something else.", next = "BACK" } },
+    },
+    orc = {
+      lines = { { id = "or_default", text = "Not yet, no. It's good to hear the old words in a mouth that isn't mine. I've been saying them to the wall for days, to remember what I am under the mud." } },
+      choices = { { text = "You're a grunt of the Horde. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
+    quilboar = { { id = "tp_quilboar", text = "Bristleback. I thought them beasts with spears, and I counted them like beasts. They're soldiers, and I know it now." } },
+    razorfen = { { id = "tp_razorfen", text = "South of here, the big thorn. It's where they mean to take me, and it's where I won't be going." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief pinned my rank on me himself, in Orgrimmar. I think of his face when I think of what I've done with it." } },
+    darkspear = { { id = "tp_darkspear", text = "Good fighters, and they laugh at everything. I'd give a great deal to hear somebody laugh just now." } },
     background = { { id = "tp_bg", text = "I was a grunt in Orgrimmar, then promoted to the Crossroads and sent on to Taurajo, and now this. It was a short climb and a long fall." } },
     advice = { { id = "tp_ad", text = "Count them twice before you charge, brother. I counted once." } },
     _none = { { id = "tp_none", text = "I don't know, and I've other things on my mind just now." } },

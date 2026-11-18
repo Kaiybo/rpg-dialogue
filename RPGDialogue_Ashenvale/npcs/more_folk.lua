@@ -89,7 +89,7 @@ P:NPC {
         { text = "That goblin in Ratchet saw you coming.", next = "goblin" },
         { text = "You can't read well, so I'll read them to you.", next = "xread", when = { questActive = TODO_QUEST("The Lost Pages") } },
         { text = "I'm an engineer. Let me look at this machine.", next = "xeng", when = { profession = "Engineering" } },
-        { text = "A goblin sold you this? I know the type.", next = "xgoblin", when = { race = { "Goblin", "Troll" } } },
+        { text = "A goblin sold you this? I know the type.", next = "xgoblin", when = { race = { "Troll", "Orc" } } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },

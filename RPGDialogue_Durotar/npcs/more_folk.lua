@@ -700,7 +700,7 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage, and still wearing that thin robe from the valley. You'll want something warmer before the Barrens wind gets you." },
-    { id = "n_worn", cat = "kit", when = { durability = { max = 30 } },
+    { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
       text = "That gear is hanging off you in strips. Uhgar can mend the metal, and whatever is past mending I can replace." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "Soft soles and dark leather. Kaplak's lot always buy the same things, and they always ask if I've got it in black." },
@@ -2025,7 +2025,7 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith. Dwukk will want to talk to you, and he'll want my ore to do it with, so we'll both be seeing more of you." },
-    { id = "n_worn", cat = "kit", when = { durability = { max = 30 } },
+    { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Your gear's in a worse state than my cart. See Uhgar or Wuark before you go anywhere there are quilboar." },
   },
   start = "hello",
