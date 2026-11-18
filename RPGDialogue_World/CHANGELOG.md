@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.37.0 (2026-11-18)
+- Speak your mind: views (things you can say back) for every "Ask about" topic, plus the "ask anyone" topics and a fallback set (`views.lua`, `views_1.lua` to `views_5.lua`). New files: restart the game fully (a /reload won't load them).
+
 ## 1.36.1 (2026-11-17)
 - Pools answer the 52 new "Ask about" topics: role pools for everyone, town pools for local takes, neutral goblin answers in Booty Bay, Gadgetzan, Ratchet and Everlook. Adds the 52 new topics (the Scourge, the Forsaken, Thrall, Sylvanas, Onyxia, Booty Bay, Dalaran, the Holy Light and more).
 - Twelve new Stories (journal: Stories page): the Echo Isles, Zul'Gurub, the Hinterlands, Felwood, the Winterfall, Teldrassil and Darkshore, Gnomeregan, the Dark Portal, the Blackrock over Redridge, Gadgetzan's water, Desolace's clans and Feralas. New files: restart the game fully (a /reload won't load them).

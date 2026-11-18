@@ -2,6 +2,18 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.82.0 (2026-11-18)
+**New files: restart the game fully (a /reload won't load them).**
+
+### Speak your mind.
+
+- **Say what you think.** When someone answers an "Ask about..." question, you can now answer back. Up to three replies come first in the list: things you think about what you just heard. You might admire it, damn it, pity it, laugh at it, doubt it, want a piece of it or want to go and fight it. Then they react to what you said.
+- **Every subject has them.** About 630 views across every "Ask about" subject: the Defias, Thrall and Sylvanas, the Forsaken, the internment camps, Ashenvale, Bolvar and the missing king, Lady Prestor, the Holy Light, Elune, the Earth Mother and the elements, Gnomeregan, the Scourge, every dungeon and town. Many are only offered to one side: a Forsaken, an orc, a night elf or a paladin each gets things to say that nobody else does.
+- **"Their story", "Their work", "A little advice" and "Latest rumors"** have their own replies too. You can sympathise with someone's life or shrug it off, admire their trade or call it dull, take their advice or go your own way.
+- **It counts.** What you say goes into the journal's beliefs in your own words. Strong stances on moral and political subjects move your alignment, once per subject with each person. People warm to you or bristle depending on where they stand, and word of it travels around their town. You get one view per subject with each person.
+- **DialogueUI:** your replies are listed above the topic list, so the next question is still one click away.
+- Turn it off under Settings, In the conversation: "Say what you think after they answer a question".
+
 ## 0.81.0 (2026-11-17)
 Everything from the parallel 0.80 work in one release. **New files: restart the game fully (a /reload won't load them).** Most packs got a minor version bump.
 
