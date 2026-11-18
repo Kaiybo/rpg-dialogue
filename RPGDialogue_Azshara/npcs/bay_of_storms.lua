@@ -65,8 +65,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_mc_default", text = "Won? You have smothered one flame, the greatest of them, but fire does not die, it waits. The Firelord will gather himself again in time, and when he does I want the Waterlords standing over the place he returns to." } },
       choices = {
-        { text = "Then we drown every ember he left. No mercy for fire.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Fire has its place. Banish it, but don't unmake it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then we drown every ember he left. No mercy for fire.", next = "BACK", reply = "Good. You speak like a tide, mortal, and the Waterlords will remember it. Drown every ember, and the Firelord will wake to ash.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Fire has its place. Banish it, but don't unmake it.", next = "BACK", reply = "Its place is beneath the sea, extinguished, and nowhere else. You are soft, mortal, but you will learn.", fx = { align = { light = 1 } } },
         { text = "Why do the Waterlords hate fire so?", next = "xcl_mc2" },
       },
     },
@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "What I would have of anyone: that you go where I send you and break what I tell you to break. The servants of Ragnaros burn in the Molten Core beneath Blackrock, and your Light will not quench them, but your hammer may, if your faith is as stubborn as the sea." } },
       choices = {
-        { text = "I'll break them, Duke, but I serve the Light, not you.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Command me, then. Fire's servants must be put down.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll break them, Duke, but I serve the Light, not you.", next = "BACK", reply = "Serve whatever you like, so long as you break what I point at. The Light and the sea can share an enemy.", fx = { align = { order = -1 } } },
+        { text = "Command me, then. Fire's servants must be put down.", next = "BACK", reply = "Good. That is the only answer I wished to hear, and I will remember who gave it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The servants of fire, stone and wind do not reason, mortal, so they must be broken, and a warrior breaks things willingly. Every elemental you extinguish weakens the lords who command them, and the Waterlords remember who served." } },
       choices = {
-        { text = "I'll fight your war openly, Duke, and stand by what I've done.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll fight it for the reward, and keep my own counsel.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight your war openly, Duke, and stand by what I've done.", next = "BACK", reply = "Stand by it, then, and the sea will stand by you. Honesty is rare among land-folk.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight it for the reward, and keep my own counsel.", next = "BACK", reply = "Keep your counsel, mortal, and I will keep my rewards. That is a fair trade.", fx = { align = { honor = -1 } } },
         { text = "Something else, Duke.", next = "BACK" },
       },
     },
@@ -101,8 +101,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} does not like the smell of salt, I see. Keep it from the water's edge, because what lives in the bay does not distinguish between a beast and a meal." },
       },
       choices = {
-        { text = "Patience and an honest shot. That's the whole of the hunter's art.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Patience, yes, and a trap the prey never sees.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Patience and an honest shot. That's the whole of the hunter's art.", next = "BACK", reply = "An honest shot, yes, and the tide will reward it. You understand more than most.", fx = { align = { honor = 1 } } },
+        { text = "Patience, yes, and a trap the prey never sees.", next = "BACK", reply = "A trap the prey never sees is a drowning, mortal. You would make a fine Waterlord.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -112,8 +112,8 @@ P:NPC {
         { id = "mhy_default", text = "It makes you a mortal playing with a spark of my enemy's essence, which is a very different thing from being him. Your fire is borrowed and small, and it goes out; his does not, and that is why the Waterlords make war on it." },
       },
       choices = {
-        { text = "Then I'll turn my fire on his servants.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Fire's a tool. I'll use what serves me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll turn my fire on his servants.", next = "BACK", reply = "Good. Turn it there, and watch it go out against them. That is the best use of a borrowed flame.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Fire's a tool. I'll use what serves me.", next = "BACK", reply = "Use it, then, mortal, and pray it never turns on you. Fire has no loyalty, not even to itself.", fx = { align = { order = -1 } } },
         { text = "Who is your enemy, Duke?", next = "war" },
       },
     },
@@ -131,16 +131,16 @@ P:NPC {
         { id = "dyh_default", text = "Your Circle says so, and I don't dispute it, but balance is a word the land-folk use when they mean peace. The sea has never been at peace, druid; it is a war that has learned to look calm from the shore." },
       },
       choices = {
-        { text = "Balance needs both calm and storm.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Then the Circle must keep the storm in check.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Balance needs both calm and storm.", next = "BACK", reply = "Both, yes, and the sea is both at once. Perhaps the Circle is wiser than I thought.", fx = { align = { order = -1 } } },
+        { text = "Then the Circle must keep the storm in check.", next = "BACK", reply = "The Circle may try, druid, and the storm will laugh. But I would watch them try.", fx = { align = { order = 1 } } },
       },
     },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Because your demons burn as the Firelord's servants burn, and they foul any water they touch. The Waterlords have no quarrel with you, warlock, so long as your fire serves my war against Ragnaros and not your own appetite." } },
       choices = {
-        { text = "I'll turn my fire against the Firelord, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My fire serves me first, Duke.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll turn my fire against the Firelord, then.", next = "BACK", reply = "Good. Then we have no quarrel, warlock, and the sea will tolerate you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My fire serves me first, Duke.", next = "BACK", reply = "First, last, it is the same to me, so long as it burns my enemies. Do not foul my waters.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "I'll keep my servant out of sight.", next = "BACK" },
       },
     },
@@ -148,8 +148,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The servants of fire and earth are strong but they are not watchful, and a quiet blade can reach the lieutenants who order them. Strike where they do not look, and the pure waters will remember the service, though I will not pretend to love the method." } },
       choices = {
-        { text = "A quiet blade wins wars. I'll strike where they don't look.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'd rather face them openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A quiet blade wins wars. I'll strike where they don't look.", next = "BACK", reply = "Good. The tide rises where no one is looking, and so should you.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather face them openly.", next = "BACK", reply = "Then you will be burned, mortal, as they burn all who face them openly. But I will honour you for it.", fx = { align = { honor = 1 } } },
         { text = "The tide and I will see.", next = "BACK" },
       },
     },
@@ -157,8 +157,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "By ending the servants of fire who befoul the deep places of this world, as any other mortal might. Your prayers are nothing to the sea, but your will is a tool like any other, and the Waterlords reward tools that do not break." } },
       choices = {
-        { text = "Then I'll serve, and see the fire's servants ended.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'm no one's tool, Duke. I choose my own fights.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll serve, and see the fire's servants ended.", next = "BACK", reply = "Good. Serve, and the sea will remember your name when the fire is ended.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm no one's tool, Duke. I choose my own fights.", next = "BACK", reply = "Then choose this one, mortal, and choose well. The Firelord will choose for you otherwise.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -261,7 +261,7 @@ P:NPC {
       choices = {
         { text = "Should the Dark Iron be forgiven for waking him?", next = "op_darkiron" },
         { text = "Then I'll fight fire for you.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 }, align = { honor = 1 } } },
-        { text = "I'll fight fire when it pays, Duke.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight fire when it pays, Duke.", next = "BACK", reply = "Pay it shall, mortal, for the Waterlords reward their tools generously. Bring me ashes, and you will have your due.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -295,8 +295,8 @@ P:NPC {
     why_using = {
       lines = { { id = "wu_default", text = "Of course I am, and I tell you so, which is more honesty than you will find in most of your own kings. Use me in return, mortal; that is what an alliance is." } },
       choices = {
-        { text = "An honest bargain, then.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll use you better than you use me.", next = "BACK", fx = { align = { honor = -1 }, trait = { proud = 1 } } },
+        { text = "An honest bargain, then.", next = "BACK", reply = "Honest it is, and honest it will remain. That is the sea's way.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll use you better than you use me.", next = "BACK", reply = "Try, mortal, and I will enjoy watching you. The tide always wins in the end.", fx = { align = { honor = -1 }, trait = { proud = 1 } } },
       },
     },
     why_fail = {
@@ -331,8 +331,8 @@ P:NPC {
     shaman = {
       lines = { { id = "sh_default", text = "They speak to you because you listen to all of them at once, like a child among quarrelling parents. Listen longer to water, shaman, and you will hear that the others are only noise." } },
       choices = {
-        { text = "All four elements must stand in balance.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "Water has my respect, Duke, above the rest.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "All four elements must stand in balance.", next = "BACK", reply = "Balance, you say, as the land-folk say, and the sea laughs. Listen longer, shaman, and you will hear.", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Water has my respect, Duke, above the rest.", next = "BACK", reply = "Good. Water remembers who respected it, shaman, and the tide will remember you.", fx = { affinity = 2, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -428,8 +428,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_loramus_default", text = "Dangerous to everyone but the demons, who are the only ones who always profit from the bargain. I have hunted demons since before your kingdoms had names, and I've never met a warlock who believed they'd be the one to slip, so watch yours closely." } },
       choices = {
-        { text = "Fel magic should be burned out, whoever uses it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A strong warlock keeps the demons leashed. Power is power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fel magic should be burned out, whoever uses it.", next = "BACK", reply = "Burned out, yes, and the hands that use it with it, if they will not let go. You are wiser than most of your kind.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A strong warlock keeps the demons leashed. Power is power.", next = "BACK", reply = "Every warlock says so, right up to the moment the leash snaps. I have buried many strong ones.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -437,8 +437,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_dm_default", text = "I know Prince Tortheldrin, by name and by crime, and the pylons that keep a creature of the Nether chained in the city's heart so the Shen'dralar can drink from it. That is the sickness of the Highborne in one sentence: they would rather leash a horror than live without its power." } },
       choices = {
-        { text = "Leashing a demon is still serving it. Their power must end.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If the leash holds, I'd use the power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Leashing a demon is still serving it. Their power must end.", next = "BACK", reply = "You speak like a hunter, and I'm glad of it. Tortheldrin's leash will snap one day, and I'd rather it were cut first.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If the leash holds, I'd use the power.", next = "BACK", reply = "So did he, and look at what he's become. I would not stand near you when the leash fails.", fx = { align = { light = -1 } } },
         { text = "Are any of the Highborne in Dire Maul worth saving?", next = "xcl_dm2" },
       },
     },
@@ -452,8 +452,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Some do, the small ones, the ones that remember being burned. The greater ones only grow curious, and curiosity is worse, because it makes them patient. Your Light is a fine weapon, paladin, but it is not a shield against what you cannot see, and I see a great deal." } },
       choices = {
-        { text = "Then lend me your eyes, and I'll lend you my hammer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I've faced demons before without a hunter's tricks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then lend me your eyes, and I'll lend you my hammer.", next = "BACK", reply = "Gladly, paladin, and between us we'll see a great many things the Legion would rather hide. Keep your hammer close.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I've faced demons before without a hunter's tricks.", next = "BACK", reply = "Before, perhaps, but not the ones that hide. Your Light is bright, but it is not eyes.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -461,8 +461,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "He trusts someone who can see, and he swings where he's told, and he doesn't argue. My hounds smell the Legion's servants long before your eyes would find them, and what Galvan forges for you will put an edge on your steel that demons feel." } },
       choices = {
-        { text = "Then I'll trust your eyes and strike where you tell me.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll trust my own blade. I don't take orders from anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll trust your eyes and strike where you tell me.", next = "BACK", reply = "Then you'll live, warrior, and the Legion's servants won't. That is all I ask.", fx = { align = { order = 1 } } },
+        { text = "I'll trust my own blade. I don't take orders from anyone.", next = "BACK", reply = "Then your blade will swing at shadows while the real thing stands behind you. Your choice.", fx = { align = { order = -1 } } },
         { text = "Something else, Loramus.", next = "BACK" },
       },
     },
@@ -471,8 +471,8 @@ P:NPC {
         { id = "hlo_default", text = "Honest, yes, and it will die the first time it meets what my hounds were bred to hunt. A beast sees with its eyes; mine see with what was burned into them, and I trust them over any honest creature on this coast." },
       },
       choices = {
-        { text = "I'd rather trust a friend than a weapon.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
-        { text = "Fair. Use what sees the enemy.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "I'd rather trust a friend than a weapon.", next = "BACK", reply = "A noble sentiment, and a short-lived one. Friends die, hunter, and the Legion is very patient.", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Fair. Use what sees the enemy.", next = "BACK", reply = "Exactly, hunter, and you'll live longer for it. My hounds see what yours never will.", fx = { align = { light = -1 }, affinity = 1 } },
       },
     },
     sky_lo = {
@@ -481,8 +481,8 @@ P:NPC {
         { id = "slo_default", text = "Tortheldrin, yes; I know the name, and the crystals, and what they drank from. Your rebels left before the worst of it, which was wise, but don't imagine the Nether forgot the city because your people stopped looking at it." },
       },
       choices = {
-        { text = "We remember what it cost. We won't touch it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power like that could be turned against demons.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "We remember what it cost. We won't touch it.", next = "BACK", reply = "Then you'll live longer than the Shen'dralar will, I think. The Nether forgets nothing.", fx = { align = { light = 1 } } },
+        { text = "Power like that could be turned against demons.", next = "BACK", reply = "It could, for a while, and then it would turn. I have seen it turn many times.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -490,8 +490,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Ruins, bones and debts, mortal. The Highborne opened this land to demons ten thousand years ago, and something of that door still hangs open around Eldarath and the old palaces. Your spirits feel it as a wrongness and look away, while I look straight at it, and that is the whole difference between us." } },
       choices = {
-        { text = "Then I'll look at it too, whatever my elders say.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Spirits keep their distance for a reason. That's wisdom, not fear.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll look at it too, whatever my elders say.", next = "BACK", reply = "Look carefully, then, shaman, and never alone. What hangs open there has eyes.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Spirits keep their distance for a reason. That's wisdom, not fear.", next = "BACK", reply = "Wisdom, perhaps, and I'll not mock it. But someone has to look, and I've been looking a long time.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -499,8 +499,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I blame the Highborne, and I blame Queen Azshara, and I watch every mage I meet for the same hunger. Most of you are fools who light candles, but some of you are not, and those are the ones I hunt eventually." } },
       choices = {
-        { text = "I'll never seek that kind of power. You have my word.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fear of knowledge is how wars are lost.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll never seek that kind of power. You have my word.", next = "BACK", reply = "Then keep it, mage, for I will be watching. Your word is the only thing standing between you and Azshara's road.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear of knowledge is how wars are lost.", next = "BACK", reply = "And hunger for it is how worlds are lost. I'll be watching you all the same.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll remember the warning.", next = "BACK" },
       },
     },
@@ -508,8 +508,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Shades of demons slain long ago, and some not slain at all, waiting for the veil to thin. You could stand beside one and never know it, rogue, which is why I live here and you are only visiting." } },
       choices = {
-        { text = "I'd want to know. Show me how to see them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Some things are better left unseen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd want to know. Show me how to see them.", next = "BACK", reply = "You'd want to know until you knew, rogue. Some sight costs more than it gives.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some things are better left unseen.", next = "BACK", reply = "Wise, and rarer than you think. Leave the seeing to me.", fx = { align = { order = 1 } } },
         { text = "I'll watch my back, then.", next = "BACK" },
       },
     },
@@ -517,8 +517,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Touch them, yes, and feed them too, if you're careless. The Highborne who sank under these waves thought they could hold the dark at arm's length, priest, and I have spent a very long time cleaning up after that mistake." } },
       choices = {
-        { text = "Then I'll hold to healing and leave demons to you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Shadow is my weapon, and I'll use it as I see fit.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll hold to healing and leave demons to you.", next = "BACK", reply = "Good, priest, and you'll sleep better for it. I've had my fill of priests who thought otherwise.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Shadow is my weapon, and I'll use it as I see fit.", next = "BACK", reply = "Then I'll watch your shadow as closely as I watch theirs. The Highborne said the same.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -526,8 +526,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Felhound tracks under the Highborne ruins, and the rot the satyrs leave wherever they dance. Your Circle would heal this land with patience and seeds, but you cannot plant a garden over a nest of demons, druid; first they burn, and then you may grow what you like." } },
       choices = {
-        { text = "Then burn them. The healing can wait until they're gone.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Burn the demons, not the forest. The land has suffered enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then burn them. The healing can wait until they're gone.", next = "BACK", reply = "Spoken like a hunter, druid. Burn them first, and the seeds can come later.", fx = { align = { light = -1 } } },
+        { text = "Burn the demons, not the forest. The land has suffered enough.", next = "BACK", reply = "Precisely, and the Circle will thank you for the distinction. The land is not the enemy.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -636,8 +636,8 @@ P:NPC {
     see_how = {
       lines = { { id = "sh_default", text = "No. It is not a lesson; it is a wound, and I would not give it to you even if you begged. Be content to be blind, mortal, and let those of us who are not do the seeing." } },
       choices = {
-        { text = "Then I'll trust your eyes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'd rather see for myself, whatever it costs.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Then I'll trust your eyes.", next = "BACK", reply = "Good. You'll live longer for it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather see for myself, whatever it costs.", next = "BACK", reply = "Then you are a fool, and I've known many. Few of them lived long enough to regret it.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
       },
     },
 
@@ -670,8 +670,8 @@ P:NPC {
     razelikh_laugh = {
       lines = { { id = "rl_default", text = "You will. You are foolhardy, {race}, and I find I admire it, the way one admires a moth that flies at a bonfire with great determination." } },
       choices = {
-        { text = "Courage is never foolish.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll strike from the dark, not charge.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Courage is never foolish.", next = "BACK", reply = "Courage is never foolish, only fatal. Go and prove me wrong, {race}.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll strike from the dark, not charge.", next = "BACK", reply = "Wiser, and less amusing. Strike well, and come back alive.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
     razelikh_why = {
@@ -682,8 +682,8 @@ P:NPC {
     hounds = {
       lines = { { id = "ho_default", text = "Raytaf, Shahiar and Zaman. Yes, they are felhounds, and yes, they are demons, and they are mine, because a hunter uses the best hounds he can find. They eat what I hunt, which keeps them loyal and keeps the island tidy." } },
       choices = {
-        { text = "Using demons to fight demons is dangerous.", next = "BACK", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
-        { text = "Any weapon is fair against the Legion.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Using demons to fight demons is dangerous.", next = "BACK", reply = "Dangerous, yes, and I've lived with that danger for ten thousand years. My hounds have never once turned on me.", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
+        { text = "Any weapon is fair against the Legion.", next = "BACK", reply = "Exactly, and the Legion uses every weapon against us. I'll not be less clever than they are.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -691,8 +691,8 @@ P:NPC {
     priest = {
       lines = { { id = "pri_default", text = "It can, priest, if the one who carries it does not flinch. Most do; the Light is bright, and what it shows you in the dark is not always what you wished to see. Keep your lamp, and keep it high, and do not be surprised by what it reveals." } },
       choices = {
-        { text = "My faith will not flinch.", next = "BACK", fx = { affinity = 1, align = { light = 2 } } },
-        { text = "Faith alone won't win this. I'll learn your ways too.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "My faith will not flinch.", next = "BACK", reply = "Then you'll see what you must, priest, and that is rarer than you know. Keep it steady.", fx = { affinity = 1, align = { light = 2 } } },
+        { text = "Faith alone won't win this. I'll learn your ways too.", next = "BACK", reply = "A wise answer, and I'll teach what can be taught. The rest you must learn by bleeding.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Have you ever prayed, Loramus?", next = "priest_pray" },
       },
     },
@@ -703,15 +703,15 @@ P:NPC {
     warlock = {
       lines = { { id = "wl_default", text = "You command them as a child commands a fire, by feeding it. One day the fire will be hungrier than you are generous, warlock, and I would rather not be standing near you on that day." } },
       choices = {
-        { text = "My will is stronger than any demon.", next = "BACK", fx = { align = { light = -1 }, trait = { proud = 1 } } },
-        { text = "You're right. I keep watch on myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, trait = { cautious = 1 } } },
+        { text = "My will is stronger than any demon.", next = "BACK", reply = "So said every warlock I've buried, and I've buried many. Keep your will close.", fx = { align = { light = -1 }, trait = { proud = 1 } } },
+        { text = "You're right. I keep watch on myself.", next = "BACK", reply = "Good. Watch yourself as closely as I'll watch you, and you might live.", fx = { affinity = 1, align = { light = 1 }, trait = { cautious = 1 } } },
       },
     },
     nelf = {
       lines = { { id = "ne_default", text = "They did, and they were right to fear us, and wrong to send us away. The kaldorei would rather close their eyes than see what still waits under this sea; I would rather lose mine." } },
       choices = {
-        { text = "Our people did what they had to.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "They were wrong to cast you out.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Our people did what they had to.", next = "BACK", reply = "They did, and they were not entirely wrong. But they were not entirely right either.", fx = { align = { order = 1 } } },
+        { text = "They were wrong to cast you out.", next = "BACK", reply = "Perhaps, and I've waited a long time to hear a kaldorei say it. It means more than you know.", fx = { affinity = 2, align = { order = -1 } } },
       },
     },
   },
@@ -768,8 +768,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because the hydra that slew the one's sons was quiet too, until it was not. A small thing that strikes from the dark could strike the hydra where it sleeps, and the one would not care how it died, only that it did." } },
       choices = {
-        { text = "I'll strike it in its sleep, and gladly.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll face it awake. Your sons deserve an honest vengeance.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll strike it in its sleep, and gladly.", next = "BACK", reply = "Then the one will remember you, small thing, and sing your name in the deep. Strike it where it sleeps.", fx = { align = { honor = -1 } } },
+        { text = "I'll face it awake. Your sons deserve an honest vengeance.", next = "BACK", reply = "Honest, and brave, and foolish, and the one's sons were all three. The one will mourn you if you fall.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -777,8 +777,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The makrura pray, and the one answers, and that is what a god is, small thing. The one does not ask whether your god is real; the one asks only whether it would have saved the one's sons from the hydra, and it did not, and so the one has no use for it." } },
       choices = {
-        { text = "A god isn't measured by favours. Faith asks nothing back.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then I'll do what no god did, and avenge your sons.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A god isn't measured by favours. Faith asks nothing back.", next = "BACK", reply = "Faith that asks nothing is strange to the one, small thing. The one will think on it.", fx = { align = { light = 1 } } },
+        { text = "Then I'll do what no god did, and avenge your sons.", next = "BACK", reply = "Then the one will call you friend, small thing, and the deep folk will sing it. Avenge them.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -786,8 +786,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The one thinks so, if the warrior is foolish enough to stand before it and strong enough to keep standing. The one's sons were strong and stood before it, and still the deep took them, so the little warrior must be stronger, or cleverer." } },
       choices = {
-        { text = "Then I'll face it head on, for your sons.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then I'll be cleverer. Strength alone is what killed your sons.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll face it head on, for your sons.", next = "BACK", reply = "Then the one will honour you, small thing, whatever happens. Stand, and keep standing.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll be cleverer. Strength alone is what killed your sons.", next = "BACK", reply = "Cleverer, yes, and the one's sons were not. The one likes you, small thing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -798,8 +798,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And the small beast, {pet}, is it yours, or is it the one's now? Everything that comes into the temple's waters belongs to the one, little hunter, but Arkkoroc will make an exception." },
       },
       choices = {
-        { text = "I'll do what you ask and honour the deep folk's ways.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your songs mean nothing to me. I hunt for my own reasons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll do what you ask and honour the deep folk's ways.", next = "BACK", reply = "Then the deep folk will welcome you, and the one will remember. That is the sea's way.", fx = { align = { order = 1 } } },
+        { text = "Your songs mean nothing to me. I hunt for my own reasons.", next = "BACK", reply = "Then hunt for your own reasons, small thing, and the one will not sing of you. That is your loss.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -816,8 +816,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "The bay obeys no one, not even the one, though it is fond of Arkkoroc, and that is nearly the same. The Waterlords on their island think the tides belong to them, and the naga think the deep belongs to them, and the one lets them think it. A hydra has been killing the one's sons and the sea did nothing to stop it, so you see even a god's waters have their limits." } },
       choices = {
-        { text = "The waters should have a lord. Better you than the naga.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The sea is free. No god or duke commands it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The waters should have a lord. Better you than the naga.", next = "BACK", reply = "The one agrees, and the one is glad the land-folk see it. The naga are a poison in the tide.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The sea is free. No god or duke commands it.", next = "BACK", reply = "The sea is free, yes, and so is the one. The Waterlords will learn that.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -825,8 +825,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "They sing of the night the waters closed over Zin-Azshari, and the one has heard that song more times than there are shells on this shore. The makrura say the drowned city still lies beneath the waves, and the one would not have mortals with magic in their hands disturbing what sleeps there." } },
       choices = {
-        { text = "Then I'll leave the drowned city in peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Its secrets should be found, not left to rot.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Then I'll leave the drowned city in peace.", next = "BACK", reply = "Then the one is glad, small thing, and the drowned dead are too. Some songs should not be answered.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Its secrets should be found, not left to rot.", next = "BACK", reply = "Then you will drown, small thing, as the ones who left it did. The one will sing of you, too.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "I'll keep my spells away from the sea.", next = "BACK" },
       },
     },
@@ -834,8 +834,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They poisoned the land above, and the rivers carried their poison down into the one's waters, and the deep folk sickened for it. Bring no demon to this temple, small one, or the one's grief for his sons will find a new target." } },
       choices = {
-        { text = "I'll bring no demon here. You've suffered enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My demons go where I choose, god or no god.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll bring no demon here. You've suffered enough.", next = "BACK", reply = "Then the one thanks you, small thing. The deep folk remember who spared them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My demons go where I choose, god or no god.", next = "BACK", reply = "Then you will not come to this temple, small thing. The one does not argue twice.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll keep it away.", next = "BACK" },
       },
     },
@@ -843,8 +843,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "They bow, and they bring the one pearls, and they sing the one's name to the tides, so the one is a god by any measure that matters. Yet the one's sons are dead to a hydra all the same, and no worship brings them back, which the one suspects your gods know something about." } },
       choices = {
-        { text = "Grief humbles every god. I'm sorry for your sons.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Worship is power. Keep them singing, Arkkoroc.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Grief humbles every god. I'm sorry for your sons.", next = "BACK", reply = "Grief does, small thing, and the one is grateful for your words. The one's sons would have liked you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Worship is power. Keep them singing, Arkkoroc.", next = "BACK", reply = "They will sing, small thing, as long as the one is god. But songs do not bring back sons.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -852,8 +852,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "The deep folk welcome nothing that walks on land and pretends to swim. Yet the hydra that took the one's sons is no creature of the sea, druid; it is a wrong thing, and if your kind would hunt it beside the makrura, the one would call that a fair shape to wear." } },
       choices = {
-        { text = "I'll hunt it. A wrong thing has no place in the sea.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Your sons are your affair. I keep to my own waters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt it. A wrong thing has no place in the sea.", next = "BACK", reply = "Then the one will remember you, druid, and the deep folk will too. Hunt it well.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your sons are your affair. I keep to my own waters.", next = "BACK", reply = "Then keep to them, druid, and the one will keep to the one's. The tide remembers who stayed.", fx = { align = { honor = -1 } } },
         { text = "Something else, Lord Arkkoroc.", next = "BACK" },
       },
     },
@@ -913,8 +913,8 @@ P:NPC {
     god_insult = {
       lines = { { id = "gi_default", text = "Bold, for something the one could crush in one hand. The one will let it pass, this once, because the one is gracious; say it again and learn how gracious the sea can be." } },
       choices = {
-        { text = "I speak the truth, whatever it costs.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "Forgive me, great one.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I speak the truth, whatever it costs.", next = "BACK", reply = "Then the one will remember it, and the one will be watching. Truth is a dangerous gift to give a god.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Forgive me, great one.", next = "BACK", reply = "Forgiven, small thing, this once. The one is gracious, as the one said.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
     sons = {
@@ -940,8 +940,8 @@ P:NPC {
     temple = {
       lines = { { id = "te_default", text = "The elves built it for their moon, and the sea took it, and the one took it from the sea. Their goddess left her house empty; a god does not leave a good house empty." } },
       choices = {
-        { text = "Elune never left.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Well, she isn't using it.", next = "BACK", fx = { affinity = 1, align = { light = -1 }, trait = { witty = 1 } } },
+        { text = "Elune never left.", next = "BACK", reply = "Then where is she, small thing? The one has waited, and the moon has not come down.", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Well, she isn't using it.", next = "BACK", reply = "Exactly, small thing, and the one is a good tenant. The one keeps the house very clean.", fx = { affinity = 1, align = { light = -1 }, trait = { witty = 1 } } },
       },
     },
     name = {

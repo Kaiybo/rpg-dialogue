@@ -47,8 +47,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "It troubles me as any power taken from the Nether troubles me, because that is what drove us into hiding ten thousand years ago. I won't judge you by your craft alone, since I've known honest people with stranger habits, but you'll find that many on this isle have longer memories than I do." } },
       choices = {
-        { text = "I understand. I'll keep my craft to myself while I'm here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Old fears shouldn't bind your people forever, Elder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I understand. I'll keep my craft to myself while I'm here.", next = "BACK", reply = "That's courteous of you, and wiser than you may know. Keep it close, and the isle will warm to you in time.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old fears shouldn't bind your people forever, Elder.", next = "BACK", reply = "Perhaps they shouldn't, but ten thousand years is a long habit to break, and you'll not break it in an afternoon. Patience, stranger.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -65,8 +65,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "To the winds, mostly, out of long habit, though the patrons who sheltered us are gone and nobody knows where. The only priests this isle ever knew were Lorthuna's Al'Aketh, so you'll find people wary of the robe, but some of the young have begun asking about Elune, and I won't tell them what to find." } },
       choices = {
-        { text = "Let them find their own faith. That's as it should be.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "A people needs a shared faith. Guide them, Elder.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them find their own faith. That's as it should be.", next = "BACK", reply = "I think so too, though the Council would rather I said otherwise. Let the winds carry them where they will.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A people needs a shared faith. Guide them, Elder.", next = "BACK", reply = "A faith handed down by an elder is only obedience, child, and we have had enough of that. I will listen, but I won't lead them.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "None that I know of, and I'd rather tell you that plainly than invent something to please you. Our ancestors owed everything to the wind spirits, and since they vanished, most of us are still working out what we believe, so a guest so certain of their faith is something of a curiosity here." } },
       choices = {
-        { text = "Faith takes time. I hope your people find their own.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Better to trust your own strength than any power above.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Faith takes time. I hope your people find their own.", next = "BACK", reply = "So do I, and I'm grateful you'd wish it for us. Winds be with you on your road.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to trust your own strength than any power above.", next = "BACK", reply = "Many of the young would agree with you, and I can't say they're wrong. Only remember that our ancestors did not reach this isle on their own strength; the winds carried them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,8 +106,8 @@ P:NPC {
         { id = "rta_default", text = "There's always a place for quiet, child; the Council simply prefers not to say so out loud. Lorthuna's Al'Aketh were broken once, not ended, and somebody among us had better learn where the rest of them went." },
       },
       choices = {
-        { text = "I'll watch the Al'Aketh. Nothing more.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1, learn = { "al_aketh" } } },
-        { text = "If I find them, they won't be a problem.", next = "BACK", fx = { align = { honor = -1 }, learn = { "al_aketh" } } },
+        { text = "I'll watch the Al'Aketh. Nothing more.", next = "BACK", reply = "That is all I'd ask, and all the Council needs to know. Report to me, and to no one else.", fx = { align = { honor = 1 }, affinity = 1, learn = { "al_aketh" } } },
+        { text = "If I find them, they won't be a problem.", next = "BACK", reply = "Find them first, child, and we will speak of problems after. I'll not have the Council hear of bodies before it hears of answers.", fx = { align = { honor = -1 }, learn = { "al_aketh" } } },
       },
     },
     hello = {
@@ -205,8 +205,8 @@ P:NPC {
           text = "I told the Council the Windlord might take years to act, decades even, but I did not say never. Everyone heard the first part." },
       },
       choices = {
-        { text = "Then we have time.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
-        { text = "Then we should be ready.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Then we have time.", next = "BACK", reply = "We have, I think, but time is a poor thing to lean on. Use it well, child.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Then we should be ready.", next = "BACK", reply = "Yes, and that is the half nobody heard. I'm glad someone did.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Who stood with us against the Al'Aketh?", next = "allies" },
       },
     },
@@ -329,8 +329,8 @@ P:NPC {
         { id = "sm_default", text = "Then you've drunk the sapta and faced the elements, and they let you go, which is more than they promise. Skysight is weakening in our people, so if yours is strong, guard it and use it well." },
       },
       choices = {
-        { text = "I'll guard it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "Skysight should be shared freely, not guarded.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll guard it.", next = "BACK", reply = "Good, because there are fewer of you every year. Guard it, child, and the winds may yet answer.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Skysight should be shared freely, not guarded.", next = "BACK", reply = "Spoken like a Falorne, and I'll not quarrel with you over it. But skysight given carelessly is skysight lost.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

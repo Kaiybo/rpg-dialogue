@@ -146,8 +146,8 @@ P:NPC {
       big = true,
       lines = { { id = "st_default", text = "We night elves are dedicated to peace and harmony, and that doesn't mean we wait politely for our throats to be cut. I'll protect this Stronghold's interests before the naga come for them, and that is my duty to the General." } },
       choices = {
-        { text = "Striking first is how a careful soldier survives.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Striking first makes you the aggressor.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Striking first is how a careful soldier survives.", next = "BACK", reply = "Precisely, and I'm glad someone who isn't a Sentinel understands it, because Shandris has heard it from me often enough.", fx = { align = { order = 1 } } },
+        { text = "Striking first makes you the aggressor.", next = "BACK", reply = "Perhaps, but the naga were aggressors long before the Stronghold was raised, and I would rather be called harsh than mourned.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -284,8 +284,8 @@ P:NPC {
       big = true,
       lines = { { id = "rs_default", text = "Perhaps, but not knowing has never kept anyone safe that I've heard of. The naga dug this out of the ground for a reason, and I'd rather understand that reason than be surprised by it." } },
       choices = {
-        { text = "Knowledge is the best shield we have. Keep at it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Be careful. Some secrets are buried for a reason.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge is the best shield we have. Keep at it.", next = "BACK", reply = "Thank you, and I'll tell Latronicus you said so, since he worries every time I open one of these crates.", fx = { align = { order = -1 } } },
+        { text = "Be careful. Some secrets are buried for a reason.", next = "BACK", reply = "I am careful, I promise you, and I keep a ward on the table, but I would still rather understand than guess.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

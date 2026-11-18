@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "ck_default", text = "One, once, for a week or so, until the voice he'd been hearing came back and he stopped speaking to me at all. I don't try as hard now, and I'm not proud of that." } },
       choices = {
-        { text = "Keep trying. Every one saved matters.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Don't. Get what you need and be done with them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep trying. Every one saved matters.", next = "BACK", reply = "I will, though it costs me more each time one slips back to the voice. You're kinder than most who stand in this room.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Don't. Get what you need and be done with them.", next = "BACK", reply = "That's what my superiors say, and some nights I'm tempted. But a confession is worth less than a man who stops listening to that voice.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

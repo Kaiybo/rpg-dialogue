@@ -75,8 +75,8 @@ P:NPC {
         { id = "ll_default", text = "Prophets promise ogres power, and then ogres go up on the altar and never come down. Clugfist counted, and the prophets never go up on the altar, so Clugfist knows they lie." },
       },
       choices = {
-        { text = "You were right to break with them.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "A clan that betrays its masters may betray again.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "You were right to break with them.", next = "BACK", reply = "Clugfist thinks so too, and Clugfist is still alive, which is how Clugfist knows.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "A clan that betrays its masters may betray again.", next = "BACK", reply = "Clugfist does not betray friends, only liars. You are not a liar, so you are safe, probably.", fx = { align = { order = 1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -163,8 +163,8 @@ P:NPC {
         { id = "kk_default", text = "Some were, and some still are, but they chose the prophets and Bolder'ok chose to live. If they come out of the caves and put down their clubs, Clugfist will let them sit by the fire, but they never come out." },
       },
       choices = {
-        { text = "Then they've made their choice. Show no mercy.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Keep the fire lit for them anyway.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Then they've made their choice. Show no mercy.", next = "BACK", reply = "Clugfist knows. It is hard, but Bolder'ok will do what it must.", fx = { align = { light = -1 } } },
+        { text = "Keep the fire lit for them anyway.", next = "BACK", reply = "Clugfist will keep it lit, a small one, at the edge of camp. Do not tell the others.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -252,8 +252,8 @@ P:NPC {
         { id = "fw_default", text = "Clugfist says not to think about it, so Jom-jom tries not to, but Jom-jom thinks about it anyway, mostly at night." },
       },
       choices = {
-        { text = "Maybe he's alive. Don't give up on him.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "He chose the Hammer. Let him go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Maybe he's alive. Don't give up on him.", next = "BACK", reply = "Jom-jom will try. Jom-jom likes thinking he is alive better than the other thing.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "He chose the Hammer. Let him go.", next = "BACK", reply = "Jom-jom knows he chose, but Jom-jom misses him anyway. Letting go is harder than it sounds.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

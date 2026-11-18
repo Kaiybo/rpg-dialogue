@@ -68,8 +68,8 @@ P:NPC {
       big = true,
       lines = { { id = "fr_default", text = "It's how Demar wants it, and I agree, mostly. Though I sneak a bit extra to the sick ones in Sister Rowland's chapel, and if he notices, he hasn't said." } },
       choices = {
-        { text = "Good. The sick need it more than the rules do.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Orders are orders, even in a kitchen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good. The sick need it more than the rules do.", next = "BACK", reply = "That's what I tell myself when Demar counts the sacks. Don't tell him, mind, or I'll be cooking for the riders alone.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Orders are orders, even in a kitchen.", next = "BACK", reply = "They are, and I follow them, mostly. The sick ones only get the scrapings, honest.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

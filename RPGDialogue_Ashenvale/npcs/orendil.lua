@@ -87,8 +87,8 @@ P:NPC {
         { id = "cf_default", text = "Parts of it, yes, where the Horde's axes and the furbolgs' madness have been. I don't say that to frighten you, friend, only so that you know why I go looking for old cures in old ruins." },
       },
       choices = {
-        { text = "Then the Horde must be driven out of the forest.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Then we heal what we can, where we can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then the Horde must be driven out of the forest.", next = "BACK", reply = "Perhaps, and the Sentinels are trying, Elune knows. But the forest can't wait for the war to end before it heals.", fx = { align = { light = -1 } } },
+        { text = "Then we heal what we can, where we can.", next = "BACK", reply = "That's all I ask of anyone, friend, and it's more than most give. Thank you.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -127,8 +127,8 @@ P:NPC {
         { id = "fo_default", text = "The Undercity's dead, digging about in our ruins this far north? Whatever they want there, it isn't Bathran's Hair. I'll send word to Astranaar tonight." },
       },
       choices = {
-        { text = "Let me drive them out before they settle in.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Find out what they want before anyone strikes.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let me drive them out before they settle in.", next = "BACK", reply = "Thank you, and be careful, for they don't fight like the living. Astranaar will want to know what you find.", fx = { align = { honor = -1 } } },
+        { text = "Find out what they want before anyone strikes.", next = "BACK", reply = "That's wise, and the Sentinels will be grateful for it. Knowing what they want might save a great deal of blood.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

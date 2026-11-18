@@ -78,8 +78,8 @@ P:NPC {
         { id = "s2_default", text = "That is the harder storm. Fear, and grief, and the anger that wants to break something because something has broken you. Some druids think strength is mastering those things, and some think it is letting them pass through you, and I have known great druids of both kinds." },
       },
       choices = {
-        { text = "Master them. A bear that loses its temper is only a beast.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "Let them pass through. Holding them only makes them heavier.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Master them. A bear that loses its temper is only a beast.", next = "BACK", reply = "Then you will be a fearsome bear, child, and a lonely one. Walk the path you have chosen with care.", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Let them pass through. Holding them only makes them heavier.", next = "BACK", reply = "That is the way of the old willows in the storm, and it has kept many druids whole. Walk it with care.", fx = { affinity = 1, align = { order = -1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,8 +109,8 @@ P:NPC {
         { id = "me_default", text = "I would have her suffering ended, and I cannot do it myself. I have asked it of the young ones who come to learn my shape, because there is no strength in the bear's way that does not also know mercy. Tell me, child: is it mercy to end a life that has lost itself, or should one wait, in case it finds its way back?" },
       },
       choices = {
-        { text = "End it. Suffering with no way back is no life.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Wait. Nobody should decide another's life is spent.", next = "BACK", fx = { affinity = -1, align = { light = -1 }, trait = { cautious = 1 } } },
+        { text = "End it. Suffering with no way back is no life.", next = "BACK", reply = "You speak as one who has seen suffering, child. Go gently, if you go.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Wait. Nobody should decide another's life is spent.", next = "BACK", reply = "That is the hope I cling to as well, and it has grown very thin. I will wait a little longer, then.", fx = { affinity = -1, align = { light = -1 }, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -240,8 +240,8 @@ P:NPC {
         { id = "su_default", text = "That's what I tell myself, most nights. The Peacekeepers might call it something else, and so might the families of the people the cult hurt, and I've never quite had the nerve to ask them." },
       },
       choices = {
-        { text = "You survived. Nobody has the right to judge that.", next = "BACK", fx = { affinity = 2, align = { honor = -1 }, trait = { kind = 1 } } },
-        { text = "You clothed them while they killed. That counts for something.", next = "BACK", fx = { affinity = -2, align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "You survived. Nobody has the right to judge that.", next = "BACK", reply = "Thank you, friend. I'll try to believe you, though some nights I can't.", fx = { affinity = 2, align = { honor = -1 }, trait = { kind = 1 } } },
+        { text = "You clothed them while they killed. That counts for something.", next = "BACK", reply = "It does, and I'll carry it for the rest of my days. Thank you for being honest with me.", fx = { affinity = -2, align = { honor = 1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -384,8 +384,8 @@ P:NPC {
         { id = "gl_default", text = "I'll be honest, a bit of fortune wouldn't go amiss, and a bit of glory never hurt anyone either. But I've met adventurers who wander for the joy of it and adventurers who wander to bring something home, and I've never decided which kind I am." },
       },
       choices = {
-        { text = "For the joy of it. The road is reason enough.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "To bring something home. The isle needs us.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, trait = { kind = 1 } } },
+        { text = "For the joy of it. The road is reason enough.", next = "BACK", reply = "That's what I'd like to say, and most days I mean it. Sit down, the fire's warm.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "To bring something home. The isle needs us.", next = "BACK", reply = "That's the better reason, I'll admit, and the one I'd like to be true. Come back with something.", fx = { affinity = 1, align = { order = 1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

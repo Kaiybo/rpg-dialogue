@@ -71,7 +71,7 @@ P:NPC {
         { id = "xma_default", text = "Some of us did. The Highborne, Queen Azshara's court, drew on the Well of Eternity until they called the Burning Legion into the world, and the Well's destruction tore the land apart. That is why you will find few here glad to see a mage, though I will try to be one of them." },
       },
       choices = {
-        { text = "Then I'll use my craft carefully here, Conservator.", next = "BACK", reply = "Thank you, and the glade will be grateful too. We have long memories of what careless magic can do.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll use my craft carefully here, Conservator.", next = "BACK", reply = "The glade has long memories of what careless magic did to our people, mage, so your care means more here than you know. Walk softly and you are welcome.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Highborne's failure is no reason to forget the craft.", next = "BACK", reply = "No, it is not, but it is a reason to remember. Use it carefully, and we will not quarrel.", fx = { align = { order = -1 } } },
         { text = "What does balance mean, here?", next = "balance" },
       },
@@ -82,7 +82,7 @@ P:NPC {
         { id = "xro_nightelf", when = { race = "NightElf" }, text = "You have the stillness of a hunter, child, and Shadowglen's creatures are not your enemies, only the glade's overflow. Thin them as much as the balance needs, and no more." },
       },
       choices = {
-        { text = "Only as many as you ask, Conservator.", next = "BACK", reply = "Thank you, and the glade will be better for it. That is all I ask of anyone.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Only as many as you ask, Conservator.", next = "BACK", reply = "That is all I ask of anyone who hunts here, and more than most young ones manage. Bring me a count when you are done.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Whatever I hunt, I'll hunt my own way.", next = "BACK", reply = "Then hunt as I ask, at least, even if you do it your own way. The glade does not care how, only how many.", fx = { align = { honor = -1 } } },
         { text = "I'm not sure what the balance asks of me.", next = "balance" },
       },
@@ -102,7 +102,7 @@ P:NPC {
         { id = "xlock_default", text = "Everything that walks here shifts the balance a little, which is why I count the cubs and the boars and the grellkin every morning. Your servant would shift it more than most, so keep it close, and I'll count you with the rest." },
       },
       choices = {
-        { text = "I'll keep it close. The glade deserves care.", next = "BACK", reply = "Thank you, warlock, and the glade will thank you too. It is fragile still.", fx = { align = { order = 1 } } },
+        { text = "I'll keep it close. The glade deserves care.", next = "BACK", reply = "Elune keep you for that, warlock, for the glade is fragile still and its young ones frighten easily. Keep it close until you are past the moonwell.", fx = { align = { order = 1 } } },
         { text = "The balance can bear one more creature.", next = "BACK", reply = "It can, perhaps, but I would rather not test it. Keep it close, please.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -254,7 +254,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "The druids say a tree wants water and patience rather than prayers, but I've sat with Aldrassil long enough to think it listens to more than they believe. Pray if you like, and I'll not tell the Arch Druid." } },
       choices = {
-        { text = "Every living thing can feel a prayer, so I'll say one.", next = "BACK", reply = "Thank you, priest, and I think it will be glad of it. Aldrassil has heard many prayers.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Every living thing can feel a prayer, so I'll say one.", next = "BACK", reply = "Aldrassil has heard many prayers in its long life, priest, and I like to think it keeps every one. Say yours, and I will listen with it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A tree is a tree, and it needs water, not words.", next = "BACK", reply = "Perhaps it does, but I have sat with it too long to believe that is all. Water and words together, perhaps.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -272,7 +272,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "It minds noise, I think, and it remembers the war against the Legion even if the young ones don't. Train where you must, warrior, but sheathe your blade when you pass the roots, as a courtesy to an old friend." } },
       choices = {
-        { text = "I'll sheathe it as I pass. A courtesy costs nothing.", next = "BACK", reply = "Thank you, warrior, and Aldrassil will feel it, I am sure. Courtesy is never wasted on an old tree.", fx = { align = { order = 1 } } },
+        { text = "I'll sheathe it as I pass. A courtesy costs nothing.", next = "BACK", reply = "Courtesy is never wasted on an old tree, warrior, and Aldrassil remembers more than you would guess. You have my gratitude, and perhaps its as well.", fx = { align = { order = 1 } } },
         { text = "A tree can't hear steel. I'll train where I like.", next = "BACK", reply = "Perhaps it cannot, but it remembers the war all the same. Train somewhere else, please.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -304,7 +304,7 @@ P:NPC {
         { id = "xmage_default", text = "I don't know, and I'd not like to test it, because Aldrassil is old and very patient, and patience can run out. The Highborne's magic is why our people fell, so I'll ask you to be gentle here, as you would be in a temple." },
       },
       choices = {
-        { text = "I'll keep my spells quiet beneath its roots.", next = "BACK", reply = "Thank you, mage, and Aldrassil will be grateful. Patience is easier when it is not tested.", fx = { align = { order = 1 } } },
+        { text = "I'll keep my spells quiet beneath its roots.", next = "BACK", reply = "Patience is easier to keep when it is not tested, and you have spared it a test today. Aldrassil and I are both grateful, mage.", fx = { align = { order = 1 } } },
         { text = "A tree can't mind magic, Melithar.", next = "BACK", reply = "Perhaps it cannot, but I would rather not find out. The High Priestess would not like it either.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -315,7 +315,7 @@ P:NPC {
         { id = "xlock_default", text = "I believe it can, the way it felt the fel moss creeping up from Fel Rock before any of us saw it, and it hasn't been easy since. Keep your servant back, and the tree and I will both thank you." },
       },
       choices = {
-        { text = "I'll keep it well back from the roots.", next = "BACK", reply = "Thank you, and Aldrassil will be easier for it. It still remembers the fel moss.", fx = { align = { light = 1 } } },
+        { text = "I'll keep it well back from the roots.", next = "BACK", reply = "It still remembers the fel moss creeping up from Fel Rock, and it will rest easier with that thing well back. So will I, to be honest.", fx = { align = { light = 1 } } },
         { text = "Your tree will have to bear it.", next = "BACK", reply = "It will, I suppose, but it will not like it. Neither will I.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -492,7 +492,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Nothing they would ask for, because they are proud, as all young kaldorei are. Show them what it is to fight beside someone for no reward but the fighting, though, and they'll carry it longer than any lesson of mine." } },
       choices = {
-        { text = "Then I'll set them an example worth following.", next = "BACK", reply = "Thank you, paladin, and they will be watching more closely than you think. Pride learns best by example.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll set them an example worth following.", next = "BACK", reply = "They will watch you more closely than you think, paladin, for pride learns best by example. Show them what a steady heart looks like.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "They aren't my people, so I'll mind my own road.", next = "BACK", reply = "They are not, but they will remember you either way. I would rather they remembered someone kind.", fx = { align = { honor = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -503,7 +503,7 @@ P:NPC {
         { id = "xma_gnome", when = { race = "Gnome" }, text = "Then study it from the ground, and with your eyes and not your spells. Your people lost their city to their own cleverness, I'm told, and mine lost a world to theirs, so we may understand each other better than either of us expects." },
       },
       choices = {
-        { text = "I'll respect your tree and your history.", next = "BACK", reply = "Thank you, stranger, and the tree will be grateful. Some of us are still slow to trust your kind.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll respect your tree and your history.", next = "BACK", reply = "Some of us are still slow to trust your kind, stranger, and I am one of them. You have made it a little easier today.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Not every mage is a Highborne.", next = "BACK", reply = "No, but every Highborne began as a mage. Forgive me if I am slow to believe the difference.", fx = { align = { order = -1 } } },
         { text = "What can you see from up here?", next = "view" },
       },
@@ -759,7 +759,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "I don't know, and that's what frightens me, because the venom from the Webwood works slowly and stubbornly. A prayer might ease him while the antidote is made, though, and I think he'd simply like the company." } },
       choices = {
-        { text = "I'll go to him and pray beside him.", next = "BACK", reply = "Thank you, priest, and he will be glad of the company. Every little bit helps.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll go to him and pray beside him.", next = "BACK", reply = "He will be glad of the company, priest, for he hates lying there alone with the trees spinning. Every prayer helps while I finish the antidote.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers won't help him, and only the antidote will.", next = "BACK", reply = "You are right, I know, and that is why I am working so hard on it. Please help me finish.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -768,7 +768,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Iverron, first, though he'd never say it, and then any young elf foolish enough to wander toward Shadowthread Cave. The spiders have grown bold this season, and I'd feel a great deal better knowing someone in armor walked those paths." } },
       choices = {
-        { text = "Then I'll walk those paths until they're safe.", next = "BACK", reply = "Thank you, paladin, and the young ones will be safer for it. Iverron will be glad to hear it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll walk those paths until they're safe.", next = "BACK", reply = "Iverron will be glad to hear it, and so will the young ones who have to walk those paths after dark. Go carefully, paladin.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Fools who wander into spider caves get what they find.", next = "BACK", reply = "They do, but Iverron is my friend, and I would rather he lived. Please help him anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -777,7 +777,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Please don't charge in, because the spiders are thick in that cave and Iverron is already sick from their venom. Find him on the path near the cave and help him get his antidote, and if anything with eight legs comes for you on the way, then you can swing." } },
       choices = {
-        { text = "I'll find him first and fight only if I must.", next = "BACK", reply = "Thank you, warrior, and please be careful. The spiders are worse than they look.", fx = { align = { order = 1 } } },
+        { text = "I'll find him first and fight only if I must.", next = "BACK", reply = "Please do, and please be careful, because the spiders are worse than they look. Iverron would never forgive himself if you were bitten too.", fx = { align = { order = 1 } } },
         { text = "Better to clear the cave so it never happens again.", next = "BACK", reply = "Perhaps, but Iverron first, please. The cave can wait.", fx = { align = { order = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
@@ -789,7 +789,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} close if you go near the cave, because the webs are strong enough to hold a cat. I've seen it happen and I don't want to see it again." },
       },
       choices = {
-        { text = "I'll drive the spiders back from the glade.", next = "BACK", reply = "Thank you, hunter, and the small animals will thank you too. The glade has been so quiet lately.", fx = { align = { order = 1 } } },
+        { text = "I'll drive the spiders back from the glade.", next = "BACK", reply = "The small animals will thank you, hunter, and the glade has been so quiet lately that I would welcome their noise again. Drive them back to the cave.", fx = { align = { order = 1 } } },
         { text = "Spiders hunt like anything else. Leave them be.", next = "BACK", reply = "They do, but they are hunting where they never used to. Something is wrong, and I would rather know what.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -807,7 +807,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Perhaps one of the elders could, but you are as young as he is, and webwood venom is stubborn stuff. Help me with the antidote instead, and save your healing for whatever bites you next." } },
       choices = {
-        { text = "The antidote, then, and I'll gather what it needs properly.", next = "BACK", reply = "Thank you, druid, and Iverron will thank you too, when he can stand. Every herb counts.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The antidote, then, and I'll gather what it needs properly.", next = "BACK", reply = "Properly is exactly right, druid, for webwood venom punishes shortcuts. Iverron will thank you himself when he can stand.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll try my own healing on him anyway.", next = "BACK", reply = "Please, at least let me finish the antidote first. Webwood venom is stubborn stuff.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -818,7 +818,7 @@ P:NPC {
         { id = "xmage_default", text = "Not your kind, I'm afraid, because spider venom wants herbs and patience, not fire and frost. If you go into the Webwood, though, I'd be glad of a mage beside him, because the spiders there hate fire as much as anything." },
       },
       choices = {
-        { text = "I'll go carefully and bring him back.", next = "BACK", reply = "Thank you, mage, and please be careful in there. The webs catch more than spiders.", fx = { align = { light = 1 } } },
+        { text = "I'll go carefully and bring him back.", next = "BACK", reply = "Be careful in there, mage, because the webs catch more than spiders and the cave is darker than you expect. Bring him home to me.", fx = { align = { light = 1 } } },
         { text = "Then I'll burn the spiders out of their cave.", next = "BACK", reply = "Please do not, for the tree is young and the Webwood would burn for days. Bring Iverron back first.", fx = { align = { light = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -948,7 +948,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Not yet, though Iverron came near enough, and the webs creep a little farther from Shadowthread Cave every week. If any of the young ones are caught, I'd want someone like you on the way back, because the venom works slowly enough to leave time for a healer." } },
       choices = {
-        { text = "Then I'll stay near the cave in case they need me.", next = "BACK", reply = "Thank you, priest, and the young ones will be safer for it. I will tell them where to find you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll stay near the cave in case they need me.", next = "BACK", reply = "The young ones will be safer with a healer close by, priest, and I will tell them where to find you. They never listen to me about that cave.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Young ones who stray near the cave should know better.", next = "BACK", reply = "They should, and I tell them so, but the young never listen. Please help them anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -966,7 +966,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Quickly, and with your mouth closed, because the venom is in the bite and the webs are in everything else. I can tell you a great deal about how they hunt from a safe distance, and none of it will help you once you're inside." } },
       choices = {
-        { text = "I'll learn what you know first, then go in.", next = "BACK", reply = "Thank you, warrior, and I will tell you everything I know. It is not much, but it is something.", fx = { align = { order = 1 } } },
+        { text = "I'll learn what you know first, then go in.", next = "BACK", reply = "I will tell you everything I know, warrior, though it is not much, and most of it is about how much the bites hurt. Listen well, then go.", fx = { align = { order = 1 } } },
         { text = "I'll go in. The studying can come after.", next = "BACK", reply = "Then go quickly, and keep your mouth closed. I will be here when you come back.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -976,7 +976,7 @@ P:NPC {
         { id = "xro_default", text = "Count them, please, and mind where you step, for the webs feel you before the spiders do. Your quiet will serve you well in there, though venom doesn't care how quiet you are." },
       },
       choices = {
-        { text = "I'll do exactly as you ask, no more.", next = "BACK", reply = "Thank you, rogue, and I will be grateful for the count. Every web tells me something.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll do exactly as you ask, no more.", next = "BACK", reply = "Every web tells me something, rogue, and a careful count tells me more than a dead spider ever could. I will be grateful for every number.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Better to burn the nest while I'm there.", next = "BACK", reply = "Please do not, for the tree is young and the Webwood would burn for days. Count them, and leave the rest to me.", fx = { align = { order = -1 } } },
         { text = "What's down in the cave?", next = "cave" },
       },
@@ -986,7 +986,7 @@ P:NPC {
         { id = "xma_default", text = "Fire, on Teldrassil? The tree is young and alive, and a fire in the Webwood would scar it worse than any spider. Use your craft if you must, but use frost, and use it sparingly." },
       },
       choices = {
-        { text = "Frost it is. The tree comes first.", next = "BACK", reply = "Thank you, mage, and the tree will thank you too. Frost will do just as well.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Frost it is. The tree comes first.", next = "BACK", reply = "The tree will thank you for it, mage, and frost will slow them just as well as fire. You have spared Teldrassil a scar.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If the spiders spread, the tree suffers anyway.", next = "BACK", reply = "It does, and I know it, but a fire would hurt it more than the spiders ever could. Frost, please.", fx = { align = { order = -1 } } },
         { text = "Why do you study the spiders?", next = "why" },
       },
@@ -1004,7 +1004,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "They came up with the tree like everything else on it, so I suppose they are, but there are more of them every season and they're larger than they ought to be. The tree feeds them well, and I would very much like to know why." } },
       choices = {
-        { text = "Then thin them only as much as the balance needs.", next = "BACK", reply = "Thank you, druid, and the Conservator will be glad of it. Balance is all we ask.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then thin them only as much as the balance needs.", next = "BACK", reply = "The Conservator will be glad of that answer, druid, for balance is all we ask of anyone here. Thin them gently and leave the rest.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "There are too many, so clear out the whole cave.", next = "BACK", reply = "Perhaps there are, but I would rather understand them first. Clear only what you must.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

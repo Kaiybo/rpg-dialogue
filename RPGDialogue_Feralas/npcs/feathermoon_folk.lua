@@ -79,8 +79,8 @@ P:NPC {
       big = true,
       lines = { { id = "pm_default", text = "I could, but I've learned to ask first, because people don't always like what their belongings remember. Some say a secret kept is a secret owed; others think the truth should always come out. Which are you?" } },
       choices = {
-        { text = "The truth should always come out.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Some secrets are nobody's business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The truth should always come out.", next = "BACK", reply = "Then I will tell you what I see, and I will trust you to carry it gently, because the truth is heavier than it looks.", fx = { align = { order = 1 } } },
+        { text = "Some secrets are nobody's business.", next = "BACK", reply = "A wise answer, and one the moon would approve of, so I will keep my hands in my sleeves and leave your things their silence.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -222,8 +222,8 @@ P:NPC {
       big = true,
       lines = { { id = "rh_default", text = "He might be, and I'll keep believing it until I'm shown otherwise. Some here say I should give up the search and spend our scouts on the naga instead." } },
       choices = {
-        { text = "Never leave a comrade behind. Keep searching.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The living need those scouts more. Let him go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Never leave a comrade behind. Keep searching.", next = "BACK", reply = "Thank you, and Elune bless you for saying it, because I have begun to feel very alone in that conviction.", fx = { align = { honor = 1 } } },
+        { text = "The living need those scouts more. Let him go.", next = "BACK", reply = "Perhaps you are right, and the Sentinels say the same, but I cannot stop listening for his footsteps on the road.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

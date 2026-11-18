@@ -76,8 +76,8 @@ P:NPC {
       big = true,
       lines = { { id = "sa_default", text = "Then a patrol walks into the worgen with half its blades, and I spend a week writing letters to explain why. I'd rather send a reliable runner, which is where you come in." } },
       choices = {
-        { text = "Careful work saves lives. I'll treat it that way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Patrols should scavenge what they need. Less paper.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Careful work saves lives. I'll treat it that way.", next = "BACK", reply = "Thank you, truly. You've no idea how rare that is out here, or how few letters I'll have to write.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Patrols should scavenge what they need. Less paper.", next = "BACK", reply = "Less paper and more dead patrols, you mean. I'll keep my ledgers, thank you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

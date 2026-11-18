@@ -64,8 +64,8 @@ P:NPC {
     ring = {
       lines = { { id = "ri_default", text = "Shamans of many peoples, orc and troll and tauren, who keep da balance between da elements and da world. We don't fight for any warchief, only for da earth and sea and sky, and some in Orgrimmar think dat strange." } },
       choices = {
-        { text = "Balance matters more than any banner.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A shaman should serve the Horde first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Balance matters more than any banner.", next = "BACK", reply = "Ya, mon, you hear it like de Ring hears it. De elements don't know nothin' about banners, and dey never will.", fx = { align = { order = 1 } } },
+        { text = "A shaman should serve the Horde first.", next = "BACK", reply = "Da Horde be family, mon, and I'll not say different. But da earth was here before any warchief, and she'll be here after.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -92,8 +92,8 @@ P:NPC {
     tw_stance = {
       lines = { { id = "tws_default", text = "Burn dem, and da fire get loose too, mon. I want da fathom core first, so we know what dey done to da water, and den we decide." } },
       choices = {
-        { text = "Understand first, then act. You're right.", next = "BACK", fx = { align = { light = 1 }, learn = { "twilights_hammer" } } },
-        { text = "Every day you wait, they grow stronger.", next = "BACK", fx = { align = { light = -1 }, learn = { "twilights_hammer" } } },
+        { text = "Understand first, then act. You're right.", next = "BACK", reply = "Ya, mon, dat be da way. Know what's sick before you start cuttin'.", fx = { align = { light = 1 }, learn = { "twilights_hammer" } } },
+        { text = "Every day you wait, they grow stronger.", next = "BACK", reply = "Dey do, mon, and I feel it every morning. But burn blind and we lose da coast with dem.", fx = { align = { light = -1 }, learn = { "twilights_hammer" } } },
       },
     },
 
@@ -105,8 +105,8 @@ P:NPC {
     xwhy = {
       lines = { { id = "xw_default", text = "Because da sea don't care whose ruin it be, and when da water go sick, it be sick at Zoram'gar too. Da elves and us, we drink from da same coast, whether we like it or not." } },
       choices = {
-        { text = "Then the elves should help clean it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let the elves rot. We fix what's ours.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then the elves should help clean it.", next = "BACK", reply = "Dey should, mon, and maybe one day dey will. Da water don't care who start da cleanin'.", fx = { align = { honor = 1 } } },
+        { text = "Let the elves rot. We fix what's ours.", next = "BACK", reply = "Ours be the whole coast, mon, whether we like it or no. Sick water swim to Zoram'gar too.", fx = { align = { honor = -1 } } },
       },
     },
   },
@@ -171,8 +171,8 @@ P:NPC {
     naga_stance = {
       lines = { { id = "ns_default", text = "Hold it against naga in front and elves behind, with a handful of tents and one wind rider? You be brave or you be mad, mon, and out here dat be da same thing." } },
       choices = {
-        { text = "The Horde holds what it takes. Always.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Hold what pays. Leave the rest to the naga.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Horde holds what it takes. Always.", next = "BACK", reply = "Ha! Spoken like a true orc, mon, and maybe you be right. Mad and brave both, dat be the Horde.", fx = { align = { honor = 1 } } },
+        { text = "Hold what pays. Leave the rest to the naga.", next = "BACK", reply = "Practical, mon, and I like practical. But somebody gotta hold dis beach, or da naga take it all.", fx = { align = { honor = -1 } } },
       },
     },
     outpost = {
@@ -264,8 +264,8 @@ P:NPC {
     revenge = {
       lines = { { id = "re_default", text = "Some days, mon. Some days I want to go up dat valley with a torch and burn every den I find. Other days I think da furbolgs be sick, not wicked, and burning dem won't bring nobody back." } },
       choices = {
-        { text = "Blood for blood. Your kin deserve it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Bring the charms home. Let the dead rest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Blood for blood. Your kin deserve it.", next = "BACK", reply = "Ya, mon, part of me want dat too. But blood don't bring nobody home, it only make more empty beds.", fx = { align = { light = -1 } } },
+        { text = "Bring the charms home. Let the dead rest.", next = "BACK", reply = "Ya, mon, dat be what my heart say on da quiet days. Bring dem home, and da spirits will do da rest.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -325,8 +325,8 @@ P:NPC {
     why = {
       lines = { { id = "wh_default", text = "She took a boat from Zoram'gar the first season we were here, and my shield-brother was in it. I heard him shouting all the way down, and I swore on the beach that night that she'd die by my hand." } },
       choices = {
-        { text = "A blood oath must be kept. I'll stand with you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Oaths made in grief are foolish. Still, I'll help.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A blood oath must be kept. I'll stand with you.", next = "BACK", reply = "Then you're Horde in your blood, and I'm glad of you. We'll find her together, and the sea will give my brother back his name.", fx = { align = { honor = 1 } } },
+        { text = "Oaths made in grief are foolish. Still, I'll help.", next = "BACK", reply = "Foolish, maybe, but an oath is an oath, and I'll keep it. Glad of your help all the same.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -417,8 +417,8 @@ P:NPC {
     elves_stance = {
       lines = { { id = "es_default", text = "The Warsong want to burn half the forest to smoke them out, and Mastok says that would bring every Sentinel in Kalimdor down on us. I just want my wagons to arrive." } },
       choices = {
-        { text = "Burn them out. Fear keeps the wagons safe.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Mastok is right. Cut what we need, no more.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Burn them out. Fear keeps the wagons safe.", next = "BACK", reply = "Fear, maybe, and a forest full of angry elves after. I'll pass that along to the Warsong, if they ask.", fx = { align = { light = -1 } } },
+        { text = "Mastok is right. Cut what we need, no more.", next = "BACK", reply = "That's my thinking too, and Mastok's. Just get the wagons through and we'll all be happier.", fx = { align = { light = 1 } } },
       },
     },
     lost = {
@@ -431,8 +431,8 @@ P:NPC {
     xstealing = {
       lines = { { id = "xs_default", text = "And they'll be here long after, the way they tell it, since they live forever. My people were penned up in camps for years, so forgive me if I don't cry over a few trees." } },
       choices = {
-        { text = "Their land is theirs. We should have asked.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Land belongs to those who can hold it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Their land is theirs. We should have asked.", next = "BACK", reply = "Maybe we should have, and maybe they'd have said no. Either way, the Warchief needs timber.", fx = { align = { honor = 1 } } },
+        { text = "Land belongs to those who can hold it.", next = "BACK", reply = "Aye, and that's how the Horde's lived since the camps. I'll not apologise for surviving.", fx = { align = { honor = -1 } } },
       },
     },
   },
@@ -492,8 +492,8 @@ P:NPC {
     war_stance = {
       lines = { { id = "ws_default", text = "Or the spirit of a stubborn orc who's too tired to move. The grunts here would fight anything, but they won't fight on an empty belly, so I do my part." } },
       choices = {
-        { text = "Every grunt here owes you. I'll remember that.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Feed the fighters, forget the rest. That's war.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Every grunt here owes you. I'll remember that.", next = "BACK", reply = "Kind of you, and I'll take it, though most of them just grunt. Eat up.", fx = { align = { honor = 1 } } },
+        { text = "Feed the fighters, forget the rest. That's war.", next = "BACK", reply = "Spoken like a grunt, and you're not wrong. But I'd feed the elves too, if they'd ever come to the door.", fx = { align = { honor = -1 } } },
       },
     },
     stew = {
@@ -555,8 +555,8 @@ P:NPC {
     close = {
       lines = { { id = "cl_default", text = "My riders are hungrier than their birds, and they know it. I don't pick those fights, but I don't forbid them either." } },
       choices = {
-        { text = "Good. The sky is ours to hold as well.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Better to keep the peace up there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good. The sky is ours to hold as well.", next = "BACK", reply = "Aye, and my riders would agree with you. I'll not hold them back.", fx = { align = { order = -1 } } },
+        { text = "Better to keep the peace up there.", next = "BACK", reply = "Maybe, and I'd not argue it. But you try telling a hungry rider that.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -612,8 +612,8 @@ P:NPC {
     calm = {
       lines = { { id = "ca_default", text = "I talk to dem, and I sing a little, and I never let a grunt kick one. Most beasts only want to know who be in charge, and dat it ain't somebody angry." } },
       choices = {
-        { text = "A gentle hand is best with any beast.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Some only learn from the whip.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A gentle hand is best with any beast.", next = "BACK", reply = "Ya, mon, you know it. Gentle and sure, and dey follow you anywhere.", fx = { align = { light = 1 } } },
+        { text = "Some only learn from the whip.", next = "BACK", reply = "Den dey learn to hate you, mon, and a beast dat hate you bite when you sleep. Not in my stable.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

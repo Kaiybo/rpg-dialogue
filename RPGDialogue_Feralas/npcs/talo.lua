@@ -82,8 +82,8 @@ P:NPC {
       big = true,
       lines = { { id = "as_default", text = "I would like to say it is justice I want, because that is the better word. But I am old enough to be honest, and it is revenge, and I want to get even." } },
       choices = {
-        { text = "Then you'll have it. The harpies earned it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Let it go, elder. Hate is a heavy pack.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then you'll have it. The harpies earned it.", next = "BACK", reply = "Then may the Earth Mother forgive me for wanting it, and may your arrows fly true when you reach their nests.", fx = { align = { light = -1 } } },
+        { text = "Let it go, elder. Hate is a heavy pack.", next = "BACK", reply = "It is heavy, and I have carried it many years, but I do not yet know how to set it down without falling.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,8 +109,8 @@ P:NPC {
       big = true,
       lines = { { id = "hf_default", text = "The beasts of Felwood glow with a strange green light, and I sense it is evil, but very powerful too. I would not drink it, but I would study it, because what I do not understand can kill me." } },
       choices = {
-        { text = "Some power should never be studied.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Any strength is worth understanding.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some power should never be studied.", next = "BACK", reply = "You may be right, young one, and if the green light ever speaks to me, I will remember you warned me.", fx = { align = { order = 1 } } },
+        { text = "Any strength is worth understanding.", next = "BACK", reply = "That is a hunter's thought, and I share it, though I would study it from very far away and very upwind.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "bs_default", text = "Maybe, but I'm a grunt, not a counsellor. Belgrom says hunt, so I hunt, and if he's wrong, the Warchief can tell him so." } },
       choices = {
-        { text = "A soldier follows orders. That's how the Horde holds.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A soldier should know why he kills.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A soldier follows orders. That's how the Horde holds.", next = "BACK", reply = "That's right, and that's why the Horde still stands, while the Alliance argues about every order they're given.", fx = { align = { order = 1 } } },
+        { text = "A soldier should know why he kills.", next = "BACK", reply = "I know why, the Grimtotem killed our people, and that's reason enough for any grunt who's buried a friend.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -216,8 +216,8 @@ P:NPC {
       big = true,
       lines = { { id = "cr_default", text = "That depends on who sends the faster adventurer, I suppose. I would gladly share what we find with Runethorn, but the Horde would rather I didn't, and the Horde feeds me." } },
       choices = {
-        { text = "Knowledge belongs to everyone. Share it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Keep it for the Horde. That's your duty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge belongs to everyone. Share it.", next = "BACK", reply = "That is my own heart speaking, and I am glad to hear it from you, though I must still answer to the Horde.", fx = { align = { order = -1 } } },
+        { text = "Keep it for the Horde. That's your duty.", next = "BACK", reply = "You are right, and I will keep it, though the scholar in me will grieve every page I do not share.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -284,8 +284,8 @@ P:NPC {
       big = true,
       lines = { { id = "ds_default", text = "Because a rider that fights carries no one home. Some of the braves say I'm too soft, and that the elves should learn to keep their beasts away from ours." } },
       choices = {
-        { text = "You're right. Keep the peace in the sky.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The braves are right. Teach the elves a lesson.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right. Keep the peace in the sky.", next = "BACK", reply = "Thank you, friend, and the sky will be kinder for it, because riders who fight are riders who fall.", fx = { align = { light = 1 } } },
+        { text = "The braves are right. Teach the elves a lesson.", next = "BACK", reply = "Perhaps they are, but it is my wind riders who would bleed for the lesson, and I will not give it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

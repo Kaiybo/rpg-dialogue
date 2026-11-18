@@ -67,8 +67,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Only if we take as the tauren do, a little and with thanks, but the Warsong's saws don't know how. I've told Splintertree as much, and they listen politely and send more axes." } },
       choices = {
-        { text = "The Warchief needs lumber. We obey, but we take wisely.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then I'll stand against the axes, even if Splintertree objects.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Warchief needs lumber. We obey, but we take wisely.", next = "BACK", reply = "Wisely, yes, and with thanks, as my people take from the plains. The Earth Mother will notice the difference.", fx = { align = { order = 1 } } },
+        { text = "Then I'll stand against the axes, even if Splintertree objects.", next = "BACK", reply = "Then you have a brave heart, and the Earth Mother will walk beside you. But be gentle with Splintertree too; they are only hungry.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -76,8 +76,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because you are here to fight in it, and a warrior who knows what they fight for fights better. The Warsong cut and the elves strike back, and I only ask that you remember the trees were here before either of us." } },
       choices = {
-        { text = "I'll remember. The forest deserves that much.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Trees don't win wars. I'm here to fight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll remember. The forest deserves that much.", next = "BACK", reply = "Thank you, young one. A warrior who remembers what he fights over fights better, and wounds less.", fx = { align = { light = 1 } } },
+        { text = "Trees don't win wars. I'm here to fight.", next = "BACK", reply = "Perhaps they don't, but they shelter the ones who do. I hope you'll remember that, even so.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -85,8 +85,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Patience more than power, I think. The Sentinels say the trees remember every wound, so if you must cast fire among them, aim it carefully, and do not leave the forest more scars than the axes already have." } },
       choices = {
-        { text = "I'll fight carefully. The forest isn't my enemy.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "War is war. The trees will have to endure it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight carefully. The forest isn't my enemy.", next = "BACK", reply = "Then the forest will be grateful, and so will I. Patience is the hardest weapon to carry.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "War is war. The trees will have to endure it.", next = "BACK", reply = "They will, as they always have. But I would ask you not to make it harder for them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -94,8 +94,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhrogue_default", text = "I have, and they have seen me, and so far we have each pretended not to. They take only what they need from the deer, the same as I do, so I leave them to their watching, though the Warsong would call that treason." } },
       choices = {
-        { text = "Leave them be. Your truce keeps arrows out of us.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "I'll report them to the Warsong. That's my duty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave them be. Your truce keeps arrows out of us.", next = "BACK", reply = "Thank you. The truce is small, but it is the only one in this forest, and I would keep it.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll report them to the Warsong. That's my duty.", next = "BACK", reply = "That is your duty, I know, and I will not stop you. But you may find fewer deer on the path afterwards.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,8 +103,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "They blame the axes, and the axes are ours, so I suppose they blame us all. The Earthmother teaches that we take only what we need, and I have watched the Warsong take far more than that, and I grieve for it." } },
       choices = {
-        { text = "Then the Horde must take less and make peace with the forest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The Horde needs timber to survive. The forest will grow back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then the Horde must take less and make peace with the forest.", next = "BACK", reply = "That is my hope too, and I'll keep praying for it. The Earth Mother is patient with her children.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Horde needs timber to survive. The forest will grow back.", next = "BACK", reply = "It will, in time, if we let it. I only ask that we let it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -116,8 +116,8 @@ P:NPC {
           text = "You're Warsong blood, then, and Grom's name still means something in this camp. I won't speak ill of him here, but I'll say this: he freed your people, and this forest paid for it." },
       },
       choices = {
-        { text = "The Horde needs the lumber. That's the end of it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "We take too much. I've seen it.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "The Horde needs the lumber. That's the end of it.", next = "BACK", reply = "It is, perhaps, for the Warchief. But the forest will remember who took more than they needed.", fx = { align = { order = 1 } } },
+        { text = "We take too much. I've seen it.", next = "BACK", reply = "Then you have honest eyes, young one. I am glad someone in Splintertree sees it.", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "What would you have the Warsong do?", next = "war_s" },
       },
     },
@@ -178,8 +178,8 @@ P:NPC {
     elves_s = {
       lines = { { id = "es_default", text = "They tame these beasts; Ursangous's paw bears a crescent that I believe is their mark. To them we are poachers in their home, and I understand why they hate us, even when I cannot agree." } },
       choices = {
-        { text = "That's generous.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "They'd do the same to us.", next = "BACK", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "That's generous.", next = "BACK", reply = "Perhaps, but I have hunted long enough to know why a creature fights for its home. I would do the same.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They'd do the same to us.", next = "BACK", reply = "They would, and perhaps they already do. But I would rather understand them than hate them.", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
       },
     },
     beasts = {
@@ -250,8 +250,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Kaldorei druids do, because a wagon tips over awful easy when a bear walks into the ox team. I've lost four that way this season, and I've written each one down, so I'll know who to be angry at." } },
       choices = {
-        { text = "They're defending their home. I'd do the same in their place.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then the wagons need guards who'll put those bears down.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "They're defending their home. I'd do the same in their place.", next = "BACK", reply = "Maybe, but I'm not in their place, I'm in mine, and mine has four dead oxen in it. Still, I'll not argue.", fx = { align = { honor = 1 } } },
+        { text = "Then the wagons need guards who'll put those bears down.", next = "BACK", reply = "That's what I keep asking for, and nobody listens. Maybe they'll listen to you.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -259,8 +259,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every one of them, though Splintertree never has warriors to spare. Seventeen wagons this week and three of them burned, and if a warrior rode with each, I'd have fewer things to count and fewer people to be angry at." } },
       choices = {
-        { text = "I'll guard your wagons. Splintertree needs them.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Wagons are your problem. I came for the fighting.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll guard your wagons. Splintertree needs them.", next = "BACK", reply = "Good. That's two fewer wagons on my burned list, if you hold. Splintertree thanks you.", fx = { align = { honor = 1 } } },
+        { text = "Wagons are your problem. I came for the fighting.", next = "BACK", reply = "Then go and find it, and leave the wagons to me. There's plenty of fighting on the road anyway.", fx = { align = { honor = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
@@ -271,8 +271,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} on the far side of the road from my kodos, and we'll all get along fine. I've counted too many overturned wagons already." },
       },
       choices = {
-        { text = "I'll thin the wolves along the road.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The wolves were here first. Your wagons can manage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll thin the wolves along the road.", next = "BACK", reply = "Good, and I'll write it down. The kodos will be grateful, and so will I.", fx = { align = { order = 1 } } },
+        { text = "The wolves were here first. Your wagons can manage.", next = "BACK", reply = "Maybe they were, but the wagons are here now. I'll find someone else.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -280,8 +280,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Only if it can fix a cart wheel or make a kodo walk faster, and I've yet to meet the mage who could do either. What I really need is someone who can tell when the elves have trapped the road ahead, because they leave no tracks and plenty of widows." } },
       choices = {
-        { text = "I'll ride with the next caravan and keep watch.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Your carts aren't my concern. Pay me and I'll consider it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ride with the next caravan and keep watch.", next = "BACK", reply = "Good. That's worth more than a hundred spells, and I'll write your name on the ledger.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your carts aren't my concern. Pay me and I'll consider it.", next = "BACK", reply = "Pay? Everything's on the ledger, friend, and so are you. We'll talk.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -289,8 +289,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhrogue_default", text = "Salt, rope, and a whole crate of axe heads last month, which the elves have no use for at all. So either they're getting clever or somebody in Splintertree is selling my freight, and I'd like to know which before I start shouting." } },
       choices = {
-        { text = "I'll find the thief and bring them to the commander.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Maybe I'll find them, and maybe I'll take a cut.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll find the thief and bring them to the commander.", next = "BACK", reply = "Good. If it's one of ours, the commander will want to know, and so will I.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe I'll find them, and maybe I'll take a cut.", next = "BACK", reply = "A cut of my own stolen goods? Bold, I'll give you that, and I'll be watching.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -298,8 +298,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Wagons break and kodos go lame, and once a whole load of timber rolled off a cart on a flat road with no wind at all. The grunts blamed the elves' spirits and I blamed the driver, and I'm still not sure which of us was right." } },
       choices = {
-        { text = "Respect the forest, and your wagons might roll easier, Mastok.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Spirits don't tip wagons. Sack the driver.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Respect the forest, and your wagons might roll easier, Mastok.", next = "BACK", reply = "Maybe I should, and the grunts would agree with you. I'll leave a little salt by the road, just in case.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Spirits don't tip wagons. Sack the driver.", next = "BACK", reply = "I did, and the next one tipped too. Maybe there's something to it after all.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -308,8 +308,8 @@ P:NPC {
         { id = "wsm_default", text = "Ours, is it? Every log here is Orgrimmar's, and it's on my ledger before it's on anyone's shoulders. Your family can be as Warsong as they like, but if they want a plank, they sign for it like everybody else." },
       },
       choices = {
-        { text = "Fair. Rules are rules.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Grom's kin don't sign for anything.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Fair. Rules are rules.", next = "BACK", reply = "Good. You'd be surprised how many Warsong think otherwise.", fx = { align = { order = 1 } } },
+        { text = "Grom's kin don't sign for anything.", next = "BACK", reply = "They do in my yard, or they get no planks. Grom himself would have signed, I'll wager.", fx = { align = { order = -1 }, affinity = -1 } },
       },
     },
     tauren_m = {
@@ -434,8 +434,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Splintertree only be listening to da Warchief and to da sound of wood piling up, mon. But da forest be patient, and one day it gonna take back every clearing we made, whether we listen or not." } },
       choices = {
-        { text = "We owe the forest respect, even while we fight in it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Respect is for allies. The forest is just wood to cut.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "We owe the forest respect, even while we fight in it.", next = "BACK", reply = "Ya, mon, you see it. Da forest be watching us, and it got a long memory.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Respect is for allies. The forest is just wood to cut.", next = "BACK", reply = "Den it gonna cut you back one day, mon. Respect cost nothin', and it save a lot of blood.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -443,8 +443,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "You don't chase them, mon, you wait where they gotta pass, because they always take the same paths home through the trees. Stand still in the right place and let them run into you, and that be the whole trick." } },
       choices = {
-        { text = "I'll wait in the right place. Patience wins.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll run them down. No elf outruns me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll wait in the right place. Patience wins.", next = "BACK", reply = "Ya, mon, you get it. Patience be de troll way, and de elves never see it coming.", fx = { align = { order = 1 } } },
+        { text = "I'll run them down. No elf outruns me.", next = "BACK", reply = "Ha! Maybe not, mon, but dey know dese trees better than you do. Run careful.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -452,8 +452,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Light the dark places, mon, because the elves love the dark and they run through it like it be their mother's arms. A little fire in the right spot at the right time, and I see every runner before he see me." } },
       choices = {
-        { text = "I'll light your paths and keep the forest standing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Burn the whole thicket. Then there's nowhere to hide.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll light your paths and keep the forest standing.", next = "BACK", reply = "Ya, mon, dat be de way, and de forest stay standin' for it. Light and patience.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Burn the whole thicket. Then there's nowhere to hide.", next = "BACK", reply = "Dat be a lot of fire, mon, and de whole Horde gonna smell it. Be careful what you start.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -461,8 +461,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Sometimes the runner turn away before I see him, like the trees told him I be waiting. I don't like fighting the forest as well as the elves, but the Warchief need the timber, so I watch the paths anyway." } },
       choices = {
-        { text = "Fight the elves, not the forest. The spirits aren't our enemy.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If the trees take the elves' side, they're enemies too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fight the elves, not the forest. The spirits aren't our enemy.", next = "BACK", reply = "Ya, mon, dat be what de spirits tell me too. Fight de elves and leave de trees be.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the trees take the elves' side, they're enemies too.", next = "BACK", reply = "Den you fightin' de whole forest, mon, and dat be a fight nobody win. Careful.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -473,8 +473,8 @@ P:NPC {
           text = "A headhunter of the Darkspear, mon! Then you know the work already; the elves be quicker than a raptor and twice as proud, so take your time and take your trophy." },
       },
       choices = {
-        { text = "I'll take them quiet, one by one.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
-        { text = "I'll meet them head on. Let them see me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take them quiet, one by one.", next = "BACK", reply = "Ya, mon, quiet and one by one, dat be de best way. De creek gonna be quiet tonight.", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'll meet them head on. Let them see me.", next = "BACK", reply = "Ha! Brave, mon, and maybe foolish, but de elves gonna remember you. Good luck.", fx = { align = { honor = 1 } } },
       },
     },
     hello = {
@@ -538,8 +538,8 @@ P:NPC {
     debt = {
       lines = { { id = "de_default", text = "Thrall saved our people when the sea witch and the humans had us cornered, and he gave us a place in the Horde. Darkspear don't forget a debt like that, mon." } },
       choices = {
-        { text = "A debt like that is worth honoring.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Thrall bought loyal soldiers cheaply. That was smart of him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A debt like that is worth honoring.", next = "BACK", reply = "It be, mon, and de Darkspear honor it every day. Thrall be family now.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Thrall bought loyal soldiers cheaply. That was smart of him.", next = "BACK", reply = "Cheap? Maybe, mon, but he earned it fair. Darkspear don't forget, and Darkspear don't sell.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

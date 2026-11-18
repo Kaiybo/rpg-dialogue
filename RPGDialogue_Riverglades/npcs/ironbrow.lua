@@ -86,8 +86,8 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Should, aye, but there's never enough of anything, and Demar would rather buy steel than stone. I can't say he's wrong, only that steel doesn't keep the water out." } },
       choices = {
-        { text = "Walls first. A keep that stands can always fight.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Steel first. Take the fight to the enemy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Walls first. A keep that stands can always fight.", next = "BACK", reply = "Aye, that's my thinkin' too, an' I'll tell Demar ye said so. A wall that stands today saves a funeral tomorrow.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Steel first. Take the fight to the enemy.", next = "BACK", reply = "Demar would buy ye a drink for that. I'll keep mixin' mortar wi' whatever's left over, then.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

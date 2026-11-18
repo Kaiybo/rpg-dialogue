@@ -37,8 +37,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Perhaps you, of all who come, would know how. The courser ghosts walk the paths they walked before the sea took their city, and you walked back from death yourself, so Ogtinc hopes you understand what they want." } },
       choices = {
-        { text = "I'll grant them rest. They've wandered long enough.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Some ghosts don't want rest. I'll let them be.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll grant them rest. They've wandered long enough.", next = "BACK", reply = "Ogtinc thanks you, and Ogtinc thinks they will thank you too, in whatever way ghosts can. They have walked those paths too long.", fx = { align = { light = 1 } } },
+        { text = "Some ghosts don't want rest. I'll let them be.", next = "BACK", reply = "Perhaps some do not, and Ogtinc will not argue. But Ogtinc hopes you will look at them gently as you pass.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -46,8 +46,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because Ogtinc has seen what their magic did to this land, and it did not end well for them, or for the land. The Circle watches the ruins, and Ogtinc watches the Circle's fire, and he would rather you came back to it alive than walked into the ruins looking for power." } },
       choices = {
-        { text = "Knowledge isn't evil. I'll study it, but carefully.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "I'll leave the ruins be. The Circle knows best here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Knowledge isn't evil. I'll study it, but carefully.", next = "BACK", reply = "Carefully is the right word, and Ogtinc is glad you said it. The Highborne were careful too, at the start.", fx = { align = { order = -1 } } },
+        { text = "I'll leave the ruins be. The Circle knows best here.", next = "BACK", reply = "Ogtinc is glad, and the Circle will be too. The ruins have done enough harm.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -55,8 +55,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Old magic, Ogtinc thinks, the Highborne's magic that went wrong and never went quiet. The ghosts walk the same paths they walked before the sea took their city, and Ogtinc does not know whether they suffer, but he hopes your Light might grant them rest, if anything can." } },
       choices = {
-        { text = "I'll grant them rest. They've suffered long enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The dead are the Circle's business, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll grant them rest. They've suffered long enough.", next = "BACK", reply = "Thank you, and Ogtinc will say their names to the wind with yours. They have suffered a very long time.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are the Circle's business, not mine.", next = "BACK", reply = "The Circle cannot reach them all, and Ogtinc had hoped you might. But Ogtinc understands.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -64,8 +64,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The lingering Highborne, who are dead already and only too stubborn to know it, and the naga, who would drown this whole coast if they could. The coursers and the wavethrashers are only what the land made them, and Ogtinc asks you to take from them only what the Circle needs." } },
       choices = {
-        { text = "Then I'll strike only what must be struck.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "In a fight, I won't stop to ask which ones deserve it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll strike only what must be struck.", next = "BACK", reply = "That is the wise way, and the coursers will thank you for it. Not everything here is an enemy.", fx = { align = { light = 1 } } },
+        { text = "In a fight, I won't stop to ask which ones deserve it.", next = "BACK", reply = "Ogtinc understands, but Ogtinc hopes you will look before you swing. Some of them were beautiful once.", fx = { align = { light = -1 } } },
         { text = "Something else, Ogtinc.", next = "BACK" },
       },
     },
@@ -82,8 +82,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Healthier than Felwood's, but the ruins below hold old magic and older ghosts, and the earth around them is restless. The coursers still run and the trees still grow, so I tell myself the land is only sleeping badly. The Circle hopes to keep it from waking into something worse." } },
       choices = {
-        { text = "The Circle is wise. Leave the old ruins sealed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Old ruins hide power. Someone ought to open them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Circle is wise. Leave the old ruins sealed.", next = "BACK", reply = "Ogtinc agrees, and Ogtinc is glad a shaman sees it. The earth there is restless enough.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old ruins hide power. Someone ought to open them.", next = "BACK", reply = "Someone has opened them before, and the sea took their city for it. Ogtinc would not.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -91,8 +91,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Ogtinc does not know, but the divine path asks that we try to mend what we have broken. If you really wish to help, gather what the Circle needs and use your power only against those who would sicken the land further." } },
       choices = {
-        { text = "I'll use my power only to protect the land.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'll use my power as I see fit.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll use my power only to protect the land.", next = "BACK", reply = "Then Ogtinc is glad of you, and the land will be too. That is how mending begins.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll use my power as I see fit.", next = "BACK", reply = "Ogtinc cannot stop you, but Ogtinc hopes you will think of Felwood when you do.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll think on the divine path.", next = "BACK" },
       },
     },
@@ -100,8 +100,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The Circle needs their hearts for its work in Felwood, and Ogtinc grieves each one, for they were beautiful before the corruption touched them. Kill them swiftly and cleanly, and they suffer less, which is the only mercy Ogtinc can give." } },
       choices = {
-        { text = "I'll make it swift and clean.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "They're just beasts. Let them suffer.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll make it swift and clean.", next = "BACK", reply = "Ogtinc thanks you, and Ogtinc will name each one tonight. Swift and clean is a kindness.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're just beasts. Let them suffer.", next = "BACK", reply = "Ogtinc will not give you the work, then. The coursers deserve better than that.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll keep it in mind.", next = "BACK" },
       },
     },
@@ -109,8 +109,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Very little that a healer can give, I fear, for the Highborne ghosts there do not want healing, and the coursers are sick in ways no salve can reach. But Felwood still waits for the Circle's medicines, and every herb gathered here goes south to the sick woods." } },
       choices = {
-        { text = "Then I'll gather for Felwood, and pray it helps.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Leave the sick coursers be. Let the strong survive.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll gather for Felwood, and pray it helps.", next = "BACK", reply = "Then Felwood will be grateful, and so will Ogtinc. Prayer and gathering both help.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Leave the sick coursers be. Let the strong survive.", next = "BACK", reply = "Ogtinc understands the strong survive, but Ogtinc cannot watch them suffer. Leave them, then, but gently.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -211,8 +211,8 @@ P:NPC {
     who_saved = {
       lines = { { id = "wsv_default", text = "The Timbermaw in Felwood kept their minds, so it is not hopeless. I tell myself that every morning, and most mornings I believe it." } },
       choices = {
-        { text = "Hold on to that hope.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Hope won't save them. Steel might.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Hold on to that hope.", next = "BACK", reply = "Ogtinc will, and Ogtinc is glad of your company in it. Hope is easier with two.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hope won't save them. Steel might.", next = "BACK", reply = "Perhaps, but steel alone made the Deadwood what they are. Ogtinc will hope a little longer.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
       },
     },
 
@@ -236,8 +236,8 @@ P:NPC {
     coursers_names = {
       lines = { { id = "cn_default", text = "If there were, I would have found it. So I give each one I must take a name, and say it to the wind at night, so that something remembers them besides the salve." } },
       choices = {
-        { text = "The needs of the many come first.", next = "BACK", fx = { affinity = -1, align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "Then I'll take only what we need.", next = "BACK", fx = { affinity = 2, align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "The needs of the many come first.", next = "BACK", reply = "They do, and Ogtinc knows it, and Ogtinc still names them. The many are made of ones.", fx = { affinity = -1, align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Then I'll take only what we need.", next = "BACK", reply = "Ogtinc thanks you, and the coursers would thank you if they could. Only what we need.", fx = { affinity = 2, align = { order = -1 }, trait = { kind = 1 } } },
       },
     },
 
@@ -293,8 +293,8 @@ P:NPC {
         { id = "pr_default", text = "It did, and I am glad of it. Your beliefs do not stand in the way of this work; the divine helps those in need, and the land of Felwood is in very great need. The how does not matter, priest, only the why." },
       },
       choices = {
-        { text = "The Light heals all wounds, even the land's.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
-        { text = "I'll help, but this is the Circle's work, not the Light's.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Light heals all wounds, even the land's.", next = "BACK", reply = "Ogtinc would like to believe it, and perhaps it does. The land will not mind whose light mends it.", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "I'll help, but this is the Circle's work, not the Light's.", next = "BACK", reply = "It is, and Ogtinc thanks you all the same. The work does not care who claims it.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Why does the Circle need a priest?", next = "priest_why" },
         { text = "I'm ready to begin, Ogtinc.", next = "priest_path" },
       },
@@ -381,8 +381,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I'd guess they hate them, since the blue flight fought the Legion long before any of us were born, or so I'm told. I don't ask what a customer does with my scales once they leave, but I do keep a list of names who didn't come back, and you'd be surprised how many were warlocks." } },
       choices = {
-        { text = "Then I'll keep my demon out of the dragons' sight.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let them come. My demon could use the practice.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll keep my demon out of the dragons' sight.", next = "BACK", reply = "Good idea, and I'd like to keep my list short. Dragons have long memories and short tempers.", fx = { align = { order = 1 } } },
+        { text = "Let them come. My demon could use the practice.", next = "BACK", reply = "Then I'll start your line on the list now, friend, and save myself the ink later. Good luck.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -390,8 +390,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Because I keep a list of customers who went looking for dragonscale and didn't come back, and it's longer than I'd like. The blue dragons over the ruins don't care what your spirits say about it, so you'd best ask your elements for luck before you ask them for anything else." } },
       choices = {
-        { text = "The spirits will guide me. I'll be careful with the dragons.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll take what scales I need and come back for more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The spirits will guide me. I'll be careful with the dragons.", next = "BACK", reply = "Good, and I hope they guide you well, because the dragons won't. I'll keep your name off the list if I can.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take what scales I need and come back for more.", next = "BACK", reply = "More? You'll be lucky to get the first lot. I'll have the ink ready.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -399,8 +399,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because your kind walk up to the dragon and hit it, and the dragon breathes, and then I add a name to my list. The ones who come back are the ones who brought a dozen friends and a priest, and even they come back singed." } },
       choices = {
-        { text = "Then I'll go with friends and a plan. Bravery isn't foolishness.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll take my chances alone. Glory doesn't share well.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll go with friends and a plan. Bravery isn't foolishness.", next = "BACK", reply = "There's a warrior who'll come back, and I'm glad of it. Bring the friends by the shop after, and I'll stand you a, well, a good price on the scales.", fx = { align = { order = 1 } } },
+        { text = "I'll take my chances alone. Glory doesn't share well.", next = "BACK", reply = "Then I'll write your name now and save myself the trouble. Glory doesn't skin dragons, friend.", fx = { align = { order = -1 } } },
         { text = "Something else, Peter.", next = "BACK" },
       },
     },
@@ -411,8 +411,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} back from the dragon, though, because a beast charges in without thinking, and I've seen a hunter come home with dragonscale and without his wolf." },
       },
       choices = {
-        { text = "I'll face the drake openly when I take its scales.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then I'll wait until it's tired and wounded, and strike.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll face the drake openly when I take its scales.", next = "BACK", reply = "Brave, and I'll respect it, but bring friends. Openly is how most of my list got there.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll wait until it's tired and wounded, and strike.", next = "BACK", reply = "That's how the ones who come back do it, so I'll not argue. A tired dragon is still a dragon, mind.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -420,8 +420,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Steal, no; scales don't come off a living dragon unless it wants them to, and it never does. But you can get close enough to see where the weak plates are, and I'll teach you to work them once they're off a corpse, so condolences in advance." } },
       choices = {
-        { text = "I'll fight for my scales, fair and square.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll strike while the dragon sleeps.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight for my scales, fair and square.", next = "BACK", reply = "Fair and square, then, and I'll teach you where the weak plates are. Come back with the scales and your skin.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll strike while the dragon sleeps.", next = "BACK", reply = "I don't teach that, and I won't work scale taken that way. Find another leatherworker, friend.", fx = { align = { honor = -1 } } },
         { text = "Keep the condolences handy.", next = "BACK" },
       },
     },
@@ -429,8 +429,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Every one of them, and the list is longer than I'd like, though shorter than my competitor's in Stormwind. Leatherworking is a trade for the living, so I'll teach you what you need and hope your name never goes on that parchment." } },
       choices = {
-        { text = "I'll be careful. I don't want to be on that list.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A good mage doesn't die to dragons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll be careful. I don't want to be on that list.", next = "BACK", reply = "Good, because I'd hate to add a mage, they're always so surprised. Careful's the only way to leatherwork dragons.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A good mage doesn't die to dragons.", next = "BACK", reply = "That's what the last three said, friend. Their names are on the second page.", fx = { align = { order = -1 } } },
         { text = "I'll take my chances.", next = "BACK" },
       },
     },
@@ -438,8 +438,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Every name, every night, and I'm not a praying man, so I hope the Light makes allowances for a leatherworker who mumbles. Most of them knew the risk and went anyway, which is either brave or daft, and I've never settled which." } },
       choices = {
-        { text = "Brave. They chose the danger knowing what it cost.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Daft. Courage without cunning just fills your list.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Brave. They chose the danger knowing what it cost.", next = "BACK", reply = "They did, and that's what I tell myself when I say the names. Brave is the kindest word I've got.", fx = { align = { honor = 1 } } },
+        { text = "Daft. Courage without cunning just fills your list.", next = "BACK", reply = "Some did, and I'll not argue. But I say their names all the same, every night.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -447,8 +447,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Honourable's a big word for a man who cuts up hides for a living, but I don't teach anyone to hunt the young or the sleeping, and I won't work scale from those who do. A dragon can fight back, and that's as close to fair as my trade gets." } },
       choices = {
-        { text = "A fair fight is all honour asks. Your rule is sound.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A sleeping dragon is a safe one. Fairness gets people killed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A fair fight is all honour asks. Your rule is sound.", next = "BACK", reply = "Thank you, and it's held for me this long. A fair fight makes for honest leather.", fx = { align = { honor = 1 } } },
+        { text = "A sleeping dragon is a safe one. Fairness gets people killed.", next = "BACK", reply = "Maybe it is, but not for my shop. I'll not work scale taken from a sleeping thing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -456,8 +456,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Only for the names on my list, and the list grows every season. I'm a Stormwind man and I was raised to the Light, but if your loa, or whatever the Forsaken pray to, will take a few of those names off my hands, I won't argue." } },
       choices = {
-        { text = "Give me the names, and I'll say the words.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fools who hunt dragons dig their own graves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Give me the names, and I'll say the words.", next = "BACK", reply = "Thank you, friend, truly. I'll write them out for you, and you can say them however your people say them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fools who hunt dragons dig their own graves.", next = "BACK", reply = "They do, and I tell them so before they go. But someone should say their names, all the same.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -465,8 +465,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Not a bit, because the dragons I work were trying to eat somebody when they died. Your Circle might say every creature has its place, and I'll grant that the blue ones up the coast are clever enough to talk, but scale's scale once it's off the beast, and it'll turn a blade like nothing else in Azeroth." } },
       choices = {
-        { text = "Dead is dead. A hide is a hide once the beast is gone.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some of those dragons think and speak. Work their scales with care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Dead is dead. A hide is a hide once the beast is gone.", next = "BACK", reply = "That's how I see it, and I'm glad a druid agrees. A hide doesn't remember what it was.", fx = { align = { light = -1 } } },
+        { text = "Some of those dragons think and speak. Work their scales with care.", next = "BACK", reply = "Fair enough, and I'll mind it. The blue ones up north I'd never touch, I promise you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Never mind the scales.", next = "BACK" },
       },
     },
@@ -573,8 +573,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Frighten, chase, chew on, I'm not picky, so long as I get my equipment back! They thought they could knife a loyal goblin partner and keep his gear, and I'd like them to learn otherwise, so name your price, and I'll pay half of it." } },
       choices = {
-        { text = "Half? I'll do it for the full price, goblin.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll help you, but no demon chews on anyone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Half? I'll do it for the full price, goblin.", next = "BACK", reply = "Full price? Partner, you drive a hard bargain, and I respect that in a business associate. Fine, full price, but no chewing on the gear.", fx = { align = { honor = -1 } } },
+        { text = "I'll help you, but no demon chews on anyone.", next = "BACK", reply = "No chewing? Fine, fine, you're a stickler, but I can work with a stickler. Just bring back my stuff.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -582,8 +582,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "They hired me as a scout, and then they turned on me with knives, and then they kept my equipment, the thieves! I'm not asking you to smite them, exactly, although I wouldn't mind, but I'd very much like my gear back before someone else claims it." } },
       choices = {
-        { text = "I'll recover your gear, but the elves deserve justice, not revenge.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll take back your gear, and teach them not to steal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll recover your gear, but the elves deserve justice, not revenge.", next = "BACK", reply = "Justice, revenge, compensation, it all comes out the same on the ledger, partner. Bring the gear, and do what you like with the elves.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take back your gear, and teach them not to steal.", next = "BACK", reply = "Now that's the kind of service I like, partner! A lesson and a refund, both at once.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -591,8 +591,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because Kim'jael is a goblin of business, not a goblin of punching, and also because they had swords and I had a stuffed chicken. You have a sword, so you see how this works out better for everybody, especially me." } },
       choices = {
-        { text = "I'll get it back because it's right, not for your coin.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll get it back, but the price just went up.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll get it back because it's right, not for your coin.", next = "BACK", reply = "Not for coin? Partner, you're a terrible businessman, and I love you for it. I'll owe you one, which is a very rare thing.", fx = { align = { honor = 1 } } },
+        { text = "I'll get it back, but the price just went up.", next = "BACK", reply = "Of course it did, of course it did, everybody's a businessman when Kim'jael's in trouble. Fine, fine, name your price.", fx = { align = { honor = -1 } } },
         { text = "Something else, Kim'jael.", next = "BACK" },
       },
     },
@@ -603,8 +603,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours, can it sniff out a stuffed chicken? If it can, Kim'jael will be very grateful, and if it eats the chicken, Kim'jael will be very upset." },
       },
       choices = {
-        { text = "I'll bring your things back as they were, chicken included.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Finders keepers, Kim'jael. Make me a better offer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll bring your things back as they were, chicken included.", next = "BACK", reply = "The chicken too? Partner, I could kiss you, but I won't, because you've got a sword. Every last bit of it, please.", fx = { align = { honor = 1 } } },
+        { text = "Finders keepers, Kim'jael. Make me a better offer.", next = "BACK", reply = "Finders keepers? That's my line, you can't use my line! Fine, fine, better offer, I'm working on it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -621,8 +621,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Both, and the curse is the elves' fault as far as I'm concerned! The old ones built all this, blew it up and left it full of ghosts and satyrs, and then their cousins come along and hire me to dig through it. If your spirits want to be useful, they can find my equipment before the satyrs at Legash do." } },
       choices = {
-        { text = "For a fair cut, I'll find your gear myself.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "The spirits don't fetch goods, Kim'jael. Show some respect.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "For a fair cut, I'll find your gear myself.", next = "BACK", reply = "A fair cut, partner, now we're talking business! I'll draw you a map and a contract, in that order.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The spirits don't fetch goods, Kim'jael. Show some respect.", next = "BACK", reply = "Respect, respect, I respect everybody, I just respect my gear more. Fine, I'll ask the spirits nicely.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -630,8 +630,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Stole it, scattered it, and left me for the naga, and called me little rat while they did it! I need my gear back, every crate of it, and a rogue knows how to find things that aren't where they should be." } },
       choices = {
-        { text = "I'll get it back. That's only fair.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll get it back, for a cut.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll get it back. That's only fair.", next = "BACK", reply = "Fair, he says, a rogue who believes in fair! I'll take it, partner, and I'll owe you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll get it back, for a cut.", next = "BACK", reply = "A cut, of course, of course, and I'd do the same. Ten percent, and not a copper more.", fx = { align = { honor = -1 } } },
         { text = "Little rat, eh?", next = "BACK" },
       },
     },
@@ -639,8 +639,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "A goblin to haul their crates and dig through ruins, that's what, and then they decided they'd rather not pay him. Those runes they were after are worth plenty to the right buyer, and Kim'jael means to find that buyer before anyone else does." } },
       choices = {
-        { text = "Those runes belong to whoever uncovered them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Those runes are dangerous. Leave them in the ruins.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Those runes belong to whoever uncovered them.", next = "BACK", reply = "Exactly, and that's me, partner, I uncovered them! Bring 'em back and we'll split the profits.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Those runes are dangerous. Leave them in the ruins.", next = "BACK", reply = "Dangerous? Valuable, you mean, and I'd say so too if I were a mage who wanted 'em for himself. Bring back my gear, at least.", fx = { align = { order = 1 } } },
         { text = "Good luck with that.", next = "BACK" },
       },
     },
@@ -648,8 +648,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Because my equipment's still out there, partner, and a goblin doesn't walk away from that much good gear just because somebody pointed a knife at him, not on my mother's ledger. Besides, I've been stabbed at by better than a few sulky elves, though I'll admit I can't remember when." } },
       choices = {
-        { text = "Then I'll help you get it back, fair and square.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Take back twice what they took. They owe you that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll help you get it back, fair and square.", next = "BACK", reply = "Fair and square, partner, that's my favourite way. Well, my second favourite, after profitable.", fx = { align = { honor = 1 } } },
+        { text = "Take back twice what they took. They owe you that.", next = "BACK", reply = "Now you're speaking my language, partner! Twice back, interest included.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -657,8 +657,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Vengeance is bad business, so no, I want compensation, which is vengeance with a ledger. They hired me, they named me and they tried to stick a knife in me, and somebody ought to pay for all three, preferably in gold." } },
       choices = {
-        { text = "Let it go. Grudges cost more than gold.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Make them pay twice. They'd do the same to you.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Let it go. Grudges cost more than gold.", next = "BACK", reply = "Cost more than gold? Partner, nothing costs more than gold, that's what gold is for. But I'll think about it.", fx = { align = { light = 1 } } },
+        { text = "Make them pay twice. They'd do the same to you.", next = "BACK", reply = "They would, they absolutely would, and that's what I keep saying! Twice it is, partner.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -666,8 +666,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Worse, much worse! The Legashi dug at the Highborne stones and poured something nasty into the ground, and everywhere they stepped the grass went grey. Kim'jael just counted crates and kept his head down, but a druid would've cried, I think, if a druid had seen it." } },
       choices = {
-        { text = "You took their coin and looked away. That was wrong, Kim'jael.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "You stayed alive with bullies around you. That's no crime.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "You took their coin and looked away. That was wrong, Kim'jael.", next = "BACK", reply = "Looked away? I looked at my ledger, partner, which is very different. But fine, maybe I looked a little away.", fx = { align = { honor = 1 } } },
+        { text = "You stayed alive with bullies around you. That's no crime.", next = "BACK", reply = "Exactly, exactly, and you put it so nicely! Staying alive is the best business there is.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -733,8 +733,8 @@ P:NPC {
     hired_rage = {
       lines = { { id = "hr_default", text = "Isn't it? You can't trust an elf, partner, I always say, I said it before and I'll say it again. Well, I said it after, mostly, but that's when it counts, and that's when the invoice goes out." } },
       choices = {
-        { text = "Betrayal deserves payback.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "A bargain's a bargain. They should've paid.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Betrayal deserves payback.", next = "BACK", reply = "It does, partner, it does, and Kim'jael is just the goblin to collect. With your help, of course, at reasonable rates.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A bargain's a bargain. They should've paid.", next = "BACK", reply = "They should've, and I'll tell 'em so, from a safe distance. A contract's a contract, partner.", fx = { affinity = 1, align = { honor = 1 } } },
       },
     },
     treasure = {
@@ -766,8 +766,8 @@ P:NPC {
     leave = {
       lines = { { id = "l_default", text = "And go back to Booty Bay with nothing but a story about elves? The Baron would laugh me off the pier. No, I leave Azshara richer than I came, or I don't leave at all." } },
       choices = {
-        { text = "That's the spirit.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "That's how goblins end up dead.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "That's the spirit.", next = "BACK", reply = "That's the spirit, partner! Kim'jael is a goblin of his word, mostly, and his word is profit.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "That's how goblins end up dead.", next = "BACK", reply = "Dead goblins don't pay debts, partner, but they don't owe any either. I'll take my chances.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
       },
     },
     wizzle = {
@@ -821,8 +821,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because they watched the Horizon Scout go down with half our crew aboard, and they still hear the naga singing at night. They're good men, but they've seen enough monsters for one lifetime, and they'd rather not wake to see a demon sitting by the fire." } },
       choices = {
-        { text = "I'll keep my demon away from your crew, Captain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Your crew should get used to it. The naga are worse.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep my demon away from your crew, Captain.", next = "BACK", reply = "Thank you, and they'll thank you too, though they won't say it. They've had enough of monsters.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your crew should get used to it. The naga are worse.", next = "BACK", reply = "They're getting used to the naga, warlock, which is plenty. Keep it close, please.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -833,8 +833,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And bring {pet} up to the barricade with you. My sailors have been jumpy since the wreck, and a beast with sharp ears is worth two lookouts." },
       },
       choices = {
-        { text = "I'll stand at the barricade with your crew until the naga break.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll pick them off from the cliffs. Your crew can hold the line.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand at the barricade with your crew until the naga break.", next = "BACK", reply = "Then the Light bless you, and we'll stand together. My crew could use a steady arm at the barricade.", fx = { align = { honor = 1 } } },
+        { text = "I'll pick them off from the cliffs. Your crew can hold the line.", next = "BACK", reply = "That'll do nicely, and my lookouts will be glad of it. Every naga down before the surf is one less at the barricade.", fx = { align = { honor = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -843,16 +843,16 @@ P:NPC {
         { id = "wbl_default", text = "Gladly, and I'll put my bosun beside you, because he's the only one of my crew who can still swing an axe straight. The naga come up out of the surf at night, so stand with your back to the fire and your eyes on the waves." },
       },
       choices = {
-        { text = "I'll hold until your crew is safe.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
-        { text = "Better to strike their camp before they come.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hold until your crew is safe.", next = "BACK", reply = "Then you'll have my thanks and my bosun's. We'll hold together until dawn.", fx = { align = { honor = 1 }, affinity = 2 } },
+        { text = "Better to strike their camp before they come.", next = "BACK", reply = "Bold, and maybe right, but I can't spare the crew for it. If you go, go with my blessing.", fx = { align = { honor = -1 } } },
       },
     },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Food and water would be a blessing, and a fireball for the next naga raid would be better still. My sailors are tough, but they're tired, and every hand that helps us is one less lamp I have to light." } },
       choices = {
-        { text = "I'll help your crew however I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Your crew is your responsibility, Captain.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll help your crew however I can.", next = "BACK", reply = "Thank you, and the crew will remember it. Every hand helps us get home.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your crew is your responsibility, Captain.", next = "BACK", reply = "They are, and I carry them every hour. But I'd hoped for a little help, all the same.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll see what I can do.", next = "BACK" },
       },
     },
@@ -860,17 +860,17 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Passengers' goods, mostly, and some crates I'm not at liberty to discuss. The naga don't know what they've got, and I'd like it back before they figure it out, so a quiet hand would serve better than a loud one." } },
       choices = {
-        { text = "I'll get it back quietly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll get it back quietly.", next = "BACK", reply = "Thank you, and quietly is best. The passengers will be grateful, and so will I.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "What's in those crates you won't discuss?", next = "BACK" },
-        { text = "Tell your passengers they owe me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Tell your passengers they owe me.", next = "BACK", reply = "They do, and I'll tell them so, though I can't promise they'll pay. Most of them lost everything.", fx = { align = { order = -1 } } },
       },
     },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Every hour, because I chose the course that brought us past the naga, and I light a lamp for every sailor who didn't make it ashore. A priest of any faith could tell me it wasn't my fault, and I still wouldn't believe it." } },
       choices = {
-        { text = "Grief is a burden we can share. Let me help.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Then carry it. Guilt keeps a captain sharp.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Grief is a burden we can share. Let me help.", next = "BACK", reply = "Thank you, and I'll take that kindness gladly. A lamp is lighter when someone helps carry it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then carry it. Guilt keeps a captain sharp.", next = "BACK", reply = "It does, and I'll carry it. But it's a heavy thing, and some nights I'd like to set it down.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -923,8 +923,8 @@ P:NPC {
     wreck_fault = {
       lines = { { id = "wf_default", text = "It's always the captain's fault, {name}; that's what the word means. I chose this coast, I chose the hour, and I'll carry it whether you forgive me or not." } },
       choices = {
-        { text = "Then carry it well, Captain.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Blame is for the living. Grieve them and move on.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Then carry it well, Captain.", next = "BACK", reply = "I will, as best I can. Thank you for not pretending it was anyone else's.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Blame is for the living. Grieve them and move on.", next = "BACK", reply = "Easier said than done, {name}. But I'll try, for the crew's sake.", fx = { affinity = 1, align = { order = -1 } } },
       },
     },
     wreck_lost = {
@@ -956,10 +956,10 @@ P:NPC {
     heal = {
       lines = { { id = "he_default", text = "Light bless you. Start with the second mate on the point; she's been watching the wreck since dawn and won't admit she's bleeding." } },
       choices = {
-        { text = "I'll see to all of them.", next = "BACK", fx = { affinity = 3, align = { light = 1 } },
+        { text = "I'll see to all of them.", next = "BACK", reply = "Bless you, and start with her, please, before she bleeds out pretending. The crew will thank you.", fx = { affinity = 3, align = { light = 1 } },
           journal = { first = "I tended the wounded crew of the Horizon Scout, wrecked off Azshara. Their captain lights a lamp for each of her dead.",
                       third = "{name} tended the wounded survivors of the Horizon Scout on Azshara's shore." } },
-        { text = "I'll do what I can, but the fighters first.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll do what I can, but the fighters first.", next = "BACK", reply = "That's fair, and they'll need to be on their feet when the naga come. Just don't forget the second mate.", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
   },
@@ -1010,8 +1010,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The League knows about everythin' an' agrees on nothin'. Half o' them say the stone remembers the Titans, an' the other half say spirits are orc business. I just fly the rubbings." } },
       choices = {
-        { text = "The stone remembers. I've heard it myself.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "I keep Ironforge's ways. The spirits only lend a hand.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The stone remembers. I've heard it myself.", next = "BACK", reply = "Do ye now? Then ye're a better listener than me, an' I'm glad of it. Tell the League, they'll want tae know.", fx = { align = { order = -1 } } },
+        { text = "I keep Ironforge's ways. The spirits only lend a hand.", next = "BACK", reply = "That's the way, an' Ironforge will be proud o' ye. The spirits can help, but the stone's the stone.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1019,8 +1019,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Once, an' once was plenty! An imp got into the engine an' I thought she'd catch fire over the sea, an' I swear it laughed the whole way down. So ye'll forgive me if I ask ye tae keep it on a short leash while I'm flyin' these rubbings north." } },
       choices = {
-        { text = "A short leash it is. Your flyer's safe with me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My imp goes where it pleases. You'll manage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A short leash it is. Your flyer's safe with me.", next = "BACK", reply = "Bless ye, an' my flyer thanks ye too. She's still got scorch marks from the last one.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My imp goes where it pleases. You'll manage.", next = "BACK", reply = "I'll manage, an' so will she, but if she catches fire, ye're walkin' home. Fair warnin'.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1028,8 +1028,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Naga, mostly, an' the ghosts o' the Highborne, who don't take kindly tae folk rubbin' their walls wi' charcoal. A warrior's handy, because when they come at ye there's no time for spells, only for standin' yer ground." } },
       choices = {
-        { text = "I'll guard whoever takes the rubbings and keep to the job.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll go in swinging and take the rubbings myself after.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll guard whoever takes the rubbings and keep to the job.", next = "BACK", reply = "That's a proper job well done, an' Tymor will be glad o' it. Keep the scholar breathin' an' I'll fly ye both home.", fx = { align = { order = 1 } } },
+        { text = "I'll go in swinging and take the rubbings myself after.", next = "BACK", reply = "Ha! That's the dwarven way, an' I'll not argue. Just don't smudge the charcoal, ye great lump.", fx = { align = { order = -1 } } },
         { text = "Something else, Xiggs.", next = "BACK" },
       },
     },
@@ -1040,8 +1040,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ye can bring {pet} along some day, if it doesn't mind heights. My last passenger's cat clawed a hole in the seat, an' I'm still findin' fur in the engine." },
       },
       choices = {
-        { text = "I'll find the camps on foot and face them honestly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll mark them from the air and strike while they sleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll find the camps on foot and face them honestly.", next = "BACK", reply = "Brave, an' I'll respect it, but mind the big thing in the bay. Ye'll not want tae meet it on foot.", fx = { align = { honor = 1 } } },
+        { text = "I'll mark them from the air and strike while they sleep.", next = "BACK", reply = "Smart, an' I'll fly ye over 'em myself. A sleepin' naga's the best kind.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1058,8 +1058,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Tymor's a mage in Ironforge, and he reckons these Highborne runes have somethin' tae teach the Mystic Ward. I fly 'em home, he reads 'em, and I'm none the wiser, which suits me fine as long as he pays the fuel." } },
       choices = {
-        { text = "Knowledge like that should be studied carefully.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Old runes are best left in the ruins.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Knowledge like that should be studied carefully.", next = "BACK", reply = "Aye, an' Tymor's the man for it. Carefully's the only way he does anythin'.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old runes are best left in the ruins.", next = "BACK", reply = "Mebbe so, but Tymor's payin' me tae fly 'em, so I'll fly 'em. Ye can argue wi' him in Ironforge.", fx = { align = { order = -1 } } },
         { text = "Fly safe, Xiggs.", next = "BACK" },
       },
     },
@@ -1067,8 +1067,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The naga and the ghosts don't like visitors, and a dwarf on a helipad can only watch from the sky. A rogue could slip in, take the rubbings, and slip out again, and I'd fly ye home a hero." } },
       choices = {
-        { text = "I'll slip in quietly and get them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll fight my way in if I have to.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll slip in quietly and get them.", next = "BACK", reply = "That's the spirit, an' I'll keep the engine runnin'. In an' out, quiet as a mouse.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll fight my way in if I have to.", next = "BACK", reply = "Ha! A rogue wi' a dwarf's heart, I like it. Just bring the rubbings back in one piece.", fx = { align = { honor = 1 } } },
         { text = "I'll think about it.", next = "BACK" },
       },
     },
@@ -1076,8 +1076,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Fear's a strong word for a dwarf, but I'll admit I fly higher over the Spitelash than I'd like anyone in Ironforge tae hear about. They've sorceresses down there throwin' spells at anythin' that moves, an' a gyrocopter's no' built tae dodge." } },
       choices = {
-        { text = "Fly low and proud. Show them Ironforge isn't afraid.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Stay high and let them waste their spells on empty sky.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fly low and proud. Show them Ironforge isn't afraid.", next = "BACK", reply = "Ha! Easy for ye tae say, wi' yer feet on the ground. I'll fly as low as my nerves allow, which isnae very.", fx = { align = { honor = 1 } } },
+        { text = "Stay high and let them waste their spells on empty sky.", next = "BACK", reply = "That's what I do, an' I'll keep doin' it. Let 'em throw their spells at the clouds.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1085,8 +1085,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Tymor reckons the old elves wrote down things nobody else remembers, an' these ruins are covered in it, so every rubbing I fly home is a page the world forgot. Some say it's history best left forgotten, mind, given what the Highborne got up tae." } },
       choices = {
-        { text = "What the Highborne knew should stay buried with them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "History belongs to everyone. Bring every rubbing home.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What the Highborne knew should stay buried with them.", next = "BACK", reply = "Mebbe so, an' some in the League would agree wi' ye. But Tymor's paid for the rubbings, so I'll fly 'em.", fx = { align = { order = 1 } } },
+        { text = "History belongs to everyone. Bring every rubbing home.", next = "BACK", reply = "That's the Explorers' League motto near enough, an' I'll drink tae it. Every rubbing, every page.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1094,8 +1094,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Knowledge, lad or lass, and maybe a few relics for the Hall o' Explorers. Tymor reckons the Highborne wrote down what they did before yer people's world broke, and if the rubbings tell us how they did it, maybe we'll know better than to try it again, which yer Circle would like, I'd think." } },
       choices = {
-        { text = "Leave the Highborne stones alone. Some knowledge deserves burying.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Better to learn from their mistakes than repeat them. Keep digging.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Leave the Highborne stones alone. Some knowledge deserves burying.", next = "BACK", reply = "Mebbe they do, but buried things have a way o' gettin' dug up by the wrong folk. Better us than the naga.", fx = { align = { order = 1 } } },
+        { text = "Better to learn from their mistakes than repeat them. Keep digging.", next = "BACK", reply = "That's the spirit, an' Tymor would shake yer hand for it. Learnin' from the dead keeps the livin' alive.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Never mind the rubbings.", next = "BACK" },
       },
     },
@@ -1163,8 +1163,8 @@ P:NPC {
     naga_job = {
       lines = { { id = "nj_default", text = "Convenient's the best kind of job there is, {g:lad|lass}. Ye'll understand when ye're older and yer knees creak in the cold." } },
       choices = {
-        { text = "Someone should deal with the naga, though.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Can't argue with that.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Someone should deal with the naga, though.", next = "BACK", reply = "Aye, someone should, an' I'm sure someone will, eventually. I'll fly 'em there, at least.", fx = { align = { order = 1 } } },
+        { text = "Can't argue with that.", next = "BACK", reply = "Ha! Ye've a sensible head on ye, {g:lad|lass}. Ye'll go far, an' slowly.", fx = { affinity = 1, align = { order = -1 } } },
       },
     },
     machine_eng = {

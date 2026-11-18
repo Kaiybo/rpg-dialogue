@@ -88,8 +88,8 @@ P:NPC {
       big = true,
       lines = { { id = "cd_default", text = "So they keep telling me, and very kindly, as if I might faint. A man buys a sword and says thank you, and I'm not sure what else I'm meant to know about him." } },
       choices = {
-        { text = "That's a fair way to deal with folk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Not knowing could get you killed one day.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
+        { text = "That's a fair way to deal with folk.", next = "BACK", reply = "I think so too, and I've never had cause to change my mind. A thank-you sounds the same from anyone.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Not knowing could get you killed one day.", next = "BACK", reply = "Perhaps it could, but I'm old and blind and still breathing, so I must be doing something right.", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

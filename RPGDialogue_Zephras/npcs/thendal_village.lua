@@ -92,8 +92,8 @@ P:NPC {
         { id = "hl_default", text = "It means that wherever you go, the winds of home and everyone who held it before you go with you. Some people find that a comfort and some find it a weight, and I've never been able to decide which it is for me." },
       },
       choices = {
-        { text = "I'll carry it with honor, for everyone who held it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, trait = { kind = 1 } } },
-        { text = "It's a trinket. What I do with my own hands matters more.", next = "BACK", fx = { affinity = -1, align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "I'll carry it with honor, for everyone who held it.", next = "BACK", reply = "Then it's in good hands, and the winds of home will know it. Go to Rorian now.", fx = { affinity = 2, align = { honor = 1 }, trait = { kind = 1 } } },
+        { text = "It's a trinket. What I do with my own hands matters more.", next = "BACK", reply = "Your hands matter, aye, but they're not the only ones in this. The relic remembers even when you forget.", fx = { affinity = -1, align = { honor = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -166,8 +166,8 @@ P:NPC {
         { id = "ws_default", text = "We cull what we must and leave the rest be, though there are arguments every night about where that line ought to fall. Some of us want the grove kept neat and safe, and some say the wild was here before the village and we ought to make room for it." },
       },
       choices = {
-        { text = "Keep the grove safe. Cull whatever threatens the village.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The wild was here first. Give it room.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Keep the grove safe. Cull whatever threatens the village.", next = "BACK", reply = "That's one side of it, and a fair one with children in the village. I'll pass it along.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The wild was here first. Give it room.", next = "BACK", reply = "That's the other side, and it gets louder every night. The wild is listening, I think.", fx = { affinity = 1, align = { order = -1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -213,8 +213,8 @@ P:NPC {
           text = "You're with the Windshapers, so Ventaari will tell you all about the High Order's faults, and Falorne will tell you all about yours. Both orders have good people and both have done things I'd rather forget, so I'll only say this: the grove is the one place they don't fight." },
       },
       choices = {
-        { text = "Then I'll keep the grove's peace, whatever my order says.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "My order first. The grove can look after itself.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Then I'll keep the grove's peace, whatever my order says.", next = "BACK", reply = "Good, and the grove will be grateful. Keep that in mind when your order calls.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "My order first. The grove can look after itself.", next = "BACK", reply = "Then you'll learn the hard way, I suppose. The grove is the only thing they share.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -326,8 +326,8 @@ P:NPC {
         { id = "f2_default", text = "Then we go to the door ourselves. The burden falls to us to brave the elemental plane and bring the spirits home, and our survival depends on it, whatever the High Order says about standing on our own feet." },
       },
       choices = {
-        { text = "We owe them that. I'll go to the door with you.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, trait = { pious = 1 } } },
-        { text = "We should learn to live without them, not chase them.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "We owe them that. I'll go to the door with you.", next = "BACK", reply = "Then you'll go with me, and the spirits will know you when we find them. Thank you.", fx = { affinity = 2, align = { honor = 1 }, trait = { pious = 1 } } },
+        { text = "We should learn to live without them, not chase them.", next = "BACK", reply = "Some days I wonder if that's wisdom, and then I remember what we owe them. I'll keep going.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -389,8 +389,8 @@ P:NPC {
           text = "Your order means well, most of you, and you're clever, which is the trouble. You think the spirits can be replaced by spells, but I've lived beside both, and a spell has never once asked how I was." },
       },
       choices = {
-        { text = "You're right. Spells are tools, and the spirits were kin.", next = "BACK", fx = { affinity = 2, align = { order = -1 }, learn = { "two_orders" } } },
-        { text = "Spells answer when called. Your spirits stopped answering.", next = "BACK", fx = { affinity = -2, align = { order = 1 }, learn = { "two_orders" } } },
+        { text = "You're right. Spells are tools, and the spirits were kin.", next = "BACK", reply = "Thank you, child. It's good to hear it from someone so young.", fx = { affinity = 2, align = { order = -1 }, learn = { "two_orders" } } },
+        { text = "Spells answer when called. Your spirits stopped answering.", next = "BACK", reply = "They stopped, aye, but they never once lied to us. Give them time.", fx = { affinity = -2, align = { order = 1 }, learn = { "two_orders" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
@@ -419,8 +419,8 @@ P:NPC {
         { id = "xa_default", text = "Many did, when the spirits left and fear walked the isle looking for somewhere to live. I won't ask what you did in them, but I will ask whether you came to us because you believe, or only because the cult lost." },
       },
       choices = {
-        { text = "Because I believe. Al'Akir was never going to save us.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "Because the cult lost. I go where I'll live longest.", next = "BACK", fx = { affinity = -2, align = { light = -1 }, trait = { cautious = 1 } } },
+        { text = "Because I believe. Al'Akir was never going to save us.", next = "BACK", reply = "Good, and the spirits will know it when they come home. Welcome back to the grove.", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Because the cult lost. I go where I'll live longest.", next = "BACK", reply = "Honest, at least, and that's a start. Prove it to me over time.", fx = { affinity = -2, align = { light = -1 }, trait = { cautious = 1 } } },
       },
     },
     xho = {
@@ -509,8 +509,8 @@ P:NPC {
         { id = "f2_default", text = "Fear's useful before the fight, when it tells you to sharpen your blade and check your straps. Once the fight's begun, it's only a hand on your arm, pulling you the wrong way at the worst moment, so which of those are you going to listen to?" },
       },
       choices = {
-        { text = "I'll keep my fear and use it. It keeps me alive.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
-        { text = "I'll train it out of me. Discipline first.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "I'll keep my fear and use it. It keeps me alive.", next = "BACK", reply = "Then you'll do, and you'll live to see a few battles yet. Use it well.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll train it out of me. Discipline first.", next = "BACK", reply = "Discipline's good, but don't train out what keeps you careful. Fear's a tool too.", fx = { affinity = 2, align = { order = 1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -616,8 +616,8 @@ P:NPC {
         { id = "w2_default", text = "To keep our people safe, first and last. Some hunters out there think it's their job to put the wild back the way it was, but I don't think anyone can, and I'd rather spend my arrows on what's in front of me." },
       },
       choices = {
-        { text = "Protect the people first. The wild can fend for itself.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "We should try to heal the wild, not just shoot it.", next = "BACK", fx = { affinity = -1, align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Protect the people first. The wild can fend for itself.", next = "BACK", reply = "Good, that's my thinking. The wild can look after itself, most days.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "We should try to heal the wild, not just shoot it.", next = "BACK", reply = "Maybe we should, and I'll not stop you trying. But keep your bow ready while you do.", fx = { affinity = -1, align = { order = -1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -735,8 +735,8 @@ P:NPC {
         { id = "n2_default", text = "Honestly? I couldn't tell you, but people buy from a man called Thriceforged, and they don't buy from a man called Twice-If-I-Have-Time. Some say a tradition's worth keeping for its own sake, and some say it's only habit with a fancy name." },
       },
       choices = {
-        { text = "Keep the tradition. It's what makes the blade yours.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "If it doesn't help the blade, drop it.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Keep the tradition. It's what makes the blade yours.", next = "BACK", reply = "Good, because I'd hate to change the sign. People like a name.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "If it doesn't help the blade, drop it.", next = "BACK", reply = "Honest advice, and my wallet disagrees. The name stays.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
