@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.0 (2026-11-18)
+- Writing pass: repeated phrases cut and replaced with concrete detail.
+- Clarity pass: answers answer the question, names are introduced, quest lines stand alone, fewer contradictions.
+- NPCs answer each stance reply before the talk moves on.
+
 ## 1.12.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
 - New Forever-only characters (new files: full game restart): Nineteen islanders: quest givers Ailee Farheart, Windshaper Boro, Elaadrin Evengale, Dondallion Whisperwind, Iaadaria Bitterwind, Quel'ana Quickgale, Seena Skybreaker, Riaani Nightwind, Alvarion Windfield and Urs'endris; the adventurer Raan Wildwind; Blademaster Ren, Tai'ree Farsight, Destin Thriceforged, Othesia Evengale, Gelia Shardsong, the High Order Dockmaster, Melasa Fairmend, Brother Zendraas.

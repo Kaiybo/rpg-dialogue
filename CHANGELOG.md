@@ -2,20 +2,31 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
-## 0.82.1 (2026-11-18)
+## 0.83.0 (2026-11-18)
+Six pieces of work in one release. No new files: a /reload is enough. Every content pack got a minor version bump.
 
-### Text to speech fix
-- **When a line fails to play, RPG Dialogue now tries another way to speak it.** On some clients the game's own speech routine is accepted but every line then fails to play. The addon now notices the failure, reads the line again with the next method, and keeps using whichever one works for the rest of the session.
-- `/rpgd tts` now reports the real reason a line failed (the old message showed a line number, such as 418, instead of the error) and which method it ended up using.
-## Unreleased: clarity pass
-Text only, no new files (a /reload is enough).
+### People answer what you say.
+- **Every stance gets an answer.** When you take a side (agree, disagree, the hard way or the kind way), the person now answers that reply in their own voice before the talk moves on, in every pack, instead of going straight back to the topics.
 
+### Flirting.
+- **Some people of the opposite sex flirt with you now and then.** Innkeepers, vendors and about 35 named NPCs in capitals and towns on both sides have a flirty greeting and a short exchange: flirt back, turn them down gently, or rebuff them. They remember which, and greet you accordingly next time.
+- New traits from it: charming and reserved. Turn it off under Settings, Around you: "Flirting".
+
+### Much more to say to the quiet ones.
+- **136 NPCs who had only a few lines** (29 packs) now have real conversations: ten to fifteen pages each, branches that go three deep, replies for your race, class and profession, a question that asks where you stand, and "Ask about" answers.
+
+### Better writing everywhere.
+- **Fewer repeated phrases.** About 3,500 lines in every pack were rewritten to cut the house habits ("mind you", "honestly", "half the X and the other half", "every one of them", "which is more than I can say for" and others), replaced with concrete detail in each race's own voice.
 - **Conversations make more sense.** Every pack was read through, and about 6,000 lines were rewritten. Answers now answer the question you picked, and your replies follow what was just said. Choices no longer assume things nobody told you.
 - **People say who they mean.** Names dropped with no introduction ("ask Renee", "the Captain", "La Salle") now come with a few words: "Innkeeper Renee at the tavern", "Captain Stoutfist", "Drusilla La Salle".
 - **Quest lines stand on their own.** Lines shown during or after a quest are whole sentences that say what they're about, not "Tough meat, not tender."
 - **Hunters get their answer.** With a pet out, many questions got only a remark about the pet. They now answer first and mention the pet after.
 - **Fewer contradictions.** Neighbours agree on who is where, who is male or female, and what happened (Gar'Thok holds Razor Hill, Nesingwary is a dwarf, the Undercity warlocks are in the Magic Quarter, and more).
 - **Fixes.** Some "your gear is battered" remarks fired on every visit; they now wait until your gear is actually worn. Three conversations that only let you lean one way now have a reply on the other side.
+
+### Text to speech fix
+- **When a line fails to play, RPG Dialogue now tries another way to speak it.** On some clients the game's own speech routine is accepted but every line then fails to play. The addon now notices the failure, reads the line again with the next method, and keeps using whichever one works for the rest of the session.
+- `/rpgd tts` now reports the real reason a line failed (the old message showed a line number, such as 418, instead of the error) and which method it ended up using.
 
 ## 0.82.0 (2026-11-18)
 Seven parallel pieces of work in one release. **New files: restart the game fully (a /reload won't load them).**

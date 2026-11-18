@@ -2,6 +2,13 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.0 (2026-11-18)
+- Writing pass: repeated phrases cut and replaced with concrete detail.
+- Clarity pass: answers answer the question, names are introduced, quest lines stand alone, fewer contradictions.
+- Some NPCs of the opposite sex flirt with you, and remember how you answered (needs core 0.83.0).
+- NPCs who had only a few lines now have full conversations.
+- NPCs answer each stance reply before the talk moves on.
+
 ## 1.26.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
 - Stories (0.80.0): Marin Noggenfogger decides how the Gadgetzan's water Story ends; Bilgewhizzle and Yeh'kinya greet you by how their Stories ended.

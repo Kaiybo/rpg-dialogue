@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.29.0 (2026-11-18)
+- Writing pass: repeated phrases cut and replaced with concrete detail.
+- Clarity pass: answers answer the question, names are introduced, quest lines stand alone, fewer contradictions.
+- Some NPCs of the opposite sex flirt with you, and remember how you answered (needs core 0.83.0).
+- NPCs answer each stance reply before the talk moves on.
+
 ## 1.28.0 (2026-11-18)
 - 14 new people in `npcs/stormwind_more.lua` and the park folk in `npcs/park_folk.lua` (new files: restart the game fully), and deeper conversations for Jarel Moor, Brother Joshua, Angus Stern, Brohann Caskbelly, Collin Mauren, the cathedral and the Old Town and Trade District regulars.
 

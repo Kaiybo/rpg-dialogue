@@ -2,6 +2,13 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.32.0 (2026-11-18)
+- Writing pass: repeated phrases cut and replaced with concrete detail.
+- Clarity pass: answers answer the question, names are introduced, quest lines stand alone, fewer contradictions.
+- Some NPCs of the opposite sex flirt with you, and remember how you answered (needs core 0.83.0).
+- NPCs who had only a few lines now have full conversations.
+- NPCs answer each stance reply before the talk moves on.
+
 ## 1.31.0 (2026-11-18)
 - The Lion's Pride cellar (Darkheart, Crowe, Marcot) answers every stance before the talk moves on, including being reported to the law (needs core 0.82.0).
 
