@@ -307,7 +307,7 @@ P:NPC {
     },
     gerenzo_arm = {
       lines = {
-        { id = "ga_default", text = "Shocked me too, and half the crew, and I hear Undermine's not thrilled either. He's rotting where he stands and he's bolted metal on where the flesh gave out, an arm that clanks and grabs, and I only say that down here, where the rock's thick." },
+        { id = "ga_default", text = "Shocked me too, and the whole crew, and I hear Undermine's not thrilled either. He's rotting where he stands and he's bolted metal on where the flesh gave out, an arm that clanks and grabs, and I only say that down here, where the rock's thick." },
       },
       choices = {
         { text = "Does he deserve what's coming?", next = "gerenzo_deserve" },

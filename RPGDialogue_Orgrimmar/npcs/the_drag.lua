@@ -247,7 +247,7 @@ P:NPC {
       choices = { { text = "Let's talk about something else.", next = "BACK" } },
     },
     seams = {
-      lines = { { id = "se_default", text = "Because a body's clothes tell me more than its mouth does, and they don't lie as often. Tell me honestly, who sewed what you're wearing?" } },
+      lines = { { id = "se_default", text = "Because a body's clothes tell me more than its mouth does, and they don't lie as often. So tell me true, who sewed what you're wearing?" } },
       choices = {
         { text = "I did, and it shows.", next = "seams_self", fx = { affinity = 1, trait = { honest = 1 } } },
         { text = "I bought it from a vendor. I don't sew.", next = "seams_bought", fx = { trait = { practical = 1 } } },
@@ -584,7 +584,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Felika, and I sell supplies to every crafter on the Drag and half the ones in the Valley of Honor. The Horde builds on small things, and if it's small, cheap and you'll need fifty of it, I sell it." },
+        { id = "h_default", key = true, text = "Felika, and I sell supplies to every crafter on the Drag and most of the ones in the Valley of Honor. The Horde builds on small things, and if it's small, cheap and you'll need fifty of it, I sell it." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's a line forming." },
@@ -632,7 +632,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     droffers = {
-      lines = { { id = "dr_default", text = "Dran sells junk at jewel prices and his son apologizes for it, and between the two of them they do very well. I sell useful things at fair prices and nobody ever thanks me, which tells you everything about the Drag." } },
+      lines = { { id = "dr_default", text = "Dran sells junk at jewel prices and his son apologizes for it, and between the two of them they do very well. I sell useful things at fair prices and nobody ever thanks me, and that's the Drag for you." } },
       choices = {
         { text = "Then why not charge more?", next = "droffers_more" },
         { text = "Something else.", next = "BACK" },
@@ -640,7 +640,7 @@ P:NPC {
     },
     droffers_more = {
       big = true,
-      lines = { { id = "dm_default", text = "Because a crafter who can't afford thread doesn't make anything, and then the whole Drag goes quiet. A fair price keeps this city sewing and smithing, and I'd rather be busy than rich." } },
+      lines = { { id = "dm_default", text = "Because a crafter who can't afford thread doesn't make anything, and then the whole Drag goes quiet. A fair price keeps this city sewing and smithing, and a busy stall suits me better than a fat purse." } },
       choices = {
         { text = "Fair prices keep a city honest. You're right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Charge what they'll pay. Dran has the right idea.", next = "BACK", fx = { align = { honor = -1 } } },

@@ -290,7 +290,7 @@ P:NPC {
     },
     why = {
       lines = {
-        { id = "wy_default", text = "Because a warrior who loves the look of his armor stands taller in it, and standing tall wins more fights than you'd think. And because some folk spend their whole lives in hand-me-downs, and they deserve to look grand for once." },
+        { id = "wy_default", text = "Because a warrior who loves the look of his armor stands taller in it, and a grunt standing tall has already half-won before the first swing. And because some folk spend their whole lives in hand-me-downs, and they deserve to look grand for once." },
       },
       choices = {
         { text = "That's kinder than I expected.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },

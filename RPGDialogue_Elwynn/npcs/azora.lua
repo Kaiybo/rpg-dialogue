@@ -56,7 +56,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Scrolls, mostly: a little strength or stamina, written into the page and spent in one breath. They're for the moment a gnoll has you pinned, not for showing off at the inn." } },
       choices = {
-        { text = "I'll keep one for the hard moment and fight honestly until then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep one for the hard moment and fight fair until then.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll read every one I can afford before a fight.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -65,7 +65,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Scrolls of agility, mostly, and the odd flask for a long night in the hills. Hunters who come up here usually want something for the eye and the hand, and they never stay long enough to sit." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing at the reagent shelf, and I'd rather it didn't. Some of those powders make a nose very unhappy." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing at the reagent shelf, so do call it back. Some of those powders make a nose very unhappy." },
       },
       choices = {
         { text = "A steady hand matters more than any scroll, I think.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -110,7 +110,7 @@ P:NPC {
           text = "You've the smell of a cellar about you, and I don't mean the inn's ale. Theocritus won't want you near his books, so let's keep our business to the counter." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, all the way up our stairs in all that steel! Sit a moment, because Theocritus keeps the windows shut and the climb is warmer than it looks." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in the tower! Mind the gnomes on the stairs, please, because they startle, and your beast startles them." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei, all the way up the tower stairs! Mind the shelves, because Master Theocritus counts the vials and I'd rather he didn't count them twice." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei, all the way up the tower stairs! Mind the shelves, because Master Theocritus counts the vials and he gets very cross when he has to count them twice." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, all the way up the tower stairs. Do mind the shelves, because Theocritus counts the vials and blames me for every one that goes missing." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, up all these stairs? Mind the shelves, please, and keep your spirits from rearranging anything. Theocritus notices everything except the dust on his own desk." },
       },
@@ -217,10 +217,10 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "It would, and I'd rather teach you to put one there yourself, because a rogue who knows how an enchantment's made can spot a fake one. Half the enchanted daggers sold in Stormwind's back alleys are plain steel with a bit of glitter, and the buyers never know until it matters." } },
+      lines = { { id = "xrogue_default", text = "It would, and I'd rather teach you to put one there yourself, because a rogue who knows how an enchantment's made can spot a fake one. Most of the enchanted daggers sold in Stormwind's back alleys are plain steel with a bit of glitter, and the buyers never know until it matters." } },
       choices = {
         { text = "Then I'll learn the craft properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Glitter daggers sound like a fine business, honestly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Glitter daggers sound like a fine business to me.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Kitta.", next = "BACK" },
       },
     },
@@ -274,7 +274,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "I've tried, honestly I have, and the dust goes dull every time, as though it knows it's being asked for something it can't give. Whatever you pray to, the Light or Elune, it seems to want to be asked by a person and not a rune, which I find rather lovely when I'm not finding it maddening." } },
+      lines = { { id = "xapriest_default", text = "I've tried, again and again, and the dust goes dull every time, as though it knows it's being asked for something it can't give. Whatever you pray to, the Light or Elune, it seems to want to be asked by a person and not a rune, which I find rather lovely when I'm not finding it maddening." } },
       choices = {
         { text = "Some things should only come from the heart, not the dust.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then nobody understands blessings yet. Keep trying, Kitta.", next = "BACK", fx = { align = { light = -1 } } },
@@ -303,7 +303,7 @@ P:NPC {
           text = "I'd ask that you keep your imp away from my dust, because a spark in the wrong pouch costs me a week of work." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've always wanted to try enchanting a bow, and nobody ever brings me one, so you're very welcome." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! Do you know nobody in this tower has ever let me enchant anything that grows? I've asked, and I've been told no very firmly." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'd be surprised how many of your sort climb up here to ask about enchanting, and how few of them want to learn it honestly." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'd be surprised how many of your sort climb up here to ask about enchanting, and how few of them want to learn it properly." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Oh, a shaman! Can your spirits feel enchantments? I've always wondered whether a rune hums to anyone but the person who wrote it." },
       },
       again = {
@@ -374,7 +374,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I was apprenticed in Stormwind, but I spent more time unmaking my master's spare rings than learning his spells, so we agreed I'd be happier here." } },
     advice = { { id = "tp_ad", text = "Never unmake anything you might want back. I learned that one with my grandmother's brooch." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that. Ask me about runes instead!" } },
-    dalaran = { { id = "tp_dalaran", text = "Every enchanter dreams of Dalaran's violet towers, and I'd give my best rod for one afternoon in their workshops. Mind you, they say it's half a ruin now and the mages rebuilding it don't want visitors." } },
+    dalaran = { { id = "tp_dalaran", text = "Every enchanter dreams of Dalaran's violet towers, and I'd give my best rod for one afternoon in their workshops. Still, they say it's half a ruin now and the mages rebuilding it don't want visitors." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor know runes I've only read about in footnotes. If you ever meet one, ask how they bind frost into a ring, and then come and tell me everything!" } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells a dozen trinkets that glow, and I spent my wages taking them apart to see why. Most of them were coloured glass and a very small spell, but one of them bit me." } },
   },

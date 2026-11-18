@@ -7,7 +7,7 @@ P:Rumors {
   id = "stormwind_inns", roles = { "innkeeper" }, zones = { "Stormwind City" },
   lines = {
     { id = "king", text = "Nobody at the Keep will say where the king went, and the more they don't say it, the more people guess. My money's on the Defias, but my money's on everything." },
-    { id = "prestor", text = "Lady Prestor was at the Keep again, whispering in Bolvar's ear. Half the lords love her and the other half are too frightened to say they don't." },
+    { id = "prestor", text = "Lady Prestor was at the Keep again, whispering in Bolvar's ear. The lords fawn over her, and the ones who don't are too frightened to say so." },
     { id = "masons", text = "The stonemasons still haven't been paid for the city they built. Some of them have gone west, and some of them have gone quiet, and I don't like either." },
     { id = "tram", text = "A gnome rode the Deeprun Tram both ways forty times yesterday, taking notes. The guards asked what for, and he gave them a lecture." },
     { id = "orphans", text = "Matron Battlewail's had three more children brought to the orphanage this month. That's what a war leaves behind, long after the songs." },

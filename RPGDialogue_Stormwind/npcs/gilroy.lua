@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage, and not an apprentice by the look of you. Good; you'll know not to read a scroll of Intellect aloud in a crowded room." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior. You'll want Strength or Protection, I expect, and you'll want me to skip the reading lesson. I won't." },
     { id = "g_away", when = { away = 14, metBefore = true }, text = "Gone {away}. I'd begun to wonder if you'd found a cheaper scribe, and then I remembered there isn't one." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come on a great deal since last time. I can see it in how you stand; the scrolls won't do as much for you now, and I'm glad of it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come on well since last time. I can see it in how you stand; the scrolls won't do as much for you now, and I'm glad of it." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "The Sanctum's apprentices say you've been decent to them. They gossip worse than the Lamb's regulars, but this once I believe them." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I've heard about you from the Sanctum steps. I'll sell you scrolls all the same, because ink doesn't care who buys it, but I'll watch my shelves." },
   },
@@ -44,11 +44,11 @@ P:NPC {
         { id = "h_default", key = true, text = "Adair Gilroy, librarian. I know, I know: a librarian whose books turn to dust when they're read. Sit down and I'll explain why that's not as mad as it sounds." },
         { id = "h_mage", when = { class = "MAGE" }, text = "A colleague, more or less. You write your spells into your head, and I write mine onto paper for people who can't. Between us we cover most of Stormwind." },
         { id = "h_warlock", when = { class = "WARLOCK" }, text = "You've come up from the Lamb's cellar, haven't you? I can smell the sulphur. I'll sell to you, but please don't touch the vellum with those fingers." },
-        { id = "h_rogue", when = { class = "ROGUE" }, text = "A rogue, in a shop full of small, valuable, pocket-sized things. You'll forgive me if I keep both eyes open while we talk." },
+        { id = "h_rogue", when = { class = "ROGUE" }, text = "A rogue, in a shop full of small, valuable, pocket-sized things. I'll keep both eyes open while we talk, if it's all the same to you." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin. You've the Light to lean on, so you'll want my scrolls less than most, but the Silver Hand used to buy Protection by the crate before the war." },
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid. Your people keep their learning in trees and songs, I'm told. I keep mine on paper, and I envy you the trees on a damp day." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf. Your Explorers' League sends me rubbings from Uldaman with notes like 'whit's this say?' and nothing else, and I love them for it." },
-        { id = "h_nelf", when = { race = "NightElf" }, text = "One of the Kaldorei. I'd give a great deal for an hour in your libraries, if you keep any, and I'd give more to know how old your oldest book is." },
+        { id = "h_nelf", when = { race = "NightElf" }, text = "One of the Kaldorei. I'd give a year's takings for an hour in your libraries, if you keep any, and I'd give more to know how old your oldest book is." },
         { id = "h_young", when = { maxLevel = 12 }, text = "You're new to the road, I think. Buy one scroll, not five, and learn what it feels like before you rely on it." },
         { id = "h_dalaran_word", tags = { "news" }, when = { minLevel = 30 },
           text = "There's talk Dalaran will open its gates again once the rebuilding's done. If it does, I'll close the shop for a month and go and stand in the Citadel's library till they throw me out." },
@@ -126,7 +126,7 @@ P:NPC {
     },
     milton_right = {
       lines = {
-        { id = "mr_default", text = "Neither, which is why the suppers have gone on for nineteen years. He came to me once with a scroll of Protection for his own use, sheepish as a boy, the night the Defias were rumoured in the Keep. I've never let him forget it." },
+        { id = "mr_default", text = "Neither, and so the suppers have gone on for nineteen years. He came to me once with a scroll of Protection for his own use, sheepish as a boy, the night the Defias were rumoured in the Keep. I've never let him forget it." },
       },
       choices = {
         { text = "Milton's right. Books belong on shelves.", next = "BACK", fx = { align = { order = 1 } } },
@@ -180,7 +180,7 @@ P:NPC {
     },
     scrolls_wrong = {
       lines = {
-        { id = "swr_default", text = "Once, badly. Years ago I sold a scroll of Strength to a dockhand who read it upside down. He went home stronger and a great deal stupider for the afternoon, and he married the woman he proposed to in that state. They're very happy, last I heard." },
+        { id = "swr_default", text = "Once, badly. Years ago I sold a scroll of Strength to a dockhand who read it upside down. He went home stronger and noticeably stupider for the afternoon, and he married the woman he proposed to in that state. They're very happy, last I heard." },
       },
       choices = {
         { text = "That's a fine story. Is it true?", next = "scrolls_true" },

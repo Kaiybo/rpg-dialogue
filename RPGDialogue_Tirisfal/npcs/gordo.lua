@@ -52,7 +52,7 @@ P:NPC {
       choices = {
         { text = "Who is your master, Gordo?", next = "master" },
         { text = "Why do you say \"us\"?", next = "us" },
-        { text = "You must see a great deal on this road.", next = "road" },
+        { text = "What do you see on this road?", next = "road" },
         { text = "I know herbs. Let me show you how to pick them.", next = "teach", when = { profession = "Herbalism" } },
         { text = "Someone must have made you, Gordo.", next = "made", when = { class = { "WARLOCK", "PRIEST", "MAGE" } } },
         { text = "I'll help you with the weeds.", next = "BUSINESS" },

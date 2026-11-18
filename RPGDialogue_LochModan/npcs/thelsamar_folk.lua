@@ -18,7 +18,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Sit down before ye fall down. Ghak Healtouch, an' if ye're bleedin', bleed on the floor an' no' the bandages, for they're clean." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, an' still in one piece, I see. That's more than I can say for most o' my regulars." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, an' still in one piece, I see. My regulars mostly come back wi' a bandage or three." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away} an' no' a scratch on ye that I can see. Either ye're careful or ye've been seein' another healer, an' I'll no' ask which." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've toughened up since last time, I can see it in how ye stand. Good, for the Badlands take soft folk apart." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Half my patients this month mentioned ye kindly, which is rare, for my patients mostly complain." },
@@ -259,7 +259,7 @@ P:NPC {
 
     ruins = {
       lines = {
-        { id = "ru_default", text = "Ironband's dig in the east, for one, an' the Valley o' Kings wi' its statues, an' half the islands in the loch have broken catapults on them from the Second War. Under all o' that, there's fitted stone nobody can explain." },
+        { id = "ru_default", text = "Ironband's dig in the east, for one, an' the Valley o' Kings wi' its statues, an' the islands in the loch have broken catapults on them from the Second War. Under all o' that, there's fitted stone nobody can explain." },
       },
       choices = {
         { text = "Who do you think built it?", next = "ruins_who" },

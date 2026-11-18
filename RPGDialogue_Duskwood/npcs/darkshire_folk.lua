@@ -30,7 +30,7 @@ P:NPC {
     { id = "n_beast", cat = "form", place = "replace", when = { form = { "bear", "cat" } },
       text = "Change back, now. In this town anything that walks in on four legs gets a crossbow bolt before it gets a greeting." },
     { id = "n_druid", cat = "form", when = { class = "DRUID" },
-      text = "A shapechanger. I know your kind isn't the curse, but I also know the curse looks a great deal like your kind in the dark." },
+      text = "A shapechanger. I know your kind isn't the curse, but I also know the curse looks very like your kind in the dark." },
     { id = "n_horde", cat = "stranger", when = { faction = "Horde" },
       text = "The Watch let you through, and I'd like to know why, along with a great many other things about you." },
   },
@@ -68,7 +68,7 @@ P:NPC {
       },
     },
     xrogue = {
-      lines = { { id = "xro_default", text = "So can the things we hunt, which is why I watch hands before faces. If you mean to come out with my household, you'll stay where I can see you, because a shadow I can't account for gets an arrow." } },
+      lines = { { id = "xro_default", text = "So can the things we hunt; I learned to watch hands before faces. If you mean to come out with my household, you'll stay where I can see you, because a shadow I can't account for gets an arrow." } },
       choices = {
         { text = "I'll stay where you can see me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll hunt my own way, Carevin.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -208,7 +208,7 @@ P:NPC {
     },
     priest = {
       lines = {
-        { id = "pr_default", text = "...You said that as if you meant it, which is more than most visitors manage. Calor will want to test you, and you should let him." },
+        { id = "pr_default", text = "...You said that as if you meant it, and most visitors only say it to be polite. Calor will want to test you, and you should let him." },
       },
       choices = {
         { text = "And if I fail his test?", next = "priest_test" },
@@ -310,7 +310,7 @@ P:NPC {
       },
     },
     xrogue = {
-      lines = { { id = "xro_default", text = "Then you've the sense to stay alive, which is more than half the Watch I served with. Just know the dead at Raven Hill don't turn their backs, so you'll need another trick." } },
+      lines = { { id = "xro_default", text = "Then you've the sense to stay alive, which puts you ahead of a fair few watchmen I've buried. Just know the dead at Raven Hill don't turn their backs, so you'll need another trick." } },
       choices = {
         { text = "Then I'll face them like a soldier.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "There's always another trick.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -538,7 +538,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Oh, plenty, and I've read about every one of them twice. The Ebonlockes held this town against trolls long before the Watch existed, and most of them died with a sword in their hand, which the records consider very proper." } },
+      lines = { { id = "xwarcl_default", text = "Oh, plenty, and I've read each family's papers twice over. The Ebonlockes held this town against trolls long before the Watch existed, and most of them died with a sword in their hand, which the records consider very proper." } },
       choices = {
         { text = "Then I'll try to earn a line in your histories.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Histories are for the dead. I'd rather stay out of them.", next = "BACK", fx = { align = { order = -1 } } },
@@ -709,7 +709,7 @@ P:NPC {
     },
     languages = {
       lines = {
-        { id = "la_default", text = "Common in all its old forms, a little Dwarven, and the dead scripts nobody else in Darkshire bothers with, which is why people bring me things." },
+        { id = "la_default", text = "Common in all its old forms, a little Dwarven, and the dead scripts nobody else in Darkshire bothers with, so anything with old writing on it ends up on my desk." },
       },
       choices = {
         { text = "What sort of things?", next = "languages_things" },
@@ -778,7 +778,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm historian to Darkshire. I read what the town wrote down and correct what it got wrong, and the second takes much longer." } },
     advice = { { id = "tp_ad", text = "Read the gravestones at Raven Hill before you fight anything there, because half the names will tell you what you're about to meet." } },
-    night_watch = { { id = "tp_watch", text = "Founded in a hurry and recorded in a hurry; half the rosters are in pencil, and that tells you all you need to know." } },
+    night_watch = { { id = "tp_watch", text = "Founded in a hurry and recorded in a hurry; the early rosters are written in pencil, and some of the names have rubbed away entirely." } },
     worgen = { { id = "tp_worgen", text = "There's nothing in the records, not one mention before these last few years, which is the most interesting thing anyone's told me in ages." } },
     stalvan = { { id = "tp_stalvan", text = "The Mistmantles are in the old registers, yes, and then there's a gap. I hate a gap, and Smitts hates it even more." } },
     ladimore = { { id = "tp_ladimore", text = "There's a book on him; the library in Stormwind keeps a copy, and so do I. It tells the tale better than I can, though I knew him." } },
@@ -786,9 +786,9 @@ P:NPC {
     embalmer = { { id = "tp_embalmer", text = "It was a nursery tale until I translated a certain note, and I've had to move it to the history shelf, where I don't like it at all." } },
     _none = { { id = "tp_none", text = "It's not in my papers, which means either it never happened or nobody here could spell it." } },
     raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a mining and farming village with a fine stone church, and its cemetery was the best kept in the province. Read the stones before you fight anything there, because the dead are often wearing their own names." } },
-    second_war = { { id = "tp_second_war", text = "The Second War left Duskwood mostly untouched, which is why Brightwood grew while other towns rebuilt. We had a generation of peace before the dark came, and nobody thought to write it down." } },
+    second_war = { { id = "tp_second_war", text = "The Second War left Duskwood mostly untouched, so Brightwood grew while other towns rebuilt. We had a generation of peace before the dark came, and nobody thought to write it down." } },
     lordaeron = { { id = "tp_lordaeron", text = "I corresponded with a historian in Lordaeron until the plague. His last letter was about the harvest, and I've kept it, because it's the last ordinary page from that kingdom I own." } },
-    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders appear in no record older than a few years, and every account places them near Deadwind Pass. Something in that pass is giving orders, and I'd rather study it from here." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders appear in no record older than a few years, and every account places them near Deadwind Pass. Something in that pass is giving orders, and I mean to study it from a good safe distance." } },
   },
 }
 
@@ -865,7 +865,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Perhaps the Light made the stars, I couldn't say, but it didn't make the fog, and I'd rather measure what's in front of me than guess. Hold the lamp for me some night and we'll see which of us learns more." } },
+      lines = { { id = "xapala_default", text = "Perhaps the Light made the stars, I couldn't say, but it didn't make the fog, so I measure what's in front of me rather than guess. Hold the lamp for me some night and we'll see which of us learns more." } },
       choices = {
         { text = "The Light shows more than any lens ever will, Viktori.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Measure away, then. Faith can wait for your results.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -952,7 +952,7 @@ P:NPC {
       },
     },
     reasons = {
-      lines = { { id = "r_default", text = "Then I'll have wasted some time and learned a great deal about lenses, and I can live with that." } },
+      lines = { { id = "r_default", text = "Then I'll have wasted some time and learned more about lenses than any man in Darkshire, and I can live with that." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     cog = {
@@ -1053,7 +1053,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I call every one of them that, and I mean it each time. A warm meal keeps the dark out better than any lamp." } },
+      lines = { { id = "xdsham_default", text = "I call everyone that, and I mean it each time. A warm meal keeps the dark out better than any lamp." } },
       choices = {
         { text = "A warm meal is a kindness, Grual. Keep the fire going.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Flattery's cheap. Your food had better be good.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1099,7 +1099,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Every one of them, and twice on cemetery nights, because a hungry watcher sees things that aren't there and misses things that are. I feed them on credit, mostly, and the credit's never once come due." } },
+      lines = { { id = "xapala_default", text = "All of them, and twice on cemetery nights, because a hungry watcher sees things that aren't there and misses things that are. I feed them on credit, mostly, and the credit's never once come due." } },
       choices = {
         { text = "Then I'll pay for my supper, and a watcher's besides.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Cooking on credit? You're a soft touch, Grual.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1420,7 +1420,7 @@ P:NPC {
       },
     },
     troubles = {
-      lines = { { id = "t_default", text = "So does everyone, but ours have teeth and theirs have committees, so forgive me if I don't weep." } },
+      lines = { { id = "t_default", text = "So does everyone, but ours have teeth and theirs have committees, so I'll save my tears for our own." } },
       choices = { { text = "Fair.", next = "BACK" } },
     },
     stormwind_who = {
@@ -1460,7 +1460,7 @@ P:NPC {
     },
     place = {
       lines = {
-        { id = "pl_default", text = "I'd send fifty soldiers. Not an army, mind you, just fifty, with a priest and one clerk who reads our letters past the first line." },
+        { id = "pl_default", text = "I'd send fifty soldiers. Not an army, just fifty good ones, with a priest and one clerk who reads our letters past the first line." },
       },
       choices = {
         { text = "And if they still won't?", next = "place_break" },
@@ -1582,7 +1582,7 @@ P:NPC {
       },
     },
     xrogue = {
-      lines = { { id = "xro_default", text = "It suits the worgen too, which is why I tell folk to stay out of the lit doorways and the dark ones both. Sit by the fire with your back to the wall like everybody else, and you'll sleep easier." } },
+      lines = { { id = "xro_default", text = "It suits the worgen too, so I tell folk to stay out of the lit doorways and the dark ones both. Sit by the fire with your back to the wall like everybody else, and you'll sleep easier." } },
       choices = {
         { text = "I'll take the dark doorway. Nobody sees me there.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "I'll sit with the others and watch the door.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -1788,7 +1788,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I could, and I'd rather you learned than walked in here every week with a cracked haft. The dead are hard on a mace, harder than living bone, and a hammer that breaks out past the lamps is no use to anyone." } },
+      lines = { { id = "xapala_default", text = "I could, and better you learn than walk in here every week with a cracked haft. The dead are hard on a mace, harder than living bone, and a hammer that breaks out past the lamps is no use to anyone." } },
       choices = {
         { text = "Teach me properly, then, the slow way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll just buy a new one when it breaks.", next = "BACK", fx = { align = { order = -1 } } },

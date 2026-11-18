@@ -7,7 +7,7 @@ P:Pool {
   barks = {
     { id = "b_dust", text = "There's dust on the north road. Could be riders, could be just the wind, or could be that blasted plainstrider again." },
     { id = "b_quilboar", text = "Smells like quilboar, but then everything smells like quilboar out here, including my bedroll." },
-    { id = "b_hero", when = { townStanding = { town = "crossroads", min = 30 } }, text = "That one's done more for the Crossroads than half the garrison." },
+    { id = "b_hero", when = { townStanding = { town = "crossroads", min = 30 } }, text = "That one's done more for the Crossroads than the whole garrison." },
   },
   greetings = {
     { id = "g_cross", text = "Lok'tar, and welcome to the Crossroads. The water's at the well, and the trouble's everywhere else." },

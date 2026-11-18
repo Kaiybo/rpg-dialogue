@@ -27,7 +27,7 @@ P:NPC {
     { id = "n_tauren", cat = "race", when = { race = "Tauren", class = "DRUID" },
       text = "A tauren druid. The Circle swore your people in alongside mine, and I've watched many of you take the trials here; you swim better than anyone expects." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
-      text = "I can see where you keep your knives, and I'd like them to stay there. There's nothing on this shrine worth stealing, and a great deal worth defending." },
+      text = "I can see where you keep your knives, and I'd like them to stay there. There's nothing on this shrine worth stealing, and everything here is worth defending." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
       text = "You carry the smell of the Twisting Nether onto Remulos's ground. Say what you came to say, and then take it back down the path with you." },
   },

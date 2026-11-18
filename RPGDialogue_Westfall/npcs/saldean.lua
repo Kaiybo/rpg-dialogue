@@ -318,7 +318,7 @@ P:NPC {
       lines = { { id = "bl_default", text = "Bless them after they're cleared. The Light's welcome here, but it won't pull a scarecrow out of my corn." } },
       choices = {
         { text = "Then I'll clear them first.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The Light pulls more than you'd think.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "The Light can pull harder than any plough-horse.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
       },
     },
   },

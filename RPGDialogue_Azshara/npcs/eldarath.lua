@@ -367,7 +367,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Here to hunt dragons? Leave me a name to send the condolences to." },
-    { id = "g_back", when = { metBefore = true }, text = "Still alive! That's more than most of my customers can say." },
+    { id = "g_back", when = { metBefore = true }, text = "Still alive! I'll keep your name off the list by the fire a while longer, then." },
   },
 
   notice = {
@@ -427,7 +427,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Every one of them, and the list is longer than I'd like, though shorter than my competitor's in Stormwind. Leatherworking is a trade for the living, so I'll teach you what you need and hope your name never goes on that parchment." } },
+      lines = { { id = "xmage_default", text = "Every last one, and the list is longer than I'd like, though shorter than my competitor's in Stormwind. Leatherworking is a trade for the living, so I'll teach you what you need and hope your name never goes on that parchment." } },
       choices = {
         { text = "I'll be careful. I don't want to be on that list.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A good mage doesn't die to dragons.", next = "BACK", fx = { align = { order = -1 } } },
@@ -538,7 +538,7 @@ P:NPC {
     eldarath = { { id = "tp_eld", text = "Ruins all around me and naga below. I keep to my camp and let the old stones keep their secrets." } },
     onyxia = { { id = "tp_onyxia", text = "Onyxia is the queen of black dragonscale, so to speak, and I've never met anyone who's brought me her hide. I've met a great many who went looking." } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "The best black dragonscale comes out of Blackrock Spire, where the whelps nest by the hundred. My condolences in advance, if you're going." } },
-    horizon_scout = { { id = "tp_horizon_scout", text = "The captain of the Horizon Scout keeps to the ruins and drinks too little to sleep and too much to work. Her crew buy my oils for their wounds, and they don't haggle, which tells you how they're doing." } },
+    horizon_scout = { { id = "tp_horizon_scout", text = "The captain of the Horizon Scout keeps to the ruins and drinks too little to sleep and too much to work. Her crew buy my oils for their wounds, and they don't even haggle, so things must be grim out there." } },
     booty_bay = { { id = "tp_booty_bay", text = "I trained in Booty Bay under a goblin who charged me for every needle I broke. I broke a great many, and I still owe him for some of them." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. I know leather, and I know dragons, and that's my lot." } },
   },
@@ -693,7 +693,7 @@ P:NPC {
         { id = "h_rune", when = { questActive = TODO_QUEST("Kim'jael's \"Missing\" Equipment") },
           text = "The rune, the rune! The naga have it, down in Eldarath, and the elves wanted it badly. Find it, valuable employee, and we'll both be rich, or at least I will." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! Would you say something holy over my equipment, once it's back? The elves who hired me said a few words over it too, and every one of them was a curse." },
+          text = "A priest! Would you say something holy over my equipment, once it's back? The elves who hired me said a few words over it too, and each word was a curse." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and Horde at that! Good, maybe you can put a curse on those elves who called me little rat, or a blessing on me, whichever's cheaper." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Oh, a druid! You've got that leafy look about you, which I like, because leaves don't shout at Kim'jael or call him little rat." },
       },
@@ -779,7 +779,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "Information costs money, partner, but for you, a free sample. Here's what I've got." } },
     background = { { id = "tp_bg", text = "A Booty Bay goblin with an eye for treasure, a head for figures and terrible taste in employers.", next = "hired" } },
-    advice = { { id = "tp_ad", text = "Get paid half up front. Then get the other half up front too, if you can." } },
+    advice = { { id = "tp_ad", text = "Get paid half up front, and then get the other half up front too, if you can." } },
     rimtori = { { id = "tp_rimtori", text = "She hired me, she cheated me, she tried to have me killed. I'd write her a bad reference if anyone asked.", next = "hired" } },
     eldarath = { { id = "tp_eld", text = "Naga, ghosts and treasure, partner, and two out of three of those I could do without, unless the ghosts are selling." } },
     horizon_scout = { { id = "tp_horizon_scout", text = "The Horizon Scout? Pal, that ship sank with a hold full of goods I'd have bought cheap, which is a tragedy for everybody, but mostly for my margins." } },
@@ -810,7 +810,7 @@ P:NPC {
 
   notice = {
     { id = "n_healer", cat = "class", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } },
-      text = "A healer, thank the Light! We had a priest among the passengers, but she's worn to the bone, and half the crew needs mending." },
+      text = "A healer, thank the Light! We had a priest among the passengers, but she's worn to the bone, and most of my crew need mending." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You look like you've been through a wreck yourself. Sit down a moment before the naga come back." },
   },
@@ -885,7 +885,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, ahoy! If you can conjure fresh water, my crew will love you for it, because we've been rationing what we saved from the Horizon Scout." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "A rogue, is it? The naga keep my scattered cargo in their camps up the shore, and I'd rather it was fetched quietly than fought over." },
+          text = "A rogue, is it? The naga keep my scattered cargo in their camps up the shore, and I want it fetched quietly, not fought over." },
         { id = "h_default", key = true,
           text = "Captain Vanessa Beltis, of the Horizon Scout, or I was, before she went to the bottom. My crew's in shambles, our cargo and passengers are scattered along this beach, and the naga aren't finished with us yet." },
         { id = "h_fight", when = { questActive = TODO_QUEST("A Crew Under Fire") },
@@ -1008,7 +1008,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The League knows about everythin' an' agrees on nothin'. Half o' them say the stone remembers the Titans, an' the other half say spirits are orc business. I just fly the rubbings." } },
+      lines = { { id = "xdsham_default", text = "The League knows about everythin' an' agrees on nothin'. Some o' them say the stone remembers the Titans, an' the rest say spirits are orc business. I just fly the rubbings." } },
       choices = {
         { text = "The stone remembers. I've heard it myself.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I keep Ironforge's ways. The spirits only lend a hand.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1017,7 +1017,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, an' once was plenty! An imp got into the engine an' I thought she'd catch fire over the sea, an' I swear it laughed the whole way down. So ye'll forgive me if I ask ye tae keep it on a short leash while I'm flyin' these rubbings north." } },
+      lines = { { id = "xlock_default", text = "Once, an' once was plenty! An imp got into the engine an' I thought she'd catch fire over the sea, an' I swear it laughed the whole way down. So keep it on a short leash, if ye please, while I'm flyin' these rubbings north." } },
       choices = {
         { text = "A short leash it is. Your flyer's safe with me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My imp goes where it pleases. You'll manage.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1040,14 +1040,14 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ye can bring {pet} along some day, if it doesn't mind heights. My last passenger's cat clawed a hole in the seat, an' I'm still findin' fur in the engine." },
       },
       choices = {
-        { text = "I'll find the camps on foot and face them honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find the camps on foot and face them head-on.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll mark them from the air and strike while they sleep.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     gnome_xg = {
       lines = {
-        { id = "gxg_default", text = "Ha! A gnome designed her, a dwarf built her an' I flew her, which is why she's still in one piece. Yer people draw the best plans in the world, but ye can't be trusted near a wrench when ye're excited." },
+        { id = "gxg_default", text = "Ha! A gnome designed her, a dwarf built her an' I flew her, an' that's how she's still in one piece. Yer people draw the best plans in the world, but ye can't be trusted near a wrench when ye're excited." },
       },
       choices = {
         { text = "Without our plans, you'd be walking.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -1175,7 +1175,7 @@ P:NPC {
       },
     },
     machine = {
-      lines = { { id = "m_default", text = "Ironforge's finest, built in the Military Ward's hangar and patched by me in a dozen fields since. She's loud, she's ugly, and she's never once dropped me in the sea, which is more than I can say for gryphons." } },
+      lines = { { id = "m_default", text = "Ironforge's finest, built in the Military Ward's hangar and patched by me in a dozen fields since. She's loud, she's ugly, and she's never once dropped me in the sea, an' no gryphon I ever rode can claim that." } },
       choices = {
         { text = "She's beautiful, Xiggs.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },

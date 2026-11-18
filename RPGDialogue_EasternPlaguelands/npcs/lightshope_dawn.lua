@@ -122,7 +122,7 @@ P:NPC {
     },
 
     chapel = {
-      lines = { { id = "ch_default", text = "This ground is holy, and the Scourge will not walk it willingly, so the dead who are not theirs gather here. I am one of them, and I've made myself useful, which is more than most ghosts manage." } },
+      lines = { { id = "ch_default", text = "This ground is holy, and the Scourge will not walk it willingly, so the dead who are not theirs gather here. I am one of them, and I've made myself useful, where most ghosts only drift and mourn." } },
       choices = {
         { text = "Does Lord Tyrosus know you're here?", next = "chapel_tyrosus" },
         { text = "Something else.", next = "BACK" },

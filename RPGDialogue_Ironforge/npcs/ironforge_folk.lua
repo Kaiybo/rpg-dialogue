@@ -262,7 +262,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "The Light's servants hear a great deal in this hall, an' I've kept my ears open. Ask me about any o' this." },
+      { id = "tp_knows", text = "The Light's servants hear plenty in this hall, an' I've kept my ears open. Ask me about any o' this." },
     },
     background = { { id = "tp_bg", text = "I'm a paladin o' the Silver Hand an' a trainer in the Hall. I've sent more young ones up tae Tiza than I can count, an' I can count." } },
     advice = { { id = "tp_ad", text = "Mend yer armor before ye pray. The Light hears ye either way, but the troll's quicker." } },
@@ -359,7 +359,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "More than you'd believe, because half of them lost their fathers in the wars and the other half never had one, and a paladin is something to look up to. I can't promise they'll behave, but I can promise they'll remember you." } },
+      lines = { { id = "xapala_default", text = "More than you'd believe, because most of them lost their fathers to the Second War or the plague, and a paladin is something to look up to. I can't promise they'll behave, but I can promise they'll remember you." } },
       choices = {
         { text = "Then I'll visit them in Stormwind. Every child deserves someone to look up to.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'm no hero for children. They need parents, not paladins.", next = "BACK", fx = { align = { light = -1 } } },
@@ -481,7 +481,7 @@ P:NPC {
       lines = {
         { id = "ca_default", text = "Did you, now? Then you know where half my children would be without Stephanie, and where some of them go when they run off anyway. I won't ask how you learned your trade, but I'll ask you to steer any little ones you meet toward our door." },
         { id = "ca_pick", when = { origin = "human_canal_pickpocket" },
-          text = "You've the quick hands of a canal child; I've had a few of those through the orphanage, and every one of them stole my purse in the first week. Did anybody ever take you in?" },
+          text = "You've the quick hands of a canal child; I've had a few of those through the orphanage, and each of them lifted my purse in the first week. Did anybody ever take you in?" },
       },
       choices = {
         { text = "I'll send them your way.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -589,7 +589,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "I don't know, and I'd rather not learn it on a hammer meant for the Church. Stormwind's mages and the Cathedral have always kept a polite distance, and I think there's wisdom in that, even if I couldn't tell you exactly why." },
+        { id = "xmage_default", text = "I don't know, and I won't find out on a hammer meant for the Church. Stormwind's mages and the Cathedral have always kept a polite distance, and I think there's wisdom in that, even if I couldn't tell you exactly why." },
       },
       choices = {
         { text = "Then I'll keep my distance from your anvil.", next = "BACK", fx = { align = { order = 1 } } },
@@ -612,7 +612,7 @@ P:NPC {
           text = "A warlock at the Church's anvil! I'll ask you to keep your distance from the blessed metal, for it's been blessed once and I'd not like to bless it again." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I'll forge you arrowheads if you need them, and bless the steel while I'm at it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Nature's work and the Light's work aren't so far apart, I think, though you'll find my hammer louder than your groves." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I work blessed steel here, and I'd rather you didn't cast near the anvil, because I've never known what the arcane does to a blessing." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I work blessed steel here, so please don't cast near the anvil, because I've never known what the arcane does to a blessing." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I serve the Light at my anvil, and I'll admit I don't know what you serve, but your hands look like they've worked, so we may have more in common than the Church would think." },
       },
       again = {
@@ -653,7 +653,7 @@ P:NPC {
     },
     outside = {
       lines = {
-        { id = "ou_default", text = "The cool mountain air, Duthorian tells people. The truth is I like to see the road, because people come up it needing things, and I'd rather meet them halfway." },
+        { id = "ou_default", text = "The cool mountain air, Duthorian tells people. The truth is I like to see the road, because people come up it needing things, and I like to meet them halfway." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -678,7 +678,7 @@ P:NPC {
     },
     father = {
       lines = {
-        { id = "fa_default", text = "The Scourge took him. He always said that hammer was enchanted and I laughed at him for it, and I'd give a great deal to laugh at him again." },
+        { id = "fa_default", text = "The Scourge took him. He always said that hammer was enchanted and I laughed at him for it, and I'd give anything to laugh at him again." },
       },
       choices = {
         { text = "I'm sorry, Jordan.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },

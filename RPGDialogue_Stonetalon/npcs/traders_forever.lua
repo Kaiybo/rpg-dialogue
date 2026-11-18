@@ -48,7 +48,7 @@ P:NPC {
     },
     mystic = {
       lines = {
-        { id = "m_default", text = "Magnificently, mon, it says so right on my title. I have a little of the old voodoo from the islands, and a great deal of talent for telling people what they already know, and between the two I do very well." },
+        { id = "m_default", text = "Magnificently, mon, it says so right on my title. I have a little of the old voodoo from the islands, and a big talent for telling people what they already know, and between the two I do very well." },
       },
       choices = {
         { text = "So it's a trick.", next = "trick" },
@@ -103,7 +103,7 @@ P:NPC {
     },
     trust = {
       lines = {
-        { id = "t_default", text = "With my life, mon, never with my money. He would say the same about me, and we are both right, which is why the partnership works." },
+        { id = "t_default", text = "With my life, mon, never with my money. He would say the same about me, and we both be right, so de partnership works." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

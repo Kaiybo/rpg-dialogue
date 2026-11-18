@@ -48,7 +48,7 @@ P:NPC {
       },
     },
     op_leave_1 = {
-      lines = { { id = "op_leave_r1", text = "That's Saldean's answer, and I'll tell him a stranger agrees with him, which will make him unbearable for a week. Mind you, staying's easier for those with a pitchfork and a full larder." } },
+      lines = { { id = "op_leave_r1", text = "That's Saldean's answer, and I'll tell him a stranger agrees with him, which will make him unbearable for a week. Still, staying's easier for those with a pitchfork and a full larder." } },
       choices = { { text = "Something else, Salma.", next = "BACK" } },
     },
     op_leave_2 = {
@@ -75,7 +75,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Maybe it does, and I'd be lying if I said I've never wondered about some of the thin young men who come to my door at dusk. But a hungry boy is a hungry boy, and I'd rather fill him with stew than have him filling his pockets from my larder." },
+        { id = "xrogue_default", text = "Maybe it does, and I'd be lying if I said I've never wondered about some of the thin young men who come to my door at dusk. But a hungry boy is a hungry boy, and I'll fill him with stew before I let him fill his pockets from my larder." },
         { id = "xrogue_more1", text = "If you're asking whether I'd feed you, the answer's the same, and I'll not ask where you've been." },
       },
       choices = {
@@ -142,7 +142,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Westfall Stew"), days = 3 } },
           text = "Three pots were gone by sundown, and half the hill came down for it. One of them cried into his bowl, and I didn't ask why." },
         { id = "h_pie", when = { questActive = TODO_QUEST("Goretusk Liver Pie") },
-          text = "Goretusk liver, and fresh, mind you. A pie's only as good as what's in it, and that's a fact Verna will argue with." },
+          text = "Goretusk liver, and fresh this morning. A pie's only as good as what's in it, and that's a fact Verna will argue with." },
         { id = "h_furlbrows", when = { topicKnown = "old_blanchy" },
           text = "Verna and Theodore are up at the old Jansen place, poor dears, since their wagon broke. Theodore's pride broke worse than the wheel did." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -201,7 +201,7 @@ P:NPC {
       },
     },
     vulture = {
-      lines = { { id = "v_default", text = "Buzzard. They eat well out here, which is more than I can say for the people." } },
+      lines = { { id = "v_default", text = "Buzzard, and a fat one, since they eat better out here than the farmers do." } },
       choices = { { text = "Fair point. Something else.", next = "BACK" } },
     },
     recipe = {
@@ -242,7 +242,7 @@ P:NPC {
     },
     fed = {
       big = true,
-      lines = { { id = "fe_default", text = "I have. A hungry boy in a red mask is still a hungry boy, and he said thank you, and he's left my hens alone ever since, which is more than I can say for the fox." } },
+      lines = { { id = "fe_default", text = "I have. A hungry boy in a red mask is still a hungry boy, and he said thank you, and he's left my hens alone ever since, and the fox could stand to learn from him." } },
       choices = {
         { text = "That's real kindness.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { kind = 1 } } },
         { text = "He'll rob someone else tomorrow.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 }, opinion = { defias = "hardline" } } },
@@ -331,7 +331,7 @@ P:NPC {
   },
 
   topics = {
-    holy_light = { { id = "tp_holy_light", text = "I say grace over every pot I cook, and I don't ask whether the guest at my table says it too. The Light feeds us both, and I'd rather it found us both thankful." } },
+    holy_light = { { id = "tp_holy_light", text = "I say grace over every pot I cook, and I don't ask whether the guest at my table says it too. The Light feeds us both, and it may as well find us both thankful." } },
     deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the mines under Moonbrook, they say, and they're eating our grain while they're down there. I hope they choke on it, though I'd feed them myself if they came to my door hungry." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I bought a recipe at the Darkmoon Faire once from a dwarf who swore it would make even murloc palatable. He wasn't lying, and that's why there's murloc in tonight's stew." } },
     booty_bay = { { id = "tp_booty_bay", text = "A sailor from Booty Bay stopped here once and told me the goblins eat crocolisk tail fried in butter. I've never seen a crocolisk, but I've got butter, and I've thought about it a good deal since." } },
@@ -343,7 +343,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Eat before you fight, not after. And never trust a cook who won't taste her own stew." } },
     trade = { { id = "tp_tr", text = "Cooking for whoever comes. Pay me in boar livers and stories.", next = "help" } },
     defias = { { id = "tp_defias", text = "Some of them have come to my door, you know, hungry, and I fed them. I'd do it again." } },
-    people_militia = { { id = "tp_militia", text = "Good boys and girls, every one, and every one of them hungry. I see to that." } },
+    people_militia = { { id = "tp_militia", text = "Good boys and girls, every one, and they all eat at my table before patrol." } },
     westfall = { { id = "tp_westfall", text = "It'll come back. Land always comes back if there's people who love it." } },
     old_blanchy = { { id = "tp_blanchy", text = "That horse has more years than sense. Verna loves her like a daughter." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that. More stew?" } },

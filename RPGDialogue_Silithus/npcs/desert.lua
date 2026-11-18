@@ -162,7 +162,7 @@ P:NPC {
         { id = "h_object", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hive in the Tower"), days = 5 } },
           text = "I keep turning that thing you found over in my hands. It's crusted with chitin like a beetle's shell, but there's a book underneath, I'd swear it, and a book from Southwind would be a window into the past." },
         { id = "h_warm", when = { disposition = { min = 70 } },
-          text = "It does me good to see you, {name}. Sit a while among the stones; they're better company than you'd think." },
+          text = "It does me good to see you, {name}. Sit a while among the stones; they have kept their silence for ten thousand years, and I find that restful." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Many who rest here carried a blade as you do, {class}, and came to these wastes to stand against what lies beyond them." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -264,7 +264,7 @@ P:NPC {
     },
 
     umber = {
-      lines = { { id = "u_default", text = "The Circle's archivist in Nighthaven. Touched, I'll grant you, and he talks more than a flock of starlings, but brilliant; he's rescued books in worse shape than that shell. If anyone can open it without destroying what's inside, he can." } },
+      lines = { { id = "u_default", text = "The Circle's archivist in Nighthaven. Touched, certainly, and he talks more than a flock of starlings, but brilliant; he's rescued books in worse shape than that shell. If anyone can open it without destroying what's inside, he can." } },
       choices = {
         { text = "Touched?", next = "umber_touched" },
         { text = "Something else.", next = "BACK" },
@@ -383,7 +383,7 @@ P:NPC {
         { id = "opc_q", text = "You know what I left behind me. Now I'll tell you what keeps me up at night, which is everyone else: what do you think of the Twilight's Hammer?" },
       },
       choices = {
-        { text = "Madmen. Every one of them should be put down.", next = "op_cult_r1", fx = { affinity = 1, align = { light = -1 }, opinion = { twilights_hammer = "hate" } } },
+        { text = "Madmen. The whole cult should be put down.", next = "op_cult_r1", fx = { affinity = 1, align = { light = -1 }, opinion = { twilights_hammer = "hate" } } },
         { text = "Some of them are lost fools. They could leave, like you did.", next = "op_cult_r2", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 }, opinion = { twilights_hammer = "pity" } } },
         { text = "They frighten me more than the bugs do.", next = "op_cult_r3", fx = { trait = { cautious = 1 }, opinion = { twilights_hammer = "fear" } } },
         { text = "I'd rather not talk about them here.", next = "BACK" },
@@ -391,7 +391,7 @@ P:NPC {
     },
     op_cult_r1 = {
       lines = {
-        { id = "op_cult_r1", text = "Every one of them? Even the ones who left, like me? No, no, I'm sure you meant the ones who stayed, yes, of course you did." },
+        { id = "op_cult_r1", text = "The whole cult? Even the ones who left, like me? No, no, I'm sure you meant the ones who stayed, yes, of course you did." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -486,7 +486,7 @@ P:NPC {
           text = "Any encrypted texts yet? I'm dying to read this month's True Believer; it's the only way I'll know if they've stopped looking for me." },
         { id = "h_purpose", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Terrible Purpose"), days = 7 } },
           text = "Did the Commander read it? Did he understand it? Of course he did; I translated it beautifully, once I'd worked out which chapter went first." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Close the door, quickly, because the cult has no love for priests, and I'd rather not be found in the company of one." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Close the door, quickly, because the cult has no love for priests, and being found with one would be the end of me." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Don't swing that thing, I'm a friend, an ex-cultist, the most reformed man in the whole desert. You'll tell the Hammer you didn't find me, won't you?" },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -524,7 +524,7 @@ P:NPC {
 
     hunted = {
       big = true,
-      lines = { { id = "hu_default", text = "Because the Twilight's Hammer doesn't let anyone leave. They've hunted me from camp to camp like a beast, and I'd be dead by now if I weren't cleverer than every one of them put together." } },
+      lines = { { id = "hu_default", text = "Because the Twilight's Hammer doesn't let anyone leave. They've hunted me from camp to camp like a beast, and I'd be dead by now if I weren't cleverer than the whole lot put together." } },
       choices = {
         { text = "You've done well to stay hidden this long.", next = "hunted_westfall" },
         { text = "Why did you join them in the first place?", tag = "Intimidate", next = "ort_why",
@@ -568,7 +568,7 @@ P:NPC {
       lines = {
         { id = "ce_default", text = "Help whatever's in this desert wake up, and be standing close by when it does, so it'll know them. That's the plan, as far as anyone below the officers knows it." },
         { id = "ce_purpose", when = { questDone = TODO_QUEST("A Terrible Purpose") },
-          text = "You've read what was on that tablet, or the Commander has, so you know more than most of the cult does. I'd sleep with a candle lit, if I were you." },
+          text = "You've read what was on that tablet, or the Commander has, so you know more than their own initiates do. I'd sleep with a candle lit, if I were you." },
       },
       choices = {
         { text = "What do you think of the cult now?", next = "op_cult" },

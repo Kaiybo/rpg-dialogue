@@ -25,7 +25,7 @@ P:NPC {
 
   notice = {
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
-      text = "A mage. You'll forgive me if I watch your hands, because the last mage I heard of fouled my whole lake." },
+      text = "A mage. I will be watching your hands, because the last mage I heard of fouled my whole lake." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "One of the Forsaken, here? You walk like Sarilus must walk, and you'll understand why that does you no favours at Silverwind." },
   },

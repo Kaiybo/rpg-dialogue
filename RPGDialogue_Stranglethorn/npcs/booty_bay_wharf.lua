@@ -189,7 +189,7 @@ P:NPC {
     },
     xhunt = {
       lines = {
-        { id = "xh_default", text = "Every animal in Stranglethorn hates 'em, buddy, which is why the tiger hunters up at Nesingwary's camp buy my flash-bangs to flush game out of the brush. Real sporting, they tell me, though I notice they never ask the tigers." },
+        { id = "xh_default", text = "Every animal in Stranglethorn hates 'em, buddy, so the tiger hunters up at Nesingwary's camp buy my flash-bangs to flush game out of the brush. Real sporting, they tell me, though I notice they never ask the tigers." },
         { id = "xh_pet", when = { pet = { type = "Beast" } }, text = "Every animal in Stranglethorn hates 'em, buddy, and your {pet} there is already lookin' at my crates like they owe it money. Nesingwary's hunters buy my flash-bangs to flush game out, so maybe keep a tight hold on the leash, huh?" },
       },
       choices = { { text = "I'll keep my companion well clear of your stall.", next = "BACK", fx = { trait = { cautious = 1 } } } },
@@ -228,7 +228,7 @@ P:NPC {
   notices = { "profession", "race", "purse" },
 
   impression = {
-    first = "Wigcik sells fish off the Booty Bay docks and argues with every one of them before he sells it. He smells of the morning catch and talks about Old Man Heming the way a man talks about a rival he'd miss terribly.",
+    first = "Wigcik sells fish off the Booty Bay docks and argues with each fish before he sells it. He smells of the morning catch and talks about Old Man Heming the way a man talks about a rival he'd miss terribly.",
     third = "{name} met Wigcik, the sour goblin fishmonger of the Booty Bay docks.",
   },
 
@@ -257,7 +257,7 @@ P:NPC {
         { id = "h_fisher", when = { profession = { name = "Fishing", min = 1 } },
           text = "A fisher, eh? Then you know a good catch when you see one, chum, which is more than half my customers. If you've got a sackful to sell, I'll look, but I'll tell ya now I don't pay for anything that's been sittin' in the sun." },
         { id = "h_dwarf", when = { race = "Dwarf" },
-          text = "A dwarf on my dock! Your lot eat more fish than you'd think for mountain folk, chum, and you always want it fried in somethin' that'd stop a goblin's heart." },
+          text = "A dwarf on my dock! Your lot eat a surprisin' amount of fish for mountain folk, chum, and you always want it fried in somethin' that'd stop a goblin's heart." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A tauren, buying fish? Don't laugh, chum, plenty of you do, though you always look sorry for 'em first, which I find real touching." },
         { id = "h_morning", when = { timeOfDay = "morning" },
@@ -313,7 +313,7 @@ P:NPC {
     },
     heming_truth = {
       big = true,
-      lines = { { id = "ht_default", text = "Maybe, maybe not, but he knows where every snapper in this bay sleeps, so I don't much care how he learned it. He tells the young fishers at the Baron's tournament that he taught half the winners, and you know what, chum, he probably did." } },
+      lines = { { id = "ht_default", text = "Maybe, maybe not, but he knows where every snapper in this bay sleeps, so I don't much care how he learned it. He tells the young fishers at the Baron's tournament that he taught most of the winners, and you know what, chum, he probably did." } },
       choices = {
         { text = "A man's stories are his own. Let him tell them.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Somebody should set the record straight, gently.", next = "BACK", fx = { align = { order = 1 } } },
@@ -435,7 +435,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Myizz Luckycatch, sweetheart, and yes, that's my real name, and yes, it works. I teach anybody with two hands and a little patience how to pull supper out of the sea, and if you've only got the hands, I'll sell you the patience too." },
         { id = "h_fisher", when = { profession = { name = "Fishing", min = 1 } },
-          text = "Ooh, a fisher! Let me see your knots, sweetheart, because I can tell everything about a person from their knots, and half the folk who come down here tie 'em like they're angry at the line." },
+          text = "Ooh, a fisher! Let me see your knots, sweetheart, because I can tell everything about a person from their knots, and most folk who come down here tie 'em like they're angry at the line." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter, and you'll take to fishing like a heron to a pond, sweetheart, since it's the same trade with wetter feet. Bring your beast down by the water, it can have the heads." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -516,10 +516,10 @@ P:NPC {
 
     -- The tournament
     tournament = {
-      lines = { { id = "tn_default", text = "Every Sunday afternoon, sweetheart, the Baron's man Riggle Bassbait stands on the dock and shouts until somebody brings him forty tastyfish, and whoever's first wins the prize. Half the coast goes fishing at once, the gulls go mad and the Bruisers bet on the whole thing." } },
+      lines = { { id = "tn_default", text = "Every Sunday afternoon, sweetheart, the Baron's man Riggle Bassbait stands on the dock and shouts until somebody brings him forty tastyfish, and whoever's first wins the prize. The whole coast goes fishing at once, the gulls go mad and the Bruisers bet on the whole thing." } },
       choices = {
         { text = "Any advice for winning it?", next = "tourn_tips" },
-        { text = "Do the Bruisers bet honestly?", next = "tourn_bets" },
+        { text = "Do the Bruisers bet fair?", next = "tourn_bets" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -990,7 +990,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Good day, friend, or a day, anyway. Bids are open, and the cut is what it is." },
-    { id = "g_back", when = { metBefore = true }, text = "Still alive, friend. That's more than I can say for the last owner of half my lots." },
+    { id = "g_back", when = { metBefore = true }, text = "Still alive, friend. The last owners of most of my lots weren't so lucky, and that's how they became my lots." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde coin bids the same as Alliance coin here, friend. In the end it all goes to the same place, which is usually the bottom of the bay." },
   },
 

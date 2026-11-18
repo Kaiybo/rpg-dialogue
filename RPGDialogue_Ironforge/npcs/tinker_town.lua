@@ -168,7 +168,7 @@ P:NPC {
     },
     xcl_gnome = {
       big = true,
-      lines = { { id = "xcl_gnome_default", text = "Then you walked past everything we built and left behind, the drill rigs, the clean rooms and the great machines in the engineering halls. Thermaplugg turned every one of them against us, which is the cruellest thing you can do to an engineer, because a machine only ever does what it's told." } },
+      lines = { { id = "xcl_gnome_default", text = "Then you walked past everything we built and left behind, the drill rigs, the clean rooms and the great machines in the engineering halls. Thermaplugg turned all of it against us, which is the cruellest thing you can do to an engineer, because a machine only ever does what it's told." } },
       choices = {
         { text = "Then the machines can be forgiven, and the gnomes who built them too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then scrap them, Tinkmaster, every last one of them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -250,7 +250,7 @@ P:NPC {
 
     techbot = {
       lines = {
-        { id = "te_default", text = "My mechanical assistant, a kind and helpful thing who fetched tools and greeted visitors and was, frankly, better company than half the Assembly. We left him behind when we fled, and now he's malfunctioned." },
+        { id = "te_default", text = "My mechanical assistant, a kind and helpful thing who fetched tools and greeted visitors and was, frankly, better company than most of the Assembly. We left him behind when we fled, and now he's malfunctioned." },
       },
       choices = {
         { text = "Something has clearly gone wrong with him.", next = "techbot_wrong" },
@@ -343,7 +343,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Test it on a dummy first. Ideally a dummy that isn't you.", next = "discipline" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Our city, poisoned and full of troggs, and Techbot still down there somewhere.", next = "techbot" } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran's mages build arcane constructs that walk and guard and never tire, and I'd love to compare one with Techbot's old schematics. They'd never let a gnome near one with a screwdriver, of course, and they'd be quite right." } },
-    gadgetzan = { { id = "tp_gadgetzan", text = "Goblin engineering is fast and loud and has no respect for elegance whatsoever. It works, I'll grant you, but so does a hammer." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Goblin engineering is fast and loud and has no respect for elegance whatsoever. It works, yes, but so does a hammer." } },
     magni = { { id = "tp_magni", text = "King Magni once asked me what Techbot was for, and I couldn't answer, and I've never felt so foolish. Techbot was for being Techbot, and that's enough." } },
     _none = { { id = "tp_none", text = "That isn't engineering, so I'm afraid I've no opinion. Well, I've an opinion, but it isn't informed." } },
   },
@@ -370,7 +370,7 @@ P:NPC {
     { id = "n_gnome", cat = "craft", when = { race = "Gnome", origin = "gnome_tinker_apprentice" },
       text = "You were an apprentice in the city, weren't you? Then you know what's on those terminals, and you know we can't leave it there." },
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
-      text = "An engineer! You'll understand the terminals, then, or at least you won't hit them, which is more than I can say for the last group." },
+      text = "An engineer! You'll understand the terminals, then, or at least you won't hit them, and the last group hit three, one with a mace." },
   },
 
   start = "hello",
@@ -425,7 +425,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Nobody knows, and I'd rather we didn't find out. Leave the demon at the entrance if you can, and I'll gladly have you on the team, because the troggs down there are bigger than they used to be." } },
+      lines = { { id = "xlock_default", text = "Nobody knows, and I'd prefer the experiment stayed untested. Leave the demon at the entrance if you can, and I'll gladly have you on the team, because the troggs down there are bigger than they used to be." } },
       choices = {
         { text = "I'll leave the demon outside and follow your procedure.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "An irradiated demon sounds useful, Castpipe. I'll find out.", next = "BACK", fx = { align = { light = -1 } } },
@@ -443,7 +443,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I have, and I've regretted it, for a team of engineers is very good at fixing terminals and very bad at being chased by troggs. A paladin at the front means the engineers can do their work, and I'd rather that than another name in my ledger." } },
+      lines = { { id = "xapala_default", text = "I have, and I've regretted it, for a team of engineers is very good at fixing terminals and very bad at being chased by troggs. A paladin at the front means the engineers can do their work, and that's one less name in my ledger of the lost." } },
       choices = {
         { text = "Then I'll lead the team. The engineers will come home.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Engineers should learn to fight. A paladin can't babysit everyone.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -568,7 +568,7 @@ P:NPC {
 
     worth = {
       lines = {
-        { id = "wo_default", text = "I ask myself that every time a group goes in. Then I remember that Thermaplugg sits on those archives, and I'd rather they were ours than his." },
+        { id = "wo_default", text = "I ask myself that every time a group goes in. Then I remember that Thermaplugg sits on those archives, and every page he keeps is a page we've lost twice." },
       },
       choices = {
         { text = "Then let's take them from him.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
@@ -597,7 +597,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I've catalogued what's lost, which means I know a great deal about what we haven't got. Here's what I can tell you." } },
+    knows = { { id = "tp_knows", text = "I've catalogued what's lost, which means I can list, by shelf and drawer, everything we haven't got. Here's what I can tell you." } },
     background = { { id = "tp_bg", text = "Master Mechanic, formerly of a very large workshop in Gnomeregan and now of this very small one. I keep lists, mostly." } },
     advice = { { id = "tp_ad", text = "Keep a copy of everything, and keep it somewhere else.", next = "data" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Our city, and our archives, and I want them both back, in that order or the other.", next = "down" } },
@@ -737,7 +737,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh my, you'll forgive the mess, I'm sure, because priests forgive everything, or so I've heard, and my workshop needs a great deal of forgiving." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh my, you'll forgive the mess, I'm sure, because priests forgive everything, or so I've heard, and my workshop needs all the forgiving it can get." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your plate's lovely, but I'll wager I could make it lighter and stronger, if you've a few months and don't mind being a test subject." },
         { id = "h_cl_gnome", tags = { "news" }, when = { cleared = "Gnomeregan", faction = "Alliance" },
           text = "Somebody said you'd gone right through Gnomeregan to the very end! Did you pass the artificial extrapolators, and were any of them still ticking? Oh my, I do hope so." },
@@ -791,7 +791,7 @@ P:NPC {
     },
     xorig_scav = {
       lines = {
-        { id = "xsc_default", text = "Artificials, extrapolators, anything with a gear in it that isn't glowing! But I'll only buy what the troggs had, mind you, and not what some poor family left on a workbench, because the High Tinker says that's the difference between salvage and theft." },
+        { id = "xsc_default", text = "Artificials, extrapolators, anything with a gear in it that isn't glowing! But I'll only buy what the troggs had, and not what some poor family left on a workbench, because the High Tinker says that's the difference between salvage and theft." },
       },
       choices = {
         { text = "Parts don't belong to anyone once the city falls.", next = "xorig_scav2", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
@@ -811,7 +811,7 @@ P:NPC {
 
     invention = {
       lines = {
-        { id = "in_default", text = "Ah! Well! It's, um, very great, and very inventive, and it'll need the hardest metal anyone's ever made, which is why I'm making that first." },
+        { id = "in_default", text = "Ah! Well! It's, um, very great, and very inventive, and it'll need the hardest metal anyone's ever made, so I'm making that first." },
       },
       choices = {
         { text = "You don't know yet, I think.", next = "invention_know" },
@@ -929,7 +929,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Listening posts! Shamans at every tunnel mouth from Kharanos to the Gnomeregan gate, telling us what the troggs and the leper gnomes are doing below. The other half of the plan is persuading enough shamans to sit in tunnels, and that's where I've stalled." } },
+      lines = { { id = "xdsham_default", text = "Listening posts! Shamans at every tunnel mouth from Kharanos to the Gnomeregan gate, telling us what the troggs and the leper gnomes are doing below. The second part of the plan is persuading enough shamans to sit in tunnels, and that's where I've stalled." } },
       choices = {
         { text = "Count me in. Gnomeregan's people deserve their home back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Sitting in a tunnel for gnomes isn't my calling, Gnoarn.", next = "BACK", fx = { align = { light = -1 } } },
@@ -957,7 +957,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "All around Gnomeregan's entrance, and they bring their filthy cave beasts with them, which is why I've lost my hair and my patience both. If you count them and tell me which tunnels they use, I'll put it in the plans." },
+        { id = "xhuntcl_default", text = "All around Gnomeregan's entrance, and they bring their filthy cave beasts with them, and between them they've cost me my hair and my patience both. If you count them and tell me which tunnels they use, I'll put it in the plans." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep your {pet} away from the radiation, if you would, for I'd hate for it to lose its fur the way I lost my hair." },
       },
       choices = {
@@ -1043,7 +1043,7 @@ P:NPC {
       },
       choices = {
         { text = "Hair grows back.", next = "hair_back" },
-        { text = "It suits you, honestly.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "It suits you, really it does.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
     hair_back = {

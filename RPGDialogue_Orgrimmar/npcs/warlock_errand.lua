@@ -89,7 +89,7 @@ P:NPC {
       },
     },
     strahad = {
-      lines = { { id = "st_default", text = "Strahad Farsan keeps a tower in Ratchet and calls his students acolytes, which tells you everything about Strahad. He'll teach you the felhunter, though, and he does it well, so go and endure his manner." } },
+      lines = { { id = "st_default", text = "Strahad Farsan keeps a tower in Ratchet and calls his students acolytes, as if he were a temple. He'll teach you the felhunter, though, and he does it well, so go and endure his manner." } },
       choices = { { text = "Something else, Gan'rul.", next = "BACK" } },
     },
   },
@@ -128,7 +128,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Cazul, and my eyes are useless, so you'll forgive me if I stare at the wall while we talk. Power belongs to those willing to pay its price, and I paid mine a long time ago." },
+        { id = "h_default", key = true, text = "Cazul, and my eyes are useless, so I'll be staring at the wall while we talk. Power belongs to those willing to pay its price, and I paid mine a long time ago." },
         { id = "h_devourer", when = { questActive = TODO_QUEST("Devourer of Souls") },
           text = "If Gan'rul has sent you to me, you are to summon a succubus and need an object to entice her. If you trust a blind man to lead you, then listen, because I know of a young woman who has exactly what you need." },
         { id = "h_after", when = { class = "WARLOCK", pet = { family = "Succubus" } },
@@ -189,7 +189,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I studied under the Shadow Council's lesser masters, and I outlived every one of them. Draw what conclusion you like from that." } },
+    background = { { id = "tp_bg", text = "I studied under the Shadow Council's lesser masters, and I outlived them all. Draw what conclusion you like from that." } },
     advice = { { id = "tp_ad", text = "Never look at anything you can't afford to remember." } },
     _none = { { id = "tp_none", text = "I don't know, and at my age I've stopped pretending to." } },
   },
@@ -262,7 +262,7 @@ P:NPC {
       },
     },
     bluffs = {
-      lines = { { id = "bl_default", text = "From here I can see every wind rider that comes in from the south, and every runner on the road. The other grunts' mates wait in the Valley of Strength, but they gossip, and I'd rather listen to the wind." } },
+      lines = { { id = "bl_default", text = "From here I can see every wind rider that comes in from the south, and every runner on the road. The other grunts' mates wait in the Valley of Strength, but they gossip, and the wind tells me more." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     truth = {

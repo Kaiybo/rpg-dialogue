@@ -85,7 +85,7 @@ P:NPC {
 
     hand = {
       lines = {
-        { id = "ha_default", text = "A relic of a demon called Iruxos, I'm told, a withered hand that still remembers how to open doors. The Blade keep it locked in a box that only a demon pick can break, which tells you they fear it a little too." },
+        { id = "ha_default", text = "A relic of a demon called Iruxos, I'm told, a withered hand that still remembers how to open doors. The Blade keep it locked in a box that only a demon pick can break, so they fear it a little too." },
       },
       choices = {
         { text = "Why not destroy it?", next = "hand_destroy" },
@@ -345,7 +345,7 @@ P:NPC {
 
     scar_kolkar = {
       lines = {
-        { id = "sk_default", text = "I hated them for years, and it kept me warm in the cold nights on the Barrens' edge. Now I'm tired of it, and the hate has gone grey like this land, and I'd rather spend what's left of me on the vines." },
+        { id = "sk_default", text = "I hated them for years, and it kept me warm in the cold nights on the Barrens' edge. Now I'm tired of it, and the hate has gone grey like this land, and I mean to spend what's left of me on the vines." },
       },
       choices = {
         { text = "That sounds like peace, of a kind.", next = "BACK", fx = { trait = { kind = 1 } } },

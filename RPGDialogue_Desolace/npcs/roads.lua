@@ -261,7 +261,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. I don't suppose the spirits can count, because I could use a second pair of eyes on this ledger." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, good. If anything goes wrong on this run, you'll be the one patching up the drivers, and I'll write down how many bandages you used." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Don't conjure anything into my wagons, please, because I count the crates, and an extra one is just as much trouble as a missing one." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? Then you'll appreciate that every lock on this caravan was bought from a goblin who swore it couldn't be picked, and I'd rather not find out he lied." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? Then you'll appreciate that every lock on this caravan was bought from a goblin who swore it couldn't be picked, and I'd hate to find out he lied." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Please keep that little fellow of yours away from the kodos, because they spook at the smell of him and I'm the one who has to calm them down." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in full plate, in Desolace! You'll cook in that, you know, but I'll gladly put you on the books as caravan guard if you can keep up with a kodo." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now, would you mind having a word with the kodos? They've been sulking since Feralas, and a sulking kodo walks half as fast and eats twice as much." },
@@ -297,7 +297,7 @@ P:NPC {
       choices = { { text = "Anything I should do?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "So if you're guarding us, keep close to him at the front. He'll never admit he needs it, and I'd rather not count him among the losses." } },
+      lines = { { id = "b1_3_l", text = "So if you're guarding us, keep close to him at the front. He'll never admit he needs it, and I won't be counting him among the losses." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -388,7 +388,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Discreet folk, pal, and they stay discreet because I don't spread their names around Desolace. Let's just say a kodo fetches a better price in Booty Bay than it does here, and the Cartel takes a smaller cut than you'd think." } },
+      lines = { { id = "xrogue_default", text = "Discreet folk, pal, and they stay discreet because I don't spread their names around Desolace. Let's just say a kodo fetches a better price in Booty Bay than it does here, and the Cartel's cut is a lot friendlier than the tax at Nijel's Point." } },
       choices = {
         { text = "I don't care who buys. Show me the coin.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'd want to know where the beasts end up first.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -522,7 +522,7 @@ P:NPC {
     venture_company = { { id = "tp_venture_company", text = "The Venture Company would be wrangling kodos out here too if they could, but they'd just strip the bones and sell the graveyard. I've got a little more vision than that, pal." } },
     booty_bay = { { id = "tp_booty_bay", text = "Kodos fetch a good price in Booty Bay, if you can get one on a boat, and you can't, which I learned with a very expensive boat. Never again, pal." } },
     centaur = { { id = "tp_centaur", text = "The centaur don't like my operation and I don't like their arrows, and so far the arrows are winning. That's why I hire contractors, see." } },
-    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan'll buy a tame kodo for more than you'd think, and a wild one for less than you'd hope. Getting from wild to tame is where you come in." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan'll buy a tame kodo for a small fortune, and a wild one for less than you'd hope. Getting from wild to tame is where you come in." } },
     _none = { { id = "tp_none", text = "Never heard of it, buddy, but if it's for sale, I'm interested, and if it ain't, I'm still interested in why not." } },
   },
 }
@@ -650,7 +650,7 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "Vahlarriel Demonslayer, a night elf at Nijel's Point who has hunted the Burning Blade longer than I've been alive. She is fierce and she doesn't give up, which is why I'm still hoping." } },
+      lines = { { id = "b2_1_l", text = "Vahlarriel Demonslayer, a night elf at Nijel's Point who has hunted the Burning Blade longer than I've been alive. She is fierce and she doesn't give up, and that's what keeps me hoping." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {
@@ -684,7 +684,7 @@ P:NPC {
     third = "{name} met Vahlarriel Demonslayer, a night elf demon hunter of the Burning Blade's trail, at Nijel's Point.",
   },
   greetings = {
-    { id = "g_pj_lock", when = { prejudiced = true }, text = "A warlock, at Nijel's Point. I have spent years following the Burning Blade across this waste, and every one of them began as somebody who promised the demon was only a tool." },
+    { id = "g_pj_lock", when = { prejudiced = true }, text = "A warlock, at Nijel's Point. I have spent years following the Burning Blade across this waste, and each of them began as somebody who promised the demon was only a tool." },
     { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I've watched how you use your demon, and I've watched how the Burning Blade use theirs, and they aren't the same. I didn't want to see it, but I'm not so stubborn that I can't." },
     { id = "g_main", text = "Ishnu-alah. You walked in from the hills, so you've seen what Desolace has become." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good; I've more work than allies, and Elune has given me a long time to notice the difference." },
@@ -1064,7 +1064,7 @@ P:NPC {
       },
     },
     ds_blade = {
-      lines = { { id = "dsb_default", text = "They hide in Thunder Axe Fortress and call things up from the Nether, and they're orcs, which shames me more than I can say, because I saw what the old Horde became after it drank that poison. I'd kill every one of them myself if Misha could stand the stink of them." } },
+      lines = { { id = "dsb_default", text = "They hide in Thunder Axe Fortress and call things up from the Nether, and they're orcs, which shames me more than I can say, because I saw what the old Horde became after it drank that poison. I'd kill them all myself if Misha could stand the stink of them." } },
       choices = {
         { text = "Then I'll help you thin them out.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1129,7 +1129,7 @@ P:NPC {
       },
     },
     war_daelin2 = {
-      lines = { { id = "wd2_default", text = "I don't know, and I've never asked, because some questions aren't mine to put to a daughter. She chose peace over her father's war, which is harder than anything I did with an axe that day, and the Horde owes her more than most grunts will ever admit." } },
+      lines = { { id = "wd2_default", text = "I don't know, and I've never asked, because some questions aren't mine to put to a daughter. She chose peace over her father's war, which is harder than anything I did with an axe that day, and the Horde owes her more than any grunt will admit." } },
       choices = {
         { text = "Then she's braver than her father was.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -1215,7 +1215,7 @@ P:NPC {
     cairne = { { id = "tp_cairne", text = "Cairne is the wisest creature on this continent, and he knows it, and he still listens. That makes him rare." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin and Rokhan's people stood with us against the humans at Theramore. The Darkspear are sly, and they're loyal, and those two things don't often go together." } },
     jaina = { { id = "tp_jaina", text = "The Proudmoore girl stood beside us against her own father, and she meant it. I didn't trust her then, and I trust her now." } },
-    theramore = { { id = "tp_theramore", text = "I fought at the gates of Theramore when Admiral Proudmoore came to burn Durotar. His daughter wept for him, and she still kept the peace, which tells you what she is." } },
+    theramore = { { id = "tp_theramore", text = "I fought at the gates of Theramore when Admiral Proudmoore came to burn Durotar. His daughter wept for him, and she still kept the peace, and that's all anyone needs to know of her." } },
     centaur = { { id = "tp_centaur", text = "The centaur think they own every plain they run across, and they kill anything that disagrees. Misha and I disagree often." } },
     maraudon = { { id = "tp_maraudon", text = "The centaur guard Maraudon like a grave, and from what I hear, it is one. I leave the dead to the dead." } },
     earth_mother = { { id = "tp_earth_mother", text = "The tauren speak of the Earth Mother, and out here in the wilds, I think I've heard her once or twice. She doesn't say much, which I like." } },

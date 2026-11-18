@@ -425,7 +425,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Sure, for the front door, when we need somebody loud and honest to walk in while Renzik's people go in the back. You'd be surprised how often a big shiny distraction closes the deal, and paladins never even ask for a cut." } },
       choices = {
-        { text = "I'll be no one's distraction. I go in honestly or not at all.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll be no one's distraction. I go in openly or not at all.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If it gets the job done, I'll walk in the front door.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -776,7 +776,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "More than you'd think, because the folk from the Lamb come up hungry and pale and buy six rolls at once, and I never ask what kept them below so long. I sell to the Cathedral at noon and the Lamb at dusk, and I'm fairly sure I'm the only man in the city who does both." },
+        { id = "xlock_default", text = "A fair bit, because the folk from the Lamb come up hungry and pale and buy six rolls at once, and I never ask what kept them below so long. I sell to the Cathedral at noon and the Lamb at dusk, and I'm fairly sure I'm the only man in the city who does both." },
       },
       choices = {
         { text = "Then I'll pay for my roll and keep your secret.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -893,7 +893,7 @@ P:NPC {
       choices = { { text = "Ha. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     flour = {
-      lines = { { id = "f_default", text = "Elwynn's mills, these days, and dear. Half the bread in this city was Westfall wheat, once. Not since the farms went.",
+      lines = { { id = "f_default", text = "Elwynn's mills, these days, and dear. Most of the bread in this city was baked from Westfall wheat once, but not since the farms went.",
         fx = { learn = { "westfall" } } } },
       choices = { { text = "Something else.", next = "BACK" } },
     },

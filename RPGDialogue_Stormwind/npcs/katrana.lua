@@ -134,7 +134,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "A noble order, darling, and noble orders are very expensive. The Silver Hand marched to Lordaeron and lost it all the same, and the kingdom still pays for its pride, so you'll forgive me if I ask what we're buying." } },
+      lines = { { id = "xapala_default", text = "A noble order, darling, and noble orders are very expensive. The Silver Hand marched to Lordaeron and lost it all the same, and the kingdom still pays for its pride, so I do think it fair to ask what we're buying." } },
       choices = {
         { text = "Honour can't be priced, my lady. You'd do well to remember it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A fair question, my lady. Every order should prove its worth.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -187,7 +187,7 @@ P:NPC {
         { text = "Lakeshire is begging for soldiers.", next = "letters", when = { visited = "Lakeshire" } },
         { text = "Your advice must carry weight, my lady.", next = "advise" },
         { text = "Power is power, my lady, wherever it comes from.", next = "warlock", when = { class = "WARLOCK" } },
-        { text = "A rogue hears a great deal at court, my lady.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "A rogue hears plenty at court, my lady.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Gnomeregan needs Stormwind's help, my lady.", next = "gnome", when = { race = "Gnome" } },
         { text = "Ironforge's gold paid for much of this city, my lady.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Does the court have any use for mages, my lady?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -347,7 +347,7 @@ P:NPC {
       },
     },
     dwarf_warn = {
-      lines = { { id = "dwa_default", text = "Merely advice, freely given. I give a great deal of it, and the wise ones take it." } },
+      lines = { { id = "dwa_default", text = "Merely advice, freely given. I give it generously, and the wise ones take it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

@@ -225,7 +225,7 @@ P:NPC {
       choices = { { text = "Something else, Ahanu.", next = "BACK" } },
     },
     armory = {
-      lines = { { id = "ar_default", text = "Hewa keeps the cloth and I keep the leather, and between us we dress half the young hunters who come up from Bloodhoof. We're at the foot of the wind rider tower, so whoever lands here sees us first." } },
+      lines = { { id = "ar_default", text = "Hewa keeps the cloth and I keep the leather, and between us we dress most of the young hunters who come up from Bloodhoof. We're at the foot of the wind rider tower, so whoever lands here sees us first." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

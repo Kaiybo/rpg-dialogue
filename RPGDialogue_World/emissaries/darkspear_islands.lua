@@ -254,7 +254,7 @@ P:NPC {
     },
     k_forsaken = {
       lines = {
-        { id = "kf_default", text = "Maybe they don't, and I'd never say you owe us anything. But the humans of Theramore be the same humans who'd see your Undercity burned, and every one of them on my islands be one less in Lordaeron." },
+        { id = "kf_default", text = "Maybe they don't, and I'd never say you owe us anything. But the humans of Theramore be the same humans who'd see your Undercity burned, and each one on my islands be one less marchin' on Lordaeron." },
       },
       choices = {
         { text = "That's a reason I can accept.", next = "BACK", fx = { trait = { stern = 1 } } },

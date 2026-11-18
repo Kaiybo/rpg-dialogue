@@ -13,10 +13,10 @@ local P = RPGDialogueAPI:Pack("rpgd.world")
 
 P:Views { topic = "_shrug", views = { { id = "shrug", text = "", replies = {
   { id = "s1", text = "Well, you're entitled to think so, {class}. Most folk have an opinion on it, and few of them agree." },
-  { id = "s2", text = "Hm. I'll grant you that's one way of looking at it, though I've heard plenty of others." },
+  { id = "s2", text = "Hm. That's one way of looking at it, though I've heard plenty of others." },
   { id = "s3", text = "Maybe so. Time usually tells, and it tells everyone they were a little bit wrong." },
   { id = "s4", when = { faction = "Horde" }, text = "You speak your mind, and that's no bad thing in the Horde. Just be ready for someone to speak theirs back." },
-  { id = "s5", when = { faction = "Alliance" }, text = "Fair enough, {g:lad|lass}. Say it a little quieter in a crowded street, though, because not everyone's as patient as me." },
+  { id = "s5", when = { faction = "Alliance" }, text = "Speak your mind, {g:lad|lass}, but say it a little quieter in a crowded street, because not everyone's as patient as me." },
 } } } }
 
 -- Every topic without views of its own.
@@ -29,7 +29,7 @@ P:Views { topic = "_any", views = {
   { id = "doubt", text = "I've heard it told differently, and I'm not sure who to believe.", fx = { trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Then you've heard it from someone who wasn't there. Believe who you like, but I know what I know." },
     { id = "b", text = "Good. Doubt everything you hear twice, and the things you hear once besides; it'll keep you alive." },
-    { id = "c", when = { disposition = { min = 60 } }, text = "Fair enough. I only know what reached me, and stories grow legs on the road." },
+    { id = "c", when = { disposition = { min = 60 } }, text = "You may be right. I only know what reached me, and stories grow legs on the road." },
   } },
   { id = "go", text = "Sounds like something I ought to see for myself.", fx = { trait = { brave = 1 } }, replies = {
     { id = "a", text = "I thought you might say that. Go carefully, {class}, and come back and tell me if I had it right." },
@@ -49,7 +49,7 @@ P:Views { topic = "background", views = {
     { id = "a", text = "I've done what I could, which is all anyone does. Kind of you to notice, though.", fx = { affinity = 1 } },
     { id = "b", text = "Well enough, maybe. Ask me again in ten years and I'll tell you if it was worth it." },
   } },
-  { id = "mine", text = "Mine's not so different, if I'm honest.", fx = { trait = { honest = 1 } }, replies = {
+  { id = "mine", text = "Mine's not so different, as it happens.", fx = { trait = { honest = 1 } }, replies = {
     { id = "a", text = "No, I don't suppose it is. Nobody ends up out here because things went smoothly back home.", fx = { affinity = 1 } },
     { id = "b", when = { metBefore = false }, text = "Is that so? Then you'll understand why I don't tell it often." },
   } },
@@ -83,7 +83,7 @@ P:Views { topic = "advice", views = {
   } },
   { id = "own_way", text = "I'll find my own way, but thanks all the same.", fx = { trait = { brave = 1 } }, replies = {
     { id = "a", text = "Everyone does, in the end. Just don't be too proud to turn back when the way runs out." },
-    { id = "b", when = { disposition = { max = 44 } }, text = "Then why did you ask? Go on, then, and learn it the hard way like the rest of us.", fx = { affinity = -1 } },
+    { id = "b", when = { disposition = { max = 44 } }, text = "Then why did you ask? Go on, then, and find it out for yourself like the rest of us had to.", fx = { affinity = -1 } },
   } },
   { id = "heard", text = "I've heard that before, from people who're dead now.", fx = { trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Then they didn't listen to all of it, did they? The trick is in doing it, not in hearing it." },
@@ -95,7 +95,7 @@ P:Views { topic = "advice", views = {
 P:Views { topic = "rumors", views = {
   { id = "more", text = "I'll keep my ears open for more of that.", fx = { trait = { curious = 1 } }, replies = {
     { id = "a", text = "Do, and bring me back anything good. A rumor's worth more when it's shared.", fx = { affinity = 1 } },
-    { id = "b", text = "You'll hear plenty, and half of it will be wrong. The trick is guessing which half." },
+    { id = "b", text = "You'll hear plenty, and most of it wrong. The trick is guessing which bits are true." },
   } },
   { id = "gossip", text = "People talk too much. Most of it's nonsense.", fx = { trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Most of it, aye, but not all. The day you stop listening is the day the true one goes past you." },

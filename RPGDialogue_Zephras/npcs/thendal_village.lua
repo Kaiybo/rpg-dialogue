@@ -99,7 +99,7 @@ P:NPC {
     },
     nerves = {
       lines = {
-        { id = "ne_default", text = "It is a happy day, mostly! Our people have had a hard time of it, so we hold on to the good days with both hands. So tell me honestly, are you nervous, or are you hiding it very well?" },
+        { id = "ne_default", text = "It is a happy day, mostly! Our people have had a hard time of it, so we hold on to the good days with both hands. So tell me, are you nervous, or are you hiding it very well?" },
       },
       choices = {
         { text = "Terrified, if I'm honest.", next = "nerves_yes", fx = { affinity = 1, trait = { cautious = 1 } } },
@@ -477,7 +477,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Ren, and I teach the blade here. Our world is changing, and it will need people with the will to lead and protect the others if our people are going to survive it, so I don't waste my time on anyone who isn't serious." },
         { id = "h_path", tags = { "news" }, when = { questDone = TODO_QUEST("The Warrior's Path") },
-          text = "You found me, then, and you read my note. Come back to me as you grow, because you'll need guidance more than you think, and I'd rather you got it from me than from your mistakes." },
+          text = "You found me, then, and you read my note. Come back to me as you grow, because you'll need guidance more than you think, and better you get it from me than from your mistakes." },
         { id = "h_outsider", when = { class = "WARRIOR", ["not"] = { race = "Skyborne" } },
           text = "A warrior from below the clouds. I'd like to see how your people fight, because ours have had ten thousand years to grow comfortable, and comfortable warriors are dead ones." },
       },
@@ -613,7 +613,7 @@ P:NPC {
     wilds2 = {
       big = true,
       lines = {
-        { id = "w2_default", text = "To keep our people safe, first and last. Some hunters out there think it's their job to put the wild back the way it was, but I don't think anyone can, and I'd rather spend my arrows on what's in front of me." },
+        { id = "w2_default", text = "To keep our people safe, first and last. Some hunters out there think it's their job to put the wild back the way it was, but I don't think anyone can, so I spend my arrows on what's in front of me." },
       },
       choices = {
         { text = "Protect the people first. The wild can fend for itself.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -680,7 +680,7 @@ P:NPC {
     { id = "n_repair", cat = "kit", when = { durability = { max = 30 } },
       text = "That edge has more nicks than a cirrusfly has legs. I can mend it, and you should let me before it fails you." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf! I've heard your people are the finest smiths below the clouds. Would you look at one of my blades and tell me honestly what you think?" },
+      text = "A dwarf! I've heard your people are the finest smiths below the clouds. Would you look at one of my blades and tell me straight what you think?" },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You've been eyeing the dirks. They're good dirks, so I don't blame you, but I count them every evening." },
   },
@@ -732,7 +732,7 @@ P:NPC {
     name2 = {
       big = true,
       lines = {
-        { id = "n2_default", text = "Honestly? I couldn't tell you, but people buy from a man called Thriceforged, and they don't buy from a man called Twice-If-I-Have-Time. Some say a tradition's worth keeping for its own sake, and some say it's only habit with a fancy name." },
+        { id = "n2_default", text = "I couldn't tell you, but people buy from a man called Thriceforged, and they don't buy from a man called Twice-If-I-Have-Time. Some say a tradition's worth keeping for its own sake, and some say it's only habit with a fancy name." },
       },
       choices = {
         { text = "Keep the tradition. It's what makes the blade yours.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -751,7 +751,7 @@ P:NPC {
   },
 
   topics = {
-    windstones = { { id = "tp_stones", text = "Windstones or coin. I like the stones better, and so does everyone, which is why they keep getting dearer." } },
+    windstones = { { id = "tp_stones", text = "Windstones or coin. I like the stones better, and so does everyone, so they keep getting dearer." } },
     advice = { { id = "tp_ad", text = "Keep your edge oiled and your grip dry, and come and see me before it breaks, not after." } },
     _none = { { id = "tp_none", text = "I know steel, friend, and not much else. Ask in the grove." } },
   },

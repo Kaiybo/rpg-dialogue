@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Watch your step, for half of what's green on this slope wants to bite you, and the other half remembers the Legion." },
+    { id = "g_default", text = "Watch your step, for most of what grows green on this slope wants to bite you, and what doesn't still remembers the Legion's rain." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The weeds have grown since you left, but then, they always do." },
     { id = "g_done", when = { questDone = TODO_QUEST("Celastrus the Bitter") }, text = "There's the one who cut down Celastrus. The eastern hollow is greening already; go and look, when you've the time." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the slope has grown back over half the paths you knew, so mind your boots." },
@@ -60,7 +60,7 @@ P:NPC {
     },
     celastrus = {
       lines = {
-        { id = "c_default", text = "A great thornbush that lurks about the slopes to the east. It kills animals, it lashes out at the other plants, and it feeds on the bodies of the dead, which is why it's grown so big. It must be destroyed." },
+        { id = "c_default", text = "A great thornbush that lurks about the slopes to the east. It kills animals, it lashes out at the other plants, and it has fed on the bodies of the dead until it grew to the size of a barrow. It must be destroyed." },
         { id = "c_done", when = { questDone = TODO_QUEST("Celastrus the Bitter") }, text = "It was a thornbush the size of a house, and now it's a heap of kindling, thanks to you. I've kept its frond on my shelf, which is petty of me, but I've earned a little pettiness." },
       },
       choices = {
@@ -70,7 +70,7 @@ P:NPC {
     },
     celastrus_dead = {
       lines = {
-        { id = "cd_default", text = "Because there are plenty of them on this mountain, and the fel taught the plants to be hungry. A healthy thorn takes rain and sun; a poisoned one takes whatever it can catch, and it's caught a great deal." },
+        { id = "cd_default", text = "Because there are plenty of them on this mountain, and the fel taught the plants to be hungry. A healthy thorn takes rain and sun, but a poisoned one takes whatever wanders too close, and I have found deer bones knotted in its roots." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

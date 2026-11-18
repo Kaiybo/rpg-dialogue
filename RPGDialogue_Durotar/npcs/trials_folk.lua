@@ -79,7 +79,7 @@ P:NPC {
       },
     },
     ea_more = {
-      lines = { { id = "eam_default", text = "You stop, mon, and you notice it, which be more than most do. Thrall come back to the old ways because the warlocks forget that, and the whole orc race pay for their forgetting." } },
+      lines = { { id = "eam_default", text = "You stop, mon, and you notice it, and most folk walk right past. Thrall come back to the old ways because the warlocks forget that, and the whole orc race pay for their forgetting." } },
       choices = {
         { text = "The Warchief is a shaman too.", next = "ea_thrall" },
         { text = "Something else.", next = "BACK" },

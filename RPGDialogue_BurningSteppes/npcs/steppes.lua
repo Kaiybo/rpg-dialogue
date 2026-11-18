@@ -165,7 +165,7 @@ P:NPC {
         text = "The Blackrock carry what they're given and attack whatever they're pointed at, which is what they're for. They think they serve their own warchief, and we let them think it." } },
       choices = {
         { text = "And what of your masters? Should I fear them too?", next = "op_blackflight" },
-        { text = "You're telling me a great deal.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "You are very free with your secrets.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -184,7 +184,7 @@ P:NPC {
     },
 
     devour = {
-      lines = { { id = "d_default", text = "Because a dead mortal fetches me nothing, and a living one might fetch me a great deal. Do not mistake my patience for affection, little one." } },
+      lines = { { id = "d_default", text = "Because a dead mortal fetches me nothing, and a living one might fetch me a hoard. Do not mistake my patience for affection, little one." } },
       choices = {
         { text = "Charming. Moving on.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "I'm not afraid of you.", next = "BACK", fx = { trait = { brave = 1 }, affinity = -1 } },

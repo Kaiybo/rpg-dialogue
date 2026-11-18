@@ -38,7 +38,7 @@ P:NPC {
   nodes = {
     prej = {
       big = true,
-      lines = { { id = "prej_default", text = "Your kind love stone so well they forget what lives on top of it. Dun Modr, Thelgen Rock, the Whelgar dig, and every one of them a wound that woke something worse than what slept there before." } },
+      lines = { { id = "prej_default", text = "Your kind love stone so well they forget what lives on top of it. Dun Modr, Thelgen Rock, the Whelgar dig, each of them a wound that woke something worse than what slept there before." } },
       choices = {
         { text = "You're right. Some places should be left to sleep.", next = "prej_a", fx = { align = { order = 1 } } },
         { text = "Dwarves dig and raptors bite. That's the world, Greenwarden.", next = "prej_b", fx = { align = { order = -1 } } },

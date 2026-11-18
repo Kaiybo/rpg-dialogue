@@ -29,7 +29,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They take to calm folk, and you're calm enough. I sell my horses with care, and I'd rather they went to someone who listens to them, spirits or not." } },
+      lines = { { id = "xdsham_default", text = "They take to calm folk, and you're calm enough. I sell my horses with care, and I like them to go to someone who listens to them, spirits or not." } },
       choices = {
         { text = "Then I'll keep them calm and treat them well, Katie.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A horse is a horse. Sell to whoever pays.", next = "BACK", fx = { align = { order = -1 } } },
@@ -56,7 +56,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Nerve, mostly, and years of training it not to bolt when steel rings. A warhorse will stand still while the world shouts at it, which is more than I can say for most riders." } },
+      lines = { { id = "xwarcl_default", text = "Nerve, mostly, and years of training it not to bolt when steel rings. A warhorse will stand still while the world shouts at it, and most riders can't manage that when a goose honks." } },
       choices = {
         { text = "Then I'll be as steady as the horse is.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Any horse will do, if the rider swings hard enough.", next = "BACK", fx = { align = { order = -1 } } },
@@ -95,7 +95,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "One or two a year, and I sit up with every one of them, because a horse that dies in your hands is something you don't forget. The Brothers at the Abbey say it's foolish to grieve for a beast, but the Brothers have never pulled a foal at midnight." } },
+      lines = { { id = "xapriest_default", text = "One or two a year, and I sit up with each one, because a horse that dies in your hands is something you don't forget. The Brothers at the Abbey say it's foolish to grieve for a beast, but the Brothers have never pulled a foal at midnight." } },
       choices = {
         { text = "Grief for a living thing is never foolish, Katie.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Brothers are right. Save your grief for people.", next = "BACK", fx = { align = { light = -1 } } },
@@ -121,12 +121,12 @@ P:NPC {
           text = "Stormwind trusts you completely, I hear, and then so do I. Come and meet them." },
         { id = "h_other", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } } }, text = "These are Stormwind's horses. Earn the kingdom's full trust and we'll do business; until then, you're welcome to pat one." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "I count every horse in this stable twice a night, so you know, and I know every one of them by the sound of its hooves." },
+          text = "I count every horse in this stable twice a night, so you know, and I know each by the sound of its hooves." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Keep your creature downwind of the stalls, please, because I've a mare in foal and she won't settle if she smells it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Stormwind's cavalry rode my mother's horses into the last war, and they came home with warriors on their backs, those that came home." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. My horses don't love your beasts, love, but they'll learn manners if you keep your distance." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! I've heard your people ride great cats instead of horses, so forgive me if I keep you from the foals until they've had a sniff of you." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! I've heard your people ride great cats instead of horses, so I'll keep you from the foals until they've had a sniff of you." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll be wanting a horse that doesn't bolt at a flash of fire, and I've a few of those, if you've the coin." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman by my gate. Mind it's latched behind you. The horses are watching you more closely than I am, and they don't trust strangers either." },
       },
@@ -224,7 +224,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Because a cat tires and a horse is bred not to, and you'll want your strength for whatever's waiting at the end of the road. Mind you, I'd pay good coin to see a horse's face when you do it." } },
+      lines = { { id = "xdruid_default", text = "Because a cat tires and a horse is bred not to, and you'll want your strength for whatever's waiting at the end of the road. Though I'd pay good coin to see a horse's face when you do it." } },
       choices = {
         { text = "Then I'll learn the saddle properly. Your way has its reasons.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "I'll run as I please. The road doesn't care how I travel.", next = "BACK", fx = { align = { order = -1 } } },
@@ -340,7 +340,7 @@ P:NPC {
     trade = { { id = "tp_tr", text = "Riding lessons, or one lesson, really; the rest you learn by falling." } },
     _none = { { id = "tp_none", text = "Not my field, I'm afraid. Ask me about saddles." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire has a fellow who rides standing up on two horses at once, and every pupil I teach wants to try it. I tell them to learn sitting down first." } },
-    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer ride gryphons with hardly a strap between them and the sky, and I'd give a great deal for one lesson. Horses are hard enough, mind." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer ride gryphons with hardly a strap between them and the sky, and I'd trade my best mare for one lesson. Horses are hard enough, mind." } },
     second_war = { { id = "tp_second_war", text = "My father rode with the knights in the Second War and came home with one good leg. He still taught me to ride better than anyone I've met since." } },
   },
 }

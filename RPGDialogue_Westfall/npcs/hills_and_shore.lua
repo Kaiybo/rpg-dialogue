@@ -136,7 +136,7 @@ P:NPC {
         { text = "Barkeep Daniels in Lakeshire needs lager.", next = "daniels", when = { questActive = TODO_QUEST("Dry Times") } },
         { text = "Your barrels would be easy to lift, you know.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could chill your lager in a heartbeat.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Warriors must drink a great deal of your Thunderbrew.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Warriors must drink plenty of your Thunderbrew.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What goes best with a Westfall boar, Grimbooze?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you let me bless your still, Grimbooze?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you sell your lager to the Defias, if they paid?", next = "xapala", when = { class = "PALADIN" } },
@@ -314,7 +314,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "Kriggon Talsone, and I fish this shore, same as my father did before the farms went bad. The sea doesn't care who owns Westfall, which is more than I can say for anything else around here." },
+        { id = "h_default", text = "Kriggon Talsone, and I fish this shore, same as my father did before the farms went bad. The sea doesn't care who owns Westfall, and that makes it the only honest thing left in Westfall." },
         { id = "h_farmhand", when = { origin = "human_westfall_farmhand" }, text = "You've the look of a Westfall hand, under all that gear. Whose farm was it? Never mind, I don't want to know which one burned." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "They say your sort can talk to the water. If it tells you where the fish have gone, you'll tell me, won't you?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my beach. The murlocs won't care how strong you are, so watch your feet; the sand's slippery when it's wet." },
@@ -373,7 +373,7 @@ P:NPC {
       },
     },
     lighthouse = {
-      lines = { { id = "l_default", text = "A family kept it once, until Old Murk-Eye brought his murlocs up out of the water and killed them. It's still lit most nights, mind you, and folk say the one tending it is the ghost of a pirate captain whose ship broke on the rocks when the light went dark." } },
+      lines = { { id = "l_default", text = "A family kept it once, until Old Murk-Eye brought his murlocs up out of the water and killed them. It's still lit most nights all the same, and folk say the one tending it is the ghost of a pirate captain whose ship broke on the rocks when the light went dark." } },
       choices = {
         { text = "It sounds like a ghost story to me.", next = "lighthouse_ghost" },
         { text = "Something else.", next = "BACK" },

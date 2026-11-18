@@ -199,7 +199,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     shades_red = {
-      lines = { { id = "sr_default", text = "Red! Well, I don't sell it, but I can respect a person who knows their own sky. A deep blue sets off red beautifully, mind you, so we needn't quarrel." } },
+      lines = { { id = "sr_default", text = "Red! Well, I don't sell it, but I can respect a person who knows their own sky. A deep blue sets off red beautifully, so we needn't quarrel." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     shades_grey = {
@@ -323,7 +323,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     keep_forgot = {
-      lines = { { id = "kf_default", text = "Then you've a clean vault and a clean slate, which is rarer down here than you'd think. If anything ever comes back to you, bring it here, and I'll keep it safe until you're ready for it." } },
+      lines = { { id = "kf_default", text = "Then you've a clean vault and a clean slate, and that's a rare thing in the Undercity. If anything ever comes back to you, bring it here, and I'll keep it safe until you're ready for it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -560,7 +560,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Never heard of it, and I'd rather not, if it's anything Graham's interested in. Those things tend to end with me sweeping." } },
+    _none = { { id = "tp_none", text = "Never heard of it, and I don't care to, if it's anything Graham's interested in. Those things tend to end with me sweeping." } },
   },
 }
 
@@ -754,7 +754,7 @@ P:NPC {
     },
 
     outfit = {
-      lines = { { id = "ou_default", text = "Where to begin, my dear? The shoulders fight the sleeves, the hem has given up entirely, and someone has mended that seam with what I can only hope was fishing line. So tell me honestly, who chose all this?" } },
+      lines = { { id = "ou_default", text = "Where to begin, my dear? The shoulders fight the sleeves, the hem has given up entirely, and someone has mended that seam with what I can only hope was fishing line. So tell me truthfully, who chose all this?" } },
       choices = {
         { text = "I did, and I like it very much.", next = "outfit_proud", fx = { trait = { proud = 1 } } },
         { text = "Whatever the last thing I killed was wearing.", next = "outfit_loot", fx = { trait = { witty = 1 } } },

@@ -28,7 +28,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "You'll have learned your first cantrips from his primers, I expect, as every apprentice in the land did. Stand up a little straighter in here; it's his house, after a fashion." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
-      text = "I'll ask you to keep a pace back from the cases, and I'd rather not explain why. You know well enough what came through this city's gates." },
+      text = "I'll ask you to keep a pace back from the cases, and I don't think I need explain why. You know well enough what came through this city's gates." },
   },
 
   start = "hello",
@@ -303,7 +303,7 @@ P:NPC {
         { id = "ds_default", text = "Enough to light a lamp and read a warded seal without losin' my eyebrows, which is more magic than most dwarves want and less than any magus here respects. It suits me fine, {g:lad|lass}." },
       },
       choices = {
-        { text = "That's more than most can say.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A useful sort of magic, that.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -516,7 +516,7 @@ P:NPC {
     },
     xmage = {
       lines = {
-        { id = "xm_default", text = "Nothing you would want to learn, magus, and a great deal you would want to learn anyway. We knew that magic answers anyone who calls it loudly enough, and we did not know when to stop calling." },
+        { id = "xm_default", text = "Nothing you would want to learn, magus, and much you would want to learn anyway. We knew that magic answers anyone who calls it loudly enough, and we did not know when to stop calling." },
       },
       choices = {
         { text = "I'll remember when to stop.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },

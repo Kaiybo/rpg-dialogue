@@ -39,7 +39,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "We do, for the Hinterlands are wild an' we mean tae keep them that way. Ironforge would have tunnels under every hill if it could, an' we'd rather have sky an' trees, which is why we left them in the first place." } },
+      lines = { { id = "xdruid_default", text = "We do, for the Hinterlands are wild an' we mean tae keep them that way. Ironforge would have tunnels under every hill if it could, an' a Wildhammer wants sky an' trees over his head; that's why we left in the first place." } },
       choices = {
         { text = "Then keep Ironforge out. The Hinterlands should stay wild.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Ironforge is kin. Work with them, not against them.", next = "BACK", fx = { align = { order = 1 } } },
@@ -120,7 +120,7 @@ P:NPC {
       choices = {
         { text = "Show me where I can fly.", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "Wildhammer gryphons are different from Ironforge's?", next = "wild" },
-        { text = "You must see a great deal from the sky here.", next = "sky" },
+        { text = "What can you see from the sky here?", next = "sky" },
         { text = "How do you raise a gryphon?", next = "raise" },
         { text = "I prefer my own feet on the ground.", next = "ground", when = { race = { "Gnome", "Human" } } },
         { text = "You must envy a mage's teleport, Guthrum.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -284,7 +284,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Few enough, for the Wildhammer keep their own ways an' don't hold wi' Ironforge's chapels. But the ones who come always need their plate mended after the trolls, an' they always pay fair an' say thank ye, which is more than I can say for the gryphon riders." } },
+      lines = { { id = "xapala_default", text = "Few enough, for the Wildhammer keep their own ways an' don't hold wi' Ironforge's chapels. But the ones who come always need their plate mended after the trolls, an' they always pay fair an' say thank ye, an' I've yet tae hear that from a gryphon rider." } },
       choices = {
         { text = "A fair price for fair work. That's only right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Plate's plate. I'll pay what I have to.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -321,7 +321,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. That armour came from somebody's forge, an' that forge burned coal I hauled up this mountain, so ye're welcome, though ye didnae know tae thank me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If ye're headin' down the road, keep an eye on the treeline for me, for the Witherbark like tae watch my carts from cover." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. Ye'll not want iron, I'd guess, but if ye're after a hand axe for kindling, I've plenty." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. That plate didnae come cheap, {class}, an' it didnae come up this mountain on its own either, so ye'll forgive me if I look at it like a man looks at his own handiwork." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. That plate didnae come cheap, {class}, an' it didnae come up this mountain on its own either, so I'll be lookin' it over the way a smith looks at another smith's handiwork." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ye'll not be wantin' iron, I'd guess, {class}, but if ye've a prayer for the carters on the mountain road, I'll take one o' those instead." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ye'll be no use tae me at the forge, {class}, unless ye can make coal out of thin air, an' I've yet tae meet a mage who could." },
       },

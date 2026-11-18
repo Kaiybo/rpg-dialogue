@@ -20,7 +20,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "The spirits are restless this morning, and the wind has a sharp tongue. Speak gently." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. The spirits remember you, which is more than I can say for most." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. The spirits remember you, and they do not remember every traveller who climbs to this rise." },
   },
 
   notice = {
@@ -233,7 +233,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Archmage Shymm, and I teach the arcane to those of the Horde with the wit to learn it. Magic burns the untrained, so if you're not a mage, kindly step back from the wards before something catches." },
-        { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren, down here among the books. Your people don't take up the arcane, which is wise of them, and I'd rather you didn't start in my classroom." },
+        { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren, down here among the books. Your people don't take up the arcane, which is wise of them, so please don't start in my classroom." },
       },
       again = { { id = "h_again", text = "Something more? Do be brief; even the dead tire of amateurs." } },
       choices = {
@@ -375,7 +375,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A student of Dalaran, before. A teacher in the Pools of Vision, now." } },
-    advice = { { id = "tp_ad", text = "Write everything down. Memory is less reliable than you'd think, especially after death." } },
+    advice = { { id = "tp_ad", text = "Write everything down. Memory rots like everything else, especially after death." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. I'll make a note to find out, as I did in Dalaran, back when I had a heartbeat to hurry me." } },
   },
 }
@@ -392,7 +392,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Hello, hello! Come in, it's warmer down here than you'd think, not that I'd know anymore." },
+    { id = "g_hi", text = "Hello, hello! Come in, it's warmer down here than up on the rise, not that I'd know anymore." },
     { id = "g_back", when = { metBefore = true }, text = "There you are! I was just telling the walls about you." },
   },
 
@@ -598,7 +598,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     light = {
-      lines = { { id = "l_default", text = "A comfortable faith for the living, and a cruel one for the dead. The Scarlet Crusade burns my people in its name, so you'll forgive me if I don't light candles to it." } },
+      lines = { { id = "l_default", text = "A comfortable faith for the living, and a cruel one for the dead. The Scarlet Crusade burns my people in its name, so I don't light candles to it." } },
       choices = {
         { text = "What would you have me say about it?", next = "op_light" },
         { text = "The Crusade isn't the Light.", next = "light_end", fx = { learn = { "scarlet_crusade" } } },

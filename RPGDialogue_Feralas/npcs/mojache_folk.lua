@@ -162,7 +162,7 @@ P:NPC {
           text = "Bones, and nothing more. Well, I suppose a journey this long was never going to end with tea. Thank you for looking, {name}, and for coming back to tell me." },
       },
       again = {
-        { id = "h_again", text = "What else would you know? I have a great deal of answers and very few listeners." },
+        { id = "h_again", text = "What else would you know? I have more answers than this camp has ears for." },
         { id = "h_again2", text = "Ask on, ask on." },
       },
       choices = {

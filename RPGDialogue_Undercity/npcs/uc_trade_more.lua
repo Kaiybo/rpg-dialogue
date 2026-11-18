@@ -61,12 +61,12 @@ P:NPC {
       choices = { { text = "Something else, Patrick.", next = "BACK" } },
     },
     uldaman = {
-      lines = { { id = "ul_default", text = "We Garretts toiled there as diggers once, for the dwarves' Explorers, back when the Badlands were only bad and not yet unbearable. Honest labour, mind you, but labour with a certain dignity to it, and we kept our chest in the common hall." } },
+      lines = { { id = "ul_default", text = "We Garretts toiled there as diggers once, for the dwarves' Explorers, back when the Badlands were only bad and not yet unbearable. Honest labour, to be sure, but labour with a certain dignity to it, and we kept our chest in the common hall." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     bats = {
       big = true,
-      lines = { { id = "ba_default", text = "They eat, they sleep upside down, and the rest I'd rather not describe, all day and all night, and I have to sweep up after every one of them. A Garrett was made for better things, and I'll have them yet." } },
+      lines = { { id = "ba_default", text = "They eat, they sleep upside down, and the rest is not fit for polite company, all day and all night, and I have to sweep up after the lot of them. A Garrett was made for better things, and I'll have them yet." } },
       choices = {
         { text = "Honest work is nothing to be ashamed of.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You deserve better. Reach for it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },

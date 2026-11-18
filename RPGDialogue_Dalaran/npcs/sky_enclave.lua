@@ -184,7 +184,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Walk, don't run, and always know where the nearest magus is. That's the whole of the procedure, really." } },
     dalaran = { { id = "tp_dalaran", text = "Welcome, welcome, and yes, it's still being rebuilt, and no, that tower isn't supposed to lean like that! We're doing our best, and the dome came down only lately, so mind the scaffolding and smile at the magi." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor run Dalaran, and they're very wise and very busy, so please don't interrupt any of them mid-spell. I'm one rung below an archmage, which means I get all the greeting and none of the authority." } },
-    scourge = { { id = "tp_scourge", when = { faction = "Horde" }, text = "I'm told we're to be polite to you, and I'm trying, so please don't make me regret it! The Scourge came within sight of these walls once, and I'd rather we kept our enemies to the dead ones." }, { id = "tp_scourge2", text = "The Scourge came within sight of these very walls, and we lost good magi stopping them. I still check the north road from the landing every morning, though I'm told that's not my job." } },
+    scourge = { { id = "tp_scourge", when = { faction = "Horde" }, text = "I'm told we're to be polite to you, and I'm trying, so please don't make me regret it! The Scourge came within sight of these walls once, so let's keep our enemies to the dead ones." }, { id = "tp_scourge2", text = "The Scourge came within sight of these very walls, and we lost good magi stopping them. I still check the north road from the landing every morning, though I'm told that's not my job." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Oh, please don't say that name too loudly, everyone here gets twitchy. He was one of ours once, a member of the council, and he left with his necromancy and our secrets." } },
     _none = { { id = "tp_none", text = "Oh, I couldn't say! Try one of the magi in the Citadel; they know everything, or say they do." } },
   },
@@ -218,7 +218,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Wind's greetings, friend. This portal goes to Stormwind, though I'm only permitted to send our own people through it, so if you aren't shen'dorei, I'm afraid the road is yours." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Wind's greetings! The portal behind me goes straight to Stormwind whenever you need it, and between you and me, it's a great deal warmer there than in these mountains." },
+          text = "Wind's greetings! The portal behind me goes straight to Stormwind whenever you need it, and between you and me, it's much warmer there than in these mountains." },
         { id = "h_arrived", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Magical City of Dalaran"), days = 3 } },
           text = "You made the crossing, and in one piece! Welcome to Dalaran, and welcome to Azeroth, which I'm told is the proper way to put it." },
         { id = "h_welcome", when = { questActive = TODO_QUEST("Welcome to Azeroth") },
@@ -407,7 +407,7 @@ P:NPC {
       },
       choices = {
         { text = "From those I've fought. They had no further use for it.", next = "sk_fought", fx = { trait = { practical = 1 } } },
-        { text = "I bought it honestly, at market.", next = "sk_bought", fx = { affinity = 1, trait = { honest = 1 } } },
+        { text = "I paid good coin for it at market.", next = "sk_bought", fx = { affinity = 1, trait = { honest = 1 } } },
         { text = "Better you don't ask, I think.", next = "sk_secret", fx = { trait = { discreet = 1 } } },
       },
     },
@@ -488,7 +488,7 @@ P:NPC {
       { id = "tp_scourge", text = "The magi say the dead walk to the north and east of here, and I've seen the soldiers come back from it. I gather cloth for bandages too, now, and I thank everyone who brings it." },
     },
     _none = {
-      { id = "tp_none", text = "Forgive me, I only know cloth and the people who need it, and I'd rather not guess at the rest in a city where everyone else knows everything." },
+      { id = "tp_none", text = "Forgive me, I only know cloth and the people who need it, and I won't guess at the rest in a city where everyone else knows everything." },
     },
   },
 }
@@ -512,7 +512,7 @@ P:NPC {
 
   notice = {
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
-      text = "You'll forgive me if I keep an eye on your hands near my seedlings, magus. This city has made me nervous of spellwork." },
+      text = "Keep your hands where I can see them near my seedlings, magus. This city has made me nervous of spellwork." },
     { id = "n_druid", cat = "class", when = { class = "DRUID", race = "Skyborne" },
       text = "One of my Skyborne pupils, or soon to be. You pray to the winds before the moon, I know, and I've stopped trying to change that." },
   },
@@ -528,7 +528,7 @@ P:NPC {
         { id = "h_nightelf", when = { race = "NightElf" },
           text = "Ishnu-alah. Yes, I'm a long way from Darnassus, and no, I can't quite explain how I came to be teaching in a city of mages." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Welcome. Your druids are few, and I teach every one of them who'll come, so if you've the calling, you know where to find me." },
+          text = "Welcome. Your druids are few, and I teach any who'll come, so if you've the calling, you know where to find me." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. You tend the wound and I tend the soil under it; between us, perhaps this valley mends someday." },
         { id = "h_horde", when = { faction = "Horde" },

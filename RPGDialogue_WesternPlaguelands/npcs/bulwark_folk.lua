@@ -117,9 +117,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hello, {class}. I've set up camp here to make my preparations, so forgive me if I talk while I pack." },
+    { id = "g_default", text = "Hello, {class}. I've set up camp here to make my preparations, so you'll hear me talk while I pack." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "One of the shu'halo, here among the dead! The Earth Mother walks a long way with us, it seems." },
-    { id = "g_back", when = { metBefore = true }, text = "Still packing, yes. A tauren carries a great deal, and forgets it all the same." },
+    { id = "g_back", when = { metBefore = true }, text = "Still packing, yes. A tauren carries a long road's worth of things, and forgets half of them all the same." },
   },
 
   notice = {
@@ -260,7 +260,7 @@ P:NPC {
     },
 
     forsaken = {
-      lines = { { id = "fs_default", text = "They pay on time and they never haggle, which is more than I can say for most orcs. But they smell like a week-old kill, and I've never once seen one eat." } },
+      lines = { { id = "fs_default", text = "They pay on time and they never haggle, and few orcs manage either. But they smell like a week-old kill, and I've never once seen one eat." } },
       choices = {
         { text = "Does that bother you?", next = "forsaken_stance" },
         { text = "Something else.", next = "BACK" },
@@ -380,7 +380,7 @@ P:NPC {
       },
     },
     bulwark2 = {
-      lines = { { id = "b2_default", text = "Because half the Dawn wear the Light on their sleeves, and the last people who did that in Lordaeron burned us. Garush is an orc and Hasana is a troll, mind, so I think the Dawn's quarrel is with the Scourge and not with us." } },
+      lines = { { id = "b2_default", text = "Because plenty of the Dawn wear the Light on their sleeves, and the last people who did that in Lordaeron burned us. Garush is an orc and Hasana is a troll, though, so I think the Dawn's quarrel is with the Scourge and not with us." } },
       choices = {
         { text = "Do you trust them?", next = "bulwark3" },
         { text = "Something else.", next = "BACK" },

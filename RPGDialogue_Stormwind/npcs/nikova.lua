@@ -242,7 +242,7 @@ P:NPC {
 
     oldtown = {
       lines = {
-        { id = "o_default", text = "Louder than it was, and poorer. The Pig and Whistle's full every night, the walls are cracked where nobody's paid to mend them, and half the men on my street are off at one front or another." },
+        { id = "o_default", text = "Louder than it was, and poorer. The Pig and Whistle's full every night, the walls are cracked where nobody's paid to mend them, and most of the men on my street are off in Redridge or Westfall or somewhere worse." },
       },
       choices = {
         { text = "Does the city do right by Old Town?", next = "op_city" },

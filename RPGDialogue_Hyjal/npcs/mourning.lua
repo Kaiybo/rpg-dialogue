@@ -47,7 +47,7 @@ P:NPC {
         { id = "h_grave", tags = { "news" }, when = { questActive = TODO_QUEST("Disturbed Grave") },
           text = "You have been digging among the graves. Mind what you turn up; not everything down there wants to be found, and some of it bites." },
         { id = "h_ring", tags = { "news" }, when = { questActive = TODO_QUEST("Belle's Ring") },
-          text = "A ring, carried by one of those flayed things. Someone named on it loved someone else, and that is more than most rings can say." },
+          text = "A ring, carried by one of those flayed things. Someone whose name is cut inside it was loved once, and the ring has outlasted both of them." },
         { id = "h_stolen", tags = { "news" }, when = { questActive = TODO_QUEST("Stolen Life") },
           text = "Gathering what they have stolen? Good. The life those creatures drank belongs to the ground, not to them." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Forgotten Soldier", "Death Wailer", "Ravener" }, min = 20 } },
@@ -141,7 +141,7 @@ P:NPC {
 
     ring = {
       lines = {
-        { id = "r_default", text = "A soldier's ring. There is a name worn half away inside it, a T and then Belle, and I expect it meant a great deal to someone who never knew where it ended up. I find rings sentimental, and inedible." },
+        { id = "r_default", text = "A soldier's ring. There is a name worn half away inside it, a T and then Belle, and somebody wore it thin turning it on a finger before a battle. I find rings sentimental, and inedible." },
         { id = "r_done", when = { questDone = TODO_QUEST("Belle's Ring") }, text = "You saw the ring to wherever it needed to go. Good; one less thing on this field that remembers being loved and cannot do anything about it." },
       },
       choices = {

@@ -46,7 +46,7 @@ P:NPC {
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "You're a smith's people, I've heard, and you look at metal the way I do. Our finest craftsmen were the magesmiths of Ban'aethal, and I'd have loved to show you their forges before they fell." },
         { id = "h_highorder", when = { origin = "skyborne_high_order" },
-          text = "You're of one of the old magister lines, aren't you? Your families kept the books, and Ban'aethal's magesmiths kept the forges, and between you we remembered a little of what we were. Half the forges are in the sky now, so I hope your books came through better." },
+          text = "You're of one of the old magister lines, aren't you? Your families kept the books, and Ban'aethal's magesmiths kept the forges, and between you we remembered a little of what we were. Ban'aethal's forges are lost to the sky now, so I hope your books came through better." },
         { id = "h_blades", when = { origin = "skyborne_empyrean_recruit" },
           text = "You trained with the Empyrean Blades, didn't you? Their oldest swords were Ban'aethal work, some of them Luminarian's own, and I used to watch the recruits come to have them sharpened and pretend they weren't nervous." },
       },
@@ -264,7 +264,7 @@ P:NPC {
     },
     sailing = {
       lines = {
-        { id = "sa_default", text = "Ferries and skycutters both, along the skystreams, out to the other islands and back. There were towns out there, Shen'dramar and New Eldre'naar and more, and I knew the way to every one of them blindfolded." },
+        { id = "sa_default", text = "Ferries and skycutters both, along the skystreams, out to the other islands and back. There were towns out there, Shen'dramar and New Eldre'naar and more, and I could have flown to any of them blindfolded." },
       },
       choices = {
         { text = "What happened to the skystreams?", next = "skystreams" },
@@ -389,7 +389,7 @@ P:NPC {
     al_aketh = { { id = "tp_aketh", text = "Shaved heads! Why would anyone shave a perfectly good head? Madness, I tell you." } },
     highborne = { { id = "tp_highborne", text = "The Highborne! Fancy folk, all spells and no seamanship, and not one of 'em could sail a skycutter through a squall. Donaal, another, and don't make that face!" } },
     the_elements = { { id = "tp_the_elements", text = "The winds used to carry my skycutter between the islands as sweet as you please, and now they won't even fill a sail. Something spooked 'em, mark me, the same thing that haunts Shadowgale." } },
-    elune = { { id = "tp_elune", text = "The moon? She's pretty, I'll grant you, but she never once filled my sails. Donaal, the moon wants a drink, and so do I!" } },
+    elune = { { id = "tp_elune", text = "The moon? She's pretty enough, but she never once filled my sails. Donaal, the moon wants a drink, and so do I!" } },
     _none = { { id = "tp_none", text = "<He squints.> Never heard of it, and I've heard of everything, twice." } },
   },
 }
@@ -431,7 +431,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Donaal Downbreeze, and the Calmbreeze is mine. We've fewer customers than we used to, so I'll thank you for coming in, and I'll thank you double if you don't mind the noise from the corner." },
         -- Opinion pass: what Valanaar has heard the player say.
         { id = "h_o_mercy", once = true, when = { gossip = { topic = "zep_bandit", stance = "mercy" } },
-          text = "Half of Valanaar has heard you'd spare the bandit the Peacekeepers are holding. The other half heard it from Swimmers, loudly, so I expect the High Elder has too." },
+          text = "Most of Valanaar has heard you'd spare the bandit the Peacekeepers are holding, and anyone who hadn't has since heard it from Swimmers, loudly, so I expect the High Elder has too." },
         { id = "h_o_hang", once = true, when = { gossip = { topic = "zep_bandit", stance = "hang" } },
           text = "Word is you'd have the High Elder sign the bandit's sentence. The Peacekeepers drink here, and they've been saying your name kindly, which isn't something I hear often." },
         { id = "h_o_side", once = true, when = { gossip = { topic = "zep_orders", stance = { "take_side", "both_proud" } } },
@@ -450,7 +450,7 @@ P:NPC {
     -- Opinion pass: Donaal wants to know if opening the skydocks was wise.
     mainland = {
       big = true,
-      lines = { { id = "ml_default", text = "Better than I expected, and worse than the High Elder hoped. Half of them stare and the other half ask whether you breathe the same air we do. You've seen both sides of the clouds, so tell me: were we wise to open the skydocks?" } },
+      lines = { { id = "ml_default", text = "Better than I expected, and worse than the High Elder hoped. They stare, or they ask whether you breathe the same air we do. You've seen both sides of the clouds, so tell me: were we wise to open the skydocks?" } },
       choices = {
         { text = "Yes. Your people can't live alone in the sky forever.", next = "mainland_yes", fx = { opinion = { zep_outsiders = "welcome" }, align = { order = -1 } } },
         { text = "Be careful. The mainland has wars you don't want.", next = "mainland_no", fx = { opinion = { zep_outsiders = "wary" }, align = { order = 1 } } },
@@ -547,7 +547,7 @@ P:NPC {
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
       text = "Kaldorei! Oh, I've so many questions; half my recipes are your people's, made with things I've only read about. Have you ever actually tasted a moonberry?" },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "Oh my, you must eat a great deal. Please don't take that wrongly; I've been waiting my whole life to cook for someone with a proper appetite." },
+      text = "Oh my, you must have a fine appetite. Please don't take that wrongly; I've been waiting my whole life to cook for someone with a proper appetite." },
     { id = "n_leaving", cat = "kin", when = { race = "Skyborne", minLevel = 10 },
       text = "You'll be leaving on the skycutters soon, I can see it on you. Take a recipe or two with you, so you'll have something that tastes like home." },
   },
@@ -607,7 +607,7 @@ P:NPC {
     missing2 = {
       big = true,
       lines = {
-        { id = "m2_default", text = "No, and I've made my peace with it. A recipe that never changes is one nobody's cooking anymore, and I'd rather ours tasted of Zephras than of a place none of us remember." },
+        { id = "m2_default", text = "No, and I've made my peace with it. A recipe that never changes is one nobody's cooking anymore, and I want ours to taste of Zephras, not of a place none of us remember." },
       },
       choices = {
         { text = "Exactly. Let the old ways grow into new ones.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
@@ -646,7 +646,7 @@ P:NPC {
     },
     produce = {
       lines = {
-        { id = "pr_default", text = "Stormapples from the Windfield Orchard in the lowlands, berries of all kinds, crab from the shore, and the ursera give us tallow for frying eggs, which you must try before you leave. We've less than we used to, but more than you'd think." },
+        { id = "pr_default", text = "Stormapples from the Windfield Orchard in the lowlands, berries of all kinds, crab from the shore, and the ursera give us tallow for frying eggs, which you must try before you leave. We've less than we used to, but the isle still feeds us well." },
       },
       choices = {
         { text = "Who keeps the orchard?", next = "orchard" },
@@ -682,7 +682,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Food, mostly, and who eats what, which tells you more about people than you'd think. A good table is an art like clothcraft, and on Zephras we take our arts seriously." } },
+    knows = { { id = "tp_knows", text = "Food, mostly, and who eats what, since a family's table says more about it than its crest does. A good table is an art like clothcraft, and on Zephras we take our arts seriously." } },
     advice = { { id = "tp_ad", text = "Eat something before you go out there. The last fellow who went to Shadowgale hungry fainted at his first vuldren and was carried home over a Peacekeeper's shoulder, complaining all the way." } },
     windstones = { { id = "tp_stones", text = "They keep my stove hot when the wood runs short. I treat them like gold, because they nearly are." } },
     highborne = { { id = "tp_highborne", text = "The Highborne ate off silver and never cooked a meal in their lives, and I'd wager their food was dreadful. Mine's better, and I made it from crab and stubbornness." } },

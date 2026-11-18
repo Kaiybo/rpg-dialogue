@@ -39,7 +39,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "None, mostly, because I never knew the right ones and Sarvis says there aren't any. I just lay them in straight and shovel gently, and if a priest wants to say something, the dead won't mind and I'd rather like to hear it." } },
+      lines = { { id = "xhpriest_default", text = "None, mostly, because I never knew the right ones and Sarvis says there aren't any. I just lay them in straight and shovel gently, and if a priest wants to say something, the dead won't mind and I'd quite like to hear it." } },
       choices = {
         { text = "I'll say the words, Mordo. They deserve that much.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Sarvis is right. Words are wasted on the dead.", next = "BACK", fx = { align = { light = -1 } } },
@@ -158,7 +158,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xmage_default", text = "A troll mage in Deathknell is a rare sight, and you'll find our dead mages a dry and scholarly lot. Isabella teaches by the chapel, if you can stand a few lectures about Dalaran with your lessons." },
-        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Much of it they never forgot, since the mind keeps what it used most, and you must have used magic a great deal. Isabella teaches by the chapel and will help you find the rest, though I'd not hope for names and faces to come back as easily." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Much of it they never forgot, since the mind keeps what it used most, and you must have used magic every day of your life. Isabella teaches by the chapel and will help you find the rest, though I'd not hope for names and faces to come back as easily." },
       },
       choices = {
         { text = "I'll learn what I can, as the Dark Lady wills.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -169,7 +169,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "More of them than you'd think, because a mind that has heard the Lich King's voice isn't easily frightened by an imp's. Maximillion teaches it here, and I bury the ones who fail his lessons, so I'd ask you to study hard for both our sakes." },
+        { id = "xwarlock_default", text = "A fair few, because a mind that has heard the Lich King's voice isn't easily frightened by an imp's. Maximillion teaches it here, and I bury the ones who fail his lessons, so I'd ask you to study hard for both our sakes." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc asking me about warlocks, when your people knew the demons long before ours did. Maximillion teaches it here, and I expect he'd be glad of a student who can tell him what the old Horde paid for that knowledge." },
       },
       choices = {
@@ -220,7 +220,7 @@ P:NPC {
     op_the_light = {
       big = true,
       lines = {
-        { id = "optl_default", text = "Every one of them, sooner or later, usually while they're still picking grave dirt out of their teeth. So I'll ask you what they ask me: did the Light abandon us, or did we never matter to it?" },
+        { id = "optl_default", text = "All of them, sooner or later, usually while they're still picking grave dirt out of their teeth. So I'll ask you what they ask me: did the Light abandon us, or did we never matter to it?" },
       },
       choices = {
         { text = "It never left. Some of us can still feel it.", next = "op_the_light_r1", fx = { affinity = -1, align = { light = 1 }, opinion = { the_light = "faith" } } },
@@ -299,7 +299,7 @@ P:NPC {
     paladin = {
       big = true,
       lines = {
-        { id = "pa_default", text = "So I've noticed, and so has my skin. I prayed to that Light my whole life, and it let the plague take me anyway; then it lets you keep it after death. Forgive me if I find the Light's sense of humor harder to love than mine." },
+        { id = "pa_default", text = "So I've noticed, and so has my skin. I prayed to that Light my whole life, and it let the plague take me anyway; then it lets you keep it after death. You'll understand if I find the Light's sense of humor harder to love than mine." },
         { id = "pa_knight", when = { origin = "forsaken_risen_knight" },
           text = "A knight of the Silver Hand, risen. Uther's own order, and the prince who killed him is the one who made you. If the Light can stomach that irony, I suppose I can." },
       },
@@ -326,7 +326,7 @@ P:NPC {
     },
     mage = {
       lines = {
-        { id = "ma_default", text = "It matters more than ever. The mind is the one thing the plague didn't rot, and a mage is mostly mind. Mind you, the Kirin Tor won't have you back, so you'll have to find your books in the Undercity now." },
+        { id = "ma_default", text = "It matters more than ever. The mind is the one thing the plague didn't rot, and a mage is mostly mind. The Kirin Tor won't have you back, of course, so you'll have to find your books in the Undercity now." },
         { id = "ma_dalaran", when = { origin = "forsaken_dalaran_apprentice" },
           text = "Dalaran's apprentices took the plague as badly as anyone, and better than most, since they at least had the sense to read about it first. Go to Bethor Iceshard in the Undercity when you're ready; he'll remember your masters." },
       },
@@ -371,7 +371,7 @@ P:NPC {
     },
     druid_q = {
       big = true,
-      lines = { { id = "dq_default", text = "Cleansed of what, exactly? Half of what grows in Tirisfal grows in plague and the other half is walking about in us, and I'm not sure I care to be weeded. Do your work, druid, but remember that some of the rot has opinions." } },
+      lines = { { id = "dq_default", text = "Cleansed of what, exactly? Everything that grows in Tirisfal grows in plague, and the rest of it is walking about in us, and I'm not sure I care to be weeded. Do your work, druid, but remember that some of the rot has opinions." } },
       choices = {
         { text = "I'll heal what I can, and the Forsaken with it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The Forsaken are what's left. I'll fight for you, not the soil.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },

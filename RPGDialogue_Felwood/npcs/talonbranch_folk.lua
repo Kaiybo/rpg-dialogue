@@ -23,7 +23,7 @@ P:NPC {
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid, and I'd wager you've worn feathers yourself, or wished to. The wildkin will interest you more than most." },
+      text = "A druid, and I'd wager you've worn feathers yourself, or wished to. Then the wildkin of Talonbranch will speak to something in you." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf of Ironforge, in Felwood. Your scholars dig for the past and I watch birds for it, so perhaps we're in the same trade." },
   },

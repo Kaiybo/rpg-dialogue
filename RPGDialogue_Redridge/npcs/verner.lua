@@ -277,7 +277,7 @@ P:NPC {
     bolvar = { { id = "tp_bolvar", text = "The Guard tells me the Highlord sends his regards and requisitions all my iron. I'd send my regards back, but I've nothing left to send them in." } },
     silver_hand = { { id = "tp_silver_hand", text = "A paladin of the Silver Hand once asked me to mend his hammer, and the Light nearly blinded me while I worked. I charged him double, and he paid it without a word, which made me feel worse." } },
     knows = {
-      { id = "tp_knows", text = "Half the town comes past this forge for something, and they all talk while they wait. Ask me about any of this." },
+      { id = "tp_knows", text = "Most of the town comes past this forge for something, and they all talk while they wait. Ask me about any of this." },
     },
     background = { { id = "tp_bg", text = "Smith, and the stable with it. If I had to keep one, I'd keep the horses." } },
     advice = { { id = "tp_ad", text = "Stable your horse at night, because gnolls don't knock." } },

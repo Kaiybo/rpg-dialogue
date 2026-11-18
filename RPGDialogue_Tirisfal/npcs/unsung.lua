@@ -19,7 +19,7 @@ P:NPC {
     third = "{name} met Dannal Stern, the warrior trainer of Deathknell.",
   },
   greetings = {
-    { id = "g_war", when = { class = "WARRIOR" }, text = "You came back with your sword still in your hand, which is more than most fresh ones manage. Come here and let me see how you hold it." },
+    { id = "g_war", when = { class = "WARRIOR" }, text = "You came back with your sword still in your hand, and most fresh ones drop theirs in the first ditch. Come here and let me see how you hold it." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "You are not one of my students, but stand where I can see you all the same. The mindless ones wander in sometimes." },
   },
   notice = {
@@ -75,7 +75,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Dannal Stern, and I teach the risen of Deathknell to fight. Your muscles have forgotten what they knew, but your bones remember, and I can wake that memory up again." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Your grip is firmer than when you first crawled out of the grave. Good, because the Scourge and the Crusade will both test it soon enough." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. When I was alive, the orcs I fought had warlocks behind them, not shamans, and I'm told the difference matters a great deal to your people." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. When I was alive, the orcs I fought had warlocks behind them, not shamans, and I'm told your people care very much about the difference." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in Deathknell. I've no claws to teach you how to use, but stand where I can see you all the same." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, among my sword pupils. Stand where I can see you, then, and tell me why you keep your distance from the fight." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at a warrior's post. I trained beside priests of the Light in the old army, and they stood behind the line and kept it standing, so I'll not mock yours." },
@@ -156,7 +156,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xmage_default", text = "It wouldn't hurt, since a spell takes a breath to cast and a Scarlet initiate needs only half that to reach you. Keep a staff in your hands and learn to swing it like you mean it, and you'll outlast the mages who don't." },
-        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Half the mages who fell in Lordaeron fell because a ghoul got close while they were still muttering, and I watched it happen more than once. Learn to step back as you cast, and you'll do better than they did." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Most of the mages who fell in Lordaeron fell because a ghoul got close while they were still muttering, and I watched it happen more than once. Learn to step back as you cast, and you'll do better than they did." },
       },
       choices = {
         { text = "I'll learn the staff, Stern. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -381,7 +381,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I'd like to, but most of my customers can't stomach fresh meat yet, and the ones who can prefer it baked into something. Living travellers do pass through now and then, though not often enough to keep a butcher's counter." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed, which is more than I can say for my customers. I don't buy meat, I'm afraid, because most of the freshly risen can't stomach it yet, though I'd wager your beast could." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed, and my customers can't say the same. I don't buy meat, I'm afraid, because most of the freshly risen can't stomach it yet, though I'd wager your beast could." },
       },
       choices = {
         { text = "Then I'll share my catch with whoever's hungry.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -540,7 +540,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Some of them, and some of them would very much like to try, which is why I keep them on a short leash. A warlock who can't stand behind a warrior doesn't stay a warlock for long, so I've always thought our two trades get along rather well." } },
+      lines = { { id = "xwarcl_default", text = "Some of them, and some of them would very much like to try, so I keep them on a short leash. A warlock who can't stand behind a warrior doesn't stay a warlock for long, so I've always thought our two trades get along rather well." } },
       choices = {
         { text = "I'll stand in front, then, and you keep them leashed.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let one off the leash, Boch. I'd like to see it try.", next = "BACK", fx = { align = { order = -1 } } },
@@ -551,7 +551,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than either of us would admit in polite company, since both would eat their master if the bond ever slipped. The difference is that your beast wants to stay, and mine are counting the days." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than you'd think, though {pet} looks far happier with its arrangement than my imp ever has. Both would eat their masters if the bond slipped, but yours wants to stay, and mine are counting the days." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rather a lot, though {pet} looks far happier with its arrangement than my imp ever has. Both would eat their masters if the bond slipped, but yours wants to stay, and mine are counting the days." },
       },
       choices = {
         { text = "My beast stays because it wants to. No chain needed.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -576,7 +576,7 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Commanding demons must be dangerous.", next = "danger" },
         { text = "Why do the Forsaken allow warlocks?", next = "forsaken" },
-        { text = "Rogues and warlocks have more in common than you'd think, Boch.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Rogues and warlocks have a lot in common, Boch.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Isn't warlockry just the arcane with poorer manners?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I doubt your demons could stand against a real warrior, Boch.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "A demon is nothing like a hunter's beast, Boch.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -612,7 +612,7 @@ P:NPC {
     },
     druid_q = {
       big = true,
-      lines = { { id = "dq_default", text = "An imp is afraid of everything, which is half its charm, and a voidwalker is afraid of nothing, which is the other half. I've never seen either of them comfortable near a living tree, though, and I've wondered why, so do tell me if you find out." } },
+      lines = { { id = "dq_default", text = "An imp is afraid of everything, which is part of its charm, and a voidwalker is afraid of nothing, which is the rest. I've never seen either of them comfortable near a living tree, though, and I've wondered why, so do tell me if you find out." } },
       choices = {
         { text = "Nature and the fel don't mix, Boch. Remember that.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Use whatever works. I don't judge a weapon by its source.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -703,7 +703,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Peacebloom and silverleaf along the roads, and earthroot in the hills if you're lucky, which is enough for a healing draught or two. You'll need those draughts more than most, so don't walk past them." },
+        { id = "xhuntcl_default", text = "Peacebloom and silverleaf along the roads, and earthroot in the hills if you're lucky, which is enough for a healing draught or two. A fresh corpse on the Tirisfal roads needs those draughts, so don't walk past them." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} won't care for the smell of my workroom, I'm afraid. Still, you'll pass peacebloom and silverleaf on every road you hunt, and earthroot in the hills, which is enough for a draught or two." },
       },
       choices = {
@@ -731,7 +731,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll come back cut up more than the rest, so do yourself a favour and carry healing draughts as well as bandages." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll pass more herbs in a day than my students find in a week, so keep your eyes on the ground now and then." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, then you'll know that a healing potion and a healing prayer both work better on a patient who's been told to sit still." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Do you need potions, or just a quiet corner to read in? I've both, and I'd rather sell potions." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Do you need potions, or just a quiet corner to read in? I've both, though the potions pay better." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. You'll heal with a touch, I suppose, which is a fine thing, but I'd still carry a draught or two, because I've no idea whether the Light answers as quickly when you're dead as when you were living." },
       },
       choices = {
@@ -789,7 +789,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xrogue_default", text = "They come for poisons, mostly, and I send them to the apothecaries, who are happy to talk for an hour about each one. I make medicine, and if a rogue wants a healing draught for after the knife work, I'll gladly teach them to brew it." },
-        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "I knew plenty of rogues in the capital, and every one of them could have saved himself a scar with a decent salve. Learn the herbs, and you'll keep more of your skin than your teachers did." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "I knew plenty of rogues in the capital, and each of them could have saved himself a scar with a decent salve. Learn the herbs, and you'll keep more of your skin than your teachers did." },
       },
       choices = {
         { text = "Medicine first, then. A wise rogue heals.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -914,7 +914,7 @@ P:NPC {
         { text = "Do you think the Light can mend the dead, Nurse?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye, Nurse.", next = "END" },
       },
-      again = { { id = "h_again", text = "Is there anything else, dear, before I go back to rolling bandages? The dead go through them faster than you'd think, since nothing of ours closes on its own." } },
+      again = { { id = "h_again", text = "Is there anything else, dear, before I go back to rolling bandages? The dead go through them by the basket, since nothing of ours closes on its own." } },
     },
     past = {
       lines = { { id = "p_default", text = "I was, in a little house near Lordaeron, and I nursed people through the plague until it took me too. When I woke up, the first thing I did was look for someone to help, so I suppose some habits outlast the grave." } },
@@ -1064,7 +1064,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll be comparing my horses to your beasts, I expect, so I'll tell you now that mine don't need feeding and never wander off." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! My horses don't need blessing, mind, since they're past all that, but I'll not stop you if you want to try." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You'll teleport home, I suppose, but a skeletal horse goes where your spells don't." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken! Now you'll want a proper charger, I expect, and I'll tell you honestly that my skeletal horses don't flinch at the Light, or at much of anything else." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken! Now you'll want a proper charger, I expect, and I'll tell you plainly that my skeletal horses don't flinch at the Light, or at much of anything else." },
       },
       choices = {
         { text = "Do your horses remember what they were, Zachariah?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

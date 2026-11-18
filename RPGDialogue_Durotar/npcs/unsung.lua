@@ -407,7 +407,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Meat for the cats and wolves, and almost anything for the boars, which is why boars are cheap to keep and cats are not. I keep tough jerky for the hunters heading out to Razor Hill, and I've never seen a beast turn it down, though I've seen a few recruits try." },
+        { id = "xhuntcl_default", text = "Meat for the cats and wolves, and almost anything for the boars, so boars are cheap to keep and cats are not. I keep tough jerky for the hunters heading out to Razor Hill, and I've never seen a beast turn it down, though I've seen a few recruits try." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks hungry, but they always do. Feed it before you feed yourself, and it'll remember." },
       },
       choices = {
@@ -581,7 +581,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Because scorpids get close and quilboar get closer, and a bow does nothing when a boar's tusk is in your knee. A light axe will save you more often than you'd think, and I'll sell you one that won't pull your shoulder out of joint." },
+        { id = "xhuntcl_default", text = "Because scorpids get close and quilboar get closer, and a bow does nothing when a boar's tusk is in your knee. A light axe will save you more often than a bow, and I'll sell you one that won't pull your shoulder out of joint." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is a weapon too, I suppose, though there's nothing I can sell you for it. Believe me, I've tried to think of something." },
       },
       choices = {
@@ -851,7 +851,7 @@ P:NPC {
   topics = {
     _none = { { id = "tp_none", text = "I know tracks and beasts, and that is not either one. Ask Gar'Thok or Orgnil." } },
     centaur = { { id = "tp_centaur", text = "Centaur hunt like wolves, in packs, and they never stop running. It is a hard thing to respect them, but I do." } },
-    quilboar = { { id = "tp_quilboar", text = "The quilboar keep their own beasts, boars as big as kodo calves, and they treat them better than they treat strangers. I find that more interesting than you'd think." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar keep their own beasts, boars as big as kodo calves, and they treat them better than they treat strangers. I find that worth thinking about." } },
     earth_mother = { { id = "tp_earth_mother", text = "The tauren say the Earth Mother made every beast, and when I watch a pet come to a hunter's hand, I believe them. It is a gift, and gifts must be honoured." } },
     thrall = { { id = "tp_thrall", text = "The Warchief rides a great wolf, and he talks to it like a brother. That's how I know he's a good leader." } },
   },
@@ -879,7 +879,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "I trust nobody in my burrow. The Silver Hand marched into the camps with banners and trumpets, and everyone saw them coming, which is why I prefer my way. If you're the kind who knows when to keep the glow down, we'll get on." } },
+      lines = { { id = "xfpala_default", text = "I trust nobody in my burrow. The Silver Hand marched into the camps with banners and trumpets, and everyone saw them coming, so I do it my way. If you're the kind who knows when to keep the glow down, we'll get on." } },
       choices = {
         { text = "I'll not hide the Light for anyone, Kaplak.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I know when to keep it down. Quietly does it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -969,7 +969,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, down here in the dark. You'll fit in better than you'd like to think, because the shadow you pray in is the same one I work in." },
         { id = "h_default", key = true, text = "Name's Kaplak, and I teach the quiet arts to those who have the stomach for them. The grunts upstairs win their honor in the open, but somebody has to handle the work that happens in the dark, and the Horde needs both." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, down in my burrow. Keep your thunder to yourself, friend, because the grunts upstairs don't need to know what goes on down here." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, down in my burrow, and quieter than most of my students. I hear your kind can walk as a cat, so you'll forgive me if I keep one eye on the shadows while we talk." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, down in my burrow, and quieter than most of my students. I hear your kind can walk as a cat, so I'll keep one eye on the shadows while we talk." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, down in my burrow? You're the last person I expected, because your kind glow too much to hide." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, down in the burrow. Your imp's light is giving away my hiding place, so put it out or take it outside." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, all noise and steel. The grunts upstairs could use you more than I can, though I'll admit you'd make a fine distraction." },
@@ -1357,8 +1357,8 @@ P:NPC {
   topics = {
     _none = { { id = "tp_none", text = "Un'Thuwa knows spells, not that. Ask Master Gadrin, he knows everyone's business." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran was the greatest city of magic in the world, and the demons burned it. The humans are building it again, I hear, though they're not letting anyone in to see." } },
-    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the human mages who used to run Dalaran. They never let a troll into their school, which is why I taught myself." } },
-    darkspear = { { id = "tp_darkspear", text = "A Darkspear learns what they need to survive, and right now the Horde needs mages. I'm happy to oblige, and I'm quietly proud I'm better than half the orcs." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the human mages who used to run Dalaran. They never let a troll into their school, so I taught myself." } },
+    darkspear = { { id = "tp_darkspear", text = "A Darkspear learns what they need to survive, and right now the Horde needs mages. I'm happy to oblige, and I'm quietly proud I'm better than most of the orcs." } },
     the_elements = { { id = "tp_the_elements", text = "The spirits and the arcane don't always agree, and the shaman like to remind me of it. I tell them the fire spirits don't mind my fireballs, and that seems to end the argument." } },
   },
 }

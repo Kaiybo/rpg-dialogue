@@ -44,7 +44,7 @@ P:NPC {
         { id = "h_reading", tags = { "news" }, when = { questActive = TODO_QUEST("Psychometric Reading") },
           text = "I saw gnolls, Woodpaw gnolls, quarrelling over packs by firelight, and a boat breaking in the surf. Take that to Ginro, and tell him the debt is paid in full." },
         { id = "h_druid", when = { class = "DRUID" },
-          text = "A druid, and a Moonglade one by the look of you. Then perhaps you can tell me something nobody in Darnassus will, which is why the Arch Druid needs quite so much morrowgrain." },
+          text = "A druid, and a Moonglade one by the look of you. Then perhaps you can tell me what nobody in Darnassus will: why the Arch Druid needs quite so much morrowgrain." },
       },
       again = {
         { id = "h_again", text = "What else? The tea's cooling, and I can't decide if that's a problem." },
@@ -86,7 +86,7 @@ P:NPC {
     },
 
     grain = {
-      lines = { { id = "gr_default", text = "A grain grown with a little nature magic, quickly, in great quantity. Arch Druid Staghelm wants a great deal of it gathered in the name of the Cenarion Circle, and the Circle's own druids can't tell me why." } },
+      lines = { { id = "gr_default", text = "A grain grown with a little nature magic, quickly, in great quantity. Arch Druid Staghelm wants sacks of it gathered in the name of the Cenarion Circle, and the Circle's own druids can't tell me why." } },
       choices = {
         { text = "Why does that trouble you?", next = "grain_why" },
         { text = "Something else.", next = "BACK" },
@@ -115,7 +115,7 @@ P:NPC {
       },
     },
     debt_cheat = {
-      lines = { { id = "dc_default", text = "I could, technically, and Ginro knows it, which is why he plays with a deck he carved himself from ironwood. Every card in it remembers only Ginro winning." } },
+      lines = { { id = "dc_default", text = "I could, technically, and Ginro knows it, so he plays with a deck he carved himself from ironwood. Every card in it remembers only Ginro winning." } },
       choices = {
         { text = "He's cleverer than he looks.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -263,7 +263,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "Who left, who came back, and who's late. That's the dispatch office, friend." } },
     background = { { id = "tp_bg", text = "One of the general's expedition, keeper of the stronghold's dispatches.", next = "stronghold" } },
-    sentinels = { { id = "tp_sent", text = "The finest soldiers in Kalimdor, and the worst at writing reports, which is why I'm here." } },
+    sentinels = { { id = "tp_sent", text = "The finest soldiers in Kalimdor, and the worst at writing reports, so the General keeps a clerk on the island, and the clerk is me." } },
     _none = { { id = "tp_none", text = "Nothing in the dispatches about that, I'm afraid." } },
   },
 }

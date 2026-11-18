@@ -49,7 +49,7 @@ P:Letter {
   id = "origin_orc_warsong_kin_2", from = "Durzak", stranger = true, delay = 2400,
   when = { origin = "orc_warsong_kin", cleared = "Blackfathom Deeps" },
   subject = "The drowned temple",
-  body = "{name},\n\nA runner from Zoram'gar came up the road with news that someone cleaned the cultists out of Blackfathom Deeps, and when he said your name half the camp started shouting and the other half claimed they had taught you to swing an axe.\n\nThe night elves thought that temple was theirs, and the Twilight's Hammer thought it was theirs, and now it belongs to the fish. That is a fine joke, and we have been telling it all evening.\n\nYou are Warsong to the bone, {name}, and you went into the dark water without waiting for anyone to give you leave. Hellscream himself would have liked that. Lok'tar.\n\nDurzak, Splintertree Post",
+  body = "{name},\n\nA runner from Zoram'gar came up the road with news that someone cleaned the cultists out of Blackfathom Deeps, and when he said your name the whole camp started shouting, and at least six grunts claimed they had taught you to swing an axe.\n\nThe night elves thought that temple was theirs, and the Twilight's Hammer thought it was theirs, and now it belongs to the fish. That is a fine joke, and we have been telling it all evening.\n\nYou are Warsong to the bone, {name}, and you went into the dark water without waiting for anyone to give you leave. Hellscream himself would have liked that. Lok'tar.\n\nDurzak, Splintertree Post",
 }
 
 ---------------------------------------------------------------------------
@@ -76,7 +76,7 @@ P:Letter {
   id = "origin_orc_thrall_shaman_1", from = "Elder Gorvash", stranger = true, delay = 1200,
   when = { origin = "orc_thrall_shaman", minLevel = 6 },
   subject = "From the Valley of Wisdom",
-  body = "Young one,\n\nThe fire in my lodge burned blue three nights ago, and I took it as a sign to write to you. Perhaps it was only bad wood, but at my age I take my signs where I find them.\n\nThe new students are louder than you were and listen less. One of them tried to call the wind indoors and blew my good bowl off the shelf, and the wind did not apologize, which tells you something about the wind.\n\nRemember that the elements are not servants. You ask, you listen, and you thank them, even when they give you less than you asked for. Our people forgot that once, and the whole world paid for it. You are out among the spirits now, so be polite.\n\nElder Gorvash, Orgrimmar",
+  body = "Young one,\n\nThe fire in my lodge burned blue three nights ago, and I took it as a sign to write to you. Perhaps it was only bad wood, but at my age I take my signs where I find them.\n\nThe new students are louder than you were and listen less. One of them tried to call the wind indoors and blew my good bowl off the shelf, and the wind did not apologize, because it never has.\n\nRemember that the elements are not servants. You ask, you listen, and you thank them, even when they give you less than you asked for. Our people forgot that once, and the whole world paid for it. You are out among the spirits now, so be polite.\n\nElder Gorvash, Orgrimmar",
 }
 
 P:Letter {
@@ -100,7 +100,7 @@ P:Letter {
   id = "origin_orc_cleft_initiate_2", from = "Zurga", stranger = true, delay = 2400,
   when = { origin = "orc_cleft_initiate", minLevel = 30 },
   subject = "They say your name down here",
-  body = "{name},\n\nThe older warlocks in the Cleft have started using your name as a lesson, and I cannot decide whether it is a compliment. Half of them say you prove our craft can serve the Horde, and the other half say you are going to get yourself eaten by something with too many teeth.\n\nI told them I studied beside you, which made me briefly interesting, and then the imp ate my lunch, which made me less interesting again.\n\nPower is power, as you used to say. I still believe it, but I have started to think it matters a great deal who holds it, and I am glad that some of it is in your hands. Do not let it go to your head, or your eyes will start glowing at dinner.\n\nZurga, of the Cleft",
+  body = "{name},\n\nThe older warlocks in the Cleft have started using your name as a lesson, and I cannot decide whether it is a compliment. Some say you prove our craft can serve the Horde, and the rest say you are going to get yourself eaten by something with too many teeth.\n\nI told them I studied beside you, which made me briefly interesting, and then the imp ate my lunch, which made me less interesting again.\n\nPower is power, as you used to say. I still believe it, but I have started to think it matters very much who holds it, and I am glad that some of it is in your hands. Do not let it go to your head, or your eyes will start glowing at dinner.\n\nZurga, of the Cleft",
 }
 
 ---------------------------------------------------------------------------
@@ -151,7 +151,7 @@ P:Letter {
   id = "origin_orc_durotar_tracker_2", from = "Varga", stranger = true, delay = 2400,
   when = { origin = "orc_durotar_tracker", cleared = "Razorfen Kraul" },
   subject = "The thorn warrens",
-  body = "{name},\n\nWord came up from Camp Taurajo that you went into the thorn warrens of the quilboar and came out again, which is more than most hunters can say. I remember when you came home bleeding from a single bramble patch and complained for a week.\n\nThe quilboar have been raiding the caravans on the southern road for as long as I can remember. The tauren say they will be quieter now, and I hope they are right, because the price of salted meat in Razor Hill has been a crime.\n\nYou went from the Valley of Trials to the edge of the Barrens, and now beyond it. Keep going, but do not forget the scrub that taught you to look before you step.\n\nVarga, Razor Hill",
+  body = "{name},\n\nWord came up from Camp Taurajo that you went into the thorn warrens of the quilboar and came out again. Not many hunters do. I remember when you came home bleeding from a single bramble patch and complained for a week.\n\nThe quilboar have been raiding the caravans on the southern road for as long as I can remember. The tauren say they will be quieter now, and I hope they are right, because the price of salted meat in Razor Hill has been a crime.\n\nYou went from the Valley of Trials to the edge of the Barrens, and now beyond it. Keep going, but do not forget the scrub that taught you to look before you step.\n\nVarga, Razor Hill",
 }
 
 ---------------------------------------------------------------------------

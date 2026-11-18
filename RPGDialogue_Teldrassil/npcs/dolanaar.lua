@@ -95,7 +95,7 @@ P:NPC {
     },
     xmage = {
       lines = {
-        { id = "xma_default", text = "I am sure you could, and that is little comfort to me. The moonwells are Elune's, and it was the Highborne's hunger for magic like yours that brought the Legion and broke the world, so forgive me if I would rather a druid looked first." },
+        { id = "xma_default", text = "I am sure you could, and that is little comfort to me. The moonwells are Elune's, and it was the Highborne's hunger for magic like yours that brought the Legion and broke the world, so I would have a druid look first." },
         { id = "xma_gnome", when = { race = "Gnome" }, text = "Your people never knew the Well of Eternity, so I will not lay its ruin at your feet. But the moonwells are Elune's, and I would rather no spell of yours touched them while a druid can look instead." },
       },
       choices = {
@@ -445,9 +445,9 @@ P:NPC {
   greetings = {
     { id = "g_groves", text = "Good to see the young taking a hand in guarding the groves. Come, I've work for willing hands." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the groves have missed your willing hands. Good to see you back on the path." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since you first took work from me, young one. I'm proud, if you'll allow an old elf to say so." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you first took work from me, young one, and the Gnarlpine have noticed it before I did. I'm proud, if you'll allow an old elf to say so." },
     { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping folk around Dolanaar, and quietly too. That's exactly the kind of work I like to see done." },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is someone in the village took a story of yours for truth. Some things are best handled quietly, but honestly as well." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is someone in the village took a story of yours for truth. Some things are best handled quietly, but never with a second lie laid over the first." },
   },
 
   notice = {
@@ -585,7 +585,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Gnarlpine hunt my groves now, and I would like to see someone hunt them back." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A young druid, guarding the groves as you should. The Gnarlpine have grown bold this season, and I'm glad to see one of the Circle's own standing against it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, here in Dolanaar? You've come a long way from Stormwind or Ironforge, and I hope the young ones guarding the groves didn't stare too hard." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, on Teldrassil. Keep your servant close and quiet, because the young Sentinels here have never seen a demon, and I'd rather they didn't learn on yours." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, on Teldrassil. Keep your servant close and quiet, because the young Sentinels here have never seen a demon, and their first should not be yours." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, walking among my young ones. Your spirits are rougher than our druids' ways, but I sense no harm in them. Have you seen my dreamcatcher?" },
       },
       again = {
@@ -630,7 +630,7 @@ P:NPC {
       },
     },
     starbreeze2 = {
-      lines = { { id = "sb2_default", text = "When it's safe, and not before. Teldrassil has enough brave fools in it already, and I'd rather be a careful one." } },
+      lines = { { id = "sb2_default", text = "When it's safe, and not before. Teldrassil has brave fools enough among its saplings, and someone must be the careful one." } },
       choices = {
         { text = "Wise.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "I'll make it safe.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
@@ -695,7 +695,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r3 = {
-      lines = { { id = "op_r3_default", text = "Harmless is what satyrs want you to think, {class}. Every one of them was Highborne once, and every one of them chose the Legion." } },
+      lines = { { id = "op_r3_default", text = "Harmless is what satyrs want you to think, {class}. Each of them was Highborne once, and each of them chose the Legion with open eyes." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r4 = {
@@ -805,7 +805,7 @@ P:NPC {
         { id = "h_sort", when = { metBefore = true }, text = "The Council sends more orders than Dolanaar has hands. I sort them by which ones get someone hurt if they wait." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Council always has more orders than hands, and hunters can carry the ones that lead into the deep wood." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Council of the Forest has work for the Circle's young as well as for the Sentinels, and I have more of it than I have druids to carry it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Council sent me no orders concerning your kind, which means I'll have to decide for myself, and I'd rather you made that easy for me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Council sent me no orders concerning your kind, which means I'll have to decide for myself, so I hope you will make that decision an easy one." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and welcome. I have more orders than hands, and I sort them by which ones will get someone hurt if they wait, so perhaps your spirits can carry one or two." },
       },
       again = {
@@ -1006,7 +1006,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Keldamyr, and I keep the inn for travelers between Shadowglen and Darnassus. They all stop beneath these boughs sooner or later, and I like to think they leave lighter." },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Dolanaar Delivery") },
-          text = "So these are the herbs from Porthannius. It's a pity he couldn't bring them himself, for we've a great deal to talk about, he and I." },
+          text = "So these are the herbs from Porthannius. It's a pity he couldn't bring them himself, for there are seasons of news between us still unspoken." },
         { id = "h_joke", when = { metBefore = true }, text = "A Sentinel told me a joke last night. It wasn't funny, but she laughed so hard I laughed too. That's the inn on a good night." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, and the Sentinels coming off watch will want tea. They always want tea, and they never admit they're cold." },
         { id = "h_corithras", when = { heardLine = "corithras.h_default" }, text = "Corithras and his wells. He tastes every one himself, you know, to find the trouble. I keep peppermint tea for him after." },
@@ -1119,7 +1119,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Easier than you'd think, once you take the armor off and stop listening for every snapped twig. Pick a spot with your back to a trunk, count the stars through the leaves, and let the forest keep watch for a while." } },
+      lines = { { id = "xwarcl_default", text = "Easy enough, once you take the armor off and stop listening for every snapped twig. Pick a spot with your back to a trunk, count the stars through the leaves, and let the forest keep watch for a while." } },
       choices = {
         { text = "I'll trust the forest and sleep.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll sleep in my armor with my sword in hand.", next = "BACK", fx = { align = { light = -1 } } },

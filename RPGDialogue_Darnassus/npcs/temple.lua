@@ -37,7 +37,7 @@ P:NPC {
     { id = "n_nelf_priest", cat = "class", when = { class = "PRIEST", race = "NightElf" },
       text = "Sister, brother, whichever the moon made you, you've been out in the world, and it shows in how you stand. Come and tell me what you've seen." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
-      text = "You've brought the arcane in on your sleeves; it smells like old candle smoke. I'll answer your questions, mage, but forgive me if I keep my hands folded." },
+      text = "You've brought the arcane in on your sleeves; it smells like old candle smoke. I'll answer your questions, mage, but I will keep my hands folded while I do." },
   },
 
   start = "hello",
@@ -125,7 +125,7 @@ P:NPC {
     },
     mage_a2 = {
       lines = {
-        { id = "mga2_default", text = "It can mend a thing, I'll grant you, the way a smith mends a sword. It has never once asked the sword's permission, though, and Elune always asks; that's the difference, and it's all of the difference." },
+        { id = "mga2_default", text = "It can mend a thing, yes, the way a smith mends a sword. It has never once asked the sword's permission, though, and Elune always asks; that's the difference, and it's all of the difference." },
       },
       choices = {
         { text = "Power doesn't need permission.", next = "BACK", fx = { align = { light = -1 } } },
@@ -135,7 +135,7 @@ P:NPC {
     warlock_a = {
       big = true,
       lines = {
-        { id = "wa_default", text = "Very well: you carry the same fire that burned Zin-Azshari, and you carry it into a temple built by those who survived it. I will not send you out, because Elune turns no one from her door, but you'll forgive me if I stand nearer to it." },
+        { id = "wa_default", text = "Very well: you carry the same fire that burned Zin-Azshari, and you carry it into a temple built by those who survived it. I will not send you out, because Elune turns no one from her door, but I will stand a little nearer to it while you are here." },
       },
       choices = {
         { text = "I bind it so it can't bind anyone else.", next = "BACK", fx = { align = { light = 1 } } },
@@ -151,7 +151,7 @@ P:NPC {
     },
     paladin_a = {
       lines = {
-        { id = "pa_default", text = "So I've seen; Stormwind's paladins pray with a hammer in hand, which the Sisterhood understands better than you'd think. Our priestesses stood at Hyjal with bows and the moon behind them, and nobody called it a contradiction." },
+        { id = "pa_default", text = "So I've seen; Stormwind's paladins pray with a hammer in hand, and the Sisterhood understands that better than they might expect. Our priestesses stood at Hyjal with bows and the moon behind them, and nobody called it a contradiction." },
       },
       choices = {
         { text = "Then the Light and Elune fight on the same side.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -180,7 +180,7 @@ P:NPC {
         { id = "h_stars", tags = { "news" }, when = { questActive = TODO_QUEST("Stars of Elune") },
           text = "You've earned Elune's attention, and that is not a small thing. When you're ready, I'll teach you to call down her stars, as the priestesses of old did against the Legion." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "The moon's up, and the Temple is at its best. The water holds her light longer than you'd think; stand by the pool a while before you go." },
+          text = "The moon's up, and the Temple is at its best. The water holds her light long after the clouds cover her; stand by the pool a while before you go." },
         { id = "h_human_priest", when = { class = "PRIEST", race = "Human" },
           text = "Laurena's students all pray with their eyes shut, I've noticed, and I expect you do too. We pray with ours open, toward the moon, and neither of us has been struck down for it yet." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Elune shines on the shadows as well as the open ground, rogue, so you needn't stand at the edge of the room like that." },
@@ -386,7 +386,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "A teacher in this Temple hears a great deal from the young priests who pass through it. Ask, and I'll tell you what I can in good conscience." } },
+    knows = { { id = "tp_knows", text = "A teacher in this Temple hears much from the young priests who pass through it. Ask, and I'll tell you what I can in good conscience." } },
     background = { { id = "tp_bg", text = "I teach Elune's priests, and some of the Light's, when Laurena sends them. Mostly it means teaching young priests not to fidget through the long hymns." } },
     advice = { { id = "tp_ad", text = "Heal the one in front of you before you worry about the one across the sea. Prayer can wait a breath; bleeding can't." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "We've healed and guarded our people since before the Sundering. Ask me about it properly and I'll tell you more.", next = "sisterhood" } },
@@ -461,7 +461,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, though they always start by saying they're only passing. Holding the line means seeing what breaks it, and Elune can hear about that as well as anything else, so if you ever want to tell me, I'll listen." } },
+      lines = { { id = "xwarcl_default", text = "Often, though they always start by saying they're only passing. Holding the line means seeing what breaks it, and Elune can hear about that as well as anything else, so if you ever want to tell me, I'll listen." } },
       choices = {
         { text = "Maybe someday. It helps to say it aloud.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "What happens on the field stays there.", next = "BACK", fx = { align = { light = -1 } } },
@@ -682,7 +682,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Stay where they can see you, and don't charge three trees ahead and then wonder why the healing never reached you. The Sentinels learned that lesson in Ashenvale, and I'd rather you learned it here." } },
+      lines = { { id = "xwarcl_default", text = "Stay where they can see you, and don't charge three trees ahead and then wonder why the healing never reached you. The Sentinels learned that lesson in Ashenvale with their own blood, and it costs nothing to learn it here." } },
       choices = {
         { text = "I'll stay in sight and hold my ground.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If I wait for the healer, the fight's already lost.", next = "BACK", fx = { align = { order = -1 } } },
@@ -735,7 +735,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "That bandages are slow and a priest is rarely close by when you need one, so learn first aid properly and carry more linen than you think. I've patched up Sentinel scouts who thought they could walk off a Warsong axe, and every one of them was wrong." },
+        { id = "xrogue_default", text = "That bandages are slow and a priest is rarely close by when you need one, so learn first aid properly and carry more linen than you think. I've patched up Sentinel scouts who thought they could walk off a Warsong axe, and not one of them managed it." },
       },
       choices = {
         { text = "I'll learn it properly. Thank you.", next = "BACK", fx = { align = { order = 1 } } },
@@ -808,9 +808,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Save your strongest prayer for the wound that needs it. You'll know it when you see it." } },
     warsong = { { id = "tp_warsong", text = "Orcs with axes in Ashenvale, cutting down a forest older than their whole history. I mend what they leave behind." } },
     holy_light = { { id = "tp_holy_light", text = "Light, Elune, whatever we call it, the wound still closes. I teach my students to spend it carefully whichever name they use." } },
-    scourge = { { id = "tp_scourge", text = "The plague does things to the body that healing struggles to undo, from what the human priests write. I'd like to study it, and I'd rather never see it." } },
+    scourge = { { id = "tp_scourge", text = "The plague does things to the body that healing struggles to undo, from what the human priests write. I would study it gladly, from letters, and pray it never crosses the sea to us." } },
     thrall = { { id = "tp_thrall", text = "The orcs' warchief seems a better sort than the warlords before him, by most accounts. I still have to heal what his Warsong do to our Sentinels." } },
-    centaur = { { id = "tp_centaur", text = "I've stitched centaur arrows out of Sentinels coming back from the south. They use barbed heads, which tells you what kind of people they are." } },
+    centaur = { { id = "tp_centaur", text = "I've stitched centaur arrows out of Sentinels coming back from the south. They use barbed heads, made to tear on the way out, and that says enough about them." } },
     _none = { { id = "tp_none", text = "Not my concern, I'm afraid. Ask Alathea, for she likes questions and has had a long time to collect answers." } },
   },
 }
@@ -835,7 +835,7 @@ P:NPC {
 
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
-      text = "Your armor has been through a great deal, and you're carrying the road in your shoulders. Sit by the water before you do anything else." },
+      text = "Your armor has seen hard roads, and you're carrying them in your shoulders. Sit by the water before you do anything else." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST", race = "Human" },
       text = "A priest from Stormwind, and you've come all this way to learn from us. That pleases me more than I'd like to admit." },
   },
@@ -871,7 +871,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "It tells me when the clouds come in from Darkshore and when the Sentinels ride out, which is more than most people notice. Whether it tells me about a fight I'll leave you to decide, warrior, because you'd only laugh if I said yes." } },
+      lines = { { id = "xwarcl_default", text = "It tells me when the clouds come in from Darkshore and when the Sentinels ride out, and few in this city bother to notice either. Whether it tells me about a fight I'll leave you to decide, warrior, because you'd only laugh if I said yes." } },
       choices = {
         { text = "I'll trust your pool. Signs are worth heeding.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I trust what I can see with my own eyes.", next = "BACK", fx = { align = { light = -1 } } },
@@ -881,7 +881,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "The owls, mostly, because they hunt by the same light I study and they never miss a change in it. When the owls go quiet over the Temple, something is moving in the dark, and I'd rather a hunter than a priestess went to see what." },
+        { id = "xhuntcl_default", text = "The owls, mostly, because they hunt by the same light I study and they never miss a change in it. When the owls go quiet over the Temple, something is moving in the dark, and that is a hunter's errand, not a priestess's." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watched the pool with me just now, did you notice? I think it saw something I missed." },
       },
       choices = {
@@ -936,7 +936,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Come and look at the pool with me a moment, because the moonlight on it tonight is quieter than it was yesterday, and I don't yet know why." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your armor catches the moonlight from across the gardens, {class}, and I'm afraid you've rather spoiled my watching." },
-        { id = "h_default", text = "I am Lariia, and I teach here. When I'm not teaching I watch the pool, because Elune's light on it tells you a great deal about the night if you look long enough." },
+        { id = "h_default", text = "I am Lariia, and I teach here. When I'm not teaching I watch the pool, because Elune's light on its surface will tell you how the night is turning if you look long enough." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You chose the darkest corner by the pool, rogue, which is where I'd sit too. The moonlight shows more from there." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "The moonlight bends a little around you, mage, and I'm not sure you even know it does. It's very pretty, and slightly unsettling." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The moonlight on the pool tonight says a fight is coming, though I'll admit it says that most nights." },
@@ -995,7 +995,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Look longer than you think you need to. Most people miss things by being in a hurry." } },
     elune = { { id = "tp_elune", text = "Elune's light falls on the pool every night, and I watch it. Sometimes it's all the prayer I need to make." } },
     nordrassil = { { id = "tp_nordrassil", text = "The old tree on Hyjal is ours, and Teldrassil is ours too. I try not to choose between them, because a mother shouldn't." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Some of the novices slipped away to the Faire once, when it came close. They came back with painted faces and a great deal to confess." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Some of the novices slipped away to the Faire once, when it came close. They came back with painted faces and a long list of things to confess." } },
     _none = { { id = "tp_none", text = "The pool hasn't shown me anything about that, and I have watched it a long while. Try Alathea." } },
   },
 }
@@ -1056,7 +1056,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Only if you came by your bruises honestly, because the priestesses can always tell. I'll be sent to the Sentinels in Ashenvale one day, and I'd like to have patched up a real warrior before then, so perhaps come back after you've met the Gnarlpine." } },
+      lines = { { id = "xwarcl_default", text = "Only if you came by your bruises fairly, because the priestesses can always tell. I'll be sent to the Sentinels in Ashenvale one day, and I'd like to have patched up a real warrior before then, so perhaps come back after you've met the Gnarlpine." } },
       choices = {
         { text = "I'll come back bruised, and you'll be ready in time.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll trust a seasoned priestess, not a student.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1340,7 +1340,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Call the Sentinels, and then a priestess, and then very probably the Archdruid himself, and I'd rather not trouble any of them. Keep your stranger possessions on your own person, please, and our accounts will stay friendly." },
+        { id = "xlock_default", text = "Call the Sentinels, and then a priestess, and then very probably the Archdruid himself, and none of them would thank me for it. Keep your stranger possessions on your own person, please, and our accounts will stay friendly." },
       },
       choices = {
         { text = "Agreed. Nothing that whispers goes in your vault.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1375,7 +1375,7 @@ P:NPC {
         { id = "h_default", text = "I'm Idriana, and I keep accounts and safety deposit boxes for anyone with valuables they'd rather not carry through Ashenvale. Everything here is guarded, recorded and returned on request." },
         { id = "h_voucher", tags = { "news" }, when = { questActive = TODO_QUEST("Calm Before the Storm") },
           text = "Gracina Spiritmight has told me to expect you. When you bring her voucher, I'm to withdraw something from her account and present it to you, so congratulations would seem to be in order." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Everything here is guarded and recorded, rogue, so you'll forgive me if I watch your hands while we talk." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Everything here is guarded and recorded, rogue, so do not take it amiss if I watch your hands while we talk." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll keep your deposits, warlock, as I keep anyone's, though I'll ask you not to store anything that whispers." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Please sheathe that before you lean on the counter, because the last warrior who didn't scratched it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're depositing hides, I'm afraid they go to the auction house and not to me, whatever you've heard." },
@@ -1430,7 +1430,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "A banker hears a great deal and repeats very little. I can speak to a few matters, if you ask." } },
+    knows = { { id = "tp_knows", text = "A banker hears much and repeats very little. I can speak to a few matters, if you ask." } },
     background = { { id = "tp_bg", text = "I keep the bank's records and its keys. Both are always in order." } },
     advice = { { id = "tp_ad", text = "Don't carry everything you own into the wilds. The wilds will take a share." } },
     booty_bay = { { id = "tp_booty_bay", text = "The goblin bank in Booty Bay is very efficient, I'm told, and charges for the privilege of telling you so. We do not charge for honesty here." } },

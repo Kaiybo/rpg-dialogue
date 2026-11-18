@@ -23,7 +23,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I caught myself watching the road for you as well. Old habits, I suppose." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much harder since you first stopped here, and I think Jaedenar would think twice about you now." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The druids say you've been helping around the sanctuary. It's good to know there are kind hands on this road." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "Someone at the sanctuary is cross with you, and I'd rather not know the details. We're all frightened up here, and fear makes short tempers." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone at the sanctuary is cross with you, and I don't want to know the details. We're all frightened up here, and fear makes short tempers." },
   },
 
   notice = {
@@ -165,7 +165,7 @@ P:NPC {
     alive = {
       lines = {
         { id = "a_default", text = "I have to think so, because the alternative is that I've been sitting here doing nothing while they died. If the Council took them, they'd keep them, at least for a while, because cultists like to ask questions." },
-        { id = "a_done", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "One of them was, and that's because of you. The other I already know about, and I'd rather not say it aloud again today." },
+        { id = "a_done", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "One of them was, and that's because of you. The other I already know about, and I can't bring myself to say it aloud again today." },
       },
       choices = {
         { text = "I'll look for them in Jaedenar.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
@@ -225,7 +225,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xl_default", text = "You'll forgive me if I find that hard to believe today, with my friends in their hands. I'll grant you this much: you came and spoke to me in the open, which is more than any of them ever has." },
+        { id = "xl_default", text = "I find that hard to believe today, with my friends in their hands. Still, you came and spoke to me in the open, and not one of them ever has." },
       },
       choices = {
         { text = "Judge me by what I do in Jaedenar.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },

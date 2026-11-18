@@ -199,7 +199,7 @@ P:NPC {
     kobolds = { { id = "tp_kobolds", text = "I see what they leave behind, mostly in the infirmary." } },
     _none = { { id = "tp_none", text = "I've no answer for that, but I'll pray you find one." } },
     holy_light = {
-      { id = "tp_holy_light", text = "The Light mends what it can through whoever will kneel long enough, and I kneel a great deal. I'd recommend it to anyone, especially the ones who think they don't need it." },
+      { id = "tp_holy_light", text = "The Light mends what it can through whoever will kneel long enough, and I kneel every morning and most evenings. I'd recommend it to anyone, especially the ones who think they don't need it." },
       { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You'll learn soon enough that the Light is less a fire you hold than a well you draw from. Draw carefully, and never draw it dry." },
     },
     brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood trains priests, paladins and soldiers under one roof, which makes for noisy suppers and very good prayers. Archbishop Faol wanted it that way." } },
@@ -409,7 +409,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gnome = {
-      lines = { { id = "gnome_l", text = "So I've noticed, and I've lost two practice wands to it this season. I'll grant your people understand the parts better than mine, but the four rules still apply to gnomes, however small the explosion." } },
+      lines = { { id = "gnome_l", text = "So I've noticed, and I've lost two practice wands to it this season. Your people may understand the parts better than mine, but the four rules still apply to gnomes, however small the explosion." } },
       choices = {
         { text = "Understanding the parts is the whole point.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "I'll put your wands back together.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -442,7 +442,7 @@ P:NPC {
     defias = { { id = "tp_defias", text = "They took books from our library: thieves with a reading list, which I find worse than the ordinary kind." } },
     _none = { { id = "tp_none", text = "Not in any book I own, and I own most of them." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran was where every mage of my generation dreamed of studying, and I never got further than its gates. They're rebuilding it now, I hear, and they're slower than ever to let anyone in." } },
-    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught that magic is a discipline before it is a power, and they lost a great deal the day they forgot it. Kel'Thuzad was one of theirs, you know." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught that magic is a discipline before it is a power, and they lost Dalaran's good name the day they forgot it. Kel'Thuzad was one of theirs, you know." } },
     scourge = { { id = "tp_scourge", text = "The plague in the north was a mage's work at its root, and that's why I teach respect before I teach fire. Somebody skipped that lesson once." } },
     echo_ridge = { { id = "tp_echo_ridge", text = "The kobolds in Echo Ridge make a fine first test for a young mage, because they're slow and they burn. Mind the candles on their heads, though; they make the fire worse." } },
   },
@@ -904,7 +904,7 @@ P:NPC {
       },
     },
     legion_ask = {
-      lines = { { id = "legion_ask_l", text = "Not yet, and I'd rather not discuss it among the graves. They're very good listeners, as I said." } },
+      lines = { { id = "legion_ask_l", text = "Not yet, and I won't discuss it among the graves. They're very good listeners, as I said." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gnome = {
@@ -925,7 +925,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "The arcane only corrupts the weak. Remember that whatever road you take, and especially if it's mine." } },
     northshire_abbey = { { id = "tp_abbey", text = "Very holy, with very loud bells. I'm out here for the quiet." } },
     defias = { { id = "tp_defias", text = "Thieves who stole a book they can't read. I've been grateful to them exactly once." } },
-    _none = { { id = "tp_none", text = "Ask the dead. They know more than you'd think." } },
+    _none = { { id = "tp_none", text = "Ask the dead. They keep more secrets than the living do." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Legion is the sea beneath every warlock's little boat, and the clever ones never forget how deep it is. The Brothers would rather I didn't say that, so I'm saying it to you." } },
     holy_light = { { id = "tp_holy_light", text = "The Brothers have their Light and I have my shadow, and we pass each other on the stair very politely. Neither of us is going anywhere." } },
     scourge = { { id = "tp_scourge", text = "The Scourge was raised by necromancers, not warlocks, and I'll thank you to remember the difference. We bargain with demons; they steal from the dead." } },
@@ -992,7 +992,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I'd teach you to take a hit, which every rogue I've met is bad at, and I'd teach you to stop running long enough to see what's coming. The rest you'll learn from Sylvius, and I'd rather not know what that is." } },
+      lines = { { id = "xrogue_default", text = "I'd teach you to take a hit, which every rogue I've met is bad at, and I'd teach you to stop running long enough to see what's coming. The rest you'll learn from Sylvius, and I make a point of not asking what that is." } },
       choices = {
         { text = "I'll learn to stand and take a hit, Du Lac.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Running is smarter than standing. I'll keep running.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1028,7 +1028,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "About forty pounds of plate and an oath, and the oath's the heavier of the two. Wilhelm and I share this yard because his paladins and my soldiers end up on the same walls, and I'd rather they'd met before the fighting starts." } },
+      lines = { { id = "xapala_default", text = "About forty pounds of plate and an oath, and the oath's the heavier of the two. Wilhelm and I share this yard because his paladins and my soldiers end up on the same walls, and I want them to have met before the fighting starts." } },
       choices = {
         { text = "An oath makes a soldier stronger, Du Lac.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "An oath is only words. The steel does the work.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1183,7 +1183,7 @@ P:NPC {
       },
     },
     trainers_cellar = {
-      lines = { { id = "trainers_cellar_l", text = "Because the kingdom wants them, and the kingdom pays me, and I'd rather not know what my pay is standing next to. A soldier picks her battles." } },
+      lines = { { id = "trainers_cellar_l", text = "Because the kingdom wants them, and the kingdom pays me, and I don't ask what my pay is standing next to. A soldier picks her battles." } },
       choices = {
         { text = "They should be run out of Goldshire.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The kingdom needs every weapon it has.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1297,7 +1297,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Every one of them, a little, though I try not to let it show. I'll ask a kindness of you: when you're far from here, bless someone who needs it and think of me, because I'll likely never get there myself." } },
+      lines = { { id = "xapala_default", text = "All of them, a little, though I try not to let it show. I'll ask a kindness of you: when you're far from here, bless someone who needs it and think of me, because I'll likely never get there myself." } },
       choices = {
         { text = "I will, Josetta. You'll be with me on the road.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then leave Goldshire yourself. Don't live through others.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1366,7 +1366,7 @@ P:NPC {
       },
     },
     cathedral = {
-      lines = { { id = "c_default", text = "Bigger than you'd think, and quieter. High Priestess Laurena will teach you there when you're ready; she's stern, and she's also right, which is worse." } },
+      lines = { { id = "c_default", text = "Bigger than Northshire's chapel ten times over, and quieter. High Priestess Laurena will teach you there when you're ready; she's stern, and she's also right, which is worse." } },
       choices = {
         { text = "I'd have thought you'd go to the Cathedral yourself.", next = "cathedral_why" },
         { text = "Something else.", next = "BACK" },
@@ -1507,7 +1507,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "One of Marcot's, up from the cellar. You've climbed further than most of your kind bother to, and I'd ask what for." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my room above the stable. I'd ask you to sit, but the chair is for show and the bed is for me." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your companion is staring at my candle, and I'd rather it didn't knock it over; I've only the one." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your companion is staring at my candle, so please keep it from knocking it over; I've only the one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Do sit down, because I've a dozen questions about how the change works, and I've never had anyone to ask who wouldn't bite." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! How fascinating. My view is a stable, but you are far more interesting. What do your spirits say about the arcane?" },
       },
@@ -1692,7 +1692,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "He thinks I'm a thief with a bookshelf, and I think he's a scholar with a temper, and we're both right. We share a roof and a bad stew, which is more than most mages and rogues manage." } },
+      lines = { { id = "xmage_default", text = "He thinks I'm a thief with a bookshelf, and I think he's a scholar with a temper, and we're both right. We share a roof and a bad stew, and in this kingdom mages and rogues rarely manage that much." } },
       choices = {
         { text = "A shared roof deserves respect. I'll mind your corner.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Respect's earned, Sylvius. Neither of you has earned mine.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1738,7 +1738,7 @@ P:NPC {
         { id = "h_fish", when = { class = "ROGUE", maxLevel = 12 },
           text = "A fresh fish from Jorik's stable. He sends me the ones who can at least find the stairs. Let's see if you can find anything else." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "Josetta's room is down the hall. This one's for reading, and I'm reading. You'll forgive me if I don't confess anything." },
+          text = "Josetta's room is down the hall. This one's for reading, and I'm reading. I've nothing to confess, so don't wait for it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, in my corner of the inn. You've wandered too far from Zaldimar's room, I think, and too close to mine." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -2001,7 +2001,7 @@ P:NPC {
         { id = "ol_default", text = "The Slaughtered Lamb, in the city. Gakin the Darkbinder keeps its cellar the way we keep this one, quietly, and you'll keep the name quiet too." },
       },
       choices = {
-        { text = "My lips are sealed.", next = "BACK", reply = "Thank you. The coven has few friends, and it remembers every one of them.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My lips are sealed.", next = "BACK", reply = "Thank you. The coven has few friends, and it remembers each of them.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll tell whoever I like.", next = "BACK", reply = "Then you'll find the stairs much harder to come down next time. That isn't a threat; it's just how the coven is.", fx = { align = { honor = -1 } } },
         { text = "And if they're not?", next = "BACK", fx = { affinity = -2, trait = { stern = 1 } } },
       },

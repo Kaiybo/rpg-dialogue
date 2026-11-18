@@ -23,7 +23,7 @@ P:NPC {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of my own people! Then you'll understand how undignified it is for a tauren to be kept on an island by a monkey." },
     { id = "n_status", cat = "status", when = { reputation = { faction = "Booty Bay", min = "honored" } },
-      text = "You smell of Booty Bay, and quite respectably, which is more than I can say for most of the sailors who've come past this island." },
+      text = "You smell of Booty Bay, and quite respectably, and the sailors who've come past this island smelled of nothing but bilge and rum." },
   },
 
   start = "hello",
@@ -95,7 +95,7 @@ P:NPC {
 
     captive = {
       lines = {
-        { id = "ca_default", text = "It's a long and very tragic story, and I've been held by worse than gorillas, if you'd believe it. There was a troll called Zanzil before this, with his potions and his zombies, and Mukla is an improvement, which tells you something." },
+        { id = "ca_default", text = "It's a long and very tragic story, and I've been held by worse than gorillas, if you'd believe it. There was a troll called Zanzil before this, with his potions and his zombies, and by comparison Mukla has been a perfect gentleman." },
       },
       choices = {
         { text = "This Zanzil held you?", next = "captive_zanzil" },

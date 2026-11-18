@@ -27,7 +27,7 @@ P:NPC {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid! Don't sniff at me like that, because I've bathed this very month." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "Well now, there's a smell I know. Your little friend and I would have a great deal to talk about, I think." },
+      text = "Well now, there's a smell I know. Your little friend and I would have plenty to talk about, I think." },
     { id = "n_green", cat = "greenness", when = { maxLevel = 5 },
       text = "So young, and so far from the Sentinels' skirts! Nobody's told you about satyrs yet, have they? Good." },
   },

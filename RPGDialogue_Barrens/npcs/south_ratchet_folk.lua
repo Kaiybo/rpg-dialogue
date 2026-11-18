@@ -110,7 +110,7 @@ P:NPC {
       },
     },
     gakin2 = {
-      lines = { { id = "ga2_default", text = "Careful, which is why he's teaching in the capital and I'm renting rooms from goblins. I was the clever one, and you may take whatever lesson from that you like." } },
+      lines = { { id = "ga2_default", text = "Careful, and so he's teaching in the capital while I rent rooms from goblins. I was the clever one, and you may take whatever lesson from that you like." } },
       choices = { { text = "Something else, Strahad.", next = "BACK" } },
     },
     cleft = {
@@ -203,7 +203,7 @@ P:NPC {
           text = "Come in, come in, pal, and if there's a Theramore sailor by the far door, just ignore him, because he's paid up through Tuesday and I'd hate to lose him." },
       },
       again = {
-        { id = "h_again", text = "What else, pal? Talk's free, which is more than I can say for the stew." },
+        { id = "h_again", text = "What else, pal? Talk's free, pal, and the stew's two silver, so pick wisely." },
       },
       choices = {
         { text = "Who stays at your inn?", next = "guests" },

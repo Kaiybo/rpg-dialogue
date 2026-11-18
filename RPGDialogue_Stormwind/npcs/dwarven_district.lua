@@ -86,7 +86,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "A proper fit, first an' last, because plate that pinches will kill ye slower but surer than an axe. Half the guards in this city wear armour cut for someone else, an' it shows in how they move." } },
+      lines = { { id = "xwarcl_default", text = "A proper fit, first an' last, because plate that pinches will kill ye slower but surer than an axe. Look at the city guards, wearin' armour cut fer someone else, an' it shows in how they move." } },
       choices = {
         { text = "I'll have it fitted right, whatever it costs.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If it stops a blade, it fits well enough.", next = "BACK", fx = { align = { order = -1 } } },
@@ -633,7 +633,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Yer kind have tried, an' blown half a tunnel down in the trying, which is why there's a stretch o' the Elwynn hills where nobody digs anymore. A pick an' patience moves more rock than any fireball, an' it doesnae bring the roof down on yer head." },
+        { id = "xmage_default", text = "Yer kind have tried, an' blown half a tunnel down in the trying, an' that's how there came tae be a stretch o' the Elwynn hills where nobody digs anymore. A pick an' patience moves more rock than any fireball, an' it doesnae bring the roof down on yer head." },
       },
       choices = {
         { text = "Pick and patience, then. Teach me the honest way.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -643,7 +643,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I leave timber props an' good drainage, which is more than most miners leave. If ye're askin' whether I sing tae the rock, the answer's no, but I dinnae dig where the water runs clean." } },
+      lines = { { id = "xdruid_default", text = "I leave timber props an' good drainage, an' that's more than the kobolds leave, or the Defias either. If ye're askin' whether I sing tae the rock, the answer's no, but I dinnae dig where the water runs clean." } },
       choices = {
         { text = "Digging by rules and with care is honest work, Gelman.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "No rule makes a mine right. Leave the hills whole.", next = "BACK", fx = { align = { order = -1 } } },

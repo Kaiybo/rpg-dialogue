@@ -122,7 +122,7 @@ P:NPC {
           text = "That parcel smells like Rut'theran, so Nessa's sent you. Let me see what she thinks passes for a good catch over there." },
         { id = "h_return", when = { questActive = TODO_QUEST("Return to Nessa") },
           text = "Take my answer back to Nessa, and tell her the Darkshore catch was bigger this season. She'll argue, but she'll know I'm right." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind the fish, because they bite worse than you'd think, and so do the murlocs on this coast." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind the fish, because they bite harder than they look, and so do the murlocs on this coast." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want fish for that companion, I expect, and I'll tell you what Nessa won't, which is that mine are fresher." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll bless a fisherman's nets, I hope, because the murlocs have been at mine every night this week." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, buying fish! Now I've seen everything, though I suppose even the Silver Hand has to eat." },
@@ -262,7 +262,7 @@ P:NPC {
     },
     xrogue = {
       lines = {
-        { id = "xro_default", text = "Most do, and for the ones who don't, I keep their things a season and then sell them honestly. I'd ask you to do the same if you ever find a purse on the dock." },
+        { id = "xro_default", text = "Most do, and for the ones who don't, I keep their things a season and then sell them fairly. I'd ask you to do the same if you ever find a purse on the dock." },
       },
       choices = {
         { text = "I'd return it, Dalmond.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -371,7 +371,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I keep the general goods in Auberdine. I've seen a lot of young people come through here, and I try to send them out with a spare bag and dry socks, which is more than most of their mothers managed." } },
+    background = { { id = "tp_bg", text = "I keep the general goods in Auberdine. I've seen a lot of young people come through here, and I try to send them out with a spare bag and dry socks, since their mothers clearly didn't." } },
     advice = { { id = "tp_ad", text = "Buy a bigger bag. You'll thank me in a week." } },
     booty_bay = { { id = "tp_booty_bay", text = "Young folk come through on their way to anywhere, and some of them mean to get to Booty Bay. I give them a spare bag and tell them to keep their purses in it." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Darkmoon Faire's been near, everyone comes in with no money and wants credit. I give a little, because I remember being young." } },
@@ -466,7 +466,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Now and then, on their way to the Temple or off to tend the sick up the coast, and every one of them is thirsty. It is hard work, praying over the hurt, and I would rather they did it with a full cup." } },
+      lines = { { id = "xapriest_default", text = "Now and then, on their way to the Temple or off to tend the sick up the coast, and they're always thirsty. It is hard work, praying over the hurt, and it goes easier with a full cup." } },
       choices = {
         { text = "I'll take that cup. Thank you, Taldan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I've no time for juice, Taldan.", next = "BACK", fx = { align = { light = -1 } } },
@@ -534,7 +534,7 @@ P:NPC {
     },
     strong = {
       lines = {
-        { id = "st_default", text = "The humans and dwarves coming through want ale, and the innkeeper keeps a little for them. But my people have seen what thirst for stronger things does, and I'd rather sell something that leaves you clear-headed in the morning." },
+        { id = "st_default", text = "The humans and dwarves coming through want ale, and the innkeeper keeps a little for them. But my people have seen what thirst for stronger things does, so I sell what leaves you clear-headed in the morning." },
       },
       choices = {
         { text = "I'm not sure what you mean about thirst.", next = "strong2" },
@@ -590,7 +590,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They tell me that you have fought, and lived. Your spirits might help, but a good blade helps more." } },
       choices = {
-        { text = "Then I will choose a blade honestly, Naram.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I will choose a blade fairly, Naram.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "My spirits are blade enough.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

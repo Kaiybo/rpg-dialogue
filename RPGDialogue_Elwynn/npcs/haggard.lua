@@ -91,7 +91,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "In the Second War, aye, and a mage from Dalaran saved my company in the Hillsbrad foothills by setting a whole hillside on fire. Mind you, she set half my tents on fire as well, and we never let her forget it." } },
+      lines = { { id = "xmage_default", text = "In the Second War, aye, and a mage from Dalaran saved my company in the Hillsbrad foothills by setting a whole hillside on fire. She set half my tents on fire as well, mind, and we never let her forget it." } },
       choices = {
         { text = "She saved your company. The tents were a fair price.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "She should have been more careful. Mistakes cost lives.", next = "BACK", fx = { align = { honor = -1 } } },

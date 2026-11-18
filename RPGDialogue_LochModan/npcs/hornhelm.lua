@@ -77,7 +77,7 @@ P:NPC {
 
     dig = {
       lines = {
-        { id = "dg_default", text = "Ruins east o' the loch, older than Ironforge an' maybe older than that. Ironband's a stout, honest dwarf who values results, which is why it worries me that he's had so few o' late." },
+        { id = "dg_default", text = "Ruins east o' the loch, older than Ironforge an' maybe older than that. Ironband's a stout, honest dwarf who lives for results, so it worries me that he's sent back so few o' late." },
       },
       choices = {
         { text = "What's he hoping to find?", next = "dig_find" },

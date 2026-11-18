@@ -28,7 +28,7 @@ P:NPC {
 
   notice = {
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN" },
-      text = "A paladin. My father carried the Light once, before. Forgive me if I stare." },
+      text = "A paladin. My father carried the Light once, before, so pardon my staring." },
     { id = "n_grief", cat = "grief", when = { deaths = { min = 15 } },
       text = "You've died out there more than once, haven't you? I can see it. Be careful near Raven Hill; the dead there don't always stay put." },
   },
@@ -89,7 +89,7 @@ P:NPC {
       },
     },
     watch = {
-      lines = { { id = "w_default", text = "Because somebody had to keep the town safe from what he became, and I'd rather it was someone who remembered him as he was. The Commander understood that." },
+      lines = { { id = "w_default", text = "Because somebody had to keep the town safe from what he became, and better it was someone who remembered him as he was. The Commander understood that." },
       },
       choices = {
         { text = "So Commander Ebonlocke took you in.", next = "watch_althea" },

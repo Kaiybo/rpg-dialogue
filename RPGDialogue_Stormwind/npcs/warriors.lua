@@ -117,7 +117,7 @@ P:NPC {
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 40 },
           text = "You've fought real enemies since you were last here; I can see it in how you stand. Good. Now let's find what bad habits they taught you." },
         { id = "h_other", when = { ["not"] = { class = "WARRIOR" } },
-          text = "Wu Shen. I train warriors, and you aren't one, but sit by the wall if you like; there's a great deal to learn from watching someone fall over properly." },
+          text = "Wu Shen. I train warriors, and you aren't one, but sit by the wall if you like; there's much to learn from watching someone fall over properly." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The hall's quiet at this hour, and the Champions' Hall next door has emptied into the Pig and Whistle. This is when I practise, so the students can't see me make mistakes." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -286,7 +286,7 @@ P:NPC {
     valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The heroes in the Valley were warriors once, and they learned their stance like anyone else. I take my students there, and I tell them to look at the feet." } },
     background = { { id = "tp_bg", text = "I served, and then I taught, and teaching turned out to be the harder posting. That's all the history a trainer needs.", next = "purpose" } },
     advice = { { id = "tp_ad", text = "Never step backwards without knowing what's behind you. More warriors have died to a step than to a sword." } },
-    _none = { { id = "tp_none", text = "I don't know. Ask me something about feet; I know a great deal about feet." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask me something about feet; I know feet the way a priest knows prayers." } },
   },
 }
 
@@ -705,7 +705,7 @@ P:NPC {
       lines = {
         { id = "al_default", text = "Better than humans, some days. A dwarf in a shield wall is a stone you can build on, and a gnome under it is the one who finds the gap in theirs; I've never understood the recruits who laugh at either." },
         { id = "al_gnome", when = { race = "Gnome" },
-          text = "Better than you'd think. A gnome under a shield wall is the one who finds the gap in theirs, and I've never understood the recruits who laugh at that." },
+          text = "Better than the recruits expect, for a gnome under a shield wall is the one who finds the gap in theirs, and I've never understood the recruits who laugh at that." },
       },
       choices = {
         { text = "They laugh at gnomes?", next = "allies_laugh" },

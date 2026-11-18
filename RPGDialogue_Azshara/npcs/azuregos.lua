@@ -120,7 +120,7 @@ P:NPC {
       },
     },
     attackers_stance = {
-      lines = { { id = "as_default", text = "Because leaving means letting them have what's here, and they would blow themselves and half the coast to pieces within the week. Somebody has to be the large blue obstacle, and it might as well be someone with a sense of humour." } },
+      lines = { { id = "as_default", text = "Because leaving means letting them have what's here, and they would blow themselves and the whole coast to pieces within the week. Somebody has to be the large blue obstacle, and it might as well be someone with a sense of humour." } },
       choices = {
         { text = "That's a noble burden, Azuregos.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -176,7 +176,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know a great deal more than you, which isn't hard. Choose your question carefully; I'm not in the mood to answer many." } },
+    knows = { { id = "tp_knows", text = "I know more than you by some ten thousand years, which isn't hard. Choose your question carefully; I'm not in the mood to answer many." } },
     background = { { id = "tp_bg", text = "A dragon of the blue flight, charged with watching over what the Highborne left behind. The charge is tedious, the company worse." } },
     advice = { { id = "tp_ad", text = "If you find a glowing thing in a ruin, leave it there. I'll be along shortly to make sure you did." } },
     highborne = { { id = "tp_hb", text = "Brilliant, vain and catastrophically curious. I admire them a little more than I should." } },

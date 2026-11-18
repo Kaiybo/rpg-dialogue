@@ -119,7 +119,7 @@ P:NPC {
 
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { named = true } },
-      text = "{pet} has learned a great deal from you, I can see it. Some of it is even good." },
+      text = "{pet} has learned much from you, I can see it. Some of it is even good." },
   },
 
   start = "hello",
@@ -298,7 +298,7 @@ P:NPC {
 
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
-      text = "You carry a great deal of gold on your person. I'd suggest leaving some with us, gently." },
+      text = "Your purse hangs heavy, friend, and Darnassus has thieves of its own. I'd suggest leaving some of it in our vault." },
   },
 
   start = "hello",

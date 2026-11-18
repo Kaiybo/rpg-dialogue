@@ -140,7 +140,7 @@ P:NPC {
       },
     },
     blade_troll = {
-      lines = { { id = "blt_default", text = "Archmages collect everything, and my father collects more than most, mostly things he shouldn't touch. He told me the blade was made to break troll magic, and that it would keep me safer than any spell he could teach me, which was his way of admitting I'd never sit still long enough to learn one." } },
+      lines = { { id = "blt_default", text = "Archmages collect everything, and my father hoards worse than a magpie, mostly things he shouldn't touch. He told me the blade was made to break troll magic, and that it would keep me safer than any spell he could teach me, which was his way of admitting I'd never sit still long enough to learn one." } },
       choices = {
         { text = "Then the troll ruins along this coast should fear you.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "He gave you the blade because he loves you.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -169,7 +169,7 @@ P:NPC {
       },
     },
     family_write = {
-      lines = { { id = "fw_default", text = "Once a year, on his name day, and I tell him the weather and nothing else. He sends back three pages of advice and a fourth asking whether I've met a nice young wizard, and I keep every one of them in a box under my bunk." } },
+      lines = { { id = "fw_default", text = "Once a year, on his name day, and I tell him the weather and nothing else. He sends back three pages of advice and a fourth asking whether I've met a nice young wizard, and I keep every letter in a box under my bunk." } },
       choices = {
         { text = "You miss him more than you'll say.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Tell him about the pirates. He'd enjoy it.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -199,7 +199,7 @@ P:NPC {
       },
     },
     r_join_crew = {
-      lines = { { id = "rjc_default", text = "The Baron ruled them salvage and billed them for their own rescue, which is how things are done here. I paid off the cook's fee myself, mind you, because he made the only decent biscuit south of Westfall." } },
+      lines = { { id = "rjc_default", text = "The Baron ruled them salvage and billed them for their own rescue, which is how things are done here. I paid off the cook's fee myself, though, because he made the only decent biscuit south of Westfall." } },
       choices = {
         { text = "Billing rescued sailors is plain robbery.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Rescue costs ships and blood. Somebody has to pay.", next = "BACK", fx = { align = { honor = -1 }, learn = { "steamwheedle" } } },
@@ -235,7 +235,7 @@ P:NPC {
       lines = {
         { id = "dn_default", text = "Duncan is the handsomest liar on the Savage Coast and a Bloodsail to his bones, though he hid it well for a whole season. He has a camp down south among the red sails now, and my knife is in it." },
         { id = "dn_done", when = { questDone = TODO_QUEST("\"Pretty Boy\" Duncan") },
-          text = "Duncan won't be wearing my knife again, thanks to you, and I hear he's taken to telling the Bloodsail he gave it back out of kindness. He was always better at stories than at fighting, which is why I liked him." },
+          text = "Duncan won't be wearing my knife again, thanks to you, and I hear he's taken to telling the Bloodsail he gave it back out of kindness. He was always better at stories than at fighting, and I liked him for it, more fool me." },
       },
       choices = {
         { text = "You liked him?", next = "duncan_liked" },
@@ -469,7 +469,7 @@ P:NPC {
       },
     },
     origin_seahorn = {
-      lines = { { id = "ors_default", text = "Seahorn's the best captain I've sailed under, and he pays on time, which is more than I can say for the Baron. Only don't let him near my snuff box, because he's got a nose the size of a cannon and he'll empty it in one go." } },
+      lines = { { id = "ors_default", text = "Seahorn's the best captain I've sailed under, and he pays on time, and the Baron's paymaster still owes me for the Cape run. Only don't let him near my snuff box, because he's got a nose the size of a cannon and he'll empty it in one go." } },
       choices = {
         { text = "I'll keep him away from your box.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -609,7 +609,7 @@ P:NPC {
         { text = "How did you lose your eyes?", next = "eyes" },
         { text = "Tell me about the glass eye.", next = "glass" },
         { text = "Why are you called One-Eye if you have none?", next = "name" },
-        { text = "You must hear a great deal, sitting by the window.", next = "listen" },
+        { text = "You must hear plenty, sitting by the window.", next = "listen" },
         { text = "Can a mage make you a new eye?", next = "xmage", when = { class = "MAGE" } },
         { text = "Can the Light heal your sight, Dizzy?", next = "xpriest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I'll let you get back to your listening.", next = "END" },
@@ -687,7 +687,7 @@ P:NPC {
     name_dizzy = {
       lines = { { id = "nmd_default", text = "That one's older, from my first voyage, when I spent three days hanging over the rail. I've got my sea legs now, but sailors never let a name go once they've found a good one, as ye can tell." } },
       choices = {
-        { text = "Two good names. That's more than most get.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Two good names. Plenty of sailors die with none.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -828,7 +828,7 @@ P:NPC {
       },
     },
     buyers_trouble = {
-      lines = { { id = "byt_default", text = "Less than you'd think, because I'm not the one holding the knife. A smith sells swords and a carpenter sells coffins, and nobody asks them what their customers do with them afterward." } },
+      lines = { { id = "byt_default", text = "Not much, because I'm not the one holding the knife. A smith sells swords and a carpenter sells coffins, and nobody asks them what their customers do with them afterward." } },
       choices = {
         { text = "You're responsible for what you sell, Garrett.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A merchant's not a magistrate. You're right.", next = "BACK", fx = { align = { order = -1 } } },

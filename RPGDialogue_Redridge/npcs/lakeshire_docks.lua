@@ -58,7 +58,7 @@ P:NPC {
     },
 
     horns = {
-      lines = { { id = "ho_default", text = "The horns of a demon prince, Nez'ra, taken from his skull long ago and kept in Ravenholdt's vaults. They're worth nothing to an orc but a trinket, and a great deal to us, though I won't say why to a stranger." } },
+      lines = { { id = "ho_default", text = "The horns of a demon prince, Nez'ra, taken from his skull long ago and kept in Ravenholdt's vaults. They're worth nothing to an orc but a trinket, and something else entirely to us, though I won't say why to a stranger." } },
       choices = {
         { text = "A demon prince?", next = "ho_demon", fx = { learn = { "burning_legion" } } },
         { text = "Something else.", next = "BACK" },

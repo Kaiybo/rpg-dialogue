@@ -27,7 +27,7 @@ P:NPC {
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman! Then listen with me a moment, and tell me I am not imagining the scream under the wind." },
     { id = "n_lumber", cat = "craft", when = { profession = "Engineering" },
-      text = "You smell of oil and gears, like the goblins' machines. I know you're Horde, but forgive me if I flinch." },
+      text = "You smell of oil and gears, like the goblins' machines. I know you're Horde, but don't be hurt if I flinch." },
   },
 
   start = "hello",

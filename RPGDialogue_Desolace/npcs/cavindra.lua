@@ -153,7 +153,7 @@ P:NPC {
     },
     noxxion = {
       lines = {
-        { id = "no_default", text = "Vyletongue's rot, given a body, all slime and spores and hunger, beyond the orange crystals where the pools turn foul. It isn't clever, but it doesn't need to be, and it hides more of itself in the water than you'd think." },
+        { id = "no_default", text = "Vyletongue's rot, given a body, all slime and spores and hunger, beyond the orange crystals where the pools turn foul. It isn't clever, but it doesn't need to be, and most of it hides under the water." },
       },
       choices = {
         { text = "I'll bring the rod back.", next = "BACK", fx = { trait = { brave = 1 } } },

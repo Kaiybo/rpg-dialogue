@@ -56,7 +56,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "It can carry what you find in the ruins, and it won't complain, which makes it better than half the recruits I get. Bring me every scrap from the houses of Deathknell, and keep it on a short leash, because I've lost enough supplies already." },
+        { id = "xwarlock_default", text = "It can carry what you find in the ruins, and it won't complain, so it's already ahead of my recruits. Bring me every scrap from the houses of Deathknell, and keep it on a short leash, because I've lost enough supplies already." },
       },
       choices = {
         { text = "I'll bring everything back, Saltain.", next = "BACK", fx = { align = { order = 1 } } },
@@ -219,7 +219,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I believe it is, though I pray over them afterwards, which Sarvis finds very sentimental of me. A clean stroke is kinder than anything they'll find wandering the fields, and I'd rather a warrior did it than a hungry wolf." } },
+      lines = { { id = "xwarcl_default", text = "I believe it is, though I pray over them afterwards, which Sarvis finds very sentimental of me. A clean stroke is kinder than anything they'll find wandering the fields, and a warrior's blade is cleaner than a hungry wolf." } },
       choices = {
         { text = "Then I'll strike cleanly, and you can say the prayer.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "They're past mercy, Elreth. I'll just clear the field.", next = "BACK", fx = { align = { light = -1 } } },
@@ -616,7 +616,7 @@ P:NPC {
         { id = "h_weed", tags = { "news" }, when = { questActive = TODO_QUEST("Doom Weed") },
           text = "Doom weed grows in the fields around the town, and in the graveyard, too, where it's thickest. Gather me a good bundle, and mind the roots; they're the part I want." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the elements have any use for doom weed, do you think? I've so much of it, and only one Johaan to give it to." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll know plants better than I do, so tell me honestly, does the doom weed look healthy to you?" },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll know plants better than I do, so tell me, does the doom weed look healthy to you?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Do mind the doom weed when you swing that thing, because I've only just got the graveyard patch growing properly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll be out in the fields more than I am, so keep an eye out for doom weed, would you? It's the dark one, and the roots are the part I want." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Do you think there's a prayer for doom weed? I'm only asking because I've watered it every way I know and it still won't grow faster." },
@@ -643,7 +643,7 @@ P:NPC {
     },
     weed = {
       lines = {
-        { id = "we_default", text = "Poisons and tonics, mostly, and the Society has its own uses for it, which I'm not allowed to tell you. I'm not allowed to tell myself, honestly; I only gather it." },
+        { id = "we_default", text = "Poisons and tonics, mostly, and the Society has its own uses for it, which I'm not allowed to tell you. I'm not allowed to tell myself, if it comes to that; I only gather it." },
       },
       choices = { { text = "Not knowing would bother me.", next = "weed_bother" } },
     },
@@ -706,7 +706,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Officially, no, because the senior apothecaries say demons make unreliable subjects and they bite. Unofficially I've wondered what an imp's blood would do in a tincture, but I'd need a warlock willing to ask it nicely." },
-        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You've got the look the Cult's people had, as if you're listening to something nobody else can hear. I don't mind it, honestly; the Society could use someone who isn't squeamish." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You've got the look the Cult's people had, as if you're listening to something nobody else can hear. I don't mind it; the Society could use someone who isn't squeamish." },
       },
       choices = {
         { text = "My demon isn't a test subject, Holland.", next = "BACK", fx = { align = { honor = 1 } } },

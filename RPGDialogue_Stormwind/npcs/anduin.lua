@@ -267,7 +267,7 @@ P:NPC {
       },
     },
     teldrassil = {
-      lines = { { id = "te_default", text = "From the big tree? Lady Prestor says it's only a large tree, but the Highlord says it's taller than the Cathedral, and I'd rather believe him. Do you have to climb it to get home?" } },
+      lines = { { id = "te_default", text = "From the big tree? Lady Prestor says it's only a large tree, but the Highlord says it's taller than the Cathedral, and I like his answer better. Do you have to climb it to get home?" } },
       choices = {
         { text = "There's a portal at its foot, Your Majesty.", next = "teldrassil_old" },
         { text = "Every step of the way.", next = "teldrassil_old", fx = { trait = { witty = 1 } } },

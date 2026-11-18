@@ -22,7 +22,7 @@ P:NPC {
     { id = "g_default", text = "Well met! If ye've a strong arm and a warm cloak, the Stormpike Guard has work for ye in the mountains." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, {g:lad|lass}? Good, because the valley hasn't gotten any warmer while ye were away." },
     { id = "g_marks", when = { carrying = { 20560, min = 3 } }, text = "I can hear those marks clinking from here! Ye've been earning yer keep up at Dun Baldar, and the Guard won't forget it." },
-    { id = "g_mark_one", when = { carrying = 20560 }, text = "That's an Alterac mark in yer pack, or I'm a gnome. Ye've stood in the snow with us, then, and that counts for a great deal." },
+    { id = "g_mark_one", when = { carrying = 20560 }, text = "That's an Alterac mark in yer pack, or I'm a gnome. Ye've stood in the snow with us, then, and that counts for plenty wi' me." },
     { id = "g_honored", when = { reputation = { faction = "Stormpike Guard", min = "honored" } }, text = "There's a face Vanndar's people know well! Come and stand by the fire a while, friend of the Guard." },
     { id = "g_exalted", when = { reputation = { faction = "Stormpike Guard", min = "exalted" } }, text = "Every dwarf in Dun Baldar drinks to yer name, and I'll thank ye to know I started that custom myself." },
   },
@@ -45,7 +45,7 @@ P:NPC {
         { id = "h_ironforge", when = { zone = "Ironforge" },
           text = "Home at last, or near enough, with the forges roaring and a proper ale in every hand. Mind, I'd still send every one of ye up to Alterac if I could, because the Guard can't hold Dun Baldar on good wishes." },
         { id = "h_darnassus", when = { zone = "Darnassus" },
-          text = "Ye'll forgive me if I'm a bit stiff, for there's not a forge in this whole city and the trees keep whispering at me. Still, the Sentinels fight like wildcats, and the Guard wants every one of them it can get up in Alterac." },
+          text = "I'm a wee bit stiff here, for there's not a forge in this whole city and the trees keep whispering at me. Still, the Sentinels fight like wildcats, and the Guard would take every Sentinel it can get up in Alterac." },
         { id = "h_stormwind", when = { zone = "Stormwind City" },
           text = "Stormwind's a fine city for recruiting, with soldiers on every corner and half of them bored. I tell them the snow up in Alterac is cleaner than the canals, and some of them even believe me." },
         { id = "h_dwarf", when = { race = "Dwarf" },
@@ -229,7 +229,7 @@ P:NPC {
 
     -- Race
     k_dwarf = {
-      lines = { { id = "kd_default", text = "Because the Stormpike are Bronzebeards too, cousin, with Ironforge stone in Dun Baldar's walls and Ironforge ale in its cellars. If the orcs push us out of Alterac, the next fight is at the foot of Dun Morogh, and I'd rather it stayed in someone else's mountains." } },
+      lines = { { id = "kd_default", text = "Because the Stormpike are Bronzebeards too, cousin, with Ironforge stone in Dun Baldar's walls and Ironforge ale in its cellars. If the orcs push us out of Alterac, the next fight is at the foot of Dun Morogh, an' I'd sooner it stayed in someone else's mountains." } },
       choices = {
         { text = "Then I'll fight for my clan's cousins.", next = "BACK", fx = { affinity = 2 } },
         { text = "Dun Morogh can defend itself.", next = "BACK", fx = { trait = { stern = 1 } } },
@@ -356,7 +356,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else do you wish to know? I have time, and the spirits are patient." },
-        { id = "h_again2", text = "Speak. A Frostwolf answers questions honestly or not at all." },
+        { id = "h_again2", text = "Speak. A Frostwolf gives a straight answer or none." },
         { id = "h_again3", text = "Ask what you will. The valley is far, but I carry it with me." },
       },
       choices = {

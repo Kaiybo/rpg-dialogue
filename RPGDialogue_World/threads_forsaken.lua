@@ -31,7 +31,7 @@ P:Thread {
   },
   pacing = { minConversations = 3, minSeconds = 1200 },
   reflection = {
-    first = "Brill, the Sepulcher, the Apothecarium: every apothecary I've met says the new plague is for the Scourge, and every one of them says it a little too quickly.",
+    first = "Brill, the Sepulcher, the Apothecarium: every apothecary I've met says the new plague is for the Scourge, and they all say it a little too quickly.",
     third = "{name} had heard from three apothecaries that the new plague was meant for the Scourge, and had noticed how quickly each of them said it.",
   },
   beats = {
@@ -73,7 +73,7 @@ P:Thread {
       when = { faction = "Horde",
                any = { { thread = { id = "new_plague", beat = "b3_faranell" } }, { thread = { id = "new_plague", beat = "b5_sylvanas" } } },
                ["not"] = { thread = { id = "new_plague", beat = "b6_thrall" } } },
-      text = "You've been beneath Lordaeron, and you carry the Apothecarium's smell into my hall. I took the Forsaken into the Horde with my eyes open, but I watched the last plague empty a kingdom, so when you're ready, tell me honestly what they're brewing down there.",
+      text = "You've been beneath Lordaeron, and you carry the Apothecarium's smell into my hall. I took the Forsaken into the Horde with my eyes open, but I watched the last plague empty a kingdom, so when you're ready, tell me plainly what they're brewing down there.",
       fx = { thread = { id = "new_plague", beat = "b6_thrall", state = "unfolding" } },
     },
   },

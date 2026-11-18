@@ -295,7 +295,7 @@ P:NPC {
     },
     district_humans = {
       big = true,
-      lines = { { id = "dh_default", text = "Well enough, though some o' them think every dwarf is a smith an' every smith is a drunk, an' I'm only one o' those. Stormwind owes Ironforge a great deal, an' I'll say this: the humans remember it better than their nobles do." },
+      lines = { { id = "dh_default", text = "Well enough, though some o' them think every dwarf is a smith an' every smith is a drunk, an' I'm only one o' those. Stormwind owes Ironforge fer half its walls an' most o' its cannon, an' I'll say this: the humans remember it better than their nobles do." },
       },
       choices = {
         { text = "Stormwind should honour that debt properly.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },

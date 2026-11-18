@@ -231,7 +231,7 @@ P:NPC {
   nodes = {
     xalt_gornek = {
       lines = {
-        { id = "xalt_gornek_default", text = "Hundreds come through the Den, and I forget most of them by the next moon. The one you mean did the work without complaining, so I remember them, and that's more than most recruits manage." },
+        { id = "xalt_gornek_default", text = "Hundreds come through the Den, and I forget most of them by the next moon. The one you mean did the work without complaining, so I remember them, and few recruits earn that." },
         { id = "xalt_gornek_kin", when = { alt = { kin = true } }, text = "{alt} grumbled about the scorpids the whole time but brought back every tail I asked for. If you're kin, I expect the same, and I'll be counting." },
       },
       choices = {
@@ -413,7 +413,7 @@ P:NPC {
       { id = "tp_knows", text = "Recruits talk in the Den when they think I'm asleep, and I never am. Ask about these, and then listen." },
     },
     burning_blade = { { id = "tp_blade", text = "There are cultists in the coven to the north, calling up imps. Zureetha deals with them, and you'll help her." } },
-    thrall = { { id = "tp_thrall", text = "The Warchief sends every new recruit to me, and he expects every one of them to get back up. I've never let him down yet, and I don't intend to start with you." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sends every new recruit to me, and he expects each of them to get back up. I've never let him down yet, and I don't intend to start with you." } },
     second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I was in the camps after. The Den is better than either, though the recruits don't believe me." } },
     internment = { { id = "tp_internment", text = "The camps were a sickness of the spirit, not just the body, and many orcs never woke from it. Thrall woke us, and that's why I serve him." } },
     darkspear = { { id = "tp_darkspear", text = "The Darkspear came with Thrall from the islands, and they train with us here in the Den. Treat them as brothers, because the Warchief does." } },
@@ -634,7 +634,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "If it gets them gathering lumber, you can pray over them all day. Mind you, they'd sleep through it, because I once watched one nap through a scorpid crawling up his back, and by the loa, I was almost proud of him." } },
+      lines = { { id = "xhpriest_default", text = "If it gets them gathering lumber, you can pray over them all day. They'd sleep through it, mind, because I once watched one nap through a scorpid crawling up his back, and by the loa, I was almost proud of him." } },
       choices = {
         { text = "Let them rest, Foreman. Tired hands make poor work.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Work comes first. Wake them, and I'll pray after.", next = "BACK", fx = { align = { light = -1 } } },
@@ -644,7 +644,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Bother them? The peons sleep through boar charges, which tells you everything. The beasts leave my workers alone because they're too dull to be worth biting, so the only thing that wakes them is me shouting, and even that's wearing off." },
+        { id = "xhuntcl_default", text = "Bother them? The peons sleep through boar charges, mon. The beasts leave my workers alone because they're too dull to be worth biting, so the only thing that wakes them is me shouting, and even that's wearing off." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} could make itself useful, you know. One good snarl and half my lumber crew would be on their feet." },
       },
       choices = {
@@ -707,7 +707,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a little thunder over the lumber pile, mon? The blackjack works, but a bolt out of a clear sky would keep my peons awake for a week." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Can you make the trees grow faster? Then my peons would have less to chop and less excuse to nap, though I doubt it would stop them trying." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Could you wake up my peons with a spell? A small fire, perhaps, or a cold breeze? I'm only half joking." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock! Keep that imp away from my peons; they're frightened enough of me already, and I'd rather they were awake than trembling." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock! Keep that imp away from my peons; they're frightened enough of me already, and I need them awake, not trembling." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, eh? If your beast could wake a sleeping peon, I'd hire it on the spot." },
       },
       choices = {
@@ -844,7 +844,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Every one of them tries, and every one of them thinks I don't notice, but the cook always knows when the pot's lighter. Bring me cactus apples from the valley instead, and you can eat your fill without sneaking." },
+        { id = "xrogue_default", text = "They all try, and they all think I don't notice, but the cook always knows when the pot's lighter. Bring me cactus apples from the valley instead, and you can eat your fill without sneaking." },
       },
       choices = {
         { text = "I'll bring you the apples honestly, Galgar.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -993,7 +993,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "More than you'd think, because a mace that's been struck by its owner's lightning comes back to me blackened and cracked at the haft. I mend them, and then I tell the shaman to stop hitting things with the sky and the hammer at the same time." } },
+      lines = { { id = "xhsham_default", text = "Often enough, because a mace that's been struck by its owner's lightning comes back to me blackened and cracked at the haft. I mend them, and then I tell the shaman to stop hitting things with the sky and the hammer at the same time." } },
       choices = {
         { text = "A good weapon deserves care. I'll be gentler with mine.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Weapons break, Kzan, and that's what smiths are for.", next = "BACK", fx = { align = { order = -1 } } },

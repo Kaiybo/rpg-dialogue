@@ -96,7 +96,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdr_default", text = "Not mine, no, they're Turner's, or the Brotherhood's, or Stormwind's if anyone there remembers us. But the keep needs walls and the walls need timber, and I'd rather cut a tree than bury a soldier." } },
+      lines = { { id = "xdr_default", text = "Not mine, no, they're Turner's, or the Brotherhood's, or Stormwind's if anyone there remembers us. But the keep needs walls and the walls need timber, and every tree I fell is a soldier I don't have to bury." } },
       choices = {
         { text = "Walls first. The forest will grow back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Take what you need, and not one tree more.", next = "BACK", fx = { align = { order = -1 } } },

@@ -50,7 +50,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Evil is a big word for a small glade, and I'd rather not use it. The grells are a nuisance and the Webwood spiders are worse, but they're only creatures out of balance, so cull them cleanly and don't make a crusade of it." } },
+      lines = { { id = "xapala_default", text = "Evil is a big word for a small glade, and I won't spend it here. The grells are a nuisance and the Webwood spiders are worse, but they're only creatures out of balance, so cull them cleanly and don't make a crusade of it." } },
       choices = {
         { text = "I'll do what the balance needs and nothing more.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If it threatens your young ones, I'll judge it myself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -99,7 +99,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Everything that walks here shifts the balance a little, which is why I count the cubs and the boars and the grellkin every morning. Your servant would shift it more than most, so keep it close, and I'll count you with the rest." },
+        { id = "xlock_default", text = "Everything that walks here shifts the balance a little, so I count the cubs and the boars and the grellkin every morning. Your servant would tip the scale like a stone dropped in a moonwell, so keep it close, and I'll count you with the rest." },
       },
       choices = {
         { text = "I'll keep it close. The glade deserves care.", next = "BACK", fx = { align = { order = 1 } } },
@@ -114,7 +114,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in Shadowglen! The young ones here learn Elune's ways from the cradle, but they'll be glad of a healer, for the beasts this year bite harder than they should." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here in our little glade! You've come a long way from the Eastern Kingdoms, by sea and by rope ladder, and I hope Shadowglen gives you a gentler welcome than the roads did." },
         { id = "h_default", key = true,
-          text = "I am Conservator Ilthalaine, and I keep the balance in Shadowglen. It's a lovely place, and lovely places need keeping more than most." },
+          text = "I am Conservator Ilthalaine, and I keep the balance in Shadowglen. It's a lovely place, and a lovely place is the first to be trampled if no one tends it." },
         { id = "h_balance", tags = { "news" }, when = { questActive = TODO_QUEST("The Balance of Nature") },
           text = "The spring rains were heavy, and now there are more young nightsabers and thistle boars than the glade can feed. Thin them gently, for balance is a matter of numbers, not of hatred." },
         { id = "h_sigil", when = { any = {
@@ -291,7 +291,7 @@ P:NPC {
     },
     rogue_m = {
       lines = {
-        { id = "rm_default", text = "Of course you can; you're quiet enough to hear it, which is more than I can say for most of the young warriors. The tree doesn't care what you do in the dark, only whether you listen to it in the daylight." },
+        { id = "rm_default", text = "Of course you can; you're quiet enough to hear it, unlike the young warriors who crash about the roots. The tree doesn't care what you do in the dark, only whether you listen to it in the daylight." },
       },
       choices = {
         { text = "I listen. That's half my trade.", next = "BACK", fx = { affinity = 1 } },
@@ -572,7 +572,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, all the way up at Aldrassil's crown! From here the moon seems close enough to touch, and I've always thought priests ought to see it so." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in Shadowglen of all places! Mind your step on the ramp, {class}, because Aldrassil's bark has seen fewer iron boots than you have." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A young druid, setting out from Shadowglen. Aldrassil has watched many of the Circle's children go down that path, and every one of them carried a little of its strength away with them." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A young druid, setting out from Shadowglen. Aldrassil has watched many of the Circle's children go down that path, and each carried a little of its strength away with them." },
         { id = "h_default", key = true,
           text = "I am Tenaron Stormgrip, and I watch over Shadowglen from Aldrassil's crown. Every young kaldorei who leaves the glade passes beneath me on the way, and I remember each of them." },
         { id = "h_summons", tags = { "news" }, when = { questActive = TODO_QUEST("Tenaron's Summons") },
@@ -711,7 +711,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "From the top of Aldrassil I see a great deal, and the wind brings me the rest. Ask what you like, young one." },
+      { id = "tp_knows", text = "From the top of Aldrassil I see much of the glade, and the wind brings me the rest. Ask what you like, young one." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },
         text = "You always climb back up to me, and I'm glad of it. Ask me anything; there's little I would keep from you." },
     },
@@ -766,7 +766,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Iverron, first, though he'd never say it, and then any young elf foolish enough to wander toward Shadowthread Cave. The spiders have grown bold this season, and I'd feel a great deal better knowing someone in armor walked those paths." } },
+      lines = { { id = "xapala_default", text = "Iverron, first, though he'd never say it, and then any young elf foolish enough to wander toward Shadowthread Cave. The spiders have grown bold this season, and I'd sleep easier knowing someone in armor walked those paths." } },
       choices = {
         { text = "Then I'll walk those paths until they're safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Fools who wander into spider caves get what they find.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -964,7 +964,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Quickly, and with your mouth closed, because the venom is in the bite and the webs are in everything else. I can tell you a great deal about how they hunt from a safe distance, and none of it will help you once you're inside." } },
+      lines = { { id = "xwarcl_default", text = "Quickly, and with your mouth closed, because the venom is in the bite and the webs are in everything else. I can tell you how they hunt, from a safe distance, and none of it will help you once you're inside." } },
       choices = {
         { text = "I'll learn what you know first, then go in.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll go in. The studying can come after.", next = "BACK", fx = { align = { order = -1 } } },
@@ -993,7 +993,7 @@ P:NPC {
     },
     hunter_g = {
       lines = {
-        { id = "hgl_default", text = "Please don't send it into Shadowthread Cave on my account. The Webwood spiders treat anything with four legs as a meal, and I'd rather study them from these steps than write an account of how your companion died." },
+        { id = "hgl_default", text = "Please don't send it into Shadowthread Cave on my account. The Webwood spiders treat anything with four legs as a meal, and I would sooner study them from these steps than write an account of how your companion died." },
       },
       choices = {
         { text = "My companion goes where I go.", next = "BACK", fx = { trait = { brave = 1 } } },
@@ -1022,7 +1022,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You've a gentle look about you, which is more than I can say for most of the people who come asking about the cave." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You've a gentle look about you, and the folk who come asking about the cave usually have only swords and boasting." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "You're very loud, {class}, and I mean that kindly, but the spiders feel every step on the stone, so go into the cave knowing they'll be waiting." },
         { id = "h_default", key = true,
           text = "I'm Gilshalan Windwalker, and I study the Webwood spiders in the cave to the north, from a distance, mostly." },

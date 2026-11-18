@@ -69,7 +69,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "We loved them when the fire was landing on the orcs and cursed them when it wasn't, which was more often than you'd think. Dalaran's lot pulled my company out of the Alterac foothills once, though, so I'll not hear a word against a mage in this tavern." } },
+      lines = { { id = "xmage_default", text = "We loved them when the fire was landing on the orcs and cursed them when it wasn't, which was more often than any mage will admit. Dalaran's lot pulled my company out of the Alterac foothills once, though, so I'll not hear a word against a mage in this tavern." } },
       choices = {
         { text = "A mage should stand with the soldiers, not behind them.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A mage's job is to win, not to stand anywhere.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -128,7 +128,7 @@ P:NPC {
           text = "A rogue, is it? I fought beside a few of your sort in the Second War, and they were always somewhere else when the charge came, though they always turned up when it mattered." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in the Pig and Whistle, and you're not here for the ale, I'll wager. Sit down anyway; you look like you could use a stool that doesn't float." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few of your sort scouting for us in the Second War, and every one of them saved my company at least once." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few of your sort scouting for us in the Second War, and each of 'em saved my company at least once." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Pig and Whistle! We never had your sort in the Second War, more's the pity, because a bear on the flank would've done wonders for morale." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in the Pig and Whistle. Sit down where the regulars can see you, or they'll start a fight just to find out what you are." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Sit down, I've a regular here who'll test your mettle. Never fought a shaman, have you, Bartleby? Nor have I, come to that." },
@@ -208,7 +208,7 @@ P:NPC {
     },
 
     haggard = {
-      lines = { { id = "h2_default", text = "A retired marshal out by Eastvale, who kept half the gear from his career and gives it to young fighters who've earned it. He's suspicious of strangers, so walk up slow and say my name." } },
+      lines = { { id = "h2_default", text = "A retired marshal out by Eastvale, who kept a cellar full of gear from his career and gives it to young fighters who've earned it. He's suspicious of strangers, so walk up slow and say my name." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -332,7 +332,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I'd fight the king for this mug, and I'd lose, and I'd shake his hand after, because that's how it's done. You lot fight fair, at least, which is more than I can say for the canal boys." } },
+      lines = { { id = "xapala_default", text = "I'd fight the king for this mug, and I'd lose, and I'd shake his hand after, because that's how it's done. You lot fight fair, at least, and the canal boys bring a cosh in their boot." } },
       choices = {
         { text = "I fight fair, Bartleby, but I won't fight a drunk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Fair or not, I'd have that mug before you stood up.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -421,7 +421,7 @@ P:NPC {
       },
     },
     record_let = {
-      lines = { { id = "rl_default", text = "I never! I fight every one of them proper. Only, if they fight well, I give them the mug, because a good fight deserves a reward, and Harry always fills it after." } },
+      lines = { { id = "rl_default", text = "I never! I fight 'em all proper. Only, if they fight well, I give them the mug, because a good fight deserves a reward, and Harry always fills it after." } },
       choices = {
         { text = "That's decent of you, Bartleby.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "So you lose for free ale. Clever.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
@@ -502,7 +502,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Half of Old Town's quiet folk drink here and the other half drink at the Lamb, though I'd not say which half's better company. The SI:7 lads tip well and never say where they've been, so I like them fine." } },
+      lines = { { id = "xrogue_default", text = "Old Town's quiet folk drink either here or at the Lamb, and I'd not say which lot is better company. The SI:7 lads tip well and never say where they've been, so I like them fine." } },
       choices = {
         { text = "I'll pay my tab and tip well, Elly. Count on it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll pay when you catch me, Elly.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -541,7 +541,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Only on the night before they march, love, and then it's every one of them, quiet as mice. I've poured a lot of last pints in this room, and I've learned to tell which ones they'll come back for." } },
+      lines = { { id = "xapriest_default", text = "Only on the night before they march, love, and then it's the whole company at once, quiet as mice. I've poured a lot of last pints in this room, and I've learned to tell which ones they'll come back for." } },
       choices = {
         { text = "Then I'll sit with them that night, Elly, if they'll have me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A blessed pint won't stop an arrow, Elly.", next = "BACK", fx = { align = { light = -1 } } },
@@ -712,7 +712,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boar from the Elwynn woods, roasted slow with apples, and if you ever bring me a good haunch of it I'll show you how. Westfall's chicken's the most common, but there's nothing on a plate like a boar that's eaten acorns all autumn." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} will want the scraps, I suppose? Fair's fair, then, since it probably did half the work of catching it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} will want the scraps, I suppose? Fair's fair, then, since it probably ran the thing down while you were still nocking an arrow." },
       },
       choices = {
         { text = "I'll bring you boar, and only take what I need.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -787,7 +787,7 @@ P:NPC {
     },
     past = {
       big = true,
-      lines = { { id = "p_default", text = "Folk ask me that more than you'd think. I'm a cook, and I'm a good one, and that's all anybody in this tavern needs to know about me." } },
+      lines = { { id = "p_default", text = "Folk ask me that every other week. I'm a cook, and I'm a good one, and that's all anybody in this tavern needs to know about me." } },
       choices = {
         { text = "A man's past is his own business.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
         { text = "A cook doesn't hold a knife like that.", next = "past_knife", fx = { trait = { curious = 1 } } },
@@ -1062,7 +1062,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Alike in patience and different in purpose. You wait in the trees for something that doesn't know it's being hunted, and I wait in the dark for someone who does, which makes my quarry a good deal more dangerous." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}, does it bark at shadows? Mine would, if I had one, which is why I don't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}, does it bark at shadows? Mine would, if I had one, and that's the reason I keep none." },
       },
       choices = {
         { text = "I'd never use my skills to hunt people.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1223,7 +1223,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dwarf_rogue = {
-      lines = { { id = "dwarf_rogue_l", text = "More than you'd think. A smuggler knows which guards look at cargo and which look at faces, and that's half of what I teach. Just remember the Watch here doesn't take its bribes in ale." } },
+      lines = { { id = "dwarf_rogue_l", text = "Plenty, because a smuggler knows which guards look at cargo and which look at faces, and that's most of what I teach. Just remember the Watch here doesn't take its bribes in ale." } },
       choices = {
         { text = "Then what does it take them in?", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "I've left that life behind.", next = "BACK", fx = { affinity = 1 } },
@@ -1258,7 +1258,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm the Night Man. Anything before that was somebody else's life, and I've forgotten it on purpose." } },
     advice = { { id = "tp_ad", text = "Learn to listen before you learn to pick a lock. Most doors open once you know who has the key." } },
     si7 = { { id = "tp_si7", text = "The door behind me, and I'm all of it you'll see, unless you're one of us.", next = "door" } },
-    _none = { { id = "tp_none", text = "Never heard of it, and I hear a great deal. Ask Renzik; he'll pretend he knows." } },
+    _none = { { id = "tp_none", text = "Never heard of it, and very little gets past me in Old Town. Ask Renzik; he'll pretend he knows." } },
   },
 }
 
@@ -1316,7 +1316,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "A distraction that leaves no trace of the arcane behind, which pays better than you'd think in this city. Every guard in the Mage Quarter can smell a spell, but none of them can smell powder once the smoke has cleared." } },
+      lines = { { id = "xmage_default", text = "A distraction that leaves no trace of the arcane behind, which pays handsomely in a city full of wizards. Every guard in the Mage Quarter can smell a spell, but none of them can smell powder once the smoke has cleared." } },
       choices = {
         { text = "I'd rather face my enemies with my own magic.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A clean escape is worth any trick, Jasper.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1373,7 +1373,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've nothing for you, unless you've come to bless a vial, and I'd rather you didn't." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've nothing for you, unless you've come to bless a vial, and I'll thank you not to." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at my stall. You'll be wanting to know where my stock comes from, and I'll be wanting you to leave." },
         { id = "h_default", key = true,
           text = "Jasper Fel. I sell the tools of a quiet trade to the people who practise it, and I don't ask what they're for, so long as nobody asks me where I got them." },
@@ -1389,7 +1389,7 @@ P:NPC {
           text = "One of the Lamb's people, and you'll want something for your shadows, I expect. I don't sell soul shards, mind; you'll have to gather your own." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at my counter. You're not my usual customer, friend, but your coin's as good as anyone's." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, at my stall. I've a little poison for the arrows, if you've a mind to make them bite deeper, though I'd never call it that out loud." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my stall. Your people know a great deal about plants that kill, I imagine, though you'd likely never admit it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my stall. Your people know every plant in the forest that kills, I imagine, though you'd likely never admit it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I know your business already, more or less. Do you need anything for your blades, or are your spirits enough?" },
       },
       again = {
@@ -1418,7 +1418,7 @@ P:NPC {
 
     moonbrook = {
       big = true,
-      lines = { { id = "m_default", text = "SI:7 keeps watch over all of Stormwind's lands, Westfall included, and Moonbrook more than most these days. Somebody under those hills is poisoning the farmland, and if you mean to blow it up, I'm inclined to help.",
+      lines = { { id = "m_default", text = "SI:7 keeps watch over all of Stormwind's lands, Westfall included, and Moonbrook closest of all these days. Somebody under those hills is poisoning the farmland, and if you mean to blow it up, I'm inclined to help.",
         fx = { learn = { "deadmines", "defias", "moonbrook" } } } },
       choices = {
         { text = "Why not do it yourselves?", next = "moonbrook_why" },
@@ -1471,7 +1471,7 @@ P:NPC {
     ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt's the finest school of my trade, and its master makes poisons that could kill a dragon. I've had a few of his vials, and I've never been so jealous of anything in my life." } },
     syndicate = { { id = "tp_syndicate", text = "The Syndicate buy from me now and then, through people who think I don't know who they work for. I know, and I sell to them anyway, because their gold's as good as anyone's." } },
     zul_gurub = { { id = "tp_zul_gurub", text = "The jungle trolls of Zul'Gurub brew poisons that make my stock look like water. I'd like a sample, though I'd not like to collect it myself." } },
-    the_stockade = { { id = "tp_the_stockade", text = "Half the poisons in the Stockade came from my shelves, though I'll not say how they got there. The prisoners know how to find what they need, which is a skill I respect." } },
+    the_stockade = { { id = "tp_the_stockade", text = "A good few of the poisons in the Stockade came from my shelves, though I'll not say how they got there. The prisoners know how to find what they need, which is a skill I respect." } },
     knows = { { id = "tp_knows", text = "Everything that comes through SI:7's door passes my counter sooner or later. Ask carefully, and I'll answer carefully." } },
     background = { { id = "tp_bg", text = "I sell supplies to SI:7. Before that, I sold them to somebody else, and that's all I'll say." } },
     advice = { { id = "tp_ad", text = "Never tell a man more than he needs to know, and never trust a man who tells you more than you need. Both will get you killed." } },

@@ -78,7 +78,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "More than the soldiers, and the soldiers drink a great deal, so you can imagine. Half the Sanctum sends down for a bottle every week, though I'd thank you not to tell them I said so." } },
+      lines = { { id = "xmage_default", text = "More than the soldiers, and the soldiers drink like sponges, so you can imagine. Every tower in the Sanctum sends down for a bottle each week, though I'd thank you not to tell them I said so." } },
       choices = {
         { text = "A mage should keep a clear head. I'll pass.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Study goes better with a glass of red, Renato.", next = "BACK", fx = { align = { order = -1 } } },
@@ -87,7 +87,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Officers, mostly, because the privates can't afford a bottle, which I think is a terrible injustice, honestly. When a man's marching off to Redridge, he deserves something better than the Pig and Whistle's watered ale." } },
+      lines = { { id = "xwarcl_default", text = "Officers, mostly, because the privates can't afford a bottle, which I think is a terrible injustice. When a man's marching off to Redridge, he deserves something better than the Pig and Whistle's watered ale." } },
       choices = {
         { text = "Then sell them a cheaper bottle, Renato. They've earned it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Fine wine is for those who can pay. That's business.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -97,7 +97,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "They're devouring them, my friend, every grape and half the vines besides! I've asked the guards and the guards laugh, so I'm left to ask honest hunters, and here you are, looking very honest indeed." },
+        { id = "xhuntcl_default", text = "They're devouring them, my friend, every grape and the vines besides! I've asked the guards and the guards laugh, so I'm left to ask honest hunters, and here you are, looking very honest indeed." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And this must be {pet}! A noble beast, and I'd wager a vintage it could frighten off a boar or two if it had a mind to." },
       },
       choices = {
@@ -254,7 +254,7 @@ P:NPC {
     dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran were our finest customers, and they had the most refined palates in the world. When they open their gates again, I'll be first in line with a case of our best." } },
     knows = { { id = "tp_knows", text = "A man who stands in the Trade District all day hears everybody's business whether he wants to or not. Ask, and I'll tell you what the square's been saying." } },
     background = { { id = "tp_bg", text = "I'm a Gallina, and the Gallinas sell wine. The rest is just the years I've spent shouting about it.", next = "family" } },
-    advice = { { id = "tp_ad", text = "Never buy wine from a man who won't drink it in front of you. I drink mine in front of everybody, friend, which is why I trust it." } },
+    advice = { { id = "tp_ad", text = "Never buy wine from a man who won't drink it in front of you. I drink mine in front of everybody, friend, and I've never once been sick from it." } },
     trade = { { id = "tp_tr", text = "Wine, red and white, by the bottle or the cask, at the winery along the canals. I only sell it with my mouth; my sisters sell it with their hands.", next = "offer" } },
     _none = { { id = "tp_none", text = "That's not something a wine man knows, friend. Ask me about grapes and I'll talk till dusk." } },
   },
@@ -279,7 +279,7 @@ P:NPC {
     { id = "n_priest", cat = "light", when = { class = "PRIEST" },
       text = "A priest in a cheese shop. If you'd like to bless the cellar, Elling won't object, though he'll want to watch you do it." },
     { id = "n_human", cat = "kin", when = { race = "Human" },
-      text = "A Stormwind face. You'll have eaten my cheese before, then, whether you knew it or not; half the taverns in Elwynn buy from us." },
+      text = "A Stormwind face. You'll have eaten my cheese before, then, whether you knew it or not; every tavern from Goldshire to the Lion's Pride buys from us." },
     { id = "n_rogue", cat = "watch", when = { class = "ROGUE" },
       text = "You looked at my stairs before you looked at my cheese. Most people do it the other way round, and the ones who don't usually end up as friends of my husband's." },
     { id = "n_elf", cat = "kin", when = { race = "NightElf" },
@@ -368,7 +368,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want the soft cheese for the orphans, I expect, which is what the Cathedral always sends for." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in my shop. I'm sure you're here for cheese, {class}, and I'm sure you'll keep your eyes off my stairs." },
         { id = "h_default", key = true,
-          text = "Elaine Trias. I make the cheese, my son Ben sells it, and my husband Elling stands at the counter looking trustworthy, which takes more effort than you'd think." },
+          text = "Elaine Trias. I make the cheese, my son Ben sells it, and my husband Elling stands at the counter looking trustworthy, which is harder work than it looks." },
         { id = "h_philmor", tags = { "news" }, when = { questActive = TODO_QUEST("Philmor's Favor") },
           text = "From the harbor? Philmor sends his crates with whoever's willing these days. Carry it upstairs to the stockroom door, please, and don't set it down until you're there." },
         { id = "h_philmor_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Philmor's Favor"), days = 3 } },
@@ -420,7 +420,7 @@ P:NPC {
       },
     },
     craft_good = {
-      lines = { { id = "cg_default", text = "Patience, cold and keeping your hands off it. Most people can manage the cold, and very few can manage the patience, which is why most people buy their cheese from me." } },
+      lines = { { id = "cg_default", text = "Patience, cold and keeping your hands off it. Most people can manage the cold, and very few can manage the patience, and so most people buy their cheese from me." } },
       choices = {
         { text = "Patience is a virtue I respect.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -608,7 +608,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll have forgotten candles, I expect, every priest does, and bandages, and a spare pair of socks." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll have remembered your hammer and forgotten the oil for your plate, I'd wager, because they always do." },
         { id = "h_default", text = "Thurman Mullby. Water, bread, bags and the little things, and if you're going out through the gate, I can tell you what you've forgotten before you've forgotten it." },
-        { id = "h_back", when = { metBefore = true }, text = "Back for more? Then you've learned the road eats bread faster than you'd think." },
+        { id = "h_back", when = { metBefore = true }, text = "Back for more? Then you've learned the road eats bread faster than any traveller expects." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Late shoppers are the ones who forgot something, so let's find out what it was." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, so I'll guess you've forgotten nothing and brought nothing, because you travel light. Rope, though; your sort always forgets rope." },
@@ -665,7 +665,7 @@ P:NPC {
     gadgetzan = { { id = "tp_gadgetzan", text = "Water in Gadgetzan costs more than ale in Stormwind, so I'm told, and the goblins don't apologise for it. I've added an extra waterskin to my list, for anyone going that way." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a long way from here, and travellers forget half their kit on the way. I keep a list of what they forget, and I'll read it to you, if you've a minute." } },
     camping = { { id = "tp_camping", text = "Everyone forgets a bedroll, and everyone regrets it on the first cold night. I've sold more bedrolls than anything else, and I've never once been thanked for the warning, only for the bedroll." } },
-    knows = { { id = "tp_knows", text = "I hear what people say while they count their coins, which is more than you'd think. Ask away." } },
+    knows = { { id = "tp_knows", text = "I hear what people say while they count their coins, and folk say all sorts with their purse open. Ask away." } },
     background = { { id = "tp_bg", text = "A shopkeeper on a corner, and glad of it. Not much of a story, but it's a steady one." } },
     advice = { { id = "tp_ad", text = "Two waterskins, always. You'll drink one and spill the other, and you'll thank me for both." } },
     _none = { { id = "tp_none", text = "I sell bags, friend, not answers. Try the crier; he'll tell you anything at all." } },
@@ -678,7 +678,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gruff" }, values = { "proud", "honest" },
   notices = { "light", "kin", "kit" },
   impression = {
-    first = "Gunther Weller judges a buyer by how they hold a blade, not by what they say about it. He has little patience for shine and a great deal for balance.",
+    first = "Gunther Weller judges a buyer by how they hold a blade, not by what they say about it. He has little patience for shine and endless patience for balance.",
     third = "{name} met Gunther Weller of Weller's Arsenal, a blunt weapons merchant by the auction house.",
   },
 
@@ -746,7 +746,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Hold it at the hilt and see where it wants to fall, because a good sword wants to stay level and a bad one wants to dive. Half the blades on the auction house floor are all shine and no balance, and they'll get you killed." } },
+      lines = { { id = "xwarcl_default", text = "Hold it at the hilt and see where it wants to fall, because a good sword wants to stay level and a bad one wants to dive. Most of the blades on the auction house floor are all shine and no balance, and they'll get you killed." } },
       choices = {
         { text = "I'll buy the plain blade that balances well.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll take the shiny one. Looks matter too.", next = "BACK", fx = { align = { order = -1 } } },
@@ -786,14 +786,14 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a mace, then, or a staff, though you hold yourself like someone who'd rather not hit anything at all." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Let me see your grip, {class}, because half the knights I sell to hold a hammer like it's a candle." },
-        { id = "h_default", text = "Gunther Weller. Marda and I keep this arsenal, and we sell steel that does what it's meant to, which is more than I can say for half the shine on the auction house floor." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Let me see your grip, {class}, because too many knights I sell to hold a hammer like it's a candle." },
+        { id = "h_default", text = "Gunther Weller. Marda and I keep this arsenal, and we sell steel that does what it's meant to, and not one piece of it was bought for its polish." },
         { id = "h_warrior", when = { class = { "WARRIOR", "PALADIN" } }, text = "You've got a fighter's grip, so you'll want something with weight. Try the axes on the far wall and see what your arm says." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, so you'll be looking at the daggers, and you'll be looking at them closely. Ask before you test the edge, because Marda counts them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in an arsenal, which is like a fish in a stable. You'll be wanting a dagger for the day the spells run out, I'd guess." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Finally, someone who won't ask me which sword is the prettiest. Pick it up, feel the balance, and tell me honestly." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Finally, someone who won't ask me which sword is the prettiest. Pick it up, feel the balance, and tell me what your hands say." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've no bows here, mind, but I've got axes and short swords for when the beast gets too close for arrows." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, so you'll not want a blade, I suppose, since you've claws when you need them. Hold a staff for me, though, so I can see your balance." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at my arsenal. I'll sell you a dagger or a staff, and that's all a warlock's arm is good for." },
@@ -858,7 +858,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "eager" }, values = { "loyal", "proud" },
   notices = { "light", "kin", "deed" },
   impression = {
-    first = "Crier Goodman carries the city's news in a voice made for a parade ground and a heart that loves gossip. He announced me to half the street before I'd introduced myself.",
+    first = "Crier Goodman carries the city's news in a voice made for a parade ground and a heart that loves gossip. He announced me to the whole street before I'd introduced myself.",
     third = "{name} met Crier Goodman, Stormwind's town crier, who calls heroes to the far corners of the world.",
   },
 
@@ -873,7 +873,7 @@ P:NPC {
 
   notice = {
     { id = "n_priest", cat = "light", when = { class = "PRIEST" },
-      text = "A priest of the Cathedral! The Light's servants answer more of my calls than you'd think, and they come home more often, too." },
+      text = "A priest of the Cathedral! The Light's servants answer my calls more often than the sellswords do, and they come home more often, too." },
     { id = "n_human", cat = "kin", when = { race = "Human" },
       text = "A son or daughter of Stormwind! I cry the King's news, friend, and it's yours before anyone's." },
     { id = "n_level", cat = "deed", when = { minLevel = 55 },
@@ -886,7 +886,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Mostly that they're orcs, friend! But you're no orc, and I'll say so loudly. The city loves a good surprise." } },
       choices = {
-        { text = "Announce me honestly, Crier. Let them know I'm Alliance.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Announce me properly, Crier. Let them know I'm Alliance.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Keep me out of your news. I'll make my own way.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -904,7 +904,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Everything's news if you shout it properly, but a druid is real news, because the city still doesn't know what to make of your people. I cried the night elves joining the Alliance myself, and half the square asked me where Darnassus was." } },
+      lines = { { id = "xdruid_default", text = "Everything's news if you shout it properly, but a druid is real news, because the city still doesn't know what to make of your people. I cried the night elves joining the Alliance myself, and the whole square asked me where Darnassus was." } },
       choices = {
         { text = "Then cry it properly. People should know their allies.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Better they don't know. Let my people stay a rumour.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -931,7 +931,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Gnolls in Redridge, orcs in the Blackrock passes and the Defias in Westfall, and every one of them begs for strong arms! Lakeshire's magistrate sends a new notice every week, and every week fewer volunteers answer it." } },
+      lines = { { id = "xwarcl_default", text = "Gnolls in Redridge, orcs in the Blackrock passes and the Defias in Westfall, and each of them begs for strong arms! Lakeshire's magistrate sends a new notice every week, and every week fewer volunteers answer it." } },
       choices = {
         { text = "Then I'll answer it. Lakeshire won't be forgotten.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Notices don't pay much. I'll wait for better work.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1104,7 +1104,7 @@ P:NPC {
     valley_of_heroes = { { id = "tp_valley_of_heroes", text = "Hear ye: visitors to the city are welcome through the Valley of Heroes, and are asked not to climb the statues! That last part's for the children, mostly, though not entirely." } },
     knows = { { id = "tp_knows", text = "Every notice in the city crosses my throat sooner or later! Ask, and I'll cry what I can." } },
     background = { { id = "tp_bg", text = "A crier, born with a voice and the sense to use it for the crown. I've shouted the news on these streets longer than some of those statues have stood." } },
-    advice = { { id = "tp_ad", text = "Read the whole notice before you set off, hero. Half the dead in this world only read the reward." } },
+    advice = { { id = "tp_ad", text = "Read the whole notice before you set off, hero. Too many of the dead in this world only read the reward." } },
     _none = { { id = "tp_none", text = "No notice on that, hero, so no news. If you hear anything, bring it to me." } },
   },
 }
@@ -1193,9 +1193,9 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "When there's a gryphon free and a rider who can hold a man in the saddle, yes. Some of them don't make it, and I've had to settle a bird whose passenger stopped breathing on the way, which is harder than you'd think." } },
+      lines = { { id = "xapriest_default", text = "When there's a gryphon free and a rider who can hold a man in the saddle, yes. Some of them don't make it, and I've had to settle a bird whose passenger stopped breathing on the way, and that's a long, quiet flight home." } },
       choices = {
-        { text = "That's merciful work, Dungar. Every one of them deserves the flight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's merciful work, Dungar. They all deserve the flight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The roads would do. Gryphons are for messages, not the dying.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1421,7 +1421,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I think it's a great deal more reliable than my brother, and less reliable than a well-brewed potion. I've never once had a potion refuse to work because I'd been sinning, and I'm not certain the Light can say as much." } },
+      lines = { { id = "xapala_default", text = "I think it's far more reliable than my brother, and less reliable than a well-brewed potion. I've never once had a potion refuse to work because I'd been sinning, and I'm not certain the Light can say as much." } },
       choices = {
         { text = "The Light doesn't fail, Morgan. People do.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Then I'll stuff my pack with potions and pray a bit less.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -1443,7 +1443,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! You'll want mana potions, and you'll want them stronger than whatever the Sanctum's apprentices brew in their rooms." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "One of the Lamb's people, so I'll guess you're not here for a healing draught. I don't sell anything that calls up anything, and I'd rather you didn't ask." },
+          text = "One of the Lamb's people, so I'll guess you're not here for a healing draught. I don't sell anything that calls up anything, so don't bother asking." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want healing potions, then, and plenty, because I've never met a warrior who came home with as many as he left with." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've a salve for beasts as well as men, if your companion's been in a scrape, and nobody else in the city bothers to brew one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll know half my ingredients by their first names, I expect, and you'll want to tell me I've cut them wrong." },
@@ -1508,7 +1508,7 @@ P:NPC {
       },
     },
     rogue = {
-      lines = { { id = "rogue_l", text = "No, and if you've come to ask, you've come to the wrong Pestle and the wrong street. Jasper Fel in Old Town sells that sort of thing, and I'd rather not know what's in his bottles." } },
+      lines = { { id = "rogue_l", text = "No, and if you've come to ask, you've come to the wrong Pestle and the wrong street. Jasper Fel in Old Town sells that sort of thing, and I've never once asked what's in his bottles." } },
       choices = {
         { text = "A poison's just a potion with a purpose.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Fair. I'll keep your shop clean of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1623,7 +1623,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Merchants' guards, noble houses, men heading to Westfall and men heading north, and none of them say why. I sell honestly and ask nothing, but I'd like to know what's coming as much as anyone." } },
+      lines = { { id = "xapala_default", text = "Merchants' guards, noble houses, men heading to Westfall and men heading north, and none of them say why. I sell fair and ask nothing, but I'd like to know what's coming as much as anyone." } },
       choices = {
         { text = "Whatever comes, the Silver Hand will stand against it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Sell to the highest bidder, Harlan. That's how trade works.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1731,7 +1731,7 @@ P:NPC {
 
   topics = {
     the_stockade = { { id = "tp_the_stockade", text = "The prisoners took the Stockade, and suddenly every noble in the city wants a sword by his bed. Business is good, and I don't like what it's telling me." } },
-    deadmines = { { id = "tp_deadmines", text = "The Defias are dug in under Moonbrook, and adventurers come through here every day to buy armour before they go down. Half of them come back to sell it, and I don't ask about the other half." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are dug in under Moonbrook, and adventurers come through here every day to buy armour before they go down. Some of them come back to sell it, dented, and I don't ask after the ones who don't." } },
     syndicate = { { id = "tp_syndicate", text = "A man from Alterac came in last week and bought six daggers, all the same. He paid in old Alterac gold, and I've never seen a coin like it since the kingdom fell." } },
     scourge = { { id = "tp_scourge", text = "The Lordaeron refugees come in looking for weapons that'll put the dead down for good. I tell them anything will, if you hit hard enough, and I hope I'm right." } },
     knows = { { id = "tp_knows", text = "When folk buy armor they tell you where they're going, and why. Ask me what I've heard." } },

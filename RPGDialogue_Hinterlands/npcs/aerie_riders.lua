@@ -31,7 +31,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Doran Steelwing. I fly for the Peak, an' I've spent more o' my life starin' down at Witherbark an' Vilebranch than I'd like tae count. Ugly lot, every one of them." },
+          text = "Doran Steelwing. I fly for the Peak, an' I've spent more o' my life starin' down at Witherbark an' Vilebranch than I'd like tae count, an' not one o' them got any prettier for it." },
       },
       again = { { id = "h_again", text = "What else? Make it quick, I've a patrol." } },
       choices = {

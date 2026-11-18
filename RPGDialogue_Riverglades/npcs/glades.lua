@@ -100,7 +100,7 @@ P:NPC {
     why = {
       big = true,
       lines = {
-        { id = "wy_default", text = "Because the orcs came through in the First War and killed my family, and I swore I'd see every one of them out of these glades. It started as duty, I think, and somewhere along the road it turned into something that ate me." },
+        { id = "wy_default", text = "Because the orcs came through in the First War and killed my family, and I swore I'd drive the last of them out of these glades. It started as duty, I think, and somewhere along the road it turned into something that ate me." },
         { id = "wy_horde", when = { faction = "Horde" },
           text = "Your kind came through in the First War and killed my family, and I swore I'd see every one of you out of these glades. Don't expect me to make peace with you now, at the end." },
       },
@@ -212,7 +212,7 @@ P:NPC {
     },
     gas_danger = {
       lines = {
-        { id = "gd_default", text = "Only if you breathe it, or light it, or stand near anybody who does, chum. It's a real pain to bottle, which is why I need nice helpful people like you, who work for very reasonable rates." },
+        { id = "gd_default", text = "Only if you breathe it, or light it, or stand near anybody who does, chum. It's a real pain to bottle, so I hire nice helpful people like you, who work for very reasonable rates." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -240,7 +240,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never tell anybody how it works until they've paid, chum. After they've paid, tell 'em it's under warranty." } },
     powderfuse_port = { { id = "tp_port", text = "Melbin's port, if you ask Melbin, and I don't, chum. I sell to anybody who comes by boat, and most of 'em don't ask questions." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's full of engineers who think they know fuel, pal, and none of them have even heard of marsh gas. When my engine runs, they'll come crawling to me for a license." } },
-    venture_company = { { id = "tp_venture_company", text = "The Venture Company would steal my design in a heartbeat, which is why I'm not telling anybody how it works. Nobody, not even you, especially not you." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company would steal my design in a heartbeat, so I'm not tellin' anybody how it works. Nobody, not even you, especially not you." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's always looking for the next big thing, and I'm it. Marsh gas, pal, remember where you heard it first." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay runs on coal and rum, and both are going to be obsolete when my engine's done. Mark my words." } },
     _none = { { id = "tp_none", text = "Is that somethin' I can sell? No? Then I don't know about it, chum." } },

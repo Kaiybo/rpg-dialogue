@@ -35,7 +35,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Would ye? I know it's foolish, an' the priests say I should pray an' wait like everyone else. But if the earth runs all the way tae the Thandol Span an' he's standin' on it, then maybe it could tell ye he's still standin'. I'd take any word at all." } },
       choices = {
-        { text = "I'll listen honestly and tell you only what I hear.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll listen carefully and tell you only what I hear.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll tell you he's well. That's what you need to hear.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -81,7 +81,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "It can, but the roads through the Wetlands are thick wi' Dark Iron raiders, an' half the post never arrives. I know a spell's no' the King's mail, but a worried wife will try anythin' twice." } },
+      lines = { { id = "xmage_default", text = "It can, but the roads through the Wetlands are thick wi' Dark Iron raiders, an' a good third o' the post never arrives. I know a spell's no' the King's mail, but a worried wife will try anythin' twice." } },
       choices = {
         { text = "Use the King's post, Sara. It'll get there in time.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Rules be hanged. I'd find a faster way for you.", next = "BACK", fx = { align = { order = -1 } } },
@@ -147,7 +147,7 @@ P:NPC {
 
     sully = {
       lines = {
-        { id = "su_default", text = "He's a soldier, an' a believer in what he's sent tae do, which is more than most can say. He writes every fortnight, an' every letter begins the same way, 'My dear Sara', as if I might've forgotten who I was." },
+        { id = "su_default", text = "He's a soldier, an' a believer in what he's sent tae do, an' I've met precious few o' those. He writes every fortnight, an' every letter begins the same way, 'My dear Sara', as if I might've forgotten who I was." },
         { id = "su_after", when = { questDone = TODO_QUEST("Sully Balloo's Letter") },
           text = "He was a soldier who believed in his missions, every one. His last letter began like all the others, 'My dear Sara', an' the rest is mine, if ye don't mind." },
       },
@@ -201,7 +201,7 @@ P:NPC {
     },
     days_wait = {
       lines = {
-        { id = "dw_default", text = "It is, an' everyone in the Military Ward knows it. Half the wives an' husbands on this street are waitin' on someone, an' we nod tae each other in the mornin' an' don't say a word." },
+        { id = "dw_default", text = "It is, an' everyone in the Military Ward knows it. Every other door on this street has someone waitin' behind it, an' we nod tae each other in the mornin' an' don't say a word." },
       },
       choices = {
         { text = "Families like yours carry this war too.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
@@ -676,7 +676,7 @@ P:NPC {
       lines = {
         { id = "gn_default", text = "Because a gear does not care whether you are frightened, and a trogg very much does, and I discovered I could use that. You chose a different specification yourself, so you understand that the old plans did not survive Gnomeregan." },
         { id = "gn_mage", when = { class = "MAGE" },
-          text = "Because I failed my first-year arcana examination twice, and the second time I set the examiner's beard alight. You passed yours, clearly, so you will appreciate that the Hall of Arms is a great deal less flammable." },
+          text = "Because I failed my first-year arcana examination twice, and the second time I set the examiner's beard alight. You passed yours, clearly, so you will appreciate that the Hall of Arms is far less flammable." },
       },
       choices = {
         { text = "Every gnome should still learn to fight.", next = "BACK", fx = { align = { order = 1 } } },

@@ -9,7 +9,7 @@ P:NPC {
   communities = { "cenarion_hold" }, temper = { "steady", "gruff" }, values = { "craft", "patient" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Vargus keeps Cenarion Hold's forge hot in a desert that's already too hot, and fights the sand in every joint and buckle. He speaks slowly, works fast and respects silithid chitin more than most steel.",
+    first = "Vargus keeps Cenarion Hold's forge hot in a desert that's already too hot, and fights the sand in every joint and buckle. He speaks slowly, works fast and respects silithid chitin over most steel.",
     third = "{name} met Vargus, the tauren blacksmith who keeps the Cenarion Hold forge burning.",
   },
 

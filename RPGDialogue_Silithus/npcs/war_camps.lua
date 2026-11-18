@@ -321,7 +321,7 @@ P:NPC {
       lines = { { id = "dw_default", text = "Stubborn, well-armed and too many of them, because they get fresh soldiers off every ship. I respect a stubborn enemy. I'd still rather bury one, and some of my grunts say we should hit their camp now, before Kaldon's precious peace gets any older." } },
       choices = {
         { text = "Strike their camp. Take the crystals by force.", next = "dwarves_end", fx = { align = { order = -1 } } },
-        { text = "Win the race honestly. Gather faster than they do.", next = "dwarves_end", fx = { align = { order = 1 } } },
+        { text = "Win the race fairly. Gather faster than they do.", next = "dwarves_end", fx = { align = { order = 1 } } },
         { text = "What will you do?", next = "dwarves_end" },
       },
     },
@@ -334,7 +334,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rank = {
-      lines = { { id = "ra_default", text = "By being alive when better orcs weren't, and by learning from every one of them. That's how anyone makes general in the Horde, whatever the songs say." } },
+      lines = { { id = "ra_default", text = "By being alive when better orcs weren't, and by learning from each of their deaths. That's how anyone makes general in the Horde, whatever the songs say." } },
       choices = {
         { text = "That's an honest answer.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },

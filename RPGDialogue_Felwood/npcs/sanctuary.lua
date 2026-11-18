@@ -85,7 +85,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Thin their numbers, and find out what Xavaric, their leader, is planning, if you can get close enough. Every satyr that falls is a little less poison in the soil, and I'd rather you did it quickly and quietly than with a war band that would trample all my seedlings." } },
+      lines = { { id = "xrogue_default", text = "Thin their numbers, and find out what Xavaric, their leader, is planning, if you can get close enough. Every satyr that falls is a little less poison in the soil, and quick, quiet work suits me better than a war band trampling all my seedlings." } },
       choices = {
         { text = "I'll strike quickly and spare your seedlings.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll do it my way, seedlings or not.", next = "BACK", fx = { align = { order = -1 } } },
@@ -151,7 +151,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "I honestly don't know, and that's why I asked. The Circle tends the land through the Emerald Dream and your faith reaches for something else entirely, but every seed I plant here dies of the same poison, so I'm in no position to refuse help." } },
+      lines = { { id = "xhcast_default", text = "I don't know, and that's why I asked. The Circle tends the land through the Emerald Dream and your faith reaches for something else entirely, but every seed I plant here dies of the same poison, so I'm in no position to refuse help." } },
       choices = {
         { text = "Anything that heals is worth trying. I'll pray over them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers are for people. Your seeds will have to fend for themselves.", next = "BACK", fx = { align = { light = -1 } } },
@@ -170,7 +170,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I won't ask you to plant anything, but I'll show you the seedlings if you've a moment, because there's green under all this sickness, and I want someone else to see it too." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! I won't ask you to plant seeds, though I'll warn you that half the work of mending a forest is clearing away what tries to kill the seedlings." },
+          text = "A warrior! I won't ask you to plant seeds, though I'll warn you that mending a forest is mostly clearing away what tries to kill the seedlings." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! You've seen what the corruption does to the beasts, then, and I'd love to hear whether any of them are getting better." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -188,7 +188,7 @@ P:NPC {
         { id = "h_purified", when = { questDone = TODO_QUEST("Purified!") },
           text = "Purified... say it again, please, for I've waited a long time to hear that word in Felwood." },
         { id = "h_linken", when = { heardLine = "linken.h_default" },
-          text = "You've met the gnome in Un'Goro who lost his memory? If his friends send you for a totem, come to me. The water spirit and I can do a great deal together." },
+          text = "You've met the gnome in Un'Goro who lost his memory? If his friends send you for a totem, come to me. The water spirit and I can work it together." },
         { id = "h_rest", when = { metBefore = true },
           text = "I planted a seed by the sanctuary's edge this morning, and it won't take, but I plant one every morning anyway. One day one will." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -280,7 +280,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "The forest tells the Circle a great deal, if we listen gently enough. Ask me about any of these." },
+      { id = "tp_knows", text = "The forest still speaks to the Circle, even poisoned, if we listen gently enough. Ask me about any of these." },
     },
     background = { { id = "tp_ba", text = "I'm a druid of the Circle, sent where the land hurts most, and Felwood hurts most.", next = "what" } },
     advice = { { id = "tp_ad", text = "Don't drink from the streams, don't eat the fruit, and don't trust anything that glows green." } },
@@ -416,7 +416,7 @@ P:NPC {
           text = "A warrior. Good, steel is honest, and it can't be tempted by the fel the way a spell can, so you may be the safest visitor I've had all month." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Then you'll have seen what the fel does to the beasts here, and you'll understand why I keep my stone in my pocket." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here? Then you'll feel the fel in this place pulling at you, so mind you don't answer it; I've watched stronger spirits than yours bend." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here? Then you'll feel the fel in this place pulling at you, so don't answer it; I've watched stronger spirits than yours bend." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You move very quietly for someone in a camp full of druids, rogue. Quiet is good in Felwood; the Deadwood furbolgs hear everything else." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -551,7 +551,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, because the corrupted plants fight back, and the things guarding the Irontree Caverns fight harder. You'll clear the way, I'll lay the salve, and between us we'll make one corner of Felwood a little greener." } },
+      lines = { { id = "xwarcl_default", text = "Plenty, because the corrupted plants fight back, and the things guarding the Irontree Caverns fight harder. You'll clear the way, I'll lay the salve, and between us we'll make one corner of Felwood a little greener." } },
       choices = {
         { text = "Then I'll follow your lead and guard the menders.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll fight where I please. The menders can keep up.", next = "BACK", fx = { align = { order = -1 } } },
@@ -796,7 +796,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It goes down to the roots and the water both, which is why salves and seeds take so long. My people would say Elune's light has gone out of this place, and you'd say the spirits are sick, and I think we're describing the same wound." } },
+      lines = { { id = "xdsham_default", text = "It goes down to the roots and the water both, and that is why salves and seeds take so long. My people would say Elune's light has gone out of this place, and you'd say the spirits are sick, and I think we're describing the same wound." } },
       choices = {
         { text = "Then we'll mend it together, Arathandris.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Some wounds can't be mended. Cut it out.", next = "BACK", fx = { align = { light = -1 } } },
@@ -844,7 +844,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "It goes down to the roots and the water both, which is why salves and seeds take so long. My people would say Elune's light has gone out of this place, and yours would say the spirits are sick, and I think we're describing the same wound from opposite sides. That's as near as I'll come to agreeing with the Horde today." } },
+      lines = { { id = "xhsham_default", text = "It goes down to the roots and the water both, so salves and seeds take seasons to show anything. My people would say Elune's light has gone out of this place, and yours would say the spirits are sick, and I think we're describing the same wound from opposite sides. That's as near as I'll come to agreeing with the Horde today." } },
       choices = {
         { text = "The spirits don't care about banners, and neither do I.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "My place is with the Horde, and I'll mend from there.", next = "BACK", fx = { align = { order = 1 } } },
@@ -880,7 +880,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "More than you'd think, because the corrupted things here don't like the Light, and my salve-bearers need someone at their backs on the road. The cleansing is slow and dull, though, and I've seen braver souls than you grow bored of it." } },
+      lines = { { id = "xapala_default", text = "A good deal, because the corrupted things here don't like the Light, and my salve-bearers need someone at their backs on the road. The cleansing is slow and dull, though, and I've seen braver souls than you grow bored of it." } },
       choices = {
         { text = "Slow work done right is worth it. I'll stand guard.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'd rather strike at the demons themselves than guard flowerbeds.", next = "BACK", fx = { align = { order = -1 } } },
@@ -927,7 +927,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Alliance, at last! The salve does its work on the plants, but the people who lay it need tending too, and they rarely ask." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
-          text = "A paladin! I asked the Alliance for help cleansing Felwood and expected archers, so forgive me if I stare a little at all that plate." },
+          text = "A paladin! I asked the Alliance for help cleansing Felwood and expected archers, so pardon me if I stare a little at all that plate." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Maybess works with your people, to the north, but the curse doesn't care whose prayers it hears, so I'll hear you out." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, come to Felwood. The curse here is older than you are, sister or brother, but it is not older than the forest, and the forest remembers being green." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! I asked for help cleansing Felwood and expected archers, and I certainly didn't expect one of the Forsaken with the Light in hand." },

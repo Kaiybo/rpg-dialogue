@@ -181,7 +181,7 @@ P:NPC {
     },
     origin_druids = {
       lines = {
-        { id = "od_default", text = "That the centaur are the children of a son of Cenarius and a princess of the earth, and that the father was murdered by his own children. If it's true, it explains a great deal about the way they treat everyone else." },
+        { id = "od_default", text = "That the centaur are the children of a son of Cenarius and a princess of the earth, and that the father was murdered by his own children. If it's true, it explains much about the way they treat everyone else." },
       },
       choices = {
         { text = "That's a dark tale.", next = "BACK", fx = { trait = { curious = 1 }, learn = { "cenarion_circle" } } },
@@ -343,7 +343,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Kireena. I keep the crafters at this post supplied, which isn't many, and I buy what the braves carry back from the camps, which is a great deal. Desolace has little that grows, but plenty that can be taken." },
+          text = "Kireena. I keep the crafters at this post supplied, which isn't many, and I buy what the braves carry back from the camps, which is plenty. Desolace has little that grows, but plenty that can be taken." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm counting spools." },
@@ -392,7 +392,7 @@ P:NPC {
     traders_goblins = {
       big = true,
       lines = {
-        { id = "tg_default", text = "Not much. A goblin who sells to both sides is a goblin who comes back, and I'd rather have thread from a cheat than no thread at all. Gurda would say I'm feeding the Alliance, and she might be right." },
+        { id = "tg_default", text = "Not much. A goblin who sells to both sides is a goblin who comes back, and thread from a cheat still sews. Gurda would say I'm feeding the Alliance, and she might be right." },
       },
       choices = {
         { text = "Trade is trade. Let the goblins sell to anyone.", next = "BACK", fx = { align = { honor = -1 } } },

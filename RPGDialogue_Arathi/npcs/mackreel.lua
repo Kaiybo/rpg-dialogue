@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Well, hello there! Ye found yer way out here, which is more than I can say for the way back." },
+    { id = "g_default", text = "Well, hello there! Ye found yer way out here, an' that's the easy part; the way back's a tricky wee path after a dram or two." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I'd offer ye a seat, but there's only the one, an' it's a long way down." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' I'm still here, which tells ye how the rescue's goin'." },
     { id = "g_active", when = { questActive = TODO_QUEST("MacKreel's Moonshine") }, text = "Southshore, an' Bilger, an' hurry! He's countin' the minutes, an' so am I." },
@@ -116,7 +116,7 @@ P:NPC {
     },
     moonshine_in = {
       lines = {
-        { id = "mi_default", text = "Barley, a wee bit o' Arathi heather an' a great deal o' patience. The rest is a family secret, an' the family's mostly me." },
+        { id = "mi_default", text = "Barley, a wee bit o' Arathi heather an' three winters o' patience in the cask. The rest is a family secret, an' the family's mostly me." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

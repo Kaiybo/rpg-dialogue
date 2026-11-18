@@ -46,7 +46,7 @@ P:NPC {
         { id = "h_shaman", when = { class = "SHAMAN", race = { "Orc", "Troll", "Tauren" } },
           text = "I am Corswyn Aseril of the Windshapers. You and I both honor the elements, shaman, though we learned to do it under very different skies, and I think we have much to teach each other." },
         { id = "h_forsaken", when = { race = "Scourge" },
-          text = "I am Corswyn Aseril of the Windshapers. Our dead are burned and given to the wind, so forgive me if I look at you a moment too long; I mean no insult by it." },
+          text = "I am Corswyn Aseril of the Windshapers. Our dead are burned and given to the wind, so if I look at you a moment too long, I mean no insult by it." },
       },
       again = {
         { id = "h_again", text = "Ask what you will. The Warchief is occupied, and I have time." },
@@ -238,9 +238,9 @@ P:NPC {
       hub = true,
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Aeigelyges, and I keep Corswyn company while she keeps the Warchief company. Mostly I watch, because there's a great deal in this hall I don't understand yet, and I'd rather learn it than guess." },
+          text = "I'm Aeigelyges, and I keep Corswyn company while she keeps the Warchief company. Mostly I watch, because there's so much in this hall I don't understand yet, and I learn more by watching than by guessing." },
         { id = "h_sky", when = { race = "Skyborne" },
-          text = "Aeigelyges, and you're one of ours! Tell me honestly, does the ground still feel strange under your feet, or is it only me?" },
+          text = "Aeigelyges, and you're one of ours! Tell me, does the ground still feel strange under your feet, or is it only me?" },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I've questions of my own, if you run out." },
@@ -256,7 +256,7 @@ P:NPC {
     },
     orcs = {
       lines = {
-        { id = "or_default", text = "That they shout when they're pleased and shout louder when they're angry, so you have to watch their faces. And that every one of them seems to have lost something in the wars, which makes me think we have more in common than either of us expected." },
+        { id = "or_default", text = "That they shout when they're pleased and shout louder when they're angry, so you have to watch their faces. And that each of them seems to have lost something in the wars, which makes me think we have more in common than either of us expected." },
       },
       choices = {
         { text = "What did your people lose?", next = "orcs_lost" },
@@ -338,7 +338,7 @@ P:NPC {
 
   notice = {
     { id = "n_lock", cat = "fel", when = { class = "WARLOCK" }, place = "before",
-      text = "You smell of the same thing that hangs about half the Cleft, warlock. I'll talk to you, but I'll stand where I can see your hands." },
+      text = "You smell of the same sulphur that hangs about the Cleft, warlock. I'll talk to you, but I'll stand where I can see your hands." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "A rogue who knows enough to keep to the walls. You'd have done well among the Peacekeepers' scouts, though I doubt you'd have liked their rules." },
     { id = "n_sky", cat = "race", when = { race = "Skyborne" },

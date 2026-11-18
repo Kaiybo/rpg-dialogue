@@ -148,7 +148,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've walked these roads since before the walls of Stormwind were rebuilt, and I'll walk them after." } },
     defias = { { id = "tp_defias", text = "They robbed me once and left me my boots. I've decided to call that manners." } },
-    _none = { { id = "tp_none", text = "Can't say I know it, and believe me, a man on this road hears a great deal." } },
+    _none = { { id = "tp_none", text = "Can't say I know it, and believe me, a man on this road hears every rumor between Goldshire and the Eastvale." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's at Goldshire I walk the road both ways three times a day, because folk on their way to have fun will buy anything. I once sold a man a hat he was already wearing." } },
     booty_bay = { { id = "tp_booty_bay", text = "I walked to Booty Bay when I was young and foolish, and came back older and only a little less foolish. The goblins sold me my own boots back, and I bought them." } },
     scourge = { { id = "tp_scourge", text = "I carried goods to Lordaeron in my younger days, and I'd not go now if you paid me in gold. A road's only as good as the people at the end of it." } },

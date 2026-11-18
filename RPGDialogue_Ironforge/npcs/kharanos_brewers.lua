@@ -291,7 +291,7 @@ P:NPC {
 
     steal = {
       big = true,
-      lines = { { id = "st_default", text = "Dangerous, aye, so I'd not go myself, which is why I'm askin' ye. I'd buy it off them if they'd trade, but the Frostmane would sooner put a spear in a dwarf than sell him anythin', so borrowin' it from their baskets is the only way." } },
+      lines = { { id = "st_default", text = "Dangerous, aye, so I'd not go myself, an' that's why I'm askin' ye. I'd buy it off them if they'd trade, but the Frostmane would sooner put a spear in a dwarf than sell him anythin', so borrowin' it from their baskets is the only way." } },
       choices = {
         { text = "They're trolls. Take what you need from them.", next = "BACK", fx = { align = { light = -1 }, learn = { "frostmane" } } },
         { text = "It's their sacred plant. Stealing it is wrong.", next = "BACK", fx = { align = { light = 1 }, learn = { "frostmane" } } },

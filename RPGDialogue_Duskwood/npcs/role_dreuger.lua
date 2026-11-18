@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good; one of us should be getting something done." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and in that time the council has met four times and decided nothing. Welcome back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've made a name for yourself since you first came into this hall. I wish I could say the same for the council." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard your name spoken kindly in town, which is rarer here than you'd think." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard your name spoken kindly in town, and kind words are scarce in Darkshire these days." },
     { id = "g_word_intim", when = { word = "intimidated" }, text = "They tell me you've been threatening folk. I want action in Darkshire, but not that kind." },
   },
 
@@ -101,7 +101,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't wait for permission to do what's right in Duskwood. Nobody here will give it." } },
     _none = { { id = "tp_none", text = "That's not a matter for the council, as far as I know. Ask Clerk Daltry; he keeps the records." } },
     varian = { { id = "tp_varian", text = "The Council of Darkshire expects more of the Crown, and the Crown, in the king's absence, expects less of itself. I keep the minutes of every letter, and nobody reads those either." } },
-    prestor = { { id = "tp_prestor", text = "Every reply from the Keep is signed on the Highlord's behalf by his advisers, and Lady Prestor's hand appears more than most. The people of Darkshire expect more than courtesy." } },
+    prestor = { { id = "tp_prestor", text = "Every reply from the Keep is signed on the Highlord's behalf by his advisers, and Lady Prestor's hand appears on more of them than his own does. The people of Darkshire expect more than courtesy." } },
     raven_hill = { { id = "tp_raven_hill", text = "Raven Hill is a failure of this council, and I've said so in session twice. Evil lingers in the air there, and we must act before it lingers here." } },
     dark_riders = { { id = "tp_dark_riders", text = "The riders are a matter for the council and the Watch, and neither has the men to deal with them. That's the plain truth, and the council would prefer I didn't say it." } },
   },

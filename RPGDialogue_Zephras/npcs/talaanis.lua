@@ -19,9 +19,9 @@ P:NPC {
     { id = "g_winds", text = "Winds be with you." },
     { id = "g_stranger", when = { ["not"] = { race = "Skyborne" } }, text = "A guest, and we have few. Winds be with you all the same." },
     { id = "g_back", when = { metBefore = true, race = "Skyborne" }, text = "Back again, child? The Council can spare me a moment, barely." },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Council has argued about a great deal in that time, though I'll spare you most of it. Winds be with you, and welcome back to Valanaar." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Council has argued about nearly everything in that time, though I'll spare you most of it. Winds be with you, and welcome back to Valanaar." },
     { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, and I had begun to wonder whether the winds had carried you off for good. I'm glad they didn't, and I'll say so plainly." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, and I'd be lying if I said the Council hadn't noticed. They'll want to put you to use, so choose carefully what you agree to." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since we last spoke, and the Council has certainly noticed. They'll want to put you to use, so choose carefully what you agree to." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear you left someone on the isle in a fury, and Zephras is small enough that I hear these things by supper. I won't judge it unheard, but I'd like it mended." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The isle has been speaking well of you, and I've heard your name from more than one elder this week, which doesn't happen often, so take it as the compliment it is." },
   },
@@ -72,7 +72,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "None that I know of, and I'd rather tell you that plainly than invent something to please you. Our ancestors owed everything to the wind spirits, and since they vanished, most of us are still working out what we believe, so a guest so certain of their faith is something of a curiosity here." } },
+      lines = { { id = "xapala_default", text = "None that I know of, and I'll tell you that plainly instead of inventing something to please you. Our ancestors owed everything to the wind spirits, and since they vanished, most of us are still working out what we believe, so a guest so certain of their faith is something of a curiosity here." } },
       choices = {
         { text = "Faith takes time. I hope your people find their own.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Better to trust your own strength than any power above.", next = "BACK", fx = { align = { light = -1 } } },
@@ -128,7 +128,7 @@ P:NPC {
           text = "Your family kept the magisters' books through every drift of the isles, so I know your name, child, whether or not you know I do. Find what's missing from them, by all means, but bring the gaps home before you fill them with something worse." },
         { id = "h_default", text = "Talaanis Shadowsong, High Elder, by the Council's choice and much against my own. Ask what you need to." },
         { id = "h_nelf", when = { race = "NightElf" },
-          text = "Kaldorei, in Valanaar. Our ancestors fled your cousins' city ten thousand years ago, and here you stand speaking our tongue as if no time had passed at all; forgive me if I stare." },
+          text = "Kaldorei, in Valanaar. Our ancestors fled your cousins' city ten thousand years ago, and here you stand speaking our tongue as if no time had passed at all, so you must excuse my staring." },
         { id = "h_kirin", when = { race = { "Human", "Gnome" } },
           text = "One of the Alliance, come up on the High Order's skycutter from Dalaran. The Kirin Tor answered us when we had nobody else, guest, so you'll find Valanaar glad of you." },
         { id = "h_dwarf", when = { race = "Dwarf" },
@@ -407,7 +407,7 @@ P:NPC {
       lines = {
         { id = "ou_default", text = "Half of Valanaar wants to touch your armor to see whether it's real, and the other half wants you gone before the Windlord notices you as well. I'm in neither half, guest; I'm only glad we're not alone anymore." },
         { id = "ou_nelf", when = { race = "NightElf" },
-          text = "You most of all, kaldorei, confuse them. You speak our tongue and wear our ancestors' faces, and half of Valanaar wants to embrace you while the other half remembers that Eldre'Thalas once sent ships after us." },
+          text = "You most of all, kaldorei, confuse them. You speak our tongue and wear our ancestors' faces, and some in Valanaar want to embrace you while others remember that Eldre'Thalas once sent ships after us." },
       },
       choices = {
         { text = "Your people were right to open their doors.", next = "BACK", fx = { opinion = { zep_outsiders = "welcome" }, affinity = 1, align = { order = -1 } } },

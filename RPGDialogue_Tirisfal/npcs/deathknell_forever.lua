@@ -33,7 +33,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Hello, {name}! Have you considered taking up a trade? I'm happy to answer any questions, or to point you toward the trainers here in Deathknell." },
         { id = "h_young", when = { maxLevel = 5 },
-          text = "Hello, and welcome to Deathknell! It's a great deal to take in all at once, I know, so if a trade feels like too much today, come back whenever you like, and I'll still be standing here." },
+          text = "Hello, and welcome to Deathknell! It's a lot to take in all at once, I know, so if a trade feels like too much today, come back whenever you like, and I'll still be standing here." },
         { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } },
           text = "A living visitor, and in Deathknell of all places! The trainers here teach the newly risen, but a skinning knife works the same in any hand, so ask me anything you like." },
       },
@@ -52,7 +52,7 @@ P:NPC {
     },
     what = {
       lines = {
-        { id = "w_default", text = "I'm glad you asked! Professions are the skills of crafting and gathering and getting by in the wild, and every one of them has its own uses, whether you're after coin, or supplies for your friends, or the pleasure of wearing something you made with your own hands." },
+        { id = "w_default", text = "I'm glad you asked! Professions are the skills of crafting and gathering and getting by in the wild, and each has its own uses, whether you're after coin, or supplies for your friends, or the pleasure of wearing something you made with your own hands." },
       },
       choices = {
         { text = "And how does one learn them?", next = "learn" },
@@ -293,7 +293,7 @@ P:NPC {
     },
     hides = {
       lines = {
-        { id = "hd_default", text = "Leatherworkers, mostly, in Brill and the Undercity, for armor and packs and the like. The Deathguard go through boots faster than you'd think, for people who don't feel the blisters." },
+        { id = "hd_default", text = "Leatherworkers, mostly, in Brill and the Undercity, for armor and packs and the like. The Deathguard wear through boots at a ridiculous rate, for people who don't feel the blisters." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -329,7 +329,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "How can I help you? If it's about rocks, I can help a great deal." },
+    { id = "g_default", text = "How can I help you? If it's about rocks, I'm your man." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Found any good veins yet?" },
   },
 

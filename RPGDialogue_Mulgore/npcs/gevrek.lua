@@ -207,7 +207,7 @@ P:NPC {
     },
     druid = {
       lines = {
-        { id = "dr_default", text = "It does, a little, and I'd rather say so than pretend. The elements raised you, but something in you answers the green as well, and the tauren druids here will understand that part better than I can." },
+        { id = "dr_default", text = "It does, a little, and I won't hide it. The elements raised you, but something in you answers the green as well, and the tauren druids here will understand that part better than I can." },
         { id = "dr_nightclaw", when = { origin = "skyborne_nightclaw" },
           text = "Nightclaw, from Shadowgale. They kept to themselves on the isle, and you'll be tempted to do the same here, so don't. The Horde trusts what it can see." },
       },
@@ -269,6 +269,6 @@ P:NPC {
     cairne = { { id = "tp_cairne", text = "Cairne gave the Windshapers a place in Mulgore when we had nowhere else to go. I owe him more than I can say, and I mean to repay it with loyalty." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is the land, and the Windshapers have always listened to her through the wind. We hear her clearly here, more clearly than we ever did on the road." } },
     the_elements = { { id = "tp_the_elements", text = "The wind spirits are our oldest friends, and they guided us across the plains when the land itself was against us. We still follow them, though now we follow them home." } },
-    _none = { { id = "tp_none", text = "I don't know. Down here, there's a great deal I don't know yet." } },
+    _none = { { id = "tp_none", text = "I don't know. Down here, there's so much I don't know yet." } },
   },
 }

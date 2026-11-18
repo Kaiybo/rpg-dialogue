@@ -54,7 +54,7 @@ P:NPC {
     },
     opn_alterac_r_dead = {
       lines = {
-        { id = "opn_alterac_r_dead", text = "The mountains are excellent keepers. They do not sell their secrets, which is more than I can say for the Perenoldes." },
+        { id = "opn_alterac_r_dead", text = "The mountains are excellent keepers. They do not sell their secrets, and the Perenoldes sold theirs, their king and their neighbours inside a single war." },
       },
       choices = {
         { text = "Something else, my lord.", next = "BACK" },
@@ -87,7 +87,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, for every quiet piece of work needs someone loud standing in the road while it's done. The Syndicate learned that from us, and now they hire Alterac's old men-at-arms to do the same against my people." } },
+      lines = { { id = "xwarcl_default", text = "More use than you might suppose, for every quiet piece of work needs someone loud standing in the road while it's done. The Syndicate learned that from us, and now they hire Alterac's old men-at-arms to do the same against my people." } },
       choices = {
         { text = "I'd rather face a man than knife him. That's my way.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Loud or quiet, a win is a win. I'll do either.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -127,7 +127,7 @@ P:NPC {
     xhcast = {
       big = true,
       lines = {
-        { id = "xhcast_default", text = "They do, a handful of shadow mages who learned just enough in Alterac's better days to be dangerous. They cast from behind their swordsmen, which tells you everything about their courage, and a spellcaster who struck them first would spare my people a good deal of trouble." },
+        { id = "xhcast_default", text = "They do, a handful of shadow mages who learned just enough in Alterac's better days to be dangerous. They cast from behind their swordsmen, and that is all I need to know of their courage; a spellcaster who struck them first would spare my people a good deal of trouble." },
       },
       choices = {
         { text = "I'll face their casters openly, and let the Syndicate see who came.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -261,7 +261,7 @@ P:NPC {
   topics = {
     syndicate = { { id = "tp_syndicate", text = "Hired knives with a noble's crest stitched on. Cut away the crest and they are only thugs." } },
     ravenholdt = { { id = "tp_ravenholdt", text = "You are standing in it, which tells me someone thought you worth the directions. Ravenholdt has outlived kings and kingdoms by being exactly as visible as it wishes to be." } },
-    alterac = { { id = "tp_alterac", text = "Alterac was a kingdom of proud fools who sold their neighbours to the Horde and then wondered why the Alliance dissolved them. Its heirs now play at banditry in the hills, and badly, which is why we watch them." } },
+    alterac = { { id = "tp_alterac", text = "Alterac was a kingdom of proud fools who sold their neighbours to the Horde and then wondered why the Alliance dissolved them. Its heirs now play at banditry in the hills, and badly, so we watch them, the way one watches a child with a knife." } },
     scourge = { { id = "tp_scourge", text = "The dead have no purses, no secrets and no fear of a knife in the dark, so they are of very little interest to my house. That they are also of very great danger to everyone else is a matter I leave to paladins." } },
     prestor = { { id = "tp_prestor", text = "A lady of very sudden consequence in Stormwind, whose family seat is a place I cannot quite find on any map. I find that interesting, and I do not find many things interesting." } },
     varian = { { id = "tp_varian", text = "A king does not vanish on a short road without someone having been paid to look the other way. I have my suspicions about who did the paying, and I am choosing, for now, to keep them." } },
@@ -332,7 +332,7 @@ P:NPC {
     },
     opn_kirintor_r_watched = {
       lines = {
-        { id = "opn_kirintor_r_watched", text = "The Kirin Tor watching itself has a mixed record, I'll grant you. Perhaps Modera would agree, though she would say it in a footnote." },
+        { id = "opn_kirintor_r_watched", text = "The Kirin Tor watching itself has a mixed record, I admit. Perhaps Modera would agree, though she would say it in a footnote." },
       },
       choices = {
         { text = "Something else, Archmage.", next = "BACK" },
@@ -500,7 +500,7 @@ P:NPC {
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor have lost Antonidas, and Kel'Thuzad, and very nearly the city, and we are a smaller council and a warier one for it. Archmage Modera holds us together with a firmness I did not know she had." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "He sat at our tables and argued at our councils, and then he took his necromancy to the Cult of the Damned. That we did not see him for what he was is a shame every mage of my age carries." } },
     scourge = { { id = "tp_scourge", text = "The plague came through Alterac and the hills below this very gate, and Dalaran's walls held it back only so long. We remember who brought it, and we keep the dome raised partly so that we never forget." } },
-    jaina = { { id = "tp_jaina", text = "Lady Proudmoore was a student here, and one of Antonidas's best, before she led her people across the sea. She writes to the council now and then, and her letters are always sensible, which is more than I can say for most." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore was a student here, and one of Antonidas's best, before she led her people across the sea. She writes to the council now and then, and her letters are always sensible, a rare thing in the council's post." } },
     alterac = { { id = "tp_alterac", text = "The ogres have Alterac's ruins now, and the Syndicate its old estates, and neither has the manners to keep off our roads. We ward the gates and let the soldiers of Southshore do the rest." } },
     _none = { { id = "tp_none", text = "I'm afraid that falls outside my studies, and my studies are rather wide." } },
   },
@@ -538,7 +538,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Worse than one, for a beast they would at least feed properly. They keep me because I know where things are buried in these hills, and when I'm free I mean to make every one of them regret it." } },
+      lines = { { id = "xdruid_default", text = "Worse than one, for a beast they would at least feed properly. They keep me because I know where things are buried in these hills, and when I'm free I mean to make each of them regret it." } },
       choices = {
         { text = "Take your revenge. They've earned every bit of it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Get home safe first. Revenge can wait, or end.", next = "BACK", fx = { align = { light = 1 } } },
@@ -601,7 +601,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest, come to a chained orc. Whether you serve the loa or the Light the dead still whisper to, I don't care, so long as you can mend these wrists once the iron comes off." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
-          text = "A mage of the Horde. The Syndicate keep shadow mages in these camps, and I have watched them work for months, so forgive me if I flinch when you raise your hands." },
+          text = "A mage of the Horde. The Syndicate keep shadow mages in these camps, and I have watched them work for months, so do not take it ill if I flinch when you raise your hands." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock, and of the Horde. I remember what your kind made of us before Thrall, so open this door if you've come to open it, and keep your demons on the far side of it." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
@@ -691,7 +691,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_bench", text = "Step lightly near the bench. Half of what's on it is harmless and the other half is labelled, though not always correctly." },
+    { id = "g_bench", text = "Step lightly near the bench. Some of what's on it is harmless and the rest is labelled, though not always correctly." },
   },
 
   notice = {
@@ -742,7 +742,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Very little, and I'm proud of that, though a spellcaster who could keep a flask cold on the road to Hammerfall would save me a great deal of wasted silverleaf. The heat in these valleys turns half my draughts before the Deathguards ever drink them." } },
+      lines = { { id = "xhcast_default", text = "Very little, and I'm proud of that, though a spellcaster who could keep a flask cold on the road to Hammerfall would save me a sack of wasted silverleaf. The heat in these valleys turns half my draughts before the Deathguards ever drink them." } },
       choices = {
         { text = "I'll help, if it serves the Dark Lady's soldiers first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Brew what you like. The Society's rules needn't bind you.", next = "BACK", fx = { align = { order = -1 } } },
@@ -808,7 +808,7 @@ P:NPC {
         { text = "I doubt you'd brew poisons for a paladin's blade, Serge.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something else? The flask on the left is about to do something, and I'd rather be standing behind you when it does." } },
+      again = { { id = "h_again", text = "Something else? The flask on the left is about to do something, and when it does, I intend to be standing behind you." } },
     },
     brews = {
       lines = {

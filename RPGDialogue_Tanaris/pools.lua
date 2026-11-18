@@ -108,7 +108,7 @@ P:Pool {
     },
     water = {
       lines = {
-        { id = "wa_default", text = "That's the water tower, and it's the only reason anybody lives here at all, and the reason everything costs what it costs. It pulls water up from deep under the sand, and whoever controls the water controls Gadgetzan, which is why we stand right next to it." },
+        { id = "wa_default", text = "That's the water tower, and it's the only reason anybody lives here at all, and the reason everything costs what it costs. It pulls water up from deep under the sand, and whoever controls the water controls Gadgetzan, so we Bruisers stand right next to it." },
       },
       choices = {
         { text = "I'd hate to see what happens if it stops.", next = "water_stop" },

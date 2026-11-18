@@ -32,7 +32,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I sell what ye need an' never what ye want, which is why the mountaineers like me an' the bairns don't. Flasks, rope, thread an' the like, an' all of it priced so ye can afford tae come back." },
+          text = "I sell what ye need an' never what ye want, so the mountaineers like me an' the bairns sulk past my stall. Flasks, rope, thread an' the like, an' all of it priced so ye can afford tae come back." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Late for shoppin', friend, but the inn never really closes, so neither do I. What d'ye need?" },
       },
@@ -329,7 +329,7 @@ P:NPC {
 
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
-      text = "A tailor! I can tell by the stitchin' on yer cuffs, which is better than most I see, an' I see a great deal o' stitchin'." },
+      text = "A tailor! I can tell by the stitchin' on yer cuffs, an' I've seen enough stitchin' tae know good work when it walks in." },
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
       text = "Ye're wearin' very little, friend, an' the wind off the loch is no' kind. I've linen, if ye've a needle." },
   },

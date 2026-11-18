@@ -49,7 +49,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Enough to keep me in arrows and bandages, and every one of them comes back telling me the marsh is more dangerous than they thought. The crocolisks get most of them, because nobody believes a log can bite until it does." },
+        { id = "xhuntcl_default", text = "Enough to keep me in arrows and bandages, and they all come back telling me the marsh is more dangerous than they thought. The crocolisks get most of them, because nobody believes a log can bite until it does." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the flour sacks, please. The last hunter's cat slept on one for an hour, and I'm still finding hair in the bread." },
       },
       choices = {
@@ -60,7 +60,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Less than you'd think, because Theramore is small and everyone knows whose boots went where. The real thief is the marsh, which eats through sacks and barrels faster than any pickpocket I've ever caught." } },
+      lines = { { id = "xrogue_default", text = "Very little, because Theramore is small and everyone knows whose boots went where. The real thief is the marsh, which eats through sacks and barrels faster than any pickpocket I've ever caught." } },
       choices = {
         { text = "Then I'll keep my hands honest in your shop.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The marsh steals more than I ever could. Watch the barrels.", next = "BACK", fx = { align = { order = -1 } } },
@@ -117,7 +117,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. Whetstones are by the door and rope's on the shelf, and if you're after something to keep the damp out of your armor, so is everyone else." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
-          text = "A hunter! Arrows are in the barrel by the window, and I'll ask you to count them honestly, because I count them again after you leave." },
+          text = "A hunter! Arrows are in the barrel by the window, and I'll ask you to count them true, because I count them again after you leave." },
         { id = "h_default", key = true,
           text = "Charity Mipsy, general supplies. Everything Theramore needs that doesn't come out of a forge or a spellbook comes through my door, and the marsh eats through all of it faster than the ships can bring more." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You keep your hands in your pockets in a shop, which means either you're polite or you've already taken something, and I haven't decided which." },
@@ -437,7 +437,7 @@ P:NPC {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You'll want something short and quiet, I expect. I've a rack of good daggers by the door, friend, and they sell best to people with your look." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "Go on, pick one up and tell me what's wrong with it; every dwarf who comes in here does. I don't mind, mind you; half the time you're right." },
+      text = "Go on, pick one up and tell me what's wrong with it; every dwarf who comes in here does. I don't mind, because half the time you're right." },
   },
 
   start = "hello",
@@ -474,7 +474,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Short swords and daggers, mostly, balanced for a quick hand rather than a heavy arm. The marsh's raptors are fast, so a slow blade gets you killed, and I'd rather send you out with something you can trust in the fog." } },
+      lines = { { id = "xrogue_default", text = "Short swords and daggers, mostly, balanced for a quick hand rather than a heavy arm. The marsh's raptors are fast, so a slow blade gets you killed, so I send folk out with something they can trust in the fog." } },
       choices = {
         { text = "A good blade, used fairly, is worth any price.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The quick strike is all that matters. Fair has no place in fog.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -519,7 +519,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Now and then, and they're always polite, which is more than I can say for the sailors. Hans won't serve them, but I figure a blade's a blade, and it's not my place to judge where it goes once it leaves my shop." } },
+      lines = { { id = "xlock_default", text = "Now and then, and they're always polite, unlike the sailors. Hans won't serve them, but I figure a blade's a blade, and it's not my place to judge where it goes once it leaves my shop." } },
       choices = {
         { text = "You should ask. A smith shares the blame for his blades.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You're right. A blade's a blade, Piter.", next = "BACK", fx = { align = { order = -1 } } },
@@ -609,7 +609,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I learned the trade in Lordaeron and came south with the refugees when the plague came. Theramore gave me a forge, and I've not looked back since." } },
     advice = { { id = "tp_ad", text = "Clean your blade after every fight, friend. The marsh water eats steel overnight." } },
     theramore = { { id = "tp_theramore", text = "Theramore is a peace that keeps its swords sharp, and I'm the man who sharpens them. I'd sooner sell to soldiers who never need them, but that's not how it goes." } },
-    thrall = { { id = "tp_thrall", text = "The orcs' warchief kept his word to the Lady, and I sell fewer blades to angry men because of it. You'll forgive me if I think kindly of him." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' warchief kept his word to the Lady, and I sell fewer blades to angry men because of it. So I think kindly of him, whatever folk say." } },
     onyxia = { { id = "tp_onyxia", text = "A blade won't do much against a dragon, but it does well enough against her whelps, and they're the ones you'll meet. Aim under the wing, where the scales are thin." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay steel is fine work if you buy from the right goblin and robbery if you buy from the wrong one. I've had a few customers bring me the wrong kind to fix." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend, sorry. I only know steel and the weather, and the weather's always wet." } },

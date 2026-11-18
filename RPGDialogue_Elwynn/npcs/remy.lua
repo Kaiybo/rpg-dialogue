@@ -117,7 +117,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I am, because Farley doesn't like it spoken of, spoken of, and Farley pays me in ale when I keep quiet. I know everything that happens in Goldshire, but I only sell half of it, and the cellar's in the other half." } },
+      lines = { { id = "xlock_default", text = "I am, because Farley doesn't like it spoken of, spoken of, and Farley pays me in ale when I keep quiet. I know everything that happens in Goldshire, but I only sell some of it, and the cellar's in the part I keep." } },
       choices = {
         { text = "Your secret's safe with me, Remy. I won't tell Farley.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Your silence has a price, Remy. Mine does too.", next = "BACK", fx = { align = { honor = -1 } } },

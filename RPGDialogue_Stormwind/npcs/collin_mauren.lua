@@ -14,7 +14,7 @@ P:NPC {
   notices = { "arcane", "travel", "race" },
 
   impression = {
-    first = "Collin Mauren makes spells the way a cook makes soup, from whatever odd thing the world gives him. He is courteous and unhurried, and I suspect a great deal cleverer than he lets on.",
+    first = "Collin Mauren makes spells the way a cook makes soup, from whatever odd thing the world gives him. He is courteous and unhurried, and I suspect he's cleverer than he lets on by a good margin.",
     third = "{name} met Collin Mauren, a courteous spellcrafter in Stormwind's Mage Quarter who builds spells from strange reagents.",
   },
 
@@ -26,7 +26,7 @@ P:NPC {
     { id = "g_devil", when = { questActive = TODO_QUEST("Devils in Westfall") }, text = "Have you found the component I need? A dust devil is a peculiar thing to ask for, I know." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I've ground the last of my scales in that time. Welcome back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown in power since we last spoke; I can feel it from here, rather like a warm stove." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard pleasant things about you in the Quarter. That's rarer than you'd think among wizards." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard pleasant things about you in the Quarter. Wizards rarely say pleasant things about anyone, so I took note." },
   },
 
   notice = {
@@ -42,7 +42,7 @@ P:NPC {
   nodes = {
     op_gnomes = {
       lines = {
-        { id = "op_gnomes_a", text = "Half the Mage Quarter thinks Gaxim's people poisoned their own city out of carelessness, and the other half is quietly buying their devices. I've never quite decided myself, so I'll ask you: what do you think of gnomish tinkering?" },
+        { id = "op_gnomes_a", text = "The Mage Quarter loves to say Gaxim's people poisoned their own city out of carelessness, and then it goes and quietly buys their devices. I've never quite decided myself, so I'll ask you: what do you think of gnomish tinkering?" },
       },
       choices = {
         { text = "Brilliant work. Gnomes will build things men can't imagine.", next = "op_gnomes_1", fx = { opinion = { gnomes = "admire" }, align = { order = -1 }, trait = { curious = 1 }, affinity = 1 } },
@@ -217,7 +217,7 @@ P:NPC {
     },
     devil_army = {
       big = true,
-      lines = { { id = "da_default", text = "It could, and that's why I've told nobody at the Keep about it. Gaxim uses it for his charges, and I'd rather it stayed a toy for a gnome than became a tool for a general." },
+      lines = { { id = "da_default", text = "It could, and that's why I've told nobody at the Keep about it. Gaxim uses it for his charges, and I'd sooner it stayed a toy for a gnome than became a tool for a general." },
       },
       choices = {
         { text = "The Alliance needs every edge. You should tell the Keep.", next = "BACK", fx = { align = { order = 1 } } },

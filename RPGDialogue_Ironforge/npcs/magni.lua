@@ -18,7 +18,7 @@ P:NPC {
   greetings = {
     { id = "g_king", text = "Ye stand before the King of Ironforge. Speak up; the forges are loud." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "One o' mine, by the look o' ye. Welcome home, whatever road ye've been walkin'." },
-    { id = "g_hero", when = { minLevel = 50 }, text = "I know that face; half the Alliance does by now. Come, sit, an' tell me how the world's been treatin' ye." },
+    { id = "g_hero", when = { minLevel = 50 }, text = "I know that face, an' so does every tavern from here tae Stormwind. Come, sit, an' tell me how the world's been treatin' ye." },
     { id = "g_incursion", when = { questDone = TODO_QUEST("Old Ironforge Incursion") },
       text = "There's the one who went down under my hall an' came back up again. Come in, come in." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone from the mountain {away}, an' the forges kept singin' without ye. Welcome back tae Ironforge all the same." },
@@ -91,7 +91,7 @@ P:NPC {
     },
     xpt_magni = {
       big = true,
-      lines = { { id = "xpt_magni_default", text = "We think the same as we always have: a company's a clan ye choose, an' ye owe it what ye'd owe yer kin. My brothers an' I fought back tae back long before any o' us wore a crown, an' I'd still trust a band o' honest travellers over half the Senate." } },
+      lines = { { id = "xpt_magni_default", text = "We think the same as we always have: a company's a clan ye choose, an' ye owe it what ye'd owe yer kin. My brothers an' I fought back tae back long before any o' us wore a crown, an' I'd still trust a band o' honest travellers over most o' the Senate." } },
       choices = {
         { text = "Then I'll stand by my company as I would by kin.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Kin is kin. A company is just a contract that lasts.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -119,7 +119,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because they've been thievin' in my city, an' I'll no' have that, whatever good they think they're doin'. If ye want tae serve Ironforge from the shadows, go after the Dark Iron, for they've a great deal I'd like tae know, an' I'll forget yer friends' names for it." } },
+      lines = { { id = "xrogue_default", text = "Because they've been thievin' in my city, an' I'll no' have that, whatever good they think they're doin'. If ye want tae serve Ironforge from the shadows, go after the Dark Iron, for they've secrets in Shadowforge I'd like tae know, an' I'll forget yer friends' names for it." } },
       choices = {
         { text = "Then I'll serve the throne, Your Majesty, against the Dark Iron.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The Circle serves itself, Your Majesty. So do I.", next = "BACK", fx = { align = { order = -1 } } },
@@ -207,7 +207,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid o' the Cenarion Circle in my throne room! Ye keep the old forests, I'm told, an' I keep the old stone, so we're no' so different as folk think." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "One o' the shadowy sort, in my own throne room. I've had my guards pull yer friends from the Hidden Circle out o' the Commons, so ye'll forgive me if I keep an eye on ye." },
+          text = "One o' the shadowy sort, in my own throne room. I've had my guards pull yer friends from the Hidden Circle out o' the Commons, so I'll be keepin' an eye on ye." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, an' welcome. Most o' the mages in my city are gnomes who came tae us wi' nothin' after Gnomeregan fell, an' I'll no' have it said Ironforge turned them away." },
       },
@@ -223,7 +223,7 @@ P:NPC {
         { text = "Why did a king take up digging for the past?", next = "league" },
         { text = "You gave the gnomes part of your city.", next = "gnomes" },
         { text = "How did the Light come to Ironforge?", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "The Senate's envoys use your name a great deal.", next = "senate",
+        { text = "The Senate's envoys use your name often.", next = "senate",
           when = { any = { { heardLine = "grelin.h_default" }, { questDone = TODO_QUEST("The Reports") } } } },
         { text = "Farsen sends his regards, my king.", next = "incursion", when = { questDone = TODO_QUEST("Old Ironforge Incursion") } },
         { text = "I came out of Lordaeron, Your Majesty.", next = "terenas", when = { origin = "human_lordaeron_refugee" } },
@@ -499,7 +499,7 @@ P:NPC {
     shaman = {
       big = true,
       lines = {
-        { id = "sh_default", text = "So my granddad wasnae mad after all, or else ye're both mad together. Half my court says it's Wildhammer superstition an' the other half wants tae know what the mountain thinks o' the Senate, so what does it say tae ye?" },
+        { id = "sh_default", text = "So my granddad wasnae mad after all, or else ye're both mad together. Some o' my court say it's Wildhammer superstition, an' the rest want tae know what the mountain thinks o' the Senate, so what does it say tae ye?" },
         { id = "sh_listener", when = { origin = "dwarf_stone_listener" },
           text = "I'm told ye were listenin' at the walls o' the deep halls since ye were a bairn, an' the miners called ye odd for it. The mountain's had a long time tae get a word in, so I'd like tae hear what it's been sayin'." },
       },

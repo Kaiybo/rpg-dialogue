@@ -101,7 +101,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Martha Alliestar. I teach herbalism to anyone with the patience for it, and I learned it on a farm near Brill, where my mother had a garden that half the village came to for remedies." },
+        { id = "h_default", key = true, text = "Martha Alliestar. I teach herbalism to anyone with the patience for it, and I learned it on a farm near Brill, where my mother kept a garden the whole village came to for remedies." },
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid! Oh, you'll know far more than I do about growing things. Will you look at my peacebloom and tell me if it's happy?" },
       },
       again = {

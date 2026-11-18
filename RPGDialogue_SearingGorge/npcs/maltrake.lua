@@ -62,7 +62,7 @@ P:NPC {
         { id = "se_default", text = "Since I was a boy, and I'll serve him until I'm an old man, and gladly. He found me starving in Lakeshire after the war, and he fed me and taught me, and he's never once lied to me." },
       },
       choices = {
-        { text = "Never once? That's a great deal of trust.", next = "service_trust" },
+        { text = "Never once? That's a lot of trust for a Dark Iron.", next = "service_trust" },
         { text = "Something else.", next = "BACK" },
       },
     },

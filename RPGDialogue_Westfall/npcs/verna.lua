@@ -181,7 +181,7 @@ P:NPC {
       lines = { { id = "st_default", text = "It's mine, whatever she tells you! I wrote it out so it wouldn't leave Westfall with us, because a recipe belongs where its ingredients are." } },
       choices = {
         { text = "Murloc eyes, though?", next = "BACK", fx = { trait = { witty = 1 } } },
-        { text = "You two seem to argue about food a great deal.", next = "bicker" },
+        { text = "You two seem to argue about food constantly.", next = "bicker" },
       },
     },
     bicker = {
@@ -211,7 +211,7 @@ P:NPC {
       },
     },
     pray = {
-      lines = { { id = "pr_default", text = "For a horse? Oh, dear, yes, please do. She's carried us this far, and she's earned a prayer more than most people I know." } },
+      lines = { { id = "pr_default", text = "For a horse? Oh, dear, yes, please do. She's carried us this far, and she's earned a prayer twice over, carrying us all the way from the farm." } },
       choices = {
         { text = "Light keep you, Blanchy.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, learn = { "old_blanchy" } } },
         { text = "Perhaps oats would serve her better.", next = "BACK", fx = { align = { light = -1 }, trait = { witty = 1 } } },

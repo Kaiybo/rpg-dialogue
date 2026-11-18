@@ -189,7 +189,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know what the fire and stone tell me, and they tell me a great deal about this place." } },
+    knows = { { id = "tp_knows", text = "I know what the fire and stone tell me, and they speak of old fire under every ridge in this place." } },
     background = { { id = "tp_bg", text = "A shaman of Mulgore, sent east by the Warchief's request and Cairne's word." } },
     advice = { { id = "tp_ad", text = "Listen to the ground before you march over it. It will tell you who has been there first." } },
     blackrock_depths = { { id = "tp_brd", text = "The Dark Irons' city beneath the mountain, where they bind fire and call it craft." } },
@@ -222,7 +222,7 @@ P:NPC {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Keep {pet} close near the mountain. The worgs of Blackrock smell another beast from a long way off, and they don't share." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A child of Mulgore. You'll want to keep your horns low on the ridge; the Dark Iron rifles are better than you'd think." },
+      text = "A child of Mulgore. You'll want to keep your horns low on the ridge; the Dark Iron rifles carry farther than a spear's throw and twice as true." },
   },
 
   start = "hello",

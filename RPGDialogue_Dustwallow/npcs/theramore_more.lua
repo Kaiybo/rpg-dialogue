@@ -197,7 +197,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came with the Lady's fleet and brought the birds with me from the Wildhammer roosts, and I've been drying them out ever since." } },
     advice = { { id = "tp_ad", text = "Never ride a wet gryphon into a cold wind. The bird won't forgive you, and neither will your knees." } },
-    onyxia = { { id = "tp_onyxia", text = "The whelps out of the south marsh harry my gryphons something terrible, and a gryphon that's been chased by fire won't fly straight for a week. I'd like that dragon gone more than most." } },
+    onyxia = { { id = "tp_onyxia", text = "The whelps out of the south marsh harry my gryphons something terrible, and a gryphon that's been chased by fire won't fly straight for a week. Nobody in Theramore wants that dragon gone more than I do." } },
     theramore = { { id = "tp_theramore", text = "Theramore's the dampest posting I've had, and I've been posted to Wetlands. The gryphons hate it, I hate it, and we're both still here." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer would laugh at me for fussing over feathers, but they don't have to fly gryphons through a swamp. Their birds are a fine breed, I'll say that much." } },
     ratchet = { { id = "tp_ratchet", text = "There's a boat to Ratchet and a gryphon to everywhere else, and I'd take the gryphon, though I'm hardly the one to ask." } },
@@ -262,7 +262,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Every week, and they're always soldiers who've worked a double watch and can't wait for supper. I don't report them, I just feed them, because a man who steals bread is a man who's hungry, and I'd rather fix the hunger." } },
+      lines = { { id = "xrogue_default", text = "Every week, and they're always soldiers who've worked a double watch and can't wait for supper. I don't report them, I just feed them, because a man who steals bread is a man who's hungry, and hunger I can fix." } },
       choices = {
         { text = "That's kind. Hunger makes thieves of honest folk.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Feed them and they'll steal more. Report them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -395,7 +395,7 @@ P:NPC {
     },
     marsh = {
       lines = {
-        { id = "m_default", text = "Generous, if you've got a strong stomach and a stronger sword. There's crocolisk, there's tortoise, there's fish the size of a dinghy, and every one of them wants to eat you before you eat it." },
+        { id = "m_default", text = "Generous, if you've got a strong stomach and a stronger sword. There's crocolisk, there's tortoise, there's fish the size of a dinghy, and all of it wants to eat you before you eat it." },
       },
       choices = {
         { text = "A cook with a sword, then.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -431,7 +431,7 @@ P:NPC {
     theramore = { { id = "tp_theramore", text = "Theramore is a hungry city, friend, all those soldiers and refugees, and they eat whatever the boats bring. I make the turtle stretch." } },
     jaina = { { id = "tp_jaina", text = "The Lady likes my chowder, or she's too polite to say otherwise, and either way I count it as a victory. She needs feeding more than anyone here." } },
     booty_bay = { { id = "tp_booty_bay", text = "The cooks in Booty Bay do things with sea salt and pepper that'd make a priest swear. I'd go back for a month and learn, if the place weren't full of pirates." } },
-    lordaeron = { { id = "tp_lordaeron", text = "I cooked in a Lordaeron manor before the plague, roast and pudding every night. Now it's tortoise and marsh greens, and honestly, the tortoise is growing on me." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I cooked in a Lordaeron manor before the plague, roast and pudding every night. Now it's tortoise and marsh greens, and I'll confess the tortoise is growing on me." } },
     _none = { { id = "tp_none", text = "Never heard of it, and I'd not know how to cook it if I had." } },
   },
 }
@@ -538,7 +538,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_vanhowzen", tags = { "news" }, when = { party = { class = "PRIEST" }, faction = "Alliance" },
-          text = "You've a priest with you, I see. Good, because {companion} will save me a great deal of bandaging, and the marsh fevers don't care how strong your sword arm is." },
+          text = "You've a priest with you, I see. Good, because {companion} will save me a good many bandages, and the marsh fevers don't care how strong your sword arm is." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. You'll be the one I see most of, then, so let me tell you now: come in when it's a scratch, not when it's a stump." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -608,7 +608,7 @@ P:NPC {
     },
     wounded_whelps = {
       lines = {
-        { id = "ww_default", text = "Black ones, small and vicious, and their burns go deep. I treat them as I would any burn and pray, and I'd rather patrols stayed north of the old road altogether." },
+        { id = "ww_default", text = "Black ones, small and vicious, and their burns go deep. I treat them as I would any burn and pray, and I've begged the patrols to stay north of the old road altogether." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

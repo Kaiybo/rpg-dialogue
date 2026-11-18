@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_human", when = { race = "Human" },
           text = "Winds be with you! You're human, aren't you? Then perhaps you can tell me, are all your histories this long, or only the ones about kings?" },
         { id = "h_horde", when = { faction = "Horde" },
-          text = "Oh! Winds be with you, I suppose. I'm only reading, honestly; La'tanja does all the talking with strangers, and she's just stepped out." },
+          text = "Oh! Winds be with you, I suppose. I'm only reading, I promise; La'tanja does all the talking with strangers, and she's just stepped out." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've lost my page again anyway." },
@@ -195,7 +195,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "La'tanja Brightgale, of the High Order. I keep the list of what our people need from these books, and Kae'la keeps finding things that aren't on it, so if you've come to help, I'd be glad of it." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Winds be with you. You've come from the isles more recently than I have, so tell me honestly, are the outer anchors still holding? I'd rather hear it from you than read it in a letter." },
+          text = "Winds be with you. You've come from the isles more recently than I have, so tell me, are the outer anchors still holding? I'd sooner hear it from you than read it in a letter." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Winds be with you. You're Horde, and the Windshapers are Horde, so I'll assume you've heard their side of things. I'd ask you to keep it out of this shop." },
         { id = "h_mage", when = { class = "MAGE" },
@@ -247,7 +247,7 @@ P:NPC {
     trust = {
       big = true,
       lines = {
-        { id = "tr_default", text = "I trust them as far as I can read them, which grows a little every week. Our people hid in the sky for a long time, and I'd rather not trade one set of patrons who wouldn't explain themselves for another." },
+        { id = "tr_default", text = "I trust them as far as I can read them, which grows a little every week. Our people hid in the sky for a long time, and I've no wish to trade one set of patrons who wouldn't explain themselves for another." },
       },
       choices = {
         { text = "They opened their gates to you. Trust them.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
@@ -300,7 +300,7 @@ P:NPC {
       },
       choices = {
         { text = "On the anchor. Tie it to something that doesn't move.", next = "xmage2" },
-        { text = "I don't know either, honestly.", next = "BACK", fx = { trait = { honest = 1 } } },
+        { text = "I don't know either, I'm afraid.", next = "BACK", fx = { trait = { honest = 1 } } },
       },
     },
     xmage2 = {
@@ -317,7 +317,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know what's on the list and what isn't, and a fair amount about the isles. Ask quickly." } },
     background = { { id = "tp_bg", text = "I was a ward-keeper's apprentice in Valanaar, and I watched the pylon by our house go dark. That's why I'm here, and that's all of it." } },
-    advice = { { id = "tp_ad", text = "Keep a list. Cross things off it. The world falls apart a great deal slower when you do." } },
+    advice = { { id = "tp_ad", text = "Keep a list and cross things off it, because the world falls apart much slower when you do." } },
     two_orders = { { id = "tp_orders", text = "We sought the arcane and they sought the spirits who abandoned us, and now they sit with the Horde in Mulgore. That's the short version, and the long one is worse." } },
     _none = { { id = "tp_none", text = "That isn't on the list. Ask Kae'la; she reads everything that isn't." } },
   },
@@ -356,7 +356,7 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Winds be with you, cousin. Did you know there are books in this shop that name Eldre'Thalas? Written by humans, who'd never seen it, and still they knew more than we were ever taught at home." },
         { id = "h_nightelf", when = { race = "NightElf" },
-          text = "Winds be with you, and forgive me if I stare. My ancestors left your people's lands so long ago that you've become a story to us, and here you are, standing in a bookshop." },
+          text = "Winds be with you, and pardon my staring. My ancestors left your people's lands so long ago that you've become a story to us, and here you are, standing in a bookshop." },
         { id = "h_tortheldrin", when = { killed = { name = "Prince Tortheldrin", min = 1 } },
           text = "They say you've walked the halls of Eldre'Thalas, the ruin your maps call Dire Maul, and faced the prince who still sat there. I don't know whether to thank you or grieve, and I suspect I'll do both." },
       },

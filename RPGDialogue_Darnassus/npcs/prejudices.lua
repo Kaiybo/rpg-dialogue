@@ -50,7 +50,7 @@ P:NPC {
         { id = "h_human", when = { race = "Human" },
           text = "I'll be plain with you, since your people seldom are: I've known humans who keep their word, and I've known more who sold it. Until I know which you are, you'll find me polite and nothing more." },
         { id = "h_nelf", when = { race = "NightElf" },
-          text = "{g:Brother|Sister}, it's good to see a kaldorei face in here. Half the faces in this city these days arrived on a boat from Menethil, and I can't read a single one of them." },
+          text = "{g:Brother|Sister}, it's good to see a kaldorei face in here. So many in this city these days arrived on a boat from Menethil, and I can't read a single one of them." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "Dwarves I don't mind. You drink, you shout, and you tell a stranger exactly what you think of him, which saves me half my work." },
         { id = "h_gnome", when = { race = "Gnome" },
@@ -58,7 +58,7 @@ P:NPC {
         { id = "h_behest", tags = { "news" }, when = { questActive = TODO_QUEST("Erion's Behest") },
           text = "Go to Stormwind and find Renzik; he'll teach you what the humans have learned about working in the shadows. Trust him before any man in a uniform, and trust no one there completely." },
         { id = "h_behest_done", when = { questDone = TODO_QUEST("Erion's Behest") },
-          text = "Renzik sent word that you made it to Stormwind and back with your purse and your throat both whole. That's more than I can say for one student I sent before you." },
+          text = "Renzik sent word that you made it to Stormwind and back with your purse and your throat both whole. The last student I sent came home with neither." },
         { id = "h_soft", when = { npcFlagBefore = "erion_soft" },
           text = "Ithrenil asked after you, believe it or not. I told her I'd met a human who didn't fit the lesson, and she laughed at me for a full minute." },
       },
@@ -160,7 +160,7 @@ P:NPC {
     },
     trade_listen = {
       lines = {
-        { id = "tl_default", text = "Everyone, though I'll not pretend I give the humans on the terraces the same ear as the rest. Their envoys smile at Tyrande's Sentinels all day and write long letters home every night, and I'd give a great deal to read those letters." },
+        { id = "tl_default", text = "Everyone, though I'll not pretend I give the humans on the terraces the same ear as the rest. Their envoys smile at Tyrande's Sentinels all day and write long letters home every night, and I would dearly like to read those letters." },
       },
       choices = {
         { text = "Spying on your allies breeds the very betrayal you fear.", next = "BACK", fx = { align = { order = 1 } } },
@@ -459,7 +459,7 @@ P:NPC {
     },
     xdwarf_farm = {
       lines = {
-        { id = "xdf_default", text = "Barley, yes, for all that ale of yours, I've heard. I'll grant you that a people who grow their own drink can't hate the soil entirely, but I've yet to see one of you plant a tree." },
+        { id = "xdf_default", text = "Barley, yes, for all that ale of yours, I've heard. A people who grow their own drink cannot hate the soil entirely, I suppose, but I've yet to see one of you plant a tree." },
       },
       choices = {
         { text = "Come to Dun Morogh. Our pines have stood for centuries, uncut.", next = "BACK" },
@@ -487,7 +487,7 @@ P:NPC {
     },
     xdwarf_fail = {
       lines = {
-        { id = "xdfa_default", text = "Pretty words. The young one with the lantern had pretty words too, standing in the stumps of my oaks, so you'll forgive me if I wait to see what your hands do." },
+        { id = "xdfa_default", text = "Pretty words. The young one with the lantern had pretty words too, standing in the stumps of my oaks, so I will wait to see what your hands do." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

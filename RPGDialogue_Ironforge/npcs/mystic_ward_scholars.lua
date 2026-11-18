@@ -110,7 +110,7 @@ P:NPC {
     },
 
     ring = {
-      lines = { { id = "ri_default", text = "Out of a Sparklematic 5200, which I'm told cleans things, though what it was doing with my ring I'll never know. It was an early piece and a simple design, and I'm a great deal better now, as you've seen." } },
+      lines = { { id = "ri_default", text = "Out of a Sparklematic 5200, which I'm told cleans things, though what it was doing with my ring I'll never know. It was an early piece and a simple design, and I'm far better now, as you've seen." } },
       choices = {
         { text = "I'll keep it as it is, thanks.", next = "BACK" },
         { text = "It's a fine ring. Thank you, Talvash.", next = "BACK", fx = { affinity = 1 } },
@@ -211,7 +211,7 @@ P:NPC {
     },
 
     xiggs = {
-      lines = { { id = "xi_default", text = "Pilot Xiggs Fuselighter, a gnome who flies anywhere for a fee, an' lands nearly anywhere for a bigger one. He's waitin' off the coast o' Azshara for whoever I send, an' he's never once dropped anyone, which is more than I can say for most gnome pilots." } },
+      lines = { { id = "xi_default", text = "Pilot Xiggs Fuselighter, a gnome who flies anywhere for a fee, an' lands nearly anywhere for a bigger one. He's waitin' off the coast o' Azshara for whoever I send, an' he's never once dropped a passenger, an' for a gnome pilot that's near a miracle." } },
       choices = {
         { text = "That's reassuring.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },

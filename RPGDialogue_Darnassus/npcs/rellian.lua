@@ -98,7 +98,7 @@ P:NPC {
         { id = "de_default", text = "We studied together long ago, and he was always better with things that grow. He's out at Lake Al'Ameth with his planters, and if anyone can find a cure for future timberlings, it's him." },
       },
       choices = {
-        { text = "You trust him a great deal.", next = "denalan_trust" },
+        { text = "You trust him that far?", next = "denalan_trust" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -60,7 +60,7 @@ P:NPC {
       choices = {
         { text = "The Horde should guard those caves until the land heals.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "That's tauren business, Thork. I've done my part.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Those druids down there wore snakeskin, every one of them.", next = "xcl_wc2" },
+        { text = "Those druids down there all wore snakeskin, every last one.", next = "xcl_wc2" },
       },
     },
     xcl_wc2 = {
@@ -159,7 +159,7 @@ P:NPC {
         { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
           text = "I hear {alt} has gone south past Camp Taurajo and kept going, which is further than most who leave by this gate. Remember the Crossroads when you're that far out, because it remembers you." },
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
-          text = "That's a proper war band you've brought to my crossroads. The centaur raid in fours and fives, so they'll think twice before they come at you, which is more than I can say for most of the travellers I send out." },
+          text = "That's a proper war band you've brought to my crossroads. The centaur raid in fours and fives, so they'll think twice before they come at you, and most of the travellers I send down that road get no such respect." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at the Crossroads. Every kind of trouble meets here, and I'm not yet sure which kind you are." },
         { id = "h_default", key = true,
           text = "I'm Thork, and I keep the Crossroads for the Warchief. Every road in the Barrens meets here, and so does every kind of trouble, and an orc doesn't give ground to either." },
@@ -207,7 +207,7 @@ P:NPC {
       lines = {
         { id = "wa_default", text = "The wall's the easy part, because it doesn't move. What I need are warriors who'll ride out with the caravans, since the Kolkar never attack a wall; they attack the wagons strung out on the road." },
         { id = "wa_tauren", when = { race = "Tauren" },
-          text = "A tauren warrior on my wall would scare off half the raiders before they got close. But I'd rather have you out with the kodo caravans, where the Kolkar actually strike." },
+          text = "A tauren warrior on my wall would scare most raiders off before they got close, but you're more use out with the kodo caravans, where the Kolkar actually strike." },
       },
       choices = {
         { text = "Then I'll ride with the caravans.", next = "BACK", fx = { affinity = 2, standing = { crossroads = 1 } } },
@@ -261,7 +261,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     nw_jaina = {
-      lines = { { id = "nwj_default", text = "Her word, maybe, but her soldiers are another matter. Half the marines in that fort sailed with her father, and they don't take orders kindly from his daughter." } },
+      lines = { { id = "nwj_default", text = "Her word, maybe, but her soldiers are another matter. Plenty of the marines in that fort sailed with her father, and they don't take orders kindly from his daughter." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     nw_tauren = {
@@ -360,7 +360,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I think everything out here tests us, and I'd rather pass than complain about it. The tauren say the Earth Mother made the Barrens hard so that only the strong would stay, and I've never heard a better reason to stay." } },
+      lines = { { id = "xhsham_default", text = "I think everything out here tests us, and complaining never got a grunt through a single one of those tests. The tauren say the Earth Mother made the Barrens hard so that only the strong would stay, and I've never heard a better reason to stay." } },
       choices = {
         { text = "Then I'll meet the test head on.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Out here the clever survive as often as the strong.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -441,7 +441,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here where the land's still wild! Then you'll feel what I feel, that the Barrens are a test and the spirits are watching to see who passes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, out in the Barrens! Then you'll know this land better than any orc, so tell me whether it's really dying or only testing us." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Thork will want you on the wall, but I'll want you past it, out where the Barrens bites back." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, then! Good, because half the people I send past the walls come back needing one, and the other half don't come back at all." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, then! Good, because the scouts I send past the walls come back with Kolkar arrows in them, when they come back at all." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The Crossroads has seen your kind before, and I'll judge you the way I judge anyone, by what you bring back from the Barrens." },
       },
       choices = {
@@ -575,7 +575,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "The trail's cold now, but you could try, and that's more than most have offered. The quilboar who swarmed us dragged everything they took off to the south, so look for heavy tracks heading toward the southern kraals, and look closely." },
+        { id = "xhuntcl_default", text = "The trail's cold now, but you could try, and nobody else has offered. The quilboar who swarmed us dragged everything they took off to the south, so look for heavy tracks heading toward the southern kraals, and look closely." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine nose. If Olgra's still out there, a beast like that might find her where my eyes never could." },
       },
       choices = {
@@ -684,7 +684,7 @@ P:NPC {
       },
     },
     tauren = {
-      lines = { { id = "ta_default", text = "One of your people, a kodo herder heading for Taurajo, and he carried me to the Crossroads on his own back. I never got his name, and I'd give a great deal to thank him." } },
+      lines = { { id = "ta_default", text = "One of your people, a kodo herder heading for Taurajo, and he carried me to the Crossroads on his own back. I never got his name, and I owe him a debt I can't pay to a stranger." } },
       choices = { { text = "I'll ask after him at Taurajo.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
     olgra = {
@@ -775,7 +775,7 @@ P:NPC {
       lines = { { id = "xcl_wc_default", text = "Then the nightmare under the Barrens may finally be loosening its grip. Naralex went down to make this land green again, but his dream turned sour and poisoned the oases from below, and that was the power Thunder Bluff sent me to find. I'll write to Hamuul tonight, because he'll want to know that a stranger's hand did what the Circle's could not." } },
       choices = {
         { text = "Naralex meant well. He deserves to be saved, not blamed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "His good intentions poisoned half the Barrens. He should answer for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "His good intentions poisoned the Barrens. He should answer for it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "The oases should begin to heal now, I'd think.", next = "xcl_wc2" },
       },
     },
@@ -930,7 +930,7 @@ P:NPC {
       },
     },
     circle_op = {
-      lines = { { id = "cc_default", text = "The Circle taught Hamuul, and Hamuul taught us, so I owe it a great deal. But its night elves are the same people the Warsong fight in Ashenvale, and folk at the Crossroads ask me whose side a druid is on. What do you think, friend?" } },
+      lines = { { id = "cc_default", text = "The Circle taught Hamuul, and Hamuul taught us, so I owe it my training. But its night elves are the same people the Warsong fight in Ashenvale, and folk at the Crossroads ask me whose side a druid is on. What do you think, friend?" } },
       choices = {
         { text = "The Circle stands above Horde and Alliance. That's its worth.", next = "cc_trust", fx = { affinity = 2, align = { order = 1 }, opinion = { cenarion_circle = "trust" } } },
         { text = "A night elf is a night elf. The Circle serves Darnassus.", next = "cc_distrust", fx = { affinity = -1, align = { order = -1 }, opinion = { cenarion_circle = "distrust", night_elves = "distrust" } } },
@@ -978,7 +978,7 @@ P:NPC {
     },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made us, and she is in every root and stone of the Barrens. When the oases sicken, I feel it the way you might feel a fever in a friend." } },
     green_dragons = { { id = "tp_green_dragons", text = "Ysera's flight guards the Dream and the great trees where its doors open. They are not cruel, but they are old, and they do not always remember that small things like us can be hurt." } },
-    cairne = { { id = "tp_cairne", text = "High Chieftain Cairne sent me here to learn what is poisoning the land, and I will not go home until I can tell him. He is the wisest of us, and the most patient, which is why I try not to keep him waiting." } },
+    cairne = { { id = "tp_cairne", text = "High Chieftain Cairne sent me here to learn what is poisoning the land, and I will not go home until I can tell him. He is the wisest of us and the most patient, and patience like his should not be spent on me." } },
     _none = { { id = "tp_none", text = "I don't know, friend, but the land might. Listen to it a while, and walk with the Earth Mother." } },
   },
 }
@@ -1020,11 +1020,11 @@ P:NPC {
         { text = "Your Society brews plagues. Somebody should be watching you.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
         { text = "The Barrens are big. Your samples won't hurt the Earth Mother.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "I'd rather ask than guess. Show me your work.", next = "prej_helbrim_calm", fx = { affinity = 1 } },
-        { text = "What are the spores for, honestly?", next = "prej_helbrim_why" },
+        { text = "What are the spores really for?", next = "prej_helbrim_why" },
       },
     },
     prej_helbrim_why = {
-      lines = { { id = "prej_helbrim_why_default", text = "Honestly, I don't know; I send them to the Undercity and the Society tells me nothing. That's the part that keeps me up at night, if you must know, which I suppose is why the druids bother me so much." } },
+      lines = { { id = "prej_helbrim_why_default", text = "I don't know, and that is the truth; I send them to the Undercity and the Society tells me nothing. The not knowing keeps me up at night, if the dead can be said to sleep, and perhaps that's why the druids bother me so much." } },
       choices = { { text = "I see. Let me answer you, then.", next = "prej_helbrim" }, { text = "Something else.", next = "BACK" } },
     },
     prej_helbrim_calm = {
@@ -1042,7 +1042,7 @@ P:NPC {
     },
     xcl_rfd = {
       big = true,
-      lines = { { id = "xcl_rfd_default", text = "Destroyed, yes, since he was already dead, though I'll allow the distinction is academic. The Scourge sent him to make the quilboar into servants, and he very nearly managed it, which tells you what the Lich King thinks Kalimdor is for. The Forsaken know better than anyone what it is to be one of his tools, and we take a certain pleasure in breaking them." } },
+      lines = { { id = "xcl_rfd_default", text = "Destroyed, yes, since he was already dead, though I'll allow the distinction is academic. The Scourge sent him to make the quilboar into servants, and he very nearly managed it, so you may judge for yourself what the Lich King thinks Kalimdor is for. The Forsaken know better than anyone what it is to be one of his tools, and we take a certain pleasure in breaking them." } },
       choices = {
         { text = "His power could have been studied first, apothecary.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Every servant of the Lich King deserves to be destroyed.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1064,7 +1064,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Use? Certainly, though perhaps not the one you'd hope, because a priest who can keep a test subject alive a little longer is worth a great deal to our work. Master Faranell would say the same, and he'd mean it more than I do." } },
+      lines = { { id = "xhpriest_default", text = "Use? Certainly, though perhaps not the one you'd hope, because a priest who can keep a test subject alive a little longer is very useful to our work. Master Faranell would say the same, and he'd mean it more than I do." } },
       choices = {
         { text = "I'd keep anyone alive for the Society, whatever the reason.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Healing isn't a tool for your experiments, Apothecary.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1126,7 +1126,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Remedies, mostly, and a better understanding of what grows in dry country, which the Society finds very useful. Not every tincture I brew is meant to heal, I'll grant you, but the Warchief has seen our reports, and he hasn't complained." } },
+      lines = { { id = "xdruid_default", text = "Remedies, mostly, and a better understanding of what grows in dry country, which the Society finds very useful. Not every tincture I brew is meant to heal, admittedly, but the Warchief has seen our reports, and he hasn't complained." } },
       choices = {
         { text = "Plants taken for healing are well taken. Poisons are not.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Remedy or poison, knowledge is knowledge. I'd study it too.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1149,7 +1149,7 @@ P:NPC {
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
           text = "Another of my own, travelling with you. {companion} must have the patience of a saint or the stubbornness of the dead, because the orcs out here still won't share a campfire with me." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. How quaint. Some of us remember the Silver Hand from before the plague, and we wonder which side of that memory you stand on." },
-        { id = "h_default", key = true, text = "The name is Helbrim, of the Royal Apothecary Society. The Dark Lady sent me to see what grows out here that might be useful, and a great deal does, it turns out, though most of it is better dead." },
+        { id = "h_default", key = true, text = "The name is Helbrim, of the Royal Apothecary Society. The Dark Lady sent me to see what grows out here that might be useful, and a surprising amount does, though most of it is better dead." },
         { id = "h_cl_rfd", tags = { "news" }, when = { cleared = "Razorfen Downs", faction = "Horde" }, text = "Word reached me that the lich in Razorfen Downs has been dealt with. The Society will be pleased, and I confess so am I, because the Scourge are an embarrassment to all of us who left them behind." },
         { id = "h_spores", tags = { "news" }, when = { questActive = TODO_QUEST("Fungal Spores") },
           text = "Spores from the fungus out by the water are what I need, and don't breathe near them. Well, you do still breathe, I suppose, so I'll simply advise against it." },
@@ -1162,7 +1162,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. How useful; the Society's samples have a habit of biting back, and I've only these thin old arms to defend them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know where the serpents and spiders of the Barrens nest, then, which is more than I do." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Ah, a priest. If you're one of the Forgotten Shadow, we're practically colleagues, but if you still pray to the Light, I'd rather not hear about it while I'm working." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! The Society has a great deal of respect for the arcane, in its place, and its place is usually a laboratory." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! The Society respects the arcane, in its place, and its place is usually a laboratory." },
       },
       choices = {
         { text = "You sound like you've had trouble with druids before, Helbrim.", next = "prej_helbrim", when = { prejudiced = true } },
@@ -1221,7 +1221,7 @@ P:NPC {
       },
     },
     pl_weapon = {
-      lines = { { id = "plw_default", text = "A practical answer, and a rarer one than you'd think. I'll mention it in my next letter to Master Faranell, without your name, of course." } },
+      lines = { { id = "plw_default", text = "A practical answer, and I hear so few of those out here. I'll mention it in my next letter to Master Faranell, without your name, of course." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     pl_crime = {
@@ -1248,7 +1248,7 @@ P:NPC {
   topics = {
     wailing_caverns = { { id = "tp_caverns", text = "A poisoned dream leaking into the water? Terrible, of course, but quite fascinating." } },
     forsaken = {
-      { id = "tp_forsaken", text = "We are the Forsaken, and we are free of the Lich King's voice, whatever the living whisper. The Dark Lady gave us back our minds, and the Society means to give us back a great deal more." },
+      { id = "tp_forsaken", text = "We are the Forsaken, and we are free of the Lich King's voice, whatever the living whisper. The Dark Lady gave us back our minds, and the Society means to give us back our place in Lordaeron." },
       { id = "tp_forsaken2", when = { race = "Undead" }, text = "Ah, a fellow citizen of the Undercity. Do mind the Crossroads folk, who still flinch, and do mind my samples, which are not for drinking." },
     },
     sylvanas = { { id = "tp_sylvanas", text = "Our queen, the Banshee Queen, who walked out of the Scourge and took us with her. I serve her through the Society, and I find that I do not mind serving at all." } },
@@ -1428,7 +1428,7 @@ P:NPC {
   topics = {
     _none = { { id = "tp_none", text = "If it doesn't bleed, I'm not interested, and in the Barrens nearly everything bleeds." } },
     thrall = { { id = "tp_thrall", text = "The Warchief? Good orc, strong arm, and I'm told he's never once tried to make me cheaper. That's leadership." } },
-    voljin = { { id = "tp_voljin", text = "Vol'jin's a clever troll, and he knows talent when he sees it, which is why he trusts the Darkspear with the hard work. Don't tell him I said he was clever." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin's a clever troll, and he knows talent when he sees it, so the Darkspear get the hard work. Don't tell him I said he was clever." } },
     ratchet = { { id = "tp_ratchet", text = "The goblins down on the coast who think they're the only ones who know how to make coin. They're wrong, and I'm the proof." } },
     centaur = { { id = "tp_centaur", text = "Kolkar camps out west, and they hire nobody and trust nobody, which is no way to run a business. I've patched up more than a few grunts after a Kolkar spear, and I charged them fair." } },
   },
@@ -1476,7 +1476,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Kodo, if you can find one that's died honestly, and zhevra, and plainstrider when nothing else is going. The grunts come in from the oases half starved and eat anything I put in front of them, so I always keep a pot on for the ones who've earned it." } },
+      lines = { { id = "xwarcl_default", text = "Kodo, if you can find one that's died honestly, and zhevra, and plainstrider when nothing else is going. The grunts come in from the oases starving and eat anything I put in front of them, so I always keep a pot on for the ones who've earned it." } },
       choices = {
         { text = "Feed the grunts first, Zargh. They've earned it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll take the best cut, and the grunts can wait.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1506,7 +1506,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Once, and the thing ate the whole haunch in a breath and looked at me like I was next on the hook. I don't know what demons eat when nobody's feeding them, and I'd rather not, so I'll sell you meat for your own belly and that's where it stays." },
+        { id = "xwarlock_default", text = "Once, and the thing ate the whole haunch in a breath and looked at me like I was next on the hook. I don't know what demons eat when nobody's feeding them, and I don't want to find out, so I'll sell you meat for your own belly and that's where it stays." },
       },
       choices = {
         { text = "Fair. My demon goes hungry, and I keep it lean.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1641,7 +1641,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "More often than for a second bowl, which tells you something about the Barrens. Mankrik won't let anyone near him, though, so if you've a gentle way with the grieving, he's up on the wall, and I've run out of stew to bring him." } },
+      lines = { { id = "xhpriest_default", text = "More often than for a second bowl, because the Barrens takes from everyone. Mankrik won't let anyone near him, though, so if you've a gentle way with the grieving, he's up on the wall, and I've run out of stew to bring him." } },
       choices = {
         { text = "I'll speak to Mankrik. Grief shouldn't sit alone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A man who wants to grieve alone has earned that.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1693,7 +1693,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "You could, I suppose, but then I'd lose the stars, and they're the best thing about this inn. My mother said the sky over the Barrens was the Earth Mother's blanket, and I'd rather sleep under a blanket with a few holes in it than under one of your spells." },
+        { id = "xmage_default", text = "You could, I suppose, but then I'd lose the stars, and they're the best thing about this inn. My mother said the sky over the Barrens was the Earth Mother's blanket, and a blanket with a few holes in it suits me better than one of your spells." },
       },
       choices = {
         { text = "Then I'll leave the stars where they are.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1748,7 +1748,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you've got the walk of somebody who's spent all day fighting centaur. Sit, friend, before your legs decide it for you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Mind your beast on the stairs, because the last one knocked over a tauren and he wasn't happy about it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest under my leaky roof! Sit by the fire, and if any of the grunts by the door start groaning in their sleep, you'll know what to do better than I would." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, under my leaky roof. Mind your demon around the other guests, friend, and it can sleep by the door like anyone's dog." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, under my leaky roof. Keep your demon away from the other guests, friend, and it can sleep by the door like anyone's dog." },
       },
       choices = {
         { text = "Do the spirits of the Barrens speak to you, Boorand?", next = "xhsham", when = { class = "SHAMAN" } },

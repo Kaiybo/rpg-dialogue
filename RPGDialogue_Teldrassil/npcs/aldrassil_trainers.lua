@@ -35,7 +35,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Mardant Strongoak, and I teach the druids who wake in Shadowglen. My duty is to help you understand what the spirits of the forest are telling you, which is harder than it sounds and simpler than you'd think." },
+          text = "I am Mardant Strongoak, and I teach the druids who wake in Shadowglen. My duty is to help you understand what the spirits of the forest are telling you, and they speak slowly, in roots and seasons, so you must learn to be slow with them." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, newly woken. Good; sit with me, and we'll begin with listening, because a druid who can't listen is only a person with a stick." },
         { id = "h_other", when = { class = { "WARRIOR", "ROGUE", "HUNTER", "PRIEST", "MAGE", "WARLOCK", "PALADIN" } },

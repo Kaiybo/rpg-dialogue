@@ -70,7 +70,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Because half the fruit down there is poison and the other half is guarded by something with teeth. The devilsaurs don't share their hunting grounds, so I'd rather pay to carry bread up the cliff." } },
+      lines = { { id = "dq_default", text = "Because the fruit down there is either poison or guarded by something with teeth. The devilsaurs don't share their hunting grounds, so I pay good coin to haul bread up the cliff." } },
       choices = {
         { text = "The crater would feed you if you respected it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Kill one devilsaur and you'd eat for a month.", next = "BACK", fx = { align = { light = -1 } } },
@@ -129,11 +129,11 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'll not find me buying anything ye've charmed out o' that crater, so don't ask. Bread from Gadgetzan and water I've boiled twice, that's all I trust." },
         { id = "h_default", key = true,
           text = "Nergal, and I keep the stores for the Refuge. Bread, meat, water and ammunition, all carried up here by people braver than me, so the expedition doesn't have to eat what lives in the crater." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? Then you'll be glad to know none of my stores came out of the crater, because I've seen what the raptors eat and I'd rather not join the meal." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? Then you'll be glad to know none of my stores came out of the crater, because I've seen what the raptors eat and I've nae wish to be on the menu." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, eh? Then ye'll not be needing my water, since ye conjure your own, and I'll thank ye not to tell the expedition how easy it is." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "I'll be counting my crates after ye've gone, friend, so don't take it personal. I've known a few of your trade, and every one of them was charming right up until the stores came up short." },
+          text = "I'll be counting my crates after ye've gone, friend, so don't take it personal. I've known a few of your trade, and each was charming right up until the stores came up short." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A Horde priest, is it? I'll sell ye bread and boiled water same as anyone, but if ye're one o' the Forsaken, I'd ask ye kindly not to handle the bread." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, is it? Then ye'll have seen what the crater does to folk, and if ye haven't, give it a day and ye will." },

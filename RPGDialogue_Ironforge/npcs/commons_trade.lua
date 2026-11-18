@@ -196,7 +196,7 @@ P:NPC {
 
     lympkin = {
       lines = {
-        { id = "ly_default", text = "That's Lympkin, an' she's quicker wi' a sum than any dwarf in this hall, me included. She came up out o' Gnomeregan wi' nothin' but a pencil, an' now half the bids in the Commons go through her." },
+        { id = "ly_default", text = "That's Lympkin, an' she's quicker wi' a sum than any dwarf in this hall, me included. She came up out o' Gnomeregan wi' nothin' but a pencil, an' now most o' the big bids in the Commons cross her ledger." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "gnomeregan" } } } },
     },
@@ -252,7 +252,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A puzzle, naturally! The stone talks to you, but you can't show me the mechanism, and I can't measure it with anything I own. Tinker Town's split between those who think it's a resonance effect and those who think you're all simply very good listeners, and I'm keeping a tally of the arguments." } },
       choices = {
-        { text = "I'll answer honestly whatever your tinkers want to ask.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll answer whatever your tinkers ask, and answer it straight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let them keep guessing. A little mystery is good for gnomes.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -278,7 +278,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Pelts are up, meat's down, and anything with a claw on it sells to the alchemists for more than you'd think. Bring me a good bear hide from Dun Morogh, and I'll have it sold before you've finished your ale." },
+        { id = "xhuntcl_default", text = "Pelts are up, meat's down, and anything with a claw on it sells to the alchemists by the ounce, and dear. Bring me a good bear hide from Dun Morogh, and I'll have it sold before you've finished your ale." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}'s not for sale, I take it? A pity, for I could get a very good price." },
       },
       choices = {
@@ -307,7 +307,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Oh my, yes, burns and radiation sickness and the coughing that wouldn't stop, and the priests of the Mystic Ward worked through the nights for weeks. Half the gnomes in Tinker Town owe their lungs to some dwarf with a prayer, and I tallied the bandages, so I know." } },
+      lines = { { id = "xapriest_default", text = "Oh my, yes, burns and radiation sickness and the coughing that wouldn't stop, and the priests of the Mystic Ward worked through the nights for weeks. Four hundred and twelve gnomes in Tinker Town owe their lungs to some dwarf with a prayer, and I tallied the bandages, so I know." } },
       choices = {
         { text = "Then I'll help where I can. The work isn't over yet.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Mending lungs won't take Gnomeregan back. That takes engineers and soldiers.", next = "BACK", fx = { align = { light = -1 } } },
@@ -346,7 +346,7 @@ P:NPC {
           text = "Oh my, a warlock. Some of the brightest gnomes of Gnomeregan studied your sort of magic before the fall, you know, so I've stopped being shocked." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your sort keeps the arms market lively, and I'm grateful, though I'd be more grateful if you broke swords at a steadier rate, because the spikes ruin my averages." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be selling, not buying, I expect, and I can tell you what anything's worth before you've finished saying what it is." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a night elf druid! I've tallied a great many kaldorei goods but very few kaldorei, so forgive me if I count you twice." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a night elf druid! I've tallied a great many kaldorei goods but very few kaldorei, so I may have to count you twice, just to be sure." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! I keep my ledgers in gnomish shorthand, you know, so there's no use reading them over my shoulder, though I'd be impressed if you tried." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! That's a column I don't have in my ledger, so I'll have to rule a new one, and I do love ruling a new column." },
       },
@@ -521,7 +521,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Somebody wi' sense an' a full waterskin, which is usually me, for half the priests who come through here forget tae eat. The Light, or Elune, or whatever ye pray tae, will mend a broken arm, but it'll no' fill an empty belly, an' I'll stake my shop on that." } },
+      lines = { { id = "xapriest_default", text = "Somebody wi' sense an' a full waterskin, which is usually me, for priests who come through here forget tae eat, the lot o' them. The Light, or Elune, or whatever ye pray tae, will mend a broken arm, but it'll no' fill an empty belly, an' I'll stake my shop on that." } },
       choices = {
         { text = "A healer's duty is to others first. My belly can wait.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You're right. A healer who starves heals nobody. I'll eat first.", next = "BACK", fx = { align = { light = -1 } } },
@@ -579,7 +579,7 @@ P:NPC {
         { text = "What should a warrior carry that most forget, Bryllia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you stock shot for a hunter's rifle, Bryllia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who looks after the healers, Bryllia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Paladins seem to eat a great deal, Bryllia.", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Paladins seem to eat like ogres, Bryllia.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you stock anything for travellers who live off the land?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do demons even eat bread, Bryllia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do folk in the Commons mind selling to a shaman, Bryllia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -725,7 +725,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They wanted a crest wi' a burnin' eye, an' half the Commons asked if the Legion had come back. They settled on a black candle after a week o' shoutin', an' folk calmed down, which is what a good crest should help them do." } },
+      lines = { { id = "xlock_default", text = "They wanted a crest wi' a burnin' eye, an' the whole Commons asked if the Legion had come back. They settled on a black candle after a week o' shoutin', an' folk calmed down, which is what a good crest should help them do." } },
       choices = {
         { text = "A crest should reassure folk. I'll choose something modest.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The burning eye was honest. Let them be frightened.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1070,7 +1070,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I'd sooner it didnae, an' my family's been arguin' about it since dwarves started listenin'. Half say we should line the vaults wi' somethin' the earth cannae hear through. The other half say if the mountain wanted our gold, it would never have let us dig it out." } },
+      lines = { { id = "xdsham_default", text = "I'd sooner it didnae, an' my family's been arguin' about it since dwarves started listenin'. My uncles want the vaults lined wi' somethin' the earth cannae hear through, but my mother says if the mountain wanted our gold, it would never have let us dig it out." } },
       choices = {
         { text = "I'd never pry into the Vault. Your trust is safe with me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If the stone tells me, that's the stone's business.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1088,7 +1088,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than ye'd think, for a warrior carries a great deal o' steel an' cannae carry it all at once. I've a vault full o' spare shields for a mountaineer at Thelsamar, an' he's never once come back for one." } },
+      lines = { { id = "xwarcl_default", text = "Plenty, for a warrior owns more steel than he can carry at once. I've a vault full o' spare shields for a mountaineer at Thelsamar, an' he's never once come back for one." } },
       choices = {
         { text = "The Vault's the place for it. I trust your door.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I keep my steel on my back, where I can reach it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1177,7 +1177,7 @@ P:NPC {
       choices = {
         { text = "I need my vault.", next = "BUSINESS" },
         { text = "How safe is the Vault, really?", next = "safe" },
-        { text = "Half the bankers here seem to be Stonemantles.", next = "family" },
+        { text = "Every banker here seems to be a Stonemantle.", next = "family" },
         { text = "Can I store things in Stormwind as well?", next = "stormwind" },
         { text = "Someone must have tried to rob the Vault.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What wards does the Vault have?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },

@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "The Horde's got a lot of mouths to feed, and I'm the one stuck feeding them. Torka, cook to the Razor Hill garrison, and if you've got two hands and no orders, I've got a use for both." },
         { id = "h_eggs_done", when = { questDone = TODO_QUEST("Break a Few Eggs") },
-          text = "You brought the eggs and you didn't drop a single one. You might be weak, but at least you're not clumsy, which is more than I can say for half the grunts." },
+          text = "You brought the eggs and you didn't drop a single one. You might be weak, but at least you're not clumsy like the grunts who juggle my pots." },
         { id = "h_pears_done", when = { questDone = TODO_QUEST("This Fruit Could Bite Back") },
           text = "The pear jam went over well with the grunts, and I saved the seeds for planting. Someday we'll have prickly pears growing all around Orgrimmar, and you can say you started it." },
         { id = "h_orc", when = { race = "Orc" },
@@ -63,7 +63,7 @@ P:NPC {
     },
 
     eggs = {
-      lines = { { id = "eg_default", text = "Because the raptor eggs are big enough to feed a squad, and the chickens in this town are too scrawny to feed a peon. The Bloodtalon taillashers on the Echo Isles guard their nests to the death, which is why I send you and not me." } },
+      lines = { { id = "eg_default", text = "Because the raptor eggs are big enough to feed a squad, and the chickens in this town are too scrawny to feed a peon. The Bloodtalon taillashers on the Echo Isles guard their nests to the death, so I send you and not me." } },
       choices = {
         { text = "To the death? Thanks, Torka.", next = "eg_death" },
         { text = "Where on the isles?", next = "eg_where", fx = { learn = { "echo_isles" } } },

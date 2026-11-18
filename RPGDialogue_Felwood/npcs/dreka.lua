@@ -46,7 +46,7 @@ P:NPC {
       },
     },
     op_r1 = {
-      lines = { { id = "op_r1_default", text = "Then you and I would have hanged half the Horde in the old days. I'm glad there are fewer of them left to hang." } },
+      lines = { { id = "op_r1_default", text = "Then you and I would have hanged a good share of the Horde in the old days. I'm glad there are fewer of them left to hang." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {

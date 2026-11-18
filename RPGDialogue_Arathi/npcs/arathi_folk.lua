@@ -57,7 +57,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, soldier? The map's not going anywhere, more's the pity." },
-        { id = "h_again2", text = "Speak. I've a report to write and I'd rather put it off." },
+        { id = "h_again2", text = "Speak. I've a report to write for the Marshal, and any excuse to put it off is a welcome one." },
       },
       choices = {
         { text = "What is the League of Arathor?", next = "league" },

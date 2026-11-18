@@ -47,7 +47,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Used carefully, I believe it can, but the word carefully has done a great deal of work in history and failed most of it. I put a little of myself into every enchantment, and I watch for the day it asks for more." } },
+      lines = { { id = "xdruid_default", text = "Used carefully, I believe it can, but the word carefully was on the lips of plenty of Dalaran's ruined apprentices too. I put a little of myself into every enchantment, and I watch for the day it asks for more." } },
       choices = {
         { text = "Bind it with strict rules and watch it closely, and keep working.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "No rule tamed it for my people. Put it down before it's too late.", next = "BACK", fx = { align = { order = -1 } } },
@@ -74,7 +74,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "A plain one, mind you, a little more strength or a little more stamina, rather than fire that runs down the blade. The old masters of Dalaran used to say that an enchantment should help the hand, not show off for it." } },
+      lines = { { id = "xwarcl_default", text = "A plain one, I mean, a little more strength or a little more stamina, rather than fire that runs down the blade. The old masters of Dalaran used to say that an enchantment should help the hand, not show off for it." } },
       choices = {
         { text = "Then a plain enchantment, honestly made, is what I'll take.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I want the fire down the blade. Let them see it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -85,7 +85,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A bow, yes, with patience, and a rifle's scope, if a gnome will mount it for me afterwards. Since Dalaran fell, much of the old craft has been lost, and I'm still learning which of the bow runes survived." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps sniffing at the dust on the bench; please don't let it, because arcane dust tastes worse than you'd think, I'm told." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps sniffing at the dust on the bench; please don't let it, because arcane dust tastes like burnt pennies, I'm told." },
       },
       choices = {
         { text = "Some of the old craft should be found again, for everyone's sake.", next = "BACK", fx = { align = { order = 1 } } },
@@ -104,7 +104,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Fewer than you'd think, for some of your order hold that the Light needs no help from the arcane. Others come quietly, at dusk, and I respect both kinds equally, since it isn't my place to judge." } },
+      lines = { { id = "xapala_default", text = "Only a few, for some of your order hold that the Light needs no help from the arcane. Others come quietly, at dusk, and I respect both kinds equally, since it isn't my place to judge." } },
       choices = {
         { text = "My order's ways are enough. I'll trust the Light alone.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll use every tool I can to protect the innocent.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -170,7 +170,7 @@ P:NPC {
       },
     },
     dalaran = {
-      lines = { { id = "d_default", text = "I studied there for a summer, long ago, and I wrote to an old teacher until the letters stopped coming. I don't speak of it often, and I'd rather not now." } },
+      lines = { { id = "d_default", text = "I studied there for a summer, long ago, and I wrote to an old teacher until the letters stopped coming. I don't speak of it often, and I'll not start today." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -299,7 +299,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in an enchanting shop is usually after something shiny, so I'll keep the cases locked. Ask, though, and I'll show you anything." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'll sell you rods and dust, but not opinions, because Lucan has enough of those for the whole family." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting something to make the arrows fly truer, I suppose, and I'll tell you honestly that most of what's sold for that is nonsense." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting something to make the arrows fly truer, I suppose, and I'll tell you now that most of what's sold for that is nonsense." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll not be wanting dust or essences, so I'll ask you to step aside for the paying customers, kindly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell you rods and vials, but I'll ask you not to try out anything near Lucan's formulae, because fel residue ruins a week's work." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Lucan's busy. If you need supplies, I'll help, but don't let your spirits bother the apprentices." },
@@ -312,7 +312,7 @@ P:NPC {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "You seem to be filling a great many orders.", next = "orders" },
         { text = "You keep Lucan's time well.", next = "lucan" },
-        { text = "Lucan seems to talk about the old masters a great deal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Lucan seems to talk about the old masters constantly.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "You must keep some valuable things here.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do many warriors buy enchanting supplies, Jessara?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there any real magic for arrows, Jessara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -325,14 +325,14 @@ P:NPC {
       },
     },
     orders = {
-      lines = { { id = "o_default", text = "Half the Mage Quarter's: Stormwind Staves, Duncan's Textiles, Ancient Curios. They've all been sending to us since Dalaran fell, and Lucan won't refuse any of them." } },
+      lines = { { id = "o_default", text = "Most of the Mage Quarter's shops: Stormwind Staves, Duncan's Textiles, Ancient Curios. They've all been sending to us since Dalaran fell, and Lucan won't refuse any of them." } },
       choices = {
         { text = "Is that too much for one shop?", next = "orders2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     orders2 = {
-      lines = { { id = "o2_default", text = "It's too much for one man, which is why he teaches, so there'll be more of us. I'd sooner he turned a few away, but he says the city needs it." } },
+      lines = { { id = "o2_default", text = "It's too much for one man, so he teaches, so there'll be more of us. I'd sooner he turned a few away, but he says the city needs it." } },
       choices = {
         { text = "He's right. The city does need it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "He should look after himself first.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
@@ -404,7 +404,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "More than you'd think, because the best catch always goes to whoever sits stillest and strikes last. Arnold says the canal fish are cleverer than the Westfall ones, because they've watched a whole city's worth of tricks go by." } },
+      lines = { { id = "xrogue_default", text = "A good deal in common, because the best catch always goes to whoever sits stillest and strikes last. Arnold says the canal fish are cleverer than the Westfall ones, because they've watched a whole city's worth of tricks go by." } },
       choices = {
         { text = "Patience and method win. I'll learn to sit still.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Strike first and ask questions later, I say.", next = "BACK", fx = { align = { order = -1 } } },
@@ -422,7 +422,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, because a man who's spent all week being shouted at by a sergeant wants an afternoon of nobody shouting at him. Arnold says the best fishermen he's taught were all soldiers, and the worst were all mages." } },
+      lines = { { id = "xwarcl_default", text = "Plenty of them, because a man who's spent all week being shouted at by a sergeant wants an afternoon of nobody shouting at him. Arnold says the best fishermen he's taught were all soldiers, and the worst were all mages." } },
       choices = {
         { text = "Everyone needs a quiet afternoon now and then.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A warrior should be training, not fishing.", next = "BACK", fx = { align = { order = -1 } } },
@@ -443,7 +443,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than you'd think, and they usually catch nothing, because they're not watching the line. Arnold says the fish know who's paying attention, and I'm starting to believe him." } },
+      lines = { { id = "xapriest_default", text = "Often, and they usually catch nothing, because they're not watching the line. Arnold says the fish know who's paying attention, and I'm starting to believe him." } },
       choices = {
         { text = "There's more to a quiet morning than fish, Catherine.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If you're fishing, fish. Pray somewhere else.", next = "BACK", fx = { align = { light = -1 } } },
@@ -469,7 +469,7 @@ P:NPC {
           text = "A rogue at the bait counter. You've the patience for fishing, I'd wager, since your trade is mostly waiting for the right moment." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. Don't freeze my canal, please; the last mage who tried it thought he'd catch fish easier through a hole in the ice." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, with a fishing question? Don't look so sheepish; half the Barracks fishes on its day off, and they're better at it than they let on." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, with a fishing question? Don't look so sheepish; the whole Barracks fishes on its day off, and they're better at it than they let on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you'll want bait for the pike in Stonewatch, or you'll want to tell me you can catch them with your hands." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the bait counter. Arnold says your people never use bait, only patience, and I'd thank you not to say so loudly near my stock." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, buying fishing line? I've sold stranger things to stranger folk, and the fish don't care either way." },
@@ -593,7 +593,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every one I've met, though most of them won't admit it until the mail has rubbed through their skin. Rema makes the padding, and I sell it, and between us we keep half the Barracks from being miserable." } },
+      lines = { { id = "xwarcl_default", text = "Every one I've met, though most of them won't admit it until the mail has rubbed through their skin. Rema makes the padding, and I sell it, and between us we keep the Barracks from being miserable." } },
       choices = {
         { text = "A well-made shirt is worth its price. I'll take one.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A soldier should learn to bear a little chafing.", next = "BACK", fx = { align = { order = -1 } } },
@@ -634,7 +634,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Another priest! I'll find you something that doesn't make you look like a sack of flour, if you'll stand still long enough." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a tabard that doesn't ride up under the plate, and the Cathedral's tailors never get that right." },
-        { id = "h_default", text = "Lisbeth Schneider. Rema makes, Corbett carries, and I sell the finished pieces off these racks, and I'll fit you properly, which is more than the market stalls will do, and lately half the city wants padding under its coats." },
+        { id = "h_default", text = "Lisbeth Schneider. Rema makes, Corbett carries, and I sell the finished pieces off these racks, and I'll fit you properly, which is more than the market stalls will do, and lately everyone from clerks to carters wants padding under their coats." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest! The Cathedral sends us all its novices, and they come in looking like sacks of flour tied in the middle. Let me find you something that fits." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Let me guess: everything you own has a scorch mark on the left sleeve, because you cast with your right hand." },

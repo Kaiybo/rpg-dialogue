@@ -28,7 +28,7 @@ P:Thread {
   },
   pacing = { minConversations = 2, minSeconds = 600 },
   reflection = {
-    first = "Everyone from the Valley of Trials to Orgrimmar says the Burning Blade hides in caves, and every one of them looks toward the city when they say it.",
+    first = "Everyone from the Valley of Trials to Orgrimmar says the Burning Blade hides in caves, and then they all glance toward the city.",
     third = "{name} noticed that everyone who spoke of the Burning Blade looked toward Orgrimmar while they did it.",
   },
   beats = {
@@ -93,7 +93,7 @@ P:Thread {
   },
   pacing = { minConversations = 2, minSeconds = 600 },
   reflection = {
-    first = "Everyone in the northern Barrens talks about the Kolkar, and sooner or later every one of them ends up talking about water.",
+    first = "Everyone in the northern Barrens talks about the Kolkar, and sooner or later the talk always turns to water.",
     third = "{name} noticed that every talk of the Kolkar in the Barrens came round, sooner or later, to water.",
   },
   beats = {

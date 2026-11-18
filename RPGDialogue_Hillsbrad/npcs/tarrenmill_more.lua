@@ -424,7 +424,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "To dwarves from Dun Garok, who crept into camp while I was on watch and took everything that wasn't strapped to me. A warrior without his blade is a scarecrow with a grudge, and the other Deathguards have started calling me exactly that." } },
       choices = {
-        { text = "Report it honestly and take your punishment. That's a soldier's way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Report it truthfully and take your punishment. That's a soldier's way.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Forget the report. Raid Dun Garok and take it back.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Humbert.", next = "BACK" },
       },
@@ -481,7 +481,7 @@ P:NPC {
           text = "My sword! I've been wearing it everywhere, even indoors. Samsa says I'm overdoing it, but Samsa never lost his." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. If you'd been standing watch with me, perhaps those dwarves wouldn't have walked off with my gear, so I'll not pretend I'm glad to see you." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'd ask your demon to guard my tent, but I suppose it would steal more than the dwarves ever did." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and fully armed, which is more than I can say for myself. Don't look at my belt, please, because there's no sword on it, and I know." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and fully armed, which I can't claim to be. Don't look at my belt, please, because there's no sword on it, and I know." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, and twice my size. I don't suppose you could track a pack of dwarven scouts by smell? Mine has been gone for years." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. I'd ask you to bless my borrowed club, only I think it would be wasted on it, and the dwarves of Dun Garok would just steal that too." },
       },
@@ -527,7 +527,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll clear them for the farms.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll hunt them for my own purse, mind you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll hunt them for my own purse, though.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     teasing = {
@@ -768,7 +768,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Every pair of hands helps at Hammerfall, and your hands do more than most. I've seen a tauren druid turn into a bear and break an Alliance line with one charge, and I've never seen anything finer." } },
+      lines = { { id = "xdruid_default", text = "Every pair of hands helps at Hammerfall, and yours do more than a grunt's. I've seen a tauren druid turn into a bear and break an Alliance line with one charge, and I've never seen anything finer." } },
       choices = {
         { text = "The Horde's wars are mine too. I'll fight.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My oath is to the land, not to every battle.", next = "BACK", fx = { align = { order = -1 } } },
@@ -779,7 +779,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Watch the Stromgarde roads and count the soldiers marching on them, since the orcs are poor at counting and worse at waiting. The Witherbark in the hills will want your scalp, so don't spend too long admiring the view." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks sturdier than half the reinforcements I've sent east. Bring it back alive if you can, because a good beast is harder to replace than a recruit." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks sturdier than the last batch of reinforcements I sent east. Bring it back alive if you can, because a good beast is harder to replace than a recruit." },
       },
       choices = {
         { text = "Send help that can survive, Tallow. Lives aren't cheap.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -838,10 +838,10 @@ P:NPC {
         { id = "h_hammer_done", tags = { "news" }, when = { questDone = TODO_QUEST("The Hammer May Fall") },
           text = "You came back from Arathi on your own legs. Drum Fel must be pleased, or desperate; probably both." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be no use at Hammerfall, where the orcs need shields and axes, but I suppose you could slip past the Stromgarde lines and see what they're planning." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Your demon could hold a line at Hammerfall for a while, I suppose, which is more than most of the soft-skinned ones I'm sent could manage." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Your demon could hold a line at Hammerfall for a while, I suppose, longer than the soft-skinned recruits they send me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Hammerfall needs scouts as much as shields, I'm told, so you might be some use to the orcs, if you don't die on the way." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! Your people could heal half the wounded at Hammerfall in an afternoon. Why aren't you there?" },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. You'll want to heal everyone you pass, I expect, and I'd rather you saved it for Hammerfall, where the orcs need it more than the dead here do." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! Your people could heal the whole of Hammerfall's sick tents in an afternoon. Why aren't you there?" },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. You'll want to heal everyone you pass, I expect, but save it for Hammerfall, where the orcs need it more than the dead here do." },
       },
       again = {
         { id = "h_again", text = "Something else? Say it." },
@@ -935,7 +935,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "The bats mind everything, and they complain constantly in a pitch only they can hear. They're well fed and they fly far, and I think they'd rather do this than hunt moths in a cave, but I'm only guessing." } },
       choices = {
-        { text = "They're fed and useful, which is more than most soldiers get.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They're fed and useful, and few soldiers can say either.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let them rest more often. They're not machines.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1095,7 +1095,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Not as often as I'd like, for the living spend more coin than the dead. Your folk are the friendliest of them, and you pay fair and don't stare, which is more than I can say for the Deathguards." } },
+      lines = { { id = "xdruid_default", text = "Not as often as I'd like, for the living spend more coin than the dead. Your folk are the friendliest of them, and you pay fair and don't stare, and the Deathguards could learn from you." } },
       choices = {
         { text = "The Horde should stand together, living or dead.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Trust the Forsaken? Not yet, Kayren. Not fully.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1213,7 +1213,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Stock and prices, and who buys what. Ask." } },
     background = { { id = "tp_bg", text = "I kept a shop before the plague. I keep one after. It's the same shop, nearly." } },
     advice = { { id = "tp_ad", text = "Buy rope. Everyone always needs rope, and nobody ever has it." } },
-    forsaken = { { id = "tp_forsaken", text = "The Forsaken have very different appetites to yours, which is why the living allies' food sits on its own shelf. Please don't reach past it, because nothing on the other shelves is for eating, not by you." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have very different appetites to yours, so the living allies' food sits on its own shelf. Please don't reach past it, because nothing on the other shelves is for eating, not by you." } },
     thrall = { { id = "tp_thrall", text = "The Warchief's orcs come through Tarren Mill now and then, and they eat like wolves. I keep the shelf stocked, and I don't ask what they think of our cooking." } },
     scourge = { { id = "tp_scourge", text = "The Scourge don't shop, which is a mercy. I'd hate to know what they'd want." } },
     _none = { { id = "tp_none", text = "Not something I carry, I'm afraid, and the Tarren Mill gossip hasn't mentioned it either." } },

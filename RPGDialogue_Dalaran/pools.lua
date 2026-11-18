@@ -124,7 +124,7 @@ P:Pool {
 P:Pool {
   id = "scholar_dalaran", role = "scholar",
   greetings = {
-    { id = "g_xlumin", when = { all = { { origin = "skyborne_luminarian_scholar" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } }, text = "Oh, you're the Skyborne who keeps asking everyone about magesmiths! Have you found anyone in this city who can tell you why your spells come harder? I'd like to know too, honestly." },
+    { id = "g_xlumin", when = { all = { { origin = "skyborne_luminarian_scholar" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } }, text = "Oh, you're the Skyborne who keeps asking everyone about magesmiths! Have you found anyone in this city who can tell you why your spells come harder? I'd dearly like to know too." },
     { id = "g_default", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
       text = "Excuse me! Sorry, I'm carrying four hundred pages, and none of them are in order." },
   },

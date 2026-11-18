@@ -40,7 +40,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Same thing, near enough: you learn where your quarry feeds, when it feeds and what it fancies, and then you wait. The difference is that a tiger can't snap your line, though a big enough tastyfish surely can." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Same thing, near enough: you learn where your quarry feeds, when it feeds and what it fancies, and then you wait. The difference is that a tiger can't snap your line, though a big enough tastyfish surely can. And your {pet} would sit still for a fish, I'd wager, which is more than most of the young anglers in the Baron's tournament can manage." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Same thing, near enough: you learn where your quarry feeds, when it feeds and what it fancies, and then you wait. The difference is that a tiger can't snap your line, though a big enough tastyfish surely can. And your {pet} would sit still for a fish, I'd wager, while the young anglers in the Baron's tournament can't sit still for the length of one cast." },
       },
       choices = {
         { text = "Fish and beasts both deserve a hunter's respect.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -95,7 +95,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "That it's too old and too smelly, same as me, and still better than whatever the youngsters are throwing. I've fished this bay since before the goblins came, friend, and the fish have changed less than the town, which tells you something." } },
+      lines = { { id = "xdruid_default", text = "That it's too old and too smelly, same as me, and still better than whatever the youngsters are throwing. I've fished this bay since before the goblins came, friend, and the fish have changed a sight less than the town has." } },
       choices = {
         { text = "Take only what you need, Heming. The bay feeds everyone that way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A good fisherman takes what bites. The sea's big enough.", next = "BACK", fx = { align = { order = -1 } } },
@@ -119,7 +119,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say one for the fish, would you? They never get a word said for them, and I've eaten enough to owe them that." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Keep your little fire-beast away from the water's edge; it boils my bait and puts the snappers off." },
         { id = "h_default", key = true,
-          text = "Name's Heming, and I've fished these waters since before the goblins carved this bay into a town. Every Sunday the Baron holds his fishing tournament, and I like to think I taught half the winners, though none of them ever thank me." },
+          text = "Name's Heming, and I've fished these waters since before the goblins carved this bay into a town. Every Sunday the Baron holds his fishing tournament, and I like to think I taught most of the winners how to bait a hook, though none of them ever thank me." },
         { id = "h_quest", when = { questActive = TODO_QUEST("Old Man Heming") },
           text = "Still at it, are you? Keep your line slack and your temper slacker, and the fish will come round in time." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, out on my docks. You'll make a fine fisherman, I reckon, since you already know how to sit still and wait for something to bite." },
@@ -274,7 +274,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Because spirits get moody and powder doesn't, friend, or not often anyway, and when it does, well, you only need eyebrows for show. Half my customers swear by their totems and the other half swear by my blunderbusses, and the second half complains a lot less." } },
+      lines = { { id = "xhsham_default", text = "Because spirits get moody and powder doesn't, friend, or not often anyway, and when it does, well, you only need eyebrows for show. I once watched a shaman call lightning on a raptor and fry his own kodo instead, pal, and my blunderbuss never did that to anybody's kodo." } },
       choices = {
         { text = "I trust the elements over powder. They've never misfired on me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll use whatever works. Show me a blunderbuss.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -283,7 +283,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because a dagger only works up close, and sometimes the trouble's across the room, and that's when you want something that goes bang. I've sold pistols to half the Bloodsail captains on this coast, and to the Blackwater captains who shoot at them, and that's what I call a healthy market." } },
+      lines = { { id = "xrogue_default", text = "Because a dagger only works up close, and sometimes the trouble's across the room, and that's when you want something that goes bang. I've sold pistols to Bloodsail captains up and down this coast, and to the Blackwater captains who shoot at them, and that's what I call a healthy market." } },
       choices = {
         { text = "I'd sell to Booty Bay, not the Bloodsail. Pick a side.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Gold's gold. Sell to whoever has it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -301,7 +301,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Because claws don't reach the far side of a river, friend, and a raptor pack doesn't wait for you to finish changing. I've sold rifles to tauren and night elves both, and every one of them swore they'd never use it until the day they did." } },
+      lines = { { id = "xdruid_default", text = "Because claws don't reach the far side of a river, friend, and a raptor pack doesn't wait for you to finish changing. I've sold rifles to tauren and night elves both, and they all swore they'd never use it until the day they did." } },
       choices = {
         { text = "I'll keep to claw and root. Your guns only frighten the wild.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A sensible druid uses whatever works. Show me the rifles.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -371,7 +371,7 @@ P:NPC {
     },
     source = {
       lines = {
-        { id = "so_default", text = "Some from Undermine, some from Ironforge by way of people who don't ask questions, and some I put together myself in the back, which is why the back wall's newer than the front. The ones I make myself are the loudest, which is how you know they're good." },
+        { id = "so_default", text = "Some from Undermine, some from Ironforge by way of people who don't ask questions, and some I put together myself in the back, so the back wall's been rebuilt twice and the front never once. The ones I make myself are the loudest, which is how you know they're good." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -478,7 +478,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Because the hunters who come through here need bows that won't fail them, and I'd rather they bought one from me than from some goblin who glues the joints. It's honest work in a dishonest town, and I find that worth the damp, most days." } },
+      lines = { { id = "xapriest_default", text = "Because the hunters who come through here need bows that won't fail them, and better they buy one from me than from some goblin who glues the joints. It's honest work in a dishonest town, and I find that worth the damp, most days." } },
       choices = {
         { text = "Honest work in a crooked place matters. Keep at it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Glue's cheaper. You'd earn more cutting corners like the rest.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -542,7 +542,7 @@ P:NPC {
     },
     damp = {
       lines = {
-        { id = "da_default", text = "Oil, wax, and a dry box I keep in the back with a little fire under it. It isn't much, but it keeps my strings from rotting, and it's more than most bowyers would bother with." },
+        { id = "da_default", text = "Oil, wax, and a dry box I keep in the back with a little fire under it. It isn't much, but it keeps my strings from rotting, and no bowyer up in Stormwind ever needed to bother with one." },
       },
       choices = {
         { text = "Where do you find good wood?", next = "damp_wood" },

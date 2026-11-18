@@ -844,7 +844,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Winds and routes are what I know, so ask me about those." } },
     background = { { id = "tp_bg", text = "Orgrimmar trained me, and Hammerfall needed someone, and an orc goes where the Horde needs her. Here I am." } },
     advice = { { id = "tp_ad", text = "Hold on tight over the Alterac foothills. The gusts come without warning." } },
-    thrall = { { id = "tp_thrall", text = "The Warchief rode a wind rider once, they say, and he didn't fall off. That's more than I can say for most orcs I've taught." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rode a wind rider once, they say, and he didn't fall off. I've taught a dozen grunts this season who can't say the same." } },
     the_elements = { { id = "tp_the_elements", text = "The winds of the Highlands are the fiercest I've ever flown, and they respect nothing but courage. I've learned to respect them back." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken fly bats from Tarren Mill, and I've raced them once or twice. My wind riders win, always, but the bats are faster on a turn." } },
     _none = { { id = "tp_none", text = "That's not my business, friend, since my business is wings and the Horde's letters." } },

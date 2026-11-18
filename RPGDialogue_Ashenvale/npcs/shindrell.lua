@@ -76,7 +76,7 @@ P:NPC {
         { id = "h_kayneth_before", when = { questBefore = TODO_QUEST("Kayneth Stillwind"), minLevel = 25 },
           text = "The druid Kayneth Stillwind has asked me for a report of all that's happening on our coast and in our forests. He fears a corruption is moving through Ashenvale, and he may be right." },
         { id = "h_hunter", when = { class = "HUNTER" },
-          text = "A hunter. Then you'll understand that half of my work is watching and the other half is waiting, and very little of it is shooting." },
+          text = "A hunter. Then you'll understand that my work is mostly watching and waiting, and very little of it is shooting." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "You are a long way from your lines, and this is not a town that welcomes the Horde. State your business quickly, and then go." },
       },
@@ -107,7 +107,7 @@ P:NPC {
     },
     naga_want = {
       lines = {
-        { id = "nw_default", text = "I don't know, and I like not knowing even less than I like the naga. There's a deep place under the strand that the Horde's scouts have been poking at too, and I'd rather we found its secrets first." },
+        { id = "nw_default", text = "I don't know, and I like not knowing even less than I like the naga. There's a deep place under the strand that the Horde's scouts have been poking at too, and Darnassus must learn its secrets before they do." },
       },
       choices = {
         { text = "So the Horde are there as well.", next = "naga_horde" },
@@ -191,7 +191,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In Ashenvale, look up as often as you look ahead. The forest has more than one floor." } },
     sentinels = { { id = "tp_sentinels", text = "We are fewer than we should be and more stubborn than the Horde expects. That has served so far." } },
     warsong = { { id = "tp_warsong", text = "Orc axes in our oldest trees, and the forest bleeding sap where they cut. I try not to go and look too often.", next = "horde" } },
-    thrall = { { id = "tp_thrall", text = "The Horde's warchief is a name in every report I send Darnassus, usually beside the Warsong. I'd rather write about birds, honestly." } },
+    thrall = { { id = "tp_thrall", text = "The Horde's warchief is a name in every report I send Darnassus, usually beside the Warsong. I would much prefer to write about the birds of Zoram Strand." } },
     centaur = { { id = "tp_centaur", text = "Centaur raids on the Barrens edge of Stonetalon come up in my letters too. Darnassus never writes back about those." } },
     tyrande = { { id = "tp_tyrande", text = "The High Priestess reads my reports herself, I'm told. I try to keep them short, and I always fail." } },
     blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's a cult nest and a naga nest at once. I write that in every report, and I'll keep writing it until someone sends more arrows." } },

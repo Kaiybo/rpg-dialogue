@@ -19,7 +19,7 @@ P:NPC {
   },
   notice = {
     { id = "n_craft", cat = "craft", when = { profession = { "Engineering", "Blacksmithing" } },
-      text = "You've a builder's eye, I think; you looked at the arch before you looked at me. Tell me honestly, does that keystone look true to you?" },
+      text = "You've a builder's eye, I think; you looked at the arch before you looked at me. So tell me, does that keystone look true to you?" },
   },
   start = "hello",
   nodes = {
@@ -71,7 +71,7 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "I'd rather you didn't know that, friend, and I'd rather you didn't tell the crew either, since they're nervous enough with orcs across the water. Every stone on this bridge I've laid true and clean, and that's how it'll stay." } },
+      lines = { { id = "xlo_default", text = "You weren't meant to know that, friend, and I'll ask you not to tell the crew either, since they're nervous enough with orcs across the water. Every stone on this bridge I've laid true and clean, and that's how it'll stay." } },
       choices = {
         { text = "Clean stone is good stone. I'll leave it be.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A cursed stone or two would keep the orcs off.", next = "BACK", fx = { align = { light = -1 } } },
@@ -168,7 +168,7 @@ P:NPC {
     },
     who = {
       big = true,
-      lines = { { id = "w_default", fx = { learn = { "blackrock" } }, text = "The Blackrock, when they came over the hills. They burned the old span so Lakeshire couldn't send for help, and they'd do it again if they could, which is why we keep an eye on the far shore while we work." } },
+      lines = { { id = "w_default", fx = { learn = { "blackrock" } }, text = "The Blackrock, when they came over the hills. They burned the old span so Lakeshire couldn't send for help, and they'd do it again if they could, so we keep one eye on the far shore while we work." } },
       choices = {
         { text = "Then the town should wall the bridge and guard it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Then strike the Blackrock first, before they strike again.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
@@ -252,7 +252,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Only when the horns go off up in the hills, and then I'm frightened all at once and then not at all, because the foreman shouts and there's no time. Nights are worse, so I say the prayers my mother taught me, though I'm never sure I've got them right." } },
       choices = {
-        { text = "Any prayer said honestly is said right, Jess.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Any prayer meant from the heart is said right, Jess.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers won't stop an orc, Jess. Learn to fight instead.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Jess.", next = "BACK" },
       },
@@ -294,7 +294,7 @@ P:NPC {
       choices = {
         { text = "Why did you join the crew?", next = "why" },
         { text = "Have you ever seen the Blackrock?", next = "orcs" },
-        { text = "Foreman Oslow seems to shout a great deal.", next = "oslow" },
+        { text = "Foreman Oslow seems to shout at everyone.", next = "oslow" },
         { text = "Do you want to be an adventurer?", next = "adventure" },
         { text = "Want to see my imp, Jess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you want to be a warrior someday, Jess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },

@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, friend, and Valormok's still standing, though the satyrs ran off with two tents and the cook's best pot. Come and sit by the fire." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal since I first saw you, and I can see it in your stance. The Horde will win here, and you're part of why I believe it." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "Word in camp is you put the fear into somebody here, and I'll not have my own grunts cowed, so save that look for the elves on the cliffs." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "The camp's been talking about how you helped Valormok, and after the dead we've buried, that talk means a great deal to me." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The camp's been talking about how you helped Valormok, and after the dead we've buried, I am glad to hear it." },
   },
 
   notice = {
@@ -57,7 +57,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Maybe, maybe not, for the elf's magic killed them fast. But I'll take you now, and the Horde will win here because someone has to, and I'd rather that someone glowed a little." } },
+      lines = { { id = "xfpala_default", text = "Maybe, maybe not, for the elf's magic killed them fast. But I'll take you now, and the Horde will win here because someone has to, and if that someone glows a little, so be it." } },
       choices = {
         { text = "I'll fight for Valormok. The Horde will hold here.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Your commander's bargain killed them. I won't die for it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -68,7 +68,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "If anyone can, it's your kind, because they leave no tracks a grunt would see, but they leave them all the same. Find where they camp past the northern bluffs, and I'll have my answer for the dead of Valormok." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And send {pet} ahead of you through the trees. The elves' mages set traps, and I'd rather lose a sniffing nose than another warrior." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And send {pet} ahead of you through the trees. The elves' mages set traps, and better a sniffing nose than another warrior." },
       },
       choices = {
         { text = "I'll find them and bring you the truth along with their heads.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -80,7 +80,7 @@ P:NPC {
       lines = {
         { id = "wag_default", text = "Answer for them, then, and do it properly. They died in a ruin, betrayed and outnumbered, without a chance to see who killed them; whatever you do in their name, make sure the elf sees your face." },
         { id = "wag_grunt", when = { origin = "orc_razor_hill_grunt" },
-          text = "Razor Hill, eh? Half the warriors buried here learned their trade on that same parade ground. They'd want one of their own doing this, so I'll not argue." },
+          text = "Razor Hill, eh? Many of the warriors buried here learned their trade on that same parade ground. They'd want one of their own doing this, so I'll not argue." },
       },
       choices = {
         { text = "She'll see me coming. On my honour.", next = "BACK", fx = { align = { honor = 1 }, standing = { valormok = 1 } } },
@@ -98,7 +98,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think the Horde paid for demon power once, and I'd rather we never paid again. But Thrall lets your kind serve, and I follow Thrall, so you'll fight beside us and I'll judge you by what you do here." } },
+      lines = { { id = "xlock_default", text = "I think the Horde paid for demon power once, and I never want us paying that price again. But Thrall lets your kind serve, and I follow Thrall, so you'll fight beside us and I'll judge you by what you do here." } },
       choices = {
         { text = "Judge me by my deeds, then. I'll fight with honor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Power is power. The Horde needs every weapon.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -137,7 +137,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Good, because the elves have scouts in those woods who hide better than any orc, and I need someone who can find their trail." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
-          text = "A mage of the Horde. The last mage who came to Valormok was an elf, and she killed my warriors, so forgive me if I watch your hands." },
+          text = "A mage of the Horde. The last mage who came to Valormok was an elf, and she killed my warriors, so keep your hands where I can see them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock. I don't love your kind, but you're Horde and we need hands, so I won't turn you away, not with elves in the woods and naga on the shore." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
@@ -150,7 +150,7 @@ P:NPC {
           text = "The spirits of our dead can rest now, and Belgrom can stop pacing his hall. You did that, {name}, and Valormok won't forget it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because I've buried a dozen warriors since that elf mage turned on us, and they went into the ground without a proper word said over them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother, out here at Valormok? You'll find this forest sick, tauren, and the elves who live in it are sicker." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, at Valormok. We buried nearly every warrior in this camp, and I'd have given a great deal for someone with healing hands that night." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, at Valormok. We buried nearly every warrior in this camp, and I'd have given my own axe for someone with healing hands that night." },
       },
       again = {
         { id = "h_again", text = "What else? Speak; I've had nothing but the wind and the graves of my warriors to talk to for weeks." },
@@ -382,7 +382,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
-          text = "A warrior. Let me guess, you're here for glory, which is very noble and doesn't pay, so you'll forgive me if I talk business instead." },
+          text = "A warrior. Let me guess, you're here for glory, which is very noble and doesn't pay, so let's talk business instead." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. You'll know the Ruins of Eldarath, then, because there's game around them, and naga, and somewhere in all that, my tablets." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and I can already hear the lecture about respecting dead elves. Save it, because the tablets don't mind where they end up." },
@@ -428,7 +428,7 @@ P:NPC {
     exile = {
       big = true,
       lines = {
-        { id = "e_default", text = "Belgrom Rockmaul's. He made me an offer I didn't want, and I turned him down in front of half the Valley of Honor. A week later I was posted to the edge of the world to guard his precious elf, and he called it a promotion." },
+        { id = "e_default", text = "Belgrom Rockmaul's. He made me an offer I didn't want, and I turned him down in front of a crowd in the Valley of Honor. A week later I was posted to the edge of the world to guard his precious elf, and he called it a promotion." },
       },
       choices = {
         { text = "That's an abuse of his rank.", next = "exile_rank" },
@@ -446,7 +446,7 @@ P:NPC {
 
     buyers = {
       lines = { { id = "bu_default", fx = { learn = { "highborne" } },
-        text = "More people than you'd think. An apothecary in the Undercity, the old crone of the Grimtotem in Thunder Bluff, a troll alchemist in Orgrimmar, and the Archmage on his cliff. Each one wanted a tablet, and none of them asked where it came from." } },
+        text = "Plenty of people: an apothecary in the Undercity, the old crone of the Grimtotem in Thunder Bluff, a troll alchemist in Orgrimmar, and the Archmage on his cliff. Each one wanted a tablet, and none of them asked where it came from." } },
       choices = {
         { text = "Isn't selling to Magatha a risk?", next = "buyers_magatha" },
         { text = "This is just grave-robbing.", next = "buyers_rob" },
@@ -653,7 +653,7 @@ P:NPC {
       },
     },
     beasts = {
-      lines = { { id = "b_default", text = "They hate the salt wind off the bay, and they hate the smell of the satyr camp even more. But they'll fly anywhere I tell them, which is more than I can say for most grunts." } },
+      lines = { { id = "b_default", text = "They hate the salt wind off the bay, and they hate the smell of the satyr camp even more. But they'll fly anywhere I tell them, and they never once ask why, unlike grunts." } },
       choices = {
         { text = "Good beasts.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },

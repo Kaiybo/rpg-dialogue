@@ -210,7 +210,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
     unbalanced = {
-      lines = { { id = "un_default", text = "Because balanced engineers build bridges, and bridges are boring, and I'd rather build somethin' that makes the bridge unnecessary. My cousin's a balanced engineer, and he's got all his fingers and no money, so you tell me which of us got it right." } },
+      lines = { { id = "un_default", text = "Because balanced engineers build bridges, and bridges are boring, and I'd sooner build somethin' that makes the bridge unnecessary. My cousin's a balanced engineer, and he's got all his fingers and no money, so you tell me which of us got it right." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

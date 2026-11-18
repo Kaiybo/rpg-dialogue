@@ -41,7 +41,7 @@ P:NPC {
         { text = "They're traitors to Cairne and to every tauren. They should be broken.", next = "op_grimtotem_r1", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 }, opinion = { grimtotem = "lost" } } },
         { text = "Some of them could still come home, if we gave them the chance.", next = "op_grimtotem_r2", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 }, opinion = { grimtotem = "redeemable" } } },
         { text = "They want what's ours. That's all I need to know.", next = "op_grimtotem_r3", fx = { trait = { practical = 1 }, opinion = { grimtotem = "distrust" } } },
-        { text = "I'm Grimtotem-born, Chief, and I'd rather they changed than burned.", next = "op_grimtotem_r4", fx = { affinity = 2, opinion = { grimtotem = "redeemable" } }, when = { origin = "tauren_grimtotem_born" } },
+        { text = "I'm Grimtotem-born, Chief, and I want them changed, not burned.", next = "op_grimtotem_r4", fx = { affinity = 2, opinion = { grimtotem = "redeemable" } }, when = { origin = "tauren_grimtotem_born" } },
         { text = "I don't know enough of them to judge.", next = "BACK" },
       },
     },
@@ -291,7 +291,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "If you can keep up! The Bristleback lurk in Brambleblade Ravine, and the plainstriders kick harder than you'd think, so a healer at my back would let me run straight at them. My father says a leader should know when to call for help, and I'm learning." } },
+      lines = { { id = "xhpriest_default", text = "If you can keep up! The Bristleback lurk in Brambleblade Ravine, and the plainstriders kick like a falling rock, so a healer at my back would let me run straight at them. My father says a leader should know when to call for help, and I'm learning." } },
       choices = {
         { text = "I'll keep you standing, Grull. Run as far as you like.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Learn to hunt without a healer, or don't hunt.", next = "BACK", fx = { align = { light = -1 } } },
@@ -360,7 +360,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Can you light a fire without flint? My hunters would trade a lot for that." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. My father would want me to send you away, but I'd rather see what you can do." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Battleboar", min = 20 } }, text = "You've been thinning out the battleboars, and the hunters say the plains around the camp are safer for it. I'll make a hunter of you yet, whatever you call yourself." },
-        { id = "h_narache", when = { origin = "tauren_narache_hunter" }, text = "Ha, the mesa hunter's calf! Your mother let me carry her spears once when I was small, and I dropped every one of them in the creek, so I've been trying to outhunt her ever since." },
+        { id = "h_narache", when = { origin = "tauren_narache_hunter" }, text = "Ha, the mesa hunter's calf! Your mother let me carry her spears once when I was small, and I dropped them all in the creek, so I've been trying to outhunt her ever since." },
       },
       choices = {
         { text = "Leading will be a heavy burden.", next = "lead" },

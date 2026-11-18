@@ -135,7 +135,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was a Darkspear scout of the Horde and a wife, and now I be a ghost on a rock in the Burning Steppes, waiting for the loa to come and fetch me." } },
     advice = { { id = "tp_ad", text = "Never get close enough to hear the chanting, because by then they've already seen you, and no voodoo of mine could hide me." } },
-    _none = { { id = "tp_none", text = "I don't know dat one. The dead know less than you'd think, mon." } },
+    _none = { { id = "tp_none", text = "I don't know dat one. De dead don't know near as much as folk think, mon." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin be our chief, mon, and he be wise. Tell him a Darkspear scout died well, if you ever see him." } },
     darkspear = { { id = "tp_darkspear", text = "The Darkspear be my husband's people, mon, and mine be in the Hinterlands. We was going to live there together, after." } },
     firegut = { { id = "tp_firegut", text = "The Firegut chained me to this altar for their ritual. Krom'Grul be the one who did it, mon, and I hope you make him pay." } },

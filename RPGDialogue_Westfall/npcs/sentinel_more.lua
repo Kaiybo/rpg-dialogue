@@ -57,7 +57,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than anyone, because the Goretusk hides sell in Stormwind if they're cured right. Half my salt goes to hunters and the other half to Salma's kitchen, and I can never decide which is more important." },
+        { id = "xhuntcl_default", text = "More than anyone, because the Goretusk hides sell in Stormwind if they're cured right. My salt goes to the hunters or to Salma's kitchen, and I can never decide which matters more." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps sniffing at my salt. Good thing it's not the dye, or we'd both be blue." },
       },
       choices = {
@@ -293,7 +293,7 @@ P:NPC {
         { id = "h_stew", when = { questActive = TODO_QUEST("Westfall Stew") },
           text = "Making Westfall Stew for Salma? Then you'll want a pinch of salt, since murloc eyes taste of nothing and vulture tastes of worse." },
         { id = "h_watchers", when = { questDone = TODO_QUEST("The Killing Fields") },
-          text = "You smashed Saldean's scarecrows, didn't you? He came up the hill to buy seed for the first time in a year. Seed, mind you, which is a hopeful thing to buy." },
+          text = "You smashed Saldean's scarecrows, didn't you? He came up the hill to buy seed for the first time in a year, and seed's a hopeful thing for a Westfall man to buy." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf will haggle, I know that much. Go on, then, and we'll see which of us gives way first. It won't be me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my stall. You'll haggle, I suppose, like everyone else, and you'll lose, like everyone else." },
@@ -350,7 +350,7 @@ P:NPC {
     },
   },
   topics = {
-    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay know how to haggle, and I learned from one of them when I was a girl. Hewen never did, which is why he's always undercharging and I'm always right." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay know how to haggle, and I learned from one of them when I was a girl. Hewen never did, so he's always undercharging and I'm always right." } },
     deadmines = { { id = "tp_deadmines", text = "The Defias are buying thread and canvas from somebody, and I'd bet my stall it's going down into the Moonbrook mines. I don't sell to them, but somebody does, and that somebody is undercharging, I'd wager." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire drives a harder bargain than any goblin, and I've the empty purse to prove it. I respect them for it, though I'll not go back." } },
     background = { { id = "tp_bg", text = "I've sold goods on this hill since the militia came. Before that I sold them to farmers, and they haggled harder." } },
@@ -479,7 +479,7 @@ P:NPC {
         { text = "What would you tame, out here?", next = "tame", when = { class = "HUNTER" } },
         { text = "Horses don't spook when I sneak up on them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Animals don't like me much, Kirk.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Your militia horses look like they've seen a great deal, Kirk.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Your militia horses look like they've been through the wars, Kirk.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your animals ever take ill, Kirk? I could pray over them.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could one of your militia horses carry a paladin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Let me sit with your most skittish horse. Beasts tend to trust me.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -509,7 +509,7 @@ P:NPC {
       },
     },
     tame = {
-      lines = { { id = "t_default", text = "A goretusk, if you want something that won't quit. They're ugly and bad-tempered, and they'll stand in front of you till they drop, which is more than most soldiers will." } },
+      lines = { { id = "t_default", text = "A goretusk, if you want something that won't quit. They're ugly and bad-tempered, and they'll stand in front of you till they drop, and you can't say that of every soldier on this hill." } },
       choices = { { text = "I'll find a good one.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -653,7 +653,7 @@ P:NPC {
       choices = {
         { text = "Let me buy some bread.", next = "BUSINESS" },
         { text = "Where does your flour come from?", next = "flour" },
-        { text = "That's a great deal of bread for one hill.", next = "eaters" },
+        { text = "That's a lot of bread for one hill.", next = "eaters" },
         { text = "Blessed bread feeds the soul as well. May I bless today's batch?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I can conjure bread, you know.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Don't worry, my imp won't eat your bread.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },

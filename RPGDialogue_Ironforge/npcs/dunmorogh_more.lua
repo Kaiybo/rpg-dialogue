@@ -67,7 +67,7 @@ P:NPC {
     },
     troggs_dead = {
       big = true,
-      lines = { { id = "td_default", text = "Two, an' a third who'll never swing a pick again. The League wants me to reopen the quarry once it's clear, an' half my lads say they'll never go down there again, an' the other half want to go down wi' torches an' bury every trogg in the stone they stole." } },
+      lines = { { id = "td_default", text = "Two, an' a third who'll never swing a pick again. The League wants me to reopen the quarry once it's clear, an' some o' my lads say they'll never go down there again, while the rest want to go down wi' torches an' bury every trogg in the stone they stole." } },
       choices = {
         { text = "Clear it out and reopen it. The stone's yours.", next = "BACK", fx = { align = { honor = -1 }, learn = { "troggs" } } },
         { text = "Honor your dead first. The stone can wait.", next = "BACK", fx = { align = { honor = 1 }, learn = { "troggs" } } },
@@ -216,7 +216,7 @@ P:NPC {
   },
 
   topics = {
-    gnomeregan = { { id = "tp_gnomeregan", text = "Home, with the lifts and the gears and the lovely hum. I can still hear the hum when it's quiet, which is why I try not to let it be quiet." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Home, with the lifts and the gears and the lovely hum. I can still hear the hum when it's quiet, so I try never to let it be quiet." } },
     _none = { { id = "tp_none", text = "Oh, I'm afraid I don't know about that. I'm sorry, I'm only a refugee." } },
   },
 }

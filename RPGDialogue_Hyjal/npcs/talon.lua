@@ -32,7 +32,7 @@ P:NPC {
     { id = "n_bear", cat = "form", when = { form = "bear" },
       text = "Bear's a fine shape for holding a line, but it's terrible for keeping up with me. Change back when you want to talk." },
     { id = "n_cat", cat = "form", when = { form = "cat" },
-      text = "Ha! Somebody's been teaching you the cat's patience. Mind you don't stalk the owls; they're not prey up here." },
+      text = "Ha! Somebody's been teaching you the cat's patience. Just don't go stalking the owls; they're not prey up here." },
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
       text = "Whatever that darkness is that you've wrapped yourself in, keep it away from my birds. They've seen enough shadow on this mountain to last them a lifetime." },
     { id = "n_warlock", cat = "class", place = "before", when = { class = "WARLOCK" },
@@ -128,7 +128,7 @@ P:NPC {
 
     talon = {
       lines = {
-        { id = "ta_default", text = "We're the druids who learned the shape of the crow and the storm, and we take our gift from Aviana, the Mistress of Birds. Every winged thing on this mountain is ours to look after, which means I spend half my life chasing owls and the other half chasing the things that eat them." },
+        { id = "ta_default", text = "We're the druids who learned the shape of the crow and the storm, and we take our gift from Aviana, the Mistress of Birds. Every winged thing on this mountain is ours to look after, so my days go to chasing owls and my nights to chasing the things that eat them." },
       },
       choices = {
         { text = "I know little of Aviana.", next = "aviana" },
@@ -311,7 +311,7 @@ P:NPC {
     supply_goblins = {
       big = true,
       lines = {
-        { id = "sg_default", text = "I trust Azzleby to want his money, which is the same thing as trusting him, near enough. He's never cheated me, and he's never asked what the crates are for, and that's more than I can say for some druids." },
+        { id = "sg_default", text = "I trust Azzleby to want his money, which is the same thing as trusting him, near enough. He's never cheated me and never asked what the crates are for, and a few druids I could name have pried harder than that goblin ever has." },
       },
       choices = {
         { text = "An honest bargain is worth respecting.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -386,7 +386,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xl_default", text = "Because fel is what made this mountain sick. It rained down when the Legion came, and the brambles drank it, and the brambles are still killing things years later. You'll forgive me if I don't like what you carry." },
+        { id = "xl_default", text = "Because fel is what made this mountain sick. It rained down when the Legion came, the brambles drank it, and they are still killing things years later, so I flinch at what you carry." },
       },
       choices = {
         { text = "I use it so others don't have to.", next = "BACK", fx = { align = { light = 1 } } },

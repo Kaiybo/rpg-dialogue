@@ -71,7 +71,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Skinning knives, traps and arrowheads, when somebody brings me the iron. The wolves on the Goldshire road have taken more than one lamb this spring, so a trap that holds is worth its weight." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine set of teeth, but even teeth dull. Keep it fed and it'll do half the work my traps would." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine set of teeth, but even teeth dull. Keep it fed and it'll do the work of three of my traps." },
       },
       choices = {
         { text = "I'll take only what the wolves cost the farmers. No more.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -198,7 +198,7 @@ P:NPC {
     _none = { { id = "t_none", text = "Ask me about iron and I'll talk all day, but that I couldn't say." } },
     second_war = { { id = "tp_second_war", text = "My father forged pikes for Lord Lothar's men in the Second War, and he swore the orcs' axes were heavier but ours stayed sharp longer. I've believed it ever since, because I've never had cause to test it." } },
     scourge = { { id = "tp_scourge", text = "Lordaeron had the best smiths in the north, and their steel didn't save them, so don't tell me good armor is the whole answer. They say the dead up there don't feel a blade at all, and you can't put an edge on that." } },
-    stonemasons = { { id = "tp_stonemasons", text = "Good builders, every one of them, and they raised the city walls with their own hands. If the nobles had paid what they owed, I'd not be hearing about masked men on my road." } },
+    stonemasons = { { id = "tp_stonemasons", text = "Good builders, the lot, and they raised the city walls with their own hands. If the nobles had paid what they owed, I'd not be hearing about masked men on my road." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire camps by Goldshire I shoe more horses in a week than in a month, because half of Stormwind rides out to gawk at the strongman. I'd like to see him bend one of my shoes." } },
     magni = { { id = "tp_magni", text = "King Magni's smiths make the finest steel I've ever held, and I hate admitting it. Janos up at the Abbey never lets me forget it, either." } },
   },

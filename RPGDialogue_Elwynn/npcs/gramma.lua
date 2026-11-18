@@ -35,7 +35,7 @@ P:NPC {
   nodes = {
     op_alliance = {
       lines = {
-        { id = "op_alliance_a", text = "That's what I ask the fire every night, dear, and it never answers. The Alliance came asking for our men, and half the kingdoms that asked went home before the fighting was done. You tell me, then: was the Alliance worth our boys?" },
+        { id = "op_alliance_a", text = "That's what I ask the fire every night, dear, and it never answers. The Alliance came asking for our men, and Gilneas and Stromgarde went home before the fighting was done. You tell me, then: was the Alliance worth our boys?" },
       },
       choices = {
         { text = "It was. Without the Alliance, the Horde would have taken everything.", next = "op_alliance_1", fx = { opinion = { alliance = "worth_it" }, align = { order = 1 } } },
@@ -50,7 +50,7 @@ P:NPC {
       choices = { { text = "Something else, Gramma.", next = "BACK" } },
     },
     op_alliance_2 = {
-      lines = { { id = "op_alliance_r2", text = "That's what I say to the kettle when nobody's listening, dear. Mind you, say it in Goldshire and the Marshal will give you that look of his." } },
+      lines = { { id = "op_alliance_r2", text = "That's what I say to the kettle when nobody's listening, dear. Say it in Goldshire, though, and the Marshal will give you that look of his." } },
       choices = { { text = "Something else, Gramma.", next = "BACK" } },
     },
     op_alliance_3 = {

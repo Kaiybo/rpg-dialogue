@@ -536,7 +536,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Grand, for warriors make the best collectors, {class}, since ye're already up tae yer elbows in the dead an' might as well bring a bit back for old Smokey." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter, eh? Then ye'll know how tae skin a thing neatly, {class}, an' that's half the battle wi' Scourge bits, though the other half's no' bein' sick." },
+          text = "A hunter, eh? Then ye'll know how tae skin a thing neatly, {class}, an' wi' Scourge bits that's most o' the job, the rest bein' no' sick on yer boots." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'll not like what I do, {class}, cuttin' bits off the dead an' boilin' 'em, but the spirits can take it up wi' the Scourge, for they started it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Ye wouldnae be able tae keep a pot boilin' wi'out a fire, would ye, {class}? Me coal's run out again, an' the Dawn's carts are late." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Ghoul", min = 40 } }, text = "Ye've been busy, I can tell, for the soldiers keep bringin' me ghoul bits wi' yer name on 'em. Keep it up, an' I'll never run short o' toes again." },
@@ -579,7 +579,7 @@ P:NPC {
     },
     compound = {
       lines = {
-        { id = "co_default", text = "Keeps the rot from climbin' up a soldier's legs on the long patrols. It stinks worse than a ghoul, mind, which is why nobody thanks me for it." },
+        { id = "co_default", text = "Keeps the rot from climbin' up a soldier's legs on the long patrols. It stinks worse than a ghoul, mind, so nobody thanks me for it." },
       },
       choices = {
         { text = "It's foul work, but somebody has to do it.", next = "BACK", fx = { affinity = 2 } },
@@ -625,7 +625,7 @@ P:NPC {
   nodes = {
     xpt_gnome = {
       big = true,
-      lines = { { id = "xpt_gnome_default", text = "Not many, because most of us are still in Ironforge working out how to take Gnomeregan back, and I can't fault them for it. But the plague is a puzzle like any other, and I'd rather be solving it out here than staring at the gates of a city we lost." } },
+      lines = { { id = "xpt_gnome_default", text = "Not many, because most of us are still in Ironforge working out how to take Gnomeregan back, and I can't fault them for it. But the plague is a puzzle like any other, with variables and a solution somewhere, and I'd sooner be solving it out here than staring at the gates of a city we lost." } },
       choices = {
         { text = "Gnomes are needed wherever there's a puzzle. Go where you're useful.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Every gnome should be working to retake Gnomeregan first.", next = "BACK", fx = { align = { order = 1 } } },
@@ -681,7 +681,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "I honestly don't know, and that's what worries me! I test everything on the undead first, of course, but nobody's ever thought to ask a tree." } },
+      lines = { { id = "dq_default", text = "I really don't know, and that's what worries me! I test everything on the undead first, of course, but nobody's ever thought to ask a tree." } },
       choices = {
         { text = "The Scourge first. Worry about the trees later.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Ask the trees, and test carefully before you use it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -727,7 +727,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Oh, splendid, could you hold this for me? It's only a little holy-water condenser, {class}, and it's quite safe unless you shake it, so please don't shake it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! Do you know, {class}, I built a mechanical hound once, and it chased its own tail until it caught fire, so I've a great deal of respect for the real ones." },
+          text = "A hunter! Do you know, {class}, I built a mechanical hound once, and it chased its own tail until it caught fire, so I've tremendous respect for the real ones." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! You crept up on me, and I'm usually quite good at noticing things, {class}, so either you're very good or I've been staring at this gear too long." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've always wanted to ask one of you, {class}, whether lightning can be bottled, because I've a few designs that would be ever so much simpler if it could." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Oh, how wonderful, you're exactly what my Gambit needs, because it's meant to be holy and the Scholomance is meant to be unholy, and you're a little of both." },

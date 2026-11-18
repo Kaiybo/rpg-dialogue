@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_cloth", when = { questActive = TODO_QUEST("The Wrong Stuff") }, text = "Wood and ooze, wood and ooze! Have you got my wood and ooze yet, or are you just standing there?" },
     { id = "g_feathers", when = { questActive = TODO_QUEST("Trolls of a Feather") }, text = "Feathers! Troll feathers, from the sunken temple, and the right colours, mind. My pet won't stuff itself." },
     { id = "g_pet", when = { questDone = TODO_QUEST("Trolls of a Feather") }, text = "Shh, my pet is resting. It's always resting, because it's stuffed, but that's not the point." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and Niby didn't even notice, which tells you how much attention he pays to anything that isn't his own reflection." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and Niby didn't even notice, because Niby pays no attention to anything that isn't his own reflection." },
   },
 
   notice = {
@@ -113,7 +113,7 @@ P:NPC {
     build = {
       lines = {
         { id = "b_default", text = "A proper demon's pet. Felcloth for the skin, because it burns lovely, rotten Irontree wood for the eyes, ooze essence so it smells right, and feathers to stuff it. It'll be the finest pet in Felwood, and it'll be mine." },
-        { id = "b_done", when = { questDone = TODO_QUEST("Trolls of a Feather") }, text = "It's finished, thanks to you, and it's beautiful. It doesn't do anything, but it sits where I put it, which is more than I can say for anybody else around here." },
+        { id = "b_done", when = { questDone = TODO_QUEST("Trolls of a Feather") }, text = "It's finished, thanks to you, and it's beautiful. It doesn't do anything, but it sits where I put it, and nobody else around here ever does." },
       },
       choices = {
         { text = "Why does a pet need to smell like a demon?", next = "build_smell" },

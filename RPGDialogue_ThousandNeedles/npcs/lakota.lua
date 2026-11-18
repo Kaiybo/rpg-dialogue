@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_grim_redeem", when = { opinion = { grimtotem = "redeemable" } }, text = "They say you think the Grimtotem can be redeemed. Arnak killed my brother in front of me, so forgive me if I don't want to hear it today." },
+    { id = "o_grim_redeem", when = { opinion = { grimtotem = "redeemable" } }, text = "They say you think the Grimtotem can be redeemed. Arnak killed my brother in front of me, so I do not want to hear it today." },
     { id = "g_whisper", text = "Quietly, please. The Grimtotem guards come by when they hear voices." },
     { id = "g_active", when = { questActive = TODO_QUEST("Free At Last") }, text = "Stay close to me. If we stop, they'll surround us." },
     { id = "g_done", when = { questDone = TODO_QUEST("Free At Last") }, text = "You came back up here? After everything? You're braver than I am, and I've been braver than I ever wanted to be." },

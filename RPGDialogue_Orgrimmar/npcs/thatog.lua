@@ -88,7 +88,7 @@ P:NPC {
     },
     migi_friends = {
       lines = {
-        { id = "mf_default", text = "Mogra, who bosses the rest of them, and Puk, who lets her, and Thra and Brog besides. Thra's the one with the ideas, which is why I worry about Thra most of all." },
+        { id = "mf_default", text = "Mogra, who bosses the rest of them, and Puk, who lets her, and Thra and Brog besides. Thra's the one with the ideas, so Thra's the one I lie awake over." },
       },
       choices = {
         { text = "They sound like a war band already.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -201,7 +201,7 @@ P:NPC {
     },
     game_hold = {
       lines = {
-        { id = "gh_default", text = "Under his walls, yes, and the guards there know every one of them by name. They'd tell me if anything happened to him, and that's the only reason I let him go at all." },
+        { id = "gh_default", text = "Under his walls, yes, and the guards there know all those children by name. They'd tell me if anything happened to him, and that's the only reason I let him go at all." },
       },
       choices = {
         { text = "I'd like to see that game.", next = "BACK", fx = { trait = { curious = 1 } } },

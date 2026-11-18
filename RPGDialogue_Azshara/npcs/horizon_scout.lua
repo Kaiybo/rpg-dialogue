@@ -107,7 +107,7 @@ P:NPC {
       lines = { { id = "wa_default", text = "That's what I hoped you'd tell me. Roland said he could hold it 'as long as the gears in his head keep turning', which isn't the sort of answer a sailor finds comforting." } },
       choices = {
         { text = "A strong mage could hold it for weeks.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "Not much longer, honestly.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Not much longer, I fear.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
   },

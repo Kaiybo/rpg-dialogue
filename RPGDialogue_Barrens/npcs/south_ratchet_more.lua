@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_keg", when = { questDone = TODO_QUEST("Chen's Empty Keg") },
           text = "This was one of Chen Stormstout's own kegs, and I haven't seen or heard about him in a kodo's age. Would you like a taste of his namesake? The stormstout's a mighty brew, and the kick is worth the trouble." },
         { id = "h_brewed", when = { questDone = TODO_QUEST("Chen's Empty Keg (2)") },
-          text = "I never thought I'd make another batch of that stuff, and you've stirred up a great deal of nostalgia in me. The memories warm my stomach nearly as much as the brew does." },
+          text = "I never thought I'd make another batch of that stuff, and you've stirred up old memories in me. The memories warm my stomach nearly as much as the brew does." },
       },
       again = {
         { id = "h_again", text = "Another question? Have another sip while you think of it." },

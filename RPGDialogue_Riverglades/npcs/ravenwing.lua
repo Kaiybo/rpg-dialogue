@@ -23,9 +23,9 @@ P:NPC {
 
   notice = {
     { id = "n_warlock", cat = "fel", when = { class = "WARLOCK" },
-      text = "You traffic with things from outside this world. So do the cultists up at the Shroud, and I've watched where it led them, so forgive me if I sit with my back to a wall." },
+      text = "You traffic with things from outside this world. So do the cultists up at the Shroud, and I've watched where it led them, so I'll sit with my back to a wall while we talk." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
-      text = "You watch the doors when you come into a room. So do I, and so does every cultist I've ever questioned, which is why I notice." },
+      text = "You watch the doors when you come into a room. So do I, and so does every cultist I've ever questioned, and that's how I learned to notice." },
   },
 
   start = "hello",
@@ -54,14 +54,14 @@ P:NPC {
     },
 
     cultists = {
-      lines = { { id = "cu_default", text = "Very little that's useful and a great deal that's frightening. They talk about the end of the world as if it were a harvest festival, and they look forward to it." } },
+      lines = { { id = "cu_default", text = "Very little that's useful and plenty that's frightening. They talk about the end of the world as if it were a harvest festival, and they look forward to it." } },
       choices = {
         { text = "You don't seem to believe any of it.", next = "cultists_believe" },
         { text = "Something else.", next = "BACK", fx = { learn = { "twilights_hammer" } } },
       },
     },
     cultists_believe = {
-      lines = { { id = "cb_default", text = "I believe they believe it, which is dangerous enough. Some of them were farmers from Sunnyglade's country once, and something turned them, and I'd give a great deal to know what." } },
+      lines = { { id = "cb_default", text = "I believe they believe it, which is dangerous enough. Some of them were farmers from Sunnyglade's country once, and something turned them, and I mean to find out what." } },
       choices = {
         { text = "Can they be turned back?", next = "cultists_back" },
         { text = "Something else.", next = "BACK" },

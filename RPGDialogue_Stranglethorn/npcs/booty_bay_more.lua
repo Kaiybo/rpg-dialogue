@@ -60,7 +60,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "They dislike anyone who startles them, and rogues startle them more than most, since you never make a sound until you're right beside them. Walk up loud and slow, and they'll carry you anywhere you like, even over a pirate harbor." } },
+      lines = { { id = "xrogue_default", text = "They dislike anyone who startles them, and rogues startle them worst of all, since you never make a sound until you're right beside them. Walk up loud and slow, and they'll carry you anywhere you like, even over a pirate harbor." } },
       choices = {
         { text = "I'll walk up loud and slow, then. Respect the beasts.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A gryphon should learn not to startle.", next = "BACK", fx = { align = { order = -1 } } },
@@ -87,7 +87,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Not much, because the goblins don't care whose bird is whose as long as the fees are paid, and I'd rather pay goblins than fight Bloodsail. Gringer keeps his wind riders on the same ledge, and we get along fine, mostly because our beasts would kill each other if we didn't." } },
+      lines = { { id = "xapala_default", text = "Not much, because the goblins don't care whose bird is whose as long as the fees are paid, and I'd sooner pay a goblin than fight a Bloodsail, aye. Gringer keeps his wind riders on the same ledge, and we get along fine, mostly because our beasts would kill each other if we didn't." } },
       choices = {
         { text = "Deal fairly with Gringer. The truce here deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Be friendly with Gringer, and mind what he overhears.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -125,7 +125,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! You'll be wanting to teleport home, I suppose, but the gryphons are a lot more fun, and they don't leave you dizzy for an hour after." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Believe it or not, gryphons like a heavy rider, because the weight steadies them in the sea wind, so you'll have a calm flight north." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, I'd know the look anywhere, because you're eyeing my gryphons the way I eye a fine animal and not the way a passenger does." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid on my ledge! My gryphons like you, which is more than I can say for most travelers, so don't ruin it by turning into anything they'd want to eat." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid on my ledge! My gryphons like you, and they've nipped three travelers this week alone, so don't ruin it by turning into anything they'd want to eat." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! My gryphons don't care much for pirates, but they'll sit still for you, which is more than they do for me." },
       },
       again = {
@@ -369,7 +369,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I learned the beasts at Orgrimmar and came south for the money, and the money is why I stay, pal, same as everybody." } },
     advice = { { id = "tp_ad", text = "Never stand behind a wind rider, not even once, not even for a moment, not even for gold." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay pays me better than Orgrimmar ever did, and I've got gryphons for neighbors, which takes some getting used to. They're decent beasts, though their masters talk too much." } },
-    thrall = { { id = "tp_thrall", text = "The Warchief keeps the Horde strong, and he keeps it fed, and that's more than I can say for any other chief I've followed. I'd fly anywhere he sent me." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief keeps the Horde strong, and he keeps it fed, and no chief I followed before the camps ever did both. I'd fly anywhere he sent me." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the hottest place a wind rider can land without catching fire, and the beasts hate every minute of it. I don't blame them." } },
     centaur = { { id = "tp_centaur", text = "The centaur in the Barrens shoot at wind riders for sport, pal. I lost a good beast to a Kolkar arrow once, and I haven't forgiven them." } },
     _none = { { id = "tp_none", text = "I fly beasts, pal, I don't answer riddles. Try the tavern; Krazek sells riddles." } },
@@ -421,8 +421,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Hides, tusks, a stuffed raptor head nobody's come back for in two years, and the claws of a tiger I'm told was enormous. Every one of them has a fee, and every fee has a date, and I remember every date." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hides, tusks, a stuffed raptor head nobody's come back for in two years, and the claws of a tiger I'm told was enormous. Every one of them has a fee, and every fee has a date, and I remember every date. I'm afraid {pet} can't be deposited, before you ask, since the last live beast I took in ate a strongbox and most of what was in it." },
+        { id = "xhuntcl_default", text = "Hides, tusks, a stuffed raptor head nobody's come back for in two years, and the claws of a tiger I'm told was enormous. Every piece back there has a fee, and every fee has a date, and I remember every date." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hides, tusks, a stuffed raptor head nobody's come back for in two years, and the claws of a tiger I'm told was enormous. Every piece back there has a fee, and every fee has a date, and I remember every date. I'm afraid {pet} can't be deposited, before you ask, since the last live beast I took in ate a strongbox and most of what was in it." },
       },
       choices = {
         { text = "I keep trophies to honor the beasts I've taken.", next = "BACK", fx = { align = { light = 1 } } },
@@ -450,7 +450,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Twice, and both times my wards caught them before they got past the second door. The Cartel spared no expense on enchantments, which is why your gold is safer here than anywhere else in Stranglethorn, and I'll be happy to prove it." } },
+      lines = { { id = "xmage_default", text = "Twice, and both times my wards caught them before they got past the second door. The Cartel spared no expense on enchantments, so your gold is safer here than anywhere else in Stranglethorn, and I'll be happy to prove it." } },
       choices = {
         { text = "Then I'll trust your vault with my gold.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Every ward has a weakness. I'll keep my gold close.", next = "BACK", fx = { align = { order = -1 } } },
@@ -468,7 +468,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Weigh on me? Only when I'm carrying it, friend, and I hire Bruisers for that, at a very reasonable rate. Gold is the one thing in Booty Bay that never lies to you, which is more than I can say for the people who deposit it." } },
+      lines = { { id = "xapriest_default", text = "Weigh on me? Only when I'm carrying it, friend, and I hire Bruisers for that, at a very reasonable rate. Gold is the one thing in Booty Bay that never lies to you, friend, and it never asks me for a loan either." } },
       choices = {
         { text = "Gold can't love you back, Viznik. Spend some on others.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Gold doesn't lie or betray. That's wiser than most faith.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -594,7 +594,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Jutak trades in blades, and somehow every one of them comes with a story about a famous owner. I believed perhaps a third of them, and I suspect Jutak would think that generous.",
+    first = "Jutak trades in blades, and somehow each blade on his rack comes with a story about a famous owner. I believed perhaps a third of them, and I suspect Jutak would think that generous.",
     third = "{name} browsed Jutak's blades in Booty Bay, each one sold with a story.",
   },
 
@@ -661,7 +661,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The sailor swore it did, and he swore it on his mother, though I later learned he swore everything on his mother, so make of that what you will. Every blade has a story, friend, and the price depends on how much of the story you choose to believe." } },
       choices = {
-        { text = "Sell it honestly, Jutak, story and doubts together.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sell it straight, Jutak, story and doubts together.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A good story sells a blade. I'd do the same.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -782,7 +782,7 @@ P:NPC {
 
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
-      text = "You've a smith's forearms and a smith's burns. Look all you like; you'll know quality when you see it, which is more than most of my customers can say." },
+      text = "You've a smith's forearms and a smith's burns. Look all you like; you'll know quality when you see it, and most of my customers couldn't tell a good edge from a butter knife." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your gear's falling to pieces, and the jungle won't wait for you to mend it. Get to a smith before you leave the cove." },
   },
@@ -793,7 +793,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "The best, so far, because you're new and you're proud and you want everyone to see the Light still answers you. Walk out of here swinging one of my hammers and every sailor on the pier will know it, and that's good for both of us." } },
       choices = {
-        { text = "I'll carry it honestly, Zarena, not for show.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll carry it to use, Zarena, not for show.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let them see. A little fame won't hurt.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -857,7 +857,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "I care that they don't break, which is more than most smiths in this town can say. Where they go after they leave my counter is between the buyer and their conscience, and I've found mine sleeps better when I don't ask." } },
+      lines = { { id = "xapriest_default", text = "I care that they don't break, and that's a rarer promise on this boardwalk than it ought to be. Where they go after they leave my counter is between the buyer and their conscience, and I've found mine sleeps better when I don't ask." } },
       choices = {
         { text = "Then ask anyway. A conscience works better awake.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A smith sells steel, not judgment. You're right not to ask.", next = "BACK", fx = { align = { light = -1 } } },
@@ -944,7 +944,7 @@ P:NPC {
     },
     x_orc = {
       lines = {
-        { id = "xo_default", text = "Heavier, I'll grant you, and the Orgrimmar smiths know how to make a blade that frightens people. Mine are made to cut instead, so pick one up and see if you can tell me otherwise." },
+        { id = "xo_default", text = "Heavier, certainly, and the Orgrimmar smiths know how to make a blade that frightens people. Mine are made to cut instead, so pick one up and see if you can tell me otherwise." },
       },
       choices = {
         { text = "Fine. Show me.", next = "BUSINESS" },
@@ -998,7 +998,7 @@ P:NPC {
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, because a big soldier in a pirate hat gets a laugh in every tavern on the coast and a wide berth from the Bruisers. Half the swagger on these piers comes out of my shop at four silver a hat, and the other half comes out of a rum barrel." } },
+      lines = { { id = "xwarcl_default", text = "Plenty, pal, because a big soldier in a pirate hat gets a laugh in every tavern on the coast and a wide berth from the Bruisers. Half the swagger on these piers comes out of my shop at four silver a hat, and the other half comes out of a rum barrel." } },
       choices = {
         { text = "A warrior's reputation should be earned, not bought in a hat.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If a hat makes them fear me, I'll wear it gladly.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1008,8 +1008,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Because every pirate wants a parrot and nobody wants to feed one, and you hunters already know how much work a real beast is. I sell more stuffed parrots than anything else in the shop, at a markup you wouldn't believe, which tells you something about pirates." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because every pirate wants a parrot and nobody wants to feed one, and you hunters already know how much work a real beast is. I sell more stuffed parrots than anything else in the shop, which tells you something about pirates. Not that {pet} needs a rival, mind, and I can tell from the way it's eyeing my parrots that it doesn't approve." },
+        { id = "xhuntcl_default", text = "Because every pirate wants a parrot and nobody wants to feed one, and you hunters already know how much work a real beast is. I sell more stuffed parrots than anything else in the shop, at a markup you wouldn't believe, and they come back for a second one when the first gets sat on." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because every pirate wants a parrot and nobody wants to feed one, and you hunters already know how much work a real beast is. I sell more stuffed parrots than anything else in the shop, mostly because pirates keep sitting on 'em. Not that {pet} needs a rival, mind, and I can tell from the way it's eyeing my parrots that it doesn't approve." },
       },
       choices = {
         { text = "A beast is a partner, not a costume piece.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1028,7 +1028,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "More than you'd think, because a troll shaman in a captain's hat is the scariest thing on the pier. One bought my best tricorn last month and wore it while calling lightning down on a Bloodsail longboat, and I've never been prouder." } },
+      lines = { { id = "xhsham_default", text = "Oh, they're some of my best customers, pal, because a troll shaman in a captain's hat is the scariest thing on the pier. One bought my best tricorn last month and wore it while calling lightning down on a Bloodsail longboat, and I've never been prouder." } },
       choices = {
         { text = "A shaman should look like a shaman and keep the old ways.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Why not? The elements won't mind a good hat.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1046,7 +1046,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "It repeats everything, including the curses the Bloodsail taught it, so I'd keep it away from anyone with delicate ears. It's never once cast a spell, mind you, but it sounds very impressive when it tries." } },
+      lines = { { id = "xmage_default", text = "It repeats everything, including the curses the Bloodsail taught it, so I'd keep it away from anyone with delicate ears. It's never once cast a spell, but it sounds very impressive when it tries." } },
       choices = {
         { text = "Then I'll take the parrot. It sounds like fun.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "A parrot shouting curses is no company for a mage.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1064,7 +1064,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Because nobody's watching you in Booty Bay, friend, or rather everybody is and nobody cares, which comes to the same thing. Half my customers are serious folk from Stormwind and Orgrimmar who want one evening of pretending to be a buccaneer, and the other half are buccaneers who lost their hats, and both halves pay full price." } },
+      lines = { { id = "xapala_default", text = "Because nobody's watching you in Booty Bay, friend, or rather everybody is and nobody cares, which comes to the same thing. I get serious folk from Stormwind and Orgrimmar who want one evening of pretending to be a buccaneer, and buccaneers who lost their hats, and both kinds pay full price." } },
       choices = {
         { text = "A knight should look like a knight, Narkk.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "One evening as a pirate couldn't hurt. Show me the hats.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -1073,7 +1073,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Have you ever thought about an eyepatch, friend? Nobody expects a holy knight in an eyepatch, and that's half the fun of a costume." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Have you ever thought about an eyepatch, friend? Nobody expects a holy knight in an eyepatch, and surprise is the whole point of a costume." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've got a hat with a feather that'd make your totems jealous, pal, and it's priced to sell before the feather moults." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Even a holy sort needs a good hat in this sun, friend, and mine come with a feather included, which the hat shops in Ratchet charge extra for." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! I've got an eyepatch that'd fit your imp, friend, and nobody else in the South Seas can say that." },
@@ -1139,7 +1139,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I tried being a real pirate once. The costume was the best part and the wages were terrible, so I kept the costume and let the rest go." } },
     advice = { { id = "tp_ad", text = "Every pirate needs a good hat, pal. A hat says you've plundered, even if all you've plundered is a pie." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's full of real pirates, pal, and every one of them needs a proper hat. I sell the hats, and the tourists think they're getting the real thing." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's full of real pirates, pal, and every last one needs a proper hat. I sell the hats, and the tourists think they're getting the real thing." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail wear red bandanas, and I sell red bandanas, and the Blackwater boys get very nervous about it. I've told them it's just a costume, but they don't laugh." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire folk buy my costumes by the dozen, pal, because nobody dresses up better than carnival people. They pay well, and they haggle terribly." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I sold a pirate hat to a fighter going into the Arena once, and he won the chest wearing it. He said it was lucky, and I've doubled the price since." } },
@@ -1247,7 +1247,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Plenty of water, salt fish and something sweet, because plate sweats the life right out of you and the salt is what you lose first. I've watched knights faint on the pier from marching about in this sun, and every one of them told me afterward they'd skipped lunch." } },
+      lines = { { id = "xapala_default", text = "Plenty of water, salt fish and something sweet, because plate sweats the life right out of you and the salt is what you lose first. I've watched knights faint on the pier from marching about in this sun, and each poor sap told me afterward he'd skipped lunch." } },
       choices = {
         { text = "Then I'll eat on schedule, like a good soldier.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I eat when I'm hungry, schedule or no schedule.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1329,7 +1329,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Booty Bay born, Booty Bay fed, pal. I've never been hungry a day in my life, and I'd like you to say the same, for a very reasonable price." } },
     advice = { { id = "tp_ad", text = "Never drink the water on a ship that's been out more than a week, chum. Drink the rum instead, which I happen to sell." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the best-fed town on the coast, pal, and I like to think I've had a hand in that. Nobody goes hungry here, unless they're broke." } },
-    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The fighters coming back from the Arena eat like wolves, pal, and they pay in loot instead of coin half the time. I've got quite a collection of daggers now." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The fighters coming back from the Arena eat like wolves, pal, and they pay in loot instead of coin more often than not. I've got quite a collection of daggers now." } },
     theramore = { { id = "tp_theramore", text = "Theramore cooking is all boiled meat and bread, pal, the Kul Tiran way, and I'd like to send them a few of my recipes. The marsh has fine crabs going to waste." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire food is overpriced and undercooked, pal, and I've told them so. They still sell more than I do when they're in town, which I'm trying not to take personally." } },
     _none = { { id = "tp_none", text = "Can't eat it, can't drink it, can't sell it, so I can't help you with it, pal." } },
@@ -1371,8 +1371,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Silk lasts longer than you'd think, wool rots and linen tears on the first thornbush, which is why the clever hunters line their cloaks with mageweave and pay me the difference. Not that many hunters are clever about cloth, I'll say that much." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Silk lasts longer than you'd think, wool rots and linen tears on the first thornbush, which is why the clever hunters line their cloaks with mageweave. Not that many hunters are clever about cloth, I'll say that much. And your {pet}'s been snagging that cloak too, I'd wager, which nobody ever thinks about when they buy one." },
+        { id = "xhuntcl_default", text = "Silk outlasts anything else in this damp, pal, while wool rots and linen tears on the first thornbush, so the clever hunters line their cloaks with mageweave and pay me the difference. Not that many hunters are clever about cloth, I'll say that much." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Silk outlasts anything else in this damp, pal, while wool rots and linen tears on the first thornbush, so the clever hunters line their cloaks with mageweave. Not that many hunters are clever about cloth, I'll say that much. And your {pet}'s been snagging that cloak too, I'd wager, which nobody ever thinks about when they buy one." },
       },
       choices = {
         { text = "I mend my gear every night. Habit keeps you alive.", next = "BACK", fx = { align = { order = 1 } } },

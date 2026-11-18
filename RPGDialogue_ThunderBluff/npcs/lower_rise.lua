@@ -19,7 +19,7 @@ P:NPC {
   greetings = {
     { id = "o_cairne_soft", when = { opinion = { cairne = "soft" } }, text = "I hear you've been telling people the Chieftain has grown soft. I write down who says that, you know, and I write down who they say it to." },
     { id = "o_sylv_trust", when = { gossip = { topic = "sylvanas", stance = "trust" } }, text = "They tell me you'd trust the Dark Lady with the Horde. I'd very much like to know what you've seen of her that I haven't." },
-    { id = "g_hi", text = "Sit if you like, but keep your voice low. Half the mesa listens for a living." },
+    { id = "g_hi", text = "Sit if you like, but keep your voice low. Everyone on this mesa listens for a living." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good, I had a question I meant to ask someone who travels." },
     { id = "g_comp", when = { questActive = TODO_QUEST("Compendium of the Fallen") }, text = "The Compendium is in the monastery's library wing, if the Scarlet zealots haven't burned it for being too honest." },
     { id = "g_comp_done", when = { questDone = TODO_QUEST("Compendium of the Fallen") }, text = "I've read the Compendium twice now, and I sleep worse for it, which is how I know it was worth having." },
@@ -29,7 +29,7 @@ P:NPC {
 
   notice = {
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
-      text = "One of the Dark Lady's people, here at my table. You'll forgive me if I keep my notes face down while we talk." },
+      text = "One of the Dark Lady's people, here at my table. I'll keep my notes face down while we talk, if it's all the same to you." },
     { id = "n_sm", cat = "dungeon", when = { cleared = "Scarlet Monastery" },
       text = "You've walked the halls of the Scarlet Monastery and come back out, which the zealots don't usually allow. Did you see their library?" },
     { id = "n_uld", cat = "lore", when = { cleared = "Uldaman" },
@@ -60,7 +60,7 @@ P:NPC {
     },
     op_magatha_r2 = {
       lines = {
-        { id = "op_magatha_r2", text = "Clever, yes, and she lets you think she's being honest with you. That's the oldest trick on Elder Rise, and I'd rather you didn't fall for it." },
+        { id = "op_magatha_r2", text = "Clever, yes, and she lets you think she's being honest with you. That's the oldest trick on Elder Rise, and I'd hate to see you fall for it." },
       },
       choices = {
         { text = "Something else, sage.", next = "BACK" },
@@ -182,7 +182,7 @@ P:NPC {
       },
     },
     discs_titans = {
-      lines = { { id = "dt_default", text = "Not by that name. We say the Earth Mother shaped the land and An'she and Mu'sha watch it, and the elders don't care for anyone suggesting builders came first. I care a great deal, because a story that disagrees with ours is the one most worth hearing." } },
+      lines = { { id = "dt_default", text = "Not by that name. We say the Earth Mother shaped the land and An'she and Mu'sha watch it, and the elders don't care for anyone suggesting builders came first. I care very much, because a story that disagrees with ours is the one most worth hearing." } },
       choices = {
         { text = "That must shake your faith.", next = "discs_faith" },
         { text = "Something else.", next = "BACK" },
@@ -226,7 +226,7 @@ P:NPC {
       },
     },
     sage_council = {
-      lines = { { id = "sc_default", text = "The council distrusts anything it didn't think of first, and I think of a great deal. I don't mind, because the High Chieftain still sends for me, and the day he stops I'll know I've grown careless." } },
+      lines = { { id = "sc_default", text = "The council distrusts anything it didn't think of first, and I think of so much. I don't mind, because the High Chieftain still sends for me, and the day he stops I'll know I've grown careless." } },
       choices = {
         { text = "Who does the council worry you about most?", next = "op_magatha" },
         { text = "Something else, sage.", next = "BACK" },
@@ -256,13 +256,13 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know a little about a great many things, and a great deal about the people who'd rather I didn't. Pick one." } },
+    knows = { { id = "tp_knows", text = "I know a little about a great many things, and rather more about the people who wish I didn't. Pick one." } },
     background = { { id = "tp_bg", text = "I was raised by a grandmother who asked why at every campfire, and I never learned to stop. The High Chieftain finds it useful, and the council finds it tiresome." } },
     advice = { { id = "tp_ad", text = "When someone tells you a story that flatters them, ask who else was there. Then go and find that person." } },
     scarlet_crusade = { { id = "tp_sc", text = "Zealots, cruel ones, but they keep very good libraries, and I'll take my knowledge from wherever it's shelved." } },
     grimtotem = { { id = "tp_gt", text = "Magatha's people. They smile on Elder Rise and they carry spears in Stonetalon, and I'd like to know which face is the real one." } },
     uldaman = { { id = "tp_ul", text = "A dig in the Badlands with halls older than any dwarf. Bring me anything you find written there, and I'll find someone to read it." } },
-    _none = { { id = "tp_none", text = "I haven't anything on that yet, which annoys me more than you'd think. Ask me again after you've learned something about it, and bring the whole story, not just the wind of it." } },
+    _none = { { id = "tp_none", text = "I haven't anything on that yet, and it nags at me like a burr under a saddle. Ask me again after you've learned something about it, and bring the whole story, not just the wind of it." } },
   },
 }
 
@@ -385,7 +385,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Hm. Another young one who'll tell me to let go of the past, as if the land forgets." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Well, you're still listening, which is more than most." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Well, you're still listening, and the young rarely sit still for an old one's stories." },
     { id = "g_active", when = { questActive = TODO_QUEST("A Vengeful Fate") }, text = "Charlga's heart, {class}. Bring it here, and I'll die easier than I've lived." },
     { id = "g_done", when = { questDone = TODO_QUEST("A Vengeful Fate") }, text = "The crone is dead, and I slept the whole night through for the first time in years. Sit down, if you like." },
   },

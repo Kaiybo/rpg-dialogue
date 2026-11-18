@@ -356,7 +356,7 @@ P:NPC {
     },
     xpriest = {
       big = true,
-      lines = { { id = "xpriest_default", text = "I honestly don't know, and it's driving me to distraction, because I've written down every reaction it has and prayer is the only thing that makes it grind its teeth, if it has teeth. My guess is that anything with a will of its own unsettles it, since it's had nothing but rock and my shackles for company." } },
+      lines = { { id = "xpriest_default", text = "I don't know, and it's driving me to distraction, because I've written down every reaction it has and prayer is the only thing that makes it grind its teeth, if it has teeth. My guess is that anything with a will of its own unsettles it, since it's had nothing but rock and my shackles for company." } },
       choices = {
         { text = "Keep it bound, Lotwil. Rock that thinks is dangerous.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Perhaps it simply wants to be free, Lotwil.", next = "BACK", fx = { align = { order = -1 } } },
@@ -390,7 +390,7 @@ P:NPC {
         { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman" },
           text = "I'm told you've been to the very bottom of Uldaman and survived the stone keepers! I've a dozen questions about how they move, and Lucien says I'm only allowed to ask you three." },
         { id = "h_default", key = true,
-          text = "Lotwil Veriatus, late of Gnomeregan and founding member of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences, and that's the short name. I study the elements, rock mostly, since there's a great deal of it here and none of it is radioactive, which after home is a pleasant change." },
+          text = "Lotwil Veriatus, late of Gnomeregan and founding member of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences, and that's the short name. I study the elements, rock mostly, since there are several million tons of it here and none of it is radioactive, which after home is a pleasant change." },
         { id = "h_rock", tags = { "news" }, when = { questActive = TODO_QUEST("Study of the Elements: Rock") },
           text = "Rock elementals! They wander the Dustbowl like they own it, and perhaps they do. Bring me what's left of a few, would you, for science?" },
         { id = "h_hard", when = { questActive = TODO_QUEST("This Is Going to Be Hard") },
@@ -493,7 +493,7 @@ P:NPC {
       lines = {
         { id = "xmg_default", text = "Do you! Then you'll appreciate that my method is to bind an elemental in shackles of my own design and examine it, which the Kirin Tor considers terribly reckless. Would you like to see the shackles? They're mostly rock." },
         { id = "xmg_lock", when = { class = "WARLOCK" },
-          text = "Do you! Well, binding is binding, whether it's a demon or a lump of animate rock, and I suspect we'd have a great deal to argue about. My shackles are sturdier than any circle you'll draw, I'll wager." },
+          text = "Do you! Well, binding is binding, whether it's a demon or a lump of animate rock, and I suspect we'd argue about it for hours. My shackles are sturdier than any circle you'll draw, I'll wager." },
       },
       choices = {
         { text = "Binding things is how we learn them.", next = "BACK", fx = { align = { order = 1 }, trait = { curious = 1 } } },

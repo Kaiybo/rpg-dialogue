@@ -14,7 +14,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ishnu-alah, traveller. The Circle's wares are here for those who have earned them." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Let me see if the Circle thinks better of you than it did last time." },
-    { id = "g_away", when = { away = 14 }, text = "Welcome back after {away}, traveller. I'll need to look again at what the Circle thinks of you, because a great deal can change in that time." },
+    { id = "g_away", when = { away = 14 }, text = "Welcome back after {away}, traveller. I'll need to look again at what the Circle thinks of you, because opinions shift in this grove, slowly but surely." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word in the village is that you've helped Nighthaven, and the Circle notices who comes to mend, so I've made a note of it." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I've heard you were caught in an untruth in Nighthaven, and the Circle notices that as surely as it notices good work. Keep it in mind when you come to trade." },
   },
@@ -43,7 +43,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The same way anyone does, by helping the land rather than taking from it. The Timbermaw tunnels, the furbolgs of Felwood, the corruption in the woods, all of it needs mending, and a paladin who spends a season on that work will find my shelves much more generous." } },
       choices = {
-        { text = "I'll earn it honestly, through good work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll earn it the right way, through good work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Trust ought to be given, not traded for chores.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -182,7 +182,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I keep the Circle's stores, and I keep them honestly." } },
+    background = { { id = "tp_bg", text = "I keep the Circle's stores, and I keep every count true." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw trade with the Circle now and then, mostly hides for honey. They drive a hard bargain, and they never cheat." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The druids talk about the Dream as though it's another country. I keep the stores here in this one, and that's enough for me." } },
     everlook = { { id = "tp_everlook", text = "Everlook's goblins sell us winter supplies at a price I'd call robbery if they weren't the only ones who'd make the trip." } },

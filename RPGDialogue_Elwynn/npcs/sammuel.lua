@@ -161,7 +161,7 @@ P:NPC {
           text = "You've walked some way from it already. The road back is shorter than you think." },
       },
       choices = {
-        { text = "That's a great deal to ask of anyone.", next = "light_ask", fx = { trait = { skeptical = 1 } } },
+        { text = "That's a lot to ask of anyone.", next = "light_ask", fx = { trait = { skeptical = 1 } } },
         { text = "I can do that.", next = "BACK", fx = { align = { light = 2 }, trait = { pious = 1 }, affinity = 1 } },
         { text = "Mercy that costs me is a price I won't pay.", next = "BACK", fx = { align = { light = -2 } } },
       },

@@ -198,7 +198,7 @@ P:NPC {
       },
     },
     beasts = {
-      lines = { { id = "b_default", text = "Badly, at first. They smell the grave on us and shy away, but after a few days of being fed by the same hands they stop caring, which is more than I can say for most people." } },
+      lines = { { id = "b_default", text = "Badly, at first. They smell the grave on us and shy away, but after a few days of being fed by the same hands they stop caring, and the living in Brill never have." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     horses = {

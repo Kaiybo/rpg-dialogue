@@ -66,7 +66,7 @@ P:NPC {
 
     forest = {
       lines = {
-        { id = "f_default", text = "Many things at once, which is why it's so hard to mend. The plague passed through the roots on its way to Lordaeron, and Arugal's wolves tear at everything that still runs, and the lake water tastes of rot and old magic." },
+        { id = "f_default", text = "Many things at once, so it is slow to mend. The plague passed through the roots on its way to Lordaeron, and Arugal's wolves tear at everything that still runs, and the lake water tastes of rot and old magic." },
         { id = "f_worgen", when = { topicKnown = "worgen" }, text = "You've heard of the worgen, then, so you know half of it already. The plague passed through the roots, and the wolves tear at everything that still runs, and the lake tastes of rot and old magic besides." },
       },
       choices = {
@@ -140,7 +140,7 @@ P:NPC {
     },
 
     neighbours = {
-      lines = { { id = "n_default", text = "Better than I feared and worse than I hoped, which I'm told is how most guests are treated. The High Executor gives me a corner and asks me nothing, and the apothecaries ask me a great deal, mostly about which mushrooms are poisonous." } },
+      lines = { { id = "n_default", text = "Better than I feared and worse than I hoped, which I'm told is how most guests are treated. The High Executor gives me a corner and asks me nothing, and the apothecaries ask me questions all day, mostly about which mushrooms are poisonous." } },
       choices = {
         { text = "Why do the apothecaries want to know that?", next = "neigh_apoth" },
         { text = "And the others at the Sepulcher?", next = "neigh_others" },
@@ -180,7 +180,7 @@ P:NPC {
     },
     druid_stance = {
       big = true,
-      lines = { { id = "ds_default", text = "That's kind, and I'll hold you to it. When you walk through the pines, put your hand on the bark of a living one and let it feel a living hand, because that does more than you'd think." } },
+      lines = { { id = "ds_default", text = "That's kind, and I'll hold you to it. When you walk through the pines, put your hand on the bark of a living one and let it feel a living hand; the Earth Mother hears that, even here." } },
       choices = {
         { text = "Balance needs patience. I'll do it gladly.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "I'd rather burn the rot out and let it regrow.", next = "BACK", fx = { align = { order = -1 } } },
@@ -210,7 +210,7 @@ P:NPC {
     },
     worgen = { { id = "tp_worgen", text = "They hunt like wolves but hate like men, and wolves never hate. Whatever Arugal called up, it isn't of the wild." } },
     wailing_caverns = { { id = "tp_caverns", text = "Tonga's worry, and now mine. Druids went there to dream and the land around the caves began to change, and I'm not certain the dreamers are the ones in charge of it." } },
-    cenarion_circle = { { id = "tp_circle", text = "The Circle taught our people a great deal. I think they'd call this work hopeless, so I haven't written to ask." } },
+    cenarion_circle = { { id = "tp_circle", text = "The Circle taught our people much of what we know of healing land. I think they'd call this work hopeless, so I haven't written to ask." } },
     background = { { id = "tp_bg", text = "A Runetotem from Thunder Bluff who listened to her elders and then went somewhere they hadn't thought to send her." } },
     _none = { { id = "tp_none", text = "That's beyond my roots, friend. Ask Allister, perhaps; he collects what people know." } },
   },
@@ -232,7 +232,7 @@ P:NPC {
     { id = "g_default", text = "Hello, hello! Nothing for you today, I'm afraid, unless you're expecting a letter, and you don't look like someone who expects letters." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Ah, one of the light-fingered sort. Keep your hands where I can admire them, friend, there's a good fellow." },
     { id = "g_quest", when = { questActive = TODO_QUEST("The Deathstalkers") }, text = "You've been watching me since you came in. I'm very dull, I promise you, and so is everything I carry." },
-    { id = "g_done", when = { questDone = TODO_QUEST("The Deathstalkers") }, text = "I lost a letter not long ago, a very ordinary letter, and somebody went to a great deal of trouble for it. You wouldn't know anything about that, I'm sure." },
+    { id = "g_done", when = { questDone = TODO_QUEST("The Deathstalkers") }, text = "I lost a letter not long ago, a very ordinary letter, and somebody went to a lot of trouble on a dark road for it. You wouldn't know anything about that, I'm sure." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were you? I've walked to Brill and back four times since, and my boots have the holes to prove it." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody caught you in a lie. It happens to the best of us, friend, though it has never once happened to me." },
   },
@@ -338,7 +338,7 @@ P:NPC {
     },
     news_who = {
       big = true,
-      lines = { { id = "nwh_default", text = "People who think the old noble houses of Alterac should still own a great deal of land that nobody else agrees they own. They call themselves the Syndicate, and I've never met one, and I'd very much like to keep it that way." } },
+      lines = { { id = "nwh_default", text = "People who think the old noble houses of Alterac should still own half the hills from here to Hillsbrad, and nobody else agrees they do. They call themselves the Syndicate, and I've never met one, and I'd very much like to keep it that way." } },
       choices = {
         { text = "Thieves and traitors. They should hang.", next = "BACK", fx = { align = { honor = 1 }, learn = { "syndicate" } } },
         { text = "Every house fights for what's theirs. I can't blame them.", next = "BACK", fx = { align = { honor = -1 }, learn = { "syndicate" } } },

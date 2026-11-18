@@ -71,7 +71,7 @@ P:NPC {
       },
     },
     defias_watch = {
-      lines = { { id = "dw_default", text = "Everyone watches everyone in a tavern, it's half the entertainment. All right, all right, I may have been listening, but listening's not a crime in Menethil, not yet." } },
+      lines = { { id = "dw_default", text = "Everyone watches everyone in a tavern, it's the only entertainment Menethil has. All right, all right, I may have been listening, but listening's not a crime in Menethil, not yet." } },
       choices = {
         { text = "Then you won't mind answering a few questions.", next = "confess" },
         { text = "Something else.", next = "BACK" },
@@ -89,7 +89,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "co_default", text = "They paid me to get one man aboard a ship in this harbor, a soldier called Hendel, and they paid well enough that I didn't ask whose ship it was. Only it wasn't some diplomat's ship, it was the king's, and I swear on my mother I didn't know until it was done." },
-        { id = "co_after", when = { questDone = Q_DIPLOMAT }, text = "Same as I told you before: one man, Hendel, aboard the king's ship, and a purse of Defias silver that's long gone. They're working with someone bigger than themselves, and I'd rather not find out who." },
+        { id = "co_after", when = { questDone = Q_DIPLOMAT }, text = "Same as I told you before: one man, Hendel, aboard the king's ship, and a purse of Defias silver that's long gone. They're working with someone bigger than themselves, and I've no wish to meet them." },
       },
       choices = {
         { text = "You sold out your king for silver.", next = "confess_king" },
@@ -121,7 +121,7 @@ P:NPC {
       },
     },
     menethil_road = {
-      lines = { { id = "mr_default", text = "Which is why I take boats. The Dragonmaw have never once picked my pocket, and that's more than I can say for the harbor guard." } },
+      lines = { { id = "mr_default", text = "That's why I take boats. The Dragonmaw have never once picked my pocket, whereas the harbor guard manage it every time I come through." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dragonmaw" } } } },
     },
 
@@ -188,7 +188,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Fremal Doohickey, teacher of bandaging, binding, splinting and general not-bleeding-to-death! Half the sailors in this tavern are alive because of me, and the other half are alive because they listened to the first half." },
+          text = "Fremal Doohickey, teacher of bandaging, binding, splinting and general not-bleeding-to-death! Sixty-two percent of the sailors in this tavern are alive because of me, and the rest are alive because they listened to the sixty-two percent!" },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "Another gnome so far from home! Have you noticed how no one in this harbor appreciates a good tourniquet mechanism? I've designed three, and they keep asking for plain linen." },
         { id = "h_priest", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } },
@@ -293,7 +293,7 @@ P:NPC {
     },
     why_dwarves = {
       big = true,
-      lines = { { id = "wd_default", text = "Loudly, and kindly, and with a great deal of ale I do not drink. They dig the earth open for metal and wonder why I wince, but they have never once told me to leave." } },
+      lines = { { id = "wd_default", text = "Loudly, and kindly, and with barrels of ale I do not drink. They dig the earth open for metal and wonder why I wince, but they have never once told me to leave." } },
       choices = {
         { text = "The earth gives freely. Digging is no crime.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You're right to wince. They take too much.", next = "BACK", fx = { align = { order = -1 } } },

@@ -63,7 +63,7 @@ P:NPC {
     },
     opn_elements_r_power = {
       lines = {
-        { id = "opn_elements_r_power", text = "Then you understand more than most in this camp. Come back when Drum Fel is not watching, and we will speak of strength in a quieter voice." },
+        { id = "opn_elements_r_power", text = "Then you see what the rest of this camp is too loud to see. Come back when Drum Fel is not watching, and we will speak of strength in a quieter voice." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

@@ -138,7 +138,7 @@ P:NPC {
         { id = "h_eye", when = { questActive = TODO_QUEST("A Watchful Eye") },
           text = "The Eye of Azora sees far, but not far enough. That is where you come in, regrettably." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Morganth"), days = 3 } },
-          text = "Gone, really? Then Stormwind is a little safer, and I am a great deal less bored than I expected to be, which is not a complaint." },
+          text = "Gone, really? Then Stormwind is a little safer, and I am far less bored than I expected to be, which is not a complaint." },
         { id = "h_mage", when = { class = "MAGE", minLevel = 20 },
           text = "The Mage Quarter sends me its brighter students now and then. You might do, possibly." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -150,7 +150,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in my tower. You'll touch nothing, take nothing and leave the gnomes alone, because they count everything, and I count them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my tower. Do not touch the shelves; anything you break, you will learn the price of." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in my tower, with an animal. Keep it away from the gnomes; they bite back, and I'd rather not hear of it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in my tower, with an animal. Keep it away from the gnomes; they bite back, and I have no wish to hear of it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. In my tower. Hmm. My gnomes will be fascinated, I'm sure. I am not." },
       },
       again = {

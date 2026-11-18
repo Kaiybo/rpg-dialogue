@@ -18,7 +18,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "If ye've come tae gawp at the old stair, gawp quickly, for I've ledgers tae finish." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Good; at least you came up the stair, which is more than I can say for my keepers." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good; at least you came up the stair, while my keepers wait for the stair to come to them." },
     { id = "g_quest", when = { questActive = TODO_QUEST("The Restless Dead") }, text = "I don't have time for ghouls and ghosts, so I'm hopin' you've made some for me. Well?" },
     { id = "g_after", when = { questDone = TODO_QUEST("The Restless Dead") }, text = "There's the one who put my dead back tae bed. The keepers are goin' below again, grumblin', but goin'." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the hall stayed quiet, which I'll take as a compliment tae your work." },
@@ -29,7 +29,7 @@ P:NPC {
     { id = "n_priest", cat = "spirits", when = { class = { "PRIEST", "PALADIN" } },
       text = "Light-bearer, are ye? Good, for the dead below are restless and I'd sooner they were laid down gently than hacked at by some mercenary." },
     { id = "n_dwarf", cat = "kin", when = { race = "Dwarf" },
-      text = "Your grandsires might well be lyin' in those vaults, so mind your manners down there more than most." },
+      text = "Your grandsires might well be lyin' in those vaults, so mind your manners down there, of all places." },
     { id = "n_league", cat = "lore", when = { origin = "dwarf_explorers_league" },
       text = "League, are ye? Then you'll know better than tae pocket anything below, and I'll hold you tae that." },
   },
@@ -112,7 +112,7 @@ P:NPC {
 
     woke = {
       lines = {
-        { id = "wo_default", text = "Noise, I'd say, and a great deal of it. The spirits are light sleepers, and somethin' down in the deep vaults has been diggin' and bangin' where nobody's dug in centuries." },
+        { id = "wo_default", text = "Noise, I'd say, and plenty of it. The spirits are light sleepers, and somethin' down in the deep vaults has been diggin' and bangin' where nobody's dug in centuries." },
         { id = "wo_map", when = { questDone = TODO_QUEST("Underground Map") },
           text = "You've seen that Wildhammer's map, haven't you? Dark Iron tunnels, right under my vaults, and the dead woke up cross because of it, which is exactly how I'd feel." },
       },
@@ -214,7 +214,7 @@ P:NPC {
     },
     xpriest = {
       lines = {
-        { id = "xp_default", text = "Properly, is it? Then do it properly, with whatever words your order teaches, and I'll write down that it was done. I'm not much for prayers, but I'm a great deal for things bein' done right." },
+        { id = "xp_default", text = "Properly, is it? Then do it properly, with whatever words your order teaches, and I'll write down that it was done. I'm not much for prayers, but I'm all for things bein' done right." },
       },
       choices = {
         { text = "The Light will grant them peace. I'll see it done.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -330,7 +330,7 @@ P:NPC {
     },
     patrol_afadra = {
       lines = {
-        { id = "pf_default", text = "Afadra? She doesn't trust ink unless it's her own. I like her, mind you, she's the only one up here who looks at me long enough to be suspicious." },
+        { id = "pf_default", text = "Afadra? She doesn't trust ink unless it's her own. I like her, though, because she's the only one up here who looks at me long enough to be suspicious." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -367,7 +367,7 @@ P:NPC {
 
     heirlooms = {
       lines = {
-        { id = "he_default", text = "Catalogued, every one, and returned to its proper place of honour. I give you my word as a gnome, and my word is worth a great deal, more than most gnomes' and nearly as much as a goblin's." },
+        { id = "he_default", text = "Catalogued, every one, and returned to its proper place of honour. I give you my word as a gnome, and my word holds up better than most gnomes' and nearly as well as a goblin's contract." },
       },
       choices = {
         { text = "And if you sold a few?", next = "heirlooms_sold" },

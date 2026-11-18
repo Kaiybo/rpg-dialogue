@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_hunt", when = { questActive = TODO_QUEST("Larion and Muigin") }, text = "Lashers, threshers, flayers and trappers, five of each. Cut his supply and the pests'll dry up." },
     { id = "g_zapper", when = { questDone = TODO_QUEST("Bloodpetal Zapper") }, text = "Zapped any pests lately? I zapped three before breakfast, and I felt grand all morning." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and Muigin and I still haven't said a word to each other. Don't look at me like that." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "The Refuge says ye've been a help, which is more than I can say for some people over yonder." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The Refuge says ye've been a help, and some over yonder couldnae be bothered tae lift a finger." },
   },
 
   notice = {
@@ -96,7 +96,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     home = {
-      lines = { { id = "h2_default", text = "Every day. Some mornings I'd climb down a drainpipe if I thought it led out of this crater, and I'm a dwarf, so I know a great deal about pipes." } },
+      lines = { { id = "h2_default", text = "Every day. Some mornings I'd climb down a drainpipe if I thought it led out of this crater, and I'm a dwarf, so I know a thing or two about pipes." } },
       choices = {
         { text = "Why not just leave with the next escort?", next = "home_leave" },
         { text = "Something else.", next = "BACK" },

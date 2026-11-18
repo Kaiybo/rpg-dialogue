@@ -82,7 +82,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It's older than these walls, friend. My grandfather poured for soldiers in the First War. A dwarf shaman at my bar would have made him choke on his pipe." } },
       choices = {
-        { text = "A family pride kept honest is worth a great deal, Farley.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A family pride kept honest is something to be proud of, Farley.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Old pride won't fill new mugs, Farley.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -144,7 +144,7 @@ P:NPC {
         { id = "h_falkhaan", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rest and Relaxation"), days = 1 } },
           text = "Falkhaan sent you? Then take the good chair by the fire. Any friend of his is a friend of mine." },
         { id = "h_liked", when = { townStanding = { town = "goldshire", min = 30 } },
-          text = "Half the town's asked after you this week. The other half's jealous." },
+          text = "Half of Goldshire's asked after you this week, and the rest are jealous of the attention." },
         { id = "o_lovers", tags = { "news" }, when = { gossip = { topic = "maybell_tommy", stance = "romantic" } },
           text = "William says you're all for young love. Good. Somebody in this town should be, besides him." },
         { id = "h_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") },
@@ -165,7 +165,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Lion's Pride! Sit, sit. I'll tell you now, I've never watered a drink in my life, and your spirits can check if they like." },
       },
       again = {
-        { id = "h_again", text = "What else, friend? So much to do, and I'd rather talk." },
+        { id = "h_again", text = "What else, friend? So much to do, and here I am talking instead." },
         { id = "h_again2", text = "Go on, go on. Dobbins can mind the bar a minute." },
         { id = "h_again3", text = "Anything else? I've a cheese to cut and a story to finish." },
       },

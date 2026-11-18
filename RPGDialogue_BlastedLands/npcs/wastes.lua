@@ -70,10 +70,10 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I have watched orcs come through that gate with axes, and humans meet them with swords, and every one of them was certain he fought for something noble. The fragments you bring me do not care which of you held the blade, and neither, I find, do I." } },
+      lines = { { id = "xwarcl_default", text = "I have watched orcs come through that gate with axes, and humans meet them with swords, and each was certain he fought for something noble. The fragments you bring me do not care which of you held the blade, and neither, I find, do I." } },
       choices = {
         { text = "I fight for those behind me, not for plunder.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Every war has spoils, and I'd rather they ended up in my pack.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Every war has spoils. Better they end up in my pack.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -318,7 +318,7 @@ P:NPC {
     dark_portal = { { id = "tp_portal", text = "A door, and on the far side of it, everything I have lost. I look at it every day." } },
     burning_legion = { { id = "tp_legion", text = "Older than greed, and hungrier. Even I do not walk into the Scar." } },
     thrall = { { id = "tp_thrall", text = "The young orc chieftain who freed his people is no friend of mine, but he did not raise the axe that broke my people. I will not curse him for what his fathers did." } },
-    khadgar = { { id = "tp_khadgar", text = "Khadgar was a human mage who went through the Portal and never came back. He at least understood what lay on the other side, and that is more than most of your kind." } },
+    khadgar = { { id = "tp_khadgar", text = "Khadgar was a human mage who went through the Portal and never came back. He at least understood what lay on the other side, and few of your kind have bothered to." } },
     nethergarde = { { id = "tp_nethergarde", text = "Your mages at Nethergarde watch the Portal as though it might bite them. It might, but they are watching the wrong side of it." } },
     dreadmaul = { { id = "tp_dreadmaul", text = "The ogres of the Dreadmaul are as greedy as all the others, and less clever. They take the crystals for shiny stones and throw them away." } },
     second_war = { { id = "tp_second_war", text = "Your Second War was fought over a world you never saw. Mine was lost before your war began." } },
@@ -381,7 +381,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Everything is, if you understand it well enough, though I'll grant your sort have been very poor at explaining it. The boars here heal from wounds that would kill an ogre, and I can't help wondering whether some trace of the Light touched them too." } },
+      lines = { { id = "xapriest_default", text = "Everything is, if you understand it well enough, though your sort have been very poor at explaining it, I must say. The boars here heal from wounds that would kill an ogre, and I can't help wondering whether some trace of the Light touched them too." } },
       choices = {
         { text = "The Light isn't a reagent. It can't be bottled.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Perhaps it can. Study it, and share what you learn.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -428,7 +428,7 @@ P:NPC {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Snickerfang", "Ashmane", "Scorpok" }, min = 30 } }, text = "You've been busy out there, by the smell of you, which is boar and hyena in roughly equal measure. Do bring me the interesting parts, won't you?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits of the beasts out here still speak to you, or has the fel drowned them out? Either answer would be fascinating, and I'll want notes." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Tell me honestly, do you think the fel in this soil is what makes the boars so strong? I've a theory, and you're the first person I've met who might confirm it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Be frank with me: do you think the fel in this soil is what makes the boars so strong? I've a theory, and you're the first person I've met who might confirm it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A fellow student of the arcane! My sister calls my work alchemy with pretensions, but you'll appreciate the subtler parts, I'm sure." },
         { id = "h_default", key = true,
           text = "Bloodmage Drazial, at your service. The beasts of these lands show preternatural strength, speed and endurance, quite unlike anything in nature, and I mean to bottle every bit of it." },
@@ -568,7 +568,7 @@ P:NPC {
         { id = "kp_default", fx = { learn = { "nethergarde" } },
           text = "Nethergarde tolerates us, which is more than I expected from a keep full of Kirin Tor mages and dwarves who think elves are made of glass. The soldiers buy my elixirs quietly, and the mages pretend not to have noticed." },
         { id = "kp_horde", when = { faction = "Horde" },
-          text = "Nethergarde puts up with two elves in its wastes, which is a great deal more than it would put up with you. The soldiers buy my elixirs when no officer is watching, and the mages pretend we don't exist." },
+          text = "Nethergarde puts up with two elves in its wastes, and it would never put up with you. The soldiers buy my elixirs when no officer is watching, and the mages pretend we don't exist." },
       },
       choices = {
         { text = "There's another elf at the keep. An ambassador.", next = "keep_ardalan" },
@@ -606,7 +606,7 @@ P:NPC {
     },
     home_people = {
       big = true,
-      lines = { { id = "hp_default", text = "I think my people need strength more than they need comfort just now, and strength is what I can bottle. My sister would say they need their minds kept whole, which is why she studies what she does, and perhaps we're both right, though I'd never tell her so." } },
+      lines = { { id = "hp_default", text = "I think my people need strength more than they need comfort just now, and strength is what I can bottle. My sister would say they need their minds kept whole, and so she studies what she does, and perhaps we're both right, though I'd never tell her so." } },
       choices = {
         { text = "Comfort heals a people. Strength alone only hardens them.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Strength first. Grief can wait until they're safe.", next = "BACK", fx = { align = { order = 1 } } },
@@ -910,7 +910,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "An elf of Quel'Thalas who would rather watch a basilisk think than listen to most people talk. You may take that personally.", next = "basilisks" } },
     advice = { { id = "tp_ad", text = "Don't meet a basilisk's eyes, and don't assume it's stupid because it's scaly." } },
     nethergarde = { { id = "tp_ng", text = "A keep full of watchers, with one honest student in the tower. I'll leave you to guess which.", next = "keep" } },
-    draenethyst = { { id = "tp_dr", text = "Kum'isha's crystals. I'd give a great deal to know what they mean to him, and he'd give nothing to tell me.", next = "kumisha" } },
+    draenethyst = { { id = "tp_dr", text = "Kum'isha's crystals. I'd pay in mana and blood to know what they mean to him, and he'd give nothing to tell me.", next = "kumisha" } },
     dark_portal = { { id = "tp_portal", text = "Whatever came out of it changed everything living here. I'd like to know what it would do to a thinking creature, and I'm afraid I already do." } },
     sylvanas = { { id = "tp_sylvanas", text = "Lady Sylvanas was the Ranger-General of Silvermoon, and now she rules the dead of Lordaeron. I find I do not want to discuss it." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran taught me what it could, and I left before the Scourge came. That was luck, not wisdom." } },
@@ -1054,7 +1054,7 @@ P:NPC {
       },
     },
     daio_why = {
-      lines = { { id = "dw_default", text = "Because you'll learn it anyway, from a book or a cultist or a voice in the dark, and I'd rather you learned it from someone who'll tell you the price." } },
+      lines = { { id = "dw_default", text = "Because you'll learn it anyway, from a book or a cultist or a voice in the dark, so learn it from someone who'll tell you the price." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     daio_grin = {
@@ -1160,7 +1160,7 @@ P:NPC {
     },
     keep_burn = {
       big = true,
-      lines = { { id = "kb_default", text = "Perhaps someone should, and then the young fools would learn from books and cultists instead of from me, and fewer of them would come back. Tell me honestly, which do you think the world needs: no teacher, or an honest one?" } },
+      lines = { { id = "kb_default", text = "Perhaps someone should, and then the young fools would learn from books and cultists instead of from me, and fewer of them would come back. So tell me, which do you think the world needs: no teacher, or an honest one?" } },
       choices = {
         { text = "An honest teacher. Better they learn the price from you.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "No teacher. This knowledge should die with you.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
@@ -1176,7 +1176,7 @@ P:NPC {
       },
     },
     kumisha_home = {
-      lines = { { id = "kh_default", text = "I stopped wanting that a long time ago, which is one of the kinder things the Scar did for me. He hasn't stopped, and I envy him a little, and pity him a great deal more." } },
+      lines = { { id = "kh_default", text = "I stopped wanting that a long time ago, which is one of the kinder things the Scar did for me. He hasn't stopped, and I envy him a little, and pity him far more." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -1188,7 +1188,7 @@ P:NPC {
     nethergarde = { { id = "tp_ng", text = "A keep that watches the Portal and pretends it can't see me. It's a fair arrangement.", next = "keep" } },
     draenethyst = { { id = "tp_dr", text = "The collector's crystals. Everyone out here wants something they can't have, and his happen to glitter.", next = "kumisha" } },
     dreadmaul = { { id = "tp_dm", text = "Ogres who came through the Portal and serve whoever shouts loudest, which these days is Kazzak. They leave my altar alone, because they're stupid but not that stupid." } },
-    tainted_scar = { { id = "tp_scar", text = "My home, my classroom, and very probably my grave. It suits me better than you'd think.", next = "scar" } },
+    tainted_scar = { { id = "tp_scar", text = "My home, my classroom, and very probably my grave. It suits me better than any comfortable study ever did.", next = "scar" } },
     dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran used to call what I do forbidden, and now their city's in ruins. Forbidden knowledge has a way of outliving the people who forbid it." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor and I parted ways a long time ago, and neither of us regrets it. They would call me a cautionary tale, I'm sure." } },
     dark_portal = { { id = "tp_dark_portal", text = "The Portal is a door, and doors open both ways. The mages at Nethergarde forget that, and I hope they never have to remember." } },

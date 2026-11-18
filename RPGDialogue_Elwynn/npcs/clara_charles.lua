@@ -61,7 +61,7 @@ P:NPC {
       },
     },
     well_why = {
-      lines = { { id = "ww_default", text = "We need water, dear, and the Defias haven't taken any of it yet. I think they're watching the road, not me, and I'd rather not give them a reason to change their minds." },
+      lines = { { id = "ww_default", text = "We need water, dear, and the Defias haven't taken any of it yet. I think they're watching the road, not me, and I don't mean to give them a reason to change their minds." },
       },
       choices = {
         { text = "That's brave of you.", next = "BACK", fx = { affinity = 1 } },

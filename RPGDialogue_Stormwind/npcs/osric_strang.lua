@@ -30,7 +30,7 @@ P:NPC {
     { id = "g_carving", when = { heardLine = "osric_strang.co_default" },
       text = "You again. I took that carving down from the shelf last night and looked at it a long while, and I'm still not sure what I think." },
     { id = "g_lewis", when = { questDone = Q_OUT }, text = "Lewis's crate reached Sentinel Hill, so I hear. That's my steel on Westfall's backs, and that's where it belongs." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back with all your limbs. That's more than half the lads I marched with could say." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back with all your limbs. Plenty of the lads I marched with came home short an arm or a leg." },
   },
 
   notice = {
@@ -182,7 +182,7 @@ P:NPC {
     camps_guard = {
       big = true,
       lines = {
-        { id = "cg_default", text = "Quiet, mostly, and that was the strange part. They sat in the dirt and stared at nothing, like the fight had been poured out of them, and half the lads started to pity them, but I never did." },
+        { id = "cg_default", text = "Quiet, mostly, and that was the strange part. They sat in the dirt and stared at nothing, like the fight had been poured out of them, and some of the lads started to pity them, but I never did." },
       },
       choices = {
         { text = "They earned every year behind that fence.", next = "camps_agree",

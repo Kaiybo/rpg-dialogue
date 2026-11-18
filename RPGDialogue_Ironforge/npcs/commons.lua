@@ -49,7 +49,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Half the hall, if ye count the axes, for dwarves have been fightin' Dark Irons an' troggs since long before there was a museum tae hang the axes in. My favourite's a shield split near in two, for the dwarf behind it lived tae bring it home an' give it tae us." } },
+      lines = { { id = "xwarcl_default", text = "Most o' the hall, if ye count the axes, for dwarves have been fightin' Dark Irons an' troggs since long before there was a museum tae hang the axes in. My favourite's a shield split near in two, for the dwarf behind it lived tae bring it home an' give it tae us." } },
       choices = {
         { text = "Old arms deserve their place of honour here.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Weapons belong in hands, not behind glass.", next = "BACK", fx = { align = { order = -1 } } },
@@ -205,7 +205,7 @@ P:NPC {
       lines = {
         { id = "st_default", text = "Old stones o' power that the stories put somewhere in the Searing Gorge. Most curators would call them a legend, but Dorius always said legends are only finds nobody's dug up yet." },
         { id = "st_known", when = { questDone = TODO_QUEST("Suntara Stones") },
-          text = "They exist. Dorius proved it, an' the Dark Irons took them, an' used them tae make slaves o' good dwarves. I'd give a great deal for them never tae have been found." },
+          text = "They exist. Dorius proved it, an' the Dark Irons took them, an' used them tae make slaves o' good dwarves. I'd give every case in this museum for them never tae have been found." },
       },
       choices = {
         { text = "Some finds should stay buried.", next = "BACK", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
@@ -225,7 +225,7 @@ P:NPC {
 
     pray = {
       lines = {
-        { id = "pr_default", text = "Aye. Aye, I'd like that, an' then I'll show ye the case I've set aside for his notes. He'd be embarrassed by it, which is why I did it." },
+        { id = "pr_default", text = "Aye. Aye, I'd like that, an' then I'll show ye the case I've set aside for his notes. He'd be embarrassed by it, an' that's the joy o' doin' it." },
       },
       choices = {
         { text = "The Light keeps those we lose.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
@@ -247,12 +247,12 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "A curator knows a little about everythin' that's ever been dug up, an' a great deal about the rest. Ask away." } },
+    knows = { { id = "tp_knows", text = "A curator knows a little about everythin' that's ever been dug up, an' rather a lot about the rest. Ask away." } },
     background = { { id = "tp_bg", text = "I keep the museum in the Hall o' Explorers, an' I keep it tidy, an' I give tours tae anyone who stands still long enough." } },
     advice = { { id = "tp_ad", text = "Label everythin'. Ye'll think ye'll remember where it came from, an' ye won't." } },
     explorers_league = { { id = "tp_league", text = "They bring things in an' I put them on shelves. It's a fine arrangement, as long as they remember tae bring them in.", next = "tour" } },
     dark_iron = { { id = "tp_dark_iron", text = "They took my brother. I'll say no more than that unless ye ask me plainly.", next = "dorius" } },
-    uldaman = { { id = "tp_uldaman", text = "My brother Dorius was in the Badlands wi' the League before he went tae the Searing Gorge, an' half the cases in this museum came out o' Uldaman. Titan work, every piece, an' ye can feel it hum if ye're daft enough tae touch." } },
+    uldaman = { { id = "tp_uldaman", text = "My brother Dorius was in the Badlands wi' the League before he went tae the Searing Gorge, an' a good many cases in this museum came out o' Uldaman. Titan work, every piece, an' ye can feel it hum if ye're daft enough tae touch." } },
     grim_batol = { { id = "tp_grim_batol", text = "There's a case in the back o' the hall wi' a shard o' Grim Batol's gate in it, an' nobody's ever been brave enough tae steal it. That tells ye somethin' about Grim Batol." } },
     blackrock_depths = { { id = "tp_blackrock_depths", text = "Dorius writes from the Searing Gorge that the Dark Irons have built a whole city under the Blackrock, an' a grand one. I'd give my beard tae see it an' my life tae get back out." } },
     zul_farrak = { { id = "tp_zul_farrak", text = "The trolls o' the desert build fine stone an' bury their kings wi' gold, so the League tells me. I've a mask from Zul'Farrak in the hall that I'm still no' sure was a good idea tae display." } },
@@ -326,7 +326,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Anythin' true, really. Half our books say ye turn into bears at the full moon an' the other half say ye eat nothin' but acorns, an' I suspect neither's quite right." } },
+      lines = { { id = "dq_default", text = "Anythin' true, really. One o' our books says ye turn into bears at the full moon, another says ye eat nothin' but acorns, an' I suspect neither's quite right." } },
       choices = {
         { text = "Write it plainly. Truth shouldn't stay hidden in groves.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Some druid teachings aren't meant for libraries.", next = "BACK", fx = { align = { order = -1 } } },
@@ -344,7 +344,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "A copy, aye, written in Uther's own words an' sent from Lordaeron before it fell, though half the margins are covered in some dwarf's notes about what Uther meant. Read it if ye like, but leave the notes; I've a fondness for them." } },
+      lines = { { id = "xapala_default", text = "A copy, aye, written in Uther's own words an' sent from Lordaeron before it fell, though the margins are crammed wi' some dwarf's notes about what Uther meant. Read it if ye like, but leave the notes; I've a fondness for them." } },
       choices = {
         { text = "The oaths mean what they say, nothing more and nothing less.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Oaths should change as the world does. Those notes are wisdom.", next = "BACK", fx = { align = { order = -1 } } },
@@ -354,7 +354,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Library! Ye'll be wantin' the theology shelves, I expect, an' I'll warn ye they're half Light an' half arguin' about it." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, an' ye've the look o' someone who's read the oaths an' no' just sworn them, which is more than I can say for most." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, an' ye've the look o' someone who's read the oaths an' no' just sworn them, an' that's rarer than a dry beard at the Stonefire." },
         { id = "h_default", text = "Mae Paledust, Librarian. If it's written down anywhere, I can likely find it, an' if it's no' in a book yet, I'd like ye tae tell me about it so it can be." },
         { id = "h_myth", tags = { "news" }, when = { questActive = TODO_QUEST("Mythology of the Titans") },
           text = "The book's in the library o' the old Monastery in Tirisfal, if it survived the Scarlet Crusade's housekeepin'. Bring it home tae Ironforge, where it'll be read instead o' burned." },
@@ -366,7 +366,7 @@ P:NPC {
           text = "Ye're the quiet sort, an' I like that in a library, though I'll be countin' the books after ye've gone, mind." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Library! Mind the shelves wi' that, if ye please, for the last axe through here cost me a whole row o' genealogies." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye might help me, then, for the bestiary's been missin' a proper account o' the beasts in Dun Morogh's high snows." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've three shelves on the orcish kind an' no' a single page on a dwarf who does it, so ye'll forgive me if I stare an' take notes." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've three shelves on the orcish kind an' no' a single page on a dwarf who does it, so I hope ye'll no' mind if I stare an' take notes." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Softly, now." },
@@ -574,7 +574,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Well, ye'll want tae hear about the Shadowforge, for the Dark Irons in Uldaman are no' the sort a polite word will move." },
-        { id = "h_default", text = "Karnik, historian o' the Explorers' League, an' partner tae Hammertoe Grez in the Uldaman work. I'm sorry, but I've a great deal o' work an' very little patience, so tell me what ye need, an' tell me quickly." },
+        { id = "h_default", text = "Karnik, historian o' the Explorers' League, an' partner tae Hammertoe Grez in the Uldaman work. I'm sorry, but I've a mountain o' work an' very little patience, so tell me what ye need, an' tell me quickly." },
         { id = "h_amulet", tags = { "news" }, when = { questActive = TODO_QUEST("Prospect of Faith") },
           text = "That's Hammertoe's amulet. Then this changes everythin'; if he sent ye wi' it, then he knew what was at stake, an' we'll have tae mourn him later." },
         { id = "h_belgrum", tags = { "news" }, when = { questActive = TODO_QUEST("Passing Word of a Threat") },
@@ -688,7 +688,7 @@ P:NPC {
     k_shaman = {
       big = true,
       lines = {
-        { id = "xsh_default", text = "Do ye, now. Then ye'll no' laugh at me for talkin' wi' Hammertoe's ghost the way the young Prospectors do behind my back. Tell me honestly: do they hear us, the dead, or do they only talk?" },
+        { id = "xsh_default", text = "Do ye, now. Then ye'll no' laugh at me for talkin' wi' Hammertoe's ghost the way the young Prospectors do behind my back. Tell me true: do they hear us, the dead, or do they only talk?" },
       },
       choices = {
         { text = "They hear, if you speak plainly.", next = "k_shaman_hear" },
@@ -843,9 +843,9 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at the King's side door! If ye've come from the Hall o' Mysteries wi' a petition, I'll hear it, but keep it brief, for there's a queue." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "I'll speak plain, as the King would want: there's a warlock in the throne room, an' half the guards have their hands on their axes. Say what ye came tae say." },
+          text = "I'll speak plain, as the King would want: there's a warlock in the throne room, an' every guard in the room has a hand on his axe. Say what ye came tae say." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The King's always had a soft spot for warriors, for he was raised among them, an' so was I." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The King's rams an' the King's rifles both owe a great deal tae hunters, an' the throne remembers it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The King's rams an' the King's rifles both owe plenty tae hunters, an' the throne remembers it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid o' the kaldorei, standin' in the King's own hall. Ye're a long way from yer forests, so I'll see ye're treated as a guest o' the throne." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman o' Khaz Modan. The King's spoken o' Earthseer Farsen often enough that I'll no' be the one tae turn my nose up at ye, though some in the Senate would." },
       },
@@ -856,7 +856,7 @@ P:NPC {
       choices = {
         { text = "What does an advisor to the King do?", next = "advisor" },
         { text = "What's the Tablet of Will?", next = "tablet", when = { any = { { questActive = TODO_QUEST("The Lost Tablets of Will") }, { questDone = TODO_QUEST("The Lost Tablets of Will") } } } },
-        { text = "The King seems to trust Karnik a great deal.", next = "karnik", when = { any = { { questActive = TODO_QUEST("Passing Word of a Threat") }, { questDone = TODO_QUEST("Passing Word of a Threat") } } } },
+        { text = "The King seems to trust Karnik completely.", next = "karnik", when = { any = { { questActive = TODO_QUEST("Passing Word of a Threat") }, { questDone = TODO_QUEST("Passing Word of a Threat") } } } },
         { text = "What does the Senate think of all this?", next = "senate" },
         { text = "I've served Ironforge well, Advisor.", next = "served", when = { reputation = { faction = "Ironforge", min = "honored" } } },
         { text = "What does Ironforge want from Stormwind, Advisor?", next = "k_human", when = { race = "Human" } },
@@ -878,7 +878,7 @@ P:NPC {
         { id = "ad_default", text = "I read what comes in, an' I decide what needs the King's eyes an' what needs only his name. It's a lot o' readin', an' a lot o' decidin', an' very little sleep." },
       },
       choices = {
-        { text = "That's a great deal of power for one dwarf.", next = "advisor_power" },
+        { text = "That's a lot of power for one dwarf.", next = "advisor_power" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -955,7 +955,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "A great deal passes across my desk on its way tae the King. Here's what I can repeat." } },
+    knows = { { id = "tp_knows", text = "Plenty passes across my desk on its way tae the King. Here's what I can repeat." } },
     background = { { id = "tp_bg", text = "I advise the King an' act on his authority when he's elsewhere. My own story is very dull, an' I'd like tae keep it that way." } },
     advice = { { id = "tp_ad", text = "Read the whole note before ye act on it. The important part's always at the bottom." } },
     uldaman = { { id = "tp_uldaman", text = "Titan vaults, an' Dark Irons diggin' in them, an' an advisor who cannae sleep.", next = "tablet" } },
@@ -1381,7 +1381,7 @@ P:NPC {
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer'll tell ye their gryphons are fiercer, an' maybe they are, but mine come home every time. I'll take a bird that comes home over a bird that bites." } },
     booty_bay = { { id = "tp_booty_bay", text = "Ye can fly from here tae the edge o' the Stranglethorn an' then ye're on yer own, for no gryphon o' mine roosts wi' pirates. Take a boat from there, an' check yer purse when ye land." } },
     theramore = { { id = "tp_theramore", text = "Theramore's across the sea, an' my birds dinnae cross water that wide. Take the ship from Menethil an' send me a postcard." } },
-    thandol_span = { { id = "tp_thandol_span", text = "The Span's down, but my gryphons dinnae care, which is why they're the best way intae Arathi just now. Ye'll pay a bit more, but ye'll no' fall in the gorge." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Span's down, but my gryphons dinnae care, so they're the best way intae Arathi just now. Ye'll pay a bit more, but ye'll no' fall in the gorge." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye. Ask a gryphon, they've seen more o' the world than I have." } },
   },
 }
@@ -1414,7 +1414,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "If it did, half the Circle would be out o' work, so I'll hope it keeps quiet. I've had a lad swear the walls hummed whenever someone was comin' down the stair, an' I wrote it off as ale. Ye'd no' be wantin' tae sell that sort o' warnin', would ye?" } },
+      lines = { { id = "xdsham_default", text = "If it did, the Circle's lookouts would be out o' work, so I'll hope it keeps quiet. I've had a lad swear the walls hummed whenever someone was comin' down the stair, an' I wrote it off as ale. Ye'd no' be wantin' tae sell that sort o' warnin', would ye?" } },
       choices = {
         { text = "The earth is no tool for sneaks, Hulfdan.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "For the right price, I might tell you who's coming.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1453,7 +1453,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Always, but nothin' ye'd need a fireball tae settle. A mage who can keep a secret is worth a great deal tae the Circle, so if ye ever fancy a quieter sort o' work, ye know where tae find me." } },
+      lines = { { id = "xmage_default", text = "Always, but nothin' ye'd need a fireball tae settle. A mage who can keep a secret is worth his weight in thorium tae the Circle, so if ye ever fancy a quieter sort o' work, ye know where tae find me." } },
       choices = {
         { text = "I serve Ironforge, Blackbeard, not the Hidden Circle.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A quieter sort of work sounds well paid. I'm listening.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1612,7 +1612,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "The Hidden Circle hears everythin', an' I hear wut the Circle hears. Here's the part I'll sell ye for free." } },
     background = { { id = "tp_bg", text = "Background? Ha, that's a nice try, scallywag! A rogue's past is his own business, an' mine's very well hidden." } },
     advice = { { id = "tp_ad", text = "Never tell the whole story. Tell the funny part, an' keep the rest." } },
-    ravenholdt = { { id = "tp_ravenholdt", text = "There's a manor in the Alterac hills that doesnae exist, an' if ye ever find it, ye've been invited. That's all ye'll get from me, matey, an' it's more than most." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "There's a manor in the Alterac hills that doesnae exist, an' if ye ever find it, ye've been invited. That's all ye'll get from me, matey, an' most get less." } },
     booty_bay = { { id = "tp_booty_bay", text = "Now that's a port worth the name, full o' pirates an' goblins an' honest thieves. I've never been, as such, but I've heard it described by people I trust very little." } },
     syndicate = { { id = "tp_syndicate", text = "Alterac's nobles turned cutpurse, an' they're bad at it, all noise an' no taste. The Hidden Circle has standards, matey, an' the Syndicate doesnae meet them." } },
     _none = { { id = "tp_none", text = "Never heard of it, an' if I had, I'd say I hadnae." } },

@@ -106,7 +106,7 @@ P:Thread {
     {
       id = "b1_felgur", npc = "felgur",
       when = { minLevel = 30, faction = "Horde", thread = { id = "desolace_clans", notBeat = "b1_felgur" } },
-      text = "Kolkar, Gelkis, Magram and Maraudine, and every one of them would ride on the Barrens if they ever stopped killing each other. So I count their camps and pay for their ears, and I don't lose any sleep when one clan does my work for me.",
+      text = "Kolkar, Gelkis, Magram and Maraudine, and any of them would ride on the Barrens if they ever stopped killing each other. So I count their camps and pay for their ears, and I don't lose any sleep when one clan does my work for me.",
       fx = { thread = { id = "desolace_clans", beat = "b1_felgur", state = "stirring" } },
     },
     {
@@ -179,7 +179,7 @@ P:Thread {
     {
       id = "b2_latronicus", npc = "latronicus",
       when = { faction = "Alliance", questDone = TODO_QUEST("Lethtendris's Web"), thread = { id = "eldre_thalas", notBeat = "b2_latronicus" } },
-      text = "So the web is in hand, and its magic can go back into the wild where it belongs. The General will want to hear that the satyrs aren't the only things in that city still feeding on the old power, and I'd rather she heard it from you, because she only listens to me when I'm complaining.",
+      text = "So the web is in hand, and its magic can go back into the wild where it belongs. The General will want to hear that the satyrs aren't the only things in that city still feeding on the old power, and better she hears it from you, because she only listens to me when I'm complaining.",
       fx = { thread = { id = "eldre_thalas", beat = "b2_latronicus", state = "unfolding" } },
     },
     {

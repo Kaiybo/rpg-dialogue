@@ -98,7 +98,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarven shaman, here in Southshore. The Kirin Tor would give a great deal to study you, {class}, though I'd advise you never to let them, for they rarely give anything back." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarven shaman, here in Southshore. The Kirin Tor would pay handsomely to study you, {class}, though I'd advise you never to let them, for they rarely give anything back." },
         { id = "h_default", key = true,
           text = "I am Jacques, emissary of the Kirin Tor. Dalaran needs the aid of the Alliance's kingdoms, and I've been sent to ask for it quietly, which is harder than it sounds in a town this size." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("An Alarming Request") },
@@ -210,7 +210,7 @@ P:NPC {
       },
     },
     xskyborne_say = {
-      lines = { { id = "xss_default", text = "That you came looking for what your ancestors lost, and that you've a great deal of catching up to do on the last ten thousand years. Mostly they wonder, which in Dalaran is the highest compliment there is." } },
+      lines = { { id = "xss_default", text = "That you came looking for what your ancestors lost, and that you've ten thousand years of the world to catch up on. Mostly they wonder, which in Dalaran is the highest compliment there is." } },
       choices = {
         { text = "Let them wonder.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -276,7 +276,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "That they came out of the forests to fight the Legion on Hyjal, from what the few Lordaeron men who came back from Kalimdor told me, and then went back in and shut the door. A historian hates a shut door, but I suppose your people have reasons for every one of them." } },
+      lines = { { id = "xdruid_default", text = "That they came out of the forests to fight the Legion on Hyjal, from what the few Lordaeron men who came back from Kalimdor told me, and then went back in and shut the door. A historian hates a shut door, but I suppose your people had their reasons." } },
       choices = {
         { text = "Some doors should stay shut. Not every history wants telling.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Write it all down. Secrets have cost us too much.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -342,7 +342,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That the orcs brought them, mostly, and the Horde's warlocks blackened half the hills in the Second War before Durnholde's camps took the orcs in. But there are older pages about Alterac's court magi dabbling where they shouldn't, and those I keep under the floorboards, because nobody in Southshore wants to read that their grandparents' lords were no better." } },
+      lines = { { id = "xlock_default", text = "That the orcs brought them, mostly, and the Horde's warlocks blackened whole hillsides in the Second War before Durnholde's camps took the orcs in. But there are older pages about Alterac's court magi dabbling where they shouldn't, and those I keep under the floorboards, because nobody in Southshore wants to read that their grandparents' lords were no better." } },
       choices = {
         { text = "Write it all down, Kundric. The truth should be kept.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Some pages are better burned than kept, Kundric.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -457,7 +457,7 @@ P:NPC {
       lines = {
         { id = "xdw_default", text = "They did, and the Wildhammer gryphon riders are in my notes more than any king, since they came down out of the Hinterlands when nobody had asked them yet. I wrote it all down, of course, for later." },
         { id = "xdw_kin", when = { origin = "dwarf_wildhammer_kin" },
-          text = "You'll have heard the tale from the other side, then, with Aerie Peak kin as you have. I'd give a great deal to compare your family's version with mine." },
+          text = "You'll have heard the tale from the other side, then, with Aerie Peak kin as you have. I'd dearly like to compare your family's version with mine." },
       },
       choices = {
         { text = "Ironforge fought here too. Write that down.", next = "BACK", fx = { trait = { stern = 1 } } },
@@ -467,7 +467,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know a great deal that nobody's asked about in years. Please, ask about any of it." } },
+    knows = { { id = "tp_knows", text = "I know a shelf's worth that nobody's asked about in years. Please, ask about any of it." } },
     background = { { id = "tp_bg", text = "I write down Southshore; that's the whole of it, and more interesting than it sounds." } },
     advice = { { id = "tp_ad", text = "Keep a journal. Nobody remembers anything properly, least of all heroes." } },
     alterac = { { id = "tp_alterac", text = "A kingdom undone by its own king. I've three shelves on it and none of them are cheerful.", next = "alterac" } },
@@ -476,7 +476,7 @@ P:NPC {
     second_war = { { id = "tp_second_war", text = "The Horde came over these hills in the Second War, and Southshore held, barely. I've written that chapter so many times I can recite it, and I'll do so if you're not careful." } },
     internment = { { id = "tp_internment", text = "The internment camp at Durnholde was ten miles from here, and the young orc who broke it out now leads the Horde. History has a sense of humour, and it isn't a kind one." } },
     thrall = { { id = "tp_thrall", text = "Thrall was raised in Durnholde by Lord Blackmoore, of all people, and he escaped and built a nation. I've written three chapters on him, and Southshore's folk don't much like any of them." } },
-    _none = { { id = "tp_none", text = "I've nothing on that, which annoys me more than you'd think." } },
+    _none = { { id = "tp_none", text = "I've nothing on that, and a gap in my notes keeps me up at night." } },
   },
 }
 
@@ -496,7 +496,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again! Same as before, or are you feeling brave?" },
     { id = "g_talk", when = { questActive = TODO_QUEST("Talk of the Town") }, text = "Still on that little matter I asked about? No hurry, but don't let it go cold." },
     { id = "g_away", when = { away = 14 }, text = "Look who's back after {away} away! Sit down, because you've missed a pile of gossip, and I've kept every bit of it warm for you." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Half the bar's been talking about you, friend, and in a good way, since somebody went home grinning after a word with you." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "The whole bar's been talking about you, friend, and in a good way, since somebody went home grinning after a word with you." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Careful who you sit by tonight, because somebody in town's got a real grudge after talking with you. I only mention it because I like my chairs in one piece." },
     { id = "g_word_scared", when = { word = "intimidated" }, text = "I had it from {source} that you leaned hard on somebody in town. Can't say I blame you, but go easy on my regulars." },
   },
@@ -746,7 +746,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Dead animals in places where nothing killed them, mainly, and water the deer won't drink. The apothecaries test their brews on whatever wanders past, and the beasts always know before we do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch {pet} closely up there, please, because if a beast won't drink from a stream, I'd take that as a warning, and I'd rather not lose anyone's companion to the Forsaken's experiments." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch {pet} closely up there, please, because if a beast won't drink from a stream, I'd take that as a warning, and I don't want anyone's companion lost to the Forsaken's experiments." },
       },
       choices = {
         { text = "The Forsaken must be stopped before their plague spreads.", next = "BACK", fx = { align = { light = 1 } } },
@@ -774,7 +774,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "What they're brewing, mostly, since the apothecaries at Tarren Mill have been very busy and very secretive lately. I'm worried it's a new plague, and I'd rather find out before it's poured into Southshore's wells." } },
+      lines = { { id = "xrogue_default", text = "What they're brewing, mostly, since the apothecaries at Tarren Mill have been very busy and very secretive lately. I'm worried it's a new plague, and I mean to find out before it's poured into Southshore's wells." } },
       choices = {
         { text = "I'll slip into Tarren Mill and find out for you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "This is the Alliance's business. Report it to the Marshal.", next = "BACK", fx = { align = { order = 1 } } },
@@ -807,7 +807,7 @@ P:NPC {
           text = "A paladin! Good, because my little band are brave enough, but none of us can stand in front of a Forsaken and simply refuse to fall, which I gather is your speciality." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! My little band is all scholars and nerves, and we could badly use someone who stands in front when the Forsaken start shooting." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll notice things in the hills that my friends would walk straight past, so tell me if anything near Tarren Mill smells wrong, because I'm sure something does." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Good, because half the odd happenings I chase involve something that bites, and I'd value someone who knows what it's thinking." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Good, because most of the odd happenings I chase involve something that bites, and I'd value someone who knows what it's thinking." },
       },
       again = {
         { id = "h_again", text = "What else? I'm sorting Quae's notes, and her handwriting needs a translator." },
@@ -895,7 +895,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "You'll understand better than most, then. The Kirin Tor wanted me reading in a tower while the plague was being brewed a day's ride from Southshore, and I'd rather be wrong out here than right up there." } },
+      lines = { { id = "xma_default", text = "You'll understand, then. The Kirin Tor wanted me reading in a tower while the plague was being brewed a day's ride from Southshore, and I'd rather be wrong out here than right up there." } },
       choices = {
         { text = "Knowledge matters more than one village.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
         { text = "You chose right. Theory never stopped a plague.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
@@ -1223,7 +1223,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Soothing Turtle Bisque"), days = 5 } },
           text = "The bisque is back on the menu! Folk were queuing round the inn last night, and one old fisherman wept into his bowl, and I didn't charge him." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue in my kitchen? Fine, but if you're after the turtle bisque recipe, it's in my head, and I don't sleep with my mouth open." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll forgive me if I don't ask you to cook, because the last mage who tried turned my good stew into a bowl of ice." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I won't be asking you to cook, because the last mage who tried turned my good stew into a bowl of ice." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! You'll bless the bisque, I hope, because it's the closest thing Southshore has to a holy relic, and folk certainly pray for it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1303,7 +1303,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know food, and who in Southshore eats what, and who doesn't pay. Ask away." } },
     background = { { id = "tp_bg", text = "I cook in Southshore, and I'm the best at it, and that's my story." } },
     advice = { { id = "tp_ad", text = "Eat before you go up into Alterac; the ogres won't feed you." } },
-    forsaken = { { id = "tp_forsaken", text = "The dead up the hill eat nothing, and I've never understood a soul who doesn't like a good bisque. I pity them, honestly." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead up the hill eat nothing, and I've never understood a soul who doesn't like a good bisque. I pity them, truth be told." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's spices come through Southshore sometimes, and I'll pay any price for them. A good bisque needs a good pinch of something from the south." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's food is a crime against cookery, and I've told Silas Darkmoon so. He laughed and offered me a funnel cake, and I'm ashamed to say it was quite good." } },
     _none = { { id = "tp_none", text = "Can't help you there, friend, unless it's about soup." } },
@@ -1428,7 +1428,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. You'll not call me mad, I hope, since your Cathedral was as quick as the Silver Hand to think it, though at least it was quieter about it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want a warhorse, I suppose, which is what the Silver Hand always wanted. They rode my stock to war and called me mad for asking where the horses went." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know what it is to trust an animal, then, which is more than I can say for most who come through that gate." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know what it is to trust an animal, then, and most who come through that gate only know how to spur one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid among my horses! They're shy of the cat-folk, I find, so I'd ask you to stay on two legs while you're in the paddock." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll want a horse that won't bolt the first time you set your sleeves on fire, I expect, and I breed them steady, but only for Stormwind's own." },
       },
@@ -1473,7 +1473,7 @@ P:NPC {
     },
     mad_can = {
       lines = {
-        { id = "mc_default", text = "Of course I can! It takes manna biscuits that only the Argent Dawn sell, and a great deal of patience. Some day a paladin will come asking, and then we'll see who's mad." },
+        { id = "mc_default", text = "Of course I can! It takes manna biscuits that only the Argent Dawn sell, and a whole winter of patience. Some day a paladin will come asking, and then we'll see who's mad." },
         { id = "mc_done", when = { questDone = TODO_QUEST("Manna-Enriched Horse Feed") },
           text = "And now I have, and the horse ate it, and I was right all along. You've no idea how good that feels." },
       },
@@ -1513,7 +1513,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never buy a horse that won't look you in the eye." } },
     silver_hand = { { id = "tp_silverhand", text = "Laughed at me, all of them, and now they'll come to me for feed. I'll remember every name.", next = "silverhand" } },
     scourge = { { id = "tp_scourge", text = "The Scourge took good horses from the north, and turned them into something I won't describe. I'd breed them all again, if I could, just to spite the plague." } },
-    forsaken = { { id = "tp_forsaken", text = "The Forsaken ride dead horses, and I've seen them up close, and I'd rather not again. A horse deserves better than that." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken ride dead horses, and I've seen them up close, and once was plenty. A horse deserves better than that." } },
     holy_light = { { id = "tp_holy_light", text = "The Light called me mad once, through the mouths of the Silver Hand, and I've not forgiven it. I believe in my horses now, and they've never once let me down." } },
     _none = { { id = "tp_none", text = "If it isn't about horses, then I'm not interested." } },
   },
@@ -1544,7 +1544,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not in words, but every fisherman learns to hear it in the tide and the gulls, and I'd guess that's a small cousin of what you do. The difference is that I only ask it for fish, and I suspect a shaman asks it for a great deal more." } },
+      lines = { { id = "xdsham_default", text = "Not in words, but every fisherman learns to hear it in the tide and the gulls, and I'd guess that's a small cousin of what you do. The difference is that I only ask it for fish, and I suspect a shaman asks it for rather more." } },
       choices = {
         { text = "Ask the sea for what you need, and no more.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The sea's there to be used. Take all it gives.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1591,7 +1591,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Less than it did, with the murlocs crowding the shallows and half the town's young men off soldiering instead of fishing. The bay's patient, though, and so am I, and between us we'll outlast the lot of them." } },
+      lines = { { id = "dq_default", text = "Less than it did, with the murlocs crowding the shallows and the town's young men off soldiering instead of fishing. The bay's patient, though, and so am I, and between us we'll outlast the lot of them." } },
       choices = {
         { text = "Clear the murlocs out so honest folk can fish.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Take what you need and let the bay keep the rest.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1600,7 +1600,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "More than you'd think, because both need patience, a good eye and the sense to know when to strike. The difference is that the bay forgives a bad cast, and I don't suppose your marks are so generous." } },
+      lines = { { id = "xrogue_default", text = "Quite a lot, because both need patience, a good eye and the sense to know when to strike. The difference is that the bay forgives a bad cast, and I don't suppose your marks are so generous." } },
       choices = {
         { text = "Patience serves me best. I strike only when I must.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Patience is for fishermen. I make my own moments.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1609,7 +1609,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because the bay gives what it gives, and taking more than your share leaves nothing for the next tide. The murlocs found that out when the cod ran thin two winters back, and I'd rather not have to teach it to a mage." } },
+      lines = { { id = "xmage_default", text = "Because the bay gives what it gives, and taking more than your share leaves nothing for the next tide. The murlocs found that out when the cod ran thin two winters back, and I'd hate to have to teach it to a mage." } },
       choices = {
         { text = "The bay deserves respect. I'll fish the honest way.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The bay is endless. Take what you can.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1629,7 +1629,7 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman on my docks! The bay's seen murlocs, naga and refugees come in on the same tide, {class}, so it'll not mind you, and neither will I." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A druid, eh? I hear some of your folk can take the shape of a sea lion and swim like one, and I'd give a great deal for a lesson in that, if it could be taught." },
+          text = "A druid, eh? I hear some of your folk can take the shape of a sea lion and swim like one, and I'd trade my best net for a lesson in that, if it could be taught." },
         { id = "h_default", text = "Donald Rabonne. I teach fishing, and Lindea there sells the gear, and the bay pays both of us if we're patient. It's been a fishing town longer than anything else, Southshore, and it'll be one after." },
         { id = "h_coast", when = { questDone = TODO_QUEST("Down the Coast") },
           text = "Someone cleared the Torn Fin off the Western Strand, and the fishermen got their nets back. I thought it'd be the lieutenant, but he's still sulking at the inn." },
@@ -1682,7 +1682,7 @@ P:NPC {
     murlocs = {
       big = true,
       lines = {
-        { id = "m_default", text = "They fish the same water we do, and they're better at it, which is half the trouble. The other half is they've started taking nets, and then fishermen, and that I can't forgive." },
+        { id = "m_default", text = "They fish the same water we do, and they're better at it, which I could live with. But they've started taking nets, and then fishermen, and that I can't forgive." },
       },
       choices = {
         { text = "Drive them off the strand for good.", next = "BACK", fx = { align = { order = 1 } } },

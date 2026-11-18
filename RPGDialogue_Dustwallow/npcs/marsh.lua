@@ -17,7 +17,7 @@ P:NPC {
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "A great deal, as it happens, because the raptors from the fens don't wait for me to finish an incantation. My students run their errands with a fighter beside them when they've any sense, and the ones who don't come back singed." } },
+      lines = { { id = "xwarcl_default", text = "Plenty, as it happens, because the raptors from the fens don't wait for me to finish an incantation. My students run their errands with a fighter beside them when they've any sense, and the ones who don't come back singed." } },
       choices = {
         { text = "I'll guard any caster gladly. That's what a sword is for.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Mages ought to fight their own battles, Tabetha.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -84,7 +84,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Not as much as living in Theramore did, with everyone wanting a spell for this and a ward for that. The marsh is lonely, I'll grant you, but the loneliness is quiet, and I've found I can hear myself think in it, which is more than most people manage." } },
+      lines = { { id = "xapriest_default", text = "Not as much as living in Theramore did, with everyone wanting a spell for this and a ward for that. The marsh is lonely, true, but the loneliness is quiet, and out here I can finally hear myself think." } },
       choices = {
         { text = "Theramore needs mages like you. Duty matters more than quiet.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Good for you. The wild suits a free mind.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -108,7 +108,7 @@ P:NPC {
           text = "A hunter! The marsh is full of things worth tracking, and most of them would like to track you back, so I'm glad to see you've come prepared." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, all the way out here? I'll warn you now that I'm not in want of saving, but if you're after a cup of tea and an honest opinion about the marsh, you've come to the right hut." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll feel the mana in this marsh as a hum in the ground, I suspect, and I'd love to know whether it hums the same for you as it does for me." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I don't get many visitors who pray, so you'll forgive me if I'm curious about who's answering, and whether they mind all the mana sloshing about out here." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I don't get many visitors who pray, so I'm terribly curious about who's answering, and whether they mind all the mana sloshing about out here." },
         { id = "h_default", key = true, text = "I'm Tabetha, and yes, I live out here by choice. The marsh is full of mana and short on meddlers, which is exactly how a mage likes her neighborhood." },
         { id = "h_c0", when = { class = "MAGE" }, text = "Another student of the arcane! Then you'll feel it too, the way the ley energy pools in this swamp like rainwater." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -168,12 +168,12 @@ P:NPC {
   topics = {
     dalaran = { { id = "tp_dalaran", text = "I studied in Dalaran when it had towers instead of rubble, and a great many arguments, and some of them were mine. They're rebuilding now, I hear, though they keep the gates shut, which is very like them." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are clever people who believe a good committee can solve anything, and I have never seen a committee kill a raptor. I prefer my hut, my frogs and my own counsel." } },
-    theramore = { { id = "tp_theramore", text = "Theramore is a fine city with fine towers and a great many people knocking on the door of every one of them. I visit for tea and come home for quiet." } },
-    onyxia = { { id = "tp_onyxia", text = "The black dragon's whelps fly over the southern marsh, and I've learned to keep my lantern low at night. She sleeps in a cave down in Wyrmbog, and I'd rather she kept sleeping." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is a fine city with fine towers and somebody knocking at the door of each one. I visit for tea and come home for quiet." } },
+    onyxia = { { id = "tp_onyxia", text = "The black dragon's whelps fly over the southern marsh, and I've learned to keep my lantern low at night. She sleeps in a cave down in Wyrmbog, and I pray she keeps sleeping." } },
     jaina = { { id = "tp_jaina", text = "Jaina was a bright girl in Dalaran, terribly earnest, always the last one out of the library. She's carrying more than any of us expected, and she carries it rather well." } },
     scourge = {
       { id = "tp_scourge", when = { race = "Scourge" }, text = "I knew a few people who went north with the plague and came back like you, dear, and I'd rather not talk about it, if it's all the same. Have some tea instead." },
-      { id = "tp_scourge2", text = "The plague came out of Lordaeron and swallowed half the people I studied with. That's a great part of why I live in a swamp, where the worst thing that wanders in is a raptor." },
+      { id = "tp_scourge2", text = "The plague came out of Lordaeron and swallowed half the people I studied with. That's most of the reason I live in a swamp, where the worst thing that wanders in is a raptor." },
     },
     _none = { { id = "tp_none", text = "I can't say I know, dear, and I've read a great many books." } },
   },
@@ -262,7 +262,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Now and then, heading for the deep swamp with books under their arms and no sense in their heads. The black dragons over by Onyxia's lair don't care much for company, and I've seen more than one go in that never came back out." } },
       choices = {
         { text = "Then they went looking for power they couldn't handle.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every one of them knew the risk. That's their right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "They all knew the risk, and that was their right.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -337,7 +337,7 @@ P:NPC {
       choices = { { text = "Black shields?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "Theramore asked me about the Shady Rest Inn, as if I'd have anything to do with that place. I keep to myself and I tell the truth, which is more than I can say for some." } },
+      lines = { { id = "b1_2_l", text = "Theramore asked me about the Shady Rest Inn, as if I'd have anything to do with that place. I keep to myself and I tell the truth, and the folk who ran that inn did neither." } },
       choices = { { text = "Who should I trust?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
@@ -603,7 +603,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because there's one tower, three men and a great deal of marsh, and things come out of the fog faster than we can light the brazier. A ward would warn us at least, though I'd settle for the Archmage remembering we exist." } },
+      lines = { { id = "xmage_default", text = "Because there's one tower, three men and miles of marsh, and things come out of the fog faster than we can light the brazier. A ward would warn us at least, though I'd settle for the Archmage remembering we exist." } },
       choices = {
         { text = "I'll remind Tervosh myself. You deserve better than this post.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A soldier who needs a ward isn't watching hard enough.", next = "BACK", fx = { align = { light = -1 } } },
@@ -644,7 +644,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest out at Sentry Point! Most of what comes up this road wants to kill us, so it's a rare thing to see someone who might patch us up instead." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Lady Proudmoore keeps the peace with the Horde and I keep my orders, but it steadies me, I'll admit, to see one of the Silver Hand on this road." },
         { id = "h_default", key = true, text = "Private Hendel, Theramore Guard, posted at Sentry Point. We watch the northern road so Theramore knows what's coming before it arrives, and lately what's coming is trouble." },
-        { id = "h_c0", when = { questActive = TODO_QUEST("The Missing Diplomat") }, text = "You're asking after the diplomat? Plenty of people have, and I've told every one of them I saw nothing out of the ordinary." },
+        { id = "h_c0", when = { questActive = TODO_QUEST("The Missing Diplomat") }, text = "You're asking after the diplomat? Plenty of people have, and I've told them all I saw nothing out of the ordinary." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A night elf druid out at Sentry Point? Don't go changing into anything large near the tower, because the lads on watch shoot first in this fog." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came up the road without the watchtower spotting you, which is either impressive or a sign I need to have words with the lad on the ladder." },
@@ -939,7 +939,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "I would tell him you are a dead thing the Light forgot to burn, and that you are useful, because he understands useful. What I do not understand is whether the Light forgot or whether it chose, and that question interests me a great deal more." } },
+      lines = { { id = "xfpala_default", text = "I would tell him you are a dead thing the Light forgot to burn, and that you are useful, because he understands useful. What I do not understand is whether the Light forgot or whether it chose, and that question interests me far more." } },
       choices = {
         { text = "It chose. The Light doesn't forget.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "It doesn't matter. Power is power.", next = "BACK", fx = { align = { light = -1 } } },
@@ -948,7 +948,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The Stonemaul value whatever won the last fight, and for an ogre that is usually strength, which is why the overlord's chair is so large. I have found that wits only earn respect when they arrive standing behind a large club, so I keep several large friends." } },
+      lines = { { id = "xwarcl_default", text = "The Stonemaul value whatever won the last fight, and for an ogre that is usually strength, hence the size of the overlord's chair. I have found that wits only earn respect when they arrive standing behind a large club, so I keep several large friends." } },
       choices = {
         { text = "Strength should serve wise counsel, not the other way round.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Strength rules, and wits should know their place.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1018,7 +1018,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. The black whelps of the Wyrmbog are clever, and they learn from every hunter who misses, so do try not to teach them anything." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of Thrall's Horde. The Warchief's restoring of your old ways is the reason the Stonemaul trusted the orcs at all." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Stonemaul have little use for prayer, but they have a great deal of use for healing, and I would be grateful if you offered the second without preaching the first." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Stonemaul have little use for prayer, but they have endless use for healing, and I would be grateful if you offered the second without preaching the first." },
         { id = "h_default", key = true, text = "I am Draz'Zilb, advisor to Overlord Mok'Morokk. While he leads the Stonemaul with his fists, I lead them with knowledge, and between us we keep Brackenwall standing." },
         { id = "h_c0", when = { class = { "MAGE", "WARLOCK" } }, text = "A fellow student of the arcane. Most ogres think magic is merely a loud kind of club, and it is pleasant to speak with someone who knows better." },
         { id = "h_druidcl", when = { class = "DRUID" },

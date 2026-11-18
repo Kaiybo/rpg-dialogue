@@ -92,7 +92,7 @@ P:NPC {
       },
     },
     trades = {
-      lines = { { id = "t_default", text = "Knowing who teaches what, and where! There are smiths and tanners and herbalists all over Elwynn, and half the novices leave here not knowing a single one of them." },
+      lines = { { id = "t_default", text = "Knowing who teaches what, and where! There are smiths and tanners and herbalists all over Elwynn, and most novices leave here not knowing a single one of them." },
       },
       choices = {
         { text = "Why does that matter so much to you?", next = "trades_why" },

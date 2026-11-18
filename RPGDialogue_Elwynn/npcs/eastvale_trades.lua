@@ -138,7 +138,7 @@ P:NPC {
       },
     },
     wood = {
-      lines = { { id = "w_default", text = "Straight grain with no knots, cut in winter when the sap's down, and then a year of drying before I lay a blade to it. Most of Elwynn's trees are too twisted for it, which is why I fight the loggers for every good piece." } },
+      lines = { { id = "w_default", text = "Straight grain with no knots, cut in winter when the sap's down, and then a year of drying before I lay a blade to it. Most of Elwynn's trees are too twisted for it, so I fight the loggers for every good piece." } },
       choices = {
         { text = "So you fight the loggers for it.", next = "wood_fight" },
         { text = "Something else.", next = "BACK" },
@@ -153,7 +153,7 @@ P:NPC {
       },
     },
     buyers = {
-      lines = { { id = "b_default", text = "More folk than you'd think. The loggers want something to keep the wolves off, the guards along the road want arrows, and travellers bound for Redridge stop here on the way east and remember they're going somewhere dangerous." } },
+      lines = { { id = "b_default", text = "All sorts. The loggers want something to keep the wolves off, the guards along the road want arrows, and travellers bound for Redridge stop here on the way east and remember they're going somewhere dangerous." } },
       choices = {
         { text = "What's dangerous about Redridge?", next = "buyers_redridge" },
         { text = "Something else.", next = "BACK" },
@@ -228,7 +228,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Honey, mostly, out of the hollow oaks they fell, and they squabble over who gets to break the comb. I pay them fair for it and sell it fair, though the bees, I'll grant you, never see a copper." } },
+      lines = { { id = "xdruid_default", text = "Honey, mostly, out of the hollow oaks they fell, and they squabble over who gets to break the comb. I pay them fair for it and sell it fair, though the bees, poor things, never see a copper." } },
       choices = {
         { text = "Then leave the bees a tree or two. They've earned it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The bees will rebuild. Honey sells either way.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -314,7 +314,7 @@ P:NPC {
       },
       choices = {
         { text = "Show me what you have.", next = "BUSINESS" },
-        { text = "Loggers must go through a great deal of rope.", next = "loggers" },
+        { text = "Loggers must go through a lot of rope.", next = "loggers" },
         { text = "How do the carts fare on the road?", next = "road" },
         { text = "Who else should I know in Eastvale?", next = "camp" },
         { text = "Why would you send customers to the tower?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -370,7 +370,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "My father kept a stall in Stormwind's Trade District, and I came out here because a camp full of hungry loggers has no other shop." } },
     advice = { { id = "tp_ad", text = "Buy your bandages before you need them, friend. Nobody haggles well while bleeding." } },
-    defias = { { id = "tp_defias", text = "They've robbed two of my carts this year, and both times they left the parchment, which tells you how much reading they do." } },
+    defias = { { id = "tp_defias", text = "They've robbed two of my carts this year, and both times they left the parchment, so I doubt they do much reading." } },
     _none = { { id = "tp_none", text = "If it isn't on my shelves or in my ledger, friend, I'm afraid I can't help you." } },
     stonemasons = { { id = "tp_stonemasons", text = "My father sold the masons their bread on credit while they built the walls, and when the nobles didn't pay them, they couldn't pay him. Debts roll downhill, friend, and they always land on a shopkeeper." } },
     booty_bay = { { id = "tp_booty_bay", text = "Goods from Booty Bay come up the coast at prices that would make a goblin blush, and then the goblins blush anyway and charge me more. I pass it on, I'm sorry to say." } },
@@ -453,7 +453,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back he takes it out of. I've nothing against you personally, but I've a great deal against my back." } },
+      lines = { { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back he takes it out of. I've nothing against you personally, but my back has suffered enough." } },
       choices = {
         { text = "Then I'll stand well clear of the saw, for your back's sake.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Your back isn't my concern. I'll go where I please.", next = "BACK", fx = { align = { light = -1 } } },
@@ -471,7 +471,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Real enough that the lads won't go back for the bundles, and I can't say I blame them, because I saw one open a man's arm to the bone last week. Raelen says it's the wolves pushing them down, and something's pushing the wolves, and I'd rather not know what." } },
+      lines = { { id = "xapala_default", text = "Real enough that the lads won't go back for the bundles, and I can't say I blame them, because I saw one open a man's arm to the bone last week. Raelen says it's the wolves pushing them down, and something's pushing the wolves, and nobody at the camp wants to find out what." } },
       choices = {
         { text = "I'll go north myself, so your lads needn't.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The lads take wages for danger. Let them earn them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -532,7 +532,7 @@ P:NPC {
       },
     },
     wood = {
-      lines = { { id = "w_default", text = "Down the road to Stormwind, mostly, for the rebuilding. Half the city still wants new roofs and walls after the orcs burned it, and every beam in them started out here." } },
+      lines = { { id = "w_default", text = "Down the road to Stormwind, mostly, for the rebuilding. Whole streets in the city still want new roofs and walls after the orcs burned it, and every beam in them started out here." } },
       choices = {
         { text = "Do the masons pay you for it?", next = "wood_masons" },
         { text = "Something else.", next = "BACK" },
@@ -540,7 +540,7 @@ P:NPC {
     },
     wood_masons = {
       big = true,
-      lines = { { id = "wm_default", fx = { learn = { "stonemasons" } }, text = "The crown pays Raelen, and Raelen pays us. The stonemasons weren't so lucky, from what I hear; they built half the city and the nobles wouldn't pay them for it, and some of them went off to Westfall angry." } },
+      lines = { { id = "wm_default", fx = { learn = { "stonemasons" } }, text = "The crown pays Raelen, and Raelen pays us. The stonemasons weren't so lucky, from what I hear; they rebuilt Stormwind and the nobles wouldn't pay them for it, and some of them went off to Westfall angry." } },
       choices = {
         { text = "The nobles cheated honest workers. That's a crime.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Angry or not, turning outlaw was their choice.", next = "BACK", fx = { align = { honor = -1 } } },

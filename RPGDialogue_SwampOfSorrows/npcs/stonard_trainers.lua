@@ -80,7 +80,7 @@ P:NPC {
 
     lesson = {
       lines = {
-        { id = "le_default", text = "Humility comes first, then control, and only after both of those comes power. The young ones want them in the opposite order, and Greshka sells to them in that order, which is why I teach and she doesn't." },
+        { id = "le_default", text = "Humility comes first, then control, and only after both of those comes power. The young ones want them in the opposite order, and Greshka sells to them in that order, and that's the difference between a teacher and a shopkeeper." },
         { id = "le_lock", when = { class = "WARLOCK" },
           text = "Humility, then control, then power, and you'll want to skip the first two as every student does. Don't, because I've seen what's left of the ones who did." },
       },
@@ -331,7 +331,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Grokor, and I teach hunters' beasts what their masters can't. Jaguars, crocolisks and even the big spiders out past the Pool of Tears, I've trained them all, and every one of them learned faster than the hunter who brought it in." },
+          text = "I'm Grokor, and I teach hunters' beasts what their masters can't. Jaguars, crocolisks and even the big spiders out past the Pool of Tears, I've trained them all, and each of them learned faster than the hunter who brought it in." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "Grokor, and I teach your beast the things you can't, a harder bite, a thicker hide and a growl that makes an ogre think twice. Bring me a beast that trusts you and I'll send back one that keeps you alive." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -376,7 +376,7 @@ P:NPC {
 
     swamp = {
       lines = {
-        { id = "sw_default", text = "Swamp jaguars first and best, because they're quick and quiet and they mind the water less than you'd think. The sawtooth crocolisks make a hard-shelled companion if a slow one, and some hunters fancy the deathstrike tarantulas, though I'd sooner not have one in my pens." },
+        { id = "sw_default", text = "Swamp jaguars first and best, because they're quick and quiet and they don't mind the water a bit. The sawtooth crocolisks make a hard-shelled companion if a slow one, and some hunters fancy the deathstrike tarantulas, though I'd sooner not have one in my pens." },
       },
       choices = {
         { text = "Why not the spiders?", next = "swamp_spiders" },
@@ -467,7 +467,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Mind the bench, friend, and mind the green flask especially. It's been bubbling since morning and I'm not entirely sure why." },
-    { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist! Come and smell this, and tell me honestly whether it smells like progress or like something died in it." },
+    { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist! Come and smell this, and tell me straight whether it smells like progress or like something died in it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, because I've three new failures to show you and one thing that might be a success." },
   },
 
@@ -487,7 +487,7 @@ P:NPC {
         { id = "h_alch", when = { profession = "Alchemy" },
           text = "Rogvar, and you've come to the right orc, because there's no better posting for an alchemist in the Eastern Kingdoms. Thrall sent me here himself, and every morning the swamp hands me something new to boil." },
         { id = "h_shaman", when = { class = "SHAMAN" },
-          text = "A shaman! I always thank the earth when I pull a root, which is more than most herbalists do, so I hope the spirits haven't any complaints about me." },
+          text = "A shaman! I always thank the earth when I pull a root, though most herbalists don't bother, so I hope the spirits haven't any complaints about me." },
       },
       again = {
         { id = "h_again", text = "What else? Keep talking, I'm only stirring." },
@@ -527,7 +527,7 @@ P:NPC {
 
     herbs = {
       lines = {
-        { id = "he_default", text = "Blindweed in the wettest corners, which is why my eyes water every evening, and Sungrass where the light breaks through the trees. There's Liferoot near the Pool of Tears too, though the trolls in those old ruins make gathering it a nervous business." },
+        { id = "he_default", text = "Blindweed in the wettest corners, so my eyes water every evening, and Sungrass where the light breaks through the trees. There's Liferoot near the Pool of Tears too, though the trolls in those old ruins make gathering it a nervous business." },
       },
       choices = {
         { text = "Why does Blindweed make your eyes water?", next = "herbs_blind" },
@@ -619,7 +619,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I mixed salves in the camps out of whatever the guards threw away, and I've been mixing things ever since. Now the Warchief sends me letters, and I keep every one of them." } },
+    background = { { id = "tp_ba", text = "I mixed salves in the camps out of whatever the guards threw away, and I've been mixing things ever since. Now the Warchief sends me letters, and I keep them all in a box by my bedroll." } },
     advice = { { id = "tp_ad", text = "Never taste anything green before you've smelled it, and never smell anything that's smoking." } },
     _none = { { id = "tp_none", text = "I couldn't tell you, friend, but if it grows in the swamp, ask me again and I'll talk your ears off." } },
   },

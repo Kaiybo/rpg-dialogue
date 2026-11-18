@@ -28,7 +28,7 @@ P:NPC {
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid. Tell me honestly, do all of you come back from the Dream this sleepy, or is it only the one I chose?" },
+      text = "A druid. Tell me, do all of you come back from the Dream this sleepy, or is it only the one I chose?" },
     { id = "n_weary", cat = "weary", when = { resting = true },
       text = "You look tired. Please don't fall asleep here, I've had quite enough of that from one person." },
   },
@@ -167,7 +167,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Shael'dryn, a daughter of Cenarius, and I keep this moonwell for as long as anyone lets me. Raene sent you, didn't she? She only sends people when she's worried about something." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Raene's Cleansing") },
-          text = "Dartol's Rod is in pieces, and the pieces are in places no sensible person would go, which is why I'm so glad you came. Bring them to me and I'll put the rod back together, and then we'll find the shrine that can wake it." },
+          text = "Dartol's Rod is in pieces, and the pieces are in places no sensible person would go, so I'm very glad you came. Bring them to me and I'll put the rod back together, and then we'll find the shrine that can wake it." },
         { id = "h_done", when = { questDone = TODO_QUEST("Raene's Cleansing") },
           text = "Raene has her rod and I have my well, and the treants are still sick, but one thing at a time. You did well, you really did." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -223,7 +223,7 @@ P:NPC {
     },
 
     dordanil = {
-      lines = { { id = "do_default", text = "They took the last piece of the rod to keep it safe, in their barrow den east of the road toward the Barrens. Something killed them, not long ago, and I'd rather not think about it, so I'll only say be careful there." } },
+      lines = { { id = "do_default", text = "They took the last piece of the rod to keep it safe, in their barrow den east of the road toward the Barrens. Something killed them, not long ago, and I cannot bear to think on it, so I'll only say be careful there." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -272,7 +272,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Illiyana, a daughter of Cenarius. The satyr of these woods killed my friend Anilia and stole the Branch of Cenarius from her, and I want them to answer for it." },
         { id = "h_slay", tags = { "news" }, when = { questActive = TODO_QUEST("Satyr Slaying!") },
-          text = "Sixteen horns, and I'll know every one of them deserved it. The satyr gather to the north and east of here, in the Night Run and around Satyrnaar." },
+          text = "Sixteen horns, and I'll know each one belonged to a creature that earned its end. The satyr gather to the north and east of here, in the Night Run and around Satyrnaar." },
         { id = "h_branch", tags = { "news" }, when = { questActive = TODO_QUEST("The Branch of Cenarius") },
           text = "Anilia spoke to you before she died? Then you know who took it. Geltharis, the satyr, and he'll be somewhere close to where she fell." },
         { id = "h_done", when = { questDone = TODO_QUEST("Satyr Slaying!") },
@@ -304,7 +304,7 @@ P:NPC {
     },
 
     branch = {
-      lines = { { id = "br_default", text = "A branch from the Lord of the Forest himself, given to the dryads to keep, and it holds a little of his strength. In a satyr's hands it could poison a whole grove, which is why Anilia went after it alone." } },
+      lines = { { id = "br_default", text = "A branch from the Lord of the Forest himself, given to the dryads to keep, and it holds a little of his strength. In a satyr's hands it could poison a whole grove, and so Anilia went after it alone." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
     },
 
@@ -314,7 +314,7 @@ P:NPC {
     },
 
     help = {
-      lines = { { id = "he_default", text = "I don't know, honestly. But every satyr that falls is one fewer that can do to someone else what was done to her, and that has to count for something, doesn't it?" } },
+      lines = { { id = "he_default", text = "I don't know. But every satyr that falls is one fewer that can do to someone else what was done to her, and that has to count for something, doesn't it?" } },
       choices = {
         { text = "It counts. Every one stopped saves a life.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Revenge won't heal you. Mourn her instead.", next = "BACK", fx = { align = { light = 1 } } },
@@ -466,7 +466,7 @@ P:NPC {
       },
     },
     beasts = {
-      lines = { { id = "be_default", text = "Sabers mostly, and wolves, and once a bear who stayed a month and ate half of Astranaar's honey. Every one of them was easier to care for than the hunters who left them here." } },
+      lines = { { id = "be_default", text = "Sabers mostly, and wolves, and once a bear who stayed a month and ate most of Astranaar's honey. Every beast among them was easier to care for than the hunters who left them here." } },
       choices = {
         { text = "What makes a good hunter, then?", next = "good" },
         { text = "Something else.", next = "BACK" },

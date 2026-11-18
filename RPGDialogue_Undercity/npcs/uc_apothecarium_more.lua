@@ -264,7 +264,7 @@ P:NPC {
       choices = { { text = "Something else, Parqual.", next = "BACK", fx = { learn = { "scarlet_crusade" } } } },
     },
     life = {
-      lines = { { id = "li_default", text = "I wrote the histories of half the noble houses in Lordaeron, and I could tell you which ones lied about their ancestors. Most of them did, and most of them are standing in this city now, pretending they never had any." } },
+      lines = { { id = "li_default", text = "I wrote the histories of a dozen noble houses in Lordaeron, and I could tell you which ones lied about their ancestors. Most of them did, and most of them are standing in this city now, pretending they never had any." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     books = {

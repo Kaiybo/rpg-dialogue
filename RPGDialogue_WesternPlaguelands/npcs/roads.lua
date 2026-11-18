@@ -194,7 +194,7 @@ P:NPC {
   nodes = {
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Some of them want to rest, and some of them want to be remembered first, and telling which is which takes longer than you'd think. I'm helping the ones who want remembering, and I think your people would understand that." } },
+      lines = { { id = "xdruid_default", text = "Some of them want to rest, and some of them want to be remembered first, and telling which is which takes a while, even for me. I'm helping the ones who want remembering, and I think your people would understand that." } },
       choices = {
         { text = "Help them remember. Then let them rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The past is past. Let them all rest now.", next = "BACK", fx = { align = { light = -1 } } },
@@ -213,7 +213,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Oh, the shape of things that happened, and where they went afterwards, and whether anyone remembers them rightly. You read a trail in the mud and know a stag passed an hour ago, and I read Andorhal and know a great deal passed a good while ago." },
+        { id = "xhuntcl_default", text = "Oh, the shape of things that happened, and where they went afterwards, and whether anyone remembers them rightly. You read a trail in the mud and know a stag passed an hour ago, and I read Andorhal and know a whole town's worth of lives passed a good while ago." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} knows I'm odd, doesn't it? Beasts always notice, {class}, because they never assume tomorrow will look like today." },
       },
       choices = {
@@ -233,9 +233,9 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "There wasn't time, you see, because the town fell in a single night and everyone who could have said the words was busy dying. Some of them still don't know it's over, and a few kind words at the right moment can do a great deal for a spirit like that." } },
+      lines = { { id = "xapriest_default", text = "There wasn't time, you see, because the town fell in a single night and everyone who could have said the words was busy dying. Some of them still don't know it's over, and a few kind words at the right moment can mean everything to a spirit like that." } },
       choices = {
-        { text = "Then I'll say the words for every one of them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll say the words for each of them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead have waited this long. The living come first.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -251,7 +251,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Oh, I read a great deal, and I've always been good at guessing how stories end. The ones about people who bargain with things from beyond tend to end badly, though not always, and I'd very much like yours to be one of the exceptions, if you'll let it." } },
+      lines = { { id = "xlock_default", text = "Oh, I read all sorts, and I've always been good at guessing how stories end. The ones about people who bargain with things from beyond tend to end badly, though not always, and I'd very much like yours to be one of the exceptions, if you'll let it." } },
       choices = {
         { text = "I'll keep my bargains in check, Chromie. I promise.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My story's mine to write. I'll take the risk.", next = "BACK", fx = { align = { light = -1 } } },

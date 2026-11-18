@@ -91,7 +91,7 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "I fought the Horde when its warlocks were burning Lordaeron, so forgive me if I don't thank you for that. Still, I lead a militia of farmers and broken men, and I'll judge you by what you do on this hill, not by what follows you onto it." } },
+      lines = { { id = "xlo_default", text = "I fought the Horde when its warlocks were burning Lordaeron, so I'll not thank you for that. Still, I lead a militia of farmers and broken men, and I'll judge you by what you do on this hill, not by what follows you onto it." } },
       choices = {
         { text = "Judge me, then. I'll answer for every deed.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll do whatever wins, Gryan, however it looks.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -138,7 +138,7 @@ P:NPC {
           text = "There's a decency about you, I'd say, and out here that's rarer than iron. Don't spend it all in one place." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Your people lost a home and kept going. So did mine, out here. That's a better start than most of my volunteers had." },
-        { id = "h_count", when = { metBefore = true }, text = "I walked the wall at dawn and counted the militia, then counted them again. It's still not enough, but every one of them is still here, and that makes it a good morning in these parts." },
+        { id = "h_count", when = { metBefore = true }, text = "I walked the wall at dawn and counted the militia, then counted them again. It's still not enough, but nobody slipped away in the night, and that makes it a good morning in these parts." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Look out there, at farms that had a lamp in every window once. I count the dark ones every night, and I'd like very much to stop counting." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There you are. The lads were asking after you, and so was I, though don't tell them I said so; Sentinel Hill feels a little steadier with you on it." },
@@ -282,7 +282,7 @@ P:NPC {
           text = "You're on the trail already. Follow it where it goes and bring every scrap back to me. I'll do the sorting." },
       },
       choices = {
-        { text = "Wiley must owe you a great deal.", next = "wiley" },
+        { text = "Wiley must owe you plenty.", next = "wiley" },
         { text = "Wiley's note says goblins built the watchers.", next = "watchers_truth", when = { heardLine = "wiley.h_defias" } },
         { text = "What about the stonemasons people mention?", next = "masons" },
         { text = "Send me in. I go where soldiers can't.", next = "rogue", when = { class = "ROGUE" } },
@@ -547,7 +547,7 @@ P:NPC {
     },
     mason_child = {
       big = true,
-      lines = { { id = "mason_child_l", text = "Then your father was wronged, and I'll say so to anyone in Stormwind who'll listen. But some of the men he laid stone beside are out there in red masks, and I've buried farmers they killed, so forgive me if I can't say more than that." } },
+      lines = { { id = "mason_child_l", text = "Then your father was wronged, and I'll say so to anyone in Stormwind who'll listen. But some of the men he laid stone beside are out there in red masks, and I've buried farmers they killed, so that's as far as I can go." } },
       choices = {
         { text = "He never wore a mask. He stayed honest.", next = "mason_child2" },
         { text = "The masks are what the nobles bought with their debts.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -656,7 +656,7 @@ P:NPC {
     },
     gr_danuvin = {
       lines = {
-        { id = "gxd_default", text = "Danuvin was a farmer until the thieves took his fields, and he's the angriest man on this hill and the most careful, which is why I made him captain. He tells the volunteers it's a fight for their dignity, and he's right, though I'd sooner they fought for their supper and lived to eat it." },
+        { id = "gxd_default", text = "Danuvin was a farmer until the thieves took his fields, and he's the angriest man on this hill and the most careful, and those are the two things I wanted in a captain. He tells the volunteers it's a fight for their dignity, and he's right, though I'd sooner they fought for their supper and lived to eat it." },
       },
       choices = {
         { text = "And the scout who never sleeps?", next = "gr_galiaan" },
@@ -754,7 +754,7 @@ P:NPC {
     },
     gr_lad2 = {
       lines = {
-        { id = "gxl2_default", text = "I gave him a pitchfork and put him under Danuvin, who watched him like a hawk for a month, and now he walks the south road with the rest of my volunteers. It saddens me to condemn any man and I'll do it when I must, but the Brotherhood recruits from hungry boys, and I'd rather recruit them first." },
+        { id = "gxl2_default", text = "I gave him a pitchfork and put him under Danuvin, who watched him like a hawk for a month, and now he walks the south road with the rest of my volunteers. It saddens me to condemn any man and I'll do it when I must, but the Brotherhood recruits from hungry boys, so I mean to recruit them first." },
       },
       choices = {
         { text = "And if he runs back to them?", next = "gr_lad3" },

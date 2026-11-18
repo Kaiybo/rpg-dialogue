@@ -103,7 +103,7 @@ P:NPC {
       lines = { { id = "rc_default", text = "Once, a gentleman from the Sanctum said my consommé tasted of nothing, and then he waved his hand over it and it tasted of strawberries. I asked him to leave, and I'd do it again, because a man who enchants another man's soup has no manners at all." },
       },
       choices = {
-        { text = "Strawberry consommé sounds rather nice, honestly.", next = "BACK" },
+        { text = "Strawberry consommé sounds rather nice, actually.", next = "BACK" },
         { text = "Quite right. A cook's plate is his own.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -149,7 +149,7 @@ P:NPC {
       },
     },
     morgan_stew = {
-      lines = { { id = "ms_default", text = "It isn't the stew they're paying for, my dear, it's the hand that made it, and the linen, and the candles, and the knowledge that their neighbour couldn't get a table. The marsh folk get their recipe back on a silver plate, which is more than most people get." },
+      lines = { { id = "ms_default", text = "It isn't the stew they're paying for, my dear, it's the hand that made it, and the linen, and the candles, and the knowledge that their neighbour couldn't get a table. The marsh folk get their recipe back on a silver plate, garnished, which is more ceremony than the marsh ever gave it." },
       },
       choices = {
         { text = "Fair enough. Something else.", next = "BACK" },
@@ -252,7 +252,7 @@ P:NPC {
     },
     sleep_help = {
       big = true,
-      lines = { { id = "sh_default", text = "Let someone else? And when the sauce splits, whose name do they say at the table? Mine, always mine, which is why every plate passes under my nose before it leaves the pass." },
+      lines = { { id = "sh_default", text = "Let someone else? And when the sauce splits, whose name do they say at the table? Mine, always mine, and so every plate passes under my nose before it leaves the pass." },
       },
       choices = {
         { text = "A master who trusts no one trains no one.", next = "BACK", fx = { align = { order = -1 } } },
@@ -354,7 +354,7 @@ P:NPC {
     },
     xfarm = {
       big = true,
-      lines = { { id = "xf_default", text = "Then you know what good soil tastes like, which is more than most of my guests do. Tell me honestly, are the farms finished out there, or will there be a harvest worth buying again?" },
+      lines = { { id = "xf_default", text = "Then you know what good soil tastes like, and half my guests think it comes out of a sack. Tell me plainly, are the farms finished out there, or will there be a harvest worth buying again?" },
       },
       choices = {
         { text = "Westfall will come back. Farmers don't give up their land.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -403,7 +403,7 @@ P:NPC {
     dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran used to dine here when they came south, and they had the most refined palates in the world. I'm told the city's being rebuilt, and I've written to them twice to say my table's ready." } },
     gilneas = { { id = "tp_gilneas", text = "Gilnean cooks were the best in the Seven Kingdoms, and they took every one of their recipes behind that wall. I've spent ten years trying to make their mutton pie, and I've failed every time." } },
     theramore = { { id = "tp_theramore", text = "Theramore is all marsh and soldiers and a lady wizard at the top of a tower, and Morgan says the fish stew there would make you weep. I'll believe it when it's in front of me." } },
-    razorfen = { { id = "tp_razorfen", text = "The quilboar live in thorns the size of houses, Henry wrote, and they cook nothing properly. He sounded rather pleased about it, which tells you everything about my nephew." } },
+    razorfen = { { id = "tp_razorfen", text = "The quilboar live in thorns the size of houses, Henry wrote, and they cook nothing properly. He sounded rather pleased about it, and that is my nephew all over." } },
     westfall = { { id = "tp_westfall", text = "Westfall gave this city its bread for generations, and now it gives us refugees and bad news. I pay for my onions and I try not to think about why they cost so much." } },
     defias = { { id = "tp_defias", text = "Bandits in red masks, they say, and they've taken the farms that fed my kitchen. I've never met one, and I'd like to keep it that way, unless he's bringing onions." } },
     background = { { id = "tp_bg", text = "Head chef of the Blue Recluse. Before that, a great many kitchens, and before that, a boy who burned things." } },

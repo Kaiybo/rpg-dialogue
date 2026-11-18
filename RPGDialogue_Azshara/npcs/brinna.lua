@@ -22,7 +22,7 @@ P:NPC {
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter. Your string's been waxed by somebody who cared, which is rarer than you'd think." },
+      text = "A hunter. Your string's been waxed by somebody who cared, and I see that seldom among the younger races." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your gear's in tatters. If the bow's as bad as the boots, hand it here before it snaps in your face." },
   },

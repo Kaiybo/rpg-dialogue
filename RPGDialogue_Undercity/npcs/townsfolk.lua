@@ -21,7 +21,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Deposit or withdrawal? Speak clearly, please; the vaults echo." },
-    { id = "g_back", when = { metBefore = true }, text = "Your account is in order, which is more than I can say for most of the dead." },
+    { id = "g_back", when = { metBefore = true }, text = "Your account is in order. Most of the dead left theirs in a shambles, along with everything else." },
     { id = "g_living", when = { ["not"] = { race = "Scourge" } }, text = "A living customer, how refreshing. Your coins are perfectly safe here, and so are you, mostly." },
   },
 
@@ -227,7 +227,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "They feared me for a long time, because they could smell what I was, and nothing I did would change it. Patience did it, months of it, and a great deal of sitting still, which I suspect is more of a prayer than anything Duesten ever taught." } },
+      lines = { { id = "xhpriest_default", text = "They feared me for a long time, because they could smell what I was, and nothing I did would change it. Patience did it, months of it, and long hours of sitting still, which I suspect is more of a prayer than anything Duesten ever taught." } },
       choices = {
         { text = "That patience sounds like faith to me, Anya.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Beasts fear the dead for good reason. Let them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -283,7 +283,7 @@ P:NPC {
       },
     },
     fear = {
-      lines = { { id = "f_default", text = "At first, every one of them. A wolf will growl at me for a week before it eats from my hand, and a cat will hiss at me for longer. But they learn that I come back with food every day, and that's all any animal really needs to know." } },
+      lines = { { id = "f_default", text = "At first, all of them. A wolf will growl at me for a week before it eats from my hand, and a cat will hiss at me for longer. But they learn that I come back with food every day, and that's all any animal really needs to know." } },
       choices = {
         { text = "That's very patient of you.", next = "BACK", fx = { affinity = 1 } },
         { text = "Do you ever give up on one?", next = "fear_give" },
@@ -316,7 +316,7 @@ P:NPC {
     },
     druid_q = {
       big = true,
-      lines = { { id = "dq_default", text = "Every day, a little, though I've stopped minding it the way I used to. I raised horses near Brill and they'd come to the fence when I called, and now I have to earn every one of them over again, so you don't know how lucky you are to smell alive." } },
+      lines = { { id = "dq_default", text = "Every day, a little, though I've stopped minding it the way I used to. I raised horses near Brill and they'd come to the fence when I called, and now I have to earn each beast over again, so you don't know how lucky you are to smell alive." } },
       choices = {
         { text = "Your patience is a gift. Keep earning them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Beasts follow strength, Anya, not kindness.", next = "BACK", fx = { align = { light = -1 } } },
@@ -388,7 +388,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I'll drill you harder, because the Alliance will see your Light and call you a traitor to it, and the Scarlets will call you an abomination. Both will come at you first, so you'll need to swing faster than the rest of my students." } },
       choices = {
-        { text = "I'll keep to your drills, Archibald, every one of them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep to your drills, Archibald, all of them.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Drills are for recruits. I'll learn on the battlefield.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -714,7 +714,7 @@ P:NPC {
   topics = {
     scarlet_crusade = { { id = "tp_scarlet", text = "They make decent plate, I'll give them that. It comes back here in pieces for melting down." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken need good steel more than anyone, since we can't feel when our armor has failed. I make it so it doesn't fail." } },
-    lordaeron = { { id = "tp_lordaeron", text = "I forged blades for the king's army, and every one of them was sent to Stratholme with the prince. Not one of them came back, and neither did the men who carried them." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I forged blades for the king's army, and the last crate of them was sent to Stratholme with the prince. Not one of them came back, and neither did the men who carried them." } },
     scourge = { { id = "tp_scourge", text = "The Scourge doesn't care what your sword is made of, as long as it's in your hand. Keep it sharp and keep it close, and you'll outlast most." } },
     _none = { { id = "tp_none", text = "If it isn't metal, I don't care to know. Ask someone else." } },
   },
@@ -763,7 +763,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, because the ore you dig is the armour you wear, and a warrior who mines never pays a smith for the iron. Besides, swinging a pick all day does wonders for the arm, dead or alive." } },
+      lines = { { id = "xwarcl_default", text = "Plenty, because the ore you dig is the armour you wear, and a warrior who mines never pays a smith for the iron. Besides, swinging a pick all day does wonders for the arm, dead or alive." } },
       choices = {
         { text = "I'll leave digging to miners and pay the smith fairly.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll dig my own iron. Nobody else to rely on.", next = "BACK", fx = { align = { order = -1 } } },
@@ -799,7 +799,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You talk to the earth, they say, so ask it where the good veins are and save us both a lot of digging." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Before you ask, no, I don't think the hills mind the mines, and I've been underground long enough to know their moods." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You've got the shoulders for a pick, {class}, and I've always said a good miner and a good soldier are the same animal underneath." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll be up in the hills more than most, so keep an eye out for copper in the rocks, because nobody else bothers to look." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll be up in the hills more than anyone, so keep an eye out for copper in the rocks, because nobody else bothers to look." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll want to say a word over the tunnels, I expect, since half of them were crypts before they were mines." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, in my mines! Your demon could dig, could it? No? Pity." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin down here in the dark! Bring a bit of that Light into the tunnels with you and you'll save me a fortune in candles, though I suppose it stings a little to do it." },
@@ -851,7 +851,7 @@ P:NPC {
     },
     druid_q = {
       big = true,
-      lines = { { id = "dq_default", text = "Sullen, mostly, and wet, and they grumble when you dig too near the Scarlet watchtowers. I'll grant you there's a cave north of Brill where the rock feels wrong, but I put that down to the Scourge, not to the hills having opinions." } },
+      lines = { { id = "dq_default", text = "Sullen, mostly, and wet, and they grumble when you dig too near the Scarlet watchtowers. There's a cave north of Brill where the rock feels wrong, I admit, but I put that down to the Scourge, not to the hills having opinions." } },
       choices = {
         { text = "The hills do have opinions. Listen to them.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Rock is rock. Dig it and sell it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -909,7 +909,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Don't touch the rods; they're charged, and I'd rather not explain your death to anyone." },
+    { id = "g_hi", text = "Don't touch the rods; they're charged, and I've no wish to explain your death to anyone." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Show me what you've been enchanting, and don't be shy." },
   },
 
@@ -952,7 +952,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Agility on your gloves and your boots, and stamina too, which matters more than you'd think when you're tracking for days. Leave the bow to the engineers and their scopes, because I don't work on anything that smells of gunpowder." },
+        { id = "xhuntcl_default", text = "Agility on your gloves and your boots, and stamina too, which counts for a lot when you're tracking for days. Leave the bow to the engineers and their scopes, because I don't work on anything that smells of gunpowder." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Agility on your gloves and boots, mostly, so you can keep up with {pet} when it bolts. Leave your bow to the engineers and their scopes, because I don't work on anything that smells of gunpowder." },
       },
       choices = {
@@ -1039,7 +1039,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "It binds power into objects, and a demon is not an object, however much your trainers would like you to think so. Keep the two crafts apart, because I've seen a warlock's enchanted ring go very wrong, and I'd rather not see it again." },
+        { id = "xwarlock_default", text = "It binds power into objects, and a demon is not an object, however much your trainers would like you to think so. Keep the two crafts apart, because I've seen a warlock's enchanted ring go very wrong, and once was enough." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "We dead mages kept to the arcane and you dead warlocks went down another road entirely, and the Magic Quarter is big enough for us both, mostly. Do keep your imp out of my dust; it eats it." },
       },
       choices = {
@@ -1066,7 +1066,7 @@ P:NPC {
     dalaran = { { id = "tp_dalaran", text = "Dalaran's enchanters were the finest in the world, and they knew it, and they made sure everyone else knew it too. They're rebuilding behind closed gates now, and I don't miss their lectures." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught me my trade, and I'll grant them that much. They also taught me that a mage who won't share his secrets is a very lonely mage." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken make fine enchanters, because the arcane doesn't care whether your hands are warm. Precision is what matters, and death has made me very precise." } },
-    _none = { { id = "tp_none", text = "I don't know, and I'd rather not guess. Ask in the Magic Quarter; someone there will pretend to." } },
+    _none = { { id = "tp_none", text = "I don't know, and I won't guess. Ask in the Magic Quarter; someone there will pretend to." } },
   },
 }
 
@@ -1117,7 +1117,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Now and then, when the work calls for a distraction that can survive being noticed. You walk in the front and make a great deal of noise, and my people walk out the back with whatever the Dark Lady wanted." } },
+      lines = { { id = "xwarcl_default", text = "Now and then, when the work calls for a distraction that can survive being noticed. You walk in the front and make all the noise you like, and my people walk out the back with whatever the Dark Lady wanted." } },
       choices = {
         { text = "I'd rather face my enemy than be bait for thieves.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll make the noise, Carolyn. Whatever works.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1141,11 +1141,11 @@ P:NPC {
         { id = "h_default", key = true, text = "Carolyn Ward. I teach rogues their trade, and in this city a rogue's trade is the Dark Lady's business. If you're not a rogue, I'm not sure why you're in this quarter at all." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "One of mine. Have you learned to move through a crowd without anyone remembering your face? Then you can learn something harder." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Rogues' Quarter. Your totems make more noise than a drunk in a tavern, so don't plant them anywhere I'm working." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my quarter. You've a cat's step, I'll grant you, and I'd like to know how quietly you move when it's properly dark." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my quarter. You've a cat's step, I'll give you that, and I'd like to know how quietly you move when it's properly dark." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You're loud, {class}, and you'll never be anything else, but loud has its uses when someone needs the guards looking the wrong way." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know how to wait and how to watch, which is more than half my students can manage." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I've known priests who made fine liars, because people tell them everything, and I wonder which kind you are." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The last of your order I saw in Lordaeron were burning our dead in the streets, so forgive me if I watch your hands rather than your face." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The last of your order I saw in Lordaeron were burning our dead in the streets, so I'll be watching your hands rather than your face." },
       },
       again = { { id = "h_again", text = "Something else? Make it brief; I'm expected elsewhere, and the people expecting me are not the forgiving sort." } },
       choices = {
@@ -1268,7 +1268,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "More often than you'd think, because a shadow priest's spells and a good poison share a certain philosophy about the body. I'd never sell to one who meant to use it on the Dark Lady's people, of course, and I've a very good memory for faces." } },
+      lines = { { id = "xhpriest_default", text = "Often enough, because a shadow priest's spells and a good poison share a certain philosophy about the body. I'd never sell to one who meant to use it on the Dark Lady's people, of course, and I've a very good memory for faces." } },
       choices = {
         { text = "Poison has no place in a priest's hands.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Every tool has its use. Show me your stock.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1303,7 +1303,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I'm told your totems can wash a poison clean out of the blood, which is very bad for business, so please don't do it in front of my customers." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Your lot can cure a poison with a touch, I'm told, and I've never been so offended by a profession in my life." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll not want poisons yourself, I expect, but you'll want to know what's on the blades pointed at you." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Now there's a customer who understands venom, since half the beasts you hunt carry something interesting in their glands." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Now there's a customer who understands venom, since so many of the beasts you hunt carry something interesting in their glands." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! How lovely. You heal, and I sell things that make healing necessary, so I'd say we're natural friends." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Oh, you'll not want my stock, I expect, since poison on a holy hammer would be terribly bad manners, but do look around, because I've never had a customer quite like you." },
       },
@@ -1325,7 +1325,7 @@ P:NPC {
       },
     },
     who = {
-      lines = { { id = "w_default", text = "Rogues, mostly, and the occasional apothecary who's run short. Hunters buy a little for their traps, and I don't ask questions of anyone, which is why so many people shop with me." } },
+      lines = { { id = "w_default", text = "Rogues, mostly, and the occasional apothecary who's run short. Hunters buy a little for their traps, and I don't ask questions of anyone, so the whole quarter shops with me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     wicked = {
@@ -1606,7 +1606,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "I doubt it, because the apothecaries put that green in on purpose and they'd take it badly if anyone cleaned it out. Besides, a canal is patient, like me, and I'd rather wait for it to clear itself than watch a paladin burn out trying." } },
+      lines = { { id = "xfpala_default", text = "I doubt it, because the apothecaries put that green in on purpose and they'd take it badly if anyone cleaned it out. Besides, a canal is patient, like me, and I'd sooner wait for it to clear itself than watch a paladin burn out trying." } },
       choices = {
         { text = "If it can be cleansed, it should be, whatever the apothecaries say.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "The canals serve the Dark Lady. I'll leave them alone.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1615,7 +1615,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "It's the nearest thing I've got, sitting still and hoping for something from below that you can't see. My old priest used to say patience is the first gift, and I've had a great deal of time to practise it since he died." } },
+      lines = { { id = "xhpriest_default", text = "It's the nearest thing I've got, sitting still and hoping for something from below that you can't see. My old priest used to say patience is the first gift, and I've had years of practice since he died." } },
       choices = {
         { text = "Patience is a gift, Armand. You've got plenty.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Waiting for gifts is a fool's game. Take what you need.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1747,7 +1747,7 @@ P:NPC {
   },
 
   topics = {
-    forsaken = { { id = "tp_forsaken", text = "The Forsaken have all the time in the world, and fishing is the perfect use of it. Nothing in these canals is edible, mind you, but it passes the hours." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have all the time in the world, and fishing is the perfect use of it. Nothing in these canals is edible, of course, but it passes the hours." } },
     lordaeron = { { id = "tp_lordaeron", text = "I used to fish Lordamere Lake when the king's barges still sailed it. The water was clean then, and the fish were fat, and I didn't know how lucky I was." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where the real fishermen gather, I'm told, with sharks and sea monsters and goblins betting on all of it. I'd like to try my line there one day." } },
     _none = { { id = "tp_none", text = "Can't help you there. Ask me about fish, and I'll talk until you beg me to stop." } },

@@ -226,7 +226,7 @@ P:NPC {
       },
     },
     ra_win = {
-      lines = { { id = "raw_default", text = "Whoever's still on the track at the end, friend, which is a smaller number than you'd think. The gnomes say they've won the most races, and the goblins say we've had the most exciting losses." } },
+      lines = { { id = "raw_default", text = "Whoever's still on the track at the end, friend, which is usually about three racers, and one of them's on fire. The gnomes say they've won the most races, and the goblins say we've had the most exciting losses." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 

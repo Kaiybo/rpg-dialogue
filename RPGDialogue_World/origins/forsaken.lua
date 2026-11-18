@@ -15,7 +15,7 @@ P:Origin {
       blurb = "I remember everything I did while the Lich King held me, every village and every face. The Dark Lady says it wasn't me, and I'd like very much to believe her.",
       nudge = { trait = { stern = 1 }, align = { light = -1 } } },
     { id = "forsaken_dalaran_apprentice", name = "Once an apprentice of Dalaran", class = "MAGE",
-      blurb = "I studied in the violet city before Archimonde flattened it, and my notes rotted in the rubble with the rest of me. The spells came back when I did, which is more than I can say for my manners.",
+      blurb = "I studied in the violet city before Archimonde flattened it, and my notes rotted in the rubble with the rest of me. The spells came back when I did, though my patience for students stayed in the grave.",
       nudge = { trait = { curious = 1 } }, home = "undercity" },
     { id = "forsaken_chapel_priest", name = "Once a priest of Lordaeron's chapels", class = "PRIEST",
       blurb = "I gave sermons on the Light to farmers who are now ghouls. The Light still answers me, though it hurts, and I've decided to treat the pain as the Light talking back.",

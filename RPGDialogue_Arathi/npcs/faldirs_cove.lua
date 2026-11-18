@@ -46,7 +46,7 @@ P:NPC {
         { id = "h_seahorn", when = { questDone = TODO_QUEST("Death From Below") },
           text = "Seahorn's going to hear about all this eventually, and I'd like to be the one who tells him. A captain who brings home some gold gets forgiven for a lot." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "A rogue! You'd fit right in with the Raiders, matey, and the pay's better than you'd think." },
+          text = "A rogue! You'd fit right in with the Raiders, matey, and nobody here asks where your last purse came from." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Horde, eh? The Blackwater Raiders sail for Booty Bay and gold, not for kings or warchiefs, so you're as welcome here as anyone who pulls an oar." },
       },
@@ -206,7 +206,7 @@ P:NPC {
     },
     ob_code = {
       lines = {
-        { id = "oc_default", text = "By the code, matey: a tenth to the Baron, two shares to the captain, one to every hand, and a share and a half to the family of any sailor who doesn't come home. Steelgut's crew is owed a great deal of gold I haven't found yet." },
+        { id = "oc_default", text = "By the code, matey: a tenth to the Baron, two shares to the captain, one to every hand, and a share and a half to the family of any sailor who doesn't come home. Steelgut's crew is owed a chest's worth of gold I haven't found yet." },
       },
       choices = {
         { text = "Will you pay the dead men's shares?", next = "ob_shares" },
@@ -302,7 +302,7 @@ P:NPC {
     steamwheedle = { { id = "tp_sw", text = "Booty Bay's run by goblins and paid for by everyone. The Raiders sail for the Baron, and the Baron pays on time." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's home port for the Blackwater Raiders, and Fleet Master Seahorn runs the finest fleet on the south seas. I'm dreading going back there, if you must know, after what I did to his ships." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail are scum, pirates with no honour and no sense, and they'd kill their own mothers for a doubloon. The Blackwater Raiders are pirates too, but we have standards." } },
-    ratchet = { { id = "tp_ratchet", text = "Ratchet's a fine port, if you like goblins, and I don't, but the rum's good. Seahorn's got friends there, which is why I'm staying away." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's a fine port, if you like goblins, and I don't, but the rum's good. Seahorn's got friends on those docks, so I'll do my drinking somewhere else." } },
     _none = { { id = "tp_none", text = "No idea, matey. Ask Lolo, he'll tell you, and he'll tell you in the third person." } },
   },
 }

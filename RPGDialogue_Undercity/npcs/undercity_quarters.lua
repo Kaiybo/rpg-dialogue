@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "The bats are hungry and restless, which means they're ready to fly. Where to?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The bats remember you, which is either a compliment or a warning." },
-    { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? The bats remembered you before I did, which tells you something about one of us." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? The bats remembered you before I did, and I'd rather not dwell on what that says about me." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Folk in the city say you've been doing them good turns. The bats can't stand most people, but they've stopped hissing at you, so perhaps it's catching." },
   },
 
@@ -72,7 +72,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Because your teleport only brings you here, and the bats take you to the Sepulcher or Tarren Mill without complaint. Be kind to them and they'll be kind to you, which is more than most of this city manages." },
+        { id = "xmage_default", text = "Because your teleport only brings you here, and the bats take you to the Sepulcher or Tarren Mill without complaint. Be kind to them and they'll be kind to you, and you'll find that rarer in this city than you'd hope." },
       },
       choices = {
         { text = "I'll be kind to them, Garrett.", next = "BACK", fx = { align = { light = 1 } } },
@@ -91,7 +91,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The bats don't love your beasts, but they've learned to put up with them, which is more than the beasts manage in return." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the bat roost. They won't mind you, the bats, but they'll want to know if you've got anything to eat, which is about all they want from anyone." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The bats don't care about magic, but they do dislike being frozen, so I'd avoid that." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and the bats don't mind you a bit, which tells me more about you than any tabard would. They hate the Scarlets' torches, but whatever you're carrying, they seem to think it's harmless." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and the bats don't mind you a bit, and they've a better nose for the Scarlets than any tabard could give me. They hate the Crusade's torches, but whatever you're carrying, they seem to think it's harmless." },
       },
       again = {
         { id = "h_again", text = "What else? The bats are waiting, and one of them has started chewing on a saddle." },
@@ -189,7 +189,7 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The Warchief's people send their wind riders up to Tirisfal, and the bats don't care for them. I can't say I blame the bats." } },
     lordaeron = { { id = "tp_lordaeron", text = "The bats know every road in Lordaeron better than any map. They'll fly you over the ruins if you like, but don't look down too long." } },
     scourge = { { id = "tp_scourge", text = "The Scourge has its own winged horrors, gargoyles and the like, and the bats are terrified of them. So am I, if I'm honest." } },
-    _none = { { id = "tp_none", text = "I don't know. Ask a bat, they know more than you'd think." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask a bat; they hear everything from up in the rafters." } },
   },
 }
 
@@ -296,8 +296,8 @@ P:NPC {
     xhhunt = {
       big = true,
       lines = {
-        { id = "xhhunt_default", text = "Constantly, and they're wrong to. A hunter knows the land and reads the weather, and a hunter's arrow has never once blown up in its owner's face, which is more than I can say for my students." },
-        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Constantly, and they're wrong to, because {pet} shows more discipline than half my students. A beast that comes when called has never once blown up in its owner's face, which is more than I can say for them." },
+        { id = "xhhunt_default", text = "Constantly, and they're wrong to. A hunter knows the land and reads the weather, and a hunter's arrow has never once blown up in its owner's face, whereas my students manage it weekly." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Constantly, and they're wrong to, because {pet} shows more discipline than most of my students. A beast that comes when called has never once blown up in its owner's face, and my students can't say the same." },
       },
       choices = {
         { text = "Every trade has its use to the Forsaken.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -332,7 +332,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because the arcane asks you to understand the world, and your craft asks you to make deals with things that would eat it. I share a quarter with the warlocks and I'm civil to them, but civil isn't the same as respect." },
-        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "Kel'Thuzad was a scholar of the Kirin Tor before he was anything else, and he went from study to necromancy one small bargain at a time. Forgive me if I watch every warlock in this quarter with that in mind." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "Kel'Thuzad was a scholar of the Kirin Tor before he was anything else, and he went from study to necromancy one small bargain at a time. So I watch every warlock in this quarter with that in mind." },
       },
       choices = {
         { text = "Fair. I'll keep my bargains careful and few.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -343,7 +343,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Yes, but mages write theirs down and rogues sell them, which is why I keep my notes locked in a chest and never let it out of sight. If you want secrets from the Magic Quarter, you'll find most of them are dull equations." },
+        { id = "xrogue_default", text = "Yes, but mages write theirs down and rogues sell them, so I keep my notes locked in a chest and never let it out of sight. If you want secrets from the Magic Quarter, you'll find most of them are dull equations." },
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "Dalaran's libraries lost more to cutpurses than to the Scourge, if you count the years before the plague, and I spent a long time chasing missing folios. Leave my notes alone, and we'll get along." },
       },
       choices = {
@@ -444,7 +444,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Rats, mostly, and the occasional bear when the Master Apothecary is feeling generous. If you bring in a wolf from Silverpine that's been drinking from the wrong stream, though, I'd be very interested in what's in its blood." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not yours, so you needn't hold {pet} so close. Rats, mostly, and the occasional bear, though a wolf from Silverpine that's been drinking from the wrong stream would interest me a great deal." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not yours, so you needn't hold {pet} so close. Rats, mostly, and the occasional bear, though a wolf from Silverpine that's been drinking from the wrong stream would make a very interesting afternoon." },
       },
       choices = {
         { text = "I won't bring living beasts to your cages, Zinge.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -468,12 +468,12 @@ P:NPC {
         { id = "o_udimprove", tags = { "news" }, when = { gossip = { topic = "undeath", stance = "improvement" } }, text = "Master Faranell tells everyone you called undeath an improvement. He's been unbearable about it all week, so thank you very much." },
         { id = "h_default", key = true,
           text = "Apothecary Zinge, of the Royal Apothecary Society. We work for the Dark Lady, and the Master Apothecary oversees all of it, so if you've business here, it's his business first." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call anything up in here, please, because I've three mixtures reducing and I'd rather not explain lightning in my notes." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call anything up in here, please, because I've three mixtures reducing and lightning is not a variable I've accounted for." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and living. Stand away from the vats, please, because those vapours aren't kind to lungs that still work, and they're less kind to anything with fur." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beasts look healthier than my prisoners, {class}, and I'll admit I've wondered why." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Don't touch anything on this bench, please, and don't bless it either, because I've had a vial go cloudy after a blessing and I've not worked out why." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. If you're here to steal reagents, the last one who tried is in a jar." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. Don't touch the green vials, and please don't pray near them either, because I've no idea what the Light does to that mixture and I'd rather not find out with my face over the bench." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. Don't touch the green vials, and please don't pray near them either, because I've no idea what the Light does to that mixture and I don't care to learn with my face over the bench." },
       },
       again = {
         { id = "h_again", text = "What else? My mixture is reducing." },
@@ -524,7 +524,7 @@ P:NPC {
     },
     faranell = {
       lines = {
-        { id = "fa_default", text = "Brilliant, demanding, and never satisfied, which is what a Master Apothecary ought to be. I report to him, and he reports to the Dark Lady, and I'd rather not disappoint either." },
+        { id = "fa_default", text = "Brilliant, demanding, and never satisfied, which is what a Master Apothecary ought to be. I report to him, and he reports to the Dark Lady, and disappointing either of them is a short career." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

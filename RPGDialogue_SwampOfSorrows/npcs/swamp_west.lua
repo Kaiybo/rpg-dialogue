@@ -225,7 +225,7 @@ P:NPC {
     },
     home_if = {
       lines = {
-        { id = "hi_default", text = "Drier! I'd give a month's pay for dry boots, and another for a mug by one of your forges. You'll forgive me if I sound jealous, because I am." },
+        { id = "hi_default", text = "Drier! I'd give a month's pay for dry boots, and another for a mug by one of your forges. If I sound jealous, it's because I am." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -284,7 +284,7 @@ P:NPC {
     { id = "n_horde", cat = "faction", when = { faction = "Horde" },
       text = "You wear the colors of the orcs. It was their gate that brought us here, long ago, but it was not you who opened it, and so I will not hold it against you." },
     { id = "n_alliance", cat = "faction", when = { faction = "Alliance" },
-      text = "The humans' soldiers pass to the south, toward their keep, and most do not look this way. You looked, and that is already more than most." },
+      text = "The humans' soldiers pass to the south, toward their keep, and most do not look this way. You looked, and few of them ever do." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "You speak with the spirits of this world. I wonder sometimes whether they know what we are, or whether we are as strange to them as they are to us." },
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN" } },

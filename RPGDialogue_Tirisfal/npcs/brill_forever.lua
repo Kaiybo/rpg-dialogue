@@ -181,7 +181,7 @@ P:NPC {
           text = "Better than they did, thanks in part to you. Word of what you did for Falgan has spread among the Deathguard, and I've had two of them nod at me in the street this week, which is two more than last month." },
       },
       choices = {
-        { text = "Then we'll earn it, slowly and honestly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then we'll earn it slowly, and without tricks.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "We don't need their trust. Let our deeds speak.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -208,7 +208,7 @@ P:NPC {
     },
     before = {
       lines = {
-        { id = "bf_default", text = "Someone who held the Light in life, and lost it for a time after. Most of what came between is gone, or it's somewhere I don't care to look, and I'd rather be judged by what I do now." },
+        { id = "bf_default", text = "Someone who held the Light in life, and lost it for a time after. Most of what came between is gone, or it's somewhere I don't care to look, so judge me by what I do now." },
       },
       choices = {
         { text = "That's fair. Something else.", next = "BACK" },
@@ -416,7 +416,7 @@ P:NPC {
     paladins = {
       big = true,
       lines = {
-        { id = "p_default", text = "Half of Brill thinks they're spies for the Light, and the other half thinks they're the best thing to happen to the town since the apothecaries stopped testing on the neighbours. I haven't decided yet, though I'll admit Shari is very hard to dislike." },
+        { id = "p_default", text = "Some of Brill thinks they're spies for the Light, and the rest thinks they're the best thing to happen to the town since the apothecaries stopped testing on the neighbours. I haven't decided yet, though I'll admit Shari is very hard to dislike." },
       },
       choices = {
         { text = "They're Forsaken. They deserve the same trust as anyone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },

@@ -269,7 +269,7 @@ P:NPC {
       },
     },
     serenity = {
-      lines = { { id = "se_default", text = "Because it's beautiful, darling, a hammer made by people who thought they were holy, and hit very hard because of it. The Scarlet Crusade burned half the people I knew in life, and I want their best hammer in the hands of a Forsaken smith, for the joke of it." } },
+      lines = { { id = "se_default", text = "Because it's beautiful, darling, a hammer made by people who thought they were holy, and hit very hard because of it. The Scarlet Crusade burned my neighbours in life, and I want their best hammer in the hands of a Forsaken smith, for the joke of it." } },
       choices = {
         { text = "Revenge, then?", next = "serenity_rev" },
         { text = "Something else.", next = "BACK" },
@@ -293,7 +293,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     uc = {
-      lines = { { id = "uc_default", text = "Never. The Apothecarium would want to measure my knees, and the Royal Guard would write me up for loitering. Down there everyone shuffles, darling, and I'd rather be cold up here than shuffle." } },
+      lines = { { id = "uc_default", text = "Never. The Apothecarium would want to measure my knees, and the Royal Guard would write me up for loitering. Down there everyone shuffles, darling, and I'll take the cold up here over the shuffle." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },

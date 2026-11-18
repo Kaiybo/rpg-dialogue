@@ -33,7 +33,7 @@ P:NPC {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid. The Council expects more of you than of most, because you of all people should know better than to help a satyr." },
     { id = "n_human", cat = "race", when = { race = { "Human", "Dwarf", "Gnome" } },
-      text = "You're a guest on Teldrassil. The Council forgives guests a great deal, but not everything." },
+      text = "You're a guest on Teldrassil. The Council is patient with guests, but its patience has an end." },
   },
 
   start = "hello",
@@ -299,7 +299,7 @@ P:NPC {
       },
     },
     sign = {
-      lines = { { id = "si_default", text = "It's a sign she noticed me enough to ignore me, which is more than most get. Love is patient, isn't it? I've got a few thousand years to wait." } },
+      lines = { { id = "si_default", text = "It's a sign she noticed me enough to ignore me, and that's a start. Love is patient, isn't it? I've got a few thousand years to wait." } },
       choices = {
         { text = "Then keep trying. Never give up on love.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "She's said no. Respect it and move on.", next = "BACK", fx = { align = { order = 1 } } },
@@ -400,7 +400,7 @@ P:NPC {
 
   notice = {
     { id = "n_mage", cat = "class", when = { class = { "MAGE", "PRIEST", "DRUID" } },
-      text = "You've a reader's look about you. Have you read Feralas: A History? No one has, which is why I like it." },
+      text = "You've a reader's look about you. Have you read Feralas: A History? No one has, and that is exactly why I like it." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! Do you know Greywhisker, up in the city? We argue about everything older than a thousand years, which is everything." },
   },
@@ -432,7 +432,7 @@ P:NPC {
     },
 
     turtles = {
-      lines = { { id = "tu_default", text = "Because they're old, and they remember things, in their way, which is more than most people do. A snapjaw as big as Gammerita has seen the beach change shape a dozen times, and I'd love to know what she thinks of it." } },
+      lines = { { id = "tu_default", text = "Because they're old, and they remember things, in their way, longer than most of the people on this shore. A snapjaw as big as Gammerita has seen the beach change shape a dozen times, and I'd love to know what she thinks of it." } },
       choices = {
         { text = "Can a turtle really remember anything?", next = "turtle_mind" },
         { text = "Something else.", next = "BACK" },

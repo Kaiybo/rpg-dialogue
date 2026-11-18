@@ -18,7 +18,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome, welcome! Mind the crates, because half of them are rockets and the other half are cakes, and I can never remember which." },
+    { id = "g_default", text = "Welcome, welcome! Mind the crates, because some are rockets and some are cakes, and I can never remember which." },
     { id = "g_festival", when = { holiday = "lunar" }, text = "Happy new year, and Elune's light on you! The sky's been quiet for a whole twelvemonth, so let's make up for it tonight." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Either you liked the rockets, or you've come to complain about them, and I'm happy either way." },
     { id = "g_omen", when = { questActive = TODO_QUEST("Elune's Blessing") }, text = "Off to wake Omen, are you? Take more rockets than you think you'll need, because he never wakes as quickly as anyone hopes." },
@@ -147,7 +147,7 @@ P:NPC {
     xtinker = {
       big = true,
       lines = {
-        { id = "xt_default", text = "Oh, I know, and I'm hopelessly jealous! A gnome told me last year that my blue rocket was 'charmingly rustic', and I've been trying to decide ever since whether that was a compliment. Tell me honestly, are mine any good?" },
+        { id = "xt_default", text = "Oh, I know, and I'm hopelessly jealous! A gnome told me last year that my blue rocket was 'charmingly rustic', and I've been trying to decide ever since whether that was a compliment. Be a friend and tell me, are mine any good?" },
       },
       choices = {
         { text = "They're lovely. Craft made with joy beats precision.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },

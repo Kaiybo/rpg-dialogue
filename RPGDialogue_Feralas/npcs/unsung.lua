@@ -30,7 +30,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They sense the storms over the sea, and they sense the naga long before we do. If they're watching you, it's because you smell of the wind, and they trust the wind more than most riders." } },
+      lines = { { id = "xdsham_default", text = "They sense the storms over the sea, and they sense the naga long before we do. If they're watching you, it's because you smell of the wind, and they trust the wind above any rider." } },
       choices = {
         { text = "I'll treat your birds as gently as a fair wind.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The wind isn't gentle. Your birds should learn that.", next = "BACK", fx = { align = { light = -1 } } },
@@ -156,7 +156,7 @@ P:NPC {
     },
     island = {
       lines = {
-        { id = "i_default", text = "Because the water is a wall the ogres cannot climb. The General chose Sardor Isle for the same reason a hunter chooses high ground, and the naga are the only ones who can reach us easily, which is why the archers watch the shore." },
+        { id = "i_default", text = "Because the water is a wall the ogres cannot climb. The General chose Sardor Isle for the same reason a hunter chooses high ground, and only the naga can reach us easily, so the archers watch the shore." },
       },
       choices = {
         { text = "The naga come right up to the isle?", next = "island_naga" },
@@ -405,7 +405,7 @@ P:NPC {
     teldrassil = { { id = "tp_teldrassil", text = "Everything on my shelves comes on the boats from Teldrassil or Auberdine, and I count it twice. Salt rots in this damp if you look away." } },
     booty_bay = { { id = "tp_booty_bay", text = "Goblin traders from Booty Bay sometimes sail in with dyes, and I buy them because I must, and I count my change three times because I must." } },
     elune = { { id = "tp_elune", text = "I keep a moonstone on the counter for Elune's blessing on trade. The Sentinels tease me about it, and then they touch it on the way out." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "A Faire with fortune-tellers and games, you say? I would want to see their ledgers before I believed they made a copper honestly." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "A Faire with fortune-tellers and games, you say? I would want to see their ledgers before I believed they made a fair copper." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, friend. Ask Shandris's people; the Sentinels hear everything, and forget very little." } },
   },
 }
@@ -438,7 +438,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Anyone can learn it who listens. You were taken from the earth and given back, which is more than most herbalists can say, and I think the land would not mind your hands, as long as they are gentle." } },
+      lines = { { id = "xfpala_default", text = "Anyone can learn it who listens. You were taken from the earth and given back, and few herbalists know the soil so closely, so I think the land would not mind your hands, as long as they are gentle." } },
       choices = {
         { text = "I'll be gentle. The land deserves that.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The land gives what I take. That's its purpose.", next = "BACK", fx = { align = { light = -1 } } },
@@ -447,7 +447,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Patience, which few warriors learn, and healing, which every one of them needs. The best herbs of Feralas grow slowly in the shade, and a warrior who learns to wait for them learns also to wait for the right moment to strike." } },
+      lines = { { id = "xwarcl_default", text = "Patience, which few warriors learn, and healing, which they all need sooner or later. The best herbs of Feralas grow slowly in the shade, and a warrior who learns to wait for them learns also to wait for the right moment to strike." } },
       choices = {
         { text = "Patience before the strike. That's how battles are won.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The right moment is now. Waiting gets braves killed.", next = "BACK", fx = { align = { order = -1 } } },
@@ -666,7 +666,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "A quick cut in a fight, yes, but not at the skinning. When you rush it, you tear the hide and waste half the beast, and that dishonors both the hunter and the hunted." } },
+      lines = { { id = "xrogue_default", text = "A quick cut in a fight, yes, but not at the skinning. When you rush it, you tear the hide and waste the beast, and that dishonors both the hunter and the hunted." } },
       choices = {
         { text = "Patience honors the hunt. I'll learn it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I've no time to waste on hides.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -808,7 +808,7 @@ P:NPC {
 
   notice = {
     { id = "n_crafter", cat = "craft", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing" } },
-      text = "A crafter, good; I sell more to you than to anyone else. The hides in Feralas are fine, and the ogre cloth is better than you'd think, once you wash it." },
+      text = "A crafter, good; I sell more to you than to anyone else. The hides in Feralas are fine, and the ogre cloth is surprisingly sturdy, once you wash the smell out." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc, so far from Durotar! The jungle must seem strange after the desert, but you'll grow used to the rain, as we all have." },
   },
@@ -973,7 +973,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I traded in Thunder Bluff before I came here. The work's harder, but the people are kinder." } },
     advice = { { id = "tp_ad", text = "Never leave your goods unwatched at night. The gnolls steal anything that isn't tied down." } },
-    cairne = { { id = "tp_cairne", text = "Cairne's caravans make the long walk from Thunder Bluff to Mojache, and every one of them arrives a little lighter than it left. The road takes its toll, and so do the centaur." } },
+    cairne = { { id = "tp_cairne", text = "Cairne's caravans make the long walk from Thunder Bluff to Mojache, and they always arrive a little lighter than they left. The road takes its toll, and so do the centaur." } },
     centaur = { { id = "tp_centaur", text = "The centaur of Desolace raid the road between here and Thunder Bluff, and I count the caravans that don't come in. The count is too high this season." } },
     thrall = { { id = "tp_thrall", text = "The Warchief keeps the roads open for us, as much as anyone can. He sends grunts to guard the worst stretches, and they eat everything I sell." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Goblin traders come up from Gadgetzan and charge me for sand in the bottom of every sack. I pay, because nobody else sells what they sell." } },

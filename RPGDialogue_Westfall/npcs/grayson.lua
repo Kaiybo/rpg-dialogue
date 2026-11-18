@@ -52,7 +52,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "It looks right through me, which is more than most people manage. The gulls see me too, and the murlocs, and they're the ones I'd least like to. Old Murk-Eye looks at me every night, and I swear he grins." },
+        { id = "xhuntcl_default", text = "It looks right through me, and at least it doesn't scream while it does it. The gulls see me too, and the murlocs, and they're the ones I'd least like to. Old Murk-Eye looks at me every night, and I swear he grins." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} hasn't stopped staring at me since you came up the path. Tell it I'm harmless, would you?" },
       },
       choices = {
@@ -118,7 +118,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, living, and come to see a ghost. Do your spirits speak to me, then? I've had little enough company out here." },
       },
       again = {
-        { id = "h_again", text = "Ask on. The dead have nothing but time, and I've more than most." },
+        { id = "h_again", text = "Ask on. The dead have nothing but time, and I've had a good many years of it." },
         { id = "h_again2", text = "What else? The tide's turning, as it always is." },
       },
       choices = {
@@ -279,6 +279,6 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never sail a strange coast at night without a light to steer by. I'd know." } },
     defias = { { id = "tp_defias", text = "I've seen their ships slip along this coast at night, running dark. I know the trick; I used it myself." } },
     westfall = { { id = "tp_westfall", text = "From up here it looks peaceful. That's the trouble with lighthouses. Everything looks peaceful from a height." } },
-    _none = { { id = "tp_none", text = "The dead hear less than you'd think. Mostly waves." } },
+    _none = { { id = "tp_none", text = "The dead hear less than the living suppose, and out here it's mostly waves." } },
   },
 }

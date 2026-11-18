@@ -96,7 +96,7 @@ P:NPC {
           text = "You have shown me the vessel, so you know the path. The bindings, the elementium, the essence of the Firelord, and then we will call him, together." },
       },
       choices = {
-        { text = "That's a great deal to ask.", next = "need_much" },
+        { text = "That's a lot to ask of me.", next = "need_much" },
         { text = "Something else.", next = "BACK" },
       },
     },

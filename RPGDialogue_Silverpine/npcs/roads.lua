@@ -269,7 +269,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "The villagers bar their doors at dusk, and by moonrise they're worgen, every one of them, howling down the south road. By morning they're farmers again and none the wiser, or so they pretend. I don't know what a priest could do for them, but I've never seen anyone try." } },
+      lines = { { id = "xhpriest_default", text = "The villagers bar their doors at dusk, and by moonrise the whole of Pyrewood is worgen, howling down the south road. By morning they're farmers again and none the wiser, or so they pretend. I don't know what a priest could do for them, but I've never seen anyone try." } },
       choices = {
         { text = "They're cursed, not damned. Someone should try.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Better to burn the village and end it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -402,7 +402,7 @@ P:NPC {
 
   topics = {
     shadowfang = { { id = "tp_shadowfang", text = "Shadowfang Keep sits on the hill above Pyrewood, and its master breeds the wolves that walk on two legs. I watch the road for them, and I've seen enough to fill a ledger." } },
-    forsaken = { { id = "tp_forsaken", text = "My brother and I came back together, which is more than most Forsaken can say. I'd take that over a full heart any day." } },
+    forsaken = { { id = "tp_forsaken", text = "My brother and I came back together, and most of the Forsaken woke alone in a grave with nobody's name on their lips. I'd take that over a full heart any day." } },
     scourge = { { id = "tp_scourge", text = "The Scourge's ghouls shamble past the farm sometimes, and I let them pass if they don't stop. Worgen are a different story." } },
     _none = { { id = "tp_none", text = "That's not my concern, for Pyrewood is my concern." } },
   },
@@ -420,7 +420,7 @@ P:NPC {
 
   greetings = {
     { id = "g_bats", text = "Don't wave your arms about; the bats think it's a challenge." },
-    { id = "g_kback", when = { metBefore = true }, text = "You again. The bats remember you, which is more than I can say for most of my visitors." },
+    { id = "g_kback", when = { metBefore = true }, text = "You again. The bats remember you; most of my visitors leave nothing behind worth remembering." },
     { id = "g_knight", when = { timeOfDay = "night" }, text = "Night flights are the best flights, if you ask the bats, and nobody ever does but me." },
   },
 
@@ -444,7 +444,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "They sense everything, which is why I like them better than people. They grew used to the Forsaken quickly enough, though they still go quiet when a priest walks past the roost. Either they're showing respect, or they're waiting to see if you'll make a meal." } },
+      lines = { { id = "xhpriest_default", text = "They sense everything, and they never pretend otherwise, so I like them better than people. They grew used to the Forsaken quickly enough, though they still go quiet when a priest walks past the roost. Either they're showing respect, or they're waiting to see if you'll make a meal." } },
       choices = {
         { text = "Then I'll walk past gently and let them rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them stay wary. Fear keeps a creature obedient.", next = "BACK", fx = { align = { light = -1 } } },
@@ -540,7 +540,7 @@ P:NPC {
     },
     roads = {
       lines = {
-        { id = "ro_default", text = "Worgen at night and gnolls by day, so yes. The bats fly over all of it, which is why I'm the most popular person in the Sepulcher, and the least thanked." },
+        { id = "ro_default", text = "Worgen at night and gnolls by day, so yes. The bats fly over all of it, so I'm the most popular person in the Sepulcher, and the least thanked." },
       },
       choices = {
         { text = "What do you see from up there?", next = "roads_view" },

@@ -50,7 +50,7 @@ P:NPC {
     op_ask = {
       big = true,
       lines = {
-        { id = "op_ask_default", text = "Fandral would answer the Warsong with more groves and more druids, and I would answer them with more Sentinels; we agree on the enemy and on very little else. You have walked through the Enclave, so tell me honestly what you make of the Archdruid." },
+        { id = "op_ask_default", text = "Fandral would answer the Warsong with more groves and more druids, and I would answer them with more Sentinels; we agree on the enemy and on very little else. You have walked through the Enclave, so tell me plainly what you make of the Archdruid." },
       },
       choices = {
         { text = "He grew a world tree. That took vision and courage.", next = "op_r1", fx = { affinity = -1, align = { order = 1 }, opinion = { fandral = "admire" } } },
@@ -69,7 +69,7 @@ P:NPC {
       choices = { { text = "Back to Ashenvale, then.", next = "BACK" } },
     },
     op_r3 = {
-      lines = { { id = "op_r3_default", text = "Malfurion would tell me the same, and he would be right, which is why I miss him most on the days I must sit across a table from Fandral." } },
+      lines = { { id = "op_r3_default", text = "Malfurion would tell me the same, and he would be right. It is on the days I must sit across a table from Fandral that I feel his absence in the Dream most keenly." } },
       choices = { { text = "Back to Ashenvale, then.", next = "BACK" } },
     },
     op_r4 = {
@@ -149,7 +149,7 @@ P:NPC {
     mage_t = {
       big = true,
       lines = {
-        { id = "mt_default", text = "Then you study the thing that broke the world. The Highborne drank from the Well until the sea swallowed Zin-Azshari, and my people swore that power off for ten thousand years, so forgive me if I watch your hands while you speak." },
+        { id = "mt_default", text = "Then you study the thing that broke the world. The Highborne drank from the Well until the sea swallowed Zin-Azshari, and my people swore that power off for ten thousand years, so do not be offended if I watch your hands while you speak." },
         { id = "mt_sky", when = { race = "Skyborne", class = "MAGE" },
           text = "Your forebears in Eldre'Thalas kept that magic when the rest of us put it down. I don't hold you to account for their prince, but I can't pretend I'm glad to see the arcane in Elune's house." },
       },
@@ -189,7 +189,7 @@ P:NPC {
     },
     dwarf_t = {
       lines = {
-        { id = "dwt_default", text = "It troubles my Sentinels more than it troubles me. Your diggers are careful, mostly, and they ask before they open a barrow, mostly, but some of what lies under Darkshore was buried for a reason, and I'd rather they heard that from me than learned it with a shovel." },
+        { id = "dwt_default", text = "It troubles my Sentinels more than it troubles me. Your diggers are careful, mostly, and they ask before they open a barrow, mostly, but some of what lies under Darkshore was buried for a reason, and better they hear that from me than learn it with a shovel." },
       },
       choices = {
         { text = "Old ruins should teach the living. Let them dig.", next = "BACK", fx = { align = { order = -1 } } },
@@ -280,7 +280,7 @@ P:NPC {
         { text = "Where is Malfurion?", next = "malfurion" },
         { text = "Darnassus seems troubled, for all its beauty.", next = "troubles" },
         { text = "The Horde is in Ashenvale. What will you do?", next = "ashenvale" },
-        { text = "Elune must ask a great deal of her priestesses.", next = "elune" },
+        { text = "Elune must ask much of her priestesses.", next = "elune" },
         { text = "Every year since Hyjal feels borrowed, High Priestess.", next = "xborrowed", when = { origin = "nightelf_hyjal_survivor" } },
         { text = "They say you once had no use for humans.", next = "hyjal", when = { race = "Human" } },
         { text = "I serve the Light, High Priestess. Is that so different?", next = "light",
@@ -594,7 +594,7 @@ P:NPC {
     { id = "g_druid", when = { class = "DRUID", race = "NightElf" }, text = "A kaldorei druid, good. The Circle needs more of our own and fewer of the rest." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Very well, speak, but make it worth the climb." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, I see, though to the kaldorei that is hardly a breath. Speak, then, and make it worth the climb." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown stronger since last you stood before me, I'll grant you. Perhaps you are of some use to the Circle after all." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown stronger since last you stood before me; even I can see it. Perhaps you are of some use to the Circle after all." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you have been bending the ears of my people with clever words. The kaldorei are not so easily led as you may think, so do not mistake politeness for agreement." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Word reaches the Enclave that you have given offence in this city. Darnassus tolerates its guests, but it does not suffer them gladly, so be brief." },
   },
@@ -623,7 +623,7 @@ P:NPC {
       },
     },
     prej_a = {
-      lines = { { id = "prej_a_default", text = "Mastery. Every one of them said that word, in that tone, on the night the world broke. Go, and be the first to prove it means something." } },
+      lines = { { id = "prej_a_default", text = "Mastery. The Highborne spoke that word, in that very tone, on the night the world broke. Go, and be the first to prove it means something." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
     },
     prej_b = {
@@ -802,7 +802,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_alt_out", when = { alt = { kin = true, race = { "Human", "Dwarf", "Gnome" } }, metBefore = false },
-          text = "You have the bearing of {alt}, who came to the Enclave and listened more than most outsiders bother to. I assume you are of the same family, since your kind seem to arrive in sets." },
+          text = "You have the bearing of {alt}, who came to the Enclave and listened, which few outsiders trouble themselves to do. I assume you are of the same family, since your kind seem to arrive in sets." },
         { id = "h_alt_elf", when = { alt = { kin = true, race = "NightElf" }, metBefore = false },
           text = "You have the look of {alt}, a young {altclass} who sat in the Enclave and actually heeded what I said about the forest. If you are of that one's house, I shall expect the same patience from you." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
@@ -823,7 +823,7 @@ P:NPC {
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
           text = "Tyrande was not pleased with you, I hear. Do not take it to heart: she has long mistaken her own certainty for Elune's, and you are hardly the first to suffer for it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The Temple will want you, I suppose, though I'd ask you to remember that the forest was here before any prayers were said over it." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The humans sent their soldiers to us once before, at Hyjal, and I'll grant you they fought well, though they understood nothing of what they defended." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The humans sent their soldiers to us once before, at Hyjal, and they fought well, though they understood nothing of the World Tree they bled for." },
         { id = "h_default", key = true,
           text = "I am Fandral Staghelm, Archdruid of the Cenarion Circle. While Malfurion dreams someone must lead, and I do; there are some who would rather I didn't, and they are wrong." },
         { id = "h_corithras", when = { heardLine = "corithras.h_default" },
@@ -1046,7 +1046,7 @@ P:NPC {
     { id = "g_druid", when = { class = "DRUID" }, text = "Elune-adore, young one. The Enclave's doors are open to you, and so is my time." },
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "What brings you to the Cenarion Circle, friend? Ask, and I'll answer if I can." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, friend, and the Enclave's doors stayed open the whole while. Ask what you came to ask." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, and I'm glad to see it. The wild teaches faster than any trainer, though it charges more for the lesson." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since we last spoke, and I'm glad to see it. The wild teaches faster than any trainer, though it charges more for the lesson." },
     { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping folk in the city these past days. That is the Circle's work as much as any druid's, whatever some may say." },
   },
 
@@ -1151,7 +1151,7 @@ P:NPC {
     },
     claw_w = {
       lines = {
-        { id = "cw_default", text = "You hold the line with a shield you can put down, and we hold it with a body we have to remember to take off. Some of the first Druids of the Claw forgot how, long ago, which is why I teach the heart before the claws." },
+        { id = "cw_default", text = "You hold the line with a shield you can put down, and we hold it with a body we have to remember to take off. Some of the first Druids of the Claw forgot how, long ago, and still roam the deep woods as beasts, so I teach the heart before the claws." },
       },
       choices = {
         { text = "Could a warrior learn that kind of calm?", next = "claw_w2" },
@@ -1217,8 +1217,8 @@ P:NPC {
         { id = "h_cat", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Cat Spirit") },
           text = "The Great Cat Spirit sets each generation its own trial. I can't tell you what yours will be. I can tell you it plays before it bites." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You smell of the arcane, {class}, like smoke caught in a cloak. Nobody will say anything, but the older druids will step a little to one side." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I trained bears for the Archdruid when he still listened to me, warlock, and every one of them is growling at you right now in my head." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you walk the way the beasts do. Some of my students could learn a great deal from that." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I trained bears for the Archdruid when he still listened to me, warlock, and in my mind they are all growling at you right now." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you walk the way the beasts do. Some of my students still crash through the underbrush like tauren, and they could stand to watch you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in the Enclave. The young druids tell me you came in by the side path, which is the one only they use when they're late." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You walk a path close to ours, though you came to it through stone rather than root, so sit and tell me what the spirits say to you." },
         { id = "h_initiate", when = { origin = "nightelf_druid_initiate" }, text = "You woke with the rest of the Circle, I remember, blinking at a world that had moved on without us. Some of the old druids still wake in the night expecting the Dream, and I tell them what I'll tell you: the waking world is ours too, and it needs us more." },
@@ -1472,7 +1472,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Elune turns no one away, little star, but her light shows what we carry, and yours shows a great deal. The Sisterhood remembers the Legion too well to welcome your servant inside, so leave it at the door and come in as yourself." },
+        { id = "xlock_default", text = "Elune turns no one away, little star, but her light shows what we carry, and yours shows a shadow at your heel. The Sisterhood remembers the Legion too well to welcome your servant inside, so leave it at the door and come in as yourself." },
       },
       choices = {
         { text = "I'll leave it at the door, Priestess.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1683,7 +1683,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I could learn a great deal, and I will admit the temptation, but the Highborne began by studying too. I will read about your servant in old books written by those who fought them, and I'll leave it to you whether you end up in the next one." },
+        { id = "xlock_default", text = "I could learn much, and I will admit the temptation, but the Highborne began by studying too. I will read about your servant in old books written by those who fought them, and I'll leave it to you whether you end up in the next one." },
       },
       choices = {
         { text = "Then I'll make sure the books speak kindly of me.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1696,13 +1696,13 @@ P:NPC {
         { id = "hg_default", text = "Then tell me this, hunter: did one ever run from you? Wolves scatter when the leader falls and boars bolt when they're hurt, but I've never once read of a silithid turning back, and that frightens me more than the mandibles." },
       },
       choices = {
-        { text = "No. They kept coming, every one of them.", next = "hunter_g2" },
+        { text = "No. They kept coming until none were left.", next = "hunter_g2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     hunter_g2 = {
       lines = {
-        { id = "hg2_default", text = "As I feared. Something behind them gives the orders, somewhere deeper than Feralas or Tanaris, and a creature that doesn't fear for itself is only a hand on someone else's arm. I'd give a great deal to know whose." },
+        { id = "hg2_default", text = "As I feared. Something behind them gives the orders, somewhere deeper than Feralas or Tanaris, and a creature that doesn't fear for itself is only a hand on someone else's arm. I would very much like to know whose." },
       },
       choices = { { text = "I'll keep my eyes open.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
@@ -1728,7 +1728,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I study creatures that don't belong in this world, and I'm told your order has had a great deal of experience with those." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I study creatures that don't belong in this world, and I'm told your order has put a good many of them back where they came from." },
         { id = "h_default", text = "I am Gracina Spiritmight, priestess and scholar, and I study the creatures that belong to this world alone. Lately, Elune help me, I study the ones that don't seem to belong to it at all, insects from the south that the scouts call silithid." },
         { id = "h_pestlezugg", when = { heardLine = "pestlezugg.h_default" },
           text = "A goblin alchemist in Gadgetzan has been asking about my insect studies. A goblin, asking a priestess. Whatever is under the sand must be worse than I feared." },
@@ -1744,9 +1744,9 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I study creatures that do not belong in this world, warlock, and I can see one standing behind you. I'd rather it didn't come any closer to my notes." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll have met more creatures up close than any of my scholars, I imagine, and with less time to take notes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, at last. You of all people should care when something crawls out of the earth that the earth never made, so I would value your eyes on my specimens." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You go places nobody else can, I suppose, and I would give a great deal to know what you've seen in them." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You go places nobody else can, I suppose, and I would love to hear what you've seen in them, whenever you'd care to share." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Silithid", min = 40 } },
-          text = "You've been killing silithid, haven't you? I can smell that sour, dusty reek on your boots, and I'd give a great deal to know what you saw down there in the south." },
+          text = "You've been killing silithid, haven't you? I can smell that sour, dusty reek on your boots, and I want to hear everything you saw down there in the south." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Tell me, do the spirits know of creatures I have not catalogued? I have been at this for three centuries, and I am still eager for every account." },
       },
       again = {
@@ -1811,7 +1811,7 @@ P:NPC {
       },
     },
     silithid_done = {
-      lines = { { id = "sd_default", text = "You carried it, and you've seen the sand move. That's more than most of my colleagues can say." } },
+      lines = { { id = "sd_default", text = "You carried it, and you've seen the sand move. Most of my colleagues have only read about it in my letters." } },
       choices = {
         { text = "What do we do now?", next = "silithid_next" },
         { text = "Something else.", next = "BACK" },
@@ -1844,7 +1844,7 @@ P:NPC {
     elune = { { id = "tp_elune", text = "Elune is the moon's goddess, and the texts make her far more complicated than the hymns do. I read the texts, and then I go and sing the hymns, because both are true." } },
     highborne = { { id = "tp_highborne", text = "The Highborne libraries were the greatest our people ever had, and they sank with Zin-Azshari. I think of all those books under the sea, and it hurts me nearly as much as the war." } },
     dire_maul = {
-      { id = "tp_dire_maul", text = "Eldre'Thalas, the humans call it Dire Maul, was a Highborne city in Feralas. If even half the stories are true there's still a library inside, and I'd give a great deal to see it." },
+      { id = "tp_dire_maul", text = "Eldre'Thalas, the humans call it Dire Maul, was a Highborne city in Feralas. If even a few of the stories are true there's still a library inside, and I would cross the whole sea to see it." },
       { id = "tp_dire_maul2", when = { disposition = { min = 65 } }, text = "If you go to Dire Maul, look for anything with writing on it and bring it back to me. I'll read it carefully, I promise, and I'll even say a prayer for whoever wrote it." },
     },
     ahn_qiraj = { { id = "tp_ahn_qiraj", text = "The Temple has old accounts of a war in the southern desert, before the Sundering, against something that crawled. I've only seen fragments, and the fragments frighten me." } },
@@ -1889,7 +1889,7 @@ P:NPC {
         { text = "Stout hearts. They rebuilt a whole city from ashes.", next = "op_r1", fx = { affinity = 1, trait = { kind = 1 }, opinion = { humans = "admire" } } },
         { text = "Short-lived and quarrelsome. They'll squabble the Alliance away.", next = "op_r2", fx = { trait = { skeptical = 1 }, opinion = { humans = "distrust" } } },
         { text = "Their court worries me. Ask who really advises the boy-king.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { prestor = "distrust" } } },
-        { text = "We're stubborn, I'll grant you, but we keep our word.", next = "op_r4", fx = { affinity = 1, opinion = { humans = "proud" } }, when = { race = "Human" } },
+        { text = "We're stubborn, yes, but we keep our word.", next = "op_r4", fx = { affinity = 1, opinion = { humans = "proud" } }, when = { race = "Human" } },
         { text = "I couldn't say.", next = "BACK" },
       },
     },

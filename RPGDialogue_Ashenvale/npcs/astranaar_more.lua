@@ -168,7 +168,7 @@ P:NPC {
     },
     proven = {
       lines = {
-        { id = "pr_default", text = "By what they do when nobody is watching them, which is harder to learn than you'd think. Raene tells me who helps her scouts, Faldreas tells me who comes back, and Pelturas tells me who was kind to his daughter." },
+        { id = "pr_default", text = "By what they do when nobody is watching them, and that takes seasons to learn. Raene tells me who helps her scouts, Faldreas tells me who comes back, and Pelturas tells me who was kind to his daughter." },
       },
       choices = {
         { text = "So everyone here reports to you.", next = "proven2" },
@@ -319,7 +319,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Whenever we fly over Splintertree, which is why I fly them low over the canopy now, where the orcs can't see us coming. If one comes in hurt while you're here, I'd be grateful for your hands." } },
+      lines = { { id = "xapriest_default", text = "Whenever we fly over Splintertree, so I fly them low over the canopy now, where the orcs can't see us coming. If one comes in hurt while you're here, I'd be grateful for your hands." } },
       choices = {
         { text = "I'll tend any bird that comes in wounded.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Birds heal on their own. I've people to tend.", next = "BACK", fx = { align = { light = -1 } } },

@@ -32,7 +32,7 @@ P:NPC {
     { id = "n_tabard", cat = "stormwind", when = { class = { "PALADIN", "WARRIOR" }, minLevel = 25 },
       text = "You've a soldier's bearing about you. Are you the vanguard, then, with the Army marching behind? No, of course you aren't." },
     { id = "n_shabby", cat = "status", when = { durability = { max = 0.25 } },
-      text = "You'll forgive me if I don't offer you a seat. The council's upholstery has suffered enough this year." },
+      text = "I shan't offer you a seat, I'm afraid, because the council's upholstery has suffered enough this year." },
   },
 
   start = "hello",
@@ -158,7 +158,7 @@ P:NPC {
           text = "Ah, my friend, come in, come in! The council is delighted to see you, and so, unofficially and without minutes, am I." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "The council has no appointments today, and I have even fewer for you. What is it?" },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and welcome, for I have asked Stormwind for a hundred of you and received a polite letter instead. You'll forgive me if I'm glad of one." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and welcome, for I have asked Stormwind for a hundred of you and received a polite letter instead. One will do very nicely to be going on with." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've asked Stormwind for soldiers more times than I can count. Will your spirits answer where they won't?" },
       },
       again = {
@@ -202,7 +202,7 @@ P:NPC {
     },
     need_walls = {
       lines = {
-        { id = "nw_default", text = "We have a fence, a gate and a great many lanterns. The dead climb badly and the worgen climb well, which is why the council does not discuss the worgen after dark." },
+        { id = "nw_default", text = "We have a fence, a gate and a great many lanterns. The dead climb badly and the worgen climb well, so the council has resolved, by a vote of four to one, not to discuss the worgen after dark." },
       },
       choices = {
         { text = "Then why does anyone stay?", next = "need_stay" },
@@ -429,7 +429,7 @@ P:NPC {
       },
     },
     dwarf = {
-      lines = { { id = "dw_default", text = "Which is more than I can say for the capital, and I've written to Ironforge too, you know. The King under the Mountain sent a very handsome letter declining, on very handsome paper." } },
+      lines = { { id = "dw_default", text = "A dwarf! I've written to Ironforge as well as the capital, you know. The King under the Mountain sent a very handsome letter declining, on very handsome paper." } },
       choices = {
         { text = "Ironforge keeps its promises when it makes them.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
         { text = "Then I'll be Ironforge's answer.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 } } },
@@ -463,7 +463,7 @@ P:NPC {
     raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a thriving village under this council's care, and we lost it to the dead in a single winter. Its cemetery is the town's shame, and I'll not rest easy until it's quiet." } },
     dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders come out of Deadwind Pass, burn what they please and ride back again. The council has reported them to Stormwind eleven times, and I can show you the copies." } },
     scourge = { { id = "tp_scourge", text = "Lordaeron fell to its dead within a year, and Darkshire has held out against its own for longer than that with farmers and lanterns. I should like someone in Stormwind to consider that before they tell me the army is stretched." } },
-    holy_light = { { id = "tp_holy_light", text = "Darkshire's chapel lights its candles every evening, and the Light has kept us better than the Crown has. I say that as a loyal man, mind you." } },
+    holy_light = { { id = "tp_holy_light", text = "Darkshire's chapel lights its candles every evening, and the Light has kept us better than the Crown has. I say that as a loyal man, and I have the tax receipts to prove it." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I once petitioned the Darkmoon Faire to come to Darkshire and lift the town's spirits. They sent a most courteous letter declining, which I filed beside the Keep's." } },
   },
 }

@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Keep your voice down! The cultists come through here more often than you'd think." },
+    { id = "g_default", text = "Keep your voice down! The cultists pass along this path near every night, and they have sharp ears." },
     { id = "g_key", when = { questActive = TODO_QUEST("A Strange Red Key") }, text = "Is that a key in your hand? Please, tell me that's a key." },
     { id = "g_ready", when = { questActive = TODO_QUEST("Rescue From Jaedenar") }, text = "Lightforge first, then out. Stay close and don't stop for anything." },
     { id = "g_away", when = { away = 14 }, text = "You went away for {away} and came back down here? Either you're mad or you've a reason, and I hope it's the second." },

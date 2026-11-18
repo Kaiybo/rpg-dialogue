@@ -158,7 +158,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. The Highborne ghosts at the Shadowsong Shrine were mages too, and they still cling to this land, so I wonder whether you feel them more keenly than I do." },
         { id = "h_default", key = true,
-          text = "I am Loh'atu. The Sentinels let me share their camp so long as I bring no trouble with me, and I have kept that promise for longer than they expected. I came to learn what is wrong with this land, and I have learned a great deal of it." },
+          text = "I am Loh'atu. The Sentinels let me share their camp so long as I bring no trouble with me, and I have kept that promise for longer than they expected. I came to learn what is wrong with this land, and I have learned more of it than I wished." },
         { id = "h_satyr", when = { questActive = TODO_QUEST("A Land Filled with Hatred") },
           text = "The Haldarr clan is to the northeast, among the broken stones. Strike at them hard, friend, because they will not stop on their own." },
         { id = "h_spirits", when = { questActive = TODO_QUEST("Spiritual Unrest") },
@@ -174,7 +174,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you know? I have time; the land does not hurry, and neither do I." },
-        { id = "h_again2", text = "Ask, friend. A guest learns to listen, and I have had a great deal of practice." },
+        { id = "h_again2", text = "Ask, friend. A guest learns to listen, and I have had many moons of practice." },
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Go on. The fire is warm and the Sentinels are pretending not to listen." },
       },
       choices = {
@@ -394,7 +394,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I know a little of this land, mostly from walking it and listening. Ask what you will, and you will have it honestly, as I learned it." },
+      { id = "tp_knows", text = "I know a little of this land, mostly from walking it and listening. Ask what you will, and you will have it plainly, as I learned it." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, friend, I will tell everything I know, and say plainly where my knowing runs out." },
     },
     background = {
@@ -403,14 +403,14 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Keep to the road, keep your voice low near the shrine, and never draw a weapon inside a camp that has given you its fire." } },
     rumors = { { id = "tp_rum", text = "The Sentinels say the naga dig at Eldarath every night, and that whatever they want has been buried there since before the sea came in." } },
     sentinels = { { id = "tp_sent", text = "Good hosts, if watchful ones. They keep the bridge to Ashenvale, and they keep an eye on me, and I think they do both well." } },
-    satyrs = { { id = "tp_satyr", text = "The Haldarr are the closest of them, to the northeast. The elves say they were kin once, which is why the Sentinels hunt them so hard.", next = "land_satyr" } },
+    satyrs = { { id = "tp_satyr", text = "The Haldarr are the closest of them, to the northeast. The elves say they were kin once, and perhaps that is why the Sentinels hunt them so hard.", next = "land_satyr" } },
     highborne = { { id = "tp_hb", text = "The proudest mages the elves ever had, and now the saddest ghosts in Azshara.", next = "land_spirits" } },
     queen_azshara = { { id = "tp_queen", text = "The elves' old queen, whose hunger for magic broke the world. I know only the little they will say of her.", next = "queen" } },
     furbolgs = { { id = "tp_furb", text = "A gentle people once, struck down from every side. I grieve for them more than I fear them.", next = "places_furbolg" } },
     xylem = { { id = "tp_xylem", text = "The human mage in the tower to the north. I have never met him, and I am content to keep it so." } },
     eldarath = { { id = "tp_eld", text = "The great ruin east along the road, and the naga's now. Go there with friends, or not at all." } },
     cenarion_circle = { { id = "tp_circle", text = "Druids of my people and the elves together, working to heal what the demons broke. I wish there were more of them here." } },
-    cairne = { { id = "tp_cairne", text = "Cairne is the father of my people and a friend to all who walk honestly. I would like him to see what I see here, elves and a tauren sharing bread." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the father of my people and a friend to all who walk with an open hand. I would like him to see what I see here, elves and a tauren sharing bread." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother loves the night elves too, I think, though they call her by the moon's name. I would not say so in front of them, out of courtesy." } },
     elune = { { id = "tp_elune", text = "The Sentinels pray to Elune at dusk, and I sit with them, and I find their quiet very much like ours. A prayer is a prayer, whatever the sky is called." } },
     loramus = { { id = "tp_loramus", text = "The hermit on the island across the bay was once an elf of great honor, they say, before he took demons into himself. I grieve for what he lost, even if he does not." } },

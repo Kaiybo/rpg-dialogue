@@ -28,7 +28,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "I am Karne Grayhoof, and I help the young of Narache find a trade. It can feel like a great deal at first, but you can always come back to me, or to the teachers in Thunder Bluff when you're older." },
+        { id = "h_default", key = true, text = "I am Karne Grayhoof, and I help the young of Narache find a trade. It can feel like a lot at first, but you can always come back to me, or to the teachers in Thunder Bluff when you're older." },
         { id = "h_nontauren", when = { ["not"] = { race = "Tauren" } }, text = "A guest on Red Cloud Mesa, and far from home. The Earth Mother's gifts are the same here as anywhere, so let me tell you which of our teachers can show you how to use them." },
       },
       again = {
@@ -241,7 +241,7 @@ P:NPC {
     },
     beasts = {
       lines = {
-        { id = "b_default", text = "Plainstriders and prairie wolves on the mesa, and the cougars in the hills, if you are brave enough. The battleboars of the Bristleback have tough hides too, but they bite back harder than you'd think." },
+        { id = "b_default", text = "Plainstriders and prairie wolves on the mesa, and the cougars in the hills, if you are brave enough. The battleboars of the Bristleback have tough hides too, but they bite back hard enough to break a young hunter's spear." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

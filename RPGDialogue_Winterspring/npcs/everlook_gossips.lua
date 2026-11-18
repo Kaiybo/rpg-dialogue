@@ -181,7 +181,7 @@ P:NPC {
     everlook = { { id = "tp_everlook", text = "Everlook's the best town in the world for news, pal, because everybody passes through and nobody keeps their mouth shut. I keep mine shut least of all, but I always save the best part." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the most gossip south of here, but it's mostly about pirates. The news up here is better, because it's mostly about bears and furbolgs, which are more surprising." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's a fine town, if you like sand in your shoes and scorpids in your bed. I've heard stories about the Zul'Farrak trolls that'd curl your toes." } },
-    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are a strange bunch, but they keep their word, and that's more than I can say for most. Go see for yourself, if you can get past the guards." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are a strange bunch, but they keep their word, and in Everlook that makes them nearly unique. Go see for yourself, if you can get past the guards." } },
     _none = { { id = "tp_none", text = "I haven't heard about that one yet! Find out and come back and tell me, would you, pal, because I hate being outbid on news." } },
   },
 }
@@ -249,7 +249,7 @@ P:NPC {
     },
     donova = {
       lines = {
-        { id = "d_default", text = "A dwarf, and a clever one, who studies the springs and the beasts around them. She's got a kind heart, which is why the furbolgs going bad is hurting her so much, and she'd be glad of help." },
+        { id = "d_default", text = "A dwarf, and a clever one, who studies the springs and the beasts around them. She's got a kind heart, so the furbolgs going bad is hurting her terribly, and she'd be glad of help." },
       },
       choices = {
         { text = "I'll go and see her.", next = "donova_go" },
@@ -259,7 +259,7 @@ P:NPC {
     donova_go = {
       big = true,
       lines = {
-        { id = "dg_default", text = "Good! Mind you watch the furbolgs, though, because they're not themselves. Donova will tell you they can be helped, and maybe she's right, but they'll still bite while she's working it out." },
+        { id = "dg_default", text = "Good! Watch the furbolgs, though, because they're not themselves. Donova will tell you they can be helped, and maybe she's right, but they'll still bite while she's working it out." },
       },
       choices = {
         { text = "If they can be saved, I'll try to save them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -308,7 +308,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Goblin, Everlook, the hills, sweetie, in that order, though some days I'd swap the first two and sell the third." } },
     advice = { { id = "tp_ad", text = "Take your time out there, and keep your eyes open, and write down what you meant to do before you set out. I never do, but you should." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall have gone wrong, and it's a shame, because they used to keep to themselves. Donova knows why, or she will soon." } },
-    steamwheedle = { { id = "tp_sw", text = "Everlook's a cartel town, sweetie, and very safe, and very dull, and everything in it costs double, which is why I go out into the hills." } },
+    steamwheedle = { { id = "tp_sw", text = "Everlook's a cartel town, sweetie, and very safe, and very dull, and everything in it costs double, so I go out into the hills." } },
     everlook = { { id = "tp_everlook", text = "Everlook is the loveliest place in the world, all snow and sky and quiet, and I'd tell you all about it if I could remember where I started. Where was I?" } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw live in the tunnels to the south, and they're very particular about who comes through. I meant to tell you something important about them, but it's gone right out of my head." } },
     booty_bay = { { id = "tp_booty_bay", text = "I've never been to Booty Bay, but I hear it's very warm and very loud. I like the snow better, though I can't remember why I came up here in the first place." } },

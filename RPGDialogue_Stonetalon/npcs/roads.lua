@@ -417,7 +417,7 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Oh! I didn't hear you come up at all, and I'm so glad you're not Grimtotem. Can you walk that quietly with me all the way to Sun Rock?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Oh, thank the Earth Mother, because the Grimtotem were big and there were so many of them, and I didn't have anything but a walking stick." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know how to stay hidden, then, and you'll know the Grimtotem are hunters too, which frightens me more than anything." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "You're a druid, aren't you? My uncle says druids can become a bear, and if you did that now, I think I'd feel a great deal safer." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "You're a druid, aren't you? My uncle says druids can become a bear, and if you did that now, I think I'd feel a whole lot safer." },
       },
       again = {
         { id = "h_again1", text = "I'll answer anything you like, if it means we're closer to leaving." },

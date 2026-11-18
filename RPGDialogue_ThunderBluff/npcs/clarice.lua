@@ -43,7 +43,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I'm not going anywhere; the dead rarely have appointments." },
-        { id = "h_again2", text = "Go on. Talking passes the time, and unlife has left me a great deal of it." },
+        { id = "h_again2", text = "Go on. Talking passes the time, and unlife has left me nothing but time." },
       },
       choices = {
         { text = "Tell me about your husband.", next = "yuriv" },
@@ -113,7 +113,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A wife, once, in Lordaeron. Now I'm a Forsaken woman in a tauren city, and that's as much of my story as you'll get." } },
     advice = { { id = "tp_ad", text = "Don't marry anyone who loves a cause more than you. Take it from a woman who did." } },
-    scarlet_crusade = { { id = "tp_sc", text = "Zealots who want people like me burned. Yuriv would have hated them, I think, or joined them, and I honestly can't say which." } },
+    scarlet_crusade = { { id = "tp_sc", text = "Zealots who want people like me burned. Yuriv would have hated them, I think, or joined them, and I truly can't say which." } },
     scourge = { { id = "tp_scourge", text = "The Scourge took me in my own kitchen, and I woke up dead and hungry and answering to a voice in my head. The Dark Lady silenced that voice, and I have been grateful in my cold way ever since." } },
     forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, which is a gloomy name, but an honest one. The tauren are kind to me here, which is more than the living of Lordaeron ever were." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady freed us from the Lich King, and she asks for very little in return. Only everything, I suppose, but I gave that up when I died." } },

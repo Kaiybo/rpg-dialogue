@@ -158,7 +158,7 @@ P:NPC {
 
     redridge = {
       lines = {
-        { id = "r_default", text = "Because a challenge needs danger, and Redridge has plenty, gnolls in the hills and orcs past the lake. Besides, the inn's warm and Daniels doesn't mind me makin' noise, which is more than I can say for Ironforge." },
+        { id = "r_default", text = "Because a challenge needs danger, and Redridge has plenty, gnolls in the hills and orcs past the lake. Besides, the inn's warm and Daniels doesn't mind me makin' noise, whereas in Ironforge they'd have the guard round by the second song." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } } },
     },
@@ -166,7 +166,7 @@ P:NPC {
     wisdom = {
       big = true,
       lines = {
-        { id = "w_default", text = "Wise? No! But a warrior who can't fight half-cut and half-blind will meet a day when he has to, and I'd rather he met it in my Gauntlet than on a battlefield." },
+        { id = "w_default", text = "Wise? No! But a warrior who can't fight half-cut and half-blind will meet a day when he has to, and better he meets it in my Gauntlet than on a battlefield." },
       },
       choices = {
         { text = "A clear head wins fights. Not brew.", next = "BACK", fx = { align = { order = 1 } } },
@@ -267,7 +267,7 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "Plenty, and every one of them thinks a lock is a puzzle to be solved with a fireball. Come back when you can open a door without leaving a scorch mark, and we'll talk." } },
+      lines = { { id = "xma_default", text = "Plenty, and they all think a lock is a puzzle to be solved with a fireball. Come back when you can open a door without leaving a scorch mark, and we'll talk." } },
       choices = {
         { text = "Fine. Finesse over force, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A scorched door opens just as well.", next = "BACK", fx = { align = { order = -1 } } },
@@ -317,7 +317,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Alther's Mill"), days = 5 } },
           text = "So the lockbox gave in to you. Good; whatever kills you from here on, at least it won't be my teaching." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You're not the sort I teach, but you're the sort who protects the sort I teach, so you can stand there if you want." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You've got a quiet step, I'll grant you, but that beast of yours breathes like a bellows, and I can hear it from here." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your step's quiet enough, but that beast of yours breathes like a bellows, and I can hear it from here." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, on my docks. Come to save my soul? You'll need a bigger boat." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Shiny, loud and honest, which are the three things I can't teach anybody." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've watched your cats prowl about, and I'll grant they move quieter than most of my students." },
@@ -421,7 +421,7 @@ P:NPC {
     syndicate = { { id = "tp_syndicate", text = "The Syndicate are thieves with family crests, which makes them worse thieves and worse nobles. I'd not take a job from one, because they'd pay in a knife." } },
     the_stockade = { { id = "tp_the_stockade", text = "A good half of my old students have done a spell in the Stockade, and a few of them are running it now, from what I hear. I'm proud and ashamed in about equal measure." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the only port in the world where a rogue can walk down the street with his hood down. The goblins don't care what you've done, just what you're spending." } },
-    knows = { { id = "tp_knows", text = "I know locks, boats and who's been where they shouldn't, which is a longer list than you'd think. Choose." } },
+    knows = { { id = "tp_knows", text = "I know locks, boats and who's been where they shouldn't, and that last list is longer than the Magistrate would like, so choose." } },
     background = { { id = "tp_bg", text = "I'm a dwarf on a dock, and that's as much as anyone gets, friend." } },
     advice = { { id = "tp_ad", text = "Never pick a lock you haven't looked at twice, and never trust a door that's already open." } },
     si7 = { { id = "tp_si7", text = "Never heard of it, and you didn't hear me say that." } },
@@ -680,16 +680,16 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "More than you'd think, friend, for both are about waiting quietly for the right moment and then moving quick. The difference is that a fish doesn't hold a grudge, and from what I hear, the people you rob do." } },
+      lines = { { id = "xrogue_default", text = "Plenty, friend, for both are about waiting quietly for the right moment and then moving quick. The difference is that a fish doesn't hold a grudge, and from what I hear, the people you rob do." } },
       choices = {
-        { text = "I'd rather fish than rob, honestly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather fish than rob, Matthew.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Grudges are a risk of the trade.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Matthew.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, because both are about waiting for the right moment and then not hesitating. The murlocs taught me that, since they hit the line fast and you've got to be faster, or they'll take your rod as well." } },
+      lines = { { id = "xwarcl_default", text = "A fair bit, because both are about waiting for the right moment and then not hesitating. The murlocs taught me that, since they hit the line fast and you've got to be faster, or they'll take your rod as well." } },
       choices = {
         { text = "Patience first, then the strike. I like that.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll stick to fighting. Fish don't fight back.", next = "BACK", fx = { align = { order = -1 } } },
@@ -866,7 +866,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every warrior thinks so, and every one of them asks me, and I tell them all the same thing: bread and milk will carry you further than ale. The ones who listen tend to come back, and the ones who don't tend to ask Daniels." } },
+      lines = { { id = "xwarcl_default", text = "Every warrior thinks so, and they all ask me, and I tell them all the same thing: bread and milk will carry you further than ale. The ones who listen tend to come back, and the ones who don't tend to ask Daniels." } },
       choices = {
         { text = "Bread and milk, then. I'll fight with a clear head.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll see Daniels. A warrior needs his courage.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1117,7 +1117,7 @@ P:NPC {
         { id = "h_bellygrub", when = { questDone = TODO_QUEST("An Unwelcome Guest") },
           text = "Martie says you dealt with that boar in her garden. I've been telling her to build a better fence for years, so I'm glad somebody solved it the other way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and I'll ask you nicely, the same as I ask everyone: don't trample my herbs on your way out to fight." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll be out in the hills more than most, so you can tell me what's growing and what's been trampled flat." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll be out in the hills more than anyone in town, so you can tell me what's growing and what's been trampled flat." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Healers and herbalists ought to be friends, so mind you don't pull my peacebloom up by the roots." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your sort tread heavy, so mind my beds as you go." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll want to know which herbs put a body to sleep, I expect, and I'll tell you which ones to leave well alone." },
@@ -1146,7 +1146,7 @@ P:NPC {
 
     herbs = {
       lines = {
-        { id = "he_default", text = "Peacebloom and silverleaf near the water, briarthorn and bruiseweed in the hills, and a little mageroyal if you look under the pines. The gnolls trample half of it, and the guards bleed on the other half." },
+        { id = "he_default", text = "Peacebloom and silverleaf near the water, briarthorn and bruiseweed in the hills, and a little mageroyal if you look under the pines. The gnolls trample the hill patches flat, and the guards bleed all over the lakeside ones." },
       },
       choices = {
         { text = "So the guards use your herbs.", next = "herbs_guards" },
@@ -1162,7 +1162,7 @@ P:NPC {
 
     martie = {
       lines = {
-        { id = "ma_default", text = "We share a name and a love of growing things, and she keeps the prettier garden, which she'll tell you herself. I teach, she grows, and between us half the town's cuts get mended." },
+        { id = "ma_default", text = "We share a name and a love of growing things, and she keeps the prettier garden, which she'll tell you herself. I teach, she grows, and between us most of the town's cuts get mended." },
       },
       choices = {
         { text = "She seems sweet on someone, doesn't she?", next = "martie_parker" },

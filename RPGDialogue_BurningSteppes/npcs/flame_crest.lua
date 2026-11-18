@@ -93,7 +93,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Everythin' worries me, which is why I drink. The Dark Irons up there got intae bed wi' fire an' sorcery once, an' look what crawled out, so ye'll forgive an old dwarf for keepin' his ale an' his beard well away from yer wee friend." } },
+      lines = { { id = "xlock_default", text = "Everythin' worries me, an' that's what the ale's for. The Dark Irons up there got intae bed wi' fire an' sorcery once, an' look what crawled out, so ye'll forgive an old dwarf for keepin' his ale an' his beard well away from yer wee friend." } },
       choices = {
         { text = "My imp keeps to heel. Your beard's safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little fel never hurt anyone's ale, John.", next = "BACK", fx = { align = { order = -1 } } },
@@ -471,7 +471,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Where the Seven hid their best work, for a start, because the Dark Irons buried half their history under Blackrock Mountain and the other half under rubble. You talk to stone and I sell what's under it, so we'd make a fine pair, my friend, if your spirits don't mind a modest commission." } },
+      lines = { { id = "xhsham_default", text = "Where the Seven hid their best work, for a start, because the Dark Irons buried their history under Blackrock Mountain and then dropped the mountain on it. You talk to stone and I sell what's under it, so we'd make a fine pair, my friend, if your spirits don't mind a modest commission." } },
       choices = {
         { text = "The earth's secrets aren't for sale, Maxwort.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "For a fair cut, I might ask the stones for you.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -489,7 +489,7 @@ P:NPC {
         { id = "h_tablet_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Tablet of the Seven"), days = 5 } },
           text = "Your transcription is beautiful, by the way, better than any scribe I could hire and cheaper, too. I'm still reading it, and every line makes me poorer in patience and richer in hope." },
         { id = "h_heart", when = { questActive = TODO_QUEST("The Heart of the Mountain") },
-          text = "The Dark Irons keep the Heart in the vault deep in their city, behind a guard who won't show himself until every coffer's open. I tried to buy it, honestly I did, and made them a very generous offer, but they wouldn't sell." },
+          text = "The Dark Irons keep the Heart in the vault deep in their city, behind a guard who won't show himself until every coffer's open. I tried to buy it, cross my ledger, and made them a very generous offer, but they wouldn't sell." },
         { id = "h_heart_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Heart of the Mountain"), days = 7 } },
           text = "I take it out every night and just look at it, the size of your fist and twice as beautiful as I imagined, and I haven't once worked out its price, which worries me. Don't tell anybody where I keep it, my friend, and don't ask." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -651,7 +651,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Because if they do, then my patron's experiments are a very different line item, and I'd rather not think about that too long. It's all for science, of course, and science doesn't need to worry about souls, I've been told, quite firmly, by the fellow paying." } },
+      lines = { { id = "xapriest_default", text = "Because if they do, then my patron's experiments are a very different line item, and that's a cost I don't like to tally. It's all for science, of course, and science doesn't need to worry about souls, I've been told, quite firmly, by the fellow paying." } },
       choices = {
         { text = "Every soul matters, Tinkee. Science answers to the Light.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Your patron's right. Study first, worry later.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -783,7 +783,7 @@ P:NPC {
       },
     },
     study_danger = {
-      lines = { { id = "sd_default", text = "Extremely, which is why I send adventurers, pal! I'm a scholar, not a lunatic, though the others in this cave would argue about that, and they'd lose." } },
+      lines = { { id = "sd_default", text = "Extremely, pal, and that's what adventurers are for! I'm a scholar, not a lunatic, though the others in this cave would argue about that, and they'd lose." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     study_eggs = {
@@ -795,14 +795,14 @@ P:NPC {
     },
 
     gadgets = {
-      lines = { { id = "g2_default", text = "It catches the essence of a dragon broodling at the moment of its defeat! After that came the eggscilloscope, which freezes eggs, and then the collectronic module, which collects them, and I named every one of them myself, pal, and trademarked 'em too." } },
+      lines = { { id = "g2_default", text = "It catches the essence of a dragon broodling at the moment of its defeat! After that came the eggscilloscope, which freezes eggs, and then the collectronic module, which collects them, and I named all three myself, pal, and trademarked 'em too." } },
       choices = {
         { text = "The names are... something.", next = "gadgets_names" },
         { text = "I'd guess some of it explodes.", next = "gadgets_boom" },
       },
     },
     gadgets_names = {
-      lines = { { id = "gn_default", text = "They're wonderful names, and you know it, and good names sell. Felnok wanted to call the eggscilloscope 'the cold thing', which tells you everything about Felnok and nothing about marketing." } },
+      lines = { { id = "gn_default", text = "They're wonderful names, and you know it, and good names sell. Felnok wanted to call the eggscilloscope 'the cold thing', and that's why Felnok does the wiring and I do the selling." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     gadgets_boom = {
@@ -840,7 +840,7 @@ P:NPC {
     },
     leonid = {
       big = true,
-      lines = { { id = "l_default", text = "He did? I... I'd rather you didn't tell me, if it's anything dreadful, and I can see by your face that it is. I only wanted to study dragons, pal, honestly I did, and get paid a little for it." } },
+      lines = { { id = "l_default", text = "He did? I... I'd rather you didn't tell me, if it's anything dreadful, and I can see by your face that it is. I only wanted to study dragons, pal, and get paid a little for it." } },
       choices = {
         { text = "The eggs are safe now. You did well.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Next time, ask who's paying.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
@@ -1028,7 +1028,7 @@ P:NPC {
       },
     },
     shop_prices = {
-      lines = { { id = "sp_default", text = "Steep? Have you seen how I get my stock up here, pal? Every crate comes past the Blackrock, the ogres and the dragons, and every one of them wants a cut, so you're paying for a very dangerous delivery route." } },
+      lines = { { id = "sp_default", text = "Steep? Have you seen how I get my stock up here, pal? Every crate comes past the Blackrock, the ogres and the dragons, and every last one wants a cut, so you're paying for a very dangerous delivery route." } },
       choices = {
         { text = "Suits me.", next = "BACK", fx = { affinity = 1 } },
         { text = "Still steep.", next = "BACK", fx = { affinity = -1, trait = { greedy = 1 } } },
@@ -1149,7 +1149,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "No? How long does it last, then? Never mind, don't tell me, buddy, because I've already promised two and taken the deposits, and I'd rather not know what my clients would wake up to. Opus thinks it's funny, but then Opus thinks everything is funny." } },
+      lines = { { id = "xmage_default", text = "No? How long does it last, then? Never mind, don't tell me, buddy, because I've already promised two and taken the deposits, and what my clients wake up to is not my department. Opus thinks it's funny, but then Opus thinks everything is funny." } },
       choices = {
         { text = "Tell your clients the truth, Kibler. It's only fair.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Buyer beware. That's their problem, not yours.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1160,14 +1160,14 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "They're Blackrock worgs, raised to follow a scent across the whole of the Steppes, and the first scent they learn in my shop is mine, which is my theft insurance. Somebody pinched one last spring, my friend, and it walked back in the next morning with his boot in its mouth." } },
       choices = {
-        { text = "Then I'll pay for one honestly, like a proper customer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll pay for one, like a proper customer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Clever pup. I'd still have tried, Kibler.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Kibler.", next = "BACK" },
       },
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I reckon they smell the wolves on you, friend, since your people ride 'em, and a pup knows its betters by the smell. These are Blackrock worgs, mind you, bred mean by Rend's handlers, so if you can gentle one with a look, I'll want to know how you do it and what you'd charge to teach it." } },
+      lines = { { id = "xhsham_default", text = "I reckon they smell the wolves on you, friend, since your people ride 'em, and a pup knows its betters by the smell. These are Blackrock worgs, though, bred mean by Rend's handlers, so if you can gentle one with a look, I'll want to know how you do it and what you'd charge to teach it." } },
       choices = {
         { text = "Pups taken from their pack shouldn't be sold, Kibler.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A pup's a pup. Sell them to whoever pays.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1365,7 +1365,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Very little, I'm afraid, though my people's rangers held the forests of Quel'Thalas for thousands of years with nothing more than bow and blade. They held right up until the Scourge came, which I suppose makes my point for me." } },
       choices = {
-        { text = "Your rangers fought honestly to the end. That counts for something.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your rangers fought with honor to the end. That counts for something.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Then I'll let others face the spells, and strike when they're spent.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "I will ask something else.", next = "BACK" },
       },
@@ -1412,7 +1412,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, standing in my light. You commune with spirits of stone and wind, I'm told, which seems a very small sort of magic beside what my people once commanded." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing in my light. At least you have the decency to do it quietly, which is more than I can say for most who come here." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing in my light. At least you have the decency to do it quietly; most who come here clank like a kettle." },
         { id = "h_default", key = true,
           text = "Mathredis Firestar, of Quel'Thalas, while there was a Quel'Thalas. I seek the lost librams of the elven masters, and if you bring me one, I will make you something of power, at a price you will find high." },
         { id = "h_libram", when = { questActive = TODO_QUEST("Libram of Rumination") },
@@ -1511,7 +1511,7 @@ P:NPC {
     k_sky = {
       big = true,
       lines = {
-        { id = "xsk_default", text = "Eldre'Thalas. My master died there, in the place they call Dire Maul now, and you tell me your ancestors walked its halls when they were whole. Forgive me if I stare; I have met very few elves since Quel'Thalas burned who were not mourning something." },
+        { id = "xsk_default", text = "Eldre'Thalas. My master died there, in the place they call Dire Maul now, and you tell me your ancestors walked its halls when they were whole. Pardon my staring; I have met very few elves since Quel'Thalas burned who were not mourning something." },
       },
       choices = {
         { text = "We mourn too. Our winds fell silent.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },

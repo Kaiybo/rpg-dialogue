@@ -26,7 +26,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I miss every one of them. They're full of gnolls now. Your earth spirits might know whether they'll grow again." } },
+      lines = { { id = "xdsham_default", text = "I miss those orchards something fierce, and they're full of gnolls now. Your earth spirits might know whether they'll grow again." } },
       choices = {
         { text = "They'll grow again, Lamar. Hold on to hope.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The orchards are gone. Grow something new.", next = "BACK", fx = { align = { light = -1 } } },
@@ -102,7 +102,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Lamar Veisilli, and I sell fruit, which in Lakeshire these days is a bit like selling sunshine. The soldiers eat it by the barrel, the children steal it by the pocketful, and I'm happy enough with both." },
-        { id = "h_druid", when = { class = "DRUID" }, text = "A druid! Tell me honestly, do the trees mind when I sell their apples? I've always wondered, and nobody else in Lakeshire can ask them." },
+        { id = "h_druid", when = { class = "DRUID" }, text = "A druid! Tell me true, do the trees mind when I sell their apples? I've always wondered, and nobody else in Lakeshire can ask them." },
         { id = "h_troll", when = { race = "Troll" }, text = "You'll be wanting bananas, I suppose, and I'm sorry to say I've none. Redridge is apple country, though I'll find you a sweet one." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Take an apple, take two, and don't tell me you're not hungry, because everyone who carries a sword in Redridge is hungry." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll know your way around the hills, then, which is where my orchards are, or where they were." },
@@ -208,7 +208,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Cages, chains, I couldn't say, and I'd rather not know. Every bar I have is promised to Verner for the bridge or the watch's blades, so whatever you're building will have to wait until the gnolls are gone." } },
+      lines = { { id = "xlock_default", text = "Cages, chains, I couldn't say, and I don't care to know. Every bar I have is promised to Verner for the bridge or the watch's blades, so whatever you're building will have to wait until the gnolls are gone." } },
       choices = {
         { text = "The bridge comes first. I'd never take from it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Promises can be broken for the right coin.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -323,7 +323,7 @@ P:NPC {
       },
     },
     ore = {
-      lines = { { id = "o_default", text = "Copper and tin in the hills, and some iron further in, if you don't mind gnolls breathing down your neck. Most miners do mind, which is why my prices are what they are." } },
+      lines = { { id = "o_default", text = "Copper and tin in the hills, and some iron further in, if you don't mind gnolls breathing down your neck. Most miners do mind, and my prices reflect it." } },
       choices = {
         { text = "Would you buy ore from me?", next = "ore_buy" },
         { text = "Something else.", next = "BACK", fx = { learn = { "redridge_gnolls" } } },
@@ -334,7 +334,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     stock = {
-      lines = { { id = "s_default", text = "Over the pass from Elwynn, mostly, on carts that take twice as long as they should. Half the coal comes from Ironforge by way of Stormwind, and I pay for every mile of it." } },
+      lines = { { id = "s_default", text = "Over the pass from Elwynn, mostly, on carts that take twice as long as they should. Most of the coal comes from Ironforge by way of Stormwind, and I pay for every mile of it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     smith = {
@@ -345,9 +345,9 @@ P:NPC {
   topics = {
     dark_iron = { { id = "tp_dark_iron", text = "Dark Iron ore is the finest in the world, and they'll kill you for touching it, which is a sore point for a woman selling picks. I've never held a lump of it, and I suspect I never will." } },
     thandol_span = { { id = "tp_thandol_span", text = "The dwarves built the Thandol Span with iron and stone that nobody in Stormwind could match. If the Dark Irons really have knocked a piece out of it, every smith worth the name should go and weep." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes sent half their smiths to Ironforge after their city was poisoned, and a few came here, and every one of them complains about our tools. I sell them anyway, and they buy them anyway." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes sent half their smiths to Ironforge after their city was poisoned, and a few came here, and each of them complains about our tools. I sell them anyway, and they buy them anyway." } },
     stonemasons = { { id = "tp_stonemasons", text = "My father worked iron for the Stonemasons' Guild when they rebuilt Stormwind, and they never got paid for the last of it. I don't hold with the Defias, but I understand them better than I'd like." } },
-    background = { { id = "tp_bg", text = "My father was a miner in the Redridge hills before the orcs came, and I'd rather sell picks than swing them." } },
+    background = { { id = "tp_bg", text = "My father was a miner in the Redridge hills before the orcs came, and I took one look at his back and decided to sell picks instead of swinging them." } },
     advice = { { id = "tp_ad", text = "Keep your pick sharp and your back to a wall, friend. Gnolls like miners; we're slow and noisy." } },
     _none = { { id = "tp_none", text = "Not a thing I sell, so not a thing I know." } },
   },
@@ -406,7 +406,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A heavy one, banded with iron and with a good boss in the middle, because an orc's axe will split a light one in two swings. I strike every shield myself before I sell it, and if it cracks, it doesn't leave the shop." } },
       choices = {
-        { text = "A heavy shield, then. Standing firm is half the battle.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A heavy shield, then, so I can hold my ground.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Shields slow me down. I'd rather strike first.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Kara.", next = "BACK" },
       },
@@ -443,7 +443,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "A bear's hide gets you home, I'll grant you, so it does a shield's job by another road. But a bear can't stand in a doorway and hold it for the folk behind, and that's what my shields are really for." } },
+      lines = { { id = "xdruid_default", text = "A bear's hide gets you home, true, so it does a shield's job by another road. But a bear can't stand in a doorway and hold it for the folk behind, and that's what my shields are really for." } },
       choices = {
         { text = "Then I'll stand in that doorway, shield or no shield.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Doorways are for soldiers. I fight where I choose.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -453,9 +453,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Kara Adams, and I make shields for the Lakeshire watch and anyone else who means to stand between the town and the hills. A sword wins a fight, but a shield gets you home from it." },
-        { id = "h_mage", when = { class = "MAGE" }, text = "A mage, looking at shields? Your people think a spell is all the armour you need, but I've seen a mage take an orc's axe, and you'll forgive me if I recommend a buckler." },
+        { id = "h_mage", when = { class = "MAGE" }, text = "A mage, looking at shields? Your people think a spell is all the armour you need, but I've seen a mage take an orc's axe, so I recommend a buckler to every one of you I meet." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! I learned my best rim-work from a dwarven smith, so you'll find nothing here to shame you, I hope." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and I can tell by your stance you know which way to hold a shield, which is more than I can say for half the guard." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and I can tell by your stance you know which way to hold a shield, while half the guard still hold theirs like a serving tray." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll not want a shield, I suppose, but you'll want something to stand behind when a goretusk charges, and a tree's not always handy." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, at a shield stall? Your faith's a shield of sorts, I'll grant, but it won't stop an axe." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! There's someone who knows what a shield is for, and I'd wager you hold it like you mean it." },
@@ -558,7 +558,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, to a fellow who wanted the line for something else and wouldn't say what. I sold it anyway, because a sale's a sale, but I've wondered about it since, and I'd rather not wonder about you." } },
+      lines = { { id = "xlock_default", text = "Once, to a fellow who wanted the line for something else and wouldn't say what. I sold it anyway, because a sale's a sale, but I've wondered about it since, and I don't fancy wondering about you as well." } },
       choices = {
         { text = "If I buy line, it's for fish. You've my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Wonder all you like. I don't explain myself.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -633,7 +633,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "Vernon Hale. I sell fishing tackle to anyone fool enough to fish Lake Everstill with the murlocs about, and there are more fools in Lakeshire than you'd think." },
+        { id = "h_default", text = "Vernon Hale. I sell fishing tackle to anyone fool enough to fish Lake Everstill with the murlocs about, and Lakeshire has never once run short of fools." },
         { id = "h_poachers", when = { questDone = TODO_QUEST("Murloc Poachers") }, text = "You're the one who cleared the murlocs off the shore for Baren! My customers have started catching fish again, and I'm selling hooks faster than I can bend them." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf on the docks! Your people fish Loch Modan, don't they? Then you'll find Everstill a good deal less friendly, I'm afraid." },
         { id = "h_lakeborn", when = { origin = "human_redridge_born" },
@@ -846,7 +846,7 @@ P:NPC {
       },
     },
     meat = {
-      lines = { { id = "m_default", text = "Hunters and adventurers, mostly, since nobody in town wants to go into the hills alone any more. Condor, boar and the odd tarantula leg, which tastes better than you'd think, if you don't look at it." } },
+      lines = { { id = "m_default", text = "Hunters and adventurers, mostly, since nobody in town wants to go into the hills alone any more. Condor, boar and the odd tarantula leg, which tastes like crab, if you don't look at it." } },
       choices = {
         { text = "Tarantula sounds a strange thing to eat.", next = "meat_spider" },
         { text = "Something else.", next = "BACK" },
@@ -865,7 +865,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "redridge_gnolls" } } } },
     },
     eaters = {
-      lines = { { id = "e_default", text = "The soldiers, by a mile. Breanna feeds the whole battalion, and every one of them eats like he'll not see supper again, which, the way things are, might be true." } },
+      lines = { { id = "e_default", text = "The soldiers, by a mile. Breanna feeds the whole battalion, and each of those lads eats like he'll not see supper again, which, the way things are, might be true." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

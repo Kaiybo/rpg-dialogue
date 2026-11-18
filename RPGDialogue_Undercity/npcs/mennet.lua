@@ -109,7 +109,7 @@ P:NPC {
       },
     },
     andron_still = {
-      lines = { { id = "as_default", text = "He's selling whatever we let him sell, which is a great deal more useful than a dead informant. Don't look so disappointed; a traitor you can read is worth three you've buried." } },
+      lines = { { id = "as_default", text = "He's selling whatever we let him sell, and that is far more useful than a dead informant. Don't look so disappointed; a traitor you can read is worth three you've buried." } },
       choices = {
         { text = "Clever. Let him think he's safe.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
         { text = "Something else.", next = "BACK" },

@@ -147,7 +147,7 @@ P:NPC {
       },
     },
     necro = {
-      lines = { { id = "ne_default", text = "It is, which is why I studied it in a cellar, by candlelight, like every other interesting thing in Dalaran. The irony is not lost on me that it's the forbidden work that's kept me alive, in a manner of speaking." } },
+      lines = { { id = "ne_default", text = "It is, so I studied it in a cellar, by candlelight, like every other interesting thing in Dalaran. The irony is not lost on me that it's the forbidden work that's kept me alive, in a manner of speaking." } },
       choices = {
         { text = "And the servants on the shore?", next = "necro_servants" },
         { text = "Is it wrong, what you do with the dead?", next = "op_necromancy" },

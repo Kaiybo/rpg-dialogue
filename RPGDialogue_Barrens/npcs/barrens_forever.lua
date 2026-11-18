@@ -30,7 +30,7 @@ P:NPC {
   },
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
-      text = "A warrior, and you hold your weapon right, which is more than most grunts manage. Chol'aruk's cave is narrow, so you'll fit in there nicely." },
+      text = "A warrior, and you hold your weapon like you've been taught, not like a peon with a pick. Chol'aruk's cave is narrow, so you'll fit in there nicely." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Tauren. The Razormane hate your kind more than they hate us, and that's saying something, so they'll come at you screaming." },
     { id = "n_trophy", cat = "trophy", when = { killed = { name = "Razormane", min = 30 } },
@@ -87,7 +87,7 @@ P:NPC {
     },
     eat = {
       lines = {
-        { id = "ea_default", text = "Enemies, friends, their own wounded if they're hungry enough. We lost a peon on the Thorn Hill road last month, and what we found of him wasn't worth burying, so you'll forgive me if I don't want to talk about it." },
+        { id = "ea_default", text = "Enemies, friends, their own wounded if they're hungry enough. We lost a peon on the Thorn Hill road last month, and what we found of him wasn't worth burying, so don't ask me to talk about it." },
       },
       choices = {
         { text = "Then he deserves no mercy.", next = "vengeance" },

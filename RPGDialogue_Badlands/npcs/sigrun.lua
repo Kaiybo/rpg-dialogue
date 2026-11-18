@@ -181,7 +181,7 @@ P:NPC {
     xsmith = {
       big = true,
       lines = {
-        { id = "xs_default", text = "A fellow smith! Here's one Feranor gave me: listen to the steel when you quench it, because a good blade hisses and a bad one screams. Half the smiths in Ironforge stopped listening years ago and it shows in their work." },
+        { id = "xs_default", text = "A fellow smith! Here's one Feranor gave me: listen to the steel when you quench it, because a good blade hisses and a bad one screams. Too many smiths in Ironforge stopped listening years ago, an' ye can hear it in their blades." },
       },
       choices = {
         { text = "The old ways are best. I'll listen.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
@@ -192,7 +192,7 @@ P:NPC {
     xhunt = {
       big = true,
       lines = {
-        { id = "xh_default", text = "Would you? There's buzzards and coyotes about, though the coyotes are mostly bone and the buzzards taste like old boots. Mind you, after this week I'd eat an old boot and thank you for it." },
+        { id = "xh_default", text = "Would you? There's buzzards and coyotes about, though the coyotes are mostly bone and the buzzards taste like old boots. Still, after this week I'd eat an old boot and thank ye for it." },
       },
       choices = {
         { text = "I'll bring you something, no payment needed.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },

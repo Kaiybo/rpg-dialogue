@@ -67,7 +67,7 @@ P:NPC {
     },
     secret_why = {
       big = true,
-      lines = { { id = "sw_default", text = "Because it's bigger than Darkshire, and the council would sit on it for a month arguing. Trias moves faster. Tell me honestly, do you think I'm doing wrong?" },
+      lines = { { id = "sw_default", text = "Because it's bigger than Darkshire, and the council would sit on it for a month arguing, and Trias moves faster. Tell me straight, do you think I'm doing wrong?" },
       },
       choices = {
         { text = "Yes. Your oath is to the Watch first.", next = "BACK", fx = { align = { order = 1 } } },

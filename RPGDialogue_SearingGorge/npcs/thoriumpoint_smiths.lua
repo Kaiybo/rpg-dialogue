@@ -200,7 +200,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was born tae the anvil an' I'll likely die at it, but at least now it's my own anvil.", next = "quota" } },
     advice = { { id = "tp_ad", text = "Oil yer kit every night, even when ye're tired, because especially when ye're tired." } },
-    dark_iron = { { id = "tp_dark_iron", text = "They make good steel down there for a bad master, an' I'd give a great deal tae see them make it for themselves." } },
+    dark_iron = { { id = "tp_dark_iron", text = "They make good steel down there for a bad master, an' I'd give my best hammer tae see them make it for themselves." } },
     _none = { { id = "tp_none", text = "If I cannae hit it wi' a hammer, I've no opinion on it, so ask the Overseer." } },
   },
 }
@@ -387,7 +387,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I kept the count in the mountain, an' I keep it here, but here the numbers are mine.", next = "title" } },
     advice = { { id = "tp_ad", text = "Count everythin' that matters, twice, an' count the people first." } },
-    dark_iron = { { id = "tp_dark_iron", text = "Half the faces in the Cauldron I could name, if I let myself, so I don't." } },
+    dark_iron = { { id = "tp_dark_iron", text = "I could put names tae a good many faces in the Cauldron if I let myself, so I don't." } },
     _none = { { id = "tp_none", text = "It's no' on my tally, so I couldnae tell ye." } },
   },
 }

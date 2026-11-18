@@ -24,7 +24,7 @@ P:NPC {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
       text = "Your demon has grown fat on your power, and that pleases me. A dreadsteed needs a master who has fed many things." },
     { id = "n_paladin", cat = "arcane", when = { class = "PALADIN" },
-      text = "A paladin at the Altar of Storms. You'll forgive me if I don't bow; this ground has seen your kind burn before." },
+      text = "A paladin at the Altar of Storms. I will not bow to you; this ground has seen your kind burn before." },
   },
 
   start = "hello",

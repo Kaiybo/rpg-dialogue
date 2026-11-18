@@ -754,7 +754,7 @@ P:NPC {
         { id = "h_cousins_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Cannibalistic Cousins"), days = 3 } },
           text = "The smoke over Agol'watha be thinner today, and I know whose work that be. Zul'jin himself would nod at you, and he don't nod for much." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Horde" },
-          text = "The candles on my platform all bent south one night, every one of them, and then they stood up straight like nothin' happened. I hear Hakkar fell that same night, and they tell me you were there, so you better sit and tell Yayo'jin what you saw." },
+          text = "The candles on my platform all bent south one night, all at once, and then they stood up straight like nothin' happened. I hear Hakkar fell that same night, and they tell me you were there, so you better sit and tell Yayo'jin what you saw." },
         { id = "h_malkhor", when = { questDone = TODO_QUEST("Separation Anxiety") },
           text = "I prepared Malkhor for the earth with my own hands. His brother wept the whole night, and that be how it should be." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
@@ -846,7 +846,7 @@ P:NPC {
       },
     },
     zuljin_back = {
-      lines = { { id = "zb_default", text = "I believe it, and Markhor believes it, and half the village burns a candle for it. Believin' costs nothin', mon, and it keeps a small tribe standin' straight." } },
+      lines = { { id = "zb_default", text = "I believe it, and Markhor believes it, and there be candles burnin' for it in most huts on de bluff. Believin' costs nothin', mon, and it keeps a small tribe standin' straight." } },
       choices = {
         { text = "And the elves he fought? What of them?", next = "opn_elves" },
         { text = "Something else.", next = "BACK" },
@@ -959,7 +959,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Every single fish, mon, I say a little word before I let it go or put it in the pot. The sea give and the sea take, and the only ones who never say thank you be them snapjaws, which is why the sea don't like them neither." } },
+      lines = { { id = "xhsham_default", text = "Every single fish, mon, I say a little word before I let it go or put it in the pot. The sea give and the sea take, and the only ones who never say thank you be them snapjaws, so de sea don't like them neither." } },
       choices = {
         { text = "I'll thank the water too, and only take what I need.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fish are fish. The sea won't miss what I take.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1025,7 +1025,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "And then what, you got a block of ice with a fish in it and no story to tell? The fish be half the joy, mon, and the waitin' be the other half, which be why Katoom never take a shortcut." } },
+      lines = { { id = "xmage_default", text = "And then what, you got a block of ice with a fish in it and no story to tell? The fish be half the joy, mon, and the waitin' be the rest, so Katoom never take a shortcut." } },
       choices = {
         { text = "Patience is its own reward. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Results are what matter. The waiting is wasted time.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1707,7 +1707,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Revantusk all my life, mon, and angry at the dwarves for most of it.", next = "dwarves" } },
     advice = { { id = "tp_ad", text = "Salt your meat and watch the sky. The gryphons like a troll that don't look up." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are pests, and I'll terrify Aerie Peak one day, mark my words. They'll scream when they see what I've got planned." } },
-    darkspear = { { id = "tp_darkspear", text = "The Darkspear are our cousins, and they've never once tried to steal my cooking. That's more than I can say for the Wildhammer." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear are our cousins, and they've never once tried to steal my cooking. The Wildhammer came sniffing round my pot the first week we pitched camp." } },
     zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi have woken their blood god, and they're spreading his madness. I'll not cook for any troll who serves him." } },
     _none = { { id = "tp_none", text = "That don't cook and it don't scare dwarves, so I don't care, mon." } },
   },
@@ -1812,7 +1812,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you want to fly somewhere and hit something, I'd wager. Lok'tar, but wait till I finish this cast, because the grouper is close today, and I can feel it in the line." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Maybe you know something about grouper, because I've been hunting one for three seasons and it's still laughing at me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Can you speak with the fish, by chance? I want to ask the grouper where it's been hiding." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The wind riders won't mind you, though I'd thank you not to glow on my pier, because the grouper are skittish enough as it is." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The wind riders won't care what you are, though I'd thank you not to glow on my pier, because the grouper are skittish enough as it is." },
       },
       again = {
         { id = "h_again", text = "Anything else? The line's twitching." },

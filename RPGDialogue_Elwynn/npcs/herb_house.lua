@@ -14,7 +14,7 @@ P:NPC {
     third = "{name} met Alchemist Mallory, who teaches alchemy from a hillside house east of Stormwind's gates.",
   },
   greetings = {
-    { id = "g_default", text = "Good day to you. Forgive me if I keep stirring; it curdles if I stop." },
+    { id = "g_default", text = "Good day to you. Pardon the stirring; it curdles if I stop." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. Stand by the window, would you, where the fumes are kinder." },
   },
   notice = {
@@ -107,7 +107,7 @@ P:NPC {
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Alchemy") },
           text = "Sam Sarsaparilla sent you up from the road, did he? He does like his campfires. Well, a camp is no use if nobody in it can mix a remedy, so let's see what you can do." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest! Your prayers do quicker work than my potions, I'll grant, but a potion doesn't run dry when you're tired, so I like to think we're partners." },
-        { id = "h_troll", when = { race = "Troll" }, text = "A troll, of all things, at my door! Your people's witch doctors know a great deal about herbs that I'd dearly love to learn, though I doubt they'd teach a human." },
+        { id = "h_troll", when = { race = "Troll" }, text = "A troll, of all things, at my door! Your people's witch doctors know things about herbs that I'd dearly love to learn, though I doubt they'd teach a human." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Your kind make the best alchemists, if only you'd stop trying to do everything with a spell." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -173,7 +173,7 @@ P:NPC {
       },
     },
     brew_help = {
-      lines = { { id = "bh_default", text = "It'll help him feel brave, which is half of what most elixirs do. The other half is earthroot and patience, and I've plenty of both." } },
+      lines = { { id = "bh_default", text = "It'll help him feel brave, which is most of what any elixir does. The rest is earthroot and patience, and I've plenty of both." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     camp = {
@@ -188,7 +188,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "I haven't the faintest idea, and I can't stop stirring to find out." } },
     scourge = { { id = "tp_scourge", text = "The plague that took Lordaeron was brewed, friend, not caught, and that frightens me more than any wolf. Somebody with training like mine did that, and I think of it every time I light the burner." } },
     dalaran = { { id = "tp_dalaran", text = "The alchemists of Dalaran had the finest stills in the world, and I've heard they're only now rebuilding them. I'd like to see one before I die, preferably not because of one." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells little vials of fizzing water and calls them elixirs, and every year somebody brings me one to ask what's in it. Water, mostly, and a great deal of sugar." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells little vials of fizzing water and calls them elixirs, and every year somebody brings me one to ask what's in it. Water, mostly, and enough sugar to rot a horse's teeth." } },
     argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn buys healing potions by the cartload for the north, and I've sent them what I can spare. It's the one order I never haggle over." } },
   },
 }
@@ -211,7 +211,7 @@ P:NPC {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
       text = "You've a gatherer's hands, I can tell; there's green under every nail. Good, because it's the only honest way to learn." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid! You'll know half of what I teach already, and the other half you'll argue with, I expect. Your people talk to the plants, I'm told, and I've only ever talked at them." },
+      text = "A druid! You'll know some of what I teach already and argue with the rest, I expect. Your people talk to the plants, I'm told, and I've only ever talked at them." },
   },
   start = "hello",
   nodes = {
@@ -294,7 +294,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've peacebloom and silverleaf, if you'd like to learn which herbs work alongside your prayers." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll not have time to learn herbs, I expect, with all your duties, but if you see silverleaf by the road, I'd be grateful if you picked it." },
-        { id = "h_default", text = "Pomeroy, and I teach herbalism, which is a grand name for knowing where to look and when to pick. Mallory brews and I gather, and between us we keep half the gate guards on their feet." },
+        { id = "h_default", text = "Pomeroy, and I teach herbalism, which is a grand name for knowing where to look and when to pick. Mallory brews and I gather, and between us we keep the gate guards on their feet." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Herbalism") },
           text = "Sam's sent you, has he? He wants every camp to have someone who can tell a healing leaf from a bellyache, and he's right about that, bless him." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "One of the kaldorei! I've heard your forests grow herbs I've never seen, and I'll confess I'm a little jealous of you for it." },
@@ -347,7 +347,7 @@ P:NPC {
       },
     },
     mallory_smell = {
-      lines = { { id = "ms_default", text = "Worse, some days. But I've seen him sit up all night with a guard's wound, and I'll forgive a man a great deal of smell for that." } },
+      lines = { { id = "ms_default", text = "Worse, some days. But I've seen him sit up all night with a guard's wound, and I'll forgive a man a good deal of smell for that." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     danger = {

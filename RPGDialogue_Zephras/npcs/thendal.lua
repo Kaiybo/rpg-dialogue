@@ -42,7 +42,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Rorian, and Thendal Village is in my keeping, which mostly means the young are. Our people have come through a great deal of hardship, and I mean to see this generation come through it as well." },
+        { id = "h_default", key = true, text = "I am Rorian, and Thendal Village is in my keeping, which mostly means the young are. Our people have come through ten thousand years of hardship, and I mean to see this generation come through it as well." },
         { id = "h_coming", tags = { "news" }, when = { questActive = TODO_QUEST("Coming of Age") },
           text = "So you've come for your relic. Stand straight, child; this happens only once in a life, and I'd like you to remember it kindly." },
         { id = "h_unrest", tags = { "news" }, when = { questDone = TODO_QUEST("Return to Rorian") },
@@ -55,7 +55,7 @@ P:NPC {
         { id = "h_mage", when = { race = "Skyborne", class = "MAGE" }, text = "Dorii Brightwhisper of the High Order has had her eye on you, child. She keeps to the ground floor of the great tree, among her books." },
         { id = "h_shaman", when = { race = "Skyborne", class = "SHAMAN" }, text = "Windshaper Boro is waiting near the village center. He'll tell you the spirits have gone quiet, and then he'll ask you to listen anyway." },
         { id = "h_druid", when = { race = "Skyborne", class = "DRUID" }, text = "Xyton Silverwind is on the ground floor of the great tree, and there are few enough druids among us that he'll be glad of you." },
-        { id = "h_apriest", when = { class = "PRIEST", ["not"] = { race = "Skyborne" } }, text = "A priest. Forgive me if I'm slow to warm to the robe; the only priests this isle has known are the Al'Aketh's, and they've made the word an ugly one." },
+        { id = "h_apriest", when = { class = "PRIEST", ["not"] = { race = "Skyborne" } }, text = "A priest. I'm slow to warm to the robe, I'm afraid, because the only priests this isle has known are the Al'Aketh's, and they've made the word an ugly one." },
         { id = "h_pala", when = { class = "PALADIN" }, text = "You wear your faith like armor, guest. We've nothing like you on Zephras, and I'll admit I'm curious what holds it up." },
         { id = "h_lock", when = { class = "WARLOCK" }, text = "There's a smell of the Nether about you, guest. Our ancestors fled a prince who meddled with such things, and the grove remembers it even if you don't." },
         { id = "h_oshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } }, text = "A shaman from below the clouds! Boro will want to talk your ears off, because the spirits stopped speaking to us years ago and you may still hear them." },
@@ -109,7 +109,7 @@ P:NPC {
     relic_far = {
       big = true,
       lines = {
-        { id = "rf_default", text = "Especially from them. There are relics lying in the ruins of Ban'aethal right now, I'd wager, and in places the Al'Aketh hold, and every one of them is a story that stopped in the middle." },
+        { id = "rf_default", text = "Especially from them. There are relics lying in the ruins of Ban'aethal right now, I'd wager, and in places the Al'Aketh hold, and each of them is a story that stopped in the middle." },
       },
       choices = {
         { text = "Then I'll bring back any I find, whatever the danger.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
@@ -351,7 +351,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Aetheen, and I sit on the Council of Elders of Zephras Isle. I've come to Thendal Grove to read the flow of the winds and to judge the young shen'dorei as they come of age, so tell me, are you ready to serve the isle?" },
         { id = "h_matriarch", tags = { "news" }, when = { questActive = TODO_QUEST("Foul Matriarch") },
-          text = "The ursera matriarch is still in the caves to the south, and the rangers call her Urs'anah. It's a test of resolve, I'll grant you, and a dangerous one, but the trials beyond the grove are worse." },
+          text = "The ursera matriarch is still in the caves to the south, and the rangers call her Urs'anah. It's a test of resolve, and a dangerous one, but the trials beyond the grove are worse." },
         { id = "h_matriarch_done", tags = { "news" }, when = { questDone = TODO_QUEST("Foul Matriarch") },
           text = "You've felled beasts and turned back cultists, and you put down the ursera matriarch besides. Your path must take you beyond Thendal soon, and I'll admit I'm glad of it." },
         { id = "h_guest", when = { ["not"] = { race = "Skyborne" } },
@@ -369,7 +369,7 @@ P:NPC {
       },
       choices = {
         { text = "What does the Council of Elders do?", next = "council" },
-        { text = "The winds must tell you a great deal.", next = "winds" },
+        { text = "The winds must tell you all sorts of things.", next = "winds" },
         { text = "Why test the young at all?", next = "trial" },
         { text = "Where should I go after Thendal?", next = "shendar", when = { race = "Skyborne" } },
         { text = "How do your people see us outsiders?", next = "outsiders", when = { ["not"] = { race = "Skyborne" } } },
@@ -423,7 +423,7 @@ P:NPC {
     },
     talaanis = {
       lines = {
-        { id = "ta_default", text = "Careful, patient and honest to a fault, which is why the Council keeps choosing her. She'd tell you herself that she never wanted the seat, and she'd be telling the truth." },
+        { id = "ta_default", text = "Careful, patient and honest to a fault, and so the Council keeps choosing her. She'd tell you herself that she never wanted the seat, and she'd be telling the truth." },
       },
       choices = {
         { text = "Does she rule well, though?", next = "ta_ask" },
@@ -530,7 +530,7 @@ P:NPC {
     outsiders = {
       big = true,
       lines = {
-        { id = "ou_default", text = "Warily, and with a great deal of curiosity. We hid from the world for ten thousand years, and some on the Council think we were right to, and the rest of us think hiding is what nearly killed us." },
+        { id = "ou_default", text = "Warily, and with no small curiosity. We hid from the world for ten thousand years, and some on the Council think we were right to, and the rest of us think hiding is what nearly killed us." },
         { id = "ou_tauren", when = { race = "Tauren" },
           text = "Warily, though less so with your people. The Windshapers went down to Mulgore and were taken in at Skywatcher Plateau, north of your Thunder Bluff, and the Council hasn't forgotten it." },
         { id = "ou_dwarf", when = { race = { "Dwarf", "Gnome" } },
@@ -565,7 +565,7 @@ P:NPC {
     xpeace = {
       big = true,
       lines = {
-        { id = "xp_default", text = "Good, because a Peacekeeper who's certain is a dangerous thing. Up here you kept the Council's peace against bandits and cultists, and some of those bandits were refugees from Shen'dramar with nowhere else to go, so tell me honestly, did the law always feel like justice to you?" },
+        { id = "xp_default", text = "Good, because a Peacekeeper who's certain is a dangerous thing. Up here you kept the Council's peace against bandits and cultists, and some of those bandits were refugees from Shen'dramar with nowhere else to go, so tell me, did the law always feel like justice to you?" },
       },
       choices = {
         { text = "The law held the isle together. That was justice enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 } } },
@@ -586,16 +586,16 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "The Council hears a great deal, and I hear what the Council does. Ask." } },
+    knows = { { id = "tp_knows", text = "The Council hears everything, and I hear what the Council does. Ask." } },
     background = { { id = "tp_bg", text = "I sit on the Council of Elders, and I read the winds, which is a colder job than it sounds, up on that ridge.", next = "council" } },
     advice = { { id = "tp_ad", text = "Go to Shen'dar with your eyes open, and trust Aonda before you trust anyone in robes." } },
     shal_nan = { { id = "tp_shal", text = "He gave up his rule when the Shrine of the Four Winds was begun. Then he gave up us, or we lost him.", next = "shalnan" } },
     al_aketh = { { id = "tp_aketh", text = "Zealots of a Windlord our spirits wouldn't even name. Brutal, and growing bolder." } },
-    two_orders = { { id = "tp_orders", text = "Two halves of one people, and both certain the other half is the trouble." } },
+    two_orders = { { id = "tp_orders", text = "They're two halves of one people, and each is certain the other is the trouble." } },
     highborne = { { id = "tp_highborne", text = "The High Order says we are Highborne and should reclaim it, and the Windshapers say we are Highborne and should repent of it. Tell me which you think, and I'll learn more about you than you mean me to." } },
     the_elements = { { id = "tp_the_elements", text = "The winds speak in patterns, and I read them as others read a page. Lately the page is half blank, and that is a message of its own." } },
     elune = { { id = "tp_elune", text = "A few of our young have taken to praying to the moon, as our cousins do. I watch to see whether the moon answers, and so far she's been quiet, like everything else." } },
-    queen_azshara = { { id = "tp_queen_azshara", text = "Our oldest stories speak of a queen who wanted the sky as her crown. Ask yourself whether you would have followed her, and answer honestly." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "Our oldest stories speak of a queen who wanted the sky as her crown. Ask yourself whether you would have followed her, and give yourself a true answer." } },
     _none = { { id = "tp_none", text = "The winds don't carry that to me, and I don't guess for the Council." } },
   },
 }
@@ -676,7 +676,7 @@ P:NPC {
     },
     game_rorian = {
       lines = {
-        { id = "gr_default", text = "Furious, every time, and that's half the fun. He'll tell you our gifts are sacred and not for amusement, and then he'll say something about youths, and then he'll quietly admit a little practice is acceptable." },
+        { id = "gr_default", text = "Furious, every time, and that's most of the fun. He'll tell you our gifts are sacred and not for amusement, and then he'll say something about youths, and then he'll quietly admit a little practice is acceptable." },
       },
       choices = {
         { text = "He might have a point, you know.", next = "game_point" },
@@ -797,9 +797,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_watch", text = "Greetings. Forgive me if I keep my eyes on the pylon while we talk." },
+    { id = "g_watch", text = "Greetings, and pardon me for keeping my eyes on the pylon while we talk." },
     { id = "g_again", when = { metBefore = true }, text = "You again. The pylon hasn't moved, I'm pleased to say." },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the pylon hasn't moved in all that time, I'm pleased to say, so forgive me if I keep watching it while we talk." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the pylon hasn't moved in all that time, I'm pleased to say, and I mean to keep it that way, so I'll go on watching it while we talk." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I'm told you said something that lifted someone's spirits in the grove, and I'm grateful for small gifts like that, even when they're given to somebody else." },
   },
 
@@ -857,7 +857,7 @@ P:NPC {
     },
     pylon_fail = {
       lines = {
-        { id = "pf_default", text = "Then the island comes apart, as other places already have. Ban'aethal began falling into the sky, and its people fled in the night with whatever they could carry, and I'd rather not watch Thendal go the same way." },
+        { id = "pf_default", text = "Then the island comes apart, as other places already have. Ban'aethal began falling into the sky, and its people fled in the night with whatever they could carry, and I will not watch Thendal go the same way." },
       },
       choices = {
         { text = "Can nothing be done?", next = "pylon_hope" },
@@ -965,11 +965,11 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know the pylon, the grove, and how to keep still, which is rarer than you'd think." } },
+    knows = { { id = "tp_knows", text = "I know the pylon, the grove, and how to keep still, which few young elves can manage." } },
     advice = { { id = "tp_ad", text = "Be grateful for what you have. I spent years wishing for the mainland, and all it gave me was a crick in my neck from staring at clouds." } },
     windstones = { { id = "tp_stones", text = "They hold the winds' strength, and they grow more precious as the pylons weaken." } },
     the_elements = { { id = "tp_the_elements", text = "The pylon still stands because the winds once willed it, and I watch it so I'll know if they ever stop willing. Be grateful for what holds, I tell the young, and do not ask too much of it." } },
-    highborne = { { id = "tp_highborne", text = "The Highborne were our ancestors, and they took everything they wanted. I'd rather be grateful for less, and I'd rather Myriaal were grateful for anything at all." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne were our ancestors, and they took everything they wanted. I'd sooner be grateful for less, and I wish Myriaal were grateful for anything at all." } },
     elune = { { id = "tp_elune", text = "The moon rises over the pylon each night, and I find it steadying. Whether it is a goddess or only a moon, I am grateful for the light." } },
     _none = { { id = "tp_none", text = "That's beyond what I can see from here, and I can see a long way." } },
   },

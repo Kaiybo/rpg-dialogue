@@ -79,7 +79,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "More than you'd think, because every apprentice from the tower comes down the road with a scorch mark somewhere they'd rather not explain. I mend it and don't ask, which is half of what they're paying for." } },
+      lines = { { id = "xmage_default", text = "All the time, because every apprentice from the tower comes down the road with a scorch mark somewhere they'd rather not explain. I mend it and don't ask, and the not asking is what they're really paying for." } },
       choices = {
         { text = "Your discretion's worth paying for, Sara. I'll pay fairly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Discretion's cheap. I'll mend my own robes and keep my coin.", next = "BACK", fx = { align = { honor = -1 } } },

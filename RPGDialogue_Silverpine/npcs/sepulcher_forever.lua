@@ -71,7 +71,7 @@ P:NPC {
     },
     trevan = {
       lines = {
-        { id = "tv_default", text = "Trevan made a great deal of them, as he makes a great deal of everything. He's a decent sort for a paladin, I'll grant him, but he'd bet his last finger on a cloaked shadow, and as it happens he very nearly has." },
+        { id = "tv_default", text = "Trevan made a song and dance of them, as he does of everything. He's a decent sort for a paladin, I'll give him that, but he'd bet his last finger on a cloaked shadow, and as it happens he very nearly has." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -89,7 +89,7 @@ P:NPC {
     elf = {
       big = true,
       lines = {
-        { id = "e_default", text = "No, I don't. If you're brave or stupid, you can charge into Fenris Isle and look, but it's a great deal of work to find some snooty elf who's probably long dead. You paladins love swearing oaths and taking up lost causes, so I suppose you'll go anyway." },
+        { id = "e_default", text = "No, I don't. If you're brave or stupid, you can charge into Fenris Isle and look, but that's a lot of worgen to wade through for some snooty elf who's probably long dead. You paladins love swearing oaths and taking up lost causes, so I suppose you'll go anyway." },
         { id = "e_after", when = { questDone = TODO_QUEST("The Windshaper's Wrath") },
           text = "She did, as it turns out, and I was wrong, which I'll admit once and then never again. Tell me, was it stubbornness or faith that sent you in after her?" },
       },
@@ -153,7 +153,7 @@ P:NPC {
     },
     worgen = {
       lines = {
-        { id = "w_default", text = "Big, fast, and hard to kill, and they don't stay down the way they ought to. Some of the Deathguard say one of them takes a bite and the bitten one changes, and I'd rather not find out if it works on the dead." },
+        { id = "w_default", text = "Big, fast, and hard to kill, and they don't stay down the way they ought to. Some of the Deathguard say one bite changes you, and I've no wish to learn whether it works on the dead." },
       },
       choices = {
         { text = "Who commands here?", next = "hadrec" },
@@ -344,7 +344,7 @@ P:NPC {
     },
     ruins = {
       lines = {
-        { id = "r_default", text = "There are things up there I can't contend with, and Edward knows it, which is why he never let me come. I've tried to warn him against searching those overrun ruins, but he refuses to give up, and now I've no one left to warn." },
+        { id = "r_default", text = "There are things up there I can't contend with, and Edward knows it, so he's never let me come. I've tried to warn him against searching those overrun ruins, but he refuses to give up, and now I've no one left to warn." },
         { id = "r_fog", when = { questBefore = TODO_QUEST("The Wrath of Rath'mael") },
           text = "There are things up there I can't contend with, and lately there's been a fog over the graveyard that the Deathguard don't like talking about. Edward went into it anyway, because Edward always goes." },
       },
@@ -409,7 +409,7 @@ P:NPC {
         { id = "h_pair", when = { questActive = TODO_QUEST("A Curious Pair") },
           text = "Baldren's near the entrance, scowling at something. Ask him what he saw on patrol, and try not to let him put you off." },
         { id = "h_saved", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Windshaper's Wrath"), days = 3 } },
-          text = "You found her alive! Lumina's been telling me all about it, and about a great deal else, and I think Danitha will be very pleased with both of us." },
+          text = "You found her alive! Lumina's been telling me all about it, and about the sky, and the clouds, and her aunt, and I think Danitha will be very pleased with both of us." },
         { id = "h_bladeact", when = { questActive = TODO_QUEST("A Moon-Kissed Blade") },
           text = "Trust in the Light to guide your blade, but the Light needs a good blade to guide. Have you got my materials yet?" },
         { id = "h_ott", when = { questActive = TODO_QUEST("An Underrated Talent") },
@@ -468,7 +468,7 @@ P:NPC {
     },
     pinky = {
       lines = {
-        { id = "pk_default", text = "The others aren't what they were, and I'll leave it at that. The Light mends a great deal, but it seems to draw the line at fingers, and I've learned to be grateful for the one that stayed put." },
+        { id = "pk_default", text = "The others aren't what they were, and I'll leave it at that. The Light mends bones and burns and worse, but it seems to draw the line at fingers, and I've learned to be grateful for the one that stayed put." },
       },
       choices = {
         { text = "That's a grim sort of humour.", next = "BACK", fx = { affinity = 1 } },
@@ -485,7 +485,7 @@ P:NPC {
     },
     why = {
       lines = {
-        { id = "w_default", text = "Because Danitha wants eyes beyond Tirisfal, and I volunteered before anyone could stop me. The Sepulcher sees everything that moves between the Undercity and the south, and a paladin who listens more than he preaches hears a great deal." },
+        { id = "w_default", text = "Because Danitha wants eyes beyond Tirisfal, and I volunteered before anyone could stop me. The Sepulcher sees everything that moves between the Undercity and the south, and a paladin who listens more than he preaches picks up all sorts." },
         { id = "w_fpal", when = { class = "PALADIN", race = "Scourge" },
           text = "Same reason you'll end up somewhere strange before long: Danitha wants eyes beyond Tirisfal. The Sepulcher sees everything that moves between the Undercity and the south, and the Keep needs friends out here more than it needs another knight on the walls." },
       },
@@ -535,7 +535,7 @@ P:NPC {
         { id = "ma_default", text = "Whitestone oak lumber, which the goblin woodcarvers in the Deadmines are hoarding, an enchanted silver ingot from Shadowfang Keep, near Arugal himself, and a purified Kor gem; Ulric Frostveil at Zoram'gar can clean one, if you bring him one from the naga at Blackfathom Deeps. It's all on the list, so don't lose it." },
       },
       choices = {
-        { text = "That's half the world.", next = "world" },
+        { text = "That's most of the world.", next = "world" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -596,7 +596,7 @@ P:NPC {
     { id = "g_default", text = "Winds' blessings to you." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "Winds' blessings, paladin." },
     { id = "g_back", when = { metBefore = true, questDone = TODO_QUEST("The Windshaper's Wrath") }, text = "My rescuer returns. Winds' blessings, friend." },
-    { id = "g_kin", when = { race = "Skyborne" }, text = "Kin! Winds' blessings, and forgive me if I stare; I didn't expect to see one of us this far from the sky." },
+    { id = "g_kin", when = { race = "Skyborne" }, text = "Kin! Winds' blessings, and pardon my staring; I didn't expect to see one of us this far from the sky." },
   },
 
   notice = {
@@ -647,7 +647,7 @@ P:NPC {
     },
     shendorei = {
       lines = {
-        { id = "sd_default", text = "The hidden people. Our ancestors left Eldre'Thalas rather than kneel to a prince who drank from the Nether, and we lived among the clouds for ten thousand years, and now we've come down. I'm sky-touched, too, which is why I'm this colour; it's a blessing among our newborns, though people here keep asking if I'm ill." },
+        { id = "sd_default", text = "The hidden people. Our ancestors left Eldre'Thalas rather than kneel to a prince who drank from the Nether, and we lived among the clouds for ten thousand years, and now we've come down. I'm sky-touched, too, so I'm this colour; it's a blessing among our newborns, though people here keep asking if I'm ill." },
       },
       choices = {
         { text = "Why come down now?", next = "why" },
@@ -801,7 +801,7 @@ P:NPC {
   topics = {
     two_orders = { { id = "tp_orders", text = "The High Order wants the magisters' knowledge back, and the Windshapers want to honour the spirits who sheltered us. Both are right, and both are stubborn." } },
     worgen = { { id = "tp_worgen", text = "A curse that walks on four legs and then on two. I've seen what it does from the inside, and I'll be glad never to see it again." } },
-    background = { { id = "tp_bg", text = "A Windshaper of Zephras Isle who passed her trials and came down to learn. I'm learning a great deal faster than I expected." } },
+    background = { { id = "tp_bg", text = "A Windshaper of Zephras Isle who passed her trials and came down to learn. The ground teaches faster than the winds did, and much more rudely." } },
     advice = { { id = "tp_ad", text = "Pay your debts, all of them. The ones you forget are the ones that come back to collect." } },
     _none = { { id = "tp_none", text = "I don't know; I've only been below the clouds a little while. Ask Trevan; he knows everything, or says he does." } },
   },

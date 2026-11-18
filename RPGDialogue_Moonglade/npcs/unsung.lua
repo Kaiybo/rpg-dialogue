@@ -106,7 +106,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Anyone who comes in peace, and the Keeper knows the difference better than any of us. I don't pretend to like the fel, but I've seen warlocks sit by the lake as quietly as any druid, and I'd rather judge the person than the craft." } },
+      lines = { { id = "xlock_default", text = "Anyone who comes in peace, and the Keeper knows the difference better than any of us. I don't pretend to like the fel, but I've seen warlocks sit by the lake as quietly as any druid, so I judge the person before the craft." } },
       choices = {
         { text = "Then judge me by my peace. I'll keep it here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Judge me how you like. The fel serves me well.", next = "BACK", fx = { align = { light = -1 } } },
@@ -115,7 +115,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "A few, and fewer every season, since the road through the Timbermaw tunnels is long. I like the strangers, honestly; druids talk about the Dream and the balance all day long, and a traveler will tell me what bread costs in Stormwind or Orgrimmar, which is a nice change." } },
+      lines = { { id = "xdruid_default", text = "A few, and fewer every season, since the road through the Timbermaw tunnels is long. I like the strangers; druids talk about the Dream and the balance all day long, and a traveler will tell me what bread costs in Stormwind or Orgrimmar, which is a nice change." } },
       choices = {
         { text = "Moonglade should stay hidden. The fewer strangers, the safer.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let strangers come. Moonglade could teach them a great deal.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -276,7 +276,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "None that grow here willingly, for the grove sits so near the Dream that everything in it wants to heal. Take the same seed to Felwood and it might come up bitter, which tells you more about Felwood than about the seed." } },
+      lines = { { id = "xrogue_default", text = "None that grow here willingly, for the grove sits so near the Dream that everything in it wants to heal. Take the same seed to Felwood and it might come up bitter, and the fault would be Felwood's, not the seed's." } },
       choices = {
         { text = "Then I'll leave Moonglade's herbs to their healing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Bitter seeds have their uses too, Malvor.", next = "BACK", fx = { align = { light = -1 } } },
@@ -439,7 +439,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Moonglade's wood, which grows slow and close to the Dream and doesn't warp in the cold, and that matters when you're on your way to Winterspring. I won't cut a living tree, so I use what the storms bring down, which is why I never have more than a dozen to sell." },
+        { id = "xhuntcl_default", text = "Moonglade's wood, which grows slow and close to the Dream and doesn't warp in the cold, and that matters when you're on your way to Winterspring. I won't cut a living tree, so I use what the storms bring down, and I never have more than a dozen to sell." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} deserves a hunter who doesn't miss, so take your time choosing. A good bow is a kindness to your beast as much as to you." },
       },
       choices = {
@@ -450,7 +450,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "A good prayer can mend the hole an arrow leaves, I'll grant you, but it's a poor shield before it lands. Every traveller who leaves this grove meets furbolgs and worse on the road, so take a friend with a bow, if you won't take one yourself." } },
+      lines = { { id = "xhcast_default", text = "A good prayer can mend the hole an arrow leaves, but it's a poor shield before it lands. Every traveller who leaves this grove meets furbolgs and worse on the road, so take a friend with a bow, if you won't take one yourself." } },
       choices = {
         { text = "I'll travel with friends and watch their backs.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll let others take the arrows first.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -486,7 +486,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Some do, more than you'd think. The Sentinels taught a good many of us before the Circle took us in, and a druid on the Felwood road who can shoot a satyr from a distance lives longer than one who can't. Your claws are good, but an arrow reaches further." } },
+      lines = { { id = "xdruid_default", text = "Some do, and not a few. The Sentinels taught many of us before the Circle took us in, and a druid on the Felwood road who can shoot a satyr from a distance lives longer than one who can't. Your claws are good, but an arrow reaches further." } },
       choices = {
         { text = "A druid should fight with the land's gifts, not with bows.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Use whatever keeps you alive. The satyrs won't fight fair.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },

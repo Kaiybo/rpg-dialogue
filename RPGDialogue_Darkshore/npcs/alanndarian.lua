@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_deer", when = { questActive = TODO_QUEST("Curing the Sick") }, text = "Ten doses, ten deer. Every one you reach is one less I lie awake over." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the stew's been made and eaten three times since. Sit down; there's a fourth." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, grown broad as a strider since you first fetched meat for my pot. I'd like to think my stew had something to do with it." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "Half of Auberdine says you've been helping out, and the other half hasn't noticed yet. Come and eat; you've earned it." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The fishermen on the dock say you've been helping out, and the rest of Auberdine will catch up soon enough. Come and eat; you've earned it." },
   },
 
   notice = {
@@ -41,7 +41,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Easy Strider Living") },
           text = "Perhaps you'd like to learn my strider stew? First prove you can handle the beasts: bring me a few cuts of their meat, and I may be persuaded to show you how it's done." },
         { id = "h_strider_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Easy Strider Living"), days = 3 } },
-          text = "Fantastic meat! Now try a bowl and tell me honestly what you think, though if you say it needs salt, we will be having words." },
+          text = "Fantastic meat! Now try a bowl and tell me what you think, and spare me nothing, though if you say it needs salt, we will be having words." },
         { id = "h_source", tags = { "news" }, when = { questActive = TODO_QUEST("The Principal Source") },
           text = "You're the one the Cenarion Circle sent from Moonglade? Wonderful! Have you the water sample Dendrite Starblaze promised me?" },
         { id = "h_source_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Principal Source"), days = 3 } },
@@ -119,7 +119,7 @@ P:NPC {
 
     circle = {
       lines = {
-        { id = "ci_default", text = "I wrote to Moonglade when the first deer died, and I didn't expect an answer, honestly. Dendrite Starblaze sent one, and then he sent helpers, and that's how I came to be mixing salves instead of soups." },
+        { id = "ci_default", text = "I wrote to Moonglade when the first deer died, and I never expected the druids to answer a cook. Dendrite Starblaze sent a reply, and then he sent helpers, and that's how I came to be mixing salves instead of soups." },
       },
       choices = {
         { text = "Do you trust the Circle?", next = "circle_trust" },

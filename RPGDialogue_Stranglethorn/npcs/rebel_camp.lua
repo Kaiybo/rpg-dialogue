@@ -124,7 +124,7 @@ P:NPC {
         { id = "h_roll", when = { metBefore = true }, text = "Called the roll this morning, and we're two short. They'll walk in by dusk or they won't, and I've stopped guessing which." },
         { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Colonel Kurzen"), days = 3 } },
           text = "The men keep asking me what he said at the end. I tell them it doesn't matter, and I'd like to believe that myself." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf with totems. Kurzen's men started hearing things in this jungle too, so you'll forgive me if I ask what you're hearing." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf with totems. Kurzen's men started hearing things in this jungle too, so I'll have to ask what you're hearing." },
       },
       again = {
         { id = "h_again", text = "Go on. I've a few minutes before the next patrol comes in." },
@@ -200,7 +200,7 @@ P:NPC {
     left = {
       big = true,
       lines = {
-        { id = "l_default", text = "With what? Half the expedition went with him. We'd have been killing our own friends in the dark, and losing." },
+        { id = "l_default", text = "With what? Most of the expedition went with him. We'd have been killing our own friends in the dark, and losing." },
       },
       choices = {
         { text = "You did the right thing.", next = "left_stormwind", fx = { affinity = 1, align = { light = 1 } } },
@@ -301,7 +301,7 @@ P:NPC {
       },
     },
     soldier_obeyed = {
-      lines = { { id = "so_default", text = "So did half the men out there with Kurzen. I don't hate them for it. I just can't let them past the trees." } },
+      lines = { { id = "so_default", text = "So did most of the men out there with Kurzen, and I don't hate them for it, but I can't let them past the trees." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     soldier_refused = {
@@ -363,7 +363,7 @@ P:NPC {
       lines = {
         { id = "hn_default", text = "If I had a name, I'd not hand it to someone I've only just met. That's how Thorsen nearly died." },
         { id = "hn_rogue", when = { class = "ROGUE" },
-          text = "You'll forgive me if I don't hand names to someone who walks as quietly as you do, because that's how Thorsen nearly died." },
+          text = "I won't hand names to someone who walks as quietly as you do, because that's how Thorsen nearly died." },
       },
       choices = {
         { text = "I'd do the same in your boots.", next = "BACK" },
@@ -371,7 +371,7 @@ P:NPC {
     },
     k_rogue = {
       lines = {
-        { id = "xro_default", text = "Then you know how it ends when someone talks, and you'll forgive me if I watch what I say around you. Thorsen went in quiet and came back out half-dead, and somebody in this camp knew he was going." },
+        { id = "xro_default", text = "Then you know how it ends when someone talks, so I'll be watching what I say around you. Thorsen went in quiet and came back out half-dead, and somebody in this camp knew he was going." },
       },
       choices = {
         { text = "Then let me find your informant.", next = "informant" },
@@ -424,7 +424,7 @@ P:NPC {
   notices = { "class", "craft", "form" },
 
   impression = {
-    first = "Brother Nimetz has glassware drying on every flat surface of a jungle camp, which says a great deal about him. He tended the sick, and now he studies what drove them mad.",
+    first = "Brother Nimetz has glassware drying on every flat surface of a jungle camp, and he apologized to me for nearly knocking over a flask I hadn't touched. He tended the sick, and now he studies what drove them mad.",
     third = "{name} met Brother Nimetz at the rebel camp, a priest studying the sickness of mind that took Colonel Kurzen and his men.",
   },
 
@@ -447,7 +447,7 @@ P:NPC {
   nodes = {
     op_light = {
       lines = {
-        { id = "opl_default", text = "I believe it does, though some nights the jungle's louder than any prayer I know. Tell me honestly, since nobody in this camp will: what does the Light mean to you out here?" },
+        { id = "opl_default", text = "I believe it does, though some nights the jungle's louder than any prayer I know. Tell me plainly, since nobody in this camp will: what does the Light mean to you out here?" },
       },
       choices = {
         { text = "It's the only thing that keeps us whole.", next = "op_light_faith", fx = { affinity = 1, align = { light = 1 }, trait = { pious = 1 }, opinion = { the_light = "faith" } } },
@@ -501,7 +501,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I've wondered, though I'd sooner blame the trolls' witch doctors. If the land here is sick, you'd feel it before I could find it under a lens, so tell me honestly." } },
+      lines = { { id = "xdsham_default", text = "I've wondered, though I'd sooner blame the trolls' witch doctors. If the land here is sick, you'd feel it before I could find it under a lens, so tell me what you sense." } },
       choices = {
         { text = "I'll help you study it, Brother. Patience will cure them.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Some minds can't be saved. Spare your glassware.", next = "BACK", fx = { align = { light = -1 } } },
@@ -598,7 +598,7 @@ P:NPC {
         { text = "Do you suspect magic drove Kurzen's men mad, Brother?", next = "xmage", when = { class = "MAGE" } },
         { text = "You must have seen terrible things in the jungle, Brother.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could the jungle itself have poisoned Kurzen's mind, Brother?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "I saw Hakkar's altar, Brother. It was worse than you'd think.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
+        { text = "I saw Hakkar's altar, Brother. It was worse than you imagine.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
         { text = "Keep your prayers, Brother, because they won't help out here.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -644,7 +644,7 @@ P:NPC {
 
     craft = {
       lines = {
-        { id = "c_default", text = "More often than you'd think, for prayer and alchemy are both patience, clean hands, and knowing exactly what you put in. My abbot called it a hobby, but out here it's the job." },
+        { id = "c_default", text = "Every evening, for prayer and alchemy are both patience, clean hands, and knowing exactly what you put in. My abbot called it a hobby, but out here it's the job." },
       },
       choices = {
         { text = "Where did you learn?", next = "craft_learn" },
@@ -662,7 +662,7 @@ P:NPC {
 
     men = {
       lines = {
-        { id = "m_default", text = "Their bodies are better than you'd think, and their minds are worse. They argue about whether they're deserters, and I tell them the Light doesn't keep that ledger." },
+        { id = "m_default", text = "Their wounds are mending well enough, but their minds are another matter. They argue about whether they're deserters, and I tell them the Light doesn't keep that ledger." },
       },
       choices = {
         { text = "Doesn't it?", next = "men_ledger", fx = { trait = { skeptical = 1 } } },
@@ -675,7 +675,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     men_doren = {
-      lines = { { id = "md_default", text = "He carries every one of them, and won't let me carry any of him. Don't tell him I said so." } },
+      lines = { { id = "md_default", text = "He carries every man in this camp on his back and won't let any of us carry a scrap of him, though you didn't hear that from me." } },
       choices = {
         { text = "I won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "He ought to hear it, and I'll tell him myself.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -845,7 +845,7 @@ P:NPC {
         { text = "I'm a soldier, Private. What did they do to you?", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Why did Kurzen's men fear magic so much, Thorsen?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would Kurzen's officers really have killed me on sight, Thorsen?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Kurzen's men seem to have burned half the jungle, Thorsen.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Kurzen's men have burned a great swath of jungle, Thorsen.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What did Kurzen's men say about shamans, Thorsen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Rest. I'll leave you be.", next = "END", fx = { trait = { kind = 1 } } },
       },

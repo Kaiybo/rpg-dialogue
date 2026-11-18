@@ -42,7 +42,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Everything! The Light ought to burn you and it doesn't, and Felwood ought to kill everything and it doesn't, so you and the forest have a great deal in common. I'd love a sample, just a small one, of whatever you are." } },
+      lines = { { id = "xfpala_default", text = "Everything! The Light ought to burn you and it doesn't, and Felwood ought to kill everything and it doesn't, so you and the forest are cousins of a sort. I'd love a sample, just a small one, of whatever you are." } },
       choices = {
         { text = "No samples. The Light is not a curiosity.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Take your sample. The Light can bear a little study.", next = "BACK", fx = { align = { light = -1 } } },
@@ -168,7 +168,7 @@ P:NPC {
 
     kitten = {
       lines = {
-        { id = "k_default", text = "A name? It doesn't need a name, because it knows who it is. *cackles* Which is more than most of the people at this post can say." },
+        { id = "k_default", text = "A name? It doesn't need a name, because it knows who it is. *cackles* Half the grunts at this post couldn't tell you theirs without checking a boot." },
       },
       choices = {
         { text = "What are you planning for it?", next = "kitten_plans" },
@@ -363,7 +363,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I'm no shaman, but I've watched the river run green and the earth crawl with things that used to be stone, and I write all of it down for Orgrimmar. Whatever the demons did here, the land remembers it, and I'd rather the Horde understood what that means before the Alliance does." } },
+      lines = { { id = "xhsham_default", text = "I'm no shaman, but I've watched the river run green and the earth crawl with things that used to be stone, and I write all of it down for Orgrimmar. Whatever the demons did here, the land remembers it, and the Horde must understand what that means before the Alliance does." } },
       choices = {
         { text = "Then I'll report what I sense to Orgrimmar, properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Some things the spirits show me aren't Orgrimmar's business.", next = "BACK", fx = { align = { order = -1 } } },
@@ -402,7 +402,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Good, Bloodvenom needs more of your kind than it gets, because the satyrs and the Deadwood don't wait for a scout to finish counting them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
-          text = "A hunter, good. The beasts of Felwood are wrong, every one of them, and I want someone who knows what a healthy wolf looks like telling me how far wrong." },
+          text = "A hunter, good. The beasts of Felwood are wrong down to the last rat, and I want someone who knows what a healthy wolf looks like telling me how far wrong." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. Orgrimmar's shamans see things a scout misses, and in Felwood I'll take every pair of eyes I can get." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Good; I've seen things in this forest I can't name, and you might put names to them before they get to Orgrimmar ahead of my report." },
@@ -417,7 +417,7 @@ P:NPC {
         { id = "h_winna", when = { heardLine = "winna.h_default" },
           text = "You've met the alchemist, then. Don't ask me about her, because I don't know what she's doing either, and nobody does; she laughs when you ask." },
         { id = "h_guardians_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Wild Guardians"), days = 3 } },
-          text = "Hard work is something I respect, and you've done a great deal of it in the snow. With those owlbeasts out of the way, we can push further into Winterspring." },
+          text = "Hard work is something I respect, and you've done plenty of it in the snow. With those owlbeasts out of the way, we can push further into Winterspring." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, out at the edge of the rot. Keep your prayers short and your eyes open, because the cultists at Jaedenar pray too, and you can see what it's bought them." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I'm paid to find out what Felwood hides, and now I'll have to find out what you hide too." },
       },
@@ -501,7 +501,7 @@ P:NPC {
 
     nara = {
       lines = {
-        { id = "n_default", text = "That's beyond me; I know owlbeasts, not their magic, which is why it went to Nara Wildmane in Thunder Bluff. If the wildkin were made to guard someone's holy places, then what they're guarding matters more than I thought." },
+        { id = "n_default", text = "That's beyond me; I know owlbeasts, not their magic, so it went to Nara Wildmane in Thunder Bluff. If the wildkin were made to guard someone's holy places, then what they're guarding matters more than I thought." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -521,7 +521,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "I gather what Orgrimmar needs to know and send it home. My own story isn't something anyone's asked for." } },
     advice = { { id = "tp_ad", text = "Take the tunnels through Timbermaw country politely, if the furbolgs let you. The other way round is longer and colder." } },
     thrall = {
-      { id = "tp_thrall", text = "The Warchief wants to know what's happening in Felwood, so I find out and send it home. He reads every report, which is more than I can say for most of Orgrimmar." },
+      { id = "tp_thrall", text = "The Warchief wants to know what's happening in Felwood, so I find out and send it home. He reads every report to the last line, and I can't say that of the clerks in Orgrimmar." },
       { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You're Alliance, and you ask about the Warchief? He's the best thing that's happened to my people, and you'll get nothing else out of me." },
     },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the only furbolgs in Felwood worth talking to, and they don't like me much. I don't take it personally; they don't like anyone." } },

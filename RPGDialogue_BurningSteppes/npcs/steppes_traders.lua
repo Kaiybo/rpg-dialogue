@@ -22,7 +22,7 @@ P:NPC {
     { id = "n_gear", cat = "gear", when = { durability = { max = 0.3 } },
       text = "That's not a weapon anymore, that's a memory of one. Hand it here before it falls apart in your hand at the worst moment." },
     { id = "n_war", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
-      text = "Good grip, worn in the right places. Somebody taught you properly, and you've been using it since, which is more than I can say for most." },
+      text = "Good grip, worn in the right places. Somebody taught you properly, and you've been using it since, not leaving it to rust on a wall." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf. Go on, tell me what's wrong with my forge, everyone from Ironforge does." },
   },
@@ -166,7 +166,7 @@ P:NPC {
     },
     goblins = {
       lines = {
-        { id = "go_default", text = "They buy my bread, they sell it back to travelers at twice the price, and they think I don't know. I know, and I let them, because they pay on time, which is more than I can say for most grunts." },
+        { id = "go_default", text = "They buy my bread, they sell it back to travelers at twice the price, and they think I don't know. I know, and I let them, because they pay on time, and the grunts at Flame Crest mostly pay in promises." },
       },
       choices = {
         { text = "That's not right. They're cheating your customers.", next = "BACK", fx = { align = { honor = 1 } } },

@@ -157,7 +157,7 @@ P:NPC {
     },
     davin_hate = {
       lines = {
-        { id = "dha_default", text = "Every one of them, yes, and I'll keep my bolts loaded for the day. Though I'll own it's tiring, hating that many people at once, and I'm not as young as I was when I died." },
+        { id = "dha_default", text = "All of them, yes, and I'll keep my bolts loaded for the day. Though I'll own it's tiring, hating that many people at once, and I'm not as young as I was when I died." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -187,7 +187,7 @@ P:NPC {
       lines = {
         { id = "cu_default", text = "Deathguards, mostly, and the Sepulcher out in Silverpine, where Podrig writes me orders in a hand so neat it's nearly rude. The warm ones come in for axes and leave smelling the oil, and I take their coin all the same." },
         { id = "cu_quest", when = { questDone = TODO_QUEST("Ride to the Undercity") },
-          text = "The Sepulcher, for one, and you carried their last order yourself. Podrig loses blades to the worgen faster than I can temper them, and he never once asks what I think of the living, which is why I like him." },
+          text = "The Sepulcher, for one, and you carried their last order yourself. Podrig loses blades to the worgen faster than I can temper them, and he never once asks what I think of the living, so I like him." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -207,7 +207,7 @@ P:NPC {
     },
     past_city = {
       lines = {
-        { id = "pc_default", text = "Loud and bright and full of bells, and I hated the bells. Now I'd give a good deal to hear one, which tells you something about what's been taken from us and who took it." },
+        { id = "pc_default", text = "Loud and bright and full of bells, and I hated the bells. Now I'd give a good deal to hear one, and you may draw your own conclusions about what's been taken from us and who took it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -230,7 +230,7 @@ P:NPC {
     },
     xdead_decent = {
       lines = {
-        { id = "xdd_default", text = "So had I, and I taught one of them to fold steel. I'll not argue with you, friend, because you're one of ours, but you'll forgive me if I wait for the bolt." },
+        { id = "xdd_default", text = "So had I, and I taught one of them to fold steel. I'll not argue with you, friend, because you're one of ours, but I'll be waiting for the bolt all the same." },
       },
       choices = {
         { text = "Who taught you to wait for it?", next = "davin" },

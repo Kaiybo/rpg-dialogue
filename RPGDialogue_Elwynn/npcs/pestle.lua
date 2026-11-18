@@ -39,7 +39,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Most of them do, and they buy the black ones, which I make only because they ask. I've wondered more than once what they're for, but a candle's a candle, and I'd rather sell them a decent one than have them making their own from who knows what." } },
+      lines = { { id = "xlock_default", text = "Most of them do, and they buy the black ones, which I make only because they ask. I've wondered more than once what they're for, but a candle's a candle, and better I sell them a decent one than have them making their own from who knows what." } },
       choices = {
         { text = "Better your candles than theirs. You're doing good.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You shouldn't wonder, William. It's not your business.", next = "BACK", fx = { align = { light = -1 } } },
@@ -48,7 +48,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Willow bark and a little peacebloom, steeped strong, though it tastes like a boot. Most warriors would sooner limp than drink it, which tells you something about warriors, I suppose." } },
+      lines = { { id = "xwarcl_default", text = "Willow bark and a little peacebloom, steeped strong, though it tastes like a boot. Most warriors would sooner limp than drink it, and that's warriors for you." } },
       choices = {
         { text = "I'll drink it, taste and all.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll limp, thank you.", next = "BACK", fx = { align = { order = -1 } } },
@@ -77,7 +77,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Peacebloom and silverleaf, mostly, though I've heard of a kaldorei herb that only grows under moonlight. I'd give a great deal for a single leaf." } },
+      lines = { { id = "dq_default", text = "Peacebloom and silverleaf, mostly, though I've heard of a kaldorei herb that only grows under moonlight. I'd give a month's takings for a single leaf." } },
       choices = {
         { text = "The forest gives freely if you ask well.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Pick what you can. The forest won't miss it.", next = "BACK", fx = { align = { honor = -1 } } },

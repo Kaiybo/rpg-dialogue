@@ -186,7 +186,7 @@ P:NPC {
       },
     },
     follow = {
-      lines = { { id = "fo_default", text = "He promised the Barrens could bloom again, and I'd spent enough years watching it bake to want that badly. I still want it, which is why I'm still here with a cave full of stinking hides." } },
+      lines = { { id = "fo_default", text = "He promised the Barrens could bloom again, and I'd spent enough years watching it bake to want that badly. I still want it, so here I stay with a cave full of stinking hides." } },
       choices = {
         { text = "That's a worthy thing to want.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },

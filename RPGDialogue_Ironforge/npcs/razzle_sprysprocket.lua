@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Operation Recombobulation") },
           text = "Upon further analysis, we didn't only fail to get rid of the troggs, we also turned most of our own people into leper gnomes. Ozzie and I mean to reverse it, with the Recombobulator!" },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Operation Recombobulation") },
-          text = "Restabilization cogs and gyromechanic gears, eight of each. The leper gnomes outside Gnomeregan carry them about, and I'd rather not think too hard about why." },
+          text = "Restabilization cogs and gyromechanic gears, eight of each. The leper gnomes outside Gnomeregan carry them about, and I try not to work out why." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Operation Recombobulation"), days = 3 } },
           text = "Perfect, every one, exactly to Ozzie's schematics! A little hydrolubricant on the pistons, a turn of the crank-o-ratchet, and the gnomish race will be as good as new." },
         { id = "h_later", when = { questDone = TODO_QUEST("Operation Recombobulation"), metBefore = true },
@@ -81,7 +81,7 @@ P:NPC {
       },
     },
     gnomeregan_lost = {
-      lines = { { id = "gl_default", text = "Some died, and the rest were changed, and now they wander outside the gates picking at scrap like they've forgotten their own names. Some of them I knew, which is why I'd rather talk about gears." },
+      lines = { { id = "gl_default", text = "Some died, and the rest were changed, and now they wander outside the gates picking at scrap like they've forgotten their own names. Some of them I knew by name, so if it's all the same to you, let's talk about gears." },
       },
       choices = {
         { text = "I'm sorry, Razzle.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },

@@ -188,7 +188,7 @@ P:NPC {
     },
     strangers_book = {
       lines = {
-        { id = "sb_default", text = "Blank ones, to scholars, mages and anyone keeping a journal, and I remember every buyer for months back. It isn't a gift, mind you; it's a ledger." },
+        { id = "sb_default", text = "Blank ones, to scholars, mages and anyone keeping a journal, and I remember every buyer for months back. It isn't a gift, just a ledger I keep in my head." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -217,7 +217,7 @@ P:NPC {
 
     stalvan = {
       lines = {
-        { id = "st_default", text = "Mistmantle, Stalvan: last recorded address, the Moonbrook schoolhouse in Westfall, which tells you how old the entry is. I like my records clean, and that one isn't." },
+        { id = "st_default", text = "Mistmantle, Stalvan: last recorded address, the Moonbrook schoolhouse in Westfall, an address that hasn't meant anything in years. I like my records clean, and that one isn't." },
       },
       choices = {
         { text = "Could you match his handwriting?", next = "stalvan_hand" },
@@ -236,7 +236,7 @@ P:NPC {
 
     priest = {
       lines = {
-        { id = "pr_default", text = "Do they? I'd give a great deal for a Church register, because half my deaths have no date, and some of my dead keep moving about." },
+        { id = "pr_default", text = "Do they? I'd give a month's wages for a Church register, because half my deaths have no date, and some of my dead keep moving about." },
       },
       choices = {
         { text = "I'll ask at the Cathedral for you.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 } } },

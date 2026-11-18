@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again, good. I've more trouble than hands, as usual." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' still no soldiers from Ironforge in all that time. Ye're a welcome sight, for ye at least came back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown into the sort o' blade I wish Ironforge would send me by the dozen." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "Half the town's told me what ye've done for them, an' a magistrate listens tae that sort o' thing. Ye've Thelsamar's thanks." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Every second farmer in Thelsamar's told me what ye've done for them, an' a magistrate listens tae that sort o' thing. Ye've Thelsamar's thanks." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I've had a complaint about ye. I'll no' ask what happened, but I'll ask that it doesnae happen again." },
     { id = "g_ogres", when = { questActive = TODO_QUEST("Mercenaries") }, text = "The ogres are still campin' northeast o' the loch, I hear. Take friends, for they're big, an' there's a lot o' them." },
   },

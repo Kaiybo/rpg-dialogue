@@ -138,7 +138,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Siege Brigade, since I was old enough tae lift a shell. Trollplow's my third engine an' my favourite." } },
     advice = { { id = "tp_ad", text = "Nerves o' steel an' an iron grip. If ye've got one, work on the other." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The Trollplow was built from parts we salvaged from Gnomeregan, an' I'd love tae drive her back intae the city an' see what the troggs make o' her. She's got a big enough cannon fer it." } },
-    frostmane = { { id = "tp_frostmane", text = "The Frostmane hear the Trollplow comin' an' scatter, which is half the fun. The other half's when they dinnae scatter fast enough." } },
+    frostmane = { { id = "tp_frostmane", text = "The Frostmane hear the Trollplow comin' an' scatter, an' that's fine sport, but the best sport's when they dinnae scatter fast enough." } },
     second_war = { { id = "tp_second_war", text = "My grandfather drove a steam tank in the Second War an' told me about it every night. The Trollplow's no' as big, but she's got more heart." } },
     _none = { { id = "tp_none", text = "No idea. Ask me about cannons an' I'll talk till the sun goes down." } },
   },

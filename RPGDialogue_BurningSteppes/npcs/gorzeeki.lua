@@ -33,7 +33,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Gorzeeki Wildeyes, alchemist, ink-brewer, candle-maker and loyal servant to master Mor'zul, who pays on time, which is more than I can say for most demons or most goblins! What can I do for you, besides sell you a potion at a very competitive price?" },
+          text = "Gorzeeki Wildeyes, alchemist, ink-brewer, candle-maker and loyal servant to master Mor'zul, who pays on time, every time, and you'd be amazed how rare that is among demons and goblins both! What can I do for you, besides sell you a potion at a very competitive price?" },
         { id = "h_case", tags = { "news" }, when = { questActive = TODO_QUEST("Wildeyes") },
           text = "Is that blood? It is, and it must be for master Mor'zul, because he's so fond of the stuff, and fond means repeat business! He'll want an ink from it for another dreadsteed parchment, I suppose, and isn't that exciting?" },
         { id = "h_imp", tags = { "news" }, when = { questActive = TODO_QUEST("Imp Delivery") },
@@ -132,7 +132,7 @@ P:NPC {
       },
       choices = {
         { text = "Wearing the Council's evil doesn't trouble me.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather fight my way through honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd rather fight my way through, fair and open.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

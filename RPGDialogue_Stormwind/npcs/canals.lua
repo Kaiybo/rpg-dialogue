@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Half the Trade District drinks on his promises, and I keep the tally. He calls it good business, and I call it the reason I go grey." } },
+      lines = { { id = "xdsham_default", text = "Every tavern keeper from here to the Trade District drinks on his promises, and I keep the tally. He calls it good business, and I call it the reason I go grey." } },
       choices = {
         { text = "Keep your tally. Promises poured should be promises paid.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let him pour. Generous men bring custom back.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -42,7 +42,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Oh, they buy, and they buy the cheapest red we stock by the barrel, which tells you something about the company down there. Renato once gave them a crate of tickets for free tastings, and I spent a month mopping up after a pack of grim folk in black robes who never once said thank you." },
+        { id = "xlock_default", text = "Oh, they buy, and they buy the cheapest red we stock by the barrel, and they never once ask the vintage. Renato once gave them a crate of tickets for free tastings, and I spent a month mopping up after a pack of grim folk in black robes who never once said thank you." },
       },
       choices = {
         { text = "Then I'll pay for my bottle and say thank you.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -91,7 +91,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Bottle by bottle and ticket by ticket, and every one of them goes in my tally. He says it's good for the name, and I say a name doesn't pay the cellar's rent, but somehow I always end up pouring anyway." } },
+      lines = { { id = "xapala_default", text = "Bottle by bottle and ticket by ticket, and each one goes in my tally. He says it's good for the name, and I say a name doesn't pay the cellar's rent, but somehow I always end up pouring anyway." } },
       choices = {
         { text = "A promise made is a promise kept, even a free bottle.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Then stop honouring his tickets and let him answer for them.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -202,7 +202,7 @@ P:NPC {
   topics = {
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Renato sold wine at the Darkmoon Faire one year and gave half of it away to the fire-eaters. I've still got the tally, and I'll show it to anyone who asks, and several who don't." } },
     gilneas = { { id = "tp_gilneas", text = "Gilnean wine was the finest in the north, and the vineyards are all behind that wall now. Renato says we'll make it someday ourselves, and I've told him to start with paying the cooper." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys our wine by the barrel and sells it to pirates by the cup, and I'd rather not think about the markup. Renato says it's good for the name, and the name's not paying the rent." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys our wine by the barrel and sells it to pirates by the cup, and the markup would make a goblin blush. Renato says it's good for the name, and the name's not paying the rent." } },
     dalaran = { { id = "tp_dalaran", text = "Before the plague, Dalaran's mages were our best customers, and they paid on time, which I miss more than I can say. I'd send them a case if they'd open their gates again." } },
     knows = { { id = "tp_knows", text = "A woman who keeps the books hears where the money goes, and money goes everywhere. Ask what you like." } },
     background = { { id = "tp_bg", text = "I'm a Gallina, and I'm the one who counts. Every family business needs one of us, or it's only a family." } },
@@ -480,7 +480,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "warm" }, values = { "kind", "hardworking" },
   notices = { "light", "kin", "kit" },
   impression = {
-    first = "Rema Schneider sews for half the Trade District from her shop by the canal bridge, and she worries aloud about why everyone suddenly wants sturdy clothes. She suspects the nobles know something the rest of us don't.",
+    first = "Rema Schneider sews for most of the Trade District's merchant families from her shop by the canal bridge, and she worries aloud about why everyone suddenly wants sturdy clothes. She suspects the nobles know something the rest of us don't.",
     third = "{name} met Rema Schneider, the tailor of the Canal Tailor and Fit Shop by the bridge to Cathedral Square.",
   },
 
@@ -579,7 +579,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, and a hem worn thin from kneeling, I'd wager. The Cathedral's novices come to me in droves, though lately it isn't robes the Cathedral wants from me." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and that tabard's been mended by someone who didn't know a needle from a nail. Let me see to it before you go out again." },
         { id = "h_default", key = true,
-          text = "Rema Schneider, and this is the Canal Tailor and Fit Shop. We sew for half the Trade District, and lately it's knitted shirts and sturdy trousers, more than we can manage." },
+          text = "Rema Schneider, and this is the Canal Tailor and Fit Shop. We sew for merchant households all along the canal, and lately it's knitted shirts and sturdy trousers, more than we can manage." },
         { id = "h_harlan", tags = { "news" }, when = { questActive = TODO_QUEST("Harlan Needs a Resupply") },
           text = "A note from Harlan, and another order. Business is booming, he says, and that's good, but I wonder why the whole city needs armor all at once. I've heard of no war." },
         { id = "h_thurman", tags = { "news" }, when = { questActive = TODO_QUEST("Package for Thurman") },
@@ -589,7 +589,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Dark cloth, soft soles and no buckles to catch the light, dear, so whoever outfitted you knew exactly what they were doing." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "Mage robes again! Every apprentice in the Quarter scorches the cuffs, and every one of them swears it was somebody else's spell." },
+          text = "Mage robes again! Every apprentice in the Quarter scorches the cuffs, and not one of them will admit it was his own spell." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you've torn your padding at the shoulder again, I can see it from here. Everyone in armor wants a cushion under the mail until they need one sewn." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in my shop! You'll be wanting something that doesn't flap in the wind and frighten the deer, I suppose." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and in good leather, though I've heard your sort change shape and leave their clothes behind. Tell me that's only a rumour, dear, because I can't sew for a bear." },
@@ -671,7 +671,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A tailor with a shop by the bridge and a son who forgets his shears. There's no more to me than thread and worry." } },
     advice = { { id = "tp_ad", text = "Mend a small tear today, or you'll be buying a whole new shirt next week. That goes for more than shirts." } },
     defias = { { id = "tp_defias", text = "Bandits in masks, they say, and some of them stonemasons' lads once. It frightens folk into buying sturdy clothes, I can tell you that.", next = "worry" } },
-    _none = { { id = "tp_none", text = "I wouldn't know, dear. I hear a great deal, but not that." } },
+    _none = { { id = "tp_none", text = "I wouldn't know, dear. I hear plenty over the pins and the chalk, but not that." } },
   },
 }
 
@@ -712,7 +712,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Fishing's use to everybody, because the fish don't care who you are or what you keep in your satchel. Sit on the bank for an hour with nothing to do but watch a float, and you'll find out a great deal about what's in your head, and maybe you'll want some of it out." },
+        { id = "xlock_default", text = "Fishing's use to everybody, because the fish don't care who you are or what you keep in your satchel. Sit on the bank for an hour with nothing to do but watch a float, and you'll learn what's been rattling around in your head, and maybe you'll want some of it out." },
       },
       choices = {
         { text = "I could use an hour of quiet. Teach me.", next = "BACK", fx = { align = { light = 1 } } },
@@ -731,7 +731,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "More than you'd think, because you sit still, you keep quiet and you let the other fellow make the mistake. The difference is that a fish never holds it against you afterwards." } },
+      lines = { { id = "xrogue_default", text = "Very like it, because in both you sit still, you keep quiet and you let the other fellow make the mistake. The difference is that a fish never holds it against you afterwards." } },
       choices = {
         { text = "I'd rather face my mark than wait for him to slip.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let them make the mistake. Patience wins every time.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -740,7 +740,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "You could, I suppose, and they'd taste of nothing at all, like most things made by magic. A fish you've waited for tastes of the waiting, which is why I teach this and not spellcraft." } },
+      lines = { { id = "xmage_default", text = "You could, I suppose, and they'd taste of nothing at all, like most things made by magic. A fish you've waited for tastes of the morning you spent on the bank, and no spell can cook that in." } },
       choices = {
         { text = "Some things should be earned the slow way.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Why wait, when a spell gets dinner on the table faster.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1294,7 +1294,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Crates of reagents, ink, crystal and things I'm not allowed to write down, which is always a clerk's favourite sort of cargo. Half of it comes stamped with the Kirin Tor's seal, and the other half comes stamped with nothing at all." } },
+      lines = { { id = "xmage_default", text = "Crates of reagents, ink, crystal and things I'm not allowed to write down, which is always a clerk's favourite sort of cargo. Some of it comes stamped with the Kirin Tor's seal, and the crates I worry about come stamped with nothing at all." } },
       choices = {
         { text = "Every crate should be written down, sealed or not.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "What the Quarter keeps off the ledger is its own business.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1303,7 +1303,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Half of them are Westfall men, and when their families' farms burn they go home to see to it. The other half talk about the Brotherhood in low voices, and that worries me far more than the empty shifts." } },
+      lines = { { id = "xwarcl_default", text = "Most of them are Westfall men, and when their families' farms burn they go home to see to it. The ones who stay talk about the Brotherhood in low voices, and that worries me far more than the empty shifts." } },
       choices = {
         { text = "Men who leave to protect their families aren't deserters, Clerk.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If they run off mid-shift, they're no better than deserters.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1333,7 +1333,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Someone who knows my schedule better than my dockhands do, which narrows it down to half the harbor. The guard won't spare a man for it, so I write it off as spoilage and lose a little more sleep every week." } },
+      lines = { { id = "xapala_default", text = "Someone who knows my schedule better than my dockhands do, which is to say any clerk, captain or carter on these piers. The guard won't spare a man for it, so I write it off as spoilage and lose a little more sleep every week." } },
       choices = {
         { text = "The guard should hear of it. Theft must answer to the law.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Some of that spoilage feeds hungry families. Let a little go.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1342,21 +1342,21 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've come to bless a ship, you'll have to wait your turn, because half my captains want a blessing and the other half want their cargo found." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've come to bless a ship, you'll have to wait your turn, because every captain at these piers wants a blessing before he wants his cargo found." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Splendid, if you're here to tell me who's been lifting crates off my docks at night, and less splendid if you're here to inspect my ledgers." },
         { id = "h_default", key = true,
           text = "Manifest Clerk Philmor. Every crate that comes into this harbor passes my ledger, and this week half my dockhands haven't, so the cargo schedule is a work of fiction." },
         { id = "h_favor", tags = { "news" }, when = { questActive = TODO_QUEST("Philmor's Favor") },
           text = "The Gatehouse shipment goes up the stairs in Trias' Cheese, to the stockroom entrance. Elaine knows the deliveries, so hand it to her and don't open it on the way." },
         { id = "h_favor_done", tags = { "news" }, when = { questDone = TODO_QUEST("Philmor's Favor") },
-          text = "Elaine sent word the shipment arrived intact, which is more than I can say for the last three. You've a future on the docks, if you ever tire of the other thing." },
+          text = "Elaine sent word the shipment arrived intact, and the last three came in short, wet or not at all. You've a future on the docks, if you ever tire of the other thing." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You've the look of somebody who knows how cargo goes missing, which is the one thing my ledger can't tell me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, good. If you're waiting on a crate for the Mage Quarter, it's late, and so is everything else on this harbor." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and with arms on you, too. If you're looking for work, the dockhands have all gone off to Westfall and I've crates stacked to the rafters." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, are you? Then you'll be wanting to know whether the furs from Darkshore came in, and the answer is yes, but I can't find them." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my docks. Half the cargo on these piers comes up from Menethil, and some of it came from your Auberdine before that, so I'd guess you took the same long road." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my docks. A good share of the cargo on these piers comes up from Menethil, and some of it came from your Auberdine before that, so I'd guess you took the same long road." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The work's open to anyone, and so is the risk, but don't bring that thing near my ledgers." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Shaman, eh? If you can talk the sea into carrying our cargo gently, the harbour has work for you. Your safety's your own affair." },
       },

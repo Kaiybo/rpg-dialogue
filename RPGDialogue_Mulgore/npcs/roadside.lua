@@ -270,7 +270,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "That a bear fights only to protect its cubs and its den, and stops the moment the danger has passed. Our family learned that from the night elves long ago, and the warriors who learn it fight hard and stop in time, which is rarer than you'd think." } },
+      lines = { { id = "xwarcl_default", text = "That a bear fights only to protect its cubs and its den, and stops the moment the danger has passed. Our family learned that from the night elves long ago, and the few warriors who learn it fight hard and stop in time." } },
       choices = {
         { text = "I'll fight only to protect, and stop when it's done.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll fight until there's nothing left to fight.", next = "BACK", fx = { align = { honor = -1 } } },

@@ -32,7 +32,7 @@ P:Rumors {
     { id = "venture", text = "The Venture Company is cutting down Stonetalon's trees as fast as their machines can chew. The sky above Windshear has been grey for months." },
     { id = "harpies", when = { minLevel = 18 }, text = "The harpies on the high crags have started raiding the goblins' lumber camps. For the first time in my life, I'm cheering for harpies." },
     { id = "peak", text = "The druids at Stonetalon Peak say the mountain's spirits are angry, and the mountain's been rumbling to agree with them." },
-    { id = "kaldorei", when = { faction = "Horde" }, text = "The night elves say we cut their forest, and we say it was the goblins. Both are true, which is why nobody's listening." },
+    { id = "kaldorei", when = { faction = "Horde" }, text = "The night elves say we cut their forest, and we say it was the goblins. Both are true, so both sides go on shouting past each other." },
   },
 }
 

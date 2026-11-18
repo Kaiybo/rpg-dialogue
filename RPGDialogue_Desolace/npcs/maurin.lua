@@ -50,7 +50,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Ask it precisely, and I will answer the same way." },
-        { id = "h_again2", text = "Continue. I have a great deal of time, though I prefer not to waste it." },
+        { id = "h_again2", text = "Continue. I have all the time the grave allows, though I prefer not to waste it." },
       },
       choices = {
         { text = "What makes the Burning Blade weak?", next = "blade" },
@@ -118,7 +118,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     ne_tool = {
-      lines = { { id = "net_default", text = "Then you will forgive me if I do not ask you to carry the gems. Rot is what the Blade made of itself; I merely sweep it up." } },
+      lines = { { id = "net_default", text = "Then I will not ask you to carry the gems. Rot is what the Blade made of itself; I merely sweep it up." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     ne_both = {

@@ -188,7 +188,7 @@ P:NPC {
 
     k_pally = {
       lines = {
-        { id = "kp_default", text = "Aye, an' many a paladin's walked away from this forge wi' a hammer they'll carry till they die. Bring me yours some day an' I'll tell ye honestly whether it's worthy o' the Light ye put through it." },
+        { id = "kp_default", text = "Aye, an' many a paladin's walked away from this forge wi' a hammer they'll carry till they die. Bring me yours some day an' I'll tell ye straight whether it's worthy o' the Light ye put through it." },
         { id = "kp_dwarf", when = { race = "Dwarf" },
           text = "Spoken like a son o' Ironforge. There's been a paladin's hammer on the Great Anvil every week since Uther's day, an' I've made a few that've seen more battles than their owners." },
       },
@@ -274,7 +274,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Plenty. A good miner knows every crack an' passage, every sound the stone makes, an' that's more than most thieves will ever know. Just don't use what I teach ye tae rob my own diggings." } },
+      lines = { { id = "xrogue_default", text = "Plenty. A good miner knows every crack an' passage, every sound the stone makes, an' few thieves ever learn that much. Just don't use what I teach ye tae rob my own diggings." } },
       choices = {
         { text = "I'll use it against the Dark Irons, not your diggings.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Your diggings are safe until they're worth robbing.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -334,7 +334,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good; a miner wi' a warrior at his back goes deeper an' comes back sooner, an' that's the best kind o' minin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? There's no' much tae hunt underground, though the troggs might disagree wi' me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Yer kind dislike holes in the ground, I'm told, which makes this an awkward meetin', for I teach folk how tae dig them." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ye'll no' be swingin' a pick, I expect, but ye might like tae know that half the gems the enchanters fuss over came up out o' my tunnels." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ye'll no' be swingin' a pick, I expect, but ye might like tae know that many o' the gems the enchanters fuss over came up out o' my tunnels." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've had miners swear the seams sing before a cave-in, an' I'd give a month's ore tae know if they were right." },
       },
       again = {
@@ -377,7 +377,7 @@ P:NPC {
 
     troggs = {
       lines = {
-        { id = "tr_default", text = "Troggs came up out o' the deep places when Gnomeregan fell, an' they took half the good tunnels in Dun Morogh. Ironband's lot out in Loch Modan are fightin' them for every cart o' ore now, an' it's no' gettin' easier." },
+        { id = "tr_default", text = "Troggs came up out o' the deep places when Gnomeregan fell, an' they took the best tunnels in Dun Morogh. Ironband's lot out in Loch Modan are fightin' them for every cart o' ore now, an' it's no' gettin' easier." },
       },
       choices = {
         { text = "Then we should drive them back to the deeps.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 }, learn = { "troggs" } } },
@@ -527,7 +527,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's a cook's best friend, for ye bring me the meat an' I'll show ye what tae do wi' it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll know yer herbs, then, an' a cook who knows his herbs is halfway tae a good stew." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Sit down an' have a sausage, for there's no trouble in the world a good meal cannae shrink, an' ye look like ye've a few." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Bronze Kettle! Ye'll know a good fire, then, so tell me honestly if mine's any good." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Bronze Kettle! Ye'll know a good fire, then, so tell me true if mine's any good." },
       },
       again = {
         { id = "h_again", text = "What else would ye like tae know? Ask while the pot's on." },
@@ -592,7 +592,7 @@ P:NPC {
         { id = "em_default", text = "That's my brother Emrul, an' he sells the spices an' recipes I teach wi', at prices I'd call criminal if he werenae family. We've shared this shop for years an' argued in it every day." },
       },
       choices = {
-        { text = "You two must argue a great deal.", next = "emrul_argue" },
+        { text = "You two must argue all day long.", next = "emrul_argue" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -614,7 +614,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Our father ran a kitchen in the Military Ward, an' Emrul an' me grew up peelin' potatoes for half the army." } },
+    background = { { id = "tp_bg", text = "Our father ran a kitchen in the Military Ward, an' Emrul an' me grew up peelin' potatoes for a whole regiment." } },
     advice = { { id = "tp_ad", text = "Taste as ye go. A cook who doesn't taste is only guessin'." } },
     booty_bay = { { id = "tp_booty_bay", text = "The pirates in Booty Bay eat better than kings, so I've heard, all fish an' spice an' rum. I'd like tae cook fer them one night, though I'd want my wages paid in advance." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Food on a stick, every bit o' it, an' half o' it fried in oil older than me. Still, I've never had a better roast from a cart in my life." } },
@@ -742,7 +742,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue! I'll be watchin' my spice jars, mind, for some o' them cost more than a sword." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock wantin' spices? Ye'll forgive me if I check yer coin for brimstone before I take it." },
+          text = "A warlock wantin' spices? I'll be checkin' yer coin for brimstone before I take it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want salt, then, for there's nothin' sadder than a soldier's supper wi'out it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll be the one bringin' Daryl his meat, then, an' I'll be the one makin' it taste o' somethin'." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll be wantin' herbs, then, an' I've a few that Daryl doesnae even know the names of." },
@@ -792,7 +792,7 @@ P:NPC {
     },
     spices_tram = {
       lines = {
-        { id = "st_default", text = "It brings everythin', now that the gnomes have it runnin' under the sea tae Stormwind. I don't like ridin' it myself, for there's a great deal o' water above ye, but the spice doesnae mind." },
+        { id = "st_default", text = "It brings everythin', now that the gnomes have it runnin' under the sea tae Stormwind. I don't like ridin' it myself, for there's a whole sea o' water above ye, but the spice doesnae mind." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -869,7 +869,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Hunters get bitten more than most, an' bites fester, which is worse than any cut. A bear's claw's dirty an' a wolf's tooth's dirtier, an' I've had tae clean both out o' more hunters than I care tae count." },
+        { id = "xhuntcl_default", text = "Hunters get bitten more than anyone, an' bites fester, which is worse than any cut. A bear's claw's dirty an' a wolf's tooth's dirtier, an' I've had tae clean both out o' more hunters than I care tae count." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I'll no' bandage yer {pet}, before ye ask; I'm a physician, no' an animal doctor, though I've been asked." },
       },
       choices = {
@@ -954,7 +954,7 @@ P:NPC {
         { text = "Why would mages fall first in a fight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warlocks really steal life to heal themselves?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a warrior learn bandaging, Nissa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do hunters get hurt more than most, Nissa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do hunters get hurt often, Nissa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you resent priests, Nissa, for doing your work with prayers?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it better to heal the wounded or to protect them, Nissa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a druid's healing as good as a bandage, Nissa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -1085,7 +1085,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "To steal the formulas, of course, and I keep them in a book with three locks, two of which are traps. I'll teach you honestly if you ask honestly, but I'd thank you to keep your hands out of my book." } },
+      lines = { { id = "xrogue_default", text = "To steal the formulas, of course, and I keep them in a book with three locks, two of which are traps. I'll teach you fairly if you ask fairly, but I'd thank you to keep your hands out of my book." } },
       choices = {
         { text = "I'll ask honestly, Gimble. Your formulas are safe from me.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Three locks and two traps? That sounds like a challenge.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1173,7 +1173,7 @@ P:NPC {
     },
     how_destroy = {
       lines = {
-        { id = "hd_default", text = "Exactly, and it's a shame sometimes, when a lovely old ring goes to dust. But the magic doesn't vanish, it only moves, and I'd rather it moved into a sword that's useful than sat in a ring nobody wears." },
+        { id = "hd_default", text = "Exactly, and it's a shame sometimes, when a lovely old ring goes to dust. But the magic doesn't vanish, it only moves, and better it moves into a sword that's useful than sat in a ring nobody wears." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -1192,6 +1192,6 @@ P:NPC {
     dalaran = { { id = "tp_dalaran", text = "I studied in Dalaran once, for a season, and they nearly caught me reading a formula I wasn't supposed to have. Oh, you didn't hear that, and if anyone asks, I was in the library the whole time." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor guard their secrets like dragons guard gold, and they think a gnome can't be trusted with any of them. They're right, of course, but it's rude of them to say so." } },
     scourge = { { id = "tp_scourge", text = "Necromancy is enchanting gone wrong, just wrong in every possible direction, and I won't have it near my shop. Kel'Thuzad was a Dalaran mage once, you know, and it makes my skin crawl.", fx = { learn = { "kelthuzad" } } } },
-    _none = { { id = "tp_none", text = "I don't know anything about that, and I'd rather not, frankly, because every new fact is one more thing somebody can steal." } },
+    _none = { { id = "tp_none", text = "I don't know anything about that, and I prefer it that way, because every new fact is one more thing somebody can steal." } },
   },
 }

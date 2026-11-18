@@ -49,7 +49,7 @@ P:NPC {
         { text = "How do you call the gorillas?", next = "calling" },
         { text = "Why live out here alone?", next = "alone" },
         { text = "Do the apes ever hurt you?", next = "danger" },
-        { text = "The spirits must tell you a great deal, Unbagwa.", next = "xshaman", when = { class = { "SHAMAN", "PRIEST" }, race = { "Troll", "Orc", "Tauren" } } },
+        { text = "The spirits must tell you many things, Unbagwa.", next = "xshaman", when = { class = { "SHAMAN", "PRIEST" }, race = { "Troll", "Orc", "Tauren" } } },
         { text = "Let my beast stand guard.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I'll be back, witch doctor.", next = "END" },
       },

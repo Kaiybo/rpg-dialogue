@@ -239,7 +239,7 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I don't know. The plains might; ask them quietly, and the Earth Mother may let the grass answer." } },
-    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is in the stillness, which is why a hunter must learn it first. Sit long enough and you will feel her breathing under the grass." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is in the stillness, and so a hunter must learn it first. Sit long enough and you will feel her breathing under the grass." } },
     centaur = { { id = "tp_centaur", text = "The centaur ride too loud to be good hunters, and they are always running from something or toward it. I have watched the Kolkar for years and never once seen them sit still." } },
     quilboar = { { id = "tp_quilboar", text = "Bristleback, Razormane, it is the same boar with a different temper. They hunt badly too, but they are clever when they are cornered, and every young hunter learns that once." } },
     cairne = { { id = "tp_cairne", text = "Cairne knows the stillness better than any of us. He can sit on the bluff and wait a whole day, and that patience is why the tauren have a home at all." } },
@@ -263,7 +263,7 @@ P:NPC {
 
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "*snort* Tall cow-folk keep Mangletooth in a cage. Mangletooth remembers every one of them." },
+      text = "*snort* Tall cow-folk keep Mangletooth in a cage. Mangletooth remembers every face." },
   },
 
   start = "hello",
@@ -362,7 +362,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "*snort* Because the land is ours, and Agamaggan's blood gave us the thorns before any tauren walked here. Mangletooth sits in a cage, but the Razormane remember it, and the Bristlebacks forget, which is why they are weak." } },
+      lines = { { id = "xdruid_default", text = "*snort* Because the land is ours, and Agamaggan's blood gave us the thorns before any tauren walked here. Mangletooth sits in a cage, but the Razormane remember it, and the Bristlebacks forget, so they are weak." } },
       choices = {
         { text = "The Horde holds this land now, and that's the end of it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Your people were here first. Their claim deserves a hearing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -481,7 +481,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "More than you'd think, because a priest's staff has cracked more quilboar skulls than any sermon. I've a troll's ritual knife and a Forsaken's chipped mace in my notes already, and both had prayers carved where the grip wears down." } },
+      lines = { { id = "xhpriest_default", text = "Plenty, because a priest's staff has cracked more quilboar skulls than any sermon. I've a troll's ritual knife and a Forsaken's chipped mace in my notes already, and both had prayers carved where the grip wears down." } },
       choices = {
         { text = "A priest's true weapon is the healing, not the staff.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A good staff settles arguments faster than prayers do.", next = "BACK", fx = { align = { light = -1 } } },
@@ -514,7 +514,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "I will, and gladly, because a mage's staff tells me more than most swords. The wood is soft and the grip is worn where you rest on it, which means you lean on it to think and never mean to swing it, and that's the most honest weapon I've seen this week." },
+        { id = "xmage_default", text = "I will, and gladly, because a mage's staff tells me more than a rack of swords. The wood is soft and the grip is worn where you rest on it, which means you lean on it to think and never mean to swing it, and that's the most honest weapon I've seen this week." },
       },
       choices = {
         { text = "A mage needn't swing anything. Clever spells win wars.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -620,7 +620,7 @@ P:NPC {
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "The road back from the spirit healer is long. Sit; the stew helps more than you'd think." },
+      text = "The road back from the spirit healer is long. Sit, and let the stew warm you back into your body." },
   },
 
   start = "hello",
@@ -688,7 +688,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Their laughing keeps me up half the night, and the other half I spend listening for it. The camp's shamans say the hyenas out there are hungry rather than cursed, which makes me feel better, though not enough to sleep through it." } },
+      lines = { { id = "xhsham_default", text = "Their laughing keeps me up long after the fire burns low, and when it stops, I lie awake waiting for it. The camp's shamans say the hyenas out there are hungry rather than cursed, which makes me feel better, though not enough to sleep through it." } },
       choices = {
         { text = "Hungry beasts deserve pity more than hatred.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then hunt them until the laughing stops.", next = "BACK", fx = { align = { light = -1 } } },
@@ -747,7 +747,7 @@ P:NPC {
         { id = "h_herders", when = { metBefore = true }, text = "The kodo herders come in at sundown smelling of dust and kodo, and I serve them first. They've earned it." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Those are hyenas, and they laugh when Mu'sha's eye is open. I've never once found it funny." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so sit by the fire. The kodo herders say it burns brighter when a shaman sits near it, and I've stopped arguing with the kodo herders." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at Taurajo's fire, and welcome. Sit and eat, and if the hyenas start laughing out past the walls, you'll forgive me if I don't laugh along." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at Taurajo's fire, and welcome. Sit and eat, and if the hyenas start laughing out past the walls, I hope you will not mind if I do not laugh along." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and covered in dust from the road south. Taurajo welcomes you, and so does my fire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Jorn Skyseer will want to meet you, if you haven't already met him, because he teaches every hunter who passes through." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at Taurajo! Sit by the fire, because the herders come in limping every night and I can only do so much with stew." },

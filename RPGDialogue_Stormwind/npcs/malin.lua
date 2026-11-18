@@ -20,7 +20,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind the circle on the floor, if you please; it took me a fortnight to chalk, and I'd rather not start again because someone came in with muddy boots." },
+    { id = "g_default", text = "Mind the circle on the floor, if you please; it took me a fortnight to chalk, and I'm not starting again because someone came in with muddy boots." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you've come back. Sit, if you can find a chair under the books, and tell me what brings you up the stairs this time." },
     { id = "g_quest", when = { questActive = Q }, text = "You've not gone north yet? Skuerto is a patient dwarf, which is to say he is not patient at all, and he'll be waiting at Refuge Pointe." },
     { id = "g_tower", when = { questDone = TOWER }, text = "There you are. Kryten wrote to me about the tower, and about you, and I'll admit I read that part of the letter twice." },
@@ -44,7 +44,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Archmage Malin, of the Wizard's Sanctum. I teach a little, write a great deal, and spend more of my evenings than I'd like worrying about the Arathi Highlands." },
+        { id = "h_default", key = true, text = "Archmage Malin, of the Wizard's Sanctum. I teach a little, write far too much, and spend more of my evenings than I'd like worrying about the Arathi Highlands." },
         { id = "h_before", key = true, tags = { "news" }, when = { questBefore = Q, minLevel = 28 },
           text = "You look like someone who has been north and lived to complain of it. I have a matter in the Arathi Highlands, if you'll hear it, and it concerns my old master's tower." },
         { id = "h_active", tags = { "news" }, when = { questActive = Q },
@@ -108,7 +108,7 @@ P:NPC {
     },
     trelane_shaped = {
       lines = {
-        { id = "ts_default", text = "More than I'd admit to anyone but a stranger, which you are, so there it is. Half the rules I give my own apprentices are his, and the other half are ones I made because he never had to deal with Kryten." },
+        { id = "ts_default", text = "More than I'd admit to anyone but a stranger, which you are, so there it is. Most of the rules I give my own apprentices are his, and the rest I made because he never had to deal with Kryten." },
       },
       choices = {
         { text = "Then honour him by doing what he would have.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -172,7 +172,7 @@ P:NPC {
     },
     arathi_ask = {
       lines = {
-        { id = "aa_default", text = "Not since I was a young man, and I'd rather remember the Highlands green than see them as they are now. You've been, though, haven't you? Tell me, does anyone still hold Stromgarde's walls?" },
+        { id = "aa_default", text = "Not since I was a young man, and I prefer to remember the Highlands green rather than see them as they are now. You've been, though, haven't you? Tell me, does anyone still hold Stromgarde's walls?" },
       },
       choices = {
         { text = "The Syndicate and the ogres hold most of it now.", next = "arathi_answer", when = { minLevel = 30 } },
@@ -245,7 +245,7 @@ P:NPC {
     },
     stromgarde_syndicate = {
       lines = {
-        { id = "sy_default", text = "Alterac's nobles and their hired knives, who lost everything when Perenolde betrayed the Alliance and decided the rest of us owed them. They'll sell anything Trelane left to anyone who pays, which is why I'd rather have it first." },
+        { id = "sy_default", text = "Alterac's nobles and their hired knives, who lost everything when Perenolde betrayed the Alliance and decided the rest of us owed them. They'll sell anything Trelane left to anyone who pays, so I mean to have it first." },
       },
       choices = {
         { text = "Then we beat them to it.", next = "BACK", fx = { affinity = 1 } },

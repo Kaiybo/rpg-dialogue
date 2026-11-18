@@ -266,7 +266,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "Oh, a druid, and from Darnassus, I'd guess! I have a hundred questions about how your magic differs from ours, though Skuerto says I ask too many." },
         { id = "h_default", key = true,
-          text = "Apprentice Kryten, in Archmage Malin's service. While Skuerto scouts the tower, I study what I can, and frankly the Witherbark have more to teach a young enchanter than you'd think." },
+          text = "Apprentice Kryten, in Archmage Malin's service. While Skuerto scouts the tower, I study what I can, and frankly the Witherbark's hex-totems are better work than anything in my primers." },
         { id = "h_gold", when = { questActive = TODO_QUEST("Worth Its Weight in Gold") },
           text = "Tusks from any Witherbark, medicine pouches from their witch doctors, and the knife a shadow hunter carries after his rites. That last one you'll only find by fighting them, I'm afraid." },
         { id = "h_gold_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Worth Its Weight in Gold"), days = 3 } },
@@ -338,7 +338,7 @@ P:NPC {
       },
     },
     malin_teacher = {
-      lines = { { id = "mt_default", text = "Strict, and very good, and he sends me to places like this to learn what books can't teach. I've learned a great deal about ogres, mostly how to avoid them." } },
+      lines = { { id = "mt_default", text = "Strict, and very good, and he sends me to places like this to learn what books can't teach. So far I've learned that an ogre can smell an apprentice from a hill away, and how to be on the next hill." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     skuerto = {
@@ -403,7 +403,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Not in a cage, they don't, for the gryphons think the hippogryphs are showing off. In the air they leave each other alone, which is more than I can say for the Syndicate and the Forsaken around here." } },
+      lines = { { id = "xdruid_default", text = "Not in a cage, they don't, for the gryphons think the hippogryphs are showing off. In the air they leave each other alone, and I wish the Syndicate and the Forsaken around here would learn the trick." } },
       choices = {
         { text = "Let them keep apart. Some creatures shouldn't mix.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Raise them together and they'll learn to share the sky.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },

@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Speak quickly. Krol'dok does not rest, so neither does the Horde." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back from the glades on your own feet, which is more than most can say this season." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back from the glades on your own feet, and this season that counts for something." },
     { id = "g_hero", when = { townStanding = { town = "rogmar", min = 55 } }, text = "Make way for this one; Rog'mar owes them blood and remembers it." },
     { id = "g_distrust", when = { townStanding = { town = "rogmar", max = -20 } }, text = "You again. Say what you want, and say it from over there." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, and Krol'dok did not rest while you were away, so neither did we." },
@@ -128,7 +128,7 @@ P:NPC {
     kd_altars = {
       big = true,
       lines = {
-        { id = "ka_default", text = "They take our allies alive, and they don't bring them back. I won't tell you what the scouts found, because you'll see it yourself soon enough, and then you'll understand why I want every one of them dead." },
+        { id = "ka_default", text = "They take our allies alive, and they don't bring them back. I won't tell you what the scouts found, because you'll see it yourself soon enough, and then you'll understand why I want them all dead." },
       },
       choices = {
         { text = "Then they all die. No prisoners.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
@@ -239,7 +239,7 @@ P:NPC {
     bo_trust = {
       big = true,
       lines = {
-        { id = "bt_default", text = "They hate the cult more than they love their dinner, and with ogres that's saying something. The Hammer drags them up to its altars when it can catch them, which is why I want Krol'dok finished." },
+        { id = "bt_default", text = "They hate the cult more than they love their dinner, and with ogres that's saying something. The Hammer drags them up to its altars when it can catch them, and that's reason enough to finish Krol'dok." },
       },
       choices = {
         { text = "A shared enemy makes a good ally.", next = "BACK", fx = { align = { order = -1 } } },
@@ -261,7 +261,7 @@ P:NPC {
       lines = {
         { id = "rf_default", text = "Neza, because if Neza thinks little of you, nobody here will think more. After that, Kreza, because your armor is a disgrace." },
         { id = "rf_kit", when = { durability = { min = 0.6 } },
-          text = "Neza, because if Neza thinks little of you, nobody here will think more. Your armor at least has the right number of pieces, which is more than most." },
+          text = "Neza, because if Neza thinks little of you, nobody here will think more. Your armor at least has the right number of pieces, and Neza notices such things." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -456,7 +456,7 @@ P:NPC {
     },
     measure = {
       lines = {
-        { id = "me_default", text = "That you'd go where you were told and come back, which is rarer than you'd think. Krom'rosh trusts my measure, so I take it seriously, and so should you." },
+        { id = "me_default", text = "That you'd go where you were told and come back, and few grunts manage both. Krom'rosh trusts my measure, so I take it seriously, and so should you." },
         { id = "me_done", when = { questDone = TODO_QUEST("Poison Tips") },
           text = "That you'd fetch venom from a live snake and come back without a bite, and you did. I'm seldom wrong, but it's always nice to be right." },
       },
@@ -467,14 +467,14 @@ P:NPC {
     },
     measure_wrong = {
       lines = {
-        { id = "mw_default", text = "Then the vipers would have told me so, and I'd have sent someone else. The glades are honest that way, which is more than I can say for most people." },
+        { id = "mw_default", text = "Then the vipers would have told me so, and I'd have sent someone else. The glades are honest that way, and people rarely are." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     tanjani = {
       big = true,
       lines = {
-        { id = "tj_default", text = "A spear is fine if you can get close, and Tan'jani always gets close, which is why he has so many scars. I'd rather drop a thing from a hundred paces and walk over to it afterward." },
+        { id = "tj_default", text = "A spear is fine if you can get close, and Tan'jani always gets close, and that's where his scars come from. Me, I drop a thing from a hundred paces and walk over to it afterward." },
       },
       choices = {
         { text = "Getting close takes more nerve.", next = "BACK", fx = { align = { order = -1 } } },
@@ -484,7 +484,7 @@ P:NPC {
     },
     xpet = {
       lines = {
-        { id = "xp_default", text = "Its coat is clean and it watches your hands, not mine, so you feed it well and it trusts you. That's half of hunting, and the other half is aim, which I'll judge later." },
+        { id = "xp_default", text = "Its coat is clean and it watches your hands, not mine, so you feed it well and it trusts you. That's most of hunting, and the rest is aim, which I'll judge later." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },

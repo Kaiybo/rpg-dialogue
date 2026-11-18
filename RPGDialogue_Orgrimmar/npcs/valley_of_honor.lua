@@ -69,7 +69,7 @@ P:NPC {
     },
     gulch_glory = {
       big = true,
-      lines = { { id = "gg_default", text = "Nobody decides, and that's the trouble. Every young grunt wants to carry it home and have his name shouted in the Valley of Strength, and half of them die chasing it while the other half sit in camp guarding nothing." } },
+      lines = { { id = "gg_default", text = "Nobody decides, and that's the trouble. Every young grunt wants to carry it home and have his name shouted in the Valley of Strength, and too many die chasing it while the rest sit in camp guarding nothing." } },
       choices = {
         { text = "Glory belongs to the band, not the one holding the banner.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Whoever brings it home has earned the shouting.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -229,7 +229,7 @@ P:NPC {
       },
     },
     learn = {
-      lines = { { id = "le_default", text = "Seasons on the road first, so that your legs are strong and your nerve is steady, and a great deal of gold, because the training doesn't come cheap. Most grunts save for years, so don't be ashamed if you have to do the same." } },
+      lines = { { id = "le_default", text = "Seasons on the road first, so that your legs are strong and your nerve is steady, and a heavy purse, because the training doesn't come cheap. Most grunts save for years, so don't be ashamed if you have to do the same." } },
       choices = {
         { text = "Why does it cost so much?", next = "learn_cost" },
         { text = "Something else.", next = "BACK" },
@@ -398,7 +398,7 @@ P:NPC {
       },
     },
     best = {
-      lines = { { id = "be_default", text = "The one you know best, which is why so many fools die holding the one that looks best. Hanashi will tell you it's the staff, and I'll tell you it's the axe, and we're both a little bit wrong." } },
+      lines = { { id = "be_default", text = "The one you know best, and the fools who pick the one that looks best die holding it. Hanashi will tell you it's the staff, and I'll tell you it's the axe, and we're both a little bit wrong." } },
       choices = { { text = "Something else, Sayoc.", next = "BACK" } },
     },
     show = {
@@ -449,7 +449,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rogue_mace = {
-      lines = { { id = "rm_default", text = "Because a dagger needs an opening, and a mace makes one. Half the rogues in the Cleft could knock a man senseless with a good mace, if they'd stop admiring their knives long enough to learn." } },
+      lines = { { id = "rm_default", text = "Because a dagger needs an opening, and a mace makes one. Any rogue in the Cleft could knock a man senseless with a good mace, if they'd stop admiring their knives long enough to learn." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -523,7 +523,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "echo_isles" } } } },
     },
     names = {
-      lines = { { id = "na_default", text = "Every one of them, and they answer better for it. This staff be called Old Patience, and that spear be Little Thunder, because it never stop complaining. What do you call yours?" } },
+      lines = { { id = "na_default", text = "All of dem, mon, and dey answer better for it. This staff be called Old Patience, and that spear be Little Thunder, because it never stop complaining. What do you call yours?" } },
       choices = {
         { text = "It has a name, but I keep it to myself.", next = "na_secret", fx = { affinity = 1, trait = { discreet = 1 } } },
         { text = "I'd name it now, if you'd help me.", next = "na_help", fx = { affinity = 1, trait = { curious = 1 } } },
@@ -692,7 +692,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Ask your beast, mon. It probably knows more than I do about that, and it'll tell you more honestly." } },
+    _none = { { id = "tp_none", text = "Ask your beast, mon. It probably knows more than I do about that, and it won't be lyin' to you." } },
   },
 }
 
@@ -881,7 +881,7 @@ P:NPC {
       },
     },
     fi_liked = {
-      lines = { { id = "fl_default", text = "Well, at least you be honest about it, which be more than I can say for half the hunters who buy from Kaja in the morning and from me at night." } },
+      lines = { { id = "fl_default", text = "Well, at least you be honest about it, mon, not like dem hunters who buy from Kaja in the morning and sneak to me at night." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fi_never = {

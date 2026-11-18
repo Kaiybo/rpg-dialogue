@@ -129,7 +129,7 @@ P:NPC {
     },
     after = {
       lines = {
-        { id = "af_default", text = "A great deal, most of it about procedure, and none of it about the fact that the city is still standing. Let them; Archmage Celindra will tell them what you did, and the Six can't deny results, however much they'd like to." },
+        { id = "af_default", text = "Pages of it, most of it about procedure, and none of it about the fact that the city is still standing. Let them; Archmage Celindra will tell them what you did, and the Six can't deny results, however much they'd like to." },
       },
       choices = {
         { text = "Who is Celindra?", next = "celindra" },
@@ -176,9 +176,9 @@ P:NPC {
     horde = {
       big = true,
       lines = {
-        { id = "ho_default", text = "Because the Horde was already at my door, picking at my patrols and looking for a way in. I'd do anything to protect my city, even this, and I'd rather have you inside on my terms than outside on yours. Tell me honestly why the Horde wants in." },
+        { id = "ho_default", text = "Because the Horde was already at my door, picking at my patrols and looking for a way in. I'd do anything to protect my city, even this, and I prefer you inside on my terms than outside on yours. Tell me plainly why the Horde wants in." },
         { id = "ho_forsaken", when = { race = "Scourge" },
-          text = "Because your queen's people were already at my door, and I'd do anything to protect my city, even consort with the likes of you. I'd rather have you inside on my terms than outside on yours. Tell me honestly, undead, why does the Undercity want in?" },
+          text = "Because your queen's people were already at my door, and I'd do anything to protect my city, even consort with the likes of you. Better you inside on my terms than outside on yours. So tell me, undead, and don't dress it up: why does the Undercity want in?" },
       },
       choices = {
         { text = "I will be honest. We want what your city knows.", next = "BACK", fx = { align = { honor = 1 } } },

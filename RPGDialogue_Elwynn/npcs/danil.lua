@@ -72,7 +72,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Brothers mind a great deal, but they mind empty bellies more, and the Light never said a warlock had to starve. I sell to you as I'd sell to anyone, and then I pray a little extra at vespers." } },
+      lines = { { id = "xlock_default", text = "The Brothers mind very much, but they mind empty bellies more, and the Light never said a warlock had to starve. I sell to you as I'd sell to anyone, and then I pray a little extra at vespers." } },
       choices = {
         { text = "Your charity does you credit, Brother. I'm grateful for it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Save your prayers. I'll pay for bread, not pity.", next = "BACK", fx = { align = { light = -1 } } },

@@ -109,7 +109,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Lizi Silverstone, Kirin Tor, late of Gnomeregan's arcane workshops! And yes, those two are Beepo and Niko, and no, they aren't mine; they belong to the shop, or the shop belongs to them, depending on whom you ask." },
         { id = "h_mage", when = { class = "MAGE" },
-          text = "Another magus! Don't mind the mess; half this street was rubble not long ago, and the other half still thinks it is." },
+          text = "Another magus! Don't mind the mess; this street was rubble not long ago, and some of it still thinks it is." },
       },
       again = {
         { id = "h_again", text = "Anything else? Be quick, Niko's eyeing my notes, and I've only got two copies of each, which is one fewer than I'd like." },
@@ -137,7 +137,7 @@ P:NPC {
     },
     gnome_miss = {
       lines = {
-        { id = "gm_default", text = "Every day, and I'd rather fix this city than cry about that one. Besides, these stones don't glow green at night, which already puts Dalaran ahead." },
+        { id = "gm_default", text = "Every day, but fixing this city beats crying over that one. Besides, these stones don't glow green at night, which already puts Dalaran ahead." },
       },
       choices = { { text = "That's a good way to see it.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -167,7 +167,7 @@ P:NPC {
     },
     fixing_wizards = {
       lines = {
-        { id = "fw_default", text = "They could, if they'd stop writing essays about it first. A magus will spend a week on a beautiful ward that a decent spring and a counterweight could manage by teatime, so tell me honestly, which would you trust with your life, a spell or a gear?" },
+        { id = "fw_default", text = "They could, if they'd stop writing essays about it first. A magus will spend a week on a beautiful ward that a decent spring and a counterweight could manage by teatime, so tell me, which would you trust with your life, a spell or a gear?" },
       },
       choices = {
         { text = "A gear. Gears don't have moods.", next = "fa_gear", fx = { affinity = 1, trait = { practical = 1 } } },
@@ -220,7 +220,7 @@ P:NPC {
     mage_push = {
       big = true,
       lines = {
-        { id = "mp_default", text = "Sound enough to keep the roofs up, I'll grant you, and not one bit sounder. The Kirin Tor build wards the way poets write sonnets, all elegance, and nobody can repair them afterwards." },
+        { id = "mp_default", text = "Sound enough to keep the roofs up, and not one bit sounder. The Kirin Tor build wards the way poets write sonnets, all elegance, and nobody can repair them afterwards." },
       },
       choices = {
         { text = "Leave the old wards be. Tinkering invites disaster.", next = "BACK", fx = { align = { order = 1 } } },
@@ -285,7 +285,7 @@ P:NPC {
         { text = "You seem very fond of this street.", next = "stones" },
         { text = "What was here before the fall?", next = "before" },
         { text = "That cat seems very much at home here.", next = "zara" },
-        { text = "Lordaeron's people lost a great deal, too.", next = "human", when = { race = "Human" } },
+        { text = "Lordaeron's people lost everything, too.", next = "human", when = { race = "Human" } },
         { text = "Shall I say a prayer for what you lost?", next = "prayer", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Good day.", next = "END" },
       },
@@ -307,7 +307,7 @@ P:NPC {
     },
     stones = {
       lines = {
-        { id = "st_default", text = "Fond is one word for it, and the masons have another. There are four hundred and twelve stones between the gate and the far corner, and I walk every one of them each morning, so I know when one's been chipped before the masons do." },
+        { id = "st_default", text = "Fond is one word for it, and the masons have another. There are four hundred and twelve stones between the gate and the far corner, and I walk them all each morning, so I know when one's been chipped before the masons do." },
       },
       choices = {
         { text = "Are they all laid properly?", next = "stones_crooked" },
@@ -346,7 +346,7 @@ P:NPC {
     },
     ba_dome = {
       lines = {
-        { id = "bad_default", text = "Then you saw what most of the world saw, a violet bubble and a great deal of rumour. I'm glad you've come inside it at last, even if the inside is still mostly scaffolding." },
+        { id = "bad_default", text = "Then you saw what most of the world saw, a violet bubble and a cloud of rumour. I'm glad you've come inside it at last, even if the inside is still mostly scaffolding." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

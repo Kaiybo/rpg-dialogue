@@ -278,7 +278,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Maybe you can tell me how this zapper works, pal, because I've got no idea, and the instructions are somewhere at the bottom of the sea with my last shipment." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "A rogue! Perfect, boss, because I need somebody who can get close to a giant without bein' stepped on, and that's a rarer skill than you'd think, and pricier." },
+          text = "A rogue! Perfect, boss, because I need somebody who can get close to a giant without bein' stepped on, and that's a rare skill, and rare skills cost, so let's talk rates." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Great, pal, because if my zapper goes off wrong again, I'm gonna need somebody who can grow my eyebrows back." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -378,7 +378,7 @@ P:NPC {
   nodes = {
     xpt_kindal = {
       big = true,
-      lines = { { id = "xpt_kindal_default", text = "A druid can help it heal itself, which is a different and slower thing. The harpies and the Grimtotem have taken a great deal from these woods, and I'd sooner see the land given time than forced back into green by someone in a hurry." } },
+      lines = { { id = "xpt_kindal_default", text = "A druid can help it heal itself, which is a different and slower thing. The harpies and the Grimtotem have stripped these woods of much, and I'd sooner see the land given time than forced back into green by someone in a hurry." } },
       choices = {
         { text = "Then we'll drive out whoever harms it. That helps fastest.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Patience, then. The land knows its own healing best.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -541,7 +541,7 @@ P:NPC {
   },
   topics = {
     grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem trap the beasts of Feralas and pen them for their own ends. I free what I can, and I mark the hills where they camp." } },
-    cenarion_circle = { { id = "tp_cenarion_circle", text = "I keep the Circle's watch over the beasts of this forest, and there is a great deal of forest and very few of us. Every hand helps." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "I keep the Circle's watch over the beasts of this forest, and the forest is wide and we are very few. Every hand helps." } },
     green_dragons = { { id = "tp_green_dragons", text = "The green dragons guard the Dream's gate here in Feralas, and they have grown angry of late. I would not walk near them until they calm.", fx = { learn = { "emerald_dream" } } } },
     elune = { { id = "tp_elune", text = "Elune watches over the hunted as well as the hunter. I try to remember that when I set my traps." } },
     malfurion = { { id = "tp_malfurion", text = "Malfurion taught the first druids to listen to the land, and he still sleeps in the Dream while we keep his lessons. I hope he finds us worthy when he wakes." } },
@@ -688,7 +688,7 @@ P:NPC {
         { text = "Can the land around the ruins be healed?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I don't know the ruins you mean.", next = "b1_1" },
         { text = "What is Feathermoon like?", next = "b2_1" },
-        { text = "You seem to know a great deal.", next = "b3_1" },
+        { text = "You seem to know these woods well.", next = "b3_1" },
         { text = "Arcane magic needn't be dangerous.", next = "x_1", when = { class = "MAGE" } },
         { text = "Should the ruins be studied or sealed?", next = "s_1" },
         { text = "Are there still Highborne within those ruins?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -1019,7 +1019,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Leather from the beasts of this forest, oiled against the rain, and mail once you're strong enough to carry it. A shaman must move freely when the ogres come, and I'd rather fit you properly than bury you properly." } },
+      lines = { { id = "xhsham_default", text = "Leather from the beasts of this forest, oiled against the rain, and mail once you're strong enough to carry it. A shaman must move freely when the ogres come, and a proper fitting now saves a proper burial later." } },
       choices = {
         { text = "Good craft keeps hunters alive, so I'll trust your hand.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd rather fight light and fast, armor or not.", next = "BACK", fx = { align = { order = -1 } } },

@@ -230,7 +230,7 @@ P:NPC {
   },
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 4 },
-      text = "You're fresh off the cart, aren't you? Don't let the trainers frighten you, because every one of them was as green as you once." },
+      text = "You're fresh off the cart, aren't you? Don't let the trainers frighten you, because they were all as green as you once." },
   },
   start = "hello",
   nodes = {
@@ -255,7 +255,7 @@ P:NPC {
     },
     what = {
       lines = {
-        { id = "w_default", text = "They're the skills of making, gathering and getting by: forging a blade, sewing a bag, cooking a meal for the road. Learn a recipe once and you can make it again whenever you have the materials, which saves a great deal of coin." },
+        { id = "w_default", text = "They're the skills of making, gathering and getting by: forging a blade, sewing a bag, cooking a meal for the road. Learn a recipe once and you can make it again whenever you have the materials, which saves you coin on the road." },
       },
       choices = {
         { text = "And what's the difference between them?", next = "how_many" },
@@ -644,7 +644,7 @@ P:NPC {
   },
   notice = {
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST" } },
-      text = "You carry the spirits with you, mon, I can feel it. Mine ran dry in here, which is why I'm hiding behind a rock like a frog." },
+      text = "You carry the spirits with you, mon, I can feel it. Mine ran dry in here, so now I be hidin' behind a rock like a frog." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "A Darkspear! Thank the loa, mon, because an orc would never let me forget this." },
   },
@@ -682,7 +682,7 @@ P:NPC {
     },
     right = {
       lines = {
-        { id = "r_default", text = "Half right, mon. I saw plenty, and then my magic gave out and I couldn't hide myself any more, so now I'm a quiet troll stuck behind a rock with a great deal to report." },
+        { id = "r_default", text = "Half right, mon. I saw plenty, and then my magic gave out and I couldn't hide myself any more, so now I'm a quiet troll stuck behind a rock with a head full of things to report." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -850,7 +850,7 @@ P:NPC {
   },
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "Keep your {pet} back a pace. Morok'ra doesn't know yet who's a friend, and I'd rather it learned that slowly." },
+      text = "Keep your {pet} back a pace. Morok'ra doesn't know yet who's a friend, and it ought to learn that slowly." },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Get down off that beast before Morok'ra sees it, or it'll try to fight it, and it isn't ready." },
   },

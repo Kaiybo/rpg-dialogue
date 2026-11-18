@@ -337,7 +337,7 @@ P:NPC {
     },
     x_orc = {
       lines = {
-        { id = "xo_default", text = "The Horde stood with my people when the centaur hunted us across the Barrens, and the Warchief's warriors fought beside us all the way to Mulgore. I have not forgotten it, and neither have the Galak, which is why they run a little faster when they see an orc on my mesa." },
+        { id = "xo_default", text = "The Horde stood with my people when the centaur hunted us across the Barrens, and the Warchief's warriors fought beside us all the way to Mulgore. I have not forgotten it, and neither have the Galak, and so they run a little faster when they see an orc on my mesa." },
       },
       choices = {
         { text = "Then the debt is paid both ways.", next = "BACK", fx = { affinity = 2 } },
@@ -597,7 +597,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never fight the Galak on open ground. Make them come up to you; centaur hate a slope." } },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul's teachers. I owe them more than I can say; the land speaks to me because they taught me to listen." } },
     centaur = { { id = "tp_centaur", text = "The Galak carvings tell a story older than the tauren, older than the centaur's own memory of it. I want to read every line before the Galak decide I've read too much." } },
-    maraudon = { { id = "tp_maraudon", text = "The centaur say they were born in Maraudon, in Desolace, from a son of Cenarius and a princess of the earth. I believe their carvings, and I'd give a great deal to see the place." } },
+    maraudon = { { id = "tp_maraudon", text = "The centaur say they were born in Maraudon, in Desolace, from a son of Cenarius and a princess of the earth. I believe their carvings, and I hope to walk its halls before I'm old." } },
     cairne = { { id = "tp_cairne", text = "Cairne understands the value of the past, and he lets me study it. I only wish he could come and see these carvings for himself." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother keeps her secrets in the stone, and I am trying to read them. It's slow work, but I am a patient bull." } },
     _none = { { id = "tp_none", text = "I don't know, but now I want to, and the Earth Mother loves a curious calf. Thank you for that." } },
@@ -650,7 +650,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Something with wings, I'm nearly sure, because no beast that walks would choose to nest this high. I've heard old tales of great fliers over the Needles, and I'd give a great deal to know whether one is waiting to be born." },
+        { id = "xhuntcl_default", text = "Something with wings, I'm nearly sure, because no beast that walks would choose to nest this high. I've heard old tales of great fliers over the Needles, and I would give my best spear to know whether one is waiting to be born." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} sniff at the canyon nests when you pass? I'd trust its nose over any map I bought in Thunder Bluff." },
       },
       choices = {
@@ -660,7 +660,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "A fair question, and I asked it myself, briefly. But if something like that hatches out there with no one watching, it will be the Needles that pay, and I'd rather it hatched where I could see it." } },
+      lines = { { id = "dq_default", text = "A fair question, and I asked it myself, briefly. But if something like that hatches out there with no one watching, it will be the Needles that pay, so it had better hatch where I can see it." } },
       choices = {
         { text = "You're right to take it. It must be watched.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Leave it be. Some things are meant to sleep.", next = "BACK", fx = { align = { order = -1 } } },
@@ -688,7 +688,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
-          text = "A warrior! Splendid, because if I do find that egg, whatever laid it may want it back, and I'd rather it found you first." },
+          text = "A warrior! Splendid, because if I do find that egg, whatever laid it may want it back, and I'd be glad if it found you first." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter! Then you'll know every nest and den in these canyons, and I've been wondering for days which of them might hide an egg the size of a kodo's head." },
         { id = "h_default", key = true,
@@ -703,7 +703,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Have you ever, by any chance, prayed over a very large egg? No? Well, if you ever do, I'd love to know how it went." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Do demons lay eggs, do you know? I'm sorry, I'm sure you're asked that constantly, but it's been on my mind." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
-          text = "A mage! Can you tell me if an egg can be magical? There's one in these canyons bigger than any wind serpent could lay, and I'd give a great deal to know what's strange about it." },
+          text = "A mage! Can you tell me if an egg can be magical? There's one in these canyons bigger than any wind serpent could lay, and I'd dearly like to know what's strange about it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You look like someone who could climb to a nest without the mother noticing. Not that I'm asking, only wondering aloud." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Have you seen a very large egg? No? Well, never mind, because you're nearly as surprising as the egg, so I'm delighted all the same." },
@@ -817,7 +817,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a scholar from Thunder Bluff with a weakness for strange eggs. That's how I came to be sitting on a mesa." } },
     advice = { { id = "tp_ad", text = "If a wind serpent is guarding something, there's a reason, and it's usually a good one. Go carefully." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother lays every egg in the world, in a way, and I find that very comforting. Have you seen a very large egg, by any chance?" } },
-    centaur = { { id = "tp_centaur", text = "The Galak are a nuisance, but they don't eat eggs, which is the most important thing. I'd forgive them a great deal for that." } },
+    centaur = { { id = "tp_centaur", text = "The Galak are a nuisance, but they don't eat eggs, which is the most important thing. I'd forgive them most things for that." } },
     cairne = { { id = "tp_cairne", text = "Cairne once told me a story about an egg the size of a kodo calf, and I've been looking for it ever since. I'm almost certain he was joking, but I'm not entirely certain." } },
     _none = { { id = "tp_none", text = "Not my field, I'm afraid, unless it hatches, and then it's my field." } },
   },
@@ -1145,7 +1145,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "My grandmother said it carries the voices of those who fell from the mesas, which is why I tell guests not to look down. Most nights I think it's only the wind, and some nights I'm not so sure." } },
+      lines = { { id = "dq_default", text = "My grandmother said it carries the voices of those who fell from the mesas, and so I tell guests not to look down. Most nights I think it's only the wind, and some nights I'm not so sure." } },
       choices = {
         { text = "Honor the old tales. They keep people careful.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "It's only wind. Old tales just make people afraid.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1231,7 +1231,7 @@ P:NPC {
     },
     mesa = {
       lines = {
-        { id = "m_default", text = "With lifts and rope bridges, friend, and a great deal of patience. The centaur can't follow us up, and that's worth every aching back it took." },
+        { id = "m_default", text = "With lifts and rope bridges, friend, and the patience of the mesa itself. The centaur can't follow us up, and that's worth every aching back it took." },
       },
       choices = {
         { text = "The harpies must trouble you too.", next = "harpies" },
@@ -1288,7 +1288,7 @@ P:NPC {
     grimtotem = { { id = "tp_grimtotem", text = "I feed whoever comes to my door, but I've never fed a Grimtotem, and I don't expect to." } },
     centaur = { { id = "tp_centaur", text = "The Galak raid the canyon roads, and the travellers come up the lift with their stories. I give them a dry blanket and a hot bowl, and the stories always get smaller after that." } },
     cairne = { { id = "tp_cairne", text = "Cairne stayed at my inn once, on his way south. He said the wind sounded like music, and I've never been prouder of my mesa." } },
-    gadgetzan = { { id = "tp_gadgetzan", text = "Half my guests are on their way to Gadgetzan, and the other half are coming back sunburned. I sell them both a drink and a warning." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "My guests are either on their way to Gadgetzan or coming back from it sunburned. I sell them both a drink and a warning." } },
     mirage_raceway = { { id = "tp_mirage_raceway", text = "The racers' engines on the Shimmering Flats echo up the canyon on a quiet night. My guests ask about it, and I tell them it's goblins, and that explains everything." } },
     _none = { { id = "tp_none", text = "Ask the Cliffwatcher; little happens in the Needles that he misses, and nothing that the wind doesn't tell him." } },
   },

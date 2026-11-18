@@ -121,7 +121,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I've served the Horde since before this city had walls, and now I serve the Warchief at his ear. That's all the story you need." } },
-    advice = { { id = "tp_ad", text = "Have agents everywhere, and make sure they write often. Half my letters already arrive chewed by the wind riders, so I need the other half." } },
+    advice = { { id = "tp_ad", text = "Have agents everywhere, and make sure they write often. The wind riders chew one letter in three before it reaches me, so send two of everything." } },
     rimtori = { { id = "tp_rim", text = "Don't say that name too loudly in this valley. When she's dead, I'll say it myself, and gladly." } },
     silithid = { { id = "tp_sil", text = "Korran's bugs. I thought it was nothing, and I've been told it's something, and I'm not too proud to change my mind about bugs." } },
     thrall = { { id = "tp_thrall", text = "The Warchief relies on me to know what's happening across Kalimdor, and I don't intend to disappoint him again. I won't make the same mistake twice, I'll tell you that." } },

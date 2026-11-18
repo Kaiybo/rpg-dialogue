@@ -397,7 +397,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The birds are preening, so I've a moment." },
-        { id = "h_again2", text = "Ask away. A hippogryph master has more time than you'd think." },
+        { id = "h_again2", text = "Ask away. A hippogryph master has long hours between flights." },
       },
       choices = {
         { text = "Desolace looks beautiful from above?", next = "above" },
@@ -441,7 +441,7 @@ P:NPC {
 
     danger = {
       lines = {
-        { id = "da_default", text = "The harpies in Stonetalon come up at the birds sometimes, and the winds off the mountains can throw a young one into a spin. I only send the steady ones out with riders, and I lose sleep over every one of them." },
+        { id = "da_default", text = "The harpies in Stonetalon come up at the birds sometimes, and the winds off the mountains can throw a young one into a spin. I only send the steady ones out with riders, and I lose sleep over each flight all the same." },
       },
       choices = {
         { text = "What do you do about the harpies?", next = "danger_harpy" },

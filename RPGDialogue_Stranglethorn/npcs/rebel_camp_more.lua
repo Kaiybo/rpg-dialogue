@@ -194,7 +194,7 @@ P:NPC {
     },
 
     leave = {
-      lines = { { id = "le_default", text = "Same as everyone, friend: the Colonel went strange and the Lieutenant didn't, and I'd rather follow a man who isn't hearing voices. That's the right answer, isn't it? It's the one everyone gives." } },
+      lines = { { id = "le_default", text = "Same as everyone, friend: the Colonel went strange and the Lieutenant didn't, and a man who isn't hearing voices is the better one to follow. That's the right answer, isn't it? It's the one everyone gives." } },
       choices = {
         { text = "It's a strange way to put it.", next = "leave_odd" },
         { text = "Something else.", next = "BACK" },
@@ -210,7 +210,7 @@ P:NPC {
 
     thorsen = {
       lines = {
-        { id = "th_default", text = "We walked a few patrols together, same as half the camp. Brave lad, Thorsen, going into the Colonel's camp alone like that, and brave isn't always the same thing as clever, is it?" },
+        { id = "th_default", text = "We walked a few patrols together, same as most of the camp. Brave lad, Thorsen, going into the Colonel's camp alone like that, and brave isn't always the same thing as clever, is it?" },
         { id = "th_spy", when = { questActive = TODO_QUEST("The Spy Revealed!") },
           text = "A note, you say, signed with a letter? Could be anyone, friend. Half the men here can't write their own names, and the other half write them badly." },
       },

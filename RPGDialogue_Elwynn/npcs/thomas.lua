@@ -59,7 +59,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Webbed ones, broad as a shovel, and they go down to the water and don't come back out. Rolf and Malakai went that way, and I'd give a great deal to know what they followed." },
+        { id = "xhuntcl_default", text = "Webbed ones, broad as a shovel, and they go down to the water and don't come back out. Rolf and Malakai went that way, and I'd give a season's wages to know what they followed." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} has a nose for water, I'd guess. If it shies at the shore, believe it, and pull back." },
       },
       choices = {
@@ -301,6 +301,6 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "My uncle served in Lordaeron before it fell, and his last letter said the dead were walking in the villages. We never had another, and I stand at this bridge thinking of him more than I should." } },
     varian = { { id = "tp_varian", text = "I'm a soldier, so I'll only say that the Stormwind Army misses its king. We'll serve the Highlord until His Majesty returns, and we'll do it gladly." } },
     the_stockade = { { id = "tp_the_stockade", text = "I've walked a few thieves from this bridge to the Stockade in my time, and it's a long walk with a man who won't stop talking. I'd rather stand here." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's at Goldshire half the loggers cross my bridge with a week's wages, and half come back with none. I keep count, for the reports." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's at Goldshire the loggers cross my bridge with a week's wages, and most come back with none. I keep count, for the reports." } },
   },
 }

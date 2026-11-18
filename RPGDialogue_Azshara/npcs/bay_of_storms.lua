@@ -238,7 +238,7 @@ P:NPC {
       },
     },
     lords_broke = {
-      lines = { { id = "lb_default", text = "The sea came in when the elves' great well tore itself apart, and the sea is ours. We did not break the land, mortal; we only took what fell to us, and a great deal fell." } },
+      lines = { { id = "lb_default", text = "The sea came in when the elves' great well tore itself apart, and the sea is ours. We did not break the land, mortal; we only took what fell to us, and a whole kingdom fell." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
 
@@ -311,7 +311,7 @@ P:NPC {
     plague = {
       lines = {
         { id = "pl_default", fx = { learn = { "new_plague" } },
-          text = "My scouts went east, into the dead lands of Lordaeron, and the sickness there crept into their waters and twisted them. Water carries everything that is put into it, mortal, and the dead have put a great deal of filth into those rivers." },
+          text = "My scouts went east, into the dead lands of Lordaeron, and the sickness there crept into their waters and twisted them. Water carries everything that is put into it, mortal, and the dead have poured their plague into those rivers." },
         { id = "pl_done", when = { questDone = TODO_QUEST("Poisoned Water") },
           text = "My scouts are cured, those who could be, and their madness is ended. Our strength is in our purity; you have restored a little of it, and the Waterlords remember." },
       },
@@ -450,7 +450,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Some do, the small ones, the ones that remember being burned. The greater ones only grow curious, and curiosity is worse, because it makes them patient. Your Light is a fine weapon, paladin, but it is not a shield against what you cannot see, and I see a great deal." } },
+      lines = { { id = "xapala_default", text = "Some do, the small ones, the ones that remember being burned. The greater ones only grow curious, and curiosity is worse, because it makes them patient. Your Light is a fine weapon, paladin, but it is not a shield against what you cannot see, and my eyes were opened long ago." } },
       choices = {
         { text = "Then lend me your eyes, and I'll lend you my hammer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I've faced demons before without a hunter's tricks.", next = "BACK", fx = { align = { order = -1 } } },
@@ -506,7 +506,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Shades of demons slain long ago, and some not slain at all, waiting for the veil to thin. You could stand beside one and never know it, rogue, which is why I live here and you are only visiting." } },
+      lines = { { id = "xrogue_default", text = "Shades of demons slain long ago, and some not slain at all, waiting for the veil to thin. You could stand beside one and never know it, rogue, and that is why I keep watch here while you only pass through." } },
       choices = {
         { text = "I'd want to know. Show me how to see them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Some things are better left unseen.", next = "BACK", fx = { align = { order = 1 } } },
@@ -546,7 +546,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue. You hide from the eyes of mortals, but not from mine, and certainly not from the things that walk unseen along this shore." },
         { id = "h_default", key = true,
-          text = "Can you see them, mortal? The shapes at the edge of the tide, the shapes that cast no shadow? No; I thought not. Your kind have eyes and see nothing with them, which spares you a great deal, and is why I live here and you are only visiting." },
+          text = "Can you see them, mortal? The shapes at the edge of the tide, the shapes that cast no shadow? No; I thought not. Your kind have eyes and see nothing with them, which spares you many sleepless nights, and leaves the watching to me." },
         { id = "h_story", when = { questActive = TODO_QUEST("Loramus") },
           text = "So you wish to fight demons. Then sit, and hear what you are fighting, and do not interrupt me, {race}; I tell this only once." },
         { id = "h_ward", when = { questActive = TODO_QUEST("Breaking the Ward") },
@@ -560,7 +560,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "You again, and I find I am glad of it. Of all the mortals who have stumbled onto this island, you are the one I would least like to see die, so try not to." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Do you see them, the shapes at the tide? No, your prayers don't open your eyes, they only steady your hands, which is something, I suppose." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You hear the forest well enough, I'll grant you, but you're as blind to the demons hiding in it as any other mortal." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You hear the forest well enough, druid, but you're as blind to the demons hiding in it as any other mortal." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; the tide is turning, and what it brings in does not wait." },
@@ -733,7 +733,7 @@ P:NPC {
     waterlords = { { id = "tp_waterlords", text = "The duke on his rock thinks the whole world is fire waiting to be put out, and he thinks I am a candle. He is not entirely wrong." } },
     tyrande = { { id = "tp_tyrande", text = "Tyrande's priestesses think a demon hunter is half a demon, and I have given them no reason to change their minds. She was a brave girl in the old war, and I hear she is a hard woman now, which is the same thing grown up." } },
     elune = { { id = "tp_elune", text = "Elune turned her face from me when I took the demon's fire into my body. I do not blame her, but I do still pray, out of habit." } },
-    dark_portal = { { id = "tp_dark_portal", text = "The orcs opened a door the Legion was waiting at, and you mortals closed it with a great deal of luck. The Legion was waiting on the other side, as it always is." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs opened a door the Legion was waiting at, and you mortals closed it with more luck than you deserved. The Legion was waiting on the other side, as it always is." } },
     _none = { { id = "tp_none", text = "That is not a demon, so it does not concern me." } },
   },
 }
@@ -896,14 +896,14 @@ P:NPC {
         { text = "A warrior might kill the beast that slew your sons.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the deep folk hunt as I do, Arkkoroc?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Would the deep folk welcome a druid in the water?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Do you honestly think yourself a god, Arkkoroc?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you really think yourself a god, Arkkoroc?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why does Arkkoroc admire a sneaking small thing?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll go, great one.", next = "END", fx = { affinity = 1 } },
       },
     },
     god = {
       lines = { { id = "go_default", fx = { learn = { "arkkoroc" } },
-        text = "The deep folk worship the one, and the one answers them, which is more than most gods do. Call it what you like, small thing; Arkkoroc does not need your word for it." } },
+        text = "The deep folk worship the one, and the one answers them, and few gods of the surface can boast as much. Call it what you like, small thing; Arkkoroc does not need your word for it." } },
       choices = {
         { text = "Then you are a god, great one.", next = "BACK", fx = { affinity = 2 } },
         { text = "You're a giant, not a god.", next = "god_insult" },

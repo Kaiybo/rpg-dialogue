@@ -87,7 +87,7 @@ P:NPC {
       choices = {
         { text = "How much news reaches you from the human kingdoms?", next = "op_ask" },
         { text = "How did a human end up here?", next = "human" },
-        { text = "Your archive must hold a great deal.", next = "archive" },
+        { text = "Your archive must go back centuries.", next = "archive" },
         { text = "Something must have been sealed inside that chitin.", next = "journal", when = { questDone = TODO_QUEST("Under the Chitin Was...") } },
         { text = "Why call Rabine the den mother?", next = "rabine" },
         { text = "Could a mage help you read the oldest texts?", next = "xmage", when = { class = "MAGE" } },
@@ -168,7 +168,7 @@ P:NPC {
     },
     xmage = {
       lines = {
-        { id = "xm_default", text = "A mage, reading Darnassian older than Darnassus? The druids would be horrified, and I'd love to see their faces. But no, thank you; I'd like to puzzle it out myself, slowly, with a great deal of tea." },
+        { id = "xm_default", text = "A mage, reading Darnassian older than Darnassus? The druids would be horrified, and I'd love to see their faces. But no, thank you; I'd like to puzzle it out myself, slowly, over many pots of tea." },
       },
       choices = {
         { text = "Then enjoy the tea, and the puzzle.", next = "BACK", fx = { affinity = 1 } },
@@ -218,7 +218,7 @@ P:NPC {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "The tauren honor their ancestors every day, not only at festival. You'll find the elders' coins come easily to you, I think." },
     { id = "n_young", cat = "level", when = { maxLevel = 30 },
-      text = "You're young to have made the journey, and the elders will be glad of it. They like being visited by people who still have a great deal to learn." },
+      text = "You're young to have made the journey, and the elders will be glad of it. They like being visited by people who still have most of their learning ahead of them." },
   },
 
   start = "hello",
@@ -473,7 +473,7 @@ P:NPC {
     edge_lake = {
       lines = {
         { id = "el_default", text = "Hippogryphs were the Mother Moon's creatures before they were ever ours, or so the priestesses say, and they settle wherever her light lies on still water. When I first came here I kept them by the road, and they screamed all night and plucked their own feathers." },
-        { id = "el_night", when = { timeOfDay = "night" }, text = "Look at them now, with the moon on Elune'ara, and you'll see what I mean. They're quiet as cats, every one of them." },
+        { id = "el_night", when = { timeOfDay = "night" }, text = "Look at them now, with the moon on Elune'ara, and you'll see what I mean. Not a sound from the whole flock; they're quiet as cats." },
       },
       choices = {
         { text = "They're lucky to have someone who listens to them.", next = "BACK", fx = { affinity = 1 } },
@@ -573,7 +573,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I keep the birds fed, and they keep me up half the night squabbling. There isn't much more to it." } },
+    background = { { id = "tp_bg", text = "I keep the birds fed, and they keep me up till moonset squabbling. There isn't much more to it." } },
     advice = { { id = "tp_ad", text = "Hold on tight over Felwood, and don't look down. The birds don't like what they see there either." } },
     nordrassil = { { id = "tp_nordrassil", text = "My birds hatched on Hyjal, and they squabble less when the wind blows from the north. I think they're homesick." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw throw rocks at my birds when they fly too low. I've stopped arguing with the furbolgs and started flying higher." } },
@@ -622,7 +622,7 @@ P:NPC {
       },
     },
     op_r1 = {
-      lines = { { id = "op_r1_default", text = "Some of them would, I'll grant you. The ones here feed my wyverns when I'm late, though, so I can't hate the lot of them." } },
+      lines = { { id = "op_r1_default", text = "Some of them would, true enough. The ones here feed my wyverns when I'm late, though, so I can't hate the lot of them." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
@@ -767,7 +767,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A wind rider master, posted in a glade full of elves because the Warchief needs one here. I mind my manners and scrape a lot of droppings." } },
-    advice = { { id = "tp_ad", text = "Don't spit on the grass in Moonglade, because the druids notice, and they remember it longer than you'd think." } },
+    advice = { { id = "tp_ad", text = "Don't spit on the grass in Moonglade, because the druids notice, and they remember it for a century." } },
     thrall = { { id = "tp_thrall", text = "The Warchief needs a wind rider master here, so I'm here. I mind my manners among the elves, because he'd want me to." } },
     cairne = { { id = "tp_cairne", text = "Cairne's people come through often for the Circle, and they're good riders. They're also heavy, and my wind riders complain." } },
     tyrande = { { id = "tp_tyrande", text = "The elves' high priestess, the one whose Sentinels fight our people in Ashenvale. Here in the glade I keep my mouth shut about her, and I'd advise you to do the same." } },

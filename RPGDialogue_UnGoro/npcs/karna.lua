@@ -161,7 +161,7 @@ P:NPC {
     },
     next_voice = {
       lines = { { id = "nv_default", text = "Not for talking to the apes, silly, for talking to me! If she could say what she saw instead of only showing it, I'd stop chewing my nails every time the gems go dark." } },
-      choices = { { text = "You care about her a great deal.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "You care about her very much.", next = "BACK", fx = { affinity = 1 } } },
     },
     next_stance = {
       big = true,

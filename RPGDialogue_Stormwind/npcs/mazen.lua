@@ -26,7 +26,7 @@ P:NPC {
     { id = "g_active", when = { questActive = Q }, text = "Any word of the essays? Please tell me they're not still lying in a bog somewhere with a plant reading them." },
     { id = "g_done", when = { questDone = Q }, text = "My rescuer of Khadgar! Come in, come in; Mahar Ba's letter of thanks arrived, and it ran to six pages, which for him is restraint." },
     { id = "g_away", when = { away = 21, metBefore = true }, text = "You've been gone {away}, and in that time I've received forty-one requests and answered nine. Don't tell anyone that number." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come on a good deal since last we spoke. I can see it in how you stand, which is more than I can say for the shelves in the east alcove." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come on a good deal since last we spoke. I can see it in how you stand, while the shelves in the east alcove are still leaning like drunkards." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the Quarter spoke well of you this week, which in a district full of mages is very nearly a medal." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I've heard you upset someone in the Quarter. I've no time to take sides, so please don't upset me as well." },
   },
@@ -35,7 +35,7 @@ P:NPC {
     { id = "n_mage", cat = "mage", when = { class = "MAGE", minLevel = 40 },
       text = "You've the steadiness of a mage who has stopped setting things on fire by accident. If you ever want a reading list, I have eleven, sorted by how much they'll frighten you." },
     { id = "n_warlock", cat = "warlock", when = { class = "WARLOCK" },
-      text = "I can smell the cellar on you, friend, the Slaughtered Lamb's cellar, and I'll say plainly that half the books I lock away are locked away from people who go down those stairs." },
+      text = "I can smell the cellar on you, friend, the Slaughtered Lamb's cellar, and I'll say plainly that most of the books I lock away are locked away from people who go down those stairs." },
     { id = "n_gnome", cat = "scholar", when = { race = "Gnome" },
       text = "A gnome! Your people's library at Gnomeregan held treatises I'd have given a finger to read, and I suppose it's all under the radiation now, which I try not to think about at night." },
     { id = "n_dalaran", cat = "scholar", when = { origin = "human_dalaran_stray" },
@@ -87,7 +87,7 @@ P:NPC {
     -- The library
     library = {
       lines = {
-        { id = "l_default", text = "The Academy's collection, or what the Second War and three fires left of it, which is more than you'd think and less than I'd like. Histories, treatises, a good many letters from Dalaran, and some volumes I'm not permitted to tell you about, which I've now told you about." },
+        { id = "l_default", text = "The Academy's collection, or what the Second War and three fires left of it, which fills four rooms and ought to fill twelve. Histories, treatises, a good many letters from Dalaran, and some volumes I'm not permitted to tell you about, which I've now told you about." },
       },
       choices = {
         { text = "Who reads here, mostly?", next = "library_readers" },
@@ -173,7 +173,7 @@ P:NPC {
     },
     mahar = {
       lines = {
-        { id = "m_default", text = "A mage of the old sort, posted at Nethergarde to watch the Portal, and the most patient correspondent I have. He writes long letters about the soil and the sky out there, and every one of them ends by asking if I've forgotten him." },
+        { id = "m_default", text = "A mage of the old sort, posted at Nethergarde to watch the Portal, and the most patient correspondent I have. He writes long letters about the soil and the sky out there, and each one ends by asking if I've forgotten him." },
       },
       choices = {
         { text = "Had you forgotten him?", next = "mahar_forgot" },

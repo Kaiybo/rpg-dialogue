@@ -66,7 +66,7 @@ P:NPC {
     },
     skulls_stance = {
       big = true,
-      lines = { { id = "ss_default", text = "We use whatever's to hand, and the Scourge left a great deal lying about. Some of my students find it distasteful to work with the bones of their old masters' servants, and I find it efficient." } },
+      lines = { { id = "ss_default", text = "We use whatever's to hand, and the Scourge left bones lying about in every field. Some of my students find it distasteful to work with the remains of their old masters' servants, and I find it efficient." } },
       choices = {
         { text = "Efficient is right. Waste nothing.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "I'd rather not build my power on their bones.", next = "BACK", fx = { align = { light = 1 } } },
@@ -75,7 +75,7 @@ P:NPC {
     },
 
     imp = {
-      lines = { { id = "i_default", text = "A small, spiteful creature of the Burning Legion, the least of its servants, and the one every warlock begins with. It throws fire, it complains constantly, and it knows a great deal more than it lets on." } },
+      lines = { { id = "i_default", text = "A small, spiteful creature of the Burning Legion, the least of its servants, and the one every warlock begins with. It throws fire, it complains constantly, and it knows far more than it lets on." } },
       choices = {
         { text = "Does it hate being bound?", next = "imp_hate" },
         { text = "Something else.", next = "BACK", fx = { learn = { "burning_legion" } } },
@@ -117,7 +117,7 @@ P:NPC {
 
     become = {
       lines = {
-        { id = "b_default", text = "The same way anyone does, by wanting power more than they fear what it costs. Lordaeron hanged warlocks, when it caught them, so there were never many of us alive, but the Undercity is a great deal more broad-minded." },
+        { id = "b_default", text = "The same way anyone does, by wanting power more than they fear what it costs. Lordaeron hanged warlocks, when it caught them, so there were never many of us alive, but the Undercity is far more broad-minded." },
         { id = "b_scourge", when = { race = "Scourge", class = "WARLOCK" }, text = "You've already done it, so you tell me. You woke up, looked at what was left of you, and decided you'd rather command than kneel, and the rest is technique." },
       },
       choices = {
@@ -192,7 +192,7 @@ P:NPC {
       },
     },
     first = {
-      lines = { { id = "f_default", text = "How to stand still, which is harder for the newly risen than you'd think, because your body twitches and you don't notice. After that, how to strike first, and how to be gone before anyone remembers your face." } },
+      lines = { { id = "f_default", text = "How to stand still, which is hard for the newly risen, because your body twitches and you don't notice. After that, how to strike first, and how to be gone before anyone remembers your face." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dead = {
@@ -275,7 +275,7 @@ P:NPC {
       },
     },
     first = {
-      lines = { { id = "f_default", text = "Fire, because it's honest and it shows you your mistakes right away, usually on your sleeve. Frost comes after, once you've learned patience, which the newly risen have a great deal of, having nowhere to be." } },
+      lines = { { id = "f_default", text = "Fire, because it's honest and it shows you your mistakes right away, usually on your sleeve. Frost comes after, once you've learned patience, and the newly risen have little else, having nowhere to be." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     death = {

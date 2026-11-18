@@ -23,7 +23,7 @@ P:NPC {
 
   notice = {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
-      text = "A Darkspear up here, where the wind could knock you off the rock. Your people's witch doctor down at Malaka'jin keeps strange company, so mind you don't catch it." },
+      text = "A Darkspear up here, where the wind could knock you off the rock. Your people's witch doctor down at Malaka'jin keeps strange company, so don't go catching it." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You've been bloodied. Good; it means you fought. Now mend, and fight smarter." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -93,7 +93,7 @@ P:NPC {
       lines = {
         { id = "wmg_default", text = "Windshear Crag, where the Bloodfury nest, and the Webwinder Path, where the spiders take whoever the harpies miss. I lost my patience for small fights long ago, warrior, so take the big ones and leave the small ones to the braves." },
         { id = "wmg_grunt", when = { origin = "orc_razor_hill_grunt" },
-          text = "A Razor Hill grunt, a long way up a mountain. Orgrimmar trains its grunts to hold a gate; up here there are no gates, only cliffs, and the harpies come at you from every one of them." },
+          text = "A Razor Hill grunt, a long way up a mountain. Orgrimmar trains its grunts to hold a gate; up here there are no gates, only cliffs, and the harpies come at you off every ledge." },
       },
       choices = {
         { text = "The big ones, then. I'll start with the Ripper.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
@@ -396,7 +396,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "I don't know, but I'd like to find out. Every mountain heals given time and stubbornness, and the dead have a great deal of both, I imagine. Kneel here a while, and we'll see if anything grows near you." } },
+      lines = { { id = "xfpala_default", text = "I don't know, but I'd like to find out. Every mountain heals given time and stubbornness, and the dead have plenty of both, I imagine. Kneel here a while, and we'll see if anything grows near you." } },
       choices = {
         { text = "I'll kneel and try, Tammra.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'm no gardener. Find someone else.", next = "BACK", fx = { align = { light = -1 } } },
@@ -692,8 +692,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Bird, cat and bear, and they hunt in those shapes, which is why you'll never catch them on the road. A hunter who can tell a real beast from a druid in disguise would be very useful to me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would know the difference, {class}, and that's more than I can say for most people who've walked into the Talon Den." },
+        { id = "xhuntcl_default", text = "Bird, cat and bear, and they hunt in those shapes, so you'll never catch them on the road. A hunter who can tell a real beast from a druid in disguise would be very useful to me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would know the difference, {class}, and the fools who've walked into the Talon Den never could." },
       },
       choices = {
         { text = "I'll tell you what I find, but I won't murder for you.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -722,7 +722,7 @@ P:NPC {
         { id = "h_ordanus", tags = { "news" }, when = { questActive = TODO_QUEST("Ordanus") },
           text = "Ordanus is a keeper in Ashenvale, at the top of a great tree, and I knew him, long ago. He thought himself above even the Highborne, so bring me his head." },
         { id = "h_den", tags = { "news" }, when = { questActive = TODO_QUEST("The Den") },
-          text = "The Gatekeeper's Key is hidden in a little lantern at the mouth of the Den. I had that from one of the druids, eventually, and I'd rather not say how." },
+          text = "The Gatekeeper's Key is hidden in a little lantern at the mouth of the Den. I had that from one of the druids, eventually, and how I got it stays between me and the druid." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. At least the elements don't lecture anyone about balance, the way the druids of the Talon Den do." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The druids talk about balance the way your sort talk about faith, and I trust neither, though at least you admit what you're praying to." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came in without making a sound, and I like that more than I should. The Talon Den keep their secrets well, and I could use someone who's good at finding them." },
@@ -780,7 +780,7 @@ P:NPC {
       },
     },
     ao_gift = {
-      lines = { { id = "aog_default", text = "Then we understand each other, which is more than I can say for most who climb up to Sun Rock. Come and talk with me again when the druids have tried to lecture you." } },
+      lines = { { id = "aog_default", text = "Then we understand each other, and few who climb up to Sun Rock bother to try. Come and talk with me again when the druids have tried to lecture you." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     ao_fear = {
@@ -792,7 +792,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     ao_mage = {
-      lines = { { id = "aom_default", text = "Yes, grey, exactly that. Mind you don't let anyone shame you out of it, least of all a druid with leaves in her hair." } },
+      lines = { { id = "aom_default", text = "Yes, grey, exactly that. Don't let anyone shame you out of it, least of all a druid with leaves in her hair." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     magic = {
@@ -881,7 +881,7 @@ P:NPC {
     },
     xhrogue = {
       big = true,
-      lines = { { id = "xhrogue_default", text = "That's the question, isn't it, and I'd rather not tell you how I know they have any. They keep to their den more than they used to, and whatever they're planning, I'd like to hear it before the Horde has to." } },
+      lines = { { id = "xhrogue_default", text = "That's the question, isn't it, and how I know they have any is my own business. They keep to their den more than they used to, and whatever they're planning, I'd like to hear it before the Horde has to." } },
       choices = {
         { text = "I'll get you whatever they're hiding. Your grudge is yours.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll listen, but I won't rob druids for your grudge.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -890,7 +890,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "A little more, because your elements are honest about being powerful, and the druids pretend their power is humble. They'd strip this land bare of magic and call it peace, and I'd rather deal with a fire elemental that admits it wants to burn." } },
+      lines = { { id = "xhsham_default", text = "A little more, because your elements are honest about being powerful, and the druids pretend their power is humble. They'd strip this land bare of magic and call it peace, and give me a fire elemental that admits it wants to burn any day." } },
       choices = {
         { text = "Power should be used openly, without false modesty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Hidden power is safer power. The druids are wise to stay quiet.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1339,7 +1339,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Friendly enough to me, but it blew three tents off the ledge last spring, so maybe it only likes the inn. The Grimtotem down at their camps say the mountain wind belongs to them, and I'd rather it went on belonging to whoever pays for drinks." } },
+      lines = { { id = "xhsham_default", text = "Friendly enough to me, but it blew three tents off the ledge last spring, so maybe it only likes the inn. The Grimtotem down at their camps say the mountain wind belongs to them, and I say it belongs to whoever pays for drinks." } },
       choices = {
         { text = "The wind should be shared by every tribe under Cairne.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The wind belongs to no one, not Cairne and not the Grimtotem.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1632,7 +1632,7 @@ P:NPC {
     },
     den = {
       lines = {
-        { id = "d_default", text = "The druids of the Talon Den keep a barrow in the mountain's heart, where dryads and keepers of Mirkfallon stand guard. They keep many things there that must never fall into the wrong hands, which is why the way in is guarded by a scheme of hidden keys." },
+        { id = "d_default", text = "The druids of the Talon Den keep a barrow in the mountain's heart, where dryads and keepers of Mirkfallon stand guard. They keep many things there that must never fall into the wrong hands, and so the way in is guarded by a scheme of hidden keys." },
       },
       choices = {
         { text = "Keys?", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -1671,7 +1671,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "The grove remembers a great deal, little one, and I remember some of what it tells me. Ask about any of these." },
+      { id = "tp_knows", text = "The grove remembers ages, little one, and I remember some of what it tells me. Ask about any of these." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've been a friend to this peak, so the grove has no secrets from you that it's mine to share. Ask, little one." },
     },
     background = { { id = "tp_bg", text = "I am a keeper of the grove, as my brothers are, and this peak is the place I keep." } },
