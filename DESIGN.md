@@ -847,6 +847,11 @@ If a line throws an error, paste the error instead. That tells us something too.
 - **The diary writes itself** (`Systems/Diary.lua`): an NPC's `impression = { first, third }` after the first conversation with them (`mem.impressed`; people met before 0.35.0 get it at the next talk); a zone's `P:Arrival { zone, first, third, when? }` (World `arrivals.lua`, first match wins, `char.arrived`) on the first `zone:` deed; built-in lines for the first death (names the killer), each tenth level, a first dungeon.
 - **Journal button count:** unread diary entries (`char.journalRead`, `J.Unread`, `Launcher.UpdateBadge`); opening the journal marks them read. Characters from before 0.35.0 start with everything read.
 
+### 3.14 Speaking your mind (0.82.0)
+- **What it is.** After an "Ask about..." answer (not a brush-off, not one with `next`), up to `Engine.MAX_VIEWS` (3) replies come first in the reply list: things the player can say back about the topic. The NPC answers the view, then the node's replies return. Setting `views` (default on). Inside DialogueUI the views are listed above the open topic list.
+- **Data.** `P:Views { topic, views = { { id, text, when, fx, replies = { lines } } } }` (`RPGDialogue_World/views*.lua`; several packs may add to one topic). `_any`: views for every non-standard topic without its own; `_shrug`: fallback replies. NPCs may add `views = { [topic] = {...} }` (offered before the topic's) and `viewReplies = { [viewId] = { lines } }` (scored as their own). Replies are indexed as `view:<topic>.<view>.<id>` (NPC: `<key>.view_<topic>.<view>.<id>`), picked by `Engine.PickViewReply` (slot `view`, fade a day); a reply's `fx` applies when shown (usually affinity, which drives the approval note and town word).
+- **Rules.** One view per topic per NPC (`mem.views[topic]`); the rest vanish for good with that person. Views are statements; `fx.align` applies once per topic per NPC (`mem.stances["view:<topic>"]`) and, as with stances, a topic with any aligned view has at least two opposing ones. Every view records `opinion = { <topic> = stance }`, so it lands in the journal's beliefs with the player's own words.
+
 ### 3.10 Window style (look)
 
 Two looks, setting "Window style" (`look`), switchable while a conversation is open:

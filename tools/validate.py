@@ -157,6 +157,8 @@ def main():
                 generic.append((pack, tbl, f, line))
             elif kind == "Arrival":
                 arrivals.append((pack, tbl, f, line))
+            elif kind == "Views":
+                pass  # what the player can say back after an answer (0.82.0)
             elif kind in defs:
                 did = tbl.get("id")
                 if not did:

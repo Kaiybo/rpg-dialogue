@@ -12,6 +12,7 @@ local Data = {
   pools = {},     -- list
   generic = {},   -- list
   threads = {}, claims = {}, topics = {}, towns = {}, origins = {}, rumors = {}, books = {}, errands = {}, letters = {},
+  views = {},     -- topic id -> list of things the player can say back (0.82.0)
   arrivals = {},  -- zone name -> list of diary entries for a first arrival (first match wins)
   lines = {},     -- global line id -> { line = , owner = , slot = }
 }
@@ -70,6 +71,13 @@ local function indexNPC(def)
     indexList(node.again, def.key, def.key, "again")
   end
   indexTopics(def.topics, def.key, def.key)
+  -- Their own things the player can say back (0.82.0), and their answers to them.
+  for topic, list in pairs(def.views or {}) do
+    for _, v in ipairs(list) do
+      v._topic = topic
+      if v.id then indexList(v.replies, def.key .. ".view_" .. topic .. "." .. v.id, def.key, "view") end
+    end
+  end
 end
 
 local function warn(pack, msg)
@@ -185,6 +193,21 @@ kinds.Errand = simpleKind("errands")
 kinds.Letter = simpleKind("letters")
 kinds.Town = simpleKind("towns")
 kinds.Origin = simpleKind("origins")
+-- Views (0.82.0): what the player can say back after an "Ask about..." answer. One
+-- definition per topic (topic = "_any" for every topic without views of its own); several
+-- packs may add to the same topic. Replies are indexed as lines "view:<topic>.<view>.<id>".
+function kinds.Views(pack, def)
+  local topic = def.topic or def.id
+  if type(topic) ~= "string" or type(def.views) ~= "table" then return warn(pack, "Views needs a topic and views") end
+  def._pack = pack.id
+  Data.views[topic] = Data.views[topic] or {}
+  local list = Data.views[topic]
+  for _, v in ipairs(def.views) do
+    v._topic = topic
+    if v.id then indexList(v.replies, "view:" .. topic .. "." .. v.id, "view:" .. topic, "view") end
+    list[#list + 1] = v
+  end
+end
 -- Arrivals: what the character writes in the diary the first time they reach a zone.
 function kinds.Arrival(pack, def)
   if type(def.zone) ~= "string" then return warn(pack, "Arrival needs a zone name") end

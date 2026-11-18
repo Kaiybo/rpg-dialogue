@@ -28,7 +28,7 @@ Pacing.ACK = {
 Pacing.BEAT = { perConversation = 1, minConversations = 3, minSeconds = 1200 }
 
 -- Seen lines are kept out of the top band for this long (seconds), by slot.
-Pacing.FADE = { greeting = 86400, line = 259200, topic = 259200, rumor = 604800, bark = 1800, notice = 0, react = 0, choice = 0 }
+Pacing.FADE = { greeting = 86400, line = 259200, topic = 259200, rumor = 604800, view = 86400, bark = 1800, notice = 0, react = 0, choice = 0 }
 
 -- Rumors: an innkeeper passes one on at most once an hour, with this chance per visit.
 Pacing.RUMOR = { chance = 0.5, seconds = 3600 }

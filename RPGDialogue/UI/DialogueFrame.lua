@@ -776,11 +776,11 @@ function D.Restyle()
 end
 
 -- An answer from "Ask about...": replaces the main text, keeps the choices.
-function D.ShowAnswer(text, topicName, linked)
+function D.ShowAnswer(text, topicName, linked, said)
   if not frame or not frame:IsShown() then return end
   frame.reaction:SetText("")
   frame.reaction:Hide()
-  D.SetSaid(nil)
+  D.SetSaid(said)
   reveal.full = text or ""
   reveal.linked = linked
   reveal.total = utf8Len(reveal.full)
