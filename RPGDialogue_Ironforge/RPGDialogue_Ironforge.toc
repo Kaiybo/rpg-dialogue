@@ -39,4 +39,7 @@ npcs\old_ironforge_forever.lua
 npcs\dunmorogh_forever.lua
 npcs\more_folk.lua
 npcs\more_folk2.lua
+npcs\missed_dunmorogh.lua
+npcs\missed_dunmorogh2.lua
+npcs\missed_dunmorogh3.lua
 directions.lua
